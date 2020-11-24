@@ -2,7 +2,7 @@
 
 The Online Editor is based on [Alloy Editor](https://alloyeditor.com/).
 Refer to [Alloy Editor documentation](https://alloyeditor.com/docs/develop/) to learn how to extend the Online Editor with new elements.
-To learn how to extend the [[= product_name_oss =]] Back Office follow [Extending Admin UI tutorial](../../tutorials/extending_admin_ui/extending_admin_ui).
+To learn how to extend the [[= product_name =]] Back Office follow [Extending Admin UI tutorial](../../tutorials/extending_admin_ui/extending_admin_ui).
 
 !!! note
 
@@ -136,7 +136,7 @@ You can only use inline custom tags in the `text` toolbar.
 #### Link tag
 
 You can also configure a custom tag with a `link` attribute that offers a basic UI with text input.
-It is useful when migrating from eZ Publish to [[= product_name_oss =]].
+It is useful when migrating from eZ Publish to [[= product_name =]].
 
 The configuration in `app/config/custom_tags.yml` is:
 

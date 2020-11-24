@@ -1,4 +1,4 @@
-# Local orders
+# Local orders [[% include 'snippets/commerce_badge.md' %]]
 
 You can display user orders even if the shop is not connected to an ERP system.
 

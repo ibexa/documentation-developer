@@ -2,7 +2,7 @@
 
 ## Using PostgreSQL
 
-[[= product_name_oss =]] uses MySQL by default, but you can also choose to install it with PostgreSQL.
+[[= product_name =]] uses MySQL by default, but you can also choose to install it with PostgreSQL.
 
 ### Requirements
 

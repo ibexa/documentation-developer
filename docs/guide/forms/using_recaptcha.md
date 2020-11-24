@@ -1,4 +1,4 @@
-# Using reCAPTCHA
+# Using reCAPTCHA [[% include 'snippets/commerce_badge.md' %]]
 
 The EWZRecaptchaBundle provides a reCAPTCHA form field for Symfony.
 It includes an additional validator.

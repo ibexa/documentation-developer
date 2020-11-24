@@ -1,6 +1,6 @@
 # REST API Guide
 
-The REST API v2 introduced in [[= product_name_oss =]] allows you to interact with an [[= product_name_oss =]] installation using the HTTP protocol, following a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
+The REST API v2 introduced in [[= product_name =]] allows you to interact with an [[= product_name =]] installation using the HTTP protocol, following a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
 
 ## REST API reference
 
@@ -9,7 +9,7 @@ REST API resources and endpoints.
 
 !!! tip
 
-    For more information see a [presentation about [[= product_name_oss =]] APIs](https://alongosz.github.io/ezconf2018-api/).
+    For more information see a [presentation about [[= product_name =]] APIs](https://alongosz.github.io/ezconf2018-api/).
 
 ## Accessing the REST API
 
@@ -17,7 +17,7 @@ The REST API is available at the URI `/api/ezp/v2` . HTTPS is available as long 
 
 ## Basics
 
-REST (REpresentational State Transfer) is a web services architecture that follows the HTTP Protocol very closely. The [[= product_name_oss =]] REST API supports both [JSON](http://www.json.org/) and [XML](http://www.w3.org/XML/) in terms of format.
+REST (REpresentational State Transfer) is a web services architecture that follows the HTTP Protocol very closely. The [[= product_name =]] REST API supports both [JSON](http://www.json.org/) and [XML](http://www.w3.org/XML/) in terms of format.
 
 ### Resources
 
@@ -59,7 +59,7 @@ Responses returned by the API will also use custom headers to indicate informati
 
 ### Installation
 
-No special preparations are necessary to use the REST API. As long as your [[= product_name_oss =]] is correctly configured, the REST API is available on your site using the URI `/api/ezp/v2/`. If you have installed [[= product_name_oss =]] in a subfolder, prepend the path with this subfolder: `http://example.com/sub/folder/ezpublish/api/ezp/v2/`.
+No special preparations are necessary to use the REST API. As long as your [[= product_name =]] is correctly configured, the REST API is available on your site using the URI `/api/ezp/v2/`. If you have installed [[= product_name =]] in a subfolder, prepend the path with this subfolder: `http://example.com/sub/folder/ezpublish/api/ezp/v2/`.
 
 !!! note
 
@@ -118,7 +118,7 @@ request.send();
 </script>
 ```
 
-In order to test it, just save this code to some test.html file in the web folder of your [[= product_name_oss =]] installation. If you use the rewrite rules, don't forget to allow this file to be served directly.
+In order to test it, just save this code to some test.html file in the web folder of your [[= product_name =]] installation. If you use the rewrite rules, don't forget to allow this file to be served directly.
 
 If necessary, substitute `59` with the Content item ID of an item from your database. You will get the ContentInfo for item 59 in JSON encoding.
 

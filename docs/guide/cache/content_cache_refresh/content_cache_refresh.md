@@ -1,4 +1,4 @@
-# Content cache refresh
+# Content cache refresh [[% include 'snippets/commerce_badge.md' %]]
 
 The content cache refreshing system enables displaying the current information when objects in the Back Office are modified.
 

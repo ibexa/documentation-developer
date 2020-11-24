@@ -1,4 +1,4 @@
-# Overriding semantic configuration per SiteAccess
+# Overriding semantic configuration per SiteAccess [[% include 'snippets/commerce_badge.md' %]]
 
 The semantic configuration (`orderhistory.yml`) is read and prepared in the `ConfigurationReaderService`.
 When an event is dispatched, the service enables you to modify the configuration, for example if you need to change it per SiteAccess.

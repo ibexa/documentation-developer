@@ -1,4 +1,4 @@
-# HTTP caching
+# HTTP caching [[% include 'snippets/commerce_badge.md' %]]
 
 The central point of HTTP caching is a service called `HttpCachingStrategyService`.
 It enables configuring each controller's response separately.
@@ -126,7 +126,7 @@ Example:
 php bin/console silversolutions:http-cache:purge 1056 222 --env="prod"
 ```
 
-### Purging using [[= product_name_oss =]] service
+### Purging using [[= product_name =]] service
 
 If you programmatically updated product data, basket or some other cached content,
 you need to update caches to show users current information.

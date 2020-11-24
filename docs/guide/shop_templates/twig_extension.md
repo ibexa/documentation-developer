@@ -1,4 +1,4 @@
-# Twig extension
+# Twig extension [[% include 'snippets/commerce_badge.md' %]]
 
 [[= product_name_com =]] offers the following Twig functions and filter for use in templates:
 

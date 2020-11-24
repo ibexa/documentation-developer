@@ -1,4 +1,4 @@
-# Order history API
+# Order history API [[% include 'snippets/commerce_badge.md' %]]
 
 ## Order search form
 

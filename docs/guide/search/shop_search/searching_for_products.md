@@ -1,4 +1,4 @@
-# Product search
+# Product search [[% include 'snippets/commerce_badge.md' %]]
 
 This example uses the product search API to search products using `searchterm`:
 

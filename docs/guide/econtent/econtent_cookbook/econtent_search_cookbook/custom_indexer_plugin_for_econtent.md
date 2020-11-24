@@ -1,4 +1,4 @@
-# Custom indexer plugin for eContent
+# Custom indexer plugin for eContent [[% include 'snippets/commerce_badge.md' %]]
 
 The following example shows how to create a plugin for eContent that indexes an additional field
 based on a serialised array that comes from the database.

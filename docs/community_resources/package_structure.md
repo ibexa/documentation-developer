@@ -9,7 +9,7 @@ The following conventions apply to contributions to Ibexa core code, not to thir
 
 ## Root PHP namespace
 
-Define [[= product_name_oss =]] core PHP code in a namespace with the following prefix:
+Define [[= product_name =]] core PHP code in a namespace with the following prefix:
 
 ```php
 namespace Ibexa\Platform;

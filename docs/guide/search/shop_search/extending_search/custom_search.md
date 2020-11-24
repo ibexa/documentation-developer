@@ -1,4 +1,4 @@
-# Implement custom search
+# Implement custom search [[% include 'snippets/commerce_badge.md' %]]
 
 This example shows how to create a new service which searches for products that:
 

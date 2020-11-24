@@ -1,4 +1,4 @@
-# ERP mapping component
+# ERP mapping component [[% include 'snippets/experience_badge.md' %]]
 
 Mapping is used to transform a specific data format into another.
 The abstract class `AbstractMessageMappingService` defines the interface for all mapping services.

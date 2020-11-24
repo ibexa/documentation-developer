@@ -1,6 +1,6 @@
 # Contribute translations
 
-If you'd like to see [[= product_name_oss =]] in your language, you can contribute to the translations.
+If you'd like to see [[= product_name =]] in your language, you can contribute to the translations.
 
 [`ezplatform-i18n`](https://github.com/ezsystems/ezplatform-i18n) contains the XLIFF files providing translations.
 You can use an XLIFF editor of your choice to contribute strings in your language.
@@ -30,11 +30,11 @@ Right-click your browser's bookmark bar, and create a new bookmark as shown in t
 
 **URL**: `javascript:function hasInContextCookie(){ return document.cookie.match(/^(.*;)?\s*ez_in_context_translation\s*=\s*[^;]+(.*)?$/);}(function () { document.cookie = hasInContextCookie() ? document.cookie = &#39;ez_in_context_translation=;expires=Mon, 05 Jul 2000 00:00:00 GMT;path=/;&#39;: document.cookie=&#39;ez_in_context_translation=1;path=/;&#39;; location.reload()})()`
 
-Enter Back Office. While on the page clicking this bookmark will turn on and off in-context translation for [[= product_name_oss =]] interface.
+Enter Back Office. While on the page clicking this bookmark will turn on and off in-context translation for [[= product_name =]] interface.
 
 ### Using console
 
-To enable in-context translation you need to create Crowdin account and join [[[= product_name_oss =]] project](https://crowdin.com/project/ezplatform). To start translating access <https://translation.ezplatform.com/admin> ([[= product_name_oss =]] credentials: admin / publish). Select `Inspect` or `Inspect Element` from context menu. In Console tab type: `document.cookie='ez_in_context_translation=1;path=/;'; location.reload();`. Page will reload and you will be able to choose a language to which you want to translate [[= product_name_oss =]].
+To enable in-context translation you need to create Crowdin account and join [[[= product_name =]] project](https://crowdin.com/project/ezplatform). To start translating access <https://translation.ezplatform.com/admin> ([[= product_name =]] credentials: admin / publish). Select `Inspect` or `Inspect Element` from context menu. In Console tab type: `document.cookie='ez_in_context_translation=1;path=/;'; location.reload();`. Page will reload and you will be able to choose a language to which you want to translate [[= product_name =]].
 
 Strings in the interface that can be translated will be outlined in red (untranslated), blue (translated) or green (approved). When moving over them, an edit button will show up on the top left corner of the outline. Click on it, and edit the string in the window that shows up.
 
@@ -42,13 +42,13 @@ Strings in the interface that can be translated will be outlined in red (untrans
 
 #### Troubleshooting
 
-Make sure you clear your browser's cache in addition to [[= product_name_oss =]]'s. Some of the translation resources use aggressive HTTP cache.
+Make sure you clear your browser's cache in addition to [[= product_name =]]'s. Some of the translation resources use aggressive HTTP cache.
 
 ## Translating outside in-context
 
-If you prefer not to use in-context, simply visit [[[= product_name_oss =]]'s Crowdin page](https://crowdin.com/project/ezplatform), choose a language and you will see a list of files containing strings. Here you can suggest your translations.
+If you prefer not to use in-context, simply visit [[[= product_name =]]'s Crowdin page](https://crowdin.com/project/ezplatform), choose a language and you will see a list of files containing strings. Here you can suggest your translations.
 
-If the language you want to translate to is not available, you can ask for it to be added in the [Crowdin discussion forum for [[= product_name_oss =]]](https://crowdin.com/project/ezplatform/discussions).
+If the language you want to translate to is not available, you can ask for it to be added in the [Crowdin discussion forum for [[= product_name =]]](https://crowdin.com/project/ezplatform/discussions).
 
 ## Install new translation package
 
@@ -70,7 +70,7 @@ For example, if you want to translate your application into French, you just hav
 
 and then clear the cache.
 
-Now you can reload your [[= product_name_oss =]] administration page which will be translated in French (if your browser is configured to fr\_FR.)
+Now you can reload your [[= product_name =]] administration page which will be translated in French (if your browser is configured to fr\_FR.)
 
 ## Full translation workflow
 

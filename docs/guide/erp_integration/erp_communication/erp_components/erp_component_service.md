@@ -1,4 +1,4 @@
-# ERP service component
+# ERP service component [[% include 'snippets/experience_badge.md' %]]
 
 To provide a simple interface to the ERP communication, the `AbstractErpService` abstract class is defined.
 This class is derived from Symfony service classes.

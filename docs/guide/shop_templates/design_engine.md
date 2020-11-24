@@ -1,9 +1,9 @@
-# Design engine in the shop
+# Design engine in the shop [[% include 'snippets/commerce_badge.md' %]]
 
 !!! tip
 
     See [Design engine](../design_engine.md) for more information
-    about using the design engine in [[= product_name_oss =]].
+    about using the design engine in [[= product_name =]].
 
 [[= product_name_com =]] comes with the configured `base_design` and `base_theme` which use the existing standard templates used with the template resolver.
 
@@ -31,7 +31,7 @@ admin_group:
 
 ## Activation
 
-If the template resolver of [[= product_name_com =]] is disabled (standard), the design engine of [[= product_name_oss =]] is automatically activated:
+If the template resolver of [[= product_name_com =]] is disabled (standard), the design engine of [[= product_name =]] is automatically activated:
 
 ``` yaml
 siso_tools.default.template_resolver.enabled: false

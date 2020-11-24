@@ -1,6 +1,6 @@
 # Environments
 
-Environment configuration is provided by Symfony. [[= product_name_oss =]] additionally enables you to specify environments in virtual host configuration.
+Environment configuration is provided by Symfony. [[= product_name =]] additionally enables you to specify environments in virtual host configuration.
 You can configure several environments, such as production, development or staging. You can have different configuration sets for each of them.
 
 !!! tip

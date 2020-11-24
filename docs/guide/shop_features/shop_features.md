@@ -1,4 +1,4 @@
-# Shop features
+# Shop features [[% include 'snippets/commerce_badge.md' %]]
 
 ## Shop navigation
 

@@ -1,4 +1,4 @@
-# Job system
+# Job system [[% include 'snippets/commerce_badge.md' %]]
 
 The job system enables automating tasks implemented as a command.
 

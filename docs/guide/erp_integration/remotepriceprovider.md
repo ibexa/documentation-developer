@@ -1,4 +1,4 @@
-# RemotePriceProvider
+# RemotePriceProvider [[% include 'snippets/experience_badge.md' %]]
 
 `RemotePriceProvider` can contact an ERP system to get prices for one or more product.
 To request prices from ERP, you must provide customer and optional contact number.

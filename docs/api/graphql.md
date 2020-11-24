@@ -1,12 +1,12 @@
 # GraphQL
 
 [GraphQL](https://graphql.org/) is a query language for the API.
-The GraphQL implementation for [[= product_name_oss =]] is located in [`ezsystems/ezplatform-graphql`](https://github.com/ezsystems/ezplatform-graphql).
+The GraphQL implementation for [[= product_name =]] is located in [`ezsystems/ezplatform-graphql`](https://github.com/ezsystems/ezplatform-graphql).
 
 ## Setup
 
 Using GraphQL requires a domain schema.
-The schema is generated automatically when installing [[= product_name_oss =]].
+The schema is generated automatically when installing [[= product_name =]].
 
 When you modify Content Types in your installation, you need to regenerate the schema:
 
@@ -27,7 +27,7 @@ you can [query](graphql_queries.md) and [operate on](graphql_operations.md).
 
 ## Domain schema
 
-GraphQL for [[= product_name_oss =]] is based on the Content Types, Content Type groups, and Content items
+GraphQL for [[= product_name =]] is based on the Content Types, Content Type groups, and Content items
 defined in the Repository.
 
 For each Content Type the schema exposes a singular and plural field, e.g. `article` and `articles`.
@@ -46,7 +46,7 @@ You can also query Content Type and Content Type group information through the `
 
 ### Repository schema
 
-The repository schema, accessed through `_repository`, exposes the [[= product_name_oss =]] Repository
+The repository schema, accessed through `_repository`, exposes the [[= product_name =]] Repository
 in a manner similar to the [Public PHP API](public_php_api.md).
 
 The `_repository` field also enables you to query e.g. Object states configured for the Repository.
@@ -62,7 +62,7 @@ This means you cannot use GraphQL with multiple repositories.
 
 ## Authentication
 
-GraphQL for [[= product_name_oss =]] supports session-based authentication.
+GraphQL for [[= product_name =]] supports session-based authentication.
 You can get your session cookie by logging in through the interface or through a REST request.
 
 ### JWT authentication

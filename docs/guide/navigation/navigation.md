@@ -1,4 +1,4 @@
-# Navigation
+# Navigation [[% include 'snippets/commerce_badge.md' %]]
 
 Navigation is generated automatically and can include one or more product catalogs and other Content items
 in the root Location defined in [the configuration](navigation_configuration.md).

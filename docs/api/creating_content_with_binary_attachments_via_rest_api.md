@@ -10,7 +10,7 @@ As for the response, it's possible to use either JSON or XML in input.
 The following examples use JSON (and assume [HTTP Basic Auth](general_rest_usage.md#http-basic-authentication) is enabled).
 
 ``` php
-// URL to [[= product_name_oss =]] installation
+// URL to [[= product_name =]] installation
 $base_url = "http://127.0.0.1";
 // User credentials
 $username = "admin";
@@ -99,7 +99,7 @@ curl_close($curl);
 To publish the image use the following code:
 
 ``` php
-// URL to [[= product_name_oss =]] installation
+// URL to [[= product_name =]] installation
 $base_url = "http://127.0.0.1";
 // User credentials
 $username = "admin";

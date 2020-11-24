@@ -1,4 +1,4 @@
-# Modifying the search query
+# Modifying the search query [[% include 'snippets/commerce_badge.md' %]]
 
 Sometimes you need to modify the [EshopQuery](../search_api.md) before it is sent to the search service.
 The event listener handles this situation.

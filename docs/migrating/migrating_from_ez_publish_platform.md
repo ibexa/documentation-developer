@@ -1,6 +1,6 @@
 # Migrating from eZ Publish Platform
 
-eZ Publish Platform (5.x) was a transitional version of the eZ CMS, bridging the gap between the earlier generation called eZ Publish (sometimes referred to as *legacy*), and the current [[= product_name_oss =]] and [[= product_name_ee =]] for developers.
+eZ Publish Platform (5.x) was a transitional version of the Ibexa CMS, bridging the gap between the earlier generation called eZ Publish (sometimes referred to as *legacy*), and eZ Platform, the predecessor to [[= product_name =]].
 
 eZ Publish Platform introduced a new Symfony-based technology stack that could be run along the old (*legacy*) one. This bridging is still possible using something called Legacy Bridge, an optional package for eZ Platform. This fluid change allows eZ Publish users to migrate to eZ Platform gradually, using the bridging as an intermediary stepping stone.
 

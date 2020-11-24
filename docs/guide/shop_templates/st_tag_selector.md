@@ -1,4 +1,4 @@
-# st_tag selector
+# st_tag selector [[% include 'snippets/commerce_badge.md' %]]
 
 Template operator `st_tag` creates a custom HTML attribute that enables you to quickly find an HTML tag with this attribute.
 

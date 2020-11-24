@@ -1,4 +1,4 @@
-# Rotation for logfiles
+# Rotation for logfiles [[% include 'snippets/commerce_badge.md' %]]
 
 For systems using prod as environment:
 

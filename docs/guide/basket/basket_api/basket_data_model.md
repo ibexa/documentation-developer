@@ -1,4 +1,4 @@
-# Basket data model
+# Basket data model [[% include 'snippets/commerce_badge.md' %]]
 
 The basket consists of two elements:
 

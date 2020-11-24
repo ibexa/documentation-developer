@@ -42,7 +42,7 @@ Section ID numbers are not recycled. If a Section is removed, its ID number will
 
 ## Users
 
-Users in [[= product_name_oss =]] are treated the same way as [Content Types](#content-types).
+Users in [[= product_name =]] are treated the same way as [Content Types](#content-types).
 They are organized in groups such as *Guests*, *Editors*, *Anonymous*, which makes it easier to manage them and their permissions.
 All User Groups and Users can be accessed in the Admin panel by selecting Users.
 
@@ -112,17 +112,15 @@ To allow the User to enter the Back Office interface and view all content, you n
 
 These Policies will be necessary for all other cases below that require access to the content structure.
 
-!!! dxp
+#### Create content without publishing [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-    #### Create content without publishing
-    
-    This option can be used together with [[= product_name_ee =]]'s content review options.
-    Using the following Policies, the User is able to create content, but can't publish it; instead, they must send it for review to another User with proper permissions (for example, senior editor, proofreader, etc.).
-    
-    - `content/create`
-    - `content/edit`
-    
-    Note that without [[= product_name_ee =]] this setup should not be used, as it will not allow the User to continue working with their content.
+This option can be used together with [[= product_name_exp =]]'s content review options.
+Using the following Policies, the User is able to create content, but can't publish it; instead, they must send it for review to another User with proper permissions (for example, senior editor, proofreader, etc.).
+
+- `content/create`
+- `content/edit`
+
+Note that without [[= product_name_exp =]] this setup should not be used, as it will not allow the User to continue working with their content.
 
 #### Create and publish content
 
@@ -192,28 +190,26 @@ Note that when a Policy has more than one Limitation, all of them have to apply,
 For example, a `Location` Limitation on Location `1/2` and `Subtree of Location` Limitation on `1/2/55` cannot work together, because no Location can satisfy both those requirements at the same time.
 If you want to combine more than one Limitation with the *or* relation, not *and*, you can split your Policy in two, each with one of these Limitations.
 
-!!! dxp
+#### Editorial workflows [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-    #### Editorial workflows
+You can control which stages in an editorial workflow the user can work with.
 
-    You can control which stages in an editorial workflow the user can work with.
+Do this by adding the `WorkflowStageLimitation` to `content` Policies such as `content/edit` or `content/publish`.
 
-    Do this by adding the `WorkflowStageLimitation` to `content` Policies such as `content/edit` or `content/publish`.
+You can also control which transitions the user can pass content through.
+Do this by using the `workflow/change_stage` Policy together with the `WorkflowTransitionLimitation`.
 
-    You can also control which transitions the user can pass content through.
-    Do this by using the `workflow/change_stage` Policy together with the `WorkflowTransitionLimitation`.
+For example, to enable the user to edit only content in the "Design" stage
+and to pass it after creating design to the "Proofread stage", use following permissions:
 
-    For example, to enable the user to edit only content in the "Design" stage
-    and to pass it after creating design to the "Proofread stage", use following permissions:
-
-    - `content/edit` with `WorkflowStageLimitation` set to "Design".
-    - `workflow/change_stage` with `WorkflowTransitionLimitation` set to `to_proofreading`
+- `content/edit` with `WorkflowStageLimitation` set to "Design".
+- `workflow/change_stage` with `WorkflowTransitionLimitation` set to `to_proofreading`
 
 For more examples, see [Permissions use cases](permissions/#use-cases).
 
 ## Languages
 
-[[= product_name_oss =]] offers the ability to create multiple translations of your website.
+[[= product_name =]] offers the ability to create multiple translations of your website.
 Which version is shown to a visitor depends on the way your installation is set up.
 A new language version for the website can be added in the Admin Panel in the Languages tab.
 Every new language must have a name and a language code, written in the `xxx-XX` format, for example `eng-GB` etc.
@@ -257,7 +253,7 @@ You can assign states to content in the Back Office in the Content item's Detail
 
 ![Assigning an Object state to a Content item](img/assigning_an_object_state.png "Assigning an Object state to a Content item")
 
-By default, [[= product_name_oss =]] contains one Object state group: **Lock**, with states **Locked** and **Not locked**.
+By default, [[= product_name =]] contains one Object state group: **Lock**, with states **Locked** and **Not locked**.
 
 ![**Lock** Object state](img/object_state_lock.png "Lock Object state")
 

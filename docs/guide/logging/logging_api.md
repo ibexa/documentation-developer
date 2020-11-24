@@ -1,4 +1,4 @@
-# Logging API
+# Logging API [[% include 'snippets/commerce_badge.md' %]]
 
 Logging in [[= product_name_com =]] is based on Monolog. There is no separate logging API definition.
 For the purpose of persisting logs within a database,

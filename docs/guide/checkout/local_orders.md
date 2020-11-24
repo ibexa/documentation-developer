@@ -1,4 +1,4 @@
-# Local orders
+# Local orders [[% include 'snippets/commerce_badge.md' %]]
 
 If the shop is not connected to an ERP system, the customer can still follow the order process
 and create a local order that generates an invoice PDF and sends it by mail.

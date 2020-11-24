@@ -2,7 +2,7 @@
 
 ## Language versions
 
-[[= product_name_oss =]] offers the ability to create multiple language versions (translations) of a Content item.
+[[= product_name =]] offers the ability to create multiple language versions (translations) of a Content item.
 Translations are created per version of the item, so each version of the content can have a different set of translations.
 
 A version always has at least one translation which by default is the *initial/main* translation. Further versions can be added, but only for languages that have previously been [added to the global translation list](#adding-available-languages), that is a list of all languages available in the system. The maximum number of languages in the system is 62.
@@ -28,7 +28,7 @@ yarn encore <environment>
 
 Language versions consist of translated values of the Content item's Fields. In the Content Type definition every Field is set to be Translatable or not.
 
-[[= product_name_oss =]] does not decide by itself which Fields can be translated and which cannot. For some Field values the need for a translation can be obvious, for example for the body of an article. In other cases, for instance images without text, integer numbers or e-mail addresses, translation is usually unnecessary. Despite that, [[= product_name_oss =]] gives you the possibility to mark any Field as translatable regardless of its Field Type. It is only your decision to exclude the translation possibility for those Fields where it makes no sense.
+[[= product_name =]] does not decide by itself which Fields can be translated and which cannot. For some Field values the need for a translation can be obvious, for example for the body of an article. In other cases, for instance images without text, integer numbers or e-mail addresses, translation is usually unnecessary. Despite that, [[= product_name =]] gives you the possibility to mark any Field as translatable regardless of its Field Type. It is only your decision to exclude the translation possibility for those Fields where it makes no sense.
 
 When a Field is not flagged as Translatable, its value will be copied from the initial/main translation when a new language version is created. This copied value cannot be modified. When a Field is Translatable, you will have to enter its value in a new language version manually.
 

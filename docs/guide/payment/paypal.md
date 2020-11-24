@@ -1,4 +1,4 @@
-# PayPal Express Checkout
+# PayPal Express Checkout [[% include 'snippets/commerce_badge.md' %]]
 
 ## Installation and configuration
 

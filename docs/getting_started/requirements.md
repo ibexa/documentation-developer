@@ -2,13 +2,13 @@
 
 The following server requirements cover both running the software on-premise and on third-party PaaS providers.
 
-!!! note "eZ Platform Cloud"
+!!! note "Ibexa Cloud"
 
-    For running on [eZ Platform Cloud](https://ez.no/Products/eZ-Platform-Cloud), where recommended configuration and support is provided out of the box, see separate [eZ Platform Cloud section](#ez-platform-cloud-requirements-and-setup) for further reading on its requirements.
+    For running on [Ibexa Cloud](https://www.ibexa.co/products/ibexa-cloud), where recommended configuration and support is provided out of the box, see separate [Ibexa Cloud section](#ibexa-cloud-requirements-and-setup) for further reading on its requirements.
 
 ## Server
 
-Ibexa software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, `Apache/Nginx`, `Node.js` and `yarn`. Recommendation for production setups is to use `Varnish`/`Fastly`, `Redis`/`Memcached`, `NFS`/`EFS`/`S3` and `Solr`/`Elasticsearch` (excluding eZ Commerce) in a [clustered setup](../guide/clustering.md).
+Ibexa software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, `Apache/Nginx`, `Node.js` and `yarn`. Recommendation for production setups is to use `Varnish`/`Fastly`, `Redis`/`Memcached`, `NFS`/`EFS`/`S3` and `Solr`/`Elasticsearch` in a [clustered setup](../guide/clustering.md).
 
 For supported versions of these technologies see Recommended and Supported setups below.
 
@@ -27,9 +27,9 @@ These setups are tested by QA and are generally recommended setups. For security
 
 |||
 |------|------|
-|Search|Solr 7.7LTS *or* Elasticsearch 7.7 (excluding eZ Commerce), using Oracle Java/Open JDK 8 or higher |
+|Search|Solr 7.7LTS *or* Elasticsearch 7.7, using Oracle Java/Open JDK 8 or higher |
 |Graphic Handler|GraphicsMagick or ImageMagick or GD|
-|[Clustering](../guide/clustering.md)|Linux NFS *or* S3/EFS *(for IO, aka binary files stored in content repository, not supported with legacy)*</br>Redis 5.0 or higher *(separate instances for session & cache, both using a `volatile-*` [eviction policy](https://redis.io/topics/lru-cache), session instance configured for persistance)* *or* [Memcached](https://memcached.org/) 1.5 or higher</br>[Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [the bundle provided with [[= product_name_ee =]]](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*|
+|[Clustering](../guide/clustering.md)|Linux NFS *or* S3/EFS *(for IO, aka binary files stored in content repository, not supported with legacy)*</br>Redis 5.0 or higher *(separate instances for session & cache, both using a `volatile-*` [eviction policy](https://redis.io/topics/lru-cache), session instance configured for persistance)* *or* [Memcached](https://memcached.org/) 1.5 or higher</br>[Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [the bundle provided with [[= product_name_exp =]]](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*|
 |Filesystem|Linux ext4 / XFS|
 |Package manager|Composer (recent stable version)|
 |Asset manager|`Node.js` 10.15.3 LTS</br>`yarn` 1.15.2 or higher|
@@ -60,7 +60,7 @@ For security and performance we generally recommend (unless otherwise noted) usi
     - IO: NFS or S3
     - HttpCache, using one of:
         - [Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst)
-        - [Fastly](https://www.fastly.com/) using [the bundle provided with [[= product_name_ee =]]](../guide/http_cache.md#serving-varnish-through-fastly)
+        - [Fastly](https://www.fastly.com/) using [the bundle provided with [[= product_name_exp =]]](../guide/http_cache.md#serving-varnish-through-fastly)
 
 -   PHP extensions/modules
     -   curl
@@ -85,7 +85,7 @@ For security and performance we generally recommend (unless otherwise noted) usi
 
 ### Development and Experimental setups
 
-eZ Platform, the foundation of all Ibexa software, can theoretically run and execute on many more setups than the ones listed as recommended and supported, including any [operating system supported by PHP](https://wiki.php.net/platforms), on a PHP 7.3 version or higher that pass the [Symfony requirements](http://symfony.com/doc/5.0/reference/requirements.html), using cache solutions technically supported by [Symfony Cache component](https://symfony.com/doc/5.0/components/cache/cache_pools.html), using databases supported by [Doctrine DBAL](https://www.doctrine-project.org/projects/doctrine-dbal/en/2.9/reference/configuration.html#driver), and using a binary file storage solution supported by [FlySystem](https://github.com/thephpleague/flysystem#adapters).
+[[= product_name =]] can theoretically run and execute on many more setups than the ones listed as recommended and supported, including any [operating system supported by PHP](https://wiki.php.net/platforms), on a PHP 7.3 version or higher that pass the [Symfony requirements](http://symfony.com/doc/5.0/reference/requirements.html), using cache solutions technically supported by [Symfony Cache component](https://symfony.com/doc/5.0/components/cache/cache_pools.html), using databases supported by [Doctrine DBAL](https://www.doctrine-project.org/projects/doctrine-dbal/en/2.9/reference/configuration.html#driver), and using a binary file storage solution supported by [FlySystem](https://github.com/thephpleague/flysystem#adapters).
 
 Examples of Development setups:
 
@@ -104,7 +104,7 @@ Examples of Experimental setups:
 
 ## Client
 
-Ibexa software is developed to work with *any* web browser that support modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you'll need; a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browsers found below.
+[[= product_name =]] is developed to work with *any* web browser that support modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you'll need; a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browsers found below.
 
 ### Recommended browsers
 
@@ -120,51 +120,51 @@ These setups have been undergone some additional manual testing and is known to 
 
 Please note that the user interface might not look or behave exactly the same across all browsers as it will gracefully degrade if browser does not support certain features.
 
-## eZ Platform Cloud requirements and setup
+## Ibexa Cloud requirements and setup
 
-!!! note "eZ Platform Cloud"
+!!! note "Ibexa Cloud"
 
-    ### Cloud hosting with eZ Platform Cloud and Platform.sh
+    ### Cloud hosting with Ibexa Cloud and Platform.sh
 
-    In general, eZ Platform Cloud supports all features and services of [Platform.sh](https://platform.sh/hosting/php/ez) that are compatible and supported by the [[= product_name_oss =]] version you use.  
+    In general, Ibexa Cloud supports all features and services of [Platform.sh](https://platform.sh/hosting/php/ez) that are compatible and supported by the [[= product_name =]] version you use.  
 
     For example:
 
-    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. [[= product_name_oss =]] supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on eZ Platform Cloud in versions 4.0 and 5.0, but 5.0 is recommended.
+    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. [[= product_name =]] supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on Ibexa Cloud in versions 4.0 and 5.0, but 5.0 is recommended.
 
-    Features or services supported by [[= product_name_oss =]] but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
+    Features or services supported by [[= product_name =]] but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
 
-    ### eZ Platform Cloud Setup support matrix
+    ### Ibexa Cloud Setup support matrix
 
-    All [[= product_name_oss =]] features are supported in accordance with the example above. For example: As Legacy Bridge is not supported with v3, it is not supported on eZ Platform Cloud either.
+    All [[= product_name =]] features are supported in accordance with the example above. For example: As Legacy Bridge is not supported with v3, it is not supported on Ibexa Cloud either.
 
     !!! note
 
         As Platform.sh does not support a configuration with multiple PostgreSQL databases,
-        for eZ Platform Cloud / Platform.sh it is impossible to have a DFS table in a separate database.
+        for Ibexa Cloud / Platform.sh it is impossible to have a DFS table in a separate database.
 
-    ### Recommended eZ Platform Cloud setup
+    ### Recommended Ibexa Cloud setup
 
     For more details on recommended setup configuration see bundled `.platform.app.yaml` and `.platform/` configuration files.
 
     These files are kept up-to-date with latest recommendations and can be improved through contributions.
 
-    ### Supported eZ Platform Cloud setup
+    ### Supported Ibexa Cloud setup
 
-    Because of the large range of possible configurations of [[= product_name_oss =]], there are many possibilities beyond what is provided in the default recommended configuration.
+    Because of the large range of possible configurations of [[= product_name =]], there are many possibilities beyond what is provided in the default recommended configuration.
 
     Make sure to set aside time and budget for:
 
     - Verifying your requirements and ensuring they are supported by Platform.sh
     - Additional time for adaptation and configuration work, and testing by your development team
-    - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with [[= product_name_oss =]]
+    - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with [[= product_name =]]
 
-    The cost and effort of this is not included in eZ Platform Cloud subscription and will vary depending on the project.
+    The cost and effort of this is not included in Ibexa Cloud subscription and will vary depending on the project.
 
     ### Custom integrations
 
-    Features supported by [[= product_name_oss =]], but not natively by Platform.sh, can in many cases be used by means of custom integrations with external services.
+    Features supported by [[= product_name =]], but not natively by Platform.sh, can in many cases be used by means of custom integrations with external services.
 
-    For example, you can create an integration with S3 by means of setting up your own S3 bucket and configuring the relevant parts of [[= product_name_oss =]].
+    For example, you can create an integration with S3 by means of setting up your own S3 bucket and configuring the relevant parts of [[= product_name =]].
     We recommend giving the development team working on the project access to the bucket
     to ensure work is done in a DevOps way without depending on external teams when changes are needed.

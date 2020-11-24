@@ -1,4 +1,4 @@
-# Voucher templates
+# Voucher templates [[% include 'snippets/commerce_badge.md' %]]
 
 Vouchers are rendered in the `vouchers` Twig block that is included in `Silversolutions/Bundle/EshopBundle/Resources/views/Basket/show.html.twig`.
 

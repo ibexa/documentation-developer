@@ -1,4 +1,4 @@
-# Order format
+# Order format [[% include 'snippets/experience_badge.md' %]]
 
 The data which is sent to the ERP is described in the XML specification (`vendor/silversolutions/silver.e-shop/src/Silversolutions/Bundle/EshopBundle/Resources/specifications/xml/request.createSalesOrder.xml`). 
 

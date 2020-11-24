@@ -3,7 +3,7 @@
 ## Basic information
 
 Field Types are the smallest building blocks of content.
-[[= product_name_oss =]] comes with many [built-in Field Types](field_type_reference.md#available-field-types) that cover most common needs e.g. Text line, Email address, Author list, Content relation, Map location, Float, etc.
+[[= product_name =]] comes with many [built-in Field Types](field_type_reference.md#available-field-types) that cover most common needs e.g. Text line, Email address, Author list, Content relation, Map location, Float, etc.
 
 Field Types are responsible for:
 
@@ -14,7 +14,7 @@ Field Types are responsible for:
 
 ## Custom data
 
-[[= product_name_oss =]] can support custom data to be stored in the Fields of a Content item.
+[[= product_name =]] can support custom data to be stored in the Fields of a Content item.
 To do so, you need to create a custom Field Type.
 
 A custom Field Type must implement the **FieldType Service Provider Interfaces**
@@ -25,7 +25,7 @@ available in the [`eZ\Publish\SPI\FieldType`](https://github.com/ezsystems/ezpla
     Remember that all your custom Field Types must be registered in `config/services.yml`.
     For more information see [Registration section](field_type_type_and_value.md#registration).
 
-In order to provide custom functionality for a Field Type, the SPI interacts with multiple layers of the [[= product_name_oss =]] architecture:
+In order to provide custom functionality for a Field Type, the SPI interacts with multiple layers of the [[= product_name =]] architecture:
 
 ![Field Type Overview](img/field_type_overview.png)
 
@@ -39,7 +39,7 @@ Below that, the Field Type must support the **Public API** implementation regard
 
 On the bottom level, a Field Type can additionally hook into the **Persistence SPI**
 in order to store data from a `FieldValue` in an external service.
-Note that all non-standard [[= product_name_oss =]] database tables (e.g. `ezurl`)
+Note that all non-standard [[= product_name =]] database tables (e.g. `ezurl`)
 will be treated as [external storage](field_type_storage.md#external-storage).
 
 The following sequence diagrams visualize the process of creating and publishing new content across all layers, especially focused on the interaction with a Field Type.

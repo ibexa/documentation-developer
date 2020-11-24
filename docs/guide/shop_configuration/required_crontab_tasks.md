@@ -1,4 +1,4 @@
-# Required crontab tasks
+# Required crontab tasks [[% include 'snippets/commerce_badge.md' %]]
 
 ## Remove the translation and navigation caches
 

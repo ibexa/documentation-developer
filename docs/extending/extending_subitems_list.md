@@ -1,6 +1,6 @@
 # Extending Sub-items List
 
-The Sub-items List module is meant to be used as a part of the editorial interface of [[= product_name_oss =]].
+The Sub-items List module is meant to be used as a part of the editorial interface of [[= product_name =]].
 It provides an interface for listing the sub-items of any Location.
 
 !!! caution

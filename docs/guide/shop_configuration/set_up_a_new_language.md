@@ -1,4 +1,4 @@
-# Set up a new language
+# Set up a new language [[% include 'snippets/commerce_badge.md' %]]
 
 !!! note
 

@@ -1,4 +1,4 @@
-# Advanced configuration
+# Advanced configuration [[% include 'snippets/commerce_badge.md' %]]
 
 ## Cache configuration
 

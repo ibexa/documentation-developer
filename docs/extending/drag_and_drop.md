@@ -1,6 +1,6 @@
 # Creating drag and drop interface
 
-In [[= product_name_oss =]], you can create a generic interface for drag and drop interactions reusable in many places.
+In [[= product_name =]], you can create a generic interface for drag and drop interactions reusable in many places.
 
 First, prepare the HTML code structure that will be placed in a Twig template in the following way:
 

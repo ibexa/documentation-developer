@@ -1,4 +1,4 @@
-# eContent Back Office
+# eContent Back Office [[% include 'snippets/commerce_badge.md' %]]
 
 You can see an overview of the data model in **Control center** -> **eContent**.
 

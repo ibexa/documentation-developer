@@ -1,4 +1,4 @@
-# Checkout summary form
+# Checkout summary form [[% include 'snippets/commerce_badge.md' %]]
 
 `CheckoutSummary` (`Ibexa\Platform\Commerce\Checkout\Form\CheckoutSummary`) extends `AbstractFormEntity`
 and manages the HTML form for order summary in checkout process.

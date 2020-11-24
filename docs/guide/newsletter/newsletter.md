@@ -1,4 +1,4 @@
-# Newsletter
+# Newsletter [[% include 'snippets/commerce_badge.md' %]]
 
 [[= product_name_com =]] offers a newsletter interface. It allows the user to subscribe to newsletters
 and see the newsletter status or update newsletter details information in their profile.

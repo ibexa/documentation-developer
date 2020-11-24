@@ -1,12 +1,12 @@
 # Backup 
 
-You should always make sure that your solution is properly backed up. The following example shows you how to do this on a Linux-UNIX-based system where [[= product_name_oss =]] is using a MySQL database called "example". You should shut down Platform if it's running before making a backup or an upgrade.
+You should always make sure that your solution is properly backed up. The following example shows you how to do this on a Linux-UNIX-based system where [[= product_name =]] is using a MySQL database called "example". You should shut down Platform if it's running before making a backup or an upgrade.
 
 !!! note "Externally stored assets"
 
     If you store assets in any external service or localization, you should back them up before proceeding.
 
-1\. Navigate into the [[= product_name_oss =]] directory:
+1\. Navigate into the [[= product_name =]] directory:
  
 ```
 cd /path/to/ezplatform

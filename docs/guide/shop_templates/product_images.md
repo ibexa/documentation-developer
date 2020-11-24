@@ -1,4 +1,4 @@
-# Product images and assets
+# Product images and assets [[% include 'snippets/commerce_badge.md' %]]
 
 Product images and assets can be taken from the content model (if this data provider is used).
 External images can also be stored in the file system. 

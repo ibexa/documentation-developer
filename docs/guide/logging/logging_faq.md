@@ -1,4 +1,4 @@
-# Logging FAQ
+# Logging FAQ [[% include 'snippets/commerce_badge.md' %]]
 
 ## Which log entries are stored in the database?
 

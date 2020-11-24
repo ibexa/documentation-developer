@@ -1,4 +1,4 @@
-# Reusable message template
+# Reusable message template [[% include 'snippets/commerce_badge.md' %]]
 
 The message template renders inline messages within content pages.
 

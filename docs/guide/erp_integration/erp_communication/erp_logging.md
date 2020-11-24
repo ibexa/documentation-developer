@@ -1,9 +1,9 @@
-# ERP Logging
+# ERP Logging [[% include 'snippets/experience_badge.md' %]]
 
 All communication (request- and response messages) that is performed by the [ERP transport](erp_components/erp_component_transport.md) is recorded by the `siso_erp.logger`.
 It is a special service of the class `Monolog/Logger`.
 
-To learn more about logging in [[= product_name_com =]] in general, see [Logging](../../../guide/logging/logging.md).
+To learn more about logging in [[= product_name_exp =]] in general, see [Logging](../../../guide/logging/logging.md).
 
 ## Adding a log entry
 
@@ -170,7 +170,7 @@ CREATE TABLE `ses_log_erp` (
 
 ## Logging architecture: measuring points
 
-During communication between the [[= product_name_com =]] and ERP, messages pass several instances of processing.
+During communication between the [[= product_name_exp =]] and ERP, messages pass several instances of processing.
 In order to reconstruct how a message is processed, [the transport layer](erp_components/erp_component_transport.md)
 writes a message's content multiple times into the log - once for every important process step.
 These points in time of writing a message into the log are called measuring points.

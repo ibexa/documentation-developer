@@ -1,7 +1,7 @@
 # Sessions
 
 Sessions are handled by the Symfony framework, specifically API and underlying session handlers provided by the HttpFoundation component.
-It is further enhanced in [[= product_name_oss =]] with support for SiteAccess-aware session cookie configuration.
+It is further enhanced in [[= product_name =]] with support for SiteAccess-aware session cookie configuration.
 
 !!! note
 
@@ -20,7 +20,7 @@ These options include:
 - `cookie_secure`
 - `cookie_httponly`
 
-However, in [[= product_name_oss =]] you can set up several sites within one Symfony application,
+However, in [[= product_name =]] you can set up several sites within one Symfony application,
 so you can also define session configuration per SiteAccess and SiteAccess group level.
 
 ### Session options per SiteAccess
@@ -52,7 +52,7 @@ Symfony can be configured to use custom handlers, or just fall back to what is 
 
 ### Default configuration
 
-[[= product_name_oss =]] adapts Symfony's defaults to make sure its session save path is always taken into account:
+[[= product_name =]] adapts Symfony's defaults to make sure its session save path is always taken into account:
 
 ``` yaml
 # Default session configuration
@@ -77,7 +77,7 @@ See [shared sessions in the clustering guide](clustering.md#shared-sessions).
 
 ##### Handling sessions with Memcached
 
-To set up [[= product_name_oss =]] using [Memcached](https://pecl.php.net/package/memcached) you need to:
+To set up [[= product_name =]] using [Memcached](https://pecl.php.net/package/memcached) you need to:
 
 - [Configure the session save handler settings in `php.ini`](http://php.net/manual/en/memcached.sessions.php)
 - Set `%ezplatform.session.handler_id%` to `~` (null) in `config/packages/ezplatform.yaml`
@@ -102,7 +102,7 @@ session locking.
 
 ##### Handling sessions with Redis
 
-To set up [[= product_name_oss =]] using the [Redis](https://pecl.php.net/package/redis) you need to:
+To set up [[= product_name =]] using the [Redis](https://pecl.php.net/package/redis) you need to:
 
 - [Configure the session save handler settings in `php.ini`](https://github.com/phpredis/phpredis/#php-session-handler)
 - Set `%ezplatform.session.handler_id%` to `~` _(null)_ in `config/packages/ezplatform.yaml`
@@ -133,7 +133,7 @@ If you want to make sure sessions survive Redis or server restarts, consider usi
 For setups where database is preferred for storing sessions, you may use Symfony's PdoSessionHandler,
 although it is not currently recommended from performance perspective.
 
-Below is a configuration example for [[= product_name_oss =]]. Refer to the [Symfony Cookbook](http://symfony.com/doc/5.0/doctrine/pdo_session_storage.html) for full documentation.
+Below is a configuration example for [[= product_name =]]. Refer to the [Symfony Cookbook](http://symfony.com/doc/5.0/doctrine/pdo_session_storage.html) for full documentation.
 
 ``` yaml
 framework:

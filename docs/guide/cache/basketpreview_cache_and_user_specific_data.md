@@ -1,4 +1,4 @@
-# Basketpreview cache and user-specific data
+# Basketpreview cache and user-specific data [[% include 'snippets/commerce_badge.md' %]]
 
 [[= product_name_com =]] uses a lot of dynamic data which has to be displayed in the shop:
 

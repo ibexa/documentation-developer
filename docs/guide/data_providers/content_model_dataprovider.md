@@ -1,4 +1,4 @@
-# Content model data provider
+# Content model data provider [[% include 'snippets/commerce_badge.md' %]]
 
 The content model data provider provides an implementation for fetching catalogs and products from the database.
 

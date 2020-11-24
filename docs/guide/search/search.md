@@ -1,12 +1,12 @@
 # Search
 
-[[= product_name_oss =]] exposes a very powerful [Search API](../../api/public_php_api_search.md), allowing both full-text search and querying the content Repository using several built-in Search Criteria and Sort Clauses. These are supported across different search engines, allowing you to plug in another search engine without changing your code.
+[[= product_name =]] exposes a very powerful [Search API](../../api/public_php_api_search.md), allowing both full-text search and querying the content Repository using several built-in Search Criteria and Sort Clauses. These are supported across different search engines, allowing you to plug in another search engine without changing your code.
 
-Currently, the following search engines exist in their own [[= product_name_oss =]] Bundles:
+Currently, the following search engines exist in their own [[= product_name =]] Bundles:
 
 1.  [Legacy search engine](search_engines.md#legacy-search-engine-bundle), a database-powered search engine for basic needs.
 1.  [Solr](solr.md), an integration providing better overall performance, much better scalability and support for more advanced search capabilities.
-1.  [Elasticsearch](elastic.md), available for [[= product_name_ee =]] customers, a document-oriented engine providing even better performance and scalability.
+1.  [Elasticsearch](elastic.md), available for [[= product_name_exp =]] customers, a document-oriented engine providing even better performance and scalability.
 
 ### Feature comparison
 
@@ -29,7 +29,7 @@ amount of data with Legacy Search Engine (SQL), use Solr for this.
 ## Search Criteria and Sort Clauses
 
 Search Criteria and Sort Clauses are value object classes used for building a search query, to define filter criteria and ordering of the result set.
-[[= product_name_oss =]] provides a number of standard Search Criteria and Sort Clauses that you can use out of the box and that should cover the majority of use cases.
+[[= product_name =]] provides a number of standard Search Criteria and Sort Clauses that you can use out of the box and that should cover the majority of use cases.
 
 For an example of how to use and combine Criteria and Sort Clauses, refer to [Searching in PHP API](../../api/public_php_api_search.md).
 
@@ -80,7 +80,7 @@ Arguments:
 
 ## Custom Criteria and Sort Clauses
 
-Sometimes you will find that standard Search Criteria and Sort Clauses provided with [[= product_name_oss =]] are not sufficient for your needs. Most often this will be the case if you have a custom Field Type using external storage which cannot be searched using the standard Field Criterion.
+Sometimes you will find that standard Search Criteria and Sort Clauses provided with [[= product_name =]] are not sufficient for your needs. Most often this will be the case if you have a custom Field Type using external storage which cannot be searched using the standard Field Criterion.
 
 !!!note
 

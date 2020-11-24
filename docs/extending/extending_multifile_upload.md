@@ -1,6 +1,6 @@
 # Extending Multi-file Upload
 
-The Multi-file Upload module is meant to be used as a part of editorial interface of [[= product_name_oss =]].
+The Multi-file Upload module is meant to be used as a part of editorial interface of [[= product_name =]].
 It provides an interface to publish content based on dropped files while uploading them in the interface.
 
 !!! caution

@@ -5,9 +5,9 @@ It should be placed in a public ticket.
 All the rules to follow can be found in [Contribute to documentation](documentation.md) section.
 
 Once you are done with describing your idea, focus on the main part - sharing the actual solution.
-eZ uses a regular git workflow, so if you are familiar with the concept, the whole procedure should be pretty straightforward.
+Ibexa uses a regular git workflow, so if you are familiar with the concept, the whole procedure should be pretty straightforward.
 
-[[= product_name_oss =]] is divided into meta-repositories.
+[[= product_name =]] is divided into meta-repositories.
 The core of our system is [`ezplatform-kernel`](https://github.com/ezsystems/ezplatform-kernel)
 containing an advanced Content Model and aiming to provide additional features for the MVC layer (Symfony).
 On the other hand, e.g. `ezplatform-admin-ui` is strictly dedicated to the Admin Panel purposes.

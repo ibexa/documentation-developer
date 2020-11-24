@@ -1,4 +1,4 @@
-# Shipping payment form
+# Shipping payment form [[% include 'snippets/commerce_badge.md' %]]
 
 ## Model Class
 

@@ -1,4 +1,4 @@
-# Newsletter templates
+# Newsletter templates [[% include 'snippets/commerce_badge.md' %]]
 
 ### Template list
 

@@ -1,4 +1,4 @@
-# Order Submission
+# Order Submission [[% include 'snippets/experience_badge.md' %]]
 
 Depending on the chosen payment method, the order is completed after:
 

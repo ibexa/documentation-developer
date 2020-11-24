@@ -1,6 +1,6 @@
 # Creating custom drop-downs
 
-In [[= product_name_oss =]], you can implement custom drop-downs anywhere in the Back Office.
+In [[= product_name =]], you can implement custom drop-downs anywhere in the Back Office.
 Follow the steps below to learn how to integrate this component to fit it to your project needs.
 
 ## Prepare custom dropdown structure

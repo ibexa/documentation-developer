@@ -1,4 +1,4 @@
-# Configuration for customer data
+# Configuration for customer data [[% include 'snippets/commerce_badge.md' %]]
 
 ## User Groups for private and business customers
 

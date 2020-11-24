@@ -2,13 +2,13 @@
 
 ## Content model overview
 
-The content structure in [[= product_name_oss =]] is based on Content items.
+The content structure in [[= product_name =]] is based on Content items.
 A Content item represents a single piece of content: an article, a blog post, an image, a product, etc.
 Each Content item is an instance of a Content Type.
 
 !!! tip
 
-    An introduction to the content model for non-developer users is available in [[[= product_name_oss =]] user documentation](https://doc.ezplatform.com/projects/userguide/en/latest/content_model/).
+    An introduction to the content model for non-developer users is available in [[[= product_name =]] user documentation](https://doc.ezplatform.com/projects/userguide/en/latest/content_model/).
 
 ## Content items
 

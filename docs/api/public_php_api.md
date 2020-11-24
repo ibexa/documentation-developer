@@ -1,8 +1,8 @@
 # Public PHP API
 
-The Public PHP API enables you to interact with [[= product_name_oss =]]'s Repository and content model from your PHP code.
+The Public PHP API enables you to interact with [[= product_name =]]'s Repository and content model from your PHP code.
 
-You can use it to create, read, update, manage, and delete all objects available in [[= product_name_oss =]], namely
+You can use it to create, read, update, manage, and delete all objects available in [[= product_name =]], namely
 content and related objects such as Sections, Locations, Content Types, languages, etc.
 
 The PHP API is built on top of a layered architecture, including a persistence SPI that abstracts storage.
@@ -10,7 +10,7 @@ Using the API ensures that your code will be forward compatible with future rele
 
 !!! tip
 
-    For more information see a [presentation about [[= product_name_oss =]] API.](https://alongosz.github.io/ezconf2018-api/)
+    For more information see a [presentation about [[= product_name =]] API.](https://alongosz.github.io/ezconf2018-api/)
 
 ## Using API services
 

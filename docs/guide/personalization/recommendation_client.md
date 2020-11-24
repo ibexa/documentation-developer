@@ -1,6 +1,6 @@
 # Recommendation
 
-[`ezrecommendation-client`](https://github.com/ezsystems/ezrecommendation-client) adds a personalization solution to [[= product_name_oss =]].
+[`ezrecommendation-client`](https://github.com/ezsystems/ezrecommendation-client) adds a personalization solution to [[= product_name =]].
 
 It enables you to track the way visitors use your website and recommends content based on their behavior.
 You can also use the personalized search (content suggestions)
@@ -9,18 +9,17 @@ and personalized newsletter features (embedding personalized content in your new
 !!! tip "More information"
 
     This page covers the `ezrecommentation-client`, which communicates with the Recommendation engine.
-    To learn more about the engine itself, see [eZ Personalization documentation](https://doc.ezplatform.com/projects/ezpersonalization).
 
 ## Installation
 
 [`ezrecommendation-client`](https://github.com/ezsystems/ezrecommendation-client)
-is provided in a separate package and is not included in [[= product_name_oss =]] by default.
+is provided in a separate package and is not included in [[= product_name =]] by default.
 
 To use it, you need to install the package:
 
 ### 1. Install and enable the bundle
 
-Run `composer require` from your [[= product_name_oss =]] installation root:
+Run `composer require` from your [[= product_name =]] installation root:
 
 ``` bash
 composer require --no-update ezsystems/ezrecommendation-client
@@ -48,13 +47,13 @@ ezplatform_recommendation_client_rest:
     prefix: '%ezpublish_rest.path_prefix%'
 ```
 
-### 3. Register an eZ Personalization account
+### 3. Register an Ibexa Personalization account
 
-Register an account (customerID) with your eZ Sales manager.
+Register an account (customerID) with your Ibexa Sales manager.
 
 !!! tip
 
-    If you want to use the Recommendation engine with the open source version of [[= product_name_oss =]],
+    If you want to use the Recommendation engine with the open source version of [[= product_name =]],
     send an email to support@yoochoose.com.
 
 ### 4. Allow public HTTP(S) access
@@ -63,7 +62,7 @@ Allow public HTTP(S) access to the recommendation bundle API (`<yourdomain>/api/
 
 !!! note "IP whitelisting"
 
-    The Recommendation engine servers need to access the API of an [[= product_name_oss =]] installation
+    The Recommendation engine servers need to access the API of an [[= product_name =]] installation
     in order to continuously sync content.
     If it's not possible to allow public access,
     the following IP addresses can be used for whitelisting on, for example, a firewall.
@@ -92,7 +91,7 @@ security:
 
 Create a User with the name of the customerID and a password which is the license key in your local security provider.
 This User must have access granted on the URLs provided by the bundle API (see above).
-In order to tell the recommender to use this User and password to request resources on the [[= product_name_oss =]] instance,
+In order to tell the recommender to use this User and password to request resources on the [[= product_name =]] instance,
 you can configure this as follows (an example file is available in the bundle under `Resources/config/default_settings.yaml`):
 
 ``` yaml
@@ -125,7 +124,7 @@ Tracking Content Types is required for displaying recommendations.
 
 You define Content Types to track in the `config/packages/ezplatform.yaml` file.
 The content will then be initially exported by a script.
-After this, it will be kept in sync with the Personalization Solution every time a change occurs in the [[= product_name_oss =]] Back Office.
+After this, it will be kept in sync with the Personalization Solution every time a change occurs in the [[= product_name =]] Back Office.
 
 The bundle's configuration is SiteAccess-aware, and can resemble the following example:
 
@@ -424,7 +423,7 @@ Make sure that the content ID is at least 2 characters long (for example, `&q=73
 
 ### Subsequent content exports
 
-The Recommendation engine is automatically kept in sync with the content in [[= product_name_oss =]].
+The Recommendation engine is automatically kept in sync with the content in [[= product_name =]].
 
 Every time an editor creates, updates or deletes content in the Back Office (1),
 a notification is sent to https://admin.yoochoose.net (2).

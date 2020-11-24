@@ -1,4 +1,4 @@
-# Solr Minimum Should Match
+# Solr Minimum Should Match [[% include 'snippets/commerce_badge.md' %]]
 
 Currently Solr's `mm` (Minimum Should Match) parameter only works for eContent search and can be specified with the following parameter:
 

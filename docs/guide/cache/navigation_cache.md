@@ -1,4 +1,4 @@
-# Navigation cache
+# Navigation cache [[% include 'snippets/commerce_badge.md' %]]
 
 Navigation uses HTTP cache to store navigation, and stash cache to store generated URLs.
 

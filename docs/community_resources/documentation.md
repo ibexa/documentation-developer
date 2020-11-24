@@ -4,7 +4,7 @@ While we are doing our best to make sure our documentation fulfills all your nee
 
 ## How to contribute to documentation
 
-This documentation is written on GitHub and generated into a static site. It is organized in branches. Each branch is a version of documentation (which in turn corresponds to a version of [[= product_name_oss =]]).
+This documentation is written on GitHub and generated into a static site. It is organized in branches. Each branch is a version of documentation (which in turn corresponds to a version of [[= product_name =]]).
 
 If you are familiar with the git workflow, you will find it easy to contribute.
 Please create a Pull Request for any, even the smallest change you want to suggest.

@@ -1,7 +1,7 @@
 # Common issues
 
 Below you will find cleanup commands from the EzPublishMigrationBundle for the most common
-issues that can occur after migration to [[= product_name_oss =]].
+issues that can occur after migration to [[= product_name =]].
 
 !!! note "Enabling EzPublishMigrationBundle bundle"
 
@@ -46,7 +46,7 @@ You can read more about this issue here: [EZP-27254](https://jira.ez.no/browse/E
 ## Always available flag set on all Fields
 
 Always available flag is set on all Fields, instead of only on Fields in the main
-language. This problem occurs when [[= product_name_oss =]] is used to create content that is both
+language. This problem occurs when [[= product_name =]] is used to create content that is both
 always available and has multiple translations. The cleanup script will correctly set
 always available flag for prioritized language filtering in Legacy search engine.
 

@@ -3,7 +3,7 @@
 The root Location can be a starting point for API queries, or even links to home page.
 
 By default, the root Location ID is `2`, but the best practice is to retrieve it dynamically.
-This is because [[= product_name_oss =]] can be used for [multisite development](multisite.md) and the root Location can vary.
+This is because [[= product_name =]] can be used for [multisite development](multisite.md) and the root Location can vary.
 The Location can also be changed by configuration.
 
 ### Retrieving root Location ID

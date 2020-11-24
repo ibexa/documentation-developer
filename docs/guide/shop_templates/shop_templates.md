@@ -1,4 +1,4 @@
-# Shop templates
+# Shop templates [[% include 'snippets/commerce_badge.md' %]]
 
 [[= product_name_com =]] offers additional Twig functions and filters you can use in templates.
 

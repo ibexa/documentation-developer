@@ -275,7 +275,7 @@ X-Siteaccess: ezdemo_site_admin
 The REST API supports the following authentication methods:
 
 - **Session-based authentication** for AJAX operations that lets you re-use the visitor's session to execute operations with their permissions.
-- **Basic authentication** for writing cross-server procedures, when one remote application executes operations on one/several [[= product_name_oss =]] instances (remote publishing, maintenance, etc).
+- **Basic authentication** for writing cross-server procedures, when one remote application executes operations on one/several [[= product_name =]] instances (remote publishing, maintenance, etc).
 - [**JWT authentication**](#jwt-authentication)
 
 Session-based is the default authentication method as it is needed for UI.
@@ -447,7 +447,7 @@ A few error codes apply to most resources (if they *are* applicable):
 |`405`|Method Not Allowed|Returned when the requested REST API resource does not support the HTTP verb that was used.|
 |`406`|Not Acceptable|Returned when an accept header sent with the requested is not supported.|
 |`500`|Internal Server Error|The server encountered an unexpected condition, usually an exception, which prevents it from fulfilling the request: database down, permissions or configuration error.|
-|`501`|Not Implemented|Returned when the requested method has not yet been implemented. For [[= product_name_oss =]], most of Users, User groups, Content items, Locations and Content Types have been implemented. Some of their methods, as well as other features, may return a 501.|
+|`501`|Not Implemented|Returned when the requested method has not yet been implemented. For [[= product_name =]], most of Users, User groups, Content items, Locations and Content Types have been implemented. Some of their methods, as well as other features, may return a 501.|
 
 #### Error handling in your REST implementation
 

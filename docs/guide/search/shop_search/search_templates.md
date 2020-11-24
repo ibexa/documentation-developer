@@ -1,4 +1,4 @@
-# Search templates
+# Search templates [[% include 'snippets/commerce_badge.md' %]]
 
 ## Products
 

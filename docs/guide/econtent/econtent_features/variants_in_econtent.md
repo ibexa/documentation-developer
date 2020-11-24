@@ -1,4 +1,4 @@
-# Variants in eContent
+# Variants in eContent [[% include 'snippets/commerce_badge.md' %]]
 
 `ses_variants` can be used to store variant data for a product. 
 

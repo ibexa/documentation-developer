@@ -1,4 +1,4 @@
-# Custom sorting handler for eContent
+# Custom sorting handler for eContent [[% include 'snippets/commerce_badge.md' %]]
 
 This example shows how to create a custom sorting that uses priority field.
 

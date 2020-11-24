@@ -1,4 +1,4 @@
-# Order history
+# Order history [[% include 'snippets/commerce_badge.md' %]]
 
 Order history enables you to see an overview and details of your orders or other documents from the ERP system.
 You can see documents based on online purchases as well as orders placed e.g. by a telephone call.

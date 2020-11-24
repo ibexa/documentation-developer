@@ -1,4 +1,4 @@
-# Product variants
+# Product variants [[% include 'snippets/commerce_badge.md' %]]
 
 Product variants define different versions of a product.
 Variants can, for example, define product color or size.

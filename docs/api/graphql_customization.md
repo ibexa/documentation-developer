@@ -13,7 +13,7 @@ on [overblog/GraphQLBundle](https://github.com/overblog/GraphQLBundle).
 
 ### Configuration
 
-You can include the [[= product_name_oss =]] schema in two ways: either through inheritance or composition.
+You can include the [[= product_name =]] schema in two ways: either through inheritance or composition.
 
 #### Inheritance
 
@@ -32,7 +32,7 @@ Query:
 
 #### Composition
 
-To use composition, define [[= product_name_oss =]] schema as a field in your custom schema.
+To use composition, define [[= product_name =]] schema as a field in your custom schema.
 For example, in `app/config/graphql/Query.types.yaml`:
 
 ``` yaml

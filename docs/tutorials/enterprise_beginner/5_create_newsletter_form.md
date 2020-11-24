@@ -1,4 +1,4 @@
-# Step 5 — Create a newsletter form
+# Step 5 — Create a newsletter form [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 !!! tip
     You can find all files used and modified in this step on [GitHub.](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/tree/v3-master)

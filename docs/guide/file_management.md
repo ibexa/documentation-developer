@@ -2,7 +2,7 @@
 
 ## Handling binary files
 
-[[= product_name_oss =]] supports multiple binary file handling mechanisms by means of an `IOHandler` interface. This feature is used by the [BinaryFile](../api/field_type_reference.md#binaryfile-field-type), [Media](../api/field_type_reference.md#media-field-type) and [Image](../api/field_type_reference.md#image-field-type) Field Types.
+[[= product_name =]] supports multiple binary file handling mechanisms by means of an `IOHandler` interface. This feature is used by the [BinaryFile](../api/field_type_reference.md#binaryfile-field-type), [Media](../api/field_type_reference.md#media-field-type) and [Image](../api/field_type_reference.md#image-field-type) Field Types.
 
 ### Native IO handler
 
@@ -84,7 +84,7 @@ Default values are 0644 for files and 0755 for directories.
 
 [league/flysystem](http://flysystem.thephpleague.com/) (along with [FlysystemBundle](https://github.com/1up-lab/OneupFlysystemBundle/)) is an abstract file handling library.
 
-[[= product_name_oss =]] uses it as the default way to read and write content in form of binary files. Flysystem can use the `local` filesystem (this is the default and officially supported configuration), but is also able to read/write to `sftp`, `zip` or cloud filesystems (`azure`, `rackspace`, `S3`).
+[[= product_name =]] uses it as the default way to read and write content in form of binary files. Flysystem can use the `local` filesystem (this is the default and officially supported configuration), but is also able to read/write to `sftp`, `zip` or cloud filesystems (`azure`, `rackspace`, `S3`).
 
 #### Handler options
 

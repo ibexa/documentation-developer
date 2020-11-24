@@ -1,4 +1,4 @@
-# Implement custom sorting option for search
+# Implement custom sorting option for search [[% include 'snippets/commerce_badge.md' %]]
 
 To create a custom sorting option, implement the following classes:
 

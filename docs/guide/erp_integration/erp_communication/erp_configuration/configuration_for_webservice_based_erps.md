@@ -1,4 +1,4 @@
-# Configuration for webservice-based ERPs
+# Configuration for webservice-based ERPs [[% include 'snippets/experience_badge.md' %]]
 
 If your ERP systems offers different URLs/webservices for each feature,
 you can define the endpoint to the Webservice per messages.

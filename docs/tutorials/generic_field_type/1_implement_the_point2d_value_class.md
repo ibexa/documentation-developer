@@ -6,8 +6,8 @@
 
 ## Project installation
 
-To start the tutorial, you need to make a clean [[= product_name_oss =]] installation.
-Follow the guide for your system to [install [[= product_name_oss =]]](../../getting_started/install_ez_platform.md),
+To start the tutorial, you need to make a clean [[= product_name =]] installation.
+Follow the guide for your system to [install [[= product_name =]]](../../getting_started/install_ez_platform.md),
 [configure a server](../../getting_started/requirements.md),
 and [start the web server](../../getting_started/install_ez_platform.md#use-phps-built-in-server).
 Remember to install using the `dev` environment.

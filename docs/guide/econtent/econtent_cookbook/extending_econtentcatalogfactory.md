@@ -1,4 +1,4 @@
-# Extending EcontentCatalogFactory
+# Extending EcontentCatalogFactory [[% include 'snippets/commerce_badge.md' %]]
 
 Catalog objects are created with `EcontentCatalogFactory`.
 This involves both product and product groups, or any other type of elements that are part of the catalog.

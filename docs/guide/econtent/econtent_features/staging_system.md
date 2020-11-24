@@ -1,4 +1,4 @@
-# Staging system
+# Staging system [[% include 'snippets/commerce_badge.md' %]]
 
 eContent supports a staging area. The product catalog can exist either as a live version which is used for the customer, or a staging (temporary) version, which can be used for staging and importing purposes.
 

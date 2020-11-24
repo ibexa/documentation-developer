@@ -1,4 +1,4 @@
-# ERP transport component
+# ERP transport component [[% include 'snippets/experience_badge.md' %]]
 
 The transport component provides an interface to the physical transportation of the messages.
 This includes the serialization of the data into a stream that the physical transportation is capable to process.

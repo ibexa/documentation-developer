@@ -1,4 +1,4 @@
-# Product comparison
+# Product comparison [[% include 'snippets/commerce_badge.md' %]]
 
 [[= product_name_com =]] offers the option to compare products on a single page.
 Customers can save products on their own comparison lists.

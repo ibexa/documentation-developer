@@ -2,13 +2,13 @@
 
 A Field Type is the underlying building block of the content model. It consists of two entities: Field value and Field definition. Field value is determined by values entered into the Content Field. Field definition is provided by the Content Type, and holds any user defined rules used by Field Type to determine how a Field Value is validated, stored, retrieved, formatted and so on.
 
-[[= product_name_oss =]] comes with a collection of Field Types that can be used to build powerful and complex content structures. In addition, it is possible to extend the system by creating custom types for special needs.
+[[= product_name =]] comes with a collection of Field Types that can be used to build powerful and complex content structures. In addition, it is possible to extend the system by creating custom types for special needs.
 
 !!! tip
 
     For general Field Type documentation, see [Field Type API](../api/field_type_api.md).
 
-Custom Field Types have to be programmed in PHP. However, the built-in Field Types are usually sufficient enough for typical scenarios. The following table gives an overview of the supported Field Types that come with [[= product_name_oss =]].
+Custom Field Types have to be programmed in PHP. However, the built-in Field Types are usually sufficient enough for typical scenarios. The following table gives an overview of the supported Field Types that come with [[= product_name =]].
 
 
 ## Available Field Types
@@ -57,7 +57,7 @@ Proper indexing of these Field Types is done with [Solr Search Bundle](../guide/
 
 |FieldType|Description|Searchable|Editing support in Platform UI|Planned to be included in the future|
 |------|------|------|------|------|
-| [XmlText](#xmltext-field-type)|Validates and stores multiple lines of formatted text using XML format.|Yes|Partial *(Raw XML editing)*|No *(has been superseded by [RichText](#richtext-field-type))*</br>The XmlText Field Type is not enabled by default in [[= product_name_oss =]].|
+| [XmlText](#xmltext-field-type)|Validates and stores multiple lines of formatted text using XML format.|Yes|Partial *(Raw XML editing)*|No *(has been superseded by [RichText](#richtext-field-type))*</br>The XmlText Field Type is not enabled by default in [[= product_name =]].|
 
 ### Field Types provided by Community
 
@@ -342,7 +342,7 @@ When you set an array directly on a Content field you don't need to provide all 
 
 #### Validation
 
-This Field Type validates whether multiple countries are allowed by the Field definition, and whether the [Alpha2](https://www.iso.org/iso-3166-country-codes.html) is valid according to the countries configured in [[= product_name_oss =]].
+This Field Type validates whether multiple countries are allowed by the Field definition, and whether the [Alpha2](https://www.iso.org/iso-3166-country-codes.html) is valid according to the countries configured in [[= product_name =]].
 
 #### Settings
 
@@ -412,28 +412,26 @@ $countryValue = new Country\Value(
 );
 ```
 
-!!! dxp
+## DAM Field Type
 
-    ## DAM Field Type
+This Field Type stores asset information from a DAM system.
+It replaces the [ImageAsset Field Type](#imageasset-field-type).
 
-    This Field Type stores asset information from a DAM system.
-    It replaces the [ImageAsset Field Type](#imageasset-field-type).
+| Name   | Internal name | Expected input type |
+|--------|---------------|---------------------|
+| `Image Asset` | `ezimageasset`      | mixed             |
 
-    | Name   | Internal name | Expected input type |
-    |--------|---------------|---------------------|
-    | `Image Asset` | `ezimageasset`      | mixed             |
+#### Value object
 
-    #### Value object
+###### Properties
 
-    ###### Properties
+Value object of `dam` contains the following properties:
 
-    Value object of `dam` contains the following properties:
-
-    | Property | Type  | Description|
-    |----------|-------|------------|
-    | `destinationContentId`  |  `string` | Related content ID. |
-    | `alternativeText`  |  `string` |  The alternative image text. |
-    | `source` | `string` | Source of the DAM asset. |
+| Property | Type  | Description|
+|----------|-------|------------|
+| `destinationContentId`  |  `string` | Related content ID. |
+| `alternativeText`  |  `string` |  The alternative image text. |
+| `source` | `string` | Source of the DAM asset. |
 
 ## Date Field Type
 
@@ -813,18 +811,16 @@ $floatFieldCreateStruct->validatorConfiguration = [
 
 This Field Type does not support settings.
 
-!!! dxp
+## Form Field Type [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-    ## Form Field Type
+| Name    | Internal name |
+|---------|---------------|
+| `Image` | `ezform`      |
 
-    | Name    | Internal name |
-    |---------|---------------|
-    | `Image` | `ezform`      |
+The Form Field Type stores a Form consisting of one or more form fields.
 
-    The Form Field Type stores a Form consisting of one or more form fields.
-
-    See [Extending Form Builder](../extending/extending_form_builder.md) for more information
-    about working with Forms.
+See [Extending Form Builder](../extending/extending_form_builder.md) for more information
+about working with Forms.
 
 ## Image Field Type
 
@@ -1816,7 +1812,7 @@ This Field Type is used as fallback for migration scenarios, and for testing pur
 
 ### Description
 
-The Null Field Type serves as an aid when migrating from eZ Publish Platform and earlier legacy versions. It is a dummy for legacy Field Types that are not implemented in [[= product_name_oss =]].
+The Null Field Type serves as an aid when migrating from eZ Publish Platform and earlier legacy versions. It is a dummy for legacy Field Types that are not implemented in [[= product_name =]].
 
 Null Field Type will accept anything provided as a value and is usually combined with:
 - NullConverter: Makes it not store anything to the legacy storage engine (database), nor will it read any data.
@@ -1841,96 +1837,94 @@ services:
         class: eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter\NullConverter
         tags: [{name: ezplatform.field_type.legacy_storage.converter, alias: example}]
     ezpublish.fieldType.example.indexable:
-        class: '%ezpublish.fieldType.indexable.unindexed.class%'
-        tags: [{name: ezplatform.field_type.indexable, alias: example}]
+    class: '%ezpublish.fieldType.indexable.unindexed.class%'
+    tags: [{name: ezplatform.field_type.indexable, alias: example}]
 ```
 
-!!! dxp
+## Page Field Type [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-    ## Page Field Type
+Page Field Type represents a Page with a layout consisting of multiple zones. Each zone can in turn contain blocks.
 
-    Page Field Type represents a Page with a layout consisting of multiple zones. Each zone can in turn contain blocks.
+Page Field Type is only used in the Page Content Type that is included in [[= product_name_exp =]].
 
-    Page Field Type is only used in the Page Content Type that is included in [[= product_name_ee =]].
+| Name           | Internal name   | Expected input  |
+|----------------|-----------------|-----------------|
+| `Landing page` | `ezlandingpage` | `string (JSON)` |
 
-    | Name           | Internal name   | Expected input  |
-    |----------------|-----------------|-----------------|
-    | `Landing page` | `ezlandingpage` | `string (JSON)` |
+!!! caution "Page Builder"
 
-    !!! caution "Page Builder"
+    If you create Content Type with both `ezlandingpage` and `ezuser` Field Types,
+     you will not be redierected to Page Builder after selecting `Edit` or `Create`.
+      This is caused by `ezuser` Field Type which requires separate handling. You will be redirected to the standard AdminUI edit or create mode.
 
-        If you create Content Type with both `ezlandingpage` and `ezuser` Field Types,
-         you will not be redierected to Page Builder after selecting `Edit` or `Create`.
-          This is caused by `ezuser` Field Type which requires separate handling. You will be redirected to the standard AdminUI edit or create mode.
+### Layout and zones
 
-    ### Layout and zones
+Layout defines how a Page is divided into zones.
 
-    Layout defines how a Page is divided into zones.
+The placement of zones is defined in a template which is a part of the layout configuration. You can modify the template in order to define your own zone layout.
 
-    The placement of zones is defined in a template which is a part of the layout configuration. You can modify the template in order to define your own zone layout.
+For information on how to create and configure new blocks for the Page, see [Page layouts](../guide/page_rendering.md#page-layouts).
 
-    For information on how to create and configure new blocks for the Page, see [Page layouts](../guide/page_rendering.md#page-layouts).
+### Blocks
 
-    ### Blocks
+For information on how to create and configure new blocks for the Page, see [Creating Page blocks](../extending/extending_page.md#creating-page-blocks).
 
-    For information on how to create and configure new blocks for the Page, see [Creating Page blocks](../extending/extending_page.md#creating-page-blocks).
+### Rendering Pages
 
-    ### Rendering Pages
+Page rendering takes place while editing or viewing.
 
-    Page rendering takes place while editing or viewing.
+When rendering a Page, its zones are passed to the layout as a `zones` array with a `blocks` array each. You can access them using twig (e.g. `{{ zones[0].id }}` ).
 
-    When rendering a Page, its zones are passed to the layout as a `zones` array with a `blocks` array each. You can access them using twig (e.g. `{{ zones[0].id }}` ).
+Each div that's a zone should have the `data-ez-zone-id` attribute with zone ID as a value for a zone container.
 
-    Each div that's a zone should have the `data-ez-zone-id` attribute with zone ID as a value for a zone container.
+To render a block inside the layout, use the Twig `render_esi()` function to call `EzPlatformPageFieldTypeBundle:Block:render`.
 
-    To render a block inside the layout, use the Twig `render_esi()` function to call `EzPlatformPageFieldTypeBundle:Block:render`.
+The `renderAction` has the following parameters:
 
-    The `renderAction` has the following parameters:
+|Parameter|Description|
+|---------|-----------|
+|`locationId`|ID of the Location of the Content item which can be accessed by `contentInfo.id`|
+|`blockId`|ID of the block which you want to render|
+|`versionNo`|Version number of the Content item to render|
+|`languageCode`|Language code of the Content item to render|
 
-    |Parameter|Description|
-    |---------|-----------|
-    |`locationId`|ID of the Location of the Content item which can be accessed by `contentInfo.id`|
-    |`blockId`|ID of the block which you want to render|
-    |`versionNo`|Version number of the Content item to render|
-    |`languageCode`|Language code of the Content item to render|
+Example usage:
 
-    Example usage:
+``` html+twig
+{{ render_esi(controller('EzPlatformPageFieldTypeBundle\Controller\BlockController::renderAction', {
+    'locationId': locationId,
+    'blockId': block.id,
+    'versionNo': versionInfo.versionNo,
+    'languageCode': field.languageCode
+})) }}
+```
 
-    ``` html+twig
-    {{ render_esi(controller('EzPlatformPageFieldTypeBundle\Controller\BlockController::renderAction', {
-        'locationId': locationId,
-        'blockId': block.id,
-        'versionNo': versionInfo.versionNo,
-        'languageCode': field.languageCode
-    })) }}
-    ```
+As a whole a sample layout could look as follows:
 
-    As a whole a sample layout could look as follows:
-
-    ``` html+twig
-    <div>
-        {# The required attribute for the displayed zone #}
-        <div data-ez-zone-id="{{ zones[0].id }}">
-            {# If a zone with [0] index contains any blocks #}
-            {% if zones[0].blocks %}
-                {# for each block #}
-                {% for block in blocks %}
-                    {# create a new layer with appropriate ID #}
-                    <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
-                        {# render the block by using the "EzPlatformPageFieldTypeBundle\Controller\BlockController::renderAction" controller #}
-                        {# location.id is the ID of the Location of the current Content item, block.id is the ID of the current block #}
-                        {{ render_esi(controller('EzPlatformPageFieldTypeBundle\Controller\BlockController::renderAction', {
-                            'locationId': locationId,
-                            'blockId': block.id,
-                            'versionNo': versionInfo.versionNo,
-                            'languageCode': field.languageCode
-                        })) }}
-                    </div>
-                {% endfor %}
-            {% endif %}
-        </div>
+``` html+twig
+<div>
+    {# The required attribute for the displayed zone #}
+    <div data-ez-zone-id="{{ zones[0].id }}">
+        {# If a zone with [0] index contains any blocks #}
+        {% if zones[0].blocks %}
+            {# for each block #}
+            {% for block in blocks %}
+                {# create a new layer with appropriate ID #}
+                <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
+                    {# render the block by using the "EzPlatformPageFieldTypeBundle\Controller\BlockController::renderAction" controller #}
+                    {# location.id is the ID of the Location of the current Content item, block.id is the ID of the current block #}
+                    {{ render_esi(controller('EzPlatformPageFieldTypeBundle\Controller\BlockController::renderAction', {
+                        'locationId': locationId,
+                        'blockId': block.id,
+                        'versionNo': versionInfo.versionNo,
+                        'languageCode': field.languageCode
+                    })) }}
+                </div>
+            {% endfor %}
+        {% endif %}
     </div>
-    ```
+</div>
+```
 
 ## Rating Field Type
 
@@ -2153,7 +2147,7 @@ Currently supported input formats are described in the table below:
 
 |Name|Description|
 |------|------|
-|[[= product_name_oss =]]'s DocBook variant|Field Type's internal format|
+|[[= product_name =]]'s DocBook variant|Field Type's internal format|
 |XHTML5 editing format|Typically used with in-browser HTML editor|
 |Legacy eZXML format|Compatibility with legacy XML format, used by [XmlText Field Type](#xmltext-field-type)|
 
@@ -2173,7 +2167,7 @@ Currently supported input formats are described in the table below:
 
 ###### Example of the Field Type's XHTML5 edit format
 
-This format is used by [[= product_name_oss =]]'s Online Editor.
+This format is used by [[= product_name =]]'s Online Editor.
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2620,7 +2614,7 @@ This Field Type validates and stores information about a user.
 
 ## XmlText Field Type
 
-The XmlText Field Type isn't officially supported by [[= product_name_oss =]]. It can be installed by requiring `ezsystems/ezplatform-xmltext-fieldtype`. PlatformUI does not support WYSIWYG editing of Fields of this type.
+The XmlText Field Type isn't officially supported by [[= product_name =]]. It can be installed by requiring `ezsystems/ezplatform-xmltext-fieldtype`. PlatformUI does not support WYSIWYG editing of Fields of this type.
 
 This Field Type validates and stores formatted text using the eZ Publish legacy format, eZXML. 
 

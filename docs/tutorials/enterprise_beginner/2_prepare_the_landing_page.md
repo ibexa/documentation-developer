@@ -1,4 +1,4 @@
-# Step 2 — Prepare the Page
+# Step 2 — Prepare the Page [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 !!! tip
 
@@ -36,7 +36,7 @@ Switch to editing Page Fields and change the Title of the page to "Home".
 Then, publish the Page to update its name.
 
 The design for the website you are making needs a layout with two zones: a main column and a narrower sidebar.
-[[= product_name_ee =]] provides only a one-zone default layout, so you need to create a new one.
+[[= product_name_exp =]] provides only a one-zone default layout, so you need to create a new one.
 
 Preparing a new layout requires three things:
 

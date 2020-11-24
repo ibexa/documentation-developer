@@ -12,7 +12,7 @@ For example, if you want to translate your application into French, run:
 
 and then clear the cache.
 
-Now you can reload your [[= product_name_oss =]] Back Office.
+Now you can reload your [[= product_name =]] Back Office.
 If your browser language is set to French, the Back Office will be displayed in French.
 
 !!! tip "Checking browser language"

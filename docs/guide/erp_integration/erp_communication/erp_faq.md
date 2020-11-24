@@ -1,4 +1,4 @@
-# ERP FAQ
+# ERP FAQ [[% include 'snippets/experience_badge.md' %]]
 
 ## Cannot determine message object
 

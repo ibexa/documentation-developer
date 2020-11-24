@@ -1,4 +1,4 @@
-# eContent database model
+# eContent database model [[% include 'snippets/commerce_badge.md' %]]
 
 eContent uses four main database tables and two optional ones:
 
@@ -26,7 +26,7 @@ For more information, see [eContent staging system](staging_system.md).
 
 The table `sve_object` contains one entry for each product group, product, etc.
 You can arrange data in a tree structure by using the field `parent_id`, which is the Location ID of the parent.
-Location IDs start from 2 due to compatibility with the [[= product_name_oss =]] data structure.
+Location IDs start from 2 due to compatibility with the [[= product_name =]] data structure.
 
 This table contains several other pieces of information in addition to Content Type ID and Location ID, for example:
 

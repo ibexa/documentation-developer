@@ -1,6 +1,6 @@
-# ERP communication
+# ERP communication [[% include 'snippets/experience_badge.md' %]]
 
-[[= product_name_com =]] uses the logic of an ERP system in different situations:
+[[= product_name_exp =]] uses the logic of an ERP system in different situations:
 
 - During login process, to get customer data 
 - In product detail page (configurable), to get prices and stock infos

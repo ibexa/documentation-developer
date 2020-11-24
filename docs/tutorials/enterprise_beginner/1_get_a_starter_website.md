@@ -1,4 +1,4 @@
-# Step 1 — Get a starter website
+# Step 1 — Get a starter website [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 !!! tip
 
@@ -6,11 +6,11 @@
 
 To set up the starter website, you need to follow these steps:
 
-## Get a clean [[= product_name_ee =]] installation
+## Get a clean [[= product_name_exp =]] installation
 
-To begin the tutorial, you need a clean installation of [[= product_name_ee =]].
+To begin the tutorial, you need a clean installation of [[= product_name_exp =]].
 
-Get it by following the [Install [[= product_name_oss =]]](../../getting_started/install_ez_platform.md) guide.
+Get it by following the [Install [[= product_name =]]](../../getting_started/install_ez_platform.md) guide.
 
 ## Create Content Types
 
@@ -55,7 +55,7 @@ Edit it to remove the Image Field that has a Content Relation (ezobjectrelation)
 
 !!! tip
 
-    For an introduction on how to use templates in [[= product_name_oss =]], take a look at the [Building a Bicycle Route Tracker in [[= product_name_oss =]] tutorial](../platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md)
+    For an introduction on how to use templates in [[= product_name =]], take a look at the [Building a Bicycle Route Tracker in [[= product_name =]] tutorial](../platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md)
 
 First, delete the `config/packages/ezplatform_welcome_page.yaml` file to remove the welcome page.
 

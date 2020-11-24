@@ -1,4 +1,4 @@
-# Setting up variants from external source
+# Setting up variants from external source [[% include 'snippets/commerce_badge.md' %]]
 
 The default data provider and `CatalogFactory` ([content model data provider](../../data_providers/content_model_dataprovider.md))
 already support variants up to two levels.

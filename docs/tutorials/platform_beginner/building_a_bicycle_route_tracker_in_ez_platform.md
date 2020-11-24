@@ -1,10 +1,10 @@
-# Building a bicycle route tracker in [[= product_name_oss =]]
+# Building a bicycle route tracker in [[= product_name =]]
 
-This tutorial is a step-by-step guide to building an [[= product_name_oss =]] website.
+This tutorial is a step-by-step guide to building an [[= product_name =]] website.
 
 ## Intended audience
 
-The tutorial is intended for users who have little or no previous experience with [[= product_name_oss =]].
+The tutorial is intended for users who have little or no previous experience with [[= product_name =]].
 
 To follow it, you should:
 

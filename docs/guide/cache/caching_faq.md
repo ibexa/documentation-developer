@@ -1,4 +1,4 @@
-# Caching FAQ
+# Caching FAQ [[% include 'snippets/commerce_badge.md' %]]
 
 ## Basket preview and the box showing the logged-in user are not up to date
 

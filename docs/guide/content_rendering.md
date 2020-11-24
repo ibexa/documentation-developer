@@ -2,7 +2,7 @@
 
 ## The ViewController
 
-[[= product_name_oss =]] comes with a native controller to display your content, known as the **`ViewController`**. It is called each time you try to reach a Content item from its **URL alias** (human-readable, translatable URI generated for any content based on URL patterns defined per Content Type). It is able to render any content created in the admin interface or via the [Public API Guide](../api/public_php_api.md).
+[[= product_name =]] comes with a native controller to display your content, known as the **`ViewController`**. It is called each time you try to reach a Content item from its **URL alias** (human-readable, translatable URI generated for any content based on URL patterns defined per Content Type). It is able to render any content created in the admin interface or via the [Public API Guide](../api/public_php_api.md).
 
 It can also be called straight by its direct URI: 
 
@@ -283,9 +283,9 @@ class MyViewProvider implements ViewProvider
 
 ## Events
 
-This section presents the events that are triggered by [[= product_name_oss =]].
+This section presents the events that are triggered by [[= product_name =]].
 
-### eZ Publish Core
+### Core
 
 |Event name|Triggered when...|Usage|
 |-------|------|------|
@@ -297,7 +297,7 @@ This section presents the events that are triggered by [[= product_name_oss =]].
 
 ### Twig Helper
 
-[[= product_name_oss =]] comes with a Twig helper as a [global variable](http://symfony.com/doc/5.0/cookbook/templating/global_variables.html) named `ezplatform`.
+[[= product_name =]] comes with a Twig helper as a [global variable](http://symfony.com/doc/5.0/cookbook/templating/global_variables.html) named `ezplatform`.
 
 This helper is accessible from all Twig templates and allows you to easily retrieve useful information.
 

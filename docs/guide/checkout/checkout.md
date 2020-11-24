@@ -1,4 +1,4 @@
-# Checkout
+# Checkout [[% include 'snippets/commerce_badge.md' %]]
 
 [[= product_name_com =]] provides a multi-step checkout process that takes place on one page.
 
