@@ -128,13 +128,13 @@ To configure multisite with multiple Repositories, [configure the repositories](
     However, when using URI matching for multisite setup, all SiteAccesses sharing domain also need to share Repository.
     For example:
 
-    - `ez.no` domain can use `ez_repo`
-    - `doc.ez.no` domain can use `doc_repo`
+    - `ibexa.co` domain can use `ibexa_repo`
+    - `doc.ibexa.co` domain can use `doc_repo`
 
     But the following configuration would be invalid:
 
-    - `ez.no` domain can use `ez_repo`
-    - `ez.no/doc` **cannot** use `doc_repo`, as it is under the same domain.
+    - `ibexa.co` domain can use `ibexa_repo`
+    - `ibexa.co/doc` **cannot** use `doc_repo`, as it is under the same domain.
 
     Invalid configuration will cause problems for different parts of the system,
     for example back-end UI, REST interface and other non-SiteAccess-aware Symfony routes
