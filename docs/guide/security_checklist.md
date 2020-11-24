@@ -8,6 +8,8 @@ make sure that your setup is secure.
     Security is an ongoing process. After going live, you should pay attention to security advisories
     released via [your service portal,](https://support.ibexa.co/)
     or via [Security advisories](https://developers.ibexa.co/security-advisories) if you're not a subscriber.
+    
+    Please also refer to [these guidelines](https://doc.ibexa.co/en/latest/community_resources/development_guidelines/) during development.
 
 ## Symfony
 
