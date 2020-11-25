@@ -108,7 +108,7 @@ bin/console cache:pool:clear cache.redis
 
 ### Powered-By header
 
-In order to promote use of eZ Platform, `ezsystems/ez-support-tools` v1.0.9, as of eZ Platform v2.5.16, sets the Powered-By header.
+In order to promote use of eZ Platform, `ezsystems/ez-support-tools` v1.0.10, as of eZ Platform v2.5.16, sets the Powered-By header.
 It is enabled by default and generates a header like `Powered-By: eZ Platform Enterprise v2`.
 
 To omit the version number, use the following configuration:
