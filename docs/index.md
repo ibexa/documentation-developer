@@ -2,7 +2,7 @@
     <div class="row">
         <h1>Ibexa developer documentation</h1>
     </div>
-    <div class="row mt-5">
+    <div class="row mt-5 pb-4">
         <div class="col-lg px-2 px-lg-4">
             <div class="tile">
                 <div class="row">
