@@ -1,13 +1,14 @@
-# Ibexa developer documentation
-
-<div class=" front-page">
+<div class="front-page">
+    <div class="row">
+        <h1>Ibexa developer documentation</h1>
+    </div>
     <div class="row mt-5">
         <div class="col-lg px-2 px-lg-4">
             <div class="tile">
                 <div class="row">
                     <div class="col-lg">
                         <h5 class="tile-title">
-                            <svg class="tile-icon align-middle" width="36" height="36">
+                            <svg class="tile-icon align-middle" width="32" height="32">
                                 <use fill="var(--ibexa-jazzberry)" xlink:href="images/ez-icons.svg#publish"></use>
                             </svg>
                             Installation
@@ -28,7 +29,7 @@
                 <div class="row">
                     <div class="col-lg">
                         <h5 class="tile-title">
-                            <svg class="tile-icon align-middle" width="36" height="36">
+                            <svg class="tile-icon align-middle" width="32" height="32">
                                 <use fill="var(--ibexa-jazzberry)" xlink:href="images/ez-icons.svg#about"></use>
                             </svg>
                             Tutorials
@@ -50,7 +51,7 @@
                 <div class="row">
                     <div class="col-lg">
                         <h5 class="tile-title">
-                            <svg class="tile-icon align-middle" width="36" height="36">
+                            <svg class="tile-icon align-middle" width="32" height="32">
                                 <use fill="var(--ibexa-jazzberry)" xlink:href="images/ez-icons.svg#settings-config"></use>
                             </svg>
                             Guide to Ibexa DXP

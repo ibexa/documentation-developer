@@ -1,3 +1,10 @@
+.front-page h1 {
+    font-size: 32px;
+    font-weight: 600;
+    padding-left: 1.4rem;
+    margin-bottom: 3rem;
+}
+
 .tile {
     box-sizing: border-box;
     border: 1px solid #D4D4D4;
@@ -16,8 +23,12 @@ h5.tile-title {
     padding-left: 1rem;
 }
 
+.tile-icon {
+    margin-right: 1.2rem;
+}
+
 .tile-body {
-    margin-left: 4rem;
+    margin-left: 5.2rem;
 }
 
 .tile-body ul {
@@ -57,6 +68,7 @@ h5.tile-title {
 .most-popular ul li {
     border-bottom: 1px solid #D8D8D8;
     margin-left: 0px;
+    padding-left: 1rem;
 }
 
 .latest-release h5 {
@@ -73,6 +85,10 @@ h5.tile-title {
 
 .features {
     column-count: 2;
+}
+
+.features ul li {
+    margin-bottom: 0;
 }
 
 .front-page .badge {
