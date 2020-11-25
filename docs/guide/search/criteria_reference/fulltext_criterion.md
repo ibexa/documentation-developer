@@ -7,21 +7,23 @@ searches for content based on the full text content of its Fields.
 
 - `value` - string to search for
 
-## Limitations
+## Supported syntax
 
-When using Legacy search engine, basic full text query is performed.
-
-Basic query by default performs an OR query.
-It supports basic wildcards using asterisks (\*) at the beginning or end of a query.
-
-Advanced full text query is available when using Solr search engine.
-It additionally enables the use of:
+All features of full text search syntax are available when using Solr search engine.
+You can use the following features:
 
 - Boolean operators: AND (&&), OR (||), NOT (!)
-- Required/prohibit operators: +, -
-- Grouping through parentheses
-- Phrases using double quotes
-- Wild cards using asterisks also in the middle of a query
+- Require/exclude operators: +, -
+- Grouping with parentheses
+- Phrase search with double quotes
+- Asterisks (\*) as wildcards, located anywhere within a query
+
+## Limitations
+
+When using the Legacy search engine, a full text query performs an OR query by default, and
+supports asterisks as wildcards located at the beginning or end of a query.
+
+When using the Elasticsearch search engine, a full text query performs an OR query by default, while the OR and AND operators return unexpected results.
 
 The `FullText` Criterion is not available in [Repository filtering](../../../api/public_php_api_search.md#repository-filtering).
 
