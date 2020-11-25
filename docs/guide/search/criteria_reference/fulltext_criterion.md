@@ -9,7 +9,7 @@ searches for content based on the full text content of its Fields.
 
 ## Supported syntax
 
-Full text search syntax is available when using Solr search engine.
+All features of full text search syntax are available when using Solr search engine.
 You can use the following features:
 
 - Boolean operators: AND (&&), OR (||), NOT (!)
