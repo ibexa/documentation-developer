@@ -81,31 +81,3 @@ For more information, see [Solr configuration](../guide/search/solr/#further-con
     
     CREATE INDEX ezsite_public_access_site_id ON ezsite_public_access (site_id);
     ```
-
-    ### Date-based publisher database update
-
-    Apply the following database update script for the Date-based publisher.
-
-    For MySQL:
-
-    ``` sql
-    BEGIN;
-    ALTER TABLE  `ezdatebasedpublisher_scheduled_version`
-    CHANGE COLUMN `publication_date` `date` INT(11) NOT NULL;
-    ALTER TABLE  `ezdatebasedpublisher_scheduled_version`
-    ADD COLUMN `action` VARCHAR(32);
-    UPDATE `ezdatebasedpublisher_scheduled_version` SET `action` = 'publish';
-    ALTER TABLE  `ezdatebasedpublisher_scheduled_version` CHANGE COLUMN `action` `action` VARCHAR(32) NOT NULL;
-    COMMIT;
-    ```
-
-    For PostgreSQL:
-
-    ``` sql
-    BEGIN;
-    ALTER TABLE ezdatebasedpublisher_scheduled_version RENAME COLUMN publication_date TO date;
-    ALTER TABLE ezdatebasedpublisher_scheduled_version ADD COLUMN action VARCHAR(32);
-    UPDATE ezdatebasedpublisher_scheduled_version SET action = 'publish';
-    ALTER TABLE ezdatebasedpublisher_scheduled_version ALTER COLUMN action SET NOT NULL ;
-    COMMIT;
-    ```
