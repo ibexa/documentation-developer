@@ -14,15 +14,17 @@ Currently, the following search engines exist in their own [[= product_name_oss 
 | --- | --- | --- | --- |
 | Filtering | Yes | Yes | Yes, limited\* |
 | Query (filter with scoring) | Yes | Yes | Only filters, no scoring |
-| Fulltext search | Yes | Yes, incl. advanced features | Partial support |
-| Index-time boosting | \*\* | No | No |
+| Fulltext search | Yes, limited | Yes | Yes, limited\*\* |
+| Index-time boosting | \*\*\* | No | No |
 | Aggregations | Yes | Yes | No |
 
 
 \* Usage of Criteria and Sort Clauses for Fields does not perform well on medium to larger 
 amount of data with Legacy Search Engine (SQL), use Solr for this.
 
-\*\* Elasticsearch offers query-time boosting instead.
+\*\* For more information about fulltext search syntax support, see [Fulltext Criterion](criteria_reference/fulltext_criterion.md).
+
+\*\*\* Elasticsearch offers query-time boosting instead.
 
 ## Search Criteria and Sort Clauses
 
