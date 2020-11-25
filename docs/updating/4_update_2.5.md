@@ -104,15 +104,14 @@ bin/console cache:pool:clear cache.redis
     CREATE INDEX ezpage_pages_content_id_version_no ON ezpage_pages(content_id, version_no);
     ```
 
-## Updating to 2.5.15
+## Updating to 2.5.16
 
 ### Powered-By header
 
-In order to promote use of eZ Platform, `ezsystems/ez-support-tools` v1.0.9, as of eZ Platform v2.5.15, sets the Powered-By header.
-It is enabled by default and generates a header like `Powered-By: eZ Platform Enterprise 2.5`.
+In order to promote use of eZ Platform, `ezsystems/ez-support-tools` v1.0.9, as of eZ Platform v2.5.16, sets the Powered-By header.
+It is enabled by default and generates a header like `Powered-By: eZ Platform Enterprise v2`.
 
-To omit the version number, for instance if you are stuck on a fast track release beyond its maintenance window,
-use the following configuration:
+To omit the version number, use the following configuration:
 ``` yaml
 ezplatform_support_tools:
     system_info:
@@ -120,7 +119,7 @@ ezplatform_support_tools:
             release: "none"
 ```
 
-To opt out of the whole feature, by disabling it with the following configuration:
+To opt out of the whole feature, disable it with the following configuration:
 
 ``` yaml
 ezplatform_support_tools:
