@@ -4,6 +4,11 @@ These are the development/coding guidelines for [[= product_name_oss =]] kernel,
 
 Like most development guidelines these aims to improve security, maintainability, performance and readability of our software. They follow industry standards but sometimes extend them to cater specifically to our needs for [[= product_name_oss =]] ecosystem. The next sections will cover all relevant technologies from a high level point of view.
 
+!!! tip "Security checklist"
+
+    See the [Security checklist](../guide/security_checklist.md) for a list of security-related issues
+    you should take care of before going live with a project.
+
 ## HTTP
 
 [[= product_name_oss =]] is a web software that is reached via HTTP in most cases, out of the box in [[= product_name_oss =]] kernel this is specifically: web (usually HTML) or REST.
