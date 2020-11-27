@@ -104,14 +104,26 @@ bin/console cache:pool:clear cache.redis
     CREATE INDEX ezpage_pages_content_id_version_no ON ezpage_pages(content_id, version_no);
     ```
 
-## Updating to 2.5.6
+## Updating to 2.5.16
 
-### Password expiration
+### Powered-By header
 
-Run the following script to update the database:
+In order to promote use of eZ Platform, `ezsystems/ez-support-tools` v1.0.10, as of eZ Platform v2.5.16, sets the Powered-By header.
+It is enabled by default and generates a header like `Powered-By: eZ Platform Enterprise v2`.
 
-`mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.5.4-to-7.5.5.sql`
+To omit the version number, use the following configuration:
+``` yaml
+ezplatform_support_tools:
+    system_info:
+        powered_by:
+            release: "none"
+```
 
-or for PostgreSQL:
+To opt out of the whole feature, disable it with the following configuration:
 
-`psql <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-7.5.4-to-7.5.5.sql`
+``` yaml
+ezplatform_support_tools:
+    system_info:
+        powered_by:
+            enabled: false
+```
