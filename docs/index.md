@@ -1,85 +1,109 @@
-# eZ Platform and eZ Platform Enterprise developer documentation
-
-&nbsp;
-
-<div class="card">
-    <div class="card-body">
-        <h4 class="card-title text-center"><a href="releases/ibexa_dxp_v3.2/" class="card-link"><strong>The latest release is v3.2</strong></a></h4>
+<div class="front-page">
+    <div class="row">
+        <h1>Ibexa developer documentation</h1>
     </div>
-</div>
-
-<div class="card-group">
-    <div class="card text-center">
-        <div class="card-body"><a href="tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform/">
-        <svg class="ez-icon front-page-icon">
-            <use xlink:href="guidelines/ez-icons.svg#author"></use>
-        </svg>
-        </a></div>
-        <div class="card-footer bg-transparent">
-            <p class="card-text"><a href="tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform/" class="card-link">Tutorials</a></p>
+    <div class="row mt-5 pb-4">
+        <div class="col-lg px-2 px-lg-4">
+            <div class="tile">
+                <div class="row">
+                    <div class="col-lg">
+                        <h5 class="tile-title">
+                            <svg class="tile-icon align-middle" width="32" height="32">
+                                <use fill="var(--ibexa-jazzberry)" xlink:href="images/ez-icons.svg#publish"></use>
+                            </svg>
+                            Installation
+                        </h5>
+                        <div class="tile-body">
+                            <ol>
+                                <li><a href="getting_started/requirements/">Requirements</a></li>
+                                <li><a href="getting_started/install_ez_platform/">Install Ibexa Platform</a></li>
+                                <li><a href="getting_started/first_steps/">First steps</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg px-2">
+            <div class="tile">
+                <div class="row">
+                    <div class="col-lg">
+                        <h5 class="tile-title">
+                            <svg class="tile-icon align-middle" width="32" height="32">
+                                <use fill="var(--ibexa-jazzberry)" xlink:href="images/ez-icons.svg#about"></use>
+                            </svg>
+                            Tutorials
+                        </h5>
+                        <div class="tile-body">
+                            <ul>
+                                <li><a href="tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform/">Platform beginner</a></li>
+                                <li><a href="tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world/">DXP beginner</a></li>
+                                <li><a href="tutorials/generic_field_type/creating_a_point2d_field_type/">Generic Field Type</a></li>
+                                <li><a href="tutorials/extending_admin_ui/extending_admin_ui/">Extending Admin UI</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg px-2 px-lg-4">
+            <div class="tile">
+                <div class="row">
+                    <div class="col-lg">
+                        <h5 class="tile-title">
+                            <svg class="tile-icon align-middle" width="32" height="32">
+                                <use fill="var(--ibexa-jazzberry)" xlink:href="images/ez-icons.svg#settings-config"></use>
+                            </svg>
+                            Guide to Ibexa DXP
+                        </h5>
+                    <div class="tile-body">
+                        <ul>
+                            <li><a href="guide/content_rendering/">Content rendering</a></li>
+                            <li><a href="guide/search/search/">Search</a></li>
+                            <li><a href="releases/ibexa_dxp_v3.2/">Releases</a></li>
+                            <li><a href="api/public_php_api/">API</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="card text-center">
-        <div class="card-body"><a href="getting_started/install_ez_platform/">
-        <svg class="ez-icon front-page-icon">
-            <use xlink:href="guidelines/ez-icons.svg#publish"></use>
-        </svg></a></div>
-        <div class="card-footer bg-transparent">
-            <p class="card-text"><a href="getting_started/install_ez_platform/" class="card-link">Installation</a></p>
+    </div>
+    <div class="row mt-5">
+        <div class="col-lg-4 mb-5 most-popular">
+            <h5>
+                Most popular topics
+                <svg class="tile-icon" width="15" height="15">
+                    <use fill="var(--ibexa-jazzberry)" xlink:href="images/ez-icons.svg#bookmark-active"></use>
+                </svg>
+            </h5>
+                <ul>
+                    <li><a href="guide/twig_functions_reference/">Twig functions</a></li>
+                    <li><a href="guide/http_cache/">HTTP cache</a></li>
+                    <li><a href="guide/search/solr/">Solr search engine</a></li>
+                    <li><a href="guide/images/">Images</a></li>
+                </ul>
+        </div>
+        <div class="col-lg-8 mb-5 latest-release">
+            <h5>
+                The latest release
+                <span class="badge">v3.2</span>
+            </h5>
+            <div class="row mt-3">
+                <div class="col-lg-5">The <a href="releases/ibexa_dxp_v3.2/">latest version of Ibexa DXP is v3.2</a>. It is a Fast Track release, and it was released on October 23, 2020.
+                </div>
+                <div class="col-sm-7 features">
+                    <ul>
+                        <li><a href="releases/ibexa_dxp_v3.2/#new-ui">New Back Office UI</a></li>
+                        <li><a href="releases/ibexa_dxp_v3.2/#dam-connector">DAM connector</a></li>
+                        <li><a href="releases/ibexa_dxp_v3.2/#aggregation-api">Aggregation API</a></li>
+                        <li><a href="releases/ibexa_dxp_v3.2/#targeting-block-and-segmentation-api">Targeting block</a></li>
+                        <li><a href="releases/ibexa_dxp_v3.2/#autosave">Autosave</a></li>
+                        <li><a href="releases/ibexa_dxp_v3.2/#twig-helpers-for-content-rendering">New Twig helpers</a></li>
+                        <li><a href="releases/ibexa_dxp_v3.2/#jwt-authentication">JWT authentication</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="card text-center">
-        <div class="card-body"><a href="guide/architecture/">
-        <svg class="ez-icon front-page-icon">
-            <use xlink:href="guidelines/ez-icons.svg#object-state"></use>
-        </svg>
-        </a></div>
-        <div class="card-footer bg-transparent">
-            <p class="card-text"><a href="guide/architecture/" class="card-link">Guide to eZ Platform</a></p>
-        </div>
-    </div>
-</div>
-
-<div class="card-group">
-<div class="card">
-  <div class="card-header">Other topics</div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item"><a href="releases/ibexa_dxp_v3.2/" class="card-link">Releases</a></li>
-    <li class="list-group-item"><a href="updating/upgrading_to_v3/" class="card-link">Migration</a></li>
-    <li class="list-group-item"><a href="community_resources/resources/" class="card-link">Community resources</a></li>
-  </ul>
-</div>
-<div class="card">
-  <div class="card-header">Further documentation</div>
-  <ul class="list-group list-group-flush">
-      <li class="list-group-item"><a href="https://doc.ezplatform.com/projects/userguide/en/latest/" class="card-link">User Guide</a></li>
-    <li class="list-group-item"><a href="https://doc.ez.no/display/EZP/eZ+Publish+5.x+Developer+Documentation" class="card-link">eZ Publish 5</a></li>
-    <li class="list-group-item"><a href="https://doc.ez.no/eZ-Publish" class="card-link">eZ Publish Legacy documentation</a></li>
-  </ul>
-</div>
-</div>
-
-<div class="card-group">
-<div class="card">
-  <div class="card-header">Latest release (v3.2) major features:</div>
-  <div class="card">
-      <div class="card-body">
-          <ul>
-            <li>New Back Office UI</li>
-            <li>DAM connector</li>
-            <li>Aggregation API</li>
-            <li>Targeting block</li>
-            <li>Autosave</li>
-            <li>New Twig helpers</li>
-            <li>JWT authentication</li>
-          </ul>
-          <p>See <a href="releases/ibexa_dxp_v3.2/" class="card-link">3.2 release notes</a> for more information</p>
-      </div>
-  </div>
-</div>
-</div>
-
-
-<div class="card text-center">
-  <div class="card-header">See <a href="https://ezplatform.com/Product-Feedback" class="card-link">our roadmap</a> for an overview of features planned for future releases.</div>
 </div>
