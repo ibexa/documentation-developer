@@ -247,6 +247,61 @@ Users are treated like other content, so to create and modify them the User need
 || `create` |create Segment Groups|
 || `update` |update Segment Groups|
 || `remove` |remove Segment Groups|
+|`siso_policy`|`checkout`|access the checkout process|
+||`configuration_list`|
+||`update_exchange_rates`|
+||`edit_invoice`|
+||`edit_delivery`|
+||`delegate`|
+||`dashboard_view`|access the Back Office cockpit|
+||`forms_profile_edit`|access the user profile|
+||`manage_orders`|
+||`manage_rating`|
+||`manage_prices`|
+||`manage_stock`|
+||`manage_shipping_costs`|
+||`manage_config`|
+||`lostorder_list`|access the lost orders in the Back Office|
+||`lostorder_manage`||
+||`lostorder_process`||
+||`order_list`|
+||`orderhistory_view`|
+||`checkout`|
+||`quickorder`|access the quick order|
+||`read_basket`|see the basket|
+||`write_basket`|modify the basket (add, update, delete)|
+||`see_product_price`|
+||`translations`|
+||`rating_review`|
+||`read_customers_and_orders`|
+|`siso_customercenter`|`approve`|approve baskets in the customer center|
+||`buy`|buy as the customer center user|
+||`view`|access the customer center user management|
+|`siso_control_center`|`manage_erp_log`||
+||`manage_emails`||
+||`manage_jobs:`||
+||`manage_exports`||
+||`manage_imports`||
+||`manage_erp`||
+||`api_erp`||
+||`api_jobs`||
+||`api_econtent`||
+
+## Permissions for routes
+
+You can limit access to specific routes per Policy:
+
+``` yaml
+siso_quick_order:
+    path: /quickorder
+    defaults:
+        _controller: siso_quick_order.quick_order_controller:quickOrderAction
+        policy: siso_policy/quickorder
+```
+
+This configuration can be used to check if a user has a single Policy.
+If you need more complex rules, e.g. to check the Section or check multiple Policies at once,
+implement a permission check in the controller.
 
 ## Permissions for custom controllers
 

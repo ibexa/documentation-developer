@@ -1,4 +1,4 @@
-# Customers API
+# Customer API
 
 ## Retrieving data in PHP
 

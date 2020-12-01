@@ -1,6 +1,6 @@
 # TokenController logging
 
-If a token is processed with the [TokenController](../user_management/token/tokencontroller.md),
+If a token is processed with the [TokenController](../user_management/token.md),
 it is logged in a file or database. By default, the configuration uses database logging:
 
 `ses_gdpr_log`:

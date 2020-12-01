@@ -16,7 +16,7 @@ The built-in Roles than allow using the shop are:
 - Ecommerce checkout
 - Ecommerce registered users
 
-[[= product_name_com =]] adds [special shop-related Policies](../user_management/access_control.md#ez-commerce-policies).
+[[= product_name_com =]] adds [special shop-related Policies](../permissions.md#available-policies).
 
 ## User registration
 

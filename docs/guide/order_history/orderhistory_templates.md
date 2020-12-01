@@ -9,7 +9,7 @@
 |`vendor/silversolutions/silver.orderhistory/src/Siso/Bundle/OrderHistoryBundle/Resources/views/OrderHistory/detail.html.twig`|Renders the detail view of the requested document.|
 |`vendor/silversolutions/silver.orderhistory/src/Siso/Bundle/OrderHistoryBundle/Resources/views/OrderHistory/Components/header_default.html.twig`|Renders the header information for document detail. Included in `views/OrderHistory/detail.html.twig`.|
 |`vendor/silversolutions/silver.orderhistory/src/Siso/Bundle/OrderHistoryBundle/Resources/views/OrderHistory/Components/fields.html.twig`|Contains blocks that render the content of the requested field for columns (defined in the configuration). Included in `views/OrderHistory/Components/list_table.html.twig` and `views/OrderHistory/detail.html.twig`.|
-|`vendor/silversolutions/silver.orderhistory/src/Siso/Bundle/OrderHistoryBundle/Resources/views/OrderHistory/Components/user_menu.html.twig`|See [User menu](../customers/customers_faq.md).|
+|`vendor/silversolutions/silver.orderhistory/src/Siso/Bundle/OrderHistoryBundle/Resources/views/OrderHistory/Components/user_menu.html.twig`||
 
 ## Custom Twig functions
 

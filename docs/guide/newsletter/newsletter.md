@@ -1,28 +1,18 @@
 # Newsletter
 
-[[= product_name_com =]] offers a newsletter interface. This allows the user to subscribe to newsletters
+[[= product_name_com =]] offers a newsletter interface. It allows the user to subscribe to newsletters
 and see the newsletter status or update newsletter details information in their profile.
 
-There is no specific newsletter provider connection configured out of the box.
+There is no specific newsletter configured out of the box.
 The standard offers only processes, templates, routes, configurations and an interface which can be used for newsletter integration.
 A newsletter provider service with specific API implementation of this provider has to be implemented separately.
 
-## Newsletter features in [[= product_name_com =]]
-
-- Double-opt-in process when a user subscribes to the newsletter
-- User can subscribe from the newsletter box
-- User can subscribe during the registration process
-- User can subscribe and unsubscribe from their profile
-- User can update their newsletter details from their profile
-- User newsletter details are updated after ordering in the checkout
-- The newsletter status is fetched from the newsletter provider after the login and the user sees the status in their profile.
+The newsletter status is fetched from the newsletter provider after the login and the user sees the status in their profile.
 The newsletter status is stored in customer profile data together with the list of IDs of newsletter topics, so it can be rendered in the template if required.
 
 ``` html+twig
-{# true if user subscribed at least one newsletter #}
 {{ ses.profile.sesUser.subscribesNewsletter }}
 
-{# list of subscribed newsletter ids #}
 {% set dataMap = ses.profile.getDataMap.dataMap %}
 {% set newsletters = dataMap.subscribed_list_ids %}
 {% if newsletters|default is not empty %}
@@ -30,6 +20,22 @@ The newsletter status is stored in customer profile data together with the list 
     {{ newsletter }}
   {% endfor %}
 {% endif %}
+```
+
+## Configuration
+
+General newsletter configuration is located in `newsletter.yml`:
+
+``` yaml
+parameters:
+    # you can disable the newsletter module here
+    siso_newsletter.default.newsletter_active: true
+    # enable if you want to support several newsletter topics
+    siso_newsletter.default.support_several_newsletters: false
+    # if enabled, user will be unsubscribed from all newsletters (topics) at once
+    siso_newsletter.default.unsubscribe_globally: true
+    # if enabled also logged in users will see the newsletter box
+    siso_newsletter.default.display_newsletter_box_for_logged_in_users: true
 ```
 
 ### Default attributes
@@ -48,10 +54,11 @@ Following attributes are offered by default. These attributes are sent to the ne
 
 ### Additional attributes
 
-There are places where you can add or modify additional user data and send it to newsletter provider.
+There are places where you can add or modify additional user data and send it to a newsletter provider.
+You can do it:
 
-- Before a user subscribes to the newsletter. By default the user language (current locale) is sent.
-- After the user updates their profile or creates an order. By default the newsletter details are updated with latest information about:
+- before a user subscribes to the newsletter. By default the user language (current locale) is sent.
+- after the user updates their profile or creates an order. By default the newsletter details are updated with latest information about:
     - `last_order_date` - date when last order was made 
     - `last_order_amount` - order amount from last order
     - `order_amount_total` - total order amount for the user
@@ -61,15 +68,31 @@ but you have to implement a custom event listener for that.
 
 Attributes that do not exist in the newsletter provider have to be created first.
 
-## Double-opt-in process
+#### Additional newsletter data
 
-When a user subscribes to a newsletter throught the shop (newsletter box, registration, profile),
-the shop first checks if the user already exists in the newsletter provider.
-It can happen that the user had already subscribed in the past.
+To send additional data to the newsletter provider, you need to implement an event listener
+that listens to `subscribe_newsletter_event` or `update_newsletter_event`.
 
-If the user is not known to the newsletter provider, the double opt-in process is started.
+``` php
+public function setCustomParameters(SubscribeNewsletterEvent $event)
+{
+    $customerProfileData = $event->getCustomerProfileData();
+    $params = $event->getParams();
 
-User data is stored in the shop in a [token](../user_management/token/token.md) and the user receives an email where they have to confirm their email address.
+    if ($customerProfileData instanceof CustomerProfileData && !array_key_exists('order_amount', $params)) {
+        $userId = $customerProfileData->sesUser->sesUserObjectId;
+        /** fetch the amount of all user orders */
+        $orderAmount = $this->basketRepository->getUserOrdersAmount($userId);
+        $params['order_amount'] = $orderAmount;
+    }
 
-After the user clicks the link in the confirmation email, the token is invalidated and the user is subscribed to the newsletter.
-If they are logged in, they can immediately update the status in their profile.
+    $event->setParams($params);
+}
+```
+
+``` xml
+<service id="project.newsletter.subscribe_newsletter_listener" class="%project.newsletter.subscribe_newsletter_listener.class%">
+    <argument type="service" id="project.basket_repository"/>  
+    <tag name="kernel.event_listener" event="subscribe_newsletter_event" method="setCustomParameters" />
+</service>
+```
