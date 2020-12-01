@@ -1,4 +1,101 @@
-/* Front page */
-.front-page-icon {
-    fill: #f15a10;
+.front-page h1 {
+    font-size: 32px;
+    font-weight: 600;
+    padding-left: 1.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.tile {
+    box-sizing: border-box;
+    border: 1px solid #D4D4D4;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    padding: 1rem 3rem 2rem 2rem;
+    height: 100%;
+}
+
+h5.tile-title {
+    color: #131C26;
+    font-family: "Noto Sans";
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 50px;
+    padding-left: 1rem;
+}
+
+.tile-icon {
+    margin-right: 1.2rem;
+}
+
+.tile-body {
+    margin-left: 5.2rem;
+}
+
+.tile-body ul {
+    padding-left: 0;
+}
+
+.tile-body ul li {
+    list-style-type: none;
+    background: url(../images/page.svg) no-repeat left top;
+    background-size: 15px 18px;
+    padding-left: 2rem;
+    margin-left: 0.5rem;
+}
+
+.front-page ul li::marker {
+    color: var(--ibexa-jazzberry);
+}
+
+.tile-body ol, .tile-body ul {
+    margin-left: 0;
+}
+
+.most-popular h5 {
+    background-color: rgba(216,216,216,0.27);
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 18px;
+    padding: 8px 14px;
+    margin-bottom: 2rem;
+}
+
+.most-popular ul {
+    list-style-position: inside;
+    margin-left: 0px;
+}
+
+.most-popular ul li {
+    border-bottom: 1px solid #D8D8D8;
+    margin-left: 0px;
+    padding-left: 1rem;
+}
+
+.latest-release h5 {
+    border-bottom: 3px solid #D8D8D8;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 24px;
+    padding-bottom: 15px;
+}
+
+.latest-release {
+    line-height: 32px;
+}
+
+.features {
+    column-count: 2;
+}
+
+.features ul li {
+    margin-bottom: 0;
+}
+
+.front-page .badge {
+    background-color: var(--ibexa-jazzberry);
+    border-radius: 2.18px;
+    padding: 3px 8px;
+    color: var(--white);
+    font-size: 9px;
+    font-weight: 500;
 }

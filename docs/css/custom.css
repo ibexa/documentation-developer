@@ -22,7 +22,7 @@
     --table-header: rgb(89,96,103);
     --code-highlight: rgb(253,230,198);
     
-    --link: rgb(56,152,175);
+    --link: rgb(0,71,206);
 }
 
 @font-face {
@@ -48,18 +48,16 @@ body {
     -webkit-font-smoothing: initial;
 }
 
-@media (min-width: 1600px) {
-    .md-grid {
-        max-width: 1600px;
-    }
+.md-grid {
+    max-width: 100%;
+}
 
-    .md-sidebar--secondary {
-        margin-left: 1600px
-    }
+.md-sidebar--secondary {
+    margin-left: 100%;
+}
 
-    [dir=rtl] .md-sidebar--secondary {
-        margin-right: 1600px;
-    }
+[dir=rtl] .md-sidebar--secondary {
+    margin-right: 100%;
 }
 
 .md-typeset {
