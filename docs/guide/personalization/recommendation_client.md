@@ -42,7 +42,7 @@ Import additional routing by adding the following lines to your `config/routes.y
 
 ``` yaml
 ezplatform_recommendation_client_rest:
-    resource: '@EzRecommendationClientBundle/Resources/config/routing_rest.yml'
+    resource: '@EzRecommendationClientBundle/Resources/config/routing_rest.yaml'
     prefix: '%ezpublish_rest.path_prefix%'
 ```
 
@@ -73,7 +73,7 @@ Allow public HTTP(S) access to the recommendation bundle API (`<yourdomain>/api/
     If your organization's policy is to use BASIC AUTH on the API interfaces,
     you need to add specific configuration.
 
-You can define access restrictions on your site in `app/config/security.yml`.
+You can define access restrictions on your site in `app/config/security.yaml`.
 
 ``` yaml
 security:
@@ -91,7 +91,7 @@ security:
 Create a User with the name of the customerID and a password which is the license key in your local security provider.
 This User must have access granted on the URLs provided by the bundle API (see above).
 In order to tell the recommender to use this User and password to request resources on the [[= product_name_oss =]] instance,
-you can configure this as follows (an example file is available in the bundle under `Resources/config/default_settings.yml`):
+you can configure this as follows (an example file is available in the bundle under `Resources/config/default_settings.yaml`):
 
 ``` yaml
 ezrecommendation:
@@ -121,7 +121,7 @@ Visitor events (clicks, buys, etc.) on the site need to be sent to the Recommend
 The Content Types that are tracked are also exported to the engine.
 Tracking Content Types is required for displaying recommendations.
 
-You define Content Types to track in the local `app/config/config.yml` file.
+You define Content Types to track in the local `app/config/config.yaml` file.
 The content will then be initially exported by a script.
 After this, it will be kept in sync with the Personalization Solution every time a change occurs in the [[= product_name_oss =]] Back Office.
 
@@ -154,7 +154,7 @@ ezrecommendation:
 #### Advanced configuration
 
 If the Content item's intro, author or image are stored in a different Field,
-you can specify its name in the `parameters.yml` file:
+you can specify its name in the `parameters.yaml` file:
 
 ``` yaml
 ezrecommendation:
@@ -588,7 +588,7 @@ For example, to retrieve the `rss` variation of the image, use:
 ### Logging
 
 Most operations are logged via the `ez_recommendation` [Monolog channel](http://symfony.com/doc/5.0/cookbook/logging/channels_handlers.html).
-To log everything about Recommendation to `dev.recommendation.log`, add the following to your `config.yml`:
+To log everything about Recommendation to `dev.recommendation.log`, add the following to your `config.yaml`:
 
 ``` yaml
 monolog:
