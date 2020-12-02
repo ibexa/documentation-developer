@@ -73,7 +73,7 @@ Allow public HTTP(S) access to the recommendation bundle API (`<yourdomain>/api/
     If your organization's policy is to use BASIC AUTH on the API interfaces,
     you need to add specific configuration.
 
-You can define access restrictions on your site in `app/config/security.yaml`.
+You can define access restrictions on your site in `config/packages/security.yaml`.
 
 ``` yaml
 security:
@@ -121,11 +121,11 @@ Visitor events (clicks, buys, etc.) on the site need to be sent to the Recommend
 The Content Types that are tracked are also exported to the engine.
 Tracking Content Types is required for displaying recommendations.
 
-You define Content Types to track in the local `app/config/config.yaml` file.
+You define Content Types to track in the `config/packages/ezplatform.yaml` file.
 The content will then be initially exported by a script.
 After this, it will be kept in sync with the Personalization Solution every time a change occurs in the [[= product_name_oss =]] Back Office.
 
-The bundle's configuration is SiteAccess-aware. This is an example of the settings (in `config.yaml`):
+The bundle's configuration is SiteAccess-aware, and can resemble the following example:
 
 ``` yaml
 ezrecommendation:
@@ -154,7 +154,7 @@ ezrecommendation:
 #### Advanced configuration
 
 If the Content item's intro, author or image are stored in a different Field,
-you can specify its name in the `parameters.yaml` file:
+you can specify its name in the `ezplatform.yaml` file:
 
 ``` yaml
 ezrecommendation:
@@ -588,7 +588,7 @@ For example, to retrieve the `rss` variation of the image, use:
 ### Logging
 
 Most operations are logged via the `ez_recommendation` [Monolog channel](http://symfony.com/doc/5.0/cookbook/logging/channels_handlers.html).
-To log everything about Recommendation to `dev.recommendation.log`, add the following to your `config.yaml`:
+To log everything about Recommendation to `dev.recommendation.log`, add the following to the `ezplatform.yaml`:
 
 ``` yaml
 monolog:
