@@ -105,16 +105,16 @@ class DefaultController extends Controller
 {# languages.html.twig #}
 
 {# Looping over all available languages to display the links #}
-{% for lang in ezpublish.availableLanguages %}
+{% for lang in ezplatform.availableLanguages %}
     {# This time, alter the "siteaccess" parameter directly. #}
-    {# You get the right SiteAccess with the help of ezpublish.translationSiteAccess() helper #}
-    {% do routeRef.set( "siteaccess", ezpublish.translationSiteAccess( lang ) ) %}
+    {# You get the right SiteAccess with the help of ezplatform.translationSiteAccess() helper #}
+    {% do routeRef.set( "siteaccess", ezplatform.translationSiteAccess( lang ) ) %}
     <a href="{{ ez_url( routeRef ) }}">{{ lang }}</a><br />
 {% endfor %}
 ```
 
-- `ezpublish.translationSiteAccess( language )` returns the SiteAccess name for provided language (or `null` if it cannot be found)
-- `ezpublish.availableLanguages()` returns the list of available languages.
+- `ezplatform.translationSiteAccess( language )` returns the SiteAccess name for provided language (or `null` if it cannot be found)
+- `ezplatform.availableLanguages()` returns the list of available languages.
 
 ### Using PHP
 
