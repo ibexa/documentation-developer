@@ -248,44 +248,30 @@ Users are treated like other content, so to create and modify them the User need
 || `update` |update Segment Groups|
 || `remove` |remove Segment Groups|
 |`siso_policy`|`checkout`|access the checkout process|
-||`configuration_list`|
-||`update_exchange_rates`|
-||`edit_invoice`|
-||`edit_delivery`|
-||`delegate`|
+||`edit_invoice`|edit invoice address|
+||`edit_delivery`|edit delivery address|
+||`delegate`|access delegate screen|
 ||`dashboard_view`|access the Back Office cockpit|
 ||`forms_profile_edit`|access the user profile|
-||`manage_orders`|
-||`manage_rating`|
-||`manage_prices`|
-||`manage_stock`|
-||`manage_shipping_costs`|
-||`manage_config`|
+||`manage_orders`|access Order Management screen|
+||`manage_prices`|work in Price management tab|
+||`manage_stock`|work in Stock management tab|
+||`manage_shipping_costs`|work in Shipping costs management tab|
+||`manage_config`|access eCommerce configuration settings|
 ||`lostorder_list`|access the lost orders in the Back Office|
-||`lostorder_manage`||
-||`lostorder_process`||
-||`order_list`|
-||`orderhistory_view`|
-||`checkout`|
+||`lostorder_manage`|manage lost orders|
+||`lostorder_process`|process lost orders|
+||`orderhistory_view`|view Order history|
 ||`quickorder`|access the quick order|
 ||`read_basket`|see the basket|
 ||`write_basket`|modify the basket (add, update, delete)|
-||`see_product_price`|
-||`translations`|
-||`rating_review`|
-||`read_customers_and_orders`|
+||`see_product_price`|see product prices in the catalog|
 |`siso_customercenter`|`approve`|approve baskets in the customer center|
 ||`buy`|buy as the customer center user|
 ||`view`|access the customer center user management|
-|`siso_control_center`|`manage_erp_log`||
-||`manage_emails`||
-||`manage_jobs:`||
-||`manage_exports`||
-||`manage_imports`||
-||`manage_erp`||
-||`api_erp`||
-||`api_jobs`||
-||`api_econtent`||
+|`siso_control_center`|`manage_erp_log`|access to ERP logs|
+||`manage_emails`|access Control center email archive|
+||`manage_jobs:`|access Control center e-commerce jobs|
 
 ## Permissions for routes
 
