@@ -283,7 +283,7 @@ class CustomController extends Controller
 
 ### Paginating search results
 
-To paginate search results, it is recommended to use the [Pagerfanta library](https://github.com/whiteoctober/Pagerfanta) and [[[= product_name_oss =]]'s adapters for it.](https://github.com/ezsystems/ezplatform-kernel/tree/v1.0.0/eZ/Publish/Core/Pagination/Pagerfanta)
+To paginate search or filtering results, it is recommended to use the [Pagerfanta library](https://github.com/whiteoctober/Pagerfanta) and [[[= product_name_oss =]]'s adapters for it.](https://github.com/ezsystems/ezplatform-kernel/tree/v1.0.0/eZ/Publish/Core/Pagination/Pagerfanta)
 
 ``` php
 //...
@@ -335,6 +335,8 @@ For more information and examples, see [PagerFanta documentation.](https://githu
 |[`ContentSearchHitAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Pagination/Pagerfanta/ContentSearchHitAdapter.php)|Makes a search against passed Query and returns [SearchHit](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects instead.|
 |[`LocationSearchAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Pagination/Pagerfanta/LocationSearchAdapter.php)|Makes a Location search against passed Query and returns [Location](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Location.php) objects.|
 |[`LocationSearchHitAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Pagination/Pagerfanta/LocationSearchHitAdapter.php)|Makes a Location search against passed Query and  returns [SearchHit](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects instead.|
+|[`ContentFilteringAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/Core/Pagination/Pagerfanta/ContentFilteringAdapter.php)|Applies a Content filter and returns a `ContentList` object.|
+|[`LocationFilteringAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/Core/Pagination/Pagerfanta/LocationFilteringAdapter.php)|Applies a Location filter and returns a `LocationList` object.|
 
 ## Complex search
 
