@@ -245,6 +245,9 @@ Instead of setting `DATABASE_URL`, you can change individual installation parame
     Do not commit the secret to version control systems, or share it with anyone who does not strictly need it.
     If you have any suspicion that the secret may have been exposed, replace it with a new one.
     The same goes for other secrets, like database password, Varnish invalidate token, JWT passphrase, etc.
+    
+    After changing the app secret, make sure that you clear the application cache and log out all the users.
+    For more information, see [Symfony documentation](https://symfony.com/doc/5.0/reference/configuration/framework.html#secret).   
 
     It is recommended to store the database credentials in your `.env.local` file and not commit it to the Version Control System.
 
