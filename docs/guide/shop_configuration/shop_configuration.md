@@ -68,8 +68,6 @@ parameters:
     siso_core.default.user_group_location.private: 388
     siso_core.default.product_catalog_content_type_id: 45
 
-    ezcommerce.installer.migration_files_path: '%kernel.project_dir%/migrations/demo'
-
     one_sky_api_key: my-one-sky-key
     one_sky_secret: my-onesky-password
 ```
