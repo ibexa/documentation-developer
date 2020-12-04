@@ -286,6 +286,24 @@
 
     User Group skeletons are retained after deleting the site.
     
+    ### Define Roles to be automatically updated when a site is created  
+    
+    Role definitions can contain user/login policies with limitations that limit user access to certain sites. 
+    To avoid the need to revisit all Roles and add the newly created SiteAccess to a list of limitations, you can decide that the Roles you select are automatically updated when the site is created.
+    
+    In `config/packages/ezplatform_site_factory.yaml` file, add a list Roles which will have access to he frontend when a Site is created in Site Factory. 
+    
+    For example:
+    
+    ``` yaml
+      ez_platform_site_factory:
+          (...)
+          enabled: true
+          update_roles: [Anonymous, Administrator]
+    ```
+    
+    For more information about Roles and policies, see [Permissions](permissions.md). 
+        
     ## Disable Site Factory
 
     Enabled Site Factory may cause following performance issues:
