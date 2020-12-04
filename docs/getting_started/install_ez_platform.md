@@ -122,6 +122,9 @@ After a moment the installer will ask you to provide a few parameters:
     Do not commit the secret to version control systems, or share it with anyone who does not strictly need it.
     If you have any suspicion that the secret may have been exposed, replace it with a new one.
     The same goes for other secrets, like database password, Varnish invalidate token, JWT passphrase, etc.
+    
+    After changing the app secret, make sure that you clear the application cache and log out all the users.
+    For more information, see [Symfony documentation](https://symfony.com/doc/2.8/reference/configuration/framework.html#secret).
 
 !!! tip
 
