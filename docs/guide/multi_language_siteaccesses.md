@@ -20,7 +20,6 @@ For more details on language versions, see [Languages](internationalization.md).
 1. After saving the new language, refresh the assets by running:
 
 ```bash
-php bin/console assetic:dump
 yarn encore <prod|dev>
 #OR
 php bin/console ezplatform:encore:compile
