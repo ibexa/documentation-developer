@@ -11,7 +11,8 @@
 
 ### Newsletter box
 
-The newsletter box can be rendered as an ESI block or in the Page Builder. The box is cached per user.
+The newsletter box can be rendered as an ESI block or in the Page Builder. 
+The box is cached per user.
 
 All parameters from the block template are available in the box.
 

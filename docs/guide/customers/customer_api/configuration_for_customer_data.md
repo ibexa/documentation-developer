@@ -3,7 +3,7 @@
 ## User Groups for private and business customers
 
 To separate business and private users in one installation, there are two User Groups in the "Shop user" group.
-You can configure those groups using `user_group_location.business` and `user_group_location.private`
+You can configure those groups by using `user_group_location.business` and `user_group_location.private`
 in `config/ecommerce_parameters.yml`:
 
 ``` yaml
@@ -16,7 +16,7 @@ siso_core.default.user_group_location.private: 388
 The shop checks the age of the customer data that is stored in the session.
 If it is too old (past timeout), the shop fetches the data from the ERP again.
 
-The default timeout (in seconds) is configured in `EshopBundle/Resources/config/default_values.yml`:
+You configure the default timeout (in seconds) in `EshopBundle/Resources/config/default_values.yml`:
 
 ``` yaml
 silver_customer.config.default_values.remote_validation_timeout: 600
@@ -28,7 +28,7 @@ You can define VAT handling rules in configuration.
 If `isPriceInclVat` is set to `true`, the customer always sees prices including VAT.
 For B2B shops, the handling can be changed.
 You can override the setting per customer if required (e.g. if the ERP provides this information per customer).
-In some cases the customer does not have to pay VAT at all (for example, for shopping abroad).
+In some cases, the customer does not have to pay VAT at all (for example, for shopping abroad).
 
 ``` yaml
 ses.customer_profile_data.isPriceInclVat: true

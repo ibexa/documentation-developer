@@ -24,7 +24,8 @@ The VAT handling can be defined per User.
 
 ![](../img/customers_vat_setting.png)
 
-Disable **Customer has to pay VAT** if for legal reasons the customer does not have to pay VAT. The shop will not calculate VAT.
+Disable **Customer has to pay VAT** if for legal reasons the customer does not have to pay VAT. 
+The shop will not calculate VAT.
 
 If you disable **Display VAT**, the prices in the shop will be displayed without VAT.
 

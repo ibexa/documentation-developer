@@ -285,7 +285,7 @@ siso_quick_order:
         policy: siso_policy/quickorder
 ```
 
-This configuration can be used to check if a user has a single Policy.
+This configuration can be used to check whether a user has a single Policy.
 If you need more complex rules, e.g. to check the Section or check multiple Policies at once,
 implement a permission check in the controller.
 

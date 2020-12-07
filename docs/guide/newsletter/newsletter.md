@@ -7,7 +7,7 @@ There is no specific newsletter configured out of the box.
 The standard offers only processes, templates, routes, configurations and an interface which can be used for newsletter integration.
 A newsletter provider service with specific API implementation of this provider has to be implemented separately.
 
-The newsletter status is fetched from the newsletter provider after the login and the user sees the status in their profile.
+The newsletter status is fetched from the newsletter provider after the user logs in, and displayed in the user's profile.
 The newsletter status is stored in customer profile data together with the list of IDs of newsletter topics, so it can be rendered in the template if required.
 
 ``` html+twig
@@ -58,7 +58,7 @@ There are places where you can add or modify additional user data and send it to
 You can do it:
 
 - before a user subscribes to the newsletter. By default the user language (current locale) is sent.
-- after the user updates their profile or creates an order. By default the newsletter details are updated with latest information about:
+- after the user updates their profile or creates an order. By default, the newsletter details are updated with latest information about:
     - `last_order_date` - date when last order was made 
     - `last_order_amount` - order amount from last order
     - `order_amount_total` - total order amount for the user
@@ -70,7 +70,7 @@ Attributes that do not exist in the newsletter provider have to be created first
 
 #### Additional newsletter data
 
-To send additional data to the newsletter provider, you need to implement an event listener
+To send additional data to the newsletter provider, implement an event listener
 that listens to `subscribe_newsletter_event` or `update_newsletter_event`.
 
 ``` php

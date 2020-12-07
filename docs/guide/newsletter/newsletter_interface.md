@@ -37,15 +37,15 @@ The `doesUserExistInNewsletter` method returns true if a user exists in the news
 This method checks if the user is known to the newsletter provider, but does not evaluate the status
 (whether the user subscribes to the newsletter).
 
-The goal of this method is to find out if a user exists in the database of the newsletter provider (active/inactive),
+The goal of this method is to find out whether a user exists in the database of the newsletter provider (active/inactive),
 because even if the user is inactive, they probably already confirmed their email address in the past
 (e.g. through the double opt-in process).
 
 ## doesUserSubscribeNewsletter
 
 The `doesUserSubscribeNewsletter` method reads the user newsletter status - whether the user subscribes to the newsletter - from the provider.
-If `customerProfileData` is given, attributes from `customerProfileData` are used to check the newsletter status,
-otherwise the required attributes must be specified in `params`.
+If `customerProfileData` is given, attributes from `customerProfileData` are used to check the newsletter status.
+Otherwise, the required attributes must be specified in `params`.
 
 Returns a list with the newsletter IDs and whether the action was successful (true/false).
 

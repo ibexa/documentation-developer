@@ -1,9 +1,9 @@
 # Token
 
 [[= product_name_com =]] uses the token system in the registration process to create a double opt-in possibility.
-The token service can generate a unique token which is valid for a given time.
+The token service can generate a unique token that is valid for a given time.
 
-After user registration a token is created and stored in the database.
+After user registration, a token is created and stored in the database.
 When the user clicks the URL that they receive in an email, the token is validated and fetched from the database.
 After the user has been activated, the token is removed from the database.
 
@@ -13,8 +13,8 @@ A token contains:
 
 - `userId`
 - parameters 
-- the time in which it is valid
-- a service and method which are called if a customer uses the link with the token
+- the time for which it is valid
+- a service and method that are called if a customer uses the link with the token
 
 ``` php
 use Silversolutions\Bundle\ToolsBundle\Entity\Token;
@@ -38,11 +38,11 @@ $token = $this->tokenService->createToken(
 
 ## Using the token
 
-You can use the token in the built-in token controller to call a service and method, or in a custom controller or service.
+You can use the token in the built-in token controller when calling a service and method, or in a custom controller or service.
 
 ### Checking the token
 
-The token can be checked using `TokenService`. It returns the parameters stored when the token was created: 
+The token can be checked with the `TokenService`. It returns the parameters that were stored when the token was created: 
 
 ``` php
 $userToken = "12909dmsd912912"; // e.g. from the Request
@@ -55,14 +55,14 @@ $tokenParameter = $token->getActionServiceMethodParameter();
 
 #### TokenController
 
-You can use the token to distribute unique links to customers.
+You can use the token to deliver unique links to customers.
 
 `TokenController` is available at the `/token/[token]` route, for example: `/token/124f564f6d4df4fd3fd4df34fd34fd`.
 
-`TokenController` is called to process a token, e.g. after user registration when the user clicks the activation link.
-This controller loads the token from the database, activates the user account and invalidates the token.
+`TokenController` is called to process a token, for example, after user registration when the user clicks the activation link.
+The controller loads the token from the database, activates the user account and invalidates the token.
 
-Each token has the following attributes to process the token-specific logic:
+Each token has the following attributes that are processed by the token-specific logic:
 
 - `actionServiceId`
 - `actionServiceMethod`
