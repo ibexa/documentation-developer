@@ -12,7 +12,7 @@ See full documentation of custom tags in [Extending the Online Editor](../../ext
 First, create a file that will contain the configuration for the custom tags.
 Add file `custom_tags.yaml` to `config/packages`:
 
-``` yaml hl_lines="5 10"
+``` yaml hl_lines="5 25"
 ezplatform:
     system:
         admin_group:
@@ -51,7 +51,7 @@ ezrichtext:
 ```
 
 The configuration first lists all custom tags that you have in the configuration (line 5) - in this case `factbox`.
-`factbox` is then configured. Line 10 points to the template used to render the tag.
+`factbox` is then configured. Line 25 points to the template used to render the tag.
 Then attributes of the custom tag are listed. These attributes can be set when adding the tag to a RichText Field.
 
 ## Create a template
