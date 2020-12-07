@@ -40,109 +40,18 @@ You can control whether a User or User Group is able to translate content or not
 
 In addition, you can also control the access to the global translation list by using the Content/Translations Policy. This Policy allows users to add and remove languages from the global translation list.
 
-## Exposing translations to the user
-
-Once more than one language is defined in the global translation list and there is content in different languages, the question is how can this be exposed to use by the visitor. There are two ways to do this:
-
-1. Implement a mechanism called [language switcher](#language-switcher). It lets you create links to switch between different translations of a Content item.
-1. If you want to have completely separate versions of the website, each with content in its own language, you can [use SiteAccesses](#using-siteaccesses-for-handling-translations). In this case, depending on the URI used to access the website, a different site will open, with a language set in configuration settings. All Content items will then be displayed in this language. For details, see [Multi-language SiteAccesses](multi_language_siteaccesses.md).
-
-## Language switcher
-
-When viewing a Content item, it may be useful to let the user switch from one translation to another, more appropriate to them. This is precisely the goal of the language switcher.
-
-The language switcher relies on the [Cross-SiteAccess linking feature](siteaccess.md#cross-siteaccess-links) to generate links to the Content item's translation, and on RouteReference feature.
-
-#### In a template
-
-To generate a language switch link, you need to generate the `RouteReference`, with the `language` parameter. This can easily be done with the `ez_route()` Twig function:
-
-``` html+twig
-{# Given that "location" variable is a valid Location object #}
-<a href="{{ ez_url( ez_route( location, {"language": "fre-FR"} ) ) }}">{{ ez_content_name( content ) }}</a>
-
-{# Generating a link to a declared route instead of Location #}
-<a href="{{ ez_url( ez_route( 'my_route', {"language": "fre-FR"} ) ) }}">My link</a>
-```
-
-You can also omit the route, in this case, the current route will be used (i.e. switch the current page):
-
-``` html+twig
-{# Using Twig named parameters #}
-<a href="{{ ez_url( ez_route( params={"language": "fre-FR"} ) ) }}">My link</a>
-
-{# Identical to the following, using ordered parameters #}
-<a href="{{ ez_url( ez_route( null, {"language": "fre-FR"} ) ) }}">My link</a>
-```
-
-### Using sub-requests
-
-When using sub-requests, you lose the context of the master request (e.g. current route, current location, etc.). This is because sub-requests can be displayed separately, with [ESI](templates.md#rendering-and-cache).
-
-If you want to render language switch links in a sub-request with a correct `RouteReference`, you must pass it as an argument to your sub-controller from the master request.
-
-``` html+twig
-{# Render the language switch links in a sub-controller #}
-{{ render( controller( 'App\Controller\DefaultController::languagesAction', {'routeRef': ez_route()} ) ) }}
-```
-
-``` php
-namespace App\Controller;
-
-use eZ\Bundle\EzPublishCoreBundle\Controller;
-use eZ\Publish\Core\MVC\Symfony\Routing\RouteReference;
-
-class DefaultController extends Controller
-{
-    public function languagesAction( RouteReference $routeRef )
-    {
-        return $this->render( 'languages.html.twig', [ 'routeRef' => $routeRef ] );
-    }
-}
-```
-
-``` html+twig
-{# languages.html.twig #}
-
-{# Looping over all available languages to display the links #}
-{% for lang in ezplatform.availableLanguages %}
-    {# This time, alter the "siteaccess" parameter directly. #}
-    {# You get the right SiteAccess with the help of ezplatform.translationSiteAccess() helper #}
-    {% do routeRef.set( "siteaccess", ezplatform.translationSiteAccess( lang ) ) %}
-    <a href="{{ ez_url( routeRef ) }}">{{ lang }}</a><br />
-{% endfor %}
-```
-
-- `ezplatform.translationSiteAccess( language )` returns the SiteAccess name for provided language (or `null` if it cannot be found)
-- `ezplatform.availableLanguages()` returns the list of available languages.
-
-### Using PHP
-
-You can generate language switch links from PHP too, with the `RouteReferenceGenerator` service:
-
-``` php
-// Assuming you're in a controller
-/** @var \eZ\Publish\Core\MVC\Symfony\Routing\Generator\RouteReferenceGeneratorInterface $routeRefGenerator */
-$routeRefGenerator = $this->get( 'ezpublish.route_reference.generator' );
-$routeRef = $routeRefGenerator->generate( $location, [ 'language' => 'fre-FR' ] );
-$link = $this->generateUrl( $routeRef );
-```
-
-You can also retrieve all available languages with the `TranslationHelper`:
-
-``` php
-/** @var \eZ\Publish\Core\Helper\TranslationHelper $translationHelper */
-$translationHelper = $this->get( 'ezpublish.translation_helper' );
-$availableLanguages = $translationHelper->getAvailableLanguages();
-```
-
 ## Using SiteAccesses for handling translations
 
-Another way of using multiple languages is setting up a separate SiteAccess for each language.
+If you want to have completely separate versions of the website, each with content in its own language,
+you can [use SiteAccesses](#using-siteaccesses-for-handling-translations).
+Depending on the URI used to access the website, a different site will open, with a language set in configuration settings.
+All Content items will then be displayed in this language.
 
-### Explicit *translation SiteAccesses*
+For details, see [Multi-language SiteAccesses](multi_language_siteaccesses.md).
 
-Configuration is not mandatory, but can help to distinguish which SiteAccesses can be considered *translation SiteAccesses*.
+### Explicit translation SiteAccesses
+
+Configuration is not mandatory, but can help to distinguish which SiteAccesses can be considered translation SiteAccesses.
 
 ``` yaml
 ezplatform:
@@ -176,9 +85,9 @@ ezplatform:
 
 !!! note
 
-    The top prioritized language is always used the SiteAccess language reference (e.g. `fre-FR` for `fre` SiteAccess in the example above).
+    The top prioritized language is always used the SiteAccess language reference (e.g. `fre-FR` for `fre` SiteAccess in the example above).
 
-If several translation SiteAccesses share the same language reference, **the first declared SiteAccess always applies**.
+If several translation SiteAccesses share the same language reference, **the first declared SiteAccess always applies**.
 
 #### Custom locale configuration
 

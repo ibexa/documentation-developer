@@ -4,7 +4,7 @@ Sometimes, when generating links to a resource, you need to modify the default r
 
 Example use cases are:
 
-- [Language switch links](../guide/internationalization.md#language-switcher)
+- Language switch links
 - Download links
 - Passing a Content item instead of a Location (and using its `mainLocationId`)
 
@@ -124,7 +124,3 @@ services:
         tags:
             - { name: kernel.event_subscriber }
 ```
-
-!!! tip "Example"
-
-    A real-life implementation example on RouteReference is the [LanguageSwitcher](internationalization.md#language-switcher) (`eZ\Publish\Core\MVC\Symfony\EventListener\LanguageSwitchListener`).
