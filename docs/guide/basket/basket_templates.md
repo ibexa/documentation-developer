@@ -4,14 +4,12 @@
 
 |Path|Description|
 |--- |--- |
-|`SilversolutionsEshopBundle:Basket:show.html.twig`|Main basket template|
-|`SilversolutionsEshopBundle:Basket:messages.html.twig`|Renders a message when the basket is modified|
-|`SilversolutionsEshopBundle:Fieldtypes:StockField.html.twig`|Renders the stock Field representing product availability|
-|`SilversolutionsEshopBundle:parts:stock_legend.html.twig`|Renders the legend of symbols used to indicate product availability|
-|`ezcommerce-base-design/Resources/views/themes/standard/basket/widget.html.twig`|Renders the basket preview in the upper right corner of the shop screen|
-|`ezcommerce-base-design/Resources/views/themes/standard/basket/row.html.twig`|Renders one row of basket preview|
-|`SilversolutionsEshopBundle:Basket:stored_basket_preview_wish_list.html.twig`|Renders the wishlist row with a number of products in the "My Shop" menu|
-|`SilversolutionsEshopBundle:Basket:stored_basket_preview_comparison.html.twig`|Renders the comparison row with a number of products in the "My Shop" menu|
+|`basket/page.html.twig `|Main basket template|
+|`basket/widget.html.twig`|Basket preview in the upper right corner of the shop screen|
+|`basket/row.html.twig`|Single row of basket preview|
+|`basket/basket_summary.html.twig`|Basket summary|
+|`SilversolutionsEshopBundle:Basket:stored_basket_preview_wish_list.html.twig`|Wishlist row with a number of products in the "My Shop" menu|
+|`SilversolutionsEshopBundle:Basket:stored_basket_preview_comparison.html.twig`|Comparison row with a number of products in the "My Shop" menu|
 
 ## Display the content of a basket
 

@@ -11,13 +11,13 @@ The basket provides the following routes:
 
 ## `/basket/show`
 
-Shows a basket with all basket lines. The controller loads the template `SilversolutionsEshopBundle:Basket:show.html.twig`.  
+Shows a basket with all basket lines. The controller loads the template `/basket/page.html.twig`.
 
 | Parameter | Type   | Description                                   |
 | --------- | ------ | ------------------------------------------------------------------------------------- |
 | `basket`    | Basket | Optional. This parameter cannot be provided as a POST parameter. It's used internally |
 
-Parameters provided in the basket template `show.html.twig`:
+Parameters provided in the basket template `page.html.twig`:
 
 | Parameter | Type | Description |
 | --------- | -------------------------------------------- | --------------------------------------------------- |

@@ -6,7 +6,7 @@ If the customer has a customer number, customer data is fetched from the ERP aga
 
 ## Confirmation email
 
-The `Siso\Bundle\CheckoutBundle\EventListener\OrderConfirmationListener` event listener sends the order confirmation
+The `Ibexa\Platform\Commerce\Checkout\Event\Listener\OrderConfirmationListener` event listener sends the order confirmation
 as soon as the ERP accepts the order.
 
 Both the customer and a sales contact (if configured) should receive confirmation emails.
@@ -14,7 +14,7 @@ The confirmation is sent using `MailHelperService`.
 
 In case of a failure (for example, when the mail server is unreachable), the issue is logged into `var/log/<env>/dev-siso.mails.log`.
 
-Processing the confirmation email address is handled in `Siso\Bundle\CheckoutBundle\Service\SummaryCheckoutFormService`.
+Processing the confirmation email address is handled in `Ibexa\Platform\Commerce\Checkout\Service\SummaryCheckoutFormService`.
 
 ### Customer confirmation
 

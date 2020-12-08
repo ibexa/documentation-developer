@@ -6,8 +6,8 @@ Summary is the last step in the checkout process. In order to finish the process
 
 |                              |           |
 | ---------------------------- | --------- |
-| Main template                | `EshopBundle/Resources/views/Checkout/checkout_summary.html.twig` |
-| Sidebar template for summary | `EshopBundle/Resources/views/Checkout/sidebar_summary.html.twig`  |
+| Main template                | `checkout/summary.html.twig` |
+| Sidebar template for summary | `checkout/sidebar_summary.html.twig`  |
 
 ## Terms and conditions
 
