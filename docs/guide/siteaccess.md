@@ -36,10 +36,10 @@ For detailed information on how SiteAccess matchers work, see [SiteAccess Matchi
 
 !!! note
 
-    A SiteAccess that you define for a site by following the [configuration procedure](#configuring-siteaccesses) 
-    is always treated with higher priority than a SiteAccess created by using the SiteFactory. 
+    A SiteAccess that you define for a site by following the [configuration](#configuring-siteaccesses) 
+    is always treated with higher priority than a SiteAccess created by using the Site Factory. 
     For example, if you define a French site within a YAML file, and another user creates a site that 
-    uses the `fr` path in SiteFactory, the other user's site is ignored by the matchers.
+    uses the `fr` path in Site Factory, the other user's site is ignored by the matchers.
 
 ## Configuring SiteAccesses
 
