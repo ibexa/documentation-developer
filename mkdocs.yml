@@ -252,12 +252,12 @@ nav:
                 - 'Checkout controllers': 'guide/checkout/checkout_api/checkout_controllers.md'
                 - 'Checkout events': 'guide/checkout/checkout_api/checkout_events.md'
                 - 'Configuration for checkout forms': 'guide/checkout/checkout_api/forms/configuration_for_checkout_forms.md'
+                - 'Services for checkout forms': 'guide/checkout/checkout_api/forms/services_for_checkout_forms.md'
                 - 'Invoice address form': 'guide/checkout/checkout_api/forms/checkout_invoice_address_form.md'
                 - 'Delivery address form': 'guide/checkout/checkout_api/forms/checkout_delivery_address_form.md'
                 - 'Shipping payment form': 'guide/checkout/checkout_api/forms/checkout_shipping_payment_form.md'
                 - 'Summary form': 'guide/checkout/checkout_api/forms/checkout_summary_form.md'
                 - 'Order summary': 'guide/checkout/checkout_api/forms/order_summary.md'
-                - 'Services for checkout forms': 'guide/checkout/checkout_api/forms/services_for_checkout_forms.md'
             - Payment:
                 - 'Payment': 'guide/payment/payment.md'
                 - 'Payment API': 'guide/payment/payment_api.md'
