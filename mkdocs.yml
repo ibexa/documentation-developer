@@ -456,6 +456,7 @@ nav:
             - Sort Clause Reference:
                 - 'ContentId': 'guide/search/sort_clause_reference/contentid_sort_clause.md'
                 - 'ContentName': 'guide/search/sort_clause_reference/contentname_sort_clause.md'
+                - 'ContentTranslatedName': 'guide/search/sort_clause_reference/contenttranslatedname_sort_clause.md'
                 - 'ContentTypeName': 'guide/search/sort_clause_reference/contenttypename_sort_clause.md'
                 - 'DateModified': 'guide/search/sort_clause_reference/datemodified_sort_clause.md'
                 - 'DatePublished': 'guide/search/sort_clause_reference/datepublished_sort_clause.md'

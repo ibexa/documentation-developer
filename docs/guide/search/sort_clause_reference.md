@@ -15,6 +15,7 @@ All Sort Clauses can take the following optional argument:
 |-----|-----|-----|
 |[ContentId](sort_clause_reference/contentid_sort_clause.md)|Content items' ID|Content and Location Search, and Filtering|
 |[ContentName](sort_clause_reference/contentname_sort_clause.md)|Content names|Content and Location Search, and Filtering|
+|[ContentTranslatedName](sort_clause_reference/contenttranslatedname_sort_clause.md)|Translated content names|Content and Location Search, and Filtering|
 |[DateModified](sort_clause_reference/datemodified_sort_clause.md)|The date when content was last modified|Content and Location Search, and Filtering|
 |[DatePublished](sort_clause_reference/datepublished_sort_clause.md)|The date when content was created|Content and Location Search, and Filtering|
 |[Depth](sort_clause_reference/depth_sort_clause.md)|Location depth in the Content tree|Location Search, Filtering|
