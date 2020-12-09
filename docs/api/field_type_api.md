@@ -25,11 +25,11 @@ will be treated as [external storage](field_type_storage.md#external-storage).
 
 The following sequence diagrams visualize the process of creating and publishing new content across all layers, especially focused on the interaction with a Field Type.
 
-### Create Content Sequence
+## Create Content Sequence
 
 ![Create Content Sequence](img/create_content_sequence.png)
 
-### Publish Content Sequence
+## Publish Content Sequence
 
 !!! note "indexLocation()"
 
@@ -37,3 +37,11 @@ The following sequence diagrams visualize the process of creating and publishing
     For **Legacy/SQL** indexing is not required as Location data already exists in a database.
 
 ![Publish Content Sequence](img/publish_content_sequence.png)
+
+## Update Content Sequence
+
+![Update Content Sequence](img/update_content_sequence.png)
+
+## Load Content Sequence
+
+![Load Content Sequence](img/load_content_sequence.png)
