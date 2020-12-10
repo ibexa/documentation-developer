@@ -1,6 +1,6 @@
 # SesProfileData
 
-This Field Type stores [`CustomerProfileData`](../../../guide/customers/customers_api/customer_profile_data_components/customer_profile_data_model.md) in the User Content Type.
+This Field Type stores [`CustomerProfileData`](../../../guide/customers/customer_api/customer_profile_data.md) in the User Content Type.
 
 !!! note
 

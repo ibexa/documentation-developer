@@ -9,7 +9,7 @@ ses_forms.configs.my_account:
 ```
 
 The following pre-data processors pre-fill the respective forms with data fetched from `CustomerProfileData`
-with the help of [`EzErpCustomerProfileDataService`](../../customers/customers_api/customer_profile_data_components/customer_profile_data_services.md).
+with the help of [`EzErpCustomerProfileDataService`](../../customers/customer_api/customer_profile_data.md).
 
 |Processor|Pre-fills|Service ID|
 |---|---|---|
