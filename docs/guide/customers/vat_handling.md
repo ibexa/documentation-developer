@@ -1,60 +1,37 @@
 # VAT handling
 
-The VAT handling for customers inside eZ Commerce is controlled by:
+The VAT handling for customers is controlled by:
 
-- The ERP system
-- The settings from the User Content item 
-- Default settings configured in a YAML file
-
-The ERP system has the highest priority. It means that if ERP can provide the information about the VAT handling, this setting is used. 
-
-If the attributes are set up in the User Content item, these settings are used if the ERP is not used or does not provide this information.
-
-As the last fallback, the settings defined per SiteAccess are used. 
-
-||Use case|What happens in the shop|
-|--- |--- |--- |
-|Customer has to pay VAT|`false` if for legal reasons the customer does not have to pay VAT (this is usually the case for some B2B cases).|If `false`, the shop will not calculate VAT|
-|Display Price inc VAT|`false` only if the customer does not have to pay VAT|If `false`, the price in the shop will be without VAT|
+1. The ERP system
+1. The settings from the User Content item, if ERP does not provide the information
+1. Default settings configured in a YAML file, if the information is not set up in the Content item
+1. Settings defined per SiteAccess, as a fallback
 
 ## VAT settings from the ERP
 
 The ERP can provide VAT settings per customer when a `selectcustomer` request is sent after a login.
 
-There are two attributes which can be set by the ERP system:
+The ERP system can set two attributes:
 
-- SesExtension->`HasToPayVat` 
-- SesExtension->`DisplayPriceInclVat`
+- `SesExtension->HasToPayVat` 
+- `SesExtension->DisplayPriceInclVat`
 
-The default mapping is defined in `silver.e-shop/src/Silversolutions/Bundle/EshopBundle/Resources/mapping/wc3-nav/xsl/response.select_customer.xsl`:
+The default mapping is defined in `Silversolutions/Bundle/EshopBundle/Resources/mapping/wc3-nav/xsl/response.select_customer.xsl`.
 
-``` xml
-<CustomerResponse>
-  <SesExtension>
-    <!-- Has to be adjusted depending on ERP -->
-    <xsl:choose>
-        <xsl:when test="VAT_Bus_Posting_Group = 'NATIONAL'">
-            <HasToPayVat>1</HasToPayVat>
-        </xsl:when>
-        <xsl:otherwise>
-            <HasToPayVat>0</HasToPayVat>
-            <DisplayPriceInclVat>0</DisplayPriceInclVat>
-        </xsl:otherwise>
-    </xsl:choose>
-  </SesExtension>
-```
-
-## VAT settings from the user object 
+## VAT settings from the User Content item
 
 The VAT handling can be defined per User. 
 
 ![](../img/customers_vat_setting.png)
 
-Remember to use the correct identifiers and select the **Default value** checkbox.
+Disable **Customer has to pay VAT** if for legal reasons the customer does not have to pay VAT. 
+The shop will not calculate VAT.
 
-![](../img/customers_vat_setting_2.png)
+If you disable **Display VAT**, the prices in the shop will be displayed without VAT.
 
-## VAT settings from the configuration
+## VAT settings from configuration
+
+The same settings are available in configuration:
 
 ``` yaml
 ses.customer_profile_data.isPriceInclVat: true

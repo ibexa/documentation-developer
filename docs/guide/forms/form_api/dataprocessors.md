@@ -20,7 +20,7 @@ The user sees the filled form with the error message from `FormDataProcessorExce
 
 ## CreateCustomerProfileDataDataProcessor
 
-`CreateCustomerProfileDataDataProcessor` creates a new [`CustomerProfileData`](../../customers/customers_api/customer_profile_data_components/customer_profile_data_model.md) object and fills it with data from the registration process.
+`CreateCustomerProfileDataDataProcessor` creates a new [`CustomerProfileData`](../../customers/customer_api/customer_profile_data.md) object and fills it with data from the registration process.
 
 Service ID: `ses.customer_profile_data.data_processor.create_customer_profile_data`
 
@@ -38,7 +38,7 @@ parameters:
 
 ## CreateRegistrationTokenDataProcessor
 
-`CreateRegistrationTokenDataProcessor` creates a new token with the help of [`TokenService`](../../user_management/token/token.md#tokenservice).
+`CreateRegistrationTokenDataProcessor` creates a new token with the help of [`TokenService`](../../user_management/token.md#tokenservice).
 
 Service ID: `ses_forms.create_registration_token_data_processor`
 
@@ -55,7 +55,7 @@ ses_registration:
 ## EzCreateUserDataProcessor
 
 `EzCreateUserDataProcessor` creates a new `EzUser` object. This data processor relies on the result of `CreateCustomerProfileDataDataProcessor`,
-because the [`CustomerProfileData`](../../customers/customers_api/customer_profile_data_components/customer_profile_data_model.md) object must be given.
+because the [`CustomerProfileData`](../../customers/customer_api/customer_profile_data.md) object must be given.
 
 The data processor sets the following fields in the User Content item:
 

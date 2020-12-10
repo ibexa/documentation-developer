@@ -4,23 +4,23 @@ The job system enables automating tasks implemented as a command.
 
 It is based on the [JMSJobQueueBundle.](https://github.com/schmittjoh/JMSJobQueueBundle)
 
-You can see an overview of the last jobs in the Back Office by clicking **Controler center** > **eCommerce jobs**.
+You can see an overview of the last jobs in the Back Office by clicking **Control Center** > **e-commerce jobs**.
 
 Expand a running job to see more details of its state.
 You can see the output of the command.
 
 The list is automatically updated every 10 seconds.
 
-![](../img/ecommerce_jobs.png)
+![](img/ecommerce_jobs.png)
 
-You can [add your own jobs](#configure-jobs-for-the-backend) to the eContent menu.
+You can [add your own jobs](#configure-jobs-for-the-backend) to the menu.
 The user can then click **Start** and the job is executed. 
 
 ![](../img/configure_jobs.png)
 
 ## Starting jobs
 
-The job system requires executing the `jms-job-queue:run` command (see [Required crontab tasks](../shop_configuration/required_crontab_tasks.md)).
+The job system requires executing the `jms-job-queue:run` command (see [Required crontab tasks](shop_configuration/required_crontab_tasks.md)).
 
 ``` bash
 php bin/console jms-job-queue:run --env=prod
