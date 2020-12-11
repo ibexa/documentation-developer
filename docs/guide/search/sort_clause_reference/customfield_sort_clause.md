@@ -12,8 +12,8 @@ sorts search results by raw search index fields.
 
 !!! caution
 
-    Do not use the `CustomField` Sort Clause in production.
-    It should only be used for testing.
+    Do not use the `CustomField` Sort Clause in production code, if you want to keep your project search engine independent.
+    Valid use cases are testing or temporary, one-off tools.
 
 The `CustomField` Sort Clause is not available in [Repository filtering](../../../api/public_php_api_search.md#repository-filtering).
 

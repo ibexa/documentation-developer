@@ -8,6 +8,13 @@ The [RawRangeAggregation](https://github.com/ezsystems/ezplatform-kernel/blob/ma
 - `field` - string representing the search index field
 - `ranges` - array of Range objects that define the borders of the specific range sets
 
+## Limitations
+
+!!! caution
+
+    Do not use the `RawRangeAggregation` Aggregation in production code, if you want to keep your project search engine independent.
+    Valid use cases are testing or temporary, one-off tools.
+
 ## Example
 
 ``` php
