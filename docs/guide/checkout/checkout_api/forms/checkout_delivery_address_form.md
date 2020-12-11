@@ -2,7 +2,7 @@
 
 ## Model class
 
-`CheckoutDeliveryAddress` (`Siso\Bundle\CheckoutBundle\Form\CheckoutDeliveryAddress`)
+`CheckoutDeliveryAddress` (`Ibexa\Platform\Commerce\Checkout\Form\CheckoutDeliveryAddress`)
 extends `AbstractFormEntity` and implements `CheckoutAddressInterface`.
 It manages the form for choosing delivery address in checkout process.
 
@@ -27,7 +27,7 @@ It manages the form for choosing delivery address in checkout process.
 
 ## Form Type
 
-`Siso\Bundle\CheckoutBundle\Form\Type\CheckoutDeliveryAddressType`
+`Ibexa\Platform\Commerce\Checkout\Form\TypeCheckoutDeliveryAddressType`
 (service ID: `siso_checkout.form_entity.checkout_delivery_address_type`)
 implements the setup for this form.
 

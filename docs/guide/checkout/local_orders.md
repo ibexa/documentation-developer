@@ -38,7 +38,7 @@ siso_core.default.ses_swiftmailer:
 ## Email templates
 
 Local order [confirmation emails](order_confirmation.md) are based on the standard order confirmation email templates:
-`SilversolutionsEshopBundle:Checkout/Email:order_confirmation.txt.twig` and `SilversolutionsEshopBundle:Checkout/Email:order_confirmation.html.twig`
+`checkout/Email/order_confirmation.txt.twig` and `checkout/Email/order_confirmation.html.twig`
 
 ## PDF invoice
 

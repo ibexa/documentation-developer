@@ -2,7 +2,7 @@
 
 ## CheckoutController
 
-`CheckoutController` (`Siso\Bundle\CheckoutBundle\Controller\CheckoutController`) is the entry point for the checkout process.
+`CheckoutController` (`Ibexa\Platform\Bundle\Commerce\Checkout\Controller\CheckoutController`) is the entry point for the checkout process.
 
 Before the user enters the checkout process, [Checkout Events](checkout_events.md) are thrown
 that enable you to interrupt the checkout process if required.
@@ -12,7 +12,7 @@ Depending on which step the user is in, it forwards the call to the relevant `Aj
 
 ## AjaxCheckoutController
 
-`AjaxCheckoutController` (`Siso\Bundle\CheckoutBundle\Controller\AjaxCheckoutController`)
+`AjaxCheckoutController` (`Ibexa\Platform\Bundle\Commerce\Checkout\Controller\AjaxCheckoutController`)
 is the subcontroller responsible for calls in the checkout process.
 
 `AjaxCheckoutController` first calls `validateStepAction()` to calculate the current possible step depending on:

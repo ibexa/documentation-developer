@@ -2,7 +2,7 @@
 
 ## Model class
 
-`CheckoutInvoiceAddress` (`Siso\Bundle\CheckoutBundle\Form\CheckoutInvoiceAddress`)
+`CheckoutInvoiceAddress` (`Ibexa\Platform\Commerce\Checkout\Form\CheckoutInvoiceAddress`)
 extends `AbstractFormEntity` and implements `CheckoutAddressInterface`.
 
 ## Fields
@@ -28,7 +28,7 @@ You set the parameters in the [configuration for checkout forms](configuration_f
 
 ## Form Type
 
-`Siso\Bundle\CheckoutBundle\Form\Type\CheckoutInvoiceAddressType`
+`Ibexa\Platform\Commerce\Checkout\Form\Type\CheckoutInvoiceAddressType`
 (service ID: `siso_checkout.form_entity.checkout_invoice_address_type`)
 implements the setup for this form.
 

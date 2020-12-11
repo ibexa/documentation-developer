@@ -2,7 +2,7 @@
 
 ## Model Class
 
-`CheckoutShippingPayment` (`Siso\Bundle\CheckoutBundle\Form\CheckoutShippingPayment`)
+`CheckoutShippingPayment` (`Ibexa\Platform\Commerce\Checkout\Form\CheckoutShippingPayment`)
 extends `AbstractFormEntity` and implements `CheckoutAddressInterface`.
 
 ## Fields
@@ -19,7 +19,7 @@ You set the parameters in the [configuration for checkout forms](configuration_f
 
 ## Form Type
 
-`Siso\Bundle\CheckoutBundle\Form\Type\CheckoutShippingPaymentType`
+`Ibexa\Platform\Commerce\Checkout\Form\Type\CheckoutShippingPaymentType`
 (service ID: `siso_checkout.form_entity.checkout_shipping_payment_type`)
 implements the setup for this form.
 
