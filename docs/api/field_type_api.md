@@ -56,3 +56,11 @@ The following sequence diagrams visualize the process of creating and publishing
     For **Legacy/SQL** indexing is not required as Location data already exists in a database.
 
 ![Publish Content Sequence](img/publish_content_sequence.png)
+
+## Update Content Sequence
+
+![Update Content Sequence](img/update_content_sequence.png)
+
+## Load Content Sequence
+
+![Load Content Sequence](img/load_content_sequence.png)
