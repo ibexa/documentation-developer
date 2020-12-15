@@ -5,8 +5,8 @@
 ## Example
 
 ``` php
-use Silversolutions\Bundle\EshopBundle\Entities\BusinessLayer\InputValueObjects\GetBasket as InputGetBasket;
-use Silversolutions\Bundle\EshopBundle\Entities\BusinessLayer\OutputValueObjects\GetBasket as OutputGetBasket;
+use Ibexa\Platform\Commerce\Checkout\Entities\BusinessLayer\InputValueObjects\GetBasket as InputGetBasket;
+use Ibexa\Platform\Commerce\Checkout\Entities\BusinessLayer\OutputValueObjects\GetBasket as OutputGetBasket;
 
 /** @var InputGetBasket $inputGetBasket */
 $inputGetBasket = new InputGetBasket(array('request' => $request));
@@ -59,18 +59,18 @@ use Silversolutions\Bundle\EshopBundle\Content\ValueObject;
  *
  * This class is used as an output parameter for an appropriate business method
  *
- * @property-read \Silversolutions\Bundle\EshopBundle\Entity\Basket $basket
+ * @property-read \Ibexa\Platform\Bundle\Commerce\Checkout\Entity\Basket $basket
  */
 class GetBasket extends ValueObject
 {
-    /** @var \Silversolutions\Bundle\EshopBundle\Entity\Basket $basket */
+    /** @var Ibexa\Platform\Bundle\Commerce\Checkout\Entity\Basket $basket */
     protected $basket;
     /** @var array $checkProperties */
     protected $checkProperties = array(
         array(
             'name' => 'basket',
             'mandatory' => true,
-            'type' => '\Silversolutions\Bundle\EshopBundle\Entity\Basket',
+            'type' => '\Ibexa\Platform\Bundle\Commerce\Checkout\Entity\Basket',
             'isObject' => true
         )
     );
