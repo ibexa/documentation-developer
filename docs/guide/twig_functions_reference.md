@@ -26,6 +26,8 @@ In addition to the [native functions provided by Twig](http://twig.sensiolabs.or
 |[`ez_render`](#ez_render)|Renders the indicated Content item.|
 |[`ez_render_content`](#ez_render_content)|Renders the indicated Content item.|
 |[`ez_render_location`](#ez_render_location)|Renders the Content item in the indicated Location.|
+|[`ez_render_content_query`](#ez_render_content_query)|Renders results of a non-content related query.|
+|[`ez_render_location_query`](#ez_render_location_query)|Renders results of a non-content related Location query.|
 |[`ez_render_field`](#ez_render_field)|Displays a Content item's Field value, taking advantage of the template block exposed by the Field Type used.|
 |[`ez_urlalias`](#ez_urlalias)|It is a special route name for generating URLs for a Location from the given parameters.|
 
@@ -417,6 +419,30 @@ It is rendered by default using the `embed` view.
 |`location`|`eZ\Publish\API\Repository\Values\Content\Location`|Location of the Content item to render.|
 |`method`|`string`|[Rendering method](#rendering-methods). One of: `direct`, inline`, `esi`, `ssi`.|
 |`viewType`|`string`|[View type](templates.md#full-line-and-other-views).|
+
+### `ez_render_content_query`
+
+#### Description
+
+`ez_render_content_query` is a Twig helper that renders the results of a [non-content related query made by using a Query Type](templates.md#non-content-related-query-types).
+
+#### Prototype and Arguments
+
+|Argument name|Type|Description|
+|------|------|------|
+|`options`|array|Available options are: `query`, `pagination`, `template`.|
+
+### `ez_render_location_query`
+
+#### Description
+
+`ez_render_location_query` is a Twig helper that renders the results of a [non-content related Location query made by using a Query Type](templates.md#non-content-related-query-types).
+
+#### Prototype and Arguments
+
+|Argument name|Type|Description|
+|------|------|------|
+|`options`|array|Available options are: `query`, `pagination`, `template`.|
 
 ### `ez_render_field`
 
