@@ -23,6 +23,8 @@ In addition to the [native functions provided by Twig](http://twig.sensiolabs.or
 |[`ez_short_datetime`](#ez_short_datetime-ez_short_date-ez_short_time)|Outputs date and time in short format.|
 |[`ez_short_date`](#ez_short_datetime-ez_short_date-ez_short_time)|Outputs date in short format.|
 |[`ez_short_time`](#ez_short_datetime-ez_short_date-ez_short_time)|Outputs time in short format.|
+|[`ez_render_content_query`](#ez_render_content_query)|Renders results of a non-content related query.|
+|[`ez_render_location_query`](#ez_render_location_query)|Renders results of a non-content related Location query.|
 |[`ez_render_field`](#ez_render_field)|Displays a Content item's Field value, taking advantage of the template block exposed by the Field Type used.|
 |[`ez_urlalias`](#ez_urlalias)|It is a special route name for generating URLs for a Location from the given parameters.|
 
@@ -325,6 +327,30 @@ If the Content item does not have a translation in the current language, the mai
     </div>
 {% endif %}
 ```
+
+### `ez_render_content_query`
+
+#### Description
+
+`ez_render_content_query` is a Twig helper that renders the results of a [non-content related query made by using a Query Type](templates.md#non-content-related-query-types).
+
+#### Prototype and Arguments
+
+|Argument name|Type|Description|
+|------|------|------|
+|`options`|array|Available options are: `query`, `pagination`, `template`.|
+
+### `ez_render_location_query`
+
+#### Description
+
+`ez_render_location_query` is a Twig helper that renders the results of a [non-content related Location query made by using a Query Type](templates.md#non-content-related-query-types).
+
+#### Prototype and Arguments
+
+|Argument name|Type|Description|
+|------|------|------|
+|`options`|array|Available options are: `query`, `pagination`, `template`.|
 
 ### `ez_render_field`
 
