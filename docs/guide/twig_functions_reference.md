@@ -424,7 +424,7 @@ It is rendered by default using the `embed` view.
 
 #### Description
 
-`ez_render_content_query` is a Twig helper that renders the results of a [non-content related query made using a Query Type](templates.md#non-content-related-query-types).
+`ez_render_content_query` is a Twig helper that renders the results of a [non-content related query made by using a Query Type](templates.md#non-content-related-query-types).
 
 #### Prototype and Arguments
 
@@ -436,7 +436,7 @@ It is rendered by default using the `embed` view.
 
 #### Description
 
-`ez_render_location_query` is a Twig helper that renders the results of a [non-content related Location query made using a Query Type](templates.md#non-content-related-query-types).
+`ez_render_location_query` is a Twig helper that renders the results of a [non-content related Location query made by using a Query Type](templates.md#non-content-related-query-types).
 
 #### Prototype and Arguments
 
