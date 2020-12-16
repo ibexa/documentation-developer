@@ -4,10 +4,10 @@
 
 The following templates are used to render the catalog and its parts:
 
-- `Catalog/catalog.html.twig` - whole catalog
-- `Catalog/product.html.twig` - individual product
-- `Catalog/productType.html.twig` - product type
-- `Catalog/Subrequests/listChildren.html.twig` - product categories
+- `SilversolutionsEshopBundle:Catalog:catalog.html.twig` - whole catalog
+- `catalog/product.html.twig` - individual product
+- `SilversolutionsEshopBundle:Catalog:productType.html.twig` - product type
+- `SilversolutionsEshopBundle:Catalog:Subrequests/listChildren.html.twig` - product categories
 
 The templates have access to the catalog node provided by the controller.
 To show all the available attributes, use `getAttributeNames()`: `{{ catalogElement.attributeNames|json_encode }}`.
@@ -33,8 +33,8 @@ The configuration for choosing templates is stored in `silver.eshop.yml`:
 ``` yaml
 parameters:
     silver_eshop.default.catalog_template.CatalogNode: Catalog/catalog.html.twig
-    silver_eshop.default.catalog_template.OrderableProductNode: Catalog/product.html.twig
-    silver_eshop.default.catalog_template.VariantProductNode: Catalog/product_variants.html.twig
+    silver_eshop.default.catalog_template.OrderableProductNode: catalog/product.html.twig
+    silver_eshop.default.catalog_template.VariantProductNode: catalog/product_variants.html.twig
     silver_eshop.default.catalog_template.ProductType: Catalog/productType.html.twig
 ```
 
