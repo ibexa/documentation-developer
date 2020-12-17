@@ -1,6 +1,6 @@
 # Custom indexer plugin for eContent
 
-The following example shows how to create a plugin for eContent that indexes an additional field
+The following example shows how to create a plugin for eContent that indexes an additional field in Solr
 based on a serialised array that comes from the database.
 
 The database stores keys and values for the articles. They come in a serialised format, for example:

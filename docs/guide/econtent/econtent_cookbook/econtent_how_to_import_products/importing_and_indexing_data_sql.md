@@ -133,7 +133,7 @@ VALUES
     (225290,204,NULL,NULL,'72\" 4:3','ger-DE');
 ```
 
-Remember to index the products in Solr, see [Staging system](../../econtent_features/staging_system.md) and [Indexing eContent data](../../econtent_features/indexing_econtent_data/indexing_econtent_data.md)
+Remember to index the products in the search engine, see [Staging system](../../econtent_features/staging_system.md) and [Indexing eContent data](../../econtent_features/indexing_econtent_data/indexing_econtent_data.md)
 
 ### Import procedure using temp tables
 

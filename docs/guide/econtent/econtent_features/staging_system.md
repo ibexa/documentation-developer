@@ -42,7 +42,7 @@ The product import can, for example, use the temporary tables. The import proces
 
 ## Switching between temporary and live versions
 
-After the import, you must switch the database tables and Solr cores. Execute the following commands:
+After the import, you must switch the database tables and Solr cores (if you are using Solr). Execute the following commands:
 
 ``` bash
 php bin/console silversolutions:indexecontent swap

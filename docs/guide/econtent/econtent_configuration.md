@@ -1,4 +1,4 @@
-# eContent xonfiguration
+# eContent configuration
 
 ## Data provider
 
@@ -186,7 +186,7 @@ Specification data has to be stored in a JSON-formatted (type `ezstring`) exampl
 
 Important: current the identifier in eContent has to be named `ses_specification`.
 
-The attributes of the specification data are indexed in Solr as well.
+The attributes of the specification data are indexed in the search engine as well.
 
 ``` yaml
 silver_econtent.default.mapping.product:

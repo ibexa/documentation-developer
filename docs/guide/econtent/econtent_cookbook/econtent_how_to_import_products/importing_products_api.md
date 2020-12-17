@@ -116,7 +116,7 @@ Create the index for the new products (in temporary area):
 php bin/console silversolutions:indexecontent
 ```
 
-After the import, the database tables and Solr cores have to be switched:
+After the import, the database tables and Solr cores (if you are using Solr) have to be switched:
 
 ``` 
 php bin/console silversolutions:indexecontent swap

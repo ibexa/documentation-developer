@@ -2,7 +2,7 @@
 
 ## eContent class elements
 
-Solr index is built with data from the following eContent tables:
+Search index is built with data from the following eContent tables:
 
 - `sve_class`
 - `sve_class_attributes`
@@ -16,10 +16,10 @@ In the default configuration you can have only two classes: product and categori
 but the model is flexible and it can handle several class types,
 for example: category_a, sub_category, product, or any other hierarchical schema.
 
-All `sve_class` elements have a common name field. This name is used by the indexer as a common Solr field name for all types.
+All `sve_class` elements have a common name field. This name is used by the indexer as a common search engine field name for all types.
 
 The name is specified in `sve_object_attributes` and its identifier is specified in the `sve_class` table.
-This name is stored in Solr with field name `name_s`.
+This name is stored in the search engine index with field name `name_s`.
 
 ## Standard Solr field names
 
