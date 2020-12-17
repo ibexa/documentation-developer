@@ -113,13 +113,13 @@ $this->em->flush();
 Create the index for the new products (in temporary area):
 
 ``` bash
-php bin/console silversolutions:indexecontent
+php bin/console ibexa:commerce:econtent:reindex
 ```
 
 After the import, the database tables and Solr cores (if you are using Solr) have to be switched:
 
 ``` 
-php bin/console silversolutions:indexecontent swap
+php bin/console ibexa:commerce:econtent:reindex swap
 php bin/console silversolutions:econtent-tables-swap
 ```
 
