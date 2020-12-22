@@ -10,12 +10,6 @@ When the user visits the site, the system analyzes the URI and compares it to ru
 Settings defined per SiteAccess may include, among others, database, language or `var` directory.
 When that SiteAccess is used, they override the default configuration.
 
-### Selecting SiteAccesses
-
-A SiteAccess is selected using one or more matchers – rules based on the uri or its parts. Example matching criteria are elements of the uri, host name (or its parts), port number, etc.
-
-For detailed information on how SiteAccess matchers work, see [SiteAccess Matching](siteaccess_matching.md).
-
 ### SiteAccesses use cases
 
 Typical uses of a SiteAccess are:
@@ -33,6 +27,19 @@ The back-office UI of [[= product_name =]] is housed in a predefined `admin` Sit
 
 If you have a multisite setup with a separate back-office interface for each site,
 you need to create your own admin SiteAccesses and add them to this group. In cases where the sites are on separate databases they will need their own [repository](configuration.md#configuration-examples) (including their own storage and search connection), var dir, [cache pool](persistence_cache.md#persistence-cache-configuration), and ideally also separate Varnish/Fastly config for each site individually.
+
+### Selecting SiteAccesses
+
+A SiteAccess is selected using one or more matchers – rules based on the uri or its parts. Example matching criteria are elements of the uri, host name (or its parts), port number, etc.
+
+For detailed information on how SiteAccess matchers work, see [SiteAccess Matching](siteaccess_matching.md).
+
+!!! note
+
+    A SiteAccess that you define for a site by following the [configuration](#configuring-siteaccesses) 
+    is always treated with higher priority than a SiteAccess created by using the Site Factory. 
+    For example, if you define a French site within a YAML file, and another user creates a site that 
+    uses the `fr` path in Site Factory, the other user's site is ignored by the matchers.
 
 ## Configuring SiteAccesses
 
