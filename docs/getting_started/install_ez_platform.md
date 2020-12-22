@@ -23,7 +23,7 @@ Additional requirements:
 
 Before getting started, make sure you review other [requirements](requirements.md) to see the systems we support and use for testing.
 
-## Get Composer
+### Get Composer
 
 Install a recent stable version of Composer, the PHP command line dependency manager.
 Use the package manager for your Linux distribution.
@@ -50,15 +50,15 @@ composer -V
 
     If you do so, you must replace `composer` with `php -d memory_limit=-1 composer.phar` in all commands below.
 
-## Get [[= product_name =]]
+## Install [[= product_name =]]
 
-### Set up authentication tokens [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+### Set up authentication tokens
 
-[[= product_name_exp =]] and [[= product_name_com =]] subscribers have access to commercial packages at [updates.ez.no/](https://updates.ez.no/).
+[[= product_name =]] subscribers have access to commercial packages at [updates.ibexa.co](https://updates.ibexa.co/).
 The site is password-protected. 
 You must set up authentication tokens to access the site.
 
-Log in to your service portal on [support.ez.no](https://support.ez.no), go to your **Service Portal**, and look for the following on the **Maintenance and Support agreement details** screen:
+Log in to your service portal on [support.ibexa.co](https://support.ibexa.co), go to your **Service Portal**, and look for the following on the **Maintenance and Support agreement details** screen:
 
 ![Authentication token](img/Using_Composer_Auth_token.png)
 
@@ -74,19 +74,24 @@ Log in to your service portal on [support.ez.no](https://support.ez.no), go to y
     - A: Store your credentials in the project directory (for security reasons, do not check them in to git):
 
     ``` bash
-    composer config http-basic.updates.ez.no <installation-key> <token-password>
+    composer config http-basic.updates.ibexa.co <installation-key> <token-password>
     ```
 
     - B: If you only have one project on the machine/server/vm, and want to install globally in [`COMPOSER_HOME`](https://getcomposer.org/doc/03-cli.md#composer-home) directory for machine-wide use:
 
     ``` bash
-    composer config --global http-basic.updates.ez.no <installation-key> <token-password>
+    composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
     ```
+    
+!!! tip "Different tokens for different projects on a single host"
+
+    If you configure several projects on one machine, make sure that
+    you set different tokens for each of the projects in their respective `auth.json` files.
 
 After this, when running Composer to get updates, you will be asked for a username and password. Use:
 
 - as username - your Installation key found on the **Maintenance and Support agreement details** page in the service portal
-- as password - the token password you retrieved in step 3.
+- as password - the token password you retrieved in step 3 above.
 
 !!! note
 
@@ -107,117 +112,59 @@ After this, when running Composer to get updates, you will be asked for a userna
     They will become active again if the agreement is renewed, but this process may take up to 24 hours.
     _(If the agreement is renewed before the expiry date, there will be no disruption of service.)_
 
-## Create project
+### Create project
 
-There are two ways to get an instance of [[= product_name =]]. 
-The result is the same, so you can use the way you prefer:
-
-- [Download or clone](#a-download-or-clone)
-- [Create a project with Composer](#b-create-project-with-composer)
-
-### A. Download or clone
-
-=== "[[= product_name =]]"
-
-    You can either:
-
-    - download an archive from [ezplatform.com](https://ezplatform.com/#download-option)
-    and extract the archive into the location where you want your project root directory to be, or
-    - clone the [`ezplatform` GitHub repository](https://github.com/ezsystems/ezplatform).
-
-    ``` bash
-    git clone https://github.com/ezsystems/ezplatform .
-    ```
-
-    Check out a tag (e.g. `git checkout v1.13.4`) that you want to use in a project.
-    Use branches (e.g. `master` or `1.13`) only when contributing.
-
-=== "[[= product_name_exp =]] and [[= product_name_com =]]"
-
-    Download an archive from the [Support portal](https://support.ez.no/Downloads).
-
-    Extract the archive into the location where you want your project root directory to be.
-
-Next, install dependencies with Composer. From the folder into which you downloaded the files, run:
+To use Composer to instantly create a project in the current folder with all the dependencies,
+run the following command:
 
 ``` bash
-composer install
+composer create-project ibexa/website-skeleton .
 ```
-
-Composer looks inside the `composer.json` file and installs all packages required to run the product.
-
-### B. Create a project with Composer
-
-=== "[[= product_name =]]"
-
-    To use Composer to instantly create a project in the current folder with all the dependencies, run the following command:
-
-    ``` bash
-    composer create-project --keep-vcs ezsystems/ezplatform .
-    ```
-
-=== "[[= product_name_exp =]]"
-
-    To install a new project with the `composer create-project` command to get the latest version of [[= product_name_exp =]],
-    you must first inform the Composer, which token to use before the project folder is created.
-
-    To do this, select the correct updates.ez.no channel. The following channels are available:
-
-    - Trial (limited access to try for up to 120 days): [ttl](https://updates.ez.no/ttl/)
-    - Enterprise Business User License (requires valid subscription): [bul](https://updates.ez.no/bul/)
-
-    For example, you select the `bul` channel in the following way:
-
-    ``` bash
-    COMPOSER_AUTH='{"http-basic":{"updates.ez.no":{"username":"<installation-key>","password":"<token-password>"}}}' composer create-project --keep-vcs --repository=https://updates.ez.no/bul/ ezsystems/ezplatform-ee my-new-ee-project
-    ```
-
-    Edit `composer.json` in your project root and change the URL defined in the `repositories` section to `https://updates.ez.no/bul/`.
-    Once that is done, you can execute `composer update` to get packages with the correct license.
-
-    !!! note "Moving from trial"
-
-        If you started with a trial installation and want to use the software under the [BUL license instead of a TTL license](https://ibexa.co/About-our-Software/Licenses-and-agreements/), you must change the channel setting that you have just made.
-
-=== "[[= product_name_com =]]"
-
-    To install a new project with the `composer create-project` command to get the latest version of [[= product_name_com =]],
-    you must first inform the Composer, which token to use before the project folder is created.
-
-    To do this, select the correct updates.ez.no channel. The following channels are available:
-
-    - Trial (limited access to try for up to 120 days): [ttl_com](https://updates.ez.no/ttl_com/)
-    - Enterprise Business User License (requires valid subscription): [bul_com](https://updates.ez.no/bul_com/)
-
-    For example, you select the `bul_com` channel in the following way:
-
-    ``` bash
-    COMPOSER_AUTH='{"http-basic":{"updates.ez.no":{"username":"<installation-key>","password":"<token-password>"}}}' composer create-project --keep-vcs --repository=https://updates.ez.no/bul_com/ ezsystems/ezcommerce my-new-com-project
-    ```
-
-    Edit `composer.json` in your project root and change the URL defined in the `repositories` section to `https://updates.ez.no/bul_com/`.
-    Once that is done, you can execute `composer update` to get packages with the correct license.
-
-    !!! note "Moving from trial"
-
-        If you started with a trial installation and want to use the software under the [BUL license instead of a TTL license](https://ibexa.co/About-our-Software/Licenses-and-agreements/), you must change the channel setting that you have just made.
 
 !!! tip
 
     You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md):
-    specific tag (`v2.2.0`), version range (`~1.13.0`), stability (`^2.3@rc`), etc.
-    For example if you want to get the latest stable 2.x release, with a minimum of v2.3.1, use:
+    specific tag (`v3.3.0`), version range (`~3.3.0`), stability (`^3.3@rc`), etc.:
 
     ``` bash
-    composer create-project --keep-vcs ezsystems/ezplatform . ^2.3.1
+    composer create-project ibexa/website-skeleton:v3.3.0 .
     ```
 
-!!! tip "Different tokens for different projects on a single host"
+### Configure access to the update server
 
-    If you configure several projects on one machine, make sure that
-    you set different tokens for each of the projects in their respective `auth.json` files.
+!!! note
 
-## Change installation parameters
+    This step is not necessary if you are installing the OSS edition.
+
+Set up your composer configuration to connect to updates.ibexa.co:
+
+``` bash
+composer config repositories.ibexa composer https://updates.ibexa.co 
+```
+
+### Install packages
+
+To install all necessary product packages, run:
+
+=== "[[= product_name_content =]]"
+
+    ``` bash
+    composer require ibexa-content
+    ```
+
+=== "[[= product_name_exp =]]"
+
+    ``` bash
+    composer require ibexa-experience
+    ```
+
+=== "[[= product_name_com =]]"
+
+    ``` bash
+    composer require ibexa-commerce
+    ```
+
+### Change installation parameters
 
 At this point you can configure your database via the `DATABASE_URL` in the `.env` file:
 `DATABASE_URL=mysql://user:password@host:port/name`.
@@ -228,8 +175,6 @@ It should be a random string, made up of at least 32 characters, numbers, and sy
 This is used by Symfony when generating [CSRF tokens](https://symfony.com/doc/5.0/security/csrf.html),
 [encrypting cookies](http://symfony.com/doc/5.0/cookbook/security/remember_me.html),
 and for creating signed URIs when using [ESI (Edge Side Includes)](https://symfony.com/doc/5.0/http_cache/esi.html).
-
-Instead of setting `DATABASE_URL`, you can change individual installation parameters in `.env`.
 
 !!! caution
 
@@ -249,30 +194,13 @@ Instead of setting `DATABASE_URL`, you can change individual installation parame
 
     It is recommended to store the database credentials in your `.env.local` file and not commit it to the Version Control System.
 
-The configuration requires providing the following parameters:
-
-- `DATABASE_USER`
-- `DATABASE_PASSWORD`
-- `DATABASE_NAME`
-- `DATABASE_HOST`
-- `DATABASE_PORT`
-- `DATABASE_PLATFORM` - prefix for distinguishing the database you are connecting to (e.g. `mysql` or `pgsql`)
-- `DATABASE_DRIVER` - driver used by Doctrine to connect to the database (e.g. `pdo_mysql` or `pdo_pgsql`)
-- `DATABASE_VERSION` - database server version (for a MariaDB database, prefix the value with `mariadb-`)
-
-!!! caution
-
-    When you use the `.env.local` file with the `DATABASE_*` parameters mentioned above, you must re-define the `DATABASE_URL` parameter for interpolation after overriding those parameters:
-
-    ```
-    DATABASE_URL=${DATABASE_PLATFORM}://${DATABASE_USER}:${DATABASE_PASSWORD}@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}
-    ```
+In `DATABASE_VERSION` you can also configure the database server version (for a MariaDB database, prefix the value with `mariadb-`).
 
 !!! tip "Using PostgreSQL"
 
     If you want an installation with PostgreSQL instead of MySQL, refer to [Using PostgreSQL](../guide/databases.md#using-postgresql).
 
-## Install and configure a search engine [[% include 'snippets/commerce_badge.md' %]]
+#### Install and configure a search engine [[% include 'snippets/commerce_badge.md' %]]
 
 Search in the shop front end requires that you have either Solr or Elasticsearch installed as a search engine.
 
@@ -312,7 +240,7 @@ Search in the shop front end requires that you have either Solr or Elasticsearch
     ELASTICSEARCH_DSN=http://localhost:9200
     ```
 
-## Install [[= product_name =]]
+### Create a database
 
 Install [[= product_name =]] and create a database with:
 
@@ -325,6 +253,14 @@ Before executing the command make sure that the database user has sufficient per
 If Composer asks for your token, you must log in to your GitHub account and generate a new token
 (edit your profile and go to **Developer settings** > **Personal access tokens** > **Generate new token** with default settings).
 This operation is performed only once, when you install [[= product_name =]] for the first time.
+
+### Run post-installation script
+
+Run the post-installation script with the following command:
+
+``` bash
+composer run post-install-cmd
+```
 
 ## Use PHPs built-in server
 
