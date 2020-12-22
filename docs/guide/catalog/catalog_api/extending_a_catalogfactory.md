@@ -1,4 +1,4 @@
-# Extending a CatalogFactory
+# Extending a CatalogFactory [[% include 'snippets/commerce_badge.md' %]]
 
 If you need to prepare special fields for products or categories, or you need to do a mapping,
 then the easiest way is to extend the catalog factory.

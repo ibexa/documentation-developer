@@ -1,4 +1,4 @@
-# Template resolver
+# Template resolver [[% include 'snippets/commerce_badge.md' %]]
 
 Template resolver enables overriding templates.
 It is an alternative to the [Symfony override functionality](https://symfony.com/doc/3.4/templating/overriding.html).

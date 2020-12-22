@@ -1,4 +1,4 @@
-# Quick order templates
+# Quick order templates [[% include 'snippets/commerce_badge.md' %]]
 
 ### Template list
 

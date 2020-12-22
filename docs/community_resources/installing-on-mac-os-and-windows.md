@@ -1,17 +1,17 @@
-# Install [[= product_name_oss =]] on macOS or Windows
+# Install [[= product_name =]] on macOS or Windows
 
-This page explains how to install [[= product_name_oss =]] on macOS or Windows.
+This page explains how to install [[= product_name =]] on macOS or Windows.
 
 !!! caution
 
     This procedure is **for development purposes only**.
-    Installing [[= product_name_oss =]] for production purposes is supported only on Linux.
+    Installing [[= product_name =]] for production purposes is supported only on Linux.
 
-    If you want to use [[= product_name_oss =]] in the production environment, see [Installing [[= product_name_oss =]]](../getting_started/install_ez_platform.md).  
+    If you want to use [[= product_name =]] in the production environment, see [Installing [[= product_name =]]](../getting_started/install_ez_platform.md).  
 
 ### Prepare work environment
 
-To install [[= product_name_oss =]], you need a stack with MySQL and PHP.
+To install [[= product_name =]], you need a stack with MySQL and PHP.
 Additionally, you need [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/lang/en/docs/install/) for asset management.
 If you want to use a web server, you need to install it as well:
 
@@ -71,9 +71,9 @@ The instructions below assumes you are using Apache.
 
     Download and run [Composer-Setup.exe](https://getcomposer.org/Composer-Setup.exe) - it will install the latest Composer version.
 
-## Download [[= product_name_oss =]]
+## Download [[= product_name =]]
 
-Download and extract an archive into the location where you want your project root directory to be from [ezplatform.com](https://ezplatform.com/#download-option) (for open-source version) or from the [Support portal](https://support.ez.no/Downloads) (for [[= product_name_ee =]]), or clone the [GitHub repository](https://github.com/ezsystems/ezplatform):
+Download and extract an archive into the location where you want your project root directory to be from [ezplatform.com](https://ezplatform.com/#download-option) (for open-source version) or from the [Support portal](https://support.ez.no/Downloads) (for [[= product_name_exp =]]), or clone the [GitHub repository](https://github.com/ezsystems/ezplatform):
 
 ``` bash
 git clone https://github.com/ezsystems/ezplatform .
@@ -84,7 +84,7 @@ git clone https://github.com/ezsystems/ezplatform .
     You can use any other folder name for your project in place of `ezplatform`.
     Set its location as your project root directory in your virtual host configuration.
 
-To install Composer dependencies, from the folder into which you downloaded [[= product_name_oss =]], run:
+To install Composer dependencies, from the folder into which you downloaded [[= product_name =]], run:
 
 ``` bash
 composer install
@@ -146,11 +146,11 @@ To manually create a database, ensure that you [changed the installation paramet
 php ./bin/console doctrine:database:create
 ```
 
-## Install [[= product_name_oss =]]
+## Install [[= product_name =]]
 
 Before executing the following command, ensure that the user set during `composer install` has sufficient permissions.
 
-Install [[= product_name_oss =]] by running:
+Install [[= product_name =]] by running:
 
 ``` bash
 composer ezplatform-install
@@ -163,7 +163,7 @@ composer ezplatform-install
 
 ## Set up virtual host
 
-To set up virtual host, use the template provided with [[= product_name_oss =]]: `<your installation directory>/doc/apache2/vhost.template`.
+To set up virtual host, use the template provided with [[= product_name =]]: `<your installation directory>/doc/apache2/vhost.template`.
 
 Copy the virtual host template under the name `<your_site_name>.conf` into your Apache directory:
 

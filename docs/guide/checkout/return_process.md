@@ -1,4 +1,4 @@
-# Return process
+# Return process [[% include 'snippets/commerce_badge.md' %]]
 
 [[= product_name_com =]] offers a simple RMA (return merchandise authorization) process.
 The goal is to inform the user about the cancellation policies and give them the possibility to return their goods, including online returns.

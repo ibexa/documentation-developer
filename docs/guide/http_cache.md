@@ -1,14 +1,14 @@
 # HTTP cache
 
-[[= product_name_oss =]] provides highly advanced caching features needed for its own content views,
+[[= product_name =]] provides highly advanced caching features needed for its own content views,
 taking advantage of sophisticated techniques to make Varnish and Fastly act as the view cache for the system.
-This and other features allow [[= product_name_oss =]] to be scaled up to serve high traffic websites and applications.
+This and other features allow [[= product_name =]] to be scaled up to serve high traffic websites and applications.
 
 This is handled by the [ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache) bundle,
 which extends [friendsofsymfony/http-cache-bundle](https://foshttpcachebundle.readthedocs.io/en/2.8.0/),
 a Symfony community bundle that in turn extends [Symfony HTTP cache](http://symfony.com/doc/5.1/http_cache.html).
 
-For content view responses coming from [[= product_name_oss =]] itself, this means:
+For content view responses coming from [[= product_name =]] itself, this means:
 
 - Cache is **[content-aware](#content-aware-http-cache)**, always kept up-to-date by invalidating using cache tags.
 - Cache is **[context-aware](#context-aware-http-cache)**, to cache request for logged-in users by varying on user permissions.
@@ -119,7 +119,7 @@ as it will cause your reverse proxy to wait for back end and not be able to deli
 
 ## Using Varnish or Fastly
 
-As [[= product_name_oss =]] is built on top of Symfony, it uses standard HTTP cache headers.
+As [[= product_name =]] is built on top of Symfony, it uses standard HTTP cache headers.
 By default, the Symfony reverse proxy, written in PHP, is used to handle cache.
 You can easily replace it with reverse proxies like Varnish or CDN like Fastly.
 
@@ -143,15 +143,15 @@ For setup to work properly with your installation, you'll need to adapt one of t
     you can also adapt your VCL further with [FOSHttpCache documentation](http://foshttpcache.readthedocs.org/en/latest/varnish-configuration.html)
     in order to use additional features.
 
-### Configure [[= product_name_oss =]]
+### Configure [[= product_name =]]
 
-Configuring [[= product_name_oss =]] for Varnish or Fastly involves a few steps, starting with configuring proxy.
+Configuring [[= product_name =]] for Varnish or Fastly involves a few steps, starting with configuring proxy.
 
 #### Configuring Symfony front controller
 
 In a pure Symfony installation you would normally adapt front controller (`web/app.php`)
 in order to configure Symfony to [work behind a load balancer or a reverse proxy](https://symfony.com/doc/5.1/deployment/proxies.html),
-however in [[= product_name_oss =]] can cover most use cases by setting supported environment variables using:
+however in [[= product_name =]] can cover most use cases by setting supported environment variables using:
 
 - `APP_HTTP_CACHE`: To enable (`"1"`) or disable (`"0"`) use of Symfony HttpCache reverse proxy
     - *Must* be disabled when using Varnish or Fastly.
@@ -173,11 +173,11 @@ however in [[= product_name_oss =]] can cover most use cases by setting supporte
     Make sure that **all** traffic always comes from the trusted proxy/load balancer,
     and that there is no other way to configure it.
 
-See [Examples for configuring [[= product_name_oss =]]](#examples-for-configuring-eZ-Platform) for how these variables can be set.
+See [Examples for configuring [[= product_name =]]](#examples-for-configuring-eZ-Platform) for how these variables can be set.
 
 #### Update YML configuration
 
-Secondly, you need to tell [[= product_name_oss =]] to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client),
+Secondly, you need to tell [[= product_name =]] to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client),
 and specify the URL Varnish can be reached on (in `config/packages/ezplatform.yaml`):
 
 | Configuration | Parameter| Environment variable| Possible values|
@@ -213,102 +213,100 @@ ezplatform:
  
     In such a case use a strong, secure hash and make sure to keep the token secret.
 
-!!! dxp
+#### Ensure proper Captcha behavior [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-    #### Ensure proper Captcha behavior
+If your installation uses Varnish and you want users to be able to configure and use Captcha in their forms,
+you must enable the sending of Captcha data as a response to an Ajax request.
+Otherwise, Varnish prohibits the transfer of Captcha data to the form, and users see an empty image.
 
-    If your installation uses Varnish and you want users to be able to configure and use Captcha in their forms,
-    you must enable the sending of Captcha data as a response to an Ajax request.
-    Otherwise, Varnish prohibits the transfer of Captcha data to the form, and users see an empty image.
+To enable sending Captcha over Ajax, modify the configuration file, for example `config/packages/ezplatform.yaml`, by adding the following code:
 
-    To enable sending Captcha over Ajax, modify the configuration file, for example `config/packages/ezplatform.yaml`, by adding the following code:
+``` yaml
+ezplatform:
+    system:
+        default:
+            form_builder:
+                captcha:
+                    use_ajax: <true|false>
+```
 
-    ``` yaml
-    ezplatform:
-        system:
-            default:
-                form_builder:
-                    captcha:
-                        use_ajax: <true|false>
-    ```
+#### Custom Captcha block [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-    #### Custom Captcha block
+If you created a custom Captcha block for your site by overriding the default file (`vendor/gregwar/captcha-bundle/Resources/views/captcha.html.twig`),
+you must make the following changes to the custom block template file:
 
-    If you created a custom Captcha block for your site by overriding the default file (`vendor/gregwar/captcha-bundle/Resources/views/captcha.html.twig`),
-    you must make the following changes to the custom block template file:
+- change the name of the block to `ajax_captcha_widget`
+- include the JavaScript file:
 
-    - change the name of the block to `ajax_captcha_widget`
-    - include the JavaScript file:
+``` js
+{{ encore_entry_script_tags('ezplatform-form-builder-ajax-captcha-js', null, 'ezplatform') }}
+```
 
-    ``` js
-    {{ encore_entry_script_tags('ezplatform-form-builder-ajax-captcha-js', null, 'ezplatform') }}
-    ```
+- add a data attribute with a `fieldId` value:
 
-    - add a data attribute with a `fieldId` value:
+``` js
+data-field-id="{{ field.id }}"
+```
 
-    ``` js
-    data-field-id="{{ field.id }}"
-    ```
+As a result, your file should be similar to [this example.](https://github.com/ezsystems/ezplatform-form-builder/blob/master/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig)
 
-    As a result, your file should be similar to [this example.](https://github.com/ezsystems/ezplatform-form-builder/blob/master/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig)
+For more information about configuring Captcha fields, see [Captcha field](../extending/extending_form_builder.md#captcha-field).
 
-    For more information about configuring Captcha fields, see [Captcha field](../extending/extending_form_builder.md#captcha-field).
+#### Using Fastly as HttpCache proxy
 
-    #### Using Fastly as HttpCache proxy
+[Fastly](https://www.fastly.com/) delivers Varnish as a CDN service and is supported with [[= product_name =]].
+See [Fastly documentation](https://docs.fastly.com/guides/basic-concepts/how-fastlys-cdn-service-works) to learn how it works.
 
-    [Fastly](https://www.fastly.com/) delivers Varnish as a CDN service and is supported with [[= product_name_ee =]].
-    See [Fastly documentation](https://docs.fastly.com/guides/basic-concepts/how-fastlys-cdn-service-works) to learn how it works.
+##### Configuring Fastly in YML
 
-    ##### Configuring Fastly in YML
+``` yaml
+ezplatform:
+    http_cache:
+        purge_type: fastly
 
-    ``` yaml
-    ezplatform:
-        http_cache:
-            purge_type: fastly
+    system:
+        # Assuming that my_siteaccess_group contains both your front-end and back-end SiteAccesses
+        my_siteaccess_group:
+            http_cache:
+                purge_servers: [https://api.fastly.com]
+                fastly:
+                    # See below for obtaining these values
+                    service_id: "ID"
+                    key: "token"
+```
 
-        system:
-            # Assuming that my_siteaccess_group contains both your front-end and back-end SiteAccesses
-            my_siteaccess_group:
-                http_cache:
-                    purge_servers: [https://api.fastly.com]
-                    fastly:
-                        # See below for obtaining these values
-                        service_id: "ID"
-                        key: "token"
-    ```
+##### Configuring Fastly using environment variables
 
-    ##### Configuring Fastly using environment variables
+Example when using `.env` file:
 
-    Example when using `.env` file:
-    
-    ```
-    SYMFONY_HTTP_CACHE="0"
+```
+SYMFONY_HTTP_CACHE="0"
 
-    HTTPCACHE_PURGE_TYPE="fastly"
-    # Optional
-    HTTPCACHE_PURGE_SERVER="https://api.fastly.com"
+HTTPCACHE_PURGE_TYPE="fastly"
+# Optional
+HTTPCACHE_PURGE_SERVER="https://api.fastly.com"
 
-    # See below for obtaining service ID and application key/token
-    FASTLY_SERVICE_ID="ID"
-    FASTLY_KEY="token"
-    ```
+# See below for obtaining service ID and application key/token
+FASTLY_SERVICE_ID="ID"
+FASTLY_KEY="token"
+```
 
-    ##### Configuring Fastly on Platform.sh
+##### Configuring Fastly on Platform.sh
 
-    If you are using Platform.sh, it's best to configure all environment variables via [Platform.sh variables](https://docs.platform.sh/frameworks/ibexa/fastly.html).
-    You also need to [disable Varnish](https://docs.platform.sh/frameworks/ibexa/fastly.html#remove-varnish-configuration),
-    which is enabled by default in the provided configuration for Platform.sh.
+If you are using Platform.sh, it's best to configure all environment variables via [Platform.sh variables](https://docs.platform.sh/frameworks/ibexa/fastly.html).
+You also need to [disable Varnish](https://docs.platform.sh/frameworks/ibexa/fastly.html#remove-varnish-configuration),
+which is enabled by default in the provided configuration for Platform.sh.
 
-    ##### Obtaining Fastly service ID and API token
+##### Obtaining Fastly service ID and API token
 
-    The service ID can be obtained by logging in to http://fastly.com and clicking **CONFIGURE** in the top menu,
-    then **Show service ID** at the top left of the page.
+The service ID can be obtained by logging in to http://fastly.com and clicking **CONFIGURE** in the top menu,
+then **Show service ID** at the top left of the page.
 
-    See [the Fastly guide](https://docs.fastly.com/guides/account-management-and-security/using-api-tokens) for
-    instructions on how to generate a Fastly API token.
-    The token needs the `purge_select` and `purge_all` scopes.
+See [the Fastly guide](https://docs.fastly.com/guides/account-management-and-security/using-api-tokens) for
+instructions on how to generate a Fastly API token.
+The token needs the `purge_select` and `purge_all` scopes.
 
-#### Examples for configuring [[= product_name_oss =]]
+#### Examples for configuring [[= product_name =]]
 
 Below you will find the most common examples for configuring the system completely by environment variables.
 
@@ -396,7 +394,7 @@ the following happens when a page has been soft purged:
 and don't wait for the asynchronous lookup to finish.
 - The back-end lookup finishes and refreshes the cache so any subsequent requests get a fresh cache.
 
-By default, [[= product_name_oss =]] always soft purges content on reverse proxies that support it (Varnish and Fastly),
+By default, [[= product_name =]] always soft purges content on reverse proxies that support it (Varnish and Fastly),
 with the following logic in the out-of-the-box VCL:
 
 - cache is within grace
@@ -416,7 +414,7 @@ Serving grace is not always allowed by default because:
 
 ## Context-aware HTTP cache
 
-[[= product_name_oss =]] allows caching requests made by logged-in users.
+[[= product_name =]] allows caching requests made by logged-in users.
 It is called (user) context-aware cache.
 
 It means that HTTP cache is unique per set of user permissions (Roles and Limitations), 
@@ -444,7 +442,7 @@ as the hash lookup itself is cached by the cache proxy as described below.
 
 ##### User Context Hash caching
 
-Example of response sent to reverse proxy from `/_fos_user_context_hash` with [[[= product_name_oss =]]'s default config](#default-options-for-foshttpcachebundle-defined-in-ez-platform):
+Example of response sent to reverse proxy from `/_fos_user_context_hash` with [[[= product_name =]]'s default config](#default-options-for-foshttpcachebundle-defined-in-ez-platform):
 
 ```
 HTTP/1.1 200 OK
@@ -477,9 +475,9 @@ It also varies on `Authorization` to cover any possible basic auth headers in ca
     The only known workaround is to make it SiteAccess aware, and have custom VCL logic tied to your SiteAccess
     matching with Varnish/Fastly, in order to send the SiteAccess prefix as URI.
 
-##### Default options for FOSHttpCacheBundle defined in [[= product_name_oss =]]
+##### Default options for FOSHttpCacheBundle defined in [[= product_name =]]
 
-The following configuration is defined in [[= product_name_oss =]] by default for FOSHttpCacheBundle.
+The following configuration is defined in [[= product_name =]] by default for FOSHttpCacheBundle.
 Typically, you should not override these settings unless you know what you are doing.
 
 ``` yaml
@@ -500,7 +498,7 @@ fos_http_cache:
 
 ####  Personalizing responses
 
-Here are some generic recommendations on how to approach personalized content with [[= product_name_oss =]] / Symfony:
+Here are some generic recommendations on how to approach personalized content with [[= product_name =]] / Symfony:
 
 1\. ESI with vary by cookie:
 
@@ -542,8 +540,8 @@ This solution requires more effort (controller, VCL logic and adapting your own 
 
 Refer to [FOSHttpCacheBundle documentation on how user context hashes are generated](https://foshttpcachebundle.readthedocs.io/en/2.8.0/features/user-context.html#generating-hashes).
 
-[[= product_name_oss =]] implements a custom context provider in order to make user context hash reflect the current User's Roles and Limitations.
-This is needed given [[= product_name_oss =]]'s more complex permission model compared to Symfony's.
+[[= product_name =]] implements a custom context provider in order to make user context hash reflect the current User's Roles and Limitations.
+This is needed given [[= product_name =]]'s more complex permission model compared to Symfony's.
 
 You can technically extend the user context hash by [implementing your own custom context provider(s)](https://foshttpcachebundle.readthedocs.io/en/2.8.0/reference/configuration/user-context.html#custom-context-providers).
 However, **this is strongly discouraged** as it means increasing the amount of cache variations
@@ -620,7 +618,7 @@ $response->setVary('X-User-Preference-Hash');
 
 ## Content-aware HTTP cache
 
-HTTP cache in [[= product_name_oss =]] is aware of which content or entity it is connected to.
+HTTP cache in [[= product_name =]] is aware of which content or entity it is connected to.
 This awareness is accomplished by means of cache tagging. All supported reverse proxies are content-aware.
 
 !!! note "Tag header is stripped in production for security reasons"
@@ -652,7 +650,7 @@ Current content tags (and when the system purges on them):
 
 !!! note "Automatic repository prefixing of cache tags"
 
-    As [[= product_name_oss =]] support multi-repository (multi-database) setups that can have overlapping IDs,
+    As [[= product_name =]] support multi-repository (multi-database) setups that can have overlapping IDs,
     the shared HTTP cache systems need to distinguish tags relevant to the different content repositories.
 
     This is why in multi-repository setup you can see cache tags such as `1p2`.

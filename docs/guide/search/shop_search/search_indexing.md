@@ -1,4 +1,4 @@
-# Search indexing
+# Search indexing [[% include 'snippets/commerce_badge.md' %]]
 
 ## Reindexing
 

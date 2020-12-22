@@ -103,7 +103,7 @@ This file loads the plugin and button files when loading Online Editor.
 
 ## Adding the plugin to configuration
 
-Finally, add the plugin and its button to your [[= product_name_oss =]] configuration:
+Finally, add the plugin and its button to your [[= product_name =]] configuration:
 
 ``` yaml
 ezplatform:

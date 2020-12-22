@@ -1,10 +1,10 @@
 # Extending the REST API
 
-The [[= product_name_oss =]] REST API comes with a framework that makes it easy to extend the API for your own needs.
+The [[= product_name =]] REST API comes with a framework that makes it easy to extend the API for your own needs.
 
 ## Requirements
 
-REST routes are required to use the [[= product_name_oss =]] REST API prefix, `/api/ezp/v2`. You can create new resources below this prefix.
+REST routes are required to use the [[= product_name =]] REST API prefix, `/api/ezp/v2`. You can create new resources below this prefix.
 
 To do so, you will/may need to create:
 

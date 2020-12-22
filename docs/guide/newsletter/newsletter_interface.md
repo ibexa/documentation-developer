@@ -1,4 +1,4 @@
-# Newsletter interface
+# Newsletter interface [[% include 'snippets/commerce_badge.md' %]]
 
 `Siso\Bundle\NewsletterBundle\Api\NewsletterInterface` is the common interface for newsletter providers.
 

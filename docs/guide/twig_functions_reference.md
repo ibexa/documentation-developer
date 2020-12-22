@@ -4,7 +4,7 @@
 
     For the template functionality provided by Symfony Framework, see [Symfony Twig Extensions Reference page](http://symfony.com/doc/5.0/reference/twig_reference.html). For those provided by the underlying Twig template engine, see [Twig Reference page](http://twig.sensiolabs.org/documentation#reference).
 
-In addition to the [native functions provided by Twig](http://twig.sensiolabs.org/doc/functions/index.html), [[= product_name_oss =]] offers the following:
+In addition to the [native functions provided by Twig](http://twig.sensiolabs.org/doc/functions/index.html), [[= product_name =]] offers the following:
 
 |Twig function|Description|
 |-------------|-----------|

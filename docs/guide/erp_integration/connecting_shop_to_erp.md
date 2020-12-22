@@ -1,6 +1,6 @@
-# Connecting shop to ERP
+# Connecting shop to ERP [[% include 'snippets/experience_badge.md' %]]
 
-[[= product_name_com =]] can use both webservices/SOAP and REST transfer protocols to connect to ERP.
+[[= product_name_exp =]] can use both webservices/SOAP and REST transfer protocols to connect to ERP.
 
 You can extend the transport layer if you need an additional protocol or way to access the ERP/CRM.
 
@@ -9,7 +9,7 @@ which already comes with prepared interfaces for those ERP systems.
 
 There are other options besides using the Web.Connector:
 
-- If the ERP offers a webservice/REST interface, you can connect [[= product_name_com =]] directly with the ERP.
+- If the ERP offers a webservice/REST interface, you can connect [[= product_name_exp =]] directly with the ERP.
 - You can use an enterprise service bus (ESB).
 
 ![](../img/web_connector.png)
@@ -200,7 +200,7 @@ silver_erp.config.messages:
             mapping_identifier: "selectcustomer"
 ```
 
-If `mapping_identifier` is defined, [[= product_name_com =]] uses a mapping (XSLT based).
+If `mapping_identifier` is defined, [[= product_name_exp =]] uses a mapping (XSLT based).
 
 The Web.Connector performs mapping for each message according to the following configuration:
 

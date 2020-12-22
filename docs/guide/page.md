@@ -1,4 +1,4 @@
-# Pages in the shop
+# Pages in the shop [[% include 'snippets/commerce_badge.md' %]]
 
 [[= product_name_com =]] adds the following blocks to the Page Builder:
 

@@ -1,4 +1,4 @@
-# eContent
+# eContent [[% include 'snippets/commerce_badge.md' %]]
 
 The eContent storage provider can store product data in an efficient way.
 It enables storing data (mostly for products and product groups) in database tables with a simple structure. 

@@ -1,4 +1,4 @@
-# Navigation configuration
+# Navigation configuration [[% include 'snippets/commerce_badge.md' %]]
 
 The `navigation_ez_location_root` parameter is the entry root Location point for the whole navigation in the Back Office.
 This value is usually set to `2`, the Location of the content structure.

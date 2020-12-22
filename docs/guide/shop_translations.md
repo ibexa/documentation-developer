@@ -1,4 +1,4 @@
-# Shop translations
+# Shop translations [[% include 'snippets/commerce_badge.md' %]]
 
 You can use special translation Content items called "text modules" to create translations of the interface.
 The translation service first checks if a Content item with a specific identifier exists and then returns the text attribute of this object.

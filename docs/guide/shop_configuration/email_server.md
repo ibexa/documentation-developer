@@ -1,4 +1,4 @@
-# Email server
+# Email server [[% include 'snippets/commerce_badge.md' %]]
 
 GDPR requires handling emails in a secure way.
 

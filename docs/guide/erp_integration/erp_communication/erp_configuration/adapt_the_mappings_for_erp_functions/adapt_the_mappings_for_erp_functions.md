@@ -1,8 +1,8 @@
-# Adapt the mappings for ERP functions
+# Adapt the mappings for ERP functions [[% include 'snippets/experience_badge.md' %]]
 
-[[= product_name_com =]] uses a flexible way to map the request and response between the shop and the ERP system.
+[[= product_name_exp =]] uses a flexible way to map the request and response between the shop and the ERP system.
 
-By default [[= product_name_com =]] comes with a prepared mapping stored in the vendor bundle.
+By default [[= product_name_exp =]] comes with a prepared mapping stored in the vendor bundle.
 The mappings can be extended in your project bundles.
 
 Your bundle has to be registered as a mapping bundle:

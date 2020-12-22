@@ -1,4 +1,4 @@
-# ERP Message: InvoiceDetail
+# ERP Message: InvoiceDetail [[% include 'snippets/experience_badge.md' %]]
 
 `InvoiceDetail` fetches the detailed data for an existing invoice note.
 

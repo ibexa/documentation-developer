@@ -2,7 +2,7 @@
 
 ## Introduction
 
-You can serve multiple different sites using one [[= product_name_oss =]] instance and database.
+You can serve multiple different sites using one [[= product_name =]] instance and database.
 
 Each site will have its own content root, at a lower level than the default one (Location ID 2).
 You can use one global back office for all sites, or a separate back office for each site.
@@ -52,7 +52,7 @@ In the example above, the Media and Images folders will be accessible using thei
 
 ## Configuration example
 
-To see how multisite can be used, let's look at an example of two sites using the same [[= product_name_oss =]] instance: a general company site and a site for a specific event.
+To see how multisite can be used, let's look at an example of two sites using the same [[= product_name =]] instance: a general company site and a site for a specific event.
 Separate SiteAccesses are set up for the two sites:
 
 ``` yaml
@@ -142,7 +142,7 @@ To configure multisite with multiple Repositories, [configure the repositories](
 
 ## Different designs for multiple sites
 
-[[= product_name_oss =]] does not apply a [Legacy template fallback](https://doc.ez.no/display/EZP/Legacy+template+fallback) like eZ Publish did.
+[[= product_name =]] does not apply a [Legacy template fallback](https://doc.ez.no/display/EZP/Legacy+template+fallback) like eZ Publish did.
 You can, however, have different designs in your multisite installation if you organize the view configuration with the use of SiteAccesses.
 
 Looking back at the [previous example](#configuration-example), you can apply different designs to the two sites, but use some common templates.

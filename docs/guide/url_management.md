@@ -144,7 +144,7 @@ the prefix path that results from the configured content root is prepended to th
 
 ### URL alias pattern configuration
 
-You can configure how [[= product_name_oss =]] generates URL aliases.
+You can configure how [[= product_name =]] generates URL aliases.
 The configuration is stored in the `config/packages/ezplatform.yaml` file, under the `ezplatform.url_alias.slug_converter` key, for example:
 
 ``` yaml

@@ -1,4 +1,4 @@
-# ERP Message: SelectCustomer
+# ERP Message: SelectCustomer [[% include 'snippets/experience_badge.md' %]]
 
 `SelectCustomer` fetches customer information, like all types of addresses etc., from the ERP system.
 It is stored in the session afterwards to avoid duplicate calls to the ERP.

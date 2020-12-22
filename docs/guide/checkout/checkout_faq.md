@@ -1,4 +1,4 @@
-# Checkout FAQ
+# Checkout FAQ [[% include 'snippets/commerce_badge.md' %]]
 
 
 ## How can I change the subject of the confirmation mail?

@@ -24,7 +24,7 @@ ezplatform:
                             Id\Location: 2
 ```
 
-This tells [[= product_name_oss =]] to use the `template` when rendering content with Location ID `2`.
+This tells [[= product_name =]] to use the `template` when rendering content with Location ID `2`.
 `2` is the default Location for the root Content item.
 
 `Id\Location` is one of several [view matchers](../../guide/content_rendering.md#configuring-views-the-viewprovider) that you can use to customize rendering depending on different criteria.
@@ -177,7 +177,7 @@ Before proceeding, ensure that the structure of the added files looks like this:
 
 ### Configuring Webpack
 
-In [[= product_name_oss =]], you can add assets by using [Symfony Webpack Encore](https://symfony.com/doc/5.0/frontend.html#webpack-encore)
+In [[= product_name =]], you can add assets by using [Symfony Webpack Encore](https://symfony.com/doc/5.0/frontend.html#webpack-encore)
 — an integration of Webpack that enables you to build bundles of CSS stylesheets and JS scripts and add them to the project.
 For more details, see [importing assets from a bundle](../../guide/project_organization.md#importing-assets-from-a-bundle).
 

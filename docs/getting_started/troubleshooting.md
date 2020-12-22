@@ -1,6 +1,6 @@
 # Troubleshooting
 
-This page lists potential problems that you may encounter while installing, configuring, and running [[= product_name_oss =]].
+This page lists potential problems that you may encounter while installing, configuring, and running [[= product_name =]].
 
 ## Initial installation options
 
@@ -9,7 +9,7 @@ you can do it in the `.env` file.
 
 ## Enable swap on systems with limited RAM
 
-If you have problems installing [[= product_name_oss =]] on a system with limited RAM (for example 1GB or 2GB), enable swap.
+If you have problems installing [[= product_name =]] on a system with limited RAM (for example 1GB or 2GB), enable swap.
 It allows your operating system to use the hard disk to supplement RAM when it runs out.
 
 With swap enables you will be able to successfully run `php -d memory_limit=-1 bin/console ezplatform:install --env prod ezplatform-clean`.

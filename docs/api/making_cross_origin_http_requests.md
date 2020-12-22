@@ -1,6 +1,6 @@
 # Making cross-origin HTTP requests
 
-[[= product_name_oss =]] ships with [NelmioCorsBundle](https://github.com/nelmio/NelmioCorsBundle),
+[[= product_name =]] ships with [NelmioCorsBundle](https://github.com/nelmio/NelmioCorsBundle),
 an open-source Symfony bundle that provides support for [CORS (Cross-Origin Resource Sharing)](http://www.w3.org/TR/cors/).
 The REST API is pre-configured to respond to such requests, as long as you customize the allowed origins as explained below.
 
@@ -36,9 +36,9 @@ nelmio_cors:
         allow_origin: [ 'http://example.com' ]
 ```
 
-#### Changing configuration of NelmioCorsBundle for [[= product_name_oss =]] REST
+#### Changing configuration of NelmioCorsBundle for [[= product_name =]] REST
 
-The default configuration of NelmioCorsBundle for [[= product_name_oss =]] REST paths is set in the [nelmio_cors.yaml](https://github.com/ezsystems/ezplatform-rest/blob/master/src/bundle/Resources/config/nelmio_cors.yml) file.
+The default configuration of NelmioCorsBundle for [[= product_name =]] REST paths is set in the [nelmio_cors.yaml](https://github.com/ezsystems/ezplatform-rest/blob/master/src/bundle/Resources/config/nelmio_cors.yml) file.
 To adapt these settings to your own needs you have to overwrite them in the `nelmio_cors.yaml` file under the same configuration path, for instance:
 
 ```yaml

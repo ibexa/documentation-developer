@@ -1,4 +1,4 @@
-# Product rendering
+# Product rendering [[% include 'snippets/commerce_badge.md' %]]
 
 The `catalogElement` object represents the product in catalog templates.
 Use it with the `ses_render_field` Twig function to render product Fields:

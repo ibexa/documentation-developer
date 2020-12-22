@@ -1,4 +1,4 @@
-# Configuration for checkout forms
+# Configuration for checkout forms [[% include 'snippets/commerce_badge.md' %]]
 
 You can use generic configuration for checkout forms to override the forms and form logic for your project.
 

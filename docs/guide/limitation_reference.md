@@ -112,27 +112,25 @@ This Limitation combined with `ContentType` Limitation allows you to define busi
 |------|------|------|
 |`<ContentType_id>`|`<ContentType_name>`|All valid Content Type IDs can be set as value(s)|
 
-!!! dxp
+## Field Group Limitation [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-    ## Field Group Limitation
+A Limitation to specify if the User can work with content Fields belonging to a specific group.
+A user with this Limitation is allowed to edit Fields belonging to the indicated group.
+Otherwise, the Fields are inactive and filled with the default value (if set).
 
-    A Limitation to specify if the User can work with content Fields belonging to a specific group.
-    A user with this Limitation is allowed to edit Fields belonging to the indicated group.
-    Otherwise, the Fields are inactive and filled with the default value (if set).
+|                 |                                                                                |
+|-----------------|--------------------------------------------------------------------------------|
+| Identifier      | `Field Group`                                                                  |
+| Value Class     | `Ibexa\Platform\Contracts\Permissions\Repository\Values\User\Limitation\FieldGroupLimitation` |
+| Type Class      | `Ibexa\Platform\Permissions\Security\Limitation\FieldGroupLimitationType ` |
+| Criterion used  | n/a                                                                            |
+| Role Limitation | no                                                                             |
 
-    |                 |                                                                                |
-    |-----------------|--------------------------------------------------------------------------------|
-    | Identifier      | `Field Group`                                                                  |
-    | Value Class     | `Ibexa\Platform\Contracts\Permissions\Repository\Values\User\Limitation\FieldGroupLimitation` |
-    | Type Class      | `Ibexa\Platform\Permissions\Security\Limitation\FieldGroupLimitationType ` |
-    | Criterion used  | n/a                                                                            |
-    | Role Limitation | no                                                                             |
+### Possible values
 
-    ### Possible values
-
-    |Value|UI value|Description|
-    |------|------|------|
-    |`<FieldGroup_identifier>`|`<FieldGroup_identifier>`|All valid Field group identifiers can be set as value(s)|
+|Value|UI value|Description|
+|------|------|------|
+|`<FieldGroup_identifier>`|`<FieldGroup_identifier>`|All valid Field group identifiers can be set as value(s)|
 
 ## Language Limitation
 

@@ -1,4 +1,4 @@
-# Token
+# Token [[% include 'snippets/commerce_badge.md' %]]
 
 [[= product_name_com =]] uses the token system in the registration process to create a double opt-in possibility.
 The token service can generate a unique token that is valid for a given time.

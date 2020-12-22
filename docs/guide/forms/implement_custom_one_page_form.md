@@ -1,4 +1,4 @@
-# Implement custom one-page form
+# Implement custom one-page form [[% include 'snippets/commerce_badge.md' %]]
 
 This example shows how to implement a form for ordering the product catalog in a printed form.
 

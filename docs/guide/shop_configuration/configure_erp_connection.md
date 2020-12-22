@@ -1,4 +1,4 @@
-# Configure ERP connection
+# Configure ERP connection [[% include 'snippets/commerce_badge.md' %]]
 
 By default [[= product_name_com =]] uses the `TsoWebconnectorLayer` which enables the shop to communicate with a Microsoft Dynamics NAV System.
 

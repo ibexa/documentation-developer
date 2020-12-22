@@ -2,7 +2,7 @@
 
 ## Storage conversion
 
-If you want to store Field values in regular [[= product_name_oss =]] database tables,
+If you want to store Field values in regular [[= product_name =]] database tables,
 the `FieldValue` must be converted to the storage-specific format used by the Persistence SPI:
 `eZ\Publish\SPI\Persistence\Content\FieldValue`.
 After restoring a Field of the Field Type, you must reverse the conversion.
@@ -19,7 +19,7 @@ The SPI `FieldValue` struct has properties which the Field Type can use:
 |Property|Description|
 |--------|-----------|
 |`$data`|The data to be stored in the database. This may be a scalar value, an associative array or a simple, serializable object.|
-|`$externalData`|The arbitrary data stored in this field will not be touched by any of the [[= product_name_oss =]] components directly, but will be available for [Storing external data](#storing-external-data).|
+|`$externalData`|The arbitrary data stored in this field will not be touched by any of the [[= product_name =]] components directly, but will be available for [Storing external data](#storing-external-data).|
 |`$sortKey`|A value which can be used to sort content by this Field.|
 
 ### Legacy storage engine
@@ -85,7 +85,7 @@ The tag has the following attribute:
 
 A Field Type may store arbitrary data in external data sources.
 External storage can be e.g. a web service, a file in the file system, another database
-or even the [[= product_name_oss =]] database itself (in form of a non-standard table).
+or even the [[= product_name =]] database itself (in form of a non-standard table).
 
 In order to store data in external storage, the Field Type will interact with the Persistence SPI
 through the `eZ\Publish\SPI\FieldType\FieldStorage` interface.
@@ -102,7 +102,7 @@ calls one of the following methods to also access the external data:
 |`getIndexData()`|Returns the actual index data for the provided `eZ\Publish\SPI\Persistence\Content\Field`. For more information, see [search service](field_type_search.md#search-field-values).|
 
 Each of the above methods (except `hasFieldData`) receives a `$context` array with information on the underlying storage and the environment.
-To retrieve and store data in the [[= product_name_oss =]] data storage,
+To retrieve and store data in the [[= product_name =]] data storage,
 but outside of the normal structures (e.g. a custom table in an SQL database),
 use [Gateway-based storage](#gateway-based-storage) with properly injected Doctrine Connection.
 

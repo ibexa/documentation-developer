@@ -1,4 +1,4 @@
-# Reusable address template
+# Reusable address template [[% include 'snippets/commerce_badge.md' %]]
 
 The address template is used to display addresses in a more flexible way.
 

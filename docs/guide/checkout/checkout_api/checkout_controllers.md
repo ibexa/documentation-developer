@@ -1,4 +1,4 @@
-# Checkout controllers
+# Checkout controllers [[% include 'snippets/commerce_badge.md' %]]
 
 ## CheckoutController
 

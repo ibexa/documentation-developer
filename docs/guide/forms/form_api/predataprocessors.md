@@ -1,4 +1,4 @@
-# Pre-data processors
+# Pre-data processors [[% include 'snippets/commerce_badge.md' %]]
 
 A pre-data processor is executed before a form is submitted. You can use one pre-data processor per form.
 It pre-fills the form with data.

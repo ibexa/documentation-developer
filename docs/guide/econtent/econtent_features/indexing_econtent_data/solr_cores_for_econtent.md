@@ -1,4 +1,4 @@
-# Solr cores for eContent
+# Solr cores for eContent [[% include 'snippets/commerce_badge.md' %]]
 
 The main goal of dedicated Solr cores for the eContent data provider is to import and re-index data (e.g. products) with a temporary Solr core.
 In this case the application is not disturbed while the importer and indexer are working in temporary cores.

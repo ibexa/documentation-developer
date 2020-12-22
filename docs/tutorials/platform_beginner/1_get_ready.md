@@ -1,8 +1,8 @@
 # Step 1 — Get ready
 
-To begin the tutorial, you need a clean installation of [[= product_name_oss =]].
+To begin the tutorial, you need a clean installation of [[= product_name =]].
 
-Get it by following the [install [[= product_name_oss =]]](../../getting_started/install_ez_platform.md) guide.
+Get it by following the [install [[= product_name =]]](../../getting_started/install_ez_platform.md) guide.
 You will need a web server, a relational database and PHP.
 
 The clean installation contains only a root Content item which displays a welcome page.

@@ -1,4 +1,4 @@
-# Content management
+# Content management [[% include 'snippets/commerce_badge.md' %]]
 
 ## Product
 

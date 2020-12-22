@@ -5,13 +5,13 @@ nav:
     - 'Ibexa Developer Documentation': 'index.md'
     - Getting started:
         - 'Requirements': 'getting_started/requirements.md'
-        - 'Install Ibexa Platform': 'getting_started/install_ez_platform.md'
+        - 'Install Ibexa DXP': 'getting_started/install_ez_platform.md'
         - 'First steps': 'getting_started/first_steps.md'
         - 'Bundles starter pack': 'getting_started/bundles_starter_pack.md'
         - 'Troubleshooting': 'getting_started/troubleshooting.md'
     - Tutorials:
-        - Ibexa Platform beginner:
-            - 'Ibexa Platform beginner tutorial': 'tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md'
+        - Ibexa DXP beginner:
+            - 'Ibexa DXP beginner tutorial': 'tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md'
             - '1. Get ready': 'tutorials/platform_beginner/1_get_ready.md'
             - '2. Create the content model': 'tutorials/platform_beginner/2_create_the_content_model.md'
             - '3. Customize the front page': 'tutorials/platform_beginner/3_customize_the_front_page.md'
@@ -20,8 +20,8 @@ nav:
             - '6. Improve configuration': 'tutorials/platform_beginner/6_improve_configuration.md'
             - '7. Embed content': 'tutorials/platform_beginner/7_embed_content.md'
             - '8. Enable account registration': 'tutorials/platform_beginner/8_enable_account_registration.md'
-        - Ibexa DXP beginner:
-            - 'Ibexa DXP beginner tutorial': 'tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md'
+        - Ibexa Experience beginner:
+            - 'Ibexa Experience beginner tutorial': 'tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md'
             - '1. Get a starter website': 'tutorials/enterprise_beginner/1_get_a_starter_website.md'
             - '2. Prepare the Landing Page': 'tutorials/enterprise_beginner/2_prepare_the_landing_page.md'
             - '3. Use existing blocks': 'tutorials/enterprise_beginner/3_use_existing_blocks.md'
@@ -537,7 +537,7 @@ nav:
             - 'Reporting Issues': 'guide/reporting_issues.md'
         - 'Notifications': 'guide/sending_notifications.md'
         - 'Service container': 'guide/service_container.md'
-    - Extending Ibexa Platform:
+    - Extending Ibexa DXP:
         - Extending Back Office:
             - 'Extending Back Office': 'extending/extending_back_office.md'
             - 'Extending Dashboard': 'extending/extending_dashboard.md'
@@ -572,7 +572,7 @@ nav:
         - 'Release process and roadmap': 'community_resources/release_process.md'
         - 'Support and Maintenance FAQ': 'community_resources/support_maintenance_faq.md'
         - Contributing:
-            - 'Install Ibexa Platform on macOS or Windows': 'community_resources/installing-on-mac-os-and-windows.md'
+            - 'Install Ibexa DXP on macOS or Windows': 'community_resources/installing-on-mac-os-and-windows.md'
             - 'How to contribute': 'community_resources/contributing.md'
             - 'Report and follow issues': 'community_resources/report_follow_issues.md'
             - 'Contribute code': 'community_resources/code.md'
@@ -599,11 +599,11 @@ nav:
         #     - Design Principles:
         #         - 'Philosophy': 'guidelines/design_principles/Philosophy.md'
         #         - 'Accessibility': 'guidelines/design_principles/Accessibility.md'
-    - Migrating to Ibexa Platform:
+    - Migrating to Ibexa DXP:
         - 'Migrating from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
         - 'Migrating from eZ Publish': 'migrating/migrating_from_ez_publish.md'
         - 'Common issues': 'migrating/common_issues.md'
-    - Upgrading Ibexa Platform:
+    - Upgrading Ibexa DXP:
         - 'Upgrading to eZ Platform v3': 'upgrading/upgrading_to_v3.md'
         - '1. Check out a tagged version': 'upgrading/1_check_out_version.md'
         - '2. Merge composer.json': 'upgrading/2_merge_composer.md'
@@ -623,8 +623,8 @@ nav:
         - '6. Platform.sh changes': 'upgrading/6_platform_sh_changes.md'
         - '7. Dump assets': 'upgrading/7_dump_assets.md'
         - '8. Commit, test and merge': 'upgrading/8_commit_test_merge.md'
-    - Updating Ibexa Platform:
-        - 'Updating Ibexa Platform': 'updating/updating_ez_platform.md'
+    - Updating Ibexa DXP:
+        - 'Updating Ibexa DXP': 'updating/updating_ez_platform.md'
         - '1. Check out a tagged version': 'updating/1_check_out_version.md'
         - '2. Merge composer.json': 'updating/2_merge_composer.md'
         - '3. Update the app': 'updating/3_update_app.md'
@@ -719,8 +719,9 @@ extra:
     - title: 'Ibexa User Documentation'
       url: '/projects/userguide'
   # Global variables
-  product_name_oss: 'Ibexa Platform'
-  product_name_ee: 'Ibexa DXP'
+  product_name: 'Ibexa DXP'
+  product_name_content: 'Ibexa Content'
+  product_name_exp: 'Ibexa Experience'
   product_name_com: 'Ibexa Commerce'
 
 extra_css:

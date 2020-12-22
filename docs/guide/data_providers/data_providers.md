@@ -1,4 +1,4 @@
-# Data providers
+# Data providers [[% include 'snippets/commerce_badge.md' %]]
 
 Data providers define where product information is stored.
 
@@ -19,7 +19,7 @@ The command takes the following options:
 |Option|Notes|
 |--- |--- |
 |`--new-root-node`|Default value is `56` for content model data provider, `2` for eContent|
-|`--location-id`|Default value is `56`. This is the Location ID of the "Product catalog" Content item in [[= product_name_oss =]]. If you are using another Location ID, change this parameter|
+|`--location-id`|Default value is `56`. This is the Location ID of the "Product catalog" Content item in [[= product_name =]]. If you are using another Location ID, change this parameter|
 
 ``` bash
 # switch to eContent 

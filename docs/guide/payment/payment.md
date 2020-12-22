@@ -1,4 +1,4 @@
-# Payment
+# Payment [[% include 'snippets/commerce_badge.md' %]]
 
 Payment in [[= product_name_com =]] depends on the [JMSPaymentCoreBundle.](http://jmsyst.com/bundles/JMSPaymentCoreBundle)
 

@@ -1,4 +1,4 @@
-# Basket routing
+# Basket routing [[% include 'snippets/commerce_badge.md' %]]
 
 The basket provides the following routes:
 

@@ -1,4 +1,4 @@
-# ERP Message: SelectContact
+# ERP Message: SelectContact [[% include 'snippets/experience_badge.md' %]]
 
 `SelectContact` fetches contact information, like all types of contact related data, from the ERP system or CRM system.
 

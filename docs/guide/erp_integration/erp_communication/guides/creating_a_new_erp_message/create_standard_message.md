@@ -1,4 +1,4 @@
-# Create standard message
+# Create standard message [[% include 'snippets/experience_badge.md' %]]
 
 ## ERP expectations
 
@@ -286,7 +286,7 @@ instead of overriding the .xml and re-generating of the messages.
     There should be a symlink to the mapping in `app/Resources`:
     
     `xsl` - project symlink for the specific project - always has a higher priority
-    `xslbase` - standard symlink for [[= product_name_com =]] as a default
+    `xslbase` - standard symlink for [[= product_name_exp =]] as a default
     
     ``` bash
     cd app/Resources

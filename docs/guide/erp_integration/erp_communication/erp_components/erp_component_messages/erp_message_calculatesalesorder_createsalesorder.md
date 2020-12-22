@@ -1,4 +1,4 @@
-# ERP Message: CalculateSalesOrder / CreateSalesOrder
+# ERP Message: CalculateSalesOrder / CreateSalesOrder [[% include 'snippets/experience_badge.md' %]]
 
 !!! note
 

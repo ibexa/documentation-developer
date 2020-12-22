@@ -1,9 +1,9 @@
 # Personalization
 
-eZ Personalization is a service for offering personalized recommendations to visitors to your website.
+Ibexa Personalization is a service for offering personalized recommendations to visitors to your website.
 It can be used to serve targeted content to users based on their preferences and behavior.
 
-eZ Personalization can be used both by publishers (to serve personalized content and track its consumption), and in e-commerce (to recommend other products to purchase).
+Ibexa Personalization can be used both by publishers (to serve personalized content and track its consumption), and in e-commerce (to recommend other products to purchase).
 
 ## Benefits
 

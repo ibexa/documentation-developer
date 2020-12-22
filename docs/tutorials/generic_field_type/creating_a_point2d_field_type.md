@@ -4,7 +4,7 @@
 
     The code created in this tutorial is available on [GitHub](https://github.com/ezsystems/generic-field-type-tutorial/tree/master).
 
-This tutorial covers the creation and development of a custom [[= product_name_oss =]] [Field Type](../../api/field_type_reference.md) based on a [Generic Field Type](../../extending/extending_field_type.md).
+This tutorial covers the creation and development of a custom [[= product_name =]] [Field Type](../../api/field_type_reference.md) based on a [Generic Field Type](../../extending/extending_field_type.md).
 The Generic Field Type is a very powerful extension point. It enables you to easily build complex solutions on a ready-to-go Field Type template.
 
 Field Types are responsible for:
@@ -19,7 +19,7 @@ It describes how each component of a Field Type interacts with the various layer
 
 ## Intended audience
 
-This tutorial is aimed at developers who are familiar with [[= product_name_oss =]] and are comfortable with operating in PHP and Symfony.
+This tutorial is aimed at developers who are familiar with [[= product_name =]] and are comfortable with operating in PHP and Symfony.
 
 ## Content of the tutorial
 

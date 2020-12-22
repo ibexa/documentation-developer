@@ -1,4 +1,4 @@
-# Payment and shipping
+# Payment and shipping [[% include 'snippets/commerce_badge.md' %]]
 
 [[= product_name_com =]] offers the following payment methods:
 

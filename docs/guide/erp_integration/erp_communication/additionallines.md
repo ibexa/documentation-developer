@@ -1,4 +1,4 @@
-# Additional lines
+# Additional lines [[% include 'snippets/experience_badge.md' %]]
 
 A response sent to the shop from ERP can contain more information about product than was requested.
 This additional information can include additional shipping costs, vouchers, another product for free, promotions, etc.

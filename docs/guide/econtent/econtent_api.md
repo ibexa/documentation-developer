@@ -1,4 +1,4 @@
-# eContent API
+# eContent API [[% include 'snippets/commerce_badge.md' %]]
 
 eContent provides a flexible way to define project-specific attributes for products and categories (and other product-related types of data).
 

@@ -1,4 +1,4 @@
-# Order history templates
+# Order history templates [[% include 'snippets/commerce_badge.md' %]]
 
 ## Template list
 

@@ -1,4 +1,4 @@
-# Order summary
+# Order summary [[% include 'snippets/commerce_badge.md' %]]
 
 Summary is the last step in the checkout process. In order to finish the process, the customer needs to accept terms and conditions.
 

@@ -1,4 +1,4 @@
-# Step 4 — Create a custom block
+# Step 4 — Create a custom block [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 !!! tip
 

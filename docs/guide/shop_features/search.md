@@ -1,4 +1,4 @@
-# Search
+# Search [[% include 'snippets/commerce_badge.md' %]]
 
 [[= product_name_com =]] uses Elasticsearch or Solr to index products together with content.
 

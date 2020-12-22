@@ -1,8 +1,8 @@
 # Report and follow issues
 
-The development of eZ projects is organized using a bugtracker. It can be found here: <https://jira.ez.no>. Its role is to centralize references to all improvements, bug fixes and documentation being added to eZ projects.
+The development of Ibexa projects is organized using a bugtracker. It can be found here: <https://issues.ibexa.co/>. Its role is to centralize references to all improvements, bug fixes and documentation being added to Ibexa projects.
 
-The first thing you should do in order to be able to get involved and have feedback on what is happening on eZ projects is to create a JIRA account.
+The first thing you should do in order to be able to get involved and have feedback on what is happening on Ibexa projects is to create a JIRA account.
 
 **Note:** The term "issue" is used to refer to a bugtracker item regardless of its type (bug, improvement, story, etc.)
 
@@ -36,7 +36,7 @@ This way you can get and provide feedback during the issue's life. You are also 
 
 ## How to report an issue
 
-!!! dxp "Issues in [[= product_name_ee =]]"
+!!! note "Issues in [[= product_name_exp =]] [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]"
 
     If you have an Enterprise subscription, report your issues through the [support portal](https://support.ez.no)
     instead of JIRA. This ensures the issue can be quickly prioritized according to its impact.
@@ -51,7 +51,7 @@ Click **Create** at the top of the bugtracker window and fill in the form:
 |**Summary**|Write a short sentence describing what you are reporting.|
 |**Security level**|Select security if you are reporting a security issue. It will make your issue visible only to you and the core dev team until it is fixed and distributed.|
 |**Priority**|Select the priority you consider the issue to be. Please try to keep a cool head while selecting it. A 1 pixel alignment bug is not a "blocker".|
-|**Component/s**|This is important, as it will make your issue appear on the radar (dashboards, filters) of people dealing with various parts of eZ projects.|
+|**Component/s**|This is important, as it will make your issue appear on the radar (dashboards, filters) of people dealing with various parts of Ibexa projects.|
 |**Affect version/s**|Add the versions of the application you experienced the issue on.|
 |**Fix version/s**|Leave blank.|
 |**Assignee**|Leave blank, unless you are willing to work on the issue yourself.|

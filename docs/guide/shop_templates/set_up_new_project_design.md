@@ -1,4 +1,4 @@
-# Setting up new project design
+# Setting up new project design [[% include 'snippets/commerce_badge.md' %]]
 
 1\. Add an `ez_design.yml` file to your project bundle.
 

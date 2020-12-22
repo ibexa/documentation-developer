@@ -1,4 +1,4 @@
-# Payment API
+# Payment API [[% include 'snippets/commerce_badge.md' %]]
 
 ## Payment bundle
 

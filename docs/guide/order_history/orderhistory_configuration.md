@@ -1,4 +1,4 @@
-# Orderhistory configuration
+# Orderhistory configuration [[% include 'snippets/commerce_badge.md' %]]
 
 Order history uses semantic configuration, so it only exposes parameters that are configurable.
 

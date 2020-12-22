@@ -1,4 +1,4 @@
-# Checkout events
+# Checkout events [[% include 'snippets/commerce_badge.md' %]]
 
 The following events are dispatched during the checkout process:
 

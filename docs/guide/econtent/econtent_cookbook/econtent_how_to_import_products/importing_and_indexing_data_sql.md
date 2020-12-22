@@ -1,4 +1,4 @@
-# Importing and indexing data (SQL)
+# Importing and indexing data (SQL) [[% include 'snippets/commerce_badge.md' %]]
 
 ## Query examples
 

@@ -1,4 +1,4 @@
-# Session handling
+# Session handling [[% include 'snippets/commerce_badge.md' %]]
 
 The default session handling should be changed, because after clearing the cache all users will be logged out.  
 Sessions are handled with PDO, but you can switch to Memcache. 
@@ -18,7 +18,7 @@ CREATE TABLE session
 
 ## Set up name for SiteAccesses
 
-It is very important to set a session name. Otherwise [[= product_name_oss =]] will generate a unique name per SiteAccess.
+It is very important to set a session name. Otherwise [[= product_name =]] will generate a unique name per SiteAccess.
 This can cause issues - for example if you switch the language/SiteAccess, users cannot share a basket and login across SiteAccesses.
 
 ``` yaml

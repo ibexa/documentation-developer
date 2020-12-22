@@ -63,13 +63,13 @@ This also lets the user copy and move content, as well as add new Locations to a
 
 #### Create content without publishing
 
-This option can be used together with [[= product_name_ee =]]'s content review options.
+This option can be used together with [[= product_name_exp =]]'s content review options.
 Using the following Policies, the User is able to create content, but can't publish it; instead, they must send it for review to another User with proper permissions (for example, senior editor, proofreader, etc.).
 
 - `content/create`
 - `content/edit`
 
-Note that without [[= product_name_ee =]] this setup should not be used, as it will not allow the User to continue working with their content.
+Note that without [[= product_name_exp =]] this setup should not be used, as it will not allow the User to continue working with their content.
 
 #### Restrict editing to part of the tree
 
@@ -168,22 +168,20 @@ Additional Policies are needed for each section of the Admin.
 
 Users are treated like other content, so to create and modify them the User needs to have the same permissions as for managing other Content items.
 
-!!! dxp
+#### Editorial workflows 
 
-    #### Editorial workflows
+You can control which stages in an editorial workflow the user can work with.
 
-    You can control which stages in an editorial workflow the user can work with.
+Do this by adding the `WorkflowStageLimitation` to `content` Policies such as `content/edit` or `content/publish`.
 
-    Do this by adding the `WorkflowStageLimitation` to `content` Policies such as `content/edit` or `content/publish`.
+You can also control which transitions the user can pass content through.
+Do this by using the `workflow/change_stage` Policy together with the `WorkflowTransitionLimitation`.
 
-    You can also control which transitions the user can pass content through.
-    Do this by using the `workflow/change_stage` Policy together with the `WorkflowTransitionLimitation`.
+For example, to enable the user to edit only content in the "Design" stage
+and to pass it after creating design to the "Proofread stage", use following permissions:
 
-    For example, to enable the user to edit only content in the "Design" stage
-    and to pass it after creating design to the "Proofread stage", use following permissions:
-
-    - `content/edit` with `WorkflowStageLimitation` set to "Design".
-    - `workflow/change_stage` with `WorkflowTransitionLimitation` set to `to_proofreading`
+- `content/edit` with `WorkflowStageLimitation` set to "Design".
+- `workflow/change_stage` with `WorkflowTransitionLimitation` set to `to_proofreading`
 
 ## Available Policies
 
@@ -195,7 +193,7 @@ Users are treated like other content, so to create and modify them the User need
 |               | `view_embed`         | view content embedded in another Content item (even when the User is not allowed to view it as an individual Content item)              |
 |               | `create`             | create new content. Note: even without this Policy the User is able to enter edit mode, but cannot finalize work with the Content item. |
 |               | `edit`               | edit existing content                                                                                                                   |
-|               | `publish`            | publish content. Without this Policy, the User can only save drafts or send them for review (in [[= product_name_ee =]])                          |
+|               | `publish`            | publish content. Without this Policy, the User can only save drafts or send them for review (in [[= product_name_exp =]])                          |
 |               | `manage_locations`   | remove Locations and send content to Trash                                                                                              |
 |               | `hide`               | hide and reveal content Locations                                                                                                       |
 |               | `reverserelatedlist` | see all content that a Content item relates to (even when the User is not allowed to view it as an individual Content items)            |
@@ -247,7 +245,7 @@ Users are treated like other content, so to create and modify them the User need
 || `create` |create Segment Groups|
 || `update` |update Segment Groups|
 || `remove` |remove Segment Groups|
-|`siso_policy`|`checkout`|access the checkout process|
+|`siso_policy`</br>[[% include 'snippets/commerce_badge.md' %]]|`checkout`|access the checkout process|
 ||`edit_invoice`|edit invoice address|
 ||`edit_delivery`|edit delivery address|
 ||`delegate`|access delegate screen|
@@ -266,10 +264,10 @@ Users are treated like other content, so to create and modify them the User need
 ||`read_basket`|see the basket|
 ||`write_basket`|modify the basket (add, update, delete)|
 ||`see_product_price`|see product prices in the catalog|
-|`siso_customercenter`|`approve`|approve baskets in the customer center|
+|`siso_customercenter`</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|`approve`|approve baskets in the customer center|
 ||`buy`|buy as the customer center user|
 ||`view`|access the customer center user management|
-|`siso_control_center`|`manage_erp_log`|access to ERP logs|
+|`siso_control_center`</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|`manage_erp_log`|access to ERP logs|
 ||`manage_emails`|access Control center email archive|
 ||`manage_jobs:`|access Control center e-commerce jobs|
 

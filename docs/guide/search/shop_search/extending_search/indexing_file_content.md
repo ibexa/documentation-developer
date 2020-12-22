@@ -1,4 +1,4 @@
-# Indexing file content
+# Indexing file content [[% include 'snippets/commerce_badge.md' %]]
 
 Indexing the content of files stored in the content model uses an additional component called Apache Tika.
 

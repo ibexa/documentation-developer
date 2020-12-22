@@ -2,7 +2,7 @@
 
 !!! tip
 
-    See [Permissions](permissions.md) for information about the permissions system in [[= product_name_oss =]].
+    See [Permissions](permissions.md) for information about the permissions system in [[= product_name =]].
 
 !!! note "Security checklist"
 
@@ -11,7 +11,7 @@
 
 ## Symfony authentication
 
-To use Symfony authentication with [[= product_name_oss =]], use the following configuration (in `config/packages/security.yaml`):
+To use Symfony authentication with [[= product_name =]], use the following configuration (in `config/packages/security.yaml`):
 
 ``` yaml
 security:
@@ -153,7 +153,7 @@ security:
 
     By default, only the Administrator has the permissions to use the package system. It follows that the Administrator role, and any others granted packaging permissions, can only be held by users who already have access to the server, and/or can be trusted not to exploit this access.
 
-    As a consequence eZ Publish legacy should not be used in the type of shared hosting installation where Administrators are not supposed to have access to the underlying operating system, or to other eZ Publish installations on the same server. The package system is an old part of eZ Publish legacy, and it was not designed for that kind of installation. Currently this is not considered best practice anyway - setups using e.g. Docker and Platform.sh allow you to completely separate installations from each other. This is a better way to keep things secure than relying on PHP scripts being read-only even for administrators. (The package system does not exist in [[= product_name_oss =]] and will not be added there, since extensions are not used there.)
+    As a consequence eZ Publish legacy should not be used in the type of shared hosting installation where Administrators are not supposed to have access to the underlying operating system, or to other eZ Publish installations on the same server. The package system is an old part of eZ Publish legacy, and it was not designed for that kind of installation. Currently this is not considered best practice anyway - setups using e.g. Docker and Platform.sh allow you to completely separate installations from each other. This is a better way to keep things secure than relying on PHP scripts being read-only even for administrators. (The package system does not exist in [[= product_name =]] and will not be added there, since extensions are not used there.)
 
     In summary:
 

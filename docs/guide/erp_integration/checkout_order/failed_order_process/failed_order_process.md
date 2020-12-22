@@ -1,4 +1,4 @@
-# Failed order process
+# Failed order process [[% include 'snippets/experience_badge.md' %]]
 
 For usability reasons, it is not advisable to let the whole checkout fail if the communication to the ERP system is not working correctly.
 When the submission of an order to the ERP system fails, the order must be stored for a later retry.

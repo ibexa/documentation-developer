@@ -2,7 +2,7 @@
 
 ## Creating content
 
-[[= product_name_oss =]] comes with content edition features via the Symfony stack. They are meant to allow the implementation of user-generated content from the front end, without entering the PlatformUI back end.
+[[= product_name =]] comes with content edition features via the Symfony stack. They are meant to allow the implementation of user-generated content from the front end, without entering the PlatformUI back end.
 
 ### Creating a Content item without using a draft
 

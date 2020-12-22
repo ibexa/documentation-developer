@@ -1,4 +1,4 @@
-# Storing sessions in Memcache
+# Storing sessions in Memcache [[% include 'snippets/commerce_badge.md' %]]
 
 You can configure storing sessions in Memcache, preferably using stash.
 This way you don't mix session stash cache with other stash caches, such as SPI, translation, and navigation.

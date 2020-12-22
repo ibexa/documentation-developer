@@ -1,4 +1,4 @@
-# Wishlist and stored baskets
+# Wishlist and stored baskets [[% include 'snippets/commerce_badge.md' %]]
 
 The logged-in customer can save selected products in a list and easily access them or add them to the shopping basket.
 

@@ -11,7 +11,7 @@ This is where the service container comes into play. The role of a service conta
 Each time you need a service, you may ask the service container for it.
 It will either build the service with the configuration you provided, or give you an existing instance if it is already available.
 
-[[= product_name_oss =]] uses the [Symfony service container](http://symfony.com/doc/5.0/service_container.html).
+[[= product_name =]] uses the [Symfony service container](http://symfony.com/doc/5.0/service_container.html).
 
 !!! tip
 
@@ -28,7 +28,7 @@ For instance, if you want to register a [Twig extension](http://twig.sensiolabs.
 you need to create the PHP class and declare it as a service in the DIC configuration with the `twig.extension` tag
 (see the [Symfony cookbook entry](http://symfony.com/doc/5.0/templating/twig_extension.html) for a full example).
 
-[[= product_name_oss =]] exposes several features this way (see the [list of core service tags](#core-and-api)).
+[[= product_name =]] exposes several features this way (see the [list of core service tags](#core-and-api)).
 This is for example the case with Field Types.
 
 You will find all service tags exposed by Symfony in [its reference documentation](http://symfony.com/doc/5.0/reference/dic_tags.html).

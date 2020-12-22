@@ -1,15 +1,15 @@
-# Install [[= product_name_oss =]]
+# Install [[= product_name =]]
 
 !!! note
 
     Installation for production is only supported on Linux.
 
-    To install [[= product_name_oss =]] for development on macOS or Windows,
+    To install [[= product_name =]] for development on macOS or Windows,
     see [Install on macOS or Windows](../community_resources/installing-on-mac-os-and-windows.md).
 
 ## Prepare the work environment
 
-To install [[= product_name_oss =]] you need a stack with your operating system, MySQL and PHP.
+To install [[= product_name =]] you need a stack with your operating system, MySQL and PHP.
 
 You can install it by following your favorite tutorial, for example: [Install LAMP stack on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04).
 
@@ -50,68 +50,66 @@ composer -V
 
     If you do so, you must replace `composer` with `php -d memory_limit=-1 composer.phar` in all commands below.
 
-## Get [[= product_name_oss =]]
+## Get [[= product_name =]]
 
-!!! dxp "[[= product_name_ee =]] and [[= product_name_com =]]"
+### Set up authentication tokens [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-    ### Set up authentication tokens
+[[= product_name_exp =]] and [[= product_name_com =]] subscribers have access to commercial packages at [updates.ez.no/](https://updates.ez.no/).
+The site is password-protected. 
+You must set up authentication tokens to access the site.
 
-    [[= product_name_ee =]] and [[= product_name_com =]] subscribers have access to commercial packages at [updates.ez.no/](https://updates.ez.no/).
-    The site is password-protected. 
-    You must set up authentication tokens to access the site.
+Log in to your service portal on [support.ez.no](https://support.ez.no), go to your **Service Portal**, and look for the following on the **Maintenance and Support agreement details** screen:
 
-    Log in to your service portal on [support.ez.no](https://support.ez.no), go to your **Service Portal**, and look for the following on the **Maintenance and Support agreement details** screen:
+![Authentication token](img/Using_Composer_Auth_token.png)
 
-    ![Authentication token](img/Using_Composer_Auth_token.png)
+1. Select **Create token** (this requires the **Portal administrator** access level).
+2. Fill in a label describing the use of the token. This will allow you to revoke access later.
+3. Save the password, **you will not get access to it again**!
 
-    1. Select **Create token** (this requires the **Portal administrator** access level).
-    2. Fill in a label describing the use of the token. This will allow you to revoke access later.
-    3. Save the password, **you will not get access to it again**!
+!!! tip "Save the authentication token in `auth.json` to avoid re-typing it"
 
-    !!! tip "Save the authentication token in `auth.json` to avoid re-typing it"
+    Composer will ask whether you want to save the token every time you perform an update.
+    If you prefer, you can decline and create an `auth.json` file manually in one of the following ways:
 
-        Composer will ask whether you want to save the token every time you perform an update.
-        If you prefer, you can decline and create an `auth.json` file manually in one of the following ways:
+    - A: Store your credentials in the project directory (for security reasons, do not check them in to git):
 
-        - A: Store your credentials in the project directory (for security reasons, do not check them in to git):
+    ``` bash
+    composer config http-basic.updates.ez.no <installation-key> <token-password>
+    ```
 
-        ``` bash
-        composer config http-basic.updates.ez.no <installation-key> <token-password>
-        ```
+    - B: If you only have one project on the machine/server/vm, and want to install globally in [`COMPOSER_HOME`](https://getcomposer.org/doc/03-cli.md#composer-home) directory for machine-wide use:
 
-        - B: If you only have one project on the machine/server/vm, and want to install globally in [`COMPOSER_HOME`](https://getcomposer.org/doc/03-cli.md#composer-home) directory for machine-wide use:
+    ``` bash
+    composer config --global http-basic.updates.ez.no <installation-key> <token-password>
+    ```
 
-        ``` bash
-        composer config --global http-basic.updates.ez.no <installation-key> <token-password>
-        ```
+After this, when running Composer to get updates, you will be asked for a username and password. Use:
 
-    After this, when running Composer to get updates, you will be asked for a username and password. Use:
+- as username - your Installation key found on the **Maintenance and Support agreement details** page in the service portal
+- as password - the token password you retrieved in step 3.
 
-    - as username - your Installation key found on the **Maintenance and Support agreement details** page in the service portal
-    - as password - the token password you retrieved in step 3.
+!!! note
 
-    !!! note
+    If you are using Platform.sh, you can set the token as an environment variable.
 
-        If you are using Platform.sh, you can set the token as an environment variable.
+    When you do, make sure the **Visible during runtime** box in Platform.sh configuration is unchecked.
+    This will ensure that the token is not exposed.
 
-        When you do, make sure the **Visible during runtime** box in Platform.sh configuration is unchecked.
-        This will ensure that the token is not exposed.
+    ![Setting token to be invisible during runtime](img/psh_addvariable.png)
 
-        ![Setting token to be invisible during runtime](img/psh_addvariable.png)
+!!! note "Authentication token validation delay"
 
-    !!! note "Authentication token validation delay"
+    You can encounter some delay between creating the token and being able to use it in Composer. It might take up to 15 minutes.
 
-        You can encounter some delay between creating the token and being able to use it in Composer. It might take up to 15 minutes.
+!!! caution "Support agreement expiry"
 
-    !!! caution "Support agreement expiry"
-
-        If your Support agreement expires, your authentication token(s) will no longer work.
-        They will become active again if the agreement is renewed, but this process may take up to 24 hours.
-        _(If the agreement is renewed before the expiry date, there will be no disruption of service.)_
+    If your Support agreement expires, your authentication token(s) will no longer work.
+    They will become active again if the agreement is renewed, but this process may take up to 24 hours.
+    _(If the agreement is renewed before the expiry date, there will be no disruption of service.)_
 
 ## Create project
 
-There are two ways to get an instance of [[= product_name_oss =]]. 
+There are two ways to get an instance of [[= product_name =]]. 
 The result is the same, so you can use the way you prefer:
 
 - [Download or clone](#a-download-or-clone)
@@ -119,7 +117,7 @@ The result is the same, so you can use the way you prefer:
 
 ### A. Download or clone
 
-=== "[[= product_name_oss =]]"
+=== "[[= product_name =]]"
 
     You can either:
 
@@ -134,7 +132,7 @@ The result is the same, so you can use the way you prefer:
     Check out a tag (e.g. `git checkout v1.13.4`) that you want to use in a project.
     Use branches (e.g. `master` or `1.13`) only when contributing.
 
-=== "[[= product_name_ee =]] and [[= product_name_com =]]"
+=== "[[= product_name_exp =]] and [[= product_name_com =]]"
 
     Download an archive from the [Support portal](https://support.ez.no/Downloads).
 
@@ -150,7 +148,7 @@ Composer looks inside the `composer.json` file and installs all packages require
 
 ### B. Create a project with Composer
 
-=== "[[= product_name_oss =]]"
+=== "[[= product_name =]]"
 
     To use Composer to instantly create a project in the current folder with all the dependencies, run the following command:
 
@@ -158,9 +156,9 @@ Composer looks inside the `composer.json` file and installs all packages require
     composer create-project --keep-vcs ezsystems/ezplatform .
     ```
 
-=== "[[= product_name_ee =]]"
+=== "[[= product_name_exp =]]"
 
-    To install a new project with the `composer create-project` command to get the latest version of [[= product_name_ee =]],
+    To install a new project with the `composer create-project` command to get the latest version of [[= product_name_exp =]],
     you must first inform the Composer, which token to use before the project folder is created.
 
     To do this, select the correct updates.ez.no channel. The following channels are available:
@@ -274,51 +272,49 @@ The configuration requires providing the following parameters:
 
     If you want an installation with PostgreSQL instead of MySQL, refer to [Using PostgreSQL](../guide/databases.md#using-postgresql).
 
-!!! dxp "[[= product_name_com =]]"
+## Install and configure a search engine [[% include 'snippets/commerce_badge.md' %]]
 
-    ## Install and configure a search engine
+Search in the shop front end requires that you have either Solr or Elasticsearch installed as a search engine.
 
-    Search in the shop front end requires that you have either Solr or Elasticsearch installed as a search engine.
+=== "Solr"
 
-    === "Solr"
+    Run the included script to install Solr:
 
-        Run the included script to install Solr:
+    ``` bash
+    bash ./install-solr.sh
+    ```
 
-        ``` bash
-        bash ./install-solr.sh
-        ```
+    Configure the following parameters in the `.env` file:
 
-        Configure the following parameters in the `.env` file:
+    - `SISO_SEARCH_SOLR_HOST`
+    - `SISO_SEARCH_SOLR_PORT`
+    - `SISO_SEARCH_SOLR_CORE`
 
-        - `SISO_SEARCH_SOLR_HOST`
-        - `SISO_SEARCH_SOLR_PORT`
-        - `SISO_SEARCH_SOLR_CORE`
+    Also in the `.env` file, set Solr as the search engine:
 
-        Also in the `.env` file, set Solr as the search engine:
+    ```
+    SEARCH_ENGINE=solr
+    ```
 
-        ```
-        SEARCH_ENGINE=solr
-        ```
+=== "Elasticsearch"
 
-    === "Elasticsearch"
+    Do the following steps to enable Elasticsearch:
 
-        Do the following steps to enable Elasticsearch:
+    1. [Download and install Elasticsearch](../guide/search/elastic.md#step-1-download-and-install-elasticsearch)
+    2. [Verify that the Elasticsearch instance is up](../guide/search/elastic.md#step-2-verify-that-the-elasticsearch-instance-is-up)
+    3. [Set the default search engine](../guide/search/elastic.md#step-3-set-the-default-search-engine)
+    4. [Configure the search engine](../guide/search/elastic.md#step-4-configure-the-search-engine)
+    5. [Push the templates](../guide/search/elastic.md#step-5-push-the-templates)
 
-        1. [Download and install Elasticsearch](../guide/search/elastic.md#step-1-download-and-install-elasticsearch)
-        2. [Verify that the Elasticsearch instance is up](../guide/search/elastic.md#step-2-verify-that-the-elasticsearch-instance-is-up)
-        3. [Set the default search engine](../guide/search/elastic.md#step-3-set-the-default-search-engine)
-        4. [Configure the search engine](../guide/search/elastic.md#step-4-configure-the-search-engine)
-        5. [Push the templates](../guide/search/elastic.md#step-5-push-the-templates)
+    Configure the following parameter in the `.env` file:
 
-        Configure the following parameter in the `.env` file:
+    ```
+    ELASTICSEARCH_DSN=http://localhost:9200
+    ```
 
-        ```
-        ELASTICSEARCH_DSN=http://localhost:9200
-        ```
+## Install [[= product_name =]]
 
-## Install [[= product_name_oss =]]
-
-Install [[= product_name_oss =]] and create a database with:
+Install [[= product_name =]] and create a database with:
 
 ``` bash
 composer ezplatform-install
@@ -328,7 +324,7 @@ Before executing the command make sure that the database user has sufficient per
 
 If Composer asks for your token, you must log in to your GitHub account and generate a new token
 (edit your profile and go to **Developer settings** > **Personal access tokens** > **Generate new token** with default settings).
-This operation is performed only once, when you install [[= product_name_oss =]] for the first time.
+This operation is performed only once, when you install [[= product_name =]] for the first time.
 
 ## Use PHPs built-in server
 
@@ -348,7 +344,7 @@ symfony serve
 
 ## Prepare the installation for production
 
-To use [[= product_name_oss =]] with an HTTP server, you need to [set up directory permissions](#set-up-permissions) and [prepare a virtual host](#set-up-virtual-host).
+To use [[= product_name =]] with an HTTP server, you need to [set up directory permissions](#set-up-permissions) and [prepare a virtual host](#set-up-virtual-host).
 
 ### Set up permissions
 
@@ -416,7 +412,7 @@ You should see the welcome page.
 
 !!! tip "eZ Launchpad for quick deployment"
 
-    To get your [[= product_name_oss =]] installation up and running quickly,
+    To get your [[= product_name =]] installation up and running quickly,
     use the Docker-based [eZ Launchpad](https://ezsystems.github.io/launchpad/), which takes care of the whole setup for you.
     eZ Launchpad is supported by the Ibexa Community.
 
@@ -427,38 +423,32 @@ You should see the welcome page.
     See the [Security checklist](../guide/security_checklist.md) for a list of security-related issues
     you should take care of before going live with a project.
 
-!!! dxp
+### Enable Date-based Publisher
 
-    ### Enable Date-based Publisher
+To enable delayed publishing of Content using the Date-based Publisher, you must set up cron to run the `bin/console ezplatform:scheduled:run` command periodically.
 
-    To enable delayed publishing of Content using the Date-based Publisher, you must set up cron to run the `bin/console ezplatform:scheduled:run` command periodically.
+For example, to check for publishing every minute, add the following script:
 
-    For example, to check for publishing every minute, add the following script:
+`echo '* * * * * cd [path-to-ezplatform]; php bin/console ezplatform:cron:run --quiet --env=prod' > ezp_cron.txt`
 
-    `echo '* * * * * cd [path-to-ezplatform]; php bin/console ezplatform:cron:run --quiet --env=prod' > ezp_cron.txt`
+For 5-minute intervals:
 
-    For 5-minute intervals:
+`echo '*/5 * * * * cd [path-to-ezplatform]; php bin/console ezplatform:cron:run --quiet --env=prod' > ezp_cron.txt`
 
-    `echo '*/5 * * * * cd [path-to-ezplatform]; php bin/console ezplatform:cron:run --quiet --env=prod' > ezp_cron.txt`
+Next, append the new cron to user's crontab without destroying existing crons.
+Assuming the web server user data is `www-data`:
 
-    Next, append the new cron to user's crontab without destroying existing crons.
-    Assuming the web server user data is `www-data`:
+`crontab -u www-data -l|cat - ezp_cron.txt | crontab -u www-data -`
 
-    `crontab -u www-data -l|cat - ezp_cron.txt | crontab -u www-data -`
+Finally, remove the temporary file:
 
-    Finally, remove the temporary file:
+`rm ezp_cron.txt`
 
-    `rm ezp_cron.txt`
+### Enable the Link manager [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-!!! dxp
+To make use of the [Link Manager](../guide/url_management.md), you must [set up cron](../guide/url_management.md#enable-automatic-url-validation).
 
-    ### Enable the Link manager
+#### JMS payment secret [[% include 'snippets/commerce_badge.md' %]]
 
-    To make use of the [Link Manager](../guide/url_management.md), you must [set up cron](../guide/url_management.md#enable-automatic-url-validation).
-
-!!! dxp "[[= product_name_com =]]"
-
-    #### JMS payment secret
-
-    To provide the `JMS_PAYMENT_SECRET` secret for the [[= product_name_com =]] payment system, run `./vendor/defuse/php-encryption/bin/generate-defuse-key`
-    and use the generated secret.
+To provide the `JMS_PAYMENT_SECRET` secret for the [[= product_name_com =]] payment system, run `./vendor/defuse/php-encryption/bin/generate-defuse-key`
+and use the generated secret.

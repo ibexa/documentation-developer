@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This tutorial aims at providing a step-by-step guide on how to extend the [[= product_name_oss =]] Back Office provided by [the [[= product_name_oss =]] Admin UI bundle](https://github.com/ezsystems/ezplatform-admin-ui). 
+This tutorial aims at providing a step-by-step guide on how to extend the [[= product_name =]] Back Office provided by [the [[= product_name =]] Admin UI bundle](https://github.com/ezsystems/ezplatform-admin-ui). 
 
 You will learn to extend a few points of the Back Office:
 
@@ -13,7 +13,7 @@ You will learn to extend a few points of the Back Office:
 
 To follow this tutorial you need to:
 
-- be comfortable with [[= product_name_oss =]]'s content model (Content, Location, Content Type, etc.)
+- be comfortable with [[= product_name =]]'s content model (Content, Location, Content Type, etc.)
 - have basic to intermediate level in PHP
 - have a basic knowledge of Symfony's concepts (such as Controllers and routing)
 

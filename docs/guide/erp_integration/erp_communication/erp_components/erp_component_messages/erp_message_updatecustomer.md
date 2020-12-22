@@ -1,4 +1,4 @@
-# ERP Message: UpdateCustomer
+# ERP Message: UpdateCustomer [[% include 'snippets/experience_badge.md' %]]
 
 `UpdateCustomer` sends customer information, such as addresses, to the ERP system.
 

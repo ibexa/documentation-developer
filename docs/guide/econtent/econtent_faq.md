@@ -1,4 +1,4 @@
-# eContent FAQ
+# eContent FAQ [[% include 'snippets/commerce_badge.md' %]]
 
 ## After using eContent the top navigation is empty
 

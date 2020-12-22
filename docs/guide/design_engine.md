@@ -1,6 +1,6 @@
 # Design engine
 
-You can provide design themes for your eZ application, with an automatic fallback system
+You can provide design themes for your application, with an automatic fallback system
 using the design engine from the [ezplatform-design-engine](https://github.com/ezsystems/ezplatform-design-engine) bundle.
 It is very similar to the [eZ Publish legacy design fallback system](https://doc.ez.no/eZ-Publish/Technical-manual/5.x/Concepts-and-basics/Designs/Design-combinations).
 
@@ -185,7 +185,7 @@ In order to use the configured design with templates, you need to use the **`@ez
 {{ include("@ezdesign/full/another_template.html.twig") }}
 ```
 
-You can also use `@ezdesign` notation in your eZ template selection rules:
+You can also use `@ezdesign` notation in your template selection rules:
 
 ```yaml
 ezplatform:
@@ -215,7 +215,7 @@ The default fallback order is:
 
 In addition to the convention described above, it is also possible to add arbitrary Twig template directories
 to a theme from configuration. This can be useful when you want to define templates from third-party bundles
-as part of one of your themes, or when upgrading your application in order to use [[= product_name_oss =]] design engine,
+as part of one of your themes, or when upgrading your application in order to use [[= product_name =]] design engine,
 when your existing templates are not yet following the convention.
 
 ```yaml

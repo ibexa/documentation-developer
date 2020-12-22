@@ -1,4 +1,4 @@
-# ERP message component
+# ERP message component [[% include 'snippets/experience_badge.md' %]]
 
 Communication uses specific messages classes that derive from `AbstractMessage`.
 The abstract base class defines following properties:

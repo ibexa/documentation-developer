@@ -1,6 +1,6 @@
 # Commerce REST API
 
-[[= product_name_com =]] extends the REST API of [[= product_name_oss =]] with the following features:
+[[= product_name_com =]] extends the REST API of [[= product_name =]] with the following features:
 
 ## Basket API
 

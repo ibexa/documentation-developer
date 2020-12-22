@@ -1,6 +1,6 @@
 # Solr search engine
 
-[ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine) aims to be a transparent drop-in replacement for the SQL-based Legacy search engine powering [[= product_name_oss =]] Search API by default. When you enable Solr and re-index your content, all your existing Search queries using `SearchService` will be powered by Solr automatically. This allows you to scale up your [[= product_name_oss =]] installation and be able to continue development locally against SQL engine, and have a test infrastructure, Staging and Prod powered by Solr. This removes considerable load from your database. See [further information on the architecture of [[= product_name_oss =]]](../architecture.md).
+[ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine) aims to be a transparent drop-in replacement for the SQL-based Legacy search engine powering [[= product_name =]] Search API by default. When you enable Solr and re-index your content, all your existing Search queries using `SearchService` will be powered by Solr automatically. This allows you to scale up your [[= product_name =]] installation and be able to continue development locally against SQL engine, and have a test infrastructure, Staging and Prod powered by Solr. This removes considerable load from your database. See [further information on the architecture of [[= product_name =]]](../architecture.md).
 
 ## How to set up Solr search engine
 
@@ -83,7 +83,7 @@ This setting is **required** if you want to see the changes after publish. It is
 The command line tool `bin/generate-solr-config.sh` generates Solr 7 configuration automatically.
 It can be used for deploying to Ibexa Cloud (Platform.sh) and on-premise installs.
 
-Execute the script from the [[= product_name_oss =]] root directory for further information:
+Execute the script from the [[= product_name =]] root directory for further information:
 
 ``` bash
 ./vendor/ezsystems/ezplatform-solr-search-engine/bin/generate-solr-config.sh --help
@@ -101,7 +101,7 @@ The Solr Search Engine Bundle can be configured in many ways. The config further
 
 #### Single-core example (default)
 
-Out of the box in [[= product_name_oss =]] the following is enabled for a simple setup:
+Out of the box in [[= product_name =]] the following is enabled for a simple setup:
 
 ``` yaml
 ez_search_engine_solr:
@@ -457,7 +457,7 @@ This may be needed when you want to find the content with full-text search, or t
 To do this effectively, you first need to understand how the data is indexed with the Solr search engine.
 Solr uses [documents](https://lucene.apache.org/solr/guide/7_7/overview-of-documents-fields-and-schema-design.html#how-solr-sees-the-world) as a unit of data that is indexed.
 Documents are indexed per translation, as content blocks. A block is a nested document structure.
-When used in [[= product_name_oss =]], a parent document represents content, and Locations are indexed as child documents of the Content item.
+When used in [[= product_name =]], a parent document represents content, and Locations are indexed as child documents of the Content item.
 To avoid duplication, full-text data is indexed on the Content document only. Knowing this, you have the option to index additional data on:
 
 - all block documents (meaning content and its Locations, all translations)

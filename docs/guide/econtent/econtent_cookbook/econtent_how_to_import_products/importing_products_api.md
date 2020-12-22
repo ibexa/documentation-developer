@@ -1,4 +1,4 @@
-# Importing products (API)
+# Importing products (API) [[% include 'snippets/commerce_badge.md' %]]
 
 Importing products by means of the API includes the following parts of the system:
 

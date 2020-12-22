@@ -1,4 +1,4 @@
-# Catalog segmentation
+# Catalog segmentation [[% include 'snippets/commerce_badge.md' %]]
 
 Catalogs, especially in B2B shops, are often segmented even by customers. 
 

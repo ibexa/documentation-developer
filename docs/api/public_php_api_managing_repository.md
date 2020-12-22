@@ -125,48 +125,46 @@ $objectState = $this->objectStateService->loadObjectState($objectStateId);
 $this->objectStateService->setContentState($contentInfo, $objectStateGroup, $objectState);
 ```
 
-!!! dxp
+## Workflow
 
-    ## Workflow
+### Getting workflow information
 
-    ### Getting workflow information
+To get information about a specific workflow for a Content item, use `WorkflowServiceInterface::loadWorkflowMetadataForContent`:
 
-    To get information about a specific workflow for a Content item, use `WorkflowServiceInterface::loadWorkflowMetadataForContent`:
+``` php
+$workflowMetadata = $this->workflowService->loadWorkflowMetadataForContent($content, $workflowName);
+foreach ($workflowMetadata->markings as $marking) {
+    $output->writeln($content->getName() . ' is in stage ' . $marking->name . ' in workflow ' . $workflowMetadata->workflow->getName());
+}
+```
 
-    ``` php
-    $workflowMetadata = $this->workflowService->loadWorkflowMetadataForContent($content, $workflowName);
-    foreach ($workflowMetadata->markings as $marking) {
-        $output->writeln($content->getName() . ' is in stage ' . $marking->name . ' in workflow ' . $workflowMetadata->workflow->getName());
-    }
-    ```
+!!! tip
 
-    !!! tip
+    `marking`, a term from [Symfony Workflow,](https://symfony.com/doc/5.0/components/workflow.html)
+    refers to a state in a workflow.
 
-        `marking`, a term from [Symfony Workflow,](https://symfony.com/doc/5.0/components/workflow.html)
-        refers to a state in a workflow.
+To get a list of all workflows that can be used for a given Content item, use `WorkflowRegistry`:
 
-    To get a list of all workflows that can be used for a given Content item, use `WorkflowRegistry`:
+``` php
+$supportedWorkflows = $this->workflowRegistry->getSupportedWorkflows($content);
+```
 
-    ``` php
-    $supportedWorkflows = $this->workflowRegistry->getSupportedWorkflows($content);
-    ```
+### Applying workflow transitions
 
-    ### Applying workflow transitions
+To place a Content item in a workflow, use `WorkflowService::start`:
 
-    To place a Content item in a workflow, use `WorkflowService::start`:
+``` php
+$this->workflowService->start($content, $workflowName);
+```
 
-    ``` php
-    $this->workflowService->start($content, $workflowName);
-    ```
+To apply a transition to a Content item, use `WorkflowService::apply`.
+Additionally, you can check if the transition is possible for the given object using `WorkflowService::can`:
 
-    To apply a transition to a Content item, use `WorkflowService::apply`.
-    Additionally, you can check if the transition is possible for the given object using `WorkflowService::can`:
-
-    ``` php
-    if ($this->workflowService->can($workflowMetadata, $transitionName)) {
-        $this->workflowService->apply($workflowMetadata, $transitionName, 'Please review');
-    }
-    ```
+``` php
+if ($this->workflowService->can($workflowMetadata, $transitionName)) {
+    $this->workflowService->apply($workflowMetadata, $transitionName, 'Please review');
+}
+```
 
 ## Bookmarks
 

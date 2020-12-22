@@ -1,4 +1,4 @@
-# Displaying custom column
+# Displaying custom column [[% include 'snippets/commerce_badge.md' %]]
 
 ## 1. Check if there is an existing block for your field
 

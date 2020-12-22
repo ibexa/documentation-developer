@@ -1,4 +1,4 @@
-# Data processors
+# Data processors [[% include 'snippets/commerce_badge.md' %]]
 
 Data processors are executed after a form is submitted. You can use any number of data processors per form.
 The configuration lists data processors that are executed in sequence, for example:

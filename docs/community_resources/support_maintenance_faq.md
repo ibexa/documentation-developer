@@ -5,7 +5,7 @@ as well as references to important parts of the documentation and tools useful f
 
 #### What information should I specify when creating a Customer Support ticket?
 
-When reporting a problem to Customer Support the most important information is the version of [[= product_name_oss =]] which is used in the project.
+When reporting a problem to Customer Support the most important information is the version of [[= product_name =]] which is used in the project.
 The best way to specify it is to provide the list of currently installed packages by running:
 
 ``` bash
@@ -24,7 +24,7 @@ related to the code which generates the problem.
 
 #### What are the recommended ways to increase my project's performance?
 
-The most important clues around increasing overall performance of your [[= product_name_oss =]]-based project can be found in [the Performance documentation page](../guide/performance.md).
+The most important clues around increasing overall performance of your [[= product_name =]]-based project can be found in [the Performance documentation page](../guide/performance.md).
 
 #### How can I translate my Back Office?
 
@@ -34,7 +34,7 @@ Once you have language packages installed, you can switch the language of the Ba
 
 If you do not have a language defined in the browser, it will be selected based on the `parameters.locale_fallback` parameter located in `config/packages/ezplatform.yaml`.
 
-To read more about language managing in [[= product_name_oss =]], see the following doc pages:
+To read more about language managing in [[= product_name =]], see the following doc pages:
 
 - [Back Office languages](../guide/internationalization/#back-office-languages)
 - [Multi-language SiteAccesses and corresponding translations](../guide/multi_language_siteaccesses.md)
@@ -107,7 +107,7 @@ You can also place it in `config/landing_page_blocks.yaml`, which should be impo
         - { resource: ../landing_page_blocks.yaml }
     ```
 
-#### How can I implement authentication in an [[= product_name_oss =]]-based project?
+#### How can I implement authentication in an [[= product_name =]]-based project?
 
 The best approach is to use Symfony authentication.
 Check [development security](../guide/security.md) page for more detailed instructions.

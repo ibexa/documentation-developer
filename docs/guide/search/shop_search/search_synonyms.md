@@ -1,4 +1,4 @@
-# Search synonyms
+# Search synonyms [[% include 'snippets/commerce_badge.md' %]]
 
 Synonyms enable different phrase inputs that have the same meaning.
 

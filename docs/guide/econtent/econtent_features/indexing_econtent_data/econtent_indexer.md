@@ -1,4 +1,4 @@
-# eContent indexer
+# eContent indexer [[% include 'snippets/commerce_badge.md' %]]
 
 ## eContent class elements
 

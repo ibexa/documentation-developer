@@ -1,4 +1,4 @@
-# Delegate function
+# Delegate function [[% include 'snippets/commerce_badge.md' %]]
 
 You can delegate your operations in the shop to another user.
 This user can then take over as if they had a different customer number.

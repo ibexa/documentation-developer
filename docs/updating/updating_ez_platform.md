@@ -1,8 +1,8 @@
-# Updating eZ Platform
+# Updating [[= product_name =]]
 
-This section explains how to update eZ Platform to a new version.
+This section explains how to update eZ Platform or [[= product_name =]] to a new version.
 
-In the following instructions, replace `<version>` with the version of eZ Platform you are updating to (for example: `v2.5.0`).
+In the following instructions, replace `<version>` with the version of eZ Platform or [[= product_name =]] you are updating to (for example: `v2.5.0`).
 If you are testing a release candidate, use the latest `-rc` tag (for example: `v2.5.0-rc1`).
 
 You may upgrade from any eZ Platform version to the latest 2.5 version. For example, if you are using v2.0. you can then

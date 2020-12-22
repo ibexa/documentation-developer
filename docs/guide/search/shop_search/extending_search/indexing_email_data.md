@@ -1,4 +1,4 @@
-# Indexing email data
+# Indexing email data [[% include 'snippets/commerce_badge.md' %]]
 
 Indexing email data requires creating the `SearchField` class for the User Content item.
 The User Field Type doesn't have an implementation of `SearchField`, so this `SearchField` class must implement the `Indexable` interface.

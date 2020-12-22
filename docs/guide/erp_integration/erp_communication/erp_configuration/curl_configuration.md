@@ -1,4 +1,4 @@
-# cURL configuration
+# cURL configuration [[% include 'snippets/experience_badge.md' %]]
 
 ## cURL
 

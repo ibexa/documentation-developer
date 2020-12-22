@@ -1,4 +1,4 @@
-# User management
+# User management [[% include 'snippets/commerce_badge.md' %]]
 
 [[= product_name_com =]] by default adds the Shop users User Group, containing subgroups Business customers and Private customers.
 

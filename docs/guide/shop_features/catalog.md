@@ -1,4 +1,4 @@
-# Catalog
+# Catalog [[% include 'snippets/commerce_badge.md' %]]
 
 [[= product_name_com =]] generates the shop catalog automatically from the products and content in the installation or an ERP/PIM system.
 

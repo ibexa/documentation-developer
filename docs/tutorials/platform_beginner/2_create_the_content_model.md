@@ -1,13 +1,13 @@
 # Step 2 — Create the content model
 
-How your content is structured is a very important part of an [[= product_name_oss =]] project. Think of it as the database design of your application.
+How your content is structured is a very important part of an [[= product_name =]] project. Think of it as the database design of your application.
 
 To get full information, read the [content model](../../guide/content_model.md) documentation page.
 Below is a short introduction that only covers points needed for this tutorial.
 
 ## Content model overview
 
-The [[= product_name_oss =]] content Repository is centered around **Content items**. A Content item is a single piece of content, for example an article, a product review, a place, etc.
+The [[= product_name =]] content Repository is centered around **Content items**. A Content item is a single piece of content, for example an article, a product review, a place, etc.
 
 Every Content item is an instance of a **Content Type**. Content Types define what **Fields** are included in each Content item.
 For example, an article could include Fields such as *title*, *image*, *abstract*, *article's body*, *publication date* and *list of authors*.

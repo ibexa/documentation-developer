@@ -1,4 +1,4 @@
-# Accessing data provider via PHP
+# Accessing data provider via PHP [[% include 'snippets/commerce_badge.md' %]]
 
 ## Catalog Data Provider Service
 

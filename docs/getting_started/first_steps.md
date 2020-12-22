@@ -1,12 +1,12 @@
 # First steps
 
-This page lists first steps you can take after installing [[= product_name_oss =]].
+This page lists first steps you can take after installing [[= product_name =]].
 These are most common actions you may need to take in a new installation.
 
 !!! tip "Beginner tutorial"
 
     To go through a full tutorial that leads from a clean installation to creating a full site,
-    see [Building a bicycle route tracker in [[= product_name_oss =]]](../tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md).
+    see [Building a bicycle route tracker in [[= product_name =]]](../tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md).
 
 ## Remove welcome page
 

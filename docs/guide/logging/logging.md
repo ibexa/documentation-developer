@@ -1,4 +1,4 @@
-# Logging
+# Logging [[% include 'snippets/commerce_badge.md' %]]
 
 [[= product_name_com =]] uses [Monolog](https://github.com/Seldaek/monolog) to log the most important information.
 The default implementation writes standard shop-related information into a single log file.

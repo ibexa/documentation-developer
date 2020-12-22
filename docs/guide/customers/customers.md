@@ -1,4 +1,4 @@
-# Customers
+# Customers [[% include 'snippets/commerce_badge.md' %]]
 
 Customers are stored as User Content items in the database.
 

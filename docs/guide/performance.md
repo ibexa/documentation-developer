@@ -1,6 +1,6 @@
 # Performance
 
-[[= product_name_oss =]] can be set up to run efficiently on almost any modern configuration.
+[[= product_name =]] can be set up to run efficiently on almost any modern configuration.
 What follows is a list of recommendation that will make your installation perform better.
 
 !!! note
@@ -26,7 +26,7 @@ In production setups:
 - Always use reverse proxy, and if possible use Varnish.
     - Compared to the built-in Symfony Proxy in PHP Varnish is much faster and is able to queue up requests for the same fresh/invalidated resource.
     - With [ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache) support for xkey and grace Varnish provides more stable performance in read/write scenarios.
-- Set up [[= product_name_oss =]] in [cluster mode](clustering.md) if you need to handle bigger spikes of traffic than a single server can manage.
+- Set up [[= product_name =]] in [cluster mode](clustering.md) if you need to handle bigger spikes of traffic than a single server can manage.
     - See [recommendation for Memcached/Redis](#memcachedredis) and [Search](#search) below.
 
 !!! note

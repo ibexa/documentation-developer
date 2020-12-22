@@ -1,4 +1,4 @@
-# Translation cache for Text modules
+# Translation cache for Text modules [[% include 'snippets/commerce_badge.md' %]]
 
 !!! note
 

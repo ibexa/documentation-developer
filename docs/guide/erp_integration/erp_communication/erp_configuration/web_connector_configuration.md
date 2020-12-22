@@ -1,4 +1,4 @@
-# Web.Connector configuration
+# Web.Connector configuration [[% include 'snippets/experience_badge.md' %]]
 
 ## General parameters
 

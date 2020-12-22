@@ -1,10 +1,10 @@
 # Clustering
 
-Clustering in [[= product_name_oss =]] refers to setting up your installation with several web servers for handling more load and/or for failover.
+Clustering in [[= product_name =]] refers to setting up your installation with several web servers for handling more load and/or for failover.
 
 ## Server setup overview
 
-This diagram illustrates how clustering in [[= product_name_oss =]] is typically set up.
+This diagram illustrates how clustering in [[= product_name =]] is typically set up.
 The parts illustrate the different roles needed for a successful cluster setup.
 
 ![Server setup for clustering](img/server_setup.png)
@@ -26,9 +26,9 @@ It is also recommended to use:
 
 - [Solr](search/solr.md) for better search and performance
 - a CDN for improved performance and faster ping time worldwide
-    - in [[= product_name_ee =]] you can use Fastly, which has native support as HTTP cache and CDN.
+    - you can use Fastly, which has native support as HTTP cache and CDN.
 - active/passive database for failover
-- more recent versions of PHP and MySQL/MariaDB within [what is supported](../getting_started/requirements.md) for your [[= product_name_oss =]] version to get more performance out of each server. Numbers might vary so make sure to test this when upgrading.
+- more recent versions of PHP and MySQL/MariaDB within [what is supported](../getting_started/requirements.md) for your [[= product_name =]] version to get more performance out of each server. Numbers might vary so make sure to test this when upgrading.
 
 ### Shared persistence cache
 
@@ -52,7 +52,7 @@ On Ibexa Cloud (and Platform.sh) Redis is preferred and supported.
 
 ### Shared binary files
 
-[[= product_name_oss =]] supports multi-server setups by means of [custom IO handlers](file_management.md#the-dfs-cluster-handler).
+[[= product_name =]] supports multi-server setups by means of [custom IO handlers](file_management.md#the-dfs-cluster-handler).
 They make sure that files are correctly synchronized among the multiple clients using the data.
 
 ## DFS IO handler
@@ -64,7 +64,7 @@ It will use a database to manipulate metadata, making up for the potential incon
 
 You need to configure both metadata and binarydata handlers.
 
-[[= product_name_oss =]] ships with a custom local adapter (`ibexa.platform.io.nfs.adapter.site_access_aware`), 
+[[= product_name =]] ships with a custom local adapter (`ibexa.platform.io.nfs.adapter.site_access_aware`), 
 which decorates the Flysystem local adapter to enable support for SiteAccess-aware settings.
 If an NFS path relies on SiteAccess-aware dynamic parameters, you must use the custom local adapter 
 instead of the Flysystem local adapter.
@@ -215,7 +215,7 @@ You can read more about that on [Binary files URL handling](file_management.md#u
 
 ### Web server rewrite rules
 
-The default [[= product_name_oss =]] rewrite rules will let image requests be served directly from disk.
+The default [[= product_name =]] rewrite rules will let image requests be served directly from disk.
 In a cluster setup, files matching `^/var/([^/]+/)?storage/images(-versioned)?/.*` have to be passed through `/public/index.php` instead.
 
 In any case, this specific rewrite rule must be placed before the ones that "ignore" image files and just let the web server serve the files directly.

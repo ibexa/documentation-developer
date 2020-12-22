@@ -1,6 +1,6 @@
-# ERP integration
+# ERP integration [[% include 'snippets/commerce_badge.md' %]]
 
-[[= product_name_com =]] can be connected to ERP systems. Out of the box it offers Web.Connectors for SAP, Microsoft Dynamics NAV and AX.
+[[= product_name_exp =]] can be connected to ERP systems. Out of the box it offers Web.Connectors for SAP, Microsoft Dynamics NAV and AX.
 The product provides an open interface which can be adapted to other ERP systems as well.
 
 Existing ERP customers can automatically create an account in the shop without waiting for confirmation from the administrator.
@@ -13,7 +13,7 @@ The shop requests orders, delivery notes, invoices and credit memos from the ERP
 
 ## Stock information
 
-[[= product_name_com =]] requests real-time stock information from the ERP
+[[= product_name_exp =]] requests real-time stock information from the ERP
 and notifies the customer if the stock is lower than the required quantity.
 It is possible to display the real stock as a numeric value as well.
 
@@ -29,7 +29,7 @@ A fallback price provider (e.g. using imported prices) can be configured. It is 
 
 ## ERP fallback
 
-[[= product_name_com =]] supports fallback scenarios for the most important processes in case the connection to the ERP is not available:
+[[= product_name_exp =]] supports fallback scenarios for the most important processes in case the connection to the ERP is not available:
 
 - Caching latest customer data after login.
 - Fallback price engine. The customer is informed if the prices and stock are not up to date.

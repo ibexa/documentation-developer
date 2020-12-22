@@ -1,4 +1,4 @@
-# Creatinge new ERP message
+# Creatinge new ERP message [[% include 'snippets/experience_badge.md' %]]
 
 If you want to create a new message, first think about whether you want to create a [standard message](create_standard_message.md) or a [specific message in a project](create_project_specific_message.md).
 

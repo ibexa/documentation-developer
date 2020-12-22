@@ -13,8 +13,8 @@ For details on how to reuse this Cache service in your own custom code, see belo
 
 ## Transparent cache
 
-With the persistence cache, just like with the HTTP cache, [[= product_name_oss =]] tries to follow principles of transparent caching.
-This can shortly be described as a cache which is invisible to the end user (admin/editors) of [[= product_name_oss =]] where content
+With the persistence cache, just like with the HTTP cache, [[= product_name =]] tries to follow principles of transparent caching.
+This can shortly be described as a cache which is invisible to the end user (admin/editors) of [[= product_name =]] where content
 is always returned *fresh*. In other words, there should be no need to manually clear the cache like it was frequently
 the case with eZ Publish 4.x. This is possible thanks to an interface that follows CRUD (Create Read Update Delete)
 operations per domain.
@@ -46,7 +46,7 @@ To see where and how to contribute additional caches, refer to the [source code]
 
     Current implementation uses Symfony cache. It technically supports the following cache backends:
     [APCu, Array, Chain, Doctrine, Filesystem, Memcached, PDO & Doctrine DBAL, Php Array, Proxy, Redis](https://symfony.com/doc/5.0/components/cache/cache_pools.html#creating-cache-pools).
-    [[= product_name_oss =]] officially supports only using Filesystem for single server and Redis or Memcached for clustered setups.
+    [[= product_name =]] officially supports only using Filesystem for single server and Redis or Memcached for clustered setups.
 
 Use of Memcached or Redis as shared cache back end is a requirement for use in clustering setup.
 For an overview of this feature, see [Clustering](clustering.md).
@@ -282,7 +282,7 @@ See `config/default_parameters.yaml` and `config/cache_pool/cache.memcached.yaml
 ## Using Cache Service
 
 Using the internal cache service allows you to use an interface and without caring whether the system is configured to place the cache in Memcached or on File system.
-And as [[= product_name_oss =]] requires that instances use a cluster-aware cache in Cluster setup, you can safely assume your cache is shared *(and invalidated)* across all web servers.
+And as [[= product_name =]] requires that instances use a cluster-aware cache in Cluster setup, you can safely assume your cache is shared *(and invalidated)* across all web servers.
 
 !!! note
 

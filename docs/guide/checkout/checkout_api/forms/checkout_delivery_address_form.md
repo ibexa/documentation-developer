@@ -1,4 +1,4 @@
-# Delivery address form
+# Delivery address form [[% include 'snippets/commerce_badge.md' %]]
 
 ## Model class
 

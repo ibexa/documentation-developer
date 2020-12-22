@@ -1,4 +1,4 @@
-# ERP messages
+# ERP messages [[% include 'snippets/commerce_badge.md' %]]
 
 Order history uses the following ERP messages:
 

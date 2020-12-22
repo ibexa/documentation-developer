@@ -25,7 +25,7 @@ Since the Public API cannot know anything about these, their handling is delegat
 #### `getFieldTypeIdentifier()`
 
 Returns a unique identifier for the custom Field Type which is used to assign the type to a Field definition.
-By convention it should be prefixed by a unique vendor shortcut (e.g. `ibexa` for [[= product_name_oss =]]).
+By convention it should be prefixed by a unique vendor shortcut (e.g. `ibexa` for [[= product_name =]]).
 
 #### `getSettingsSchema()`
 

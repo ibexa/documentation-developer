@@ -1,4 +1,4 @@
-# Lost orders
+# Lost orders [[% include 'snippets/experience_badge.md' %]]
 
 ## Sending lost orders from Backend
 

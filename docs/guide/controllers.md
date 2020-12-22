@@ -506,7 +506,7 @@ A `QueryType` service is registered automatically when `autoconfigure: true` is 
 
 !!! tip
 
-    In the default [[= product_name_oss =]] installation services are autoconfigured by default for the `App` namespace,
+    In the default [[= product_name =]] installation services are autoconfigured by default for the `App` namespace,
     so no additional registration is required.
 
 Otherwise, you can register your QueryType with a service tag:

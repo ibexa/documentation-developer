@@ -1,4 +1,4 @@
-# Example UBL for price calculation
+# Example UBL for price calculation [[% include 'snippets/experience_badge.md' %]]
 
 ## Price request
 

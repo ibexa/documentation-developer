@@ -1,4 +1,4 @@
-# Implement custom search condition
+# Implement custom search condition [[% include 'snippets/commerce_badge.md' %]]
 
 To create a custom search condition, implement the following classes:
 

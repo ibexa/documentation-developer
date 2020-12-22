@@ -1,4 +1,4 @@
-# Getting product data from ERP
+# Getting product data from ERP [[% include 'snippets/experience_badge.md' %]]
 
 ## Retrieving products from ERP in a Symfony controller
 

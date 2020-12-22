@@ -1,4 +1,4 @@
-# Configuration
+# Configuration [[% include 'snippets/commerce_badge.md' %]]
 
 ## HTTP server configuration
 

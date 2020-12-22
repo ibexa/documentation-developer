@@ -1,4 +1,4 @@
-# Customer SKUs
+# Customer SKUs [[% include 'snippets/commerce_badge.md' %]]
 
 In some projects, (B2B) customers know products by their own article number (SKU) that comes from the ERP.
 When the customer e.g. searches for a product in the shop, they search for an article number that is only known to them.

@@ -1,4 +1,4 @@
-# ProductNode
+# ProductNode [[% include 'snippets/commerce_badge.md' %]]
 
 `ProductNode` is an abstract base class for product elements. 
 It inherits from product category `CatalogElement`.

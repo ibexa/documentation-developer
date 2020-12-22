@@ -1,4 +1,4 @@
-# Search API
+# Search API [[% include 'snippets/commerce_badge.md' %]]
 
 ## Search interfaces
 

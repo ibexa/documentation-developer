@@ -28,10 +28,10 @@ The secret key cannot be retrieved again after the key has been created, so don'
 
     Make sure that your bucket is [configured as Public](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/block-public-access-bucket.html) to avoid facing 403 errors, as the current S3 handler is meant to store files publicly so they can be served directly from S3.
     
-## Set up [[= product_name_oss =]] for AWS S3
+## Set up [[= product_name =]] for AWS S3
 
-In your [[= product_name_oss =]] root directory, run `php composer.phar require league/flysystem-aws-s3-v3`.
-In your [[= product_name_oss =]] configuration, e.g. `config/packages/ezplatform.yaml`, set up the AWS S3 client:
+In your [[= product_name =]] root directory, run `php composer.phar require league/flysystem-aws-s3-v3`.
+In your [[= product_name =]] configuration, e.g. `config/packages/ezplatform.yaml`, set up the AWS S3 client:
 
 ``` yaml
 services:
@@ -45,7 +45,7 @@ services:
                     secret: abc123... # Your AWS secret key
 ```
 
-In the same [[= product_name_oss =]] configuration, set up the Flysystem adapter that uses the S3 client:
+In the same [[= product_name =]] configuration, set up the Flysystem adapter that uses the S3 client:
 
 ``` yaml
 oneup_flysystem:
@@ -75,7 +75,7 @@ ez_io:
     For example, you could configure one called `gcloud_storage` for a third-party (community-supported)
     [Google Cloud Storage adapter](https://github.com/thephpleague/flysystem#community-supported).
 
-In your [[= product_name_oss =]] system settings, e.g. `config/packages/ezplatform.yaml`, enable the binary data handler:
+In your [[= product_name =]] system settings, e.g. `config/packages/ezplatform.yaml`, enable the binary data handler:
 
 ``` yaml
 ezplatform:

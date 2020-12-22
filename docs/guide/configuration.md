@@ -1,6 +1,6 @@
 # Configuration
 
-[[= product_name_oss =]] configuration is delivered using a number of dedicated configuration files.
+[[= product_name =]] configuration is delivered using a number of dedicated configuration files.
 It contains everything from selecting the content Repository to SiteAccesses to language settings.
 
 ### Configuration format
@@ -34,7 +34,7 @@ These files contain additional settings and point to the general (not environmen
     Configuration is tightly related to the service container.
     To fully understand it, you need to be familiar with [Symfony's service container](service_container.md) and [its configuration](https://symfony.com/doc/5.0/service_container.html#service-parameters).
 
-Basic configuration handling in [[= product_name_oss =]] is similar to what is commonly possible with Symfony.
+Basic configuration handling in [[= product_name =]] is similar to what is commonly possible with Symfony.
 You can define key/value pairs in your configuration files.
 
 Internally and by convention, keys follow a **dot syntax**, where the different segments follow your configuration hierarchy.

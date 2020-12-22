@@ -1,4 +1,4 @@
-# Indexing eContent data
+# Indexing eContent data [[% include 'snippets/commerce_badge.md' %]]
 
 If [[= product_name_com =]] is configured to use eContent as data provider, the following things have to be taken into consideration when indexing.
 
