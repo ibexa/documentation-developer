@@ -659,24 +659,6 @@ nav:
         - 'eZ Platform v1.9.0': 'releases/ez_platform_v1.9.0.md'
         - 'eZ Platform v1.8.0': 'releases/ez_platform_v1.8.0.md'
         - 'eZ Platform v1.7.0 LTS': 'releases/ez_platform_v1.7.0_lts.md'
-        - 'eZ Platform v1.6.0': 'releases/ez_platform_and_ez_enterprise_v1.6.0.md'
-        - eZ Enterprise release notes:
-            - 'eZ Enterprise v1.5.0': 'releases/ez_enterprise_v1.5.0_release_notes.md'
-            - 'eZ Enterprise v1.4.0': 'releases/ez_enterprise_v1.4_release_notes.md'
-            - 'eZ Studio 2016.04': 'releases/ez_studio_2016.04_release_notes.md'
-            - 'eZ Studio 16.02': 'releases/ez_studio_16.02_release_notes.md'
-            - 'eZ Studio 15.12.1': 'releases/ez_studio_15.12.1_release_notes.md'
-            - 'eZ Studio 15.12': 'releases/ez_studio_15.12_release_notes.md'
-        - eZ Platform release notes:
-            - 'eZ Platform v1.5.1': 'releases/ez_platform_1.5.1_release_notes.md'
-            - 'eZ Platform v1.5.0': 'releases/ez_platform_v1.5.0_release_notes.md'
-            - 'eZ Platform v1.4.2': 'releases/ez_platform_1.4.2_release_notes.md'
-            - 'eZ Platform v1.4.0': 'releases/ez_platform_v1.4.0_release_notes.md'
-            - 'eZ Platform 2016.04': 'releases/ez_platform_2016.04_release_notes.md'
-            - 'eZ Platform 16.02': 'releases/ez_platform_16.02_release_notes.md'
-            - 'eZ Platform 15.12.1': 'releases/ez_platform_15.12.1_release_notes.md'
-            - 'eZ Platform 15.12': 'releases/ez_platform_15.12_release_notes.md'
-            - 'Earlier releases': 'releases/earlier_releases.md'
     - 'References': 'references.md'
 theme:
   name: null
