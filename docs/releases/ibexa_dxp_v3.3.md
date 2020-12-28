@@ -12,6 +12,10 @@
 
 ### Symfony Flex
 
+Ibexa DXP is now installed using [Symfony Flex](https://symfony.com/doc/current/quick_tour/flex_recipes.html).
+
+See [the updated installation instruction](../geting_started_install_ez_platform.md) for a new guide to installing the product.
+
 ### Image Editor
 
 ### Migration bundle
