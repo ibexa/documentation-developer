@@ -127,7 +127,7 @@ composer create-project ibexa/website-skeleton .
     specific tag (`v3.3.0`), version range (`~3.3.0`), stability (`^3.3@rc`), etc.:
 
     ``` bash
-    composer create-project ibexa/website-skeleton:v3.3.0 .
+    composer create-project ibexa/website-skeleton . "v3.3.0"
     ```
 
 ### Configure access to the update server
@@ -150,18 +150,21 @@ To install all necessary product packages, run:
 
     ``` bash
     composer require ibexa-content
+    composer recipes:install ibexa-content --force
     ```
 
 === "[[= product_name_exp =]]"
 
     ``` bash
     composer require ibexa-experience
+    composer recipes:install ibexa-experience --force
     ```
 
 === "[[= product_name_com =]]"
 
     ``` bash
     composer require ibexa-commerce
+    composer recipes:install ibexa-commerce --force
     ```
 
 ### Change installation parameters
@@ -245,7 +248,7 @@ Search in the shop front end requires that you have either Solr or Elasticsearch
 Install [[= product_name =]] and create a database with:
 
 ``` bash
-composer ezplatform-install
+php bin/console ibexa:install
 ```
 
 Before executing the command make sure that the database user has sufficient permissions.
