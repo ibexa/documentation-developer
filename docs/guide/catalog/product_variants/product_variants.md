@@ -81,15 +81,13 @@ To render the price range for a product with variant, access the `catalogElement
 ## Variant templates
 
 The default templates used for rendering product details are stored in
-`EshopBundle/Resources/views/Catalog/parts/`:
+`ezcommerce-shop-ui/src/bundle/Resources/views/themes/standard/catalog/`:
 
 |||
 |----|----|
-|`productBasketVariant.html.twig`| Price block for the variant|
-|`productData.html.twig`| Product information (for a variant it can be additional information like country)|
-|`productDetailVariantB2B.html.twig`| Variant options for B2B|
-|`productDetailVariantB2C.html.twig`| Variant options for B2C|
-|`productVariantBlock.html.twig`| All logic for B2C display|
+|`catalog/product_variants.html.twig`| Price block for the variant|
+|`catalog/product_basket_variants_b2b.html.twig`| Variant options for B2B|
+|`catalog/product_basket_variants_b2c.html.twig`| Variant options for B2C|
 
 ## Defining sorting for variants
 

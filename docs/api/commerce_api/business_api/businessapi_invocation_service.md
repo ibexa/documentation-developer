@@ -32,8 +32,8 @@ catalog.load_products
 The following example shows how to use the Business API basket operation service.
 
 ``` php
-use Silversolutions\Bundle\EshopBundle\Entities\BusinessLayer\InputValueObjects\GetBasket as InputGetBasket;
-use Silversolutions\Bundle\EshopBundle\Entities\BusinessLayer\OutputValueObjects\GetBasket as OutputGetBasket;
+use Ibexa\Platform\Commerce\Checkout\Entities\BusinessLayer\InputValueObjects\GetBasket as InputGetBasket;
+use Ibexa\Platform\Commerce\Checkout\Entities\BusinessLayer\InputValueObjects\GetBasket as OutputGetBasket;
 
 /** @var InputGetBasket $input */
 $input = new InputGetBasket(array('request' => $request));
@@ -76,8 +76,8 @@ For example:
 ``` php
 namespace Example\Bundle\ExtensionBundle\Services\BusinessLayer\Operations;
 
-use Silversolutions\Bundle\EshopBundle\Entities\BusinessLayer\InputValueObjects\AddItemToBasket as InputAddItemToBasket;
-use Silversolutions\Bundle\EshopBundle\Entities\BusinessLayer\OutputValueObjects\AddItemToBasket as OutputAddItemToBasket;
+use Ibexa\Platform\Commerce\Checkout\Entities\BusinessLayer\InputValueObjects\AddItemToBasket as InputAddItemToBasket;
+use Ibexa\Platform\Commerce\Checkout\Entities\BusinessLayer\OutputValueObjects\AddItemToBasket as OutputAddItemToBasket;
 
 class NewBasketApi extends Silversolutions\Bundle\EshopBundle\Services\BusinessLayer\Operations\Basket
 {

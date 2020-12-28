@@ -45,11 +45,11 @@ class AddItemToBasket extends ValueObject
 {
  
     /**
-     * @var \Silversolutions\Bundle\EshopBundle\Entities\BusinessLayer\InputValueObjects\AddItemToBasket\ItemData
+     * @var \Ibexa\Platform\Commerce\Checkout\Entities\BusinessLayer\InputValueObjects\AddItemToBasket\ItemData
      */
     protected $itemData;
     /**
-     * @var \Silversolutions\Bundle\EshopBundle\Entity\Basket $basket
+     * @var \Ibexa\Platform\Bundle\Commerce\Checkout\Entity\Basket $basket
      */
     protected $basket;
     /**
@@ -59,20 +59,20 @@ class AddItemToBasket extends ValueObject
         array(
             'name' => 'itemData',
             'mandatory' => true,
-            'type' => '\Silversolutions\Bundle\EshopBundle\Entities\BusinessLayer\InputValueObjects\AddItemToBasket\ItemData',
+            'type' => '\Ibexa\Platform\Commerce\Checkout\Entities\BusinessLayer\InputValueObjects\AddItemToBasket\ItemData',
             'isObject' => true,
         ),
         array(
             'name' => 'basket',
             'mandatory' => true,
-            'type' => '\Silversolutions\Bundle\EshopBundle\Entity\Basket',
+            'type' => '\Ibexa\Platform\Bundle\Commerce\Checkout\Entity\Basket',
             'isObject' => true
         )
 }
 ```
 
 ``` php
-namespace Silversolutions\Bundle\EshopBundle\Entities\BusinessLayer\InputValueObjects\AddItemToBasket;
+namespace Ibexa\Platform\Commerce\Checkout\Entities\BusinessLayer\InputValueObjects\AddItemToBasket;
 
 use Silversolutions\Bundle\EshopBundle\Content\ValueObject;
 
@@ -124,12 +124,12 @@ use Silversolutions\Bundle\EshopBundle\Content\ValueObject;
  *
  * This class is used as an output parameter for an appropriate business method
  *
- * @property-read \Silversolutions\Bundle\EshopBundle\Entity\Basket $basket
+ * @property-read \Ibexa\Platform\Bundle\Commerce\Checkout\Entity\Basket $basket
  */
 class AddItemToBasket extends ValueObject
 {
     /**
-     * @var \Silversolutions\Bundle\EshopBundle\Entity\Basket $basket
+     * @var \Ibexa\Platform\Bundle\Commerce\Checkout\Entity\Basket $basket
      */
     protected $basket;
     /** @var array $checkProperties */
@@ -137,7 +137,7 @@ class AddItemToBasket extends ValueObject
         array(
             'name' => 'basket',
             'mandatory' => true,
-            'type' => '\Silversolutions\Bundle\EshopBundle\Entity\Basket',
+            'type' => '\Ibexa\Platform\Bundle\Commerce\Checkout\Entity\Basket',
             'isObject' => true
         )
     );
