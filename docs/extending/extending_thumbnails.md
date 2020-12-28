@@ -105,9 +105,9 @@ namespace App\Thumbnails;
 ​
 use eZ\Publish\API\Repository\Values\Content\Field;
 use eZ\Publish\API\Repository\Values\Content\Thumbnail;
-use eZ\Publish\SPI\Repository\Strategy\ContentThumbnail\Field\ThumbnailStrategy;
+use eZ\Publish\SPI\Repository\Strategy\ContentThumbnail\Field\FieldTypeBasedThumbnailStrategy;
 ​
-class FieldValueUrl implements ThumbnailStrategy
+class FieldValueUrl implements FieldTypeBasedThumbnailStrategy
 {
 	public function getFieldTypeIdentifier(): string
 	{
