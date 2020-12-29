@@ -173,6 +173,7 @@ nav:
         - Content management:
             - 'Content management': 'guide/content_management.md'
             - 'Images': 'guide/images.md'
+            - 'Configuring the Image Editor': 'guide/image_editor.md'
             - 'File management': 'guide/file_management.md'
             - 'URL management': 'guide/url_management.md'
             - 'RouteReference': 'guide/routereference.md'
