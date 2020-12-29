@@ -32,6 +32,17 @@ Search API has been extended with the following capabilities:
 - [CustomField Sort Clause](../guide/search/sort_clause_reference/customfield_sort_clause.md) sorts search results by raw search index fields.
 - [ContentTranslatedName Sort Clause](../guide/search/sort_clause_reference/contenttranslatedname_sort_clause.md) sorts search results by the Content items' translated names.
 
+### PHP API improvements
+
+You can now use the following new PHP API methods:
+
+- [`UserService::loadUserGroupByRemoteId`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/UserService.php#L71)
+- [`PasswordHashService::getDefaultHashType`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/PasswordHashService.php#L18)
+- [`PasswordHashService::getSupportedHashTypes`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/PasswordHashService.php#L25)
+- [`PasswordHashService::isHashTypeSupported`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/PasswordHashService.php#L30)
+- [`PasswordHashService::createPasswordHash`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/PasswordHashService.php#L37)
+- [`PasswordHashService::isValidPassword`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/PasswordHashService.php#L44)
+
 ### Query Field Location handling
 
 ## Full changelog
