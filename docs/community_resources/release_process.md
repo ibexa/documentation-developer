@@ -36,8 +36,8 @@ The version number of [[= product_name =]] and all its internal components follo
 Distribution files of our three editions are as follows:
 
 - for [[= product_name_content =]]: ezplatform-vX.Y.Z.tgz
-- for [[= product_name_exp =]]: ezplatformenterprise-vX.Y.Z.tgz
-- for [[= product_name_com =]]: 
+- for [[= product_name_exp =]]: ibexa-experience-vX.Y.Z.tgz
+- for [[= product_name_com =]]: ibexa-commerce-vX.Y.Z.tgz
 
 ## Support lifecycle
 
