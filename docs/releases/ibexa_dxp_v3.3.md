@@ -49,4 +49,4 @@ You can now use the following new PHP API methods:
 
 | Ibexa Content  | Ibexa Experience  | Ibexa Commerce |
 |--------------|------------|------------|
-| [Ibexa Content v3.3.0](https://github.com/ezsystems/ezplatform/releases/tag/v3.3.0) | [Ibexa Experience v3.3.0](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.3.0) | [Ibexa Commerce v3.3.0](https://github.com/ezsystems/ezcommerce/releases/tag/v3.3.0)
+| [Ibexa Content v3.3.0](https://github.com/ibexa/content/releases/tag/v3.3.0) | [Ibexa Experience v3.3.0](https://github.com/ibexa/experience/releases/tag/v3.3.0) | [Ibexa Commerce v3.3.0](https://github.com/ibexa/commerce/releases/tag/v3.3.0)
