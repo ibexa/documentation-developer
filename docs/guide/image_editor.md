@@ -1,22 +1,28 @@
-# Configuring the Image Editor
+# Configuring the Image Editor [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-## Introduction
-
-When a Content Item contains Fields of the [ezimage](../api/field_type_reference.md#image-field-type) or [ezimageasset](../api/field_type_reference.md#imageasset-field-type) type, users can perform basic image editing functions with the Image Editor.
+When a Content item contains Fields of the [ezimage](../api/field_type_reference.md#image-field-type) or [ezimageasset](../api/field_type_reference.md#imageasset-field-type) type, users can perform basic image editing functions with the Image Editor.
 For more information, see the [user documentation](https://doc.ibexa.co/projects/userguide/en/master/editing_images/).
+
+note: The Image Editor is not available for images that come from a Digital Asset Management (DAM) system.
 
 ## Configuration
 
-You can modify the default settings to change the appearance or behaviour of the Image Editor.
-You can also expand the default set of parameters to create buttons that may be required by custom features that you add by [extending the Image Editor](#extending-the-image-editor).
-To do this, modify the `config/packages/ezplatform.yaml` file, or create a separate YAML file in the `config/packages` folder, and add a settings tree similar to the following example.
-Image Editor settings are [dynamic](config_dynamic.md), therefore you can configure a different set of buttons or preset values for each of the SiteAccesses in your installation.
-The example sets the aspect ratio values and label names for buttons used by the Crop feature.
+You can modify the default settings to change the appearance or behavior of the Image Editor.
+You can also expand the default set of parameters to create buttons that may be required by custom features 
+that you add by extending the Image Editor, for example, to enable changes to the color palette of an image.
 
+To do this, modify the `config/packages/ezplatform.yaml` file, or create a separate YAML file 
+in the `config/packages` folder, and add a settings tree similar to the following example.
+The settings tree can contain one or more action groups.
+You can control the order of actions within a group by by setting the `priority` parameter.
+You can also change the visibility of actions within the user interface.
+Image Editor settings are [SiteAccess-aware](config_dynamic.md).
+
+The following example sets the aspect ratio values and label names for buttons used by the Crop feature.
 
 ``` yaml
 system:
-    <siteaccess_name>:
+    <siteaccess>:
         image_editor:
             action_groups:
                 default:
@@ -26,6 +32,8 @@ system:
                         (...)
                         crop:
                             id: crop
+                            priority: 1
+                            visible: true
                             buttons:
                                 1-1:
                                     label: 1:1
@@ -54,7 +62,9 @@ system:
 ### Additional information
 
 Each image can be accompanied by additional information that is not visible to the user.
-By default, additional information serves to store the coordinates of the [focal point](https://doc.ibexa.co/projects/userguide/en/master/editing_images/#focal-point), but you can use this extension point to pass various parameters of custom features that you add by [extending the Image Editor](#extending-the-image-editor).
+By default, additional information stores the coordinates of the [focal point](https://doc.ibexa.co/projects/userguide/en/master/editing_images/#focal-point), 
+but you can use this extension point to pass various parameters of custom features 
+that you add by extending the Image Editor.
 
 To modify the value of additional information programmatically, you can set a value of the `Image` field by using the PHP API, for example:
 
@@ -75,8 +85,3 @@ new FieldValue([
      ],
  ]),
 ```
- 
-## Extending the Image Editor
-
-You can extend the Image Editor if your users require additional features.
-For example, you can create a feature that modifies the colour palette of an image.
