@@ -3,7 +3,9 @@
 When a Content item contains Fields of the [ezimage](../api/field_type_reference.md#image-field-type) or [ezimageasset](../api/field_type_reference.md#imageasset-field-type) type, users can perform basic image editing functions with the Image Editor.
 For more information, see the [user documentation](https://doc.ibexa.co/projects/userguide/en/master/editing_images/).
 
-note: The Image Editor is not available for images that come from a Digital Asset Management (DAM) system.
+!!! note
+
+    The Image Editor does not support images that come from a Digital Asset Management (DAM) system.
 
 ## Configuration
 
