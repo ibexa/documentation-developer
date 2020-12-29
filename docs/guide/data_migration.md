@@ -43,6 +43,22 @@ The following modes are available:
 
 If you do not provide the `mode` parameter, the command will ask you to select the mode.
 
+The following combinations of types are modes are available:
+
+||`create`|`update`|`delete`|
+|---|:---:|:---:|:---:|
+|`content`|+|+|+|
+|`content_type`|+|+||
+|`role`|+|+|+|
+|`content_type_group`|+|+||
+|`user`|+|+||
+|`user_group`|+||+|
+|`language`|+|||
+|`object_state_group`|+|||
+|`object_state`|+|||
+|`section`|+|+||
+|`location`||+||
+
 ### match-property
 
 The `match-property` parameter, together with `value`, enables you to select which data from the Repository to export.
@@ -64,6 +80,26 @@ The following properties are available (per type):
 - `content_type_group`
     - `content_type_group_id`
     - `content_type_group_identifier`
+- `language`
+    - `language_code`
+- `location`
+    - `location_remote_id`
+    - `location_id`
+- `object_state`
+    - `object_state_id`
+    - `object_state_identifier`
+- `object_state_group`
+    - `object_state_group_id`
+    - `object_state_group_identifier`
+- `role`
+    - `identifier`
+    - `id`
+- `section`
+    - `section_id`
+    - `section_identifier`
+- `user`
+    - `login`
+    - `email`
 
 ### value
 
@@ -102,3 +138,15 @@ The command takes the file name as parameter. The file is located by default in 
 ``` bash
 bin/console ibexa:migrations:migrate --file=my_data_export.yaml
 ```
+
+## Converting migration files
+
+You can use the `ibexa:migrations:kaliop:convert` command to convert a file
+from the format used by the [Kaliop migration bundle](https://github.com/kaliop-uk/ezmigrationbundle)
+to the current migration format.
+
+``` bash
+bin/console ibexa:migrations:kaliop:convert --input=kaliop_format.yaml --output=ibexa_format.yaml
+```
+
+The input file must use the currently supported mode and type combinations.
