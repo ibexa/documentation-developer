@@ -10,6 +10,10 @@
 
 ### New Personalization UI
 
+This release brings a completely reconstructed user interface of the Personalization feature.
+
+![Personalization dashboard](img/3.3_perso_ui.png "Personalization dashboard")
+
 ### Symfony Flex
 
 Ibexa DXP is now installed using [Symfony Flex](https://symfony.com/doc/current/quick_tour/flex_recipes.html).
@@ -17,6 +21,14 @@ Ibexa DXP is now installed using [Symfony Flex](https://symfony.com/doc/current/
 See [the updated installation instruction](../geting_started_install_ez_platform.md) for a new guide to installing the product.
 
 ### Image Editor
+
+With the Image Editor, users can now perform basic image editing, such as cropping, flipping 
+or setting a point of focus. 
+The Image Editor is available when browsing the Media library, or creating or editing Content Items 
+that contain an ezimage or ezimageasset Field.
+
+You can modify the Image Editor's default settings to change its appearance or behavior.
+For more information, see [Configuring the Image Editor](../guide/image_editor.md)
 
 ### Migration bundle
 
