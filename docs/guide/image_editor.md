@@ -14,8 +14,8 @@ that you add by extending the Image Editor, for example, to enable changes to th
 To do this, modify the `config/packages/ezplatform.yaml` file, or create a separate YAML file 
 in the `config/packages` folder, and add a settings tree similar to the following example.
 The settings tree can contain one or more action groups.
-You can control the order of actions within a group by by setting the `priority` parameter.
-You can also change the visibility of actions within the user interface.
+You can control the order of actions within a group by setting the `priority` parameter.
+You can also toggle the visibility of actions within the user interface.
 Image Editor settings are [SiteAccess-aware](config_dynamic.md).
 
 The following example sets the aspect ratio values and label names for buttons used by the Crop feature.
