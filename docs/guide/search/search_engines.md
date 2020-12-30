@@ -8,7 +8,10 @@ Its connections are defined in the same way as for storage engine, and no furthe
 !!! tip
 
     The features and performance of Legacy search engine are limited.
-    If you have specific search or performance needs you should look towards using [Solr](solr.md).
+    If you have specific search or performance needs you should look towards using [Solr](solr.md)
+    or [Elasticsearch](elastic.md).
+    
+    Using the Legacy search engine disables most shop features, such as product search.
 
 ### Configuring the Repository with the Legacy search engine
 

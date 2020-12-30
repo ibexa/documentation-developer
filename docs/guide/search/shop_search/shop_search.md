@@ -1,6 +1,17 @@
 # Shop search [[% include 'snippets/commerce_badge.md' %]]
 
-The built-in search engine based on Solr automatically indexes both content and products.
+The built-in search engine automatically indexes both content and products.
+
+!!! caution
+
+    You can use [all the supported search capabilities](../search.md#feature-comparison)
+    of either Solr or Elasticsearch with the shop.
+    
+    You can also run the shop using the Legacy search engine,
+    but it only covers the most basic functionalities such as displaying the product catalog.
+    
+    Running the Legacy search engine disables product search,
+    as well as other functionalities, such as unsupported sorting types in the catalog.
 
 The search displays the results in different groups. A group can consist of products, videos, downloads, etc.
 
