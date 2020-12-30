@@ -5,7 +5,7 @@ The built-in search engine automatically indexes both content and products.
 !!! caution
 
     You can use [all the supported search capabilities](../search.md#feature-comparison)
-    of both Solr and Elasticsearch with the shop.
+    of either Solr or Elasticsearch with the shop.
     
     You can also run the shop using the Legacy search engine,
     but it only covers the most basic functionalities such as displaying the product catalog.
