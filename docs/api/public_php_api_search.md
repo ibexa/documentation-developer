@@ -289,7 +289,7 @@ To paginate search or filtering results, it is recommended to use the [Pagerfant
 //...
 use eZ\Publish\Core\Pagination\Pagerfanta\ContentSearchAdapter;
 use Symfony\Component\HttpFoundation\Request;
-use Pagerfanta\Pagerfanta;
+use eZ\Publish\Core\Pagination\Pagerfanta\Pagerfanta;
 
 class CustomController extends Controller
 {
@@ -303,6 +303,7 @@ class CustomController extends Controller
         );
         $pager->setMaxPerPage(3);
         $pager->setCurrentPage($request->get('page', 1));
+        $pager->getMaxScore();
 
         return $this->render('custom.html.twig', [
                 'totalItemCount' => $pager->getNbResults(),
@@ -317,8 +318,10 @@ Pagination can then be rendered for example using the following template:
 
 ``` html+twig
 {% for item in pagerItems %}
-    <h2><a href={{ ez_path(item.valueObject) }}>{{ ez_content_name(item) }}</a></h2>
+    <h2><a href={{ ez_path(item) }}>{{ ez_content_name(item) }}</a></h2>
 {% endfor %}
+
+<p>Max score: {{ pagerItems.maxScore }}</p>
 
 {% if pagerItems.haveToPaginate() %}
     {{ pagerfanta( pagerItems, 'ez') }}
@@ -337,6 +340,7 @@ For more information and examples, see [PagerFanta documentation.](https://githu
 |[`LocationSearchHitAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Pagination/Pagerfanta/LocationSearchHitAdapter.php)|Makes a Location search against passed Query and  returns [SearchHit](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects instead.|
 |[`ContentFilteringAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/Core/Pagination/Pagerfanta/ContentFilteringAdapter.php)|Applies a Content filter and returns a `ContentList` object.|
 |[`LocationFilteringAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/Core/Pagination/Pagerfanta/LocationFilteringAdapter.php)|Applies a Location filter and returns a `LocationList` object.|
+|[`SearchResultAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/Core/Pagination/Pagerfanta/SearchResultAdapter.php)|Exposes additional search result data: aggregation results, max. score, computation time, and timeout flag.|
 
 ## Complex search
 
