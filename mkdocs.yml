@@ -653,10 +653,10 @@ plugins:
 
 extra:
   version_warning:
-    latest: ['3.2']
-    previous_lts: ['1.13']
-    lts: ['2.5']
-    ft: ['3.0','3.1']
+    latest: ['3.3']
+    previous_lts: ['2.5', '1.13']
+    lts: ['3.3']
+    ft: ['3.2','3.1']
     dev: ['master']
   append_bootstrap:
     - '/guidelines/components/'
