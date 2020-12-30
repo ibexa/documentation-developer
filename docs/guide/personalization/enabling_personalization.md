@@ -1,11 +1,11 @@
 # Enabling Personalization
 
 The Ibexa Personalization solution is based on a client-server architecture.
-To make it operational, you must obtain and set up certain configuration parameters.
+To make it operational, you must obtain and set up certain authentication parameters.
 
-## Requesting access to the engine
+## Requesting access to the server
 
-At first you must request credentials required to access the recommendation engine.
+At first you must request credentials required to access the recommendation server.
 
 To do this, in the Back Office, select **Personalization** and then **Dashboard**.
 On the welcome screen, enter the following details in their respective fields:
@@ -20,14 +20,16 @@ Your request is sent to Ibexa, and you will receive a confirmation e-mail in res
 ## Configuring mandator credentials
 
 When you've received the confirmation e-mail, you must add the credentials to your configuration.
-In the root folder of your project, edit either the `.env` or `.env.local` file by adding two lines that may look similar to the following example. 
+In the root folder of your project, edit either the `.env` or `.env.local` file by adding two lines that 
+may look similar to the following example. 
 
 ```
 RECOMMENDATION_CUSTOMER_ID=12345
 RECOMMENDATION_LICENSE_KEY=67890-1234-5678-90123-4567
 ```
 
-You can now go back to the Back Office, refresh the personalization dashboard and proceed to configuring the Personalization solution.
+You can now go back to the Back Office, refresh the personalization dashboard and proceed to configuring 
+the Personalization solution.
 
 ## Changing the Installation key
 
@@ -42,7 +44,8 @@ Modify the value in the **Installation key** field and save your changes.
 
 ## Unregistering the installation key
 
-You can also revoke your agreement to the terms and conditions of the Personalization solution and permanently disable the feature for your account.
+You can also revoke your agreement to the terms and conditions of the Personalization solution and 
+permanently disable the feature for your account.
 
 To do this, use your browser to navigate to an address similar to the following example:
 
