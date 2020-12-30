@@ -8,8 +8,8 @@
 - [[= product_name_exp =]] is a modern modular Digital Experience Platform to build outstanding customer experiences
 - [[= product_name_com =]] is a commerce-ready B2B DXP designed to digitalize your business from customer awareness to purchase and beyond.
 
-Additionally, [[= product_name =]] also has an open-source version, Ibexa OSS,
-developed by Ibexa together with the open source community.
+Additionally, [[= product_name =]] also has an open-source version called Ibexa OSS.
+Ibexa OSS is developed by Ibexa together with the open source community.
 The Ibexa OSS code is available on GitHub under the GPLv2 license.
 It comes with no commercial support and maintenance services. 
 
