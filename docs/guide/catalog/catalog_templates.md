@@ -1,4 +1,4 @@
-# Catalog templates [[% include 'snippets/commerce_badge.md' %]]
+# Catalog templates
 
 ## Template list
 

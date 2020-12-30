@@ -1,6 +1,6 @@
-# Routing system [[% include 'snippets/commerce_badge.md' %]]
+# Routing system
 
-[[= product_name_com =]] uses its own routing/URL matching solution to avoid conflicting with the [[= product_name =]] routing system
+[[= product_name =]] uses its own routing/URL matching solution to avoid conflicting with the [[= product_name =]] routing system
 and to enable using Platform API in commerce routes.
 
 !!! note

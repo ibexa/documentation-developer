@@ -1,4 +1,4 @@
-# Catalog element [[% include 'snippets/commerce_badge.md' %]]
+# Catalog element
 
 The `CatalogElement` class defines the generic product and category model.
 

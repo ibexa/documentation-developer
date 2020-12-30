@@ -1,4 +1,4 @@
-# Shop search [[% include 'snippets/commerce_badge.md' %]]
+# Shop search
 
 The built-in search engine based on Solr automatically indexes both content and products.
 

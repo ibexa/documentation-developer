@@ -1,4 +1,4 @@
-# ProductType [[% include 'snippets/commerce_badge.md' %]]
+# ProductType
 
 `ProductType` extends [CatalogElement](catalog_element.md) and implements `ProductNodeContainerInterface`.
 

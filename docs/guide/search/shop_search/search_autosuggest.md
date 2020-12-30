@@ -1,4 +1,4 @@
-# Autosuggestion [[% include 'snippets/commerce_badge.md' %]]
+# Autosuggestion
 
 The built-in autosuggestion function provides a user-friendly way to find products, categories, content or downloads
 which match the given search criteria.

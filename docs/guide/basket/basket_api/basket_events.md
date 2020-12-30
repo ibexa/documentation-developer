@@ -1,4 +1,4 @@
-# Basket events [[% include 'snippets/commerce_badge.md' %]]
+# Basket events
 
 ## Basket event listeners
 

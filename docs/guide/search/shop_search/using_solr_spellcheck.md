@@ -1,4 +1,4 @@
-# Solr spellcheck [[% include 'snippets/commerce_badge.md' %]]
+# Solr spellcheck
 
 !!! caution
 
