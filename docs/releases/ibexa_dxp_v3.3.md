@@ -24,11 +24,11 @@ See [the updated installation instruction](../geting_started_install_ez_platform
 
 With the Image Editor, users can now perform basic image editing, such as cropping, flipping 
 or setting a point of focus. 
-The Image Editor is available when browsing the Media library, or creating or editing Content Items 
-that contain an ezimage or ezimageasset Field.
+The Image Editor is available when browsing the Media library, or creating or editing Content items 
+that contain an `ezimage` or `ezimageasset` Field.
 
 You can modify the Image Editor's default settings to change its appearance or behavior.
-For more information, see [Configuring the Image Editor](../guide/image_editor.md)
+For more information, see [Configuring the Image Editor](../guide/image_editor.md).
 
 ### Migration bundle
 
