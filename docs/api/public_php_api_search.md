@@ -364,7 +364,6 @@ class CustomController extends Controller
 |[`LocationSearchHitAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Pagination/Pagerfanta/LocationSearchHitAdapter.php)|Makes a Location search against passed Query and  returns [SearchHit](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects instead.|
 |[`ContentFilteringAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/Core/Pagination/Pagerfanta/ContentFilteringAdapter.php)|Applies a Content filter and returns a `ContentList` object.|
 |[`LocationFilteringAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/Core/Pagination/Pagerfanta/LocationFilteringAdapter.php)|Applies a Location filter and returns a `LocationList` object.|
-|[`SearchResultAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/Core/Pagination/Pagerfanta/SearchResultAdapter.php)|Exposes additional search result data: aggregation results, max. score, computation time, and timeout flag.|
 
 ## Complex search
 
