@@ -289,7 +289,7 @@ To paginate search or filtering results, it is recommended to use the [Pagerfant
 //...
 use eZ\Publish\Core\Pagination\Pagerfanta\ContentSearchAdapter;
 use Symfony\Component\HttpFoundation\Request;
-use eZ\Publish\Core\Pagination\Pagerfanta\Pagerfanta;
+use Pagerfanta\Pagerfanta;
 
 class CustomController extends Controller
 {
@@ -303,7 +303,6 @@ class CustomController extends Controller
         );
         $pager->setMaxPerPage(3);
         $pager->setCurrentPage($request->get('page', 1));
-        $pager->getMaxScore();
 
         return $this->render('custom.html.twig', [
                 'totalItemCount' => $pager->getNbResults(),
@@ -318,10 +317,8 @@ Pagination can then be rendered for example using the following template:
 
 ``` html+twig
 {% for item in pagerItems %}
-    <h2><a href={{ ez_path(item) }}>{{ ez_content_name(item) }}</a></h2>
+    <h2><a href={{ ez_path(item.valueObject) }}>{{ ez_content_name(item) }}</a></h2>
 {% endfor %}
-
-<p>Max score: {{ pagerItems.maxScore }}</p>
 
 {% if pagerItems.haveToPaginate() %}
     {{ pagerfanta( pagerItems, 'ez') }}
@@ -329,6 +326,33 @@ Pagination can then be rendered for example using the following template:
 ```
 
 For more information and examples, see [PagerFanta documentation.](https://github.com/whiteoctober/Pagerfanta/blob/master/README.md)
+
+#### Additional search result data
+
+You can access the following additional search result data from PagerFanta:
+
+- Aggregation results
+- Max. score
+- Computation time
+- Timeout flag
+
+``` php
+use eZ\Publish\Core\Pagination\Pagerfanta\Pagerfanta;
+
+class CustomController extends Controller
+{
+    //...
+    public function showContentAction(Request $request, $locationId)
+    {
+    // ...
+        $pager->getMaxScore();
+        $pager->getTime();
+```
+
+``` html+twig
+<p>Max score: {{ pagerItems.maxScore }}</p>
+<p>Time: {{ pagerItems.time }}</p>
+```
 
 #### Pagerfanta adapters
 
