@@ -44,6 +44,8 @@ Search API has been extended with the following capabilities:
 - [CustomField Sort Clause](../guide/search/sort_clause_reference/customfield_sort_clause.md) sorts search results by raw search index fields.
 - [ContentTranslatedName Sort Clause](../guide/search/sort_clause_reference/contenttranslatedname_sort_clause.md) sorts search results by the Content items' translated names.
 
+You can now access [additional search result data from PagerFanta](../api/public_php_api_search.md#additional-search-result-data).
+
 ### PHP API improvements
 
 You can now use the following new PHP API methods:
