@@ -150,3 +150,11 @@ bin/console ibexa:migrations:kaliop:convert --input=kaliop_format.yaml --output=
 ```
 
 The input file must use the currently supported mode and type combinations.
+
+You can also convert multiple files using `ibexa:migrations:kaliop:bulk-convert`:
+
+``` bash
+bin/console ibexa:migrations:kaliop:bulk-convert --recursive --input-directory=kaliop_files --output-directory=ibexa_files
+```
+
+If you do not specify the output directory, the command overwrites the input files.
