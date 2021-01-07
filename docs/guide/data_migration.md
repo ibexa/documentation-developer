@@ -1,12 +1,13 @@
 # Data migration
 
 You can migrate your Repository data, that is Content items, as well as Content Types, languages, Object states, Sections, etc.,
-between installations using the migration script.
+between installations by using the migration script.
 
 ## Exporting data
 
 To export Repository content, use the `ibexa:migrations:generate` command.
 This command generates a YAML file with the requested part of the Repository.
+The file is located by default in the `src/Migrations/Ibexa` folder.
 You can later use this file to import the data.
 
 ``` bash
@@ -61,7 +62,7 @@ The following combinations of types are modes are available:
 
 ### match-property
 
-The `match-property` parameter, together with `value`, enables you to select which data from the Repository to export.
+The optional `match-property` parameter, together with `value`, enables you to select which data from the Repository to export.
 `match-property` defines what property should be used as a criterion for selecting data.
 The following properties are available (per type):
 
@@ -103,7 +104,7 @@ The following properties are available (per type):
 
 ### value
 
-The `value` parameter, together with `match-property`, filters the Repository content that the command exports.
+The optional `value` parameter, together with `match-property`, filters the Repository content that the command exports.
 `value` defines which values of the `match-property` should be included in the export.
 
 For example, to export only Article Content items, use the `content_type_identifier` match property with `article` as the value:
@@ -114,7 +115,7 @@ bin/console ibexa:migrations:generate --type=content --mode=create --match-prope
 
 ### file
 
-The `file` parameter defines the name of the YAML file to export to.
+The optional `file` parameter defines the name of the YAML file to export to.
 
 ``` bash
 bin/console ibexa:migrations:generate --type=content --mode=create --file=my_data_export.yaml
@@ -122,7 +123,7 @@ bin/console ibexa:migrations:generate --type=content --mode=create --file=my_dat
 
 ### user-context
 
-The `user-context` parameter enables you to run the export command as a specified User.
+The optional `user-context` parameter enables you to run the export command as a specified User.
 The command only exports Repository data that the selected User has access to.
 
 ``` bash
@@ -133,7 +134,8 @@ bin/console ibexa:migrations:generate --type=content --mode=create --user-contex
 
 To import Repository data from a YAML file, run the `ibexa:migrations:migrate` command.
 
-The command takes the file name as parameter. The file is located by default in the `src/Migrations/Ibexa` folder.
+Place your import file in the `src/Migrations/Ibexa` folder.
+The command takes the file name within this folder as parameter.
 
 ``` bash
 bin/console ibexa:migrations:migrate --file=my_data_export.yaml
@@ -141,15 +143,15 @@ bin/console ibexa:migrations:migrate --file=my_data_export.yaml
 
 ## Converting migration files
 
-You can use the `ibexa:migrations:kaliop:convert` command to convert a file
-from the format used by the [Kaliop migration bundle](https://github.com/kaliop-uk/ezmigrationbundle)
-to the current migration format.
+If you want to convert a file from the format used by the [Kaliop migration bundle](https://github.com/kaliop-uk/ezmigrationbundle)
+to the current migration format, use the `ibexa:migrations:kaliop:convert` command.
+
+The source file must use Kaliop mode and type combinations.
+The converter handles Kaliop types that are different from Ibexa types.
 
 ``` bash
 bin/console ibexa:migrations:kaliop:convert --input=kaliop_format.yaml --output=ibexa_format.yaml
 ```
-
-The input file must use the currently supported mode and type combinations.
 
 You can also convert multiple files using `ibexa:migrations:kaliop:bulk-convert`:
 
