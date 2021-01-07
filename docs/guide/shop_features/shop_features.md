@@ -46,7 +46,7 @@ The documents for the chosen dates are fetched in real time.
 If the ERP provides a tracking link, this information is displayed as well.
 The customer can order the same products again.
 
-## GDPR compliance
+## GDPR policy information
 
 [[= product_name_com =]] offers tools to set up a shop that is compliant with GDPR (General Data Protection Regulation):
 
