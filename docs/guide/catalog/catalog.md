@@ -1,4 +1,4 @@
-# Catalog [[% include 'snippets/commerce_badge.md' %]]
+# Catalog
 
 Products in the catalog can be stored in the content model,
 or in optimized eContent storage, which is able to store up to two million products  

@@ -1,4 +1,4 @@
-# Breadcrumb templates [[% include 'snippets/commerce_badge.md' %]]
+# Breadcrumb templates
 
 ## Template list
 
