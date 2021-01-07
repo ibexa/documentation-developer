@@ -51,7 +51,7 @@ The customer can order the same products again:
 
 ![](img/order_history.png)
 
-## GDPR compliance
+## GDPR policy information
 
 eZ Commerce offers tools to set up a shop that is compliant with GDPR (General Data Protection Regulation):
 
