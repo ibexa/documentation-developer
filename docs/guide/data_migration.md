@@ -11,12 +11,12 @@ The file is located by default in the `src/Migrations/Ibexa` folder.
 You can later use this file to import the data.
 
 ``` bash
-bin/console ibexa:migrations:generate --type=content --mode=create 
+bin/console ibexa:migrations:generate --type=content --mode=create
 ```
 
 ### type
 
-The mandatory `type` parameter defines the type of Repository data to export.
+The mandatory `--type` option defines the type of Repository data to export.
 The following types are available:
 
 - `content`
@@ -31,18 +31,18 @@ The following types are available:
 - `section`
 - `location`
 
-If you do not provide the `type` parameter, the command will ask you to select a type of data.
+If you do not provide the `--type` option, the command will ask you to select a type of data.
 
 ### mode
 
-The mandatory `mode` parameter defines the action that importing the file will perform.
+The mandatory `--mode` option defines the action that importing the file will perform.
 The following modes are available:
 
 - `create` - creates new items
 - `update` - updates an existing item
 - `delete` - deletes an existing item
 
-If you do not provide the `mode` parameter, the command will ask you to select the mode.
+If you do not provide the `--mode` option, the command will ask you to select the mode.
 
 The following combinations of types are modes are available:
 
@@ -62,7 +62,7 @@ The following combinations of types are modes are available:
 
 ### match-property
 
-The optional `match-property` parameter, together with `value`, enables you to select which data from the Repository to export.
+The optional `--match-property` option, together with `value`, enables you to select which data from the Repository to export.
 `match-property` defines what property should be used as a criterion for selecting data.
 The following properties are available (per type):
 
@@ -104,7 +104,7 @@ The following properties are available (per type):
 
 ### value
 
-The optional `value` parameter, together with `match-property`, filters the Repository content that the command exports.
+The optional `--value` option, together with `match-property`, filters the Repository content that the command exports.
 `value` defines which values of the `match-property` should be included in the export.
 
 For example, to export only Article Content items, use the `content_type_identifier` match property with `article` as the value:
@@ -115,7 +115,7 @@ bin/console ibexa:migrations:generate --type=content --mode=create --match-prope
 
 ### file
 
-The optional `file` parameter defines the name of the YAML file to export to.
+The optional `--file` option defines the name of the YAML file to export to.
 
 ``` bash
 bin/console ibexa:migrations:generate --type=content --mode=create --file=my_data_export.yaml
@@ -123,7 +123,7 @@ bin/console ibexa:migrations:generate --type=content --mode=create --file=my_dat
 
 ### user-context
 
-The optional `user-context` parameter enables you to run the export command as a specified User.
+The optional `--user-context` option enables you to run the export command as a specified User.
 The command only exports Repository data that the selected User has access to.
 
 ``` bash
