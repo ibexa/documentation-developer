@@ -5,12 +5,13 @@ You can create bundles yourself or make use of available open-source bundles.
 You can also reuse the bundles you create in other projects or share them with the community.
 
 Many [[= product_name =]] functionalities are provided through separate bundles included in the installation.
-You can see the bundles that are automatically installed with [[= product_name =]] in [composer.json](https://github.com/ezsystems/ezplatform/blob/3.0/composer.json).
+You can see the bundles that are automatically installed with [[= product_name =]]
+in the respective `composer.json` files, for example for [Ibexa Content](https://github.com/ibexa/content/blob/master/composer.json).
 
 ## Working with bundles
 
 All bundles containing built-in [[= product_name =]] functionalities are installed automatically.
-Additionally, you can install community-developed bundles from [[[= product_name =]] Packages.](https://ezplatform.com/packages)
+Additionally, you can install community-developed bundles from [[[= product_name =]] Packages.](https://developers.ibexa.co/packages)
 
 To learn how to create your own bundles, see [Symfony documentation on bundles.](https://symfony.com/doc/5.0/bundles.html)
 
@@ -25,73 +26,71 @@ Note that when overriding files, the path inside your application has to corresp
 To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need),
 see the [How to Remove a Bundle](http://symfony.com/doc/5.0/bundles/remove.html) instruction in Symfony doc.
 
-## Built-in bundles
-
-The following tables give an overview of the main [[= product_name =]] bundles.
-
-### Core bundles
+## Core packages
 
 |Bundle|Description|
 |---------|-----------|
-|[ezplatform-kernel](https://github.com/ezsystems/ezplatform-kernel)|contains the core of the whole [[= product_name =]] application e.g. EzPublishCoreBundle|
-|[ezplatform-content-forms](https://github.com/ezsystems/ezplatform-content-forms)|provides form-based integration for the Symfony Forms into Content and User objects in kernel|
-|[ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine)|[Solr-powered](http://lucene.apache.org/solr/) search handler for [[= product_name =]]|
-|[ez-support-tools](https://github.com/ezsystems/ez-support-tools)|provides functionality for system information|
-|[ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache)|HTTP cache handling for [[= product_name =]], using multi tagging (incl Varnish xkey)|
-|[ezplatform-admin-ui](https://github.com/ezsystems/ezplatform-admin-ui)|contains Back Office interface for [[= product_name =]] v2+|
-|[ezplatform-admin-ui-assets](https://github.com/ezsystems/ezplatform-admin-ui-assets)|contains assets for AdminUI|
-|[ezplatform-design-engine](https://github.com/ezsystems/ezplatform-design-engine)|design fallback system for [[= product_name =]] similar to legacy design fallback system|
-|[ezplatform-standard-design](https://github.com/ezsystems/ezplatform-standard-design)|defines standard Design and Theme to be handled by ezplatform-design-engine|
-|[ezplatform-cron](https://github.com/ezsystems/ezplatform-cron)|exposes cron/cron package for use in [[= product_name =]] (or just plain Symfony) via a simple command `ezplatform:cron:run`|
-|[ezplatform-graphql](https://github.com/ezsystems/ezplatform-graphql)|defines GraphQL server for [[= product_name =]]|
-|[ezplatform-matrix-fieldtype](https://github.com/ezsystems/ezplatform-matrix-fieldtype)|dedicated to Matrix Field Type for [[= product_name =]], it replaces previous version found on `ezcommunity/EzMatrixFieldTypeBundle`|
-|[ezplatform-query-fieldtype](https://github.com/ezsystems/ezplatform-query-fieldtype)|Field Type that lists Content items based by querying the Repository|
-|[ezplatform-rest](https://github.com/ezsystems/ezplatform-rest)|contains REST API|
-|[ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext)|Field Type for supporting rich formatted text stored in a structured XML format|
-|[ezplatform-user](https://github.com/ezsystems/ezplatform-user)|dedicated to [[= product_name =]] User management.|
-|[BehatBundle](https://github.com/ezsystems/BehatBundle)|common reusable sentence implementations and other common needs for Behat testing in bundles/projects|
+|[ezsystems/ez-support-tools](https://github.com/ezsystems/ez-support-tools)|System information|
+|[ezsystems/ezplatform-admin-ui-assets](https://github.com/ezsystems/ezplatform-admin-ui-assets)|Assets for the Back Office|
+|[ezsystems/ezplatform-admin-ui](https://github.com/ezsystems/ezplatform-admin-ui)|Back Office interface|
+|[ezsystems/ezplatform-content-forms](https://github.com/ezsystems/ezplatform-content-forms)|Form-based integration for the Symfony Forms into Content and User objects in kernel|
+|[ezsystems/ezplatform-core](https://github.com/ezsystems/ezplatform-core)|Core system functionalities|
+|[ezsystems/ezplatform-cron](https://github.com/ezsystems/ezplatform-cron)|Cron package for use via a the `ezplatform:cron:run` command|
+|[ezsystems/ezplatform-design-engine](https://github.com/ezsystems/ezplatform-design-engine)|[Design fallback system](design_engine.md)|
+|[ezsystems/ezplatform-graphql](https://github.com/ezsystems/ezplatform-graphql)|GraphQL server for [[= product_name =]]|
+|[ezsystems/ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache)|[HTTP cache handling](http_cache.md), using multi tagging|
+|[ezsystems/ezplatform-kernel](https://github.com/ezsystems/ezplatform-kernel)|Core of the [[= product_name =]] application|
+|[ezsystems/ezplatform-matrix-fieldtype](https://github.com/ezsystems/ezplatform-matrix-fieldtype)|[Matrix Field Type](../api/field_type_reference.md#matrix-field-type)|
+|[ezsystems/ezplatform-query-fieldtype](https://github.com/ezsystems/ezplatform-query-fieldtype)|[Query Field Type](../api/field_type_reference.md#query-field-type)|
+|[ezsystems/ezplatform-rest](https://github.com/ezsystems/ezplatform-rest)|REST API|
+|[ezsystems/ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext)|Field Type for supporting rich-formatted text stored in a structured XML format|
+|[ezsystems/ezplatform-search](https://github.com/ezsystems/ezplatform-search)|Common search functionalities|
+|[ezsystems/ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine)|[Solr-powered](http://lucene.apache.org/solr/) search handler|
+|[ezsystems/ezplatform-standard-design](https://github.com/ezsystems/ezplatform-standard-design)|Standard design and theme to be handled by `ezplatform-design-engine`|
+|[ezsystems/ezplatform-user](https://github.com/ezsystems/ezplatform-user)|User management|
 
-[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
-
-|Bundle|Description|
-|---------|-----------|
-|date-based-publisher|provides the date based publishing functionality for [[= product_name_exp =]]|
-|ezplatform-workflow|implementation of a collaboration feature that lets you send content draft to any user for a review or rewriting|
-|ezplatform-page-fieldtype|Page handling Field Type|
-|ezplatform-page-builder|contains [[= product_name_exp =]] Page editor|
-|ezplatform-ee-installer|provides `ezplatform:install` Symfony console command which is the installer for [[= product_name_exp =]] v2|
-|ezplatform-http-cache-fastly|extends ezplatform-http-cache to support Fastly, for use on Platform.sh PE or standalone|
-|ezplatform-calendar|extends the Back Office by adding the calendar tab with the calendar widget|
-|ezplatform-version-comparison|allows comparing between two versions of the same Field|
-|ezplatform-form-builder|enables creating Form Content items with multiple form fields|
-|ezplatform-site-factory|enables configuration of sites from UI|
-|ezplatform-elastic-search-engine|provides integration with Elasticsearch search engine |
-
-### Optional bundles
+## Ibexa Content packages
 
 |Bundle|Description|
 |---------|-----------|
-|[ezplatform-i18n](https://github.com/ezsystems/ezplatform-i18n)|centralized internationalization|
-|[ezplatform-multi-file-upload](https://github.com/ezsystems/ezplatform-multi-file-upload)|allows uploading multiple files as new content items at once|
-|[ezplatform-demo-assets](https://github.com/ezsystems/ezplatform-demo-assets)|contains binary install data for ezsystems/ezplatform-demo|
+|ezsystems/date-based-publisher|Date-based publishing functionality|
+|ezsystems/ezcommerce-base-design|Standard design and theme for the shop|
+|ezsystems/ezcommerce-checkout|Shop checkout functionality|
+|ezsystems/ezcommerce-fieldtypes|Shop-specific Field Types|
+|ezsystems/ezcommerce-price-engine|Engine for handling prices|
+|ezsystems/ezcommerce-shop-ui|UI for the shop front page|
+|ezsystems/ezcommerce-shop|Main shop functionalities|
+|ezsystems/ezplatform-calendar|Calendar tab with a calendar widget|
+|ezsystems/ezplatform-connector-dam|Connector for DAM (Digital Asset Management) systems|
+|ezsystems/ezplatform-elastic-search-engine|Integration with Elasticsearch search engine|
+|ezsystems/ezplatform-http-cache-fastly|Fastly support for `ezplatform-http-cache`, for use on Platform.sh or standalone|
+|ezsystems/ezplatform-icons|Icon set for the Back Office|
+|ezsystems/ezplatform-personalization|Functionality for personalized recommendations|
+|ezsystems/ezplatform-version-comparison|Enables comparing between two versions of the same Field|
+|ezsystems/ezplatform-workflow|Collaboration feature that enables you to send content draft to any user for a review or rewriting|
+|ezsystems/ezrecommendation-client|Client for connecting with the personalization engine|
+|ibexa/migrations|[Migration of Repository data](data_migration.md)|
+|ibexa/oauth2-client|Integration with [`knpuniversity/oauth2-client-bundle`](https://github.com/knpuniversity/oauth2-client-bundle)|
 
-[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+## Ibexa Experience packages
 
 |Bundle|Description|
-|---------|-----------|   
-|ezstudio-personalized-block|Ibexa Personalized Block Bundle|
+|---------|-----------|
+|ezsystems/ezplatform-ee-installer|Provides the `ezplatform:install` command which is the installer for Ibexa Experience|
+|ezsystems/ezplatform-form-builder|Enables creating Form Content items with multiple form fields|
+|ezsystems/ezplatform-page-builder|Page editor|
+|ezsystems/ezplatform-page-fieldtype|Page handling Field Type|
+|ezsystems/ezplatform-permissions|Additional permission functionalities|
+|ezsystems/ezplatform-segmentation|Segment functionality for profiling the content displayed to specific users|
+|ezsystems/ezplatform-site-factory|Enables configuration of sites from UI|
+|ibexa/image-editor|[Image Editor](image_editor.md)|
 
-### Education
+## Ibexa Commerce packages
 
 |Bundle|Description|
-|------|-----------|
-|[ezplatform-com](https://github.com/ezsystems/ezplatform-com)|the Ibexa Developer Hub for [[= product_name =]] (example site)|
-|[ezplatform-ee-beginner-tutorial](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial)|resources used in the [[= product_name_exp =]] Beginner Tutorial|
-|[docker-php](https://github.com/ezsystems/docker-php)|contains PHP docker image example|
-
-### Documentation - additional resources
-
-|Repository|Description|
-|------|-----------|
-|[developer-documentation](https://github.com/ezsystems/developer-documentation)|source for the developer documentation for [[= product_name =]], an open source CMS based on the Symfony Full Stack Framework in PHP. https://doc.ezplatform.com|
-|[user-documentation](https://github.com/ezsystems/user-documentation)|source for the user documentation for [[= product_name =]], an open source CMS based on the Symfony Full Stack Framework in PHP|
+|---------|-----------|
+|ezsystems/ezcommerce-admin-ui|Shop-related Back Office functionalities|
+|ezsystems/ezcommerce-erp-admin|ERP connection for the shop|
+|ezsystems/ezcommerce-order-history|[Order history](order_history/orderhistory.md) functionality|
+|ezsystems/ezcommerce-page-builder|Shop-related Page blocks|
+|ezsystems/ezcommerce-transaction|Transactional shop functionalities|
