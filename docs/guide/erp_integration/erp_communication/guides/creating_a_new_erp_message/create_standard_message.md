@@ -265,14 +265,14 @@ Now you can use the generator to generate the classes automatically:
 
 ``` bash
 //Usage
-php bin/console silversolutions:generatemessages --message [message name] --sourceDir [path to the request and response .xml dir] --targetDir [path to the target bundle]
+php bin/console ibexa:commerce:generate-messages --message [message name] --sourceDir [path to the request and response .xml dir] --targetDir [path to the target bundle]
 
 //Example
-php bin/console silversolutions:generatemessages --message updateCustomer --sourceDir vendor/silversolutions/silver.e-shop/src/Silversolutions/Bundle/EshopBundle/Resources/specifications/xml --targetDir vendor/silversolutions/silver.e-shop/src/Silversolutions/Bundle/EshopBundle
+php bin/console ibexa:commerce:generate-messages --message updateCustomer --sourceDir vendor/silversolutions/silver.e-shop/src/Silversolutions/Bundle/EshopBundle/Resources/specifications/xml --targetDir vendor/silversolutions/silver.e-shop/src/Silversolutions/Bundle/EshopBundle
 
 //Re-generation of messages
 //If you are re-creating the messages (e.g. the request .xml has been adapted) you have to use to optional --force parameter
-php bin/console silversolutions:generatemessages --message updateCustomer --sourceDir vendor/silversolutions/silver.e-shop/src/Silversolutions/Bundle/EshopBundle/Resources/specifications/xml --targetDir vendor/silversolutions/silver.e-shop/src/Silversolutions/Bundle/EshopBundle --force
+php bin/console ibexa:commerce:generate-messages --message updateCustomer --sourceDir vendor/silversolutions/silver.e-shop/src/Silversolutions/Bundle/EshopBundle/Resources/specifications/xml --targetDir vendor/silversolutions/silver.e-shop/src/Silversolutions/Bundle/EshopBundle --force
 ```
 
 ## Mapping

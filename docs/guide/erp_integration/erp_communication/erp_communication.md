@@ -63,7 +63,7 @@ This command waits for the next message and displays the request and result as X
 ??? note "Example message log"
 
     ``` xml
-    sudo -u _www php bin/console siso_tools:display_erp_log_command
+    sudo -u _www php bin/console ibexa:commerce:display-erp-log
      
     2016-12-14 17:44:16 Start new entry in the Erp Log Table with ID 11441
     Start ** mapping_type **
@@ -116,13 +116,13 @@ This command waits for the next message and displays the request and result as X
 You can search for a specific message using the `--search-text` option:
 
 ``` bash
-php bin/console siso_tools:display_erp_log_command --search-text 123456788
+php bin/console ibexa:commerce:display-erp-log --search-text 123456788
 ```
 
 To dump 100 last messages, use the `--dump-last-messages` option:
 
 ``` bash
-php bin/console siso_tools:display_erp_log_command --dump-last-messages 20 > /tmp/erp_messaages.txt
+php bin/console ibexa:commerce:display-erp-log --dump-last-messages 20 > /tmp/erp_messaages.txt
 ```
 
 You can remove messages from the database with the `--delete-messages` option.
@@ -130,5 +130,5 @@ You can remove messages from the database with the `--delete-messages` option.
 The following example removes messages older than three days:
 
 ``` bash
-php bin/console siso_tools:display_erp_log_command --delete-messages 3
+php bin/console ibexa:commerce:display-erp-log --delete-messages 3
 ```

@@ -49,7 +49,7 @@ parameters:
             depending_jobs:
                 index_solr:
                     label: "Index econtent tmp cores"
-                    command: "silversolutions:indexecontent-job"
+                    command: "ibexa:commerce:index-econtent-job"
 ```
 
 ## Removing old jobs

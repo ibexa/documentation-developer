@@ -123,7 +123,7 @@ Parameters:
 Example:
 
 ``` bash
-php bin/console silversolutions:http-cache:purge 1056 222 --env="prod"
+php bin/console ibexa:commerce:purge-http-cache 1056 222 --env="prod"
 ```
 
 ### Purging using [[= product_name =]] service

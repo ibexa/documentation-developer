@@ -76,7 +76,7 @@ In addition to that, we made progress on providing native support for faceted se
 
 EXPERIMENTAL FEATURE
 
-Starting with 1.10, a new command `ezplatform:io:migrate-files` has been added, allowing you to migrate files from one storage to another, for instance file system to S3, or S3 to NFS or opposite. For documentation check the [technical feature documentation](https://github.com/ezsystems/ezpublish-kernel/blob/6.7/doc/specifications/io/io_migration_script.md) for now.
+Starting with 1.10, a new command `ibexa:io:migrate-files` has been added, allowing you to migrate files from one storage to another, for instance file system to S3, or S3 to NFS or opposite. For documentation check the [technical feature documentation](https://github.com/ezsystems/ezpublish-kernel/blob/6.7/doc/specifications/io/io_migration_script.md) for now.
 
 #### Miscellaneous
 

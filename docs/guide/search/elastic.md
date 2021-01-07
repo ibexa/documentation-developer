@@ -79,7 +79,7 @@ Then, define a field type mappings template that instructs Elasticsearch to inte
 For each of your defined connections, push the templates to the Elasticsearch engine by running the following command:
 
 ``` bash
-php bin/console ezplatform:elasticsearch:put-index-template
+php bin/console ibexa:elasticsearch:put-index-template
 ```
 
 You can modify the behavior of the command with a number of switches. Use the `-h` switch to display a complete list of available options.
@@ -89,7 +89,7 @@ You can modify the behavior of the command with a number of switches. Use the `-
 After creating index templates, run the following command to reindex your data:
 
 ``` bash
-php bin/console ezplatform:reindex
+php bin/console ibexa:reindex
 ```
 
 !!! caution "Risks of premature indexing"

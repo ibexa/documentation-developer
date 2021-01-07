@@ -102,7 +102,7 @@ but it copies the Location and its subtree instead of moving it.
 !!! tip
 
     To copy a subtree you can also make use of the built-in `copy-subtree` command:
-    `bin/console ezplatform:copy-subtree <sourceLocationId> <targetLocationId>`.
+    `bin/console ibexa:copy-subtree <sourceLocationId> <targetLocationId>`.
 
 !!! note
 

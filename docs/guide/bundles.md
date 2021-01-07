@@ -42,7 +42,7 @@ The following tables give an overview of the main [[= product_name =]] bundles.
 |[ezplatform-admin-ui-assets](https://github.com/ezsystems/ezplatform-admin-ui-assets)|contains assets for AdminUI|
 |[ezplatform-design-engine](https://github.com/ezsystems/ezplatform-design-engine)|design fallback system for [[= product_name =]] similar to legacy design fallback system|
 |[ezplatform-standard-design](https://github.com/ezsystems/ezplatform-standard-design)|defines standard Design and Theme to be handled by ezplatform-design-engine|
-|[ezplatform-cron](https://github.com/ezsystems/ezplatform-cron)|exposes cron/cron package for use in [[= product_name =]] (or just plain Symfony) via a simple command `ezplatform:cron:run`|
+|[ezplatform-cron](https://github.com/ezsystems/ezplatform-cron)|exposes cron/cron package for use in [[= product_name =]] (or just plain Symfony) via a simple command `ibexa:cron:run`|
 |[ezplatform-graphql](https://github.com/ezsystems/ezplatform-graphql)|defines GraphQL server for [[= product_name =]]|
 |[ezplatform-matrix-fieldtype](https://github.com/ezsystems/ezplatform-matrix-fieldtype)|dedicated to Matrix Field Type for [[= product_name =]], it replaces previous version found on `ezcommunity/EzMatrixFieldTypeBundle`|
 |[ezplatform-query-fieldtype](https://github.com/ezsystems/ezplatform-query-fieldtype)|Field Type that lists Content items based by querying the Repository|
@@ -59,7 +59,7 @@ The following tables give an overview of the main [[= product_name =]] bundles.
 |ezplatform-workflow|implementation of a collaboration feature that lets you send content draft to any user for a review or rewriting|
 |ezplatform-page-fieldtype|Page handling Field Type|
 |ezplatform-page-builder|contains [[= product_name_exp =]] Page editor|
-|ezplatform-ee-installer|provides `ezplatform:install` Symfony console command which is the installer for [[= product_name_exp =]] v2|
+|ezplatform-ee-installer|provides `ibexa:install` Symfony console command which is the installer for [[= product_name_exp =]] v2|
 |ezplatform-http-cache-fastly|extends ezplatform-http-cache to support Fastly, for use on Platform.sh PE or standalone|
 |ezplatform-calendar|extends the Back Office by adding the calendar tab with the calendar widget|
 |ezplatform-version-comparison|allows comparing between two versions of the same Field|

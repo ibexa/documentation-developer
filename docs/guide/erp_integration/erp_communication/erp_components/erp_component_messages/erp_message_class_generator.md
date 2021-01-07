@@ -215,13 +215,13 @@ For non standard messages
 Standard schema for command line:
 
 ``` 
-php bin/console silversolutions:generatemessages --message <messageName> --sourceDir <path/to/src> --targetDir <path/to/target>
+php bin/console ibexa:commerce:generate-messages --message <messageName> --sourceDir <path/to/src> --targetDir <path/to/target>
 ```
 
 Example:
 
 ``` 
-php bin/console silversolutions:generatemessages --message party --sourceDir src/Example/Bundle/ExampleBundle/Resources/xml --targetDir src/Example/Bundle/ExampleBundle
+php bin/console ibexa:commerce:generate-messages --message party --sourceDir src/Example/Bundle/ExampleBundle/Resources/xml --targetDir src/Example/Bundle/ExampleBundle
 ```
 
 The target and source directories must exist. The target path must contain an `src` directory. All directories beneath `src` are considered as namespaces according to PSR-0.

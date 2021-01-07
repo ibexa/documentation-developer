@@ -293,10 +293,10 @@ To get recommendations you must first export the content information to the Reco
 
 After [defining which Content Types should be tracked and recommended](#set-up-content-type-tracking),
 start the full export.
-You can do it with the `ezrecommendation:export:run` command or by accessing the `http://<yourdomain>/api/ezp/v2/ez_recommendation/` URL/endpoint.
+You can do it with the `ibexa:recommendation:run-export` command or by accessing the `http://<yourdomain>/api/ezp/v2/ez_recommendation/` URL/endpoint.
 
 ``` bash
-php bin/console ezrecommendation:export:run
+php bin/console ibexa:recommendation:run-export
     --contentTypeIdList=<contentTypeId>,<contentTypeId>
     --webHook=https://admin.yoochoose.net/api/<your_customer_id>/items
     --hidden=1 --mandatorId=<your_customer_id>
@@ -318,7 +318,7 @@ The export process can take a few minutes.
 !!! caution "Re-exporting modified Content Types"
 
     If the Content Types to be recommended are changed, you need to perform a new full export
-    by running the `php bin/console ezrecommendation:export:run` command again.
+    by running the `php bin/console ibexa:recommendation:run-export` command again.
 
 ### Checking export results
 

@@ -95,7 +95,7 @@ security:
 You can customize per User Field whether the email address used as a login method must be unique or not.
 
 To check that all existing User accounts have unique emails,
-run the `ezplatform:user:audit_database` command.
+run the `ibexa:user:audit_database` command.
 It will list all User accounts with duplicate emails.
 
 !!! caution
@@ -106,7 +106,7 @@ It will list all User accounts with duplicate emails.
     This may happen if more than one account uses the same email address.
     Login through the User name will still be available.
     
-    To resolve the issues, run `ezplatform:user:audit_database`
+    To resolve the issues, run `ibexa:user:audit_database`
     and manually modify accounts that have duplicate emails.
 
 ### Login rules
@@ -121,7 +121,7 @@ set `[a-z]+$` as **Username pattern**:
 ![Setting a User name pattern](../img/username_pattern.png)
 
 To check that all existing User accounts have names that fit the current pattern,
-run the `ezplatform:user:audit_database` command.
+run the `ibexa:user:audit_database` command.
 It will check all User accounts in the database and list those that do not fit the pattern.
 
 ## Registering new users

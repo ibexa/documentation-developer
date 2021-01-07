@@ -9,7 +9,7 @@ in `config/packages/ezplatform_admin_ui.yaml`.
 The default value is `100`. You can set it to `-1` for no limit,
 or to `0` to completely disable copying subtrees.
 
-You can copy subtree from CLI using the command: `bin/console ezplatform:copy-subtree <sourceLocationId> <targetLocationId>`.
+You can copy subtree from CLI using the command: `bin/console ibexa:copy-subtree <sourceLocationId> <targetLocationId>`.
 
 ## Pagination limits
 
