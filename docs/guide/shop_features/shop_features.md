@@ -1,4 +1,4 @@
-# Shop features [[% include 'snippets/commerce_badge.md' %]]
+# Shop features
 
 ## Shop navigation
 
@@ -9,7 +9,7 @@ The order of the navigation items can be defined by the editor in the Back Offic
 
 ![Default navigation](img/navigation.png)
 
-## Product comparison
+## Product comparison [[% include 'snippets/commerce_badge.md' %]]
 
 The customer can add products to a comparison list and access it from the "My shop" menu.
 The comparison list automatically groups products per product category and product type (so it is impossible to compare products belonging to different types).
@@ -28,7 +28,7 @@ The customer can also add products to a personal wishlist or to a named, stored 
 
 Products that are not in the catalog are automatically marked as "not available".
 
-## Quickorder
+## Quickorder [[% include 'snippets/commerce_badge.md' %]]
 
 B2B customers can quickly order products by providing their SKU numbers.
 
@@ -38,7 +38,7 @@ They can also upload a CSV file containing a list of SKUs and quantities.
 
 ![](img/quickorder_upload.png)
 
-## Order history
+## Order history [[% include 'snippets/commerce_badge.md' %]]
 
 When an ERP system is connected, the customer can browse and search past orders, invoices, delivery notes, and credit memos.
 This applies to all channels of making an order, including phone, fax, email, or online shop. 
@@ -48,7 +48,7 @@ The customer can order the same products again.
 
 ## GDPR policy information
 
-[[= product_name_com =]] offers tools to set up a shop that is compliant with GDPR (General Data Protection Regulation):
+[[= product_name =]] offers tools to set up a shop that is compliant with GDPR (General Data Protection Regulation):
 
 - Prepared articles with dummy text for T&C, data privacy and cancellation policy
 - Important legal documents (e.g. T&C or data privacy) can be linked using permanent URLs

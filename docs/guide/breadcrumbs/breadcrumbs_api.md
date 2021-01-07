@@ -1,4 +1,4 @@
-# Breadcrumb API [[% include 'snippets/commerce_badge.md' %]]
+# Breadcrumb API
 
 The controller method `BreadcrumbsController::renderBreadcrumbsAction()` uses the `BreadcrumbsAggregateGenerator` to render the breadcrumbs from the controller.
 

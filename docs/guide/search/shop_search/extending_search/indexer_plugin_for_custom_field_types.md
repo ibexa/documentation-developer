@@ -1,4 +1,4 @@
-# Implement an indexer plugin for custom Field Types [[% include 'snippets/commerce_badge.md' %]]
+# Implement an indexer plugin for custom Field Types
 
 The indexer is a class that implements the `DocumentMapperPluginInterface` interface from `ezplatform-solr-search-engine`.
 
