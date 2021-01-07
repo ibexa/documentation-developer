@@ -169,8 +169,14 @@ To install all necessary product packages, run:
 
 ### Change installation parameters
 
-At this point configure your database via the `DATABASE_URL` in the `.env` file:
-`DATABASE_URL=mysql://user:password@host:port/name`.
+At this point configure your database via the `DATABASE_URL` in the `.env` file,
+depending of the database you are using:
+
+`DATABASE_URL=mysql://user:password@host:port/database_name`.
+
+or
+
+`DATABASE_URL=postgresql://user:password@host:port/database_name`.
 
 Choose a [secret](http://symfony.com/doc/5.0/reference/configuration/framework.html#secret)
 and provide it in the `APP_SECRET` parameter in `.env`.
