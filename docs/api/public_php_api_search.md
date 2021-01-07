@@ -327,6 +327,34 @@ Pagination can then be rendered for example using the following template:
 
 For more information and examples, see [PagerFanta documentation.](https://github.com/whiteoctober/Pagerfanta/blob/master/README.md)
 
+#### Additional search result data
+
+You can access the following additional search result data from PagerFanta:
+
+- Aggregation results
+- Max. score
+- Computation time
+- Timeout flag
+
+``` php
+use eZ\Publish\Core\Pagination\Pagerfanta\Pagerfanta;
+//...
+
+class CustomController extends Controller
+{
+    //...
+    public function showContentAction(Request $request, int $locationId): Response
+    {
+    // ...
+        $pager->getMaxScore();
+        $pager->getTime();
+```
+
+``` html+twig
+<p>Max score: {{ pagerItems.maxScore }}</p>
+<p>Time: {{ pagerItems.time }}</p>
+```
+
 #### Pagerfanta adapters
 
 |Adapter class name|Description|
