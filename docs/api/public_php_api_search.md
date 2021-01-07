@@ -338,11 +338,12 @@ You can access the following additional search result data from PagerFanta:
 
 ``` php
 use eZ\Publish\Core\Pagination\Pagerfanta\Pagerfanta;
+//...
 
 class CustomController extends Controller
 {
     //...
-    public function showContentAction(Request $request, $locationId)
+    public function showContentAction(Request $request, int $locationId): Response
     {
     // ...
         $pager->getMaxScore();
