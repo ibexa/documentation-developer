@@ -37,7 +37,7 @@ If necessary, you can modify the Installation key configured in the personalizat
 To do this, in the Back Office, select **Personalization** and then **Settings**.
 Modify the value in the **Installation key** field and save your changes.
 
-!! note 
+!!! note 
 
-  Clearing the **Installation key** field disables the Personalization solution for your account temporarily.
-  Entering the same key re-enables the feature.
+    Clearing the **Installation key** field disables the Personalization solution for your account temporarily.
+    Entering the same key re-enables the feature.
