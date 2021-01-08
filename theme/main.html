@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+    {% block site_nav %}
+    {% if nav %}
+    <div class="main_nav">
+      <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+        <div class="md-sidebar__scrollwrap">
+          <div class="md-sidebar__inner">
+            {% include "partials/nav.html" %}
+          </div>
+        </div>
+      </div>
+      </div>
+    {% endif %}
+    {% if page.toc %}
+      <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+        <div class="md-sidebar__scrollwrap">
+          <div class="md-sidebar__inner">
+            {% include "partials/toc.html" %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    {% endblock %}
+
+
+    {% block content %}
+        <ul class="breadcrumbs">
+                <li class="breadcrumb-item">Documentation &#62;</li>
+            {% for ancestor in page.ancestors|reverse %}
+                <li class="breadcrumb-item">{{ ancestor.title }} &#62;</li>
+            {% endfor %}
+                <li class="breadcrumb-item breadcrumb-item-current">{{ page.title }}</li>
+        </ul>        
+        {{ page.content }}
+    {% endblock %}

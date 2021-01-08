@@ -43,10 +43,6 @@ h5.tile-title {
     margin-left: 0.5rem;
 }
 
-.front-page ul li::marker {
-    color: var(--ibexa-jazzberry);
-}
-
 .tile-body ol, .tile-body ul {
     margin-left: 0;
 }
@@ -89,13 +85,4 @@ h5.tile-title {
 
 .features ul li {
     margin-bottom: 0;
-}
-
-.front-page .badge {
-    background-color: var(--ibexa-jazzberry);
-    border-radius: 2.18px;
-    padding: 3px 8px;
-    color: var(--white);
-    font-size: 9px;
-    font-weight: 500;
 }

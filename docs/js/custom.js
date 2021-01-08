@@ -47,6 +47,14 @@ $(document).ready(function () {
             ));
         }
     }
+        
+    // Add version badge to top of navigation
+    $("#site-name").append( "<span class=\"badge\">" + branchName + "</span>" );
+    
+    // Change navigation icons on onclick
+    $('.md-nav--primary .md-nav__item--nested .md-nav__link').click(function() {
+        $(this).addClass("open");
+    });
 
     // remove elements, leave only 'versions'
     var update = setInterval(function() {
@@ -89,30 +97,32 @@ $(document).ready(function () {
         return this.hostname && this.hostname !== location.hostname;
     }).addClass("external");
 
-    docsearch({
-        apiKey: 'bfb5bd7cad971d31ef8be599174334f3',
-        indexName: 'ezplatform',
-        inputSelector: '#search_input',
-        algoliaOptions: {
-            'facetFilters': ["lang:en", "version:" + branchName],
-            'hitsPerPage': 10
-        },
-        debug: false
-    });
+    // docsearch({
+    //     apiKey: 'ad3fdf56ae5e315d12c356e2f84ed3f3',
+    //     indexName: 'ezplatform_userguide',
+    //     inputSelector: '#search_input',
+    //     algoliaOptions: {
+    //         'facetFilters': ["lang:en", "version:" + branchName],
+    //         'hitsPerPage': 10
+    //     },
+    //     debug: false
+    // });
+    // 
+    // $(document).on("keypress", "#search_input", function(event) {
+    //     if (event.keyCode == 13) {
+    //         event.preventDefault();
+    //     }
+    // });
 
-    $(document).on("keypress", "#search_input", function(event) {
-        if (event.keyCode == 13) {
-            event.preventDefault();
-        }
-    });
-
-    $("#search_input, label.md-search__icon").on("click", function() {
-        var toggle = document.querySelector("[data-md-toggle=search]");
-        toggle.checked = true;
-    });
+    // $("#search_input, label.md-search__icon").on("click", function() {
+    //     var toggle = document.querySelector("[data-md-toggle=search]");
+    //     toggle.checked = true;
+    // });
 
     // Image enlargement modal
-    $(".md-content img:not(.card-img-top)").click( function(){
+    $("body").append("<div id=\"imageModal\"><img class=\"modal-content\" id=\"enlargedImage\"><div id=\"modalCaption\"></div>/div>" );
+        
+    $(".md-content__inner img").click( function(){
         $('#enlargedImage').attr('src', $(this).attr('src'));
         if ($(this).attr('title')) {
             $('#modalCaption').html($(this).attr('title'));

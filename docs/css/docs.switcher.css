@@ -1,21 +1,48 @@
-.ez-docs-switcher {
-    line-height: 1.25;
+.switcher {
+    font-size: 13px;
+    padding-top: 0.2rem;
 }
 
-.ez-docs-switcher__selected-item {
-    padding-top: 6px;
-    line-height: calc(33 / 19.8);
+.docs-switcher {
+    padding-right: 0;
+}
+
+.docs-switcher .switcher__selected-item {
+    padding-left: 2rem;
+}
+
+.docs-switcher .switcher__list {
+    padding-left: 0.5rem;
+}
+
+.docs-switcher li.switcher__item.current {
+    background-image: url(../images/check.svg);
+    background-size: 15px 18px;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+.docs-switcher li.switcher__item a {
+    padding-left: 1.5rem;
+}
+
+.version-switcher {
+    padding-left: 0;
+    padding-right: 1rem;
+}
+
+.switcher__selected-item {
     position: relative;
     cursor: pointer;
     display: flex;
     align-items: center;
 }
 
-.ez-docs-switcher__selected-item .ez-docs-switcher__label {
+.switcher__selected-item .switcher__label {
     display: inline-block;
 }
 
-.ez-docs-switcher__selected-item:after {
+.switcher__selected-item:after {
     content: '';
     width: 0;
     height: 0;
@@ -25,45 +52,64 @@
     transition: transform .4s,-webkit-transform .4s;
 }
 
-.ez-docs-switcher__selected-item--expanded:after {
-    transform: rotateX(180deg);
-    transition: transform .4s,-webkit-transform .4s;
-}
-
-.ez-docs-switcher__list {
+.switcher__list {
     margin: 0;
-    padding: .5rem 0;
-    opacity: 0;
+    padding: .3rem .5rem .3rem 1.5rem;
+    opacity: 0; 
     list-style: none;
-    background: #3a3b3c;
-    max-height: 0;
+    background: #fff;
     overflow: hidden;
-    transition:
-        max-height .3s cubic-bezier(0.25, 0.8, 0.25, 1),
-        opacity .2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-radius 2px;
+    max-height: 0;
+    border: 1px solid var(--mid-grey);
 }
 
-.ez-docs-switcher__selected-item--expanded + .ez-docs-switcher__list {
+.switcher__selected-item--expanded + .switcher__list {
     opacity: 1;
     max-height: 500px;
 }
 
-.ez-docs-switcher__item:focus,
-.ez-docs-switcher__item:hover {
-    background: #313233;
+.switcher__item:focus,
+.switcher__item:hover {
+    background: var(--mid-grey);
 }
 
-.md-header-nav__title[data-md-state=active] .ez-docs-switcher__label,
-.ez-docs-switcher__label {
+.switcher__list .switcher__item {
+    color: var(--ibexa-dusk-black);
+}
+
+.md-header-nav__title[data-md-state=active] .switcher__label,
+.switcher__label {
     position: relative;
     transition: none;
     display: block;
-    padding: .5rem;
-    margin: 0;
-    font-size: 1.8rem;
-    font-weight: normal;
     opacity: 1;
     z-index: initial;
     pointer-events: initial;
     transform: none;
+    padding-right: .3rem;
+}
+
+div.rst-versions div.rst-other-versions {
+    background-color: #ffffff !important;
+    position: relative;
+}
+
+.rst-versions {
+    position: relative !important;
+    line-height: 1rem;
+    background-color: var(--ibexa-dusk-black);
+}
+
+.rst-versions .rst-current-version {
+    color: var(--ibexa-dusk-black);
+}
+
+.rst-current-version .rst-other-versions dd a {
+    color: var(--ibexa-dusk-black);
+    font-size: 100%;
+}
+
+.rst-other-versions a {
+    color: var(--ibexa-dusk-black);
 }
