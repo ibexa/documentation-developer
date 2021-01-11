@@ -39,8 +39,8 @@ The mandatory `--mode` option defines the action that importing the file will pe
 The following modes are available:
 
 - `create` - creates new items
-- `update` - updates an existing item
-- `delete` - deletes an existing item
+- `update` - updates an existing item. Only covers specified fields and properties. If the item does not exist, causes an error.
+- `delete` - deletes an existing item. If the item does not exist, causes an error.
 
 If you do not provide the `--mode` option, the command will ask you to select the mode.
 
