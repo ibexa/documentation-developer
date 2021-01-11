@@ -6,7 +6,8 @@ You can also reuse the bundles you create in other projects or share them with t
 
 Many [[= product_name =]] functionalities are provided through separate bundles included in the installation.
 You can see the bundles that are automatically installed with [[= product_name =]]
-in the respective `composer.json` files, for example for [Ibexa Content](https://github.com/ibexa/content/blob/master/composer.json).
+in the respective `composer.json` files.
+For example, for Ibexa Content, see the [JSON file on GitHub](https://github.com/ibexa/content/blob/master/composer.json).
 
 ## Working with bundles
 
@@ -35,7 +36,7 @@ see the [How to Remove a Bundle](http://symfony.com/doc/5.0/bundles/remove.html)
 |[ezsystems/ezplatform-admin-ui](https://github.com/ezsystems/ezplatform-admin-ui)|Back Office interface|
 |[ezsystems/ezplatform-content-forms](https://github.com/ezsystems/ezplatform-content-forms)|Form-based integration for the Symfony Forms into Content and User objects in kernel|
 |[ezsystems/ezplatform-core](https://github.com/ezsystems/ezplatform-core)|Core system functionalities|
-|[ezsystems/ezplatform-cron](https://github.com/ezsystems/ezplatform-cron)|Cron package for use via a the `ezplatform:cron:run` command|
+|[ezsystems/ezplatform-cron](https://github.com/ezsystems/ezplatform-cron)|Cron package for use with the `ezplatform:cron:run` command|
 |[ezsystems/ezplatform-design-engine](https://github.com/ezsystems/ezplatform-design-engine)|[Design fallback system](design_engine.md)|
 |[ezsystems/ezplatform-graphql](https://github.com/ezsystems/ezplatform-graphql)|GraphQL server for [[= product_name =]]|
 |[ezsystems/ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache)|[HTTP cache handling](http_cache.md), using multi tagging|
