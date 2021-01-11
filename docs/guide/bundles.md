@@ -69,6 +69,7 @@ see the [How to Remove a Bundle](http://symfony.com/doc/5.0/bundles/remove.html)
 |ezsystems/ezplatform-version-comparison|Enables comparing between two versions of the same Field|
 |ezsystems/ezplatform-workflow|Collaboration feature that enables you to send content draft to any user for a review or rewriting|
 |ezsystems/ezrecommendation-client|Client for connecting with the personalization engine|
+|ibexa/image-editor|[Image Editor](image_editor.md)|
 |ibexa/migrations|[Migration of Repository data](data_migration.md)|
 |ibexa/oauth2-client|Integration with [`knpuniversity/oauth2-client-bundle`](https://github.com/knpuniversity/oauth2-client-bundle)|
 
@@ -83,7 +84,6 @@ see the [How to Remove a Bundle](http://symfony.com/doc/5.0/bundles/remove.html)
 |ezsystems/ezplatform-permissions|Additional permission functionalities|
 |ezsystems/ezplatform-segmentation|Segment functionality for profiling the content displayed to specific users|
 |ezsystems/ezplatform-site-factory|Enables configuration of sites from UI|
-|ibexa/image-editor|[Image Editor](image_editor.md)|
 
 ## Ibexa Commerce packages
 
