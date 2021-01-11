@@ -1,0 +1,100 @@
+# Installation on macOS or Windows
+
+This page explains how to install [[= product_name =]] on macOS or Windows.
+
+!!! caution
+
+    This procedure is **for development purposes only**.
+    Installing [[= product_name =]] for production purposes is supported only on Linux.
+
+    If you want to use [[= product_name =]] in the production environment, see [Installing [[= product_name =]]](../getting_started/install_ez_platform.md).  
+
+### Prepare work environment
+
+To install [[= product_name =]], you need a stack with MySQL and PHP.
+Additionally, you need [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/lang/en/docs/install/) for asset management.
+If you want to use a web server, you need to install it as well:
+
+- For Windows: Apache
+- For macOS: Apache/nginx
+
+The instructions below assume you are using Apache.
+
+??? "Windows"
+
+    Locate the `php.ini` file and open it in a text editor.
+    Provide missing values to relevant parameters, e.g. `date.timezone` and `memory_limit`:
+
+    ``` bash
+    date.timezone = "Europe/Warsaw"
+    memory_limit = 4G
+    ```
+
+    Uncomment or add extensions relevant to your project, e.g. `opcache` extension for PHP (recommended, not required):
+
+    ``` bash
+    zend_extension=opcache.so
+    ```
+
+    Edit Apache configuration file `httpd.conf`.
+    Replace placeholder values with corresponding values from your project, e.g. `ServerName localhost:80`.
+    Uncomment relevant modules, e.g.:
+
+    ``` bash
+    LoadModule rewrite_module modules/mod_rewrite.so
+    LoadModule vhost_alias_module libexec/apache2/mod_vhost_alias.so
+    ```
+
+    Start Apache by running: `httpd.exe`.
+
+    !!! note
+
+        You can install Apache as a Windows service by running the following command in CMD as administrator:
+
+        ``` bash
+        httpd.exe -k -install
+        ```
+
+        You can then start it with:
+
+        ``` bash
+        httpd.exe -k start
+        ```
+
+## Get Composer
+
+=== "macOS"
+
+    Install Composer using a package manager, for example [Homebrew.](https://brew.sh/)
+
+=== "Windows"
+
+    Download and run [Composer-Setup.exe](https://getcomposer.org/Composer-Setup.exe) - it will install the latest Composer version.
+
+## Install [[= product_name =]]
+
+At this point the installation procedure is the same as when installing on Linux.
+Follow the steps from the main [Installing [[= product_name =]]](../getting_started/install_ez_platform.md#install-ibexa-dxp) page.
+
+## Set up virtual host
+
+To set up virtual host, use the template provided with [[= product_name =]]: `<your installation directory>/doc/apache2/vhost.template`.
+
+Copy the virtual host template under the name `<your_site_name>.conf` into your Apache directory:
+
+- For Windows: `<Apache>\conf\vhosts`
+- For macOS: `/private/etc/apache2/users/`
+
+Modify `<your_site_name>.conf` to fit it to your installation. Then restart the Apache server.
+
+## Set up permissions
+
+Directories `var` and `web/var` need to be writable by CLI and web server user.
+Future files and directories created by these two users will need to inherit those permissions.
+
+For more information, see [Setting up or Fixing File Permissions.](http://symfony.com/doc/5.0/setup/file_permissions.html)
+
+!!! note "Security checklist"
+
+    See the [Security checklist](../guide/security_checklist.md) for a list of security-related issues
+    that you should take care of before going live with a project.
