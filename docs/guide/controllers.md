@@ -685,7 +685,7 @@ Select a predefined [Query Type](#query-controller) from a list
 and provide the parameters that are required by the Query Type, e.g.:
 
 ```
-parentLocationId: '@=mainLocation.id'
+location: '@=location'
 ```
 
 Select the Content Type of items you want to return in the **Returned type** dropdown.
@@ -700,8 +700,9 @@ The following variables are available in parameter expressions:
 
 - `returnedType` - the identifier of the Content Type selected in the **Returned type** dropdown
 - `content` - the current Content item
+- `location` - the current Location of the Content item
+- `mainLocation` - the main Location of the Content item
 - `contentInfo` - the current Content item's ContentInfo
-- `mainLocation` - the current Content item's main Location
 
 #### Pagination
 
@@ -716,7 +717,7 @@ The following optional parameters are available:
 For example:
 
 ```
-{{ ez_render_field(content, 'posts', {'parameters': {'enablePagination': true, 'itemsPerPage': 8}}) }}
+{{ ez_render_field(content, 'posts', {location: location|default(null), 'parameters': {'enablePagination': true, 'itemsPerPage': 8}}) }}
 ```
 
 You can also define an offset for the results. Provide the offset in the Query Type, or in parameters:
