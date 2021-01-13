@@ -71,6 +71,7 @@ see the [How to Remove a Bundle](http://symfony.com/doc/5.0/bundles/remove.html)
 |ezsystems/ezplatform-workflow|Collaboration feature that enables you to send content draft to any user for a review or rewriting|
 |ezsystems/ezrecommendation-client|Client for connecting with the personalization engine|
 |ibexa/image-editor|[Image Editor](image_editor.md)|
+|ibexa/installer|Provides the `ibexa:install` command|
 |ibexa/migrations|[Migration of Repository data](data_migration.md)|
 |ibexa/oauth2-client|Integration with [`knpuniversity/oauth2-client-bundle`](https://github.com/knpuniversity/oauth2-client-bundle)|
 
@@ -78,7 +79,6 @@ see the [How to Remove a Bundle](http://symfony.com/doc/5.0/bundles/remove.html)
 
 |Bundle|Description|
 |---------|-----------|
-|ezsystems/ezplatform-ee-installer|Provides the `ezplatform:install` command which is the installer for Ibexa Experience|
 |ezsystems/ezplatform-form-builder|Enables creating Form Content items with multiple form fields|
 |ezsystems/ezplatform-page-builder|Page editor|
 |ezsystems/ezplatform-page-fieldtype|Page handling Field Type|
