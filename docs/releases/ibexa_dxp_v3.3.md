@@ -2,7 +2,7 @@
 
 **Version number**: v3.3
 
-**Release date**: December 30, 2020
+**Release date**: January 18, 2021
 
 **Release type**: Long Term Support
 
