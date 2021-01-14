@@ -11,7 +11,7 @@ Only one data provider can be activated per installation.
 
 ### Command line switching
 
-The `silversolutions:switchdataprovider` command switches between the content model data provider and eContent.
+The `ibexa:commerce:switch-data-provider` command switches between the content model data provider and eContent.
 It is useful especially for testing purposes.
 
 The command takes the following options:
@@ -23,12 +23,12 @@ The command takes the following options:
 
 ``` bash
 # switch to eContent 
-php bin/console silversolutions:switchdataprovider econtent --location-id=56 --new-root-node=2
-php bin/console silversolutions:indexecontent --no-debug
-php bin/console silversolutions:indexecontent swap --no-debug
+php bin/console ibexa:commerce:switch-data-provider econtent --location-id=56 --new-root-node=2
+php bin/console ibexa:commerce:index-econtent --no-debug
+php bin/console ibexa:commerce:index-econtent swap --no-debug
  
 # switch to content model
-php bin/console silversolutions:switchdataprovider ez
+php bin/console ibexa:commerce:switch-data-provider ez
 ```
 
 Remember to clear the cache after you execute the command:

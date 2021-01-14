@@ -145,7 +145,7 @@ If you want to test how your new fields look like in Solr you have to run the re
 and perform a Solr query directly in Solr interface.
 
 ``` bash
-php -d memory_limit=-1 bin/console ezplatform:solr_create_index
+php -d memory_limit=-1 bin/console ibexa:reindex
 ```
 
 Make sure you execute this in your project home directory.

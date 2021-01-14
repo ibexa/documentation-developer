@@ -149,7 +149,7 @@ you are ready to generate the PHP objects.
 For more information, see [ERP Message-Class-Generator](../../erp_components/erp_component_messages/erp_message_class_generator.md).
 
 ``` bash
-php bin/console silversolutions:generatemessages --message itemtransfer --sourceDir src/Demo/TestBundle/Resources/xml --targetDir src/Demo/TestBundle --force
+php bin/console ibexa:commerce:generate-messages --message itemtransfer --sourceDir src/Demo/TestBundle/Resources/xml --targetDir src/Demo/TestBundle --force
 ```
 
 !!! caution

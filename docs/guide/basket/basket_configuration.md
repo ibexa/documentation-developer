@@ -30,10 +30,10 @@ You can configure a different value:
 ses_basket.default.validHours: 120
 ```
 
-You can use the `silversolutions:baskets:clear` command to delete anonymous expired baskets:
+You can use the `ibexa:commerce:clear-baskets` command to delete anonymous expired baskets:
 
 ``` bash
-php bin/console silversolutions:baskets:clear <validHours>
+php bin/console ibexa:commerce:clear-baskets <validHours>
 ```
 
 It deletes all anonymous baskets from the database that are older than `validHours`.
@@ -41,7 +41,7 @@ It deletes all anonymous baskets from the database that are older than `validHou
 For example:
 
 ``` bash
-php bin/console silversolutions:baskets:clear 720
+php bin/console ibexa:commerce:clear-baskets 720
 ```
 
 ## Discontinued products

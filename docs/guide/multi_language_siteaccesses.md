@@ -22,7 +22,7 @@ For more details on language versions, see [Languages](internationalization.md).
 ```bash
 yarn encore <prod|dev>
 #OR
-php bin/console ezplatform:encore:compile
+php bin/console ibexa:encore:compile
 ```
 
 Reload the Back Office.

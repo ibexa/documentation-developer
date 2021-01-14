@@ -19,7 +19,7 @@ silver_eshop.default.http_cache:
 When a Content item which is included in the navigation is modified, a content modification handler is triggered.
 Make sure that a cron job is activated to refresh the cache if required:
 
-`php bin/console silversolutions:cache:refresh --env=prod`
+`php bin/console ibexa:commerce:refresh-cache --env=prod`
 
 ## Caching time
 

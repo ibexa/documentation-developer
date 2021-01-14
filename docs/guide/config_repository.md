@@ -154,7 +154,7 @@ This limit is enforced on publishing a new version and only covers archived vers
 
 ### Removing old versions
 
-You can use the `ezplatform:content:cleanup-versions` command to remove old content versions.
+You can use the `ibexa:content:cleanup-versions` command to remove old content versions.
 
 The command takes the following optional parameters:
 
@@ -163,11 +163,11 @@ The command takes the following optional parameters:
 - `user` or `u` - the User that the command will be performed as. The User must have the `content/remove`, `content/read` and `content/versionread` Policies. By default the `administrator` user is applied.
 - `excluded-content-types` - exclude versions of one or multiple Content Types from the cleanup procedure; separate multiple Content Types identifiers with the comma.
 
-`ezplatform:content:cleanup-versions --status <status name> --keep <number of versions> --user <user name> --excluded-content-types article,blog_post`
+`ibexa:content:cleanup-versions --status <status name> --keep <number of versions> --user <user name> --excluded-content-types article,blog_post`
 
 For example, the following command removes archived versions as user `admin`, but leaves the 5 most recent versions:
 
-`ezplatform:content:cleanup-versions --status archived --keep 5 --user administrator`
+`ibexa:content:cleanup-versions --status archived --keep 5 --user administrator`
 
 ## User identifiers
 

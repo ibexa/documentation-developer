@@ -281,7 +281,7 @@ php bin/console --env=prod cache:clear
 The last step is to execute the initial indexation of data:
 
 ``` bash
-php bin/console --env=prod --siteaccess=<name> ezplatform:reindex
+php bin/console --env=prod --siteaccess=<name> ibexa:reindex
 ```
 
 #### Possible exceptions

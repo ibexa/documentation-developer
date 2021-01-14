@@ -5,12 +5,12 @@
 Use the following command to reindex the search content:
 
 ``` bash
-php bin/console ezplatform:reindex
+php bin/console ibexa:reindex
 ```
 
 ## Removing index in production
 
-When you use the content model as a data provider, `ezplatform:solr_create_index` removes the index in production.
+When you use the content model as a data provider, `ibexa:reindex` removes the index in production.
 
 Details of this action depend on the configuration. If Solr is configured to auto-commit, the index is removed.
 If no auto-commit is configured, the index is removed as well, but the removal takes effect after the commit at the end. 

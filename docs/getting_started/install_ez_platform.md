@@ -425,15 +425,15 @@ You should see the welcome page.
 
 ### Enable Date-based Publisher
 
-To enable delayed publishing of Content using the Date-based Publisher, you must set up cron to run the `bin/console ezplatform:scheduled:run` command periodically.
+To enable delayed publishing of Content using the Date-based Publisher, you must set up cron to run the `bin/console ibexa:scheduled:run` command periodically.
 
 For example, to check for publishing every minute, add the following script:
 
-`echo '* * * * * cd [path-to-ezplatform]; php bin/console ezplatform:cron:run --quiet --env=prod' > ezp_cron.txt`
+`echo '* * * * * cd [path-to-ezplatform]; php bin/console ibexa:cron:run --quiet --env=prod' > ezp_cron.txt`
 
 For 5-minute intervals:
 
-`echo '*/5 * * * * cd [path-to-ezplatform]; php bin/console ezplatform:cron:run --quiet --env=prod' > ezp_cron.txt`
+`echo '*/5 * * * * cd [path-to-ezplatform]; php bin/console ibexa:cron:run --quiet --env=prod' > ezp_cron.txt`
 
 Next, append the new cron to user's crontab without destroying existing crons.
 Assuming the web server user data is `www-data`:

@@ -61,7 +61,7 @@ vendor/silversolutions/silver.e-shop/src/Silversolutions/Bundle/EshopBundle/Reso
 You can also resend lost orders using a command-line tool:
 
 ``` bash
-php bin/console silversolutions:lostorder:process [id]
+php bin/console ibexa:commerce:process-lost-orders [id]
 ```
 
 !!! note 
