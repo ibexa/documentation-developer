@@ -6,7 +6,7 @@ In this example you will create a button which inserts an `<hr>` element into a 
 
 ## Creating the button
 
-First, create the button file in `assets/js/alloyeditor/plugins/hr.js`:
+First, create the button file in `assets/js/alloyeditor/buttons/hr.js`:
 
 ``` js
 import PropTypes from 'prop-types';
