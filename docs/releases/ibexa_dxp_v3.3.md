@@ -4,7 +4,7 @@
 
 **Release date**: January 18, 2021
 
-**Release type**: Long Term Support
+**Release type**: [Long Term Support](../community_resources/release_process.md#release-process)
 
 ## Notable changes
 
@@ -22,7 +22,7 @@ See [the updated installation instruction](../geting_started_install_ez_platform
 
 ### Image Editor
 
-With the Image Editor, users can now perform basic image editing, such as cropping, flipping 
+With the Image Editor, users can now perform basic operations, such as cropping or flipping an image,
 or setting a point of focus. 
 The Image Editor is available when browsing the Media library, or creating or editing Content items 
 that contain an `ezimage` or `ezimageasset` Field.
@@ -32,7 +32,7 @@ For more information, see [Configuring the Image Editor](../guide/image_editor.m
 
 ### Migration bundle
 
-The new [migration bundle](../guide/data_migration.md) enables you to export and import your Repository data using YAML files.
+The new [migration bundle](../guide/data_migration.md) enables you to export and import your Repository data by using YAML files.
 
 ## Other changes
 
