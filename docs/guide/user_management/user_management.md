@@ -95,7 +95,7 @@ security:
 You can customize per User Field whether the email address used as a login method must be unique or not.
 
 To check that all existing User accounts have unique emails,
-run the `ibexa:user:audit_database` command.
+run the `ibexa:user:audit-database` command.
 It will list all User accounts with duplicate emails.
 
 !!! caution
