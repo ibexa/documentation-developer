@@ -1,4 +1,4 @@
-# Product variant API [[% include 'snippets/commerce_badge.md' %]]
+# Product variant API
 
 ## VariantService
 

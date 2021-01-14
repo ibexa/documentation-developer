@@ -1,4 +1,4 @@
-# Adding elements to autosuggestion module [[% include 'snippets/commerce_badge.md' %]]
+# Adding elements to autosuggestion module
 
 Any Solr field can be displayed in autosuggest results.
 

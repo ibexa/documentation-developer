@@ -1,4 +1,4 @@
-# Search configuration [[% include 'snippets/commerce_badge.md' %]]
+# Search configuration
 
 ## Product groups
 

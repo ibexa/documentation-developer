@@ -1,4 +1,4 @@
-# Custom breadcrumbs [[% include 'snippets/commerce_badge.md' %]]
+# Custom breadcrumbs
 
 ## Breadcrumbs for custom routes
 

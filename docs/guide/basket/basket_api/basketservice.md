@@ -1,4 +1,4 @@
-# BasketService [[% include 'snippets/commerce_badge.md' %]]
+# BasketService
 
 The ID of the service is `silver_basket.basket_service`.
 
