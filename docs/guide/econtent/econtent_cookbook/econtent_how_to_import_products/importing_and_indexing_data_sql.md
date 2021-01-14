@@ -142,7 +142,7 @@ These temporary tables are used to import new data and keep data available while
 After an import is finished, you can execute a command to rename the temporary tables to normal tables:
 
 ``` bash
-php bin/console silversolutions:econtent-tables-swap
+php bin/console ibexa:commerce:swap-econtent-tables
 ```
 
 ### Languages

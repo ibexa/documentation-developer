@@ -7,7 +7,7 @@ If [[= product_name_com =]] is configured to use eContent as data provider, the 
 eContent data can be indexed by executing the following command:
 
 ``` bash
-php bin/console silversolutions:indexecontent
+php bin/console ibexa:commerce:index-econtent
 ```
 
 eContent Solr configuration uses two cores to keep search services available while indexing.

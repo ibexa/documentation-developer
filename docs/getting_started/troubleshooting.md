@@ -12,7 +12,7 @@ you can do it in the `.env` file.
 If you have problems installing [[= product_name =]] on a system with limited RAM (for example 1GB or 2GB), enable swap.
 It allows your operating system to use the hard disk to supplement RAM when it runs out.
 
-With swap enables you will be able to successfully run `php -d memory_limit=-1 bin/console ezplatform:install --env prod ezplatform-clean`.
+With swap enables you will be able to successfully run `php -d memory_limit=-1 bin/console ibexa:install --env prod ezplatform-clean`.
 
 When a system runs out of RAM, you may see `Killed` when trying to clear the cache (e.g. `php bin/console --env=prod cache:clear` from your project's root directory).
 

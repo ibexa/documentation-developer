@@ -7,7 +7,7 @@ If there are changes (e.g. performed in the backend) the cache will be refreshed
 
 ``` 
 # Checks for changes and refresh cache
-*/5 * * * * cd '/var/www/my_project' && /usr/bin/php bin/console silversolutions:cache:refresh --env=prod
+*/5 * * * * cd '/var/www/my_project' && /usr/bin/php bin/console ibexa:commerce:refresh-cache --env=prod
 ```
 
 ## Send lost orders to the ERP
@@ -16,7 +16,7 @@ Lost orders can be re-sent using a command-line tool. We recommend running this 
 
 ``` 
 # resends lost orders every 5 minutes
-*/5 * * * * cd '/var/www/my_project' && /usr/bin/php bin/console silversolutions:lostorder:process --env=prod
+*/5 * * * * cd '/var/www/my_project' && /usr/bin/php bin/console ibexa:commerce:process-lost-orders --env=prod
 ```
 
 ## Use job-queue-system
@@ -36,5 +36,5 @@ This command line will refresh the data every 5 minutes.
     This feature is available only if sessions are handled in the database.
 
 ``` 
-*/5 * * * * cd /var/www/my_project &&  /usr/bin/php bin/console silversolutions:sessions write_stat --env=prod
+*/5 * * * * cd /var/www/my_project &&  /usr/bin/php bin/console ibexa:commerce:sessions write_stat --env=prod
 ```

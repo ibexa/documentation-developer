@@ -365,18 +365,18 @@ ezplatform:
 
 ## Resizing images
 
-You can resize all original images of a chosen Content Type using the `ezplatform:images:resize-original` command.
+You can resize all original images of a chosen Content Type using the `ibexa:images:resize-original` command.
 You need to provide the command with:
 
 - identifier of the image Content Type
 - identifier of the Field you want to affect
 - name of the image variation to apply to the images
 
-`ezplatform:images:resize-original <Content Type identifier> <Field identifier> -f <variation name>`
+`ibexa:images:resize-original <Content Type identifier> <Field identifier> -f <variation name>`
 
 For example:
 
-`ezplatform:images:resize-original photo image -f small_image`
+`ibexa:images:resize-original photo image -f small_image`
 
 Additionally you can provide two parameters:
 

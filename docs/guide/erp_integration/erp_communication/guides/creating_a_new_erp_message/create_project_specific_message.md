@@ -127,14 +127,14 @@ Now you can use the generator to generate the classes automatically:
 
 ``` bash
 //Usage
-php bin/console silversolutions:generatemessages --message [message name] --sourceDir [path to the request and response .xml dir] --targetDir [path to the target bundle]
+php bin/console ibexa:commerce:generate-messages --message [message name] --sourceDir [path to the request and response .xml dir] --targetDir [path to the target bundle]
 
 //Example
-php bin/console silversolutions:generatemessages --message selectModifiedData --sourceDir src/MyCompany/Bundle/MyCompanyBundle/Resources/specifications/xml --targetDir src/MyCompany/Bundle/MyCompanyBundle
+php bin/console ibexa:commerce:generate-messages --message selectModifiedData --sourceDir src/MyCompany/Bundle/MyCompanyBundle/Resources/specifications/xml --targetDir src/MyCompany/Bundle/MyCompanyBundle
 
 //Re-generation of messages
 //If you are re-creating the messages (e.g. the request .xml has been adapted) you have to use to optional --force parameter
-php bin/console silversolutions:generatemessages --message selectModifiedData --sourceDir src/MyCompany/Bundle/MyCompanyBundle/Resources/specifications/xml --targetDir src/MyCompany/Bundle/MyCompanyBundle --force
+php bin/console ibexa:commerce:generate-messages --message selectModifiedData --sourceDir src/MyCompany/Bundle/MyCompanyBundle/Resources/specifications/xml --targetDir src/MyCompany/Bundle/MyCompanyBundle --force
 ```
 
 ## Mapping

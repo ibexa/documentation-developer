@@ -239,13 +239,13 @@ Place this before the include of `ez_params.d`/`ez_rewrite_params` in your vhost
 ## Migrating to a cluster setup
 
 If you are migrating an existing single-server site to a cluster setup, and not setting up clustering from scratch, you need to migrate your files.
-Once you have configured your binarydata and metadata handlers, you can run the `ezplatform:io:migrate-files` command.
+Once you have configured your binarydata and metadata handlers, you can run the `ibexa:io:migrate-files` command.
 You can also use it when you are migrating from one data handler to another, e.g. from NFS to Amazon S3.
 
 This command shows which handlers are configured:
 
 ```
-> php bin/console ezplatform:io:migrate-files --list-io-handlers
+> php bin/console ibexa:io:migrate-files --list-io-handlers
 Configured meta data handlers: default, dfs, aws_s3
 Configured binary data handlers: default, nfs, aws_s3
 ```
@@ -253,7 +253,7 @@ Configured binary data handlers: default, nfs, aws_s3
 You can do the actual migration like this:
 
 ```
-> php bin/console ezplatform:io:migrate-files --from=default,default --to=dfs,nfs --env=prod
+> php bin/console ibexa:io:migrate-files --from=default,default --to=dfs,nfs --env=prod
 ```
 
 The `--from` and `--to` values must be specified as `<metadata_handler>,<binarydata_handler>`.

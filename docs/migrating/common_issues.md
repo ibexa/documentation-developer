@@ -17,12 +17,12 @@ issues that can occur after migration to [[= product_name =]].
 
 ## Regenerating URL aliases
 
-To regenerate URL aliases, use the `ezplatform:urls:regenerate-aliases` command.
+To regenerate URL aliases, use the `ibexa:urls:regenerate-aliases` command.
 See [Regenerating URL aliases](../guide/url_management.md#regenerating-url-aliases) for more information.
 
 !!! note
 
-    This command keeps history and replaces the old `ezplatform:regenerate:legacy_storage_url_aliases` command.
+    This command keeps history and replaces the old `ibexa:regenerate:legacy_storage_url_aliases` command.
     `legacy_storage_url_aliases` is now deprecated.
 
 ## Unknown relation type 0

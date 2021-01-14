@@ -19,7 +19,7 @@ Edit the entry to update the URL address in all the occurrences throughout the w
 
 ## External URL validation
 
-You can validate all the addresses from the URL table by executing the `ezplatform:check-urls` command.
+You can validate all the addresses from the URL table by executing the `ibexa:check-urls` command.
 It validates the links by accessing them one by one and updates the value in the Last checked field.
 If a broken link is found, its status is set to "invalid".
 
@@ -31,12 +31,12 @@ The following protocols are currently supported:
 
 ### Enabling automatic URL validation
 
-To enable automatic URL validation, set up cron to run the `ezplatform:check-urls` command periodically.
+To enable automatic URL validation, set up cron to run the `ibexa:check-urls` command periodically.
 
 For example, to check links every week, add the following script:
 
 ```
-echo '0 0 * * 0 cd [path-to-ezplatform]; php bin/console ezplatform:check-urls --quiet --env=prod' > ezp_cron.txt
+echo '0 0 * * 0 cd [path-to-ezplatform]; php bin/console ibexa:check-urls --quiet --env=prod' > ezp_cron.txt
 ```
 
 Next, append the new cron to user's crontab without destroying existing crons.
@@ -178,7 +178,7 @@ To add commands to an existing group, provide the group name and list the comman
 
 ### Regenerating URL aliases
 
-You can use the `ezplatform:urls:regenerate-aliases` command to regenerate all URL aliases.
+You can use the `ibexa:urls:regenerate-aliases` command to regenerate all URL aliases.
 After the command is applied, old aliases redirect to the new ones.
 
 Use it when:
@@ -195,13 +195,13 @@ Use it when:
 Execute the following command to regenerate aliases:
 
 ``` bash
-bin/console ezplatform:urls:regenerate-aliases
+bin/console ibexa:urls:regenerate-aliases
 ```
 
 You can also extend the command with the following parameters:
 
 - `--iteration-count` — Defines how many Locations are processed at once to reduce memory usage
-- `--location-id` — Regenerates URL addresses for specific Locations only, e.g. `ezplatform:urls:regenerate-aliases --location-id=1 --location-id=2`
+- `--location-id` — Regenerates URL addresses for specific Locations only, e.g. `ibexa:urls:regenerate-aliases --location-id=1 --location-id=2`
 
 ## URL wildcards
 

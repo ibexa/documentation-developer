@@ -30,7 +30,7 @@ an SQL dump from past imports can be imported without interrupting the productio
 Create an index for the new products (temporary area). The following command indexes the data from the temporary tables to a temporary core:
 
 ``` bash
-php bin/console silversolutions:indexecontent --siteaccess=import
+php bin/console ibexa:commerce:index-econtent --siteaccess=import
 ```
 
 Use a SiteAccess (default: `import`) for the indexing process. The SiteAccess import should cover:
@@ -45,8 +45,8 @@ The product import can, for example, use the temporary tables. The import proces
 After the import, you must switch the database tables and Solr cores. Execute the following commands:
 
 ``` bash
-php bin/console silversolutions:indexecontent swap
-php bin/console silversolutions:econtent-tables-swap
+php bin/console ibexa:commerce:index-econtent swap
+php bin/console ibexa:commerce:swap-econtent-tables
 ```
 
 Depending on the project, you should purge the HTTP cache for the product catalog.

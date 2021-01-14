@@ -11,7 +11,7 @@ The schema is generated automatically when installing [[= product_name =]].
 When you modify Content Types in your installation, you need to regenerate the schema:
 
 ``` bash
-php bin/console ezplatform:graphql:generate-schema
+php bin/console ibexa:graphql:generate-schema
 php bin/console cache:clear
 ```
 

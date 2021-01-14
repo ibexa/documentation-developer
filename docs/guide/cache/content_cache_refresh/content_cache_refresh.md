@@ -16,7 +16,7 @@ The content cache refresh service is used in the following situations:
 To set up a cron job to refresh caches, create a system cron job to run the following console command:
 
 ``` bash
-php bin/console silversolutions:cache:refresh
+php bin/console ibexa:commerce:refresh-cache
 ```
 
 ## Slot implementation
