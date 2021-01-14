@@ -90,7 +90,7 @@
                 <span class="badge">v3.3</span>
             </h5>
             <div class="row mt-3">
-                <div class="col-lg-5">The <a href="releases/ibexa_dxp_v3.3/">latest version of Ibexa DXP is v3.3</a>. It is a Long Term Support release, and it was released on December 30, 2020.
+                <div class="col-lg-5">The <a href="releases/ibexa_dxp_v3.3/">latest version of Ibexa DXP is v3.3</a>. It is a Long Term Support release, and it was released on January 18, 2021.
                 </div>
                 <div class="col-sm-7 features">
                     <ul>
