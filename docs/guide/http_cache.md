@@ -149,9 +149,8 @@ Configuring [[= product_name =]] for Varnish or Fastly involves a few steps, sta
 
 #### Configuring Symfony front controller
 
-In a pure Symfony installation you would normally adapt front controller (`web/app.php`)
-in order to configure Symfony to [work behind a load balancer or a reverse proxy](https://symfony.com/doc/5.1/deployment/proxies.html),
-however in [[= product_name =]] can cover most use cases by setting supported environment variables using:
+In order to configure Symfony to [work behind a load balancer or a reverse proxy](https://symfony.com/doc/5.1/deployment/proxies.html),
+set supported environment variables using:
 
 - `APP_HTTP_CACHE`: To enable (`"1"`) or disable (`"0"`) use of Symfony HttpCache reverse proxy
     - *Must* be disabled when using Varnish or Fastly.
@@ -165,10 +164,10 @@ framework:
     trusted_proxies: '%env(TRUSTED_PROXIES)%'
 ```
 
-!!! caution "Careful when trusting dynamic IP using TRUST_REMOTE value or similar"
+!!! caution "Careful when trusting dynamic IP using REMOTE_ADDR value or similar"
 
     On Platform.sh, Varnish does not have a static IP, like with [AWS LB.](https://symfony.com/doc/5.1/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly)
-    For this `TRUSTED_PROXIES` env variable supports being set to value "TRUST_REMOTE", which is equal to:
+    For this `TRUSTED_PROXIES` env variable supports being set to value "REMOTE_ADDR", which is equal to:
   
     ```php
     Request::setTrustedProxies([$request->server->get('REMOTE_ADDR')], Request::HEADER_X_FORWARDED_ALL);
