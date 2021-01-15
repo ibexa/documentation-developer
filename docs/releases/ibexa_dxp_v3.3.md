@@ -61,6 +61,17 @@ You can now use the following new PHP API methods:
 
 The [Query Field Type](../guide/controllers.md#content-query-field-type) now enables getting results for the current Location of a Content item.
 
+## Deprecations
+
+### Trusted proxy configuration
+
+If you configure trusted proxies in the `.env` file, you now need to add them to the configuration in the following way:
+
+``` yaml
+framework:
+    trusted_proxies: '%env(TRUSTED_PROXIES)%'
+```
+
 ## Full changelog
 
 | Ibexa Content  | Ibexa Experience  | Ibexa Commerce |
