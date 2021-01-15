@@ -158,6 +158,13 @@ however in [[= product_name =]] can cover most use cases by setting supported en
     - If not set, it is automatically disabled for `APP_ENV=dev` for local development needs, otherwise enabled.
 - `TRUSTED_PROXIES`: String with trusted IP, multiple proxies can be configured with a comma, i.e. `TRUSTED_PROXIES="192.0.0.1,10.0.0.0/8"`
 
+Add the trusted proxies to your configuration:
+
+``` yaml
+framework:
+    trusted_proxies: '%env(TRUSTED_PROXIES)%'
+```
+
 !!! caution "Careful when trusting dynamic IP using TRUST_REMOTE value or similar"
 
     On Platform.sh, Varnish does not have a static IP, like with [AWS LB.](https://symfony.com/doc/5.1/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly)
