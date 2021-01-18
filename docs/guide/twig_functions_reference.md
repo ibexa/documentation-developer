@@ -373,7 +373,7 @@ or [`ez_render_location()`](#ez_render_location) depending on the provided param
 |------|------|------|
 |`content`|`eZ\Publish\API\Repository\Values\Content\Content`|Content item to render.|
 |`location`|`eZ\Publish\API\Repository\Values\Content\Location`|Location of the Content item to render.|
-|`method`|`string`|[Rendering method](#rendering-methods). One of: `direct`, inline`, `esi`, `ssi`.|
+|`method`|`string`|[Rendering method](#rendering-methods). One of: `direct`, `inline`, `esi`, `ssi`.|
 |`viewType`|`string`|[View type](templates.md#full-line-and-other-views).|
 
 #### Rendering methods
