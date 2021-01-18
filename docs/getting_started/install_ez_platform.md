@@ -341,7 +341,7 @@ SetEnvIf Request_URI ".*" SYMFONY_ENV=prod
 When the virtual host file is ready, enable the virtual host and disable the default:
 
 ``` bash
-a2ensite ezplatform
+a2ensite ibexa
 a2dissite 000-default.conf
 ```
 
@@ -375,11 +375,11 @@ To enable delayed publishing of Content using the Date-based Publisher, you must
 
 For example, to check for publishing every minute, add the following script:
 
-`echo '* * * * * cd [path-to-ezplatform]; php bin/console ibexa:cron:run --quiet --env=prod' > ezp_cron.txt`
+`echo '* * * * * cd [path-to-ibexa-dxp]; php bin/console ibexa:cron:run --quiet --env=prod' > ezp_cron.txt`
 
 For 5-minute intervals:
 
-`echo '*/5 * * * * cd [path-to-ezplatform]; php bin/console ibexa:cron:run --quiet --env=prod' > ezp_cron.txt`
+`echo '*/5 * * * * cd [path-to-ibexa-dxp]; php bin/console ibexa:cron:run --quiet --env=prod' > ezp_cron.txt`
 
 Next, append the new cron to user's crontab without destroying existing crons.
 Assuming the web server user data is `www-data`:
