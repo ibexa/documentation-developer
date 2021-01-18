@@ -317,16 +317,7 @@ for information on how to do it on different systems.
 
 ### Set up a virtual host
 
-#### Option A: Scripted configuration
-
-Use the included shell script: `/<your installation directory>/bin/vhost.sh` to generate a ready to use `.conf` file.
-Check out the source of `vhost.sh` to see the options provided.
-
-#### Option B: Manual configuration
-
-Copy `/<your installation directory>/doc/apache2/vhost.template` to `/etc/apache2/sites-available` as a `.conf` file.
-
-Modify the file to fit your project.
+Prepare a [virtual host configuration](https://httpd.apache.org/docs/2.4/vhosts/) for your site.
 
 Specify `/<your installation directory>/public` as the `DocumentRoot` and `Directory`.
 Uncomment the line that starts with `#if [SYMFONY_ENV]` and set the value to `prod` or `dev`,
