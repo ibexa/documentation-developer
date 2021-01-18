@@ -255,6 +255,7 @@ Install [[= product_name =]] and create a database with:
 
 ``` bash
 php bin/console ibexa:install
+php bin/console ibexa:graphql:generate-schema
 ```
 
 Before executing the command make sure that the database user has sufficient permissions.
