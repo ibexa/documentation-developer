@@ -78,14 +78,12 @@ Follow the steps from the main [Installing [[= product_name =]]](../getting_star
 
 ## Set up virtual host
 
-To set up virtual host, use the template provided with [[= product_name =]]: `<your installation directory>/doc/apache2/vhost.template`.
-
-Copy the virtual host template under the name `<your_site_name>.conf` into your Apache directory:
+Prepare a [virtual host configuration](https://httpd.apache.org/docs/2.4/vhosts/) for your site in your Apache directory:
 
 - For Windows: `<Apache>\conf\vhosts`
 - For macOS: `/private/etc/apache2/users/`
 
-Modify `<your_site_name>.conf` to fit it to your installation. Then restart the Apache server.
+Then restart the Apache server.
 
 ## Set up permissions
 
