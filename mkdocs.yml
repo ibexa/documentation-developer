@@ -9,8 +9,8 @@ nav:
         - 'First steps': 'getting_started/first_steps.md'
         - 'Troubleshooting': 'getting_started/troubleshooting.md'
     - Tutorials:
-        - Ibexa DXP beginner:
-            - 'Ibexa DXP beginner tutorial': 'tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md'
+        - Beginner tutorial:
+            - 'Beginner tutorial': 'tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md'
             - '1. Get ready': 'tutorials/platform_beginner/1_get_ready.md'
             - '2. Create the content model': 'tutorials/platform_beginner/2_create_the_content_model.md'
             - '3. Customize the front page': 'tutorials/platform_beginner/3_customize_the_front_page.md'

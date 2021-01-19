@@ -1,6 +1,8 @@
-# Building a bicycle route tracker in [[= product_name =]]
+# Beginner tutorial
 
 This tutorial is a step-by-step guide to building an [[= product_name =]] website.
+
+You can use it with both [[= product_name_content =]] and [[= product_name_exp =]].
 
 ## Intended audience
 
@@ -10,7 +12,7 @@ To follow it, you should:
 
 - Have basic knowledge of HTML and CSS.
 - Have basic knowledge of the database you've selected.
- 
+
 ## Learning outcomes
 
 After finishing this tutorial, you will:

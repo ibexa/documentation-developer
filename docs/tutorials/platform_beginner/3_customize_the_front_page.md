@@ -72,9 +72,9 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Ibexa Platform beginner tutorial">
+    <meta name="description" content="Ibexa DXP beginner tutorial">
 
-    <title>Ibexa Platform Beginner Tutorial</title>
+    <title>Ibexa DXP Beginner Tutorial</title>
 
     <script src="{{ asset('bundles/ezplatformadminuiassets/vendors/jquery/dist/jquery.min.js') }}"></script>
 
@@ -146,7 +146,7 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <p class="small">Website design &#38; content © copyright {{ "now"|date("Y") }} Ibexa. This website was made with Ibexa Platform.</p>
+                    <p class="small">Website design &#38; content © copyright {{ "now"|date("Y") }} Ibexa. This website was made with Ibexa DXP.</p>
                 </div>
             </div>
         </div>
@@ -184,7 +184,7 @@ For more details, see [importing assets from a bundle](../../guide/project_organ
 To create bundles, first, indicate which files to include in them.
 
 Open the `webpack.config.js` file located in the root folder of your project.
-Paste the following code right under `// Put your config here`:
+Paste the following code right under `Encore.addEntry('app', './assets/app.js');`:
 
 ``` javascript hl_lines="2 8"
 Encore
@@ -233,7 +233,7 @@ Clear the cache and regenerate the assets by running the following commands:
 ``` bash
 php bin/console cache:clear
 php bin/console assets:install
-yarn encore prod
+yarn encore <dev|prod>
 ```
 
 Refresh the page and you should see the "Hello world" placed inside a styled layout.
