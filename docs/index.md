@@ -16,7 +16,7 @@
                         <div class="tile-body">
                             <ol>
                                 <li><a href="getting_started/requirements/">Requirements</a></li>
-                                <li><a href="getting_started/install_ez_platform/">Install Ibexa Platform</a></li>
+                                <li><a href="getting_started/install_ez_platform/">Install Ibexa DXP</a></li>
                                 <li><a href="getting_started/first_steps/">First steps</a></li>
                             </ol>
                         </div>
