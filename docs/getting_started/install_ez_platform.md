@@ -121,15 +121,6 @@ run the following command:
 composer create-project ibexa/website-skeleton .
 ```
 
-!!! tip
-
-    You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md):
-    specific tag (`v3.3.0`), version range (`~3.3.0`), stability (`^3.3@rc`), etc.:
-
-    ``` bash
-    composer create-project ibexa/website-skeleton . "v3.3.0"
-    ```
-
 ### Configure access to the update server
 
 !!! note
@@ -165,6 +156,15 @@ To install all necessary product packages, run:
     ``` bash
     composer require ibexa-commerce
     composer recipes:install ibexa-commerce --force
+    ```
+
+!!! tip
+
+    You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md):
+    specific tag (`v3.3.0`), version range (`~3.3.0`), stability (`^3.3@rc`), etc.:
+
+    ``` bash
+    composer require ibexa/experience:v3.3.0
     ```
 
 ### Change installation parameters
