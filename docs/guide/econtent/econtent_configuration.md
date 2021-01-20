@@ -246,7 +246,7 @@ silver_econtent.default.ez_datatype_attribute_prefix: ezdata_
 
 ## Data from an external data source
 
-For every catalog element `EcontentCatalogFactory` collects all information from the `ses_externaldata` table for the given SKU. The SKU is taken from the `data_text` column in `sve_object_attributes` table. It collects different data like PIM, SAP and TYP codes. Then it matches the external data with catalog element attributes and also puts all data in `dataMap`.
+For every catalog element `EcontentCatalogFactory` collects all information from the `ses_externaldata` table for the given SKU. The SKU is taken from the `data_text` column in `sve_object_attributes` table. It collects different data like PIM, and TYP codes. Then it matches the external data with catalog element attributes and also puts all data in `dataMap`.
 
 Configuration for `externalDataTypes` is used for searching different content in the `externalData` table.
 
@@ -254,8 +254,6 @@ Configuration for `externalDataTypes` is used for searching different content in
 silver_econtent.default.externalDataType:
     pim:
         identifier: pim
-    sap:
-        identifier: sap
     typ:
         identifier: Typ1
         prefix: TY_

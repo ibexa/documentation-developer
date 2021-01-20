@@ -111,7 +111,7 @@ The data which is sent to the ERP is described in the XML specification (`vendor
     </Price>
     <Item ses_unbounded="Description ManufacturersItemIdentification">
         <Name>Web-Connector</Name>
-        <Description>für SAP, Magento oder NAV</Description>
+        <Description>für Magento oder NAV</Description>
         <SellersItemIdentification>
             <ID>1000</ID>
             <ExtendedID>123</ExtendedID>

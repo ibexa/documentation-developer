@@ -42,7 +42,6 @@ you get more details about the request sent to the ERP system and the applied ma
 
 - Microsoft Dynamics NAV
 - Microsoft Dynamics AX
-- SAP
 
 Since [[= product_name_com =]] offers an open interface using standards (REST, Webservices and a standard XML Format UBL),
 you can adapt other ERP systems as well.

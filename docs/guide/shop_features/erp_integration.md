@@ -1,6 +1,6 @@
 # ERP integration
 
-[[= product_name_com =]] can be connected to ERP systems. Out of the box it offers Web.Connectors for SAP, Microsoft Dynamics NAV and AX.
+[[= product_name_com =]] can be connected to ERP systems. Out of the box it offers Web.Connectors for Microsoft Dynamics NAV and AX.
 The product provides an open interface which can be adapted to other ERP systems as well.
 
 Existing ERP customers can automatically create an account in the shop without waiting for confirmation from the administrator.

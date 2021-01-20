@@ -231,7 +231,7 @@ node_id attribute_id    data_float  data_int    data_text       language
 
 ### Table `ses_externaldata`
 
-This table describes all external data from SAP, PIM, TYP, etc. The content is encoded in JSON.
+This table describes all external data from PIM, TYP, etc. The content is encoded in JSON.
 Content Type Fields are defined in `sve_class_attributes`.
 
 |Field|Type|Null|Key|Default|Extra|
