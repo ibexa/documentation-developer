@@ -1,4 +1,4 @@
-# Step 1 — Get a starter website [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+# Step 1 — Get a starter website [[% include 'snippets/experience_badge.md' %]]
 
 !!! tip
 
@@ -26,7 +26,7 @@ Log in to the Back Office – add `/admin` to your installation's address (`<y
 |------------|-------------------|---------------------|----------|------------|--------------|
 | Text line  | Name              | `name`              | yes      | yes        | yes          |
 | Text line  | Short Description | `short_description` | yes      | yes        | yes          |
-| Image      | Photo             | `photo`             | yes      | no         | no           |
+| Image Asset | Photo             | `photo`             | yes      | no         | no           |
 | RichText   | Full Description  | `description`       | yes      | yes        | yes          |
 
 ### Tip
@@ -47,7 +47,7 @@ Edit it to remove the Image Field that has a Content Relation (ezobjectrelation)
 
 | Field Type | Name  | Identifier | Required | Searchable | Translatable |
 |------------|-------|------------|----------|------------|--------------|
-| Image      | Image | `image`    |yes       |no          | yes          |
+| Image Asset | Image | `image`    |yes       |no          | no           |
 
 ![New image Field in the Article Content Type](img/enterprise_tut_image_in_article_ct.png)
 
@@ -76,7 +76,11 @@ In the `assets` folder in the project root:
 - create a `css` folder and add the following stylesheet: [`style.css`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/assets/css/style.css) to it
 - create an `images` subfolder and add the [`header.jpg`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/assets/images/header.jpg) file to it
 
-Replace the `webpack.config.js` file in the project root folder with the [provided file](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/webpack.config.js).
+In the `webpack.config.js` file in the project root folder add the following line after `Encore.addEntry('app', './assets/app.js');`:
+
+``` js
+Encore.addStyleEntry('tutorial', [path.resolve(__dirname, './assets/css/style.css')]);.
+```
 
 Next, in the terminal run the commands:
 
@@ -102,15 +106,22 @@ This is what the structure of the new and modified files should look like (exclu
 
 Now return to the Back Office and create some content for your website.
 
-First, make three Folders under the `Content/Content structure` tab. Call them 'All Articles', 'Dog Breed Catalog' and 'All Tips'. Remember that you save and close them by using the 'Publish' button.
+First, you will not be implementing a shop in this tutorial,
+so you can hide shop-related Content items from the project root.
+
+Go to "Ibexa Digital Experience Platform" under the Content/Content structure tab.
+In the **Sub-items** section select all the current sub-items,
+then click Hide selected Location:
+
+![Hiding Content items you do not need](img/enterprise_tut_hide_content.png)
+
+Next, make three Folders under "Ibexa Digital Experience Platform". Call them 'All Articles', 'Dog Breed Catalog' and 'All Tips'. Remember that you save and close them by using the 'Publish' button.
 
 Next, create a few Content items of proper Content Types in each of these folders:
 
 - 4 Articles (at least, to best see the effects of the Content Scheduler block that you will create in step 3.)
 - 3 Dog Breeds
 - 3 Tips
-
-Finally, remove the "Ibexa Platform" folder. You will not need it for this tutorial.
 
 ### Add images
 
