@@ -10,6 +10,10 @@
     .md-sidebar {
         width: 15rem;
     }
+
+    .md-sidebar.md-sidebar--primary {
+        padding-top: 0;
+    }
     
     .md-content {
         max-width: calc(100% - 15rem * 2);
@@ -239,7 +243,7 @@
     width: 15rem;
     font-size: 16px;
     font-weight: 600;
-    padding: 0 1rem 1rem 1rem;
+    padding: 1rem;
     border-bottom: 1px solid var(--mid-grey);
     background: white;
 }

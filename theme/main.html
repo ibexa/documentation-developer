@@ -1,17 +1,19 @@
 {% extends "base.html" %}
     {% block site_nav %}
     {% if nav %}
-    <div class="main_nav">
-      <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-        <div class="site-header" id="site-name">
-          {{ config.site_name }}
-        </div>
-        <div class="md-sidebar__scrollwrap">
-          <div class="md-sidebar__inner">
-            {% include "partials/nav.html" %}
+      <div class="main_nav">
+        <div class="main_nav_content">
+          <div class="site-header" id="site-name">
+            {{ config.site_name }}
+          </div>
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                {% include "partials/nav.html" %}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     {% endif %}
     {% if page.toc %}
