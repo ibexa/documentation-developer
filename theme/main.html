@@ -29,12 +29,20 @@
 
 
     {% block content %}
-        <ul class="breadcrumbs">
-                <li class="breadcrumb-item">Documentation &#62;</li>
-            {% for ancestor in page.ancestors|reverse %}
-                <li class="breadcrumb-item">{{ ancestor.title }} &#62;</li>
-            {% endfor %}
-                <li class="breadcrumb-item breadcrumb-item-current">{{ page.title }}</li>
-        </ul>        
-        {{ page.content }}
+        {% set ns = namespace(bootstrap_extra_css='') %}
+        {% for md_file in config.extra.append_bootstrap if 'docs' + md_file in page.edit_url %}
+          {% set ns.bootstrap_extra_css = ' bootstrap-iso ez-guidelines' %}
+          {% include "partials/integrations/bootstrap.html" %}
+        {% endfor %}
+
+        <div class="{{ ns.bootstrap_extra_css }}">
+          <ul class="breadcrumbs">
+                  <li class="breadcrumb-item">Documentation &#62;</li>
+              {% for ancestor in page.ancestors|reverse %}
+                  <li class="breadcrumb-item">{{ ancestor.title }} &#62;</li>
+              {% endfor %}
+                  <li class="breadcrumb-item breadcrumb-item-current">{{ page.title }}</li>
+          </ul>
+          {{ page.content }}
+        </div>
     {% endblock %}

@@ -11,10 +11,6 @@
         width: 15rem;
     }
 
-    .md-sidebar.md-sidebar--primary {
-        padding-top: 0;
-    }
-    
     .md-content {
         max-width: calc(100% - 15rem * 2);
     }
