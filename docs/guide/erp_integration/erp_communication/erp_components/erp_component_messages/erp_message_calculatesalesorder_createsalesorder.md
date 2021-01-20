@@ -174,7 +174,7 @@ See [Reusable Party element](erp_message_select_customer.md#reusable-party-eleme
     </Price>
     <Item ses_unbounded="Description ManufacturersItemIdentification">
         <Name>Web-Connector</Name>
-        <Description>für SAP, Magento oder NAV</Description>
+        <Description>für Magento oder NAV</Description>
         <SellersItemIdentification>
             <ID>1000</ID>
             <ExtendedID>123</ExtendedID>

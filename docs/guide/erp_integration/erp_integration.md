@@ -42,7 +42,6 @@ eZ Commerce offers out-of-the-box interfaces and connectors for:
 
 - Microsoft Dynamics NAV
 - Microsoft Dynamics AX
-- SAP
 
 Since eZ Commerce offers an open interface using standards (REST, Webservices and a standard XML Format UBL),
 you can adapt other ERP systems as well.

@@ -4,7 +4,7 @@ eZ Commerce can use both webservices/SOAP and REST transfer protocols to connect
 
 You can extend the transport layer if you need an additional protocol or way to access the ERP/CRM.
 
-One way to connect to an SAP or Microsoft Dynamics NAV system is to use the Web.Connector (separately licensed product)
+One way to connect to Microsoft Dynamics NAV system is to use the Web.Connector (separately licensed product)
 which already comes with prepared interfaces for those ERP systems.
 
 There are other options besides using the Web.Connector:
