@@ -1,7 +1,4 @@
 <nav class="md-nav md-nav--primary" data-md-level="0">
-    <div class="site-header" id="site-name">
-        {{ config.site_name }}
-    </div>
   <ul class="md-nav__list" data-md-scrollfix>
     {% for nav_item in nav %}
       {% set path = "nav-" + loop.index | string %}

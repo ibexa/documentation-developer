@@ -670,8 +670,6 @@ theme:
     palette:
         primary: 'blue grey'
         accent: 'deep orange'
-    features:
-        - header.autohide
     logo: 'images/ibexa-dxp-logo.svg'
 
 plugins:
@@ -713,6 +711,7 @@ extra_css:
 
 extra_javascript:
   - js/jquery.min.js
+  - js/jquery-ui.min.js
   - js/custom.js
   - js/docs.switcher.js
   - js/ez-guidelines-switchers.js

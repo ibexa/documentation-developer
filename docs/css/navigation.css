@@ -16,21 +16,25 @@
     }
 }
 
+.md-nav--primary .md-nav__title,
+.md-nav--secondary .md-nav__title {
+    display: block;
+    font-size: 16px;
+    padding: 0.5rem 0.6rem;
+    height: initial;
+    background-color: transparent;
+    line-height: 1.5;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: var(--ibexa-jazzberry);
+}
+
 /* Page TOC */
 .md-nav--secondary {
     padding-left: 10px;
     padding-bottom: 10px;
     padding-top: 7rem;
-}
-
-.md-nav__title {
-    display: block;
-    font-size: 16px;
-    padding-left: 0.6rem;
-    font-weight: 700;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    color: var(--ibexa-jazzberry);
 }
 
 .md-nav--secondary>ul {
@@ -132,8 +136,9 @@
     background-size: 15px 18px;
 }
 
-.md-nav--primary .md-nav__item--nested>.level-1.open {
-    /* TODO */
+.md-nav--primary .md-nav__item--nested>.md-nav__toggle:checked~.level-1 {
+    background-image: url(../images/minus.svg);
+    background-size: 15px 18px;
 }
 
 .md-nav--primary .level-2 {
@@ -148,8 +153,9 @@
     background-size: 12px 15px;
 }
 
-.md-nav--primary .md-nav__item--nested>.level-2.open {
-    /* TODO */
+.md-nav--primary .md-nav__item--nested>.md-nav__toggle:checked~.level-2 {
+    background-image: url(../images/caret-down.svg);
+    background-size: 12px 15px;
 }
 
 .md-nav--primary .level-3 {
@@ -157,6 +163,11 @@
     background-position: 2.2rem;
     background-size: 12px 15px;
     padding-left: 3.2rem;
+}
+
+.md-nav--primary .md-nav__item--nested>.level-3 {
+    background-image: url(../images/caret.svg);
+    background-size: 12px 15px;
 }
 
 .md-nav--primary .md-nav__item--nested>.level-3 {
@@ -196,23 +207,18 @@
     display: none;
 }
 
-.md-nav--primary>.md-nav__list {
-    padding-top: 2.5rem;
-}
-
 /* End Main nav */
 
 .md-sidebar__inner {
     font-family: "Noto Sans", sans-serif;
 }
 
-.md-logo {
-    margin-top: 0;
-    padding-top: .2rem;
-}
-
 .md-header-nav__button {
     height: 100%;
+}
+
+.md-header-nav__button.md-logo {
+    display: block;
 }
 
 .md-header-nav__button.md-logo img {
@@ -230,7 +236,6 @@
 }
 
 .site-header {
-    position: fixed;
     width: 15rem;
     font-size: 16px;
     font-weight: 600;

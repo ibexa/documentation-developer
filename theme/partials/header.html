@@ -4,6 +4,9 @@
 {% endif %}
 <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="{{ lang.t('header.title') }}">
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      {% include ".icons/material/menu.svg" %}
+    </label>
     <a href="{{ site_url }}" title="{{ config.site_name | e }}" class="md-header-nav__button md-logo" aria-label="{{ config.site_name }}">
       <img src="{{ base_url }}/{{ config.theme.logo }}">
     </a>

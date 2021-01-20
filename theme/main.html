@@ -3,6 +3,9 @@
     {% if nav %}
     <div class="main_nav">
       <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+        <div class="site-header" id="site-name">
+          {{ config.site_name }}
+        </div>
         <div class="md-sidebar__scrollwrap">
           <div class="md-sidebar__inner">
             {% include "partials/nav.html" %}
