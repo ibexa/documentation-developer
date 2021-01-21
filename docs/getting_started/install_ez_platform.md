@@ -140,22 +140,19 @@ To install all necessary product packages, run:
 === "[[= product_name_content =]]"
 
     ``` bash
-    composer require ibexa-content
-    composer recipes:install ibexa-content --force
+    composer require ibexa-content:^3.3
     ```
 
 === "[[= product_name_exp =]]"
 
     ``` bash
-    composer require ibexa-experience
-    composer recipes:install ibexa-experience --force
+    composer require ibexa-experience:^3.3
     ```
 
 === "[[= product_name_com =]]"
 
     ``` bash
-    composer require ibexa-commerce
-    composer recipes:install ibexa-commerce --force
+    composer require ibexa-commerce:^3.3
     ```
 
 !!! tip
@@ -165,6 +162,39 @@ To install all necessary product packages, run:
 
     ``` bash
     composer require ibexa/experience:v3.3.0
+    ```
+
+
+#### Add project to version control
+
+At this point it is recommended to add your project to version control.
+
+For git, you can do it in the following way:
+
+``` bash
+git init; git add . > /dev/null; git commit -m "init" > /dev/null
+```
+
+#### Install recipes
+
+Now, install the Symfony Flex recipes for the relevant product version:
+
+=== "[[= product_name_content =]]"
+
+    ``` bash
+    composer recipes:install ibexa/content --force
+    ```
+
+=== "[[= product_name_exp =]]"
+
+    ``` bash
+    composer recipes:install ibexa/experience --force
+    ```
+
+=== "[[= product_name_com =]]"
+
+    ``` bash
+    composer recipes:install ibexa/commerce --force
     ```
 
 ### Change installation parameters
