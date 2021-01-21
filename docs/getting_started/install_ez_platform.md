@@ -140,19 +140,19 @@ To install all necessary product packages, run:
 === "[[= product_name_content =]]"
 
     ``` bash
-    composer require ibexa-content
+    composer require ibexa-content:^3.3
     ```
 
 === "[[= product_name_exp =]]"
 
     ``` bash
-    composer require ibexa-experience
+    composer require ibexa-experience:^3.3
     ```
 
 === "[[= product_name_com =]]"
 
     ``` bash
-    composer require ibexa-commerce
+    composer require ibexa-commerce:^3.3
     ```
 
 !!! tip
