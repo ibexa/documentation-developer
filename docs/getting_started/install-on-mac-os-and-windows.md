@@ -1,4 +1,4 @@
-# Installation on macOS or Windows
+# Install [[= product_name =]] on macOS or Windows
 
 This page explains how to install [[= product_name =]] on macOS or Windows.
 
@@ -35,6 +35,18 @@ The instructions below assume that you are using Apache.
     ``` bash
     zend_extension=opcache.so
     ```
+    
+    You can install Apache as a Windows service by running the following command in CMD as administrator:
+
+    ``` bash
+    httpd.exe -k -install
+    ```
+
+    You can then start it with:
+
+    ``` bash
+    httpd.exe -k start
+    ```
 
     Edit Apache configuration file `httpd.conf`.
     Replace placeholder values with corresponding values from your project, for example, `ServerName localhost:80`.
@@ -44,22 +56,6 @@ The instructions below assume that you are using Apache.
     LoadModule rewrite_module modules/mod_rewrite.so
     LoadModule vhost_alias_module libexec/apache2/mod_vhost_alias.so
     ```
-
-    Start Apache by running: `httpd.exe`.
-
-    !!! note
-
-        You can install Apache as a Windows service by running the following command in CMD as administrator:
-
-        ``` bash
-        httpd.exe -k -install
-        ```
-
-        You can then start it with:
-
-        ``` bash
-        httpd.exe -k start
-        ```
 
 ## Get Composer
 
