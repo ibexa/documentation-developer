@@ -19,7 +19,7 @@ nav:
             - '6. Improve configuration': 'tutorials/platform_beginner/6_improve_configuration.md'
             - '7. Embed content': 'tutorials/platform_beginner/7_embed_content.md'
             - '8. Enable account registration': 'tutorials/platform_beginner/8_enable_account_registration.md'
-        - Ibexa Experience beginner:
+        - Ibexa Experience beginner tutorial:
             - 'Ibexa Experience beginner tutorial': 'tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md'
             - '1. Get a starter website': 'tutorials/enterprise_beginner/1_get_a_starter_website.md'
             - '2. Prepare the Landing Page': 'tutorials/enterprise_beginner/2_prepare_the_landing_page.md'
