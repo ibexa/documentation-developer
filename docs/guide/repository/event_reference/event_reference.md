@@ -22,11 +22,11 @@ class MyEventSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            CopyContentEvent::class => ['onEvent', 0],
+            CopyContentEvent::class => ['onCopyContent', 0],
         ];
     }
 
-    public function onEvent(CopyContentEvent $event)
+    public function onCopyContent(CopyContentEvent $event): void
     {
         // your implementation
     }
