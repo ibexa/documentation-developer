@@ -1,0 +1,6 @@
+ezrichtext.custom_tags.factbox.label: FactBox
+ezrichtext.custom_tags.factbox.description: ''
+ezrichtext.custom_tags.factbox.attributes.name.label: Name
+ezrichtext.custom_tags.factbox.attributes.style.label: Style
+ezrichtext.custom_tags.factbox.attributes.style.choices.light.label: Light style
+ezrichtext.custom_tags.factbox.attributes.style.choices.dark.label: Dark style
