@@ -109,7 +109,7 @@ Now return to the Back Office and create some content for your website.
 First, you are not implementing a shop in this tutorial,
 so you can hide shop-related Content items from the project root.
 
-Go to **Content** ->  **Content structure** and select "Ibexa Digital Experience Platform" .
+Go to **Content** ->  **Content structure** and select "Ibexa Digital Experience Platform".
 In the **Sub-items** section, select all the current sub-items
 and click the **Hide selected Locations** icon:
 
