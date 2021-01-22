@@ -7,7 +7,7 @@ This page explains how to install [[= product_name =]] on macOS or Windows.
     This procedure is **for development purposes only**.
     Installing [[= product_name =]] for production purposes is supported only on Linux.
 
-    If you want to use [[= product_name =]] in the production environment, see [Installing [[= product_name =]]](../getting_started/install_ez_platform.md).  
+    For information about installing the product on Linux, see [Installing [[= product_name =]]](../getting_started/install_ez_platform.md).  
 
 ### Prepare work environment
 
@@ -18,27 +18,27 @@ If you want to use a web server, you need to install it as well:
 - For Windows: Apache
 - For macOS: Apache/nginx
 
-The instructions below assume you are using Apache.
+The instructions below assume that you are using Apache.
 
 ??? "Windows"
 
     Locate the `php.ini` file and open it in a text editor.
-    Provide missing values to relevant parameters, e.g. `date.timezone` and `memory_limit`:
+    Provide the missing values to relevant parameters, for example, `date.timezone` and `memory_limit`:
 
     ``` bash
     date.timezone = "Europe/Warsaw"
     memory_limit = 4G
     ```
 
-    Uncomment or add extensions relevant to your project, e.g. `opcache` extension for PHP (recommended, not required):
+    Uncomment or add extensions relevant to your project, for example, `opcache` extension for PHP (recommended, not required):
 
     ``` bash
     zend_extension=opcache.so
     ```
 
     Edit Apache configuration file `httpd.conf`.
-    Replace placeholder values with corresponding values from your project, e.g. `ServerName localhost:80`.
-    Uncomment relevant modules, e.g.:
+    Replace placeholder values with corresponding values from your project, for example, `ServerName localhost:80`.
+    Uncomment relevant modules, for example:
 
     ``` bash
     LoadModule rewrite_module modules/mod_rewrite.so
@@ -65,7 +65,7 @@ The instructions below assume you are using Apache.
 
 === "macOS"
 
-    Install Composer using a package manager, for example [Homebrew.](https://brew.sh/)
+    Install Composer using a package manager, for example, [Homebrew.](https://brew.sh/)
 
 === "Windows"
 
