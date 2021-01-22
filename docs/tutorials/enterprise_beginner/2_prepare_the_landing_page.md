@@ -1,4 +1,4 @@
-# Step 2 — Prepare the Page [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+# Step 2 — Prepare the Page [[% include 'snippets/experience_badge.md' %]]
 
 !!! tip
 
@@ -40,9 +40,9 @@ The design for the website you are making needs a layout with two zones: a main 
 
 Preparing a new layout requires three things:
 
-- **entry in configuration**
-- **thumbnail** 
-- **template** 
+- entry in configuration
+- thumbnail
+- template
 
 #### Create entry in configuration
 

@@ -1,4 +1,4 @@
-# Step 5 — Create a newsletter form [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+# Step 5 — Create a newsletter form [[% include 'snippets/experience_badge.md' %]]
 
 !!! tip
     You can find all files used and modified in this step on [GitHub.](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/tree/v3-master)
@@ -111,11 +111,11 @@ Clear the cache by running `bin/console cache:clear` and refresh the Page to see
 ### Configure the Form field
 
 Before applying the final styling of the block, you need to configure the [CAPTCHA field](../../extending/extending_form_builder.md#captcha-field).
-In `config/packages/gregwar_captcha.yaml`, under the `gregwar_captcha` key, add the following configuration:
+In `config/packages`, add a `gregwar_captcha.yaml` file with the following configuration:
 
 ``` yaml
 gregwar_captcha:
-    # existing keys
+    as_url: true
     width: 150
     invalid_message: Please, enter again.
     reload: true
