@@ -236,6 +236,13 @@ php bin/console assets:install
 yarn encore <dev|prod>
 ```
 
+!!! tip
+
+    You should run the `yarn encore` command with the [environment](../../guide/environments.md) you are using.
+
+    By default, [[= product_name =]] installs in the dev environment.
+    If you changed it to prod, use `yarn encore prod`.
+
 Refresh the page and you should see the "Hello world" placed inside a styled layout.
 
 ![Homepage with a Hello world](img/bike_tutorial_hello_world.png)
