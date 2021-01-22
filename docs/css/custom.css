@@ -315,6 +315,7 @@ ul li li li {
 
 .md-typeset .codehilitetable .linenodiv pre {
     color: var(--ibexa-snow);
+    background-color: var(--codeblock);
 }
 
 .md-typeset .codehilite, .md-typeset .highlight pre {
@@ -503,4 +504,20 @@ a.external:after {
     color: var(--white);
     font-size: 9px;
     font-weight: 500;
+}
+
+.experience-badge::after {
+    content: "Experience";
+}
+
+.experience-badge {
+    background-color: var(--ibexa-orange);
+}
+
+.commerce-badge::after {
+    content: "Commerce";
+}
+
+.commerce-badge {
+    background-color: var(--ibexa-jazzberry);
 }

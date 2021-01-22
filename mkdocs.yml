@@ -704,9 +704,11 @@ extra:
 
 extra_css:
   - fonts/MavenPro.css
+  - css/codehilite.css
   - css/custom.css
   - css/navigation.css
   - css/docs.switcher.css
+  - css/jquery-ui.min.css
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css'
 
 extra_javascript:
