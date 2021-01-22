@@ -57,6 +57,18 @@ Confirm the creation of the Content Type by selecting Save.
 
 ## Create Rides
 
+!!! note
+
+    If you are using [[= product_name_exp =]], the root Content item in your installation is
+    a Page called "Ibexa Digital Experience Platform".
+    
+    For this tutorial, swap it with its child, a Folder called "Ibexa Platform".
+    
+    To do this, go to "Ibexa Digital Experience Platform", select the **Locations** tab
+    and in the **Swap Locations** section navigate to "Ibexa Platform".
+    
+    You can learn how to work with Pages in [another tutorial](../enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md).
+
 Go back to the Content structure page by selecting **Content** in the top bar. 
 Then browse the Content tree and create a Folder named *All Rides* using the **Create** button in the Action bar on the right of the screen. 
 Publish the Folder.
