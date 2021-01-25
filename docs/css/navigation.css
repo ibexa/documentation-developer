@@ -261,7 +261,7 @@
 
 .md-search__input {
     height: 1.5rem;
-    padding-bottom: 0.2rem;
+    padding-bottom: 0.15rem;
     border: 1px solid var(--dark-grey);
     background-color: var(--ibexa-dusk-black);
 }
@@ -339,6 +339,7 @@ ul.breadcrumbs li.breadcrumb-item-current {
 
 [data-md-toggle=search]:checked~.md-header .md-search__inner {
     height: 56px;
+    z-index: 401;
 }
 
 [data-md-toggle=search]:checked~.md-header .md-search__input {
