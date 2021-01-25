@@ -342,7 +342,7 @@ ul.breadcrumbs li.breadcrumb-item-current {
 
 [data-md-toggle=search]:checked~.md-header .md-search__overlay {
     background-color: rgba(0,0,0,.54);
-    pointer-events: default;
+    pointer-events: initial;
 }
 
 [data-md-toggle=search]:checked~.md-header .md-search__inner,
