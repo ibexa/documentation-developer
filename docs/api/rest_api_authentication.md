@@ -25,7 +25,7 @@ For more information, see [REST API authentication](general_rest_usage.md#rest-a
 If activated, the user must log in, and the client must send the session cookie in every request, using standard Cookie header.
 The name (`sessionName`) and value (`sessionID`) of the header are defined in a `/user/sessions` POST response.
 
-Example request header: `Cookie: <SessionName> : <sessionID>`.
+Example request header: `Cookie: <SessionName>=<sessionID>`.
 
 ### CSRF token
 
