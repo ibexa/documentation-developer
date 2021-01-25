@@ -347,7 +347,8 @@ ul.breadcrumbs li.breadcrumb-item-current {
 
 [data-md-toggle=search]:checked~.md-header .md-search__inner,
 [data-md-toggle=search]:checked~.md-header .md-search__form,
-[data-md-toggle=search]:checked~.md-header .md-search__input {
+[data-md-toggle=search]:checked~.md-header .md-search__input,
+[data-md-toggle=search]:checked~.md-header .algolia-autocomplete {
     padding-top: 0;
     padding-bottom: 0;
     width: 100%;
