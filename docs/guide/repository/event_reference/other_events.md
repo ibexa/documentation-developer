@@ -2,7 +2,7 @@
 
 ## Bookmarks
 
-The following events are dispatched adding Content items to bookmarks.
+The following events are dispatched when adding Content items to bookmarks.
 
 | Event | Dispatched by | Properties |
 |---|---|---|

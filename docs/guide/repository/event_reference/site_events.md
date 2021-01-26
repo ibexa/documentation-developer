@@ -1,6 +1,6 @@
 # Site events [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-The following events are dispatched when managing [Sites](../../site_factory.md):
+The following events are dispatched when managing [Sites](../../site_factory.md).
 
 | Event | Dispatched by | Properties |
 |---|---|---|

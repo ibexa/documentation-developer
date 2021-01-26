@@ -31,7 +31,7 @@
 |`BeforeUnAssignUserFromUserGroupEvent`|`UserService::unAssignUserFromUserGroup`|`User $user`</br>`UserGroup $userGroup`|
 |`UnAssignUserFromUserGroupEvent`|`UserService::unAssignUserFromUserGroup`|`User $user`</br>`UserGroup $userGroup`|
 
-## Update User data
+## Updating User data
 
 | Event | Dispatched by | Properties |
 |---|---|---|

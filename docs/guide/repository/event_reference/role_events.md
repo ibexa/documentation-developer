@@ -10,7 +10,6 @@
 |`UpdateRoleDraftEvent`|`RoleService::updateRoleDraft`|`RoleDraft $roleDraft`</br>`RoleUpdateStruct $roleUpdateStruct`</br>`RoleDraft $updatedRoleDraft`|
 |`BeforeCopyRoleEvent`|`RoleService::copyRole`|`Role $role`</br>`RoleCopyStruct $roleCopyStruct`</br>`Role|null $copiedRole`|
 |`CopyRoleEvent`|`RoleService::copyRole`|`Role $copiedRole`</br>`Role $role`</br>`RoleCopyStruct $roleCopyStruct`|
-
 |`BeforePublishRoleDraftEvent`|`RoleService::publishRoleDraft`|`RoleDraft $roleDraft`|
 |`PublishRoleDraftEvent`|`RoleService::publishRoleDraft`|`RoleDraft $roleDraft`|
 |`BeforeDeleteRoleDraftEvent`|`RoleService::deleteRoleDraft`|`RoleDraft $roleDraft`|

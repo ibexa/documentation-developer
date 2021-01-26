@@ -1,6 +1,6 @@
 # Trash events
 
-The following events are dispatched when managing Trash:
+The following events are dispatched when managing Trash.
 
 | Event | Dispatched by | Properties |
 |---|---|---|
