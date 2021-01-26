@@ -474,6 +474,21 @@ nav:
         - Repository:
             - 'Repository': 'guide/repository.md'
             - 'Databases': 'guide/databases.md'
+            - Event reference:
+                - 'Event reference': 'guide/repository/event_reference/event_reference.md'
+                - 'Content events': 'guide/repository/event_reference/content_events.md'
+                - 'Content Type events': 'guide/repository/event_reference/content_type_events.md'
+                - 'Location events': 'guide/repository/event_reference/location_events.md'
+                - 'Language events': 'guide/repository/event_reference/language_events.md'
+                - 'Section events': 'guide/repository/event_reference/section_events.md'
+                - 'Object state events': 'guide/repository/event_reference/object_state_events.md'
+                - 'Role events': 'guide/repository/event_reference/role_events.md'
+                - 'User events': 'guide/repository/event_reference/user_events.md'
+                - 'Page events': 'guide/repository/event_reference/page_events.md'
+                - 'Site events': 'guide/repository/event_reference/site_events.md'
+                - 'URL events': 'guide/repository/event_reference/url_events.md'
+                - 'Trash events': 'guide/repository/event_reference/trash_events.md'
+                - 'Other events': 'guide/repository/event_reference/other_events.md'
         - Cache:
             - 'HTTP cache': 'guide/http_cache.md'
             - 'Persistence cache': 'guide/persistence_cache.md'
