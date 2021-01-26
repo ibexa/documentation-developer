@@ -96,7 +96,7 @@
     min-width: 150px;
 }
 
-.rst-versions {
+.md-header-nav__switcher .rst-versions {
     position: relative !important;
     width: 150px;
     text-align: left;
@@ -104,13 +104,13 @@
     background-color: var(--ibexa-dusk-black);
 }
 
-.rst-versions .rst-current-version {
+.md-header-nav__switcher .rst-versions .rst-current-version {
     color: #fff;
     background-color: transparent;
     text-align: left;
     font-size: 100%;
 }
 
-.rst-other-versions dt {
+.md-header-nav__switcher .rst-other-versions dt {
     display: none;
 }
