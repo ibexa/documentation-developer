@@ -1,10 +1,10 @@
-# Rotation for logfiles [[% include 'snippets/commerce_badge.md' %]]
+# Logfile rotation [[% include 'snippets/commerce_badge.md' %]]
 
 For systems using prod as environment:
 
-- `var/logs/prod.log`
-- `var/logs/silver.eshop.log`
-- `var/logs/prod-siso.eshop.erp.log`
+- `var/log/prod.log`
+- `var/log/silver.eshop.log`
+- `var/log/prod-siso.eshop.erp.log`
 
 ## logrotate
 
@@ -18,7 +18,7 @@ This directory contains already several scripts for e.g. apache2, samba, apt, et
 Create a new configuration file for `logrotate` in `/etc/logrotate.d/silver-eshop`:
 
 ``` yaml
-/var/www/projects/<your-project>/var/logs/prod.log /var/www/projects/<your-project>/var/logs/silver.eshop.log /var/www/projects/<your-project>/var/logs/prod-siso.eshop.erp.log {
+/var/www/projects/<your-project>/var/log/prod.log /var/www/projects/<your-project>/var/log/silver.eshop.log /var/www/projects/<your-project>/var/log/prod-siso.eshop.erp.log {
     su www-data www-data
     daily
     size 50M

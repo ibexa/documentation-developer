@@ -59,3 +59,35 @@ To remove old jobs, run the following command:
 ``` bash
 bin/console jms-job-queue:clean-up --env=prod --per-call=10 --max-retention="1 min"
 ```
+
+## Removing the translation and navigation caches
+
+The shop collects changes regarding translations (textmodules) and navigation.
+If there are changes (e.g. performed in the backend) the cache will be refreshed.   
+
+``` 
+# Checks for changes and refresh cache
+*/5 * * * * cd '/var/www/my_project' && /usr/bin/php bin/console ibexa:commerce:refresh-cache --env=prod
+```
+
+## Sending lost orders to the ERP
+
+Lost orders can be re-sent using a command-line tool. We recommend running this tool e.g. every 5 minutes.
+
+``` 
+# resends lost orders every 5 minutes
+*/5 * * * * cd '/var/www/my_project' && /usr/bin/php bin/console ibexa:commerce:process-lost-orders --env=prod
+```
+
+## Calculating statistical data for active sessions
+
+The dashboard uses statistical data about sessions recorded in a database table.
+This command line will refresh the data every 5 minutes. 
+
+!!! note
+
+    This feature is available only if sessions are handled in the database.
+
+``` 
+*/5 * * * * cd /var/www/my_project &&  /usr/bin/php bin/console ibexa:commerce:sessions write_stat --env=prod
+```

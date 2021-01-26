@@ -10,6 +10,13 @@ Orders are also transferred to the ERP system.
 
 ### Configuring ERP integration
 
+The following configuration enables using the ERP:
+
+``` yaml
+siso_local_order_management.default.send_order_to_erp: true
+    siso_order_history.default.use_local_documents: false
+```
+
 If you are using a prepared connector, see [Web.Connector configuration](erp_communication/erp_configuration/web_connector_configuration.md) for more information.
 
 In you are using a REST-based ERP system, see [Curl Configuration](erp_communication/erp_configuration/curl_configuration.md).
