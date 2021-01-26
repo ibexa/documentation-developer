@@ -2,13 +2,6 @@
     <div class="rst-versions switcher__selected-item" data-toggle="rst-versions" role="note" aria-label="versions">
         <div class="rst-current-version switcher__label" data-toggle="rst-current-version">v{{ current_version }}</div>
     </div>
-    <ul class="rst-other-versions switcher__list">
-        {% for version in versions %}
-        {% if version.verbose_name == current_version %} <strong> {% endif %}
-        <li class="switcher__item">
-            <a href="{{ url }}" class="md-header-nav__topic switcher__label">{{ slug }}</a>
-        </li>
-        {% if version.verbose_name == current_version %} </strong> {% endif %}
-        {% endfor %}
-    </ul>
+    <div class="rst-other-versions switcher__list">
+    </div>
 </div>
