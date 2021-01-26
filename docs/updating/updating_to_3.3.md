@@ -19,11 +19,12 @@ Merge the special update branch into your project:
 git merge origin/v3.2-to-v3.3-upgrade
 ```
 
-This will result in conflicts in `composer.json`.
+This will introduce changes from the [website skeleton](https://github.com/ibexa/website-skeleton/blob/main/composer.json)
+and result in conflicts in `composer.json`.
 
-Bring your `composer.json` inline with the changes from the [website skeleton.](https://github.com/ibexa/website-skeleton/blob/main/composer.json)
+Resolve the conflicts in the following way:
 
-- Remove all `ezsystems/*` packages
+- Make sure all `ezsystems/*` packages are removed.
 - Review the rest of the packages. If your project requires a package, keep it.
 - If a package is only used as a dependency of an `ezsystems` package, remove it. You can check how the package is used with `composer why <packageName>`.
 - Keep the dependencies listed in the website skeleton.
@@ -66,7 +67,7 @@ If Composer informs you that the `composer.lock` file is out of date, run `compo
 
 Run `composer recipes` to get a list of all the available recipes.
 
-Fore every recipe that needs updating, run:
+For every recipe that needs updating, run:
 
 ``` bash
 composer sync-recipes <package_name> --force -v
@@ -118,11 +119,20 @@ Apply the following database update script:
 
     `psql <database_name> < upgrade/db/postgresql/ezplatform-3.2.0-to-3.3.0.sql`
 
-In the `config/ezplatform.yaml` file under `content_tree_module.contextual_tree_root_location_ids` change the Location ID for Components to 60:
+Check the Location ID of the "Components" Content item and set it as the value for `content_tree_module.contextual_tree_root_location_ids` in `config/ezplatform.yaml`:
 
 ```
 - 60 # Components
 ```
 
-If you are using [[= product_name_com =]], add the `content/read` Policy
-with the Owner Limitation set to `self` to the "Ecommerce registered users" Role.
+If you are upgrading between [[= product_name_com =]] versions,
+add the `content/read` Policy with the Owner Limitation set to `self` to the "Ecommerce registered users" Role.
+
+## Finish the update
+
+Finish the update by running the following commands:
+
+``` bash
+php bin/console ibexa:graphql:generate-schema
+composer run post-install-cmd
+```
