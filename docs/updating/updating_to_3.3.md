@@ -5,7 +5,7 @@ When updating from v3.2 to v3.3, you need to follow a special update procedure.
 
 If you are updating from an earlier version, start with updating your installation to v3.2.
 
-First, create an upgrade branch and commit your work.
+First, create an upgrade branch in git and commit your work.
 
 !!! tip
 
@@ -36,7 +36,7 @@ Make sure `extra.symfony.endpoint` is set to `https://flex.ibexa.co`, and `extra
 "endpoint": "https://flex.ibexa.co"
 ```
 
-For all dependencies you removed from `composer.json`, check if the `bin` folder contains files you will not be using and remove them, for example:
+For all dependencies that you removed from `composer.json`, check if the `bin` folder contains files that will not be used and remove them, for example:
 
 ``` bash
 rm bin/{ezbehat,ezreport,phpunit,behat,fastest}
@@ -77,7 +77,7 @@ Review changes from each package and integrate them into your project.
 
 ## Install Ibexa recipes
 
-Install recipes for Ibexa packages for your product editions, for example:
+Install recipes for Ibexa packages for your product edition, for example:
 
 ``` bash
 composer recipes:install ibexa/content --force -v
@@ -119,7 +119,7 @@ Apply the following database update script:
 
     `psql <database_name> < upgrade/db/postgresql/ezplatform-3.2.0-to-3.3.0.sql`
 
-Check the Location ID of the "Components" Content item and set it as the value for `content_tree_module.contextual_tree_root_location_ids` in `config/ezplatform.yaml`:
+Check the Location ID of the "Components" Content item and set it as a value of the `content_tree_module.contextual_tree_root_location_ids` key in `config/ezplatform.yaml`:
 
 ```
 - 60 # Components
