@@ -8,7 +8,7 @@
       {% include ".icons/material/menu.svg" %}
     </label>
     <a href="{{ site_url }}" title="{{ config.site_name | e }}" class="md-header-nav__button md-logo" aria-label="{{ config.site_name }}">
-      <img src="{{ base_url }}/{{ config.theme.logo }}">
+      <img src="{{ base_url }}{% if base_url|last != "/" %}/{% endif %}{{ config.theme.logo }}">
     </a>
     <div class="md-header-nav__switcher push">
       {% include "partials/doc_switcher.html" %}
