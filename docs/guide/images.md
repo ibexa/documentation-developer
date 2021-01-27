@@ -403,7 +403,7 @@ To learn more about ImageAsset Field Type and its customization see [Field Type 
 
 Currently, Ibexa DXP does not allow you to store SVG images using `Image` or `ImageAsset` FieldType. Until the full support for this MIME type is in place, you can work things around by relying on `File` FieldType and implementing custom extension which would enable you to display/download files in your templates.
 
-First, you need to add a proper rule in `config/routes.yaml` file:
+First, you add a proper rule in the `config/routes.yaml` file:
 
 ```yaml
 app.svg_download:
