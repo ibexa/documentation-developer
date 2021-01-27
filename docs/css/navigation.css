@@ -18,6 +18,10 @@
     }
 
     .md-content {
+        max-width: calc(100% - 15rem);
+    }
+
+    .md-sidebar--secondary + .md-content {
         max-width: calc(100% - 15rem * 2);
     }
 }
