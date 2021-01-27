@@ -549,7 +549,7 @@ class SvgExtension extends AbstractExtension
 }
 ```
 
-Don't forget to configure the extension properly (also within `config/services.yaml` file):
+Next, you configure the extension within the `config/services.yaml` file:
 
 ```yaml
 App\Twig\SvgExtension:
