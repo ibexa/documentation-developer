@@ -559,7 +559,7 @@ App\Twig\SvgExtension:
         - { name: twig.extension }
 ```
 
-Now you can load SVG files in your templates using generated links and newly created Twig helper:
+Now you can load SVG files in your templates by using generated links and a newly created Twig helper:
 
 ```twig
 {% set svgField = ez_field(content, 'file') %}
