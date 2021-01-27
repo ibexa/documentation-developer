@@ -411,7 +411,8 @@ app.svg_download:
     defaults: { _controller: app.controller.content.svg:downloadSvgAction }
 ```
 
-It will point to the custom controller which will handle the action of downloading SVG file. Below you can find its definition (placed in `config/services.yaml`) and implementation:
+It points to a custom controller that handles the downloading of the SVG file. 
+The controller's definition (that you place in the `config/services.yaml` file) and implementation are as follows:
 
 ```yaml
 App\Controller\SvgController:
