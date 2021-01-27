@@ -2,10 +2,6 @@
 let jquery = jQuery;
 
 $(document).ready(function() {
-    $(document).on('click', "[data-toggle='rst-current-version']", function() {
-        $('.rst-other-versions').toggle();
-    });
-
     // replace edit url
     var branchName = 'master',
         branchNameRegexp = /\/en\/([a-z0-9-_.]*)\//g.exec(document.location.href);

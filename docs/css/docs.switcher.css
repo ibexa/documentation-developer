@@ -46,7 +46,9 @@
 }
 
 .switcher__selected-item .switcher__label {
-    display: inline-block;
+    display: block;
+    padding: 12px;
+    line-height: 1rem;
 }
 
 .switcher__selected-item:after {

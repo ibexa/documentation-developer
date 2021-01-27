@@ -268,12 +268,12 @@
 /* Search */
 
 .md-search__form {
-    padding-top: 0.4rem;
+    padding-top: 0.2rem;
     font-size: 11pt;
 }
 
 .md-search__form label svg {
-    padding-top: 0.5rem;
+    padding-top: 0.3rem;
 }
 
 .md-search__input {
