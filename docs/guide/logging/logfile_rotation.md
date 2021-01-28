@@ -1,6 +1,6 @@
 # Logfile rotation [[% include 'snippets/commerce_badge.md' %]]
 
-For systems using prod as environment:
+For systems that use prod as environment:
 
 - `var/log/prod.log`
 - `var/log/silver.eshop.log`

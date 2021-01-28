@@ -62,8 +62,8 @@ bin/console jms-job-queue:clean-up --env=prod --per-call=10 --max-retention="1 m
 
 ## Removing the translation and navigation caches
 
-The shop collects changes regarding translations (textmodules) and navigation.
-If there are changes (e.g. performed in the backend) the cache will be refreshed.   
+The shop collects changes regarding translations (text modules) and navigation.
+When there are changes (for example, performed in the back end), the cache is refreshed.   
 
 ``` 
 # Checks for changes and refresh cache
@@ -72,7 +72,8 @@ If there are changes (e.g. performed in the backend) the cache will be refreshed
 
 ## Sending lost orders to the ERP
 
-Lost orders can be re-sent using a command-line tool. We recommend running this tool e.g. every 5 minutes.
+Lost orders can be re-sent using a command-line tool. 
+We recommend that you run this tool regularly, for example, every 5 minutes.
 
 ``` 
 # resends lost orders every 5 minutes
@@ -82,7 +83,7 @@ Lost orders can be re-sent using a command-line tool. We recommend running this 
 ## Calculating statistical data for active sessions
 
 The dashboard uses statistical data about sessions recorded in a database table.
-This command line will refresh the data every 5 minutes. 
+The following command line refreshes the data every 5 minutes. 
 
 !!! note
 

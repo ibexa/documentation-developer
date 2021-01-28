@@ -10,7 +10,7 @@ Orders are also transferred to the ERP system.
 
 ### Configuring ERP integration
 
-The following configuration enables using the ERP:
+The following configuration enables the use of the ERP:
 
 ``` yaml
 siso_local_order_management.default.send_order_to_erp: true
