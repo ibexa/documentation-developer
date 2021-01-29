@@ -707,6 +707,7 @@ extra_css:
   - css/codehilite.css
   - css/switcher.css
   - css/custom.css
+  - css/page-not-found.css
   - css/navigation.css
   - css/docs.switcher.css
   - css/jquery-ui.min.css
