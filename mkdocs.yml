@@ -140,16 +140,7 @@ nav:
             - 'Back Office config': 'guide/config_back_office.md'
             - 'Repository config': 'guide/config_repository.md'
             - 'Connector config': 'guide/config_connector.md'
-            - Shop configuration:
-                - 'Shop configuration': 'guide/shop_configuration/shop_configuration.md'
-                - 'Session handling': 'guide/shop_configuration/session_handling.md'
-                - 'Storing sessions in Memcache': 'guide/shop_configuration/storing_sessions_in_memcache.md'
-                - 'Set up a new language': 'guide/shop_configuration/set_up_a_new_language.md'
-                - 'Required crontab tasks': 'guide/shop_configuration/required_crontab_tasks.md'
-                - 'Rotation for logfiles': 'guide/shop_configuration/rotation_for_logfiles.md'
-                - 'Advanced configuration': 'guide/shop_configuration/advanced_configuration.md'
-                - 'Email server': 'guide/shop_configuration/email_server.md'
-                - 'Configure ERP connection': 'guide/shop_configuration/configure_erp_connection.md'
+            - 'Shop configuration': 'guide/shop_configuration.md'
         - 'Admin management': 'guide/admin_panel.md'
         - Content rendering:
             - 'Content rendering': 'guide/content_rendering.md'
@@ -540,6 +531,7 @@ nav:
             - Logging:
                 - 'Logging': 'guide/logging/logging.md'
                 - 'Logging API': 'guide/logging/logging_api.md'
+                - 'Logfile rotation': 'guide/logging/logfile_rotation.md'
                 - 'Logging FAQ': 'guide/logging/logging_faq.md'
                 - 'TokenController logging': 'guide/logging/tokencontroller_logging.md'
             - 'Job system': 'guide/job_system.md'
