@@ -320,7 +320,7 @@ ezplatform:
             options:  <CONFIGURATION>
 ```
 
-If there is no configuration assigned to [`binary_handler`](file_management/#handling-binary-files) name, the placeholder generation will be disabled.
+If there is no configuration assigned to `binary_handler` name, the placeholder generation will be disabled.
 
 ##### Configuration examples:
 
