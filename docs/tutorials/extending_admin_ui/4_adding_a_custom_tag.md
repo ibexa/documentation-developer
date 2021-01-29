@@ -13,41 +13,7 @@ First, create a file that will contain the configuration for the custom tags.
 Add file `custom_tags.yaml` to `config/packages`:
 
 ``` yaml hl_lines="5 25"
-ezplatform:
-    system:
-        admin_group:
-            fieldtypes:
-                ezrichtext:
-                    custom_tags: [factbox]
-                    toolbars:
-                        ezadd:
-                            buttons:
-                                factbox:
-                                    priority: 5
-                        factbox:
-                            buttons:
-                                ezmoveup:
-                                    priority: 40
-                                ezmovedown:
-                                    priority: 30
-                                ezcustomtagedit:
-                                    priority: 20
-                                ezblockremove:
-                                    priority: 10
-ezrichtext:
-    custom_tags:
-        factbox:
-            template: field_type/ezrichtext/custom_tag/factbox.html.twig
-            icon: '/bundles/ezplatformadminui/img/ez-icons.svg#warning'
-            attributes:
-                name:
-                    type: string
-                    required: true
-                style:
-                    type: choice
-                    required: true
-                    default_value: light
-                    choices: [light, dark]
+[[= include_file('code_samples/back_office/custom_tags/factbox/config/packages/custom_tags.yaml') =]]
 ```
 
 The configuration first lists all custom tags that you have in the configuration (line 5) - in this case `factbox`.
@@ -60,12 +26,7 @@ Next, create the template that is referred to in the configuration.
 In `templates/field_type/ezrichtext/custom_tag` add the following `factbox.html.twig` file:
 
 ``` html+twig
-<div class="ez-factbox ez-factbox--{{ params.style }}">
-    <p>{{ params.name }}</p>
-    <div>
-        {{ content|raw }}
-    </div>
-</div>
+[[= include_file('code_samples/back_office/custom_tags/factbox/templates/field_type/ezrichtext/custom_tag/factbox.html.twig') =]]
 ```
 
 ## Add labels
@@ -74,12 +35,7 @@ Finally, add labels to the custom tag's editing interface.
 Provide them in a `translations/custom_tags.en.yaml` file:
 
 ``` yaml
-ezrichtext.custom_tags.factbox.label: FactBox
-ezrichtext.custom_tags.factbox.description: ''
-ezrichtext.custom_tags.factbox.attributes.name.label: Name
-ezrichtext.custom_tags.factbox.attributes.style.label: Style
-ezrichtext.custom_tags.factbox.attributes.style.choices.light.label: Light style
-ezrichtext.custom_tags.factbox.attributes.style.choices.dark.label: Dark style
+[[= include_file('code_samples/back_office/custom_tags/factbox/translations/custom_tags.en.yaml') =]]
 ```
 
 ## Check results

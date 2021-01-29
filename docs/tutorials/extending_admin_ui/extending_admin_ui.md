@@ -1,4 +1,4 @@
-# Extending Admin UI
+# Extending Back Office
 
 ## Introduction
 

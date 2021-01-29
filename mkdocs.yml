@@ -36,8 +36,8 @@ nav:
             - '6. Implement settings': 'tutorials/generic_field_type/6_settings.md'
             - '7. Add basic validation': 'tutorials/generic_field_type/7_add_a_validation.md'
             - '8. Data migration': 'tutorials/generic_field_type/8_data_migration.md'
-        - Extending Admin UI:
-            - 'Extending Admin UI': 'tutorials/extending_admin_ui/extending_admin_ui.md'
+        - Extending Back Office:
+            - 'Extending Back Office': 'tutorials/extending_admin_ui/extending_admin_ui.md'
             - '1. Creating a My dashboard tab': 'tutorials/extending_admin_ui/1_creating_a_dashboard_tab.md'
             - '2. Creating a top menu item': 'tutorials/extending_admin_ui/2_creating_a_content_list.md'
             - '3a. Filtering query results': 'tutorials/extending_admin_ui/3_filtering_the_content_list.md'

@@ -1,0 +1,35 @@
+ezplatform:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    custom_tags: [factbox]
+                    toolbars:
+                        ezadd:
+                            buttons:
+                                factbox:
+                                    priority: 5
+                        factbox:
+                            buttons:
+                                ezmoveup:
+                                    priority: 40
+                                ezmovedown:
+                                    priority: 30
+                                ezcustomtagedit:
+                                    priority: 20
+                                ezblockremove:
+                                    priority: 10
+ezrichtext:
+    custom_tags:
+        factbox:
+            template: field_type/ezrichtext/custom_tag/factbox.html.twig
+            icon: '/bundles/ezplatformadminui/img/ez-icons.svg#warning'
+            attributes:
+                name:
+                    type: string
+                    required: true
+                style:
+                    type: choice
+                    required: true
+                    default_value: light
+                    choices: [light, dark]
