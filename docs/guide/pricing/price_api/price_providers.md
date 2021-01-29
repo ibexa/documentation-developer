@@ -67,6 +67,24 @@ Customer currency is used (set in the price request).
 
 Prices (and currency) are usually set up per country and provided during the import from the ERP or PIM system.
 
+#### VAT settings
+
+You can configure VAT settings for each delivery country separately: 
+
+``` yaml
+siso_core.default.vat:
+    DE:
+        VATREDUCED: 7
+        VATNORMAL: 19
+    US:
+        VATREDUCED: 4
+        VATNORMAL: 4
+    default:
+        VATREDUCED: 7
+        VATNORMAL: 19
+        
+```
+
 ## Checking which price provider is used
 
 You might want to know the price provider that is used to calculate a price (e.g. in the basket).
