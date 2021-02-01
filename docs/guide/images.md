@@ -401,9 +401,10 @@ To learn more about ImageAsset Field Type and its customization see [Field Type 
 
 ## Handling SVG images
 
-Currently, Ibexa DXP does not allow you to store SVG images using `Image` or `ImageAsset` FieldType. Until the full support for this MIME type is in place, you can work things around by relying on `File` FieldType and implementing custom extension which would enable you to display/download files in your templates.
+Currently, [[= product_name =]] does not allow you to store SVG images by using the Image or ImageAsset Field Type. 
+Until the full support for this MIME type is in place, you can work things around by relying on the File Field Type and implementing a custom extension that lets you display and download files in your templates.
 
-First, you need to add a proper rule in `config/routes.yaml` file:
+First, you add a proper rule in the `config/routes.yaml` file:
 
 ```yaml
 app.svg_download:
@@ -411,7 +412,8 @@ app.svg_download:
     defaults: { _controller: app.controller.content.svg:downloadSvgAction }
 ```
 
-It will point to the custom controller which will handle the action of downloading SVG file. Below you can find its definition (placed in `config/services.yaml` under `services` key) and implementation:
+It points to a custom controller that handles the downloading of the SVG file. 
+The controller's definition (that you place in the `config/services.yaml` file under `services` key) and implementation are as follows:
 
 ```yaml
 App\Controller\SvgController:
@@ -557,7 +559,7 @@ class SvgExtension extends AbstractExtension
 }
 ```
 
-Don't forget to configure the extension properly (also within `config/services.yaml` file):
+Next, you configure the extension within the `config/services.yaml` file:
 
 ```yaml
 App\Twig\SvgExtension:
@@ -565,7 +567,7 @@ App\Twig\SvgExtension:
     autoconfigure: true
 ```
 
-Now you can load SVG files in your templates using generated links and newly created Twig helper:
+Now you can load SVG files in your templates by using generated links and a newly created Twig helper:
 
 ```twig
 {% set svgField = ez_field(content, 'file') %}
