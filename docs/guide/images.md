@@ -411,19 +411,21 @@ app.svg_download:
     defaults: { _controller: app.controller.content.svg:downloadSvgAction }
 ```
 
-It will point to the custom controller which will handle the action of downloading SVG file. Below you can find its definition (placed in `config/services.yaml`) and implementation:
+It will point to the custom controller which will handle the action of downloading SVG file. Below you can find its definition (placed in `config/services.yaml` under `services` key) and implementation:
 
 ```yaml
 App\Controller\SvgController:
     public: true
     arguments:
-        - "@ezpublish.api.service.content"
-        - "@ezpublish.fieldType.ezbinaryfile.io_service"
-        - "@ezpublish.translation_helper"
+        - '@ezpublish.api.service.content'
+        - '@ezpublish.fieldType.ezbinaryfile.io_service'
+        - '@ezpublish.translation_helper'
 ```
 
 ```php
 <?php
+
+declare(strict_types=1);
 
 namespace App\Controller;
 
@@ -439,7 +441,7 @@ use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
 class SvgController extends Controller
 {
-    const CONTENT_TYPE_HEADER = 'image/svg+xml';
+    private const CONTENT_TYPE_HEADER = 'image/svg+xml';
 
     /** @var \eZ\Publish\API\Repository\ContentService */
     private $contentService;
@@ -463,8 +465,7 @@ class SvgController extends Controller
     /**
      * @throws \eZ\Publish\API\Repository\Exceptions\NotFoundException
      * @throws \eZ\Publish\API\Repository\Exceptions\UnauthorizedException
-     * @throws \eZ\Publish\Core\Base\Exceptions\InvalidArgumentValue
-     * @throws \eZ\Publish\Core\Base\Exceptions\NotFoundException
+     * @throws \eZ\Publish\API\Repository\Exceptions\InvalidArgumentException
      */
     public function downloadSvgAction(
         int $contentId,
@@ -483,7 +484,13 @@ class SvgController extends Controller
         $field = $this->translationHelper->getTranslatedField($content, $fieldIdentifier, $language);
 
         if (!$field instanceof Field) {
-            throw new InvalidArgumentException(sprintf("%s field not present in content %d '%s'", $fieldIdentifier, $content->contentInfo->id, $content->contentInfo->name));
+            throw new InvalidArgumentException(
+                sprintf("%s field not present in content %d '%s'", 
+                    $fieldIdentifier, 
+                    $content->contentInfo->id, 
+                    $content->contentInfo->name
+                )
+            );
         }
 
         $binaryFile = $this->ioService->loadBinaryFile($field->value->id);
@@ -505,6 +512,8 @@ To be able to use a proper link in your templates, you also need a dedicated Twi
 ```php
 <?php
 
+declare(strict_types=1);
+
 namespace App\Twig;
 
 use Symfony\Component\Routing\RouterInterface;
@@ -525,7 +534,7 @@ class SvgExtension extends AbstractExtension
     }
 
     /**
-     * @return array|TwigFunction[]
+     * @return TwigFunction[]
      */
     public function getFunctions()
     {
@@ -552,10 +561,8 @@ Don't forget to configure the extension properly (also within `config/services.y
 
 ```yaml
 App\Twig\SvgExtension:
-    arguments:
-        - "@router"
-    tags:
-        - { name: twig.extension }
+    autowire: true
+    autoconfigure: true
 ```
 
 Now you can load SVG files in your templates using generated links and newly created Twig helper:
