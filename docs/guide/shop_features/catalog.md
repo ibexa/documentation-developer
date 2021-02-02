@@ -8,11 +8,11 @@ The source of products depends on the data provider you have configured.
 
 Data providers define where product information is stored.
 
-You can use one of two data providers: the content model data provider and the eContent data provider.
+You can use one of two data providers: the Repository data provider and the eContent data provider.
 
-### Content model data provider
+### Repository data provider
 
-When you use the content model data provider, each product is a Content item, stored in the Repository.
+When you use the Repository data provider, each product is a Content item, stored in the Repository.
 
 Use this data provider when you have no PIM system and a limited number of products (up to 20.000).
 

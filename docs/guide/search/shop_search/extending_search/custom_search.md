@@ -17,7 +17,7 @@ A condition for visibility ensures that only visible products are returned.
 Boosting is set up so that SKU and name are more important than long description.
 
 The field boosting condition is implementation dependent. This means that the field name values which are passed to the constructor are different for eContent and content model search.
-For content model data, you need to pass the content Field identifier strings.
+For Repository data, you need to pass the content Field identifier strings.
 For eContent you need to pass the raw Solr field names, including the default search field (which is `text` by default).
 
 ``` php
