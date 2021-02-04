@@ -1,26 +1,26 @@
 # Extending the REST API
 
-The [[= product_name =]] REST API comes with a framework that makes it easy to extend the API for your own needs.
+The [[= product_name =]] REST API comes with a framework that makes it easy to extend the API, so that it suits your requirements.
 
 ## Requirements
 
-REST routes are required to use the [[= product_name =]] REST API prefix, `/api/ezp/v2`. You can create new resources below this prefix.
+REST routes must use the [[= product_name =]] REST API prefix, `/api/ezp/v2`. 
+You create new resources below this prefix.
 
-To do so, you will/may need to create:
+To do so, you create:
 
--   a controller that will handle your route actions
--   a route, in your bundle's routing file
+-   a controller that handles your route actions
+-   a route in your routing file
 -   a controller action
--   optionally, a `ValueObjectVisitor` (if your controller returns an object that doesn't already have a converter)
+-   optionally, a `ValueObjectVisitor` (if the controller returns an object that doesn't already have a converter)
 -   optionally, an `InputParser`
 
 ### Controller
 
-To create a REST controller, you need to extend the `ezpublish_rest.controller.base` service, as well as the `EzSystems\EzPlatformRest\Server\Controller` class.
+To create a REST controller, you extend the `ezpublish_rest.controller.base` service, as well as the `EzSystems\EzPlatformRest\Server\Controller` class.
 
-First create a simple controller that has a `sayHello()` method which takes a name as an argument.
-
-**src/Rest/Controller/DefaultController.php**
+First, create a simple controller with a `sayHello()` method that takes a name as an argument.
+It can be, for example, `src/Rest/Controller/DefaultController.php`.
 
 ``` php
 namespace App\Rest\Controller;
@@ -38,21 +38,19 @@ class DefaultController extends BaseController
 
 ### Route
 
-As mentioned earlier, your REST routes are required to use the REST URI prefix. To do so, the easiest way is to import your routing file using this prefix.
-
-**config/routes.yaml**
+Your REST routes must use the REST URI prefix. 
+To ensure that they do, in the `config/routes.yaml` file, import your routing file by using this prefix.
 
 ``` yaml
 my_rest_routes:
-    resource: routing_rest.yaml
+    resource: routes_rest.yaml
     prefix: '%ezpublish_rest.path_prefix%'
 ```
 
-Using a distinct file for REST routes allows you to use the prefix for all this file's routes without affecting other routes from your bundle.
+When you have a distinct file for the REST routes, you can apply the prefix to all the routes from this file, without affecting other routes.
 
-Next, you need to create the REST route. Define the route's [controller as a service](http://symfony.com/doc/5.0/cookbook/controller/service.html) since your controller was defined as such.
-
-**config/routes_rest.yaml**
+Next, you create the REST route. 
+In the `config/routes_rest.yaml` file, define the route's [controller as a service](http://symfony.com/doc/5.0/cookbook/controller/service.html) because your controller was defined as such.
 
 ``` yaml
 my_rest_hello_world:
@@ -62,9 +60,9 @@ my_rest_hello_world:
     methods: [GET]
 ```
 
-Due to [EZP-23016](https://jira.ez.no/browse/EZP-23016) - Custom REST API routes (v2) are not accessible from the legacy backend, custom REST routes must be prefixed with `ezpublish_rest_`, or they won't be detected correctly.
-
-**config/services.yaml**
+Due to [EZP-23016 - Custom REST API routes (v2) are not accessible from the legacy backend](https://jira.ez.no/browse/EZP-23016), 
+custom REST routes must be prefixed with `ezpublish_rest_`, or they are not recognized.
+Modify the `config/services.yaml` file by adding the following code:
 
 ``` yaml
 services:
@@ -75,11 +73,13 @@ services:
 
 ## Controller action
 
-Unlike standard Symfony controllers, the REST ones don't return an `HttpFoundation\Response` object, but a `ValueObject`. This object will during the kernel run be converted, using a `ValueObjectVisitor`, to a proper Symfony response. One benefit is that when multiple controllers return the same object, such as a Content item or a Location, the visitor will be re-used.
+Unlike standard Symfony controllers, REST controllers return `ValueObject` instead of 
+the `HttpFoundation\Response` object. 
+During the kernel run, `ValueObjectVisitor` converts `ValueObject` into a proper Symfony response. 
+One benefit of such behavior is that the visitor is reused when multiple controllers return 
+the same object, for example, a Content item or a Location.
 
-Let's say that your controller will return a `App\Rest\Values\Hello`
-
-**src/Rest/Values/Hello.php**
+For the controller to return `App\Rest\Values\Hello`, add the following code to the `src/Rest/Values/Hello.php` file.
 
 ``` php
 namespace App\Rest\Values;
@@ -95,9 +95,7 @@ class Hello
 }
 ```
 
-An instance of this class will be returned from `sayHello()` controller method.
-
-**src/Rest/Controller/DefaultController.php**
+An instance of this class is returned from the `sayHello()` controller method in the `src/Rest/Controller/DefaultController.php` file.
 
 ``` php
 namespace App\Controller\Rest;
@@ -114,15 +112,16 @@ class DefaultController extends BaseController
 }
 ```
 
-Outputting this object in the response requires that you create a `ValueObjectVisitor`.
+Outputting this object in the response requires that you create `ValueObjectVisitor`.
 
 ## ValueObjectVisitor
 
-A `ValueObjectVisitor` will take a Value returned by a REST controller, whatever the class, and will transform it into data that can be converted, either to JSON or XML format. Those visitors are registered as services, and tagged with `ezpublish_rest.output.value_object_visitor`. The tag attribute says which class this visitor applies to.
+`ValueObjectVisitor` takes a Value returned by the REST controller, whatever the class, and 
+transforms the Value into data that can be converted, either to JSON or XML format. 
+Visitors are registered as services, and tagged with `ezpublish_rest.output.value_object_visitor`. 
+The tag attribute corresponds to a class, which this visitor applies to.
 
-Create the service for your `ValueObjectVisitor` first.
-
-**config/services.yaml**
+In the `config/services.yaml` file, create a service for your `ValueObjectVisitor`.
 
 ``` yaml
 services:
@@ -132,16 +131,18 @@ services:
             - { name: ezpublish_rest.output.value_object_visitor, type: App\Rest\Values\Hello }
 ```
 
-Create your visitor next. It must extend the  `EzSystems\EzPlatformRest\Output\ValueObjectVisitor` abstract class, and implement the `visit()` method.
-It will receive as arguments:
+Then create your visitor. 
+It must extend the  `EzSystems\EzPlatformRest\Output\ValueObjectVisitor` abstract class, and implement 
+the `visit()` method.
+The visitor receives the following arguments:
 
 |Argument|Description|
 |--------|-----------|
 |`$visitor`| The output visitor. Can be used to set custom response headers ( `setHeader( $name, $value )`), HTTP status code ( `setStatus( $statusCode )` )|
 |`$generator`| The actual response generator. It provides you with a DOM like API.|
-|`$data`| The visited data. The exact object you returned from the controller|
+|`$data`| The visited data. The exact object that you returned from the controller|
 
-**src/Rest/ValueObjectVisitor/Hello.php**
+In the `src/Rest/ValueObjectVisitor/Hello.php` file, add the following code:
 
 ``` php
 namespace App\Rest\ValueObjectVisitor;
@@ -165,11 +166,14 @@ class Hello extends ValueObjectVisitor
 }
 ```
 
-The easiest way to handle cache is to re-use the `CachedValue` value object. It acts as a proxy, and adds the cache headers, depending on the configuration, for a given object and set of options.
+The easiest way to handle cache is to reuse the `CachedValue` value object. 
+The `CachedValue` value object acts as a proxy and adds the cache headers, depending on the configuration, 
+for a given object and a set of options.
 
-When you want the response to be cached, return an instance of `CachedValue`, with your Value Object as the argument. You can also pass a Location ID using the second argument, so that the response is tagged with it:
+For the response to be cached, return an instance of `CachedValue`, with the value object as an argument. 
+You can also pass the Location ID as the second argument, so that the response is tagged with it:
 
-```
+``` php
 use EzSystems\EzPlatformRest\Server\Values\CachedValue;
 //...
     public function sayHello(string $name)
@@ -183,7 +187,7 @@ use EzSystems\EzPlatformRest\Server\Values\CachedValue;
 
 ```
 
-Below you can find the corresponding response header when using Varnish as reverse proxy:
+The corresponding response header, when using Varnish as reverse proxy, looks as follows:
 
 ```
 Age →30
@@ -195,15 +199,18 @@ X-Cache-Hits →2
 
 ## Input parser
 
-If you need to provide your controller with parameters, either in JSON or XML, the parameter struct requires an input parser so that the payload can be converted to an actual `ValueObject`.
+To provide your controller with parameters, either in JSON or XML format, the parameter struct requires 
+an input parser so that the payload can be converted to an actual `ValueObject`.
 
-Each payload is dispatched to its input parser based on the request's Content-Type header. For example, a request with a Content-Type of `application/vnd.ez.api.ContentCreate` will be parsed by `EzSystems\EzPlatformRest\Server\Input\Parser`. This parser will build and return a `ContentCreateStruct` that can then be used to create content with the Public API.
+Each payload is dispatched to its input parser based on the request's `Content-Type` header. 
+For example, a request with a `Content-Type` of `application/vnd.ez.api.ContentCreate` is parsed 
+by `EzSystems\EzPlatformRest\Server\Input\Parser`. 
+This parser builds and returns `ContentCreateStruct` that can then be used to create content with the Public API.
 
-Those input parsers are provided with a pre-parsed version of the input payload, as an associative array, and don't have to care about the actual format (XML or JSON).
+Input parsers are provided with a pre-parsed version of the input payload, as an associative array.
+Parsers are format-insensitive (whether it is XML or JSON).
 
-Let's see what it would look like with a Content-Type of `application/vnd.my.Greetings`, that would send this as XML:
-
-**application/vnd.my.Greetings+xml**
+The following paragraphs discuss processing a `Content-Type` of `application/vnd.my.Greetings` that sends the following XML:
 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -212,9 +219,8 @@ Let's see what it would look like with a Content-Type of `application/vnd.my.Gre
 </Greetings>
 ```
 
-First, you need to create a service with the appropriate tag in `services.yaml`.
-
-**config/services.yaml**
+Create a service with the appropriate tag in the `config/services.yaml` file.
+The `mediaType` attribute of the `ezpublish\_rest.input.parser` tag maps the Content Type to the input parser.
 
 ``` yaml
 services:
@@ -224,13 +230,13 @@ services:
             - { name: ezpublish_rest.input.parser, mediaType: application/vnd.my.Greetings }
 ```
 
-The mediaType attribute of the `ezpublish\_rest.input.parser` tag maps our Content Type to the input parser.
+Then, implement the parser. 
+It must extend `EzSystems\EzPlatformRest\Server\Input\Parser`, and implement the `parse()` method. 
+As an argument, the `parse()` method accepts the `$data` array with input payload, and an instance 
+of `ParsingDispatcher` that can be used to forward the parsing of embedded content.
 
-Implement your parser. It must extend `EzSystems\EzPlatformRest\Server\Input\Parser`, and implement the `parse()` method. It accepts as an argument the input payload, `$data`, as an array, and an instance of `ParsingDispatcher` that can be used to forward parsing of embedded content.
-
-For convenience, consider that your input parser returns an instance of `Value\Hello` class.
-
-**src/Rest/InputParser/Greetings.php**
+For convenience, consider that the input parser returns an instance of `Value\Hello` class.
+Add the following code to the `src/Rest/InputParser/Greetings.php` file.
 
 ``` php
 namespace App\Rest\InputParser;
@@ -254,9 +260,9 @@ class Greetings extends BaseParser
 }
 ```
 
-You should then add a new method to the previous `DefaultController` to handle the new POST request:
+Modify the existing `DefaultController` by adding a method to handle the new POST request:
 
-```
+``` php
 use EzSystems\EzPlatformRest\Message;
 //...
     public function sayHelloUsingPost()
@@ -273,9 +279,9 @@ use EzSystems\EzPlatformRest\Message;
     }
 ```
 
-The `inputDispatcher` is responsible for matching the `Content-Type` sent in the header with the Greetings `InputParser` class.
+The `inputDispatcher` is responsible for matching the `Content-Type` from the header with the Greetings' `InputParser` class.
 
-Finally, a new Route should be added to `routing_rest.yaml`
+Finally, add a new Route to `routes_rest.yaml`.
 
 ``` yaml
 my_rest_hello_world_using_post:
@@ -287,15 +293,15 @@ my_rest_hello_world_using_post:
 
 !!! note
 
-    POST requests are not able to access the Repository without performing a user authentication. For more information check [REST API Authentication](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta5/doc/specifications/rest/REST-API-V2.rst#authentication).
+    POST requests are unable to access the Repository without performing user authentication. For more information, see [REST API Authentication](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta5/doc/specifications/rest/REST-API-V2.rst#authentication).
 
-You can look into the built-in `InputParsers`, in `eZ/Publish/Core/REST/Server/Input/Parser`, for more examples.
+For more examples, examine the built-in `InputParsers` in `eZ/Publish/Core/REST/Server/Input/Parser`.
 
 ## Registering resources in the REST root
 
 You can register newly added resources so that they show up in the REST root resource for automatic discovery.
 
-New resources can be registered with code like this:
+You can register new resources with code similar the following example, where `someresource` is a unique key:
 
 ``` yaml
 ez_publish_rest:
@@ -307,12 +313,11 @@ ez_publish_rest:
                     href: 'router.generate("ezpublish_rest_loadContent", {"contentId": 2})'
 ```
 
-with `someresource` being a unique key.
+The `router.generate` call dynamically renders a URI based on the name of the route and the optional parameters that are passed as the other arguments.
+In the above code sample, `contentId` is the additional parameter.
 
-The `router.generate` call dynamically renders a URI based on the name of the route and the optional parameters that are passed as the other arguments (in the code above this is the `contentId`).
+The syntax is based on the Symfony's [expression language](http://symfony.com/doc/5.0/components/expression_language/index.html), an extensible component that allows limited/readable scripting to be used outside of the code context.
 
-This syntax is based on [Symfony's expression language](http://symfony.com/doc/5.0/components/expression_language/index.html), an extensible component that allows limited/readable scripting to be used outside code context.
+The above configuration adds the following entry to the root resource:
 
-The above configuration will add the following entry to the root resource:
-
-`<someresource media-type="application/vnd.ez.api.Content+xml" href="/api/ezp/v2/content/objects/2"/>`
+`<someresource media-type="application/vnd.ez.api.Content+xml" href="/api/ezp/v2/content/objects/2"/>
