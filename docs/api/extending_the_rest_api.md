@@ -20,16 +20,16 @@ To create a REST controller, you need to extend the `ezpublish_rest.controller.b
 
 First create a simple controller that has a `sayHello()` method which takes a name as an argument.
 
-**My/Bundle/RestBundle/Rest/Controller/DefaultController.php**
+**src/Rest/Controller/DefaultController.php**
 
 ``` php
-namespace My\Bundle\RestBundle\Rest\Controller;
+namespace App\Rest\Controller;
 
 use EzSystems\EzPlatformRest\Server\Controller as BaseController;
 
 class DefaultController extends BaseController
 {
-    public function sayHello( $name )
+    public function sayHello(string $name)
     {
         // @todo Implement me
     }
@@ -40,11 +40,11 @@ class DefaultController extends BaseController
 
 As mentioned earlier, your REST routes are required to use the REST URI prefix. To do so, the easiest way is to import your routing file using this prefix.
 
-**config/routing.yaml**
+**config/routes.yaml**
 
 ``` yaml
-myRestBundle_rest_routes:
-    resource: '@MyRestBundle/Resources/config/routing_rest.yaml'
+my_rest_routes:
+    resource: routing_rest.yaml
     prefix: '%ezpublish_rest.path_prefix%'
 ```
 
@@ -52,43 +52,43 @@ Using a distinct file for REST routes allows you to use the prefix for all this 
 
 Next, you need to create the REST route. Define the route's [controller as a service](http://symfony.com/doc/5.0/cookbook/controller/service.html) since your controller was defined as such.
 
-**My/Bundle/RestBundle/Resources/config/routing\_rest.yaml**
+**config/routes_rest.yaml**
 
 ``` yaml
-myRestBundle_hello_world:
+my_rest_hello_world:
     path: '/my_rest_bundle/hello/{name}'
     defaults:
-        _controller: My\Bundle\RestBundle\Rest\Controller\DefaultController::sayHelloAction
+        _controller: App\Rest\Controller\DefaultController::sayHello
     methods: [GET]
 ```
 
 Due to [EZP-23016](https://jira.ez.no/browse/EZP-23016) - Custom REST API routes (v2) are not accessible from the legacy backend, custom REST routes must be prefixed with `ezpublish_rest_`, or they won't be detected correctly.
 
-**My/Bundle/RestBundle/Resources/config/services.yaml**
+**config/services.yaml**
 
 ``` yaml
 services:
-    myRestBundle.controller.default:
-        class: My\Bundle\RestBundle\Rest\Controller\Default
+    App\Controller\Rest\DefaultController:
         parent: ezpublish_rest.controller.base
+        tags: ['controller.service_arguments']
 ```
 
 ## Controller action
 
 Unlike standard Symfony controllers, the REST ones don't return an `HttpFoundation\Response` object, but a `ValueObject`. This object will during the kernel run be converted, using a `ValueObjectVisitor`, to a proper Symfony response. One benefit is that when multiple controllers return the same object, such as a Content item or a Location, the visitor will be re-used.
 
-Let's say that your controller will return a `My\Bundle\RestBundle\Rest\Values\Hello`
+Let's say that your controller will return a `App\Rest\Values\Hello`
 
-**My/Bundle/RestBundle/Rest/Values/Hello.php**
+**src/Rest/Values/Hello.php**
 
 ``` php
-namespace My\Bundle\RestBundle\Rest\Values;
+namespace App\Rest\Values;
 
 class Hello
 {
     public $name;
 
-    public function __construct( $name )
+    public function __construct(string $name)
     {
         $this->name = $name;
     }
@@ -97,19 +97,19 @@ class Hello
 
 An instance of this class will be returned from `sayHello()` controller method.
 
-**My/Bundle/RestBundle/Rest/Controller/DefaultController.php**
+**src/Rest/Controller/DefaultController.php**
 
 ``` php
-namespace My\Bundle\RestBundle\Controller;
+namespace App\Controller\Rest;
 
 use EzSystems\EzPlatformRest\Server\Controller as BaseController;
-use My\Bundle\RestBundle\Rest\Values\Hello as HelloValue;
+use App\Rest\Values\Hello as HelloValue;
 
 class DefaultController extends BaseController
 {
-    public function sayHello( $name )
+    public function sayHello($name): HelloValue
     {
-        return new HelloValue( $name );
+        return new HelloValue($name);
     }
 }
 ```
@@ -122,15 +122,14 @@ A `ValueObjectVisitor` will take a Value returned by a REST controller, whatever
 
 Create the service for your `ValueObjectVisitor` first.
 
-**My/Bundle/RestBundle/Resources/config/services.yaml**
+**config/services.yaml**
 
 ``` yaml
 services:
-    myRestBundle.value_object_visitor.hello:
+    App\Rest\ValueObjectVisitor\Hello:
         parent: ezpublish_rest.output.value_object_visitor.base
-        class: My\Bundle\RestBundle\Rest\ValueObjectVisitor\Hello
         tags:
-            - { name: ezpublish_rest.output.value_object_visitor, type: My\Bundle\RestBundle\Rest\Values\Hello }
+            - { name: ezpublish_rest.output.value_object_visitor, type: App\Rest\Values\Hello }
 ```
 
 Create your visitor next. It must extend the  `EzSystems\EzPlatformRest\Output\ValueObjectVisitor` abstract class, and implement the `visit()` method.
@@ -142,10 +141,10 @@ It will receive as arguments:
 |`$generator`| The actual response generator. It provides you with a DOM like API.|
 |`$data`| The visited data. The exact object you returned from the controller|
 
-**My/Bundle/RestBundle/Rest/Controller/Default.php**
+**src/Rest/ValueObjectVisitor/Hello.php**
 
 ``` php
-namespace My\Bundle\RestBundle\Rest\ValueObjectVisitor;
+namespace App\Rest\ValueObjectVisitor;
 
 use EzSystems\EzPlatformRest\Output\ValueObjectVisitor;
 use EzSystems\EzPlatformRest\Output\Generator;
@@ -153,7 +152,7 @@ use EzSystems\EzPlatformRest\Output\Visitor;
 
 class Hello extends ValueObjectVisitor
 {
-    public function visit( Visitor $visitor, Generator $generator, $data )
+    public function visit(Visitor $visitor, Generator $generator, $data)
     {
         $generator->startObjectElement('contentList');
 
@@ -173,11 +172,11 @@ When you want the response to be cached, return an instance of `CachedValue`, wi
 ```
 use EzSystems\EzPlatformRest\Server\Values\CachedValue;
 //...
-    public function sayHello( $name )
+    public function sayHello(string $name)
     {
         return new CachedValue(
-          new HelloValue( $name ),
-          ['locationId'=> 42]
+            new HelloValue($name),
+            ['locationId'=> 42]
         );
 
     }
@@ -215,13 +214,12 @@ Let's see what it would look like with a Content-Type of `application/vnd.my.Gre
 
 First, you need to create a service with the appropriate tag in `services.yaml`.
 
-**My/Bundle/RestBundle/Resources/config/services.yaml**
+**config/services.yaml**
 
 ``` yaml
 services:
-    myRestBundle.input_parser.Greetings:
+    App\Rest\InputParser\Greeting:
         parent: ezpublish_rest.input.parser
-        class: My\Bundle\RestBundle\Rest\InputParser\Greetings
         tags:
             - { name: ezpublish_rest.input.parser, mediaType: application/vnd.my.Greetings }
 ```
@@ -232,30 +230,26 @@ Implement your parser. It must extend `EzSystems\EzPlatformRest\Server\Input\Par
 
 For convenience, consider that your input parser returns an instance of `Value\Hello` class.
 
-**My/Bundle/RestBundle/Rest/InputParser/Greetings.php**
+**src/Rest/InputParser/Greetings.php**
 
 ``` php
-namespace My\Bundle\RestBundle\Rest\InputParser;
+namespace App\Rest\InputParser;
 
 use EzSystems\EzPlatformRest\Input\BaseParser;
 use EzSystems\EzPlatformRest\Input\ParsingDispatcher;
-use My\Bundle\RestBundle\Rest\Value\Hello;
+use App\Rest\Value\Hello;
 use EzSystems\EzPlatformRest\Exceptions;
-
 
 class Greetings extends BaseParser
 {
-    /**
-     * @return My\Bundle\RestBundle\Rest\Value\Hello
-     */
-    public function parse( array $data, ParsingDispatcher $parsingDispatcher )
+    public function parse(array $data, ParsingDispatcher $parsingDispatcher)
     {
         // re-using the REST exceptions will make sure that those already have a ValueObjectVisitor
-        if ( !isset( $data['name'] ) )
-            throw new Exceptions\Parser( "Missing or invalid 'name' element for Greetings." );
+        if (!isset($data['name'])) {
+            throw new Exceptions\Parser("Missing or invalid 'name' element for Greetings.");
+        }
 
-
-        return new Hello( $data['name'] );
+        return new Hello($data['name']);
     }
 }
 ```
@@ -267,20 +261,16 @@ use EzSystems\EzPlatformRest\Message;
 //...
     public function sayHelloUsingPost()
     {
-
-      $createStruct = $this->inputDispatcher->parse(
-          new Message(
+        $createStruct = $this->inputDispatcher->parse(
+            new Message(
               ['Content-Type' => $request->headers->get('Content-Type')],
               $request->getContent()
-          )
-      );
+            )
+        );
 
-      $name =  $createStruct->name ;
-
-      //...
-
+        $name = $createStruct->name;
+        //...
     }
-
 ```
 
 The `inputDispatcher` is responsible for matching the `Content-Type` sent in the header with the Greetings `InputParser` class.
@@ -288,10 +278,10 @@ The `inputDispatcher` is responsible for matching the `Content-Type` sent in the
 Finally, a new Route should be added to `routing_rest.yaml`
 
 ``` yaml
-myRestBundle_hello_world_using_post:
+my_rest_hello_world_using_post:
     path: /my_rest_bundle/hello/
     defaults:
-        _controller: My\Bundle\RestBundle\Rest\Controller\DefaultController::sayHelloUsingPostAction
+        _controller: App\Rest\Controller\DefaultController::sayHelloUsingPostAction
     methods: [POST]
 ```
 
