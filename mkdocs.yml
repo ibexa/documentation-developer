@@ -230,8 +230,9 @@ nav:
         - '6. Platform.sh changes': 'upgrading/6_platform_sh_changes.md'
         - '7. Dump assets': 'upgrading/7_dump_assets.md'
         - '8. Commit, test and merge': 'upgrading/8_commit_test_merge.md'
-    - Updating eZ Platform:
-        - 'Updating eZ Platform': 'updating/updating_ez_platform.md'
+    - Updating Ibexa DXP:
+        - 'Updating to v3.3': 'updating/updating_to_3.3.md'
+        - 'Updating Ibexa DXP': 'updating/updating_ez_platform.md'
         - '1. Check out a tagged version': 'updating/1_check_out_version.md'
         - '2. Merge composer.json': 'updating/2_merge_composer.md'
         - '3. Update the app': 'updating/3_update_app.md'
