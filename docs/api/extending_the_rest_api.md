@@ -224,7 +224,7 @@ The `mediaType` attribute of the `ezpublish\_rest.input.parser` tag maps the Con
 
 ``` yaml
 services:
-    App\Rest\InputParser\Greeting:
+    App\Rest\InputParser\Greetings:
         parent: ezpublish_rest.input.parser
         tags:
             - { name: ezpublish_rest.input.parser, mediaType: application/vnd.my.Greetings }
