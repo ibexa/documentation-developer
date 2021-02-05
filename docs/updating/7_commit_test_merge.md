@@ -12,4 +12,4 @@ git checkout master
 git merge <branch_name>
 ```
 
-**Your eZ Platform should now be up-to-date with the chosen version!**
+**Your Ibexa DXP / eZ Platform should now be up-to-date with the chosen version!**
