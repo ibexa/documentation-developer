@@ -109,6 +109,10 @@ Add the following rewrite rule to your web server configuration:
 
 ## Update the database
 
+!!! caution
+
+    Before starting this step, back up your database.
+
 Apply the following database update script:
 
 === "Mysql"
@@ -118,6 +122,17 @@ Apply the following database update script:
 === "PostgreSQL"
 
     `psql <database_name> < upgrade/db/postgresql/ezplatform-3.2.0-to-3.3.0.sql`
+
+If you are updating from an installation based on the `ezsystems/ezplatform-ee` metarepository, 
+run the following command to upgrade your database:
+
+``` bash
+php bin/console ibexa:upgrade
+```
+
+!!! caution
+
+    You can only run this command once.
 
 Check the Location ID of the "Components" Content item and set it as a value of the `content_tree_module.contextual_tree_root_location_ids` key in `config/ezplatform.yaml`:
 
