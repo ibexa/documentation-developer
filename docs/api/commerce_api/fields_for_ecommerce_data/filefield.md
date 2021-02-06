@@ -27,7 +27,7 @@ $fileField = new FileField(
         'alternativeText' => 'a nice product',
         'fileName'        => basename($filePath),
         'fileSize'        => filesize($filePath),
-        'path'            => $$filePath,
+        'path'            => $filePath,
         'mimetype'        => 'application/pdf',
         'description'     => 'Something nice'
     )
