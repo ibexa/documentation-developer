@@ -398,3 +398,183 @@ For an ImageAsset Field to be reused you have to publish it. Only then is notifi
 After establishing media library you can create object Relations between the main Content item and the image Content item being used by it.
 
 To learn more about ImageAsset Field Type and its customization see [Field Type Reference](../api/field_type_reference.md#imageasset-field-type).
+
+## Handling SVG images
+
+Currently, [[= product_name_oss =]] does not allow you to store SVG images by using the Image or ImageAsset Field Type. 
+Until the full support for this MIME type is in place, you can work things around by relying on the File Field Type and implementing a custom extension that lets you display and download files in your templates.
+
+First, you add a proper rule in the `config/routes.yaml` file:
+
+```yaml
+app.svg_download:
+    path: /asset/download/{contentId}/{fieldIdentifier}/{filename}
+    defaults: { _controller: app.controller.content.svg:downloadSvgAction }
+```
+
+It points to a custom controller that handles the downloading of the SVG file. 
+The controller's definition (that you place in the `config/services.yaml` file under `services` key) and implementation are as follows:
+
+```yaml
+services:
+    # ...
+    App\Controller\SvgController:
+        public: true
+        arguments:
+            - '@ezpublish.api.service.content'
+            - '@ezpublish.fieldType.ezbinaryfile.io_service'
+            - '@ezpublish.translation_helper'
+```
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Controller;
+
+use eZ\Publish\API\Repository\ContentService;
+use eZ\Publish\API\Repository\Values\Content\Field;
+use eZ\Publish\Core\Helper\TranslationHelper;
+use eZ\Publish\Core\IO\IOServiceInterface;
+use eZ\Publish\Core\MVC\Symfony\Controller\Controller;
+use InvalidArgumentException;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+
+class SvgController extends Controller
+{
+    private const CONTENT_TYPE_HEADER = 'image/svg+xml';
+
+    /** @var \eZ\Publish\API\Repository\ContentService */
+    private $contentService;
+
+    /** @var \eZ\Publish\Core\IO\IOServiceInterface */
+    private $ioService;
+
+    /** @var \eZ\Publish\Core\Helper\TranslationHelper */
+    private $translationHelper;
+
+    public function __construct(
+        ContentService $contentService,
+        IOServiceInterface $ioService,
+        TranslationHelper $translationHelper
+    ) {
+        $this->contentService = $contentService;
+        $this->ioService = $ioService;
+        $this->translationHelper = $translationHelper;
+    }
+
+    /**
+     * @throws \eZ\Publish\API\Repository\Exceptions\NotFoundException
+     * @throws \eZ\Publish\API\Repository\Exceptions\UnauthorizedException
+     * @throws \eZ\Publish\API\Repository\Exceptions\InvalidArgumentException
+     */
+    public function downloadSvgAction(
+        int $contentId,
+        string $fieldIdentifier,
+        string $filename,
+        Request $request
+    ): Response {
+        $version = null;
+
+        if ($request->query->has('version')) {
+            $version = $request->query->get('version');
+        }
+
+        $content = $this->contentService->loadContent($contentId, null, $version);
+        $language = $request->query->has('inLanguage') ? $request->query->get('inLanguage') : null;
+        $field = $this->translationHelper->getTranslatedField($content, $fieldIdentifier, $language);
+
+        if (!$field instanceof Field) {
+            throw new InvalidArgumentException(
+                sprintf("%s field not present in content %d '%s'", 
+                    $fieldIdentifier, 
+                    $content->contentInfo->id, 
+                    $content->contentInfo->name
+                )
+            );
+        }
+
+        $binaryFile = $this->ioService->loadBinaryFile($field->value->id);
+        $response = new Response($this->ioService->getFileContents($binaryFile));
+        $disposition = $response->headers->makeDisposition(
+            ResponseHeaderBag::DISPOSITION_INLINE, $filename
+        );
+
+        $response->headers->set('Content-Disposition', $disposition);
+        $response->headers->set('Content-Type', self::CONTENT_TYPE_HEADER);
+
+        return $response;
+    }
+}
+```
+
+To be able to use a proper link in your templates, you also need a dedicated Twig extension:
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Twig;
+
+use Symfony\Component\Routing\RouterInterface;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
+
+class SvgExtension extends AbstractExtension
+{
+    /** @var \Symfony\Component\Routing\RouterInterface */
+    protected $router;
+
+    /**
+     * SvgExtension constructor.
+     */
+    public function __construct(RouterInterface $router)
+    {
+        $this->router = $router;
+    }
+
+    /**
+     * @return TwigFunction[]
+     */
+    public function getFunctions()
+    {
+        return [
+            new TwigFunction('ibexa_svg_link', [
+                $this,
+                'generateLink',
+            ]),
+        ];
+    }
+
+    public function generateLink(int $contentId, string $fieldIdentifier, string $filename): string
+    {
+        return $this->router->generate('app.svg_download', [
+            'contentId' => $contentId,
+            'fieldIdentifier' => $fieldIdentifier,
+            'filename' => $filename,
+        ]);
+    }
+}
+```
+
+Next, you configure the extension within the `config/services.yaml` file:
+
+```yaml
+services:
+    # ...
+    App\Twig\SvgExtension:
+        autowire: true
+        autoconfigure: true
+```
+
+Now you can load SVG files in your templates by using generated links and a newly created Twig helper:
+
+```twig
+{% set svgField = ez_field(content, 'file') %}
+
+<img src="{{ ibexa_svg_link(content.versionInfo.contentInfo.id, 'file', svgField.value.fileName) }}" alt="">
+```
