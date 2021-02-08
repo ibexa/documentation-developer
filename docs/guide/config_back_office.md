@@ -102,10 +102,10 @@ ezpublish:
         <siteaccess>:
             user_preferences:
                 short_datetime_format:
-                    date_format: 'dd/mm/yyyy'
+                    date_format: 'dd/MM/yyyy'
                     time_format: 'hh:mm'
                 full_datetime_format:
-                    date_format: 'dd/mm/yyyy'
+                    date_format: 'dd/MM/yyyy'
                     time_format: 'hh:mm'
 ```
 
