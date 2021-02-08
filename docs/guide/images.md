@@ -416,12 +416,14 @@ It points to a custom controller that handles the downloading of the SVG file.
 The controller's definition (that you place in the `config/services.yaml` file under `services` key) and implementation are as follows:
 
 ```yaml
-App\Controller\SvgController:
-    public: true
-    arguments:
-        - '@ezpublish.api.service.content'
-        - '@ezpublish.fieldType.ezbinaryfile.io_service'
-        - '@ezpublish.translation_helper'
+services:
+    # ...
+    App\Controller\SvgController:
+        public: true
+        arguments:
+            - '@ezpublish.api.service.content'
+            - '@ezpublish.fieldType.ezbinaryfile.io_service'
+            - '@ezpublish.translation_helper'
 ```
 
 ```php
@@ -562,9 +564,11 @@ class SvgExtension extends AbstractExtension
 Next, you configure the extension within the `config/services.yaml` file:
 
 ```yaml
-App\Twig\SvgExtension:
-    autowire: true
-    autoconfigure: true
+services:
+    # ...
+    App\Twig\SvgExtension:
+        autowire: true
+        autoconfigure: true
 ```
 
 Now you can load SVG files in your templates by using generated links and a newly created Twig helper:
