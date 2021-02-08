@@ -401,7 +401,7 @@ To learn more about ImageAsset Field Type and its customization see [Field Type 
 
 ## Handling SVG images
 
-Currently, [[= product_name =]] does not allow you to store SVG images by using the Image or ImageAsset Field Type. 
+Currently, [[= product_name_oss =]] does not allow you to store SVG images by using the Image or ImageAsset Field Type. 
 Until the full support for this MIME type is in place, you can work things around by relying on the File Field Type and implementing a custom extension that lets you display and download files in your templates.
 
 First, you add a proper rule in the `config/routes.yaml` file:
