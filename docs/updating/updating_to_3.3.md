@@ -9,13 +9,23 @@ First, create an upgrade branch in git and commit your work.
 
 If you have not done it before, add the relevant meta-repository as `upstream` remote:
 
-``` bash
-git remote add upstream http://github.com/ezsystems/ezplatform.git
-or
-git remote add upstream http://github.com/ezsystems/ezplatform-ee.git
-or
-git remote add upstream http://github.com/ezsystems/ezcommerce.git
-```
+=== "ezplatform"
+
+    ``` bash
+    git remote add upstream http://github.com/ezsystems/ezplatform.git
+    ```
+
+=== "ezplatform-ee"
+
+    ``` bash
+    git remote add upstream http://github.com/ezsystems/ezplatform-ee.git
+    ```
+
+=== "ezcommerce"
+
+    ``` bash
+    git remote add upstream http://github.com/ezsystems/ezcommerce.git
+    ```
 
 !!! tip
 
