@@ -52,12 +52,14 @@ The following events are dispatched when changing the user settings available in
 |---|---|---|
 |`PublishVersionEvent`|`PublishAssetEventDispatcher::emitPublishAssetEvent`|`Content $content`</br>`Connector\Dam\AssetIdentifier $assetIdentifier`</br>`Connector\Dam\AssetSource $assetSource`|
 
-## Form Builder [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+!!! dxp
 
-| Event | Dispatched by | Properties |
-|---|---|---|
-|`FieldAttributeDefinitionEvent`|`FieldDefinitionFactory::getAttributesDefinitions`|`FieldAttributeDefinitionBuilder $definitionBuilder`</br>`array $configuration`|
-|`FieldDefinitionEvent`|`FieldDefinitionFactory::getFieldDefinition`|`FieldDefinitionBuilder $definitionBuilder`</br>`array $configuration`|
-|`FieldValidatorDefinitionEvent`|`FieldDefinitionFactory::getValidatorsDefinitions`|`FieldDefinitionBuilder $definitionBuilder`</br>`array $configuration`|
-|`FormActionEvent`|`HandleFormSubmission::handleFormSubmission`|`ContentView $contentView`</br>`EzPlatformFormBuilder\FieldType\Model\Form  $form`</br>`string $action`</br>`mixed  $data`|
-|`FormSubmitEvent`|`HandleFormSubmission::handleFormSubmission`|`ContentView $contentView`</br>`EzPlatformFormBuilder\FieldType\Model\Form $form`</br>`array $data`|
+    ## Form Builder
+
+    | Event | Dispatched by | Properties |
+    |---|---|---|
+    |`FieldAttributeDefinitionEvent`|`FieldDefinitionFactory::getAttributesDefinitions`|`FieldAttributeDefinitionBuilder $definitionBuilder`</br>`array $configuration`|
+    |`FieldDefinitionEvent`|`FieldDefinitionFactory::getFieldDefinition`|`FieldDefinitionBuilder $definitionBuilder`</br>`array $configuration`|
+    |`FieldValidatorDefinitionEvent`|`FieldDefinitionFactory::getValidatorsDefinitions`|`FieldDefinitionBuilder $definitionBuilder`</br>`array $configuration`|
+    |`FormActionEvent`|`HandleFormSubmission::handleFormSubmission`|`ContentView $contentView`</br>`EzPlatformFormBuilder\FieldType\Model\Form  $form`</br>`string $action`</br>`mixed  $data`|
+    |`FormSubmitEvent`|`HandleFormSubmission::handleFormSubmission`|`ContentView $contentView`</br>`EzPlatformFormBuilder\FieldType\Model\Form $form`</br>`array $data`|
