@@ -16,13 +16,23 @@ In the following steps it will be referred to as **update branch**.
 
 **From your update branch add upstream remote**
 
-``` bash
-git remote add upstream http://github.com/ezsystems/ezplatform.git
-or
-git remote add upstream http://github.com/ezsystems/ezplatform-ee.git
-or
-git remote add upstream http://github.com/ezsystems/ezcommerce.git
-```
+=== "ezplatform"
+
+    ``` bash
+    git remote add upstream http://github.com/ezsystems/ezplatform.git
+    ```
+
+=== "ezplatform-ee"
+
+    ``` bash
+    git remote add upstream http://github.com/ezsystems/ezplatform-ee.git
+    ```
+
+=== "ezcommerce"
+
+    ``` bash
+    git remote add upstream http://github.com/ezsystems/ezcommerce.git
+    ```
 
 **1.3.** Prepare for pulling changes
 
