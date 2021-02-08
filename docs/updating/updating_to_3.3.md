@@ -7,6 +7,26 @@ If you are updating from an earlier version, start with updating your installati
 
 First, create an upgrade branch in git and commit your work.
 
+If you have not done it before, add the relevant meta-repository as `upstream` remote:
+
+=== "ezplatform"
+
+    ``` bash
+    git remote add upstream http://github.com/ezsystems/ezplatform.git
+    ```
+
+=== "ezplatform-ee"
+
+    ``` bash
+    git remote add upstream http://github.com/ezsystems/ezplatform-ee.git
+    ```
+
+=== "ezcommerce"
+
+    ``` bash
+    git remote add upstream http://github.com/ezsystems/ezcommerce.git
+    ```
+
 !!! tip
 
     It is good practice to make git commits after every step of the update procedure.
@@ -16,7 +36,7 @@ First, create an upgrade branch in git and commit your work.
 Merge the special update branch into your project:
 
 ```
-git merge origin/v3.2-to-v3.3-upgrade
+git pull upstream v3.2-to-v3.3-upgrade
 ```
 
 This will introduce changes from the [website skeleton](https://github.com/ibexa/website-skeleton/blob/main/composer.json)
@@ -45,7 +65,7 @@ rm bin/{ezbehat,ezreport,phpunit,behat,fastest}
 Add your Ibexa DXP edition to `composer.json`, for example:
 
 ```
-composer require ibexa/content:^3.3 --no-update
+composer require ibexa/experience:^3.3 --no-update
 ```
 
 !!! caution
@@ -80,7 +100,7 @@ Review changes from each package and integrate them into your project.
 Install recipes for Ibexa packages for your product edition, for example:
 
 ``` bash
-composer recipes:install ibexa/content --force -v
+composer recipes:install ibexa/experience --force -v
 ```
 
 Review the changes and add them to your project.
