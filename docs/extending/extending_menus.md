@@ -143,7 +143,7 @@ $menu->addChild(
 
 ## Modifying menu items
 
-Reorder menu items, i.e. reverse the order:
+Reorder menu items, for example, reverse the order:
 
 ``` php
 $menu->reorderChildren(
