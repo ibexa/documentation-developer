@@ -143,20 +143,21 @@ $menu->addChild(
 
 ## Modifying menu items
 
-Remove the *Media* menu item from the Content tab:
-
-``` php
-$menu[MainMenuBuilder::ITEM_CONTENT]->removeChild(
-    MainMenuBuilder::ITEM_CONTENT__MEDIA
-);
-```
-
-Reorder menu items, i.e. reverse the order:
+Reorder menu items, for example, reverse the order:
 
 ``` php
 $menu->reorderChildren(
     array_reverse(array_keys($menu->getChildren()))
 );
+```
+
+## Removing menu items
+
+To remove a menu item, for example, to remove the **eCommerce** item from the top menu,
+use the following event Listener:
+
+``` php
+[[= include_file('code_samples/back_office/menu/remove_menu_item/src/EventListener/RemoveCommerceMenuListener.php') =]]
 ```
 
 ## Other menu operations
