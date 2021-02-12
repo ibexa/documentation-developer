@@ -533,13 +533,8 @@ nav:
             - 'Performance': 'guide/performance.md'
             - 'Environments': 'guide/environments.md'
             - 'Sessions': 'guide/sessions.md'
-            - Logging:
-                - 'Logging': 'guide/logging/logging.md'
-                - 'Logging API': 'guide/logging/logging_api.md'
-                - 'Logfile rotation': 'guide/logging/logfile_rotation.md'
-                - 'Logging FAQ': 'guide/logging/logging_faq.md'
-                - 'TokenController logging': 'guide/logging/tokencontroller_logging.md'
-            - 'Job system': 'guide/job_system.md'
+            - 'Logging': 'guide/logging/logging.md'
+            - 'Logfile rotation': 'guide/logging/logfile_rotation.md'
         - Security:
             - 'Development Security': 'guide/security.md'
             - 'Security checklist': 'guide/security_checklist.md'
