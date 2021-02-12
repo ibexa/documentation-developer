@@ -516,14 +516,7 @@ nav:
         - Cache:
             - 'HTTP cache': 'guide/http_cache.md'
             - 'Persistence cache': 'guide/persistence_cache.md'
-            - Shop caching:
-                - 'Shop caching': 'guide/cache/cache.md'
-                - 'Content cache refresh': 'guide/cache/content_cache_refresh/content_cache_refresh.md'
-                - 'HTTP caching': 'guide/cache/content_cache_refresh/http_caching.md'
-                - 'Navigation cache': 'guide/cache/navigation_cache.md'
-                - 'Caching FAQ': 'guide/cache/caching_faq.md'
-                - 'Translation cache for Text modules': 'guide/cache/translations_cache_for_textmodules.md'
-                - 'Basketpreview cache and user-specific data': 'guide/cache/basketpreview_cache_and_user_specific_data.md'
+            - 'Shop caching': 'guide/cache/shop_caching.md'
         - Clustering:
             - 'Clustering': 'guide/clustering.md'
             - 'AWS S3 clustering': 'guide/clustering_aws_s3.md'
