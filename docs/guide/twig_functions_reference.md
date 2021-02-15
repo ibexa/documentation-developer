@@ -30,8 +30,8 @@ In addition to the [native functions provided by Twig](http://twig.sensiolabs.or
 |[`ez_render_location_query`](#ez_render_location_query)|Renders results of a non-content related Location query.|
 |[`ez_render_field`](#ez_render_field)|Displays a Content item's Field value, taking advantage of the template block exposed by the Field Type used.|
 |[`ez_urlalias`](#ez_urlalias)|It is a special route name for generating URLs for a Location from the given parameters.|
-|[`ibexa_oauth2_connect_path`](#ibexa_oauth2_connect_path)|Generates a relative path for the given OAuth2 route|
-|[`ibexa_oauth2_connect_url`](#ibexa_oauth2_connect_url)|Generates an absolute URL for the given OAuth2 route|
+|[`ibexa_oauth2_connect_path`](#ibexa_oauth2_connect_path)|Generates a relative path for the given OAuth2 client|
+|[`ibexa_oauth2_connect_url`](#ibexa_oauth2_connect_url)|Generates an absolute URL for the given OAuth2 client|
 
 ### `ez_content_name`
 
