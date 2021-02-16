@@ -1,24 +1,24 @@
 # ERP logging [[% include 'snippets/commerce_badge.md' %]]
 
-All communication (request- and response messages) to and from the ERP is recorded by the `siso_erp.logger`.
-It is a special service of the class `Monolog/Logger`.
+All communication with the ERP (requests and responses) is recorded by the `siso_erp.logger`.
+It is a special service of the `Monolog/Logger` class.
 
 To learn more about logging in the shop, see [Logging](../logging/logging.md).
 
 ## Accessing logs
 
 Log messages are logged to the database.
-You can use a command to check which messages were exchanged with the ERP system.
+You can use a command to check the messages that were exchanged with the ERP system.
 
-This command waits for the next message and displays the request and result as XML.
+The command waits for the next message and displays the request and result as XML.
 
-You can search for a specific message using the `--search-text` option:
+You can search for a specific message by using the `--search-text` option:
 
 ``` bash
 php bin/console ibexa:commerce:display-erp-log --search-text 123456788
 ```
 
-To dump last messages, use the `--dump-last-messages` option:
+To dump the most recent messages, use the `--dump-last-messages` option:
 
 ``` bash
 php bin/console ibexa:commerce:display-erp-log --dump-last-messages 20 > /tmp/erp_messages.txt
@@ -36,11 +36,11 @@ php bin/console ibexa:commerce:display-erp-log --delete-messages 3
 
 The log communication with ERP has measuring points - points that correspond to important steps in the communication process.
 
-There are always two measuring points for each step, one for request and one for response.
+There are always two measuring points for each step, one for the request and one for the response.
 
 ### `120_complete`
 
-`120_complete` indicates the point before specific transport implementation and after all event handlers.
+`120_complete` indicates the point before a specific transport implementation and after all event handlers.
 
 The content includes all changes from the handlers and is a serialized object.
 It contains the state of data which goes either into the mapping or directly into the specific transport (e.g. SOAP).
@@ -84,7 +84,7 @@ The content is a serialized array which contains the following fields:
 
 ### `280_complete`
 
-`280_complete` indicates the point after specific transport implementation and after all event handlers.
+`280_complete` indicates the point after a specific transport implementation and after all event handlers.
 
 The content includes all changes from the handlers and is a serialized object.
 It contains the state of data that is finally available for the instance that initiated the message.

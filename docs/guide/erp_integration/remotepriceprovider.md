@@ -9,7 +9,7 @@ In that case the shop uses [VatService](../pricing/price_api/localvatservice.md)
 ## Using customer and contact numbers
 
 `RemotePriceProvider` uses customer and contact numbers from the price request.
-If they are not set, it uses the numbers set in the BuyerParty.
+If they are not set, it uses the numbers set in the Buyer Party.
 
 If neither customer nor contact number are set, and template debitor is enabled in the configuration,
 [StandardTemplateDebitorService](../pricing/price_api/standardtemplatedebitorservice.md) determines the customer and/or contact number to use.

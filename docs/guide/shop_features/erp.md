@@ -1,13 +1,14 @@
 # ERP [[% include 'snippets/commerce_badge.md' %]]
 
-[[= product_name =]] can be connected to ERP systems. Out of the box it offers connection for the Microsoft Dynamics ERP.
+[[= product_name =]] can be connected to ERP systems. 
+Out of the box, it offers connection for the Microsoft Dynamics ERP.
 
-Existing ERP customers can automatically create an account in the shop without waiting for confirmation from the administrator.
+Existing ERP customers can automatically create an account in the shop without waiting for a confirmation from the administrator.
 The shop updates customer data from the ERP in real time.
 
 ## Stock information
 
-[[= product_name =]] requests real-time stock information from the ERP
+[[= product_name =]] requests real-time stock information from the ERP system
 and notifies the customer if the stock is lower than the required quantity.
 It is possible to display the real stock as a numeric value as well.
 
@@ -17,7 +18,8 @@ It is possible to display the real stock as a numeric value as well.
 
 The shop owner can select systems used for calculating prices.
 
-A fallback price provider (e.g. using imported prices) can be configured. It is used if ERP is not available.
+A fallback price provider can be configured (for example, one that uses imported prices). 
+It is used if ERP is not available.
 
 ![](img/price_providers.png)
 
