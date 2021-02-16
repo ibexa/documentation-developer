@@ -2,7 +2,7 @@
 
 Data providers define where product information is stored.
 
-You can use one of two data providers: the [Repository data provider](repository_data_provider.md)
+You can use one of the following data providers: the [Repository data provider](repository_data_provider.md)
 or the [eContent data provider](../econtent/econtent.md).
 
 ## Repository vs. eContent data provider
@@ -26,17 +26,17 @@ Only one data provider can be active at the same time.
 
 ### Command-line switching
 
-The `ibexa:commerce:switch-data-provider` command switches between the Repository data provider and eContent.
+The `ibexa:commerce:switch-data-provider` command switches between the Repository and eContent data provider.
 It is useful especially for testing purposes.
 
 The command takes the following options:
 
 |Option|Notes|
 |--- |--- |
-|`--new-root-node`|Default value is `56` for Repository data provider, `2` for eContent.|
-|`--location-id`|Default value is `56`. This is the default Location ID of the "Product catalog" Content item. If you are using another Location ID, change this parameter.|
+|`--new-root-node`|The default values are: `56` for Repository data provider, `2` for eContent.|
+|`--location-id`|The default value is `56`. This is the default Location ID of the "Product catalog" Content item. If you are using another Location ID, change this parameter.|
 
-To switch to eContent, use the following command:
+To switch to eContent data provider, use the following command:
 
 ``` bash
 php bin/console ibexa:commerce:switch-data-provider econtent --location-id=56 --new-root-node=2
@@ -110,7 +110,7 @@ Check the complete configuration from the vendor as well:
 - `Siso/Bundle/SearchBundle/Resources/config/econtent_search.yml`
 - `Siso/Bundle/SearchBundle/Resources/config/ez_search.yml`
 
-The path for products in eContent e.g. is `/2/` and for Repository `/1/2`
+The path for products in eContent is `/2/` and for Repository it is `/1/2`.
 
 ``` yaml
 siso_search.default.groups.search:

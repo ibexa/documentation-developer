@@ -1,6 +1,7 @@
 # Staging system
 
-eContent supports a staging area. The product catalog can exist either as a live version which is used for the customer,
+eContent supports a staging area. 
+The product catalog can exist either as a live version which is used for the customer,
 or a temporary version, which can be used for staging and importing purposes.
 
 ## Live and staging areas
@@ -20,11 +21,12 @@ The import process does not stop the production system.
 
 ## Switching between temporary and live versions
 
-After the import, switch the database tables and Solr cores. Execute the following commands:
+After the import, switch the database tables and Solr cores. 
+Execute the following commands:
 
 ``` bash
 php bin/console ibexa:commerce:index-econtent swap
 php bin/console ibexa:commerce:swap-econtent-tables
 ```
 
-Depending on the project, you should purge the HTTP cache for the product catalog.
+Depending on the project, you might want to purge the HTTP cache for the product catalog.

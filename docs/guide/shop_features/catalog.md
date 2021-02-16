@@ -8,7 +8,7 @@ The source of products depends on the data provider you have configured.
 
 Data providers define where product information is stored.
 
-You can use one of two data providers: the Repository data provider and the eContent data provider.
+You can use one of the following data providers: the Repository data provider and the eContent data provider.
 
 ### Repository data provider
 
