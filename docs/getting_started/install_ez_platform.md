@@ -245,23 +245,7 @@ Search in the shop front end requires that you have either Solr or Elasticsearch
 
 === "Solr"
 
-    Run the included script to install Solr:
-
-    ``` bash
-    bash ./install-solr.sh
-    ```
-
-    Configure the following parameters in the `.env` file:
-
-    - `SISO_SEARCH_SOLR_HOST`
-    - `SISO_SEARCH_SOLR_PORT`
-    - `SISO_SEARCH_SOLR_CORE`
-
-    Also in the `.env` file, set Solr as the search engine:
-
-    ```
-    SEARCH_ENGINE=solr
-    ```
+    Follow [How to set up Solr search engine](../guide/search/solr.md#how-to-set-up-solr-search-engine) to install Solr.
 
 === "Elasticsearch"
 
