@@ -56,7 +56,7 @@ nav:
             - 'Accept header-based REST API response': 'api/creating_custom_rest_api_response.md'
             - 'Binary attachments via REST API': 'api/creating_content_with_binary_attachments_via_rest_api.md'
             - 'Cross-origin HTTP requests': 'api/making_cross_origin_http_requests.md'
-            - 'Commerce REST API': 'api/commerce_rest_api.md'
+            # - 'Commerce REST API': 'api/commerce_rest_api.md'
         - Public PHP API:
             - 'Public PHP API': 'api/public_php_api.md'
             - 'Browsing Content': 'api/public_php_api_browsing.md'
@@ -122,12 +122,12 @@ nav:
                 - 'addProducts': 'api/commerce_api/business_api/baseoperation/addproducts.md'
                 - 'getBasket': 'api/commerce_api/business_api/baseoperation/getbasket.md'
                 - 'loadProducts': 'api/commerce_api/business_api/baseoperation/loadproducts.md'
-            - 'SisoRestApiBundle':
-                - 'SisoRestApiBundle': 'api/commerce_api/sisorestapibundle/sisorestapibundle.md'
-                - 'Basket functions': 'api/commerce_api/sisorestapibundle//basket_functions.md'
-                - 'Checkout functions': 'api/commerce_api/sisorestapibundle/checkout_functions.md'
-                - 'Common functions': 'api/commerce_api/sisorestapibundle/common.md'
-                - 'Customer functions': 'api/commerce_api/sisorestapibundle/customer_functions.md'
+            # - 'SisoRestApiBundle':
+            #     - 'SisoRestApiBundle': 'api/commerce_api/sisorestapibundle/sisorestapibundle.md'
+            #     - 'Basket functions': 'api/commerce_api/sisorestapibundle//basket_functions.md'
+            #     - 'Checkout functions': 'api/commerce_api/sisorestapibundle/checkout_functions.md'
+            #     - 'Common functions': 'api/commerce_api/sisorestapibundle/common.md'
+            #     - 'Customer functions': 'api/commerce_api/sisorestapibundle/customer_functions.md'
     - Guide:
         - Project organization:
             - 'Project organization': 'guide/project_organization.md'
