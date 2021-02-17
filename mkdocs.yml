@@ -487,7 +487,6 @@ nav:
                 - 'Importing historical user tracking data': 'guide/personalization/developer_guide/importing_historical_user_tracking_data.md'
                 - 'Tracking with yct.js': 'guide/personalization/developer_guide/tracking_with_yct.md'
                 - 'Recommendation API': 'guide/personalization/developer_guide/recommendation_api.md'
-                - 'Legacy Recommendation API': 'guide/personalization/developer_guide/legacy_recommendation_api.md'
                 - 'Content API': 'guide/personalization/developer_guide/content_api.md'
                 - 'User API': 'guide/personalization/developer_guide/user_api.md'
             - Best practices:
