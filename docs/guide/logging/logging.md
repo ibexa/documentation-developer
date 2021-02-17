@@ -11,8 +11,8 @@ All emails that are sent with [`MailHelperService`](../../api/commerce_api/helpe
 
 Some logs can contain personal information such as User ID or password.
 
-By default, [[= product_name =]] does not log the User ID.
-You can change this behavior in the following configuration:
+By default, [[= product_name =]] does not log User IDs.
+You can change this behavior by modifying the following setting:
 
 ``` yaml
 siso_core.default.gdpr.store_user_id_in_logs: false
