@@ -1,24 +1,13 @@
 # Logfile rotation
 
-For systems that use prod as environment:
-
-- `var/log/prod.log`
-- `var/log/silver.eshop.log`
-- `var/log/prod-siso.eshop.erp.log`
-
-## logrotate
+You can set up automatic rotation of logfiles to avoid overfilling the disk space.
 
 The `logrotate` utility is a standard tool in Linux systems. It is run by `cron.daily` once a day at 6:25 am (on Ubuntu systems).
-When `logrotate` runs, it reads all the configuration scripts in `/etc/logrotate.d/`.
 
-This directory contains already several scripts for e.g. apache2, samba, apt, etc.
+To configure logfile rotation for shop logs, create a new configuration file in `/etc/logrotate.d/silver-eshop`:
 
-## Configuration for rotating logs
-
-Create a new configuration file for `logrotate` in `/etc/logrotate.d/silver-eshop`:
-
-``` yaml
-/var/www/projects/<your-project>/var/log/prod.log /var/www/projects/<your-project>/var/log/silver.eshop.log /var/www/projects/<your-project>/var/log/prod-siso.eshop.erp.log {
+```
+<your-project>/var/log/prod.log <your-project>/var/log/silver.eshop.log <your-project>/var/log/prod-siso.eshop.erp.log {
     su www-data www-data
     daily
     size 50M
