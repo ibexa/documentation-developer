@@ -25,7 +25,7 @@ $erpLogger->debug(
 ## ErpLog entity and repository
 
 ERP messages are logged in a database for more sophisticated administrative handling.
-Database logging is handled by [the Doctrine logger](../../../guide/logging/logging_api.md).
+Database logging is handled by the Doctrine logger.
 
 ### ErpLog
 
