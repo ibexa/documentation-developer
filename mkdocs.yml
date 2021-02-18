@@ -150,16 +150,8 @@ nav:
             - 'Displaying Content children': 'guide/displaying_children_of_a_content_item.md'
             - 'Retrieving root Location': 'guide/retrieving_root_location.md'
             - 'Twig functions reference': 'guide/twig_functions_reference.md'
-            - Shop templates:
-                - 'Shop templates': 'guide/shop_templates/shop_templates.md'
-                - 'Reusable address template': 'guide/shop_templates/reusable_address_template.md'
-                - 'Reusable message template': 'guide/shop_templates/reusable_message_template.md'
-                - 'Template resolver': 'guide/shop_templates/template_resolver.md'
-                - 'Twig extension': 'guide/shop_templates/twig_extension.md'
-                - 'st_tag selector': 'guide/shop_templates/st_tag_selector.md'
-                - 'Design engine in the shop': 'guide/shop_templates/design_engine.md'
-                - 'Setting up new project design': 'guide/shop_templates/set_up_new_project_design.md'
-                - 'Product images': 'guide/shop_templates/product_images.md'
+            - 'Overriding shop templates': 'guide/shop_templates/overriding_shop_templates.md'
+            - 'Shop-related Twig functions': 'guide/shop_templates/shop_twig_functions.md'
         - Content management:
             - 'Content management': 'guide/content_management.md'
             - 'Images': 'guide/images.md'
