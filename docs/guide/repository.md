@@ -45,7 +45,7 @@ You should always check full list of changes for each release in corresponding r
  - custom Limitations
  - limited portions of IO
  - image variation handling
- - Search Engine layer for custom Search Engine implementations (e.g. Legacy search engine, Solr search engine and in the future Elasticsearch)
+ - Search Engine layer for custom Search Engine implementations (e.g. Legacy search engine, Solr search engine and Elasticsearch)
 
 !!! caution
 
