@@ -43,7 +43,7 @@ When the exception is caught, another event (`MessageExceptionEvent`) is dispatc
 
 ### Listener `onExceptionMessage`
 
-Checks the exception that is thrown by the previous listener and creates a [`ResponseDocument`](../../erp_integration/erp_communication/erp_components/erp_component_messages/erp_component_messages.md) filled with local data (orders).
+Checks the exception that is thrown by the previous listener and creates a `ResponseDocument` filled with local data (orders).
 The response has the same structure as if it was returned from ERP, so no additional changes in the template are required.
 
 ``` xml
