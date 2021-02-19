@@ -15,7 +15,7 @@ $stockField = new StockField(array('stockNumeric' => 15));
 
 ### StockField rendering
 
-The StockField can be rendered with the `ses_render_stock` [Twig helper](../../../guide/shop_templates/twig_extension.md).
+The StockField can be rendered with the `ses_render_stock` [Twig helper](../../../guide/shop_templates/shop_twig_functions.md).
 
 This method renders the StockField from a central template:
 
