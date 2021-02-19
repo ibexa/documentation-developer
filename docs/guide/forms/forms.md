@@ -1,6 +1,6 @@
 # Forms
 
-[[= product_name_com =]] offers a unified way of handling all one-page forms.
+[[= product_name =]] offers a unified way of handling all one-page forms.
 
 One-page forms have several common criteria:
 
@@ -8,7 +8,7 @@ One-page forms have several common criteria:
 - After submitting some processes are executed in the backend.
 - After server response the user sees a confirmation page with a success or error message.
 
-[[= product_name_com =]] uses [Symfony forms](http://symfony.com/doc/3.4/forms.html) as a part of the solution.
+[[= product_name =]] uses [Symfony forms](http://symfony.com/doc/3.4/forms.html) as a part of the solution.
 
 You can pre-fill the form with default values when it is loaded for the first time.
 The process that pre-fills the form is called a [pre-data processor](form_api/predataprocessors.md).

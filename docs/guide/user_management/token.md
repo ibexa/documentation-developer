@@ -1,6 +1,6 @@
 # Token
 
-[[= product_name_com =]] uses the token system in the registration process to create a double opt-in possibility.
+[[= product_name =]] uses the token system in the registration process to create a double opt-in possibility.
 The token service can generate a unique token that is valid for a given time.
 
 After user registration, a token is created and stored in the database.

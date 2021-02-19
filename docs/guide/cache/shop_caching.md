@@ -31,7 +31,7 @@ silver_eshop.default.http_cache:
 
 ## Shop cache tags
 
-[[= product_name_com =]] uses cache tags to tag and purge content.
+[[= product_name =]] uses cache tags to tag and purge content.
 
 |Tag|Used for|Purged|
 |--- |--- |--- |
