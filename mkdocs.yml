@@ -55,7 +55,7 @@ nav:
             - 'Accept header-based REST API response': 'api/creating_custom_rest_api_response.md'
             - 'Binary attachments via REST API': 'api/creating_content_with_binary_attachments_via_rest_api.md'
             - 'Cross-origin HTTP requests': 'api/making_cross_origin_http_requests.md'
-            - 'Commerce REST API': 'api/commerce_rest_api.md'
+            # - 'Commerce REST API': 'api/commerce_rest_api.md'
         - Public PHP API:
             - 'Public PHP API': 'api/public_php_api.md'
             - 'Browsing Content': 'api/public_php_api_browsing.md'
@@ -121,12 +121,12 @@ nav:
                 - 'addProducts': 'api/commerce_api/business_api/baseoperation/addproducts.md'
                 - 'getBasket': 'api/commerce_api/business_api/baseoperation/getbasket.md'
                 - 'loadProducts': 'api/commerce_api/business_api/baseoperation/loadproducts.md'
-            - 'SisoRestApiBundle':
-                - 'SisoRestApiBundle': 'api/commerce_api/sisorestapibundle/sisorestapibundle.md'
-                - 'Basket functions': 'api/commerce_api/sisorestapibundle//basket_functions.md'
-                - 'Checkout functions': 'api/commerce_api/sisorestapibundle/checkout_functions.md'
-                - 'Common functions': 'api/commerce_api/sisorestapibundle/common.md'
-                - 'Customer functions': 'api/commerce_api/sisorestapibundle/customer_functions.md'
+            # - 'SisoRestApiBundle':
+            #     - 'SisoRestApiBundle': 'api/commerce_api/sisorestapibundle/sisorestapibundle.md'
+            #     - 'Basket functions': 'api/commerce_api/sisorestapibundle//basket_functions.md'
+            #     - 'Checkout functions': 'api/commerce_api/sisorestapibundle/checkout_functions.md'
+            #     - 'Common functions': 'api/commerce_api/sisorestapibundle/common.md'
+            #     - 'Customer functions': 'api/commerce_api/sisorestapibundle/customer_functions.md'
     - Guide:
         - Project organization:
             - 'Project organization': 'guide/project_organization.md'
@@ -150,16 +150,8 @@ nav:
             - 'Displaying Content children': 'guide/displaying_children_of_a_content_item.md'
             - 'Retrieving root Location': 'guide/retrieving_root_location.md'
             - 'Twig functions reference': 'guide/twig_functions_reference.md'
-            - Shop templates:
-                - 'Shop templates': 'guide/shop_templates/shop_templates.md'
-                - 'Reusable address template': 'guide/shop_templates/reusable_address_template.md'
-                - 'Reusable message template': 'guide/shop_templates/reusable_message_template.md'
-                - 'Template resolver': 'guide/shop_templates/template_resolver.md'
-                - 'Twig extension': 'guide/shop_templates/twig_extension.md'
-                - 'st_tag selector': 'guide/shop_templates/st_tag_selector.md'
-                - 'Design engine in the shop': 'guide/shop_templates/design_engine.md'
-                - 'Setting up new project design': 'guide/shop_templates/set_up_new_project_design.md'
-                - 'Product images': 'guide/shop_templates/product_images.md'
+            - 'Overriding shop templates': 'guide/shop_templates/overriding_shop_templates.md'
+            - 'Shop-related Twig functions': 'guide/shop_templates/shop_twig_functions.md'
         - Content management:
             - 'Content management': 'guide/content_management.md'
             - 'Images': 'guide/images.md'
@@ -302,27 +294,13 @@ nav:
             - 'Lost orders': 'guide/erp_integration/lost_orders.md'
         - Data providers:
             - 'Data providers': 'guide/data_providers/data_providers.md'
-            - 'Content model data provider': 'guide/data_providers/content_model_dataprovider.md'
-            - 'Accessing data provider via PHP': 'guide/data_providers/access_dataprovider_via_php.md'
+            - 'Repository data provider': 'guide/data_providers/repository_data_provider.md'
             - eContent:
                 - 'eContent': 'guide/econtent/econtent.md'
-                - 'eContent database model': 'guide/econtent/econtent_features/econtent_database_model.md'
-                - 'Catalog segmentation': 'guide/econtent/econtent_features/catalog_segmentation.md'
-                - 'Variants in eContent': 'guide/econtent/econtent_features/variants_in_econtent.md'
-                - 'Indexing eContent data': 'guide/econtent/econtent_features/indexing_econtent_data/indexing_econtent_data.md'
-                - 'Solr cores for eContent': 'guide/econtent/econtent_features/indexing_econtent_data/solr_cores_for_econtent.md'
-                - 'eContent indexer': 'guide/econtent/econtent_features/indexing_econtent_data/econtent_indexer.md'
-                - 'Staging system': 'guide/econtent/econtent_features/staging_system.md'
-                - 'eContent Back Office': 'guide/econtent/econtent_features/econtent_back_office.md'
-                - 'eContent API': 'guide/econtent/econtent_api.md'
-                - 'eContent FAQ': 'guide/econtent/econtent_faq.md'
-                - 'Extending EcontentCatalogFactory': 'guide/econtent/econtent_cookbook/extending_econtentcatalogfactory.md'
-                - 'Custom sorting handler for eContent': 'guide/econtent/econtent_cookbook/econtent_search_cookbook/custom_sorting_handler_for_econtent.md'
-                - 'Solr Minimum Should Match': 'guide/econtent/econtent_cookbook/econtent_search_cookbook/solr_minimum_should_match.md'
-                - 'Custom indexer plugin for eContent': 'guide/econtent/econtent_cookbook/econtent_search_cookbook/custom_indexer_plugin_for_econtent.md'
-                - 'Import products (API)': 'guide/econtent/econtent_cookbook/econtent_how_to_import_products/importing_products_api.md'
-                - 'Importing and indexing data (SQL)': 'guide/econtent/econtent_cookbook/econtent_how_to_import_products/importing_and_indexing_data_sql.md'
                 - 'eContent configuration': 'guide/econtent/econtent_configuration.md'
+                - 'Indexing eContent data': 'guide/econtent/indexing_econtent_data.md'
+                - 'Catalog segmentation': 'guide/econtent/catalog_segmentation.md'
+                - 'Staging system': 'guide/econtent/staging_system.md'
         - Search:
             - 'Search': 'guide/search/search.md'
             - 'Search Criteria reference': 'guide/search/search_criteria_reference.md'
@@ -485,14 +463,7 @@ nav:
         - Cache:
             - 'HTTP cache': 'guide/http_cache.md'
             - 'Persistence cache': 'guide/persistence_cache.md'
-            - Shop caching:
-                - 'Shop caching': 'guide/cache/cache.md'
-                - 'Content cache refresh': 'guide/cache/content_cache_refresh/content_cache_refresh.md'
-                - 'HTTP caching': 'guide/cache/content_cache_refresh/http_caching.md'
-                - 'Navigation cache': 'guide/cache/navigation_cache.md'
-                - 'Caching FAQ': 'guide/cache/caching_faq.md'
-                - 'Translation cache for Text modules': 'guide/cache/translations_cache_for_textmodules.md'
-                - 'Basketpreview cache and user-specific data': 'guide/cache/basketpreview_cache_and_user_specific_data.md'
+            - 'Shop caching': 'guide/cache/shop_caching.md'
         - Clustering:
             - 'Clustering': 'guide/clustering.md'
             - 'AWS S3 clustering': 'guide/clustering_aws_s3.md'
@@ -502,13 +473,8 @@ nav:
             - 'Performance': 'guide/performance.md'
             - 'Environments': 'guide/environments.md'
             - 'Sessions': 'guide/sessions.md'
-            - Logging:
-                - 'Logging': 'guide/logging/logging.md'
-                - 'Logging API': 'guide/logging/logging_api.md'
-                - 'Logfile rotation': 'guide/logging/logfile_rotation.md'
-                - 'Logging FAQ': 'guide/logging/logging_faq.md'
-                - 'TokenController logging': 'guide/logging/tokencontroller_logging.md'
-            - 'Job system': 'guide/job_system.md'
+            - 'Logging': 'guide/logging/logging.md'
+            - 'Logfile rotation': 'guide/logging/logfile_rotation.md'
         - Security:
             - 'Development Security': 'guide/security.md'
             - 'Security checklist': 'guide/security_checklist.md'
@@ -601,6 +567,7 @@ nav:
         - '7. Dump assets': 'upgrading/7_dump_assets.md'
         - '8. Commit, test and merge': 'upgrading/8_commit_test_merge.md'
     - Updating Ibexa DXP:
+        - 'Updating to v3.3': 'updating/updating_to_3.3.md'
         - 'Updating Ibexa DXP': 'updating/updating_ez_platform.md'
         - '1. Check out a tagged version': 'updating/1_check_out_version.md'
         - '2. Merge composer.json': 'updating/2_merge_composer.md'

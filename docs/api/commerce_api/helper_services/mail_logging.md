@@ -7,7 +7,7 @@ For more information about logging, see [logging documentation](../../../guide/l
 
 ## MailLog entity and repository
 
-Emails are logged in a database. Database logging is handled by [the Doctrine logger](../../../guide/logging/logging_api.md#base-classes-of-doctrine-based-logging).
+Emails are logged in a database. Database logging is handled by the Doctrine logger.
 
 ### Siso\Bundle\ToolsBundle\Entity\MailLog
 

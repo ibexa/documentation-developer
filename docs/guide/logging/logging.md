@@ -1,15 +1,23 @@
-# Logging [[% include 'snippets/commerce_badge.md' %]]
+# Logging
 
-[[= product_name_com =]] uses [Monolog](https://github.com/Seldaek/monolog) to log the most important information.
-The default implementation writes standard shop-related information into a single log file.
-Emails and ERP communication are written into the database to make it easier to process them for administrative (HTML) presentation.
+[[= product_name =]] uses [Monolog](https://github.com/Seldaek/monolog) to log shop-related information.
 
-## GDPR
+By default, ERP messages and emails are stored in the database.
+All other log entries are stored in `var/log/silver.eshop.log`.
 
-Some logs can contain personal information which can be affected by the GDPR regulations.
+All emails that are sent with [`MailHelperService`](../../api/commerce_api/helper_services/mailhelperservice.md) are logged automatically.
 
-By default, [[= product_name_com =]] does not log the User ID for logging search query:
+## Sensitive user data
+
+Some logs can contain personal information such as User ID or password.
+
+By default, [[= product_name =]] does not log User IDs.
+You can change this behavior by modifying the following setting:
 
 ``` yaml
 siso_core.default.gdpr.store_user_id_in_logs: false
 ```
+
+If the email text contains a password that should not be logged in the DB, you have to specify this password as a template parameter.
+
+[`MailHelperService`](../../api/commerce_api/helper_services/mailhelperservice.md) replaces the template parameter `password` with `***`.
