@@ -1,6 +1,6 @@
-# Shop cache [[% include 'snippets/commerce_badge.md' %]]
+# Shop cache
 
-[[= product_name =]] uses different caches for the shop, including HTTP cache, which can greatly increase shop performance.
+[[= product_name_com =]] uses different caches for the shop, including HTTP cache, which can greatly increase shop performance.
 Dynamic parts of the shop, such as basket preview or prices, are displayed using dynamic caching features such as ESI or JavaScript.
 
 ## ESI-rendered blocks in the shop

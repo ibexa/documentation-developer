@@ -1,6 +1,6 @@
 # Logging
 
-[[= product_name =]] uses [Monolog](https://github.com/Seldaek/monolog) to log shop-related information.
+[[= product_name_com =]] uses [Monolog](https://github.com/Seldaek/monolog) to log shop-related information.
 
 By default, ERP messages and emails are stored in the database.
 All other log entries are stored in `var/log/silver.eshop.log`.
@@ -11,7 +11,7 @@ All emails that are sent with [`MailHelperService`](../../api/commerce_api/helpe
 
 Some logs can contain personal information such as User ID or password.
 
-By default, [[= product_name =]] does not log User IDs.
+By default, [[= product_name_com =]] does not log User IDs.
 You can change this behavior by modifying the following setting:
 
 ``` yaml

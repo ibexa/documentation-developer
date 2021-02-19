@@ -1,4 +1,4 @@
-# ERP logging [[% include 'snippets/commerce_badge.md' %]]
+# ERP logging
 
 All communication with the ERP (requests and responses) is recorded by the `siso_erp.logger`.
 It is a special service of the `Monolog/Logger` class.

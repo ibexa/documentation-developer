@@ -9,7 +9,7 @@ Using eContent has the following limitations:
 - eContent products are not visible in the Back Office.
 - An eContent product cannot be embedded by using the standard embed feature.
 
-## eContent Back Office [[% include 'snippets/commerce_badge.md' %]]
+## eContent Back Office
 
 You can see an overview of the data model for eContent in the Back Office in **Control center**.
 

@@ -1,9 +1,9 @@
-# ERP integration [[% include 'snippets/commerce_badge.md' %]]
+# ERP integration
 
-[[= product_name =]] can communicate with ERP systems. 
+[[= product_name_com =]] can communicate with ERP systems. 
 
 The communication covers, among other things, product and customer data, price and stock information, orders and order history.
-[[= product_name =]] and the ERP system can exchange the following data.
+[[= product_name_com =]] and the ERP system can exchange the following data.
 
 |Data/Process|What is exchanged|Communication process|
 |--- |--- |--- |
@@ -13,7 +13,7 @@ The communication covers, among other things, product and customer data, price a
 |Orders|Address data, Delivery address, products and customer number|When the customer makes an order, the order is sent immediately to the ERP system. If electronic payment is involved, the order is placed when the payment provider acknowledges the transaction.|
 |Documents|Invoices, orders, delivery notes, credit memos|The order history feature requests such documents in real time from the ERP. This ensures that the customer sees all documents even if they placed the order by phone or fax.|
 
-[[= product_name =]] offers out-of-the-box interface and connector for the Microsoft Dynamics ERP.
+[[= product_name_com =]] offers out-of-the-box interface and connector for the Microsoft Dynamics ERP.
 
 ## ERP configuration
 
@@ -64,7 +64,7 @@ siso_erp.default.message_settings.createsalesorder:
 
 ### Monitoring the ERP connection
 
-The Back Office provides a monitoring service that enables checking all messages exchanged between ERP and [[= product_name =]].
+The Back Office provides a monitoring service that enables checking all messages exchanged between ERP and [[= product_name_com =]].
 
 To see it, go to **eCommerce -> Control center -> ERP request log**.
 

@@ -1,6 +1,6 @@
 # Event reference
 
-[[= product_name =]] dispatches events during different actions.
+[[= product_name_oss =]] dispatches events during different actions.
 You can subscribe to these events to extend the functionality of the system.
 
 In most cases, two events are dispatched for every action,
