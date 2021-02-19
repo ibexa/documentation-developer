@@ -1,4 +1,4 @@
-# Form templates [[% include 'snippets/commerce_badge.md' %]]
+# Form templates
 
 ### Template list
 

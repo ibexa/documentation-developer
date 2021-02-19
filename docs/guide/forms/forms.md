@@ -1,4 +1,4 @@
-# Forms [[% include 'snippets/commerce_badge.md' %]]
+# Forms
 
 [[= product_name_com =]] offers a unified way of handling all one-page forms.
 

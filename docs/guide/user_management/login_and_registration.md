@@ -1,4 +1,4 @@
-# Login and registration [[% include 'snippets/commerce_badge.md' %]]
+# Login and registration
 
 ## Login
 

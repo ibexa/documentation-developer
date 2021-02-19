@@ -1,4 +1,4 @@
-# Calculating prices
+# Calculating prices [[% include 'snippets/commerce_badge.md' %]]
 
 The basket recalculates the prices after each change of its content.
 The request to the price engine is sent when the basket is stored.

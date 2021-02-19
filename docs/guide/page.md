@@ -1,6 +1,6 @@
-# Pages in the shop [[% include 'snippets/commerce_badge.md' %]]
+# Pages in the shop [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-[[= product_name_com =]] adds the following blocks to the Page Builder:
+[[= product_name_exp =]] adds the following blocks to the Page Builder:
 
 - Last viewed items - list of products recently viewed by the current user
 - Bestsellers - list of bestsellers for a given product category

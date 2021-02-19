@@ -1,4 +1,4 @@
-# Customer API [[% include 'snippets/commerce_badge.md' %]]
+# Customer API
 
 ## Retrieving data in PHP
 

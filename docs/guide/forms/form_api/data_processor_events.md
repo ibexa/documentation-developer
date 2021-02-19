@@ -1,4 +1,4 @@
-# Data processor events [[% include 'snippets/commerce_badge.md' %]]
+# Data processor events
 
 You can listen to two events for each data processor to extend its logic.
 An event is triggered before and after the execution of the data processor.

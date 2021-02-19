@@ -1,4 +1,4 @@
-# Form API [[% include 'snippets/commerce_badge.md' %]]
+# Form API
 
 ## PreDataProcessor and DataProcessors
 

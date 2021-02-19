@@ -1,4 +1,4 @@
-# Customer templates [[% include 'snippets/commerce_badge.md' %]]
+# Customer templates
 
 The global `ses.profile` Twig variable contains the main information about the current user,
 their addresses and data from the ERP.
