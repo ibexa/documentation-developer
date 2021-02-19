@@ -1,6 +1,6 @@
 # Setting up variants from external source
 
-The default data provider and `CatalogFactory` ([content model data provider](../../data_providers/content_model_dataprovider.md))
+The default data provider and `CatalogFactory` ([Repository data provider](../../data_providers/repository_data_provider.md))
 already support variants up to two levels.
 You can set the variants up by [using a variant Field Type](product_variants.md) in the Back Office. 
 

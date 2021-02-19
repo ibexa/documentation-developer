@@ -40,7 +40,7 @@ You do this by using two events that are thrown before the search query is submi
 The product catalog is injected into the prepared navigation. 
 You can have multiple product catalogs on any level. 
 
-If you are using the content model data provider, place categories and products directly under the product catalog
+If you are using the Repository data provider, place categories and products directly under the product catalog
 and then, in the catalog's Root node Field, point to the catalog's Location ID.
 
 ![](../img/navigation_6.png)

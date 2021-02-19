@@ -8,7 +8,7 @@ It is called every time a product is provided by the data provider.
 Each provider has a separate catalog factory.
 The data provider is defined by the `silver_eshop.default.catalog_data_provider` parameter.
 
-For more information about data providers, see [Content model data provider](../../data_providers/content_model_dataprovider.md).
+For more information about data providers, see [Repository data provider](../../data_providers/repository_data_provider.md).
 
 The following example provides an additional mapping for the Keyword Field Type
 which enables you to display tags added to the product:
