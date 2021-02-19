@@ -7,7 +7,6 @@
 |`ses_render_field`|`CatalogElement $catalogElement`</br>`string $fieldIdentifier = ''`</br>`array $params = array()`|Renders a Field of a CatalogElement|
 |`ses_product`|`array $params = array()`|Returns a product node</br>`{% set product = ses_product({'sku': line.sku, 'variantCode': line.variantCode }) %}`|
 |`ses_variant_product_by_sku`|`string $sku`|Fetches a VariantProductNode for the given SKU|
-ses_assets_by_group
 |`ses_assets_main_image`|`CatalogElement $catalogElement`</br>`string $productId = null`|Returns the main image of CatalogElement or null|
 |`ses_assets_image_list`|`CatalogElement $catalogElement`</br>`$productId = null`|Returns the list of images for a CatalogElement or an empty array|
 |`ses_render_price`|`CatalogElement $catalogElement`</br>`PriceField $field`</br>`array $params = array()`|Renders a PriceField|
@@ -20,7 +19,7 @@ ses_assets_by_group
 |`ses_check_product_in_wish_list`|`$sku`</br>`$variantCode = null`|Returns true if product with the given SKU and variant code is already in the wishList|
 |`ses_pagination`|`Pagerfanta $pagerfanta`</br>`$viewName = null`</br>`array $options = array()`|Renders pagination|
 |`get_stored_baskets`|-|Returns stored baskets for the current user|
-|`ses_user_menu`|-|Returns rendered user menu|
+|`ses_user_menu`|-|Returns the rendered user menu|
 |`get_search_query`|-|Returns search query|
 |`get_siteaccess_locale`|`$siteAccessName = null`|Returns the Symfony locale that matches the given SiteAccess. If no SiteAccess name is given, the current SiteAccess is used.</br>`{% set locale = get_siteaccess_locale('ger') %}`|
 |`get_characteristics_b2b`|`VariantProductNode $catalogElement`</br>`array $order = array()`|Returns characteristics sorted for B2B|
