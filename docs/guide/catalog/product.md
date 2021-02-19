@@ -1,20 +1,12 @@
-# Content management [[% include 'snippets/commerce_badge.md' %]]
+# Product
 
-## Product
-
-[[= product_name_com =]] offers a built-in Product Content Type.
-
-Any content of this type can be automatically used for all shop functionalities,
-such as adding to basket, price calculation and ordering,
-and can be embedded on the front end with quick ordering buttons.
-
-A Product contains the following Fields:
+The built-in Product Content Type contains the following Fields:
 
 |Name | Identifier | Type | Description |
 |---|---|---|---|
 |Productname | `ses_name` | `ezstring` | Main name of the product. Used to create the URL |
 |Product type | `ses_type` | `ezselection` | |
-|SKU | ses_sku | `ezstring` | Unique Stock keeping unit |
+|SKU | `ses_sku` | `ezstring` | Unique Stock keeping unit |
 |Subtitle | `ses_subtitle` | `ezstring` | Additional product name |
 |Short description | `ses_short_description` | `ezrichtext` | Short product description |
 |Long description | `ses_long_description` | `ezrichtext` | Long product description  |
@@ -40,10 +32,10 @@ A Product contains the following Fields:
 |Discontinued | `ses_discontinued` | `ezboolean` | Flag to indicate if the product is discontinued |
 |Tags | `tags` | `ezkeyword` | Product keywords |
 
-### Custom product Content Type
+## Custom product Content Type
 
-`Ez5CatalogDataProvider` defines which Content Type is treated as products and which Field in Product Content items
-is treated as SKU:
+`Ez5CatalogDataProvider` defines which Content Type is treated as products
+and which Field in Product Content items is treated as SKU:
 
 ``` php
 const EZ_PRODUCT_CONTENT_TYPE_IDENTIFIER = 'ses_product';
@@ -57,18 +49,3 @@ You also need to configure the Content Type to be treated as `createOrderablePro
 ``` yaml
 parameters.silver_eshop.default.catalog_factory.<content_type_identifier>: createOrderableProductNode
 ```
-
-## Product variants
-
-A product can have different variants, corresponding for example to different colors or sizes.
-
-You can select and preview variants on the product's page.
-Variants can have one or two levels.
-When you choose a first attribute, the shop narrows down the options for the second level.
-
-![Product detail](img/product_detail.png)
-
-## Product type
-
-A product type represents a collection of very similar products that differ only in some characteristics.
-It is used to show a list of products in a tabular way, every product can be added to the basket directly from the overview page. 
