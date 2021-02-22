@@ -50,7 +50,7 @@ The following tags used to register Field Type features in the dependency inject
 |`ezpublish.fieldType.indexable`|`ezplatform.field_type.indexable`|
 |`ezpublish.storageEngine.legacy.converter`|`ezplatform.field_type.legacy_storage.converter`|
 |`ezpublish.fieldType.parameterProvider`|`ezplatform.field_type.parameter_provider`|
-|`ezpublish_rest.field_type_processor`|`ezplatform.field_type.rest.processor`|
+|`ezpublish_rest.field_type_processor`|`ibexa.rest.field_type.processor`|
 |`ez.fieldFormMapper.value`|`ezplatform.field_type.form_mapper.value`|
 |`ez.fieldFormMapper.definition`|`ezplatform.field_type.form_mapper.definition`|
 |`ezpublish.fieldType.externalStorageHandler`|`ezplatform.field_type.external_storage_handler`|
