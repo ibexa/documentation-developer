@@ -1,9 +1,5 @@
 # Step 3 - Create form for editing Field Type
 
-!!! tip
-
-    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/generic-field-type-tutorial/tree/Step_3).
-
 ## Create a form
 
 To edit your new Field Type, create a `Point2DType.php` form in the `src/Form/Type` directory.

@@ -1,9 +1,5 @@
 # Step 1 - Implement the Point 2D Value class
 
-!!! tip
-
-    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/generic-field-type-tutorial/tree/Step_1).
-
 ## Project installation
 
 To start the tutorial, you need to make a clean [[= product_name =]] installation.

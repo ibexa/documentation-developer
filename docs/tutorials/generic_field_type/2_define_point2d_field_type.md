@@ -1,9 +1,5 @@
 # Step 2 - Define the Point 2D Field Type
 
-!!! tip
-
-    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/generic-field-type-tutorial/tree/Step_2).
-
 ## The Type class
 
 The Type contains logic of the Field Type: validating data, transforming from various formats, describing the validators, etc.

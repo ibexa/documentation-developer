@@ -1,9 +1,5 @@
 # Step 8 -  Data migration between Field Type versions
 
-!!! tip
-
-    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/generic-field-type-tutorial/tree/Step_8).
-
 Adding data migration enables you to easily change the output of the Field Type to fit your current needs.
 This process is important when a Field Type needs to be compared for sorting and searching purposes.
 Serialization allows changing objects to array by normalizing them, and then to the selected format by encoding them.

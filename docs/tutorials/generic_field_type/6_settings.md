@@ -1,9 +1,5 @@
 # Step 6 - Implement Point 2D settings
 
-!!! tip
-
-    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/generic-field-type-tutorial/tree/Step_6).
-
 Implementing settings enables you to define the format for displaying the Field on the page.
 To do so, you will create the `format` field where you will be able to change the way coordinates for Point 2D are displayed.
 

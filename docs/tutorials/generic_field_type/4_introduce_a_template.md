@@ -1,9 +1,5 @@
 # Step 4 - Introduce a template
 
-!!! tip
-
-    You can find all files used and modified in this step on [GitHub](https://github.com/ezsystems/generic-field-type-tutorial/tree/Step_4).
-
 ## Point 2D template
 
 In order to display data from the Field Type, you need to create and register a template for it.

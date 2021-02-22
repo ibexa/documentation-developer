@@ -1,9 +1,5 @@
 # Creating a Point 2D Field Type 
 
-!!! tip "Getting the code"
-
-    The code created in this tutorial is available on [GitHub](https://github.com/ezsystems/generic-field-type-tutorial/tree/master).
-
 This tutorial covers the creation and development of a custom [[= product_name =]] [Field Type](../../api/field_type_reference.md) based on a [Generic Field Type](../../extending/extending_field_type.md).
 The Generic Field Type is a very powerful extension point. It enables you to easily build complex solutions on a ready-to-go Field Type template.
 
