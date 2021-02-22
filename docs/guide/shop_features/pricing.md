@@ -9,13 +9,13 @@ In addition, prices can vary per customer group.
 
 ## Currencies
 
-The currency is configured per country in the [configuration settings](../shop_configuration.md#price).
+You configure the currency per country in the [configuration settings](../shop_configuration.md#price).
 
 If a product has a price for a currency, this price is displayed in the shop.
 
 If there is no price set in a shop for the given currency, you can set one of two options in the shop configuration:
 
-- Calculate the price for the requested currency using the base price defined in the product
+- Calculate the price for the requested currency based on the base price defined in the product
 (using the base currency setup for the installation) and an exchange rate defined in the configuration
 - Display an error in the frontend that no price is available
 

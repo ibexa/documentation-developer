@@ -1,6 +1,7 @@
 # Payment and shipping [[% include 'snippets/commerce_badge.md' %]]
 
-Payment is based on a standard Symfony bundle. By default, the invoice payment is available.
+Payment is based on a standard Symfony bundle. 
+By default, the invoice payment is available.
 
 You can also integrate other payment providers, such as [PayPal](../payment/paypal.md)
 

@@ -1,6 +1,6 @@
 # User management
 
-[[= product_name =]] by default adds the Shop users User Group, containing subgroups Business customers and Private customers.
+By default, [[= product_name =]] adds the Shop users User Group, which contains the Business customers and Private customers subgroups.
 
 These groups are assigned Roles that allow them to use the shop as customers.
 

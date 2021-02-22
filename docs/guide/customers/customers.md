@@ -23,7 +23,9 @@ The ERP system provides:
 
 ## Customer data model
 
-[[= product_name =]] uses the UBL standard to model customer data. The most important type is the Party which describes an address. 
+[[= product_name =]] uses the UBL standard to model customer data. 
+The most important data type is Party.
+Party describes an address. 
 
 For each user, the following information is stored. If the user has a customer number, the following information is updated from the ERP after login: 
 
