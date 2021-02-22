@@ -11,25 +11,8 @@ Next, add a `Point2DType` class that extends the `AbstractType` and implements t
 This method adds fields for `x` and `y` coordinates.
 
 ```php
-<?php
-declare(strict_types=1);
-
-namespace App\Form\Type;
-
-use App\FieldType\Point2D\Value;
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-
-final class Point2DType extends AbstractType
-{
-    public function buildForm(FormBuilderInterface $builder, array $options): void
-    {
-        $builder->add('x', NumberType::class);
-        $builder->add('y', NumberType::class);
-    }
-}
+[[= include_file('code_samples/field_types/2dpoint_ft/steps/step_3/Point2DType.php', 0, 18) =]]
+[[= include_file('code_samples/field_types/2dpoint_ft/steps/step_3/Point2DType.php', 24, 25) =]]
 ```
 
 ## Add a Form Mapper Interface
@@ -48,64 +31,15 @@ Next, implement a `mapFieldValueForm()` method and invoke `FormInterface::add` m
 
 Final version of the Type class should have the following statements and functions:
 
-```php hl_lines="7 10 18 19 20 21 22 23 24 25"
-<?php
-declare(strict_types=1);
-
-namespace App\FieldType\Point2D;
-
-use App\Form\Type\Point2DType;
-use eZ\Publish\SPI\FieldType\Generic\Type as GenericType;
-use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
-use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;
-use Symfony\Component\Form\FormInterface;
-
-final class Type extends GenericType implements FieldValueFormMapperInterface
-{
-    public function getFieldTypeIdentifier(): string
-    {
-        return 'point2d';
-    }
-    public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data)
-    {
-        $definition = $data->fieldDefinition;
-        $fieldForm->add('value', Point2DType::class, [
-            'required' => $definition->isRequired,
-            'label' => $definition->getName()
-        ]);
-    }
-}
+```php hl_lines="7 10 19 20 21 22 23 24 25 26"
+[[= include_file('code_samples/field_types/2dpoint_ft/steps/step_3/Type.php') =]]
 ```
 
 Finally, add a `configureOptions` method and set default value of `data_class` to `Value::class` in `src/Form/Type/Point2DType.php`.
 It will allow your form to work on this object.
 
 ```php hl_lines="19 20 21 22 23 24"
-<?php
-declare(strict_types=1);
-
-namespace App\Form\Type;
-
-use App\FieldType\Point2D\Value;
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-
-final class Point2DType extends AbstractType
-{
-    public function buildForm(FormBuilderInterface $builder, array $options): void
-    {
-        $builder->add('x', NumberType::class);
-        $builder->add('y', NumberType::class);
-    }
-    public function configureOptions(OptionsResolver $resolver): void
-    {
-        $resolver->setDefaults([
-            'data_class' => Value::class
-        ]);
-    }
-}
+[[= include_file('code_samples/field_types/2dpoint_ft/src/Form/Type/Point2DType.php') =]]
 ```
 
 ## Add a new tag
@@ -113,8 +47,5 @@ final class Point2DType extends AbstractType
 Next, add the `ezplatform.field_type.form_mapper.value` tag to `config/services.yaml`:
 
 ```yaml hl_lines="4"
-App\FieldType\Point2D\Type:
-    tags:
-        - { name: ezplatform.field_type, alias: point2d }
-        - { name: ezplatform.field_type.form_mapper.value, fieldType: point2d }
+[[= include_file('code_samples/field_types/2dpoint_ft/config/services.yaml', 33, 37) =]]
 ```

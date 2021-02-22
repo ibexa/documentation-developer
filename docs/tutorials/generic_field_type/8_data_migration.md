@@ -16,28 +16,7 @@ For more information on Serializer Components, see [Symfony documentation.](http
 First, you need to add support for normalization in a `src/Serializer/Point2D/ValueNormalizer.php`:
 
 ```php
-<?php
-declare(strict_types=1);
-
-namespace App\Serializer\Point2D;
-
-use App\FieldType\Point2D\Value;
-use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-
-final class ValueNormalizer implements NormalizerInterface
-{
-    public function normalize($object, string $format = null, array $context = [])
-    {
-        return [
-            $object->getX(),
-            $object->getY()
-        ];
-    }
-    public function supportsNormalization($data, string $format = null)
-    {
-        return $data instanceof Value;
-    }
-}
+[[= include_file('code_samples/field_types/2dpoint_ft/src/Serializer/Point2D/ValueNormalizer.php') =]]
 ```
 
 ##  Add Normalizer definition
@@ -46,10 +25,7 @@ Next, add the `ValueNormalizer` service definition to the `config/services.yaml`
  
 ```yaml
 services:
-    # ...
-    App\Serializer\Point2D\ValueNormalizer:
-        tags:
-            - { name: serializer.normalizer }
+[[= include_file('code_samples/field_types/2dpoint_ft/config/services.yaml', 39, 42) =]]
 ```
 
 ## Backward compatibility
@@ -57,29 +33,7 @@ services:
 To accept old versions of the Field Type you need to add support for denormalization in a `src/Serializer/Point2D/ValueDenormalizer.php`:
 
 ```php
-<?php
-declare(strict_types=1);
-
-namespace App\Serializer\Point2D;
-
-use App\FieldType\Point2D\Value;
-use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
-
-final class ValueDenormalizer implements DenormalizerInterface
-{
-    public function denormalize($data, string $class, string $format = null, array $context = [])
-    {
-        if (isset($data['x']) && isset($data['y'])) {
-            // Support for old format
-            $data = [ $data['x'], $data['y'] ];
-        }
-        return new $class($data);
-    }
-    public function supportsDenormalization($data, string $type, string $format = null)
-    {
-        return $type === Value::class;
-    }
-}
+[[= include_file('code_samples/field_types/2dpoint_ft/src/Serializer/Point2D/ValueDenormalizer.php') =]]
 ```
 
 ## Add Denormalizer definition
@@ -88,10 +42,7 @@ Next, add the `ValueDenormalizer` service definition to `config/services.yaml` w
  
 ```yaml
 services:
-    # ...
-    App\Serializer\Point2D\ValueDenormalizer:
-        tags:
-            - { name: serializer.denormalizer }
+[[= include_file('code_samples/field_types/2dpoint_ft/config/services.yaml', 43, 46) =]]
 ```
 
 ## Change format on the fly
@@ -99,13 +50,7 @@ services:
 To change the format on the fly, you need to replace the constructor in `src/FieldType/Point2D/Value.php`:
 
 ```php
-public function __construct(array $coords = [])
-{
-    if (!empty($coords)) {
-        $this->x = $coords[0];
-        $this->y = $coords[1];
-    }
-}
+[[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Value.php', 24, 31) =]]
 ```
 
 Now you can easily change the internal representation format of the Point 2D Field Type.

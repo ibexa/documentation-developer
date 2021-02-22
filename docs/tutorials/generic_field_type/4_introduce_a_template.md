@@ -19,20 +19,13 @@ It will define the default display of a Point 2D.
 Your basic template for Point 2D should look like this:
 
 ```html+twig
-{% block point2d_field %}
-    ({{ field.value.getX() }}, {{ field.value.getY() }})
-{% endblock %}
+[[= include_file('code_samples/field_types/2dpoint_ft/steps/step_4/point2d_field.html.twig') =]]
 ```
 
 ## Template mapping
 
-Next, provide the template mapping in `config/packages/ezplatform.yaml`:
+Next, provide the template mapping in `config/packages/field_templates.yaml`:
 
 ```yaml
-ezplatform:
-    system:
-        default:
-            # ...
-            field_templates:
-                - { template: 'point2d_field.html.twig', priority: 0 }
+[[= include_file('code_samples/field_types/2dpoint_ft/config/packages/field_templates.yaml', 0, 5) =]]
 ```

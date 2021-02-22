@@ -42,14 +42,7 @@ At this point, it does not matter where they are stored. You want to focus on wh
 `src/FieldType/Point2D/Value.php` should have the following properties:
 
 ```php
-{
-//Properties of the class Value
-
-    /** @var float|null */
-    private $x;
-    /** @var float|null */
-    private $y;
-}
+[[= include_file('code_samples/field_types/2dpoint_ft/steps/step_1/Value.php', 9, 13) =]]
 ```
 
 A Value class must also implement the `eZ\Publish\SPI\FieldType\Value` interface.
@@ -60,44 +53,5 @@ This class will represent the point 2D.
 The final code should look like this:
 
 ```php
-<?php
-declare(strict_types=1);
-
-namespace App\FieldType\Point2D;
-
-use eZ\Publish\SPI\FieldType\Value as ValueInterface;
-
-final class Value implements ValueInterface
-{
-    /** @var float|null */
-    private $x;
-    /** @var float|null */
-    private $y;
-    public function __construct(?float $x = null, ?float $y = null)
-    {
-        $this->x = $x;
-        $this->y = $y;
-    }
-
-    public function getX(): ?float
-    {
-        return $this->x;
-    }
-    public function setX(?float $x): void
-    {
-        $this->x = $x;
-    }
-    public function getY(): ?float
-    {
-        return $this->y;
-    }
-    public function setY(?float $y): void
-    {
-        $this->y = $y;
-    }
-    public function __toString()
-    {
-        return "({$this->x}, {$this->y})";
-    }
-}
+[[= include_file('code_samples/field_types/2dpoint_ft/steps/step_1/Value.php') =]]
 ```
