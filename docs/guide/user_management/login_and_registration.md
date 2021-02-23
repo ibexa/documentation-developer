@@ -1,8 +1,8 @@
-# Login and registration [[% include 'snippets/commerce_badge.md' %]]
+# Login and registration
 
 ## Login
 
-In [[= product_name_com =]], users can log in not only with their user name or email, but also with the customer number.
+In [[= product_name =]], users can log in not only with their user name or email, but also with the customer number.
 
 To enable logging in with customer number, use the `enable_customer_number_login` configuration parameter:
 
@@ -12,7 +12,7 @@ siso_core.default.enable_customer_number_login: true
 
 ## Registration
 
-[[= product_name_com =]] provides different registration options for private and business customers.
+[[= product_name =]] provides different registration options for private and business customers.
 
 ### Private customers
 

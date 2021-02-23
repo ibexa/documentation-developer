@@ -1,4 +1,4 @@
-# Services for checkout forms [[% include 'snippets/commerce_badge.md' %]]
+# Services for checkout forms
 
 ## CheckoutFormServiceInterface
 

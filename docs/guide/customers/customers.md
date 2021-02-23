@@ -1,22 +1,8 @@
-# Customers [[% include 'snippets/commerce_badge.md' %]]
+# Customers
 
 Customers are stored as User Content items in the database.
 
-[[= product_name_com =]] adds the following Fields to the User Content Type that are required for the shop:
-
-- first name, last name
-- salutation
-- customer profile data
-- customer number, contact number
-- budget per order and per month (used by the Customer Center)
-
-### User Groups
-
-Each shop stores private and business customers in different User Groups.
-
-![](../img/customers_1.png)
-
-### Customers in ERP system
+## Customers in ERP system
 
 The customers are directly connected to the ERP system if they have a customer number and/or a contact number. 
 
@@ -37,7 +23,9 @@ The ERP system provides:
 
 ## Customer data model
 
-[[= product_name_com =]] uses the UBL standard to model customer data. The most important type is the Party which describes an address. 
+[[= product_name =]] uses the UBL standard to model customer data. 
+The most important data type is Party.
+Party describes an address. 
 
 For each user, the following information is stored. If the user has a customer number, the following information is updated from the ERP after login: 
 

@@ -1,4 +1,4 @@
-# Basket
+# Basket [[% include 'snippets/commerce_badge.md' %]]
 
 ![](../img/basket_1.png)
 

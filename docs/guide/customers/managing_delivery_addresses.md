@@ -1,4 +1,4 @@
-# Managing delivery addresses [[% include 'snippets/commerce_badge.md' %]]
+# Managing delivery addresses
 
 !!! note
 

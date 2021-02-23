@@ -1,4 +1,4 @@
-# Data processors [[% include 'snippets/commerce_badge.md' %]]
+# Data processors
 
 Data processors are executed after a form is submitted. You can use any number of data processors per form.
 The configuration lists data processors that are executed in sequence, for example:
@@ -69,7 +69,7 @@ The data processor sets the following fields in the User Content item:
 - `ses_hastopay_vat`
 - `ses_display_vat`
 
-[[= product_name_com =]] provides a standard event for this handler which adds a prefix to the login name of the user.
+[[= product_name =]] provides a standard event for this handler, which adds a prefix to the login name of the user.
 The prefix can be defined in the configuration key `data_processor_ez_user_login_prefix`.
 
 ``` xml

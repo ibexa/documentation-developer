@@ -1,4 +1,4 @@
-# Bestsellers [[% include 'snippets/commerce_badge.md' %]]
+# Bestsellers
 
 Bestsellers are determined based on all confirmed orders. The information how often a product was purchased is stored in Solr by a Solr plugin.
 The shop owner can specify from which point a product counts as a bestseller.
