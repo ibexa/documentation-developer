@@ -1,13 +1,9 @@
-# Payment and shipping
+# Payment and shipping [[% include 'snippets/commerce_badge.md' %]]
 
-[[= product_name =]] offers the following payment methods:
+Payment is based on a standard Symfony bundle. 
+By default, the invoice payment is available.
 
-- invoice
-- PayPal Express
-- Ogone/Ingenico
-- Telecash
-
-Payment is based on a standard Symfony bundle. You can also integrate other payment providers.
+You can also integrate other payment providers, such as [PayPal](../payment/paypal.md)
 
 The payment and shipping methods can be enabled or disabled per SiteAccess.
 

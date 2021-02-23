@@ -1,4 +1,4 @@
-# Checkout templates [[% include 'snippets/commerce_badge.md' %]]
+# Checkout templates
 
 ## Template list
 

@@ -1,4 +1,4 @@
-# Invoice address form [[% include 'snippets/commerce_badge.md' %]]
+# Invoice address form
 
 ## Model class
 

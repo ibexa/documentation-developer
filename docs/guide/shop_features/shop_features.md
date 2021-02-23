@@ -1,14 +1,5 @@
 # Shop features
 
-## Shop navigation
-
-Shop navigation is generated automatically from Content items under the root Location (Location ID 2).
-By default these include the product catalog and content relating to legal documents,
-but you can add any other content to it.
-The order of the navigation items can be defined by the editor in the Back Office using the priority field.
-
-![Default navigation](img/navigation.png)
-
 ## Product comparison [[% include 'snippets/commerce_badge.md' %]]
 
 The customer can add products to a comparison list and access it from the "My shop" menu.
@@ -17,7 +8,7 @@ The customer can change the order of the sorting by dragging and can display onl
 
 ![Product comparison](img/comparison_list.png)
 
-## Wishlist and stored baskets
+## Wishlist and stored baskets [[% include 'snippets/commerce_badge.md' %]]
 
 A logged-in customer can store products for later without adding them to the basket.
 The customer can also add products to a personal wishlist or to a named, stored basket.

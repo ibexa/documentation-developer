@@ -1,4 +1,4 @@
-# Navigation templates [[% include 'snippets/commerce_badge.md' %]]
+# Navigation templates
 
 ## Template list
 

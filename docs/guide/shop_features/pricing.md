@@ -1,4 +1,4 @@
-# Pricing
+# Pricing [[% include 'snippets/commerce_badge.md' %]]
 
 You can set up prices manually per product or per product variant.
 Every price can contain an offer price and a base price. If an offer price is set, both are displayed.
@@ -9,13 +9,14 @@ In addition, prices can vary per customer group.
 
 ## Currencies
 
-The currency is configured per country in the [configuration settings](../shop_configuration/shop_configuration.md#currencies-used-per-country).
+You configure the currency per country in the [configuration settings](../shop_configuration.md#price).
 
-If a product has a price for a currency this price is displayed in the shop.
+If a product has a price for a currency, this price is displayed in the shop.
 
-If there is no price set in a shop for the given currency, [[= product_name_com =]] offers two options that can be set in the shop configuration:
+If there is no price set in a shop for the given currency, you can set one of two options in the shop configuration:
 
-- Calculate the price for the requested currency using the base price defined in the product (using the base currency setup for the installation) and an exchange rate defined in the configuration
+- Calculate the price for the requested currency based on the base price defined in the product
+(using the base currency setup for the installation) and an exchange rate defined in the configuration
 - Display an error in the frontend that no price is available
 
 ## Import/export stock and price information

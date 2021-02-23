@@ -185,9 +185,8 @@ nav:
                 - 'Newsletter templates': 'guide/newsletter/newsletter_templates.md'
         - Shop features:
             - 'Shop features': 'guide/shop_features/shop_features.md'
-            - 'Product management': 'guide/shop_features/content_management.md'
+            - 'Product management': 'guide/shop_features/product_management.md'
             - 'Catalog': 'guide/shop_features/catalog.md'
-            - 'Shop search': 'guide/shop_features/search.md'
             - 'Pricing': 'guide/shop_features/pricing.md'
             - 'Payment and shipping': 'guide/shop_features/payment_and_shipping.md'
             - 'User management': 'guide/shop_features/user_management.md'
@@ -252,6 +251,7 @@ nav:
             - Catalog:
                 - 'Catalog ': 'guide/catalog/catalog.md'
                 - 'Catalog templates': 'guide/catalog/catalog_templates.md'
+                - 'Product': 'guide/catalog/product/md'
                 - 'Product rendering': 'guide/catalog/product_rendering.md'
                 - 'Product variants': 'guide/catalog/product_variants/product_variants.md'
                 - 'Product variant API': 'guide/catalog/product_variants/product_variant_api.md'

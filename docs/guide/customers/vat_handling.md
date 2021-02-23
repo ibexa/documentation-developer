@@ -1,4 +1,4 @@
-# VAT handling [[% include 'snippets/commerce_badge.md' %]]
+# VAT handling
 
 The VAT handling for customers is controlled by:
 
