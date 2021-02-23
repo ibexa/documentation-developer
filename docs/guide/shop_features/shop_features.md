@@ -1,14 +1,5 @@
 # Shop features
 
-## Shop navigation
-
-Shop navigation is generated automatically from Content items under the root Location (Location ID 2).
-By default these include the product catalog and content relating to legal documents,
-but you can add any other content to it.
-The order of the navigation items can be defined by the editor in the Back Office using the priority field.
-
-![Default navigation](img/navigation.png)
-
 ## Product comparison
 
 The customer can add products to a comparison list and access it from the "My shop" menu.

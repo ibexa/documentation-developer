@@ -5,7 +5,7 @@ Order history uses semantic configuration, so it only exposes parameters that ar
 However it is possible to [override this configuration per SiteAccess](overriding_semantic_configuration.md).
 When an event is thrown, before the configuration is used, you can implement a listener that changes this configuration.
 [[= product_name_com =]] uses this event to display [local orders](order_history_features/orderhistory_local_orders.md).
-See the [Overriding semantic configuration](overriding_semantic_configuration.md) to find out how to implement a new configuration listener.
+See [Overriding semantic configuration](overriding_semantic_configuration.md) to find out how to implement a new configuration listener.
 
 ``` yaml
 siso_order_history:
