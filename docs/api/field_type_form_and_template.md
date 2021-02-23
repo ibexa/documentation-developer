@@ -17,39 +17,17 @@ The `FieldValueFormMapperInterface::mapFieldValueForm` method accepts two argume
 - `FormInterface` — form for the current Field
 - `FieldData` — underlying data for current field form
 
-You have to add your form type to the content editing form. The example shows how `ezboolean` injects the form:
+You have to add your form type to the content editing form, for example:
 
 ``` php
-use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
-use EzSystems\RepositoryForms\Form\Type\FieldType\CheckboxFieldType;
-use Symfony\Component\Form\FormInterface;
+[[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 6, 7) =]][[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 10, 11) =]][[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 12, 13) =]]
+// ...
 
-public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data)
-{
-    $fieldDefinition = $data->fieldDefinition;
-    $formConfig = $fieldForm->getConfig();
-
-    $fieldForm
-        ->add(
-            $formConfig->getFormFactory()->createBuilder()
-                ->create(
-                    'value',
-                    CheckboxFieldType::class,
-                    [
-                        'required' => $fieldDefinition->isRequired,
-                        'label' => $fieldDefinition->getName(
-                            $formConfig->getOption('languageCode')
-                        ),
-                    ]
-                )
-                ->setAutoInitialize(false)
-                ->getForm()
-        );
-}
+[[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 33, 41) =]]
 ```
 
 Your type has to be called `value`.
-In the example above, `CheckboxFieldType::class` is used, but you can use standard Symfony form type instead.
+In the example above, the custom `Point2DType::class` is used, but you can use standard Symfony form type instead.
 
 It's good practice to encapsulate Fields with custom types as it allows easier templating.
 Type has to be compatible with your Field Type's `eZ\Publish\Core\FieldType\Value` implementation.
@@ -60,53 +38,20 @@ You can use a [`DataTransformer`](https://symfony.com/doc/5.0/form/data_transfor
 Providing definition editing support is almost identical to creating content editing support. The only difference are field names:
 
 ``` php
-use EzSystems\RepositoryForms\Data\FieldDefinitionData;
-use EzSystems\RepositoryForms\Form\Type\FieldType\CountryFieldType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\FormInterface;
+[[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 11, 13) =]]
+// ...
 
-public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, FieldDefinitionData $data)
-{
-    $fieldDefinitionForm
-        ->add(
-            'isMultiple',
-            CheckboxType::class, [
-                'required' => false,
-                'property_path' => 'fieldSettings[isMultiple]',
-                'label' => 'field_definition.ezcountry.is_multiple',
-            ]
-        )
-        ->add(
-            // Creating from FormBuilder as we need to add a DataTransformer.
-            $fieldDefinitionForm->getConfig()->getFormFactory()->createBuilder()
-                ->create(
-                    'defaultValue',
-                    CountryFieldType::class, [
-                        'choices_as_values' => true,
-                        'multiple' => true,
-                        'expanded' => false,
-                        'required' => false,
-                        'label' => 'field_definition.ezcountry.default_value',
-                    ]
-                )
-                // Deactivate auto-initialize as you're not on the root form.
-                ->setAutoInitialize(false)->getForm()
-        );
-}
+[[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 42, 48) =]]
 ```
 
 Use names corresponding to the keys used in Field Type's `eZ\Publish\SPI\FieldType\FieldType::$settingsSchema` implementation.
-The special `defaultValue` key allows you to specify a field for setting the default value assigned during content editing.
 
 ### Registering the service
 
 The FormMapper must be registered as a service:
 
-``` yaml
-App\FieldType\Mapper\CustomFieldTypeMapper:
-    tags:
-        - { name: ezplatform.field_type.form_mapper.definition, fieldType: custom }
-        - { name: ezplatform.field_type.form_mapper.value, fieldType: custom }
+``` yaml hl_lines="4 5"
+[[= include_file('code_samples/field_types/2dpoint_ft/config/services.yaml', 33, 38) =]]
 ```
 
 Tag the mapper according to the support you need to provide:
@@ -121,9 +66,7 @@ To render the Field in content view using the [`ez_render_field()` Twig helper](
 you need to define a template containing a block for the Field.
 
 ``` html+twig
-{% block customfieldtype_field %}
-{# Your code here #}
-{% endblock %}
+[[= include_file('code_samples/field_types/2dpoint_ft/templates/point2d_field.html.twig') =]]
 ```
 
 By convention, your block must be named `<fieldTypeIdentifier>_field`.
@@ -167,14 +110,7 @@ If you don't use [eZ Design Engine](../guide/design_engine.md) or you want to ha
 you can register a template with the following configuration:
 
 ``` yaml
-ezplatform:
-    system:
-        <siteaccess>:
-            field_templates:
-                -
-                    template: 'fields/custom_field_template.html.twig'
-                    # Priority is optional (default is 0). The higher it is, the higher your template gets in the list.
-                    priority: 10
+[[= include_file('code_samples/field_types/2dpoint_ft/config/packages/field_templates.yaml', 0, 5) =]]
 ```
 
 ## Back Office templates

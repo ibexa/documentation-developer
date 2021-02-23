@@ -101,24 +101,21 @@ When [REST API](rest_api_guide.md) is used, conversion needs to be done for Fiel
 ## Registration
 
 A Field Type needs to have an indexable class defined.
-If you are using Solr Bundle, each Field Type must be registered in `config/services.yml`:
+If you are using Solr Bundle, each Field Type must be registered in `config/services.yaml`:
 
 ``` yaml
 services:
-    EzSystems\EzPlatformMatrixFieldtype\FieldType\Type:
-        parent: ezpublish.fieldType
-        tags:
-            - {name: ezplatform.field_type, alias: ezmatrix}
+[[= include_file('code_samples/field_types/2dpoint_ft/config/services.yaml', 33, 36) =]]
 ```
 
 Items that are not to be indexed should be registered with the `unindexed` class with the parameter `ezpublish.fieldType.indexable.unindexed.class`:
 
 ```yaml
 services:
-    EzSystems\EzPlatformMatrixFieldtype\FieldType\Type:
-        class: %ezpublish.fieldType.indexable.unindexed.class%
+    App\FieldType\Point2D\Type:
+        class: '%ezpublish.fieldType.indexable.unindexed.class%'
         tags:
-            - {name: ezplatform.field_type, alias: ezmatrix}
+            - { name: ezplatform.field_type, alias: point2d }
 ```
 
 #### `parent`
@@ -143,7 +140,7 @@ This ensures that the initialization steps shared by all Field Types are execute
 
 It is recommended to use a simple associative array format for the settings schema returned by `eZ\Publish\SPI\FieldType\FieldType::getSettingsSchema()`, which follows these rules:
 
-- The key of the associative array identifies a setting (e.g. `default`)
+- The key of the associative array identifies a setting (e.g. `format`)
 - Its value is an associative array describing the setting using:
     - `type` to identify the setting type (e.g. `int` or `string`)
     - `default` containing the default setting value
@@ -151,16 +148,7 @@ It is recommended to use a simple associative array format for the settings sche
 An example schema could look like this:
 
 ``` php
-[
-    'backupData' => [
-        'type' => 'bool',
-        'default' => false
-    ],
-    'defaultValue' => [
-        'type' => 'string',
-        'default' => 'Default Value'
-    ]
-];
+[[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 23, 32) =]]
 ```
 
 The settings are mapped into Symfony forms via the [FormMapper](field_type_form_and_template.md#formmapper).
