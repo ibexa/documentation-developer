@@ -3,6 +3,10 @@
 You can migrate your Repository data, that is Content items, as well as Content Types, languages, Object states, Sections, etc.,
 between installations by using the migration script.
 
+!!! tip "Public PHP API"
+
+    You can also manage data migrations with the PHP API, see [Managing migrations](../api/publish_php_api_managing_migrations.mg).
+
 ## Exporting data
 
 To export Repository content, use the `ibexa:migrations:generate` command.
@@ -160,3 +164,12 @@ bin/console ibexa:migrations:kaliop:bulk-convert --recursive --input-directory=k
 ```
 
 If you do not specify the output directory, the command overwrites the input files.
+
+## Adding migration files
+
+Use the `ibexa:migrations:import` command to add files to the defined folder for migrations
+(by default, `src/Migrations/Ibexa`).
+
+``` bash
+php bin/console ibexa:migrations:import my_data_export.yaml
+```
