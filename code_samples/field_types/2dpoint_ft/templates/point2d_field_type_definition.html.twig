@@ -1,0 +1,7 @@
+{% block point2d_field_definition_edit %}
+    <div class="{% if group_class is not empty %}{{ group_class }}{% endif %}">
+        {{- form_label(form.fieldSettings.format) -}}
+        {{- form_errors(form.fieldSettings.format) -}}
+        {{- form_widget(form.fieldSettings.format) -}}
+    </div>
+{% endblock %}

@@ -1,0 +1,7 @@
+ezplatform:
+    system:
+        default:
+            field_templates:
+                - { template: 'point2d_field.html.twig', priority: 0 }
+            fielddefinition_edit_templates:
+                - { template: 'point2d_field_type_definition.html.twig', priority: 0 }
