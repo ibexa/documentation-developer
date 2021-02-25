@@ -169,6 +169,8 @@ nav:
         - User management:
             - 'User management': 'guide/user_management/user_management.md'
             - 'Login and registration': 'guide/user_management/login_and_registration.md'
+            - 'OAuth authentication': 'guide/user_management/oauth.md'
+            - 'Adding login through external service': 'guide/user_management/login_via_external_service.md'
             - 'Token': 'guide/user_management/token.md'
             - 'Delegate function': 'guide/user_management/delegate_function.md'
             - Customers:
