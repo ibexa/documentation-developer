@@ -10,11 +10,18 @@
 @media only screen and (min-width: 76.1875em) {
     .main_nav {
         margin-left: 0;
+        position: sticky;
+        top: 56px;
+        height: calc(100% - 56px);
     }
 
     .md-sidebar {
         width: 15rem;
         height: 100%;
+    }
+
+    .md-sidebar--primary {
+        padding-left: 0.6rem;
     }
 
     .md-content {
@@ -261,7 +268,7 @@
     width: 15rem;
     font-size: 16px;
     font-weight: 600;
-    padding: 1rem;
+    padding: 1rem 0.8rem;
     border-bottom: 1px solid var(--mid-grey);
     background: white;
 }
