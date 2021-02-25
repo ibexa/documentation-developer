@@ -12,7 +12,7 @@
         margin-left: 0;
         position: sticky;
         top: 56px;
-        height: calc(100% - 56px);
+        height: calc(100vh - 56px);
     }
 
     .md-sidebar {
@@ -22,6 +22,11 @@
 
     .md-sidebar--primary {
         padding-left: 0.6rem;
+        height: calc(100vh - 130px);
+    }
+
+    .md-sidebar--primary .md-sidebar__scrollwrap {
+        height: 100%;
     }
 
     .md-content {
