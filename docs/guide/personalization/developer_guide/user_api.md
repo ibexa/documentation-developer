@@ -27,7 +27,6 @@ Use the following request to update the specified user's attribute set:
 
 `POST: https://import.yoochoose.net/api/[customerid]/[source]/user`
 
-
 ## Request parameters
 
 For the requests to function, you must provide the following parameters.
@@ -38,6 +37,11 @@ For the requests to function, you must provide the following parameters.
 |`source`|An ID of the source of the specified user's metadata.|alphanumeric|
 |`userid`|An ID of the tracked user in the website (for example, an internal customer code, a session code or a cookie for anonymous users.|alphanumeric|
   
+  !!! caution "Parameter encoding limitations"
+
+      All parameters must be URL-encoded (see RFC 3986) and cannot contain slash, backslash or space 
+      characters.
+      
 ### Source
 
 The `source` parameter defines the system that stores the specified user's metadata. 
@@ -64,10 +68,10 @@ For example:
 |---------------------|-------------------------|---------------------------|
 | `Customer<12.2014>` | `Customer%3C12.2014%3E` | `Customer&lt;12.2014&gt;` |
 
-## Metadata format
+## Metadata object format
 
-Here is an example user metadata in xml format. 
-The attribute keys and values are chosen arbitrarily.
+For an example of user metadata, see the following XML code. 
+The attribute keys and values are chosen at random.
 
 ``` xml
 <users>
@@ -92,6 +96,6 @@ The following attribute types are supported:
 
 - DATE - An XSD-formatted date, for example, "2014-08-07"
 - DATETIME - An XSD-formatted time without a time zone, for example, "2014-08-07T14:43:12"
-- NOMINAL - A value from a fixed length list, for example "gender" or "favorite film genre". *This is the default value*
+- NOMINAL - A value from a fixed length list, for example "gender" or "favorite film genre". If you do not set the attribute type, this is the default value
 - NUMERIC - A decimal value, for example, "1.23" or "-2345"
 - TEXT - A longer text, usually free form
