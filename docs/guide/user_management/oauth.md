@@ -9,7 +9,7 @@ To enable OAuth2, you need to:
 
 - [enable and configure an OAuth2 provider](#oauth2-provider-configuration)
 - [add a guard authentication to your firewall configuration](#firewall-configuration)
-- [select one of the existing resource owner mappers, or implement your own](#resource-owner-mappers)
+- [select one of the existing resource owner mappers, or implement your own one](#resource-owner-mappers)
 
 ## OAuth2 provider configuration
 
@@ -19,9 +19,9 @@ To configure the OAuth2 provider, add it under the `oauth2` key in SiteAccess-aw
 [[= include_file('code_samples/user_management/oauth_google/config/packages/oauth.yaml') =]]
 ```
 
-Details of the configuration depend on the OAuth2 provider you want to use.
-To see example configurations for different providers,
-check [`knpuniversity/oauth2-client-bundle` configuration](https://github.com/knpuniversity/oauth2-client-bundle#configuration).
+Details of the configuration depend on the OAuth2 provider that you want to use.
+For sample configurations for different providers,
+see [`knpuniversity/oauth2-client-bundle` configuration](https://github.com/knpuniversity/oauth2-client-bundle#configuration).
 
 ## Firewall configuration
 
@@ -47,8 +47,8 @@ If they do not, the mapper creates a new user in the Repository.
 
 To use `ResourceOwnerToExistingOrNewUserMapper` you need to extend it in your custom mapper.
 
-See [Adding login via external service](login_via_external_service.md) for an example of creating a mapper
-extending `ResourceOwnerToExistingOrNewUserMapper`.
+See [Adding login through external service](login_via_external_service.md) for an example of creating a mapper
+that extends `ResourceOwnerToExistingOrNewUserMapper`.
 
 !!! tip "OAuth User Content Type"
 

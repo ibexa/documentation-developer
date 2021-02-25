@@ -702,4 +702,4 @@ For a Location alias set up a 301 redirect to the Location's current URL when:
 |------|------|------|
 |`identifier`|string|Identifier of the OAuth connection|
 |`parameters`|`array`|Route parameters|
-|`schemeRelative`|`boolean`|Whether to generate a relative URL|
+|`schemeRelative`|`boolean`|Specifies whether to generate a relative URL|

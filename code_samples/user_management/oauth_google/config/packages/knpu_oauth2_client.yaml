@@ -1,6 +1,6 @@
 knpu_oauth2_client:
     clients:
-        # configure your clients as described here: https://github.com/knpuniversity/oauth2-client-bundle#configuration
+        # Configure your clients as described here: https://github.com/knpuniversity/oauth2-client-bundle#configuration
         google:
             type: google
             client_id: '%env(OAUTH_GOOGLE_CLIENT_ID)%'

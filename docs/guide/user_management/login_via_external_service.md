@@ -1,8 +1,8 @@
-# Adding login via external service
+# Adding login through external service
 
-To add an option to log in to the system via an external service, you can use [OAuth2](oauth.md) to authorize your users.
+To add an option to log in to the system through an external service, you can use [OAuth2](oauth.md) to authorize your users.
 
-The example below shows how to add a "Log in via Google" option to the Back Office.
+The example below shows how to add a **Log in with Google** option to the Back Office.
 
 ## Configure OAuth2 client
 
@@ -14,7 +14,7 @@ Configure the OAuth2 client in `config/packages/knpu_oauth2_client.yaml`:
 
 ## Enable OAuth authentication
 
-Enable OAuth2 authentication via Google for the `site` SiteAccess:
+Enable OAuth2 authentication through Google for the `site` SiteAccess:
 
 ``` yaml
 [[= include_file('code_samples/user_management/oauth_google/config/packages/oauth.yaml') =]]
@@ -24,7 +24,7 @@ Enable OAuth2 authentication via Google for the `site` SiteAccess:
 
 Add the `Ibexa\Platform\OAuth2Client\Security\Authenticator\OAuth2Authenticator` guard authenticator
 to your firewall configuration in `config/packages/security.yaml`
-and ensure that the `ibexa.oauth2.connect` route is accessible by anonymous user:
+and ensure that the `ibexa.oauth2.connect` route is accessible by an anonymous user:
 
 ``` yaml
 [[= include_file('code_samples/user_management/oauth_google/config/packages/security.yaml', 20, 36) =]]
@@ -45,7 +45,7 @@ The new user name is set with a `google:` prefix (lines 18, 105), to avoid confl
 [[= include_file('code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php') =]]
 ```
 
-Configure the service using the `ibexa.oauth2_client.resource_owner_mapper` tag:
+Configure the service by using the `ibexa.oauth2_client.resource_owner_mapper` tag:
 
 ``` yaml
 [[= include_file('code_samples/user_management/oauth_google/config/services.yaml', 33, 36) =]]
@@ -53,17 +53,17 @@ Configure the service using the `ibexa.oauth2_client.resource_owner_mapper` tag:
 
 ## Add template
 
-To add a "Log in via Google" button to your Back Office login form, create the following template file
+To add a **Log in with Google** button to your Back Office login form, create the following template file
 in `templates/themes/admin/account/login/oauth2_login.html.twig`:
 
 ``` html+twig
 [[= include_file('code_samples/user_management/oauth_google/templates/themes/admin/account/login/oauth2_login.html.twig') =]]
 ```
 
-Finally, add the template to the login form using the `login-form-after` [component](../../extending/custom_components.md):
+Finally, add the template to the login form by using the `login-form-after` [component](../../extending/custom_components.md):
 
 ``` yaml
 [[= include_file('code_samples/user_management/oauth_google/config/services.yaml', 37, 43) =]]
 ```
 
-![Log in to the Back Office via Google](../img/log_in_via_google.png)
+![Log in to the Back Office with Google](../img/log_in_via_google.png)
