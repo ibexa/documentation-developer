@@ -242,19 +242,19 @@
     font-family: "Noto Sans", sans-serif;
 }
 
-.md-header-nav__button {
+.md-header__button {
     height: 100%;
 }
 
-.md-header-nav__button.md-logo {
+.md-header__button.md-logo {
     display: block;
 }
 
-.md-header-nav__button.md-logo img {
+.md-header__button.md-logo img {
     width: inherit;
 }
 
-.md-header-nav__source {
+.md-header__source {
     width: auto;
     padding-right: 1rem;
     padding-top: 0.2rem;
