@@ -7,8 +7,12 @@
     padding-right: 1rem;
 }
 
-.docs-switcher .switcher__selected-item {
-    padding-left: 2rem;
+.md-header .switcher__selected-item {
+    padding: 0 0.5rem;
+}
+
+.md-header .switcher__selected-item:hover {
+    background-color: var(--codeblock);
 }
 
 .switcher__list dl {

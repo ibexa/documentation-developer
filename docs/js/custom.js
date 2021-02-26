@@ -133,6 +133,12 @@ $(document).ready(function() {
         }
     });
 
+    $(document).on('blur', '#search_input', function(event) {
+        setTimeout(() => {
+            $('#search_input').val('');
+        }, 0);
+    });
+
     $('#search_input, label.md-search__icon').on('click', function() {
         var toggle = document.querySelector('[data-md-toggle=search]');
         toggle.checked = true;
