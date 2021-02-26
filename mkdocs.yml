@@ -1,6 +1,6 @@
-site_name: Ibexa Developer Documentation
+site_name: Developer Documentation
 repo_url: https://github.com/ezsystems/developer-documentation
-copyright: "Copyright 1999-2020 Ibexa and others"
+copyright: "Copyright 1999-2021 Ibexa AS and others"
 nav:
     - 'Ibexa Developer Documentation': 'index.md'
     - Getting started:
@@ -525,25 +525,25 @@ nav:
             - 'Contribute translations': 'community_resources/translations.md'
             - 'Contribute to documentation': 'community_resources/documentation.md'
             - 'Package structure': 'community_resources/package_structure.md'
-        # - UI Guidelines:
-        #     - 'Introduction': 'guidelines/Introduction.md'
-        #     - Components:
-        #         - 'Badges': 'guidelines/components/badges.md'
-        #         - 'Buttons': 'guidelines/components/buttons.md'
-        #         - 'Form components': 'guidelines/components/form_components.md'
-        #         - 'Modals': 'guidelines/components/modals.md'
-        #         - 'Pagination': 'guidelines/components/pagination.md'
-        #         - 'Switchers': 'guidelines/components/switchers.md'
-        #         - 'Tables': 'guidelines/components/tables.md'
-        #         - 'Tabs': 'guidelines/components/tabs.md'
-        #         - 'Tooltips': 'guidelines/components/tooltips.md'
-        #     - Resources:
-        #         - 'Typography': 'guidelines/resources/typography.md'
-        #         - 'Colors': 'guidelines/resources/colors.md'
-        #         - 'Icons': 'guidelines/resources/icons.md'
-        #     - Design Principles:
-        #         - 'Philosophy': 'guidelines/design_principles/Philosophy.md'
-        #         - 'Accessibility': 'guidelines/design_principles/Accessibility.md'
+        - UI Guidelines:
+            - 'Introduction': 'guidelines/Introduction.md'
+            - Components:
+                - 'Badges': 'guidelines/components/badges.md'
+                - 'Buttons': 'guidelines/components/buttons.md'
+                - 'Form components': 'guidelines/components/form_components.md'
+                - 'Modals': 'guidelines/components/modals.md'
+                - 'Pagination': 'guidelines/components/pagination.md'
+                - 'Switchers': 'guidelines/components/switchers.md'
+                - 'Tables': 'guidelines/components/tables.md'
+                - 'Tabs': 'guidelines/components/tabs.md'
+                - 'Tooltips': 'guidelines/components/tooltips.md'
+            - Resources:
+                - 'Typography': 'guidelines/resources/typography.md'
+                - 'Colors': 'guidelines/resources/colors.md'
+                - 'Icons': 'guidelines/resources/icons.md'
+            - Design Principles:
+                - 'Philosophy': 'guidelines/design_principles/Philosophy.md'
+                - 'Accessibility': 'guidelines/design_principles/Accessibility.md'
     - Migrating to Ibexa DXP:
         - 'Migrating from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
         - 'Migrating from eZ Publish': 'migrating/migrating_from_ez_publish.md'
@@ -607,21 +607,16 @@ nav:
         - 'eZ Platform v1.8.0': 'releases/ez_platform_v1.8.0.md'
         - 'eZ Platform v1.7.0 LTS': 'releases/ez_platform_v1.7.0_lts.md'
     - 'References': 'references.md'
+
 theme:
-  name: null
-  custom_dir: 'material'
-  favicon: 'img/favicon.ico'
-  language: 'en'
-  palette:
-      primary: 'blue grey'
-      accent: 'deep orange'
-
-  font: false
-  feature:
-      tabs: false
-  search_index_only: false
-
-# theme_dir: material
+    name: material
+    custom_dir: 'theme'
+    favicon: 'images/favicon.png'
+    language: 'en'
+    palette:
+        primary: 'blue grey'
+        accent: 'deep orange'
+    logo: 'images/ibexa-dxp-logo.svg'
 
 plugins:
     - search
@@ -643,9 +638,9 @@ extra:
     - '/guidelines/resources/'
     - '/index.md'
   related_docs:
-    - title: 'Ibexa Developer Documentation'
+    - title: 'Developer Documentation'
       url: '/'
-    - title: 'Ibexa User Documentation'
+    - title: 'User Documentation'
       url: '/projects/userguide'
   # Global variables
   product_name: 'Ibexa DXP'
@@ -655,18 +650,25 @@ extra:
 
 extra_css:
   - fonts/MavenPro.css
+  - css/codehilite.css
+  - css/switcher.css
   - css/custom.css
+  - css/page-not-found.css
+  - css/navigation.css
   - css/docs.switcher.css
+  - css/jquery-ui.min.css
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css'
 
 extra_javascript:
   - js/jquery.min.js
+  - js/jquery-ui.min.js
   - js/custom.js
   - js/docs.switcher.js
   - js/ez-guidelines-switchers.js
   - js/ez-guidelines-modals.js
   - js/ez-guidelines-tooltips.js
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
+
 markdown_extensions:
   - admonition
   - codehilite:
