@@ -1,0 +1,7 @@
+{% import "partials/language.html" as lang with context %}
+<a href="{{ page.edit_url|replace('/edit/', '/blob/') }}" title="{{ lang.t('source.link.title') }}" class="source-github">
+    <div class="md-source__icon md-icon">
+        {% include ".icons/fontawesome/brands/github-alt.svg" %}
+    </div>
+        View on GitHub
+</a>

@@ -1,6 +1,6 @@
 (function (doc) {
-    const CLASS_EXPANDED_LIST = 'ez-docs-switcher__selected-item--expanded';
-    const switchers = doc.querySelectorAll('.ez-docs-switcher');
+    const CLASS_EXPANDED_LIST = 'switcher__selected-item--expanded';
+    const switchers = doc.querySelectorAll('.switcher');
     const toggleListExpandedState = (event) => {
         event.currentTarget.classList.toggle(CLASS_EXPANDED_LIST);
     };
@@ -11,7 +11,7 @@
     };
 
     switchers.forEach((switcher) => {
-        const selectedItem = switcher.querySelector('.ez-docs-switcher__selected-item');
+        const selectedItem = switcher.querySelector('.switcher__selected-item');
 
         selectedItem.addEventListener('click', toggleListExpandedState, false);
 

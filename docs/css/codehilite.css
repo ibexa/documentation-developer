@@ -1,0 +1,151 @@
+.codehilite .o,.highlight .o,.codehilite .ow,.highlight .ow {
+    color: var(--md-code-hl-operator-color)
+}
+
+.codehilite .p,.highlight .p {
+    color: var(--md-code-hl-punctuation-color)
+}
+
+.codehilite .cpf,.highlight .cpf,.codehilite .l,.highlight .l,.codehilite .s,.highlight .s,.codehilite .sb,.highlight .sb,.codehilite .sc,.highlight .sc,.codehilite .s2,.highlight .s2,.codehilite .si,.highlight .si,.codehilite .s1,.highlight .s1,.codehilite .ss,.highlight .ss {
+    color: var(--md-code-hl-string-color)
+}
+
+.codehilite .cp,.highlight .cp,.codehilite .se,.highlight .se,.codehilite .sh,.highlight .sh,.codehilite .sr,.highlight .sr,.codehilite .sx,.highlight .sx {
+    color: var(--md-code-hl-special-color)
+}
+
+.codehilite .m,.highlight .m,.codehilite .mf,.highlight .mf,.codehilite .mh,.highlight .mh,.codehilite .mi,.highlight .mi,.codehilite .il,.highlight .il,.codehilite .mo,.highlight .mo {
+    color: var(--md-code-hl-number-color)
+}
+
+.codehilite .k,.highlight .k,.codehilite .kd,.highlight .kd,.codehilite .kn,.highlight .kn,.codehilite .kp,.highlight .kp,.codehilite .kr,.highlight .kr,.codehilite .kt,.highlight .kt {
+    color: var(--md-code-hl-keyword-color)
+}
+
+.codehilite .kc,.highlight .kc,.codehilite .n,.highlight .n {
+    color: var(--md-code-hl-name-color)
+}
+
+.codehilite .no,.highlight .no,.codehilite .nb,.highlight .nb,.codehilite .bp,.highlight .bp {
+    color: var(--md-code-hl-constant-color)
+}
+
+.codehilite .nc,.highlight .nc,.codehilite .ne,.highlight .ne,.codehilite .nf,.highlight .nf,.codehilite .nn,.highlight .nn {
+    color: var(--md-code-hl-function-color)
+}
+
+.codehilite .nd,.highlight .nd,.codehilite .ni,.highlight .ni,.codehilite .nl,.highlight .nl,.codehilite .nt,.highlight .nt {
+    color: var(--md-code-hl-keyword-color)
+}
+
+.codehilite .c,.highlight .c,.codehilite .cm,.highlight .cm,.codehilite .c1,.highlight .c1,.codehilite .ch,.highlight .ch,.codehilite .cs,.highlight .cs,.codehilite .sd,.highlight .sd {
+    color: var(--md-code-hl-comment-color)
+}
+
+.codehilite .na,.highlight .na,.codehilite .nv,.highlight .nv,.codehilite .vc,.highlight .vc,.codehilite .vg,.highlight .vg,.codehilite .vi,.highlight .vi {
+    color: var(--md-code-hl-variable-color)
+}
+
+.codehilite .ge,.highlight .ge,.codehilite .gr,.highlight .gr,.codehilite .gh,.highlight .gh,.codehilite .go,.highlight .go,.codehilite .gp,.highlight .gp,.codehilite .gs,.highlight .gs,.codehilite .gu,.highlight .gu,.codehilite .gt,.highlight .gt {
+    color: var(--md-code-hl-generic-color)
+}
+
+.codehilite .gd,.highlight .gd,.codehilite .gi,.highlight .gi {
+    margin: 0 -0.125em;
+    padding: 0 .125em;
+    border-radius: .1rem
+}
+
+.codehilite .gd,.highlight .gd {
+    background-color: var(--md-typeset-del-color)
+}
+
+.codehilite .gi,.highlight .gi {
+    background-color: var(--md-typeset-ins-color)
+}
+
+.codehilite .hll,.highlight .hll {
+    display: block;
+    margin: 0 -1.1764705882em;
+    padding: 0 1.1764705882em;
+    background-color: var(--md-code-hl-color)
+}
+
+.codehilitetable,.highlighttable {
+    display: block;
+    overflow: hidden
+}
+
+.codehilitetable tbody,.highlighttable tbody,.codehilitetable td,.highlighttable td {
+    display: block;
+    padding: 0
+}
+
+.codehilitetable tr,.highlighttable tr {
+    display: flex
+}
+
+.codehilitetable pre,.highlighttable pre {
+    margin: 0
+}
+
+.codehilitetable .linenos,.highlighttable .linenos {
+    padding: .525rem 1.1764705882em;
+    padding-right: 0;
+    font-size: .85em;
+    background-color: var(--md-code-bg-color);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.codehilitetable .linenodiv,.highlighttable .linenodiv {
+    padding-right: .5882352941em;
+    box-shadow: -0.05rem 0 var(--md-default-fg-color--lighter) inset
+}
+
+.codehilitetable .linenodiv pre,.highlighttable .linenodiv pre {
+    color: var(--md-default-fg-color--light);
+    text-align: right
+}
+
+.codehilitetable .code,.highlighttable .code {
+    flex: 1;
+    overflow: hidden
+}
+
+.md-typeset .codehilitetable,.md-typeset .highlighttable {
+    margin: 1em 0;
+    direction: ltr;
+    border-radius: .1rem
+}
+
+.md-typeset .codehilitetable code,.md-typeset .highlighttable code {
+    border-radius: 0
+}
+
+@media screen and (max-width: 44.9375em) {
+    .md-typeset>.codehilite,.md-typeset>.highlight {
+        margin:1em -0.8rem
+    }
+
+    .md-typeset>.codehilite .hll,.md-typeset>.highlight .hll {
+        margin: 0 -0.8rem;
+        padding: 0 .8rem
+    }
+
+    .md-typeset>.codehilite code,.md-typeset>.highlight code {
+        border-radius: 0
+    }
+
+    .md-typeset>.codehilitetable,.md-typeset>.highlighttable {
+        margin: 1em -0.8rem;
+        border-radius: 0
+    }
+
+    .md-typeset>.codehilitetable .hll,.md-typeset>.highlighttable .hll {
+        margin: 0 -0.8rem;
+        padding: 0 .8rem
+    }
+}
