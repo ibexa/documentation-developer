@@ -1,0 +1,20 @@
+<div class="md-flex__ellipsis md-header__title switcher docs-switcher" data-md-component="title">
+    <div class="switcher__selected-item" tab-index="-1">
+        <div class="switcher__label" title="{{ config.site_name }}">{{ config.site_name }}</div>
+    </div>
+    <div class="switcher__list">
+        <dl>
+            {% for related_doc in config.extra.related_docs %}
+                {% if config.site_name == related_doc.title %}
+                    <strong>
+                {% endif %}
+                <dd>
+                    <a href="{{ related_doc.url|url }}" title="{{ related_doc.title }}">{{ related_doc.title }}</a>
+                </dd>
+                {% if config.site_name == related_doc.title %}
+                    </strong>
+                {% endif %}
+            {% endfor %}
+        </dl>
+    </div>
+</div>
