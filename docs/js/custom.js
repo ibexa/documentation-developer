@@ -62,8 +62,8 @@ $(document).ready(function() {
         }
     }
 
-    // Add version badge to top of navigation
-    $('#site-name').append('<span class="badge">' + branchName + '</span>');
+    // Add version pill to top of navigation
+    $('#site-name').append('<span class="pill">' + branchName + '</span>');
     
     $('.rst-current-version.switcher__label').html(branchName);
 
