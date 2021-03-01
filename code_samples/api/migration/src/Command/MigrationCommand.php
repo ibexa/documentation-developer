@@ -8,28 +8,18 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class MigrationCommand extends Command
-
+final class MigrationCommand extends Command
 {
+    protected static $defaultName = 'doc:migration';
+    
     private $migrationService;
-
-    public function __construct(MigrationService $migrationService, ?string $name = null)
-    {
-        $this->migrationService = $migrationService;
-        parent::__construct($name);
-    }
-
-    protected function configure()
-    {
-        $this->setName('doc:migration');
-    }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $string_with_migration_content = '';
         $this->migrationService->add(new Migration(
-                'new_migration.yaml',
-                $string_with_migration_content)
+            'new_migration.yaml',
+            $string_with_migration_content)
         );
 
         foreach ($this->migrationService->listMigrations() as $migration) {

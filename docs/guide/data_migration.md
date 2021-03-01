@@ -167,7 +167,7 @@ If you do not specify the output directory, the command overwrites the input fil
 
 ## Adding migration files
 
-Use the `ibexa:migrations:import` command to add files to the defined folder for migrations
+Use the `ibexa:migrations:import` command to add files to the migration directory defined in configuration
 (by default, `src/Migrations/Ibexa`).
 
 ``` bash
