@@ -140,8 +140,10 @@ For each URL alias definition the history of changes is preserved, so that users
 
 !!! note
 
-    Make sure to correctly define languages used by site in configuration (`ezplatform.system.*.languages`). Otherwise redirections for renamed Content
-    with translations in multiple languages may not work properly.
+    Make sure that you correctly define languages used by the site in the configuration 
+    (under the `ezplatform.system.<scope>.languages` key). 
+    Otherwise, redirections for the renamed Content with translations in multiple
+    languages may fail to work properly.
 
 
 URL aliases are not SiteAccess-aware. When creating an alias, you can select a SiteAccess to base it on.
