@@ -64,6 +64,8 @@ $(document).ready(function() {
 
     // Add version badge to top of navigation
     $('#site-name').append('<span class="badge">' + branchName + '</span>');
+    
+    $('.rst-current-version.switcher__label').html(branchName);
 
     // Change navigation icons on onclick
     $('.md-nav--primary .md-nav__item--nested .md-nav__link').click(function() {
