@@ -134,11 +134,11 @@ The `keyword` Field Type can now recognize versions of a Content item.
 
 #### Login by User name or email
 
-You can now give your users th ability to [log in with User name or with email](../guide/user_management.md#login-methods).
+You can now give your users th ability to [log in with User name or with email](../guide/user_management/user_management.md#login-methods).
 
 #### Password rules
 
-You can now set [password expiration rules](../guide/user_management.md#password-expiration)
+You can now set [password expiration rules](../guide/user_management/user_management.md#password-expiration)
 for user passwords.
 
 ### Duplicate a role
