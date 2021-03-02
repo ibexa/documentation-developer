@@ -2,7 +2,8 @@
 
 You can provide design themes for your application, with an automatic fallback system, by using the design engine.
 
-A *design* is a collection of themes. The order of themes within a design is important, because it defines the fallback order.
+A *design* is a collection of themes. 
+The order of themes within a design is important, because it defines the fallback order.
 One design can be used per SiteAccess.
 
 A *theme* is a collection (typically, a folder) of templates and assets. 
@@ -13,16 +14,16 @@ If it cannot be found, the system falls back to other configured themes for the 
 
 !!! caution
 
-    After creating a new folder either in a project's or your bundle's `templates/themes` directory,
-    you need to clear Symfony cache (`php bin/console cache:clear`), even if you are working in the `dev` environment.
+    After you create a new folder either in the project's or your bundle's `templates/themes` directory,
+    clear the Symfony's cache (`php bin/console cache:clear`), even if you are working in the `dev` environment.
 
 ### Default designs
 
-By default the following designs are included:
+By default, the following designs are included:
 
-- `admin` covers templates for the Back Office. It contains the `admin` theme.
-- `standard` covers the default content rendering templates. It contains the `standard` theme.
-- `base_design` covers the shop templates. It contains `base_theme`.
+- `admin` - covers templates for the Back Office, contains the `admin` theme
+- `standard` - covers the default content rendering templates, contains the `standard` theme
+- `base_design` - covers the shop templates, contains `base_theme`
 
 When `ez_platform_standard_design.override_kernel_templates` is set to `true`,
 the `standard` theme is automatically mapped to the directory in kernel containing the templates.
@@ -60,7 +61,8 @@ ezdesign:
         my_design: [theme1, theme2]
 ```
 
-The design engine tries `theme1` first. If it cannot find a template in `theme1`, it tries `theme2`.
+The design engine tries `theme1` first. 
+If it cannot find a template in `theme1`, it tries `theme2`.
 
 To indicate when to use a design, configure it under `ezplatform.system.<scope>`:
 
@@ -83,7 +85,7 @@ $currentDesign = $this->getConfigResolver->getParameter('design');
 
 By convention, a theme directory is located under `templates/themes/<theme_name>`.
 
-To indicate a template from a theme, use the `@ezdesign` special Twig namespace.
+To indicate a template from a theme, use the `@ezdesign` Twig namespace.
 
 You can do it within templates, in content view configuration or in controllers:
 
@@ -145,9 +147,9 @@ Bundles fall back in the instantiation order from `bundles.php`.
 
 You can also add any Twig template folder to the theme configuration.
 
-You can use it if you want to define templates from third-party bundles as part of one of your theme,
-or when upgrading your application in order to use the design engine,
-if your existing templates are not yet following the convention.
+You can use it if you want to define templates from third-party bundles as part of one of your themes,
+or when upgrading your application to use the design engine,
+and if your existing templates are not yet following the convention.
 
 Do it by setting the `ezdesign.templates_theme_paths` parameter:
 
@@ -160,7 +162,7 @@ ezdesign:
             - '%kernel.project_dir%/vendor/<vendor_name>/<bundle_name>/Resources/views'
 ```
 
-Directories following the convention always have precedence over the ones defined in `templates_theme_paths`.
+Directories that follow the convention have precedence over the ones defined in `templates_theme_paths`.
 This ensures that it is always possible to override a template from the application.
 
 You can also add a global override folder, by listing paths without assigning them to a theme:
@@ -179,8 +181,8 @@ This can cause significant performance impact because of I/O calls when looping 
 especially when using a lot of different designs and themes.
 
 To work around this issue, assets resolution can be provisioned at compilation time.
-Provisioning is the default behavior in non-debug mode (e.g. `prod` environment).
-In debug mode (e.g. `dev` environment), assets are being resolved at runtime.
+Provisioning is the default behavior in non-debug mode (for example, in `prod` environments).
+In debug mode (for example, in `dev` environments), assets are being resolved at runtime.
 
 This behavior can, however, be controlled by the `disable_assets_pre_resolution` setting.
 
