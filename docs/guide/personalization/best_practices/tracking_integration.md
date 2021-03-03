@@ -1,14 +1,15 @@
-# Tracking Integration
+# Tracking integration
 
-There are several ways to integrate event reporting into the webpage. The simplest way is to generate code of a tiny image and put it on the webpage (pixel tracking) where the event must be sent.
+There are several ways to integrate event reporting into the webpage. 
+The simplest way is to generate code of a tiny image and put it on the webpage where the event must be sent (pixel tracking).
 
-For example: 
+For example, with HTML: 
 
 ``` html
 <img href="https://event.yoochoose.net/ebl/00000/click/johndoe/1/100?categorypath=/a/ab/abc" width="1" height="1">
 ```
 
-or by javascript Image tracking
+or with JavaScript:
 
 ``` js
 <script type="text/javascript">
@@ -17,44 +18,61 @@ img.src = "https://event.yoochoose.net/ebl/00000/click/johndoe/1/100?categorypat
 </script>
 ```
 
-The drawback of this option is that such a call can be blocked by ad blockers or do-not-track plugins on the client side.
+The drawback of this option is that such calls can be blocked by ad blockers or do-not-track plugins on the client side.
 
-## Server side tracking
+## Server-side tracking
 
-Another option is to call the tracker from the server. The most important drawback is the increase in request time by the time of the recommendation request. If the network is overloaded or the Recommendation Engine is not available the number of requests could grow and lead to a stalled and finally crashing httpd service. There are several techniques which help to avoid it.
+Another option is to call the tracker from the server. 
+The most important drawback is an increase in the request time by the time of the event request. 
+If the network is overloaded or the recommendation engine is not available, the number of requests 
+could grow and lead to a stalled and finally crashing HTTP service. 
+There are several techniques that can help you avoid it.
 
-### Tracking in the bottom
+### Tracking at the bottom
 
-You can place the code at the very end of the generating script and flush the output buffer to the client just before sending events. The connection to the browser will usually still be open during processing, but it will be transparent for the end customer.
+You can place the code at the very end of the generating script and flush the output buffer to 
+the client just before sending the events. 
+The connection to the browser might remain open for the time of processing, but it will be transparent 
+for the end customer.
 
 ### Tracking asynchronously
 
-If the website is implemented in a language which supports multithreading, non-blocking I/O or messaging infrastructure, it is possible to start the recommendation request just after the browser request is received and/or not wait until this process is finished.
+If the website is implemented in a language that supports multithreading, non-blocking I/O or 
+messaging infrastructure, you can start the event request just after the browser request is received 
+instead of waiting for this process to finish.
 
 ## Client side tracking
 
 ### JSONP
 
-Another solution is to provide the proxy on the server side, which will forward script requests to the Recommender Engine. In this case the requests will be triggered from the client, when the page is already loaded and rendered. It is not possible to request the recommendation controller server directly from the javascript (over AJAX library or directly over XMLHttpRequest) because of the cross-domain restriction in most browsers. One of the possible technique to work around this limitation is [JSONP](https://en.wikipedia.org/wiki/JSONP).
+Another solution is to provide a proxy on the server side, which will forward script requests to 
+the recommendation engine. 
+In this model, the requests are triggered from the client, when the page is already loaded and rendered. 
+It is impossible to request the recommendation controller server directly from JavaScript 
+(either through the AJAX library or directly over XMLHttpRequest) because of the cross-domain restriction 
+in most browsers. 
+One possible work around this limitation is [JSONP](https://en.wikipedia.org/wiki/JSONP).
 
 ### Using a server proxy
 
-Another option is to tunnel the JavaScript request through the proxy on the same server. The server must just forward them to the Recommender Engine. It can be a simple implemented apache proxy module, some independent daemon like “netcat” or a PHP script.
+Another option is to tunnel the JavaScript request through the proxy on the same server. 
+The server merely forwards requests to the recommendation engine. 
+It can be a simple implemented Apache proxy module, an independent daemon (like “netcat”), or a PHP script.
 
 ## Comparison
 
 An overview of pros and cons for every technique:
 
-| Problem | Image | Server Side | Bottom Reporting | Async. Reporting | JSON | XMLHttpRequest + Proxy |
+| Problem | Pixel | Server-side | Page bottom | Async. reporting | JSONP | XMLHttpRequest + Proxy |
 |----|-----|-----|-----|-----|-----|------|
-| Is not blocked by ad blockers or no-track plug-ins. |-| Yes | Yes | Yes |-| Yes |
+| Is not blocked by ad blockers or do-not-track plug-ins. |-| Yes | Yes | Yes |-| Yes |
 | Works if JavaScript is disabled. | Yes | Yes | Yes | Yes |-|-|
 | Is compatible with frontend caching on the server. |-|-|-|-|Yes | Yes |
 | Does not delay page rendering. | Yes |-| Yes | Yes | Yes | Yes |
-| Supports authentication for event tracking (not implemented yet) |-| Yes | Yes | Yes |-| depends |
+| Supports authentication for event tracking (not implemented yet). |-| Yes | Yes | Yes |-| Yes/No |
 
-!!! tip "What we recommend"
+!!! tip "The recommended approach"
 
-    We suggest using Image/Pixel tracking for non-complex events and where every page is generated on the server side without caching logic. Some hints how to use preload image URLs with (`var img = new Image(); img.src="uri"`) or without (`&lt;img src="uri"... /&gt;`) javascript elements are given under https://www.mediacollege.com/internet/javascript/image/preload.html.
+    An Ibexa-recommended solution is to use pixel tracking for non-complex events, or where every page is generated on the server side without any caching logic. For hints about preloading image URLs with JavaScript elements (`var img = new Image(); img.src="uri"`) or without them (`&lt;img src="uri"... /&gt;`), see [How to Preload Images](https://www.mediacollege.com/internet/javascript/image/preload.html).
 
-    If you are planning to implement caching mechanisms and more complex events like consume (depending on viewing time of the page), basket (which is usually an in-page event) or custom in-page events that take place on the client side, we definitely recommend a javascript implementation. We provide an example script and some instructions under [Tracking with yct.js](../developer_guide/tracking_with_yct.md)
+    If you plan to implement caching mechanisms and more complex events like consume (depending on viewing time of the page), basket (which is usually an in-page event) or custom in-page events that take place on the client side, a JavaScript implementation is strongly encouraged. For a sample script and instructions, see [Tracking with yct.js](../developer_guide/tracking_with_yct.md).
