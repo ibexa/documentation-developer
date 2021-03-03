@@ -113,6 +113,8 @@ Hiding and revealing Location requires one more Policy: `content/hide`.
 #### Removing content
 
 To send content to trash, the User needs to have the `content/remove` Policy.
+If content has more than one language, the User must have access to all the languages.
+That is, the `content/remove` Policy must have either no Limitation, or a Limitation for all languages of the Content item,
 
 To remove an archived version of content, the User must have the `content/versionremove` Policy.
 
