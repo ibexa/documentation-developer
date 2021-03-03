@@ -1,17 +1,19 @@
 # Content API
 
-Apart from the events collected by the recommendation client, the recommendation engine can use external information about the products.
-This information must be uploaded to the recommendation engine by the owner of the website.
+Apart from the [events](https://doc.ibexa.co/projects/userguide/en/latest/personalization/event_types) 
+collected by the recommendation client, the recommendation engine can use external information 
+about the products.
+This information must be uploaded to the recommendation engine by the administrator of the website.
 
 The following information can be loaded to the recommendation solution:
 
-- **Product price** - Products cheaper than the specified threshold can be filtered out from recommendations
-- **Availability timeframe** - Certain products are be recommended only in the specified time window.
-- **Custom attributes** - You can group recommendations and narrow down the results, for example, to non-food products or to news that are related to the end-users's city
+- Product price - Products cheaper than the specified threshold can be filtered out from recommendations
+- Availability timeframe - Certain products are be recommended only in the specified time window.
+- Custom attributes - You can group recommendations and narrow down the results, for example, to non-food products or to news that are related to the end users's city
 
-For more information about personalization, see [Personalization quickstart](../personalization_quickstart.md) and [Best practices](../best_practices/recommendation_integration.md) articles.
+For more information about personalization, see [Personalization quickstart](../personalization_quickstart.md) and [Best practices](../best_practices/recommendation_integration.md).
 
-The recommendation client provides a REST interface that accepts an item in XML-format.
+The recommendation client provides a REST interface that accepts items in XML format.
 You can use the interface to post item information within the request's body into the store, 
 and to display or update the items directly.
 
@@ -32,32 +34,32 @@ Use the POST request to create or update items with the given ID in the database
 
 `POST: https://admin.yoochoose.net/api/[customerid]/item`
 
-The body of a request must contain a valid XML document.
+A body of the request must contain a valid XML document.
 If the XML content cannot be validated, the interface responds with status `400 (Bad Request)`. 
 Otherwise it responds with status `202 (Accepted)`.
 
 Once uploaded, the item is scheduled to be inserted in the database, and it is not directly available.
 
-!!! note "Authentication considerations"
+!!! note "Authentication"
 
     For getting or posting content data, basic authentication is enabled by default.
     Use your customer ID and license key as username and password. 
-    If authentication is enabled for recommendation requests and you want change this, contact <support@ibexa.co>.
+    If authentication is enabled for recommendation requests and you want to change this, contact support@ibexa.co.
 
 ## Request parameters
 
-For a description of call attributes, see the following table:
+The following call attributes are available:
 
 | Parameter name | Description | Value |
 |---|---|---|
 | `customerid` | Your customer ID, as defined when [enabling Personalization](../enabling_personalization.md#configuring-mandator-credentials) (for example, "00000"). | alphanumeric |
-| `itemid` | A unique ID of the content item/product. Used to identify the item in the customer's database. | integer |
-| `itemtypeid` | An ID of the type of content item/product. In most cases, the value is 1 but the customer might have items/products of more than one type. | integer |
+| `itemid` | A unique ID of the Content item/product. Used to identify the item in the your database. | integer |
+| `itemtypeid` | An ID of the type of Content item/product. In most cases, the value is 1 but you might have items/products of more than one type. | integer |
 
 
 ### Item object format
 
-For an example of content item object used for item import, see the following XML code. 
+An XML representation of the data object used for item import can look like this: 
 
 ``` xml
 <items version="1">
@@ -95,36 +97,36 @@ For an example of content item object used for item import, see the following XM
 
     The current schema that is used for interpreting the XML objects can be seen [here](https://admin.yoochoose.net/api/00000/item/schema.xsd).
 
-For a description of keys and attributes used in the XML object, see the following table:
+The following keys and attributes used in the XML object are available::
 
 | Key/Attribute | Description | Type |
 |---|---|---|---|
-| `id` | A unique ID of the content item/product. This parameter is required. | integer |
-| `type` | An ID of the type of content item/product. This parameter is required. | integer |
+| `id` | A unique ID of the item/product. This parameter is required. | integer |
+| `type` | An ID of the type of item/product. This parameter is required. | integer |
 | `description`|Additional information about the item. | alphanumeric |
 | `currency` | Currency used for the price. By default, prices are expressed in EUR. | ISO 4217 |
-| `price` | The item's price in the currency's fractional units (for example, cents).<br/>See below for a more information. | integer |
+| `price` | The item's price in the currency's fractional units (for example, cents).<br/>See below for more information. | integer |
 | `validfrom` | Together with `validto`, defines the lifespan of an item.<br/>If NULL or not available, the item is considered valid immediately.<br/>See below for more information. | ISO 8601 |
 | `validto` | Together with `validfrom`, defines the lifespan of an item.<br/>If NULL or not available, the item is considered valid indefinitely.<br/>See below for more information. | ISO 8601 |
-| `categorypath` | A logical (website) navigation path through which the item can be reached in the customer's system.<br/>You can define multiple paths for the product.|-|alphanumeric, separated with "/" ("%2F") characters|
+| `categorypath` | A logical (website) navigation path through which the end user can reach the item/product in your website.<br/>You can define multiple paths for the product.|-|alphanumeric, separated with "/" ("%2F") characters|
 
 !!! caution "Encoding limitation"
 
     Keys and their values can only contain letters, digits and underscore characters.
     Attribute keys are case-sensitive.
 
-**Currency**
+##### Currency
 
 If the currency does not have a fractional unit, the main unit is used, for example 12 for 12 Japanese Yen.
 To check whether the currency has fractional units, see the [ISO 4217 standard](https://en.wikipedia.org/wiki/ISO_4217#cite_note-ReferenceA-6).
 
-**Validity**
+##### Validity
 
- Items with validity defined are recommended only in the specified timeframe. 
+ Items with defined validity are recommended only in the specified timeframe. 
  Values in the `validto` and `validfrom` attributes must follow the [XSD format](https://www.w3.org/TR/xmlschema-2/#dateTime) and do not include the time zone. 
-Time zone is always the time zone of the customer.
+Time zone is always your time zone.
 
-**Category path**
+##### Category path
 
 With the data import interface, you can upload information about the paths to categories 
 in which the product is located.
@@ -141,10 +143,10 @@ For example, when a product that is originally located under `%2FGarden%2F` is c
 
 All the elements and attributes except the `type` and `id` are optional.
 You can therefore upload a product without any additional information.
-You do it, for example, when a random recommendation model is used or you want to want to apply 
-ad-hoc boosting and filtering of recommendations.
-As a result, the recommendation engine randomly recommends the imported content items//products.
-This can prove useful for a news agency, where new content items are published very often.
+You do it, for example, when a random recommendation model is used 
+or you want to want to apply ad-hoc boosting and filtering of recommendations.
+As a result, the recommendation engine randomly recommends the imported items//products.
+This can prove useful for a news agency, where new items are published very often.
 
 #### Free-form data
 
@@ -167,7 +169,8 @@ the recommendation engine treats the two values as a range.
 <attribute key="size" value="4" type="NUMERIC" />
 ```
 
-However, if the other attribute is of type "NOMINAL", they are both just different and have no "distance-based similarity".
+However, if the other attribute is of type "NOMINAL", they are both treated 
+as different and have no "distance-based similarity".
 
 Another typical example of a custom attribute is the color of an item. 
 To upload the value to the data store, add the following line under the `<attributes>` key.
@@ -181,8 +184,8 @@ For example, `size` can be expressed as a number (40.5) or as a code ("L").
 
 ## Transferring item identifiers
 
-You could use the data import interface to help migrate the database, when it involves changing 
-item IDs of items that are supported by the recommendation engine.
+You could use the data import interface to help migrate the database, 
+when it involves changing item IDs of items that are supported by the recommendation engine.
 If you transfer items from one ID to another, you can use the events recorded for "old" item IDs 
 to calculate model results that present "new" IDs.
 

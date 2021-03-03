@@ -1,14 +1,16 @@
 # Recommendation API
 
 Recommendations are retrieved from the recommendation engine with RESTful requests that rely on the HTTP GET method. 
-The result can a list of item IDs that can then be used to call the underlying CMS or shop system and postload the necessary information for the rendering process.
+The result can a list of item IDs that can then be used to call the underlying CMS or shop system 
+and postload the necessary information for the rendering process.
 
-!!! note "Authentication considerations"
+!!! note "Authentication"
 
-    For fetching recommendations, authentication is disabled by default, and it must be disabled when you use [JSONP](https://en.wikipedia.org/wiki/JSONP) for response handling. 
-    If authentication is enabled for recommendation requests and you want change this, contact <support@ibexa.co>.
+    For fetching recommendations, authentication is disabled by default, and it must be disabled when 
+    you use [JSONP](https://en.wikipedia.org/wiki/JSONP) for response handling. 
+    If authentication is enabled for recommendation requests and you want to change this, contact support@ibexa.co.
 
-For more information about personalization, see [Personalization quickstart](../personalization_quickstart.md) and [Best practices](../best_practices/recommendation_integration.md) articles.
+For more information about personalization, see [Personalization quickstart](../personalization_quickstart.md) and [Best practices](../best_practices/recommendation_integration.md).
 
 ## GET requests
 
@@ -19,7 +21,7 @@ The request for recommendations uses the following pattern:
 
 ### Request parameters
 
-For the request to return recommendations, you must provide the following parameters.
+For the request to return recommendations, you must provide the following parameters:
 
 |Parameter|Description|Value|
 |---|---|---|
@@ -41,23 +43,24 @@ For example, you can send the following request to the recommendation engine: 
 GET https://reco.yoochoose.net/api/v2/00000/john.doe/landing_page.json ?contextitems=123&categorypath=%2FCamera%2FCompact&attribute=title&attribute=deeplink,description&numrecs=8
 ```
 
-The request fetches 8 recommendations for user ID `john.doe`, who is watching item 123 and the category *"/Camera/Compact"*,based on the scenario with the identifier `landing_page`. 
+The request fetches 8 recommendations for user ID `john.doe`, who is viewing item 123 
+and the category *"/Camera/Compact"*, based on the scenario with the identifier `landing_page`. 
 The recommendation response uses the `json` format and should include values of `title`, `deeplink` and `description` attributes.
 
-For a description of parameters that you can use to customize a request, see the following table.
+You can use the following parameters to customize a request:
 
 |Parameter|Example|Description|Value|
 |---|---|---|---|
-|`numrecs`|20|Defines a number of recommendations to be delivered. The lower this value the shorter the response time. The default value is 10. |1 to 50|
+|`numrecs`|20|Defines a number of recommendations to be delivered. The lower this value, the shorter the response time. The default value is 10. |1 to 50|
 |`contextitems`|10,13,14 or "CLICKED"|A comma-separated list of items that the user is viewing on the web page. The list is required by [context-based recommendations](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models). All items must be of the same type. The type is defined in the scenario configuration. If history code is used ("CLICKED","CONSUMED", "OWNS", "RATED" or "BASKET"), context items are pulled from the user profile (for example, the most recent clicks or purchases).|1 to 2147483647 (or alphanumeric if enabled)|
 |`outputtypeid`|1|Required for scenarios that are defined with multiple output item types, otherwise optional. By default it is the first/lowest output type enabled in the scenario config.|numeric|
 |`jsonpCallback`|"myCallback"|Function or method name (used for JSONP request only). It can be a function ("callme"), or a method ("obj.callme"). The default value is "jsonpCallback".|legal JavaScript function call|
-|`attribute`|"title" or "description"|If you apply this parameter, the engine tries to fetch the value of the attribute. For example, `&attribute=title` means fetching the title for the item that is delivered in the response, if available. The feature works if content import has been successful. You can pass multiple attributes: `&attribute=title&attribute=description` or `&attribute=title,description`. Use this feature to pull "pure" client-based recommendations without requesting local customer data.|string|
+|`attribute`|"title" or "description"|If you apply this parameter, the engine tries to fetch the value of the attribute. For example, `&attribute=title` means fetching the title for the item that is delivered in the response, if available. The fetch works if content import has been successful. You can pass multiple attributes: `&attribute=title&attribute=description` or `&attribute=title,description`. Use this to pull "pure" client-based recommendations without requesting local customer data.|string|
 |`categorypath`|"Women/Shirts"|Category path for fetching recommendations. The format is the same as the category path used in event tracking. Add this parameter multiple times to get recommendations from multiple categories. The order of recommendations from different categories is defined by the calculated relevance. The default value is `%2F`, which stands for an entire website.|string[/string]* |
 |`usecontextcategorypath`| |Used in conjunction with `categorypath`. If set to true, the category path of given context item(s) is resolved by the recommendation engine from the internal store and used as base category path. If more than one category is returned, all categories are used for providing recommendations. Setting this parameter to true increases the response time. If possible, use the `categorypath` parameter to provide the category to the recommender engine during the request. The default value is false.|boolean|
 |`recommendCategory `| |Used in conjunction with `categorypath`. If set to true, the neighboring category linked with the recommended items is delivered in the response as an additional field "category". Helps find a suitable template for articles from several categories.<br/>For example, take an article about American football. The article is categorized as "Sport/Football" and "America/USA". Depending on the category, the webpage displays a football field or an American flag in the background. If the article is recommended and clicked in the "Sport/Cricket" category, it must open with the "field" template. If clicked in the "America/Canada" category, it must open with the "flag" template. The category is returned only if the article is located in several categories and the "closer" category is found. The default value is false.|boolean|
 
-**Submodel Parameters**
+##### Submodel Parameters
 
 If your recommendation model uses submodels to to group content items/products based on an attribute, you can pass the following parameters to request recommendations for a specific group. 
 For more information, see [Submodels](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#submodels).
@@ -65,7 +68,7 @@ For more information, see [Submodels](https://doc.ibexa.co/projects/userguide/en
 |Parameter|Example|Description|Value|
 |---|---|---|---|
 |attribute key|`&color=red`|Applicable if a submodel with the same name and value is configured.|string|
-|`userattribute`|gender|If defined, the recommendation engine tries to find the attribute value for the current user and, if found, "prefers" recommendations that are typically followed by users with the same value of the artribute. The default value is null.|string, csv list|
+|`userattribute`|gender|If defined, the recommendation engine tries to find the attribute value for the current user and, if found, "prefers" recommendations that are typically followed by users with the same value of the attribute. The default value is null.|string, csv list|
 
 ## Response handling
 
@@ -77,9 +80,9 @@ For more information, see inline comments below.
 !!! note "Previewing recommendations"
 
     You can preview the actual responses that come from the recommendation engine and how they are rendered in the user interface.
-    For more information, see Scenarios(https://doc.ibexa.co/projects/userguide/en/latest/personalization/scenarios/#previewing-scenario-results).
+    For more information, see [Scenarios](https://doc.ibexa.co/projects/userguide/en/latest/personalization/scenarios/#previewing-scenario-results).
 
-Sample JSON response:
+A JSON response can look like this:
 
 ``` json
 {
@@ -137,7 +140,7 @@ Sample JSON response:
 }
 ```
 
-Sample JSONP response (same comments apply):
+A JSONP response can look like this (same comments apply):
 
 ``` json
 jsonpCallback({
@@ -198,7 +201,7 @@ For more information about integrating recommendations in the web page, see [Bes
 
 ##  Response codes
 
-The following HTTP response codes are used by the recommendation controller.
+The following HTTP response codes are used by the recommendation controller:
 
 |HTTP Status Code|Description|
 |---|---|
@@ -237,13 +240,15 @@ The expiration timestamp is a best-effort prediction based on the model configur
 The shortest expiration period is 5 minutes from the request time, the longest is 24 hours. 
 
 In most cases you do not have to calculate the expiration time manually. 
-You just need to make sure that the `Expires` header is used in the configuration of your caching system instead of a static value out of your configuration.
+Instead, make sure that the `Expires` header is used in the configuration 
+of your caching system and not a static value out of your configuration.
 
-To learn how recommendation engine calculates the `Expires` header that is provided to your caching system, see the following table with caching strategy examples:
+To learn how recommendation engine calculates the `Expires` header that is provided 
+to your caching system, see the following table with caching strategy examples:
 
 | Model | Context | Expiration time | Description |
 |------|------|-----|-----|
 | Bestselling products (last 7 days) | No context | 24 hours | The model with the 7 days scope is usually built once a day. You can cache its results for 24 hours. It has no context, therefore it can be cached globally for all the users of the site. |
 | Also bought products (last month) | Current product | 24 hours | The model with the 30 days scope is usually built once a day. The context is always the same, therefore it can be cached for every product, and the same result can be used for all users of the site. |
 | Also consumed articles (last hour) | Current article | 30 minutes | Models with a short scope are usually built several times a day or even per hour. The expiration time is set to half of the model build frequency. |
-| Personalized recommendation based on the user's statistic | Customers click history | Now | Statistical models are not updated within minutes, and it is very likely that the context will change shortly (a customer clicks another product, the click is added to their history). The expiration time should not be much longer than the user's activity on the web page. |
+| Personalized recommendation based on the user's statistic | User's click history | Now | Statistical models are not updated within minutes, and it is very likely that the context will change shortly (a user clicks another product, the click is added to their history). The expiration time should not be much longer than the user's activity on the web page. |

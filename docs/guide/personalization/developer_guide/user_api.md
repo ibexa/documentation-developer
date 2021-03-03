@@ -1,16 +1,17 @@
 # User API
 
-When generating recommendations, being able to correlate metadata with user data and combine users into clusters of certain type is beneficial.
+When generating recommendations, it is useful to have the ability to correlate metadata 
+with user data and combine users into clusters of certain type.
 Such metadata can be gender, ZIP code, discount rate, etc. 
 You can use the following user metadata import format to enrich the tracked data with information that cannot be calculated and must be provided by the end-user. 
 
-If you plan to import user metadata, contact <support@ibexa.co> to ensure that you are compliant with privacy regulations.
+If you plan to import user metadata, contact support@ibexa.co to ensure that you are compliant with privacy regulations.
 
-!!! note "Authentication considerations"
+!!! note "Authentication"
 
     For importing metadata, basic authentication is enabled by default.
     Use your customer ID and license key as username and password. 
-    If authentication is enabled for recommendation requests and you want change this, contact <support@ibexa.co>.
+    If authentication is enabled for recommendation requests and you want change this, contact support@ibexa.co.
     
 ## GET requests
 
@@ -29,7 +30,7 @@ Use the following request to update the specified user's attribute set:
 
 ## Request parameters
 
-For the requests to function, you must provide the following parameters.
+For the requests to function, you must provide the following parameters:
 
 |Parameter|Description|Value|
 |---|---|---|
@@ -45,10 +46,11 @@ For the requests to function, you must provide the following parameters.
 ### Source
 
 The `source` parameter defines the system that stores the specified user's metadata. 
-If you have multiple source systems for updating user attributes, for example, a registration service, 
-where users define their gender and age, or an application that integrates with Facebook to source 
-the brands the user "liked" in your shop, every new upload of attributes will replace the attribute 
-set that already exists for the same user/source pair.
+If you have multiple source systems for updating user attributes, 
+for example, a registration service, where users define their gender and age, 
+or an application that integrates with Facebook to source the brands the user "liked" in your shop, 
+every new upload of attributes will replace the attribute set that already exists 
+for the same user/source pair.
 
 If you need to get all the available attributes for all sources, apply the `allSources` query string parameter, for example:
 
@@ -89,7 +91,7 @@ The attribute keys and values are chosen at random.
 </users>
 ```
 
-Attribute keys are POSIX alphanumeric codes that can consist of the following characters: \[A-Z\], \[0-9\] plus "\_" and "-". 
+Attribute keys are POSIX alphanumeric codes that can consist of the following characters: `\[A-Z\]`, `\[0-9\]`, `"\_"` and `"-"`. 
 Attribute keys are case sensitive.
 
 The following attribute types are supported:
