@@ -1,24 +1,83 @@
 # User API
 
-!!! note
+When generating recommendations, being able to correlate metadata with user data and combine users into clusters of certain type is beneficial.
+Such metadata can be gender, ZIP code, discount rate, etc. 
+You can use the following user metadata import format to enrich the tracked data with information that cannot be calculated and must be provided by the end-user. 
 
-    All the features described in this chapter are available only for the advanced edition of the Recommender Engine.
+If you plan to import user metadata, contact <support@ibexa.co> to ensure that you are compliant with privacy regulations.
 
-    **BASIC Authentication** is enabled by default. Use the customerid/mandator as username and the license key as password. The license key is displayed in the upper right in the Admin GUI ([https://admin.yoochoose.net](https://admin.yoochoose.net/)) after logging in with your registration credentials.
+!!! note "Authentication considerations"
 
-It is useful to add metadata to users in order to classify them and attach them to user-type clusters. We provide the following "user metadata" import format in order to enrich tracked user data with information that cannot be calculated from their behavior but only provided by a customer itself. An example for this metadata could be "gender", "postal code", "discount rate", etc. 
+    For importing metadata, basic authentication is enabled by default.
+    Use your customer ID and license key as username and password. 
+    If authentication is enabled for recommendation requests and you want change this, contact <support@ibexa.co>.
+    
+## GET requests
 
-!!! note
+Use the following request to fetch user attributes for the specified users:
 
-    Please contact <support@yoochoose.com> if you are planning to import user metadata in order to be compliant with privacy regulations.
+`GET: https://import.yoochoose.net/api/[customerid]/[source]/user/[userid[,userid[...]]]`
 
-Following is an example user metadata in xml format. All attribute keys and values are chosen arbitrarily.
+User data is returned as an [XML object](#metadata-format).
+Make sure that you use the **HTTP Content-Type=text/xml** header.
+
+## POST requests
+
+Use the following request to update the specified user's attribute set:
+
+`POST: https://import.yoochoose.net/api/[customerid]/[source]/user`
+
+## Request parameters
+
+For the requests to function, you must provide the following parameters.
+
+|Parameter|Description|Value|
+|---|---|---|
+|`customerid`|Your customer ID, as defined when [enabling Personalization](../enabling_personalization.md#configuring-mandator-credentials) (for example, "00000").|alphanumeric|
+|`source`|An ID of the source of the specified user's metadata.|alphanumeric|
+|`userid`|An ID of the tracked user in the website (for example, an internal customer code, a session code or a cookie for anonymous users.|alphanumeric|
+  
+  !!! caution "Parameter encoding limitations"
+
+      All parameters must be URL-encoded (see RFC 3986) and cannot contain slash, backslash or space 
+      characters.
+      
+### Source
+
+The `source` parameter defines the system that stores the specified user's metadata. 
+If you have multiple source systems for updating user attributes, for example, a registration service, 
+where users define their gender and age, or an application that integrates with Facebook to source 
+the brands the user "liked" in your shop, every new upload of attributes will replace the attribute 
+set that already exists for the same user/source pair.
+
+If you need to get all the available attributes for all sources, apply the `allSources` query string parameter, for example:
+
+`GET: https://import.yoochoose.net/api/00000/facebook/user/CUSTOMER_1234?allSources=true`
+
+When you do that, and the source returned is different from the source passed in the request (in this case, "facebook"), an additional attribute `source` is added to the [XML object](#metadata-format).
+
+### User ID
+
+User ID is a case-sensitive combination of characters.
+If transferred as part of the URL, the attribute must be URL-encoded. 
+If transferred in the XML object, the attribute must be XML-encoded.
+
+For example:
+
+| User ID             | URL encoded             | XML encoded               |
+|---------------------|-------------------------|---------------------------|
+| `Customer<12.2014>` | `Customer%3C12.2014%3E` | `Customer&lt;12.2014&gt;` |
+
+## Metadata object format
+
+For an example of user metadata, see the following XML code. 
+The attribute keys and values are chosen at random.
 
 ``` xml
 <users>
-  <user id="CUSTOMER_1234">
+  <user id="YOUR_CUSTOMER_ID">
     <attributes>
-      <attribute key="country" value="DE"  type="NOMINAL"/>    <!-- NOMINAL is a default value -->
+      <attribute key="country" value="DE"  type="NOMINAL"/>
       <attribute key="discountrate" value="2" type="NUMERIC"/>
       <attribute key="wants" value="I am looking for good products here" type="TEXT"/>
       <attribute key="type" value="reseller"/>
@@ -30,55 +89,13 @@ Following is an example user metadata in xml format. All attribute keys and valu
 </users>
 ```
 
-The following request is used to fetch user attributes for the specified users:
+Attribute keys are POSIX alphanumeric codes that can consist of the following characters: \[A-Z\], \[0-9\] plus "\_" and "-". 
+Attribute keys are case sensitive.
 
-`GET: https://import.yoochoose.net/api/[customerid]/[source]/user/[userid[,userid[...]]]`
+The following attribute types are supported:
 
-The following URL is used to update the set of the user attributes:
-
-`POST: https://import.yoochoose.net/api/[customerid]/[source]/user`
-
-The users are provided in the specified XML format (do not forget the **HTTP Content-Type=text/xml** header).
-
-## User ID
-
-User ID is any character combination. User IDs are case sensitive.
-
-!!! caution
-
-    Because of transferring as part of an URL in the event tracking it is recommended to **avoid space character and slashes** (both forward and back slashes). Apache web-servers (and products based on this Apache project) have very sophisticated and non-transparent rules for handling slashes in URLs.
-
-If transferred in the URL, the user ID must be URL-encoded. If transferred in the XML attribute it must be XML-encoded, like this:
-
-| User ID             | URL encoded             | XML encoded               |
-|---------------------|-------------------------|---------------------------|
-| `Customer<12.2014>` | `Customer%3C12.2014%3E` | `Customer&lt;12.2014&gt;` |
-
-#### Key
-
-The attribute key is a POSIX alphanumeric code \[A-Z\], \[0-9\] plus "\_" and "-". Attribute keys are case sensitive.
-
-## Attribute Type
-
-Following types are supported:
-
-- NUMERIC - Decimal value like "1.23" or "-2345". 
-- NOMINAL - A value from a fixed length list like "gender" or "favorite film genre". *It is a default value.*
-- TEXT - Longer, usually free entered text
-- DATE - XSD-formatted date like "2014-08-07"
-- DATETIME - XSD-formatted time without a time zone like "2014-08-07T14:43:12"
-
-## Source
-
-The "source" is used to define the view on the specified user. If you have multiple sources/systems for updating user attributes like e.g.:
-
-- registration service to set the gender and age of the user
-- Facebook-linked application to set the favorite brands the user "liked" in your shop,
-
-every new upload of attributes will **replace** the previous attribute set of **the same user and the same source**.
-
-If you need to get all the available attributes for all sources, use query string parameter `allSources`:
-
-`GET: https://import.yoochoose.net/api/0000/facebook/user/CUSTOMER_1234?allSources`
-
-In this case an additional XML-attribute "source" will be added if the source is different from the source provided in the request ("facebook" in the example above).
+- DATE - An XSD-formatted date, for example, "2014-08-07"
+- DATETIME - An XSD-formatted time without a time zone, for example, "2014-08-07T14:43:12"
+- NOMINAL - A value from a fixed length list, for example "gender" or "favorite film genre". If you do not set the attribute type, this is the default value
+- NUMERIC - A decimal value, for example, "1.23" or "-2345"
+- TEXT - A longer text, usually free form
