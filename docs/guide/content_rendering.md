@@ -40,14 +40,6 @@ ezplatform:
                             Identifier\ContentType: [small_folder, folder]
 ```
 
-!!! caution "Template matching and non-existent Field Types"
-
-    **Template matching will NOT work if your content contains a Field Type that is not supported by the repository**. It can happen when you are in the process of migrating from eZ Publish 4.x, where custom datatypes have been developed.
-
-    In this case the repository will throw an exception, which is caught in the `ViewController`, and *if* you are using Legacy Bridge it will end up doing a [fallback to legacy kernel](https://doc.ez.no/display/EZP/Legacy+template+fallback).
-
-    The list of Field Types supported out of the box [is available here](../api/field_type_reference.md).
-
 !!! tip
 
     You can define your template selection rules, alongside other settings, in a different bundle.

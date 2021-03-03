@@ -185,7 +185,7 @@ ezplatform:
 #### Customizing the storage directory
 
 Earlier versions required the NFS adapter directory to be set to `$var_dir$/$storage_dir$` part for the NFS path.
-This is no longer required (unless you plan to use [Legacy Bridge](https://github.com/ezsystems/LegacyBridge)),
+This is no longer required,
 but the default prefix used to serve binary files still matches this expectation.
 
 If you decide to change this setting, make sure you also set `io.url_prefix` to a matching value.
