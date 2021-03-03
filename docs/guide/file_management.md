@@ -39,11 +39,6 @@ ez_io:
 
 The 'default' Flysystem adapter's directory is based on your site settings, and will automatically be set to `%webroot_dir%/$var_dir$/$storage_dir$` (for example: `/path/to/ezplatform/public/var/site/storage`).
 
-!!! note
-
-    When Legacy Bridge is enabled, the path will be automatically set to
-    `%ezpublish_legacy.root_dir%/$var_dir$/$storage_dir$` instead.
-
 #### Configure the permissions of generated files
 
 ``` yaml
