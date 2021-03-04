@@ -10,6 +10,8 @@ The clean installation contains only a root Content item which displays a welcom
 ![Front page after clean installation](img/bike_tutorial_homepage_install_clean.png)
 
 You will replace the welcome page with your own in step 3.
-To remove it for now, delete the `config/packages/ezplatform_welcome_page.yaml` file.
+
+
+To remove it for now, go to `config/packages/` and delete the `ezplatform_welcome_page.yaml` file.
 
 You can now start creating the content model.
