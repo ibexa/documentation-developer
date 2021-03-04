@@ -23,7 +23,6 @@ By default, the following designs are included:
 
 - `admin` - covers templates for the Back Office, contains the `admin` theme
 - `standard` - covers the default content rendering templates, contains the `standard` theme
-- `base_design` - covers the shop templates, contains `base_theme`
 
 When `ez_platform_standard_design.override_kernel_templates` is set to `true`,
 the `standard` theme is automatically mapped to the directory in kernel containing the templates.
