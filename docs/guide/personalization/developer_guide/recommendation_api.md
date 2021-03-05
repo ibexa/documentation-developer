@@ -4,20 +4,19 @@ Recommendations are retrieved from the recommendation engine with RESTful reques
 The result can a list of item IDs that can then be used to call the underlying CMS or shop system 
 and postload the necessary information for the rendering process.
 
+For more information about personalization, see [Personalization quickstart](../personalization_quickstart.md) and [Best practices](../best_practices/recommendation_integration.md).
+
 !!! note "Authentication"
 
     For fetching recommendations, authentication is disabled by default, and it must be disabled when 
     you use [JSONP](https://en.wikipedia.org/wiki/JSONP) for response handling. 
     If authentication is enabled for recommendation requests and you want to change this, contact support@ibexa.co.
 
-For more information about personalization, see [Personalization quickstart](../personalization_quickstart.md) and [Best practices](../best_practices/recommendation_integration.md).
-
 ## GET requests
 
 The request for recommendations uses the following pattern:
 
-```    GET https://reco.yoochoose.net/api/v2/[customerid]/[userid]/[scenarioid].[extension]?parameter=value&[attribute=attributekey]
-```
+`GET https://reco.yoochoose.net/api/v2/[customerid]/[userid]/[scenarioid].[extension]?parameter=value&[attribute=attributekey]`
 
 ### Request parameters
 
@@ -39,13 +38,11 @@ For the request to return recommendations, you must provide the following parame
 You can customize the recommendation request by using additional query string parameters. 
 For example, you can send the following request to the recommendation engine: 
 
-```
-GET https://reco.yoochoose.net/api/v2/00000/john.doe/landing_page.json ?contextitems=123&categorypath=%2FCamera%2FCompact&attribute=title&attribute=deeplink,description&numrecs=8
-```
+`GET https://reco.yoochoose.net/api/v2/00000/john.doe/landing_page.json ?contextitems=123&categorypath=%2FCamera%2FCompact&attribute=title&attribute=deeplink,description&numrecs=8`
 
 The request fetches 8 recommendations for user ID `john.doe`, who is viewing item 123 
-and the category *"/Camera/Compact"*, based on the scenario with the identifier `landing_page`. 
-The recommendation response uses the `json` format and should include values of `title`, `deeplink` and `description` attributes.
+and the category `/Camera/Compact`, based on the scenario with the identifier `landing_page`. 
+The recommendation response uses the JSON format and should include values of `title`, `deeplink` and `description` attributes.
 
 You can use the following parameters to customize a request:
 
@@ -56,13 +53,13 @@ You can use the following parameters to customize a request:
 |`outputtypeid`|1|Required for scenarios that are defined with multiple output item types, otherwise optional. By default it is the first/lowest output type enabled in the scenario config.|numeric|
 |`jsonpCallback`|"myCallback"|Function or method name (used for JSONP request only). It can be a function ("callme"), or a method ("obj.callme"). The default value is "jsonpCallback".|legal JavaScript function call|
 |`attribute`|"title" or "description"|If you apply this parameter, the engine tries to fetch the value of the attribute. For example, `&attribute=title` means fetching the title for the item that is delivered in the response, if available. The fetch works if content import has been successful. You can pass multiple attributes: `&attribute=title&attribute=description` or `&attribute=title,description`. Use this to pull "pure" client-based recommendations without requesting local customer data.|string|
-|`categorypath`|"Women/Shirts"|Category path for fetching recommendations. The format is the same as the category path used in event tracking. Add this parameter multiple times to get recommendations from multiple categories. The order of recommendations from different categories is defined by the calculated relevance. The default value is `%2F`, which stands for an entire website.|string[/string]* |
+|`categorypath`|`/Women/Shirts`|Category path for fetching recommendations. The format is the same as the category path used in event tracking. Add this parameter multiple times to get recommendations from multiple categories. The order of recommendations from different categories is defined by the calculated relevance. The default value is `%2F`, which stands for an entire website.|string[/string]* |
 |`usecontextcategorypath`| |Used in conjunction with `categorypath`. If set to true, the category path of given context item(s) is resolved by the recommendation engine from the internal store and used as base category path. If more than one category is returned, all categories are used for providing recommendations. Setting this parameter to true increases the response time. If possible, use the `categorypath` parameter to provide the category to the recommender engine during the request. The default value is false.|boolean|
-|`recommendCategory `| |Used in conjunction with `categorypath`. If set to true, the neighboring category linked with the recommended items is delivered in the response as an additional field "category". Helps find a suitable template for articles from several categories.<br/>For example, take an article about American football. The article is categorized as "Sport/Football" and "America/USA". Depending on the category, the webpage displays a football field or an American flag in the background. If the article is recommended and clicked in the "Sport/Cricket" category, it must open with the "field" template. If clicked in the "America/Canada" category, it must open with the "flag" template. The category is returned only if the article is located in several categories and the "closer" category is found. The default value is false.|boolean|
+|`recommendCategory`| |Used in conjunction with `categorypath`. If set to true, the neighboring category linked with the recommended items is delivered in the response as an additional field `category`. Helps find a suitable template for articles from several categories.<br/>For example, take an article about American football. The article is categorized as `Sport/Football` and `America/USA`. Depending on the category, the webpage displays a football field or an American flag in the background. If the article is recommended and clicked in the `Sport/Cricket` category, it must open with the "field" template. If clicked in the `America/Canada` category, it must open with the "flag" template. The category is returned only if the article is located in several categories and the "closer" category is found. The default value is false.|boolean|
 
 ##### Submodel Parameters
 
-If your recommendation model uses submodels to to group content items/products based on an attribute, you can pass the following parameters to request recommendations for a specific group. 
+If your recommendation model uses submodels to group content items/products based on an attribute, you can pass the following parameters to request recommendations for a specific group. 
 For more information, see [Submodels](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#submodels).
 
 |Parameter|Example|Description|Value|
@@ -225,13 +222,13 @@ Error messages can change, do not use them for automated processing.
 
 In most cases the recommendation engine's response can be cached. 
 Depending on the recommendation model and context, it can drastically reduce the number of recommendation requests. 
-The recommendation service supports the following HTTP headers to enable cache control on the client side (all date values must follow the "HTTP-date" format as defined by [RFC 2616](https://tools.ietf.org/html/rfc2616):
+The recommendation service supports the following HTTP headers to enable cache control on the client side (all date values must follow the "HTTP-date" format as defined by [RFC 2616](https://tools.ietf.org/html/rfc2616)):
 
-|Scope|Header|Description|Example|Format|
-|---|---|---|---|---|
-|Request|`If-Modified-Since`|Enables returning the *304 Not Modified* code if content is unchanged.|`If-Modified-Since: Sat, 29 Oct 2013 19:43:31 GMT`||
-|Response|`Last-Modified`|The last modification date of the recommendations.|`Last-Modified: Tue, 15 Nov 2013 12:45:26 GMT`|-|
-|Response|`Expires`|Gives the date/time after which the response is outdated|`Expires: Thu, 01 Dec 2013 16:00:00 GMT`|-|
+|Scope|Header|Description|Example|
+|---|---|---|---|
+|Request|`If-Modified-Since`|Enables returning the *304 Not Modified* code if content is unchanged.|`If-Modified-Since: Sat, 29 Oct 2013 19:43:31 GMT`|
+|Response|`Last-Modified`|The last modification date of the recommendations.|`Last-Modified: Tue, 15 Nov 2013 12:45:26 GMT`|
+|Response|`Expires`|Gives the date/time after which the response is outdated|`Expires: Thu, 01 Dec 2013 16:00:00 GMT`|
 
 The last modification timestamp indicates a change that could influence the recommendation response. 
 It depends on an updated recommendation calculation, an update of an item or certain scenario configuration changes. 
