@@ -313,6 +313,10 @@
     color: var(--white);
 }
 
+.md-search__icon[for=__search] {
+    top: .2rem;
+}
+
 [data-md-toggle=search]:checked~.md-header .md-search__inner {
 }
 
