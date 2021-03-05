@@ -5,7 +5,6 @@
 - [REST API](https://doc.ezplatform.com/rest-api-reference)
 - [Public PHP API](api/public_php_api.md)
 - [Field Types](api/field_type_reference.md)
-- [Shop Field Types](api/commerce_api/field_type_reference/field_type_reference.md)
 - [GraphQL](api/graphql_queries.md)
 
 ## Content model and rendering

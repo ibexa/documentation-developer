@@ -49,3 +49,27 @@ You also need to configure the Content Type to be treated as `createOrderablePro
 ``` yaml
 parameters.silver_eshop.default.catalog_factory.<content_type_identifier>: createOrderableProductNode
 ```
+
+## Prouct specifications
+
+You can configure the available product specifications and default values using the following configuration:
+
+``` yaml
+siso_core.default.specification_groups:
+    -
+        code: "technic"
+        label: "Technical data"
+        default_values:
+            -
+                id: width
+                label: "Width"
+                value: ""
+                options: ['mm','cm', 'in']
+            -
+                id: diameter
+                label: "Diameter"
+                value: ""
+                options: ['mm','cm']
+```
+
+The optional `option` attribute enables you to add a select field offering e.g. a selection of units.
