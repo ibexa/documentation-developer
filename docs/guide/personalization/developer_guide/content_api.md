@@ -19,6 +19,12 @@ and to display or update the items directly.
 
 You can use HTTP methods to create, update or retrieve items that are in the data store.
 
+!!! note "Authentication"
+
+    For getting or posting content data, basic authentication is enabled by default.
+    Use your customer ID and license key as username and password. 
+    If authentication is enabled for recommendation requests and you want to change this, contact support@ibexa.co.
+
 ## GET requests
 
 Use the GET method to retrieve all information that is stored in the database for the given item ID:
@@ -39,12 +45,6 @@ If the XML content cannot be validated, the interface responds with status `400 
 Otherwise it responds with status `202 (Accepted)`.
 
 Once uploaded, the item is scheduled to be inserted in the database, and it is not directly available.
-
-!!! note "Authentication"
-
-    For getting or posting content data, basic authentication is enabled by default.
-    Use your customer ID and license key as username and password. 
-    If authentication is enabled for recommendation requests and you want to change this, contact support@ibexa.co.
 
 ## Request parameters
 
@@ -99,16 +99,16 @@ An XML representation of the data object used for item import can look like this
 
 The following keys and attributes used in the XML object are available:
 
-| Key/Attribute | Description | Type |
-|---|---|---|---|
+|Key/Attribute | Description | Type |
+|--- | --- | --- |
 | `id` | A unique ID of the item/product. This parameter is required. | integer |
 | `type` | An ID of the type of item/product. This parameter is required. | integer |
-| `description`|Additional information about the item. | alphanumeric |
+| `description`| Additional information about the item. | alphanumeric |
 | `currency` | Currency used for the price. By default, prices are expressed in EUR. | ISO 4217 |
 | `price` | The item's price in the currency's fractional units (for example, cents).<br/>See below for more information. | integer |
 | `validfrom` | Together with `validto`, defines the lifespan of an item.<br/>If NULL or not available, the item is considered valid immediately.<br/>See below for more information. | ISO 8601 |
 | `validto` | Together with `validfrom`, defines the lifespan of an item.<br/>If NULL or not available, the item is considered valid indefinitely.<br/>See below for more information. | ISO 8601 |
-| `categorypath` | A logical (website) navigation path through which the end user can reach the item/product in your website.<br/>You can define multiple paths for the product.|alphanumeric, separated with "/" ("%2F") characters|
+| `categorypath` | A logical (website) navigation path through which the end user can reach the item/product in your website.<br/>You can define multiple paths for the product.| alphanumeric, separated with "/" ("%2F") characters |
 
 !!! caution "Encoding limitation"
 
@@ -137,7 +137,7 @@ Otherwise, the following negative side effects occur:
 - Every new category path attached to the "Click" event is appended to a list of the categories of the product
 - Imported product data overwrites the collected category paths
 
-For example, when a product that is originally located under `%2FGarden%2F` is clicked in the "Hot Sellers" section, the category path `%2FTopSeller` is sent.
+For example, when a product that is originally located under `Garden` is clicked in the "Hot Sellers" section, the category path `TopSeller` is sent.
 
 #### Content items/products with no attributes
 
@@ -145,7 +145,7 @@ All the elements and attributes except the `type` and `id` are optional.
 You can therefore upload a product without any additional information.
 You do it, for example, when a random recommendation model is used 
 or you want to want to apply ad-hoc boosting and filtering of recommendations.
-As a result, the recommendation engine randomly recommends the imported items//products.
+As a result, the recommendation engine randomly recommends the imported items/products.
 This can prove useful for a news agency, where new items are published very often.
 
 #### Free-form data
