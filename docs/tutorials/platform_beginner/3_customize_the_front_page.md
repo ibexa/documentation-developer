@@ -9,6 +9,12 @@ You will customize this step by instructing Platform to use a custom template to
 
 To use a custom template when rendering the root content, create a `content_view` configuration block for `ezplatform`.
 
+!!! note
+
+    When pasting YAML code, pay attention to indentation and levels.
+    The code blocks shown here include the full structure of the YAML file to help you learn where to place new blocks.
+    Be careful not to duplicate existing keys, because YAML does not allow it.
+
 Edit `config/packages/ezplatform.yaml`.
 Add the following block under `site` while paying attention to indentation - `content_view` should be one level below `site`:
 
@@ -56,6 +62,10 @@ Create a `home_page.html.twig` file in `templates/full/`:
 ```
 
 Refresh the page and you will see a simple, unstyled version of the message.
+
+!!! note
+
+    If you still see the welcome page, go to `config/packages/` and make sure you deleted the `ezplatform_welcome_page.yaml` file.
 
 ### Add the site's main layout
 

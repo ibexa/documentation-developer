@@ -69,12 +69,6 @@ This template reuses `main_layout.html.twig` and again places the template in a 
 
 Now you need to indicate when this template should be used.
 
-!!! note
-
-    When pasting YAML code, pay attention to indentation and levels.
-    The code blocks shown here include the full structure of the YAML file to help you learn where to place new blocks.
-    Be careful not to duplicate existing keys, because YAML does not allow it.
-
 Go back to `config/packages/ezplatform.yaml` and add the following configuration (under the existing `content_view` and `full` keys:):
 
 ``` yaml
