@@ -8,8 +8,8 @@ This information must be uploaded to the recommendation engine by the administra
 The following information can be loaded to the recommendation solution:
 
 - Product price - Products cheaper than the specified threshold can be filtered out from recommendations
-- Availability timeframe - Certain products are be recommended only in the specified time window.
-- Custom attributes - You can group recommendations and narrow down the results, for example, to non-food products or to news that are related to the end users's city
+- Availability timeframe - Certain products are be recommended only in the specified time window
+- Custom attributes - You can group recommendations and narrow down the results, for example, to non-food products or to news that are related to the end user's city
 
 For more information about personalization, see [Personalization quickstart](../personalization_quickstart.md) and [Best practices](../best_practices/recommendation_integration.md).
 
@@ -17,7 +17,7 @@ The recommendation client provides a REST interface that accepts items in XML fo
 You can use the interface to post item information within the request's body into the store, 
 and to display or update the items directly.
 
-You can use HTTP methods to create, update or retrieve items that are located in the data store.
+You can use HTTP methods to create, update or retrieve items that are in the data store.
 
 ## GET requests
 
@@ -26,7 +26,7 @@ Use the GET method to retrieve all information that is stored in the database fo
 `GET: https://admin.yoochoose.net/api/[customerid]/item/[itemtypeid]/[itemid]`
 
 If the item is not found, the interface responds with status `404 (Not found)`. 
-Otherwise it responds with status `200 (OK)`.
+Otherwise, it responds with status `200 (OK)`.
 
 ## POST requests
 
@@ -53,7 +53,7 @@ The following call attributes are available:
 | Parameter name | Description | Value |
 |---|---|---|
 | `customerid` | Your customer ID, as defined when [enabling Personalization](../enabling_personalization.md#configuring-mandator-credentials) (for example, "00000"). | alphanumeric |
-| `itemid` | A unique ID of the Content item/product. Used to identify the item in the your database. | integer |
+| `itemid` | A unique ID of the Content item/product. Used to identify the item in the database. | integer |
 | `itemtypeid` | An ID of the type of Content item/product. In most cases, the value is 1 but you might have items/products of more than one type. | integer |
 
 
@@ -97,7 +97,7 @@ An XML representation of the data object used for item import can look like this
 
     The current schema that is used for interpreting the XML objects can be seen [here](https://admin.yoochoose.net/api/00000/item/schema.xsd).
 
-The following keys and attributes used in the XML object are available::
+The following keys and attributes used in the XML object are available:
 
 | Key/Attribute | Description | Type |
 |---|---|---|---|
@@ -108,7 +108,7 @@ The following keys and attributes used in the XML object are available::
 | `price` | The item's price in the currency's fractional units (for example, cents).<br/>See below for more information. | integer |
 | `validfrom` | Together with `validto`, defines the lifespan of an item.<br/>If NULL or not available, the item is considered valid immediately.<br/>See below for more information. | ISO 8601 |
 | `validto` | Together with `validfrom`, defines the lifespan of an item.<br/>If NULL or not available, the item is considered valid indefinitely.<br/>See below for more information. | ISO 8601 |
-| `categorypath` | A logical (website) navigation path through which the end user can reach the item/product in your website.<br/>You can define multiple paths for the product.|-|alphanumeric, separated with "/" ("%2F") characters|
+| `categorypath` | A logical (website) navigation path through which the end user can reach the item/product in your website.<br/>You can define multiple paths for the product.|alphanumeric, separated with "/" ("%2F") characters|
 
 !!! caution "Encoding limitation"
 
