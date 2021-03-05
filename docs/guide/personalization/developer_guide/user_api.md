@@ -38,7 +38,7 @@ For the requests to function, you must provide the following parameters:
 |`source`|An ID of the source of the specified user's metadata.|alphanumeric|
 |`userid`|An ID of the tracked user in the website (for example, an internal customer code, a session code or a cookie for anonymous users.|alphanumeric|
   
-  !!! caution "Parameter encoding limitations"
+!!! caution "Parameter encoding limitations"
 
       All parameters must be URL-encoded (see RFC 3986) and cannot contain slash, backslash or space 
       characters.
