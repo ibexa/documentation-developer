@@ -11,7 +11,6 @@ The clean installation contains only a root Content item which displays a welcom
 
 You will replace the welcome page with your own in step 3.
 
-
 To remove it for now, go to `config/packages/` and delete the `ezplatform_welcome_page.yaml` file.
 
 You can now start creating the content model.

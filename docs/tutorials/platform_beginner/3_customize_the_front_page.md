@@ -65,7 +65,7 @@ Refresh the page and you will see a simple, unstyled version of the message.
 
 !!! note
 
-    If you still see the welcome page, go to `config/packages/` and check if you deleted `ezplatform_welcome_page.yaml` file.
+    If you still see the welcome page, go to `config/packages/` and make sure you deleted the `ezplatform_welcome_page.yaml` file.
 
 ### Add the site's main layout
 
