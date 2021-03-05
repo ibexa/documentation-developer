@@ -1,42 +1,76 @@
 # Content API
 
-## Insert XML Content
+Apart from the [events](https://doc.ibexa.co/projects/userguide/en/latest/personalization/event_types) 
+collected by the recommendation client, the recommendation engine can use external information 
+about the products.
+This information must be uploaded to the recommendation engine by the administrator of the website.
 
-!!! note
+The following information can be loaded to the recommendation solution:
 
-    All features described in this chapter are available only for the advanced edition of the Recommender Engine.
-    **BASIC Authentication** is enabled by default.
-    Use the customerID as username and the license key as password.
-    The license key is displayed in the upper right of the Admin GUI ([https://admin.yoochoose.net](https://admin.yoochoose.net/)) after logging in with your registration credentials.
+- Product price - Products cheaper than the specified threshold can be filtered out from recommendations
+- Availability timeframe - Certain products are be recommended only in the specified time window
+- Custom attributes - You can group recommendations and narrow down the results, for example, to non-food products or to news that are related to the end user's city
 
-The Recommender Engine needs updated information from the web presence of the customer to generate personalized recommendations for the user profile.
-To get such information an event tracking process is required to collect events like clicks, purchases, consumes, etc.
+For more information about personalization, see [Personalization quickstart](../personalization_quickstart.md) and [Best practices](../best_practices/recommendation_integration.md).
 
-In addition to events collected by the Recommender, the Recommender Engine can use external information about the products.
-This information must be uploaded to the Recommender Engine by the website owner.
-Here are some examples:
+The recommendation client provides a REST interface that accepts items in XML format.
+You can use the interface to post item information within the request's body into the store, 
+and to display or update the items directly.
 
-- **Product price** - Products cheaper than the specified threshold can be filtered out from recommendations.
-- **Availability time period** - Products will be recommended only in the specified time window.
-- **Custom attributes** - By using custom attributes it is possible to group recommendations and narrow the results. For example "I am interested only in non-food products" or "show me only news related to my city".
+You can use HTTP methods to create, update or retrieve items that are in the data store.
 
-### XML Item Format
+!!! note "Authentication"
 
-The XML format for an item import is the same for the PULL and PUSH interface. Here is an example:
+    For getting or posting content data, basic authentication is enabled by default.
+    Use your customer ID and license key as username and password. 
+    If authentication is enabled for recommendation requests and you want to change this, contact support@ibexa.co.
+
+## GET requests
+
+Use the GET method to retrieve all information that is stored in the database for the given item ID:
+
+`GET: https://admin.yoochoose.net/api/[customerid]/item/[itemtypeid]/[itemid]`
+
+If the item is not found, the interface responds with status `404 (Not found)`. 
+Otherwise, it responds with status `200 (OK)`.
+
+## POST requests
+
+Use the POST request to create or update items with the given ID in the database:
+
+`POST: https://admin.yoochoose.net/api/[customerid]/item`
+
+A body of the request must contain a valid XML document.
+If the XML content cannot be validated, the interface responds with status `400 (Bad Request)`. 
+Otherwise it responds with status `202 (Accepted)`.
+
+Once uploaded, the item is scheduled to be inserted in the database, and it is not directly available.
+
+## Request parameters
+
+The following call attributes are available:
+
+| Parameter name | Description | Value |
+|---|---|---|
+| `customerid` | Your customer ID, as defined when [enabling Personalization](../enabling_personalization.md#configuring-mandator-credentials) (for example, "00000"). | alphanumeric |
+| `itemid` | A unique ID of the Content item/product. Used to identify the item in the database. | integer |
+| `itemtypeid` | An ID of the type of Content item/product. In most cases, the value is 1 but you might have items/products of more than one type. | integer |
+
+
+### Item object format
+
+An XML representation of the data object used for item import can look like this: 
 
 ``` xml
 <items version="1">
-    <!-- version is mandatory and always "1" -->
+    <!-- Version is mandatory and must always be set to 1 -->
     <item id="102" type="1">
         <description>the item's description</description>
         <price currency="EUR">122</price>
-        <!-- price in cents as integer value (e.g. EUR-Cent) -->
         <validfrom>2011-01-01T00:00:00</validfrom>
-        <!-- items will be recommended only in the specified time window -->
         <validto>2021-01-01T00:00:00</validto>
         <categorypaths>
             <categorypath>/8/4/5</categorypath>
-            <!-- one product can be in multiple categories -->
             <categorypath>/84</categorypath>
             <categorypath>/1/847</categorypath>
         </categorypaths>
@@ -49,132 +83,115 @@ The XML format for an item import is the same for the PULL and PUSH interface. H
             </content-data>
         </content>
         <attributes>
-            <!-- this section should only contain values that are distinct and limited to build prefiltered models -->
-            <attribute key="author" value="Max Mustermann" />
+            <!--  -->
+            <attribute key="author" value="John Doe" />
             <attribute key="agency" value="dpa" />
-            <!-- If no type value is given, NOMINAL (a limited list of values) is assumed -->
             <attribute key="vendor" value="BOSCH" />
-            <!-- if NUMERIC is chosen, the value must be numeric as well. -->
             <attribute key="weight" value="100" type="NUMERIC" />
         </attributes>
     </item>
 </items>
 ```
 
-#### Implicit vs. explicit update of category paths
-
-Product attributes which can be uploaded through the data import interface include the path of the category/categories that the product is located in.
-The category path can be also updated over the "click" events.
-If the products are regularly uploaded over the data import interface, the click event should **not** contain the category path information.
-E.g. a product is clicked in the "TopSeller" section and the category path `%2FTopSeller` is sent, which is mostly undesired as it is originally located under `%2FGarden%2F`.
-
-Enabling both update ways for category path is possible, but it has the following side effects:
-
-- Every new category path attached to the "click" event will be *appended* to the list of the categories of the product.
-- The Product imported will *overwrite* the collected category paths.
-
 !!! note "XML schema definition"
 
-    The current schema can be seen under `https:// admin.yoochoose.net/api/00000/item/schema.xsd`
+    The current schema that is used for interpreting the XML objects can be seen [here](https://admin.yoochoose.net/api/00000/item/schema.xsd).
 
-Following is a brief description of the attributes
+The following keys and attributes used in the XML object are available:
 
-|Name/Attribute|Description|Mandatory|Type|
-|---|---|---|---|
-|id|The item's id|yes|Integer|
-|type|The item's type|yes|Integer|
-|description|Additional information about the item|-|String|
-|price|The item's price (e.g. in EUR cents)|-|Integer (see below)|
-|currency|Currency used, by default EUR is assumed|-|ISO 4217|
-|validfrom|Defines, together with validto, the "lifespan" of an item. If NULL or not available, the item is considered valid|-|ISO 8601 (see below)|
-|validto|Defines, together with validfrom, the "lifespan" of an item. If NULL or not available, the item is considered valid|-|ISO 8601|
-|categorypath|A logical (website) navigation path through which the item can be reached in the customer's system|-|String, separated with "%2F" (encoded /)|
-|categoryid|The category ID. Deprecated. Use "categorypath" instead!|-|Integer|
+|Key/Attribute | Description | Type |
+|--- | --- | --- |
+| `id` | A unique ID of the item/product. This parameter is required. | integer |
+| `type` | An ID of the type of item/product. This parameter is required. | integer |
+| `description`| Additional information about the item. | alphanumeric |
+| `currency` | Currency used for the price. By default, prices are expressed in EUR. | ISO 4217 |
+| `price` | The item's price in the currency's fractional units (for example, cents).<br/>See below for more information. | integer |
+| `validfrom` | Together with `validto`, defines the lifespan of an item.<br/>If NULL or not available, the item is considered valid immediately.<br/>See below for more information. | ISO 8601 |
+| `validto` | Together with `validfrom`, defines the lifespan of an item.<br/>If NULL or not available, the item is considered valid indefinitely.<br/>See below for more information. | ISO 8601 |
+| `categorypath` | A logical (website) navigation path through which the end user can reach the item/product in your website.<br/>You can define multiple paths for the product.| alphanumeric, separated with "/" ("%2F") characters |
 
-#### Empty Products
+!!! caution "Encoding limitation"
 
-All the elements and attributes except the item **type** and the item **id** are optional.
-It is possible to upload a product without any additional information, e.g. if the random recommendation model is used or on-the-fly boosting and filtering of recommendations is intended to be used.
-In this case the Recommendation Engine will randomly recommend the imported products even if they have to related events.
-This is useful for a news agency, where new products (=news) are published very frequently.
+    Keys and their values can only contain letters, digits and underscore characters.
+    Attribute keys are case-sensitive.
 
-#### Field Formats
+##### Currency
 
-The key attribute in the elements **attribute** and **content** must contain only letters, numbers and underscores.
+If the currency does not have a fractional unit, the main unit is used, for example 12 for 12 Japanese Yen.
+To check whether the currency has fractional units, see the [ISO 4217 standard](https://en.wikipedia.org/wiki/ISO_4217#cite_note-ReferenceA-6).
 
-Price is formatted as the amount of "cents", for example 1234 for 12 Euros and 34 Cents. If the currency doesn't contain the cent part, the main currency is used, for example 12 for 12 Japanese Yen.
-See [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#cite_note-ReferenceA-6) to check if the selected currency has a "cents" part.
+##### Validity
 
-Validity Dates are formatted as specified in [XSD format](https://www.w3.org/TR/xmlschema-2/#dateTime) *without a time zone*. Time zone is the default timezone of the mandator which is used.
+ Items with defined validity are recommended only in the specified timeframe. 
+ Values in the `validto` and `validfrom` attributes must follow the [XSD format](https://www.w3.org/TR/xmlschema-2/#dateTime) and do not include the time zone. 
+Time zone is always your time zone.
 
-#### Attributes
+##### Category path
 
-It is also possible to define custom (numeric or nominal) attributes in the **&lt;attributes&gt;** section.
-The default type of every attribute is "NOMINAL", i.e. the values of an attribute are treated as distinct when compared while calculating a content-based model (ADVANCED solution).
-If you add another attribute in the attribute element named *type="NUMERIC"*, the recommender engine will treat the values as ranges.
-This means that a size of 4 is closer to a size of 5 than to 1.
-If the attribute price is of type NOMINAL, they are both just different and have no "distance-based similarity".
+With the data import interface, you can upload information about the paths to categories 
+in which the product is located.
+However, the category path can be also updated as a result of the "Click" events.
+If you regularly upload product data, the "Click" event cannot contain the category path information.
+Otherwise, the following negative side effects occur:
+
+- Every new category path attached to the "Click" event is appended to a list of the categories of the product
+- Imported product data overwrites the collected category paths
+
+For example, when a product that is originally located under `Garden` is clicked in the "Hot Sellers" section, the category path `TopSeller` is sent.
+
+#### Content items/products with no attributes
+
+All the elements and attributes except the `type` and `id` are optional.
+You can therefore upload a product without any additional information.
+You do it, for example, when a random recommendation model is used 
+or you want to want to apply ad-hoc boosting and filtering of recommendations.
+As a result, the recommendation engine randomly recommends the imported items/products.
+This can prove useful for a news agency, where new items are published very often.
+
+#### Free-form data
+
+You can upload any data under the `<content>` key of the XML object.
+This data is used in full-text analysis models only.
+
+### Custom attributes
+
+You can also define custom attributes under the `<attributes>` key.
+This section can only contain values that are distinct and used to build pre-filtered models.
+
+By default, it is assumed that every attribute is of type "NOMINAL", which means that 
+there is a limited set of values, and values of an attribute are treated as distinct 
+when calculating the results of a content-based model.
+
+If you have an attribute that is of type "NUMERIC", and you add another attribute of the same type, 
+the recommendation engine treats the two values as a range.
 
 ``` xml
 <attribute key="size" value="4" type="NUMERIC" />
 ```
 
-Another typical example is the color of an item. To insert it in the store, the following line should be a child of the &lt;attributes&gt; element.
+However, if the other attribute is of type "NOMINAL", they are both treated 
+as different and have no "distance-based similarity".
+
+Another typical example of a custom attribute is the color of an item. 
+To upload the value to the data store, add the following line under the `<attributes>` key.
 
 ``` xml
 <attribute key="color" value="green" />
 ```
 
-!!! caution
+You can have multiple attributes with the same name and different type. 
+For example, `size` can be expressed as a number (40.5) or as a code ("L").
 
-    Attribute keys are **case-sensitive**. It is possible to have multiple attributes with the same name and different type. For example, the size as a number (e.g., 40.5) and as a code ("L").
+## Transferring item identifiers
 
-#### Content
+You could use the data import interface to help migrate the database, 
+when it involves changing item IDs of items that are supported by the recommendation engine.
+If you transfer items from one ID to another, you can use the events recorded for "old" item IDs 
+to calculate model results that present "new" IDs.
 
-You can load any content data in the content part of the item.
-The content is used only for full text analysis models, it cannot be used in `<content-data key="abstract"> <![CDATA[ ... ]]></content-data>`.
+Use the following method to pass the XML object:
 
-### Push Interface
-
-The Recommender provides a REST interface that accepts an item in XML-format.
-The following URL describes the interface.
-
-**`https://admin.yoochoose.net/api/[customerid]/item`**
-
-It can be used to POST item information within the request's body into the store and to show, update or delete items directly.
-The parameters that are used in the call are described in the table.
-
-URL `https://admin.yoochoose.net/api/[customerid]/item/[itemtypeid]/[itemid]` is the direct link to fetch item data.
-
-|Parameter name|Description|Values|
-|---|---|---|
-|`customerid`|This is a reference to the account of the customer. It will be provided by YOOCHOOSE.|String|
-|`itemid`|A unique identifier for the item that is used as a reference to identify the item in the database of the customer.|Numeric|
-|`itemtypeid`|Describes the type of the item id. Usually it is fixed to 1 but if the customer uses more than one type of items this has to refer to the corresponding item type.|Numeric|
-
-Different HTTP-methods can be used to create, update, delete or retrieve items located in the YOOCHOOSE data store. The following table gives an overview of the different methods and their function.
-
-|HTTP method|Description|Values|
-|---|---|---|
-|`POST`|If the body contains valid xml data, the item will be persisted. The item is not directly available but scheduled to be inserted. If the XML content cannot be validated, the server will send a Bad Request status code.|202 (Accepted)</br>400 (Bad Request)|
-|`GET`|This method retrieves all information that is stored in the database for the given item id. If not found, the status code 404 is returned.|200 (OK)</br>404 (Not Found)|
-|`DELETE`|Deletes all information that is related to the item id that has been sent. There is no need to send a body element. The item is not deleted directly but scheduled to be removed from the data store.|202 (Accepted)</br>404 (Not Found)|
-
-The body of a request to import data using the above interface must contain a valid XML document.
-
-## Transferring Item Identifiers
-
-### Transfer items
-
-The method transfers an item from one id to another ID.
-The attributes of the old item are NOT moved or merged.
-If you rely on attributes for e.g. filtering based on prices, the new item must be reimported.
-
-All related historical user data is rewritten to point to the new item.
-The old item is wiped, including all attributes.
-The authentication is based on BASIC AUTH with customerId and license-key.
-
-**`POST https://import.yoochoose.net/api/[customerid]/transferitems`**
+`POST: https://admin.yoochoose.net/api/[customerid]/transferitems`
 `Content-Type=text/xml`
 
 ``` xml
@@ -185,3 +202,11 @@ The authentication is based on BASIC AUTH with customerId and license-key.
     </transfer>
 </transfers>
 ```
+
+All related historical user data is rewritten to point to the new item.
+The old item is wiped, including all attributes.
+
+!!! note
+
+    The attributes of the "old" item ID are not moved or merged, and if you rely on attributes, 
+    for example, for filtering based on prices, you must reimport the new item.
