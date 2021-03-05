@@ -140,9 +140,9 @@ This ensures that the initialization steps shared by all Field Types are execute
 
 It is recommended to use a simple associative array format for the settings schema returned by `eZ\Publish\SPI\FieldType\FieldType::getSettingsSchema()`, which follows these rules:
 
-- The key of the associative array identifies a setting (e.g. `format`)
+- The key of the associative array identifies a setting (for example, `format`)
 - Its value is an associative array describing the setting using:
-    - `type` to identify the setting type (e.g. `int` or `string`)
+    - `type` to identify the setting type (for example, `int` or `string`)
     - `default` containing the default setting value
 
 An example schema could look like this:

@@ -27,7 +27,7 @@ You have to add your form type to the content editing form, for example:
 ```
 
 Your type has to be called `value`.
-In the example above, the custom `Point2DType::class` is used, but you can use standard Symfony form type instead.
+In the example above, the custom `Point2DType::class` is used, but you can use a standard Symfony form type instead.
 
 It's good practice to encapsulate Fields with custom types as it allows easier templating.
 Type has to be compatible with your Field Type's `eZ\Publish\Core\FieldType\Value` implementation.
