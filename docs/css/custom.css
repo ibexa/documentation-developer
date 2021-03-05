@@ -498,27 +498,27 @@ a.external:after {
   display: block;
 }
 
-.badge {
+.pill {
     background-color: var(--ibexa-jazzberry);
     border-radius: 2.18px;
     padding: 3px 8px;
     color: var(--white);
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 500;
 }
 
-.experience-badge::after {
+.experience-pill::after {
     content: "Experience";
 }
 
-.experience-badge {
+.experience-pill {
     background-color: var(--ibexa-orange);
 }
 
-.commerce-badge::after {
+.commerce-pill::after {
     content: "Commerce";
 }
 
-.commerce-badge {
+.commerce-pill {
     background-color: var(--ibexa-jazzberry);
 }
