@@ -9,7 +9,7 @@ You can add as many or as little related resources as you like.
 
 Now you need to create the second Content Type needed in the site, Landmark.
 
-Go to **Admin** &gt; **Content Types**, and under the **Content** group, create the Landmark Content Type.
+Go to **Admin** &gt; **Content Types**, and in the **Content** group, create the Landmark Content Type.
 
 A Landmark is an interesting place that Rides go through. Each Ride may be related to multiple Landmarks.
 
@@ -112,7 +112,7 @@ landmark_list:
 
 ### Create the RideController
 
-You must provide additional information when the Ride object is displayed. 
+You must provide additional information when the Ride object is displayed.
 This requires creating a custom controller.
 The controller uses `ContentService` to load related resources (Landmarks) for a particular Ride.
 
