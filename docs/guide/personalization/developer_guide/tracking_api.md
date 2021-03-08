@@ -7,10 +7,11 @@ The most popular user events are:
 - Buy/Consume - When a user buys an item or consumes content
 - Rate - When a user likes, comments or rates an item
 - Login - When a user logs in on a website
-- Clickrecommended - When a user click a recommendation
+- Clickrecommended - When a user clicks a recommendation
 
 For a complete list of events, see [Event types](https://doc.ibexa.co/projects/userguide/en/latest/personalization/event_types) in the user documentation. 
-Depending on the event type, some additional parameters, such as item price or user rating, must be provided.
+Depending on the event type, some additional parameters, such as item price 
+or user rating, must be provided.
 
 Importing historical user data can help you reduce the delay in delivery of high quality recommendations. 
 For more information, see [Importing historical user tracking data](importing_historical_user_tracking_data.md).
@@ -20,11 +21,10 @@ For more information, see [Tracking with yct.js](tracking_with_yct.md).
 
 ## Definitions
 
-This document is intended for use in eCommerce and content publishing scenarios. 
-eCcommerce mostly uses the term "product", whereas the Publisher domain widely uses the terms "content", 
+You can use the tracking API both in eCommerce and content publishing scenarios. 
+eCommerce mostly uses the term "product", whereas the Publisher domain widely uses the terms "content", 
 "article", "images" or "videos". 
-Therefore, a generic term "item" is used instead to cover all types, meaning "products", "content", 
-"article", "images" or "videos". 
+Therefore, a generic term "item" is used instead to cover all the above types. 
 For further segmentation the term "itemtype" is used, which, in combination with the item ID itself, 
 defines a domain specific object.
 
@@ -44,16 +44,17 @@ A textile product could be defined by item type "2" and item id "3298".
     an eCommerce shop has a unique identifier.
 
 |Domain||Item ID|Item Type|
-|---|---|---|---|
-|Content publishing|Article|ID of an article|Type of content|
-|Content publishing|Video|ID of a video|Type of content|
-|Content publishing|Photo Gallery|ID of a photo gallery|Type of content|
+|---|---|---|
+|Content publishing|Article|ID of an article|
+|Content publishing|Video|ID of a video|
+|Content publishing|Photo Gallery|ID of a photo gallery|
 
-Assuming the numbering of content is independent and the same item ID is used twice but for different item types. 
-It is therefore impossible to define the difference if there's no segmentation by item types.
+Assuming the numbering of content is independent and the same item ID 
+is used for two items of different item types, it is impossible to tell 
+the difference if there is no segmentation by item types.
 
-If an article, a video and a photo gallery have the same item ID, use different item types to separate 
-the items that are tracked.
+If an article, a video and a photo gallery have the same item ID, use different 
+item types to separate the items that are tracked.
 For example:
 
 - item type "1" and itemid "29712" -> article
@@ -62,9 +63,10 @@ For example:
 
 !!! note
 
-    Even if item ids cannot overlap in a customer's system, we strongly recommend using different item 
-    types to provide independent tracking and cross-item type recommendations like "Users who read 
-    this article also watched these videos" or "Users who liked this gallery also read these articles".
+    Even if item IDs cannot overlap in a customer's system, Ibexa recommends using 
+    different item types to provide independent tracking and cross-item type recommendations, 
+    such as, for example, "Users who read this article also watched these videos" 
+    or "Users who liked this gallery also read these articles".
 
 ## Identifiers
 
@@ -74,11 +76,12 @@ High quality recommendations can only be delivered if the underlying data is cor
 For consistent tracking it is crucial to choose and use a consistent identifier for a user. 
 A user usually visits a website anonymously. 
 Therefore, their identifier is either a first-party cookie or a session ID provided by the website. 
-If there's no existing user ID handling that we can re-use, it is recommended that you use your own cookie 
-and set the expiry date to at least 90 days from the last usage. 
-If there's a login mechanism, the user is usually tracked with a temporary identifier before the login. 
-Immediately after a successful login process a "login" event must be sent.
-At this point a pseudonymous user ID, for example, a system's internal registration id, must be used. 
+If there is no existing user ID handling that we can re-use, it is recommended that 
+you use your own cookie and set the expiry date to at least 90 days from the last usage. 
+If there is a login mechanism, the user is usually tracked with a temporary identifier before the login. 
+Immediately after a successful login process a Login event must be sent.
+At this point a [pseudonymous](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN#d1e1489-1-1) user ID, 
+for example, a system's internal registration id, must be used. 
 After logout, the anonymous user ID can be used again.
 
 !!! note
@@ -90,41 +93,47 @@ After logout, the anonymous user ID can be used again.
 
 The recommendation engine internally creates a hash of every user ID. 
 The original ID is not saved. 
-It is still possible that the original ID appears in the log files for the debugging purposes but log files are purged regularly. 
+It is still possible that the original ID appears in the log files for the debugging 
+purposes but log files are purged regularly. 
 The user ID is case sensitive.
 
 ### Item identifiers
 
-People responsible for the sales policy in place in your organiation must decide what should be presented as recommendations on the website. 
+Persons responsible for the sales policy in place in your organization must decide 
+what should be presented as recommendations on the website. 
 In the eCommerce business you mostly have the possibility to track items based on:
 
-- **Stock Keeping Unit** (SKU) or
-- **Master Item Identifier** (MII)
+- Stock Keeping Unit (SKU) or
+- Universal Product Code (UPC)
 
-The exact identifiers that are tracked are also recommended ("*what-you-track-is-what-you-get"*). 
-By default, it is not possible to track SKUs but recommend MIIs. 
-The following example discusses a decision making situation that is typical for eCommerce business:
+The exact identifiers that are tracked are also recommended ("what-you-track-is-what-you-get"). 
+By default, it is not possible to track SKUs but recommend UPCs. 
+The following use case is typical for eCommerce business:
 
-Customer A implements the recommendation engine and decides to use the SKU as item identifiers and recommendable items. 
-End users who browse through the shop **probably get recommendations of the same item that is 
-currently displayed but in a different size and/or color, a so-called "variant"**. 
-The recommendation engine does not recognize relations between items, therefore, every single SKU is used 
-to calculate similarities between them. 
-In the case of bestsellers, this could lead to the appearance of a shirt in size L on position 2 and 
-the same shirt in size M on position 4.
+Customer A implements the recommendation engine and decides to use the SKU 
+as item identifiers and recommendable items. 
+End users who browse through the shop probably get recommendations of 
+the same item that is currently displayed but in a different size and/or color, 
+a so-called "variant". 
+The recommendation engine does not recognize relations between items, therefore, 
+every single SKU is used to calculate similarities between them. 
+In the case of bestsellers, this could lead to the appearance of a shirt 
+in size L on position 2 and the same shirt in size M on position 4.
 
-Customer B decides to use the **MII** as item identifiers. 
-This results in recommendations **that do not contain variations of the currently shown item**. 
-Thus, the detail page of shirt X does not contain a recommendation for the same shirt in a different size. 
+Customer B decides to use the UPC as item identifiers. 
+This results in recommendations that do not contain variations of the currently shown item. 
+Therefore, the detail page of shirt X does not contain a recommendation 
+for the same shirt in a different size. 
 And the same shirt does not show up twice on a list of bestseller recommendations.
 
-If the *size of an item or the color is selectable* on a detail page of an item, you may prefer 
-to use the MII. 
-If recommendations of the *same item in different sizes or colors* are desired, you should 
-use the SKU as item identifiers.
+If the size of an item or the color is selectable on a detail page of an item, 
+you may prefer to use the UPC. 
+If recommendations of the same item in different sizes or colors are desired, 
+you should use the SKU as item identifiers.
 
-Remember to use the same identifier in all interactions between your site and the recommendation engine, 
-for example, when a user buys an item, clicks a recommendation or displays a product page.
+Remember to use the same identifier in all interactions between your site 
+and the recommendation engine, for example, when a user buys an item, 
+clicks a recommendation or displays a product page.
 
 ## Request parameter categorypath
 
@@ -136,8 +145,8 @@ The category path is a forward slash-separated list of categories from the root,
 The initial slash (if present) is ignored. 
 Like all other parameters, the category path must be URL-encoded and cannot contain backslashes.
 
-The "categorypath" parameter offers the possibility to provide category-based recommendations without 
-an explicit export of the structure of a customer's website. 
+The "categorypath" parameter offers the possibility to provide category-based 
+recommendations without an explicit export of the structure of a customer's website. 
 If enabled by Ibexa, it is used for on-the-fly updating of item categories. 
 If an item is moved to another category, it is handled as present in both categories until 
 the old category ages out or is forcibly deleted. 
@@ -145,9 +154,9 @@ Multiple category locations of an item (multi-homing) are therefore possible.
 
 !!! note "Category paths"
 
-    If you import your own item metadata over the recommendation engine import interface, 
-    you do not necessarily have to provide the category path in the "Click" event. 
-    As this is activated by default, contact Ibexa to set the desired configuration.
+    When you import your own item metadata by using the recommendation engine import interface, 
+    you might choose to not provide the category path in the Click event. 
+    Category path is required by default, contact Ibexa to change the default configuration.
 
 ## Tracking events
 
@@ -161,8 +170,8 @@ Multiple category locations of an item (multi-homing) are therefore possible.
 
 ### Click event
 
-When the end user opens an item/article detail, a "Click" events is sent. 
-The "Click" event often provides additional information about the category structure of the website.
+When the end user opens an item/article detail, a Click events is sent. 
+The Click event often provides additional information about the category structure of the website.
 
 !!! note
 
@@ -176,10 +185,10 @@ The URL to track user clicks has the following format:
 
 |Name|Description|Values|
 |---|---|---|
-|customerid|Your customer ID (for example "00000").|alphanumeric|
+|`customerid`|Your customer ID (for example "00000").|alphanumeric|
 |userid|A user's ID on the website of the customer. It could be an internal customer code, a session code or a cookie for anonymous users.|URL-encoded alphanumeric|
-|itemtypeid|Item type ID.|1 to 2147483647|
-|itemid|A unique ID of the item the user has clicked.</br>String-based identifiers are also supported as item IDs to track content on a website, but it is discouraged due to fraud and security issues. If you are unable to provide numeric identifiers for the tracking process, contact Ibexa for further information and implementation notes.|1 to 2147483647|
+|`itemtypeid`|Item type ID.|1 to 2147483647|
+|`itemid`|A unique ID of the item the user has clicked.</br>String-based identifiers are also supported as item IDs to track content on a website, but it is discouraged due to fraud and security issues. If you are unable to provide numeric identifiers for the tracking process, contact Ibexa for further information and implementation notes.|1 to 2147483647|
 
 All embedded parameters are required for the request. 
 Some optional request parameters can be set over query string parameters (GET parameters).
@@ -188,13 +197,14 @@ Some optional request parameters can be set over query string parameters (GET pa
 
 |Name|Description|Values|
 |---|---|---|
-|categorypath|The forward slash-separated path of categories of the item. Like all other parameters it must be URL-encoded, for example `%2FCameras%26Foto%2FCompact%20Cameras%2FCanon`.</br>For use cases, see [Category filter](https://doc.ibexa.co/projects/userguide/en/latest/personalization/filters/#category-filter) in the user documentation.|URL-encoded string.</br>Initial and trailing slashes are ignored: "/Cameras/" is the same as "Cameras".|
+|`categorypath`|The forward slash-separated path of categories of the item. Like all other parameters it must be URL-encoded, for example `%2FCameras%26Foto%2FCompact%20Cameras%2FCanon`.</br>For use cases, see [Category filter](https://doc.ibexa.co/projects/userguide/en/latest/personalization/filters/#category-filter) in the user documentation.|URL-encoded string.</br>Initial and trailing slashes are ignored: "/Cameras/" is the same as "Cameras".|
 
 ### Consume event
 
 !!! note "eCommerce vs. content publishing"
 
-    The "Consume" event is important for content publishing websites. For eCommerce stores this event is not necessarily needed but can be used in custom implementations.
+    The Consume event is important for content publishing websites. 
+    For eCommerce stores this event is not required but can be used in custom implementations.
 
 The event is sent when the end user stays on the page for a predefined period of time. 
 It is then assumed that the user consumed the item (read an article or watched a video).
@@ -203,12 +213,12 @@ The URL has the following format:
 
 `GET https://event.yoochoose.net/api/[customerid]/consume/[userid]/[itemtypeid]/[itemid]`
 
-All embedded parameters are the same as for a click event. 
+All embedded parameters are the same as for a Click event. 
 The following table lists the request parameters:
 
-| Name       | Description                                                                                                                                                   | Values |
-|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|
-| percentage | Informs how much of an item was consumed, for example, that an article was read only in 20%, a movie was watched in 90% or someone finished 3/4 of all levels of a game. | 0-100  |
+|Name|Description|Values|
+|---|---|---|
+|`percentage`|Informs how much of an item was consumed, for example, that an article was read only in 20%, a movie was watched in 90% or someone finished 3/4 of all levels of a game.|0-100|
 
 The logic for calculating the percentage is defined by the implementation. 
 For articles, this could be by scrolling down, for a movie/video based on the consumption part. 
@@ -223,7 +233,7 @@ it could be 30 seconds for a small newspaper article or a timespan calculated by
 
 !!! note "Incremental tracking of consume events"
 
-    Consume events for a user can be sent incrementally as the recommender uses only the highest percentage rate. For example, if a user watches a movie, the site could sent consume events in 10% steps in order not to lose tracking information when the browser window is forcibly closed.
+    Consume events for a user can be sent incrementally as the recommender uses only the highest percentage rate. For example, if a user watches a movie, the site could send Consume events in 10% steps to avoid losing tracking information when the browser window is forcibly closed.
 
 ### Buy event
 
@@ -240,21 +250,19 @@ the product price and quantity.
 
 |Name|Description|Values|
 |---|---|---|
-|quantity (optional)|The number of products a user has bought. Default value is "1". It is possible to send n events instead of setting this parameter to n.|Integer (default is "1")|
-|fullprice (required)|A price for a **single** product. It contains the price in decimal format plus the currency ISO 4217 code. If the price has a decimal part, the point must be used. There can be no space between price and currency.|For example "12.45EUR" or "456JPY"|
-|price (deprecated)|**This parameter is deprecated, use the "fullprice" instead!** The price for a single item in Euro cents, for example, 2.25EUR is price=225, default currency "EUR" is assumed.|Integer|
-|currency (deprecated)|**This parameter is deprecated, use the "fullprice" instead!** The currency of a price. If left out the default currency "EUR" is assumed.|ISO 4217|
+|`quantity`|The number of products a user has bought. Default value is "1". You can send n events instead of setting this parameter to n. This parameter is optional.|integer (default is "1")|
+|`fullprice`|A price for a single product. It contains the price in decimal format plus the currency ISO 4217 code. If the price has a decimal part, the point must be used. There can be no space between price and currency. This parameter is optional.|currency, for example "12.45EUR" or "456JPY"|
 
-For example, if a user bought 4 pens for 10 Euros, the parameter "fullprice" must be set to "2.50EUR" 
-nd parameter "quantity" to 4.
+For example, if a user bought 4 pens for 10 Euros, `fullprice` can be set to "2.50EUR" 
+and `quantity` can be set to 4.
 
-The "buy" event is only relevant if the user is charged per product like it happens in a classic shop. 
-If products are sold on a subscription base or the web presence is ad-sponsored, 
-this event type is not needed.
+The Buy event is only relevant if the user is charged per product, like in a classic shop. 
+If products are sold on a subscription basis, or the web presence is ad-sponsored, 
+this event type is not applicable.
 
 #### Prices in a Buy event
 
-Every buy event can contain a price. 
+Every Buy event can contain a price. 
 If the price is set, it is stored with the event and used for calculating the revenue for statistics. 
 The price must be a price the user paid for the item, including all taxes and discounts. 
 
@@ -276,9 +284,9 @@ a first party cookie).
 During the check-out of the shopping cart, a user probably logs in to an existing account. 
 As a result, the user identifier changes from an anonymous visit-scoped ID (sourceuserid) to a 
 pseudonymous, persistent account ID (targetuserid). 
-It is highly desirable to correlate both IDs to correlate the buy events (account ID) with 
-the preceding click events (visit-scoped ID). 
-The administrative event 'login' serves exactly this purpose.
+You should correlate both IDs to correlate the Buy events (account ID) with 
+the preceding Click events (visit-scoped ID). 
+The Login event serves exactly this purpose.
 
 The format of the URL is: 
 
@@ -289,18 +297,14 @@ The format of the URL is: 
 |sourceuserid|User identifier valid up to now(usually some anonymous session ID)|URL-encoded alphanumeric|
 |targetuserid|User identifier valid from now on (usually an account ID or login name)|URL-encoded alphanumeric|
 
-!!! note "Deprecated 'transfer' event"
-
-    Based on feedback of our customers and to make the purpose a bit clearer, we renamed the formerly named 'transfer' event to 'login'. As the name implies, it should be used when a user logs in. It covers exactly the same functionality as the transfer event. There is no need to change anything on the customer's side for existing implementations because the transfer event https://event.yoochoose.net/\[solutionid\]/\[customerid\]/transfer/\[sourceuserid\]/\[targetuserid\] is still be supported, even though it should be considered as deprecated.
-
 ### Basket event
 
-The basket event can be used to add products to a user's shopping cart. 
+The Basket event can be used to add products to a user's shopping cart. 
 This event is especially useful if anonymized checkout is allowed or no recurring user 
 identification is possible. 
 By using the shopping cart products as input for getting recommendations, problems with an empty profile or 
 no buy history for the user can be solved. 
-The more valuable basket events instead of recent user clicks can be used to provide 
+The more valuable Basket events instead of recent user clicks can be used to provide 
 personalized recommendations. 
 It also happens quite often that users "store" products on their shopping wishlist and plan 
 to buy them later. 
@@ -321,12 +325,12 @@ The format of the URL is:
 
 `GET https://event.yoochoose.net/api/[customerid]/rate/[userid]/[itemtypeid]/[itemid]?rating=50`
 
-This can also be used for explicit ratings like a five-star rating or any other liquor scale-based rating. 
-The predefined rating can be submitted when the user comments on an item.
+This can also be used for explicit ratings like a five-star rating for hotels. 
+A predefined rating can be submitted when the user comments on an item.
 
 |Name|Description|Values|
 |---|---|---|
-|rating|The rating a user gives an item|Integer from 0 to 100 (The rating value is normalized during the calculation of rate based recommendations. So there's no need to use the full scale of 0-100 but it needs to be consistent).|
+|`rating`|The rating a user gives an item. The rating value is normalized during the calculation of rate-based recommendations. Therefore, there is no need to use the full scale of 0-100 but it needs to be consistent.|integer from 0 to 100|
 
 ### Blacklist event
 
@@ -341,15 +345,15 @@ There are no query string parameters for this event. 
 
 ## Tracking events based on recommendations
 
-Tracking events based on integrated recommendations is the only way to measure success of recommendations. 
+Tracking events based on integrated recommendations are the only way to measure success of recommendations. 
 It is crucial to inform the recommendation engine about which recommendations were shown and 
 what recommendations were clicked. 
 Otherwise, reliable statistics cannot be calculated and used to check against a customer's KPIs.
 
-A recommendation response already includes the requests to generate a Clickrecommended or Rendered Event. 
-They should be used and executed when a recommendation was clicked/accepted or a recommendation was shown. 
-Sending Rendered Events causes as much requests as recommendations to be displayed, 
-a Clickrecommended event is usually sent only once (if a user clicks on a specific recommendation item).
+A recommendation response already includes the requests to generate a Clickrecommended or Rendered event. 
+They are used and executed when a recommendation is clicked/accepted or a recommendation is shown. 
+Sending Rendered events causes as many requests as recommendations to be displayed, 
+a Clickrecommended event is usually sent only once (when a user clicks on a specific recommendation item).
 
 Example of a recommendation response:
 
@@ -375,32 +379,32 @@ In the `links` field, the delivered request string is visible, which is executed
 displays or clicks a recommendations. 
 See [Recommendation API](recommendation_api.md) for more details.
 
-You can still implement the traditional way as mentioned below but we **strongly advise against this**. 
+You can still implement the traditional way as mentioned below but it is strongly recommended against this. 
 If you do so, remember to examine it together with the Ibexa team because it is crucial 
 for statistical analysis.
 
 ### Clickrecommended event
 
-When the end users clicks a recommendation, the following event is sent to gather statistics over 
-the acceptance of recommendations. 
+When the end users clicks a recommendation, the following event is sent 
+to gather statistics related to the acceptance of recommendations. 
 
 The URL has the following format:
 
 `GET https://event.yoochoose.net/api/[customerid]/clickrecommended/[userid]/[itemtypeid]/[itemid]?scenario=<scenarioid>`
 
-The embedded parameters are the same as for a click event. 
+The embedded parameters are the same as for a Click event. 
 
 The request parameters are:
 
 |Name|Description|Values|
 |---|---|---|
-|scenario (required)|Name of the scenario, where recommendations originated from.|URL-encoded alphanumeric|
+|`scenario`|Name of the scenario, where recommendations originated from. This parameter is required.|URL-encoded alphanumeric|
 
 The scenario parameter identifies the originating scenario to gain detailed statistics about 
 the scenario that motivated the user to click on a recommendation. 
 This information comes with the recommendation from the recommendation controller. 
 
-This event is used for providing statistics about how often recommendations of 
+The event is used for providing statistics about how often recommendations of 
 the configured recommendation scenario were accepted or considered as useful by users. 
 
 ### Rendered event
@@ -410,20 +414,20 @@ engine and renders it on the webpage.
 In combination with a predefined threshold, it allows the recommender engine to exclude this item 
 from future results and avoid recommending the same item to the same user multiple times during a session.
 
-The URL for a render event has the following format:
+The URL for a Rendered event has the following format:
 
 `GET https://event.yoochoose.net/api/[customerid]/rendered/[userid]/[itemtypeid]/[itemid[,itemid]]`
 
-The render event has the same embedded parameters as a click event except for the item ID. 
+The Rendered event has the same embedded parameters as the Click event,except for the item ID. 
 It is common that recommendations are rendered as a block with multiple items. 
-To save traffic and reduce latency, it is possible to bundle multiple recommendations in one request. 
+To save traffic and reduce latency, you can bundle multiple recommendations in one request. 
 Several item IDs must be comma-separated.
 
 ## Examples of translating user actions into tracking events
 
 Below are examples for the translation of user actions on a website into tracking requests.
 
-User "Js79009234YU7" navigates to an item 123 of type 1, located under Shoes -&gt; Children:
+User "Js79009234YU7" navigates to an item 123 of type 1, located under `Shoes/Children`:
 
 `GET https://event.yoochoose.net/api/00000/click/Js79009234YU7/1/123?categorypath=%2FShoes%2FChildren`
 
@@ -450,7 +454,7 @@ User "Js79009234YU7" puts products 128 and 129 into the shopping basket.
 
 `GET https://event.yoochoose.net/api/00000/basket/Js79009234YU7/1/129`
 
-To buy selected products, user "Js79009234YU7" logs in and gets an internal identifier 
+To buy selected products, user "Js79009234YU7" logs in and obtains an internal identifier 
 (for example, the registration ID) "johndoe" from the site. 
 
 `GET https://event.yoochoose.net/api/00000/login/Js79009234YU7/johndoe`
@@ -461,7 +465,7 @@ and product 129 (2 pieces for the price of EUR 4.44 each).
 `GET https://event.yoochoose.net/api/00000/buy/johndoe/1/128?quantity=1&fullprice=19.99EUR`
 `GET https://event.yoochoose.net/api/00000/buy/johndoe/1/129?quantity=2&fullprice=4.44EUR`
 
-User "johndoe" likes a product 133 and wants to rate it with 5 stars.
+User "johndoe" likes the product 133 and wants to rate it with 5 stars.
 
 `GET https://event.yoochoose.net/api/00000/rate/Js79009234YU7/1/133?rating=5`
 
@@ -473,7 +477,7 @@ The following HTTP response codes are used by the event tracker.  
 |---|---|
 |200 OK</br>204 No Content|Request was successfully processed.|
 |400 Bad Request</br>414 Request-URI Too Long|The request is wrongly formatted. See response body for more information.|
-|401 Unauthorized|Illegal authentication credentials.|
+|401 Unauthorized|Invalid authentication credentials.|
 |403 Forbidden|Access denied (not implemented yet).|
 |404 Not Found|The customer ID was not found. The event code was not found.|
 |500 Internal Server Error|Unspecified error. Contact Ibexa if this error reoccurs frequently.|

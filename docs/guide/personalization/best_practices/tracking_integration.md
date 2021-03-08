@@ -1,7 +1,8 @@
 # Tracking integration
 
 There are several ways to integrate event reporting into the webpage. 
-The simplest way is to generate code of a tiny image and put it on the webpage where the event must be sent (pixel tracking).
+The simplest way is to generate code of a tiny image and put it on the webpage where the event must be sent 
+(this is called pixel tracking).
 
 For example, with HTML: 
 
@@ -23,17 +24,17 @@ The drawback of this option is that such calls can be blocked by ad blockers or
 ## Server-side tracking
 
 Another option is to call the tracker from the server. 
-The most important drawback is an increase in the request time by the time of the event request. 
-If the network is overloaded or the recommendation engine is not available, the number of requests 
-could grow and lead to a stalled and finally crashing HTTP service. 
+The most important drawback is that the event request increases the general request time. 
+If the network is overloaded or the recommendation engine is not available, 
+the number of requests could grow and lead to a stalled and finally crashing HTTP service. 
 There are several techniques that can help you avoid it.
 
 ### Tracking at the bottom
 
-You can place the code at the very end of the generating script and flush the output buffer to 
-the client just before sending the events. 
-The connection to the browser might remain open for the time of processing, but it will be transparent 
-for the end customer.
+You can place the code at the very end of the generating script 
+and flush the output buffer to the client just before sending the events. 
+The connection to the browser might remain open for the time of processing, 
+but it will be transparent for the end user.
 
 ### Tracking asynchronously
 
@@ -56,8 +57,8 @@ One possible work around this limitation is [JSONP](https://en.wikipedia.org/wik
 ### Using a server proxy
 
 Another option is to tunnel the JavaScript request through the proxy on the same server. 
-The server merely forwards requests to the recommendation engine. 
-It can be a simple implemented Apache proxy module, an independent daemon (like “netcat”), or a PHP script.
+The server only forwards requests to the recommendation engine. 
+It can be a simple implemented Apache proxy module, an independent daemon (for example, "netcat"), or a PHP script.
 
 ## Comparison
 
@@ -73,6 +74,13 @@ An overview of pros and cons for every technique:
 
 !!! tip "The recommended approach"
 
-    An Ibexa-recommended solution is to use pixel tracking for non-complex events, or where every page is generated on the server side without any caching logic. For hints about preloading image URLs with JavaScript elements (`var img = new Image(); img.src="uri"`) or without them (`&lt;img src="uri"... /&gt;`), see [How to Preload Images](https://www.mediacollege.com/internet/javascript/image/preload.html).
+    An Ibexa-recommended solution is to use pixel tracking for non-complex events,
+    or where every page is generated on the server side without any caching logic.
+    For hints about preloading image URLs with JavaScript elements (`var img = new Image(); img.src="uri"`)
+    or without them (`&lt;img src="uri"... /&gt;`), see [How to Preload Images](https://www.mediacollege.com/internet/javascript/image/preload.html).
 
-    If you plan to implement caching mechanisms and more complex events like consume (depending on viewing time of the page), basket (which is usually an in-page event) or custom in-page events that take place on the client side, a JavaScript implementation is strongly encouraged. For a sample script and instructions, see [Tracking with yct.js](../developer_guide/tracking_with_yct.md).
+    If you plan to implement caching mechanisms and more complex events, such as, for example, 
+    consume (depending on the viewing time of the page), basket (which is usually an in-page event)
+    or custom in-page events that take place on the client side,
+    a JavaScript implementation is strongly encouraged.
+    For a sample script and instructions, see [Tracking with yct.js](../developer_guide/tracking_with_yct.md).
