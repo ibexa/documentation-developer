@@ -1,44 +1,55 @@
-# Updating from <2.5
+# Update database to v2.5
     
-If you are updating from a version prior to 2.4, you have to implement all the changes from [Updating from <2.4](4_update_2.4.md) before following the steps below.
+If you are updating from a version prior to v2.4, you have to implement all the changes [from v2.4](5_update_2.4.md) before following the steps below.
 
 !!! note
 
-    During database update, you have to go through all the changes between your current version and your final version
-    **e.g. during update from v2.2 to v2.5 you have to perform all the steps from: <2.3, <2.4 and <2.5**.
-    Only after applying all changes your database will work properly.
+    During database update, you have to go through all the changes between your current version and your final version.
+    For example, during update from v2.2 to v2.5, you have to perform all the steps from v2.3, v2.4 and v2.5.
 
 ## Database update script
 
 Apply the following database update script:
 
-`mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.4.0-to-7.5.0.sql`
+``` bash
+mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.4.0-to-7.5.0.sql
+```
 
 ### v2.5.3
 
 To update to v2.5.3, additionally run the following script:
 
-`mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.5.2-to-7.5.3.sql`
+``` bash
+mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.5.2-to-7.5.3.sql
+```
 
 ### v2.5.6
 
 To update to v2.5.6, additionally run the following script:
 
-`mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.5.4-to-7.5.5.sql`
+``` bash
+mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.5.4-to-7.5.5.sql
+```
 
 or for PostgreSQL:
 
-`psql <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-7.5.4-to-7.5.5.sql`
+``` bash
+psql <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-7.5.4-to-7.5.5.sql
+```
 
 ### v2.5.9
 
 To update to v2.5.9, additionally run the following script:
 
-`mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.5.6-to-7.5.7.sql`
+``` bash
+mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.5.6-to-7.5.7.sql
+```
 
 or for PostgreSQL:
 
-`psql <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-7.5.6-to-7.5.7.sql`
+``` bash
+psql <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-7.5.6-to-7.5.7.sql
+```
 
 Additionally, reindex the content:
 
@@ -85,24 +96,22 @@ bin/console cache:pool:clear cache.redis
 
 ### Page builder
 
-!!! dxp
+This step is only required when updating an Enterprise installation from versions higher than v2.2 and lower than v2.5.3.
+In case of versions lower than 2.2, please skip this step or ignore the information that indexes from a script below already exist.
 
-    This step is only **required when updating from versions higher than 2.2 and lower than 2.5.3**.
-    In case of versions lower than 2.2, please skip this step or ignore the information that indexes from a script below already exist.
-    
-    When updating to v2.5.3, you need to run the following script to add missing indexes:
-    
-    ``` bash
-    CREATE INDEX ezpage_map_zones_pages_zone_id ON ezpage_map_zones_pages(zone_id);
-    CREATE INDEX ezpage_map_zones_pages_page_id ON ezpage_map_zones_pages(page_id);
-    CREATE INDEX ezpage_map_blocks_zones_block_id ON ezpage_map_blocks_zones(block_id);
-    CREATE INDEX ezpage_map_blocks_zones_zone_id ON ezpage_map_blocks_zones(zone_id);
-    CREATE INDEX ezpage_map_attributes_blocks_attribute_id ON ezpage_map_attributes_blocks(attribute_id);
-    CREATE INDEX ezpage_map_attributes_blocks_block_id ON ezpage_map_attributes_blocks(block_id);
-    CREATE INDEX ezpage_blocks_design_block_id ON ezpage_blocks_design(block_id);
-    CREATE INDEX ezpage_blocks_visibility_block_id ON ezpage_blocks_visibility(block_id);
-    CREATE INDEX ezpage_pages_content_id_version_no ON ezpage_pages(content_id, version_no);
-    ```
+When updating to v2.5.3, you need to run the following script to add missing indexes:
+
+``` bash
+CREATE INDEX ezpage_map_zones_pages_zone_id ON ezpage_map_zones_pages(zone_id);
+CREATE INDEX ezpage_map_zones_pages_page_id ON ezpage_map_zones_pages(page_id);
+CREATE INDEX ezpage_map_blocks_zones_block_id ON ezpage_map_blocks_zones(block_id);
+CREATE INDEX ezpage_map_blocks_zones_zone_id ON ezpage_map_blocks_zones(zone_id);
+CREATE INDEX ezpage_map_attributes_blocks_attribute_id ON ezpage_map_attributes_blocks(attribute_id);
+CREATE INDEX ezpage_map_attributes_blocks_block_id ON ezpage_map_attributes_blocks(block_id);
+CREATE INDEX ezpage_blocks_design_block_id ON ezpage_blocks_design(block_id);
+CREATE INDEX ezpage_blocks_visibility_block_id ON ezpage_blocks_visibility(block_id);
+CREATE INDEX ezpage_pages_content_id_version_no ON ezpage_pages(content_id, version_no);
+```
 
 ## Updating to 2.5.16
 

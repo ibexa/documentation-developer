@@ -1,15 +1,17 @@
-# Upgrading eZ Platform to v3.0
+# 4. Upgrade your code
 
-The following upgrade documentation describes how to upgrade eZ Platform from v2.5 to v3.0.
+If you are updating to v3.0 from a lower version, you need to make a number of modifications to your code.
 
-If you are upgrading from a version lower than v2.5, follow the [standard update procedure](../updating/updating_ez_platform.md) first.
-Do not proceed with an upgrade to v3.0 before you complete an update to v2.5.
+!!! caution
+
+    Perform these steps only if you are updating to version v3.0.
+    If not, move on to the [5. Update the database](5_update_database) step.
 
 ## Familiarize yourself with a new project structure
 
 !!! tip
 
-    If you are running into issues, for details on all changes related to the switch to Symfony 5,
+    If you run into issues, for details on all changes related to the switch to Symfony 5,
     see [Symfony upgrade guide for 4.0](https://github.com/symfony/symfony/blob/4.4/UPGRADE-4.0.md)
     and [for 5.0](https://github.com/symfony/symfony/blob/5.0/UPGRADE-5.0.md)
 
@@ -62,3 +64,26 @@ Content of `app/Resources/assets` has been moved to `assets`.
 
     You also need to update paths that refer to the old location,
     for example in [`webpack.config.js`](../guide/project_organization.md#importing-configuration-from-a-bundle).
+
+!!! note "Full list of deprecations"
+
+    If you encounter any issue during the upgrade,
+    see [eZ Platform v3.0 deprecations](../releases/ez_platform_v3.0_deprecations.md#template-organization)
+    for details of all required changes to your code.
+
+## Third-party dependencies
+
+Because eZ Platform v3 is based on Symfony 5, you need to make sure all additional third-party dependencies
+that your project uses have been adapted to Symfony 5.
+
+## Automatic code refactoring - non-essential step
+
+To simplify the process of adapting your code to Symfony 5, you can use [Rector, a reconstructor tool](https://github.com/rectorphp/rector)
+that will automatically refactor your Symfony and PHPunit code.
+
+To properly refactor your code, you might need to run the Rector `process` command for each Symfony version from 4.0 to 5.0 in turn:
+
+`vendor/bin/rector process src --set symfony40`
+
+You can find all the available sets in [the Rector repository](https://github.com/rectorphp/rector/tree/v0.7.65/config/set). 
+Keep in mind that after automatic refactoring finishes there might be some code chunks that you need to fix manually.

@@ -1,16 +1,10 @@
-# Updating from <2.2
-    
-If you are updating from a version prior to 1.13, you have to implement all the changes from [Updating from <1.13](4_update_1.13.md) before following the steps below.
+# Update database to v2.2
 
-!!! note
-
-    During database update, you have to go through all the changes between your current version and your final version
-    **e.g. during update from v2.2 to v2.5 you have to perform all the steps from: <2.3, <2.4 and <2.5**.
-    Only after applying all changes your database will work properly.
+If you are updating from a version prior to v2.2, you have to implement all the changes [from v1.13](5_update_1.13.md) before following the steps below.
 
 ## Change from UTF8 to UTF8MB4
 
-Since v2.2 the character set for MySQL/MariaDB database tables changes from `utf8` to `utf8mb4` to support 4-byte characters.
+In v2.2 the character set for MySQL/MariaDB database tables changes from `utf8` to `utf8mb4` to support 4-byte characters.
 
 To apply this change, use the following database update script:
 
@@ -56,7 +50,7 @@ To use it:
 
 !!! tip
 
-    This script will use the layout defined in your Landing Page.
+    This script uses the layout defined in your Landing Page.
     To migrate successfully, you need to copy your zone configuration
     from `ez_systems_landing_page_field_type` under `ezplatform_page_fieldtype` in the new config.
     Otherwise the script will encounter errors.
@@ -64,12 +58,12 @@ To use it:
 
 You can remove the bundle after the migration is complete.
 
-The command will migrate Landing Pages created in eZ Platform 1.x, 2.0 and 2.1 to new Pages.
-The operation is transactional and will roll back in case of errors.
+The command migrates Landing Pages created in eZ Platform v1.x, v2.0 and v2.1 to new Pages.
+The operation is transactional and rolls back in case of errors.
 
 ### Block migration
 
-In 2.2 Page Builder does not offer all blocks that Landing Page editor did. The removed blocks include Keyword, Schedule, and Form blocks.
+In v2.2 Page Builder does not offer all blocks that Landing Page editor did. The removed blocks include Keyword, Schedule, and Form blocks.
 The Places block has been removed from the clean installation and will only be available in the demo out of the box. If you had been using this block in your site, re-apply its configuration based on the [demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.2.2/app/config/blocks.yml).
 
 Later versions of Page Builder come with a Content Scheduler block and new Form Blocks, but migration of Schedule blocks to Content Scheduler blocks and of Form Blocks is not supported. 
@@ -96,8 +90,8 @@ See [documentation](../guide/page_rendering.md#layout-template) for an example o
 
 #### Migrate custom blocks
 
-Landing Page blocks (from 2.1 and earlier) were defined using a class implementing `EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\AbstractBlockType`. 
-In Page Builder (from 2.2 onwards), this interface is no longer present. Instead the logic of your block must be implemented in a [Listener](../extending/extending_page.md#block-rendering-events).
+Landing Page blocks (from v2.1 and earlier) were defined using a class implementing `EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\AbstractBlockType`. 
+In Page Builder (from v2.2 onwards), this interface is no longer present. Instead the logic of your block must be implemented in a [Listener](../extending/extending_page.md#block-rendering-events).
 Typically, what you previously would do in `getTemplateParameters()`, you'll now do in the `onBlockPreRender()` event handler.
 
 The definition of block parameters has to be moved from `createBlockDefinition()` to the [YAML configuration](../extending/extending_page.md#creating-page-blocks) for your custom blocks.
@@ -633,5 +627,3 @@ defined in the [Enterprise Beginner tutorial](../tutorials/enterprise_beginner/e
             tags:
                 - { name: ezplatform.fieldtype.ezlandingpage.migration.attribute.converter, block_type: random }
     ```
-
-You can now follow the steps from [Updating from <2.3](4_update_2.3.md).

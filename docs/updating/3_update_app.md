@@ -1,28 +1,25 @@
 # 3. Update the app
 
-At this point, you should have a `composer.json` file with the correct requirements. Run `composer update` to update the dependencies. 
+At this point, you should have a `composer.json` file with the correct requirements. Run `composer update` to update the dependencies. 
 
 ``` bash
 composer update
 ```
 
-If you want to first test how the update proceeds without actually updating any packages, you can try the command with the `--dry-run` switch:
+If you want to first test how the update proceeds without actually updating any packages, you can try the command with the `--dry-run` switch:
 
-`composer update --dry-run`
+``` bash
+composer update --dry-run
+```
 
-??? note "When updating from <2.2"
+Next, you need to perform version-specific steps depending on which version you are updating from:
 
-    ##### Adding EzSystemsPlatformEEAssetsBundle
+??? note "Updating from <2.2"
+    
+    When upgrading an Enterprise installation to v2.2, you need to disable `EzSystemsPlatformEEAssetsBundle` by removing
+    `new EzSystems\PlatformEEAssetsBundle\EzSystemsPlatformEEAssetsBundle(),` from `app/AppKernel.php`.
 
-    !!! dxp "EZ ENTERPRISE"
-
-        When upgrading from releases between (and including) v1.10 and v2.1 to v2.2 and higher, you need to disable `EzSystemsPlatformEEAssetsBundle` by removing:
-
-        `new EzSystems\PlatformEEAssetsBundle\EzSystemsPlatformEEAssetsBundle(),`
-
-        in `app/AppKernel.php`.
-
-!!! note "Updating from <2.5"
+??? note "Updating from <2.5"
 
     Since v2.5 eZ Platform uses [Webpack Encore](https://symfony.com/doc/5.0/frontend.html#webpack-encore) for asset management.
     You need to install [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/lang/en/docs/install) to update to this version.
@@ -32,6 +29,9 @@ If you want to first test how the update proceeds without actually updating any 
     will not compile correctly with Assetic.
     In this case, use Webpack Encore. See [Importing assets from a bundle](../guide/project_organization.md#importing-assets-from-a-bundle) for more information.
 
-!!! caution "Common errors"
+??? note "Updating from <3.0"
 
-    If you experienced issues during the update, please check [Common errors](../getting_started/troubleshooting.md#cloning-failed-using-an-ssh-key) section on the Composer about page.
+    If your application consists of several packages that are placed in locations other than the `src/` folder, 
+    apply the suggestions from the upgrade documentation to all the packages before you run `composer update`.
+
+If you experience issues during the update, see [Troubleshooting](../getting_started/troubleshooting.md#cloning-failed-using-an-ssh-key).
