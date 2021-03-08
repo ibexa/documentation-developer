@@ -164,6 +164,16 @@ To install all necessary product packages, run:
     composer require ibexa/experience:v3.3.0
     ```
 
+!!! note "Platform.sh"
+
+    If you are deploying your installation on [Platform.sh](https://docs.platform.sh/frameworks/ibexa.html),
+    run the following command:
+    
+    ``` bash
+    composer ibexa:setup --platformsh
+    ```
+    
+    This command provides the necessary configuration for using Platform.sh.
 
 #### Add project to version control
 
