@@ -25,25 +25,18 @@ You can use the tracking API both in eCommerce and content publishing scenarios.
 eCommerce mostly uses the term "product", whereas the Publisher domain widely uses the terms "content", 
 "article", "images" or "videos". 
 Therefore, a generic term "item" is used instead to cover all the above types. 
-For further segmentation the term "itemtype" is used, which, in combination with the item ID itself, 
+For further segmentation the term "item type" is used, which, in combination with the item ID itself, 
 defines a domain specific object.
 
-The following tables show some examples of items that are defined by an item id and an item type:
-
-|Domain||Item ID|Item Type|
-|---|---|---|---|
-|eCommerce|Product|ID of a product|Type of a product|
-
-An electronic product could be defined by item type "1" and item id "3298".
-
-A textile product could be defined by item type "2" and item id "3298".
+For example, an electronic product could be defined by item type "1" and item id "3298", 
+while a textile product could be defined by item type "2" and item id "3298".
 
 !!! note
 
     Usually only one item type is sufficient in the eCommerce business as each product available in 
     an eCommerce shop has a unique identifier.
 
-|Domain||Item ID|Item Type|
+|Domain|Item ID|Item Type|
 |---|---|---|
 |Content publishing|Article|ID of an article|
 |Content publishing|Video|ID of a video|
