@@ -1,4 +1,4 @@
-# Adding search form
+# Adding search form to front page
 
 You can add a search form to selected parts of your front page
 and decide which parts of the form, such as filters, are rendered.
