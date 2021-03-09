@@ -3,6 +3,10 @@
 You can migrate your Repository data, that is Content items, as well as Content Types, languages, Object states, Sections, etc.,
 between installations by using the migration script.
 
+!!! tip "Public PHP API"
+
+    You can also manage data migrations with the PHP API, see [Managing migrations](../api/publish_php_api_managing_migrations.mg).
+
 ## Exporting data
 
 To export Repository content, use the `ibexa:migrations:generate` command.
@@ -11,7 +15,7 @@ The file is located by default in the `src/Migrations/Ibexa` folder.
 You can later use this file to import the data.
 
 ``` bash
-bin/console ibexa:migrations:generate --type=content --mode=create
+php bin/console ibexa:migrations:generate --type=content --mode=create
 ```
 
 ### type
@@ -110,7 +114,7 @@ The optional `--value` option, together with `match-property`, filters the Repos
 For example, to export only Article Content items, use the `content_type_identifier` match property with `article` as the value:
 
 ``` bash
-bin/console ibexa:migrations:generate --type=content --mode=create --match-property=content_type_identifier --value=article
+php bin/console ibexa:migrations:generate --type=content --mode=create --match-property=content_type_identifier --value=article
 ```
 
 ### file
@@ -118,7 +122,7 @@ bin/console ibexa:migrations:generate --type=content --mode=create --match-prope
 The optional `--file` option defines the name of the YAML file to export to.
 
 ``` bash
-bin/console ibexa:migrations:generate --type=content --mode=create --file=my_data_export.yaml
+php bin/console ibexa:migrations:generate --type=content --mode=create --file=my_data_export.yaml
 ```
 
 ### user-context
@@ -127,7 +131,7 @@ The optional `--user-context` option enables you to run the export command as a 
 The command only exports Repository data that the selected User has access to.
 
 ``` bash
-bin/console ibexa:migrations:generate --type=content --mode=create --user-context=jessica_andaya
+php bin/console ibexa:migrations:generate --type=content --mode=create --user-context=jessica_andaya
 ```
 
 ## Importing data
@@ -138,7 +142,7 @@ Place your import file in the `src/Migrations/Ibexa` folder.
 The command takes the file name within this folder as parameter.
 
 ``` bash
-bin/console ibexa:migrations:migrate --file=my_data_export.yaml
+php bin/console ibexa:migrations:migrate --file=my_data_export.yaml
 ```
 
 ## Converting migration files
@@ -150,13 +154,22 @@ The source file must use Kaliop mode and type combinations.
 The converter handles Kaliop types that are different from Ibexa types.
 
 ``` bash
-bin/console ibexa:migrations:kaliop:convert --input=kaliop_format.yaml --output=ibexa_format.yaml
+php bin/console ibexa:migrations:kaliop:convert --input=kaliop_format.yaml --output=ibexa_format.yaml
 ```
 
 You can also convert multiple files using `ibexa:migrations:kaliop:bulk-convert`:
 
 ``` bash
-bin/console ibexa:migrations:kaliop:bulk-convert --recursive --input-directory=kaliop_files --output-directory=ibexa_files
+php bin/console ibexa:migrations:kaliop:bulk-convert --recursive --input-directory=kaliop_files --output-directory=ibexa_files
 ```
 
 If you do not specify the output directory, the command overwrites the input files.
+
+## Adding migration files
+
+Use the `ibexa:migrations:import` command to add files to the migration directory defined in configuration
+(by default, `src/Migrations/Ibexa`).
+
+``` bash
+php bin/console ibexa:migrations:import my_data_export.yaml
+```
