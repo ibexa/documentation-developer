@@ -64,6 +64,7 @@ nav:
             - 'Creating Content': 'api/public_php_api_creating_content.md'
             - 'Managing Content': 'api/public_php_api_managing_content.md'
             - 'Managing Repository': 'api/public_php_api_managing_repository.md'
+            - 'Managing migrations': 'api/public_php_api_managing_migrations.md'
             - 'Managing Users': 'api/public_php_api_managing_users.md'
             - 'Shop API': 'api/shop_business_api.md'
             - 'URL Service': 'api/public_php_api_url_service.md'
