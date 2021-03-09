@@ -4,7 +4,7 @@ You can use the PHP API to manage and run [data migrations](../guide/data_migrat
 
 ## Getting migration information
 
-To list all migration files available in the  directory defined in configuration (by default, `src/Migrations/Ibexa`),
+To list all migration files available in the directory defined in configuration (by default, `src/Migrations/Ibexa`),
 use the `MigrationService:listMigrations()` method:
 
 ``` php
@@ -25,7 +25,7 @@ To run migration file(s), use either `MigrationService:executeOne()` or `Migrati
 [[= include_file('code_samples/api/migration/src/Command/MigrationCommand.php', 31, 33) =]]
 ```
 
-Both `executeOne()` and `executeAll()` take as optional parameter the User login you want to execute the migrations as.
+Both `executeOne()` and `executeAll()` can take an optional parameter: the login of the User that you want to execute the migrations as.
 
 ## Adding new migrations
 
