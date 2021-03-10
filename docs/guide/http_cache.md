@@ -15,7 +15,7 @@ For content view responses coming from [[= product_name =]] itself, this means:
 
 All of this works across all the supported reverse proxies:
 
-- Symfony HttpCache Proxy - limited to a single server, and limited performance/features
+- [Symfony HttpCache Proxy](#symfony-reverse-proxy) - limited to a single server, and limited performance/features
 - [Varnish](https://varnish-cache.org/)
 - [Fastly](https://www.fastly.com/) - Varnish-based CDN service
 
@@ -117,6 +117,12 @@ as it will cause your reverse proxy to wait for back end and not be able to deli
     Note that sharing ESIs across SiteAccesses when using URI matching is not possible by design,
     as the URI contains the SiteAccess name encoded in its path information.
 
+## Symfony reverse proxy
+
+To use Symfony reverse proxy, follow the [Symfony documentation](https://symfony.com/doc/current/http_cache.html#symfony-reverse-proxy).
+
+Instead of `Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache`, your caching kernel must use `\EzSystems\PlatformHttpCacheBundle\AppCache`.
+
 ## Using Varnish or Fastly
 
 As [[= product_name =]] is built on top of Symfony, it uses standard HTTP cache headers.
@@ -150,11 +156,9 @@ Configuring [[= product_name =]] for Varnish or Fastly involves a few steps, sta
 #### Configuring Symfony front controller
 
 In order to configure Symfony to [work behind a load balancer or a reverse proxy](https://symfony.com/doc/5.1/deployment/proxies.html),
-set the supported environment variables by using the following parameters:
+make sure [Symfony reverse proxy](#symfony-reverse-proxy) is enabled.
+Set the following environment variable:
 
-- `APP_HTTP_CACHE`: To enable (`"1"`) or disable (`"0"`) use of Symfony HttpCache reverse proxy
-    - *Must* be disabled when using Varnish or Fastly.
-    - If not set, it is automatically disabled for `APP_ENV=dev` for local development needs, otherwise enabled.
 - `TRUSTED_PROXIES`: String with trusted IP, multiple proxies can be configured with a comma, i.e. `TRUSTED_PROXIES="192.0.0.1,10.0.0.0/8"`
 
 Add the trusted proxies to your configuration:
@@ -286,8 +290,6 @@ ezplatform:
 Example when using `.env` file:
 
 ```
-SYMFONY_HTTP_CACHE="0"
-
 HTTPCACHE_PURGE_TYPE="fastly"
 # Optional
 HTTPCACHE_PURGE_SERVER="https://api.fastly.com"
@@ -319,7 +321,6 @@ Below you will find the most common examples for configuring the system complete
 Example when using `.env` file:
 
 ``` bash
-SYMFONY_HTTP_CACHE="0"
 TRUSTED_PROXIES="127.0.0.1"
 HTTPCACHE_PURGE_TYPE="varnish"
 HTTPCACHE_PURGE_SERVER="http://varnish:80"
@@ -328,7 +329,6 @@ HTTPCACHE_PURGE_SERVER="http://varnish:80"
 Example for Apache with `mod_env`:
 
 ```apacheconfig
-SetEnv SYMFONY_HTTP_CACHE 0
 SetEnv TRUSTED_PROXIES "127.0.0.1"
 SetEnv HTTPCACHE_PURGE_TYPE varnish
 SetEnv HTTPCACHE_PURGE_SERVER "http://varnish:80"
@@ -337,7 +337,6 @@ SetEnv HTTPCACHE_PURGE_SERVER "http://varnish:80"
 Example for Nginx:
 
 ```nginx
-fastcgi_param SYMFONY_HTTP_CACHE 0;
 fastcgi_param TRUSTED_PROXIES "127.0.0.1";
 fastcgi_param HTTPCACHE_PURGE_TYPE varnish;
 fastcgi_param HTTPCACHE_PURGE_SERVER "http://varnish:80";
@@ -357,9 +356,6 @@ You can configure environment variables via [Platform.sh variables.](https://doc
 ```apacheconfig
 # mysite_com.conf
 
-# Force front controller (public/index.php) NOT to use Symfony's built-in reverse proxy.
-SetEnv APP_HTTP_CACHE 0
-
 # Configure Varnish
 SetEnv HTTPCACHE_PURGE_TYPE varnish
 SetEnv HTTPCACHE_PURGE_SERVER "http://varnish:80"
@@ -373,9 +369,6 @@ SetEnv TRUSTED_PROXIES "193.22.44.22"
 
 ```nginx
 # mysite_com.conf
-
-# Force front controller (public/index.php) NOT to use Symfony's built-in reverse proxy.
-fastcgi_param APP_HTTP_CACHE 0;
 
 # Configure Fastly
 fastcgi_param HTTPCACHE_PURGE_TYPE fastly;
