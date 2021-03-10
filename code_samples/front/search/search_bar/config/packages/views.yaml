@@ -1,0 +1,10 @@
+ezplatform:
+    system:
+        site:
+            languages: [ eng-GB ]
+            page_layout: '@ezdesign/pagelayout.html.twig'
+            search_view:
+                full:
+                    default:
+                        template: "@ezdesign/full/search.html.twig"
+                        match: [ ]

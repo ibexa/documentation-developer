@@ -1,0 +1,45 @@
+{% block content %}
+    <div>
+        <div>
+            <section>
+                {% include '@ezdesign/parts/search_form.html.twig' with { form: form } %}
+
+                {% if results is defined %}
+                    <div>
+                        <div>{{ 'search.header'|trans({'%total%': pager.nbResults})|desc('%total% search result(s):') }}</div>
+                    </div>
+
+                    {% if results is empty %}
+                        <div>
+                            <table>
+                                <tr>
+                                    <td colspan="4">
+                                        <span>{{ 'search.no_result'|trans({'%query%': form.vars.value.query})|desc('No results found for "%query%".') }}</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    {% else %}
+                        <h2>{{ 'search.name'|trans|desc('Name') }}</h2>
+                        <ul>
+                            {% for row in results %}
+                                <li>
+                                    <a href="{{ path('_ez_content_view', {
+                                        'contentId': row.contentId,
+                                        'languageCode': row.translation_language_code,
+                                    }) }}">{{ row.name }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+
+                        {% if pager.haveToPaginate %}
+                            <div>
+                                {{ pagerfanta(pager, '', {'pageParameter': '[search][page]'}) }}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+            </section>
+        </div>
+    </div>
+{% endblock %}

@@ -306,6 +306,7 @@ nav:
                 - 'Staging system': 'guide/econtent/staging_system.md'
         - Search:
             - 'Search': 'guide/search/search.md'
+            - 'Adding search form to front page': 'guide/search/adding_search_form.md'
             - 'Search Criteria reference': 'guide/search/search_criteria_reference.md'
             - Search Criteria reference:
                 - 'Ancestor': 'guide/search/criteria_reference/ancestor_criterion.md'

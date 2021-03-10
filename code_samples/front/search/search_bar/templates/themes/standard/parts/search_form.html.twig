@@ -1,0 +1,10 @@
+{{ form_start(form) }}
+
+<div>
+    {{ form_row(form.query) }}
+    <button type="submit">
+        {{ 'search.search'|trans|desc('Search') }}
+    </button>
+</div>
+
+{{ form_end(form, {'render_rest': false}) }}
