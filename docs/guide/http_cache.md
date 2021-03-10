@@ -121,7 +121,7 @@ as it will cause your reverse proxy to wait for back end and not be able to deli
 
 To use Symfony reverse proxy, follow the [Symfony documentation](https://symfony.com/doc/current/http_cache.html#symfony-reverse-proxy).
 
-Instead of `Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache`, your caching kernel must use `\EzSystems\PlatformHttpCacheBundle\AppCache`.
+However, instead of `Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache`, your caching kernel must use `\EzSystems\PlatformHttpCacheBundle\AppCache`.
 
 ## Using Varnish or Fastly
 
@@ -156,7 +156,7 @@ Configuring [[= product_name =]] for Varnish or Fastly involves a few steps, sta
 #### Configuring Symfony front controller
 
 In order to configure Symfony to [work behind a load balancer or a reverse proxy](https://symfony.com/doc/5.1/deployment/proxies.html),
-make sure [Symfony reverse proxy](#symfony-reverse-proxy) is enabled.
+make sure that [Symfony reverse proxy](#symfony-reverse-proxy) is enabled.
 Set the following environment variable:
 
 - `TRUSTED_PROXIES`: String with trusted IP, multiple proxies can be configured with a comma, i.e. `TRUSTED_PROXIES="192.0.0.1,10.0.0.0/8"`
