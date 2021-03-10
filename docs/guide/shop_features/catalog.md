@@ -29,7 +29,7 @@ The catalog can contain more than 1 million products.
 
 The products cannot be edited in the Back Office.
 
-eContent offers a staging feature and enhanced catalog segmentation and allows imports during production and switching catalogs.
+eContent offers a staging feature and allows imports during production and switching catalogs.
 
 ### Changing data providers
 

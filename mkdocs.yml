@@ -182,10 +182,6 @@ nav:
                 - 'Customer API': 'guide/customers/customer_api/customer_api.md'
                 - 'Customer profile data': 'guide/customers/customer_api/customer_profile_data.md'
                 - 'Configuration for customer data': 'guide/customers/customer_api/configuration_for_customer_data.md'
-            - Newsletter:
-                - 'Newsletter': 'guide/newsletter/newsletter.md'
-                - 'Newsletter interface': 'guide/newsletter/newsletter_interface.md'
-                - 'Newsletter templates': 'guide/newsletter/newsletter_templates.md'
         - Shop features:
             - 'Shop features': 'guide/shop_features/shop_features.md'
             - 'Product management': 'guide/shop_features/product_management.md'
@@ -302,7 +298,6 @@ nav:
                 - 'eContent': 'guide/econtent/econtent.md'
                 - 'eContent configuration': 'guide/econtent/econtent_configuration.md'
                 - 'Indexing eContent data': 'guide/econtent/indexing_econtent_data.md'
-                - 'Catalog segmentation': 'guide/econtent/catalog_segmentation.md'
                 - 'Staging system': 'guide/econtent/staging_system.md'
         - Search:
             - 'Search': 'guide/search/search.md'

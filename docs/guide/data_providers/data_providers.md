@@ -13,8 +13,6 @@ or the [eContent data provider](../econtent/econtent.md).
 | Translations                         | yes  | yes  |
 | Interface for editing                | yes  | no |
 | Versioning                           | yes  | no |
-| Simple segmentation          | yes  | yes  |
-| Extended segmentation        | no | yes  |
 | Fast imports         | no | yes  |
 | Support of large catalogs              | no | yes  |
 | Staging (live and temporary space) | no | yes  |
