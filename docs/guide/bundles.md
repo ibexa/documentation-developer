@@ -92,6 +92,6 @@ see the [How to Remove a Bundle](http://symfony.com/doc/5.0/bundles/remove.html)
 |---------|-----------|
 |ezsystems/ezcommerce-admin-ui|Shop-related Back Office functionalities|
 |ezsystems/ezcommerce-erp-admin|ERP connection for the shop|
-|ezsystems/ezcommerce-order-history|[Order history](order_history/orderhistory.md) functionality|
+|ezsystems/ezcommerce-order-history|[Order history](order_history/order_history.md) functionality|
 |ezsystems/ezcommerce-page-builder|Shop-related Page blocks|
 |ezsystems/ezcommerce-transaction|Transactional shop functionalities|

@@ -25,6 +25,21 @@ The shop comes with a predefined set of messages that are used to communicate wi
 
 You can find the standard messages in `EshopBundle/Resources/config/messages.yml`.
 
+## Order history ERP messages
+
+[Order history](../order_history/order_history.md) uses the following ERP messages:
+
+|Message|Process type in ERP|Webservice operation|
+|--- |--- |--- |
+|`invoice_detail`|`READPOSTEDSALESINVOICE`|`SV_OPENTRANS_GET_ORDERSTATUS`|
+|`invoice_list`|`READPOSTEDSALESINVOICELIST`|`SV_OPENTRANS_GET_ORDERLIST`|
+|`delivery_note_detail`|`READPOSTEDSALESSHIPMENT`|`SV_OPENTRANS_GET_ORDERSTATUS`|
+|`delivery_note_list`|`READPOSTEDSALESSHIPMENTLIST`|`SV_OPENTRANS_GET_ORDERLIST`|
+|`credit_memo_detail`|`READPOSTEDSALESCRMEMO`|`SV_OPENTRANS_GET_ORDERSTATUS`|
+|`credit_memo_list`|`READPOSTEDSALESCRMEMOLIST`|`SV_OPENTRANS_GET_ORDERLIST`|
+|`order_detail`|`READSALESDOCUMENT`|`SV_OPENTRANS_GET_ORDERSTATUS`|
+|`order_list`|`READSALESDOCUMENTLIST`|`SV_OPENTRANS_GET_ORDERLIST`|
+
 ## Additional lines
 
 A response that ERP sends to the shop can contain more information about a product than was requested.
