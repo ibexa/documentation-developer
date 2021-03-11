@@ -10,8 +10,8 @@ Learn how to do this by following the steps below.
 
 In `assets/random-dot/`, create the `random-dot.js` file with the following code of the React component:
 
-```js
-[[= include_file('code_samples/back_office/image_editor/assets/random-dot/random-dot-stem.js') =]]
+``` js
+[[= include_file('code_samples/back_office/image_editor/assets/random_dot/random-dot-stem.js') =]]
 ```
 
 The code does not perform any action, you add the action in the following steps.
@@ -20,7 +20,7 @@ The code does not perform any action, you add the action in the following steps.
 
 Depending on whether and where you [modified the default settings](../guide/image_editor.md#configuration), in `config/packages`, either modify the `ezplatform.yaml` file or create the `image_editor.yaml` by adding settings similar to the following example:
 
-```yaml
+``` yaml
 [[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml') =]]
 ```
 
@@ -29,7 +29,7 @@ Depending on whether and where you [modified the default settings](../guide/imag
 Once you create and configure the React component, you must add an entry to [the Webpack configuration](../tutorials/platform_beginner/3_customize_the_front_page.md#configuring-webpack).
 In the root directory of your project, modify the `webpack.config.js` file by adding the following code:
 
-```js
+``` js
 [[= include_file('code_samples/back_office/image_editor/config/webpack.config.js', 42, 46) =]]
 ```
 At this point you should be able to see a new button in the Image Editor's UI.
@@ -58,22 +58,22 @@ The last context is not used it in this example.
 
 Modify the `random-dot.js` file by creating a function that uses the canvas context to draw a random dot on the image:
 
-```js
-[[= include_file('code_samples/back_office/image_editor/assets/dot_action/dot-action.js', 25, 41) =]]
+``` js
+[[= include_file('code_samples/back_office/image_editor/assets/random-dot/random-dot.js', 25, 41) =]]
 ```
 
 ## Store changes in history
 
 Create another function that uses the history context to store changes, so that users can undo their edits:
 
-```js
-[[= include_file('code_samples/back_office/image_editor/assets/dot_action/dot-action.js', 16, 24) =]]
+``` js
+[[= include_file('code_samples/back_office/image_editor/assets/random-dot/random-dot.js', 16, 24) =]]
 ```
 
 <details class="tip">
 <summary>Complete controller code</summary>
-```php"
-[[= include_file('code_samples/back_office/image_editor/assets/dot_action/dot-action.js', 16, 24) =]]
+``` js
+[[= include_file('code_samples/back_office/image_editor/assets/random-dot/random-dot.js') =]]
 ```
 </details>
 
