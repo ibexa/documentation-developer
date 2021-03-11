@@ -30,7 +30,7 @@ Once you create and configure the React component, you must add an entry to [the
 In the root directory of your project, modify the `webpack.config.js` file by adding the following code:
 
 ``` js
-[[= include_file('code_samples/back_office/image_editor/config/webpack.config.js', 42, 46) =]]
+[[= include_file('code_samples/back_office/image_editor/config/webpack.config.js', 41, 46) =]]
 ```
 At this point you should be able to see a new button in the Image Editor's UI.
 
@@ -54,26 +54,26 @@ When you create a React-based extension of the Image Editor, you can use a numbe
 
 The last context is not used it in this example.
 
-## Draw a dot
+### Draw a dot
 
 Modify the `random-dot.js` file by creating a function that uses the canvas context to draw a random dot on the image:
 
 ``` js
-[[= include_file('code_samples/back_office/image_editor/assets/random-dot/random-dot.js', 25, 41) =]]
+[[= include_file('code_samples/back_office/image_editor/assets/random_dot/random-dot.js', 24, 41) =]]
 ```
 
-## Store changes in history
+### Store changes in history
 
 Create another function that uses the history context to store changes, so that users can undo their edits:
 
 ``` js
-[[= include_file('code_samples/back_office/image_editor/assets/random-dot/random-dot.js', 16, 24) =]]
+[[= include_file('code_samples/back_office/image_editor/assets/random_dot/random-dot.js', 15, 24) =]]
 ```
 
 <details class="tip">
 <summary>Complete controller code</summary>
 ``` js
-[[= include_file('code_samples/back_office/image_editor/assets/random-dot/random-dot.js') =]]
+[[= include_file('code_samples/back_office/image_editor/assets/random_dot/random-dot.js') =]]
 ```
 </details>
 
