@@ -8,7 +8,7 @@ Learn how to do this by following the steps below.
 
 ## Create the JavaScript component file
 
-In `assets/random-dot/`, create the `random-dot.js` file with the following code of the React component:
+In `assets/random_dot/`, create the `random-dot.js` file with the following code of the React component:
 
 ``` js
 [[= include_file('code_samples/back_office/image_editor/assets/random_dot/random-dot-stem.js') =]]
