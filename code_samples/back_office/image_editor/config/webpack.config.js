@@ -42,7 +42,7 @@ module.exports = [ eZConfig, ...customConfigs, projectConfig ];
 eZConfigManager.add({ 
   eZConfig, 
   entryName: 'ezplatform-admin-ui-layout-js', 
-  newItems: [ path.resolve(__dirname, './assets/random_dot/random_dot.js'), ], 
+  newItems: [ path.resolve(__dirname, './assets/random_dot/random-dot.js'), ], 
 });`
 
 // uncomment this line if you've commented-out the above lines
