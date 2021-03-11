@@ -36,16 +36,15 @@ Encore.addEntry('welcome_page', [
 
 Encore.addEntry('app', './assets/app.js');
 
-const projectConfig = Encore.getWebpackConfig();
-module.exports = [ eZConfig, ...customConfigs, projectConfig ];
-
+// Image Editor Dot Action 
 eZConfigManager.add({ 
   eZConfig, 
   entryName: 'ezplatform-admin-ui-layout-js', 
   newItems: [ path.resolve(__dirname, './assets/random_dot/random-dot.js'), ], 
 });`
 
+const projectConfig = Encore.getWebpackConfig();
+module.exports = [ eZConfig, ...customConfigs, projectConfig ];
+
 // uncomment this line if you've commented-out the above lines
 // module.exports = [ eZConfig, ...customConfigs ];
-
-// Image Editor Dot Action 

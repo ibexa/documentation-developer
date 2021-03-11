@@ -3,7 +3,7 @@
 With the Image Editor, users can do basic image modifications.
 You can [modify the Image Editor's default appearance or behavior](../guide/image_editor.md).
 You can also extend it by adding custom features.
-For example, you can add a button that adds a dot in a random location on the image.
+For example, you can add a button that draws a dot at a random location on the image.
 Learn how to do this by following the steps below.
 
 ## Create the JavaScript component file
@@ -30,7 +30,7 @@ Once you create and configure the React component, you must add an entry to [the
 In the root directory of your project, modify the `webpack.config.js` file by adding the following code:
 
 ``` js
-[[= include_file('code_samples/back_office/image_editor/config/webpack.config.js', 41, 46) =]]
+[[= include_file('code_samples/back_office/image_editor/config/webpack.config.js', 39, 44) =]]
 ```
 At this point you should be able to see a new button in the Image Editor's UI.
 
