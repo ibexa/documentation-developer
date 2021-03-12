@@ -499,6 +499,7 @@ nav:
         - 'Extending Form Builder': 'extending/extending_form_builder.md'
         - 'Extending Workflow': 'extending/extending_workflow.md'
         - 'Extending Calendar': 'extending/customizing_calendar.md'
+        - 'Extending Image Editor': 'extending/extending_image_editor.md'
         - 'Extending Online Editor':
             - 'Extending Online Editor': 'extending/extending_online_editor.md'
             - 'Creating Online Editor button': 'extending/online_editor_button.md'
