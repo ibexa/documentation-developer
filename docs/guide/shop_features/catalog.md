@@ -22,7 +22,7 @@ Importing products when using this data provider is time-consuming.
 
 ### eContent data provider
 
-Use the [eContent data provide](../econtent/econtent.md) when you have an ERP system that provides product information.
+Use the [eContent data provider](../econtent/econtent.md) when you have an ERP system that provides product information.
 This information can be imported quickly from the relevant system.
 
 The catalog can contain more than 1 million products.

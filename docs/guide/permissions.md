@@ -129,7 +129,7 @@ To allow anonymous users to register through the `/register` route, you need to 
 
 #### Admin
 
-To access the [Admin](admin_panel.md) in the Back Office the User must have the `setup/administrate` Policy.
+To access the [administration panel](admin_panel.md) in the Back Office the User must have the `setup/administrate` Policy.
 This will allow the User to view the languages and Content Types.
 
 Additional Policies are needed for each section of the Admin.
