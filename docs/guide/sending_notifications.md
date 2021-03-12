@@ -14,7 +14,7 @@ They will appear in their profile in the Back Office.
 
 ## Display notification bars
 
-Notifications are displayed as a message bar in the Back Office.
+[Notifications](sending_notifications.md#display-notification-bars) are displayed as a message bar in the Back Office.
 There are four types of notifications: `info`, `success`, `warning` and `error`.
 
 ### Display notifications from PHP

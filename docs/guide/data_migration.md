@@ -5,7 +5,7 @@ between installations by using the migration script.
 
 !!! tip "Public PHP API"
 
-    You can also manage data migrations with the PHP API, see [Managing migrations](../api/publish_php_api_managing_migrations.mg).
+    You can also manage data migrations with the PHP API, see [Managing migrations](../api/public_php_api_managing_migrations.md).
 
 ## Exporting data
 

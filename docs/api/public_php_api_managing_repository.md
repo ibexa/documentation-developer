@@ -129,7 +129,7 @@ $this->objectStateService->setContentState($contentInfo, $objectStateGroup, $obj
 
 ### Getting workflow information
 
-To get information about a specific workflow for a Content item, use `WorkflowServiceInterface::loadWorkflowMetadataForContent`:
+To get information about a specific [workflow](../guide/workflow.md) for a Content item, use `WorkflowServiceInterface::loadWorkflowMetadataForContent`:
 
 ``` php
 $workflowMetadata = $this->workflowService->loadWorkflowMetadataForContent($content, $workflowName);
