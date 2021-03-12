@@ -1,13 +1,13 @@
 ezpublish:
     system:
-        <siteaccess>:
+        site:
             image_editor:
                 action_groups:
                     default:
                         id: default
                         label: Default
                         actions:
-                            (...)
+                            # ...
                             dot:
                                 id: dot
                                 priority: 50

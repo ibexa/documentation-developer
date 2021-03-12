@@ -41,7 +41,7 @@ eZConfigManager.add({
   eZConfig, 
   entryName: 'ezplatform-admin-ui-layout-js', 
   newItems: [ path.resolve(__dirname, './assets/random_dot/random-dot.js'), ], 
-});`
+});
 
 const projectConfig = Encore.getWebpackConfig();
 module.exports = [ eZConfig, ...customConfigs, projectConfig ];
