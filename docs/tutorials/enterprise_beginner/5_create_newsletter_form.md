@@ -9,7 +9,7 @@ The final step of this tutorial assists you in adding to the home page a Form bl
 
 Start with creating a Form Content item.
 In the **Forms** panel, click **Create** and select **Form**.
-Provide the title, e.g. "Sign up for Newsletter" and click **Build form**.
+Provide the title, for example, "Sign up for Newsletter" and click **Build form**.
 
 In the Form Builder, add and configure (using the **Basic** and **Validation** tabs) the following form fields:
 
@@ -39,7 +39,7 @@ It clearly differs from the page design, so you also need to customize the block
 ### Change the block template
 
 First, add a new template for the Form block to align it with the Random block design.
-Create an `templates/blocks/form/newsletter.html.twig` file:
+Create a `newsletter.html.twig` file in `templates/blocks/form/`:
 
 ``` html+twig hl_lines="1"
 <div class="row">
@@ -71,17 +71,17 @@ blocks:
 
 Now you have to apply the template to the block.
 Go back to editing the Page.
-Edit the Form block again. 
+Edit the Form block again.
 In the **Design** tab, select the **Newsletter Form View** and click **Submit**.
 
 The block remains unchanged, but the results will be visible when you add CSS styling.
 
-### Change the field template 
+### Change the field template
 
 At this point, you need to change the field template.
 This results in alternating the position and design of the Form fields.
 
-Create a `templates/fields/form_field.html.twig` file:
+Create a `form_field.html.twig` file in `templates/fields/`:
 
 ``` html+twig
 {% block ezform_field %}
@@ -193,7 +193,7 @@ Refresh the Page and enter a couple of mock submissions.
 ### Manage the submissions
 
 You can view all submissions in the Back Office.
-Go to **Forms** panel. From the Content Tree, select the Form and view the **Submissions** tab.
+Go to **Forms** panel. From the Content Tree, select the Form and click the **Submissions** tab.
 There, after selecting submission(s), click **Download** or **Delete**.
 To see details about a submission, click **View**.
 
