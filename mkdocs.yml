@@ -251,7 +251,7 @@ nav:
             - Catalog:
                 - 'Catalog ': 'guide/catalog/catalog.md'
                 - 'Catalog templates': 'guide/catalog/catalog_templates.md'
-                - 'Product': 'guide/catalog/product/md'
+                - 'Product': 'guide/catalog/product.md'
                 - 'Product rendering': 'guide/catalog/product_rendering.md'
                 - 'Product variants': 'guide/catalog/product_variants/product_variants.md'
                 - 'Product variant API': 'guide/catalog/product_variants/product_variant_api.md'

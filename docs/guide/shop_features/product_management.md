@@ -10,7 +10,7 @@ and can be embedded on the front end together with quick ordering buttons.
 
 ## Product variants
 
-A product can have different variants that correspond, for example, to different colors or sizes.
+A product can have different [variants](../catalog/product_variants/product_variants.md) that correspond, for example, to different colors or sizes.
 
 You can select and preview variants on the product's page.
 Variants can have one or two levels.

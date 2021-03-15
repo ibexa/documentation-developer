@@ -1,6 +1,6 @@
 # Payment and shipping
 
-Payment is based on a standard Symfony bundle. 
+[Payment](../payment/payment.md) is based on a standard Symfony bundle. 
 By default, the invoice payment is available.
 
 You can also integrate other payment providers, such as [PayPal](../payment/paypal.md)

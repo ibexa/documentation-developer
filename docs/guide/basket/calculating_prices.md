@@ -1,7 +1,7 @@
 # Calculating prices
 
 The basket recalculates the prices after each change of its content.
-The request to the price engine is sent when the basket is stored.
+The request to the [price engine](../pricing/price_engine.md) is sent when the basket is stored.
 This avoids the price engine being triggered several times (for example, if more than one product has been updated or added).
 The prices provided by the price engine (and ERP) are stored in the basket for each line.
 
