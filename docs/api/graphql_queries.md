@@ -429,4 +429,4 @@ children(first: 3, after: "YXJyYXljb25uZWN0aW9uOjM=")
 
 ### Get Matrix Field Type
 
-To get a Matrix Field Type with GraphQL, see [Matrix Field Type reference](field_type_reference.md#graphql-matrix-field-type-query).
+To get a Matrix Field Type with GraphQL, see [Matrix Field Type reference](field_types_reference/matrixfield.md).
