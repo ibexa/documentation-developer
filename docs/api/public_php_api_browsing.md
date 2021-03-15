@@ -70,8 +70,8 @@ For each Location, the code above prints out its `pathString` (the internal repr
 
 #### URL Aliases
 
-The [`URLAliasService`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/URLAliasService.php)
-additionally enables you to retrieve the human-readable URL alias of each Location.
+The [`URLAliasService`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/URLAliasService.php)
+additionally enables you to retrieve the human-readable [URL alias](../guide/url_management.md#url-aliases) of each Location.
 
 [`URLAliasService::reverseLookup`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/URLAliasService.php#L125)
 gets the Location's main [URL alias](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/Values/Content/URLAlias.php):

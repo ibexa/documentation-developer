@@ -129,7 +129,7 @@ To allow anonymous users to register through the `/register` route, you need to 
 
 #### Admin
 
-To access the Admin in the Back Office the User must have the `setup/administrate` Policy.
+To access the [administration panel](admin_panel.md) in the Back Office the User must have the `setup/administrate` Policy.
 This will allow the User to view the Languages and Content Types.
 
 Additional Policies are needed for each section of the Admin.
@@ -172,7 +172,7 @@ Users are treated like other content, so to create and modify them the User need
 
     #### Editorial workflows
 
-    You can control which stages in an editorial workflow the user can work with.
+    You can control which stages in an [editorial workflow](workflow.md) the user can work with.
 
     Do this by adding the `WorkflowStageLimitation` to `content` Policies such as `content/edit` or `content/publish`.
 
