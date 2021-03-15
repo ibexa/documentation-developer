@@ -226,6 +226,5 @@ Autosuggestion filters are applied automatically to avoid displaying elements th
 ### eContent Filters
 
 - Document Type
-- Catalog segmentation
 - Languages
 - Visibility
