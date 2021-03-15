@@ -5,7 +5,7 @@ In this case, the user sees the documents [stored locally in the shop](../../gui
 
 The shop only stores local data for orders, so only the `order` document type is displayed.
 
-The use of local documents is enabled with the `use_local_documents` configuration parameter:
+You can enable the use of local documents with the `use_local_documents` configuration parameter:
 
 ``` yaml
 siso_order_history.default.use_local_documents: false
@@ -15,7 +15,7 @@ siso_order_history.default.use_local_documents: false
 
 Invoices for local orders are available only for the current user.
 
-Order history details contain a link in the header to the invoice page:
+In the header of the order history details page, there is a link to the invoice page:
 
 ![](../img/orderhistory_invoice.png)
 

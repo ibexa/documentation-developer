@@ -8,9 +8,8 @@ siso_order_history:
         max_document_count_per_page: 30
 ```
 
-To define which document types are available in the list, use the `document_types` setting.
-
-`default_document_type` indicates the defaults document type to display:
+To define document types that are available for selection, list them under the `document_types` key.
+The `default_document_type` setting decides which document type is displayed by default:
 
 ``` yaml
 siso_order_history:
@@ -35,9 +34,8 @@ siso_order_history:
 
 ## Column configuration
 
-You can configure which columns (per document type) you want to display in the order history table.
-
-The column identifier is the block name from `OrderHistory/Components/fields.html.twig` without the suffix `_field`:
+To define columns that are displayed for each document type, list them under the respective key.
+The column identifier is the block name from `OrderHistory/Components/fields.html.twig`, without the suffix `_field`:
 
 ``` yaml
 siso_order_history:
@@ -61,9 +59,9 @@ To define default sorting for columns in the list page, use the `default_list_so
 
 Allowed values are:
 
-- `numeric-comma` - for numbers which use a comma as the decimal place, such as currency
-- `datetime` - for datetime in the format `<dd.mm.YYYY HH:mm>` or `<dd.mm.YYYY>`
-- `false` - disables sorting of a column
+- `numeric-comma` - for numbers that use a comma as a decimal separator, such as currency
+- `datetime` - for datetime in the `<dd.mm.YYYY HH:mm>` or `<dd.mm.YYYY>` format`
+- `false` - disables column sorting
 
 ``` yaml
 siso_order_history:
