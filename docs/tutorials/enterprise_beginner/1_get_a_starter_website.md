@@ -55,11 +55,11 @@ Edit it to remove the Image Field that has a Content Relation (ezobjectrelation)
 
 !!! tip
 
-    For an introduction on how to use templates in [[= product_name =]], take a look at the [Building a Bicycle Route Tracker in [[= product_name =]] tutorial](../platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md)
+    For an introduction on how to use templates in [[= product_name =]], take a look at the [Building a Bicycle Route Tracker in [[= product_name =]] tutorial](../platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md).
 
-First, delete the `config/packages/ezplatform_welcome_page.yaml` file to remove the welcome page.
+First, to remove the welcome page, go to `config/packages/` and delete the `ezplatform_welcome_page.yaml` file.
 
-Place the [`pagelayout.html.twig`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/templates/pagelayout.html.twig) and [`pagelayout_menu.html.twig`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/templates/pagelayout_menu.html.twig) files in the `templates` folder. Create a new folder, called `full`, under `templates`. Place further template files in it:
+Place the [`pagelayout.html.twig`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/templates/pagelayout.html.twig) and [`pagelayout_menu.html.twig`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/templates/pagelayout_menu.html.twig) files in the `templates` folder. Create a new folder, called `full`, in `templates`. Place further template files in it:
 
 - [`article.html.twig`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/templates/full/article.html.twig)
 - [`dog_breed.html.twig`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/templates/full/dog_breed.html.twig)
@@ -79,7 +79,7 @@ In the `assets` folder in the project root:
 In the `webpack.config.js` file in the project root folder, add the following line after `Encore.addEntry('app', './assets/app.js');`:
 
 ``` js
-Encore.addStyleEntry('tutorial', [path.resolve(__dirname, './assets/css/style.css')]);.
+Encore.addStyleEntry('tutorial', [path.resolve(__dirname, './assets/css/style.css')]);
 ```
 
 Next, in the terminal run the commands:
@@ -115,7 +115,7 @@ and click the **Hide selected Locations** icon:
 
 ![Hiding Content items you do not need](img/enterprise_tut_hide_content.png)
 
-Next, make three Folders under "Ibexa Digital Experience Platform". Call them 'All Articles', 'Dog Breed Catalog' and 'All Tips'. 
+Next, under "Ibexa Digital Experience Platform", create three Folders. Call them 'All Articles', 'Dog Breed Catalog' and 'All Tips'.
 Remember that you save and close them by using the 'Publish' button.
 
 Next, create a few Content items of proper Content Types in each of these folders:
