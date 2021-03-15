@@ -1,7 +1,14 @@
 # Order history [[% include 'snippets/commerce_badge.md' %]]
 
-Order history enables you to see an overview and details of your orders or other documents.
+The **Order History** screen enables you to see an overview and details of your orders or other documents.
 You can see documents related to online purchases as well as orders placed, for example, by phone.
+
+Order history supports different document types:
+
+- order
+- invoice
+- delivery note
+- credit memo
 
 Order history is available in the user menu under **Your documents**,
 and through the `/orderhistory` route.
@@ -19,10 +26,3 @@ Each document has a detail page, where you can see the detailed information, suc
 ![](../img/orderhistory_detail.png)
 
 If a product is still available in the shop, you can add it to the basket again. 
-
-Order history supports different document types:
-
-- order
-- invoice
-- delivery note
-- credit memo

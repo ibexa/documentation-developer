@@ -1,6 +1,8 @@
 # Order history configuration [[% include 'snippets/commerce_badge.md' %]]
 
-Configure the number of documents displayed on one page in using the following setting:
+You can change a number of different parameters to configure the behavior of the **Order History** page.
+
+To configure the number of documents displayed on one page, use the following setting:
 
 ``` yaml
 siso_order_history:
