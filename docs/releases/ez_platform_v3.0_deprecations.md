@@ -5,7 +5,7 @@ This page lists backwards compatibility breaks and deprecations introduced in eZ
 !!! tip "Upgrade to v3"
 
     For a guide on moving your project to v3,
-    see [Upgrading eZ Platform to v3](../updating/upgrading_to_v3.md).
+    see [Upgrading eZ Platform to v3](../upgrading/upgrading_to_v3.md).
 
 ## Symfony 5
 

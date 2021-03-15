@@ -39,7 +39,7 @@ Section ID numbers are not recycled. If a Section is removed, its ID number will
 
 ## Users
 
-Users in eZ Platform are treated the same way as [Content Types](#content-types).
+Users in eZ Platform are treated the same way as Content items.
 They are organized in groups such as *Guests*, *Editors*, *Anonymous*, which makes it easier to manage them and their permissions.
 All User Groups and Users can be accessed in the Admin panel by selecting Users.
 
