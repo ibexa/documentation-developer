@@ -21,16 +21,3 @@ silver_econtent.ger.languages: [ ger-DE, eng-GB ]
 
 The second language specified is the fallback language.
 This means that if content is not found in the first language, second language will be used.
-
-## Catalog segmentation
-
-``` yaml
-# Used for catalog segmentation: enabled or disabled
-silver_econtent.default.section_filter: disabled
-# Defines the name of the table to be used
-silver_econtent.default.table_catalog_filter: sve_object_catalog
-# The 'where' condition in order to limit product catalog
-silver_econtent.default.filter_SQL_where:
-# The catalog segmentation code used for this SiteAccess
-silver_econtent.default.catalog_filter_default_catalogcode:
-```
