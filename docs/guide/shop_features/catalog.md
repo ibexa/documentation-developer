@@ -1,6 +1,6 @@
 # Catalog
 
-[[= product_name =]] generates the shop catalog automatically from the products and content in the Repository or an ERP system.
+[[= product_name =]] generates the [shop catalog](../catalog/catalog.md) automatically from the products and content in the Repository or an ERP system.
 
 The source of products depends on the data provider you have configured.
 
@@ -12,7 +12,7 @@ You can use one of the following data providers: the Repository data provider an
 
 ### Repository data provider
 
-When you use the Repository data provider, each product is a Content item, stored in the Repository.
+When you use the [Repository data provider](../data_providers/repository_data_provider.md), each product is a Content item, stored in the Repository.
 
 Use this data provider when you have no ERP system and a limited number of products (up to 20 000).
 
@@ -22,7 +22,7 @@ Importing products when using this data provider is time-consuming.
 
 ### eContent data provider
 
-Use the eContent data provider when you have an ERP system that provides product information.
+Use the [eContent data provider](../econtent/econtent.md) when you have an ERP system that provides product information.
 This information can be imported quickly from the relevant system.
 
 The catalog can contain more than 1 million products.

@@ -2,7 +2,7 @@
 
 ## Product comparison [[% include 'snippets/commerce_badge.md' %]]
 
-The customer can add products to a comparison list and access it from the "My shop" menu.
+The customer can add products to a [comparison list](../product_comparison/product_comparison.md) and access it from the "My shop" menu.
 The comparison list automatically groups products per product category and product type (so it is impossible to compare products belonging to different types).
 The customer can change the order of the sorting by dragging and can display only differences of the products.
 
@@ -11,7 +11,7 @@ The customer can change the order of the sorting by dragging and can display onl
 ## Wishlist and stored baskets [[% include 'snippets/commerce_badge.md' %]]
 
 A logged-in customer can store products for later without adding them to the basket.
-The customer can also add products to a personal wishlist or to a named, stored basket.
+The customer can also add products to a [personal wishlist or to a named, stored basket](../basket/wishlist_and_stored_baskets.md).
 
 ![Wishlist](img/wishlist.png)
 
@@ -21,7 +21,7 @@ Products that are not in the catalog are automatically marked as "not available"
 
 ## Quickorder [[% include 'snippets/commerce_badge.md' %]]
 
-B2B customers can quickly order products by providing their SKU numbers.
+B2B customers can [quickly order products](../quick_order/quick_order.md) by providing their SKU numbers.
 
 ![](img/quickorder.png)
 
@@ -31,7 +31,7 @@ They can also upload a CSV file containing a list of SKUs and quantities.
 
 ## Order history [[% include 'snippets/commerce_badge.md' %]]
 
-When an ERP system is connected, the customer can browse and search past orders, invoices, delivery notes, and credit memos.
+When an ERP system is connected, the customer can browse and search [past orders, invoices, delivery notes, and credit memos](../order_history/order_history.md).
 This applies to all channels of making an order, including phone, fax, email, or online shop. 
 The documents for the chosen dates are fetched in real time.
 If the ERP provides a tracking link, this information is displayed as well.
