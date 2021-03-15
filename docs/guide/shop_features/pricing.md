@@ -1,6 +1,6 @@
 # Pricing [[% include 'snippets/commerce_badge.md' %]]
 
-You can set up prices manually per product or per product variant.
+You can set up [prices](../pricing/price_engine.md) manually per product or per product variant.
 Every price can contain an offer price and a base price. If an offer price is set, both are displayed.
 
 In addition, prices can vary per customer group.

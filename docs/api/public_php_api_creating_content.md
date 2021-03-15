@@ -124,7 +124,7 @@ try {
 
 ## Translating content
 
-Content translations are created per version. By default every version contains all existing translations.
+Content [translations](../guide/internationalization.md#language-versions) are created per version. By default every version contains all existing translations.
 
 To translate a Content item to a new language, you need to update it and provide a new `initialLanguageCode`:
 

@@ -556,6 +556,8 @@ See [Agrregation reference](../guide/search/aggregation_reference.md) for detail
 !!! caution "Deprecated"
 
     Search Facets are deprecated since version v3.2.
+    
+    Use [Aggregation API](#aggregation) instead.
 
 !!! tip "Checking feature support per search engine"
 
