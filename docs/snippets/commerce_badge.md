@@ -1,1 +1,1 @@
-<span class="badge commerce-badge"></span>
+<span class="pill commerce-pill"></span>
