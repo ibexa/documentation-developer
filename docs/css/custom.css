@@ -173,10 +173,6 @@ ul li li li {
     box-shadow: none;
 }
 
-.md-typeset details {
-    border: .4rem solid;
-}
-
 /* DXP */
 
 .admonition.dxp>.admonition-title,
@@ -244,6 +240,7 @@ ul li li li {
 .md-typeset details.tip, .md-typeset details.tip>summary,
 .md-typeset details.note, .md-typeset details.note>summary {
     background-color: #ffffff;
+    border-color: var(--note-border);
 }
 
 .md-typeset .admonition {
@@ -251,12 +248,19 @@ ul li li li {
     box-shadow: none;
 }
 
-.admonition {
-    border: .2rem solid;
+.md-typeset .admonition,
+.md-typeset details {
+    border: .1rem solid;
 }
 
-.md-typeset .admonition-title {
-    border-bottom: 1px solid;
+.md-typeset summary {
+    border-left: 2px solid;
+    margin-left: -0.7rem;
+}
+
+.md-typeset .admonition-title,
+.md-typeset details[open] summary {
+    border-bottom: 1px solid var(--note-border);
 }
 
 .bootstrap-iso .admonition p {
