@@ -5,6 +5,16 @@
     margin-bottom: 0.75rem;
 }
 
+.front-page a {
+    color: var(--link);
+}
+
+.front-page a:hover,
+.front-page a:focus {
+    color: var(--ibexa-jazzberry);
+    text-decoration: none;
+}
+
 .tile {
     box-sizing: border-box;
     border: 1px solid #D4D4D4;

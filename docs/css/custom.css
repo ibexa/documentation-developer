@@ -82,8 +82,9 @@ body {
     color: var(--link);
 }
 
-.md-typeset a:hover {
-    color: var(--ibexa-orange);
+.md-typeset a:hover,
+.md-typeset a:focus {
+    color: var(--ibexa-jazzberry);
 }
 
 .md-typeset th a {
@@ -503,7 +504,6 @@ a.external:after {
 .md-typeset .tabbed-set>input:checked+label:hover {
   color: var(--ibexa-jazzberry);
   border-color: var(--ibexa-jazzberry);
-  /* border-bottom: 4px solid var(--ibexa-jazzberry); */
 }
 
 .tabbed-set input:nth-child(n+1):checked + label + .tabbed-content {
@@ -533,4 +533,12 @@ a.external:after {
 
 .commerce-pill {
     background-color: var(--ibexa-jazzberry);
+}
+
+.md-clipboard:focus, .md-clipboard:hover {
+  color: var(--ibexa-jazzberry);
+}
+
+.md-typeset .headerlink:focus, .md-typeset .headerlink:hover, .md-typeset :target>.headerlink {
+  color: var(--ibexa-jazzberry);
 }
