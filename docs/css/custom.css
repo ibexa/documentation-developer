@@ -492,10 +492,18 @@ a.external:after {
   font-weight: 700;
 }
 
-.tabbed-set input:nth-child(n+1):checked + label {
-  color: var(--ibexa-orange);
+.md-typeset .tabbed-set>input:checked+label {
+  color: var(--ibexa-dusk-black);
   font-weight: 700;
-  border-bottom: 4px solid var(--ibexa-orange);
+  border-color: var(--mid-grey);
+  border-bottom: 4px solid var(--mid-grey);
+}
+
+.md-typeset .tabbed-set>label:hover,
+.md-typeset .tabbed-set>input:checked+label:hover {
+  color: var(--ibexa-jazzberry);
+  border-color: var(--ibexa-jazzberry);
+  /* border-bottom: 4px solid var(--ibexa-jazzberry); */
 }
 
 .tabbed-set input:nth-child(n+1):checked + label + .tabbed-content {
