@@ -44,8 +44,8 @@ For security and performance we generally recommend (unless otherwise noted) usi
         - event MPM is recommended, if you need to use _prefork_ you'll also need the `mod_php` module
     -   Nginx 1.12, 1.14, 1.16
 -   DBMS
-    -   MySQL 5.7 or 8.0
-    -   MariaDB 10.2, 10.3, 10.4
+    -   MySQL 8.0 (optionally 5.7 - deprecated)
+    -   MariaDB 10.3, 10.4 (optionally 10.2 - deprecated)
     -   PostgreSQL 10+
 -   PHP
     -   7.3
