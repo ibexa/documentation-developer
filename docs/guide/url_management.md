@@ -134,6 +134,11 @@ the prefix path that results from the configured content root is prepended to th
     Otherwise, redirections for the renamed Content with translations in multiple
     languages may fail to work properly.
 
+!!! warning "Known limitations"
+
+    Legacy Storage Engine doesn't archive URL aliases which initially had the same name in multiple languages. 
+    See https://issues.ibexa.co/browse/EZP-31818 for more details.   
+
 ## URL alias patterns
 
 You can configure how eZ Platform generates URL aliases. The configuration is available under `ezpublish.url_alias.slug_converter`, for example:
