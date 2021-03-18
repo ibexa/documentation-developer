@@ -145,12 +145,17 @@ For each URL alias definition the history of changes is preserved, so that users
     Otherwise, redirections for the renamed Content with translations in multiple
     languages may fail to work properly.
 
+!!! warning "Known limitations"
+
+    The [Legacy storage engine](../api/field_type_storage.md#legacy-storage-engine) does not archive URL aliases, which initially 
+    had the same name in multiple languages. 
+    For more information, see [the Jira ticket](https://issues.ibexa.co/browse/EZP-31818). 
 
 URL aliases are not SiteAccess-aware. When creating an alias, you can select a SiteAccess to base it on.
 If the SiteAccess root path (configured in `content.tree_root.location_id`) is different than the default,
 the prefix path that results from the configured content root is prepended to the final alias path.
 
-### URL alias pattern configuration
+## URL alias pattern configuration
 
 You can configure how [[= product_name =]] generates URL aliases.
 The configuration is stored in the `config/packages/ezplatform.yaml` file, under the `ezplatform.url_alias.slug_converter` key, for example:
