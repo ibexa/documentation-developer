@@ -127,6 +127,13 @@ URL aliases are not SiteAccess-aware. When creating an alias, you can select a S
 If the SiteAccess root path (configured in `content.tree_root.location_id`) is different than the default,
 the prefix path that results from the configured content root is prepended to the final alias path.
 
+!!! note
+
+    Make sure that you correctly define languages used by the site in the configuration 
+    (under the `ezplatform.system.<scope>.languages` key). 
+    Otherwise, redirections for the renamed Content with translations in multiple
+    languages may fail to work properly.
+
 ## URL alias patterns
 
 You can configure how eZ Platform generates URL aliases. The configuration is available under `ezpublish.url_alias.slug_converter`, for example:
