@@ -136,8 +136,9 @@ the prefix path that results from the configured content root is prepended to th
 
 !!! warning "Known limitations"
 
-    Legacy Storage Engine doesn't archive URL aliases which initially had the same name in multiple languages. 
-    See https://issues.ibexa.co/browse/EZP-31818 for more details.   
+    The [Legacy storage engine](../api/field_type_storage.md#legacy-storage-engine) does not archive URL aliases, which initially 
+    had the same name in multiple languages. 
+    For more information, see [the Jira ticket](https://issues.ibexa.co/browse/EZP-31818). 
 
 ## URL alias patterns
 
