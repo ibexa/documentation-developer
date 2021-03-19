@@ -24,4 +24,4 @@ The respective options are registered in the checkout form and must fulfill some
 - The form type must define the `payment.method_form_type` tag.
 - The form type must define the `form.type` tag with an alias attribute that is used as text in the payment choice.
 
-You define the compiler pass in the checkout bundle: `Siso\Bundle\CheckoutBundle\DependencyInjection\Compiler\PaymentMethodsPass`
+You define the compiler pass in the checkout bundle: `Ibexa\Platform\Bundle\Commerce\Checkout\DependencyInjection\Compiler\PaymentMethodsPass`
