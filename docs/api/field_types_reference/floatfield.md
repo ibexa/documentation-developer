@@ -1,6 +1,6 @@
 # Float Field Type
 
-This Field Type stores numeric values which will be provided as floats.
+This Field Type stores numeric values which are provided as floats.
 
 | Name    | Internal name | Expected input |
 |---------|---------------|----------------|

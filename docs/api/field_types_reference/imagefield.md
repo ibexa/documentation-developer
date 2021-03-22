@@ -1,10 +1,10 @@
 # Image Field Type
 
+The Image Field Type allows you to store an image file.
+
 | Name    | Internal name |
 |---------|---------------|
 | `Image` | `ezimage`     |
-
-The Image Field Type allows you to store an image file.
 
 A **variation service** handles the conversion of the original image into different formats and sizes through a set of preconfigured named variations: large, small, medium, black and white thumbnail, etc.
 
@@ -12,7 +12,7 @@ A **variation service** handles the conversion of the original image into diffe
 
 ### Value object
 
-The `value` property of an Image Field will return an `\eZ\Publish\Core\FieldType\Image\Value` object with the following properties:
+The `value` property of an Image Field returns an `\eZ\Publish\Core\FieldType\Image\Value` object with the following properties:
 
 ##### Properties
 

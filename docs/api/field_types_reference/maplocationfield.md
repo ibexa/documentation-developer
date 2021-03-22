@@ -3,6 +3,7 @@
 This Field Type represents a geographical location.
 
 As input it expects three values:
+
 - two float values latitude and longitude,
 - a string value, corresponding to the name or address of the location.
 

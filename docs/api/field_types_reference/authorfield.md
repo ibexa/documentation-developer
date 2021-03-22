@@ -55,7 +55,7 @@ Example
 
 ##### String representation
 
-The string will contain all the authors with their names and emails.
+The string contains all the authors with their names and emails.
 
 Example: `John Doe john@doe.com`
 

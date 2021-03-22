@@ -11,6 +11,7 @@ This Field Type is used as fallback for migration scenarios, and for testing pur
 The Null Field Type serves as an aid when migrating from eZ Publish Platform and earlier legacy versions. It is a dummy for legacy Field Types that are not implemented in [[= product_name =]].
 
 Null Field Type will accept anything provided as a value and is usually combined with:
+
 - NullConverter: Makes it not store anything to the legacy storage engine (database), nor will it read any data.
 - Unindexed: Indexable class making sure nothing is indexed to configured search engine.
 

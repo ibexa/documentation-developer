@@ -14,7 +14,6 @@ It is capable of handling virtually any file type and is typically used for stor
 
 ##### Properties
 
-
 Note that both `BinaryFile` and `Media` Value and Type inherit from the `BinaryBase` abstract Field Type, and share common properties.
 
 `eZ\Publish\Core\FieldType\BinaryFile\Value` offers the following properties:
@@ -28,7 +27,6 @@ Note that both `BinaryFile` and `Media` Value and Type inherit from the `BinaryB
 |`uri`|string|The binary file's `content/download` URI. If the URI doesn't include a host or protocol, it applies to the request domain.|/content/download/210/2707|
 |`downloadCount`|integer|Number of times the file was downloaded|0|
 |`path`|string|**deprecated**|N/A|
-
 
 ### Hash format
 
@@ -63,7 +61,7 @@ Used in the REST API, a BinaryFile Field will mostly serialize the hash describe
 
 When reading the contents of a Field of this type, an extra key is added: `url`. This key gives you the absolute file URL, protocol and host included.
 
-Example: <http://example.com/var/ezdemo_site/storage/original/application/63cd472dd7819da7b75e8e2fee507c68.pdf>
+Example: `http://example.com/var/ezdemo_site/storage/original/application/63cd472dd7819da7b75e8e2fee507c68.pdf`
 
 ### Creating content: data property
 

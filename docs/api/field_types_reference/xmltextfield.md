@@ -1,6 +1,6 @@
 # XmlText Field Type
 
-The XmlText Field Type isn't officially supported by [[= product_name =]]. It can be installed by requiring `ezsystems/ezplatform-xmltext-fieldtype`. PlatformUI does not support WYSIWYG editing of Fields of this type.
+The XmlText Field Type isn't officially supported by [[= product_name =]]. It can be installed by requiring `ezsystems/ezplatform-xmltext-fieldtype`. The Back Office does not support WYSIWYG editing of Fields of this type.
 
 This Field Type validates and stores formatted text using the eZ Publish legacy format, eZXML. 
 
