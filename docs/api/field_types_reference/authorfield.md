@@ -36,7 +36,6 @@ $authorList = Author\Value([
 
 The hash format mostly matches the value object. It has the following key `authors`.
 
-
 Example
 
 ``` php
