@@ -12,7 +12,7 @@ The core of our system is [`ezplatform-kernel`](https://github.com/ezsystems/ezp
 containing an advanced Content Model and aiming to provide additional features for the MVC layer (Symfony).
 On the other hand, e.g. `ezplatform-admin-ui` is strictly dedicated to the Admin Panel purposes.
 If you want to learn more about our code structure, take a look at [our organization page on GitHub](https://github.com/ezsystems)
-or the list of [core bundles](../guide/bundles/#core-bundles).
+or the list of [core bundles](../guide/bundles.md#core-packages).
 
 After finishing your work, fork repository which you want to contribute to.
 Now you need to determine which version of the package your changes should target.
@@ -21,7 +21,7 @@ If you plan to fix something in your current project, check `composer.json` for 
 For example: you added a `try { } catch () {}` statement fixing an annoying error in `ezplatform-admin-ui`
 and you are using version 2.5. You should aim for branch `1.5` then, as version `1.5.0` is used.
 
-Now you can follow the same procedure as in [Contributing through git](documentation/#contributing-through-git).
+Now you can follow the same procedure as in [Contributing through git](documentation.md#contributing-through-git).
 
 !!! caution "Public repositories"
 
