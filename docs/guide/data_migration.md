@@ -12,7 +12,7 @@ between installations by using the migration script.
 To export Repository content, use the `ibexa:migrations:generate` command.
 This command generates a YAML file with the requested part of the Repository.
 The file is located by default in the `src/Migrations/Ibexa/migrations` folder
-or in [a custom folder you configure](#migration-folders).
+or in [a custom folder that you configure](#migration-folders).
 You can later use this file to import the data.
 
 ``` bash
@@ -140,7 +140,7 @@ php bin/console ibexa:migrations:generate --type=content --mode=create --user-co
 To import Repository data from a YAML file, run the `ibexa:migrations:migrate` command.
 
 Place your import file in the `src/Migrations/Ibexa/migrations` folder
-or in [a custom folder you configure](#migration-folders).
+or in [a custom folder that you configure](#migration-folders).
 The command takes the file name within this folder as parameter.
 
 ``` bash
@@ -191,7 +191,7 @@ The command lists the migration files and indicates which of them have already b
 
 The default migration folder is `src/Migrations/Ibexa/migrations`.
 
-You can configure a different folder using the following settings:
+You can configure a different folder by using the following settings:
 
 ``` yaml
 ibexa_migrations:
