@@ -44,72 +44,72 @@ For details, see [Bundles](../guide/bundles.md).
 !!! enterprise
 
     ### Site Factory
-    
+
     The new Site management User Interface is now integrated with Admin UI.
     It enables you to easily create and manage multiple sites from the Back Office without editing the configuration files.
-    
-    For more information on: 
-    
+
+    For more information on:
+
     - enabling and configuring, see [Site Factory in developer documentation](../guide/site_factory.md)
     - using the Site Factory, see [User Guide](https://doc.ezplatform.com/projects/userguide/en/3.0/site_organization/site_factory/)
 
     ### Scheduling
-    
+
     #### Schedule calendar
-    
+
     You can now easily view and perform scheduling actions using the Calendar widget available in the Back Office.
     By default, the widget displays Content items scheduled for future publication, but custom events can be configured as well.
     You can also filter displayed events and toggle through a day, week, and month view.
-    
+
     #### Manage planned publications with Dashboard
-        
+
     You can now reschedule or cancel planned future publications right from the Dashboard.
-    
+
     #### Schedule hiding a Content item
-    
+
     You can now schedule hiding Content items.
     Using Calendar widget available in the Back Office you can also reschedule or cancel hiding a Content item.
-    
+
     ### Defining buttons in Online Editor
-    
+
     You can now reorder and disable buttons in Online Editor using [YAML configuration](../extending/extending_online_editor.md#customizing-buttons).
 
     ### Workflow improvements
-    
+
     #### Workflow actions
-    
+
     You can now configure your workflows to [automatically publish content](../guide/workflow.md#publishing-content-with-workflow).
-    
+
     You can also create [custom workflow actions](../extending/extending_workflow.md#adding-custom-actions).
-    
+
     #### Reviewers
-    
+
     When sending content through a workflow, the user can now select reviewers.
     You can require the user to select reviewers when sending content through the workflow.
-    
+
     In the configuration, you can also set the workflow to [automatically notify the selected reviewers](../guide/workflow.md#sending-notifications).
-    
+
     #### Quick review
-    
+
     A built-in Quick Review offers a quick workflow configuration for your basic needs.
-    
+
     #### Custom transition color
-    
+
     You can configure a custom color for each of the transitions defined in the Workflow.
-    
+
     ## Version comparison
-    
+
     You can now compare two versions of the same Content item and preview changes in their Fields:
-    
+
     ![Version comparison](img/compare_results.png "Version comparison in one-column view")
-    
+
 ### Universal Discovery Widget
 
 The Universal Discovery Widget (UDW) has been re-designed and re-written.
 New functionalities and changes include:
 
 - new configuration
-- filtered search 
+- filtered search
 - resizable column with custom sort order
 - editing content from UDW (Enterprise only)
 
@@ -119,7 +119,7 @@ For full list of changes, see [Backwards compatibility doc](ez_platform_v3.0_dep
 
 #### Content query Field Type
 
-The new [Content query Field Type](../api/field_type_reference.md#content-query-field-type)
+The new [Content query Field Type](../api/field_types_reference/contentqueryfield.md)
 enables you to configure a Content query that will use parameters from a Field definition.
 
 #### Field Type creation

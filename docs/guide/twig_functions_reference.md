@@ -343,7 +343,7 @@ See section of [Using the Field Type's template block](templates.md#using-the-fi
 |------|------|------|
 |`content`|`eZ\Publish\API\Repository\Values\Content\Content`|Content item the displayable field belongs to.|
 |`fieldDefinitionIdentifier`|`string`|The identifier the Field is referenced by.|
-|`params`|`hash`|Hash of parameters that will be passed to the template block.</br>By default you can pass 2 entries:</br>`lang` (to override the current language, must be a valid locale with xxx-YY format)</br>`template` (to override the template to use, see below)</br>`attr` (hash of HTML attributes you want to add to the inner markup)</br>parameters (arbitrary parameters to pass to the template block)</br></br>Some Field Types might expect specific entries under the `parameters` key, like the [MapLocation Field Type](../api/field_type_reference.md#maplocation-field-type).
+|`params`|`hash`|Hash of parameters that will be passed to the template block.</br>By default you can pass 2 entries:</br>`lang` (to override the current language, must be a valid locale with xxx-YY format)</br>`template` (to override the template to use, see below)</br>`attr` (hash of HTML attributes you want to add to the inner markup)</br>parameters (arbitrary parameters to pass to the template block)</br></br>Some Field Types might expect specific entries under the `parameters` key, like the [MapLocation Field Type](../api/field_types_reference/maplocationfield.md).
 
 #### Override a Field template block
 

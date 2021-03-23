@@ -33,7 +33,7 @@ RichText Field Type has been extracted to a separate bundle, [ezsystems/ezplatfo
 If you're implementing any interface or extending any base class from the old namespace, refer to its PHPDoc to see what to implement or extend instead.
 Make sure to enable the new eZ Platform RichTextBundle.
 
-See [RichText Field Type Reference](../api/field_type_reference.md#richtext-field-type).
+See [RichText Field Type Reference](../api/field_types_reference/richtextfield.md).
 
 #### RichText block
 

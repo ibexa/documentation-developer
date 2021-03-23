@@ -24,11 +24,11 @@ This example from the `Url` Field Type shows that the Field Type will always ret
 
 ### `getDefaultMatchField()`
 
-This method retrieves the name of the default Field to be used for matching. As Field Types can index multiple Fields (see [MapLocation](field_type_reference.md#maplocation-field-type) Field Type's implementation of this interface), this method is used to define the default field for matching. The default Field is typically used by the [`Field` Search Criterion](../guide/search/criteria_reference/field_criterion.md).
+This method retrieves the name of the default Field to be used for matching. As Field Types can index multiple Fields (see [MapLocation](field_types_reference/maplocationfield.md) Field Type's implementation of this interface), this method is used to define the default field for matching. The default Field is typically used by the [`Field` Search Criterion](../guide/search/criteria_reference/field_criterion.md).
 
 ### `getDefaultSortField()`
 
-This method gets name of the default Field to be used for sorting. As Field Types can index multiple Fields (see [MapLocation](field_type_reference.md#maplocation-field-type) Field Type's implementation of this interface), this method is used to define default field for sorting. Default Field is typically used by the [`Field` Sort Clause](../guide/search/sort_clause_reference/field_sort_clause.md).
+This method gets name of the default Field to be used for sorting. As Field Types can index multiple Fields (see [MapLocation](field_types_reference/maplocationfield.md) Field Type's implementation of this interface), this method is used to define default field for sorting. Default Field is typically used by the [`Field` Sort Clause](../guide/search/sort_clause_reference/field_sort_clause.md).
 
 ## Register Indexable Implementations
 

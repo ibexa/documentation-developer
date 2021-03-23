@@ -11,8 +11,13 @@
     composer require --no-update ezsystems/ezplatform-solr-search-engine:~2.0
     composer update
     ```
+<<<<<<< HEAD
     
     Make sure `EzPublishSolrSearchEngineBundle` is activated with the following line in the `app/AppKernel.php` file: `new EzSystems\EzPlatformSolrSearchEngineBundle\EzSystemsEzPlatformSolrSearchEngineBundle()`
+=======
+
+    Symfony Flex will enable the bundle for you when installing the package.
+>>>>>>> bf6f64ea (Field types structure redesign (#1335))
 
 ### Step 1: Configuring and starting Solr
 
@@ -213,7 +218,7 @@ ez_search_engine_solr:
     endpoints:
         main:
             dsn: '%solr_dsn%'
-            core: '%solr_main_core%' 
+            core: '%solr_main_core%'
         en:
             dsn: '%solr_dsn%'
             core: '%solr_en_core%'
@@ -298,7 +303,7 @@ Here are the most common issues you may encounter:
     - Make sure `var_dir` is configured properly in `ezplatform.yml` configuration.
     - If your database is inconsistent in regards to file paths, try to update entries to be correct *(make sure to make a backup first)*.
 - Exception on unsupported Field Types
-    - Make sure to implement all Field Types in your installation, or to configure missing ones as [NullType](../../api/field_type_reference.md#null-field-type) if implementation is not needed.
+    - Make sure to implement all Field Types in your installation, or to configure missing ones as [NullType](../../api/field_types_reference/nullfield.md) if implementation is not needed.
 - Content is not immediately available 
     - Solr Bundle on purpose does not commit changes directly on Repository updates *(on indexing)*, but lets you control this using Solr configuration. Adjust Solr's `autoSoftCommit` (visibility of changes to search index) and/or `autoCommit` (hard commit, for durability and replication) to balance performance and load on your Solr instance against needs you have for "[NRT](https://cwiki.apache.org/confluence/display/solr/Near+Real+Time+Searching)".
 - Running out of memory during indexing
@@ -578,7 +583,7 @@ my_webinar_app.webinar_event_title_fulltext_field_mapper:
         - {name: ezpublish.search.solr.field_mapper.content}
 ```
 
-	
+
 !!! caution "Permission issues when using Repository API in document field mappers"
 
     Document field mappers are low level. They expect to be able to index all content regardless of current user permissions.
