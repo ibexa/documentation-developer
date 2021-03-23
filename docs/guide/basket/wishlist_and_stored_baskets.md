@@ -40,11 +40,11 @@ const TYPE_WISH_LIST = 'wishList';
 
 |Path|Description|
 |--- |--- |
-|`Basket/stored_baskets_list.html.twig`|List of all stored baskets|
-|`Basket/show_stored_basket.html.twig`|Entry page for both wishlists and stored baskets. Based on the basket type it loads one of the templates listed below|
-|`Basket/show_stored_basket_part.html.twig`|Partial page responsible for rendering a stored basket page|
-|`Basket/show_wishlist_part.html.twig`|Partial page responsible for rendering the wishlist|
-|`Basket/messages.html.twig`|Template with success/error/notice messages for baskets|
+|`EshopBundle:Basket:stored_baskets_list.html.twig`|List of all stored baskets|
+|`ShopFrontendBundle:Basket:show_stored_basket.html.twig`|Entry page for both wishlists and stored baskets. Based on the basket type it loads one of the templates listed below|
+|`EshopBundle:Basket:show_stored_basket_part.html.twig`|Partial page responsible for rendering a stored basket page|
+|`ShopFrontendBundle:Basket:show_wishlist_part.html.twig`|Partial page responsible for rendering the wishlist|
+|`EshopBundle:Basket:messages.html.twig`|Template with success/error/notice messages for baskets|
 
 ## Twig functions
 
