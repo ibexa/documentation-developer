@@ -397,11 +397,11 @@ It is achieved by uploading images to an ImageAsset Field Type.
 For an ImageAsset Field to be reused you have to publish it. Only then is notification triggered stating image has been published under the Location and can now be reused.
 After establishing media library you can create object Relations between the main Content item and the image Content item being used by it.
 
-To learn more about ImageAsset Field Type and its customization see [Field Type Reference](../api/field_type_reference.md#imageasset-field-type).
+To learn more about ImageAsset Field Type and its customization see [Field Type Reference](../api/field_types_reference/imageassetfield.md).
 
 ## Handling SVG images
 
-Currently, [[= product_name_oss =]] does not allow you to store SVG images by using the Image or ImageAsset Field Type. 
+Currently, [[= product_name_oss =]] does not allow you to store SVG images by using the Image or ImageAsset Field Type.
 Until the full support for this MIME type is in place, you can work things around by relying on the File Field Type and implementing a custom extension that lets you display and download files in your templates.
 
 First, you add a proper rule in the `config/routes.yaml` file:
@@ -412,7 +412,7 @@ app.svg_download:
     defaults: { _controller: app.controller.content.svg:downloadSvgAction }
 ```
 
-It points to a custom controller that handles the downloading of the SVG file. 
+It points to a custom controller that handles the downloading of the SVG file.
 The controller's definition (that you place in the `config/services.yaml` file under `services` key) and implementation are as follows:
 
 ```yaml
@@ -489,9 +489,9 @@ class SvgController extends Controller
 
         if (!$field instanceof Field) {
             throw new InvalidArgumentException(
-                sprintf("%s field not present in content %d '%s'", 
-                    $fieldIdentifier, 
-                    $content->contentInfo->id, 
+                sprintf("%s field not present in content %d '%s'",
+                    $fieldIdentifier,
+                    $content->contentInfo->id,
                     $content->contentInfo->name
                 )
             );

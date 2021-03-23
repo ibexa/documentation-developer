@@ -83,7 +83,7 @@ based on the input file.
 ### Creating content with RichText
 
 The RichText Field accepts values in [[= product_name_oss =]]'s variant of the [Docbook](https://github.com/docbook/wiki/wiki) format.
-You can see more information about this format in [Field Types reference](field_type_reference.md#example-of-the-field-types-internal-format).
+You can see more information about this format in [Field Types reference](field_types_reference/richtextfield.md#example-of-the-field-types-internal-format).
 
 For example, to add a simple RichText paragraph, provide the following as input:
 

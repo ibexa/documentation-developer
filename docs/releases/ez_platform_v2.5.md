@@ -43,7 +43,7 @@ See [GraphQL documentation](https://graphql.org/) for more information about Gra
 
 ### Matrix Field Type
 
-The new [Matrix Field Type](../api/field_type_reference.md#matrix-field-type) enables you to store a table of data.
+The new [Matrix Field Type](../api/field_types_reference/matrixfield.md) enables you to store a table of data.
 Columns in the matrix are defined in the Field definition.
 
 ![Configuring a Matrix Field Type](img/2.5_matrix_ft.png)

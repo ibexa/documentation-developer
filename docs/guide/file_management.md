@@ -2,7 +2,7 @@
 
 ## Handling binary files
 
-[[= product_name_oss =]] supports multiple binary file handling mechanisms by means of an `IOHandler` interface. This feature is used by the [BinaryFile](../api/field_type_reference.md#binaryfile-field-type), [Media](../api/field_type_reference.md#media-field-type) and [Image](../api/field_type_reference.md#image-field-type) Field Types.
+[[= product_name_oss =]] supports multiple binary file handling mechanisms by means of an `IOHandler` interface. This feature is used by the [BinaryFile](../api/field_types_reference/binaryfilefield.md), [Media](../api/field_types_reference/mediafield.md) and [Image](../api/field_types_reference/imagefield.md) Field Types.
 
 ### Native IO handler
 
@@ -62,7 +62,7 @@ Default values are 0644 for files and 0755 for directories.
 !!! note
 
     When using the NFS [adapter](file_management.md#adapter), configure file permissions under the `oneup_flysystem` key instead, as follows:
-    
+
     ``` yaml
     oneup_flysystem:
         adapters:
@@ -74,7 +74,7 @@ Default values are 0644 for files and 0755 for directories.
                         dir:
                             public: 0640
     ```
-    
+
 ### The native Flysystem handler
 
 [league/flysystem](http://flysystem.thephpleague.com/) (along with [FlysystemBundle](https://github.com/1up-lab/OneupFlysystemBundle/)) is an abstract file handling library.
@@ -137,7 +137,7 @@ For [more information about REST API see the documentation](../api/rest_api_guid
 
 ### IO URL decoration
 
-By default, images and binary files that are referenced by the content will be served from the same server as the application, for example `/var/site/storage/images/3/6/4/6/6463-1-eng-GB/kidding.png`. 
+By default, images and binary files that are referenced by the content will be served from the same server as the application, for example `/var/site/storage/images/3/6/4/6/6463-1-eng-GB/kidding.png`.
 This is the default semantic configuration:
 
 ``` yaml
@@ -154,7 +154,7 @@ ezplatform:
 
 One common use case is to use an optimized nginx to serve images in an optimized way. The example image
 above could be made available as `http://static.example.com/var/site/storage/images/3/6/4/6/6463-1-eng-GB/kidding.png`
-by setting up a separate server that maps the `/path/to/ezplatform/public/var` directory. 
+by setting up a separate server that maps the `/path/to/ezplatform/public/var` directory.
 The configuration would be as follows:
 
 ``` yaml
@@ -168,7 +168,7 @@ ezplatform:
 !!! caution
 
     For security reasons, do not map `/path/to/ezplatform/public/` as
-    Document Root of the static server. 
+    Document Root of the static server.
     Map the `/var/` directory directly to `/path/to/ezplatform/public/var` instead.
 
 ### Internals
