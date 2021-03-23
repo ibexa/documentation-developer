@@ -651,10 +651,10 @@ final class LatestContentController extends AbstractController
 
     /** @var \eZ\Publish\Core\QueryType\QueryTypeRegistry */
     private $registry;
-    
+
     /** @var \eZ\Publish\API\Repository\SearchService */
     private $searchService;
-    
+
     public function __construct(QueryTypeRegistry $registry, SearchService $searchService)
     {
     	$this->searchService = $searchService;
@@ -666,7 +666,7 @@ final class LatestContentController extends AbstractController
     	$queryType = $this->registry->getQueryType('LatestContent');
     	$query = $queryType->getQuery(['type' => $contentType]);
     	$searchResults = $this->searchService->findContent($query);
-    	
+
     	return $this->render($template, ['results' => $searchResults]);
     }
 }
@@ -675,7 +675,7 @@ final class LatestContentController extends AbstractController
 
 ### Content query Field Type
 
-The [Content query Field Type](../api/field_type_reference.md#content-query-field-type)
+The [Content query Field Type](../api/field_types_reference/contentqueryfield.md)
 enables you to configure a content query that will use parameters from a Field definition.
 The results will be available in a Content item's Field.
 

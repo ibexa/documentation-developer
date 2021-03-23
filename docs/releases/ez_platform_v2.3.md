@@ -57,7 +57,7 @@
 
 You can now create a single source media library with images that can be reused across the system.
 
-See [Reusing images](../guide/images.md#reusing-images) and [ImageAsset Field Type reference](../api/field_type_reference.md#imageasset-field-type) for more information.
+See [Reusing images](../guide/images.md#reusing-images) and [ImageAsset Field Type reference](../api/field_types_reference/imageassetfield.md) for more information.
 
 ![Set up multiple relations with image](img/2.3_image_asset.png)
 

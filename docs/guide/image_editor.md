@@ -1,6 +1,6 @@
 # Configuring the Image Editor [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-When a Content item contains Fields of the [ezimage](../api/field_type_reference.md#image-field-type) or [ezimageasset](../api/field_type_reference.md#imageasset-field-type) type, users can perform basic image editing functions with the Image Editor.
+When a Content item contains Fields of the [ezimage](../api/field_types_reference/imagefield.md) or [ezimageasset](../api/field_types_reference/imageassetfield.md) type, users can perform basic image editing functions with the Image Editor.
 For more information, see the [user documentation](https://doc.ibexa.co/projects/userguide/en/master/editing_images/).
 
 !!! note
@@ -10,10 +10,10 @@ For more information, see the [user documentation](https://doc.ibexa.co/projects
 ## Configuration
 
 You can modify the default settings to change the appearance or behavior of the Image Editor.
-You can also expand the default set of parameters to create buttons that may be required by custom features 
+You can also expand the default set of parameters to create buttons that may be required by custom features
 that you add by extending the Image Editor, for example, to enable changes to the color palette of an image.
 
-To do this, modify the `config/packages/ezplatform.yaml` file, or create a separate YAML file 
+To do this, modify the `config/packages/ezplatform.yaml` file, or create a separate YAML file
 in the `config/packages` folder, and add a settings tree similar to the following example.
 The settings tree can contain one or more action groups.
 You can control the order of actions within a group by setting the `priority` parameter.
@@ -64,8 +64,8 @@ system:
 ### Additional information
 
 Each image can be accompanied by additional information that is not visible to the user.
-By default, additional information stores the coordinates of the [focal point](https://doc.ibexa.co/projects/userguide/en/master/editing_images/#focal-point), 
-but you can use this extension point to pass various parameters of custom features 
+By default, additional information stores the coordinates of the [focal point](https://doc.ibexa.co/projects/userguide/en/master/editing_images/#focal-point),
+but you can use this extension point to pass various parameters of custom features
 that you add by extending the Image Editor.
 
 To modify the value of additional information programmatically, you can set a value of the `Image` field by using the PHP API, for example:
