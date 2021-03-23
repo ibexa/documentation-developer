@@ -99,7 +99,7 @@ $settings = [
 
 ## Template rendering
 
-The template called by [the `ez_render_field()` Twig function](../guide/twig_functions_reference.md#ez_render_field) while rendering a Date Field has access to the following parameters:
+The template called by [the `ez_render_field()` Twig function](../../guide/twig_functions_reference.md#ez_render_field) while rendering a Date Field has access to the following parameters:
 
 | Parameter | Type     |Description|
 |-----------|----------|------------|

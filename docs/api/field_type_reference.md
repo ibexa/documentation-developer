@@ -26,7 +26,7 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Float](field_types_reference/floatfield.md) | Validates and stores a floating-point number. | No | Yes |
 | [Form](field_types_reference/formfield.md) | Stores a form. | No | Yes |
 | [Image](field_types_reference/imagefield.md) | Validates and stores an image. | No | Yes |
-|[ImageAsset](field_types_reference/imageassetfield.md)|Stores images in independent content items of a generic Image content type.| No | Yes |
+|[ImageAsset](field_types_reference/imageassetfield.md)|Stores images in independent Content items of a generic Image Content Type.| No | Yes |
 | [Integer](field_types_reference/integerfield.md) | Validates and stores an integer value. | Yes | Yes |
 | [ISBN](field_types_reference/isbnfield.md) | Handles International Standard Book Number (ISBN) in 10-digit or 13-digit format.  | Yes | Yes |
 | [Keyword](field_types_reference/keywordfield.md) | Stores keywords. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
