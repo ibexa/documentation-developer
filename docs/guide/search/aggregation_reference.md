@@ -29,15 +29,15 @@ There are three types of aggregations:
 
 |Name | Type | Based on Field|
 |---|---|---|
-|[AuthorTermAggregation](aggregation_reference/authorterm_aggregation.md) | Term | [Author](../../api/field_type_reference.md#author-field-type) |
-|[CheckboxTermAggregation](aggregation_reference/checkboxterm_aggregation.md) | Term |[Checkbox](../../api/field_type_reference.md#checkbox-field-type)|
-|[CountryTermAggregation](aggregation_reference/countryterm_aggregation.md) | Term |[Country](../../api/field_type_reference.md#country-field-type)|
-|[DateRangeAggregation](aggregation_reference/daterange_aggregation.md) | Range |[Date](../../api/field_type_reference.md#date-field-type)|
-|[DateTimeRangeAggregation](aggregation_reference/datetimerange_aggregation.md) | Range |[DateTime](../../api/field_type_reference.md#dateandtime-field-type)|
-|[FloatRangeAggregation](aggregation_reference/floatrange_aggregation.md) | Range |[Float](../../api/field_type_reference.md#float-field-type)|
-|[FloatStatsAggregation](aggregation_reference/floatstats_aggregation.md) | Stats |[Float](../../api/field_type_reference.md#float-field-type)|
-|[IntegerRangeAggregation](aggregation_reference/integerrange_aggregation.md) | Range |[Integer](../../api/field_type_reference.md#integer-field-type)|
-|[IntegerStatsAggregation](aggregation_reference/integerstats_aggregation.md) | Stats |[Integer](../../api/field_type_reference.md#integer-field-type)|
-|[KeywordTermAggregation](aggregation_reference/keywordterm_aggregation.md) | Term |[Keyword](../../api/field_type_reference.md#keyword-field-type)|
-|[SelectionTermAggregation](aggregation_reference/selectionterm_aggregation.md) | Term |[Selection](../../api/field_type_reference.md#selection-field-type)|
-|[TimeRangeAggregation](aggregation_reference/timerange_aggregation.md) | Range |[Time](../../api/field_type_reference.md#time-field-type)|
+|[AuthorTermAggregation](aggregation_reference/authorterm_aggregation.md) | Term | [Author](../../api/field_types_reference/authorfield.md) |
+|[CheckboxTermAggregation](aggregation_reference/checkboxterm_aggregation.md) | Term |[Checkbox](../../api/field_types_reference/checkboxfield.md)|
+|[CountryTermAggregation](aggregation_reference/countryterm_aggregation.md) | Term |[Country](../../api/field_types_reference/countryfield.md)|
+|[DateRangeAggregation](aggregation_reference/daterange_aggregation.md) | Range |[Date](../../api/field_types_reference/datefield.md)|
+|[DateTimeRangeAggregation](aggregation_reference/datetimerange_aggregation.md) | Range |[DateTime](../../api/field_types_reference/dateandtimefield.md)|
+|[FloatRangeAggregation](aggregation_reference/floatrange_aggregation.md) | Range |[Float](../../api/field_types_reference/floatfield.md)|
+|[FloatStatsAggregation](aggregation_reference/floatstats_aggregation.md) | Stats |[Float](../../api/field_types_reference/floatfield.md)|
+|[IntegerRangeAggregation](aggregation_reference/integerrange_aggregation.md) | Range |[Integer](../../api/field_types_reference/integerfield.md)|
+|[IntegerStatsAggregation](aggregation_reference/integerstats_aggregation.md) | Stats |[Integer](../../api/field_types_reference/integerfield.md)|
+|[KeywordTermAggregation](aggregation_reference/keywordterm_aggregation.md) | Term |[Keyword](../../api/field_types_reference/keywordfield.md)|
+|[SelectionTermAggregation](aggregation_reference/selectionterm_aggregation.md) | Term |[Selection](../../api/field_types_reference/selectionfield.md)|
+|[TimeRangeAggregation](aggregation_reference/timerange_aggregation.md) | Range |[Time](../../api/field_types_reference/timefield.md)|

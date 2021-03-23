@@ -11,7 +11,8 @@ between installations by using the migration script.
 
 To export Repository content, use the `ibexa:migrations:generate` command.
 This command generates a YAML file with the requested part of the Repository.
-The file is located by default in the `src/Migrations/Ibexa` folder.
+The file is located by default in the `src/Migrations/Ibexa/migrations` folder
+or in [a custom folder that you configure](#migration-folders).
 You can later use this file to import the data.
 
 ``` bash
@@ -138,7 +139,8 @@ php bin/console ibexa:migrations:generate --type=content --mode=create --user-co
 
 To import Repository data from a YAML file, run the `ibexa:migrations:migrate` command.
 
-Place your import file in the `src/Migrations/Ibexa` folder.
+Place your import file in the `src/Migrations/Ibexa/migrations` folder
+or in [a custom folder that you configure](#migration-folders).
 The command takes the file name within this folder as parameter.
 
 ``` bash
@@ -163,13 +165,36 @@ You can also convert multiple files using `ibexa:migrations:kaliop:bulk-convert`
 php bin/console ibexa:migrations:kaliop:bulk-convert --recursive --input-directory=kaliop_files --output-directory=ibexa_files
 ```
 
-If you do not specify the output directory, the command overwrites the input files.
+If you do not specify the output folder, the command overwrites the input files.
 
 ## Adding migration files
 
-Use the `ibexa:migrations:import` command to add files to the migration directory defined in configuration
-(by default, `src/Migrations/Ibexa`).
+Use the `ibexa:migrations:import` command to add files to the migration folder defined in configuration
+(by default, `src/Migrations/Ibexa/migrations`).
 
 ``` bash
 php bin/console ibexa:migrations:import my_data_export.yaml
+```
+
+## Checking migration status
+
+To check the status of migration files in the migration folder defined in configuration,
+run the following command:
+
+``` bash
+php bin/console ibexa:migrations:status
+```
+
+The command lists the migration files and indicates which of them have already been migrated.
+
+## Migration folders
+
+The default migration folder is `src/Migrations/Ibexa/migrations`.
+
+You can configure a different folder by using the following settings:
+
+``` yaml
+ibexa_migrations:
+    migration_directory: %kernel.project_dir%/src/Migrations/MyMigrations/
+    migrations_files_subdir: migration_files
 ```

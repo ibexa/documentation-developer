@@ -20,7 +20,7 @@ Go to the front page of your website (`<yourdomain>`). You can see that it looks
 
     `yarn encore <dev|prod>`
 
-Log in to the Back Office. Go to Content &gt; Content Structure.
+Log in to the Back Office. Go to **Content** -> **Content Structure**.
 The **Ibexa Digital Experience Platform** Content item is the first page that is shown to the visitor.
 Here you can check what Content Type it belongs to: it is a Landing Page.
 
@@ -132,7 +132,7 @@ The above template creates two columns and defines their widths. Each column is 
 !!! note
 
     A zone in a layout template **must have** the `data-ez-zone-id` attribute (lines 2 and 19).
-    A block **must have** the `data-ez-block-id` attribute (lines 7 and 24)
+    A block **must have** the `data-ez-block-id` attribute (lines 7 and 24).
 
 With these three elements: configuration, icon and template, the new layout is ready to use.
 
@@ -151,7 +151,7 @@ The empty zones you defined in the template will be visible in the editor.
 ![Empty page with new layout](img/enterprise_tut_new_layout.png)
 
 Publish the Home Page. You will notice that it still has some additional text information.
-This is because the looks of a Page are controller by two separate template files, and you have only prepared one of those.
+This is because the looks of a Page are controlled by two separate template files, and you have only prepared one of those.
 The `sidebar.html.twig` file defines how zones are organized and how content is displayed in them.
 But you also need a general template file that will be used for every Page, regardless of its layout.
 
