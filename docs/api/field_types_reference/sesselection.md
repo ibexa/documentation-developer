@@ -2,7 +2,7 @@
 
 This Field Type stores a single selection choice. 
 
-Unlike the [Selection Field Type](selection_field_type.md),
+Unlike the [Selection Field Type](selectionfield.md),
 the SesSelection Field Type is configured in a YAML file.
 For that reason, it is possible to set up SiteAccess-specific selection Field Types.
 
