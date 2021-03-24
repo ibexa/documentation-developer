@@ -108,7 +108,7 @@ $input = new InputLoadList(
 $output = $this->getBusinessApi()->call('catalog.load_products', $input);
 
 $html = $this->renderView(
-    'SilversolutionsEshopBundle:Catalog:listProductNodes.html.twig',
+    '@SilversolutionsEshopBundle/Catalog/listProductNodes.html.twig',
     array(
         'catalogList' => $output->catalogList,
         'params' => $data,
