@@ -5,7 +5,7 @@
 By default, ERP messages and emails are stored in the database.
 All other log entries are stored in `var/log/silver.eshop.log`.
 
-All emails that are sent with [`MailHelperService`](../../api/commerce_api/helper_services/mailhelperservice.md) are logged automatically.
+All emails that are sent with `MailHelperService` are logged automatically.
 
 ## Sensitive user data
 
@@ -20,4 +20,4 @@ siso_core.default.gdpr.store_user_id_in_logs: false
 
 If the email text contains a password that should not be logged in the DB, you have to specify this password as a template parameter.
 
-[`MailHelperService`](../../api/commerce_api/helper_services/mailhelperservice.md) replaces the template parameter `password` with `***`.
+`MailHelperService` replaces the template parameter `password` with `***`.

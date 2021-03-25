@@ -39,11 +39,16 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [RelationList](field_types_reference/relationlistfield.md) | Validates and stores a list of relations to Content items. | Yes, with [`FieldRelation` Criterion](../guide/search/criteria_reference/fieldrelation_criterion.md) | Yes |
 | [RichText](field_types_reference/richtextfield.md) | Validates and stores structured rich text in DocBook xml format, and exposes it in several formats. Available via [RichTextBundle](https://github.com/ezsystems/ezplatform-richtext). | Yes[^1^](#1-note-on-legacy-search-engine)  | Yes |
 | [Selection](field_types_reference/selectionfield.md) | Validates and stores a single selection or multiple choices from a list of options. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
+| [SesExternaldata](field_types_reference/sesexternaldata.md) | Uses external storage to store data. |||
+| [SesProfiledata](field_types_reference/sesprofiledata.md) | Stores address data for a customer. | No | No |
+| [SesSelection](field_types_reference/sesselection.md) | Stores a single selection choice based on options from a YAML file. | Yes | Yes |
+| [SpecificationsType](field_types_reference/specificationstype.md) | Stores a structured list of specification data for products. | Yes | Yes |
 | [TextBlock](field_types_reference/textblockfield.md) | Validates and stores a larger block of text. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [TextLine](field_types_reference/textlinefield.md) | Validates and stores a single line of text. | Yes | Yes |
 | [Time](field_types_reference/timefield.md) | Stores time information. | Yes | Yes |
 | [Url](field_types_reference/urlfield.md) | Stores a URL / address. | No | Yes |
 | [User](field_types_reference/userfield.md) | Validates and stores information about a user. | No | No |
+| [VariantType](field_types_reference/varianttype.md) | Stores variant data for products. | Yes | Yes |
 
 <a id="1-note-on-legacy-search-engine"></a>**^[1]^ Note on Legacy Search Engine**
 
