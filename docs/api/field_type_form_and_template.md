@@ -117,7 +117,7 @@ The `fieldType` key has to correspond to the name of your Field Type.
 
 ## Content view templates
 
-To render the Field in content view using the [`ez_render_field()` Twig helper](../guide/twig_functions_reference.md#ez_render_field),
+To render the Field in content view using the [`ez_render_field()` Twig helper](../guide/content_rendering/twig_function_reference/field_twig_functions.md#ez_render_field),
 you need to define a template containing a block for the Field.
 
 ``` html+twig
