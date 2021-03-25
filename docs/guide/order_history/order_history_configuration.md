@@ -2,6 +2,8 @@
 
 You can change a number of different parameters to configure the behavior of the **Order History** page.
 
+## General settings
+
 To configure the number of documents displayed on one page, use the following setting:
 
 ``` yaml
@@ -32,6 +34,17 @@ siso_order_history:
         start: 2 years
         end: 0 days
         max_start: 4 years
+```
+
+You can configure the date format that is used in the shop
+and the format in which dates are sent to ERP:
+
+``` yaml
+parameters:
+    siso_order_history.default.date_format: 'd.m.Y'
+
+    # date format that is used for communication with ERP
+    siso_order_history.default.erp_date_format: 'Ymd' 
 ```
 
 ## Column configuration
@@ -97,17 +110,4 @@ siso_order_history:
         delivery_note: [[1, 'desc']]
         order: [[1, 'desc']]
         credit_memo: [[1, 'desc']]
-```
-
-## Date format
-
-You can configure the date format that is used in the shop
-and the format in which dates are sent to ERP:
-
-``` yaml
-parameters:
-    siso_order_history.default.date_format: 'd.m.Y'
-
-    # date format that is used for communication with ERP
-    siso_order_history.default.erp_date_format: 'Ymd' 
 ```
