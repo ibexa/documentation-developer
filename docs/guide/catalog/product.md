@@ -50,9 +50,9 @@ You also need to configure the Content Type to be treated as `createOrderablePro
 parameters.silver_eshop.default.catalog_factory.<content_type_identifier>: createOrderableProductNode
 ```
 
-## Prouct specifications
+## Product specifications
 
-You can configure the available product specifications and default values using the following configuration:
+You can configure the available product specifications and default values by using the following configuration:
 
 ``` yaml
 siso_core.default.specification_groups:
@@ -72,4 +72,4 @@ siso_core.default.specification_groups:
                 options: ['mm','cm']
 ```
 
-The optional `option` attribute enables you to add a select field offering e.g. a selection of units.
+With the optional `option` attribute you can add a select field that offers, for example, a selection of units.

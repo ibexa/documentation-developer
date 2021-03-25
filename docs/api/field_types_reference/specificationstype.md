@@ -1,6 +1,6 @@
 # SpecificationsType
 
-The Field Type stores a structured list of attributes for products.
+This Field Type stores a structured list of attributes for products.
 
 !!! caution "Field naming"
 

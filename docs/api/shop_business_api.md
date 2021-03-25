@@ -3,7 +3,7 @@
 Shop business API is the layer between the application entry points (like controllers or CLI commands) and the particular shop-related services.
 
 To access the Shop business API, you have to use the Business API invocation service.
-This service is the access point to the Business API and defined by a service with the ID `ses_eshop.business_api.invocation`.
+This service is the access point to the Business API and is defined by a service with the ID `ses_eshop.business_api.invocation`.
 
 To call the operation service, use the `call()` method.
 
@@ -41,7 +41,7 @@ $output = $this->get('ses_eshop.business_api.invocation')->call('basket.get_bask
 
 ``` php
 $outputGetBasket = $this->getBusinessApi()->call('basket.get_basket', $inputGetBasket);
-//clear all messages for each request
+// Clear all messages for each request
 $outputGetBasket->basket->clearAllMessages();
 $itemData = new ItemData(
     array(
@@ -51,6 +51,7 @@ $itemData = new ItemData(
         'sku'         => '1000',
     )
 );
+
 /** @var InputAddItemToBasket $inputAddItemToBasket */
 $inputAddItemToBasket = new InputAddItemToBasket(
    array(
@@ -58,13 +59,14 @@ $inputAddItemToBasket = new InputAddItemToBasket(
        'basket'   => $outputGetBasket->basket,
    )
 );
+
 try {
     $outputGetBasket = $this->getBusinessApi()->call('basket.add_products', $inputAddItemToBasket);
 } catch (\InvalidArgumentException $e) {
     // ....
 }
+
 $message = $this->getBasketMessage($outputGetBasket->basket);
-    
 ```
 
 ## getBasket

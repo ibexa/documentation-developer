@@ -41,7 +41,7 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Selection](field_types_reference/selectionfield.md) | Validates and stores a single selection or multiple choices from a list of options. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [SesExternaldata](field_types_reference/sesexternaldata.md) | Uses external storage to store data. |||
 | [SesProfiledata](field_types_reference/sesprofiledata.md) | Stores address data for a customer. | No | No |
-| [SesSelection](field_types_reference/sesselection.md) | Stores a single selection choice using options from a YAML file. | Yes | Yes |
+| [SesSelection](field_types_reference/sesselection.md) | Stores a single selection choice based on options from a YAML file. | Yes | Yes |
 | [SpecificationsType](field_types_reference/specificationstype.md) | Stores a structured list of specification data for products. | Yes | Yes |
 | [TextBlock](field_types_reference/textblockfield.md) | Validates and stores a larger block of text. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [TextLine](field_types_reference/textlinefield.md) | Validates and stores a single line of text. | Yes | Yes |

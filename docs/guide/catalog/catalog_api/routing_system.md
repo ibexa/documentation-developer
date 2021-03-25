@@ -66,7 +66,7 @@ The router is defined with the priority of 280, so you can still add your own ch
 
 ## Usage of the navigation service
 
-In order to determine whether a URL belongs to the catalog or silver module,
+To determine whether a URL belongs to the catalog or a silver module,
 the navigation service or the [catalog data provider](../../data_providers/data_providers.md) is used.
 
 Additionally, the router uses the navigation service in order to set the URL mapping and set the proper URL.
