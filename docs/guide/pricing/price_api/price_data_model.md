@@ -2,7 +2,7 @@
 
 The `Siso\Bundle\PriceBundle\Model` class defines a generic price object.
 When attached to a [`ProductNode`](../../catalog/catalog_api/productnode.md) object,
-[`PriceField`](../../../api/commerce_api/fields_for_ecommerce_data/pricefield.md) is used.
+`PriceField` is used.
 
 ## Properties
 
