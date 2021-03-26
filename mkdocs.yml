@@ -234,14 +234,10 @@ nav:
                 - 'Quick order configuration': 'guide/quick_order/quick_order_configuration.md'
                 - 'Quick order templates': 'guide/quick_order/quick_order_templates.md'
             - Order history:
-                - 'Orderhistory': 'guide/order_history/orderhistory.md'
-                - 'ERP messages': 'guide/order_history/order_history_features/orderhistory_erp_messages.md'
-                - 'Local orders': 'guide/order_history/order_history_features/orderhistory_local_orders.md'
-                - 'Orderhistory configuration': 'guide/order_history/orderhistory_configuration.md'
-                - 'Orderhistory API': 'guide/order_history/orderhistory_api.md'
-                - 'Orderhistory templates': 'guide/order_history/orderhistory_templates.md'
-                - 'Displaying custom column': 'guide/order_history/displaying_custom_column.md'
-                - 'Overriding semantic configuration': 'guide/order_history/overriding_semantic_configuration.md'
+                - 'Order history': 'guide/order_history/order_history.md'
+                - 'Local orders': 'guide/order_history/order_history_local_orders.md'
+                - 'Order history configuration': 'guide/order_history/order_history_configuration.md'
+                - 'Order history templates': 'guide/order_history/order_history_templates.md'
             - Vouchers:
                 - 'Vouchers': 'guide/vouchers/vouchers.md'
                 - 'Voucher templates': 'guide/vouchers/voucher_templates.md'
