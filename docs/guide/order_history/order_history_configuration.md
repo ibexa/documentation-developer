@@ -43,7 +43,7 @@ and the format in which dates are sent to ERP:
 parameters:
     siso_order_history.default.date_format: 'd.m.Y'
 
-    # date format that is used for communication with ERP
+    # Date format that is used for communication with ERP
     siso_order_history.default.erp_date_format: 'Ymd' 
 ```
 
