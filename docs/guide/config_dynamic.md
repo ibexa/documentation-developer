@@ -65,11 +65,11 @@ services:
         arguments: ['@ezpublish.config.resolver']
 ```
 
-You can also use the [autowire feature](https://symfony.com/doc/current/service_container/autowiring.html), by type-hinting against ConfigResolverInterface.
+You can also use the [autowire feature](https://symfony.com/doc/current/service_container/autowiring.html), by type hinting against ConfigResolverInterface.
 
 !!! note
 
-    Do not store the retrieved config value unless you know what you're doing. 
+    Do not store the retrieved config value unless you know what you are doing. 
     SiteAccess can change during code execution, which means you might work on the wrong value.
 
 ``` php
