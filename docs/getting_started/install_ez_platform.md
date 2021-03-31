@@ -140,28 +140,28 @@ To install all necessary product packages, run:
 === "[[= product_name_content =]]"
 
     ``` bash
-    composer require ibexa/content:^3.3
+    composer require ibexa/content:^3.3 -W
     ```
 
 === "[[= product_name_exp =]]"
 
     ``` bash
-    composer require ibexa/experience:^3.3
+    composer require ibexa/experience:^3.3 -W
     ```
 
 === "[[= product_name_com =]]"
 
     ``` bash
-    composer require ibexa/commerce:^3.3
+    composer require ibexa/commerce:^3.3 -W
     ```
 
 !!! tip
 
     You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md):
-    specific tag (`v3.3.0`), version range (`~3.3.0`), stability (`^3.3@rc`), etc.:
+    specific tag (`v3.3.2`), version range (`~3.3.2`), stability (`^3.3@rc`), etc.:
 
     ``` bash
-    composer require ibexa/experience:v3.3.0
+    composer require ibexa/experience:v3.3.2 -W
     ```
 
 !!! note "Platform.sh"
