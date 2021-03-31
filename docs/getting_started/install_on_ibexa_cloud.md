@@ -12,10 +12,14 @@ composer ibexa:setup --platformsh
 
 This command adds to your project configuration files required for using Ibexa Cloud.
 
-You can adapt the configuration in two places:
+You can adapt the configuration in the following places:
 
 - `.platform.app.yaml` - main configuration
 - `.platform/services.yml` - additional services such as search engines or cache
+- `.platform/routes.yml` - routes to additional services, for example Fastly
+
+For details about available configuration settings,
+refer to [Platform.sh documentation.](https://docs.platform.sh/configuration/app.html)
 
 ### Disk space
 
@@ -38,6 +42,9 @@ Configuration under `hooks` defines the process of building and deploying your p
 
 `.platform/services.yaml` contains prepared setting blocks that you can uncomment
 to enable services such as Solr or Elasticsearch, or persistent Redis session storage.
+
+For information about available services,
+see [Platform.sh documentation.](https://docs.platform.sh/configuration/services.html)
 
 If you enable any of the services, you need to uncomment the relevant relationship
 under the `relationship` key in `.platform.app.yaml` as well.
