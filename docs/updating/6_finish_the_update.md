@@ -34,7 +34,7 @@ yarn encore prod
 Once all the conflicts have been resolved, and `composer.lock` updated, you can commit the merge.
 
 Note that you may or may not keep `composer.lock`, depending on your version management workflow.
-If you do not wish to keep it, run `git reset HEAD <file>` to remove it from the changes.
+If you do not wish to keep it, run `git reset HEAD composer.lock` to remove it from the changes.
 Run `git commit`, and adapt the message if necessary.
 
 Go back to `master`, and merge your update branch:
@@ -49,7 +49,7 @@ git merge <branch_name>
     To ensure that no users have unsupported, insecure password hashes, run the following command:
     
     ``` bash
-    php bin/console ezplatform:user:validate-password-hashes
+    php bin/console ibexa:user:validate-password-hashes
     ```
     
     This command checks if all user hashes are up-to-date and informs you if any of them need to be updated.

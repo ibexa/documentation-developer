@@ -5,7 +5,7 @@ If you are updating to v3.0 from a lower version, you need to make a number of m
 !!! caution
 
     Perform these steps only if you are updating to version v3.0.
-    If not, move on to the [5. Update the database](5_update_database) step.
+    If not, move on to the [5. Update the database](5_update_database.md) step.
 
 ## Familiarize yourself with a new project structure
 

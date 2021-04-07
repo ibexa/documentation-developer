@@ -1,6 +1,6 @@
 # 2. Resolve conflicts
 
-## 2.1. Resolve conflicts in `composer.lock`
+## 2.1. Resolve conflicts
 
 Ignore the conflicts in `composer.lock`, because this file is regenerated when you execute `composer update` later.
 It is easiest to check out the version of the file from the tag and add it to the changes.

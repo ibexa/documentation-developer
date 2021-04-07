@@ -12,7 +12,7 @@ mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-k
 
 ## Changes to timestamp
 
-A new timestamp column has been added in order to keep track of when items were trashed, this is exposed in the API but not yet in UI.
+A new timestamp column has been added in order to keep track of when items were trashed.
 
 To apply this change, use the following database update script:
 

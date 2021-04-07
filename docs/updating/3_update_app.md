@@ -32,6 +32,6 @@ Next, you need to perform version-specific steps depending on which version you 
 ??? note "Updating from <3.0"
 
     If your application consists of several packages that are placed in locations other than the `src/` folder, 
-    apply the suggestions from the upgrade documentation to all the packages before you run `composer update`.
+    apply the suggestions from the [3.0 upgrade documentation](4_upgrade_the_code.md) to all the packages before you run `composer update`.
 
 If you experience issues during the update, see [Troubleshooting](../getting_started/troubleshooting.md#cloning-failed-using-an-ssh-key).
