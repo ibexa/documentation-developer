@@ -4,6 +4,10 @@ To change configuration settings for the shop, go to **eCommerce** > **Configura
 
 For some of the settings, you can configure them differently for different SiteAccesses.
 
+!!! note
+
+    Make sure you have Commerce enabled. For more information, see [Enable Commerce features](../guide/config_back_office.md#Enable Commerce features).
+
 ![](img/shop_configuration_settings.png)
 
 !!! caution

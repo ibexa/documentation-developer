@@ -196,3 +196,27 @@ ezplatform:
                     additional_icons: /assets/images/icons/additional_icons.svg
                 default_icon_set: my_icons
 ```
+
+## Enable Commerce features
+
+Commerce features setting `commerce.enabled` by default is set to `false`. 
+If you want to enable and use Commerce features in Content and Experience editions or Commerce edition, go to `config\packages\ecommerce.yaml`
+and set the following:
+
+``` yaml
+ezplatform:
+    system:
+        default:
+            commerce:
+                enabled: true
+```
+
+Becasue Commerce installation for Content and Experience editions is optional, you must install Commerce-related data. Run the following command:
+
+```bash
+php bin/console ibexa:upgrade --force
+```
+
+!!! tip
+
+    It is recommended to run `php bin/console cache:clear` between changing the setting and upgrading command.
