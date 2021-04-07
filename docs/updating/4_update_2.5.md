@@ -46,6 +46,14 @@ Additionally, reindex the content:
 php bin/console ezplatform:reindex
 ```
 
+### v2.5.18
+
+To update to v2.5.18, additionally run the following update script:
+
+``` sql
+ALTER TABLE ezpage_attributes MODIFY value LONGTEXT;
+```
+
 ## Changes to database schema
 
 The introduction of [support for PostgreSQL](../guide/databases.md#using-postgresql) includes a change in the way database schema is generated.

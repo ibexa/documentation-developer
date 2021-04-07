@@ -163,6 +163,14 @@ Check the Location ID of the "Components" Content item and set it as a value of 
 If you are upgrading between Ibexa Commerce versions,
 add the `content/read` Policy with the Owner Limitation set to `self` to the "Ecommerce registered users" Role.
 
+### v3.3.2
+
+To update to v3.3.2, additionally run the following update script:
+
+``` sql
+ALTER TABLE ezpage_attributes MODIFY value LONGTEXT;
+```
+
 ## Finish the update
 
 Finish the update by running the following commands:

@@ -30,6 +30,14 @@ If you are updating from a version prior to 3.0, you have to implement all the c
 
     `psql <database_name> < upgrade/db/postgresql/ezplatform-3.1.0-to-3.2.0.sql`
 
+### v3.2.6
+
+To update to v3.2.6, additionally run the following update script:
+
+``` sql
+ALTER TABLE ezpage_attributes MODIFY value LONGTEXT;
+```
+
 ## Continue with the update procedure
 
 At this point you can continue with the standard update procedure:
