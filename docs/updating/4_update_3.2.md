@@ -32,10 +32,10 @@ If you are updating from a version prior to 3.0, you have to implement all the c
 
 ### v3.2.6
 
-To update to v3.2.6, additionally run the following update script:
+To update to v3.2.6, additionally run the following update script, if you are using MySQL:
 
 ``` sql
-ALTER TABLE ezpage_attributes MODIFY value LONGTEXT;
+mysql -u <username> -p <password> <database_name> < upgrade/db/mysql/ezplatform-3.2.5-to-3.2.6.sql
 ```
 
 ## Continue with the update procedure
