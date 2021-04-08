@@ -93,15 +93,6 @@ After this, when running Composer to get updates, you will be asked for a userna
 - as username - your Installation key found on the **Maintenance and Support agreement details** page in the service portal
 - as password - the token password you retrieved in step 3 above.
 
-!!! note
-
-    If you are using Platform.sh, you can set the token as an environment variable.
-
-    When you do, make sure the **Visible during runtime** box in Platform.sh configuration is unchecked.
-    This will ensure that the token is not exposed.
-
-    ![Setting token to be invisible during runtime](img/psh_addvariable.png)
-
 !!! note "Authentication token validation delay"
 
     You can encounter some delay between creating the token and being able to use it in Composer. It might take up to 15 minutes.
@@ -413,3 +404,7 @@ To make use of the [Link Manager](../guide/url_management.md), you must [set up 
 
 To provide the `JMS_PAYMENT_SECRET` secret for the [[= product_name_com =]] payment system, run `./vendor/defuse/php-encryption/bin/generate-defuse-key`
 and use the generated secret.
+
+## Ibexa Cloud
+
+If you want to host your application on Ibexa Cloud, follow the [Install on Ibexa Cloud](install_on_ibexa_cloud.md) procedure.
