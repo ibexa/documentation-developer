@@ -59,7 +59,7 @@ The notification will be displayed in the Back Office after login and in the Use
 
 You can set a rule that the password cannot be reused.
 You set it for the User Content Type in the **User account (ezuser)** Field Type's settings.
-When this is set, the user will not be able to set a password that had been in use before.
+When this is set, the user cannot type in the same password as before, when it expires. It has to be changed to a new one. (Please note that this only checks the new password against the current one. A password that is older than this can be used again.)
 
 This rule is valid by default when password expiration is set.
 
