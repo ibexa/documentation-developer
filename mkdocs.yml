@@ -6,6 +6,7 @@ nav:
     - Getting started:
         - 'Requirements': 'getting_started/requirements.md'
         - 'Install Ibexa DXP': 'getting_started/install_ez_platform.md'
+        - 'Install on Ibexa Cloud': 'getting_started/install_on_ibexa_cloud.md'
         - 'First steps': 'getting_started/first_steps.md'
         - 'Troubleshooting': 'getting_started/troubleshooting.md'
     - Tutorials:
