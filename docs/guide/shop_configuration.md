@@ -6,7 +6,7 @@ For some of the settings, you can configure them differently for different SiteA
 
 !!! note
 
-    Make sure you have Commerce enabled. For more information, see [Enable Commerce features](../guide/config_back_office.md#Enable Commerce features).
+    Make sure you have Commerce enabled. For more information, see [Enable Commerce features](../guide/config_back_office.md#enable-commerce-features).
 
 ![](img/shop_configuration_settings.png)
 

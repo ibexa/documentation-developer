@@ -199,7 +199,7 @@ ezplatform:
 
 ## Enable Commerce features
 
-Commerce features setting `commerce.enabled` by default is set to `false`. 
+The `commerce.enabled` setting responsible for displaying the eCommerce tab, Content and Field types for Commerce in the Back Office, is set to `false` by default.
 If you want to enable and use Commerce features in Content and Experience editions or Commerce edition, go to `config\packages\ecommerce.yaml`
 and set the following:
 
@@ -211,12 +211,14 @@ ezplatform:
                 enabled: true
 ```
 
-Becasue Commerce installation for Content and Experience editions is optional, you must install Commerce-related data. Run the following command:
+!!! tip
+
+    It is recommended to run `php bin/console cache:clear` between changing the setting and upgrading command.
+
+Because Commerce installation for Content and Experience editions is optional,
+to use Commerce features you must install Commerce-related data.
+Run the following command:
 
 ```bash
 php bin/console ibexa:upgrade --force
 ```
-
-!!! tip
-
-    It is recommended to run `php bin/console cache:clear` between changing the setting and upgrading command.
