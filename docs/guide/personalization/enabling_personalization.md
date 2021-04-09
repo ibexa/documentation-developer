@@ -17,7 +17,7 @@ On the welcome screen, enter the following details in their respective fields:
 Select the **I have read and agree to the Terms and Conditions.** checkbox, and then click **Submit**.
 Your request is sent to Ibexa, and you will receive a confirmation email in response.
 
-## Configuring mandator credentials
+## Configuring customer credentials
 
 When you receive the confirmation email, you must add the credentials to your configuration.
 In the root folder of your project, edit either the `.env` or `.env.local` file by adding two lines that 

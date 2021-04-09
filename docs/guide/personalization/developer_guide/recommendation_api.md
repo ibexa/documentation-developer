@@ -18,13 +18,13 @@ The request for recommendations uses the following pattern:
 
 `GET https://reco.yoochoose.net/api/v2/[customerid]/[userid]/[scenarioid].[extension]?parameter=value&[attribute=attributekey]`
 
-### Request parameters
+## Request parameters
 
 For the request to return recommendations, you must provide the following parameters:
 
 |Parameter|Description|Value|
 |---|---|---|
-|`customerid`|Your customer ID, as defined when [enabling Personalization](../enabling_personalization.md#configuring-mandator-credentials) (for example, "00000").|alphanumeric|
+|`customerid`|Your customer ID, as defined when [enabling Personalization](../enabling_personalization.md#configuring-customer-credentials) (for example, "00000").|alphanumeric|
 |`userid`|An ID of the tracked user in the website (for example, an internal customer code, a session code or a cookie for anonymous users.|alphanumeric|
 |`scenarioid`|An ID of the scenario used for providing recommendations, as defined in the Back Office.|alphanumeric|
 |`extension`|A format of the response (either JSON or JSONP).|`json` or `jsonp`|
@@ -33,7 +33,7 @@ For the request to return recommendations, you must provide the following parame
 
     All parameters must be URL-encoded (see RFC 3986) and cannot contain a backslash (`%5C`) character.
 
-#### Customizing the recommendation request
+### Customizing the recommendation request
 
 You can customize the recommendation request by using additional query string parameters. 
 For example, you can send the following request to the recommendation engine: 
@@ -57,7 +57,7 @@ You can use the following parameters to customize a request:
 |`usecontextcategorypath`| |Used in conjunction with `categorypath`. If set to true, the category path of given context item(s) is resolved by the recommendation engine from the internal store and used as base category path. If more than one category is returned, all categories are used for providing recommendations. Setting this parameter to true increases the response time. If possible, use the `categorypath` parameter to provide the category to the recommender engine during the request. The default value is false.|boolean|
 |`recommendCategory`| |Used in conjunction with `categorypath`. If set to true, the neighboring category linked with the recommended items is delivered in the response as an additional field `category`. Helps find a suitable template for articles from several categories.<br/>For example, take an article about American football. The article is categorized as `Sport/Football` and `America/USA`. Depending on the category, the webpage displays a football field or an American flag in the background. If the article is recommended and clicked in the `Sport/Cricket` category, it must open with the "field" template. If clicked in the `America/Canada` category, it must open with the "flag" template. The category is returned only if the article is located in several categories and the "closer" category is found. The default value is false.|boolean|
 
-##### Submodel Parameters
+##### Submodel parameters
 
 If your recommendation model uses submodels to group content items/products based on an attribute, you can pass the following parameters to request recommendations for a specific group. 
 For more information, see [Submodels](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#submodels).
@@ -78,6 +78,10 @@ For more information, see inline comments below.
 
     You can preview the actual responses that come from the recommendation engine and how they are rendered in the user interface.
     For more information, see [Scenarios](https://doc.ibexa.co/projects/userguide/en/latest/personalization/scenarios/#previewing-scenario-results).
+    
+For more information about integrating recommendations in the web page, see [Best practices](../best_practices/recommendation_integration.md).
+
+### Response object format
 
 A JSON response can look like this:
 
@@ -194,9 +198,7 @@ jsonpCallback({
 })
 ```
 
-For more information about integrating recommendations in the web page, see [Best practices](../best_practices/recommendation_integration.md).
-
-##  Response codes
+### HTTP response codes
 
 The following HTTP response codes are used by the recommendation controller:
 

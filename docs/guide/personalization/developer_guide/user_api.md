@@ -34,7 +34,7 @@ For the requests to function, you must provide the following parameters:
 
 |Parameter|Description|Value|
 |---|---|---|
-|`customerid`|Your customer ID, as defined when [enabling Personalization](../enabling_personalization.md#configuring-mandator-credentials) (for example, "00000").|alphanumeric|
+|`customerid`|Your customer ID, as defined when [enabling Personalization](../enabling_personalization.md#configuring-customer-credentials) (for example, "00000").|alphanumeric|
 |`source`|An ID of the source of the specified user's metadata.|alphanumeric|
 |`userid`|An ID of the tracked user in the website (for example, an internal customer code, a session code or a cookie for anonymous users.|alphanumeric|
   
@@ -43,7 +43,7 @@ For the requests to function, you must provide the following parameters:
       All parameters must be URL-encoded (see RFC 3986) and cannot contain slash, backslash or space 
       characters.
       
-### Source
+##### Source
 
 The `source` parameter defines the system that stores the specified user's metadata. 
 If you have multiple source systems for updating user attributes, 
@@ -58,7 +58,7 @@ If you need to get all the available attributes for all sources, apply the `allS
 
 When you do that, and the source returned is different from the source passed in the request (in this case, "facebook"), an additional attribute `source` is added to the [XML object](#metadata-object-format).
 
-### User ID
+##### User ID
 
 User ID is a case-sensitive combination of characters.
 If transferred as part of the URL, the attribute must be URL-encoded. 
@@ -70,7 +70,10 @@ For example:
 |---------------------|-------------------------|---------------------------|
 | `Customer<12.2014>` | `Customer%3C12.2014%3E` | `Customer&lt;12.2014&gt;` |
 
-## Metadata object format
+
+## Response handling
+
+### Response object format
 
 For an example of user metadata, see the following XML code. 
 The attribute keys and values are chosen at random.
