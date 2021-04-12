@@ -1,7 +1,7 @@
 # Extending thumbnails
 
 The thumbnails API enable you to easily choose an image for a specific content.
-If you do not want to use custom thumbnails `ContentType` will be used instead.
+If you do not want to use custom thumbnails, `ContentType` will be used instead.
 
 ## Thumbnail mechanism 
 
