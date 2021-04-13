@@ -5,6 +5,6 @@ ezdesign:
         eshop_base_theme:
             - '%kernel.project_dir%/vendor/ezsystems/ezcommerce-shop/src/Silversolutions/Bundle/EshopBundle/Resources/views'
         checkout_base_theme:
-            - '%kernel.project_dir%/vendor/ezsystems/ezcommerce-checkout/src/bundle/Resources/views/themes/base_theme/'
+            - '%kernel.project_dir%/vendor/ezsystems/ezcommerce-checkout/src/bundle/Resources/views/themes/standard/'
         transaction_theme:
-            - '%kernel.project_dir%/vendor/ezsystems/ezcommerce-transaction/src/Siso/Bundle/ShopFrontendBundle/Resources/views/themes/base_theme/'
+            - '%kernel.project_dir%/vendor/ezsystems/ezcommerce-transaction/src/Siso/Bundle/ShopFrontendBundle/Resources/views/themes/standard/'

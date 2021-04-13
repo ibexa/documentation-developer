@@ -31,9 +31,6 @@ Use the GET method to retrieve all information that is stored in the database fo
 
 `GET: https://admin.yoochoose.net/api/[customerid]/item/[itemtypeid]/[itemid]`
 
-If the item is not found, the interface responds with status `404 (Not found)`. 
-Otherwise, it responds with status `200 (OK)`.
-
 ## POST requests
 
 Use the POST request to create or update items with the given ID in the database:
@@ -41,9 +38,6 @@ Use the POST request to create or update items with the given ID in the database
 `POST: https://admin.yoochoose.net/api/[customerid]/item`
 
 A body of the request must contain a valid XML document.
-If the XML content cannot be validated, the interface responds with status `400 (Bad Request)`. 
-Otherwise it responds with status `202 (Accepted)`.
-
 Once uploaded, the item is scheduled to be inserted in the database, and it is not directly available.
 
 ## Request parameters
@@ -52,12 +46,12 @@ The following call attributes are available:
 
 | Parameter name | Description | Value |
 |---|---|---|
-| `customerid` | Your customer ID, as defined when [enabling Personalization](../enabling_personalization.md#configuring-mandator-credentials) (for example, "00000"). | alphanumeric |
+| `customerid` | Your customer ID, as defined when [enabling Personalization](../enabling_personalization.md#configuring-customer-credentials) (for example, "00000"). | alphanumeric |
 | `itemid` | A unique ID of the Content item/product. Used to identify the item in the database. | integer |
 | `itemtypeid` | An ID of the type of Content item/product. In most cases, the value is 1 but you might have items/products of more than one type. | integer |
 
 
-### Item object format
+### Request object format
 
 An XML representation of the data object used for item import can look like this: 
 
@@ -153,7 +147,7 @@ This can prove useful for a news agency, where new items are published very ofte
 You can upload any data under the `<content>` key of the XML object.
 This data is used in full-text analysis models only.
 
-### Custom attributes
+#### Custom attributes
 
 You can also define custom attributes under the `<attributes>` key.
 This section can only contain values that are distinct and used to build pre-filtered models.
@@ -181,6 +175,19 @@ To upload the value to the data store, add the following line under the `<attrib
 
 You can have multiple attributes with the same name and different type. 
 For example, `size` can be expressed as a number (40.5) or as a code ("L").
+
+## Response handling
+
+### HTTP response codes
+
+The following HTTP response codes are used by the recommendation controller:
+
+|HTTP Status Code|Description|
+|---|---|
+|200 OK|The GET request was processed successfully.|
+|202 Accepted|The POST request was processed successfully.|
+|400 Bad Request|Wrong request formatting. The XML content cannot be validated.|
+|404 Not Found|The element requested by the GET request was not found.|
 
 ## Transferring item identifiers
 

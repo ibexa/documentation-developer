@@ -41,8 +41,8 @@ see the [How to Remove a Bundle](http://symfony.com/doc/5.0/bundles/remove.html)
 |[ezsystems/ezplatform-graphql](https://github.com/ezsystems/ezplatform-graphql)|GraphQL server for [[= product_name =]]|
 |[ezsystems/ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache)|[HTTP cache handling](http_cache.md), using multi tagging|
 |[ezsystems/ezplatform-kernel](https://github.com/ezsystems/ezplatform-kernel)|Core of the [[= product_name =]] application|
-|[ezsystems/ezplatform-matrix-fieldtype](https://github.com/ezsystems/ezplatform-matrix-fieldtype)|[Matrix Field Type](../api/field_type_reference.md#matrix-field-type)|
-|[ezsystems/ezplatform-query-fieldtype](https://github.com/ezsystems/ezplatform-query-fieldtype)|[Query Field Type](../api/field_type_reference.md#query-field-type)|
+|[ezsystems/ezplatform-matrix-fieldtype](https://github.com/ezsystems/ezplatform-matrix-fieldtype)|[Matrix Field Type](../api/field_types_reference/matrixfield.md)|
+|[ezsystems/ezplatform-query-fieldtype](https://github.com/ezsystems/ezplatform-query-fieldtype)|[Query Field Type](../api/field_types_reference/contentqueryfield.md)|
 |[ezsystems/ezplatform-rest](https://github.com/ezsystems/ezplatform-rest)|REST API|
 |[ezsystems/ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext)|Field Type for supporting rich-formatted text stored in a structured XML format|
 |[ezsystems/ezplatform-search](https://github.com/ezsystems/ezplatform-search)|Common search functionalities|
@@ -92,6 +92,6 @@ see the [How to Remove a Bundle](http://symfony.com/doc/5.0/bundles/remove.html)
 |---------|-----------|
 |ezsystems/ezcommerce-admin-ui|Shop-related Back Office functionalities|
 |ezsystems/ezcommerce-erp-admin|ERP connection for the shop|
-|ezsystems/ezcommerce-order-history|[Order history](order_history/orderhistory.md) functionality|
+|ezsystems/ezcommerce-order-history|[Order history](order_history/order_history.md) functionality|
 |ezsystems/ezcommerce-page-builder|Shop-related Page blocks|
 |ezsystems/ezcommerce-transaction|Transactional shop functionalities|

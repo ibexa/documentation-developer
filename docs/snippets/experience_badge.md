@@ -1,1 +1,1 @@
-<span class="badge experience-badge"></span>
+<span class="pill experience-pill"></span>

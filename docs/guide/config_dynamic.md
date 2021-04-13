@@ -56,20 +56,21 @@ Both `getParameter()` and `hasParameter()` can take three arguments:
 
 ## Inject the ConfigResolver in your services
 
-Instead of injecting the whole ConfigResolver service, you may directly [inject your SiteAccess-aware (dynamic) settings into your own services](#dynamic-settings-injection).
-
 You can use the ConfigResolver in your own services whenever needed.
 To do this, inject the `ezpublish.config.resolver` service:
 
 ``` yaml
-parameters:
-    my_service.class: App\Service
- 
 services:
-    my_service:
-        class: '%my_service.class%'
+    App\Service:
         arguments: ['@ezpublish.config.resolver']
 ```
+
+You can also use the [autowire feature](https://symfony.com/doc/current/service_container/autowiring.html), by type hinting against ConfigResolverInterface.
+
+!!! note
+
+    Do not store the retrieved config value unless you know what you are doing. 
+    SiteAccess can change during code execution, which means you might work on the wrong value.
 
 ``` php
 namespace App;
@@ -86,7 +87,11 @@ class Service
     public function __construct( ConfigResolverInterface $configResolver )
     {
         $this->configResolver = $configResolver;
-        $myParam = $this->configResolver->getParameter( 'my_param', 'myapp' );
+    }
+    
+    public function someMethodThatNeedConfig()
+    {
+        $configValue = $this->configResolver->getParameter('my_param', 'myapp');
     }
 }
 ```

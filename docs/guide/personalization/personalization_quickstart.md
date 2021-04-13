@@ -12,7 +12,7 @@ The most popular footprints are selecting and purchasing  products **(1)**.
 This information is sent to the event tracker service of the recommendation engine every time these events happen **(2)**.
 The recommendation engine accumulates the tracked events, categorizes them and calculates recommendations for every product and every user in the shop **(3)**.
 All recommendations are available over the recommender service.
-They can be fetched and presented to users during their sessions or sent out e.g. as a newsletter **(4)**.
+They can be fetched and presented to users during their sessions.
 
 ![Overview of how recommendation works](img/recommendation_overview.png)
 
@@ -26,9 +26,9 @@ Integration is based on the following:
 !!! note
 
     Below we use the mandator ID '00000' for creating requests.
-    You must substitute it with your own ID which is generated and sent to you by mail at the end of a successful registration process under [https://admin.yoochoose.net](https://admin.yoochoose.net/).
+    In real-life scenario, you use your own ID that you receive from Ibexa.
 
-### Tracking Events
+### Tracking events
 
 Step one is called tracking. Every page must call special tracking URL.
 The simplest way is to place a tiny image on every product page, just as it is usually done for analytic tools or visitor counter.
@@ -72,7 +72,7 @@ foreach ($just_bought_products as $product_id) {
 }
 ```
 
-### Embedding Recommendations
+### Embedding recommendations
 
 Depending on the page impressions/visits the recommendation engine has soon collected enough events and is able to generate recommendations.
 The more tracking data is available, the better and sharper the recommendations will be.
@@ -163,10 +163,8 @@ Tracking more events, using additional parameters and custom scenario configurat
 - Recommendations based on the shopping basket
 - Filtering repeated recommendations
 
-Additional features are available for the Advanced edition of the recommendation engine:
+Additional features include:
 
-- A/B testing
-- Personalized Search
 - Using "rate" and "like" events
 - Additional models such as content-based, random, history etc.
 - Multiple product types (for example food/non-food or article/image/video) and cross-type recommendations

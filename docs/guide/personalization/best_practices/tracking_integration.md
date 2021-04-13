@@ -1,8 +1,8 @@
 # Tracking integration
 
 There are several ways to integrate event reporting into the webpage. 
-The simplest way is to generate code of a tiny image and put it on the webpage where the event must be sent 
-(this is called pixel tracking).
+The simplest way is to generate code of a tiny image and put it on the webpage 
+where the event must be sent (so-called pixel tracking).
 
 For example, with HTML: 
 
@@ -42,23 +42,25 @@ If the website is implemented in a language that supports multithreading, non-bl
 messaging infrastructure, you can start the event request just after the browser request is received 
 instead of waiting for this process to finish.
 
-## Client side tracking
+## Client-side tracking
 
 ### JSONP
 
 Another solution is to provide a proxy on the server side, which will forward script requests to 
 the recommendation engine. 
-In this model, the requests are triggered from the client, when the page is already loaded and rendered. 
+In this model, the requests are triggered from the client, when the page is already 
+loaded and rendered. 
 It is impossible to request the recommendation controller server directly from JavaScript 
-(either through the AJAX library or directly over XMLHttpRequest) because of the cross-domain restriction 
-in most browsers. 
+(either through the AJAX library or directly over XMLHttpRequest) because of the 
+cross-domain restriction in most browsers. 
 One possible work around this limitation is [JSONP](https://en.wikipedia.org/wiki/JSONP).
 
 ### Using a server proxy
 
 Another option is to tunnel the JavaScript request through the proxy on the same server. 
 The server only forwards requests to the recommendation engine. 
-It can be a simple implemented Apache proxy module, an independent daemon (for example, "netcat"), or a PHP script.
+It can be a simple implemented Apache proxy module, an independent daemon 
+(for example, "netcat"), or a PHP script.
 
 ## Comparison
 
