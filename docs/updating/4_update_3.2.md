@@ -10,7 +10,9 @@ If you are updating from a version prior to 3.0, you have to implement all the c
 
 !!! caution "Updating a schema for entity managers"
 
-    If you are updating to v3.2.6, after you complete the procedure, do the steps described in the [Update entity managers](#update-entity-managers) section to update the GraphQL schema that is generated from your repository.
+    If you are updating to v3.2.6, after you complete the procedure,
+    do the steps described in the [Update entity managers](#update-entity-managers) section
+    to update the GraphQL schema that is generated from your Repository.
     
 ## Check out and update the app
 
@@ -40,20 +42,20 @@ Version v3.2.6 introduces new entity managers.
 To ensure that they work in multi-repository setups, you must update the GraphQL schema.
 You do this manually by following this procedure:
 
-1. Update your project to v3.2.6 and check if the container has been built. If not, run the `php bin/console cache:clear` command to generate the container.
+1. Update your project to v3.2.6 and run the `php bin/console cache:clear` command to generate the [service container](../guide/service_container.md).
 
 1. Run the following command to discover the names of the new entity managers. 
     Take note of the names that you discover:
 
     `php bin/console debug:container --parameter=doctrine.entity_managers --format=json | grep ibexa_`
 
-1. For every entity manager prefixed with "ibexa_", run the following command:
+1. For every entity manager prefixed with `ibexa_`, run the following command:
 
     `php bin/console doctrine:schema:update --em=<ENTITY_MANAGER_NAME> --dump-sql`
   
 1. Review the queries and ensure that there are no harmful changes that could affect your data.
 
-1. For every entity manager prefixed with "ibexa_", run the following command to run queries on the database:
+1. For every entity manager prefixed with `ibexa_`, run the following command to run queries on the database:
 
     `php bin/console doctrine:schema:update --em=<ENTITY_MANAGER_NAME> --force`
 
