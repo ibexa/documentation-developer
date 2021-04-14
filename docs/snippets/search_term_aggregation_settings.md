@@ -4,6 +4,7 @@ You can define additional limits to the results using the `setLimit()` and `setM
 The following example limits the number of terms returned to 5 and only considers terms that have 10 or more results:
 
 ``` php
-$query->aggregations[0]->setLimit(5);
-$query->aggregations[0]->setMinCount(10);
+$aggregation = new //...
+$aggregation->setLimit(5);
+$aggregation->setMinCount(10);
 ```
