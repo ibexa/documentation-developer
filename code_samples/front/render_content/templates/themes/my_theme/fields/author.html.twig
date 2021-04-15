@@ -1,0 +1,7 @@
+{% block ezauthor_field %}
+{% if field.value.authors|length() > 0 %}
+    {% for author in field.value.authors %}
+        <span class="author">{{ author.name }}</span>
+    {% endfor %}
+{% endif %}
+{% endblock %}

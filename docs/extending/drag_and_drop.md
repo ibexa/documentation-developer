@@ -18,7 +18,7 @@ const draggable = new window.eZ.core.Draggable({
 });
 ```
 
-For more information on creating Twig templates, see [Templating basics](../guide/templates.md).
+For more information on creating Twig templates, see [Templating basics](../guide/content_rendering/templates/templates.md).
 
 ## Options
 

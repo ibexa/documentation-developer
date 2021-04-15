@@ -1,0 +1,80 @@
+# Render a Page [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+Page is a special Content Type that contains a [Page Field](../../../api/field_types_reference/pagefield.md).
+
+A Page Field is a layout composed of zones. Each zone can contain multiple blocks.
+
+## Render a layout
+
+### Layout configuration
+
+The default, built-in Page layout has only one zone.
+You can create other layouts in configuration, under the `ezplatform_page_fieldtype.layouts` key.
+
+To create a new layout called "Right sidebar", use the following configuration:
+
+``` yaml
+[[= include_file('code_samples/front/render_page/config/packages/ezplatform_page_fieldtype.yaml', 0, 13) =]]
+```
+
+### Layout template
+
+A layout template should render all the zones of the layout.
+
+Each zone must have a `data-ez-zone-id` attribute with the number of the zone.
+
+The best way to display blocks in the zone is to iterate over a blocks array and render the blocks in a loop.
+Each block must have the `landing-page__block block_{{ block.type }}` classes and the `data-ez-block-id="{{ block.id }}` attribute.
+
+To render the "Right sidebar" layout, add the following template to `templates/themes/my_theme/layouts/sidebar.html.twig`:
+
+``` html+twig hl_lines="5"
+[[= include_file('code_samples/front/render_page/templates/themes/my_theme/layouts/sidebar.html.twig') =]]
+```
+
+## Render a block
+
+Every built-in Page block has a default template, [which you can override](#overriding-default-block-templates),
+and can have multiple other templates.
+The editor chooses a template when creating a block in the Page Builder.
+
+### Block configuration
+
+You can add new block templates by using configuration, for example for the Content List block:
+
+``` yaml
+[[= include_file('code_samples/front/render_page/config/packages/ezplatform_page_fieldtype.yaml', 0, 1) =]][[= include_file('code_samples/front/render_page/config/packages/ezplatform_page_fieldtype.yaml', 13, 19) =]]
+```
+
+!!! tip
+
+    Use the same configuration to provide a template for [custom blocks](../../../extending/extending_page.md) you create.
+
+### Block template
+
+Create the block template file in the provided path, for example, `templates/themes/my_theme/blocks/contentlist.html.twig`:
+
+``` html+twig
+[[= include_file('code_samples/front/render_page/templates/themes/my_theme/blocks/contentlist.html.twig') =]]
+```
+
+### Overriding default block templates
+
+To override the default block template, create a new template.
+Place it in a path that mirrors the original default template from the bundle folder.
+For example:
+`templates/bundles/EzPlatformPageFieldTypeBundle/blocks/contentlist.html.twig`.
+
+!!! tip
+
+    To use a different file structure when overriding default templates,
+    add an import statement to the template.
+
+    For example, in `templates/bundles/EzPlatformPageFieldTypeBundle/blocks/contentlist.html.twig`:
+
+    ``` html+twig
+    {% import 'templates/blocks/contentlist/new_default.html.twig'}
+    ```
+
+    Then, place the actual template in the imported file `templates/blocks/contentlist/new_default.html.twig`.
+    
