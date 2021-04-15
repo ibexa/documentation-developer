@@ -29,11 +29,11 @@ You can provide `ez_render()` with either a Content item or a Location object.
 
 #### Rendering methods
 
-You can pass one of The following rendering methods to `ez_render()`:
+You can pass one of the following rendering methods to `ez_render()`:
 
 - `direct` - (default) renders the Content item without using a request
 - `inline` - Symfony inline rendering method, sends a request to the server and inserts the response
-- `esi` - uses the Symfony [Edge Side Include mechanism](https://symfony.com/doc/current/http_cache/esi.html) to render the correct tag that is handled by reverse proxy
+- `esi` - uses the Symfony [Edge Side Include mechanism](https://symfony.com/doc/current/http_cache/esi.html) to render the correct tag that is handled by the reverse proxy
 - `ssi` - uses the Symfony [Server Side Include mechanism](https://symfony.com/doc/current/http_cache/ssi.html) to render the correct tag that is handled by the web server
 
 ``` html+twig
@@ -50,7 +50,7 @@ You can pass one of The following rendering methods to `ez_render()`:
 
 `ez_content_name()` renders the name of a Content item.
 
-The function uses prioritized languages from SiteAccess settings, unless you pass another language as `forcedLanguage`.
+The function uses prioritized languages from SiteAccess settings unless you pass another language as `forcedLanguage`.
 If the Content item does not have a translation in the prioritized or passed language,
 the function returns the name in the main language.
 

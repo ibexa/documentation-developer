@@ -9,7 +9,7 @@ and three specific Twig functions for rendering price, stock, and specification 
 - [`ses_render_stock()`](#ses_render_stock) renders the stock Field of a product.
 - [`ses_render_specification_matrix()`](#ses_render_specification_matrix) renders the specification Field of a product.
 
-You can also get the product objects using the following Twig functions:
+You can also get the product objects by using the following Twig functions:
 
 - [`ses_product()`](#ses_product) returns the product object, based on the provided parameters.
 - [`ses_variant_product_by_sku()`](#ses_variant_product_by_sku) returns the `VariantProductNode` for a product, based on its SKU.
@@ -81,7 +81,7 @@ You can also get the product objects using the following Twig functions:
 
 `ses_product()` returns the product object identified by the passed arguments.
 
-Returns [OrderableProductNode](../../catalog/catalog_api/productnode.md) for product without variants,
+Returns [OrderableProductNode](../../catalog/catalog_api/productnode.md) for products without variants,
 or [OrderableVariantNode](../../catalog/product_variants/product_variant_api.md#orderablevariantnode)
 for products with variants.
 
@@ -96,11 +96,11 @@ for products with variants.
 
 ### `ses_variant_product_by_sku()`
 
-`ses_variant_product_by_sku()` returns the [VariantProductNode](../../catalog/product_variants/product_variant_api/#variantproductnode) for a product based on its SKU.
+`ses_variant_product_by_sku()` returns the [VariantProductNode](../../catalog/product_variants/product_variant_api.md#variantproductnode) for a product based on its SKU.
 
 | Argument | Type | Description |
 |-----|-----|-----|
-|`sky`|`string`|SKU of the product|
+|`sky`|`string`|SKU of the product.|
 
 ``` html+twig
 {% set product = ses_variant_product_by_sku(1234) }}

@@ -15,7 +15,7 @@ The architecture of [[= product_name =]] is layered and uses clearly defined API
 |[Admin UI](config_back_office.md)|Admin UI contains all the necessary parts to run the [[= product_name =]] Back Office interface.|
 |[HTTP Cache](http_cache.md)|Symfony HTTP cache is used to manage content "view" cache with an expiration model. In addition it is extended by using FOSHttpCache to add several advanced features.|
 |[Controllers](controllers.md)|Controllers created by you to read information from a Request object, create and return a Response objects.|
-|[Twig templates](content_rendering/twig_function_reference/twig_functions_reference.md)|Set of custom and built-in Twig templates. User interfaces are developed using the Twig template engine and query the Public API directly.|
+|[Twig templates](content_rendering/twig_function_reference/twig_functions_reference.md)|Set of custom and built-in Twig templates. User interfaces are developed with the Twig template engine and query the Public API directly.|
 |[REST API v2](../api/rest_api_guide.md)|The REST API v2 enables you to interact with an [[= product_name =]] installation using the HTTP protocol, following a REST interaction model.|
 |[GraphQL](../api/graphql.md)|GraphQL for [[= product_name =]] exposes the domain model using the Repository, based on Content Type groups, Content Types and Field definitions.|
 |[Public API](../api/public_php_api.md)|Public API exposes the Repository which enables you to create, read, update, manage and delete all objects available in [[= product_name =]].|

@@ -155,9 +155,11 @@ In the simplified example above, when the `child.html.twig` template is used, th
 
 Now that you know how to create a general layout with Twig templates, let's take a look at the ways in which you can render content inside them.
 
-There are several ways of placing Content items or their Fields inside a template. You can do it using one of the [Twig functions described in detail here](content_rendering/twig_function_reference/twig_functions_reference.md).
+There are several ways of placing Content items or their Fields inside a template. 
+You can do it by using one of the [Twig functions](content_rendering/twig_function_reference/twig_functions_reference.md).
 
-As an example, let's look at one of those functions: [ez\_render\_field](content_rendering/twig_function_reference/field_twig_functions.md#ez_render_field). It renders one selected Field of the Content item. In its simplest form this function can look like this:
+As an example, look at the [ez\_render\_field](content_rendering/twig_function_reference/field_twig_functions.md#ez_render_field) function. 
+It renders one selected Field of the Content item, and in the simplest form it can look like this:
 
 ``` html+twig
 {{ ez_render_field( content, 'description' ) }}
@@ -234,7 +236,9 @@ In order to display the Fields' value the way you want, you can either manipulat
 
 #### Getting raw Field value
 
-As you have access to the Content item in the template, you can use [its public methods](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Repository/Values/Content/Content.php) to access all the information you need. You can also use the `ez_field_value` helper to get the [Field's value only](content_rendering/twig_function_reference/field_twig_functions.md#ez_field_value). It will return the correct language if there are several, based on language priorities.
+Because you have access to the Content item in the template, you can use [its public methods](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Repository/Values/Content/Content.php) to access all the information you need. 
+You can also use the `ez_field_value` helper to get the [Field's value only](content_rendering/twig_function_reference/field_twig_functions.md#ez_field_value). 
+It returns the correct language if there are several, based on language priorities.
 
 ``` html+twig
 {# With the following, myFieldValue will be in the Content item's main language #}
@@ -314,7 +318,8 @@ To see it in practice, extend the `templates/full/article.html.twig` template:
 
 For more details on the `ez_render_field()` helper, see [Twig functions reference guide](content_rendering/twig_function_reference/field_twig_functions.md#ez_render_field).
 
-You can also use other [Twig functions](content_rendering/twig_function_reference/twig_functions_reference.md), for example [`ez_field_value`](content_rendering/twig_function_reference/field_twig_functions.md#ez_field_value), which renders the value of the Field without a template.
+You can also use other [Twig functions](content_rendering/twig_function_reference/twig_functions_reference.md), for example [`ez_field_value`](content_rendering/twig_function_reference/field_twig_functions.md#ez_field_value), 
+which renders the value of the Field without a template.
 
 !!! tip
 
