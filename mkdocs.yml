@@ -527,7 +527,7 @@ nav:
                 - '4.7. Upgrade extended code': 'updating/4_7_upgrade_extensions.md'
                 - '4.8. Upgrade REST': 'updating/4_8_upgrade_rest.md'
                 - '4.9 Other code upgrades': 'updating/4_9_upgrade_other.md'
-            - '5. Update database':
+            - '5. Update the database':
                 - 'Update database': 'updating/5_update_database.md'
                 - 'Update database to v1.13': 'updating/5_update_1.13.md'
                 - 'Update database to v2.2': 'updating/5_update_2.2.md'

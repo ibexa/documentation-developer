@@ -93,7 +93,7 @@ git pull upstream <version>
 !!! tip
 
     Always provide the version number with the `v` prefix, which indicates a tag, not a branch
-    (for example, `v3.2.0` indicated a tag, while `3.2.0` or `3.2` indicate a development branch).
+    (for example, `v3.2.0` indicates a tag, while `3.2.0` or `3.2` indicates a development branch).
 
 At this stage you may get conflicts, which are a normal part of the update procedure.
 The most common ones will be on `composer.json` and `composer.lock`.

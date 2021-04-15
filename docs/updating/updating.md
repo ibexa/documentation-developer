@@ -21,6 +21,6 @@ To update your Ibexa DXP / eZ Platform installation, follow the steps below:
 1. [Check out a version](1_check_out_version.md)
 1. [Resolve conflicts](2_merge_composer.md)
 1. [Update the app](3_update_app.md)
-1. [Upgrade code](4_upgrade_the_code.md) - perform this step only if you are updating to v3.0
-1. [Update database](5_update_database.md)
+1. [Upgrade the code](4_upgrade_the_code.md) - perform this step only if you are updating to v3.0
+1. [Update the database](5_update_database.md)
 1. [Finish the update](6_finish_the_update.md)

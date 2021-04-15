@@ -1,4 +1,4 @@
-# 4. Upgrade your code
+# 4. Upgrade the code
 
 If you are updating to v3.0 from a lower version, you need to make a number of modifications to your code.
 

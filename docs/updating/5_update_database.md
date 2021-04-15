@@ -1,4 +1,4 @@
-# 5. Update database
+# 5. Update the database
 
 During database update, you have to go through all the changes between your current version and your final version.
 For example, during update from v2.2 to v2.5, you have to perform all the steps from v2.3, v2.4 and v2.5.

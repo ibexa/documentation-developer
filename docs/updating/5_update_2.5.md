@@ -97,7 +97,7 @@ bin/console cache:pool:clear cache.redis
 ### Page builder
 
 This step is only required when updating an Enterprise installation from versions higher than v2.2 and lower than v2.5.3.
-In case of versions lower than 2.2, please skip this step or ignore the information that indexes from a script below already exist.
+In case of versions lower than 2.2, skip this step or ignore the information that indexes from a script below already exist.
 
 When updating to v2.5.3, you need to run the following script to add missing indexes:
 

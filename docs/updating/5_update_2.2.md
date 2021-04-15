@@ -64,7 +64,8 @@ The operation is transactional and rolls back in case of errors.
 ### Block migration
 
 In v2.2 Page Builder does not offer all blocks that Landing Page editor did. The removed blocks include Keyword, Schedule, and Form blocks.
-The Places block has been removed from the clean installation and will only be available in the demo out of the box. If you had been using this block in your site, re-apply its configuration based on the [demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.2.2/app/config/blocks.yml).
+The Places block has been removed from the clean installation and will only be available in the demo out of the box.
+If you use this block in your site, re-apply its configuration based on the [demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.2.2/app/config/blocks.yml).
 
 Later versions of Page Builder come with a Content Scheduler block and new Form Blocks, but migration of Schedule blocks to Content Scheduler blocks and of Form Blocks is not supported. 
 

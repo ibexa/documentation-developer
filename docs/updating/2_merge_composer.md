@@ -44,7 +44,7 @@ git checkout -p composer.json
 Answer `no` (do not discard) to the requirement changes of `ezsystems` dependencies.
 Answer `yes` (discard) to removals of your changes.
 
-Once you are done, inspect the file, by either using an editor or running `git diff composer.json`.
+After you are done, inspect the file, by either using an editor or running `git diff composer.json`.
 You may also test the file's sanity with `composer validate`,
 and test the dependencies by running `composer update --dry-run`
 (it will output what it would do to the dependencies, without applying the changes).

@@ -17,7 +17,7 @@ psql <database_name> < upgrade/db/postgresql/ezplatform-2.5.latest-to-3.0.0.sql
 ### Solr configuration
 
 If you use Solr as the search engine, make sure that Solr configuration is set to commit Solr index changes directly during Repository updates.
-For more information, see [Solr configuration](../guide/search/solr/#further-configuration).
+For more information, see [Solr configuration](../guide/search/solr.md#further-configuration).
 
 ### Site Factory upgrade
 

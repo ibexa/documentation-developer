@@ -79,9 +79,9 @@ form_builder.upload_folder.section_identifier: <section identifier>
  
 ### `ezsearch_return_count` table removal
 
-v1.11.0 removes the `ezsearch_return_count` table, which had been removed in eZ Publish legacy since 5.4/2014.11.
+v1.11.0 removes the `ezsearch_return_count` table.
 This avoids issues which would occur when you upgrade using legacy bridge.
-Apply the following database update script if your installation has not had the table removed by an earlier eZ Publish upgrade:
+Apply the following database update script if your installation still has the database table:
 
 ``` bash
 mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.10.0-to-6.11.0.sql
