@@ -2,11 +2,7 @@
 
 ## Handling binary files
 
-<<<<<<< HEAD
-eZ Platform supports multiple binary file handling mechanisms by means of an `IOHandler` interface. This feature is used by the [BinaryFile](../api/field_type_reference.md#binaryfile-field-type), [Media](../api/field_type_reference.md#media-field-type) and [Image](../api/field_type_reference.md#image-field-type) Field Types.
-=======
-[[= product_name_oss =]] supports multiple binary file handling mechanisms by means of an `IOHandler` interface. This feature is used by the [BinaryFile](../api/field_types_reference/binaryfilefield.md), [Media](../api/field_types_reference/mediafield.md) and [Image](../api/field_types_reference/imagefield.md) Field Types.
->>>>>>> bf6f64ea (Field types structure redesign (#1335))
+eZ Platform supports multiple binary file handling mechanisms by means of an `IOHandler` interface. This feature is used by the [BinaryFile](../api/field_types_reference/binaryfilefield.md), [Media](../api/field_types_reference/mediafield.md) and [Image](../api/field_types_reference/imagefield.md) Field Types.
 
 ### Native IO handler
 
@@ -163,11 +159,7 @@ ezpublish:
 
 One common use case is to use an optimized nginx to serve images in an optimized way. The example image
 above could be made available as `http://static.example.com/var/site/storage/images/3/6/4/6/6463-1-eng-GB/kidding.png`
-<<<<<<< HEAD
-by setting up a separate server that maps the `/path/to/ezplatform/web/var` directory. 
-=======
-by setting up a separate server that maps the `/path/to/ezplatform/public/var` directory.
->>>>>>> bf6f64ea (Field types structure redesign (#1335))
+by setting up a separate server that maps the `/path/to/ezplatform/web/var` directory.
 The configuration would be as follows:
 
 ``` yaml
@@ -180,7 +172,6 @@ ezpublish:
 
 !!! caution
 
-<<<<<<< HEAD
     For security reasons, do not map `/path/to/ezplatform/web/` as
     Document Root of the static server. 
     Map the `/var/` directory directly to `/path/to/ezplatform/web/var` instead.
@@ -190,11 +181,6 @@ ezpublish:
 
     If Legacy Bridge is enabled, the Document Root of the static server should be set to 
     the `ezpublish/ezpublish_legacy` directory.
-=======
-    For security reasons, do not map `/path/to/ezplatform/public/` as
-    Document Root of the static server.
-    Map the `/var/` directory directly to `/path/to/ezplatform/public/var` instead.
->>>>>>> bf6f64ea (Field types structure redesign (#1335))
 
 ### Internals
 
