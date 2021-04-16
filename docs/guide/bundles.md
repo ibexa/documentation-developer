@@ -31,7 +31,7 @@ see the [How to Remove a Bundle](http://symfony.com/doc/5.0/bundles/remove.html)
 
 !!! tip
 
-    The core packages are included in Ibexa Open Source.
+    Ibexa Open Source is composed of the core packages.
 
 |Bundle|Description|
 |---------|-----------|
