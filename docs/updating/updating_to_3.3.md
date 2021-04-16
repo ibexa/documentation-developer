@@ -3,11 +3,11 @@
 Ibexa DXP v3.3 uses [Symfony Flex](https://symfony.com/doc/current/quick_tour/flex_recipes.html).
 When updating from v3.2 to v3.3, you need to follow a special update procedure.
 
-If you are updating from an earlier version, start with updating your installation to v3.2.
+If you are updating from an earlier version, start with [updating your installation to v3.2](updating.md).
 
-First, create an upgrade branch in git and commit your work.
+First, create an update branch in git and commit your work.
 
-If you have not done it before, add the relevant meta-repository as `upstream` remote:
+If you have not done it before, add the relevant meta-repository as an `upstream` remote:
 
 === "ezplatform"
 
@@ -33,7 +33,7 @@ If you have not done it before, add the relevant meta-repository as `upstream` r
 
 ## Merge composer.json
 
-Merge the special update branch into your project:
+Merge the special `v3.2-to-v3.3-upgrade` update branch into your project:
 
 ```
 git pull upstream v3.2-to-v3.3-upgrade
@@ -137,11 +137,15 @@ Apply the following database update script:
 
 === "Mysql"
 
-    `mysql -u <username> -p <password> <database_name> < upgrade/db/mysql/ezplatform-3.2.0-to-3.3.0.sql`
+    ```
+    mysql -u <username> -p <password> <database_name> < upgrade/db/mysql/ezplatform-3.2.0-to-3.3.0.sql
+    ```
 
 === "PostgreSQL"
 
-    `psql <database_name> < upgrade/db/postgresql/ezplatform-3.2.0-to-3.3.0.sql`
+    ```
+    psql <database_name> < upgrade/db/postgresql/ezplatform-3.2.0-to-3.3.0.sql
+    ```
 
 If you are updating from an installation based on the `ezsystems/ezplatform-ee` metarepository, 
 run the following command to upgrade your database:

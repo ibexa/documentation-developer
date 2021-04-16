@@ -495,7 +495,6 @@ It is available from the container as `ezpublish.query_type.registry`.
 <?php
 class MyCommand extends ContainerAwareCommand
 {
-<<<<<<< HEAD
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $queryType     = $this->getContainer()->get('ezpublish.query_type.registry')->getQueryType('AcmeBundle:LatestContent');
@@ -504,28 +503,6 @@ class MyCommand extends ContainerAwareCommand
         foreach ($searchResults->searchHits as $searchHit) {
             $output->writeln($searchHit->valueObject->contentInfo->name);
         }
-=======
-
-    /** @var \eZ\Publish\Core\QueryType\QueryTypeRegistry */
-    private $registry;
-
-    /** @var \eZ\Publish\API\Repository\SearchService */
-    private $searchService;
-
-    public function __construct(QueryTypeRegistry $registry, SearchService $searchService)
-    {
-    	$this->searchService = $searchService;
-        $this->registry = $registry;    	
-    }
-
-    public function showLatestContentAction(string $template, string $contentType): Response
-    {
-    	$queryType = $this->registry->getQueryType('LatestContent');
-    	$query = $queryType->getQuery(['type' => $contentType]);
-    	$searchResults = $this->searchService->findContent($query);
-
-    	return $this->render($template, ['results' => $searchResults]);
->>>>>>> bf6f64ea (Field types structure redesign (#1335))
     }
 }
 ```
