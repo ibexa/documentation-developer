@@ -1,36 +1,59 @@
-# 2. Merge composer.json
+# 2. Resolve conflicts
 
-## Manual merging
+## 2.1. Resolve conflicts
 
-!!! note "Sorted packages since 2.4 changes"
+Ignore the conflicts in `composer.lock`, because this file is regenerated when you execute `composer update` later.
+It is easiest to check out the version of the file from the tag and add it to the changes.
 
-    Because the 2.4 packages in `composer.json` are sorted, there will be more conflicts when updating to 2.4, but far fewer conflicts in the future. This is controlled by [sort-packages](https://getcomposer.org/doc/06-config.md#sort-packages) config in `composer.json`.
+If you get a lot of conflicts (for example, on the `doc` folder),
+and eZ Platform was installed from the [ezplatform.com](https://ezplatform.com)
+or [support.ez.no](https://support.ez.no) (for Enterprise and eZ Commerce) tarball,
+it might be because of incomplete history.
+Run `git fetch upstream --unshallow` from your update branch to load the full history, and run the merge again.
 
-Conflicts in `composer.json` need to be fixed manually. If you're not familiar with the diff output, you may checkout the tag's version and inspect the changes. It should be readable for most:
+``` bash
+git checkout --theirs composer.lock && git add composer.lock
+```
 
-**From your new update branch**
+If you do not keep a copy in the branch, you may also run:
+
+``` bash
+git rm composer.lock
+```
+
+## 2.2. Resolve conflicts in `composer.json`
+
+You need to fix conflicts in `composer.json` manually.
+
+If you're not familiar with the diff output, you may check out the tag's version from you update branch and inspect the changes.
 
 ``` bash
 git checkout --theirs composer.json && git diff HEAD composer.json
 ```
 
-You should see what was changed, as compared to your own version, in the diff output. The update changes the requirements for all of the `ezsystems/` packages. Those changes should be left untouched. All of the other changes will be removals of what you added for your own project. Use `git checkout -p` to selectively cancel those changes:
+This command shows what was changed, as compared to your own version, in the diff output.
+
+The update changes the requirements for all of the `ezsystems/` packages. Keep those changes.
+The other changes will remove what you added for your own project.
+Use `git checkout -p` to selectively cancel those changes (and retain your additions):
 
 ``` bash
 git checkout -p composer.json
 ```
 
-Answer `no` (do not discard) to the requirement changes of `ezsystems` dependencies. Answer `yes` (discard) to removals of your changes.
+Answer `no` (do not discard) to the requirement changes of `ezsystems` dependencies.
+Answer `yes` (discard) to removals of your changes.
 
-Once you are done, inspect the file, by either using an editor or running `git diff composer.json`. You may also test the file's sanity with `composer validate`, and test the dependencies by running `composer update --dry-run` (it will output what it would do to the dependencies, without applying the changes).
+After you are done, inspect the file, by either using an editor or running `git diff composer.json`.
+You may also test the file's sanity with `composer validate`,
+and test the dependencies by running `composer update --dry-run`
+(it will output what it would do to the dependencies, without applying the changes).
 
-Once finished, run `git add composer.json` and commit.
+Once finished, run `git add composer.json` and commit.
 
-## Fixing other conflicts
+## 2.3. Fix other conflicts
 
 Depending on the local changes you have done, you may get other conflicts on configuration files, kernel, etc.
 
-There shouldn't be many, and you should be able to figure out which value is the right one for all of them:
-
--   Edit the file, and identify the conflicting changes. If a setting you have modified has also been changed by us, you should be able to figure out which value is the right one.
--   Run `git add conflicting-file` to add the changes
+For each change, edit the file, identify the conflicting changes and resolve the conflict.
+Run `git add <conflicting-file>` to add the changes.
