@@ -29,6 +29,10 @@ see the [How to Remove a Bundle](http://symfony.com/doc/5.0/bundles/remove.html)
 
 ## Core packages
 
+!!! tip
+
+    Ibexa Open Source is composed of the core packages.
+
 |Bundle|Description|
 |---------|-----------|
 |[ezsystems/ez-support-tools](https://github.com/ezsystems/ez-support-tools)|System information|
