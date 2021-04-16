@@ -150,9 +150,16 @@ nav:
             - 'Page rendering': 'guide/page_rendering.md'
             - 'Displaying Content children': 'guide/displaying_children_of_a_content_item.md'
             - 'Retrieving root Location': 'guide/retrieving_root_location.md'
-            - 'Twig functions reference': 'guide/twig_functions_reference.md'
+            - Twig functions reference:
+                - 'Twig functions reference': 'guide/content_rendering/twig_function_reference/twig_functions_reference.md'
+                - 'Content Twig functions': 'guide/content_rendering/twig_function_reference/content_twig_functions.md'
+                - 'Field Twig functions': 'guide/content_rendering/twig_function_reference/field_twig_functions.md'
+                - 'Product Twig functions': 'guide/content_rendering/twig_function_reference/product_twig_functions.md'
+                - 'Image Twig functions': 'guide/content_rendering/twig_function_reference/image_twig_functions.md'
+                - 'URL Twig functions': 'guide/content_rendering/twig_function_reference/url_twig_functions.md'
+                - 'Date Twig filters': 'guide/content_rendering/twig_function_reference/date_twig_filters.md'
+                - 'Other Twig filters': 'guide/content_rendering/twig_function_reference/other_twig_filters.md'
             - 'Overriding shop templates': 'guide/shop_templates/overriding_shop_templates.md'
-            - 'Shop-related Twig functions': 'guide/shop_templates/shop_twig_functions.md'
         - Content management:
             - 'Content management': 'guide/content_management.md'
             - 'Images': 'guide/images.md'

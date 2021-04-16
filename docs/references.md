@@ -9,7 +9,7 @@
 
 ## Content model and rendering
 
-- [Twig functions](guide/twig_functions_reference.md)
+- [Twig functions](guide/content_rendering/twig_function_reference/twig_functions_reference.md)
 - [Twig helpers list](guide/content_rendering.md#twig-helper)
 - [Image variation filters](guide/images.md#available-filters)
 - [SiteAccess matchers](guide/siteaccess_matching.md#available-matchers)

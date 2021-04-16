@@ -85,7 +85,7 @@ When displayed using `ez_render_field`, an Image Field will output this type of
 <img src="var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/image_medium.png" width="844" height="430" alt="Alternative text" />
 ```
 
-The template called by the [`ez_render_field()` Twig function](../../guide/twig_functions_reference.md#ez_render_field) while rendering a Image Field accepts the following parameters:
+The template called by the [`ez_render_field()` Twig function](../../guide/content_rendering/twig_function_reference/field_twig_functions.md#ez_render_field) while rendering a Image Field accepts the following parameters:
 
 | Parameter | Type     | Default        | Description |
 |-----------|----------|----------------|-------------|
