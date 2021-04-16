@@ -50,7 +50,7 @@ $MapLocationValue = new MapLocation\Value(
 
 ## Template rendering
 
-The template called by [the `ez_render_field()` Twig function](../../guide/twig_functions_reference.md#ez_render_field) while rendering a Map Location Field accepts the following parameters:
+The template called by [the `ez_render_field()` Twig function](../../guide/content_rendering/twig_function_reference/field_twig_functions.md#ez_render_field) while rendering a Map Location Field accepts the following parameters:
 
 |Parameter|Type|Default|Description|
 |------|------|------|------|

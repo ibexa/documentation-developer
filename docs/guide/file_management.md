@@ -114,7 +114,7 @@ It also accepts optional query parameters:
 - `version`: the version number that the file must be downloaded for. Requires the `versionread` permission. If not specified, the published version is used.
 - `inLanguage`: The language the file should be downloaded in. If not specified, the most prioritized language for the SiteAccess will be used.
 
-The [ez\_render\_field](twig_functions_reference.md#ez_render_field) Twig helper will by default generate a working link.
+The [ez\_render\_field](content_rendering/twig_function_reference/field_twig_functions.md#ez_render_field) Twig helper will by default generate a working link.
 
 ### Download link generation
 

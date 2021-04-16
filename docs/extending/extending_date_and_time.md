@@ -1,36 +1,6 @@
 # Format date and time
 
-## Twig filters
-
-Apart from changing the [date and time formats](../guide/config_back_office.md#date-and-time-formats), you can use Twig filters:
-
-- `ez_short_datetime`
-- `ez_short_date`
-- `ez_short_time`
-- `ez_full_datetime`
-- `ez_full_date`
-- `ez_full_time`
-
-The following are examples of using the filters:
-
-``` php hl_lines="3 6"
-<div>
-    // Date formatted in the preferred time zone and short datetime format:
-    {{ content.versionInfo.creationDate|ez_short_datetime }}
-
-    // Date formatted in UTC and preferred short datetime format:
-    {{ content.versionInfo.creationDate|ez_short_datetime('UTC') }}
-</div>
-```
-
-The filters accept an optional `timezone` parameter for displaying date and time in a chosen time zone.
-The default time zone is set in the User settings menu.
-
-For details, see reference materials on the [full format filters](../guide/twig_functions_reference.md#ez_full_datetime-ez_full_date-ez_full_time) and [short format filters](../guide/twig_functions_reference.md#ez_short_datetime-ez_short_date-ez_short_time).
-
-## Services
-
-You can also format date and time by using the following services:
+You can format date and time by using the following services:
 
 - `@ezplatform.user.settings.short_datetime_format.formatter`
 - `@ezplatform.user.settings.short_datet_format.formatter`

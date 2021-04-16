@@ -221,7 +221,7 @@ This allows you to link different resources referenced in the same content repos
 <a href="{{ url( "some_route_name", {"siteaccess": "some_siteaccess_name"} ) }}">Hello world!</a>
 ```
 
-See [ez\_urlalias](twig_functions_reference.md#ez_urlalias) for more information about linking to a Location.
+See [ez\_urlalias](content_rendering/twig_function_reference/url_twig_functions.md#ez_urlalias) for more information about linking to a Location.
 
 ``` php
 namespace App\Controller;
