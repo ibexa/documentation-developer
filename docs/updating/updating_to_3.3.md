@@ -165,7 +165,7 @@ add the `content/read` Policy with the Owner Limitation set to `self` to the "Ec
 
 ### v3.3.2
 
-To update to v3.3.2, additionally run the following update script, if you are using MySQL:
+To update to v3.3.2, if you are using MySQL, additionally run the following update script:
 
 ``` sql
 mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.1-to-3.3.2.sql

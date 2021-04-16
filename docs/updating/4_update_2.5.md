@@ -48,7 +48,7 @@ php bin/console ezplatform:reindex
 
 ### v2.5.18
 
-To update to v2.5.18, additionally run the following update script, if you are using MySQL:
+To update to v2.5.18, if you are using MySQL, additionally run the following update script:
 
 ``` sql
 ALTER TABLE ezpage_attributes MODIFY value LONGTEXT;
