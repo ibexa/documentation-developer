@@ -14,3 +14,5 @@ The Field-based [AuthorTermAggregation](https://github.com/ezsystems/ezplatform-
 $query = new Query();
 $query->aggregations[] = new Aggregation\Field\AuthorTermAggregation('author', 'article', 'authors');
 ```
+
+[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]

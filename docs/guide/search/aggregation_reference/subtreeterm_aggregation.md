@@ -13,3 +13,5 @@ The [SubtreeTermAggregation](https://github.com/ezsystems/ezplatform-kernel/blob
 $query = new Query();
 $query->aggregations[] = new Aggregation\Location\SubtreeTermAggregation('pathstring', '/1/2/');
 ```
+
+[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]

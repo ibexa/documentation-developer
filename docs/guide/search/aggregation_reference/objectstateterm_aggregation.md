@@ -13,3 +13,5 @@ The [ObjectStateTermAggregation](https://github.com/ezsystems/ezplatform-kernel/
 $query = new Query();
 $query->aggregations[] = new Aggregation\Location\ObjectStateTermAggregation('object_state', 'ez_lock');
 ```
+
+[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]

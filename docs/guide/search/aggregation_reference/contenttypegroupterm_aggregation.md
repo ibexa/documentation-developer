@@ -12,3 +12,5 @@ The [ContentTypeGroupTermAggregation](https://github.com/ezsystems/ezplatform-ke
 $query = new Query();
 $query->aggregations[] = new Aggregation\ContentTypeGroupTermAggregation('content_type_group');
 ```
+
+[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]
