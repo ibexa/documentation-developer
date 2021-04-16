@@ -7,7 +7,7 @@ If you are looking for the Long Term Support (LTS) release, see[ https://ezplat
 
 Upgrade notes
 
-This release contains special steps to follow further described in [Updating eZ Platform](../updating/updating_ez_platform.md).
+This release contains special steps to follow further described in [Updating eZ Platform](../updating/updating.md).
 
 ## Notable changes since v1.9.0
 
@@ -130,7 +130,7 @@ If you would like to request an eZ Enterprise Demo instance: <http://ez.no/Forms
 
 ### Updating
 
-To update to this version, follow the [Updating eZ Platform](../updating/updating_ez_platform.md) guide and use v1.10.0 as `<version>`.
+To update to this version, follow the [Updating eZ Platform](../updating/updating.md) guide and use v1.10.0 as `<version>`.
 
 **Note:** When updating eZ Platform Enterprise Edition, you need to [add the new EzSystemsPlatformEEAssetsBundle](../updating/3_update_app.md)
 

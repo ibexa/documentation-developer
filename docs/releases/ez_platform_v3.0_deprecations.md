@@ -5,7 +5,7 @@ This page lists backwards compatibility breaks and deprecations introduced in eZ
 !!! tip "Upgrade to v3"
 
     For a guide on moving your project to v3,
-    see [Upgrading eZ Platform to v3](../upgrading/upgrading_to_v3.md).
+    see [eZ Platform v3.0 project update instructions](../updating/4_upgrade_the_code.md).
 
 ## Symfony 5
 
@@ -16,7 +16,7 @@ as well as [Symfony upgrade guides for 4.0](https://github.com/symfony/symfony/b
 and [for 5.0](https://github.com/symfony/symfony/blob/master/UPGRADE-5.0.md)
 to learn about all changes it entails.
 
-See [v3.0 project update](../upgrading/upgrading_to_v3.md) for the steps you need to take to update your project to Symfony 5.
+See [v3.0 project update](../updating/4_upgrade_the_code.md) for the steps you need to take to update your project to Symfony 5.
 See also [full requirements for installing eZ Platform](../getting_started/requirements.md).
 
 ### Template configuration
@@ -57,7 +57,7 @@ The following tags used to register Field Type features in the dependency inject
 |`ezpublish.fieldType.externalStorageHandler.gateway`|`ezplatform.field_type.external_storage_handler.gateway`|
 
 Deprecated method `eZ\Publish\SPI\FieldType\FieldType::getName` is now supported with a new signature similar to `eZ\Publish\SPI\FieldType\Nameable::getFieldName()`, which has been removed.
-See [eZ Platform v3.0 project update](../upgrading/4_3_upgrade_field_types.md) for further information.
+See [eZ Platform v3.0 project update](../updating/4_3_upgrade_field_types.md) for further information.
 
 The deprecated `eZ\Publish\Core\FieldType\RichText` namespace has been removed, as it was moved to a separate bundle in v2.4.
 
@@ -92,7 +92,7 @@ The `ezstudio.installer.studio_installer` service has been renamed to the FQCN-n
 service `EzSystems\EzPlatformEnterpriseEditionInstallerBundle\Installer\Installer`.
 Deprecated `ezplatform.ee.installer.class` DIC parameter has been removed.
 
-See [eZ Platform v3.0 project update instructions](../upgrading/4_8_upgrade_rest.md#custom-installers) for upgrade details.
+See [eZ Platform v3.0 project update instructions](../updating/4_8_upgrade_rest.md#custom-installers) for upgrade details.
 
 ## ezplatform-admin-ui
 

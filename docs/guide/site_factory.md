@@ -9,7 +9,7 @@
     - multisite configuration
 
     After [clean installation](../getting_started/install_ez_platform.md) the Site Factory will be disabled.
-    If you are not working on a clean installation, follow [Upgrading eZ Platform to v3](../upgrading/4_9_upgrade_site_factory.md).
+    If you are not working on a clean installation, follow the [update guide to v3](../updating/5_update_3.0.md#site-factory-upgrade).
     This results in the following message on the **Site** tab:
     "There is a design configuration error, and you will not be able to create a new site. Please update the configuration."
     If you plan to use Site Factory you need to enable and configure it.
@@ -234,7 +234,7 @@
 
     !!! caution "Update from v3.0"
 
-        To be able to create a Location for the Site skeletons, run the [update procedure](../updating/4_update_3.1.md#site-factory).
+        To be able to create a Location for the Site skeletons, run the [update procedure](../updating/5_update_3.1.md#site-factory).
 
         Now, you should be able to see **Site skeletons** tab under **Admin** tab. The tab is only visible after the update procedure.
 

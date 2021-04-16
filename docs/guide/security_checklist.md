@@ -89,7 +89,7 @@ See [vhost.template.](https://github.com/ezsystems/ezplatform/blob/master/doc/ap
 ### Use secure password hashing
 
 Use the most secure supported password hashing method.
-This is currently `bcrypt`, see [Increased password hash length](../updating/4_update_1.13.md#increased-password-hash-length).
+This is currently `bcrypt`, see [Increased password hash length](../updating/5_update_1.13.md#increased-password-hash-length).
 
 ### Restrict access to the back end
 
@@ -100,7 +100,7 @@ If possible, make the back end unavailable on the open internet.
 If you are using MySQL/MariaDB, use the UTF8MB4 database character set and related collation.
 The older UTF8 can lead to truncation with 4-byte characters, like some emoji, which may have unpredictable side effects.
 
-See [Change from UTF8 to UTF8MB4](../updating/4_update_2.2.md#change-from-utf8-to-utf8mb4).
+See [Change from UTF8 to UTF8MB4](../updating/5_update_2.2.md#change-from-utf8-to-utf8mb4).
 
 ### Use secure Roles and Policies
 

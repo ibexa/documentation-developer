@@ -37,9 +37,9 @@ In the Page block config you can now specify the CSS class with its own style fo
 
 !!! caution "Updating to 2.2"
 
-    Refer to [Updating eZ Platform](../updating/4_update_2.2.md) for a database update script.
+    Refer to [Updating eZ Platform](../updating/5_update_2.2.md) for a database update script.
 
-    To update to 2.2 with existing Content you will need a [dedicated script for converting the Landing Page into the new Page](../updating/4_update_2.2.md#migrate-landing-pages).
+    To update to 2.2 with existing Content you will need a [dedicated script for converting the Landing Page into the new Page](../updating/5_update_2.2.md#migrate-landing-pages).
 
 ### Bookmarks
 
@@ -79,7 +79,7 @@ Database charset is changed from UTF8 to UTF8MB4, in order to support 4-byte cha
 
 !!! caution
 
-    To cover this change when upgrading, follow the instructions in the [update guide](../updating/4_update_2.2.md).
+    To cover this change when upgrading, follow the instructions in the [update guide](../updating/5_update_2.2.md).
 
 ### URL generation pattern
 
