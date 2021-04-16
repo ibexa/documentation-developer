@@ -42,7 +42,7 @@ For more information, see the Doctrine connection configuration example in the [
 
 ## Field Types
 
-The following tags used to register Field Type features in the dependency injection container have been renamed:
+The following tags used to register Field Type features in the [service container](../guide/service_container.md) have been renamed:
 
 |Former name|New name|
 |-----------|--------|
@@ -90,7 +90,7 @@ The following Symfony Service definitions that provide extension point to create
 
 The `ezstudio.installer.studio_installer` service has been renamed to the FQCN-named
 service `EzSystems\EzPlatformEnterpriseEditionInstallerBundle\Installer\Installer`.
-Deprecated `ezplatform.ee.installer.class` DIC parameter has been removed.
+Deprecated `ezplatform.ee.installer.class` [service container](../guide/service_container.md) parameter has been removed.
 
 See [eZ Platform v3.0 project update instructions](../upgrading/4_8_upgrade_rest.md#custom-installers) for upgrade details.
 
@@ -465,7 +465,7 @@ Following SPI methods have been removed:
 
 ### Dynamic settings
 
-Using dynamic settings (through `$setting$`) and getting settings from the ConfigResolver in a class constructor
+Using dynamic settings (through `$setting$`) and getting settings from the [ConfigResolver](../guide/config_dynamic.md#configresolver) in a class constructor
 or method call has been dropped.
 
 You should use the ConfigResolver instead.
@@ -475,8 +475,8 @@ Do not store the values globally. Every time the value is needed call `ConfigRes
 
 #### AbstractController
 
-The `eZ\Bundle\EzPublishCoreBundle\Controller` now extends `Symfony\Bundle\FrameworkBundle\Controller\AbstractController` instead of `Symfony\Bundle\FrameworkBundle\Controller\Controller` which has limited access to the dependency injection container.
-For details, see [Service Subscribers Locators.](https://symfony.com/doc/5.0/service_container/service_subscribers_locators.html)
+The `eZ\Bundle\EzPublishCoreBundle\Controller` now extends `Symfony\Bundle\FrameworkBundle\Controller\AbstractController` instead of `Symfony\Bundle\FrameworkBundle\Controller\Controller` which has limited access to the [service container](../guide/service_container.md).
+For details, see [Service Subscribers Locators](https://symfony.com/doc/5.0/service_container/service_subscribers_locators.html).
 
 The `Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand` is deprecated, use `Symfony\Component\Console\Command\Command` instead.
 
@@ -689,9 +689,9 @@ Instead, you can inject `eZ\Publish\API\Repository\PermissionResolver` and rely 
 
 The deprecated `Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesserInterface` has been replaced with `Symfony\Component\Mime\MimeTypesInterface`.
 
-### Symfony Dependency Injection Container
+### Symfony service container
 
-The deprecated Symfony Dependency Injection Container parameters ending with `.class` have been removed, services relying on them now have their classes defined explicitly.
+The deprecated Symfony [service container](../guide/service_container.md) parameters ending with `.class` have been removed, services relying on them now have their classes defined explicitly.
 To properly decorate a Symfony service, use the `decorates` attribute instead.
 For the full list of the dropped parameters, see
 [kernel documentation.](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/bc/8.0/dropped-container-parameters.md)

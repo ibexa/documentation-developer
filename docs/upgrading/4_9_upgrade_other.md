@@ -28,9 +28,9 @@ as a base class, you must rewrite them to use `Symfony\Component\Console\Command
 Some [permission choice loaders](../releases/ez_platform_v3.0_deprecations.md#permission-choice-loaders) and [permission-related methods](../releases/ez_platform_v3.0_deprecations.md#code-cleanup-in-ez-platform-kernel) have been removed.
 If your code uses them, you must rewrite it to use the permission resolver.
 
-## Container parameters
+## Service container parameters
 
-A number of Symfony Dependency Injection Container parameters [have been dropped](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/bc/1.0/dropped-container-parameters.md).
+A number of Symfony [service container](../guide/service_container.md) parameters [have been dropped](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/bc/1.0/dropped-container-parameters.md).
 
 Check if your code uses such invalid parameters: search for them by using the `ezpublish\..*\.class` regular expression pattern. 
 When found, replace all the occurrences with fully-qualified class names.

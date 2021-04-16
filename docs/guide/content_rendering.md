@@ -1,8 +1,8 @@
-# Content Rendering
+# Content rendering
 
 ## The ViewController
 
-[[= product_name =]] comes with a native controller to display your content, known as the **`ViewController`**. It is called each time you try to reach a Content item from its **URL alias** (human-readable, translatable URI generated for any content based on URL patterns defined per Content Type). It is able to render any content created in the admin interface or via the [Public API Guide](../api/public_php_api.md).
+[[= product_name =]] comes with a native controller to display your content, known as the `ViewController`. It is called each time you try to reach a Content item from its URL alias (human-readable, translatable URI generated for any content based on URL patterns defined per Content Type). It is able to render any content created in the admin interface or via the [Public API Guide](../api/public_php_api.md).
 
 It can also be called straight by its direct URI: 
 
@@ -10,15 +10,15 @@ It can also be called straight by its direct URI: 
 
 `/view/content/<contentId>`
 
-A Content item can also have different **view types** (full page, abstract in a list, block in a Page, etc.). By default the view type is **full** (for full page), but it can be anything (*line*, *block, etc*.).
+A Content item can also have different view types (full page, abstract in a list, block in a Page, etc.). By default the view type is full (for full page), but it can be anything (*line*, *block, etc.*).
 
 ## Configuring views: the ViewProvider
 
-The **ViewProvider** allows you to configure template selection when using the `ViewController`, either directly from a URL or via a sub-request.
+The `ViewProvider` allows you to configure template selection when using the `ViewController`, either directly from a URL or via a sub-request.
 
 #### Principle
 
-The ViewProvider takes its configuration from your SiteAccess in the `content_view` section. This configuration is [necessary for views to be defined](templates.md#templating-basics) and is a hash built in the following way:
+The `ViewProvider` takes its configuration from your SiteAccess in the `content_view` section. This configuration is [necessary for views to be defined](templates.md#templating-basics) and is a hash built in the following way:
 
 ``` yaml
 ezplatform:
@@ -56,10 +56,10 @@ To be able to select the right templates for the right conditions, the view prov
 The matcher identifier can comply to 3 different formats:
 
 1. **Relative qualified class name** (e.g. `Identifier\ContentType`). This is the most common case, it is used for native matchers. It is relative to `eZ\Publish\Core\MVC\Symfony\Matcher\ContentBased`.
-1. **Full qualified class name** (e.g. `\Foo\Bar\MyMatcher`). This is a way to specify a **custom matcher** that doesn't need specific dependency injection. Note that it **must** start with a backslash (`\`).
-1. **Service identifier**, as defined in Symfony service container. This is the way to specify a **more complex custom matcher** that has dependencies.
+1. **Full qualified class name** (e.g. `\Foo\Bar\MyMatcher`). This is a way to specify a custom matcher that doesn't need specific dependency injection. It must start with a backslash (`\`).
+1. **Service identifier**, as defined in the [service container](service_container.md). This is the way to specify a more complex custom matcher that has dependencies.
 
-!!! note "Injecting the Repository"
+!!! note "Injecting the repository"
 
     If your matcher needs the repository, make it implement `eZ\Publish\Core\MVC\RepositoryAwareInterface` or extend the `eZ\Publish\Core\MVC\RepositoryAware` abstract class. The repository will then be correctly injected before matching.
 
@@ -163,7 +163,7 @@ If you use different templates for embedded content views, this should not be a 
 
 Content view uses default templates to render content unless custom view rules are used.
 
-Those templates can be customized by means of container- and SiteAccess-aware parameters.
+Those templates can be customized by means of service container- and SiteAccess-aware parameters.
 
 ##### Overriding the default template for common view types
 
@@ -191,7 +191,7 @@ create `themes/site/default/content/<viewType>.html.twig` to override the core t
 
 ##### Customizing the default controller
 
-The controller used to render content by default can also be changed. The `ezsettings.default.content_view_defaults` container parameter contains a hash that defines how content is rendered by default. It contains a set of [content view rules for the common view types](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Bundle/EzPublishCoreBundle/Resources/config/default_settings.yml#L45-L73). This hash can be redefined to whatever suits your requirements, including custom controllers, or even matchers.
+The controller used to render content by default can also be changed. The `ezsettings.default.content_view_defaults` service container parameter contains a hash that defines how content is rendered by default. It contains a set of [content view rules for the common view types](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Bundle/EzPublishCoreBundle/Resources/config/default_settings.yml#L45-L73). This hash can be redefined to whatever suits your requirements, including custom controllers, or even matchers.
 
 ### View providers
 
@@ -303,4 +303,4 @@ This helper is accessible from all Twig templates and allows you to easily retri
 |`ezplatform.viewParametersString`|Returns the view parameters as a string.|
 |`ezplatform.translationSiteAccess`|Returns the translation SiteAccess for a given language, or null if it cannot be found.|
 |`ezplatform.availableLanguages`|Returns the list of available languages.|
-|`ezplatform.configResolver`|Returns the config resolver.|
+|`ezplatform.configResolver`|Returns the [ConfigResolver](config_dynamic.md#configresolver).|
