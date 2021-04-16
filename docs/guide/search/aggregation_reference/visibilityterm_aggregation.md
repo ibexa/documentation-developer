@@ -12,3 +12,5 @@ The [VisibilityTermAggregation](https://github.com/ezsystems/ezplatform-kernel/b
 $query = new Query();
 $query->aggregations[] = new Aggregation\VisibilityTermAggregation('visibility');
 ```
+
+[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]

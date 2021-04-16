@@ -12,3 +12,5 @@ The [LanguageTermAggregation](https://github.com/ezsystems/ezplatform-kernel/blo
 $query = new Query();
 $query->aggregations[] = new Aggregation\LanguageTermAggregation('language');
 ```
+
+[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]

@@ -20,3 +20,5 @@ The [RawTermAggregation](https://github.com/ezsystems/ezplatform-kernel/blob/mas
 $query = new Query();
 $query->aggregations[] = new Aggregation\RawTermAggregation('content_per_content_type', 'content_type_id_id');
 ```
+
+[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]

@@ -12,3 +12,5 @@ The [SectionTermAggregation](https://github.com/ezsystems/ezplatform-kernel/blob
 $query = new Query();
 $query->aggregations[] = new Aggregation\SectionTermAggregation('section');
 ```
+
+[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]

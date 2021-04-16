@@ -14,3 +14,5 @@ The Field-based [SelectionTermAggregation](https://github.com/ezsystems/ezplatfo
 $query = new Query();
 $query->aggregations[] = new Aggregation\Field\SelectionTermAggregation('selection', 'article', 'select');
 ```
+
+[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]

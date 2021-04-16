@@ -14,3 +14,5 @@ The Field-based [KeywordTermAggregation](https://github.com/ezsystems/ezplatform
 $query = new Query();
 $query->aggregations[] = new Aggregation\Field\KeywordTermAggregation('keyword', 'article', 'tags');
 ```
+
+[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]

@@ -14,3 +14,5 @@ The Field-based [CheckboxTermAggregation](https://github.com/ezsystems/ezplatfor
 $query = new Query();
 $query->aggregations[] = new Aggregation\Field\CheckboxTermAggregation('checkbox', 'article', 'enable_comments');
 ```
+
+[[= include_file('docs/snippets/search_term_aggregation_settings.md') =]]
