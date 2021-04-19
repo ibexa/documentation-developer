@@ -79,3 +79,15 @@ SomethingPayload:
                 type: String
 
 ```
+
+## Field name
+
+You can customize the name used by GraphQL as the content field name.
+
+Use this setting to avoid conflicts with Field names from a Content Type definition.
+
+``` yaml
+parameters:
+    ezplatform_graphql.schema.content.field_name.override:
+        id: id_
+```
