@@ -307,10 +307,10 @@ For more information about Roles and policies, see [Permissions](permissions.md)
 
 Enabled Site Factory may cause following performance issues:
 
-- Config Resolver will look for SiteAccesses in the database
+- [ConfigResolver](../guide/config_dynamic.md#configresolver) will look for SiteAccesses in the database
 - Site Factory matchers will be connected to the database in search for new SiteAccesses
 
-You can disable Site Factory to boost Config Resolver performance.
+You can disable Site Factory to boost ConfigResolver performance.
 Keep in mind that with disabled Site Factory you will not be able to add new sites or use existing ones.
 
 1\. In `config/packages/ezplatform_site_factory.yaml` change enabled to `false`.

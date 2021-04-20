@@ -481,7 +481,7 @@ There are three different field mappers. Each mapper implements two methods, by 
     - `::accept(Location $content)`
     - `::mapFields(Location $content)`
 
-These can be used on the extension points by registering them with the container using service tags, as follows:
+These can be used on the extension points by registering them with the [service container](../service_container.md) by using service tags, as follows:
 
 - all block documents
     - `ContentFieldMapper`

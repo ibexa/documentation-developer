@@ -98,8 +98,8 @@ General configuration for tabs e.g. browse, search, bookmarks etc.
 |`title`|string|yes|The title of Universal Discovery Widget.|
 
 UDW configuration is SiteAccess-aware. For each defined SiteAccess, you need to be able to use the same configuration tree in order to define SiteAccess-specific config.
-These settings need to be mapped to SiteAccess-aware internal parameters that you can retrieve via the ConfigResolver.
-For more information on ConfigResolver, see [[[= product_name =]] dynamic configuration basics](../guide/config_dynamic.md#configresolver).
+These settings need to be mapped to SiteAccess-aware internal parameters that 
+you can retrieve with the [ConfigResolver](../guide/config_dynamic.md#configresolver).
 
 ### Example configuration
 

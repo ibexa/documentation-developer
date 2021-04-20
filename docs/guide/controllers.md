@@ -2,11 +2,11 @@
 
 ## Custom rendering logic
 
-In some cases, displaying a Content item/Location via the built-in `ViewController` is not sufficient to show everything you want. In such cases you may want to **use your own custom logic** to display the current Content item/Location instead.
+In some cases, displaying a Content item/Location via the built-in `ViewController` is not sufficient to show everything you want. In such cases you may want to use your own custom logic to display the current Content item/Location instead.
 
 Typical use cases include access to:
 
-- Settings (coming from `ConfigResolver` or `ServiceContainer`)
+- Settings (coming from [ConfigResolver](config_dynamic.md#configresolver) or [service container](service_container.md))
 - Current Content item's `ContentType` object
 - Current Location's parent
 - Current Location's children count
@@ -444,9 +444,7 @@ The Query is configured in a `query` hash in `params`, you could specify the Que
 
 Query Type is an object that builds a Query. It is different from [Public API queries](../api/public_php_api.md).
 
-To make a new Query Type available to the Query Controller, you need to create a PHP class that implements the QueryType interface, then register it as such in the Service Container.
-
-For more information about the [Service Container on its documentation page](service_container.md).
+To make a new Query Type available to the Query Controller, you need to create a PHP class that implements the QueryType interface, then register it as such in the [service container](service_container.md).
 
 ### The QueryType interface
 
