@@ -17,6 +17,41 @@ You can [customize it according to your needs](#customize-login-form).
 The validity of the password recovery token can be set using the `ezplatform.system.<siteaccess>.security.token_interval_spec` parameter.
 By default it is set to `PT1H` (one hour).
 
+### Add forget password option in site front
+
+You can add a forgot password option to the site front to allow users of a specific site request a password change.
+
+Edit `congfig/packages/ezplatform.yaml`. The templates are defined with the following configuration:
+
+```yaml
+ezplatform:
+    system:
+        <siteaccess>:
+            user_forgot_password:
+                templates:
+                    form: <path_to_template>
+                    mail: <path_to_template>
+```
+
+The [templates](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/account/forgot_password/) for forgot password form and email are located in `/src/bundle/Resources/views/themes/admin/account/` in `ezsystems/ezplatform_admin_ui`.
+
+You can also modify the following form templates:
+
+**Forgot password forms:**
+
+```yaml
+user_change_password.templates.success
+user_forgot_password.templates.form
+user_forgot_password.templates.mail
+user_forgot_password_success.templates.form
+user_forgot_password_login.templates.form
+user_reset_password.templates.form
+user_reset_password.templates.invalid_link
+user_reset_password.templates.success
+user_registration.templates.form
+user_registration.templates.confirmation
+```
+
 ## Password rules
 
 You can customize the password policy in your project.
