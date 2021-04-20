@@ -2,7 +2,7 @@
 
 ## ConfigResolver
 
-Dynamic configuration is handled by a **ConfigResolver**.
+Dynamic configuration is handled by a ConfigResolver.
 
 It exposes the `hasParameter()` and `getParameter()` methods.
 You can use them to check the different *scopes* available for a given *namespace* to find the appropriate parameter.
@@ -66,6 +66,10 @@ services:
 ```
 
 You can also use the [autowire feature](https://symfony.com/doc/current/service_container/autowiring.html), by type hinting against ConfigResolverInterface.
+
+!!! tip
+
+    For more information about dependency injection, see [Service container](service_container.md).
 
 !!! note
 
