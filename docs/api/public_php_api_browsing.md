@@ -1,12 +1,12 @@
 # Browsing and viewing content
 
-To retrieve a Content item and its information, you need to make use of the [`ContentService`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php)
+To retrieve a Content item and its information, you need to make use of the [`ContentService`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php).
 
-The service should be [injected into the constructor of your command or controller.](https://symfony.com/doc/5.0/service_container.html)
+The service should be [injected into the constructor of your command or controller](../guide/service_container.md).
 
 !!! tip "Console commands"
 
-    To learn more about commands in Symfony, refer to [Console Commands.](https://symfony.com/doc/5.0/console.html)
+    To learn more about commands in Symfony, refer to [Console Commands](https://symfony.com/doc/5.0/console.html).
 
 ## Viewing content metadata
 

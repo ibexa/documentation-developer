@@ -290,7 +290,7 @@
 
     Enabled Site Factory may cause following performance issues:
 
-    - Config Resolver will look for SiteAccesses in the database
+    - [ConfigResolver](../guide/config_dynamic.md#configresolver) will look for SiteAccesses in the database
     - Site Factory matchers will be connected to the database in search for new SiteAccesses
 
     You can disable Site Factory to boost Config Resolver performance.

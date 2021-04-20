@@ -74,7 +74,7 @@ ezplatform:
 
 ## Referencing current design
 
-To reference current design in your code, use the `ConfigResolver` service (`ezpublish.config.resolver`):
+To reference current design in your code, use the [ConfigResolver](config_dynamic.md#configresolver) service (`ezpublish.config.resolver`):
 
 ```php
 $currentDesign = $this->getConfigResolver->getParameter('design');

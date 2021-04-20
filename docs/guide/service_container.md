@@ -1,9 +1,9 @@
 # Service container
 
-A service container (aka Dependency Injection Container, DIC) is a special object that facilitates dependency resolution.
+The service container is a special object that facilitates dependency resolution.
 It is based on the [dependency injection design pattern](http://en.wikipedia.org/wiki/Dependency_injection).
 
-Dependency injection proposes to inject all needed objects and configuration into your business logic objects (known as **services**).
+Dependency injection proposes to inject all needed objects and configuration into your business logic objects (known as services).
 It avoids the massive use of singletons, global variables or complicated factories and makes your code much more readable and testable.
 
 The main issue with this pattern is how to resolve the dependencies for your services.
@@ -15,23 +15,22 @@ It will either build the service with the configuration you provided, or give yo
 
 !!! tip
 
-    To learn more about the service container, see:
-
-    - [Full documentation of the Dependency Injection Component](http://symfony.com/doc/5.0/components/dependency_injection.html)
-    - [Base service tags](http://symfony.com/doc/5.0/reference/dic_tags.html)
+    To learn more about the service container, see the documentation for the [Symfony DependencyInjection component](http://symfony.com/doc/5.0/components/dependency_injection.html) documentation.
 
 ## Service tags
 
-Service tags in Symfony DIC are a useful way of dedicating services to a specific purpose. They are usually used for extension points.
+Service tags used by the Symfony service container are a way to dedicate services to a specific purpose. They are usually used for extension points.
 
 For instance, if you want to register a [Twig extension](http://twig.sensiolabs.org/doc/advanced.html#creating-extensions) to add custom filters,
-you need to create the PHP class and declare it as a service in the DIC configuration with the `twig.extension` tag
+you create the PHP class and declare it as a service in the service container configuration with the `twig.extension` tag
 (see the [Symfony cookbook entry](http://symfony.com/doc/5.0/templating/twig_extension.html) for a full example).
 
 [[= product_name_oss =]] exposes several features this way (see the [list of core service tags](#core-and-api)).
 This is for example the case with Field Types.
 
-You will find all service tags exposed by Symfony in [its reference documentation](http://symfony.com/doc/5.0/reference/dic_tags.html).
+!!! tip
+
+    For a list of all service tags exposed by Symfony, see its [reference documentation](http://symfony.com/doc/5.0/reference/dic_tags.html).
 
 ### Core and API
 

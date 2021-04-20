@@ -175,7 +175,7 @@ ezplatform:
 
 Any `BinaryFile` returned by the public API is prefixed with the value of this setting, internally stored as `ezsettings.scope.io.url_prefix`.
 
-#### `io.url_prefix` dynamic container setting
+#### `io.url_prefix` dynamic service container setting
 
 Default value: `$var_dir$/$storage_dir$`
 Example: `/var/site/storage`

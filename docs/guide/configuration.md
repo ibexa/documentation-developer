@@ -31,13 +31,13 @@ These files contain additional settings and point to the general (not environmen
 
 !!! note
 
-    Configuration is tightly related to the service container.
-    To fully understand it, you need to be familiar with [Symfony's service container](service_container.md) and [its configuration](https://symfony.com/doc/5.0/service_container.html#service-parameters).
+    Configuration is tightly related to the [service container](service_container.md).
+    To fully understand it, you must be familiar with the service container and [its configuration](https://symfony.com/doc/5.0/service_container.html#service-parameters).
 
 Basic configuration handling in [[= product_name_oss =]] is similar to what is commonly possible with Symfony.
 You can define key/value pairs in your configuration files.
 
-Internally and by convention, keys follow a **dot syntax**, where the different segments follow your configuration hierarchy.
+Internally and by convention, keys follow a *dot syntax*, where the different segments follow your configuration hierarchy.
 Keys are usually prefixed by a *namespace* corresponding to your application. All kinds of values are accepted, including arrays and deep hashes.
 
 For configuration that is meant to be exposed to an end-user (or end-developer),

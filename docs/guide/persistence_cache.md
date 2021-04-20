@@ -295,9 +295,9 @@ And as [[= product_name_oss =]] requires that instances use a cluster-aware cach
     That is why the example of usage below starts with a unique `myApp` key.
     For the namespace of your own cache, you must do the same.
 
-#### Get Cache service
+#### Getting Cache service
 
-##### Via Dependency injection
+##### With dependency injection
 
 In your Symfony services configuration you can simply define that you require the cache service in your configuration like so:
 
@@ -311,9 +311,9 @@ In your Symfony services configuration you can simply define that you require th
 
 This service is an instance of `Symfony\Component\Cache\Adapter\TagAwareAdapterInterface`, which extends the `Psr\Cache\CacheItemPoolInterface` interface with tagging functionality.
 
-##### Via Symfony Container
+##### With service container
 
-Like any other service, it is also possible to get the cache service via container like so:
+Like any other service, you can also get the cache service with the [service container](service_container.md) like so:
 
 ``` php
 // Getting the cache service in PHP

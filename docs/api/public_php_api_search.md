@@ -9,7 +9,7 @@ To do this, you can use the [`SearchService`](#searchservice) or [Repository fil
 [`SearchService`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php)
 enables you to perform search queries using the PHP API.
 
-The service should be [injected into the constructor of your command or controller.](https://symfony.com/doc/5.0/service_container.html)
+The service should be [injected into the constructor of your command or controller](../guide/service_container.md).
 
 !!! tip "SearchService in the Back Office"
 

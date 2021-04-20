@@ -56,7 +56,7 @@ which you must implement in your Field Type. The interface contains the followin
 |`toFieldDefinition`|Converts the other way around.|
 |`getIndexColumn()`|Returns the storage column which is used for indexing either `sort_key_string` or `sort_key_int`.|
 
-Just like a Type, a Legacy Converter needs to be registered and tagged in the service container.
+Just like a Type, a Legacy Converter needs to be registered and tagged in the [service container](../guide/service_container.md).
 
 #### Registering a converter
 
@@ -124,7 +124,7 @@ The registry mechanism is realized as a base class for `FieldStorage` implementa
 
 |Method|Description|
 |------|-----------|
-|`addGateway()`|Allows the registration of additional `StorageGateway`s from the outside. Furthermore, an associative array of `StorageGateway`s can be given to the constructor for basic initialization. This array should originate from the Dependency injection mechanism.|
+|`addGateway()`|Allows the registration of additional `StorageGateway`s from the outside. Furthermore, an associative array of `StorageGateway`s can be given to the constructor for basic initialization. This array should originate from the dependency injection mechanism.|
 |`getGateway()`|This protected method is used by the implementation to retrieve the correct `StorageGateway` for the current context.|
 
 !!! tip

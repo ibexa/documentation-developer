@@ -286,18 +286,20 @@ There are two known limitations to moving between SiteAccesses in [[= product_na
 
 ## Injecting SiteAccess
 
-SiteAccess is exposed in the Dependency Injection Container as the `@ezpublish.siteaccess` service, so it can be injected into any custom service.
+SiteAccess is exposed in the [service container](service_container.md) as the 
+`@ezpublish.siteaccess` service, so it can be injected into any custom service.
 
-The `@ezpublish.siteaccess` service, if needed, must be injected using setter injection. It comes from the fact that SiteAccess matching
-is done in a `kernel.request` event listener, so when injected into a constructor, it might not be initialized properly.
+The `@ezpublish.siteaccess` service, if needed, must be injected using setter injection. 
+It comes from the fact that SiteAccess matching is done in a `kernel.request` event 
+listener, so when injected into a constructor, it might not be initialized properly.
 
 To ensure proper contract, the `eZ\Publish\Core\MVC\Symfony\SiteAccess\SiteAccessAware` interface can be implemented on a custom service.
 
-**Example**
+##### Example
 
 Let's define a simple service which depends on the Repository's ContentService and the current SiteAccess.
 
-```yaml
+``` yaml
 services:
     App\MyService:
         arguments: ['@ezpublish.api.service.content']
@@ -305,7 +307,7 @@ services:
             - [setSiteAccess, ['@ezpublish.siteaccess']]
 ```
 
-```php
+``` php
 <?php
 
 namespace App;
@@ -342,19 +344,20 @@ class MyService implements SiteAccessAware
 
 The [Symfony Config component](https://symfony.com/doc/5.0/components/config.html) makes it possible to define *semantic configuration*, exposed to the end developer.
 This configuration is validated by rules you define, e.g. validating type (string, array, integer, boolean, etc.).
-Usually, once validated and processed, this semantic configuration is then mapped to internal *key/value* parameters stored in the `ServiceContainer`.
+Usually, once validated and processed, this semantic configuration is then mapped to internal *key/value* parameters stored in the service container.
 
-[[= product_name_oss =]] uses this for its core configuration, but adds another configuration level, the **SiteAccess**.
+[[= product_name_oss =]] uses this for its core configuration, but adds another configuration level, the SiteAccess.
 For each defined SiteAccess, you need to be able to use the same configuration tree in order to define SiteAccess-specific config.
 
-These settings then need to be mapped to SiteAccess-aware internal parameters that you can retrieve via the `ConfigResolver`.
+These settings then need to be mapped to SiteAccess-aware internal parameters 
+that you can retrieve with the [ConfigResolver](config_dynamic.md#configresolver).
 For this, internal keys need to follow the format `<namespace>.<scope>.<parameter_name>`. where:
 
 - `namespace`is specific to your app or bundle
 - `scope` is the SiteAccess, SiteAccess group, `default` or `global`
 - `parameter_name` is the actual setting *identifier*
 
-For more information on ConfigResolver, namespaces and scopes, see [[[= product_name_oss =]] configuration basics](../guide/configuration.md).
+For more information about the ConfigResolver, namespaces and scopes, see [[[= product_name_oss =]] configuration basics](../guide/configuration.md).
 
 The goal of this feature is to make it easy to implement a SiteAccess-aware semantic configuration and its mapping to internal config for any [[= product_name_oss =]] bundle developer.
 
@@ -422,8 +425,9 @@ class Configuration extends SiteAccessConfiguration
 
 ### Mapping to internal settings
 
-Semantic configuration must always be mapped to internal key/value settings within the `ServiceContainer`.
-This is usually done in the DIC extension.
+Semantic configuration must always be mapped to internal key/value settings 
+within the service container.
+This is usually done in the service container extension.
 
 For SiteAccess-aware settings, new `ConfigurationProcessor` and `Contextualizer` classes have been introduced to ease the process.
 
@@ -614,7 +618,8 @@ A few limitations exist with this scope hash merge:
 
 Instead of passing a callable to `$processor->mapConfig()`, an instance of `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\ConfigurationMapperInterface` can be passed.
 
-This can be useful if you have a lot of configuration to map and don't want to pollute your DIC extension class (better for maintenance).
+This can be useful if you have a lot of configuration to map and don't want to pollute 
+your service container extension class (better for maintenance).
 
 #### Merging hash values between scopes
 
