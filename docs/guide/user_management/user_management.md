@@ -17,11 +17,11 @@ You can [customize it according to your needs](#customize-login-form).
 The validity of the password recovery token can be set using the `ezplatform.system.<siteaccess>.security.token_interval_spec` parameter.
 By default it is set to `PT1H` (one hour).
 
-### Add forget password option in site front
+### Add forget password option
 
-You can add a forgot password option to the site front to allow users of a specific site request a password change.
+You can add a "forgot password" option to the site front to allow users of a specific SiteAccess, both admin or front, request a password change by customizing the template used in `/user/forgot-password`. 
 
-Edit `congfig/packages/ezplatform.yaml`. The templates are defined with the following configuration:
+Edit `config/packages/ezplatform.yaml`. The templates are defined with the following configuration:
 
 ```yaml
 ezplatform:
@@ -33,23 +33,17 @@ ezplatform:
                     mail: <path_to_template>
 ```
 
-The [templates](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/account/forgot_password/) for forgot password form and email are located in `/src/bundle/Resources/views/themes/admin/account/` in `ezsystems/ezplatform_admin_ui`.
+Under the `templates` key, provide the path to templates responsible for rendering the forgot password form (`form`) and email (`mail`), which is sent to users after they request a password change.
 
-You can also modify the following form templates:
+The [default templates](https://github.com/ezsystems/ezplatform-user/tree/master/src/bundle/Resources/views) for forgot password form and email are located in `ezplatform-user/src/bundle/Resources/views`.
+The [templates](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/account/forgot_password/) specific for the Back Office are in `ezplatform-admin-ui/src/bundle/Resources/views/themes/admin/account`.
 
-**Forgot password forms:**
+You can also modify [other user management templates](#other-user-management-templates).
 
-```yaml
-user_change_password.templates.success
-user_forgot_password.templates.form
-user_forgot_password.templates.mail
-user_forgot_password_success.templates.form
-user_forgot_password_login.templates.form
-user_reset_password.templates.form
-user_reset_password.templates.invalid_link
-user_reset_password.templates.success
-user_registration.templates.form
-user_registration.templates.confirmation
+To add link redirecting to the reset password form, in the landing page template, provide the following code:
+
+```html+twig
+<a href="{{ path('ezplatform.user.forgot_password') }}" tabindex="4">{{ 'authentication.forgot_password'|trans|desc('Forgot password?') }}</a>
 ```
 
 ## Password rules
