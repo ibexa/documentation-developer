@@ -1,24 +1,22 @@
 # eZ Platform Developer Documentation
 
-This repository is the source for the [developer documentation for eZ Platform](https://doc.ezplatform.com),
-an open source CMS based on the Symfony Full Stack Framework in PHP.
+This repository is the source for the [developer documentation for Ibexa DXP](https://doc.ibexa.co/en/latest),
+a DXP platform that is based on the Symfony Full Stack Framework in PHP.
 
 # Resources
 
-1. eZ Platform Developer Hub: https://ezplatform.com/
-1. eZ Platform Repository: https://github.com/ezsystems/ezplatform
-1. Open JIRA board: https://jira.ez.no/
-1. Ibexa Website: https://ibexa.co/
-1. User documentation: https://doc.ezplatform.com/projects/userguide/en/latest/
-1. Personalization Solution: https://doc.ezplatform.com/projects/ezpersonalization/en/latest/
+1. Ibexa DXP Developer Hub: https://developers.ibexa.co
+1. Ibexa DXP Repository: https://github.com/ezsystems/ezplatform
+1. Open JIRA board: https://issues.ibexa.co
+1. Ibexa Website: https://ibexa.co
+1. User documentation: https://doc.ibexa.co/projects/userguide
 
-
-## How to Contribute
-https://doc.ezplatform.com/en/master/community_resources/contributing/#contribute-to-documentation
+## How to contribute
+https://doc.ibexa.co/en/master/community_resources/contributing
 
 Invite yourself to the community Slack and join `#documentation-contrib`
 
 https://ez-community-on-slack.herokuapp.com/
 
-## Where to View
-https://doc.ezplatform.com
+## Where to view
+https://doc.ibexa.co
