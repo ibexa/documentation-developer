@@ -108,51 +108,31 @@ After this, when running Composer to get updates, you will be asked for a userna
 To use Composer to instantly create a project in the current folder with all the dependencies,
 run the following command:
 
-``` bash
-composer create-project ibexa/website-skeleton .
-```
-
-### Configure access to the update server
-
-!!! note
-
-    This step is not necessary if you are installing the OSS edition.
-
-Set up your composer configuration to connect to updates.ibexa.co:
-
-``` bash
-composer config repositories.ibexa composer https://updates.ibexa.co 
-```
-
-### Install packages
-
-To install all necessary product packages, run:
-
 === "[[= product_name_content =]]"
 
     ``` bash
-    composer require ibexa/content:^3.3 -W
+    composer create-project ibexa/content-skeleton .
     ```
 
 === "[[= product_name_exp =]]"
 
     ``` bash
-    composer require ibexa/experience:^3.3 -W
+    composer create-project ibexa/experience-skeleton .
     ```
 
 === "[[= product_name_com =]]"
 
     ``` bash
-    composer require ibexa/commerce:^3.3 -W
+    composer create-project ibexa/commerce-skeleton .
     ```
 
 !!! tip
 
     You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md):
-    specific tag (`v3.3.2`), version range (`~3.3.2`), stability (`^3.3@rc`), etc.:
+    specific tag (`3.3.2`), version range (`~3.3.2`), stability (`^3.3@rc`), etc.:
 
     ``` bash
-    composer require ibexa/experience:v3.3.2 -W
+    composer create-project ibexa/content-skeleton:3.3.2 .
     ```
 
 !!! note "Platform.sh"
@@ -168,35 +148,13 @@ To install all necessary product packages, run:
 
 #### Add project to version control
 
-At this point it is recommended to add your project to version control.
+It is recommended to add your project to version control.
 
 For git, you can do it in the following way:
 
 ``` bash
 git init; git add . > /dev/null; git commit -m "init" > /dev/null
 ```
-
-#### Install recipes
-
-Now, install the Symfony Flex recipes for the relevant product version:
-
-=== "[[= product_name_content =]]"
-
-    ``` bash
-    composer recipes:install ibexa/content --force
-    ```
-
-=== "[[= product_name_exp =]]"
-
-    ``` bash
-    composer recipes:install ibexa/experience --force
-    ```
-
-=== "[[= product_name_com =]]"
-
-    ``` bash
-    composer recipes:install ibexa/commerce --force
-    ```
 
 ### Change installation parameters
 
