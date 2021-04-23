@@ -40,7 +40,7 @@ The [templates](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src
 
 You can also modify [other user management templates](#other-user-management-templates).
 
-To add link redirecting to the reset password form, in the landing page template, provide the following code:
+To add link redirecting to the reset password form, in the template, provide the following code:
 
 ```html+twig
 <a href="{{ path('ezplatform.user.forgot_password') }}" tabindex="4">{{ 'authentication.forgot_password'|trans|desc('Forgot password?') }}</a>
