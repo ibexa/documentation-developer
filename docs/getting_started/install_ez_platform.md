@@ -150,7 +150,9 @@ run the following command:
 
 It is recommended to add your project to version control.
 
-For git, you can do it in the following way:
+First, create a `.gitignore` file based on the `.gitignore.dist` provided in the project.
+
+Then, initiate your project repository:
 
 ``` bash
 git init; git add . > /dev/null; git commit -m "init" > /dev/null
