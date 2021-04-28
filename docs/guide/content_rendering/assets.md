@@ -43,12 +43,3 @@ To include a single asset file in your template, for example an image, use the T
 ```
 
 Place the image file in the `public/assets/images` folder.
-
-### Assets and design engine
-
-If you use the [design engine](design_engine/design_engine.md), pass the `ezdesign` package to the `asset()` function
-to use the asset from the current design.
-
-``` html+twig
-<img src="{{ asset('assets/images/logo.png', 'ezdesign') }}">
-```

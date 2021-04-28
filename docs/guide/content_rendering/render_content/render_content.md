@@ -4,7 +4,7 @@ Content is rendered automatically using default, basic templates.
 To render content with a custom template, you need to create a template file
 and tell the system, in configuration, when to use this template.
 
-You do it by using the [content view configuration](../templates/template_configuration.md).
+You can do it by using the [content view configuration](../templates/template_configuration.md).
 
 For example, to apply a custom template to all articles, use the following configuration:
 
