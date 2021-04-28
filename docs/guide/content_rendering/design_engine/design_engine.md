@@ -1,0 +1,95 @@
+# Design engine
+
+You can use multiple different designs (themes) in your installation.
+
+You can set up different designs per SiteAccess or SiteAccess group.
+
+Designs are configured under the `ezdesign.design_list` key:
+
+``` yaml
+ezdesign:
+    design_list:
+        my_design: [theme1, theme2]
+        another_design: [theme3]
+```
+
+To indicate when to use a design, configure it under `ezplatform.system.<scope>`:
+
+``` yaml
+ezplatform:
+    system:
+        <scope>:
+            design: my_design
+```
+
+Each scope can use only one design.
+
+!!! caution
+
+    After you create a new folder with a design in `templates/themes`,
+    you must clear the cache (`php bin/console cache:clear`), even if you are working in the dev environment.
+
+## Order of themes
+
+The order of themes in a design is important.
+The design engine tries the first theme listed in configuration (for example, `theme1`), first.
+If it cannot find the required template or asset in this theme, it tries the next theme in the list (for example, `theme2`).
+
+You can use this behavior to override only some templates from the main theme of your website.
+Do this, for example, when you create a SiteAccess with a special design for a campaign.
+
+## Additional configuration
+
+### Additional theme paths
+
+You can add any Twig template folder to the theme configuration.
+
+You can use it if you want to define templates from third-party bundles as part of one of your themes.
+
+Do it by setting the `ezdesign.templates_theme_paths` parameter:
+
+``` yaml
+ezdesign:
+    design_list:
+        my_design: [my_theme]
+    templates_theme_paths:
+        my_theme:
+            - '%kernel.project_dir%/vendor/<vendor_name>/<bundle_name>/Resources/views'
+```
+
+Theme folders that you define have priority over the ones defined in `templates_theme_paths`.
+This ensures that it is always possible to override a template from the application.
+
+You can also add a global override folder, by listing paths without assigning them to a theme:
+
+``` yaml
+ezdesign:
+    templates_override_paths:
+        - '%kernel.project_dir%/src/<an_override_directory>'
+```
+
+### Asset resolution
+
+To improve performance, asset resolution is done at compilation time in production environments.
+Assets are resolved at runtime in development environments.
+
+You can change this behavior by setting `disable_assets_pre_resolution`:
+
+``` yaml
+ezdesign:
+    disable_assets_pre_resolution: true
+```
+
+### PHPStorm support
+
+If you are using PHPStorm, and your PHPStorm project root doesn't match your Symfony project root,
+you need to customize the path where the design engine stores its configuration file.
+Otherwise, PHPStorm will not recognize the `@ezdesign` Twig namespace.
+
+Configure it under `ezdesign.phpstorm`:
+
+``` yaml
+ezdesign:
+    phpstorm:
+        twig_config_path: <path_to_your_project>
+```
