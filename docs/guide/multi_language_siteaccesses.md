@@ -91,7 +91,6 @@ Add the new `translation_siteaccesses` here. After the `site_group`, you registe
 ``` yaml
     system:
         site_group:
-            api_keys: { google_maps: yourapikey }
             cache_pool_name: '%cache_pool%'
             var_dir: var/site
             translation_siteaccesses: [fr, en]
