@@ -1,0 +1,4 @@
+{{ ez_content_name(content) }}
+{% for item in items.searchHits %}
+    {{ ez_render(item.valueObject, {'viewType': 'line'}) }}
+{% endfor %}

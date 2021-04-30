@@ -59,7 +59,7 @@ You can now use the following new PHP API methods:
 
 ### Query Field Location handling
 
-The [Query Field Type](../guide/controllers.md#content-query-field-type) now enables getting results for the current Location of a Content item.
+The [Query Field Type](../guide/content_rendering/queries_and_controllers/content_queries.md#content-query-field-type) now enables getting results for the current Location of a Content item.
 
 ## Deprecations
 

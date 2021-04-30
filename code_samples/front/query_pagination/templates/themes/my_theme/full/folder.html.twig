@@ -1,0 +1,8 @@
+{% for item in items %}
+    {{ ez_render(item.valueObject) }}
+{% endfor %}
+
+{{ pagerfanta(items, 'ez', {
+    'routeName': 'ez_urlalias',
+    'routeParams': {'location': location }
+}) }}

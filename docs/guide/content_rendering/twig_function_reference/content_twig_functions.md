@@ -69,7 +69,7 @@ the function returns the name in the main language.
 
 ### `ez_render_content_query()`
 
-`ez_render_content_query` renders the results of a [non-content related query made by using a Query Type](../../templates.md#non-content-related-query-types).
+`ez_render_content_query` renders the results of a [non-content related query made by using a Query type](../templates.md#non-content-related-query-types).
 
 |Argument|Type|Description|
 |------|------|------|
@@ -77,7 +77,7 @@ the function returns the name in the main language.
 
 ### `ez_render_location_query()`
 
-`ez_render_location_query` renders the results of a [non-content related Location query made by using a Query Type](../../templates.md#non-content-related-query-types).
+`ez_render_location_query` renders the results of a [non-content related Location query made by using a Query type](../../templates.md#non-content-related-query-types).
 
 |Argument|Type|Description|
 |------|------|------|

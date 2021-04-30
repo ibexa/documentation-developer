@@ -1,0 +1,22 @@
+ezdesign:
+    design_list:
+        my_design: [ my_theme ]
+
+ezplatform:
+    system:
+        site_group:
+            design: my_design
+            content_view:
+                full:
+                    folder:
+                        controller: ez_query::pagingQueryAction
+                        template: '@ezdesign/full/folder.html.twig'
+                        params:
+                            query:
+                                query_type: 'Children'
+                                parameters:
+                                    content: '@=content'
+                                assign_results_to: items
+                                limit: 3
+                        match:
+                            Identifier\ContentType: folder

@@ -1,0 +1,45 @@
+<?php
+
+namespace App\Controller;
+
+use eZ\Bundle\EzPublishCoreBundle\Controller;
+use eZ\Publish\API\Repository\ContentService;
+use eZ\Publish\API\Repository\LocationService;
+use eZ\Publish\Core\MVC\Symfony\View\View;
+
+class RelationController extends Controller
+{
+    private $contentService;
+
+    private $locationService;
+
+    public function __construct(ContentService $contentService, LocationService $locationService)
+    {
+        $this->contentService = $contentService;
+        $this->locationService = $locationService;
+    }
+
+    public function showContentAction(View $view, $locationId)
+    {
+        $accepted_content_types = $view->getParameter('accepted_content_types');
+
+        $location = $this->locationService->loadLocation($locationId);
+        $contentInfo = $location->getContentInfo();
+        $versionInfo = $this->contentService->loadVersionInfo($contentInfo);
+        $relations = $this->contentService->loadRelations($versionInfo);
+
+        $items = [];
+
+        foreach ($relations as $relation) {
+            if (in_array($relation->getDestinationContentInfo()->getContentType()->identifier, $accepted_content_types)) {
+                $items[] = $this->contentService->loadContentByContentInfo($relation->getDestinationContentInfo());
+            }
+        }
+
+        $view->addParameters([
+            'items' => $items,
+        ]);
+
+        return $view;
+    }
+}
