@@ -43,7 +43,9 @@ You do this manually by following this procedure:
 
 ### VCL configuration for Fastly
 
-If you use Fastly, update your VCL with the following configuration:
+If you use Fastly, update your VCL.
+
+Locate the `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_main.vcl` file and copy the following lines to your VCL configuration:
 
 ```
 if (req.restarts == 0 && resp.status == 301 && req.http.x-fos-original-url) {

@@ -192,16 +192,6 @@ You do this manually by following this procedure:
 
     `php bin/console doctrine:schema:update --em=<ENTITY_MANAGER_NAME> --force`
 
-#### VCL configuration for Fastly
-
-If you use Fastly, update your VCL with the following configuration:
-
-```
-if (req.restarts == 0 && resp.status == 301 && req.http.x-fos-original-url) {
-    set resp.http.location = regsub(resp.http.location, "/_fos_user_context_hash", req.http.x-fos-original-url);
-}
-```
-
 ## Finish the update
 
 Finish the update by running the following commands:

@@ -122,15 +122,3 @@ Apply the following database update script:
 ```
 mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-6.13.3-to-6.13.4.sql
 ```
-
-## Updating to v1.13.7
-
-### VCL configuration for Fastly
-
-If you use Fastly, update your VCL with the following configuration:
-
-```
-if (req.restarts == 0 && resp.status == 301 && req.http.x-fos-original-url) {
-    set resp.http.location = regsub(resp.http.location, "/_fos_user_context_hash", req.http.x-fos-original-url);
-}
-```
