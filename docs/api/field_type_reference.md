@@ -1,19 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Field Types reference
 
 A Field Type is the underlying building block of the content model. It consists of two entities: Field value and Field definition. Field value is determined by values entered into the Content Field. Field definition is provided by the Content Type, and holds any user defined rules used by Field Type to determine how a Field Value is validated, stored, retrieved, formatted and so on.
@@ -1395,7 +1379,6 @@ The template called by [the `ez_render_field()` Twig function](../guide/twig_fun
 |------|------|------|------|
 |`draggable`|`boolean`|`true`|Whether to enable a draggable map|
 |`height`|`string|false`|`"200px"`|The height of the rendered map with its unit (for example "200px" or "20em"), set to false to not set any height style inline.|
-|`mapType`|`string`|`"ROADMAP"`|[One of the GMap types of map](https://developers.google.com/maps/documentation/javascript/maptypes#BasicMapTypes)|
 |`scrollWheel`|`boolean`|`true`| Allows you to disable scroll wheel starting to zoom when mouse comes over the map as user scrolls down a page.|
 |`showInfo`|`booolean`|`true`|Whether to show a latitude, longitude and the address outside of the map|
 |`showMap`|`boolean`|`true`|Whether to show a Google Map|
@@ -1406,22 +1389,6 @@ Example:
 
 ``` html+twig
 {{ ez_render_field(content, 'location', {'parameters': {'width': '100%', 'height': '330px', 'showMap': true, 'showInfo': false}}) }}
-```
-
-#### Configuration
-
-| Config | SiteAccess/Group-aware | Description |
-|--------|------------------------|-------------|
-| `api_keys.google_maps` | yes | Google maps requires the use of an API key for serving maps to web pages. This setting allows you to specify your personal [Google Maps API key](https://developers.google.com/maps/documentation/javascript/get-api-key) used during template rendering. |
-
-Example use:
-
-``` yaml
-# ezplatform.yml
-ezpublish:
-    system:
-        site_group:
-            api_keys: { google_maps: MY_KEY }
 ```
 
 ## Media Field Type
