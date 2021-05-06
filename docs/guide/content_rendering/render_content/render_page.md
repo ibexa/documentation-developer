@@ -35,7 +35,7 @@ To render the "Right sidebar" layout, add the following template to `templates/t
 ## Render a block
 
 Every built-in Page block has a default template, [which you can override](#overriding-default-block-templates).
-Every Page block can albo have multiple other templates.
+Every Page block can also have multiple other templates.
 The editor chooses a template when creating a block in the Page Builder.
 
 ### Block configuration
