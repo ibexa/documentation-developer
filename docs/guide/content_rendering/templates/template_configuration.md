@@ -43,7 +43,7 @@ The default, built-in views are:
 - `asset_image` - used when an image asset is embedded in another Content item
 
 The built-in views have built-in default templates.
-You can define any other custom views, but need to specifically define custom templates for them.
+You can define any other custom views. For each custom view, you must define a custom template.
 
 ## View rules and matching
 
@@ -65,7 +65,7 @@ Use them, for example, with [Query types]() or to provide [custom Twig variables
 
 ### Combining matchers
 
-When you use more than one matcher in one rule, both conditions must match for the rule to be applied.
+When you use more than one matcher in one rule, both conditions must match for the rule to apply.
 
 ``` yaml
 match:

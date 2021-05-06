@@ -40,7 +40,7 @@ The editor chooses a template when creating a block in the Page Builder.
 
 ### Block configuration
 
-You can add new block templates by using configuration, for example for the Content List block:
+You can add new block templates by using configuration, for example, for the Content List block:
 
 ``` yaml
 [[= include_file('code_samples/front/render_page/config/packages/ezplatform_page_fieldtype.yaml', 0, 1) =]][[= include_file('code_samples/front/render_page/config/packages/ezplatform_page_fieldtype.yaml', 13, 19) =]]

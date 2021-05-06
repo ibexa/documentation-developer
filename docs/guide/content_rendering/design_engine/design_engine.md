@@ -27,13 +27,13 @@ Each scope can use only one design.
 !!! caution
 
     After you create a new folder with a design in `templates/themes`,
-    you must clear the cache (`php bin/console cache:clear`), even if you are working in the dev environment.
+    you must clear the cache (`php bin/console cache:clear`), even if you work in the dev environment.
 
 ## Order of themes
 
 The order of themes in a design is important.
-The design engine tries the first theme listed in configuration (for example, `theme1`), first.
-If it cannot find the required template or asset in this theme, it tries the next theme in the list (for example, `theme2`).
+The design engine attempts to apply the first theme listed in configuration (for example, `theme1`), first.
+If it cannot find the required template or asset in this theme, it proceeds to the next theme in the list (for example, `theme2`).
 
 You can use this behavior to override only some templates from the main theme of your website.
 Do this, for example, when you create a SiteAccess with a special design for a campaign.
@@ -46,7 +46,7 @@ You can add any Twig template folder to the theme configuration.
 
 You can use it if you want to define templates from third-party bundles as part of one of your themes.
 
-Do it by setting the `ezdesign.templates_theme_paths` parameter:
+To do it, set the `ezdesign.templates_theme_paths` parameter:
 
 ``` yaml
 ezdesign:
@@ -70,8 +70,8 @@ ezdesign:
 
 ### Asset resolution
 
-To improve performance, asset resolution is done at compilation time in production environments.
-Assets are resolved at runtime in development environments.
+In production environments, to improve performance, asset resolution is done at compilation time.
+In development environments, assets are resolved at runtime.
 
 You can change this behavior by setting `disable_assets_pre_resolution`:
 
@@ -83,7 +83,7 @@ ezdesign:
 ### PHPStorm support
 
 If you are using PHPStorm, and your PHPStorm project root doesn't match your Symfony project root,
-you need to customize the path where the design engine stores its configuration file.
+you must customize the path where the design engine stores its configuration file.
 Otherwise, PHPStorm will not recognize the `@ezdesign` Twig namespace.
 
 Configure it under `ezdesign.phpstorm`:

@@ -4,7 +4,7 @@
 
 ## Configuration from a bundle
 
-To import assets from a bundle, you need to configure them in the bundle's `Resources/encore/ez.config.js`:
+To import assets from a bundle, you must configure them in the bundle's `Resources/encore/ez.config.js` file:
 
 ``` js
 const path = require('path');
@@ -26,7 +26,7 @@ To import CSS files only, use:
 
 !!! tip
 
-    After adding new files, run `php bin/console cache:clear`.
+    After you add new files, run `php bin/console cache:clear`.
 
     For a full example of importing asset configuration,
     see [`ez.config.js`](https://github.com/ezsystems/ezplatform-admin-ui/blob/v2.0.2/src/bundle/Resources/encore/ez.config.js)
@@ -64,18 +64,18 @@ module.exports = (eZConfig, eZConfigManager) => {
 
 !!! tip
 
-	If you do not know what `entryName` to use, you can check the dev tools for files that are loaded on the given page.
-	Use the file name as `entryName`.
+	If you do not know what `entryName` to use, you can use the browser's developer tools to check what files are loaded on the given page.
+	Then, use the file name as `entryName`.
 
 !!! tip
 
-    After adding new files, run `php bin/console cache:clear`.
+    After you add new files, run `php bin/console cache:clear`.
 
     For a full example of overriding configuration,
     see [`ez.config.manager.js`](https://github.com/ezsystems/ezplatform-matrix-fieldtype/blob/v2.0.0/src/bundle/Resources/encore/ez.config.manager.js).
 
 To add a new configuration under your own namespace and with its own dependencies,
-add a `Resources/encore/ez.webpack.custom.config.js` file, for example:
+add the `Resources/encore/ez.webpack.custom.config.js` file, for example:
 
 ``` js
 	const Encore = require('@symfony/webpack-encore');
@@ -96,7 +96,7 @@ add a `Resources/encore/ez.webpack.custom.config.js` file, for example:
 
 !!! tip
 
-    If you don't plan to add multiple entry files on the same page in your custom config,
+    If you don't plan to add multiple entry files on the same page in your custom configuration,
     use the `disableSingleRuntimeChunk()` function to avoid adding a separate `runtime.js` file.
     Otherwise, your JS code may be run multiple times.
     By default, the `enableSingleRuntimeChunk()` function is used.
@@ -106,7 +106,7 @@ add a `Resources/encore/ez.webpack.custom.config.js` file, for example:
 If you prefer to include the asset configuration in the main project files,
 add it in [`webpack.config.js`](https://github.com/ezsystems/ezplatform/blob/v3.0.3/webpack.config.js#L15).
 
-To overwrite built-in assets, use the following configuration to replace, remove or add asset files
+To overwrite the built-in assets, use the following configuration to replace, remove or add asset files
 in `webpack.config.js`:
 
 ``` js

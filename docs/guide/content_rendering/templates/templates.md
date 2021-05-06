@@ -1,10 +1,10 @@
 # Templates
 
-[[= product_name =]] uses templates written in the Twig  template engine.
+[[= product_name =]] uses templates written in the Twig template engine.
 
 !!! tip
 
-    Learn more about Twig templates from [Twig documentation.](https://twig.symfony.com/doc/2.x/templates.html)
+    Learn more about Twig templates from [Twig documentation](https://twig.symfony.com/doc/2.x/templates.html).
 
 ## Connecting templates
 
@@ -35,7 +35,7 @@ The parent template (in this case, `pagelayout.html.twig`) must leave a place fo
 
 ## Template variables
 
-In templates you can use variables related to the current Content item,
+In templates, you can use variables related to the current Content item,
 as well as general variables related to the current view and general application settings.
 
 [[= include_file('docs/snippets/rendering_dump_variable.md') =]]
@@ -73,7 +73,7 @@ You can access this variable directly in all templates in that scope:
 {{ custom_variable }}
 ```
 
-Variables set per content view (under `params`) are only available when this view is matched:
+Variables set for a specific content view (under `params`) are only available when this view is matched:
 
 ``` yaml
 [[= include_file('code_samples/front/render_content/config/packages/views.yaml', 24, 31) =]]

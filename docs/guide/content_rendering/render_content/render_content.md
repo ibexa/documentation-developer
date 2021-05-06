@@ -1,10 +1,10 @@
 # Render content
 
-Content is rendered automatically using default, basic templates.
-To render content with a custom template, you need to create a template file
-and tell the system, in configuration, when to use this template.
+Content is rendered automatically by using default, basic templates.
+To render content with a custom template, you create a template file
+and inform the system, through configuration, when to use this template.
 
-You can do it by using the [content view configuration](../templates/template_configuration.md).
+You do it by using the [content view configuration](../templates/template_configuration.md).
 
 For example, to apply a custom template to all articles, use the following configuration:
 
@@ -21,15 +21,15 @@ The indicated `template` is `@ezdesign/full/article.html.twig`.
     This configuration uses the [design engine](../design_engine/design_engine.md), as indicated by the `@ezdesign` in the template path.
     In this example, the theme used by the design is `my_theme`.
     
-    Using the design engine is recommended, but you can also provide the paths to templates directly, for example:
+    Using the design engine is recommended, but you can also set direct paths to templates, for example:
     
     ``` yaml
     template: 'full/article.html.twig'
     ```
     
-    Then, place the template file directly in the `templates/full` folder.
+    You must then ensure that the `templates/full` folder contains the template file.
 
-The configuration requires adding an `article.html.twig` template file to `templates/themes/<theme_name>/full`,
+The configuration requires that you add the `article.html.twig` template file to `templates/themes/<theme_name>/full`,
 in this example, `templates/themes/my_theme/full`.
 
 ``` html+twig
@@ -47,7 +47,7 @@ Content name is based on the [content name pattern](../../content_model.md#conte
 [[= include_file('code_samples/front/render_content/templates/themes/my_theme/full/article.html.twig', 3, 4) =]]
 ```
 
-You can get general information about the content, Location and view parameters using the [available variables](../templates/templates.md#template-variables).
+You can get general information about the content, Location and view parameters by using the [available variables](../templates/templates.md#template-variables).
 For example, to get the publication date of the current Content item, use:
 
 ``` html+twig
@@ -58,7 +58,7 @@ For example, to get the publication date of the current Content item, use:
 
 ## Render Fields
 
-You can render a single Field of a Content item using the [`ez_render_field()`](../twig_function_reference/field_twig_functions.md#ez_render_field) Twig function.
+You can render a single Field of a Content item by using the [`ez_render_field()`](../twig_function_reference/field_twig_functions.md#ez_render_field) Twig function.
 It takes the Content item and the identifier of the Field as arguments:
 
 ``` html+twig

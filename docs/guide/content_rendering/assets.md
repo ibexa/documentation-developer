@@ -7,7 +7,7 @@ in the `assets` folder, for example under `assets/css` and `assets/js`.
 
 ## Configure assets
 
-All asset files must be added to `webpack.config.js` in the root folder
+All asset files must be added to `webpack.config.js` in the root folder,
 so that Webpack Encore can use them.
 To do it, use `Encore.addStyleEntry` for CSS files and `Encore.addEntry` for other files, such as JS:
 
@@ -34,7 +34,7 @@ and provide the name of the asset entry you configured in `webpack.config.js`, f
 
 !!! note
 
-    After adding asset files, clear cache and run `yarn encore <dev|prod>`.
+    After you add the asset files, clear the cache and run `yarn encore <dev|prod>`.
 
 To include a single asset file in your template, for example an image, use the Twig `asset()` function:
 
