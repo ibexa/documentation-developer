@@ -1,4 +1,4 @@
-# View matchers
+# View matcher reference
 
 You can use the following matchers to [match content views](template_configuration.md#view-rules-and-matching):
 

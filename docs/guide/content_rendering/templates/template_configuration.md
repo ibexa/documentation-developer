@@ -1,6 +1,6 @@
 # Template configuration
 
-Template usage is configured under the `content_view` key.
+You configure how templates are used under the `content_view` key.
 
 The following example configuration defines template usage for several cases:
 
@@ -17,12 +17,12 @@ It may be a SiteAccess, a SiteAccess group, or one of the [generic configuration
 
 ## Page layout
 
+`pagelayout` defines the general layout of the whole site.
+Other templates can [extend the pagelayout](#page-layout).
+
 ``` yaml
 [[= include_file('code_samples/front/render_content/config/packages/views.yaml', 7, 8) =]]
 ```
-
-`pagelayout` defines the general layout of the whole site.
-Other templates can [extend the pagelayout](#page-layout).
 
 ## View types
 
@@ -49,7 +49,7 @@ You can define any other custom views. For each custom view, you must define a c
 
 Each rule must have a name unique per view type.
 For each rule you must define the matching conditions.
-The `match` key can contain one or more [view matchers](view_matchers.md).
+The `match` key can contain one or more [view matchers](view_matcher_reference.md).
 
 ``` yaml
 [[= include_file('code_samples/front/render_content/config/packages/views.yaml', 15, 20) =]]

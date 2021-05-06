@@ -6,7 +6,7 @@ A Page Field is a layout composed of zones. Each zone can contain multiple block
 
 ## Render a layout
 
-### Layout configuration
+### Configure layout
 
 The default, built-in Page layout has only one zone.
 You can create other layouts in configuration, under the `ezplatform_page_fieldtype.layouts` key.
@@ -17,7 +17,7 @@ To create a new layout called "Right sidebar", use the following configuration:
 [[= include_file('code_samples/front/render_page/config/packages/ezplatform_page_fieldtype.yaml', 0, 13) =]]
 ```
 
-### Layout template
+### Add layout template
 
 A layout template should render all the zones of the layout.
 
@@ -34,8 +34,8 @@ To render the "Right sidebar" layout, add the following template to `templates/t
 
 ## Render a block
 
-Every built-in Page block has a default template, [which you can override](#overriding-default-block-templates),
-and can have multiple other templates.
+Every built-in Page block has a default template, [which you can override](#overriding-default-block-templates).
+Every Page block can albo have multiple other templates.
 The editor chooses a template when creating a block in the Page Builder.
 
 ### Block configuration
@@ -58,7 +58,7 @@ Create the block template file in the provided path, for example, `templates/the
 [[= include_file('code_samples/front/render_page/templates/themes/my_theme/blocks/contentlist.html.twig') =]]
 ```
 
-### Overriding default block templates
+### Override default block templates
 
 To override the default block template, create a new template.
 Place it in a path that mirrors the original default template from the bundle folder.

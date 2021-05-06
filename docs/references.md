@@ -13,7 +13,7 @@
 - [Template variables](guide/content_rendering/templates/templates.md#template-variables)
 - [Image variation filters](guide/images.md#available-filters)
 - [SiteAccess matchers](guide/siteaccess_matching.md#available-matchers)
-- [View matchers](guide/content_rendering/templates/view_matchers.md)
+- [View matcher reference](guide/content_rendering/templates/view_matcher_reference.md)
 
 ## Permissions
 

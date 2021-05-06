@@ -1,5 +1,6 @@
 # Templates
 
+You can customize the layout and look of your website with templates.
 [[= product_name =]] uses templates written in the Twig template engine.
 
 !!! tip

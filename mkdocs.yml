@@ -149,9 +149,9 @@ nav:
                 - 'Render content': 'guide/content_rendering/render_content/render_content.md'
                 - 'Render page': 'guide/content_rendering/render_content/render_page.md'
             - Template configuration and matching:
-                - 'Template configuration': 'guide/content_rendering/templates/template_configuration.md'
                 - 'Templates': 'guide/content_rendering/templates/templates.md'
-                - 'View matchers': 'guide/content_rendering/templates/view_matchers.md'
+                - 'Template configuration': 'guide/content_rendering/templates/template_configuration.md'
+                - 'View matcher reference': 'guide/content_rendering/templates/view_matcher_reference.md'
             - 'Assets': 'guide/content_rendering/assets.md'
             - Twig functions reference:
                 - 'Twig functions reference': 'guide/content_rendering/twig_function_reference/twig_functions_reference.md'

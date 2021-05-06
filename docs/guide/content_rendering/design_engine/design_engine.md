@@ -58,7 +58,7 @@ ezdesign:
 ```
 
 Theme folders that you define have priority over the ones defined in `templates_theme_paths`.
-This ensures that it is always possible to override a template from the application.
+This ensures that it is always possible to override a template at the application level.
 
 You can also add a global override folder, by listing paths without assigning them to a theme:
 

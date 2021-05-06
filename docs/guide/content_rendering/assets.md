@@ -1,8 +1,11 @@
 # Assets
 
+Assets enable you to add CSS, JS, image or other files to your project,
+to style and customize its look and behavior.
+
 ## Asset files
 
-To add assets to the front site, provide asset files (such as CSS or JS files)
+To add assets to the project, provide asset files (such as CSS or JS files)
 in the `assets` folder, for example under `assets/css` and `assets/js`.
 
 ## Configure assets
