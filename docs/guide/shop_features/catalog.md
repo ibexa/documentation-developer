@@ -33,7 +33,7 @@ eContent offers a staging feature and allows imports during production and switc
 
 ### Changing data providers
 
-See [Switching the data provider](../data_providers/data_providers#switching-the-data-provider.md)
+See [Switching the data provider](../data_providers/data_providers.md#switching-the-data-provider)
 to learn how to change the data provider.
 
 ## Product categories
