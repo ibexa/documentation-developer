@@ -16,7 +16,15 @@ mysql -u <username> -p <password> <database_name> < upgrade/db/mysql/ezplatform-
 psql <database_name> < upgrade/db/postgresql/ezplatform-3.1.0-to-3.2.0.sql
 ```
 
-## Update entity managers
+## Updating to v3.2.6
+
+To update to v3.2.6, if you are using MySQL, additionally run the following update script:
+
+``` sql
+mysql -u <username> -p <password> <database_name> < upgrade/db/mysql/ezplatform-3.2.5-to-3.2.6.sql
+```
+
+### Update entity managers
 
 Version v3.2.6 introduces new entity managers.
 To ensure that they work in multi-repository setups, you must update the GraphQL schema.
