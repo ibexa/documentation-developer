@@ -58,7 +58,7 @@ They can be manually removed from `composer.json` now.
 
 #### How to clear the cache properly?
 
-Clearing cache is covered by our [documentation](../guide/devops/#cache-clearing), it applies to file and content (HTTP/persistence) cache.
+Clearing cache is covered by our [documentation](../guide/devops.md#cache-clearing), it applies to file and content (HTTP/persistence) cache.
 
 Useful commands:
 
