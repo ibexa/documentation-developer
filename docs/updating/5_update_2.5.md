@@ -137,7 +137,13 @@ ezplatform_support_tools:
             enabled: false
 ```
 
-## Updating to 2.5.18
+## Updating to v2.5.18
+
+To update to v2.5.18, if you are using MySQL, additionally run the following update script:
+
+``` sql
+ALTER TABLE ezpage_attributes MODIFY value LONGTEXT;
+```
 
 ### Update entity managers
 
