@@ -42,6 +42,11 @@ This section describes how to upgrade your existing  eZ Publish Platform  5.4
     - Browser from 2017 or newer for use with eZ Platform backend UI
 - This page assumes you have composer installed on the machine and that it is a recent version.
 
+!!! tip "Clearing cache"
+
+    If at any point during the migration procedure you encounter problems with the cache,
+    refer to [How to clear the cache properly?](../community_resources/support_maintenance_faq.md#how-to-clear-the-cache-properly).
+
 ## Upgrade steps
 
 ### Step 1: Extract eZ Platform/Enterprise v1.7
