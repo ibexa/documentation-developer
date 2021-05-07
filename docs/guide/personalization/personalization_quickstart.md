@@ -1,45 +1,32 @@
-# Quickstart guide
+# Basic service integration
 
-This quickstart guide gives a basic overview of how the personalization engine works and how it is typically enabled.
-Following is an example for the integration in an e-commerce shop.
-
-## How it works
-
-The idea of the recommendation engine is quite simple and built upon four main steps.
-
-A User visits an online shop, navigates through it and leaves some footprints.
-The most popular footprints are selecting and purchasing  products **(1)**.
-This information is sent to the event tracker service of the recommendation engine every time these events happen **(2)**.
-The recommendation engine accumulates the tracked events, categorizes them and calculates recommendations for every product and every user in the shop **(3)**.
-All recommendations are available over the recommender service.
-They can be fetched and presented to users during their sessions.
-
-![Overview of how recommendation works](img/recommendation_overview.png)
-
-#### Integration
-
-Integration is based on the following:
-
-- activation of user tracking (we respect privacy rules and never store any data related to a person, every event is anonymized)
-- embedding recommendations into a website.
+Assuming that you [enabled the Personalization service](enabling_personalization.md), 
+for the service to return recommendations, you must integrate it with your content 
+publishing or eCommerce solution by activating event tracking and embedding 
+recommendation results into the website.
+With the integration configured as described below, you get basic yet effective recommendations.
 
 !!! note
 
-    Below we use the mandator ID '00000' for creating requests.
-    In real-life scenario, you use your own ID that you receive from Ibexa.
+    Examples below use '00000' as a customer ID for creating requests.
+    In a real-life scenario, use the customer ID that you receive from Ibexa.
 
-### Tracking events
+## Tracking events
 
-Step one is called tracking. Every page must call special tracking URL.
-The simplest way is to place a tiny image on every product page, just as it is usually done for analytic tools or visitor counter.
-It looks like this:
+The service primarily relies on event tracking. 
+For the events to be registered, every content item or product page must call 
+a special tracking URL.
+The simplest way to the tracking URL is placing a one pixel image on every page, 
+just like in the case of analytical tools or visitor counters.
+A code that includes an image may look like this:
 
-**`<img href="https://event.yoochoose.net/ebl/00000/click/john.smith/1/123" width="1" height="1">`**
+`<img href="https://event.yoochoose.net/ebl/00000/click/<user_ID>/1/<content_ID>" width="1" height="1">`
 
-Replace "john.smith" with the user ID or session ID of the user currently signed in on your website (any URL encoded string is allowed).
-Replace "123" with the ID of the content you want to track and later on recommend.
+`<user_ID>` stands either for the user ID or session ID of the user who is currently 
+logged into your website (any URL-encoded string is allowed).
+`<content_ID>` is the ID of the content item or product that you want to track and recommend.
 
-The following code snippets provide example code for the integration of a click event:
+The following snippets are examples of code that could be used to integrate a CLICK event:
 
 PHP:
 
@@ -51,7 +38,7 @@ $tracking = $server.'/ebl/'.$mandator_id.'/click/'.urlencode(session_id()).'/1/'
 echo "<img href='$tracking' width='1' height='1'>";
 ```
 
-Javascript:
+JavaScript:
 
 ``` js
 var mandator_id = '00000';
@@ -62,7 +49,7 @@ var ycimg=new Image(1,1);
 ycimg.src=url;
 ```
 
-A similar tracking image must be placed on the confirmation page after the payment process.
+A similar tracking image can be placed on a confirmation page that ends the payment process.
 
 ``` php
 $server = '//event.yoochoose.net';
@@ -72,21 +59,28 @@ foreach ($just_bought_products as $product_id) {
 }
 ```
 
-### Embedding recommendations
+## Embedding recommendations
 
-Depending on the page impressions/visits the recommendation engine has soon collected enough events and is able to generate recommendations.
-The more tracking data is available, the better and sharper the recommendations will be.
-Recommendations can be fetched using following calls, the response is returned as JSON.
+As soon as the recommendation engine collects enough events, it is able to generate recommendations.
+The more tracking data is available, the better and more accurate the recommendations.
+Recommendations can be fetched with the following calls, and the response is returned in JSON format.
 
-**`https://reco.yoochoose.net/api/v2/00000/john.smith/landing_page.json`**
-Returns the most popular products.
+To return the most popular products, use:
 
-**`https://reco.yoochoose.net/api/v2/00000/john.smith/cross_sell.json?contextitems=OWNS,CLICKED`** Returns products the current user (here "**`john.smith`**") is most probably interested in, so-called personalized recommendations.
+`https://reco.yoochoose.net/api/v2/00000/<user_ID>/landing_page.json`
 
-**`https://reco.yoochoose.net/api/v2/00000/john.smith/cross_sell.json?contextitems=123`**
-Returns products most probably interesting for any user who is interested in product 123.
 
-Example result with two recommendations:
+To return products that the current user is most probably interested in, use:
+
+`https://reco.yoochoose.net/api/v2/00000/<user_ID>/cross_sell.json?contextitems=OWNS,CLICKED`
+
+
+To return products that are most probably interesting for users interested in product 123, use:
+
+`https://reco.yoochoose.net/api/v2/00000/<user_ID>/cross_sell.json?contextitems=123`
+
+
+A response with two recommendations will resemble the following example:
 
 ``` json
 {
@@ -123,11 +117,11 @@ Example result with two recommendations:
 }
 ```
 
-Here is a small PHP snippet for making request and parsing results:
+Here is an example of PHP code that could be used for making requests and parsing results:
 
 ``` php
 $mandator_id = '00000';
-$license_key = '86109-2778-8757-7597-4319';
+$license_key = '67890-1234-5678-90123-4567';
 $server = "https://reco.yoochoose.net";
 $scenario = "category_page";
 $url = $server.'/ebl/00000/'.urlencode(session_id()).'/'.urlencode($scenario).'.json';
@@ -153,22 +147,12 @@ if ($recommendations && isset($recommendations->recommendationResponseList)) {
 curl_close($curl);
 ```
 
-## Next steps
+## Advanced integration
 
-For the most simple but still very effective recommendations the steps described above are sufficient.
-Tracking more events, using additional parameters and custom scenario configurations enable features like:
+You can configure integration at a more advanced level to track more events, 
+use additional parameters, apply custom scenario configurations, apply filters 
+and enable additional features.
 
-- Filtering recommendations based on category
-- Getting usage and revenue statistics
-- Recommendations based on the shopping basket
-- Filtering repeated recommendations
+For more information about available functionalities, see the [User Documentation](https://doc.ibexa.co/projects/userguide/en/latest/personalization/personalization).
 
-Additional features include:
-
-- Using "rate" and "like" events
-- Additional models such as content-based, random, history etc.
-- Multiple product types (for example food/non-food or article/image/video) and cross-type recommendations
-- Price-based filtering (do not recommend cheap products)
-- Grouping products by custom attributes (size, color, source, theme etc.)
-
-More detailed information can be found in the [User Guide](https://doc.ezplatform.com/projects/userguide/en/master/personalization/introduction.md).
+For more information about integrating the Personalization service, see [Developer guide](developer_guide/tracking_api.md) and [Best practices](best_practices/tracking_integration.md).
