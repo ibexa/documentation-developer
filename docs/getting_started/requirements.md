@@ -9,7 +9,7 @@ The following server requirements cover both running the software on-premise and
 The minimal setup requires PHP,  MySQL/MariaDB, Apache/Nginx, Node.js and `yarn`.
 Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, NFS/EFS/S3 and Solr/Elasticsearch in a [clustered setup](../guide/clustering.md).
 
-Using the latest supported version or each product or component is always recommended.
+Using the latest listed version of each product or component is always recommended.
 
 ## Operating system
 
@@ -75,7 +75,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 
 ## Package manager
 
-- Composer 2.0.8 or higher
+- Composer 2.0.13 or higher
 
 ## Asset manager
 
@@ -84,7 +84,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 
 ## Browser
 
-[[= product_name =]] is developed to work with *any* web browser that support modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you'll need; a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browsers found below.
+[[= product_name =]] is developed to work with *any* web browser that support modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you'll need; a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
 
 - Mozilla® Firefox® most recent stable version (recommended)
 - Google Chrome™ most recent stable version (recommended)
