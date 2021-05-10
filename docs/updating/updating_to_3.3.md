@@ -4,6 +4,7 @@ Ibexa DXP v3.3 uses [Symfony Flex](https://symfony.com/doc/current/quick_tour/fl
 When updating from v3.2 to v3.3, you need to follow a special update procedure.
 
 If you are updating from an earlier version, start with [updating your installation to v3.2](updating.md).
+If you want to update from v3.3.1 to a later v3.3 version, for example v3.3.2, see [Update to v3.3.x](#update-to-v33x).
 
 First, create an update branch in git and commit your work.
 
@@ -167,7 +168,45 @@ Check the Location ID of the "Components" Content item and set it as a value of 
 If you are upgrading between [[= product_name_com =]] versions,
 add the `content/read` Policy with the Owner Limitation set to `self` to the "Ecommerce registered users" Role.
 
-### Updating to 3.3.2
+## Finish the update
+
+Finish the update by running the following commands:
+
+``` bash
+php bin/console ibexa:graphql:generate-schema
+composer run post-install-cmd
+```
+
+## Update to v3.3.x
+
+To update from one v3.3 patch version to another (for example, from v3.3.1 to v3.3.2), run:
+
+=== "[[= product_name_content =]]"
+
+    ``` bash
+    composer require ibexa/content:3.3.2 -W
+    composer recipes:install ibexa/content --force
+    ```
+
+=== "[[= product_name_exp =]]"
+
+    ``` bash
+    composer require ibexa/experience:3.3.2 -W
+    composer recipes:install ibexa/experience --force
+    ```
+
+=== "[[= product_name_com =]]"
+
+    ``` bash
+    composer require ibexa/commerce:3.3.2 -W
+    composer recipes:install ibexa/commerce --force
+    ```
+    
+Review the changes to make sure your custom configuration was not affected.
+
+Then, perform a database upgrade relevant to the version you are updating to.
+
+### Update database to v3.3.2
 
 To update to v3.3.2, if you are using MySQL, additionally run the following update script:
 
@@ -197,12 +236,3 @@ You do this manually by following this procedure:
 1. For every entity manager prefixed with `ibexa_`, run the following command to run queries on the database:
 
     `php bin/console doctrine:schema:update --em=<ENTITY_MANAGER_NAME> --force`
-
-## Finish the update
-
-Finish the update by running the following commands:
-
-``` bash
-php bin/console ibexa:graphql:generate-schema
-composer run post-install-cmd
-```
