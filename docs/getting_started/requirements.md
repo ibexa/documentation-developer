@@ -32,7 +32,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 ## PHP
 
 - 7.3
-- 7.4
+- 7.4 (recommended)
 
 ### PHP packages
 
