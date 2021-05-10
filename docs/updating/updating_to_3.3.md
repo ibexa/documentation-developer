@@ -206,3 +206,7 @@ Finish the update by running the following commands:
 php bin/console ibexa:graphql:generate-schema
 composer run post-install-cmd
 ```
+
+## Enable Commerce features
+
+With the v3.3.2 update, Commerce features in Experience and Content editions are disabled by default. If you use these features, after the update go to [Enable Commerce features](../guide/config_back_office.md#enable-commerce-features) and manually enable them.
