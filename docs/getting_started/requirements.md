@@ -91,24 +91,6 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 - Chromium™ based browsers such as Microsoft® Edge® and Opera®, most recent stable version, desktop *and* tablet
 - Apple® Safari® most recent stable version, desktop *and* tablet
 
-## Development and Experimental setups
-
-[[= product_name =]] can theoretically run and execute on many more setups than the ones listed as recommended and supported, including any [operating system supported by PHP](https://wiki.php.net/platforms), on a PHP 7.3 version or higher that pass the [Symfony requirements](http://symfony.com/doc/5.0/reference/requirements.html), using cache solutions technically supported by [Symfony Cache component](https://symfony.com/doc/5.0/components/cache/cache_pools.html), using databases supported by [Doctrine DBAL](https://www.doctrine-project.org/projects/doctrine-dbal/en/2.9/reference/configuration.html#driver), and using a binary file storage solution supported by [FlySystem](https://github.com/thephpleague/flysystem#adapters).
-
-Examples of Development setups:
-
-- OS: Windows, macOS X, Linux
-- Filesystem: NTFS, HFS+/APFS, ...
-
-Examples of Experimental setups:
-
-- OS: Any system supported by PHP
-- Filesystem: BTRFS, AUFS, ...
-- IO: Azure, (S)FTP, GridFS, [etc.](https://flysystem.thephpleague.com/docs/adapter/local/)
-- Databases: MSSQL, Oracle (databases technically supported by Doctrine DBAL which we use, but not supported by our installer at the moment, and not covered by automated testing)
-
-**While all these options are not actively supported by Ibexa**, they are community supported. Meaning you can use them with both open source edition and enterprise edition, however if you encounter issues best way to handle them is via contribution, and any such efforts made to improve support for these technologies can contribute to the technology being supported by Ibexa in the near future.
-
 ## Ibexa Cloud requirements and setup
 
 !!! note "Ibexa Cloud"
