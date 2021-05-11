@@ -198,6 +198,11 @@ You do this manually by following this procedure:
 
     `php bin/console doctrine:schema:update --em=<ENTITY_MANAGER_NAME> --force`
 
+### Enable Commerce features
+
+With the v3.3.2 update, Commerce features in Experience and Content editions are disabled by default.
+If you use these features, after the update refer to [Enable Commerce features](../guide/config_back_office.md#enable-commerce-features) and manually enable them.
+
 ## Finish the update
 
 Finish the update by running the following commands:
