@@ -12,7 +12,7 @@ the Personalization service, see [Developer guide](developer_guide/tracking_api.
 
 ## Configuration
 
-Before you can use the Personalization service you must configure the client.
+Before you can use the Personalization service, you must configure the client.
 
 ### Set up Content Type tracking
 
@@ -42,15 +42,14 @@ ezrecommendation:
 
     It is recommended that you provide your `host_uri`, `customer_id` and 
     `license_key` through environment variables: `'%env()%'`.
-    If you do not have multiple SiteAccesses, 
 
 | Parameter                            | Description                                               |
 |--------------------------------------|-----------------------------------------------------------|
 | `authentication.customer_id`         | Your customer ID.                                         |
 | `authentication.license_key`         | Your license key.                                         |
 | `host_uri`                           | The URI your site's REST API can be accessed from.        |
-| `included_content_types`             | List of alphanumerical identifiers of Content Types on which the tracking script is shown. |
-| `random_content_types`               | List of alphanumerical identifiers of Content Types that are returned when the response from the server contains no content. |
+| `included_content_types`             | A list of alphanumerical identifiers of Content Types on which the tracking script is shown. |
+| `random_content_types`               | A list of alphanumerical identifiers of Content Types that are returned when the response from the server contains no content. |
 
 #### Advanced configuration
 
@@ -350,8 +349,8 @@ You can also bypass named arguments with standard value passing as arguments.
 
 !!! note "Custom templates"
 
-    If you want to use a custom template for displaying recommendations,
-    it must include `event_tracking.html.twig`:
+    To use a custom template for displaying recommendations,
+    ensure that it includes `event_tracking.html.twig`:
 
     `{% include 'EzRecommendationClientBundle::event_tracking.html.twig' %}`.
 
@@ -454,9 +453,9 @@ if the content Fields were previously exported by the export script.
 
 ### Modifying recommendation data
 
-You can retrieve data returned from the recommendation engine and modify it before displaying.
+You can retrieve data returned from the recommendation engine and modify it before it is shown to the user.
 
-To do it, subscribe to `RecommendationResponseEvent`.
+To modify recommendation data, subscribe to `RecommendationResponseEvent`.
 See [`Event/Subscriber/RecommendationEventSubscriber.php`](https://github.com/ezsystems/ezrecommendation-client/blob/master/src/lib/Event/Subscriber/RecommendationEventSubscriber.php) for example:
 
 ``` php
@@ -472,12 +471,12 @@ The `-10` refers to priority, which must be negative so this action is performed
 
 ### Image variations
 
-Displaying image variations is not currently supported out of the box.
+Displaying image variations is not readily supported yet.
 
-You can work around this limitation by creating your own template
+You can work around this limitation by creating a template
 (based on [recommendations.html.twig](https://github.com/ezsystems/ezrecommendation-client/blob/master/src/bundle/Resources/views/recommendations.html.twig)).
 
-If you want to access a specific image variation through API, add the `image` parameter to the request URL with the name of the variation as its value.
+To access a specific image variation through API, add the `image` parameter to the request URL with the name of the variation as its value.
 For example, to retrieve the `rss` variation of the image, use:
 
 `/api/ezp/v2/ez_recommendation/v1/contenttypes/16?lang=eng-GB&fields=title,description,image,intro,name&page=1&page_size=20&image=rss`
@@ -499,4 +498,4 @@ monolog:
             level: info
 ```
 
-You can replace `info` with `debug` for more verbosity.
+You can replace `info` with `debug` to increase verbosity.

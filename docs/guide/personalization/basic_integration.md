@@ -22,10 +22,12 @@ A code that includes an image may look like this:
 
 `<user_ID>` stands either for the user ID or session ID of the user who is currently 
 logged into your website (any URL-encoded string is allowed).
+
 `<content_type_ID>` stands for the [contentTypeId](../content_model.md#content-information) of the Content item or product that you want to track and recommend.
+
 `<content_ID>` stands for the [id](../content_model.md#content-information) of the Content item or product that you want to track and recommend.
 
-The following examples show how to integrate a CLICK event:
+The following examples show how you can integrate a CLICK event:
 
 PHP:
 
@@ -60,8 +62,8 @@ foreach ($just_bought_products as $product_id) {
 
 ## Embedding recommendations
 
-As soon as the recommendation engine collects enough events, it is able to generate recommendations.
-The more tracking data is available, the better and more accurate the recommendations.
+As soon as the recommendation engine collects enough events, it can generate recommendations.
+The more tracking data is available, the more accurate the recommendations.
 Recommendations can be fetched with the following calls, and the response is returned in JSON format.
 
 To return the most popular products, use:
@@ -76,7 +78,7 @@ To return products that are most probably interesting for users interested in pr
 
 `https://reco.yoochoose.net/api/v2/00000/<user_ID>/cross_sell.json?contextitems=123`
 
-A response with two recommendations will resemble the following example:
+A response with two recommendations will resemble the following object:
 
 ``` json
 {
