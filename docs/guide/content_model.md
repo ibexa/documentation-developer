@@ -25,7 +25,7 @@ General information about a Content item is stored in a [`ContentInfo`](https://
 
 **`id`** - the unique ID of the Content object. These numbers are not recycled, so if an item is deleted, its ID will not be reused when a new one is created.
 
-**`contentTypeId`** - the unique ID of the Content Type on which the Content item is based.
+**`contentTypeId`** - the unique numerical ID of the Content Type, on which the Content item is based.
 
 **`name`** - the name is generated automatically based on a [pattern specified in the Content Type definition](#content-name-pattern).
 The name is in the main language of the Content item.
