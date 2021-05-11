@@ -67,7 +67,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 
 - Linux NFS or S3/EFS (for IO, aka binary files stored in content repository, not supported with legacy)
 - Redis 4.0+, 5.0 or higher (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/topics/lru-cache), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
-- [Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) or [Fastly](https://www.fastly.com/) using [the bundle provided with [[= product_name_exp =]]](../guide/http_cache.md#serving-varnish-through-fastly) (for HttpCache)
+- [Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the bundle provided with [[= product_name_exp =]]](../guide/http_cache.md#serving-varnish-through-fastly) (for HttpCache)
 
 ## Filesystem
 
@@ -84,7 +84,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 
 ## Browser
 
-[[= product_name =]] is developed to work with *any* web browser that support modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you'll need; a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
+[[= product_name =]] is developed to work with *any* web browser that supports modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you'll need; a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
 
 - Mozilla® Firefox® most recent stable version (recommended)
 - Google Chrome™ most recent stable version (recommended)
