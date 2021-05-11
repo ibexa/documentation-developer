@@ -1,7 +1,7 @@
 # Basic service integration
 
 To return recommendations, you must first [enable the Personalization service](enabling_personalization.md).
-Then, you must integrate the service with I[= product_name =]] by activating 
+Then, you must integrate the service with [[= product_name =]] by activating 
 event tracking and embedding recommendation results into the website.
 
 !!! note
