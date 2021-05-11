@@ -20,11 +20,12 @@ The simplest way to the tracking URL is placing a one pixel image on every page,
 just like in the case of analytical tools or visitor counters.
 A code that includes an image may look like this:
 
-`<img href="https://event.yoochoose.net/ebl/00000/click/<user_ID>/1/<content_ID>" width="1" height="1">`
+`<img href="https://event.yoochoose.net/ebl/00000/click/<user_ID>/<content_type_ID>/<content_ID>" width="1" height="1">`
 
 `<user_ID>` stands either for the user ID or session ID of the user who is currently 
 logged into your website (any URL-encoded string is allowed).
-`<content_ID>` is the ID of the content item or product that you want to track and recommend.
+`<content_type_ID>` stands for the [contentTypeId](../content_model.md#content-information) of the content item or product that you want to track and recommend.
+`<content_ID>` stands for the [id](../content_model.md#content-information) of the content item or product that you want to track and recommend.
 
 The following snippets are examples of code that could be used to integrate a CLICK event:
 

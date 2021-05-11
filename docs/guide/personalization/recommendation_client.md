@@ -49,8 +49,8 @@ ezrecommendation:
 | `authentication.customer_id`         | Your customer ID.                                         |
 | `authentication.license_key`         | Your license key.                                         |
 | `host_uri`                           | The URI your site's REST API can be accessed from.        |
-| `included_content_types`             | Content Types on which the tracking script will be shown. |
-| `random_content_types`               | Content Types which will be returned when the response from the Recommendation engine contains co content. |
+| `included_content_types`             | List of alphanumerical identifiers of Content Types on which the tracking script is shown. |
+| `random_content_types`               | List of alphanumerical identifiers of Content Types that are returned when the response from the server contains no content. |
 
 #### Advanced configuration
 
@@ -103,7 +103,7 @@ ezrecommendation:
 
 !!! caution
 
-    Changing any of these parameters without a valid reason will break all calls to the Recommendation engine.
+    Changing any of these parameters without a valid reason breaks all calls to the Recommendation engine.
 
 #### Enable tracking
 
@@ -189,9 +189,9 @@ The `content` endpoint returns one Content item and the `contenttypes` endpoint 
 
 To get recommendations you must first export the content information to the Recommendation engine.
 
-After [you define Content Types to be tracked and recommended](#set-up-content-type-tracking),
+After you [define Content Types to be tracked and recommended](#set-up-content-type-tracking),
 start the full export.
-You can do it with the `ibexa:recommendation:run-export` command or by accessing the `http://<yourdomain>/api/ezp/v2/ez_recommendation/` URL/endpoint.
+You do it either with the `ibexa:recommendation:run-export` command...
 
 ``` bash
 php bin/console ibexa:recommendation:run-export
@@ -200,6 +200,8 @@ php bin/console ibexa:recommendation:run-export
     --hidden=1 --mandatorId=<your_customer_id>
     --host=<your_ezplatform_host_with_scheme>
 ```
+
+... or by accessing the `http://<yourdomain>/api/ezp/v2/ez_recommendation/` endpoint:
 
 ```
 http://<yourdomain>/api/ezp/v2/ez_recommendation/v1/runExport/<contentTypeIdList>?webHook=<webhook>&customerId=<customerId>&licenseKey=<licenseKey>&host=<host>
@@ -215,7 +217,7 @@ The export process can take several minutes.
 
 !!! caution "Re-exporting modified Content Types"
 
-    If the Content Types to be recommended are changed, you must perform a new full export
+    If the Content Types to be recommended change, you must perform a new full export
     by running the `php bin/console ibexa:recommendation:run-export` command again.
 
 ### Checking export results
@@ -294,9 +296,8 @@ and it eventually fetches the affected content (4) and updates it internally (5)
 
     Recommendations are fetched and rendered asynchronously in the client, so there is no additional load on the server.
     Therefore, it is crucial that you check whether the content export was successful, because certain references, for example, deeplinks and image references, are included.
-    If the export fails, the Recommendation engine will not have the full content information.
-    This will break the recommendations. Even if the recommendations are displayed,
-    they might not have images, titles or deeplinks.
+    If the export fails, the Recommendation engine does not have full content information.
+    As a result, even if the recommendations are displayed, they might miss images, titles or deeplinks.
 
 To display recommendations on your site, you must add the following JavaScript assets to your header template:
 
@@ -343,7 +344,7 @@ render_esi(controller('ez_recommendation::showRecommendationsAction', {
 | `outputTypeId`   | string | Content Type you are expecting in response, for example, `blog_post`. |
 | `limit`          | int    | Number of recommendations to fetch. |
 | `template`       | string | Template name. |
-| `attributes`     | array  | Fields that are required and will be requested from the Recommendation engine. These Field names are also used inside Handlebars templates. |
+| `attributes`     | array  | Fields that are required and are requested from the Recommendation engine. These Field names are also used inside Handlebars templates. |
 
 You can also bypass named arguments with standard value passing as arguments.
 
