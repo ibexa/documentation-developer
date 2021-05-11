@@ -11,7 +11,7 @@ The following information can be loaded to the recommendation solution:
 - Availability timeframe - Certain products are be recommended only in the specified time window
 - Custom attributes - You can group recommendations and narrow down the results, for example, to non-food products or to news that are related to the end user's city
 
-For more information about personalization, see [Personalization quickstart](../personalization_quickstart.md) and [Best practices](../best_practices/recommendation_integration.md).
+For more information about personalization, see [Introduction](../personalization.md) and [Best practices](../best_practices/recommendation_integration.md).
 
 The recommendation client provides a REST interface that accepts items in XML format.
 You can use the interface to post item information within the request's body into the store, 
