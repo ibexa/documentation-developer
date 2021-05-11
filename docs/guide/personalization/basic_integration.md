@@ -1,10 +1,8 @@
 # Basic service integration
 
-Assuming that you [enabled the Personalization service](enabling_personalization.md), 
-for the service to return recommendations, you must integrate it with your content 
-publishing or eCommerce solution by activating event tracking and embedding 
-recommendation results into the website.
-With the integration configured as described below, you get basic yet effective recommendations.
+To return recommendations, you must first [enable the Personalization service](enabling_personalization.md).
+Then, you must integrate the service with I[= product_name =]] by activating 
+event tracking and embedding recommendation results into the website.
 
 !!! note
 
@@ -14,7 +12,7 @@ With the integration configured as described below, you get basic yet effective 
 ## Tracking events
 
 The service primarily relies on event tracking. 
-For the events to be registered, every content item or product page must call 
+For the events to be registered, every Content item or product page must call 
 a special tracking URL.
 The simplest way to the tracking URL is placing a one pixel image on every page, 
 just like in the case of analytical tools or visitor counters.
@@ -24,10 +22,10 @@ A code that includes an image may look like this:
 
 `<user_ID>` stands either for the user ID or session ID of the user who is currently 
 logged into your website (any URL-encoded string is allowed).
-`<content_type_ID>` stands for the [contentTypeId](../content_model.md#content-information) of the content item or product that you want to track and recommend.
-`<content_ID>` stands for the [id](../content_model.md#content-information) of the content item or product that you want to track and recommend.
+`<content_type_ID>` stands for the [contentTypeId](../content_model.md#content-information) of the Content item or product that you want to track and recommend.
+`<content_ID>` stands for the [id](../content_model.md#content-information) of the Content item or product that you want to track and recommend.
 
-The following snippets are examples of code that could be used to integrate a CLICK event:
+The following examples show how to integrate a CLICK event:
 
 PHP:
 
@@ -70,16 +68,13 @@ To return the most popular products, use:
 
 `https://reco.yoochoose.net/api/v2/00000/<user_ID>/landing_page.json`
 
-
 To return products that the current user is most probably interested in, use:
 
 `https://reco.yoochoose.net/api/v2/00000/<user_ID>/cross_sell.json?contextitems=OWNS,CLICKED`
 
-
 To return products that are most probably interesting for users interested in product 123, use:
 
 `https://reco.yoochoose.net/api/v2/00000/<user_ID>/cross_sell.json?contextitems=123`
-
 
 A response with two recommendations will resemble the following example:
 
@@ -118,7 +113,7 @@ A response with two recommendations will resemble the following example:
 }
 ```
 
-Here is an example of PHP code that could be used for making requests and parsing results:
+You can use the following code to make requests and parse results:
 
 ``` php
 $mandator_id = '00000';
@@ -151,7 +146,7 @@ curl_close($curl);
 ## Advanced integration
 
 You can configure integration at a more advanced level to track more events, 
-use additional parameters, apply custom scenario configurations, apply filters 
+use additional parameters, apply custom scenario configurations, apply filters, 
 and enable additional features.
 
 For more information about available functionalities, see the [User Documentation](https://doc.ibexa.co/projects/userguide/en/latest/personalization/personalization).

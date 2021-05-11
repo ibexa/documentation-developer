@@ -421,7 +421,7 @@ nav:
             - 'Shop translations': 'guide/shop_translations.md'
         - Personalization:
             - 'Personalization': 'guide/personalization/personalization.md'
-            - 'Enabling Personalization': 'guide/personalization/enabling_personalization.md'
+            - 'Enabling personalization': 'guide/personalization/enabling_personalization.md'
             - 'Basic service integration': 'guide/personalization/basic_integration.md'
             - Developer guide:
                 - 'Tracking API': 'guide/personalization/developer_guide/tracking_api.md'

@@ -1,7 +1,7 @@
 # Personalization
 
 Ibexa Personalization is a service that offers personalized recommendations 
-or serves targeted content to to the visitors of your website, based on their 
+or serves targeted content to the visitors of your website, based on their 
 preferences and behavior.
 
 Personalization can be used both by publishers, for example, to track content consumption 
