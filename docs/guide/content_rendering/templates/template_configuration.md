@@ -18,7 +18,7 @@ It may be a SiteAccess, a SiteAccess group, or one of the [generic configuration
 ## Page layout
 
 `pagelayout` defines the general layout of the whole site.
-Other templates can [extend the pagelayout](#page-layout).
+Other templates can [extend the page layout](#page-layout).
 
 ``` yaml
 [[= include_file('code_samples/front/render_content/config/packages/views.yaml', 7, 8) =]]

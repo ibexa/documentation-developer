@@ -19,7 +19,7 @@ To create a new layout called "Right sidebar", use the following configuration:
 
 ### Add layout template
 
-A layout template should render all the zones of the layout.
+A layout template renders all the zones of the layout.
 
 Each zone must have a `data-ez-zone-id` attribute with the number of the zone.
 
