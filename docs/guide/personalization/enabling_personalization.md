@@ -12,7 +12,7 @@ must [request access to the service](https://doc.ibexa.co/projects/userguide/en/
 
 When you receive the confirmation email, add the credentials to your configuration.
 In the root folder of your project, edit either the `.env` or `.env.local` file 
-by adding two lines that may look similar to the following example. 
+by adding the following lines with your customer ID and license key: 
 
 ```
 RECOMMENDATION_CUSTOMER_ID=12345

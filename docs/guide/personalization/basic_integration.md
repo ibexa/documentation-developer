@@ -14,7 +14,7 @@ event tracking and embedding recommendation results into the website.
 The service primarily relies on event tracking. 
 For the events to be registered, every Content item or product page must call 
 a special tracking URL.
-The simplest way to the tracking URL is placing a one pixel image on every page, 
+The simplest way of embedding the tracking URL is placing a one pixel image on every page, 
 just like in the case of analytical tools or visitor counters.
 A code that includes an image may look like this:
 
