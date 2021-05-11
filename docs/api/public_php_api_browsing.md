@@ -51,7 +51,7 @@ It provides you with basic content metadata such as modification and publication
 
     To retrieve content information in a controller, you also make use of the `ContentService`,
     but rendering specific elements (e.g. content information or Field values)
-    is relegated to [templates](../guide/templates.md).
+    is relegated to [templates](../guide/content_rendering/templates/templates.md).
 
 ### Locations
 

@@ -249,7 +249,7 @@ class CustomController extends Controller
 }
 ```
 
-The rendering of results is then relegated to [templates](../guide/templates.md) (lines 20-22).
+The rendering of results is then relegated to [templates](../guide/content_rendering/templates/templates.md) (lines 20-22).
 
 When using Repository filtering, provide the results of `ContentService::find()` as parameters to the view:
 

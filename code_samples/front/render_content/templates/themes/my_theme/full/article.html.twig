@@ -1,0 +1,23 @@
+{% extends '@ezdesign/pagelayout.html.twig' %}
+
+{% block content %}
+<h1>{{ ez_content_name(content) }}</h1>
+
+{{ content.contentInfo.publishedDate|ez_full_datetime }}
+
+{{ ez_render_field(content, 'intro') }}
+
+{{ ez_render_field(content, 'body', {
+    'attr': {
+        class: 'article-body'
+    }
+}) }}
+
+{{ ez_render_field(content, 'author', {
+    'template': '@ezdesign/fields/author.html.twig'
+}) }}
+
+{{ my_variable }}
+
+{{ another_variable }}
+{% endblock %}

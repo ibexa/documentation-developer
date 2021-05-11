@@ -25,7 +25,7 @@ You can provide `ez_render()` with either a Content item or a Location object.
 |------|------|------|
 |`content`</br>or</br>`location`|`eZ\Publish\API\Repository\Values\Content\Content`</br>or</br>`eZ\Publish\API\Repository\Values\Content\Location`|Content item or its Location.|
 |`method`|`string`|(optional) [Rendering method](#rendering-methods). One of: `direct`, `inline`, `esi`, `ssi`.|
-|`viewType`|`string`|(optional) [View type](../../templates.md#full-line-and-other-views).|
+|`viewType`|`string`|(optional) [View type](../templates/template_configuration.md#view-types).|
 
 #### Rendering methods
 
