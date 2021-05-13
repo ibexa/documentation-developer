@@ -4,6 +4,6 @@
 
 | Path     | Description       |
 | -------- | ----------------- |
-| `Siso/Bundle/QuickOrderBundle/Resources/views/QuickOrder/quick_order.html.twig` | Entry page for quick order. |
-| `Siso/Bundle/QuickOrderBundle/Resources/views/QuickOrder/quick_order_form.html.twig` | Renders the content of the quick order page. |
-| `Siso/Bundle/QuickOrderBundle/Resources/views/QuickOrder/quick_order_line.html.twig` | Renders the content of one quick order line. This template is used to replace the quick order line after creating the line preview. |
+| `ShopFrontendBundle/Resources/views/themes/standard/QuickOrder/quick_order.html.twig` | Entry page for quick order. |
+| `ShopFrontendBundle/Resources/views/themes/standard/QuickOrder/quick_order_form.html.twig` | Quick order form. |
+| `ShopFrontendBundle/Resources/views/themes/standard/QuickOrder/quick_order_empty_line.html.twig` | An empty line innthe quick order form. |
