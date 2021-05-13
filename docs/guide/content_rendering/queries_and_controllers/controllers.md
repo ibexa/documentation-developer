@@ -8,8 +8,6 @@ You indicate which controller to use in the [content view configuration](../temp
 [[= include_file('code_samples/front/embed_content/config/packages/views.yaml', 23, 26) =]][[= include_file('code_samples/front/embed_content/config/packages/views.yaml', 28, 30) =]]
 ```
 
-A custom controller must extend `eZ\Bundle\EzPublishCoreBundle\Controller`.
-
 ``` php
 [[= include_file('code_samples/front/embed_content/src/Controller/RelationController.php', 2, 10) =]]
 ```

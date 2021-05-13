@@ -21,7 +21,7 @@ class RelationController extends Controller
 
     public function showContentAction(View $view, $locationId)
     {
-        $accepted_content_types = $view->getParameter('accepted_content_types');
+        $acceptedContentTypes = $view->getParameter('accepted_content_types');
 
         $location = $this->locationService->loadLocation($locationId);
         $contentInfo = $location->getContentInfo();
@@ -31,7 +31,7 @@ class RelationController extends Controller
         $items = [];
 
         foreach ($relations as $relation) {
-            if (in_array($relation->getDestinationContentInfo()->getContentType()->identifier, $accepted_content_types)) {
+            if (in_array($relation->getDestinationContentInfo()->getContentType()->identifier, $acceptedContentTypes)) {
                 $items[] = $this->contentService->loadContentByContentInfo($relation->getDestinationContentInfo());
             }
         }
