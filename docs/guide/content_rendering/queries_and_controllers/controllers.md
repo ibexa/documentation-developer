@@ -9,7 +9,7 @@ You indicate which controller to use in the [content view configuration](../temp
 ```
 
 ``` php
-[[= include_file('code_samples/front/embed_content/src/Controller/RelationController.php', 2, 10) =]]
+[[= include_file('code_samples/front/embed_content/src/Controller/RelationController.php', 2, 9) =]]
 ```
 
 For a full example of using a custom controller, see [Embed content](../embed_and_list_content/embed_content.md#custom-controller).

@@ -2,12 +2,11 @@
 
 namespace App\Controller;
 
-use eZ\Bundle\EzPublishCoreBundle\Controller;
 use eZ\Publish\API\Repository\ContentService;
 use eZ\Publish\API\Repository\LocationService;
 use eZ\Publish\Core\MVC\Symfony\View\View;
 
-class RelationController extends Controller
+class RelationController
 {
     private $contentService;
 
