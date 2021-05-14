@@ -40,6 +40,14 @@ Use the POST request to create or update items with the given ID in the database
 A body of the request must contain a valid XML document.
 Once uploaded, the item is scheduled to be inserted in the database, and it is not directly available.
 
+## DELETE requests
+
+Use the DELETE method to delete all information that is related to the given item ID. 
+
+`DELETE: https://admin.yoochoose.net/api/[customerid]/item/[itemtypeid]/[itemid]?lang=<language_code>`
+
+The item is scheduled to be removed from the database.
+
 ## Request parameters
 
 The following call attributes are available:
@@ -49,7 +57,7 @@ The following call attributes are available:
 | `customerid` | Your customer ID, as defined when [enabling Personalization](../enabling_personalization.md#configuring-customer-credentials) (for example, "00000"). | alphanumeric |
 | `itemid` | A unique ID of the Content item/product. Used to identify the item in the database. | integer |
 | `itemtypeid` | An ID of the type of Content item/product. In most cases, the value is 1 but you might have items/products of more than one type. | integer |
-
+| `lang` | A [language code](../../internationalization.md) of the Content item/product (for example, "ger-DE"). This parameter is optional. | string |
 
 ### Request object format
 
@@ -185,9 +193,9 @@ The following HTTP response codes are used by the recommendation controller:
 |HTTP Status Code|Description|
 |---|---|
 |200 OK|The GET request was processed successfully.|
-|202 Accepted|The POST request was processed successfully.|
+|202 Accepted|The POST or DELETE request was processed successfully.|
 |400 Bad Request|Wrong request formatting. The XML content cannot be validated.|
-|404 Not Found|The element requested by the GET request was not found.|
+|404 Not Found|The element requested by the GET or DELETE request was not found.|
 
 ## Transferring item identifiers
 
