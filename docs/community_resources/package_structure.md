@@ -12,17 +12,17 @@ The following conventions apply to contributions to Ibexa core code, not to thir
 Define [[= product_name =]] core PHP code in a namespace with the following prefix:
 
 ```php
-namespace Ibexa\Platform;
+namespace Ibexa;
 ```
 
 A package which groups some DXP features can use an additional prefix, for example:
 
 ```php
-namespace Ibexa\Platform\Commerce;
+namespace Ibexa\Commerce;
 ```
 
 ```php
-namespace Ibexa\Platform\Personalization;
+namespace Ibexa\Personalization;
 ```
 
 ## Packages
@@ -50,11 +50,11 @@ The `src/lib` directory and its corresponding `Ibexa\Platform\<PackageName>` nam
 Examples:
 
 ```php
-namespace Ibexa\Platform\Search;
+namespace Ibexa\Search;
 ```
 
 ```php
-namespace Ibexa\Platform\Commerce\Shop;
+namespace Ibexa\Commerce\Shop;
 ```
 
 ### Bundles
@@ -62,7 +62,7 @@ namespace Ibexa\Platform\Commerce\Shop;
 The bundle class definition in the `src/bundle` directory must be:
 
 ```php
-namespace Ibexa\Platform\Bundle\<PackageName>;
+namespace Ibexa\Bundle\<PackageName>;
 
 class IbexaPlatform[ProductGroup]<PackageName>Bundle // ...
 ```
@@ -71,13 +71,13 @@ Examples:
 
 
 ```php
-namespace Ibexa\Platform\Bundle\Search;
+namespace Ibexa\Bundle\Search;
 
 class IbexaPlatformSearchBundle // ...
 ```
 
 ```php
-namespace Ibexa\Platform\Bundle\Commerce\Shop;
+namespace Ibexa\Bundle\Commerce\Shop;
 
 class IbexaPlatformCommerceShopBundle // ...
 ```
@@ -88,21 +88,25 @@ A package may introduce a namespace for contracts, to be consumed by first and t
 and projects, which must be prefixed as:
 
 ```php
-namespace Ibexa\Platform\Contracts;
+namespace Ibexa\Contracts;
 ```
 
 Examples:
 
 ```php
-namespace Ibexa\Platform\Contracts\Kernel;
+namespace Ibexa\Contracts\Kernel;
 ```
 
 ```php
-namespace Ibexa\Platform\Contracts\SiteFactory;
+namespace Ibexa\Contracts\SiteFactory;
 ```
 
 ```php
-namespace Ibexa\Platform\Contracts\Commerce\Shop;
+namespace Ibexa\Contracts\Commerce\Shop;
 ```
 
 That namespace needs to be mapped to the `src/contracts` directory of a package.
+
+!!! note
+
+    Backward compatibility for interfaces and objects defined in the `Contracts` namespace is guarranteed.
