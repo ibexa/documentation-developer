@@ -193,9 +193,9 @@ The following HTTP response codes are used by the recommendation controller:
 |HTTP Status Code|Description|
 |---|---|
 |200 OK|The GET request was processed successfully.|
-|202 Accepted|The POST request was processed successfully.|
+|202 Accepted|The POST or DELETE request was processed successfully.|
 |400 Bad Request|Wrong request formatting. The XML content cannot be validated.|
-|404 Not Found|The element requested by the GET request was not found.|
+|404 Not Found|The element requested by the GET or DELETE request was not found.|
 
 ## Transferring item identifiers
 
