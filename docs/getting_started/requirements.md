@@ -31,8 +31,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 
 ## PHP
 
-- 7.3
-- 7.4 (recommended)
+- 7.4
 
 ### PHP packages
 
@@ -79,7 +78,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 
 ## Asset manager
 
-- `Node.js` 10.22 or higher
+- `Node.js` 12 or higher
 - `yarn` 1.15.2 or higher
 
 ## Browser
