@@ -215,6 +215,17 @@ By adjusting them to your needs, you will change your email template.
 
 ### Configure sender details
 
-To send emails, you also need to configure `sender_address` in `config/packages/swiftmailer.yaml`.
-It acts as a sender and return address for all bounced messages.
-For details, see [Symfony Mailer Configuration Reference.](https://symfony.com/doc/5.0/reference/configuration/swiftmailer.html#sender-address)
+To send notification emails from the Form Builder, you need to configure `sender_address` in `config/packages/swiftmailer.yaml`. It acts as a sender and return address for all bounced messages. For more information, see [Symfony Mailer Configuration Reference.](https://symfony.com/doc/5.0/reference/configuration/swiftmailer.html#sender-address) Some providers require a `sender_address` to be defined, or outgoing mails will be bounced.
+
+Add `sender_address` entry to `config/packages/swiftmailer.yaml`:
+
+```yaml
+swiftmailer:
+    url: '%env(MAILER_URL)%'
+    spool: { type: 'memory' }
+    sender_address: '%env(MAILER_SENDER_ADDRESS)%'
+```
+
+In the `.env` file, define a new environment variable:
+`MAILER_SENDER_ADDRESS=mail@example.com`
+ and configure your mail server connection details in the `MAILER_URL` environmental variable.
