@@ -152,6 +152,7 @@ nav:
                 - 'Templates': 'guide/content_rendering/templates/templates.md'
                 - 'Template configuration': 'guide/content_rendering/templates/template_configuration.md'
                 - 'View matcher reference': 'guide/content_rendering/templates/view_matcher_reference.md'
+                - 'Shop templates': 'guide/content_rendering/templates/overriding_shop_templates.md'
             - 'Assets': 'guide/content_rendering/assets.md'
             - Twig functions reference:
                 - 'Twig functions reference': 'guide/content_rendering/twig_function_reference/twig_functions_reference.md'
@@ -172,7 +173,11 @@ nav:
             - Embed and list content:
                 - 'List content': 'guide/content_rendering/embed_and_list_content/list_content.md'
                 - 'Embed content': 'guide/content_rendering/embed_and_list_content/embed_content.md'
-            - 'Overriding shop templates': 'guide/shop_templates/overriding_shop_templates.md'
+            - Layout:
+                - 'Add navigation menu': 'guide/content_rendering/layout/add_menu.md'
+                - 'Add search form to front page': 'guide/content_rendering/layout/add_search_form.md'
+                - 'Add breadcrumbs': 'guide/content_rendering/layout/add_breadcrumbs.md'
+                - 'Customize basket': 'guide/content_rendering/layout/customize_basket.md'
         - Content management:
             - 'Content management': 'guide/content_management.md'
             - 'Images': 'guide/images.md'
@@ -316,7 +321,6 @@ nav:
                 - 'Staging system': 'guide/econtent/staging_system.md'
         - Search:
             - 'Search': 'guide/search/search.md'
-            - 'Adding search form to front page': 'guide/search/adding_search_form.md'
             - 'Search Criteria reference': 'guide/search/search_criteria_reference.md'
             - Search Criteria reference:
                 - 'Ancestor': 'guide/search/criteria_reference/ancestor_criterion.md'
