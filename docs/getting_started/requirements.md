@@ -6,119 +6,90 @@ The following server requirements cover both running the software on-premise and
 
     For running on [Ibexa Cloud](https://www.ibexa.co/products/ibexa-cloud), where recommended configuration and support is provided out of the box, see separate [Ibexa Cloud section](#ibexa-cloud-requirements-and-setup) for further reading on its requirements.
 
-## Server
+The minimal setup requires PHP,  MySQL/MariaDB, Apache/Nginx, Node.js and `yarn`.
+Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, NFS/EFS/S3 and Solr/Elasticsearch in a [clustered setup](../guide/clustering.md).
 
-Ibexa software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, `Apache/Nginx`, `Node.js` and `yarn`. Recommendation for production setups is to use `Varnish`/`Fastly`, `Redis`/`Memcached`, `NFS`/`EFS`/`S3` and `Solr`/`Elasticsearch` in a [clustered setup](../guide/clustering.md).
+Using the latest listed version of each product or component is always recommended.
 
-For supported versions of these technologies see Recommended and Supported setups below.
+## Operating system
 
-### Recommended setups
+- Debian 10.x "Buster"
+- Ubuntu 20.04 "Focal Fossa"
+- RHEL / CentOS 8.1+
 
-These setups are tested by QA and are generally recommended setups. For security and performance we furthermore recommend use of the newer versions of components below unless otherwise noted.
+## Web server
 
-||Debian|Ubuntu|RHEL / CentOS|
-|------|------|------|------|
-|Operating system|10.x "Buster"|20.04 "Focal Fossa"|8.1+|
-|Web Server|Nginx 1.14</br>Apache 2.4|Nginx 1.18</br>Apache 2.4|Nginx 1.14</br>Apache 2.4|
-|DBMS|MariaDB 10.3|MariaDB 10.3</br>MySQL 8.0|MariaDB 10.3</br>MySQL 8.0|
-|PHP|PHP 7.3|PHP 7.4|PHP 7.3|
-|PHP packages|php-cli</br>php-fpm</br>php-mysql or php-pgsql</br>php-xml</br>php-json</br>php-intl</br>php-curl</br>php-gd *or* php-imagick|php-cli</br>php-fpm</br>php-mysql or php-pgsql</br>php-xml</br>php-mbstring</br>php-json</br>php-intl</br>php-curl</br>php-gd *or* php-imagick|php-cli</br>php-fpm</br>php-mysqlnd or php-pgsql</br>php-xml</br>php-mbstring</br>php-json</br>php-process</br>php-intl</br>php-pear *(optional, provides pecl)*</br>php-gd *or* php-imagick *(via [pecl](https://pecl.php.net/package/imagick))*|
-|Cluster PHP packages|[php-redis](https://pecl.php.net/package/redis) *or* [php-memcached](https://pecl.php.net/package/memcached)|[php-redis](https://pecl.php.net/package/redis) *or* [php-memcached](https://pecl.php.net/package/memcached)|[php-redis](https://pecl.php.net/package/redis) *or* [php-memcached](https://pecl.php.net/package/memcached)|
+- Nginx 1.12, 1.14, 1.16
+- Apache 2.4 (with required modules `mod_rewrite`, `mod_env` and recommended: `mod_setenvif`, `mod_expires`;
+event MPM is recommended, if you need to use prefork you also need the `mod_php` module)
 
-|||
-|------|------|
-|Search|Solr 7.7LTS *or* Elasticsearch 7.7, using Oracle Java/Open JDK 8 or higher |
-|Graphic Handler|GraphicsMagick or ImageMagick or GD|
-|[Clustering](../guide/clustering.md)|Linux NFS *or* S3/EFS *(for IO, aka binary files stored in content repository, not supported with legacy)*</br>Redis 5.0 or higher *(separate instances for session & cache, both using a `volatile-*` [eviction policy](https://redis.io/topics/lru-cache), session instance configured for persistance)* *or* [Memcached](https://memcached.org/) 1.5 or higher</br>[Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [the bundle provided with [[= product_name_exp =]]](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*|
-|Filesystem|Linux ext4 / XFS|
-|Package manager|Composer (2.0.8 or higher)|
-|Asset manager|`Node.js` 10.22 or higher</br>`yarn` 1.15.2 or higher|
+## DBMS
 
-### Other supported setups
+- MariaDB 10.3, 10.4 (optionally 10.2 - deprecated)
+- MySQL 8.0 (optionally 5.7 - deprecated)
+- PostgreSQL 10+
 
-For security and performance we generally recommend (unless otherwise noted) using the newer versions of components below.
+## PHP
 
--   OS: Linux
--   Web Servers:
-    -   Apache 2.4, with required modules `mod_rewrite`, `mod_env` and recommended: `mod_setenvif`, `mod_expires`
-        - event MPM is recommended, if you need to use _prefork_ you'll also need the `mod_php` module
-    -   Nginx 1.12, 1.14, 1.16
--   DBMS
-    -   MySQL 8.0 (optionally 5.7 - deprecated)
-    -   MariaDB 10.3, 10.4 (optionally 10.2 - deprecated)
-    -   PostgreSQL 10+
--   PHP
-    -   7.3
-    -   7.4
+- 7.3
+- 7.4
 
-- Cluster
-    - Cache:
-        - Redis 4.0+ (5.0 recommended, using `volatile-*` [eviction policy](https://redis.io/topics/lru-cache) is required with default [Redis adapter](../guide/persistence_cache.md#redis))
-        - Memcached 1.5 or higher (See [Memcached adapter](../guide/persistence_cache.md##memcached) for comparison with Redis)
-    - Session: either own Redis instance with persistence turned on, or Database.
-    - Search: Solr 7, Solr 8, or Elasticsearch 7.7 (recommended over SQL-based Search engine, especially on cluster, as SQL does not provide the same feature set or performance as the other two).
-    - IO: NFS or S3
-    - HttpCache, using one of:
-        - [Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst)
-        - [Fastly](https://www.fastly.com/) using [the bundle provided with [[= product_name_exp =]]](../guide/http_cache.md#serving-varnish-through-fastly)
+### PHP packages
 
--   PHP extensions/modules
-    -   curl
-    -   ctype
-    -   dom (usually bundled with `xml` extension package)
-    -   fileinfo
-    -   iconv
-    -   intl
-    -   mbstring
-    -   json
-    -   opcache
-    -   pdo
-        - pdo mysql *(with mysqlnd)*
-        - pdo pgsql
-    -   posix
-    -   reflection
-    -   xml
-    -   xsl
-    -   zip
-    -   [php-redis](https://pecl.php.net/package/redis) *or* [php-memcached](https://pecl.php.net/package/memcached)
+- `php-cli`
+- `php-fpm`
+- `php-mysql` (`php-mysqlnd`) or `php-pgsql`
+- `php-xml`
+- `php-mbstring`
+- `php-json`
+- `php-process` (on RHEL/CentOS)
+- `php-intl`
+- `php-curl`
+- `php-pear` (optional, provides pecl)
+- `php-gd` or `php-imagick` (via pecl on RHEL/CentOS)
 
+### Cluster PHP packages
 
-### Development and Experimental setups
+- `php-redis` or `php-memcached`
 
-[[= product_name =]] can theoretically run and execute on many more setups than the ones listed as recommended and supported, including any [operating system supported by PHP](https://wiki.php.net/platforms), on a PHP 7.3 version or higher that pass the [Symfony requirements](http://symfony.com/doc/5.0/reference/requirements.html), using cache solutions technically supported by [Symfony Cache component](https://symfony.com/doc/5.0/components/cache/cache_pools.html), using databases supported by [Doctrine DBAL](https://www.doctrine-project.org/projects/doctrine-dbal/en/2.9/reference/configuration.html#driver), and using a binary file storage solution supported by [FlySystem](https://github.com/thephpleague/flysystem#adapters).
+## Search
 
-Examples of Development setups:
+- Solr 7.7LTS or Solr 8
+- Elasticsearch 7.7, using Oracle Java/Open JDK 8 or higher
 
--   OS: Windows, macOS X, Linux
--   Filesystem: NTFS, HFS+/APFS, ...
+## Graphic Handler
 
-Examples of Experimental setups:
+- GraphicsMagick
+- ImageMagick
+- GD
 
--   OS: Any system supported by PHP
--   Filesystem: BTRFS, AUFS, ...
--   IO: Azure, (S)FTP, GridFS, [etc.](https://flysystem.thephpleague.com/docs/adapter/local/)
--   Databases: MSSQL, Oracle (databases technically supported by Doctrine DBAL which we use, but not supported by our installer at the moment, and not covered by automated testing)
+## [Clustering](../guide/clustering.md)
 
+- Linux NFS or S3/EFS (for IO, aka binary files stored in content repository, not supported with legacy)
+- Redis 4.0+, 5.0 or higher (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/topics/lru-cache), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
+- [Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the bundle provided with [[= product_name_exp =]]](../guide/http_cache.md#serving-varnish-through-fastly) (for HttpCache)
 
-**While all these options are not actively supported by Ibexa**, they are community supported. Meaning you can use them with both open source edition and enterprise edition, however if you encounter issues best way to handle them is via contribution, and any such efforts made to improve support for these technologies can contribute to the technology being supported by Ibexa in the near future.
+## Filesystem
 
-## Client
+- Linux ext4 / XFS
 
-[[= product_name =]] is developed to work with *any* web browser that support modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you'll need; a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browsers found below.
+## Package manager
 
-### Recommended browsers
+- Composer 2.0.13 or higher
 
-These setups have been undergone some additional manual testing and is known to work.
+## Asset manager
 
--   Mozilla® Firefox® most recent stable version
--   Google Chrome™ most recent stable version
+- `Node.js` 10 or higher
+- `yarn` 1.15.2 or higher
 
-### Supported browsers
+## Browser
 
--   Chromium™ based browsers such as Microsoft® Edge® and Opera®, most recent stable version, desktop *and* tablet
--   Apple® Safari® most recent stable version, desktop *and* tablet
+[[= product_name =]] is developed to work with *any* web browser that supports modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you'll need; a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
 
-Please note that the user interface might not look or behave exactly the same across all browsers as it will gracefully degrade if browser does not support certain features.
+- Mozilla® Firefox® most recent stable version (recommended)
+- Google Chrome™ most recent stable version (recommended)
+- Chromium™ based browsers such as Microsoft® Edge® and Opera®, most recent stable version, desktop *and* tablet
+- Apple® Safari® most recent stable version, desktop *and* tablet
 
 ## Ibexa Cloud requirements and setup
 
