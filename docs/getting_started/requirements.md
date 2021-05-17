@@ -6,115 +6,87 @@ The following server requirements cover both running the software on-premise and
 
     For running on [eZ Platform Cloud](https://ez.no/Products/eZ-Platform-Cloud), where recommended configuration and support is provided out of the box, see separate [eZ Platform Cloud section](#ez-platform-cloud-requirements-and-setup) for further reading on its requirements.
 
-## Server
+The minimal setup requires PHP,  MySQL/MariaDB, Apache/Nginx.
+Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, NFS/EFS/S3 and Solr in a [clustered setup](../guide/clustering.md).
 
-Ibexa software is built to rely on existing technologies and standards. The minimal setup is `PHP`,  `MySQL/MariaDB`, and `Apache/Nginx`. Recommendation for production setups is to use `Varnish`/`Fastly`, `Memcached`/`Redis`, `NFS`/`EFS`/`S3` and `Solr` in a [clustered setup](../guide/clustering.md).
+Using the latest listed version of each product or component is always recommended.
 
-For supported versions of these technologies see Recommended and Supported setups below.
+## Operating system
 
-### Recommended setups
+- Debian 9.x "Stretch"
+- Ubuntu 16.04LTS "Xenial" / 18.04LTS "Bionic"
+- RHEL / CentOS 7.x
 
-These setups are tested by QA and are generally recommended setups. For security and performance we furthermore recommend use of the newer versions of components below unless otherwise noted.
+## Web server
 
-||Debian|Ubuntu|RHEL / CentOS|
-|------|------|------|------|
-|Operating system|9.x "Stretch"|16.04LTS "Xenial" / 18.04LTS "Bionic"|7.x|
-|Web Server|Nginx 1.10</br>Apache 2.4|Nginx 1.10/1.14</br>Apache 2.4|Nginx 1.10 *(latest via [RHSCL](https://access.redhat.com/documentation/en/red-hat-software-collections/))*</br>Apache 2.4|
-|DBMS|MariaDB 10.1</br>MySQL 5.5.3|MariaDB 10.0/10.1</br>MySQL 5.7\*|MariaDB 10.1 *(latest via RHSCL)*</br>MariaDB 10.0 *(latest via RHSCL)*</br>MySQL 5.6 *(latest via RHSCL)*</br>MariaDB 5.5|
-|PHP|PHP 7.0 |PHP 7.0/7.2|PHP 7.0 *(latest via RHSCL)*|
-|PHP packages|php-cli</br>php-fpm</br>php-mysql or php-pgsql</br>php-xml</br>php-mbstring</br>php-intl</br>php-mcrypt</br>php-curl</br>php-gd *or* php-imagick|php-cli</br>php-fpm</br>php-mysql or php-pgsql</br>php-xml</br>php-mbstring</br>php-intl</br>php-mcrypt</br>php-curl</br>php-gd *or* php-imagick|php-cli</br>php-fpm</br>php-mysqlnd or php-pgsql</br>php-xml</br>php-mbstring</br>php-process</br>php-intl</br>php-pear *(optional, provides pecl)*</br>php-gd *or* php-imagick *(via [pecl](https://pecl.php.net/package/imagick))*|
-|Cluster PHP packages</br>|php-memcached *(via [pecl](https://pecl.php.net/package/memcached)) or* php-redis *(via [pecl](https://pecl.php.net/package/redis))*|php-memcached *(via [pecl](https://pecl.php.net/package/memcached)) or* php-redis *(via [pecl](https://pecl.php.net/package/redis))*|php-memcached *(via [pecl](https://pecl.php.net/package/memcached)) or* php-redis *(via [pecl](https://pecl.php.net/package/redis))*|
+- Nginx 1.10, 1.12, 1.14
+- Apache 2.4 (with required modules `mod_rewrite`, `mod_env` and recommended: `mod_setenvif`, `mod_expires`;
+event MPM is recommended, if you need to use prefork you also need the `mod_php` module)
 
-!!! caution "Solr"
+## DBMS
 
-    Solr versions older than 6.6.2 have a security vulnerability. Remember to download or update to a higher version.
+- MariaDB 5.5 (new enough to support `utf8mb4` character set), 10.0, 10.1, 10.2, 10.3 (the latter two not recommended with Legacy Bridge)
+- MySQL 5.5.3, 5.6, 5.7
+- PostgreSQL 10+
 
-|||
-|------|------|
-|Search|Solr (recommended, for better performance and scalability of all API Queries):</br></br>Solr 4.10</br>*Solr 6 SOLR BUNDLE >= 1.3, CURRENTLY TESTED WITH SOLR 6.6LTS*</br></br>Oracle Java/Open JDK: 7 or 8 (needed for Solr, version 8 recommended)</br></br>*NOTE: If your Java version is higher than 8, you need to downgrade it to Oracle Java/Open JDK: 8.* |
-|Graphic Handler|GraphicsMagick or ImageMagick or GD|
-|[Clustering](../guide/clustering.md)|Linux NFS *or* S3 *(for IO, aka binary files stored in content repository; S3 is not supported with legacy)*</br>Memcached *or* Redis 3.0 or higher *(preferably a separate volatile-ttl instance for sessions, and an allkeys-lru/allkeys-lfu instance for cache)*</br>[Varnish](http://varnish-cache.org/) 4.1 or higher with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) (if you use varnish-modules 0.9.x, you need [ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache) 0.8.x) *or* [Fastly](https://www.fastly.com/) using [our bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*|
-|Filesystem|Linux ext3 / ext4|
-|Package manager|Composer|
+## PHP
 
-### Other supported setups
+- 5.6
+- 7.0
+- 7.1
+- 7.2
+- 7.3
 
-For security and performance we generally recommend (unless otherwise noted and marked with \*) using the newer versions of components below.
+### PHP packages
 
--   OS: Linux
--   Web Servers:
-    -   Apache 2.4, with required modules `mod_rewrite`, `mod_env` and recommended: `mod_setenvif`, `mod_expires`
-        - event MPM is recommended
-    -   Nginx 1.10, 1.12, 1.14
--   DBMS
-    -   MySQL 5.5.3 and higher, 5.6\*, 5.7\*
-    -   MariaDB 5.5 (new enough to support `utf8mb4` character set), 10.0, 10.1, 10.2\*, 10.3\*
--   PHP
-    -   5.6
-    -   7.0 - 7.2
+- `php-cli`
+- `php-fpm`
+- `php-mysql` (`php-mysqlnd`) or `php-pgsql`
+- `php-xml`
+- `php-mbstring`
+- `php-json`
+- `php-process` (on RHEL/CentOS)
+- `php-intl`
+- `php-curl`
+- `php-pear` (optional, provides pecl)
+- `php-gd` or `php-imagick` (via pecl on RHEL/CentOS)
 
-- Cluster
-    - Redis _(preferably a separate volatile-ttl instance for sessions, and an allkeys-lru/allkeys-lfu instance for cache)_
-    - Solr or SQL based Search engine *(but does not provide same featureset or performance as Solr)*
-    - NFS or S3
-    - [Varnish](http://varnish-cache.org/) 4.1 or higher with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.rst) *or* [Fastly](https://www.fastly.com/) using [our bundle provided with eZ Platform Enterprise](../guide/http_cache.md#serving-varnish-through-fastly) *(for HttpCache)*
+### Cluster PHP packages
 
--   PHP extensions/modules
-    -   curl
-    -   ctype
-    -   fileinfo
-    -   iconv
-    -   intl
-    -   mbstring
-    -   opcache
-    -   pdo
-        -   pdo mysql *(with mysqlnd)*
-    -   posix
-    -   reflection
-    -   xml
-    -   xsl
-    -   zip
-    -   php-memcached *(3.x on PHP 7, 2.2 on PHP 5) or* [php-redis](https://pecl.php.net/package/redis)
+- `php-redis` 3.1.3+ or `php-memcached` 3.x on PHP 7, 2.2 on PHP 5
 
-<a id="mysql-versions-note"></a>
-_\* Note: Mysql 5.7+ and MariaDB 10.2+ changes how certain queries are parsed and is known to have issues with content attribute sorting queries in  legacy because of that at the moment, MySQL 5.6 technically works but executes several hundred times slower on said queries. Because of this we overall recommend MariaDB 10.1 and 10.0, and don't recommend MySQL 5.6/5.7+ and MariaDB 10.2+ in use with legacy at the moment._
+## Search
 
-### Development and Experimental setups
+- Solr 4.10, 6.6LTS
 
-eZ Platform, the foundation of all Ibexa software, can theoretically run and execute on many more setups than the ones listed as recommended and supported, including any [operating system supported by PHP](https://wiki.php.net/platforms), on a PHP 7.0 version or higher that pass the [Symfony requirements](http://symfony.com/doc/2.8/reference/requirements.html), using cache solutions technically supported by [Stash](http://www.stashphp.com/Drivers.html), using databases supported by [Doctrine DBAL](https://www.doctrine-project.org/projects/doctrine-dbal/en/2.9/reference/configuration.html#driver), and using a binary file storage solution supported by [FlySystem](https://github.com/thephpleague/flysystem#adapters).
+## Graphic Handler
 
-Examples of Development setups:
+- GraphicsMagick
+- ImageMagick
+- GD
 
--   OS: Windows, macOS X, Linux
--   Filesystem: NTFS, HFS+, ...
+## [Clustering](../guide/clustering.md)
 
-Examples of Experimental setups:
+- Linux NFS or S3/EFS (for IO, aka binary files stored in content repository, not supported with legacy)
+- Redis 3.0+ (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/topics/lru-cache), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
+- [Varnish](http://varnish-cache.org/) 4.1 with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the bundle provided with [[= product_name_ee =]]](../guide/http_cache.md#serving-varnish-through-fastly) (for HttpCache)
 
--   OS: Any system supported by PHP
--   Filesystem: BTRFS, AUFS, APFS, ...
--   IO: Azure, (S)FTP, GridFS, [etc.](https://flysystem.thephpleague.com/docs/adapter/local/)
--   Databases: Postgres, MSSQL, Oracle *(As in technically supported by Doctrine DBAL which we use, but none supported by our installer at the moment, and Oracle and MSSQL is not covered by automated testing)*
+## Filesystem
 
-**While all these options are not actively supported by Ibexa**, they are community supported. Meaning you can use them with both open source edition and enterprise edition, however if you encounter issues best way to handle them is via contribution, and any such efforts made to improve support for these technologies can contribute to the technology being supported by Ibexa in the near future.
+- Linux ext4 / XFS
 
-## Client
+## Package manager
 
-Ibexa software is developed to work with *any* web browser that support modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you'll need; a minimum of 1024-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browsers found below.
+- Composer (recent stable version)
 
-### Recommended browsers
+## Browser
 
-These setups have been undergone some additional manual testing and is known to work.
+Ibexa software is developed to work with *any* web browser that supports modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you'll need; a minimum of 1024-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
 
--   Mozilla® Firefox® most recent stable version
--   Google Chrome™ most recent stable version
--   Microsoft® Edge® most recent stable version
-
-### Supported browsers
-
--   Apple® Safari® most recent stable version, desktop *and* tablet
--   Opera® most recent stable version, or higher, desktop *and* mobile 
-
-Please note that the user interface might not look or behave exactly the same across all browsers as it will gracefully degrade if browser does not support certain features.
+- Mozilla® Firefox® most recent stable version (recommended)
+- Google Chrome™ most recent stable version (recommended)
+- Chromium™ based browsers such as Microsoft® Edge® and Opera®, most recent stable version, desktop *and* tablet
+- Apple® Safari® most recent stable version, desktop *and* tablet
 
 ## eZ Platform Cloud requirements and setup
 
