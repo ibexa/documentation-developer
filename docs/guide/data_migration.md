@@ -1,18 +1,149 @@
 # Data migration
 
+Migrations are commonly used in Ibexa DXP projects that require the same data to be present across multiple instances.
+They can be useful for project templates; Able to store shared data, they can be applied for each new project you start,
+or incrementally upgrade older projects to your new standard, if needed.
+They are a developer-friendly tool that allows you to share data without writing code.
+
+As a matter of fact, the exact same migrations described here are used in the Ibexa DXP installation's initial setup.
+
 You can migrate your Repository data, that is Content items, as well as Content Types, languages, Object states, Sections, etc.,
-between installations by using the migration script.
+between installations by using the migration command.
 
 ## Exporting data
 
+The easiest way to see migrations in action is to export data already present in your installation.
+
 To export Repository content, use the `ibexa:migrations:generate` command.
 This command generates a YAML file with the requested part of the Repository.
-The file is located by default in the `src/Migrations/Ibexa` folder.
-You can later use this file to import the data.
+The file is located by default in the `src/Migrations/Ibexa/migrations` folder.
+This directory can be changed in [bundle configuration](#configuration-reference)
+(`ibexa_migrations.migration_directory`).
+
+### Example export
 
 ``` bash
 bin/console ibexa:migrations:generate --type=content --mode=create
 ```
+
+This will generate file containing all your content objects.
+Below you can see part of the output of the default Ibexa DXP installation.
+
+``` yaml
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: user_group
+        mainTranslation: eng-US
+        creatorId: 14
+        modificationDate: '2002-10-06T15:19:56+00:00'
+        publicationDate: '2002-10-06T15:19:56+00:00'
+        remoteId: f5c88a2209584891056f987fd965b0ba
+        alwaysAvailable: true
+        section: 2
+        objectStates: {  }
+    location:
+        parentLocationId: 1
+        parentLocationRemoteId: null
+        locationRemoteId: 3f6d92f8044aed134f32153517850f5a
+        hidden: false
+        sortField: 1
+        sortOrder: 1
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Users
+        -
+            fieldDefIdentifier: description
+            languageCode: eng-US
+            value: 'Main group'
+    actions: {  }
+    references:
+        -
+            name: ref__content__user_group__users
+            type: content_id
+        -
+            name: ref_location__user_group__users
+            type: location_id
+        -
+            name: ref_path__user_group__users
+            type: path
+```
+
+The output contains all the possible information for a future migration command.
+Parts of it can be removed or modified; You can easily treat it as a template for another content object for user group.
+For example, you could:
+
+- Remove `references` if you don't intend to store ID's for future use (see [migration references](#references))
+- Remove `publicationDate`, `modificationDate`, `locationRemoteId`,
+  as those are generated if not passed (just like in PHP API)
+- Add [`actions`](#actions)
+- Add fields for other languages, if you have them.
+
+Similarly you can create update and delete operations.
+They are particularly useful combined with `match-property`.
+This option will be automatically added as part of `match` expression in the update/delete migration:
+
+``` bash
+bin/console ibexa:migrations:generate --type=content_type --mode=update --match-property=content_type_identifier --value=article
+```
+
+```yaml
+-
+    type: content_type
+    mode: update
+    match:
+        field: content_type_identifier
+        value: article
+    metadata:
+        identifier: article
+        mainTranslation: eng-GB
+        modifierId: 14
+        modificationDate: '2012-07-24T14:35:34+00:00'
+        remoteId: c15b600eb9198b1924063b5a68758232
+        urlAliasSchema: ''
+        nameSchema: '<short_title|title>'
+        container: true
+        defaultAlwaysAvailable: false
+        defaultSortField: 1
+        defaultSortOrder: 1
+        translations:
+            eng-GB:
+                name: Article
+                description: ''
+    fields:
+        -
+            identifier: title
+            type: ezstring
+            position: 1
+            translations:
+                eng-GB:
+                    name: Title
+                    description: ''
+            required: true
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: 'New article'
+            fieldSettings: {  }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: 255
+                    minStringLength: null
+        # - ...
+    actions: {  }
+
+```
+
+Note that you should test your migrations. See [migrating data](#executing-migrations).
+
+!!! tip
+
+    Migration command can be executed with database rollback at the end with `--dry-run` option.
 
 ### type
 
@@ -48,17 +179,17 @@ The following combinations of types are modes are available:
 
 ||`create`|`update`|`delete`|
 |---|:---:|:---:|:---:|
-|`content`|+|+|+|
-|`content_type`|+|+||
-|`role`|+|+|+|
-|`content_type_group`|+|+||
-|`user`|+|+||
-|`user_group`|+||+|
-|`language`|+|||
-|`object_state_group`|+|||
-|`object_state`|+|||
-|`section`|+|+||
-|`location`||+||
+|`content`|&#10004;|&#10004;|&#10004;|
+|`content_type`|&#10004;|&#10004;||
+|`role`|&#10004;|&#10004;|&#10004;|
+|`content_type_group`|&#10004;|&#10004;||
+|`user`|&#10004;|&#10004;||
+|`user_group`|&#10004;||&#10004;|
+|`language`|&#10004;|||
+|`object_state_group`|&#10004;|||
+|`object_state`|&#10004;|||
+|`section`|&#10004;|&#10004;||
+|`location`||&#10004;||
 
 ### match-property
 
@@ -113,6 +244,10 @@ For example, to export only Article Content items, use the `content_type_identif
 bin/console ibexa:migrations:generate --type=content --mode=create --match-property=content_type_identifier --value=article
 ```
 
+!!! note
+
+    The same `match-property` and `value` will be added to generated `update` and `delete` type migration files.
+
 ### file
 
 The optional `--file` option defines the name of the YAML file to export to.
@@ -125,25 +260,32 @@ bin/console ibexa:migrations:generate --type=content --mode=create --file=my_dat
 
 The optional `--user-context` option enables you to run the export command as a specified User.
 The command only exports Repository data that the selected User has access to.
+By default the admin account is used, unless specifically overriden by this option or in
+[bundle configuration](#configuration-reference) (`ibexa_migrations.default_user_login`).
 
 ``` bash
 bin/console ibexa:migrations:generate --type=content --mode=create --user-context=jessica_andaya
 ```
 
-## Importing data
+## Executing migrations
 
-To import Repository data from a YAML file, run the `ibexa:migrations:migrate` command.
+To import Repository data from a YAML files, run the `ibexa:migrations:migrate` command.
 
-Place your import file in the `src/Migrations/Ibexa` folder.
-The command takes the file name within this folder as parameter.
+Place your migration file in the `src/Migrations/Ibexa/migrations` folder.
+The command takes the file name within this folder as an option.
+If file is not specified, all files within this directory will be used.
 
 ``` bash
 bin/console ibexa:migrations:migrate --file=my_data_export.yaml
 ```
 
+Ibexa Migrations store execution metadata in `ibexa_migrations` database table. This allows incremental upgrades:
+`ibexa:migration:migrate` command ignores files that it had previously executed.
+
 ## Converting migration files
 
-If you want to convert a file from the format used by the [Kaliop migration bundle](https://github.com/kaliop-uk/ezmigrationbundle)
+If you want to convert a file from the format used by the
+[Kaliop migration bundle](https://github.com/kaliop-uk/ezmigrationbundle)
 to the current migration format, use the `ibexa:migrations:kaliop:convert` command.
 
 The source file must use Kaliop mode and type combinations.
@@ -160,3 +302,192 @@ bin/console ibexa:migrations:kaliop:bulk-convert --recursive --input-directory=k
 ```
 
 If you do not specify the output directory, the command overwrites the input files.
+
+## Actions
+
+Some migrations contain a special `actions` property.
+These are optional operations that can be run after the main "body" of a migration has been executed
+(i.e. Content has been created / updated, Object State has been added, etc.).
+Their purpose is to allow additional operations to be performed as part of this particular migration.
+They are executed inside the same transaction, so they in the event of failure they will cause database rollback to occur.
+
+For example, when updating a Content Type object, some fields might be removed:
+``` yaml
+-
+    type: content_type
+    mode: update
+    match:
+        field: content_type_identifier
+        value: article
+    actions:
+        - { action: assign_content_type_group, value: 'Media' }
+        - { action: unassign_content_type_group, value: 'Content' }
+        - { action: remove_field_by_identifier, value: 'short_title' }
+        - { action: remove_drafts, value: null }
+```
+
+When executing, this migration will:
+- Find Content Type using it's identifier (`article`)
+- Assign Content Type group "Media"
+- Remove it from Content Type group "Content"
+- Remove `short_title` field
+- Remove it's existing drafts, if any.
+
+As you can see, actions can be a powerful tool for customizing what migration does.
+In contrast with Kaliop migrations, actions provide you with ability to perform additional operations and extend
+the migration functionality. See [creating your own Actions](#creating-your-own-actions)
+
+## References
+
+References are key-value pairs necessary when one migration depends on another.
+
+Since some migrations generate object properties (like ID's) during their execution, which cannot be known in advance,
+references provide migrations with ability to use previously created object properties in further migrations.
+They can be subsequently used by passing them in their desired place with `reference:` prefix.
+
+Example below creates a Content object of type "folder", and stores it's location path as `"ref_path__folder__media"`.
+Then this reference is reused as part of a new role, as a limitation.
+
+```yaml
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: eng-US
+        alwaysAvailable: true
+        section: 3
+        objectStates: {  }
+    location:
+        parentLocationId: 1
+        hidden: false
+        sortField: !php/const eZ\Publish\API\Repository\Values\Content\Location::SORT_FIELD_NAME
+        sortOrder: 1
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Media
+        # - ...
+    actions: {  }
+    references:
+        -
+            name: ref__content__folder__media
+            type: content_id
+        -
+            name: ref_location__folder__media
+            type: location_id
+        -
+            name: ref_path__folder__media
+            type: path
+
+-
+    type: role
+    mode: create
+    metadata:
+        identifier: foo
+    policies:
+        -
+            module: content
+            function: 'read'
+            limitations:
+                -
+                    identifier: Subtree
+                    values: ['reference:ref_path__folder__media']
+
+```
+
+By default, reference files are located in a separate directory `src/Migrations/Ibexa/references`
+(see [configuration reference](#configuration-reference)
+`ibexa_migrations.migration_directory` and `ibexa_migrations.references_files_subdir` options).
+
+Reference files are **NOT** loaded by default. A separate step (type: "reference", mode: "load", with filename as "value")
+is required. Similarly, saving a reference file is done using type: "reference", mode: "save" step, with filename.
+
+For example:
+```yaml
+-
+    type: reference
+    mode: load
+    filename: 'references.yaml'
+
+-
+    type: reference
+    mode: save
+    # You can also use 'references.yaml', in this case it will be overriden
+    filename: 'new_references.yaml'
+```
+
+!!! note
+
+    You don't need to save references if they are used in the same migration file.
+    References are stored in memory during migration, whether they are used or not.
+
+## How Ibexa Migrations work
+
+!!! note
+
+    The following explain inner workings of migrations.
+    Most users don't need to know this, unless they want to customize migrations.
+
+Ibexa Migrations utilize Symfony Serializer component for converting YAML files into Migration Steps and back.
+A special serializer service (named `"ibexa.migrations.serializer"`) is created, beside the normal `"serializer"`
+one created by the framework (to prevent polluting it with Migration-related services).
+Services tagged with `ibexa.migrations.serializer.normalizer` and `ibexa.migrations.serializer.encoder` tags are attached
+as it's normalizers and encoders respectively (see
+[Symfony serializer docs](https://symfony.com/doc/current/serializer.html#adding-normalizers-and-encoders)).
+
+Steps are converted by services implementing
+`Ibexa\Platform\Bundle\Migration\Serializer\Denormalizer\StepNormalizerInterface` tagged with
+`"ibexa.migrations.serializer.step_normalizer"`.
+
+Once converted to an instance of `Ibexa\Platform\Migration\ValueObject\Step\StepInterface`, they are passed to
+one of `Ibexa\Platform\Migration\StepExecutor\StepExecutorInterface` based services (depending on the type
+of Step), which in turn performs the actual execution of the migration.
+
+## Creating your own Actions
+
+## Creating your own Migration Steps
+
+## Configuration reference
+
+You can get default configuration along with option descriptions by executing the following command:
+
+```bash
+bin/console config:dump-reference ibexa_migrations
+```
+
+For your convenience, here's output for current version:
+
+```yaml
+ibexa_migrations:
+
+    # An array of service name strings of services to be made available for type: "service", mode: "call" step.
+    # You can use private services here: a dedicated container will become available for that step.
+    callable_services:    []
+
+    # Default user identifier for user context for migration commands.
+    default_user_login:   admin
+
+    # Default language code for migration commands.
+    default_language_code: eng-GB
+
+    # Directory in which migration & reference files are kept.
+    migration_directory:  '%kernel.project_dir%/src/Migrations/Ibexa/'
+
+    # Subdirectory in which migrations files are kept, relative to migration_directory.
+    migrations_files_subdir: migrations
+
+    # Subdirectory in which files with references are kept, relative to migration_directory.
+    references_files_subdir: references
+
+    # PHP's "date" function compatible format. Will be used in datetime normalization.
+    date_time_format:     c
+
+    # Defines limits in query result sets when generating migrations.
+    # If more than this many objects match, migration will use multiple queries to prevent memory issues.
+    generator_chunk:      100
+```
+
+
