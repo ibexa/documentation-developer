@@ -200,9 +200,12 @@
 
     ### Configure sender details
     
-    Some e-mail providers require a sender address to be set, so to avoid unsent emails when using From Builder, it is recommended to configure `sender_address` in `app/config/config.yml`. It acts as a sender and return address for all bounced messages. For more information, see [Symfony Mailer Configuration Reference.](https://symfony.com/doc/3.4/reference/configuration/swiftmailer.html#sender-address)
+    Some email providers require a sender address to be set, so to avoid unsent emails when using Form Builder,
+    it is recommended to configure `sender_address` in `app/config/config.yml`.
+    This email acts as a sender and return address for all bounced messages.
+    For more information, see [Symfony Mailer Configuration Reference.](https://symfony.com/doc/3.4/reference/configuration/swiftmailer.html#sender-address)
         
-    Add `sender_address` entry to `app/config/config.yml`:
+    Add a `sender_address` key to `app/config/config.yml`:
     
     ``` yaml
     swiftmailer:
@@ -211,7 +214,15 @@
         username: '%mailer_user%'
         password: '%mailer_password%'
         spool: { type: memory }
-        sender_address: '%mailer_sender_address%`
+        sender_address: '%mailer_sender_address%'
     ```
     
     and configure your mail server connection details.
+    
+    Next, in `app/config/parameters.yml` set the following:
+    
+    ``` yaml
+    parameters:
+        mailer_sender_address: 'mail@example.com'
+    ```
+     
