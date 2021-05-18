@@ -200,7 +200,7 @@
 
     ### Configure sender details
     
-    To send emails from the Form Builder, you need to configure `sender_address` in `app/config/config.yml`. It acts as a sender and return address for all bounced messages. For more information, see [Symfony Mailer Configuration Reference.](https://symfony.com/doc/3.4/reference/configuration/swiftmailer.html#sender-address)
+    Some e-mail providers require a sender address to be set, so to avoid unsent emails when using From Builder, it is recommended to configure `sender_address` in `app/config/config.yml`. It acts as a sender and return address for all bounced messages. For more information, see [Symfony Mailer Configuration Reference.](https://symfony.com/doc/3.4/reference/configuration/swiftmailer.html#sender-address)
         
     Add `sender_address` entry to `app/config/config.yml`:
     
@@ -211,7 +211,7 @@
         username: '%mailer_user%'
         password: '%mailer_password%'
         spool: { type: memory }
-        sender_address: 'mail@example.com'
+        sender_address: '%mailer_sender_address%`
     ```
     
     and configure your mail server connection details.
