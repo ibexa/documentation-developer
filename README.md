@@ -18,5 +18,19 @@ Invite yourself to the community Slack and join `#documentation-contrib`
 
 https://ez-community-on-slack.herokuapp.com/
 
-## Where to view
+## Building & preview
+To build and preview your changes locally, you will need Python along with its package manager (`pip`).
+Other required tools will be installed by `pip` using the following command:
+```bash
+pip install -r requirements.txt
+```
+
+Then you can run:
+```bash
+mkdocs serve
+```
+After a short while your documentation should be reachable at http://localhost:8000. If it isn't, check the output
+of the command.
+
+## Where to View
 https://doc.ibexa.co
