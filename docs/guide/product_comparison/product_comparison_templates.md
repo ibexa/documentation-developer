@@ -4,9 +4,8 @@
 
 |Path|Description|
 |--- |--- |
-|`Comparison/comparison_list.html.twig`|Entry page for the comparison list|
-|`Basket/messages.html.twig`|Template with success/error/notice messages for baskets|
-|`parts/user_menu.html.twig`|HTML content for the right-hand user menu navigation with links to a comparison|
+|`Comparison/comparison_list.html.twig`|Main page for comparison.|
+|`Comparison/comparison.html.twig`|A single comparison list.|
 
 ## Custom Twig functions
 
