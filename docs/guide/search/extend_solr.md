@@ -522,7 +522,7 @@ final class PriorityAggregationResultExtractor implements AggregationResultExtra
 The `canVisit()` method checks whether the provided aggregation is of the supported type
 (in this case, your custom `PriorityRangeAggregation`).
 
-The `extract()` method converts the raw data provided by the search engine to a `RangeAggregationResult` object.
+The `extract()` method converts the [raw data provided by the search engine](https://solr.apache.org/guide/8_8/search-sample.html#aggregation) to a `RangeAggregationResult` object.
 
 Finally, register both the aggregation visitor and the result extractor as services.
 
