@@ -20,5 +20,19 @@ Invite yourself to the community Slack and join `#documentation-contrib`
 
 https://ez-community-on-slack.herokuapp.com/
 
+## Building & preview
+To build and preview your changes locally, you will need Python along with it's package manager (`pip`).
+Other tools required will be installed by `pip` using the following command:
+```bash
+pip install -r requirements.txt
+```
+
+Then you can simply run
+```bash
+mkdocs serve
+```
+After a short while your documentation should be reachable at http://localhost:8000. If it isn't, check the output
+of the command.
+
 ## Where to View
 https://doc.ezplatform.com
