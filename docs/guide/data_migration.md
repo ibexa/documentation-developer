@@ -314,7 +314,7 @@ Some migrations contain a special `actions` property.
 These are optional operations that can be run after the main "body" of a migration has been executed
 (i.e. Content has been created / updated, Object State has been added, etc.).
 Their purpose is to allow additional operations to be performed as part of this particular migration.
-They are executed inside the same transaction, so they in the event of failure they will cause database rollback to occur.
+They are executed inside the same transaction, so in the event of failure they will cause database rollback to occur.
 
 For example, when updating a Content Type object, some fields might be removed:
 ``` yaml
