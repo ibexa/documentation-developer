@@ -14,7 +14,7 @@ You can now add custom tags to RichText Fields.
 
 Custom tags enable you to extend the menu of available elements when editing a RichText Field with the Online Editor.
 
-See [Custom tags](../guide/extending/extending_online_editor.md#custom-tags) for more information.
+See [Custom tags](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#custom-tags) for more information.
 
 ### Object states
 
@@ -22,7 +22,7 @@ Object states enable you to create sets of custom states and then assign them to
 
 !["Lock" Object state](img/object_state_lock.png)
 
-Object states can be used in conjunction with [permissions](../guide/limitation_reference.md#state-limitation).
+Object states can be used in conjunction with [permissions](https://doc.ibexa.co/en/2.5/guide/limitation_reference/#state-limitation).
 
 ### Content on the fly
 
@@ -80,6 +80,6 @@ You can now perform REST search via `POST /views` using custom `FieldCriterion`.
 
 ## Installation
 
-[Installation Guide](../getting_started/install_ez_platform.md)
+[Installation guide](https://doc.ibexa.co/en/2.5/getting_started/install_ez_platform)
 
-[Technical Requirements](../getting_started/requirements.md)
+[Technical requirements](https://doc.ibexa.co/en/2.5/getting_started/requirements)

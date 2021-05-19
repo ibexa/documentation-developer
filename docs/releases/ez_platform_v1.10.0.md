@@ -7,7 +7,7 @@ If you are looking for the Long Term Support (LTS) release, see[ https://ezplat
 
 Upgrade notes
 
-This release contains special steps to follow further described in [Updating eZ Platform](../updating/updating.md).
+This release contains special steps to follow further described in [Updating eZ Platform](https://doc.ibexa.co/en/1.13/updating/updating).
 
 ## Notable changes since v1.9.0
 
@@ -68,9 +68,9 @@ $value = $content->getFieldValue('body');
 
 #### SOLR: Index time boosting & Improved Facets support
 
-One of the new features in 1.10 *(Solr Bundle 1.4)* is the possibility to [configure index time boosting](../guide/search/solr.md), which enables you to properly tune the search results to be relevant for your content architecture.
+One of the new features in 1.10 *(Solr Bundle 1.4)* is the possibility to [configure index time boosting](https://doc.ibexa.co/en/1.13/guide/search/solr/#boost-configuration), which enables you to properly tune the search results to be relevant for your content architecture.
 
-In addition to that, we made progress on providing native support for faceted search within eZ Platform when using the Solr Bundle. You can now use facets based on ContentTypes, Sections and Users, see [Performing a Faceted Search](../api/public_php_api_search.md#performing-a-faceted-search) page for how to use them. We plan to provide more facets natively in the coming releases.
+In addition to that, we made progress on providing native support for faceted search within eZ Platform when using the Solr Bundle. You can now use facets based on ContentTypes, Sections and Users, see [Performing a Faceted Search](https://doc.ibexa.co/en/1.13/api/public_php_api_search/#faceted-search) page for how to use them. We plan to provide more facets natively in the coming releases.
 
 #### Cluster migration script
 
@@ -93,8 +93,8 @@ Starting with 1.10, a new command `ezplatform:io:migrate-files` has been added
 
 ### eZ Platform Enterprise Edition - Studio Demo
 
--   [DEMO-102](https://jira.ez.no/browse/DEMO-102): [NovaeZSEOBundle](https://github.com/Novactive/NovaeZSEOBundle/) is now included in Studio Demo. [NovaeZSEOBundle](https://github.com/Novactive/NovaeZSEOBundle/) includes a new Field Type that lets you manage your SEO strategy in very advanced and powerful ways.
--   [DEMO-100](https://jira.ez.no/browse/DEMO-100): We also improved the way we provide personalization in the site using a profiling block ([DEMO-94](https://jira.ez.no/browse/DEMO-94)) and letting the end user manage their preferences by themselves. In this new version, the end user, once logged on the site, can access a page where they can define their content preferences. See [here](https://ez.no/Blog/Personalization-Does-Not-Have-to-Be-that-Complex) for more information.
+-   [DEMO-102](https://jira.ez.no/browse/DEMO-102): [NovaeZSEOBundle](https://github.com/Novactive/NovaeZSEOBundle/) is now included in Studio Demo. NovaeZSEOBundle includes a new Field Type that lets you manage your SEO strategy in very advanced and powerful ways.
+-   [DEMO-100](https://jira.ez.no/browse/DEMO-100): We also improved the way we provide personalization in the site using a profiling block and letting the end user manage their preferences by themselves. In this new version, the end user, once logged on the site, can access a page where they can define their content preferences. See [here](https://ez.no/Blog/Personalization-Does-Not-Have-to-Be-that-Complex) for more information.
 
 ## Full list of new features, improvements and bug fixes since v1.9.0
 
@@ -110,28 +110,27 @@ Kudos to [@emodric](https://twitter.com/emodric) for the Tags bundle, [@pspanja]
 
 ### Installation
 
-[Installation Guide](../getting_started/install_ez_platform.md)
+[Installation Guide](https://doc.ibexa.co/en/1.13/getting_started/install_ez_platform)
 
-[Technical Requirements](../getting_started/requirements.md)
+[Technical Requirements](https://doc.ibexa.co/en/1.13/getting_started/requirements)
 
 ### Download
 
 #### eZ Platform
 
--   Download at [eZPlatform.com](http://ezplatform.com/#download)
+- Download at [eZPlatform.com](http://ezplatform.com/#download)
 
 #### eZ Enterprise
 
--   [Customers: eZ Enterprise subscription (BUL License)](https://support.ez.no/Downloads)*
-    *
--   [Partners: Test & Trial software access (TTL License)](https://support.ez.no/Downloads)
+- [Customers: eZ Enterprise subscription (BUL License)](https://support.ez.no/Downloads)
+- Partners: Test & Trial software access (TTL License)
 
-If you would like to request an eZ Enterprise Demo instance: <http://ez.no/Forms/Discover-eZ-Studio>
+If you would like to become familiar with the products, [request a demo](https://www.ibexa.co/forms/request-a-demo).
 
 ### Updating
 
-To update to this version, follow the [Updating eZ Platform](../updating/updating.md) guide and use v1.10.0 as `<version>`.
+To update the product, follow the [updating guide](https://doc.ibexa.co/en/1.13/updating/updating/).
 
-**Note:** When updating eZ Platform Enterprise Edition, you need to [add the new EzSystemsPlatformEEAssetsBundle](../updating/3_update_app.md)
+**Note:** When updating eZ Platform Enterprise Edition, you need to [add the new EzSystemsPlatformEEAssetsBundle](https://doc.ibexa.co/en/1.13/updating/3_update_app).
 
  

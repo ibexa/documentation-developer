@@ -45,6 +45,6 @@ eZ Platform v2.0.0 requires PHP version 7.1, instead of 5.6, as before. Together
 
 ## Installation
 
-[Installation Guide](../getting_started/install_ez_platform.md)
+[Installation guide](https://doc.ibexa.co/en/2.5/getting_started/install_ez_platform)
 
-[Technical Requirements](../getting_started/requirements.md)
+[Technical requirements](https://doc.ibexa.co/en/2.5/getting_started/requirements)
