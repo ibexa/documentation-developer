@@ -21,7 +21,7 @@ You can edit a link in the manager and it will be updated automatically in all C
 
 Following [EZP-27759](https://jira.ez.no/browse/EZP-27759) you can now copy a Content item with all of its sub-items in the back office.
 
-The maximum number of Content items that can be copied this way can be set in configuration, see [Copy subtree limit](../guide/config_back_office.md#copy-subtree-limit).
+The maximum number of Content items that can be copied this way can be set in configuration, see [Copy subtree limit](https://doc.ibexa.co/en/1.13/guide/config_back_office/#copy-subtree-limit).
 
 ![Copy subtree option in the menu](img/copy_subtree_button.png)
 
@@ -36,7 +36,7 @@ The maximum number of Content items that can be copied this way can be set in co
 
 ### Fastly
 
-Following [EZEE-1781](https://jira.ez.no/browse/EZEE-1781) you can [serve Varnish through Fastly](../guide/http_cache.md#serving-varnish-through-fastly).
+Following [EZEE-1781](https://jira.ez.no/browse/EZEE-1781) you can [serve Varnish through Fastly](https://doc.ibexa.co/en/1.13/guide/http_cache/#serving-varnish-through-fastly).
 
 ## Full list of new features, improvements and bug fixes since v1.12.0
 
@@ -48,9 +48,9 @@ Following [EZEE-1781](https://jira.ez.no/browse/EZEE-1781) you can [serve Varnis
 
 ### Installation
 
-[Installation Guide](../getting_started/install_ez_platform.md)
+[Installation Guide](https://doc.ibexa.co/en/1.13/getting_started/install_ez_platform)
 
-[Technical Requirements](../getting_started/requirements.md)
+[Technical Requirements](https://doc.ibexa.co/en/1.13/getting_started/requirements)
 
 ### Download
 
@@ -61,10 +61,10 @@ Following [EZEE-1781](https://jira.ez.no/browse/EZEE-1781) you can [serve Varnis
 #### eZ Enterprise
 
 - [Customers: eZ Enterprise subscription (BUL License)](https://support.ez.no/Downloads)
-- [Partners: Test & Trial software access (TTL License)](https://ez.no/Partner-Portal/Software-Downloads-Release-Info)
+- Partners: Test & Trial software access (TTL License)
 
-If you would like to request an eZ Enterprise Demo instance: <http://ez.no/Forms/Discover-eZ-Studio>
+If you would like to become familiar with the products, [request a demo](https://www.ibexa.co/forms/request-a-demo).
 
 ### Updating
 
-To update to this version, follow the [Updating eZ Platform](../updating/updating.md) guide and use v1.13.0 as `<version>`.
+To update the product, follow the [updating guide](https://doc.ibexa.co/en/1.13/updating/updating/).
