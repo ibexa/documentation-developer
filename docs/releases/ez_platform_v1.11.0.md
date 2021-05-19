@@ -40,7 +40,7 @@ It enables you to manually select a set of Content items to be displayed.
 
     To enable adding content to a Collection block in a clean installation,
     you need to configure the views for the block and define which Content Types can be embedded in it.
-    See [block templates](../guide/page_rendering.md#block-templates) for more information and an example.
+    See [block templates](https://doc.ibexa.co/en/1.13/guide/other_extensibility/#block-templates) for more information and an example.
 
 #### RecommendationBundle adapted for YooChoose v2
 
@@ -81,9 +81,9 @@ full support, maintenance, and priority security patch handling as they are used
 
 ### Installation
 
-[Installation Guide](../getting_started/install_ez_platform.md)
+[Installation Guide](https://doc.ibexa.co/en/1.13/getting_started/install_ez_platform)
 
-[Technical Requirements](../getting_started/requirements.md)
+[Technical Requirements](https://doc.ibexa.co/en/1.13/getting_started/requirements)
 
 ### Download
 
@@ -94,10 +94,10 @@ full support, maintenance, and priority security patch handling as they are used
 #### eZ Enterprise
 
 - [Customers: eZ Enterprise subscription (BUL License)](https://support.ez.no/Downloads)
-- [Partners: Test & Trial software access (TTL License)](https://ez.no/Partner-Portal/Software-Downloads-Release-Info)
+- Partners: Test & Trial software access (TTL License)
 
-If you would like to request an eZ Enterprise Demo instance: <http://ez.no/Forms/Discover-eZ-Studio>
+If you would like to become familiar with the products, [request a demo](https://www.ibexa.co/forms/request-a-demo).
 
 ### Updating
 
-To update to this version, follow the [Updating eZ Platform](../updating/updating.md) guide and use v1.11.0 as `<version>`.
+To update the product, follow the [updating guide](https://doc.ibexa.co/en/1.13/updating/updating/).
