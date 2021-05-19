@@ -5,7 +5,7 @@
 All built-in Query types take the following optional parameters:
 
 - `limit` - maximum number of results to return
-- `offset` - offset for search hits, used for paging the results
+- `offset` - offset for search hits, used for paginating the results
 - `sort` - [sort order](#sorting-order)
 - `filter` - additional query filters:
     - `content_type` - return only results of given Content Types
@@ -31,8 +31,9 @@ params:
 
 ### Sort order
 
-To provide a sort order to the `sort` parameter, use names of the Sort Clauses from
-`eZ\Publish\API\Repository\Values\Content\Query\SortClause`.
+To provide a sort order to the `sort` parameter, use names of the Sort Clauses.
+To find them, refer to [Sort Clause](../../search/sort_clause_reference.md)
+and te relevant Sort Clause class.
 
 ## Children
 
@@ -116,7 +117,7 @@ params:
 
 The `GeoLocation` Query type retrieves content by distance of the location provided in a MapLocation Field.
 
-It takes the following required parameters:
+It takes the following parameters:
 
 - `field` - MapLocation Field identifier
 - `distance` - distance to check for

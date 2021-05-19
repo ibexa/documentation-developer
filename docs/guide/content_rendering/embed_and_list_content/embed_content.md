@@ -41,9 +41,9 @@ This controller uses the Public PHP API to get [the Relations of a Content item]
 The controller takes the custom parameter called `accepted_content_types`,
 which is an array of Content Type identifiers that will be rendered.
 
-This way you can control which Content Types you want to show, and exclude, for example, image assets.
+This way you can control which Content Types you want to show or exclude.
 
-Finally, the controller returns the view with the results provided in the `items` parameter.
+Finally, the controller returns the view with the results that were provided in the `items` parameter.
 You can use this parameter as a variable in the template:
 
 ``` html+twig
