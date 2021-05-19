@@ -1,33 +1,33 @@
 # List content
 
-To render a list of Content items, for example content in a folder, blog posts in a blog, and so on,
+To render a list of Content items, for example, content in a folder, blog posts in a blog, and so on,
 you can use one of two methods:
 
-- use a [Query type](#children-query-type)
-- create a Content Type with a [Content Query Field](#query-field)
+- use a [Query type](#list-children-with-query-type)
+- create a Content Type with a [Content Query Field](#list-children-in-content-query-field)
 
 ## List children with Query type
 
 The following example shows how to render the children of a Folder.
 
-In the [content view](../templates/template_configuration.md) configuration, add the following view for the Folder Content Type:
+In the [content view configuration](../templates/template_configuration.md), add the following view for the Folder Content Type:
 
 ``` yaml
 [[= include_file('code_samples/front/list_content/config/packages/views.yaml', 8, 22) =]]
 ```
 
-`controller` defines which controller will be used to render the view.
-In this example, it is the default [Query controller](../queries_and_controllers/content_queries.md)
+`controller` defines which controller is be used to render the view.
+In this example, it is the default [Query controller](../queries_and_controllers/content_queries.md).
 
 ``` yaml
 [[= include_file('code_samples/front/list_content/config/packages/views.yaml', 11, 12) =]]
 ```
 
-`params` define that you want to render the content using the [`Children` Query type](../queries_and_controllers/built-in_query_types.md#children).
+`params` define that you want to render the content by using the [`Children` Query type](../queries_and_controllers/built-in_query_types.md#children).
 This Query type automatically finds the children of the current Content item.
 The results of the query are placed in the `items` variable, which you can use in templates.
 
-Place the following template in `templates/themes/<my_theme>/full/folder.html.twig`
+Place the following template in `templates/themes/<my_theme>/full/folder.html.twig`:
 
 ``` html+twig
 [[= include_file('code_samples/front/list_content/templates/themes/my_theme/full/folder.html.twig') =]]
@@ -43,7 +43,8 @@ The following example shows how to use a Content query Field to render a Blog wi
 
 Create a Blog Content Type that contains a Content query Field with the identifier `query`.
 
-In the Field definition, select "Children" as the Query type. Provide the `content` parameter that the Query type requires:
+In the Field definition, select "Children" as the Query type. 
+Provide the `content` parameter that the Query type requires:
 
 ```
 content: '@=content'

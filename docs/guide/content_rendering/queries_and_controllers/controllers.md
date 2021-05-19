@@ -1,6 +1,6 @@
 # Controllers
 
-Configuring a controller enables you to modify and enhance the way in which the built-in content view controller renders content.
+By configuring a controller you can modify and enhance the way in which the built-in content view controller renders content.
 
 You indicate which controller to use in the [content view configuration](../templates/template_configuration.md), under the `controller` key:
 

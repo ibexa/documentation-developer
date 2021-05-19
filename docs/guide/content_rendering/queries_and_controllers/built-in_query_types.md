@@ -99,7 +99,7 @@ The `RelatedToContent` Query type retrieves content that is a reverse relation t
     To find all relations of a Content item (in this example, all content that the blog post is related to),
     refer to [Embed content](../embed_and_list_content/embed_content.md#embed-relations-with-a-custom-controller). 
 
-It takes `content` or `field` as obligatory parameters.
+It takes `content` or `field` as required parameters.
 `field` indicates the Relation or RelationList Field that contains the Relations.
 
 ``` yaml
@@ -116,7 +116,7 @@ params:
 
 The `GeoLocation` Query type retrieves content by distance of the location provided in a MapLocation Field.
 
-It takes the following obligatory parameters:
+It takes the following required parameters:
 
 - `field` - MapLocation Field identifier
 - `distance` - distance to check for

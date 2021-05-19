@@ -27,8 +27,8 @@ The name defined in `getName()` is the one you use to identify the Query type in
 
     Query type name must be unique.
 
-The `getQuery()` method constructs the query, based on Search Criteria and Sort Clauses.
-See [Content Search](../../../api/public_php_api_search.md) for more information about queries
+The `getQuery()` method constructs the query based on Search Criteria and Sort Clauses.
+See [Content search](../../../api/public_php_api_search.md) for more information about queries
 and [Search reference](../../search/search_criteria_reference.md) for a reference of available Criteria and Sort Clauses.
 
 The `getSupportedParameters()` method provides the parameters you can set in content view configuration.
@@ -42,7 +42,7 @@ In the content view configuration, indicate that the content view should use the
 
 ## Options resolver-based Query type
 
-Additionally, your custom Query type can use extend the `OptionsResolverBasedQueryType` abstract class.
+Additionally, your custom Query type can extend the `OptionsResolverBasedQueryType` abstract class.
 This gives you more flexibility when defining parameters.
 
 In the `configureOptions()` method you can define the allowed parameters, their types and default values.

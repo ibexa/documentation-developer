@@ -1,10 +1,10 @@
 # Embed related content
 
-To embed content in another Content item, you need to query for it in the Repository.
-Two ways of querying are:
+To embed content in another Content item, you query for it in the Repository.
+There are two ways to query for a Content item:
 
-- using a [Query type](#sibling-query-type)
-- writing a [custom controller](#custom-controller)
+- by using a [Query type](#embed-siblings-with-query-type)
+- by writing a [custom controller](#embed-relations-with-a-custom-controller)
 
 ## Embed siblings with Query type
 
@@ -16,7 +16,7 @@ To do it, use the built-in `ez_query` controller's `contentQueryAction`:
 [[= include_file('code_samples/front/embed_content/config/packages/views.yaml', 8, 23) =]]
 ```
 
-The results of the Siblings query are placed in the `items` variable, which you can use in the template
+The results of the Siblings query are placed in the `items` variable, which you can use in the template:
 
 ``` html+twig
 [[= include_file('code_samples/front/embed_content/templates/themes/my_theme/full/blog_post.html.twig') =]]
@@ -30,13 +30,13 @@ You can use a custom controller for any situation where Query types are not suff
 [[= include_file('code_samples/front/embed_content/config/packages/views.yaml', 23, 30) =]]
 ```
 
-This configuration points to a custom `RelationController` that should render all Articles using the `showContentAction()` method.
+This configuration points to a custom `RelationController` that should render all Articles with the `showContentAction()` method.
 
 ``` php
 [[= include_file('code_samples/front/embed_content/src/Controller/RelationController.php') =]]
 ```
 
-This controller uses the Public PHP API to [get the Relations of a Content item](../../../api/public_php_api_browsing.md#relations) (lines 28-29).
+This controller uses the Public PHP API to get [the Relations of a Content item](../../../api/public_php_api_browsing.md#relations) (lines 28-29).
 
 The controller takes the custom parameter called `accepted_content_types`,
 which is an array of Content Type identifiers that will be rendered.

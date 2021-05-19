@@ -1,6 +1,6 @@
 # Content queries
 
-Content queries enable you to find and render specific content according to criteria you define.
+With content queries you can find and render specific content according to criteria that you define.
 
 You can use queries to list or embed Content items, such as:
 
@@ -10,7 +10,7 @@ You can use queries to list or embed Content items, such as:
 - recommended products
 
 Content queries use the built-in Query controller which simplifies querying.
-For more complex, custom cases, you can build your own custom [controllers](controllers.md).
+For more complex cases, you can build custom [controllers](controllers.md).
 
 ## Query types
 
@@ -59,7 +59,7 @@ All Query types take the following parameters:
 !!! tip
 
     Search results are a `SearchResult` object, which contains `SearchHit` objects.
-    To get the content or Locations that are in search results, you need to access the `valueObject`
+    To get the content or Locations that are in search results, you access the `valueObject`
     of the `SearchHit`.
 
 ### Pagination
@@ -115,7 +115,8 @@ by setting the `enablePagination`, `disablePagination` or `itemsPerPage` paramet
 }) }}
 ```
 
-You can also define an offset for the results. Provide the offset in the Query type, or in parameters:
+You can also define an offset for the results. 
+Provide the offset in the Query type, or in parameters:
 
 ```
 offset: 3
@@ -139,13 +140,13 @@ The following variables are available in parameter expressions:
 
 ### Content view configuration
 
-To render a Content query Field, in the content view configuration use the `content_query_field` view type:
+To render a Content query Field, in the content view configuration, use the `content_query_field` view type:
 
 ``` yaml
 [[= include_file('code_samples/front/list_content/config/packages/views.yaml', 8, 9) =]][[= include_file('code_samples/front/list_content/config/packages/views.yaml', 22, 28) =]]
 ```
 
-The identifier of the Content query Field must be matched
+The identifier of the Content query Field must be matched by
 using the `'@EzSystems\EzPlatformQueryFieldType\eZ\ContentView\FieldDefinitionIdentifierMatcher'` matcher.
 
 Query results are provided to the template in the `items` variable.
