@@ -16,9 +16,9 @@ Each Content item has a unique icon that helps you identify it without opening.
 
 ![Content Tree in the menu](img/left_menu_tree.png "Content Tree in the menu")
 
-For more information on custom configuration, see [Content Tree](../guide/config_back_office/#content-tree) in the developer documentation.
+For more information on custom configuration, see [Content Tree](https://doc.ibexa.co/en/2.5/guide/config_back_office/#content-tree) in the developer documentation.
 
-For full description of the interface, see [Content Tree](https://doc.ezplatform.com/projects/userguide/en/latest/content_model/#content-tree) in the user documentation.
+For full description of the interface, see [Content Tree](https://doc.ibexa.co/projects/userguide/en/2.5/content_model/#content-tree) in the user documentation.
 
 ### Webpack Encore
 
@@ -30,20 +30,20 @@ Assetic is still in use, but it will be deprecated in a future version.
 
 ### PostgreSQL
 
-This release enables you to [use PostgreSQL](../guide/databases.md#using-postgresql) for database instead of the default MySQL.
+This release enables you to [use PostgreSQL](https://doc.ibexa.co/en/2.5/guide/databases/#using-postgresql) for database instead of the default MySQL.
 
 Database schema is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.3/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml).
 
 ### GraphQL
 
-You can now take advantage of [GraphQL](../api/graphql.md) to query and operate on content.
+You can now take advantage of [GraphQL](https://doc.ibexa.co/en/2.5/api/graphql) to query and operate on content.
 It uses a domain schema based on your content model.
 
 See [GraphQL documentation](https://graphql.org/) for more information about GraphQL in general.
 
 ### Matrix Field Type
 
-The new [Matrix Field Type](../api/field_type_reference.md#matrix-field-type) enables you to store a table of data.
+The new [Matrix Field Type](https://doc.ibexa.co/en/2.5/api/field_types_reference/matrixfield) enables you to store a table of data.
 Columns in the matrix are defined in the Field definition.
 
 ![Configuring a Matrix Field Type](img/2.5_matrix_ft.png)
@@ -81,16 +81,16 @@ You can now link fragments of text by adding Anchors in Rich Text Fields.
 
 #### Inline custom tags
 
-You can now create [inline custom tags](../guide/extending_online_editor.md#inline-custom-tags) in Rich Text Fields.
+You can now create [inline custom tags](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#inline-custom-tags) in Rich Text Fields.
 
 #### Custom CK Editor plugins
 
-You can now easily use [custom CK Editor plugins](../guide/extending_online_editor.md#plugins-configuration) in AlloyEditor.
+You can now easily use [custom CK Editor plugins](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#plugins-configuration) in AlloyEditor.
 
 ### Hiding and revealing content
 
 You can now hide and reveal Content items from the Back Office.
-Hidden content will be unavailable on the front page regardless of permissions or [Location visibility](../guide/content_management.md#location-visibility).
+Hidden content will be unavailable on the front page regardless of permissions or [Location visibility](https://doc.ibexa.co/en/2.5/guide/content_management/#location-visibility).
 
 ![Icon for hiding content](img/2.5_hide_content_icon.png)
 
@@ -114,7 +114,7 @@ The User Settings menu has been expanded with the following options:
 
 This release introduced several Back Office improvements to facilitate editorial experience, including:
 
-- [Icons for Content Types and the ability to define them](../guide/extending_ez_platform.md#custom-content-type-icons)
+- [Icons for Content Types and the ability to define them](https://doc.ibexa.co/en/2.5/guide/extending/extending_back_office/#custom-content-type-icons)
 - Ability to collapse and expand content preview to have easier access to the Sub-items list
 - Responsive Sub-items table with selectable column layout
 - Simpler assigning of Object States to content
@@ -150,7 +150,7 @@ New API improvements include:
 
 ## Requirements changes
 
-Due to using Webpack Encore, you now need [Node.js and yarn](../updating/3_update_app.md)
+Due to using Webpack Encore, you now need [Node.js and yarn](https://doc.ibexa.co/en/2.5/updating/updating)
 to install or update eZ Platform.
 
 This release also changes support for versions of the following third-party software:
@@ -159,7 +159,7 @@ This release also changes support for versions of the following third-party soft
 - Apache 2.2 is no longer supported. Use Apache 2.4 instead.
 - Varnish 4 is no longer supported. Use Varnish 5.1 or higher (6.0LTS recommended).
 
-For full list of supported versions, see [Requirements](../getting_started/requirements.md).
+For full list of supported versions, see [Requirements](https://doc.ibexa.co/en/2.5/getting_started/requirements).
 
 ### Password requirements
 
@@ -190,14 +190,14 @@ If you use classes from the `Leafo\ScssPhp` namespace, change them to `ScssPhp\S
 
 ### SolrCloud
 
-You can now take advantage of [SolrCloud in eZ Platform Solr search engine](../guide/solr.md#solrcloud).
+You can now take advantage of [SolrCloud in eZ Platform Solr search engine](https://doc.ibexa.co/en/2.5/guide/search/solr/#solrcloud).
 It enables you to set up a cluster of Solr servers for highly available and fault tolerant environment.
 
 ### Online Editor
 
 #### Custom attributes
 
-It is now possible to add [custom data attributes and CSS classes](../guide/extending_online_editor.md#custom-data-attributes-and-classes) to elements in the Online Editor.
+It is now possible to add [custom data attributes and CSS classes](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#custom-data-attributes-and-classes) to elements in the Online Editor.
 
 #### Translatable custom tag choice attributes
 
@@ -205,7 +205,7 @@ You can now translate labels of choice attributes in Custom tags using the `ezri
 
 ### URL Wildcards
 
-[URL wildcards](../guide/url_management.md#url-wildcards) enable you to set up global URL redirections.
+[URL wildcards](https://doc.ibexa.co/en/2.5/guide/url_management/#url-wildcards) enable you to set up global URL redirections.
 
 ## eZ Platform v2.5.3
 
@@ -239,8 +239,8 @@ This section provides a list of deprecated features to be removed in eZ Platform
 
 #### Custom Installers
 
-- The `\EzSystems\PlatformInstallerBundle\Installer\CleanInstaller` class and its Service Container definition (`ezplatform.installer.clean_installer`) have been deprecated in favor of `EzSystems\PlatformInstallerBundle\Installer\CoreInstaller` which requires the [Doctrine Schema Bundle](https://github.com/ezsystems/doctrine-dbal-schema) to be enabled.
-- The `ezplatform.installer.db_based_installer` Service Container definition has been deprecated in favor of its FQCN-named equivalent (`EzSystems\PlatformInstallerBundle\Installer\DbBasedInstaller`).
+- The `\EzSystems\PlatformInstallerBundle\Installer\CleanInstaller` class and its [service container](https://doc.ibexa.co/en/2.5/guide/service_container) definition (`ezplatform.installer.clean_installer`) have been deprecated in favor of `EzSystems\PlatformInstallerBundle\Installer\CoreInstaller` which requires the [Doctrine Schema Bundle](https://github.com/ezsystems/doctrine-dbal-schema) to be enabled.
+- The `ezplatform.installer.db_based_installer` service container definition has been deprecated in favor of its FQCN-named equivalent (`EzSystems\PlatformInstallerBundle\Installer\DbBasedInstaller`).
 - `vendor/ezsystems/ezpublish-kernel/data/mysql/schema.sql` has been deprecated and is not used by the installation process anymore.
 
 

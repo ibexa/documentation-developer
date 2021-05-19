@@ -34,7 +34,7 @@ In version 1.8 we introduced a new Content Browser in the Universal Discovery Wi
 
 -   You can now restore from Trash content whose original Location has been deleted.
 -   Pasted thead/tfood tags are now kept in RichText Field Type, and its Online Editor
--   Solr 6 is now supported in [Solr Bundle](../guide/solr.md)
+-   Solr 6 is now supported in [Solr Bundle](https://doc.ibexa.co/en/1.13/guide/search/solr)
 
 ### eZ Platform Enterprise Edition - Studio
 
@@ -65,26 +65,23 @@ The eZ Enterprise Demo now uses the [Netgen Tags bundle](https://github.com/netg
 
 ### Installation
 
-[Installation Guide](../getting_started/install_ez_platform.md)
+[Installation Guide](https://doc.ibexa.co/en/1.13/getting_started/install_ez_platform)
 
-[Technical Requirements](../getting_started/requirements.md)
+[Technical Requirements](https://doc.ibexa.co/en/1.13/getting_started/requirements)
 
 ### Download
 
 #### eZ Platform
 
--   Download at [eZPlatform.com](http://ezplatform.com/#download)
+- Download at [eZPlatform.com](http://ezplatform.com/#download)
 
 #### eZ Enterprise
 
--   [Customers: eZ Enterprise subscription (BUL License)](https://support.ez.no/Downloads)*
-    *
--   [Partners: Test & Trial software access (TTL License)](https://support.ez.no/Downloads)
+- [Customers: eZ Enterprise subscription (BUL License)](https://support.ez.no/Downloads)
+- Partners: Test & Trial software access (TTL License)
 
-If you would like to request an eZ Enterprise Demo instance: <http://ez.no/Forms/Discover-eZ-Studio>
+If you would like to become familiar with the products, [request a demo](https://www.ibexa.co/forms/request-a-demo).
 
 ### Updating
 
-To update to this version, follow the [Updating eZ Platform](../updating/updating.md) guide and use v1.9.0 as `<version>`.
-
- 
+To update the product, follow the [updating guide](https://doc.ibexa.co/en/1.13/updating/updating/).

@@ -5,7 +5,7 @@ This page lists backwards compatibility breaks and deprecations introduced in eZ
 !!! tip "Upgrade to v3"
 
     For a guide on moving your project to v3,
-    see [eZ Platform v3.0 project update instructions](../updating/4_upgrade_the_code.md).
+    see [eZ Platform v3.0 project update instructions](https://doc.ibexa.co/en/latest/updating/updating).
 
 ## Symfony 5
 
@@ -17,7 +17,7 @@ and [for 5.0](https://github.com/symfony/symfony/blob/master/UPGRADE-5.0.md)
 to learn about all changes it entails.
 
 See [v3.0 project update](../updating/4_upgrade_the_code.md) for the steps you need to take to update your project to Symfony 5.
-See also [full requirements for installing eZ Platform](../getting_started/requirements.md).
+See also [full requirements for installing eZ Platform](https://doc.ibexa.co/en/latest/getting_started/requirements).
 
 ### Template configuration
 
@@ -34,9 +34,15 @@ Example 2:
 - Now: `{% extends "@EzPublishCore/content_fields.html.twig" %}`
 - Formerly: `{% extends "EzPublishCoreBundle::content_fields.html.twig" %}`
 
+### Clustering configuration
+
+Following the upgrade to Symfony 5, the DFS IO handler must be configured in a different way.
+
+For more information, see the Doctrine connection configuration example in the [Clustering](https://doc.ibexa.co/en/latest/guide/clustering/#configuring-the-dfs-io-handler) article.
+
 ## Field Types
 
-The following tags used to register Field Type features in the dependency injection container have been renamed:
+The following tags used to register Field Type features in the [service container](https://doc.ibexa.co/en/latest/guide/service_container) have been renamed:
 
 |Former name|New name|
 |-----------|--------|
@@ -51,7 +57,7 @@ The following tags used to register Field Type features in the dependency inject
 |`ezpublish.fieldType.externalStorageHandler.gateway`|`ezplatform.field_type.external_storage_handler.gateway`|
 
 Deprecated method `eZ\Publish\SPI\FieldType\FieldType::getName` is now supported with a new signature similar to `eZ\Publish\SPI\FieldType\Nameable::getFieldName()`, which has been removed.
-See [eZ Platform v3.0 project update](../updating/4_3_upgrade_field_types.md) for further information.
+See [eZ Platform v3.0 project update](https://doc.ibexa.co/en/latest/updating/4_3_upgrade_field_types) for further information.
 
 The deprecated `eZ\Publish\Core\FieldType\RichText` namespace has been removed, as it was moved to a separate bundle in v2.4.
 
@@ -84,9 +90,9 @@ The following Symfony Service definitions that provide extension point to create
 
 The `ezstudio.installer.studio_installer` service has been renamed to the FQCN-named
 service `EzSystems\EzPlatformEnterpriseEditionInstallerBundle\Installer\Installer`.
-Deprecated `ezplatform.ee.installer.class` DIC parameter has been removed.
+Deprecated `ezplatform.ee.installer.class` [service container](https://doc.ibexa.co/en/latest/guide/service_container) parameter has been removed.
 
-See [eZ Platform v3.0 project update instructions](../updating/4_8_upgrade_rest.md#custom-installers) for upgrade details.
+See [eZ Platform v3.0 project update instructions](https://doc.ibexa.co/en/latest/updating/4_8_upgrade_rest/#custom-installers) for upgrade details.
 
 ## ezplatform-admin-ui
 
@@ -276,7 +282,7 @@ The `@ezdesign/account/error/credentials_expired.html.twig` has been relocated f
 ### Universal Discovery Widget
 
 The UDW configuration has been changed.
-For the full list of UDW configuration keys and their descriptions, see [UDW configuration](../extending/extending_udw.md#configuration).
+For the full list of UDW configuration keys and their descriptions, see [UDW configuration](https://doc.ibexa.co/en/latest/extending/extending_udw/#configuration).
 
 ### Online Editor
 
@@ -286,7 +292,7 @@ have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
 ### Adding new tabs in the Back Office
 
 The way of adding custom tab groups in the Back Office has changed.
-You now need to [make use of the `TabsComponent`](../extending/extending_tabs.md#adding-a-new-tab-group).
+You now need to [make use of the `TabsComponent`](https://doc.ibexa.co/en/latest/extending/extending_tabs/#adding-a-new-tab-group).
 
 ### Content Type forms
 
@@ -403,7 +409,7 @@ Instances of the following deprecated event classes have been replaced:
 |`Twig_SimpleFunction`|`Twig\TwigFunction`|
 
 Selected deprecated Role Service and permission-related methods have been removed.
-For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
+For details, see [code cleanup in kernel](#code-cleanup-in-ez-platform-kernel).
 
 ## ezplatform-kernel replacing ezpublish-kernel
 
@@ -459,7 +465,7 @@ Following SPI methods have been removed:
 
 ### Dynamic settings
 
-Using dynamic settings (through `$setting$`) and getting settings from the ConfigResolver in a class constructor
+Using dynamic settings (through `$setting$`) and getting settings from the [ConfigResolver](https://doc.ibexa.co/en/latest/guide/config_dynamic/#configresolver) in a class constructor
 or method call has been dropped.
 
 You should use the ConfigResolver instead.
@@ -469,8 +475,8 @@ Do not store the values globally. Every time the value is needed call `ConfigRes
 
 #### AbstractController
 
-The `eZ\Bundle\EzPublishCoreBundle\Controller` now extends `Symfony\Bundle\FrameworkBundle\Controller\AbstractController` instead of `Symfony\Bundle\FrameworkBundle\Controller\Controller` which has limited access to the dependency injection container.
-For details, see [Service Subscribers Locators.](https://symfony.com/doc/5.0/service_container/service_subscribers_locators.html)
+The `eZ\Bundle\EzPublishCoreBundle\Controller` now extends `Symfony\Bundle\FrameworkBundle\Controller\AbstractController` instead of `Symfony\Bundle\FrameworkBundle\Controller\Controller` which has limited access to the [service container](https://doc.ibexa.co/en/latest/guide/service_container).
+For details, see [Service Subscribers Locators](https://symfony.com/doc/5.0/service_container/service_subscribers_locators.html).
 
 The `Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand` is deprecated, use `Symfony\Component\Console\Command\Command` instead.
 
@@ -685,10 +691,10 @@ The deprecated `Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesserI
 
 ### Symfony Dependency Injection Container 
 
-The deprecated Symfony Dependency Injection Container parameters ending with `.class` have been removed, services relying on them now have their classes defined explicitly.
+The deprecated Symfony [service container](https://doc.ibexa.co/en/latest/guide/service_container) parameters ending with `.class` have been removed, services relying on them now have their classes defined explicitly.
 To properly decorate a Symfony service, use the `decorates` attribute instead.
 For the full list of the dropped parameters, see
-[kernel documentation.](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/bc/8.0/dropped-container-parameters.md)
+[kernel documentation.](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/bc/1.0/dropped-container-parameters.md)
 
 ### Template parameter names
 
@@ -732,7 +738,7 @@ The following deprecated Twig classes have been replaced:
 
 ### Twig intl extension
 
-Twig intl extension [has been dropped.](https://github.com/twigphp/Twig-extensions/blob/master/README.rst)
+Twig intl extension [has been dropped](https://github.com/twigphp/Twig-extensions/blob/master/README.rst).
 
 ### EzPublishMigration
 
@@ -819,7 +825,7 @@ The following namespaces have been changed:
 ### Code cleanup in eZ Platform REST
 
 Selected deprecated Role Service and permission-related methods have been removed.
-For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
+For details, see [code cleanup in kernel](#code-cleanup-in-ez-platform-kernel).
 
 Using the Criteria element in REST input query (search view) payload has been deprecated since eZ Platform v1.6 and was dropped in this release.
 
@@ -828,7 +834,7 @@ Using the Criteria element in REST input query (search view) payload has been de
 ### Code cleanup in eZ Platform RichText
 
 Selected deprecated permission-related methods have been removed.
-For details, see [code cleanup in kernel](#code-cleanup-in-kernel).
+For details, see [code cleanup in kernel](#code-cleanup-in-ez-platform-kernel).
 
 ### Input and output converters
 
@@ -858,7 +864,7 @@ have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
 #### Custom button configuration
 
 Configuring custom Online Editor buttons with `ezrichtext.alloy_editor.extra_buttons` is deprecated.
-Use [`ezplatform.system.<siteacces>.fieldtypes.ezrichtext.toolbars.<toolbar_identifier>.buttons`](../extending/online_editor_button.md) instead.
+Use [`ezplatform.system.<siteacces>.fieldtypes.ezrichtext.toolbars.<toolbar_identifier>.buttons`](https://doc.ibexa.co/en/latest/extending/online_editor_button) instead.
 
 ### View matching
 

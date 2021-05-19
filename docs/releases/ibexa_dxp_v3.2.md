@@ -21,13 +21,13 @@ including eCommerce administration.
 
 ### DAM connector
 
-You can now [connect your installation to a Digital Asset Management (DAM) system](../guide/config_connector.md#dam-cofniguration)
+You can now [connect your installation to a Digital Asset Management (DAM) system](https://doc.ibexa.co/en/3.2/guide/config_connector/#dam-cofniguration)
 and use assets such as images directly from the DAM in your content.
 
 ### Autosave
 
 Ibexa Platform can now save your edits in a Content item or product automatically to help you preserve the progress in an event of a failure.
-For more information, see [Autosave](https://doc.ibexa.co/projects/userguide/en/latest/publishing/publishing/#autosave).
+For more information, see [Autosave](https://doc.ibexa.co/projects/userguide/en/3.2/publishing/publishing/#autosave).
 
 ### Aggregation API
 
@@ -37,7 +37,7 @@ to group search results and get the count of results per aggregation type.
 You can aggregate results by general conditions such as Content Type or Section,
 or by Field aggregations such as the value of specific Fields.
 
-See [Aggregation API](../api/public_php_api_search.md#aggregation-api) for more information.
+See [Aggregation API](https://doc.ibexa.co/en/3.2/api/public_php_api_search/#aggregation) for more information.
 
 ### Targeting block and Segmentation API
 
@@ -46,9 +46,9 @@ depending on the Segments they belong to.
 
 ![Targeting block](img/3.2_targeting_block.png)
 
-You can [configure Segments](../guide/admin_panel.md#segments) in the Back Office.
+You can [configure Segments](https://doc.ibexa.co/en/3.2/guide/admin_panel/#segments) in the Back Office.
 
-[Segmentation API](../api/public_php_api_managing_users.md#segments) enables you to create and edit Segments and Segment Groups,
+[Segmentation API](https://doc.ibexa.co/en/3.2/api/public_php_api_managing_users/#segments) enables you to create and edit Segments and Segment Groups,
 as well as assign Users to Segments.
 
 ### Twig helpers for content rendering
@@ -59,14 +59,14 @@ Use `ez_render_content(content)` and `ez_render_location(location)` to render th
 
 You can also use `ez_render()` and provide it with either a content or Location object.
 
-See [Using `ez_render` Twig helpers](../guide/templates.md#using-ez_render-twig-helpers) for more information.
+See [Using `ez_render` Twig helpers](https://doc.ibexa.co/en/3.2/guide/templates/#using-ez_render-twig-helpers) for more information.
 
 ### JWT authentication
 
-You can now use JWT tokens to authenticate in [REST API](../api/general_rest_usage.md#jwt-authentication)
-and [GraphQL](../api/graphql.md#jwt-authentication).
+You can now use JWT tokens to authenticate in [REST API](https://doc.ibexa.co/en/3.2/api/general_rest_usage/#jwt-authentication)
+and [GraphQL](https://doc.ibexa.co/en/3.2/api/graphql/#jwt-authentication).
 
-See [JWT authentication](../guide/security.md#jwt-authentication) to learn how to configure this authentication method.
+See [JWT authentication](https://doc.ibexa.co/en/3.2/guide/security/#jwt-authentication) to learn how to configure this authentication method.
 
 ## Other changes
 
@@ -76,7 +76,7 @@ You can now define User Group skeletons where you define Policies and Limitation
 You can then associate a number of such skeletons with a site template. 
 User Group skeletons survive deleting a site.
 
-See [Configure User Group skeleton](../guide/site_factory.md#configure-user-group-skeleton) for more information.
+See [Configure User Group skeleton](https://doc.ibexa.co/en/3.2/guide/site_factory/#configure-user-group-skeleton) for more information.
 
 ### Calendar widget improvements
 
@@ -85,7 +85,7 @@ This way you can envision what content will be available in the future.
 
 Also, you can now apply new filters that are intended to help you declutter the calendar view.
 
-For more information, see [Calendar widget](https://doc.ibexa.co/projects/userguide/en/latest/publishing/advanced_publishing_options/#calendar-widget).
+For more information, see [Calendar widget](https://doc.ibexa.co/projects/userguide/en/3.2/publishing/advanced_publishing_options/#calendar-widget).
 
 ### Cloning Content Types
 
@@ -98,7 +98,7 @@ Then, refresh the view to see an updated list of Content Types.
 ### Object state API improvements
 
 You can now use `ObjectStateService::loadObjectStateByIdentifier()` and `ObjectStateService::loadObjectStateGroupByIdentifier()`
-to [get Object states and Object state groups](../api/public_php_api_managing_repository.md#getting-object-state-information) in the PHP API.
+to [get Object states and Object state groups](https://doc.ibexa.co/en/3.2/api/public_php_api_managing_repository/#getting-object-state-information) in the PHP API.
 
 ## Full changelog
 
