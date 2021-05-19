@@ -179,27 +179,31 @@ composer run post-install-cmd
 
 ## Update to v3.3.x
 
+!!! note
+
+    You can only update to the latest patch release of 3.3.x.
+
 To update from one v3.3 patch version to another (for example, from v3.3.1 to v3.3.2), run:
 
 === "[[= product_name_content =]]"
 
     ``` bash
-    composer require ibexa/content:3.3.2 -W
-    composer recipes:install ibexa/content --force
+    composer require ibexa/content:3.3.2 --with-all-dependencies
+    composer recipes:install ibexa/content --force -v
     ```
 
 === "[[= product_name_exp =]]"
 
     ``` bash
-    composer require ibexa/experience:3.3.2 -W
-    composer recipes:install ibexa/experience --force
+    composer require ibexa/experience:3.3.2 --with-all-dependencies
+    composer recipes:install ibexa/experience --force -v
     ```
 
 === "[[= product_name_com =]]"
 
     ``` bash
-    composer require ibexa/commerce:3.3.2 -W
-    composer recipes:install ibexa/commerce --force
+    composer require ibexa/commerce:3.3.2 --with-all-dependencies
+    composer recipes:install ibexa/commerce --force -v
     ```
     
 Review the changes to make sure your custom configuration was not affected.
