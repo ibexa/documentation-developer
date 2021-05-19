@@ -12,12 +12,12 @@
 
     ### Editorial workflow
 
-    [Editorial Workflow](../guide/workflow.md) enables you to pass content through a series of stages.
+    [Editorial Workflow](https://doc.ibexa.co/en/2.5/guide/workflow) enables you to pass content through a series of stages.
 
     Each step can be used to represent for example contributions and approval of different teams and editors.
     For instance, an article can pass through draft, design and proofreading stages.
 
-    The workflow mechanism is [permission-aware](../guide/workflow.md#permissions).
+    The workflow mechanism is [permission-aware](https://doc.ibexa.co/en/2.5/guide/workflow/#permissions).
     You can limit access to content in different workflow stages, or the ability to pass content through specific transitions.
 
     ![Workflow event timeline](img/2.4_workflow_events_timeline.png "Timeline of workflow stages a Content item has gone through")
@@ -33,7 +33,7 @@ RichText Field Type has been extracted to a separate bundle, [ezsystems/ezplatfo
 If you're implementing any interface or extending any base class from the old namespace, refer to its PHPDoc to see what to implement or extend instead.
 Make sure to enable the new eZ Platform RichTextBundle.
 
-See [RichText Field Type Reference](../api/field_types_reference/richtextfield.md).
+See [RichText Field Type Reference](https://doc.ibexa.co/en/2.5/api/field_types_reference/richtextfield).
 
 #### RichText block
 
@@ -67,14 +67,14 @@ The new `embed-inline` built-in view type enables embedding Content items within
 #### Custom tag - `ezcontent`
 
 The `ezcontent` property is now editable in the UI and can be used to store the output/preview of a custom tag.
-To learn how it works, see [FactBox tag](../extending/extending_online_editor/#factbox-tag).
+To learn how it works, see [FactBox tag](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#example-factbox-tag).
 
 ### Content Type translation
 
 You can now translate Content Type names and Field definitions.
 
 This possibility is available automatically when you have the target language configured
-(in the same way as for translating content, see [Languages](../guide/internationalization.md)).
+(in the same way as for translating content, see [Languages](https://doc.ibexa.co/en/2.5/guide/internationalization)).
 
 ![Content type with existing translations](img/2.4_content_type_translations.png "Available translation of a Content Type")
 
@@ -86,7 +86,7 @@ When you translate Content of this type, the Content Type information will be di
 
 New multi-file content management functionalities enable you to move and delete multiple files at the same time.
 
-See [Multi-file content management](https://doc.ezplatform.com/projects/userguide/en/latest/multi_file_content_management/) for more information.
+See [Multi-file content management](https://doc.ibexa.co/projects/userguide/en/2.5/multi_file_content_management/#multi-file-content-management) for more information.
 
 !!! dxp
 
@@ -108,13 +108,13 @@ The list of all drafts can now be found in the **Administrator User** menu under
 
 ![Administrator User list of all Drafts](img/2.4_drafts_admin_user.png "Administrator User list of all Drafts")
 
-See [Reviewing a draft](https://doc.ezplatform.com/projects/userguide/en/latest/publishing/#reviewing-a-draft) for more information.
+See [Reviewing a draft](https://doc.ibexa.co/projects/userguide/en/2.5/publishing/flex_workflow/#reviewing-a-draft) for more information.
 
 ### Subtree search filter
 
 A new filter enables you to filter search results by Subtree.
 
-See [Simplified Filtered search](https://doc.ezplatform.com/projects/userguide/en/latest/search/#simplified-filtered-search) for more information.
+See [Simplified Filtered search](https://doc.ibexa.co/projects/userguide/en/2.5/search/#simplified-filtered-search) for more information.
 
 ### Sub-items limit
 
