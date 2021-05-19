@@ -256,6 +256,11 @@ The optional `--file` option defines the name of the YAML file to export to.
 bin/console ibexa:migrations:generate --type=content --mode=create --file=my_data_export.yaml
 ```
 
+!!! note
+
+    When migrating multiple files at once (for example when calling `ibexa:migration:migrate` without options)
+    they are executed in alphabetical order.
+
 ### user-context
 
 The optional `--user-context` option enables you to run the export command as a specified User.
@@ -448,7 +453,128 @@ of Step), which in turn performs the actual execution of the migration.
 
 ## Creating your own Actions
 
+To create an Action, you will need:
+
+- An Action class, to store any additional data that you might require.
+- An Action denormalizer, to convert YAML definition into your Action class.
+- An Action executor, to handle the Action.
+
+Built-in actions work in exactly the same way.
+Existing `AssignObjectState` action is used as an example below.
+
+First, you will need an Action class.
+
+``` php
+use Ibexa\Platform\Migration\ValueObject\Step\Action;
+
+final class AssignContentTypeGroup implements Action
+{
+    public const TYPE = 'assign_content_type_group';
+
+    /** @var string */
+    private $groupName;
+
+    public function __construct(string $groupName)
+    {
+        $this->groupName = $groupName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->groupName;
+    }
+
+    public function getSupportedType(): string
+    {
+        return self::TYPE;
+    }
+}
+
+```
+
+Then you will need a Denormalizer to convert data read from YAML into Action object.
+
+``` php
+use Ibexa\Platform\Contracts\Migration\Serializer\Denormalizer\AbstractActionDenormalizer;
+use Ibexa\Platform\Migration\ValueObject\Step\Action\ContentType\AssignContentTypeGroup;
+use Webmozart\Assert\Assert;
+
+final class AssignContentTypeGroupActionDenormalizer extends AbstractActionDenormalizer
+{
+    protected function supportsActionName(string $actionName, string $format = null): bool
+    {
+        return $actionName === AssignContentTypeGroup::TYPE;
+    }
+
+    /**
+     * @param array<mixed> $data
+     * @param string $type
+     * @param string|null $format
+     * @param array<mixed> $context
+     *
+     * @return \Ibexa\Platform\Migration\ValueObject\Step\Action\ContentType\AssignContentTypeGroup
+     */
+    public function denormalize($data, string $type, string $format = null, array $context = [])
+    {
+        Assert::keyExists($data, 'value');
+
+        return new AssignContentTypeGroup($data['value']);
+    }
+}
+
+```
+
+And finally, an Executor to perform the Action.
+
+Executor has to be tagged with `'ibexa.migrations.executor.action.<TYPE>'` tag, where `<TYPE>` is the "type" of the Step
+that executor works with ("content", "content_type", "location", etc.). The tag has to have a `key` property with the
+Action type.
+
+For example, `AssignGroupExecutor` is defined as follows:
+
+```yaml
+services:
+    Ibexa\Platform\Migration\StepExecutor\ActionExecutor\ContentType\Update\AssignGroupExecutor:
+        tags:
+            - { name: 'ibexa.migrations.executor.action.content_type', key: !php/const \Ibexa\Platform\Migration\ValueObject\Step\Action\ContentType\AssignContentTypeGroup::TYPE }
+```
+
+``` php
+use eZ\Publish\API\Repository\ContentTypeService;
+use Ibexa\Platform\Migration\ValueObject;
+use Ibexa\Platform\Migration\StepExecutor\ActionExecutor\ExecutorInterface;
+use eZ\Publish\API\Repository\Values\ValueObject as APIValueObject;
+
+final class AssignGroupExecutor implements ExecutorInterface
+{
+    /** @var \eZ\Publish\API\Repository\ContentTypeService */
+    private $contentTypeService;
+
+    public function __construct(
+        ContentTypeService $contentTypeService
+    ) {
+        $this->contentTypeService = $contentTypeService;
+    }
+
+    /**
+     * @param \Ibexa\Platform\Migration\ValueObject\Step\Action\ContentType\AssignContentTypeGroup $action
+     * @param \eZ\Publish\API\Repository\Values\ContentType\ContentType $contentType
+     */
+    public function handle(ValueObject\Step\Action $action, APIValueObject $contentType): void
+    {
+        $group = $this->contentTypeService->loadContentTypeGroupByIdentifier($action->getValue());
+        $this->contentTypeService->assignContentTypeGroup($contentType, $group);
+    }
+}
+
+```
+
 ## Creating your own Migration Steps
+
+N/A
 
 ## Configuration reference
 
