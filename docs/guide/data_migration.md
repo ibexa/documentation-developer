@@ -460,7 +460,7 @@ To create an Action, you will need:
 - An Action executor, to handle the Action.
 
 Built-in actions work in exactly the same way.
-Existing `AssignObjectState` action is used as an example below.
+Existing `AssignContentTypeGroup` action is used as an example below.
 
 First, you will need an Action class.
 
