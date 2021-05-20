@@ -76,13 +76,13 @@ Log in to your service portal on [support.ibexa.co](https://support.ibexa.co), g
     composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
     ```
 
-    To store your credentials per project, add the credentials to the global `COMPOSER_AUTH` variable:
+    To store your credentials per project, add the credentials to the `COMPOSER_AUTH` variable:
 
     ``` bash
     export COMPOSER_AUTH='{"http-basic":{"updates.ibexa.co": {"username": "<your-key>", "password": "<your-password>"}}}'
     ```
 
-    Then, add this global variable to `auth.json`.
+    Then, add this variable to `auth.json` (for example, by running `echo COMPOSER_AUTH > auth.json`).
 
 !!! tip "Different tokens for different projects on a single host"
 
