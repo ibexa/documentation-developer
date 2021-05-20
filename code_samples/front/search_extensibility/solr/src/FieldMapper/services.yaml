@@ -1,0 +1,7 @@
+services:
+    App\Search\Mapper\WebinarEventTitleFulltextFieldMapper:
+        arguments:
+            - '@ezpublish.spi.persistence.content_handler'
+            - '@ezpublish.spi.persistence.location_handler'
+        tags:
+            - {name: ezpublish.search.solr.field_mapper.content}

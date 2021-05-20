@@ -1,0 +1,26 @@
+services:
+    App\Query\Aggregation\Solr\PriorityAggregationVisitor:
+        class: EzSystems\EzPlatformSolrSearchEngine\Query\Common\AggregationVisitor\RangeAggregationVisitor
+        factory: ['@EzSystems\EzPlatformSolrSearchEngine\Query\Common\AggregationVisitor\Factory\ContentFieldAggregationVisitorFactory', 'createRangeAggregationVisitor']
+        arguments:
+            $aggregationClass: 'App\Query\Aggregation\PriorityRangeAggregation'
+            $searchIndexFieldName: 'priority_i'
+        tags:
+            - { name: ezplatform.search.solr.query.content.aggregation_visitor }
+            - { name: ezplatform.search.solr.query.location.aggregation_visitor }
+            
+services:
+    App\Query\Aggregation\Solr\PriorityAggregationResultExtractor:
+        class: EzSystems\EzPlatformSolrSearchEngine\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'App\Query\Aggregation\PriorityRangeAggregation'
+        tags:
+            - { name: ezplatform.search.solr.query.location.aggregation_result_extractor }
+            
+services:
+    App\Query\Aggregation\PriorityAggregationVisitor:
+        tags:
+            - { name: 'ezplatform.search.solr.query.location.aggregation_visitor' }
+    App\Query\Aggregation\PriorityAggregationResultExtractor:
+        tags:
+            - { name: 'ezplatform.search.solr.query.location.aggregation_result_extractor' }
