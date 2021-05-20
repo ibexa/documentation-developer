@@ -81,8 +81,8 @@ Log in to your service portal on [support.ibexa.co](https://support.ibexa.co), g
     ``` bash
     export COMPOSER_AUTH='{"http-basic":{"updates.ibexa.co": {"username": "<your-key>", "password": "<your-password>"}}}'
     ```
-
-    Then, add this variable to `auth.json` (for example, by running `echo COMPOSER_AUTH > auth.json`).
+    
+    You then need to [add this variable to `auth.json`](#authentication-token).
 
 !!! tip "Different tokens for different projects on a single host"
 
@@ -126,6 +126,11 @@ run the following command:
     ``` bash
     composer create-project ibexa/commerce-skeleton .
     ```
+
+!!! tip "Authentication token"
+
+    <a id="authentication-token"></a>If you added credentials to the `COMPOSER_AUTH` variable,
+    at this point add this variable to `auth.json` (for example, by running `echo COMPOSER_AUTH > auth.json`).
 
 !!! tip
 
