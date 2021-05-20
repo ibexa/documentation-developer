@@ -69,20 +69,21 @@ Log in to your service portal on [support.ibexa.co](https://support.ibexa.co), g
 !!! tip "Save the authentication token in `auth.json` to avoid re-typing it"
 
     Composer will ask whether you want to save the token every time you perform an update.
-    If you prefer, you can decline and create an `auth.json` file manually in one of the following ways:
-
-    - A: Store your credentials in the project directory (for security reasons, do not check them in to git):
-
-    ``` bash
-    composer config http-basic.updates.ibexa.co <installation-key> <token-password>
-    ```
-
-    - B: If you only have one project on the machine/server/vm, and want to install globally in [`COMPOSER_HOME`](https://getcomposer.org/doc/03-cli.md#composer-home) directory for machine-wide use:
+    If you prefer, you can decline and create an `auth.json` file globally
+    in [`COMPOSER_HOME`](https://getcomposer.org/doc/03-cli.md#composer-home) directory for machine-wide use:
 
     ``` bash
     composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
     ```
-    
+
+    To store your credentials per project, add the credentials to the global `COMPOSER_AUTH` variable:
+
+    ``` bash
+    export COMPOSER_AUTH='{"http-basic":{"updates.ibexa.co": {"username": "<your-key>", "password": "<your-password>"}}}'
+    ```
+
+    Then, add this global variable to `auth.json`.
+
 !!! tip "Different tokens for different projects on a single host"
 
     If you configure several projects on one machine, make sure that
