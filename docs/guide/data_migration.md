@@ -7,6 +7,12 @@ between installations by using the migration script.
 
     You can also manage data migrations with the PHP API, see [Managing migrations](../api/public_php_api_managing_migrations.md).
 
+!!! caution "Do not enable EzMigrationBundle2"
+
+    If you are migrating your data either with [`kaliop-uk/ezmigrationbundle`](https://github.com/kaliop-uk/ezmigrationbundle) or [`ezsystems/ezmigrationbundle`](https://github.com/ezsystems/EzMigrationBundle), do not install the [`tanoconsulting/ezmigrationbundle2`](https://github.com/tanoconsulting/ezmigrationbundle2) package, or your application will stop working due to multiple duplicated classes.
+    
+    As of [[= product_name =]] in version 3.3.3, the `ezmigrationbundle` package has been removed to mitigate this issue. Nevertheless, it is recommended that you use the default `ibexa/migrations` package to migrate your data.    
+
 ## Exporting data
 
 To export Repository content, use the `ibexa:migrations:generate` command.
@@ -166,6 +172,8 @@ php bin/console ibexa:migrations:kaliop:bulk-convert --recursive --input-directo
 ```
 
 If you do not specify the output folder, the command overwrites the input files.
+
+
 
 ## Adding migration files
 

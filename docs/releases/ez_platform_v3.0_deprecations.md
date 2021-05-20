@@ -744,6 +744,10 @@ Twig intl extension [has been dropped.](https://github.com/twigphp/Twig-extensio
 
 The `EzPublishMigration` bundle has been dropped.
 
+### EzMigrationBundle
+
+As of Ibexa DXP in version 3.3.3, the `ezsystems/EzMigrationBundle` bundle has been dropped. Use `ibexa/migrations` instead.
+
 ### Password hashes
 
 Insecure password hash types deprecated since v1.13 have been removed:
