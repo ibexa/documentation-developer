@@ -188,8 +188,9 @@ To update from one v3.3 patch version to another (for example, from v3.3.1 to v3
 === "[[= product_name_content =]]"
 
     ``` bash
-    composer require ibexa/content:3.3.2 --with-all-dependencies
+    composer require ibexa/content:3.3.2 --with-all-dependencies --no-scripts
     composer recipes:install ibexa/content --force -v
+    composer run post-install-cmd
     ```
 
 === "[[= product_name_exp =]]"
