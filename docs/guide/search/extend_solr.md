@@ -152,8 +152,8 @@ services:
 
 To provide support for a custom Search Criterion, do the following.
 
-First, create the `src/Query/Criterion/CameraManufacturerCriterion.php` file 
-and add the Criterion class:
+First, create an `src/Query/Criterion/CameraManufacturerCriterion.php` file 
+that contains the Criterion class:
 
 ``` php
 <?php
@@ -194,7 +194,7 @@ final class CameraManufacturer extends Criterion
 }
 ```
 
-Then, in the `src/Query/Criterion/CameraManufacturerVisitor.php` file, 
+Then, add an `src/Query/Criterion/CameraManufacturerVisitor.php` file, 
 implement `CriterionVisitor`:
 
 ``` php
@@ -243,7 +243,7 @@ services:
 
 To create a custom Sort Clause, do the following.
 
-First, in the `src/Query/SortClause/ScoreSortClause.php` file, add the Sort Clause class:
+First, add an `src/Query/SortClause/ScoreSortClause.php` file with the Sort Clause class:
 
 ``` php
 <?php
@@ -264,7 +264,7 @@ final class Score extends SortClause
 }
 ```
 
-Then, in the `src/Query/SortClause/ScoreVisitor.php` file, implement `SortClauseVisitor`:
+Then, add an `src/Query/SortClause/ScoreVisitor.php` file that implements `SortClauseVisitor`:
 
 ``` php
 <?php
