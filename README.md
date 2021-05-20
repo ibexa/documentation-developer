@@ -21,13 +21,13 @@ Invite yourself to the community Slack and join `#documentation-contrib`
 https://ez-community-on-slack.herokuapp.com/
 
 ## Building & preview
-To build and preview your changes locally, you will need Python along with it's package manager (`pip`).
-Other tools required will be installed by `pip` using the following command:
+To build and preview your changes locally, you will need Python along with its package manager (`pip`).
+Other required tools will be installed by `pip` using the following command:
 ```bash
 pip install -r requirements.txt
 ```
 
-Then you can simply run
+Then you can run:
 ```bash
 mkdocs serve
 ```
