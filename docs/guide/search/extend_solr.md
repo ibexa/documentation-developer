@@ -238,7 +238,7 @@ You must also create a result extractor, which implements  `EzSystems\EzPlatform
 that transforms raw aggregation results from Solr into `AggregationResult` objects:
 
 ``` php
-[[= include_file('code_samples/front/search_extensibility/solr/src/Query/Aggregation/PriorityRangeAggregationExtractor.php') =]]
+[[= include_file('code_samples/front/search_extensibility/solr/src/Query/Aggregation/PriorityAggregationResultExtractor.php') =]]
 ```
 
 The `canVisit()` method checks whether the provided aggregation is of the supported type
