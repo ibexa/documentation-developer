@@ -4,14 +4,10 @@
 
 ## Document field mappers
 
-!!! note
-
-    Document field mappers are available since Solr bundle version 1.2.
-
 You can use document field mappers to index additional data in the search engine.
 
-The additional data can come from external sources (for example, a Personalization 
-service), or from internal ones.
+The additional data can come from external sources (for example, the [Personalization 
+service](../personalization/personalization.md)), or from internal ones.
 An example of indexing internal data is indexing data through the Location hierarchy: 
 from the parent Location to the child Location, or indexing child data on the parent Location.
 You can use this to find the content with full-text search, or to simplify a search 
@@ -35,8 +31,7 @@ Knowing this, you can index additional data by the following:
 Additional data is indexed by implementing a document field mapper and registering it 
 at one of the five extension points described above.
 You can create the field mapper class anywhere inside your bundle,
-as long as, when you register it as a service, the `class` parameter in your 
-`services.yaml` matches the correct path.
+as long as you register it as a Symfony service.
 There are three different field mappers. 
 Each mapper implements two methods, by the same name, but accepting different arguments:
 
@@ -77,7 +72,7 @@ The field mapper could then look like this:
 ```php
  <?php
 
-namespace My\WebinarApp;
+namespace App\Search\Mapper;
 
 use EzSystems\EzPlatformSolrSearchEngine\FieldMapper\ContentFieldMapper;
 use eZ\Publish\SPI\Persistence\Content\Handler as ContentHandler;
@@ -136,13 +131,13 @@ class WebinarEventTitleFulltextFieldMapper extends ContentFieldMapper
 You index full text data only on the content document, therefore, you would register the service like this:
 
 ``` yaml
-my_webinar_app.webinar_event_title_fulltext_field_mapper:
-    class: My\WebinarApp\WebinarEventTitleFulltextFieldMapper
-    arguments:
-        - '@ezpublish.spi.persistence.content_handler'
-        - '@ezpublish.spi.persistence.location_handler'
-    tags:
-        - {name: ezpublish.search.solr.field_mapper.content}
+services:
+    App\Search\Mapper\WebinarEventTitleFulltextFieldMapper:
+        arguments:
+            - '@ezpublish.spi.persistence.content_handler'
+            - '@ezpublish.spi.persistence.location_handler'
+        tags:
+            - {name: ezpublish.search.solr.field_mapper.content}
 ```
 
 
@@ -157,38 +152,8 @@ my_webinar_app.webinar_event_title_fulltext_field_mapper:
 
 To provide support for a custom Search Criterion, do the following.
 
-First, in the `src/Query/Criterion/CameraManufacturerVisitor.php` file, implement `CriterionVisitor`:
-
-``` php
-<?php
-
-declare(strict_types=1);
-
-namespace App\Query\Criterion;
-
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use EzSystems\EzPlatformSolrSearchEngine\Query\CriterionVisitor;
-
-final class CameraManufacturerVisitor extends CriterionVisitor
-{
-    public function canVisit(Criterion $criterion)
-    {
-        return $criterion instanceof CameraManufacturer;
-    }
-    public function visit(Criterion $criterion, CriterionVisitor $subVisitor = null)
-    {
-        $expressions = array_map(
-            static function ($value): string {
-                return 'exif_camera_manufacturer_id:"' . $this->escapeQuote($value) . '"';
-            },
-            ($criterion->value
-        );
-        return '(' . implode(' OR ', $expressions) . ')';
-    }
-}
-```
-
-Then, create the `src/Query/Criterion/CameraManufacturerCriterion.php` file and add the Criterion class:
+First, create the `src/Query/Criterion/CameraManufacturerCriterion.php` file 
+and add the Criterion class:
 
 ``` php
 <?php
@@ -229,6 +194,38 @@ final class CameraManufacturer extends Criterion
 }
 ```
 
+Then, in the `src/Query/Criterion/CameraManufacturerVisitor.php` file, 
+implement `CriterionVisitor`:
+
+``` php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Query\Criterion;
+
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
+use EzSystems\EzPlatformSolrSearchEngine\Query\CriterionVisitor;
+
+final class CameraManufacturerVisitor extends CriterionVisitor
+{
+    public function canVisit(Criterion $criterion)
+    {
+        return $criterion instanceof CameraManufacturer;
+    }
+    public function visit(Criterion $criterion, CriterionVisitor $subVisitor = null)
+    {
+        $expressions = array_map(
+            static function ($value): string {
+                return 'exif_camera_manufacturer_id:"' . $this->escapeQuote($value) . '"';
+            },
+            $criterion->value
+        );
+        return '(' . implode(' OR ', $expressions) . ')';
+    }
+}
+```
+
 Finally, register the visitor as a service.
 
 Search Criteria can be valid for both Content and Location search.
@@ -246,7 +243,28 @@ services:
 
 To create a custom Sort Clause, do the following.
 
-First, in the `src/Query/SortClause/ScoreVisitor.php` file, implement `SortClauseVisitor`:
+First, in the `src/Query/SortClause/ScoreSortClause.php` file, add the Sort Clause class:
+
+``` php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Query\SortClause;
+
+use eZ\Publish\API\Repository\Values\Content\Query;
+use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
+
+final class Score extends SortClause
+{
+    public function __construct(string $sortDirection = Query::SORT_ASC)
+    {
+        parent::__construct('_score', $sortDirection);
+    }
+}
+```
+
+Then, in the `src/Query/SortClause/ScoreVisitor.php` file, implement `SortClauseVisitor`:
 
 ``` php
 <?php
@@ -274,27 +292,6 @@ class Score extends SortClauseVisitor
 The `canVisit()` method checks whether the implementation can handle the requested Sort Clause.
 The `visit()` method contains the logic that translates Sort Clause information into data that is understandable by Solr.
 The `visit()` method takes the Sort Clause itself as an argument.
-
-Then, in the `src/Query/SortClause/ScoreSortClause.php` file, add the Sort Clause class:
-
-``` php
-<?php
-
-declare(strict_types=1);
-
-namespace App\Query\SortClause;
-
-use eZ\Publish\API\Repository\Values\Content\Query;
-use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
-
-final class Score extends SortClause
-{
-    public function __construct(string $sortDirection = Query::SORT_ASC)
-    {
-        parent::__construct('_score', $sortDirection);
-    }
-}
-```
 
 Finally, register the visitor as a service.
 
@@ -431,9 +428,11 @@ final class PriorityRangeAggregationVisitor implements AggregationVisitor
     {
         return $aggregation instanceof PriorityRangeAggregation;
     }
+
     /**
      * @param \eZ\Publish\API\Repository\Values\Content\Query\Aggregation\AbstractRangeAggregation $aggregation
      */
+    
     public function visit(
         AggregationVisitor $dispatcherVisitor,
         Aggregation $aggregation,
@@ -448,17 +447,20 @@ final class PriorityRangeAggregationVisitor implements AggregationVisitor
                 'q' => sprintf('priority_i:[%s TO %s}', $from, $to),
             ];
         }
+ 
         return [
             'type' => 'query',
             'q' => '*:*',
             'facet' => $rangeFacets,
         ];
     }
+
     private function formatRangeValue($value): string
     {
         if ($value === null) {
             return '*';
         }
+
         return (string)$value;
     }
 }
@@ -499,13 +501,10 @@ final class PriorityAggregationResultExtractor implements AggregationResultExtra
     {
         $entries = [];
         foreach ($data as $key => $bucket) {
-            if ($key === 'count') {
+            if ($key === 'count' || strpos($key, '_') === false) {
                 continue;
             }
-            if (strpos($key, '_') === false) {
-                continue;
-            }
-            list($from, $to) = explode('_', $key, 2);
+            [$from, $to] = explode('_', $key, 2);
             $entries[] = new RangeAggregationResultEntry(
                 new Range(
                     $from !== '*' ? $from : null,
@@ -514,6 +513,7 @@ final class PriorityAggregationResultExtractor implements AggregationResultExtra
                 $bucket->count
             );
         }
+
         return new RangeAggregationResult($aggregation->getName(), $entries);
     }
 }
