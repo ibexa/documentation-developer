@@ -70,74 +70,13 @@ which are children of the webinar.
 The field mapper could then look like this:
 
 ```php
- <?php
-
-namespace App\Search\Mapper;
-
-use EzSystems\EzPlatformSolrSearchEngine\FieldMapper\ContentFieldMapper;
-use eZ\Publish\SPI\Persistence\Content\Handler as ContentHandler;
-use eZ\Publish\SPI\Persistence\Content\Location\Handler as LocationHandler;
-use eZ\Publish\SPI\Persistence\Content;
-use eZ\Publish\SPI\Search;
-
-class WebinarEventTitleFulltextFieldMapper extends ContentFieldMapper
-{
-    /**
-     * @var \eZ\Publish\SPI\Persistence\Content\Type\Handler
-     */
-    protected $contentHandler;
-
-    /**
-     * @var \eZ\Publish\SPI\Persistence\Content\Location\Handler
-     */
-    protected $locationHandler;
-
-    /**
-     * @param \eZ\Publish\SPI\Persistence\Content\Handler $contentHandler
-     * @param \eZ\Publish\SPI\Persistence\Content\Location\Handler $locationHandler
-     */
-    public function __construct(
-        ContentHandler $contentHandler,
-        LocationHandler $locationHandler
-    ) {
-        $this->contentHandler = $contentHandler;
-        $this->locationHandler = $locationHandler;
-    }
-
-    public function accept(Content $content)
-    {
-        // ContentType with ID 42 is webinar event
-        return $content->versionInfo->contentInfo->contentTypeId == 42;
-    }
-
-    public function mapFields(Content $content)
-    {
-        $mainLocationId = $content->versionInfo->contentInfo->mainLocationId;
-        $location = $this->locationHandler->load($mainLocationId);
-        $parentLocation = $this->locationHandler->load($location->parentId);
-        $parentContentInfo = $this->contentHandler->loadContentInfo($parentLocation->contentId);
-
-        return [
-            new Search\Field(
-                'fulltext',
-                $parentContentInfo->name,
-                new Search\FieldType\FullTextField()
-            ),
-        ];
-    }
-}
+[[= include_file('code_samples/front/search_extensibility/solr/src/FieldMapper/WebinarEventTitleFulltextFieldMapper.php') =]]
 ```
 
 You index full text data only on the content document, therefore, you would register the service like this:
 
 ``` yaml
-services:
-    App\Search\Mapper\WebinarEventTitleFulltextFieldMapper:
-        arguments:
-            - '@ezpublish.spi.persistence.content_handler'
-            - '@ezpublish.spi.persistence.location_handler'
-        tags:
-            - {name: ezpublish.search.solr.field_mapper.content}
+[[= include_file('code_samples/front/search_extensibility/solr/src/FieldMapper/services.yaml') =]]
 ```
 
 
@@ -156,74 +95,14 @@ First, create an `src/Query/Criterion/CameraManufacturerCriterion.php` file
 that contains the Criterion class:
 
 ``` php
-<?php
-
-declare(strict_types=1);
-
-namespace App\Query\Criterion;
-
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\Operator;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\Operator\Specifications;
-
-final class CameraManufacturer extends Criterion
-{
-    /**
-     * @param string|string[] $value Manufacturer name(s) to be matched.
-     */
-    public function __construct($value)
-    {
-        parent::__construct(null, null, $value);
-    }
-
-    public function getSpecifications(): array
-    {
-        return [
-            new Specifications(
-                Operator::IN,
-                Specifications::FORMAT_ARRAY,
-                Specifications::TYPE_STRING
-            ),
-            new Specifications(
-                Operator::EQ,
-                Specifications::FORMAT_SINGLE,
-                Specifications::TYPE_STRING
-            ),
-        ];
-    }
-}
+[[= include_file('code_samples/front/search_extensibility/solr/src/Query/Criterion/CameraManufacturerCriterion.php') =]]
 ```
 
 Then, add an `src/Query/Criterion/CameraManufacturerVisitor.php` file, 
 implement `CriterionVisitor`:
 
 ``` php
-<?php
-
-declare(strict_types=1);
-
-namespace App\Query\Criterion;
-
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use EzSystems\EzPlatformSolrSearchEngine\Query\CriterionVisitor;
-
-final class CameraManufacturerVisitor extends CriterionVisitor
-{
-    public function canVisit(Criterion $criterion)
-    {
-        return $criterion instanceof CameraManufacturer;
-    }
-    public function visit(Criterion $criterion, CriterionVisitor $subVisitor = null)
-    {
-        $expressions = array_map(
-            static function ($value): string {
-                return 'exif_camera_manufacturer_id:"' . $this->escapeQuote($value) . '"';
-            },
-            $criterion->value
-        );
-        return '(' . implode(' OR ', $expressions) . ')';
-    }
-}
+[[= include_file('code_samples/front/search_extensibility/solr/src/Query/Criterion/CameraManufacturerVisitor.php') =]]
 ```
 
 Finally, register the visitor as a service.
@@ -232,11 +111,7 @@ Search Criteria can be valid for both Content and Location search.
 To choose the search type, use either `content` or `location` in the tag:
 
 ``` yaml
-services:
-    App\Query\Criterion\CameraManufacturerVisitor:            
-        tags:
-            - { name: ezpublish.search.solr.query.content.criterion_visitor }
-            - { name: ezpublish.search.solr.query.location.criterion_visitor }    
+[[= include_file('code_samples/front/search_extensibility/solr/src/Query/Criterion/services.yaml') =]]
 ```
 
 ## Custom Sort Clause
@@ -246,47 +121,13 @@ To create a custom Sort Clause, do the following.
 First, add an `src/Query/SortClause/ScoreSortClause.php` file with the Sort Clause class:
 
 ``` php
-<?php
-
-declare(strict_types=1);
-
-namespace App\Query\SortClause;
-
-use eZ\Publish\API\Repository\Values\Content\Query;
-use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
-
-final class Score extends SortClause
-{
-    public function __construct(string $sortDirection = Query::SORT_ASC)
-    {
-        parent::__construct('_score', $sortDirection);
-    }
-}
+[[= include_file('code_samples/front/search_extensibility/solr/src/Query/SortClause/ScoreSortClause.php') =]]
 ```
 
 Then, add an `src/Query/SortClause/ScoreVisitor.php` file that implements `SortClauseVisitor`:
 
 ``` php
-<?php
-
-declare(strict_types=1);
-
-namespace App\Query\SortClause;
-
-use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
-use EzSystems\EzPlatformSolrSearchEngine\Query\SortClauseVisitor;
-
-class Score extends SortClauseVisitor
-{
-    public function canVisit(SortClause $sortClause): bool
-    {
-        return $sortClause instanceof SortClause\Score;
-    }
-    public function visit(SortClause $sortClause): string
-    {
-        return 'score ' . $this->getDirection($sortClause);
-    }
-}
+[[= include_file('code_samples/front/search_extensibility/solr/src/Query/SortClause/ScoreVisitor.php') =]]
 ```
 
 The `canVisit()` method checks whether the implementation can handle the requested Sort Clause.
@@ -299,11 +140,7 @@ Sort Clauses can be valid for both Content and Location search.
 To choose the search type, use either `content` or `location` in the tag:
 
 ``` yaml
-services:
-    App\Query\SortClause\Score:
-        tags:
-            - { name: ezpublish.search.solr.query.content.sort_clause_visitor }
-            - { name: ezpublish.search.solr.query.location.sort_clause_visitor }
+[[= include_file('code_samples/front/search_extensibility/solr/src/Query/SortClause/services.yaml') =]]
 ```
 
 ## Custom Aggregation
@@ -312,19 +149,7 @@ To create a custom Aggregation for use with Solr, create an aggregation class.
 In the following example, an aggregation groups the Location query results by the Location priority:
 
 ``` php
-<?php
-
-declare(strict_types=1);
-
-namespace App\Query\Aggregation;
-
-use eZ\Publish\API\Repository\Values\Content\Query\Aggregation\AbstractRangeAggregation;
-use eZ\Publish\API\Repository\Values\Content\Query\Aggregation\LocationAggregation;
-
-final class PriorityRangeAggregation extends AbstractRangeAggregation implements LocationAggregation
-{
-    ...
-}
+[[= include_file('code_samples/front/search_extensibility/solr/src/Query/Aggregation/PriorityRangeAggregation.php') =]]
 ```
 
 The `PriorityRangeAggregation` class extends `AbstractRangeAggregation`.
@@ -365,16 +190,7 @@ to the aggregation type.
 The example below uses `RangeAggregationVisitor`:
 
 ``` yaml
-services:
-    App\Query\Aggregation\Solr\PriorityAggregationVisitor:
-        class: EzSystems\EzPlatformSolrSearchEngine\Query\Common\AggregationVisitor\RangeAggregationVisitor
-        factory: ['@EzSystems\EzPlatformSolrSearchEngine\Query\Common\AggregationVisitor\Factory\ContentFieldAggregationVisitorFactory', 'createRangeAggregationVisitor']
-        arguments:
-            $aggregationClass: 'App\Query\Aggregation\PriorityRangeAggregation'
-            $searchIndexFieldName: 'priority_i'
-        tags:
-            - { name: ezplatform.search.solr.query.content.aggregation_visitor }
-            - { name: ezplatform.search.solr.query.location.aggregation_visitor }
+[[= include_file('code_samples/front/search_extensibility/solr/src/Query/Aggregation/services.yaml', 0, 10) =]]
 ```
 
 The visitor is created by `SearchFieldAggregationVisitorFactory`.
@@ -391,13 +207,7 @@ and provide it with the aggregation class in the `aggregationClass` parameter.
 Tag the service with `ezplatform.search.solr.query.location.aggregation_result_extractor`.
 
 ``` yaml
-services:
-    App\Query\Aggregation\Solr\PriorityAggregationResultExtractor:
-        class: EzSystems\EzPlatformSolrSearchEngine\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor
-        arguments:
-            $aggregationClass: 'App\Query\Aggregation\PriorityRangeAggregation'
-        tags:
-            - { name: ezplatform.search.solr.query.location.aggregation_result_extractor } 
+[[= include_file('code_samples/front/search_extensibility/solr/src/Query/Aggregation/services.yaml', 11, 18) =]]
 ```
 
 You can use a different type of aggregation, followed by respective visitor and extractor classes:
@@ -414,56 +224,7 @@ In a more complex use case, you must create your own visitor and extractor.
 The aggregation visitor must implement `EzSystems\EzPlatformSolrSearchEngine\Query\AggregationVisitor`:
 
 ``` php
-<?php
-
-declare(strict_types=1);
-
-namespace App\Query\Aggregation;
-use eZ\Publish\API\Repository\Values\Content\Query\Aggregation;
-use EzSystems\EzPlatformSolrSearchEngine\Query\AggregationVisitor;
-
-final class PriorityRangeAggregationVisitor implements AggregationVisitor
-{
-    public function canVisit(Aggregation $aggregation, array $languageFilter): bool
-    {
-        return $aggregation instanceof PriorityRangeAggregation;
-    }
-
-    /**
-     * @param \eZ\Publish\API\Repository\Values\Content\Query\Aggregation\AbstractRangeAggregation $aggregation
-     */
-    
-    public function visit(
-        AggregationVisitor $dispatcherVisitor,
-        Aggregation $aggregation,
-        array $languageFilter
-    ): array {
-        $rangeFacets = [];
-        foreach ($aggregation->getRanges() as $range) {
-            $from = $this->formatRangeValue($range->getFrom());
-            $to = $this->formatRangeValue($range->getTo());
-            $rangeFacets["${from}_${to}"] = [
-                'type' => 'query',
-                'q' => sprintf('priority_i:[%s TO %s}', $from, $to),
-            ];
-        }
- 
-        return [
-            'type' => 'query',
-            'q' => '*:*',
-            'facet' => $rangeFacets,
-        ];
-    }
-
-    private function formatRangeValue($value): string
-    {
-        if ($value === null) {
-            return '*';
-        }
-
-        return (string)$value;
-    }
-}
+[[= include_file('code_samples/front/search_extensibility/solr/src/Query/Aggregation/PriorityRangeAggregationVisitor.php') =]]
 ```
 
 The `canVisit()` method checks whether the provided aggregation is of the supported type
@@ -477,46 +238,7 @@ You must also create a result extractor, which implements  `EzSystems\EzPlatform
 that transforms raw aggregation results from Solr into `AggregationResult` objects:
 
 ``` php
-<?php
-
-declare(strict_types=1);
-
-namespace App\Query\Aggregation;
-
-use eZ\Publish\API\Repository\Values\Content\Query\Aggregation;
-use eZ\Publish\API\Repository\Values\Content\Query\Aggregation\Range;
-use eZ\Publish\API\Repository\Values\Content\Search\AggregationResult;
-use eZ\Publish\API\Repository\Values\Content\Search\AggregationResult\RangeAggregationResult;
-use eZ\Publish\API\Repository\Values\Content\Search\AggregationResult\RangeAggregationResultEntry;
-use EzSystems\EzPlatformSolrSearchEngine\ResultExtractor\AggregationResultExtractor;
-use stdClass;
-
-final class PriorityAggregationResultExtractor implements AggregationResultExtractor
-{
-    public function canVisit(Aggregation $aggregation, array $languageFilter): bool
-    {
-        return $aggregation instanceof PriorityRangeAggregation;
-    }
-    public function extract(Aggregation $aggregation, array $languageFilter, stdClass $data): AggregationResult
-    {
-        $entries = [];
-        foreach ($data as $key => $bucket) {
-            if ($key === 'count' || strpos($key, '_') === false) {
-                continue;
-            }
-            [$from, $to] = explode('_', $key, 2);
-            $entries[] = new RangeAggregationResultEntry(
-                new Range(
-                    $from !== '*' ? $from : null,
-                    $to !== '*' ? $to : null
-                ),
-                $bucket->count
-            );
-        }
-
-        return new RangeAggregationResult($aggregation->getName(), $entries);
-    }
-}
+[[= include_file('code_samples/front/search_extensibility/solr/src/Query/Aggregation/PriorityRangeAggregationExtractor.php') =]]
 ```
 
 The `canVisit()` method checks whether the provided aggregation is of the supported type
@@ -530,13 +252,7 @@ Tag the aggregation visitor with `ezplatform.search.solr.query.location.aggregat
 and the result extractor with `ezplatform.search.solr.query.location.aggregation_result_extractor`:
 
 ``` yaml
-services:
-    App\Query\Aggregation\PriorityAggregationVisitor:
-        tags:
-            - { name: 'ezplatform.search.solr.query.location.aggregation_visitor' }
-    App\Query\Aggregation\PriorityAggregationResultExtractor:
-        tags:
-            - { name: 'ezplatform.search.solr.query.location.aggregation_result_extractor' }
+[[= include_file('code_samples/front/search_extensibility/solr/src/Query/Aggregation/services.yaml', 19, 26) =]]
 ```
 
 For content-based aggregations, use the `ezplatform.search.solr.query.content.aggregation_visitor` and `ezplatform.search.solr.query.content.aggregation_result_extractor` tags respectively.
