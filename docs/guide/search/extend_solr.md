@@ -76,8 +76,7 @@ The field mapper could then look like this:
 You index full text data only on the content document, therefore, you would register the service like this:
 
 ``` yaml
-[[= include_file('code_samples/search/solr/config/packages/services.yaml', 0, 1) =]]
-[[= include_file('code_samples/search/solr/config/packages/services.yaml', 25, 31) =]]
+[[= include_file('code_samples/search/solr/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/search/solr/config/packages/services.yaml', 25, 31) =]]
 ```
 
 
@@ -112,8 +111,7 @@ Search Criteria can be valid for both Content and Location search.
 To choose the search type, use either `content` or `location` in the tag:
 
 ``` yaml
-[[= include_file('code_samples/search/solr/config/packages/services.yaml', 0, 1) =]]
-[[= include_file('code_samples/search/solr/config/packages/services.yaml', 32, 36) =]]
+[[= include_file('code_samples/search/solr/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/search/solr/config/packages/services.yaml', 32, 36) =]]
 ```
 
 ## Custom Sort Clause
@@ -142,8 +140,7 @@ Sort Clauses can be valid for both Content and Location search.
 To choose the search type, use either `content` or `location` in the tag:
 
 ``` yaml
-[[= include_file('code_samples/search/solr/config/packages/services.yaml', 0, 1) =]]
-[[= include_file('code_samples/search/solr/config/packages/services.yaml', 37, 41) =]]
+[[= include_file('code_samples/search/solr/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/search/solr/config/packages/services.yaml', 37, 41) =]]
 ```
 
 ## Custom Aggregation
@@ -210,8 +207,7 @@ and provide it with the aggregation class in the `aggregationClass` parameter.
 Tag the service with `ezplatform.search.solr.query.location.aggregation_result_extractor`.
 
 ``` yaml
-[[= include_file('code_samples/search/solr/config/packages/services.yaml', 0, 1) =]]
-[[= include_file('code_samples/search/solr/config/packages/services.yaml', 11, 17) =]]
+[[= include_file('code_samples/search/solr/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/search/solr/config/packages/services.yaml', 11, 17) =]]
 ```
 
 You can use a different type of aggregation, followed by respective visitor and extractor classes:
@@ -256,8 +252,7 @@ Tag the aggregation visitor with `ezplatform.search.solr.query.location.aggregat
 and the result extractor with `ezplatform.search.solr.query.location.aggregation_result_extractor`:
 
 ``` yaml
-[[= include_file('code_samples/search/solr/config/packages/services.yaml', 0, 1) =]]
-[[= include_file('code_samples/search/solr/config/packages/services.yaml', 18, 24) =]]
+[[= include_file('code_samples/search/solr/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/search/solr/config/packages/services.yaml', 18, 24) =]]
 ```
 
 For content-based aggregations, use the `ezplatform.search.solr.query.content.aggregation_visitor` and `ezplatform.search.solr.query.content.aggregation_result_extractor` tags respectively.
