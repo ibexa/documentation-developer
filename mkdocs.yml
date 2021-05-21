@@ -396,6 +396,7 @@ nav:
             - 'Elasticsearch search engine': 'guide/search/elastic.md'
             - 'Elasticsearch extensibility': 'guide/search/extend_elasticsearch.md'
             - 'Solr search engine': 'guide/search/solr.md'
+            - 'Solr extensibility': 'guide/search/extend_solr.md'
             - 'Other search engines': 'guide/search/search_engines.md'
             - Shop search:
                 - 'Shop search': 'guide/search/shop_search/shop_search.md'
