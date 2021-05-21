@@ -82,7 +82,7 @@ Log in to your service portal on [support.ibexa.co](https://support.ibexa.co), g
     export COMPOSER_AUTH='{"http-basic":{"updates.ibexa.co": {"username": "<your-key>", "password": "<your-password>"}}}'
     ```
     
-    You then need to [add this variable to `auth.json`](#authentication-token).
+    You then need to [add the contents of this variable to `auth.json`](#authentication-token).
 
 !!! tip "Different tokens for different projects on a single host"
 
@@ -130,7 +130,7 @@ run the following command:
 !!! tip "Authentication token"
 
     <a id="authentication-token"></a>If you added credentials to the `COMPOSER_AUTH` variable,
-    at this point add this variable to `auth.json` (for example, by running `echo COMPOSER_AUTH > auth.json`).
+    at this point add this variable to `auth.json` (for example, by running `echo $COMPOSER_AUTH > auth.json`).
 
 !!! tip
 
