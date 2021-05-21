@@ -70,13 +70,14 @@ which are children of the webinar.
 The field mapper could then look like this:
 
 ```php
-[[= include_file('code_samples/front/search_extensibility/solr/src/FieldMapper/WebinarEventTitleFulltextFieldMapper.php') =]]
+[[= include_file('code_samples/search/solr/src/FieldMapper/WebinarEventTitleFulltextFieldMapper.php') =]]
 ```
 
 You index full text data only on the content document, therefore, you would register the service like this:
 
 ``` yaml
-[[= include_file('code_samples/front/search_extensibility/solr/src/FieldMapper/services.yaml') =]]
+[[= include_file('code_samples/search/solr/config/packages/services.yaml', 0, 1) =]]
+[[= include_file('code_samples/search/solr/config/packages/services.yaml', 25, 31) =]]
 ```
 
 
@@ -95,14 +96,14 @@ First, create an `src/Query/Criterion/CameraManufacturerCriterion.php` file
 that contains the Criterion class:
 
 ``` php
-[[= include_file('code_samples/front/search_extensibility/solr/src/Query/Criterion/CameraManufacturerCriterion.php') =]]
+[[= include_file('code_samples/search/solr/src/Query/Criterion/CameraManufacturerCriterion.php') =]]
 ```
 
 Then, add an `src/Query/Criterion/CameraManufacturerVisitor.php` file, 
 implement `CriterionVisitor`:
 
 ``` php
-[[= include_file('code_samples/front/search_extensibility/solr/src/Query/Criterion/CameraManufacturerVisitor.php') =]]
+[[= include_file('code_samples/search/solr/src/Query/Criterion/CameraManufacturerVisitor.php') =]]
 ```
 
 Finally, register the visitor as a service.
@@ -111,7 +112,8 @@ Search Criteria can be valid for both Content and Location search.
 To choose the search type, use either `content` or `location` in the tag:
 
 ``` yaml
-[[= include_file('code_samples/front/search_extensibility/solr/src/Query/Criterion/services.yaml') =]]
+[[= include_file('code_samples/search/solr/config/packages/services.yaml', 0, 1) =]]
+[[= include_file('code_samples/search/solr/config/packages/services.yaml', 32, 36) =]]
 ```
 
 ## Custom Sort Clause
@@ -121,13 +123,13 @@ To create a custom Sort Clause, do the following.
 First, add an `src/Query/SortClause/ScoreSortClause.php` file with the Sort Clause class:
 
 ``` php
-[[= include_file('code_samples/front/search_extensibility/solr/src/Query/SortClause/ScoreSortClause.php') =]]
+[[= include_file('code_samples/search/solr/src/Query/SortClause/ScoreSortClause.php') =]]
 ```
 
 Then, add an `src/Query/SortClause/ScoreVisitor.php` file that implements `SortClauseVisitor`:
 
 ``` php
-[[= include_file('code_samples/front/search_extensibility/solr/src/Query/SortClause/ScoreVisitor.php') =]]
+[[= include_file('code_samples/search/solr/src/Query/SortClause/ScoreVisitor.php') =]]
 ```
 
 The `canVisit()` method checks whether the implementation can handle the requested Sort Clause.
@@ -140,7 +142,8 @@ Sort Clauses can be valid for both Content and Location search.
 To choose the search type, use either `content` or `location` in the tag:
 
 ``` yaml
-[[= include_file('code_samples/front/search_extensibility/solr/src/Query/SortClause/services.yaml') =]]
+[[= include_file('code_samples/search/solr/config/packages/services.yaml', 0, 1) =]]
+[[= include_file('code_samples/search/solr/config/packages/services.yaml', 37, 41) =]]
 ```
 
 ## Custom Aggregation
@@ -149,7 +152,7 @@ To create a custom Aggregation for use with Solr, create an aggregation class.
 In the following example, an aggregation groups the Location query results by the Location priority:
 
 ``` php
-[[= include_file('code_samples/front/search_extensibility/solr/src/Query/Aggregation/PriorityRangeAggregation.php') =]]
+[[= include_file('code_samples/search/solr/src/Query/Aggregation/PriorityRangeAggregation.php') =]]
 ```
 
 The `PriorityRangeAggregation` class extends `AbstractRangeAggregation`.
@@ -190,7 +193,7 @@ to the aggregation type.
 The example below uses `RangeAggregationVisitor`:
 
 ``` yaml
-[[= include_file('code_samples/front/search_extensibility/solr/src/Query/Aggregation/services.yaml', 0, 10) =]]
+[[= include_file('code_samples/search/solr/config/packages/services.yaml', 0, 10) =]]
 ```
 
 The visitor is created by `SearchFieldAggregationVisitorFactory`.
@@ -207,7 +210,8 @@ and provide it with the aggregation class in the `aggregationClass` parameter.
 Tag the service with `ezplatform.search.solr.query.location.aggregation_result_extractor`.
 
 ``` yaml
-[[= include_file('code_samples/front/search_extensibility/solr/src/Query/Aggregation/services.yaml', 11, 18) =]]
+[[= include_file('code_samples/search/solr/config/packages/services.yaml', 0, 1) =]]
+[[= include_file('code_samples/search/solr/config/packages/services.yaml', 11, 17) =]]
 ```
 
 You can use a different type of aggregation, followed by respective visitor and extractor classes:
@@ -224,7 +228,7 @@ In a more complex use case, you must create your own visitor and extractor.
 The aggregation visitor must implement `EzSystems\EzPlatformSolrSearchEngine\Query\AggregationVisitor`:
 
 ``` php
-[[= include_file('code_samples/front/search_extensibility/solr/src/Query/Aggregation/PriorityRangeAggregationVisitor.php') =]]
+[[= include_file('code_samples/search/solr/src/Query/Aggregation/PriorityRangeAggregationVisitor.php') =]]
 ```
 
 The `canVisit()` method checks whether the provided aggregation is of the supported type
@@ -238,7 +242,7 @@ You must also create a result extractor, which implements  `EzSystems\EzPlatform
 that transforms raw aggregation results from Solr into `AggregationResult` objects:
 
 ``` php
-[[= include_file('code_samples/front/search_extensibility/solr/src/Query/Aggregation/PriorityAggregationResultExtractor.php') =]]
+[[= include_file('code_samples/search/solr/src/Query/Aggregation/PriorityAggregationResultExtractor.php') =]]
 ```
 
 The `canVisit()` method checks whether the provided aggregation is of the supported type
@@ -252,7 +256,8 @@ Tag the aggregation visitor with `ezplatform.search.solr.query.location.aggregat
 and the result extractor with `ezplatform.search.solr.query.location.aggregation_result_extractor`:
 
 ``` yaml
-[[= include_file('code_samples/front/search_extensibility/solr/src/Query/Aggregation/services.yaml', 19, 26) =]]
+[[= include_file('code_samples/search/solr/config/packages/services.yaml', 0, 1) =]]
+[[= include_file('code_samples/search/solr/config/packages/services.yaml', 18, 24) =]]
 ```
 
 For content-based aggregations, use the `ezplatform.search.solr.query.content.aggregation_visitor` and `ezplatform.search.solr.query.content.aggregation_result_extractor` tags respectively.
