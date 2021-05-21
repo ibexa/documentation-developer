@@ -1,6 +1,6 @@
 # Solr extensibility
 
-[Solr](solr.md) can be extended by adding several functionalities, such as document field mappers, custom search criteria, custom sort clauses, or custom aggregations.
+[Solr](solr.md) can be extended by adding several functionalities, such as document field mappers, custom search criteria, or custom sort clauses.
 
 ## Document field mappers
 
