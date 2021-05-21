@@ -448,146 +448,6 @@ ez_search_engine_solr:
                     article: 2
 ```
 
-## Extending the Solr Search Engine Bundle
-
-### Document field mappers
-
-!!! note
-
-    Document Field Mappers are available since Solr bundle version 1.2.
-
-You can use document field mappers to index additional data in the search engine.
-
-The additional data can come from external sources (e.g. from a recommendation system), or from internal ones.
-An example of the latter is indexing data through the Location hierarchy: from the parent Location to the child Location, or indexing child data on the parent Location.
-This may be needed when you want to find the Content with full-text search, or to simplify search for a complicated data model.
-
-To do this effectively, you first need to understand how the data is indexed with the Solr search engine.
-Solr uses [documents](https://lucene.apache.org/solr/guide/7_7/overview-of-documents-fields-and-schema-design.html#how-solr-sees-the-world) as a unit of data that is indexed.
-Documents are indexed per translation, as Content blocks. A block is a nested document structure.
-When used in eZ Platform, a parent document represents Content, and Locations are indexed as child documents of the Content.
-To avoid duplication, full-text data is indexed on the Content document only. Knowing this, you have the option to index additional data on:
-
-- all block documents (meaning Content and its Locations, all translations)
-- all block documents per translation
-- Content documents
-- Content documents per translation
-- Location documents
-
-Indexing additional data is done by implementing a document field mapper and registering it at one of the five extension points described above.
-You can create the field mapper class anywhere inside your bundle,
-as long as when you register it as a service, the `class` parameter in your `services.yml` matches the correct path.
-There are three different field mappers. Each mapper implements two methods, by the same name, but accepting different arguments:
-
-- `ContentFieldMapper`
-    - `::accept(Content $content)`
-    - `::mapFields(Content $content)`
-- `ContentTranslationFieldMapper`
-    - `::accept(Content $content, $languageCode)`
-    - `::mapFields(Content $content, $languageCode)`
-- `LocationFieldMapper`
-    - `::accept(Location $content)`
-    - `::mapFields(Location $content)`
-
-These can be used on the extension points by registering them with the container using service tags, as follows:
-
-- all block documents
-    - `ContentFieldMapper`
-    - `ezpublish.search.solr.field_mapper.block`
-- all block documents per translation
-    - `ContentTranslationFieldMapper`
-    - `ezpublish.search.solr.field_mapper.block_translation`
-- Content documents
-    - `ContentFieldMapper`
-    - `ezpublish.search.solr.field_mapper.content`
-- Content documents per translation
-    - `ContentTranslationFieldMapper`
-    - `ezpublish.search.solr.field_mapper.content_translation`
-- Location documents
-    - `LocationFieldMapper`
-    - `ezpublish.search.solr.field_mapper.location`
-
-The following example shows how to index data from the parent Location content, in order to make it available for full-text search on the children content.
-It is based on the use case of indexing webinar data on the webinar events, which are children of the webinar. Field mapper could then look like this:
-
-```php
- <?php
-
-namespace My\WebinarApp;
-
-use EzSystems\EzPlatformSolrSearchEngine\FieldMapper\ContentFieldMapper;
-use eZ\Publish\SPI\Persistence\Content\Handler as ContentHandler;
-use eZ\Publish\SPI\Persistence\Content\Location\Handler as LocationHandler;
-use eZ\Publish\SPI\Persistence\Content;
-use eZ\Publish\SPI\Search;
-
-class WebinarEventTitleFulltextFieldMapper extends ContentFieldMapper
-{
-    /**
-     * @var \eZ\Publish\SPI\Persistence\Content\Type\Handler
-     */
-    protected $contentHandler;
-
-    /**
-     * @var \eZ\Publish\SPI\Persistence\Content\Location\Handler
-     */
-    protected $locationHandler;
-
-    /**
-     * @param \eZ\Publish\SPI\Persistence\Content\Handler $contentHandler
-     * @param \eZ\Publish\SPI\Persistence\Content\Location\Handler $locationHandler
-     */
-    public function __construct(
-        ContentHandler $contentHandler,
-        LocationHandler $locationHandler
-    ) {
-        $this->contentHandler = $contentHandler;
-        $this->locationHandler = $locationHandler;
-    }
-
-    public function accept(Content $content)
-    {
-        // ContentType with ID 42 is webinar event
-        return $content->versionInfo->contentInfo->contentTypeId == 42;
-    }
-
-    public function mapFields(Content $content)
-    {
-        $mainLocationId = $content->versionInfo->contentInfo->mainLocationId;
-        $location = $this->locationHandler->load($mainLocationId);
-        $parentLocation = $this->locationHandler->load($location->parentId);
-        $parentContentInfo = $this->contentHandler->loadContentInfo($parentLocation->contentId);
-
-        return [
-            new Search\Field(
-                'fulltext',
-                $parentContentInfo->name,
-                new Search\FieldType\FullTextField()
-            ),
-        ];
-    }
-}
-```
-
-Since you index full text data only on the Content document, you would register the service like this:
-
-``` yaml
-my_webinar_app.webinar_event_title_fulltext_field_mapper:
-    class: My\WebinarApp\WebinarEventTitleFulltextFieldMapper
-    arguments:
-        - '@ezpublish.spi.persistence.content_handler'
-        - '@ezpublish.spi.persistence.location_handler'
-    tags:
-        - {name: ezpublish.search.solr.field_mapper.content}
-```
-
-
-!!! caution "Permission issues when using Repository API in document field mappers"
-
-    Document field mappers are low level. They expect to be able to index all content regardless of current user permissions.
-    If you use PHP API in your custom document field mappers, you need to apply [`sudo()`](../../api/public_php_api.md#using-sudo),
-    otherwise use the Persistence SPI layer as in the example above.
-
 ## Configuring Solr Replication (master/slave)
 
 !!! note
@@ -667,4 +527,9 @@ Next, restart Solr slave.
 
 Connect to the Solr slave interface (http://localhost:8983/solr), go to your core and check the replication status:
 
-![Solr Slave](img/solr.PNG)
+![Solr Slave](../img/solr.PNG)
+
+## Extending Solr
+
+To learn how you can create document field mappers, custom search criteria, 
+custom sort clauses and aggregations, see [Solr extensibility](extend_solr.md).
