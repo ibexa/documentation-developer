@@ -199,7 +199,7 @@ ezplatform:
 
 ## Content Scheduler snapshots
 
-Content Scheduler snapshots speed up the rendering of Content Scheduler blocks and reduce the place used in the database.
+Content Scheduler snapshots speed up the rendering of Content Scheduler blocks and reduce the space used in the database.
 By default, five snapshots are stored, but you can modify this number with the following configuration,
 depending on the complexity of the Content Scheduler blocks:
 
