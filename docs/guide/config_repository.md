@@ -178,3 +178,14 @@ ezpublish:
                 content: '/1/18/'
                 media: '/1/57/'
 ```
+
+## Content Scheduler snapshots
+
+Content Scheduler snapshots speed up the rendering of Content Scheduler blocks and reduce the space used in the database.
+By default, five snapshots are stored, but you can modify this number with the following configuration,
+depending on the complexity of the Content Scheduler blocks:
+
+``` yaml
+parameters:
+    ezplatform.fieldtype.ezlandingpage.block.schedule.snapshots.amount: 10
+```
