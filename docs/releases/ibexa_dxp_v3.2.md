@@ -59,7 +59,7 @@ Use `ez_render_content(content)` and `ez_render_location(location)` to render th
 
 You can also use `ez_render()` and provide it with either a content or Location object.
 
-See [Using `ez_render` Twig helpers](../guide/templates.md#using-ez_render-twig-helpers) for more information.
+See [`ez_render` Twig helper](../guide/content_rendering/twig_function_reference/content_twig_functions/#ez_render) for more information.
 
 ### JWT authentication
 

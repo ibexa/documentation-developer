@@ -164,6 +164,15 @@ nav:
                 - 'Other Twig filters': 'guide/content_rendering/twig_function_reference/other_twig_filters.md'
             - Design engine:
                 - 'Design engine': 'guide/content_rendering/design_engine/design_engine.md'
+            - Queries and controllers:
+                - 'Content queries': 'guide/content_rendering/queries_and_controllers/content_queries.md'
+                - 'Built-in Query types': 'guide/content_rendering/queries_and_controllers/built-in_query_types.md'
+                - 'Custom Query type': 'guide/content_rendering/queries_and_controllers/custom_query_type.md'
+                - 'Controllers': 'guide/content_rendering/queries_and_controllers/controllers.md'
+            - Embed and list content:
+                - 'List content': 'guide/content_rendering/embed_and_list_content/list_content.md'
+                - 'Embed content': 'guide/content_rendering/embed_and_list_content/embed_content.md'
+            - 'Overriding shop templates': 'guide/shop_templates/overriding_shop_templates.md'
         - Content management:
             - 'Content management': 'guide/content_management.md'
             - 'Images': 'guide/images.md'

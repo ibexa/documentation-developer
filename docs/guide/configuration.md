@@ -67,7 +67,7 @@ For specific configuration settings, see:
 
 - [Back Office configuration](config_back_office.md)
 - [Repository configuration](config_repository.md)
-- [Content views](content_rendering.md#configuring-views-the-viewprovider)
+- [Content views](content_rendering/templates/template_configuration.md)
 - [Multisite](multisite.md#configuring-multisite)
 - [SiteAccess](siteaccess.md#configuring-siteaccesses)
 - [Image variations](images.md#configuring-image-variations)
