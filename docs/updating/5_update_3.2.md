@@ -58,3 +58,12 @@ if (req.restarts == 0 && resp.status == 301 && req.http.x-fos-original-url) {
     set resp.http.location = regsub(resp.http.location, "/_fos_user_context_hash", req.http.x-fos-original-url);
 }
 ```
+
+### Optimize workflow queries
+
+Run the following SQL queries to optimize workflow performance:
+
+``` sql
+CREATE INDEX idx_workflow_co_id_ver ON ezeditorialworkflow_workflows(content_id, version_no);
+CREATE INDEX idx_workflow_name ON ezeditorialworkflow_workflows(workflow_name);
+```

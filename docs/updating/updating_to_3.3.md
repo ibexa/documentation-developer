@@ -198,6 +198,15 @@ You do this manually by following this procedure:
 
     `php bin/console doctrine:schema:update --em=<ENTITY_MANAGER_NAME> --force`
 
+#### Optimize workflow queries
+
+Run the following SQL queries to optimize workflow performance:
+
+``` sql
+CREATE INDEX idx_workflow_co_id_ver ON ezeditorialworkflow_workflows(content_id, version_no);
+CREATE INDEX idx_workflow_name ON ezeditorialworkflow_workflows(workflow_name);
+```
+
 ### Enable Commerce features
 
 With the v3.3.2 update, Commerce features in Experience and Content editions are disabled by default.
