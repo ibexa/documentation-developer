@@ -4,7 +4,7 @@ Ibexa DXP v3.3 uses [Symfony Flex](https://symfony.com/doc/current/quick_tour/fl
 When updating from v3.2 to v3.3, you need to follow a special update procedure.
 
 If you are updating from an earlier version, start with [updating your installation to v3.2](updating.md).
-If you want to update from v3.3.1 to a later v3.3 version, for example v3.3.2, see [Update to v3.3.x](#update-to-v33x).
+If you want to update from v3.3.2 to a later v3.3 version, for example v3.3.3, see [Update to v3.3.x](#update-to-v33x).
 
 First, create an update branch in git and commit your work.
 
@@ -182,13 +182,18 @@ composer run post-install-cmd
 !!! note
 
     You can only update to the latest patch release of 3.3.x.
+    
+!!! caution
+    
+    To update to v3.3.3, remove `Kaliop\eZMigrationBundle\eZMigrationBundle::class => ['all' => true],`
+    from `config/bundles.php` before running `composer require`.
 
-To update from one v3.3 patch version to another (for example, from v3.3.1 to v3.3.2), run:
+To update from one v3.3 patch version to another (for example, from v3.3.2 to v3.3.3), run:
 
 === "[[= product_name_content =]]"
 
     ``` bash
-    composer require ibexa/content:3.3.2 --with-all-dependencies --no-scripts
+    composer require ibexa/content:3.3.3 --with-all-dependencies --no-scripts
     composer recipes:install ibexa/content --force -v
     composer run post-install-cmd
     ```
@@ -196,15 +201,17 @@ To update from one v3.3 patch version to another (for example, from v3.3.1 to v3
 === "[[= product_name_exp =]]"
 
     ``` bash
-    composer require ibexa/experience:3.3.2 --with-all-dependencies
+    composer require ibexa/experience:3.3.3 --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
+    composer run post-install-cmd
     ```
 
 === "[[= product_name_com =]]"
 
     ``` bash
-    composer require ibexa/commerce:3.3.2 --with-all-dependencies
+    composer require ibexa/commerce:3.3.3 --with-all-dependencies --no-scripts
     composer recipes:install ibexa/commerce --force -v
+    composer run post-install-cmd
     ```
     
 Review the changes to make sure your custom configuration was not affected.
