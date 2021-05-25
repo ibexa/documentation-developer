@@ -109,4 +109,4 @@ That namespace needs to be mapped to the `src/contracts` directory of a package.
 
 !!! note
 
-    Backward compatibility for interfaces and objects defined in the `Contracts` namespace is guarranteed.
+    Backward compatibility for interfaces and objects defined in the `Contracts` namespace is guaranteed.
