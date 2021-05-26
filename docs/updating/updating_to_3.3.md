@@ -187,6 +187,12 @@ composer run post-install-cmd
     
     To update to v3.3.3, remove `Kaliop\eZMigrationBundle\eZMigrationBundle::class => ['all' => true],`
     from `config/bundles.php` before running `composer require`.
+    
+    Then, in `composer.json`, set minimum stability to `stable`:
+    
+    ```
+    "minimum-stability": "stable",
+    ```
 
 To update from one v3.3 patch version to another (for example, from v3.3.2 to v3.3.3), run:
 
