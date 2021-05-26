@@ -1,6 +1,6 @@
 # Customize basket
 
-To customize the look of the basket, you need to overwrite the default template.
+To customize the look of the basket, you override the default template.
 
 For example, to add a new column to the basket table that contains the VAT rate,
 copy the existing `vendor/ezsystems/ezcommerce-checkout/src/bundle/Resources/views/themes/standard/Basket/page.html.twig` to `templates/themes/<theme_name>/Basket/page.html.twig`.

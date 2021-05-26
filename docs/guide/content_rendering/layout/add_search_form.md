@@ -8,10 +8,8 @@ and to configure search form and result rendering.
 
 ## Add a search bar
 
-
-
-First, prepare a general layout template in a `templates/themes/<theme_name>/pagelayout.html.twig` file.
-Include a search bar in this template:
+First, prepare a general layout template in a `templates/themes/<theme_name>/pagelayout.html.twig` file, 
+and include a search bar in this template:
 
 ``` html+twig hl_lines="1"
 [[= include_file('code_samples/front/search/search_bar/templates/themes/standard/pagelayout.html.twig', 19, 22) =]]
@@ -34,7 +32,7 @@ An unstyled search bar appears at the top of the page.
 
 ## Customize search result page
 
-Search results are shown using the `/search` route.
+Search results are shown in the `/search` route.
 You can go directly to `<yourdomain>/search` to view a full search page.
 
 Select the template that is used on this page with the following configuration:
