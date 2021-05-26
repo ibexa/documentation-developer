@@ -163,6 +163,7 @@ nav:
                 - 'URL Twig functions': 'guide/content_rendering/twig_function_reference/url_twig_functions.md'
                 - 'Date Twig filters': 'guide/content_rendering/twig_function_reference/date_twig_filters.md'
                 - 'Other Twig filters': 'guide/content_rendering/twig_function_reference/other_twig_filters.md'
+            - 'URLs and routes': 'guide/content_rendering/urls_and_routes.md'
             - Design engine:
                 - 'Design engine': 'guide/content_rendering/design_engine/design_engine.md'
             - Queries and controllers:
@@ -184,7 +185,6 @@ nav:
             - 'Configuring the Image Editor': 'guide/image_editor.md'
             - 'File management': 'guide/file_management.md'
             - 'URL management': 'guide/url_management.md'
-            - 'RouteReference': 'guide/routereference.md'
             - 'User-generated content': 'guide/user_generated_content.md'
             - 'Editorial workflow': 'guide/workflow.md'
         - Permissions:

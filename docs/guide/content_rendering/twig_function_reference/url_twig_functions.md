@@ -49,6 +49,19 @@
 {{ path( "ez_urlalias", { 'locationId': content.contentInfo.mainLocationId } ) }}
 ```
 
+### `ez_route()`
+
+`ez_route()` generates a [RouteReference object](../urls_and_routes.md#route-object) from the given parameters.
+
+|Argument|Type|Description|
+|------|------|------|
+|`resource`|`string`</br>`eZ\Publish\API\Repository\Values\Content\Location`</br>`eZ\Publish\API\Repository\Values\Content\Content`</br>`eZ\Publish\API\Repository\Values\Content\ContentInfo`</br>`eZ\Publish\API\Repository\Values\Content\Location`</br>`eZ\Publish\Core\MVC\Symfony\Routing\RouteReference`|Resource or route name.|
+|`params`|`array`|Route parameters.|
+
+``` html+twig
+{% set routeRef = ez_route("ez_urlalias", { 'locationId': 2 }) %}
+```
+
 ## OAuth2
 
 ### `ibexa_oauth2_connect_path()`
