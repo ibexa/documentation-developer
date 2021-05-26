@@ -1,6 +1,6 @@
 # Overriding shop templates
 
-To override existing shop templates, you need to create a [design](../design_engine.md) for your shop.
+To override existing shop templates, create a [design](../design_engine/design_engine.md) for your shop.
 
 ``` yaml
 [[= include_file('code_samples/front/shop/override_navigation/config/packages/design.yaml') =]]
@@ -15,14 +15,14 @@ In `ezplatform.yaml`, indicate that the design should be used for the relevant s
 
 ``` yaml
         site_group:
-            design: my_shop
+            design: my_design
 ```
 
 Place your override templates in `templates/themes/<theme_name>`.
 
 For example, to override the left menu in the product catalog view, place the template in 
-`templates/themes/my_shop_theme/Navigation/left_menu.html.twig`:
+`templates/themes/my_theme/Navigation/left_menu.html.twig`:
 
 ``` html+twig
-[[= include_file('code_samples/front/shop/override_navigation/templates/themes/my_shop_theme/Navigation/left_menu.html.twig') =]]
+[[= include_file('code_samples/front/shop/override_navigation/templates/themes/my_theme/Navigation/left_menu.html.twig') =]]
 ```
