@@ -103,18 +103,17 @@ For clustering use we provide a custom metadata handler that stores metadata abo
 
 ## Enable BinaryFile Field indexing
 
-The indexing of all binary file fields is disabled by default. If you want to enable indexing, you must have installed Oracle Java/Open JDK 8 or higher and Apache Tika 1.20.
-Next, in the `config/packages/` create a `<name>.yaml` file with the following configuration:
+The indexing of all binary file Fields is disabled by default.
+If you want to enable indexing, you must have installed Oracle Java/Open JDK 8 or higher and Apache Tika 1.20.
+Next, in the `config/packages` folder create a `binary_files.yaml` file with the following configuration:
 
 ``` yaml
 ibexa_platform_commerce_field_types:
-  binary_file_indexing:
-    enabled: true
+    binary_file_indexing:
+        enabled: true
 ```
 
 To check what types are indexed by default, see under the `siso_search.<site_access>.index_content` parameter in `src/Siso/Bundle/SearchBundle/Resources/config/search.yml`. This parameter can be overriden, so you use it to index only specific types per SiteAccess or to extend the indexing to other file types.
-
-
 
 ## Binary and Media download
 
