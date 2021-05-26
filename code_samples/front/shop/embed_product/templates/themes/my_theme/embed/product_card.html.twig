@@ -1,0 +1,27 @@
+<div class="product-card">
+    <a href="{{ ez_path(location) }}">
+        <div>
+            {{ ez_render_field(content, 'ses_image_main', {
+                'parameters': {
+                    'alias': 'small'
+                }
+            }) }}
+        </div>
+        <div>
+            <div>
+                <h3>{{ ez_render_field(content, 'ses_name') }}</h3>
+            </div>
+            <div>
+                {{ render(
+                    controller(
+                        'silver_eshop.catalog_controller:showCatalogElementPriceAction',
+                        {
+                            'catalogElementId': location.id,
+                            'priceEngineContextId': 'product_detail',
+                        }
+                    )
+                ) }}
+            </div>
+        </div>
+    </a>
+</div>

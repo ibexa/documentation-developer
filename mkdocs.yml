@@ -148,6 +148,7 @@ nav:
             - Render content:
                 - 'Render content': 'guide/content_rendering/render_content/render_content.md'
                 - 'Render page': 'guide/content_rendering/render_content/render_page.md'
+                - 'Render product': 'guide/content_rendering/render_content/render_product.md'
             - Template configuration and matching:
                 - 'Templates': 'guide/content_rendering/templates/templates.md'
                 - 'Template configuration': 'guide/content_rendering/templates/template_configuration.md'
@@ -173,6 +174,7 @@ nav:
             - Embed and list content:
                 - 'List content': 'guide/content_rendering/embed_and_list_content/list_content.md'
                 - 'Embed content': 'guide/content_rendering/embed_and_list_content/embed_content.md'
+                - 'Embed product': 'guide/content_rendering/embed_and_list_content/embed_product.md'
             - Layout:
                 - 'Add navigation menu': 'guide/content_rendering/layout/add_menu.md'
                 - 'Add search form to front page': 'guide/content_rendering/layout/add_search_form.md'
