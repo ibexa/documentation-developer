@@ -6,6 +6,10 @@ When updating from v3.2 to v3.3, you need to follow a special update procedure.
 If you are updating from an earlier version, start with [updating your installation to v3.2](updating.md).
 If you want to update from v3.3.2 to a later v3.3 version, for example v3.3.3, see [Update to v3.3.x](#update-to-v33x).
 
+!!! note
+
+    Ibexa DXP v3.3 requires Composer 2.0.13 or higher.
+
 First, create an update branch in git and commit your work.
 
 If you have not done it before, add the relevant meta-repository as an `upstream` remote:
