@@ -113,7 +113,13 @@ ibexa_platform_commerce_field_types:
         enabled: true
 ```
 
-To check what types are indexed by default, see under the `siso_search.<site_access>.index_content` parameter in `src/Siso/Bundle/SearchBundle/Resources/config/search.yml`. This parameter can be overriden, so you use it to index only specific types per SiteAccess or to extend the indexing to other file types.
+To check what types are indexed, see under the `siso_search.default.index_content` parameter in `src/Siso/Bundle/SearchBundle/Resources/config/search.yml`. This parameter can be overriden, so you use it to index only specific types per SiteAccess or to extend the indexing to other file types.
+The following file types are indexed by default:
+
+``` yaml
+- application/pdf
+- application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+```
 
 ## Binary and Media download
 
