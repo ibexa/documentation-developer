@@ -101,6 +101,26 @@ The way to configure other adapters can be found in the [bundle's online documen
 
 For clustering use we provide a custom metadata handler that stores metadata about your assets in the database. This is done as it is faster than accessing the remote NFS or S3 instance in order to read metadata. For further reading on setting this up, see [Clustering](clustering.md).
 
+## Enable BinaryFile Field indexing
+
+The indexing of all binary file Fields is disabled by default.
+If you want to enable indexing, you must have installed Oracle Java/Open JDK 8 or higher and Apache Tika 1.20.
+Next, in the `config/packages` folder create a `binary_files.yaml` file with the following configuration:
+
+``` yaml
+ibexa_platform_commerce_field_types:
+    binary_file_indexing:
+        enabled: true
+```
+
+To check what types are indexed, see under the `siso_search.default.index_content` parameter in `src/Siso/Bundle/SearchBundle/Resources/config/search.yml`. This parameter can be overriden, so you use it to index only specific types per SiteAccess or to extend the indexing to other file types.
+The following file types are indexed by default:
+
+``` yaml
+- application/pdf
+- application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+```
+
 ## Binary and Media download
 
 Unlike image files, files stored in BinaryFile or Media Fields may be restricted to certain User Roles. As such, they are not publicly downloadable from disk, and are instead served by Symfony, using a custom route that runs the necessary checks. This route is automatically generated as the `url` property for those Field values.
