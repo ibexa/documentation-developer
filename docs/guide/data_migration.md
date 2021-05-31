@@ -1,18 +1,17 @@
 # Data migration
 
-Migrations are commonly used in Ibexa DXP projects that require the same data to be present across multiple instances.
-They can be useful for project templates; Able to store shared data, they can be applied for each new project you start,
+You can use migrations in projects that require the same data to be present across multiple instances.
+They can be useful for project templates. Migrations are able to store shared data, so they can be applied for each new project you start,
 or incrementally upgrade older projects to your new standard, if needed.
 They are a developer-friendly tool that allows you to share data without writing code.
 
-As a matter of fact, the exact same migrations described here are used in the Ibexa DXP installation's initial setup.
 
 You can migrate your Repository data, that is Content items, as well as Content Types, languages, Object states, Sections, etc.,
 between installations by using the migration command.
 
 ## Exporting data
 
-The easiest way to see migrations in action is to export data already present in your installation.
+To see an example of migrations in action, export data already present in your installation.
 
 To export Repository content, use the `ibexa:migrations:generate` command.
 This command generates a YAML file with the requested part of the Repository.
@@ -26,7 +25,7 @@ This directory can be changed in [bundle configuration](#configuration-reference
 bin/console ibexa:migrations:generate --type=content --mode=create
 ```
 
-This will generate file containing all your content objects.
+This generates a file containing all Content items.
 Below you can see part of the output of the default Ibexa DXP installation.
 
 ``` yaml
@@ -74,18 +73,19 @@ Below you can see part of the output of the default Ibexa DXP installation.
 ```
 
 The output contains all the possible information for a future migration command.
-Parts of it can be removed or modified; You can easily treat it as a template for another content object for user group.
+Parts of it can be removed or modified.
+You can treat it as a template for another Content item for user group.
 For example, you could:
 
-- Remove `references` if you don't intend to store ID's for future use (see [migration references](#references))
+- Remove `references` if you don't intend to store IDs for future use (see [migration references](#references))
 - Remove `publicationDate`, `modificationDate`, `locationRemoteId`,
   as those are generated if not passed (just like in PHP API)
 - Add [`actions`](#actions)
-- Add fields for other languages, if you have them.
+- Add fields for other languages present in the system.
 
-Similarly you can create update and delete operations.
+Similarly, you can create update and delete operations.
 They are particularly useful combined with `match-property`.
-This option will be automatically added as part of `match` expression in the update/delete migration:
+This option is automatically added as part of `match` expression in the update/delete migration:
 
 ``` bash
 bin/console ibexa:migrations:generate --type=content_type --mode=update --match-property=content_type_identifier --value=article
@@ -143,7 +143,7 @@ Note that you should test your migrations. See [migrating data](#executing-migra
 
 !!! tip
 
-    Migration command can be executed with database rollback at the end with `--dry-run` option.
+    Migration command can be executed with database rollback at the end with the `--dry-run` option.
 
 ### type
 
@@ -258,14 +258,14 @@ bin/console ibexa:migrations:generate --type=content --mode=create --file=my_dat
 
 !!! note
 
-    When migrating multiple files at once (for example when calling `ibexa:migration:migrate` without options)
+    When migrating multiple files at once (for example when calling `ibexa:migration:migrate` without options),
     they are executed in alphabetical order.
 
 ### user-context
 
 The optional `--user-context` option enables you to run the export command as a specified User.
 The command only exports Repository data that the selected User has access to.
-By default the admin account is used, unless specifically overriden by this option or in
+By default the admin account is used, unless specifically overridden by this option or in
 [bundle configuration](#configuration-reference) (`ibexa_migrations.default_user_login`).
 
 ``` bash
@@ -274,18 +274,18 @@ bin/console ibexa:migrations:generate --type=content --mode=create --user-contex
 
 ## Executing migrations
 
-To import Repository data from a YAML files, run the `ibexa:migrations:migrate` command.
+To import Repository data from YAML files, run the `ibexa:migrations:migrate` command.
 
 Place your migration file in the `src/Migrations/Ibexa/migrations` folder.
 The command takes the file name within this folder as an option.
-If file is not specified, all files within this directory will be used.
+If file is not specified, all files within this directory are used.
 
 ``` bash
 bin/console ibexa:migrations:migrate --file=my_data_export.yaml
 ```
 
 Ibexa Migrations store execution metadata in `ibexa_migrations` database table. This allows incremental upgrades:
-`ibexa:migration:migrate` command ignores files that it had previously executed.
+the `ibexa:migration:migrate` command ignores files that it had previously executed.
 
 ## Converting migration files
 
@@ -311,8 +311,8 @@ If you do not specify the output directory, the command overwrites the input fil
 ## Actions
 
 Some migrations contain a special `actions` property.
-These are optional operations that can be run after the main "body" of a migration has been executed
-(i.e. Content has been created / updated, Object State has been added, etc.).
+Actions are optional operations that can be run after the main "body" of a migration has been executed
+(that is, content has been created / updated, Object state has been added, and so on).
 Their purpose is to allow additional operations to be performed as part of this particular migration.
 They are executed inside the same transaction, so in the event of failure they will cause database rollback to occur.
 
@@ -331,14 +331,14 @@ For example, when updating a Content Type object, some fields might be removed:
         - { action: remove_drafts, value: null }
 ```
 
-When executing, this migration will:
-- Find Content Type using it's identifier (`article`)
-- Assign Content Type group "Media"
-- Remove it from Content Type group "Content"
-- Remove `short_title` field
-- Remove it's existing drafts, if any.
+When executed, this migration:
 
-As you can see, actions can be a powerful tool for customizing what migration does.
+- Finds Content Type using its identifier (`article`)
+- Assigns Content Type group "Media"
+- Removes it from Content Type group "Content"
+- Removes the `short_title` Field
+- Removes its existing drafts, if any.
+
 In contrast with Kaliop migrations, actions provide you with ability to perform additional operations and extend
 the migration functionality. See [creating your own Actions](#creating-your-own-actions)
 
@@ -346,11 +346,11 @@ the migration functionality. See [creating your own Actions](#creating-your-own-
 
 References are key-value pairs necessary when one migration depends on another.
 
-Since some migrations generate object properties (like ID's) during their execution, which cannot be known in advance,
-references provide migrations with ability to use previously created object properties in further migrations.
+Since some migrations generate object properties (like IDs) during their execution, which cannot be known in advance,
+references provide migrations with the ability to use previously created object properties in further migrations.
 They can be subsequently used by passing them in their desired place with `reference:` prefix.
 
-Example below creates a Content object of type "folder", and stores it's location path as `"ref_path__folder__media"`.
+The example below creates a Content item of type "folder", and stores its Location path as `"ref_path__folder__media"`.
 Then this reference is reused as part of a new role, as a limitation.
 
 ```yaml
@@ -420,7 +420,7 @@ For example:
 -
     type: reference
     mode: save
-    # You can also use 'references.yaml', in this case it will be overriden
+    # You can also use 'references.yaml', in this case it will be overridden
     filename: 'new_references.yaml'
 ```
 
@@ -451,18 +451,18 @@ Once converted to an instance of `Ibexa\Platform\Migration\ValueObject\Step\Step
 one of `Ibexa\Platform\Migration\StepExecutor\StepExecutorInterface` based services (depending on the type
 of Step), which in turn performs the actual execution of the migration.
 
-## Creating your own Actions
+## Creating your own actions
 
-To create an Action, you will need:
+To create an action, you will need:
 
-- An Action class, to store any additional data that you might require.
-- An Action denormalizer, to convert YAML definition into your Action class.
-- An Action executor, to handle the Action.
+- An action class, to store any additional data that you might require.
+- An action denormalizer, to convert YAML definition into your action class.
+- An action executor, to handle the action.
 
 Built-in actions work in exactly the same way.
 Existing `AssignContentTypeGroup` action is used as an example below.
 
-First, you will need an Action class.
+First, create an action class.
 
 ``` php
 use Ibexa\Platform\Migration\ValueObject\Step\Action;
@@ -495,7 +495,7 @@ final class AssignContentTypeGroup implements Action
 
 ```
 
-Then you will need a Denormalizer to convert data read from YAML into Action object.
+Then you need a denormalizer to convert data read from YAML into an action object.
 
 ``` php
 use Ibexa\Platform\Contracts\Migration\Serializer\Denormalizer\AbstractActionDenormalizer;
@@ -527,11 +527,11 @@ final class AssignContentTypeGroupActionDenormalizer extends AbstractActionDenor
 
 ```
 
-And finally, an Executor to perform the Action.
+And finally, add an executor to perform the action.
 
-Executor has to be tagged with `'ibexa.migrations.executor.action.<TYPE>'` tag, where `<TYPE>` is the "type" of the Step
+The executor has to be tagged with `ibexa.migrations.executor.action.<type>` tag, where `<type>` is the "type" of the step
 that executor works with ("content", "content_type", "location", etc.). The tag has to have a `key` property with the
-Action type.
+action type.
 
 For example, `AssignGroupExecutor` is defined as follows:
 
@@ -572,10 +572,6 @@ final class AssignGroupExecutor implements ExecutorInterface
 
 ```
 
-## Creating your own Migration Steps
-
-N/A
-
 ## Configuration reference
 
 You can get default configuration along with option descriptions by executing the following command:
@@ -615,5 +611,4 @@ ibexa_migrations:
     # If more than this many objects match, migration will use multiple queries to prevent memory issues.
     generator_chunk:      100
 ```
-
 
