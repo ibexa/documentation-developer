@@ -41,19 +41,20 @@ They are available via [updates.ez.no](https://updates.ez.no).
     !!! tip "Save authentication token in `auth.json` to avoid repeatedly typing it"
 
         Composer will ask to do this for you on updates.
-        If you decline, you can create an `auth.json` file manually in one of the following ways:
-
-        - A: Store your credentials in the project directory (for security reasons do not check it in to git):
-
-        ``` bash
-        composer config http-basic.updates.ez.no <installation-key> <token-password>
-        ```
-
-        - B: If you only have one project on the machine/server/vm, and want to install globally in [`COMPOSER_HOME`](https://getcomposer.org/doc/03-cli.md#composer-home) directory for machine-wide use:
+        If you prefer, you can decline and create an `auth.json` file globally
+        in [`COMPOSER_HOME`](https://getcomposer.org/doc/03-cli.md#composer-home) directory for machine-wide use:
 
         ``` bash
         composer config --global http-basic.updates.ez.no <installation-key> <token-password>
         ```
+
+        To store your credentials per project, add the credentials to the `COMPOSER_AUTH` variable:
+
+        ``` bash
+        export COMPOSER_AUTH='{"http-basic":{"updates.ibexa.co": {"username": "<your-key>", "password": "<your-password>"}}}'
+        ```
+        
+        You then need to [add the contents of this variable to `auth.json`](#authentication-token).
 
     !!! note "eZ Platform Cloud"
 
@@ -88,6 +89,11 @@ They are available via [updates.ez.no](https://updates.ez.no).
     ``` bash
     COMPOSER_AUTH='{"http-basic":{"updates.ez.no":{"username":"<installation-key>","password":"<token-password>"}}}' composer create-project --keep-vcs --repository=https://updates.ez.no/bul/ ezsystems/ezplatform-ee my-new-ee-project
     ```
+    
+    !!! tip "Authentication token"
+
+        <a id="authentication-token"></a>If you added credentials to the `COMPOSER_AUTH` variable,
+        at this point add this variable to `auth.json` (for example, by running `echo $COMPOSER_AUTH > auth.json`).
 
     !!! tip "Usage of authentication token with `composer create-project`"
 
