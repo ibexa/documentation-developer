@@ -10,3 +10,14 @@ ezdesign:
             - '%kernel.project_dir%/vendor/ezsystems/ezcommerce-checkout/src/bundle/Resources/views/themes/standard/'
         transaction_theme:
             - '%kernel.project_dir%/vendor/ezsystems/ezcommerce-transaction/src/Siso/Bundle/ShopFrontendBundle/Resources/views/themes/standard/'
+
+ezplatform:
+    system:
+        site:
+            design: my_design
+            content_view:
+                embed:
+                    product_card:
+                        template: '@ezdesign/embed/product_card.html.twig'
+                        match:
+                            Identifier\ContentType: 'ses_product'
