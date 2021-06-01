@@ -4,7 +4,7 @@
 
 If you extended the Universal Discovery Widget
 (e.g. added your own tabs or triggered opening the UDW for your own customizations),
-you need to rewrite this extension using the [new YAML configuration](../guide/extending/extending_udw.md).
+you need to rewrite this extension using the [new YAML configuration](../guide/extending/extending_modules.md).
 
 ## Back Office extensibility
 

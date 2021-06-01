@@ -10,5 +10,5 @@
 
 
 
-    See [Extending Form Builder](../../extending/extending_form_builder.md) for more information
+    See [Extending Form Builder](../../guide/extending/extending_form_builder.md) for more information
     about working with Forms.
