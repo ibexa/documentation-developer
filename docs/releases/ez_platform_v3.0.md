@@ -194,7 +194,6 @@ You can now use the Sub-items list to quickly hide, reveal, to add Locations to 
 ### Tooltips
 
 You can now add custom tooltips to provide more information for the users when they hover over, focus on, or tap an element.
-For more information, see [Tooltips UI documentation](../guidelines/components/tooltips.md) and [Guide to adding tooltips](../extending/extending_tooltips.md).
 
 ### Thumbnails
 

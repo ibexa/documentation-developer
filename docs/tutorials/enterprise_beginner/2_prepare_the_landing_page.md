@@ -77,7 +77,7 @@ Add the following line to `app/config/config.yml`, at the end of the `imports` 
 
 !!! tip
 
-    For a detailed description of creating a Page layout, see [Page layouts](../../guide/page_rendering.md#page-layouts):
+    For a detailed description of creating a Page layout, see [Page layouts](../../guide/landing_page_rendering.md#page-layouts):
 
 The `sidebar` (line 3) is the internal key of the layout. `name` (line 5) is displayed in the interface when the user selects a layout.
 The `thumbnail` (line 7) points to an image file that is shown when creating a new Landing Page next to the name.

@@ -60,7 +60,7 @@ $output->writeln($result->getName());
 
 !!! tip
 
-    For full list and details of available Search Criteria, see [Search Criteria reference](../guide/search.md#search-criteria-reference).
+    For full list and details of available Search Criteria, see [Search Criteria reference](../guide/search/search.md#search-criteria-reference).
 
 !!! note "Search result limit"
 
@@ -251,7 +251,7 @@ $query->sortClauses = [
 
 !!! tip
 
-    For the full list and details of available Sort Clauses, see [Sort Clause reference](../guide/search/sort_clause/reference.md).
+    For the full list and details of available Sort Clauses, see [Sort Clause reference](../guide/search/sort_clause_reference.md).
 
 ## Faceted search
 
@@ -288,4 +288,4 @@ foreach ($result->facets[0]->entries as $facetEntry) {
 }
 ```
 
-See [Search Facet reference](../guide/search.md#search-facet-reference) for details of all available Facets.
+See [Search Facet reference](../guide/search/search.md#search-facet-reference) for details of all available Facets.

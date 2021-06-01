@@ -59,7 +59,7 @@ php bin/console ezplatform:reindex
 
 ## Changes to database schema
 
-The introduction of [support for PostgreSQL](../guide/databases.md#using-postgresql) includes a change in the way database schema is generated.
+The introduction of [support for PostgreSQL](https://doc.ibexa.co/en/latest/guide/databases.md#using-postgresql) includes a change in the way database schema is generated.
 
 It is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/7.5.3/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml), using the new [`DoctrineSchemaBundle`](https://github.com/ezsystems/doctrine-dbal-schema).
 

@@ -194,7 +194,7 @@ contentService.moveSubtree(locationRestId, newParentLocationRestId, function (er
 
 ### Searching for Content or Location
 
-Searching for Content or Location can be done with [REST views](https://github.com/ezsystems/ezpublish-kernel/blob/v6.13.6/doc/specifications/rest/REST-API-V2.rst#views). REST views can be configured with the [search engine criteria](../guide/search.md#search-criteria-reference) to match some Content items or Locations:
+Searching for Content or Location can be done with [REST views](https://github.com/ezsystems/ezpublish-kernel/blob/v6.13.6/doc/specifications/rest/REST-API-V2.rst#views). REST views can be configured with the [search engine criteria](../guide/search/search.md#search-criteria-reference) to match some Content items or Locations:
 
 **REST views**
 

@@ -37,7 +37,7 @@ For further details on requirements, see [Requirements page](../getting_started/
 
 It is also recommended to use:
 
-- [Solr](solr.md) for better search and performance
+- [Solr](search/solr.md) for better search and performance
 - a CDN for improved performance and faster ping time worldwide
 - active/passive database for failover
 - more recent versions of PHP and MySQL/MariaDB within [what is supported](../getting_started/requirements.md) for your eZ Platform version to get more performance out of each server. Numbers might vary so make sure to test this when upgrading.

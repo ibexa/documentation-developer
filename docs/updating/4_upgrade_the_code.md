@@ -63,7 +63,7 @@ Content of `app/Resources/assets` has been moved to `assets`.
 !!! note
 
     You also need to update paths that refer to the old location,
-    for example in [`webpack.config.js`](../guide/project_organization.md#importing-configuration-from-a-bundle).
+    for example in [`webpack.config.js`](https://doc.ibexa.co/en/latest/guide/project_organization.md#importing-configuration-from-a-bundle).
 
 !!! note "Full list of deprecations"
 

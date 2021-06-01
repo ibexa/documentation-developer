@@ -32,7 +32,7 @@ Notes:
 - `UrlWildCardHandler` is not currently cached
 - Currently in case of transactions this is handled very simply by clearing all cache on rollback, this can be improved in the future if needed.
 - Some tree/batch operations will cause clearing all persistence cache, this will be improved in the future when we change to a cache service cable of cache tagging.
-- Search is not defined as Persistence and the queries themselves are not planned to be cached. Use [Solr](solr.md) which does this for you to improve scale and offload your database.
+- Search is not defined as Persistence and the queries themselves are not planned to be cached. Use [Solr](search/solr.md) which does this for you to improve scale and offload your database.
 
 *For further details on which calls are cached or not, and where/how to contribute additional caches, see the [source](https://github.com/ezsystems/ezpublish-kernel/tree/v6.13.6/eZ/Publish/Core/Persistence/Cache).*
 

@@ -1,6 +1,6 @@
 # Search
 
-eZ Platform exposes a very powerful [Search API](../api/public_php_api_search.md), allowing both full-text search and querying the content Repository using several built-in Search Criteria and Sort Clauses. These are supported across different search engines, allowing you to plug in another search engine without changing your code.
+eZ Platform exposes a very powerful [Search API](../../api/public_php_api_search.md), allowing both full-text search and querying the content Repository using several built-in Search Criteria and Sort Clauses. These are supported across different search engines, allowing you to plug in another search engine without changing your code.
 
 Currently two search engines exist in their own eZ Platform Bundles:
 
@@ -12,7 +12,7 @@ Currently two search engines exist in their own eZ Platform Bundles:
 Search Criteria and Sort Clauses are value object classes used for building a search query, to define filter criteria and ordering of the result set.
 eZ Platform provides a number of standard Search Criteria and Sort Clauses that you can use out of the box and that should cover the majority of use cases.
 
-For an example of how to use and combine Criteria and Sort Clauses, refer to [Searching in PHP API](../api/public_php_api_search.md).
+For an example of how to use and combine Criteria and Sort Clauses, refer to [Searching in PHP API](../../api/public_php_api_search.md).
 
 ### Search engine handling of Search Criteria and Sort Clauses
 
@@ -25,7 +25,7 @@ or [`ContentId` Criterion handler](https://github.com/ezsystems/ezplatform-solr-
 
 ## Search Facet reference
 
-Search Facets enable you to apply [faceted search](../api/public_php_api_search.md#faceted-search)
+Search Facets enable you to apply [faceted search](../../api/public_php_api_search.md#faceted-search)
 to get a count of search results for each Facet value.
 
 ### Available FacetBuilders
