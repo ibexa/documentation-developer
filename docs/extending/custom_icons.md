@@ -3,7 +3,6 @@
 ## Custom Content Type icons
 
 To add custom icons for existing Content Types or custom Content Types in [[= product_name_oss =]], follow the instructions below.
-For more information on icons used in [[= product_name_oss =]], see [the Icons section](../guidelines/resources/icons.md).
 
 ### Configuration
 

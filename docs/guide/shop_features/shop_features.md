@@ -31,7 +31,7 @@ They can also upload a CSV file containing a list of SKUs and quantities.
 
 ## Order history
 
-When an ERP system is connected, the customer can browse and search [past orders, invoices, delivery notes, and credit memos](../order_history/order_history.md).
+When an ERP system is connected, the customer can browse and search [past orders, invoices, delivery notes, and credit memos](../order_history/orderhistory.md).
 This applies to all channels of making an order, including phone, fax, email, or online shop. 
 The documents for the chosen dates are fetched in real time.
 If the ERP provides a tracking link, this information is displayed as well.
