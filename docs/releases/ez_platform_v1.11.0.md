@@ -19,7 +19,7 @@ Note that the former way will be removed in a future major version.
 [EZP-24800](https://jira.ez.no/browse/EZP-24800): you can now specify a Content Type limitation for the Relation field,
 just like with the Relation List field. This enables you to limit what kind of relations Editors can select also on singular relation fields.
 
-![Adding a new Relation (single) Field with allowed Content Types](img\relation_single_allowed_cts.png)
+![Adding a new Relation (single) Field with allowed Content Types](img/relation_single_allowed_cts.png)
 
 This has been made possible by initial legacy contribution from [@peterkeung](https://github.com/peterkeung), and [@slaci](https://github.com/slaci) who ported this feature over to eZ Platform so that both could go in.
 
