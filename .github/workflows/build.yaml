@@ -26,9 +26,3 @@ jobs:
             -   name: Run build
                 run: |
                     mkdocs build --strict
-            -   name: Upload pytest test results
-                uses: actions/upload-artifact@v2
-                with:
-                    name: mkdocs-build-${{ matrix.python-version }}
-                    path: |
-                        site
