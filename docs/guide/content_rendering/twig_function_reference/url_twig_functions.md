@@ -51,7 +51,7 @@
 
 ### `ez_route()`
 
-`ez_route()` generates a [RouteReference object](../urls_and_routes.md#route-object) from the given parameters.
+`ez_route()` generates a [RouteReference object](../urls_and_routes.md#routereference) from the given parameters.
 
 |Argument|Type|Description|
 |------|------|------|
