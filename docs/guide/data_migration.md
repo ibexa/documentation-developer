@@ -429,29 +429,9 @@ For example:
     You don't need to save references if they are used in the same migration file.
     References are stored in memory during migration, whether they are used or not.
 
-## How Ibexa Migrations work
+## Customizing migrations
 
-!!! note
-
-    The following explain inner workings of migrations.
-    Most users don't need to know this, unless they want to customize migrations.
-
-Ibexa Migrations utilize Symfony Serializer component for converting YAML files into Migration Steps and back.
-A special serializer service (named `"ibexa.migrations.serializer"`) is created, beside the normal `"serializer"`
-one created by the framework (to prevent polluting it with Migration-related services).
-Services tagged with `ibexa.migrations.serializer.normalizer` and `ibexa.migrations.serializer.encoder` tags are attached
-as it's normalizers and encoders respectively (see
-[Symfony serializer docs](https://symfony.com/doc/current/serializer.html#adding-normalizers-and-encoders)).
-
-Steps are converted by services implementing
-`Ibexa\Platform\Bundle\Migration\Serializer\Denormalizer\StepNormalizerInterface` tagged with
-`"ibexa.migrations.serializer.step_normalizer"`.
-
-Once converted to an instance of `Ibexa\Platform\Migration\ValueObject\Step\StepInterface`, they are passed to
-one of `Ibexa\Platform\Migration\StepExecutor\StepExecutorInterface` based services (depending on the type
-of Step), which in turn performs the actual execution of the migration.
-
-## Creating your own actions
+### Creating your own actions
 
 To create an action, you will need:
 
@@ -569,7 +549,6 @@ final class AssignGroupExecutor implements ExecutorInterface
         $this->contentTypeService->assignContentTypeGroup($contentType, $group);
     }
 }
-
 ```
 
 ## Configuration reference
@@ -579,36 +558,3 @@ You can get default configuration along with option descriptions by executing th
 ```bash
 bin/console config:dump-reference ibexa_migrations
 ```
-
-For your convenience, here's output for current version:
-
-```yaml
-ibexa_migrations:
-
-    # An array of service name strings of services to be made available for type: "service", mode: "call" step.
-    # You can use private services here: a dedicated container will become available for that step.
-    callable_services:    []
-
-    # Default user identifier for user context for migration commands.
-    default_user_login:   admin
-
-    # Default language code for migration commands.
-    default_language_code: eng-GB
-
-    # Directory in which migration & reference files are kept.
-    migration_directory:  '%kernel.project_dir%/src/Migrations/Ibexa/'
-
-    # Subdirectory in which migrations files are kept, relative to migration_directory.
-    migrations_files_subdir: migrations
-
-    # Subdirectory in which files with references are kept, relative to migration_directory.
-    references_files_subdir: references
-
-    # PHP's "date" function compatible format. Will be used in datetime normalization.
-    date_time_format:     c
-
-    # Defines limits in query result sets when generating migrations.
-    # If more than this many objects match, migration will use multiple queries to prevent memory issues.
-    generator_chunk:      100
-```
-
