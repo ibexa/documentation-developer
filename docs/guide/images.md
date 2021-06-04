@@ -397,6 +397,11 @@ To learn more about ImageAsset Field Type and its customization see [Field Type 
 Currently, eZ Platform does not allow you to store SVG images by using the Image or ImageAsset Field Type.
 Until the full support for this MIME type is in place, you can work things around by relying on the File Field Type and implementing a custom extension that lets you display and download files in your templates.
 
+!!! caution
+
+    SVG images may contain JavaScript, so they may introduce XSS or other security vulnerabilities.
+    Make sure end users are not allowed to upload SVG images, and be restrictive about which editors are allowed to do so.
+
 First, you need to add a proper rule in `app/config/routing.yml` file:
 
 ```yaml
