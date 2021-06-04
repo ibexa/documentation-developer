@@ -162,18 +162,18 @@ The following types are available:
 - `section`
 - `location`
 
-If you do not provide the `--type` option, the command will ask you to select a type of data.
+If you do not provide the `--type` option, the command asks you to select a type of data.
 
 ### mode
 
-The mandatory `--mode` option defines the action that importing the file will perform.
+The mandatory `--mode` option defines the action that importing the file performs.
 The following modes are available:
 
 - `create` - creates new items
 - `update` - updates an existing item. Only covers specified fields and properties. If the item does not exist, causes an error.
 - `delete` - deletes an existing item. If the item does not exist, causes an error.
 
-If you do not provide the `--mode` option, the command will ask you to select the mode.
+If you do not provide the `--mode` option, the command asks you to select the mode.
 
 The following combinations of types are modes are available:
 
@@ -246,7 +246,7 @@ bin/console ibexa:migrations:generate --type=content --mode=create --match-prope
 
 !!! note
 
-    The same `match-property` and `value` will be added to generated `update` and `delete` type migration files.
+    The same `match-property` and `value` is added to generated `update` and `delete` type migration files.
 
 ### file
 
@@ -314,7 +314,7 @@ Some migrations contain a special `actions` property.
 Actions are optional operations that can be run after the main "body" of a migration has been executed
 (that is, content has been created / updated, Object state has been added, and so on).
 Their purpose is to allow additional operations to be performed as part of this particular migration.
-They are executed inside the same transaction, so in the event of failure they will cause database rollback to occur.
+They are executed inside the same transaction, so in the event of failure they cause database rollback to occur.
 
 For example, when updating a Content Type object, some fields might be removed:
 ``` yaml
@@ -420,7 +420,7 @@ For example:
 -
     type: reference
     mode: save
-    # You can also use 'references.yaml', in this case it will be overridden
+    # You can also use 'references.yaml', in this case it is overridden
     filename: 'new_references.yaml'
 ```
 
@@ -433,7 +433,7 @@ For example:
 
 ### Creating your own actions
 
-To create an action, you will need:
+To create an action, you need:
 
 - An action class, to store any additional data that you might require.
 - An action denormalizer, to convert YAML definition into your action class.
