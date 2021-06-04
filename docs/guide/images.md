@@ -404,7 +404,8 @@ Until the full support for this MIME type is in place, you can work things aroun
 
 !!! caution
 
-    SVG images may contain Javascript, so they may introduce XSS or other security vulnerabilities. Make sure end users are not allowed to upload SVG images, and be restrictive about which editors that are allowed to do so.
+    SVG images may contain JavaScript, so they may introduce XSS or other security vulnerabilities.
+    Make sure end users are not allowed to upload SVG images, and be restrictive about which editors are allowed to do so.
 
 First, you add a proper rule in the `config/routes.yaml` file:
 
