@@ -87,3 +87,16 @@ new FieldValue([
      ],
  ]),
 ```
+
+### Image quality
+
+You can configure the quality of the images modified in the Image Editor with the following configuration.
+
+The setting accepts values between 0 and 1, and the default quality is 0.92:
+
+``` yaml
+system:
+    <scope>:
+        image_editor:
+            image_quality: 0.8
+```
