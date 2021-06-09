@@ -32,14 +32,14 @@ You can use a custom controller for any situation where Query types are not suff
 
 This configuration points to a custom `RelationController` that should render all Articles with the `showContentAction()` method.
 
-``` php
+``` php hl_lines="23 27 28"
 [[= include_file('code_samples/front/embed_content/src/Controller/RelationController.php') =]]
 ```
 
-This controller uses the Public PHP API to get [the Relations of a Content item](../../../api/public_php_api_browsing.md#relations) (lines 28-29).
+This controller uses the Public PHP API to get [the Relations of a Content item](../../../api/public_php_api_browsing.md#relations) (lines 27-28).
 
-The controller takes the custom parameter called `accepted_content_types`,
-which is an array of Content Type identifiers that will be rendered.
+The controller takes the custom parameter called `accepted_content_types` (line 23),
+which is an array of Content Type identifiers that are rendered.
 
 This way you can control which Content Types you want to show or exclude.
 

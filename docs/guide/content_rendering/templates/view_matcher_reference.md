@@ -48,7 +48,7 @@ match:
 
 ## Id\ContentTypeGroup
 
-Matches the ID number of the Content Type group that the Content item belongs to.
+Matches the ID number of the Content Type Group that the Content item belongs to.
 
 ``` yaml
 match:

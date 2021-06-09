@@ -149,7 +149,7 @@ nav:
                 - 'Render content': 'guide/content_rendering/render_content/render_content.md'
                 - 'Render page': 'guide/content_rendering/render_content/render_page.md'
                 - 'Render product': 'guide/content_rendering/render_content/render_product.md'
-            - Template configuration and matching:
+            - Templates:
                 - 'Templates': 'guide/content_rendering/templates/templates.md'
                 - 'Template configuration': 'guide/content_rendering/templates/template_configuration.md'
                 - 'View matcher reference': 'guide/content_rendering/templates/view_matcher_reference.md'
@@ -171,7 +171,7 @@ nav:
             - Queries and controllers:
                 - 'Content queries': 'guide/content_rendering/queries_and_controllers/content_queries.md'
                 - 'Built-in Query types': 'guide/content_rendering/queries_and_controllers/built-in_query_types.md'
-                - 'Custom Query type': 'guide/content_rendering/queries_and_controllers/custom_query_type.md'
+                - 'Create custom Query type': 'guide/content_rendering/queries_and_controllers/custom_query_type.md'
                 - 'Controllers': 'guide/content_rendering/queries_and_controllers/controllers.md'
             - Embed and list content:
                 - 'List content': 'guide/content_rendering/embed_and_list_content/list_content.md'

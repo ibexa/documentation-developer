@@ -1,7 +1,7 @@
 # Templates
 
 You can customize the layout and look of your website with templates.
-[[= product_name =]] uses templates written in the Twig template engine.
+Templates use the Twig template engine.
 
 !!! tip
 
@@ -10,7 +10,7 @@ You can customize the layout and look of your website with templates.
 ## Connecting templates
 
 Templates can inherit from other templates.
-Use this, for example, to inherit a general page layout including a navigation menu in article templates.
+Use this, for example, to inherit a general page layout including a [navigation menu](../layout/add_menu.md) in article templates.
 
 To inherit from other templates, a template must extend the parent templates
 using the [`extends()`](https://twig.symfony.com/doc/3.x/tags/extends.html) Twig function.
@@ -60,7 +60,7 @@ Main variables include:
 ### Custom template variables
 
 You can create custom Twig variables for use in templates.
-Set the variables per SiteAccess or Siteaccess group ([scope](../../siteaccess.md#scope)), or per content view.
+Set the variables per SiteAccess or SiteAccess group ([scope](../../siteaccess.md#scope)), or per content view.
 
 To configure a custom template variable per scope, use the `twig_variables` key:
 
@@ -80,7 +80,7 @@ Variables set for a specific content view (under `params`) are only available wh
 [[= include_file('code_samples/front/render_content/config/packages/views.yaml', 24, 31) =]]
 ```
 
-Custom variables can be nested.
+Custom variables can be nested:
 
 ``` yaml
 twig_variables:

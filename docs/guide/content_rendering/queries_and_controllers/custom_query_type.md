@@ -14,7 +14,7 @@ Add the following `LatestContentQueryType.php` file to `src/QueryType`:
 
 !!! tip
 
-    When the custom Query type is in the `App` namespace, like in the example below, it is registered automatically as a service.
+    When the custom Query type is in the `App` namespace, like in the example above, it is registered automatically as a service.
     Otherwise, register it with the `ezplatform.query_type` service tag.
 
 The name defined in `getName()` is the one you use to identify the Query type in content view configuration.
@@ -33,6 +33,10 @@ and [Search reference](../../search/search_criteria_reference.md) for a referenc
 
 The `getSupportedParameters()` method provides the parameters you can set in content view configuration.
 To have more control over the details of parameters, use the [Options resolver-based Query type](#options-resolver-based-query-type).
+
+``` php
+[[= include_file('code_samples/front/custom_query_type/src/QueryType/LatestContentQueryType.php', 31, 35) =]]
+```
 
 In the content view configuration, indicate that the content view should use the custom Query type:
 

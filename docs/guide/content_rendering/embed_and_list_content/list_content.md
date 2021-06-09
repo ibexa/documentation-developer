@@ -16,7 +16,7 @@ In the [content view configuration](../templates/template_configuration.md), add
 [[= include_file('code_samples/front/list_content/config/packages/views.yaml', 8, 22) =]]
 ```
 
-`controller` defines which controller is be used to render the view.
+`controller` defines which controller is used to render the view.
 In this example, it is the default [Query controller](../queries_and_controllers/content_queries.md).
 
 ``` yaml

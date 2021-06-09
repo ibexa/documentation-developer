@@ -57,8 +57,7 @@ You can find the list of all bookmarks in *Browse content* section. There, you c
 
 ### Standard design
 
-eZ Platform now comes with two designs using the [design engine](../guide/design_engine.md): `standard` for content view and `admin` for the Back Office.
-See [default designs](../guide/design_engine.md#default-designs) for more information.
+eZ Platform now comes with two designs using the [design engine](../guide/content_rendering/design_engine/design_engine.md): `standard` for content view and `admin` for the Back Office.
 
 !!! caution
 

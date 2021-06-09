@@ -9,8 +9,8 @@ You can also create custom image variations.
 
 ## Custom image variations
 
-Image variation configuration is SiteAccess-aware.
-Place it under the `image_variations` key per scope:
+Image variation configuration is [SiteAccess](../siteaccess.md)-aware.
+Place it under the `image_variations` key per [scope](../siteaccess.md#scope):
 
 ``` yaml
 ezplatform:

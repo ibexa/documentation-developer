@@ -301,7 +301,7 @@ ezrichtext.custom_styles.highlighted_word.label: Highlighted word
 
 ### Rendering
 
-The `template` key points to the template used to render the custom style. It is recommended to use the [design engine](../guide/design_engine.md).
+The `template` key points to the template used to render the custom style. It is recommended to use the [design engine](../guide/content_rendering/design_engine/design_engine.md).
 
 In the example above, the template files for the front end could be:
 

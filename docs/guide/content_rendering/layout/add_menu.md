@@ -14,7 +14,7 @@ To select items that should be rendered in the menu, you can use one of the foll
 
 To create a menu that contains a specific set of Content items, for example all content under the root Location, use a [Query Type](../queries_and_controllers/content_queries.md).
 
-First, create a custom `MenuQueryType` that queries for all items that you want in the menu:
+First, in `src/QueryType` create a custom `MenuQueryType.php` file that queries for all items that you want in the menu:
 
 ``` php hl_lines="15 16 28"
 [[= include_file('code_samples/front/layouts/menu/src/QueryType/MenuQueryType.php') =]]

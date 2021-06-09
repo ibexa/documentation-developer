@@ -9,9 +9,10 @@ To override existing shop templates, create a [design](../design_engine/design_e
 !!! note "Template theme paths"
 
     All shop bundles contain an `ez_design.yml` file which is used to define the `templates_theme_path` path to the templates.
-    Without the template theme path, the templates are not recognized by the design engine.
+    Without the [template theme path](../design_engine/design_engine.md#additional-theme-paths), the templates are not recognized by the design engine.
 
-In `ezplatform.yaml`, indicate that the design should be used for the relevant scope, for example, for the `site_group` SiteAccess group:
+In `ezplatform.yaml`, indicate that the design should be used for the relevant [scope](../../siteaccess.md#scope),
+for example, for the `site_group` SiteAccess group:
 
 ``` yaml
         site_group:

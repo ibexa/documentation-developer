@@ -6,7 +6,7 @@ You can use queries to list or embed Content items, such as:
 
 - [children in a folder](../embed_and_list_content/list_content.md#children-query-type)
 - related articles
-- most recent blog posts
+- [most recent blog posts](custom_query_type.md)
 - recommended products
 
 Content queries use the built-in Query controller which simplifies querying.
@@ -21,7 +21,7 @@ You can also write [custom Query types](custom_query_type.md) for the cases that
 
 ### Query type configuration
 
-To use a Query type, select the Query controller (`ez_query`) in the content view configuration
+To use a Query type, select the Query controller (`ez_query`) in the [content view configuration](../templates/template_configuration.md)
 and select the Query type under `params.query.query_type`:
 
 ``` yaml hl_lines="2 6"

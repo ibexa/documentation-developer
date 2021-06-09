@@ -1,7 +1,6 @@
 # Design engine
 
 You can use multiple different designs (themes) in your installation.
-
 You can set up different designs per SiteAccess or SiteAccess group.
 
 Designs are configured under the `ezdesign.design_list` key:
@@ -32,7 +31,7 @@ Each scope can use only one design.
 ## Order of themes
 
 The order of themes in a design is important.
-The design engine attempts to apply the first theme listed in configuration (for example, `theme1`), first.
+The design engine attempts to apply the first theme in configuration (for example, `theme1`), first.
 If it cannot find the required template or asset in this theme, it proceeds to the next theme in the list (for example, `theme2`).
 
 You can use this behavior to override only some templates from the main theme of your website.
@@ -44,7 +43,8 @@ Do this, for example, when you create a SiteAccess with a special design for a c
 
 You can add any Twig template folder to the theme configuration.
 
-You can use it if you want to define templates from third-party bundles as part of one of your themes.
+You can use it if you want to define templates from third-party bundles as part of one of your themes,
+or to [override built-in shop templates](../templates/overriding_shop_templates.md).
 
 To do it, set the `ezdesign.templates_theme_paths` parameter:
 
@@ -84,7 +84,7 @@ ezdesign:
 
 If you are using PHPStorm, and your PHPStorm project root doesn't match your Symfony project root,
 you must customize the path where the design engine stores its configuration file.
-Otherwise, PHPStorm will not recognize the `@ezdesign` Twig namespace.
+Otherwise, PHPStorm does not recognize the `@ezdesign` Twig namespace.
 
 Configure it under `ezdesign.phpstorm`:
 

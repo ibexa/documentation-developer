@@ -61,7 +61,8 @@ The `match` key can contain one or more [view matchers](view_matcher_reference.m
 You can use it together with the `template` key, or without it.
 
 `params` can provide additional parameters to the content view.
-Use them, for example, with [Query types]() or to provide [custom Twig variables](templates.md#custom-template-variables) to the template.
+Use them, for example, with [Query types](../queries_and_controllers/content_queries.md#query-types)
+or to provide [custom Twig variables](templates.md#custom-template-variables) to the template.
 
 ### Combining matchers
 
