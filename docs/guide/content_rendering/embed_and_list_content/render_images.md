@@ -20,7 +20,7 @@ You can pass the name of an [image variation](#configure-image-variation) as an 
 
 If a Content item contains more than one image, you may want to select the first filled image to render.
 
-This enables you to avoid a situation where, for example, the featured image in an article in missing,
+This enables you to avoid a situation where, for example, the featured image in an article is missing,
 because the first image Field was left empty.
 
 The [`ez_content_field_identifier_first_filled_image()`](../twig_function_reference/image_twig_functions.md#ez_content_field_identifier_first_filled_image) Twig function
@@ -39,7 +39,7 @@ returns the identifier of the first image Field that is not empty.
 
 ## Configure image variation
 
-The same image can have multiple variations differing in things such as scale, crop, or applied filters.
+The same image can have multiple variations differing in things such as scale, cropping, or applied filters.
 
 You can use the built-in image variations or [configure your own](../image_variations.md#custom-image-variations).
 

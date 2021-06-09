@@ -38,7 +38,7 @@ parameters:
 
 !!! caution "Code injection in image EXIF"
 
-    EXIF metadata of an image may contain e.g. HTML, JavaScript, or PHP code. [[= product_name =]] is itself does not parse EXIF metadata, but third-party bundles need to be secured against this eventuality. Images should be treated like any other user-submitted data - make sure the metadata is properly escaped before use.
+    EXIF metadata of an image may contain for example, HTML, JavaScript, or PHP code. [[= product_name =]] is itself does not parse EXIF metadata, but third-party bundles need to be secured against this eventuality. Images should be treated like any other user-submitted data - make sure the metadata is properly escaped before use.
 
 ### Resolving image URLs
 
