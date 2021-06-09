@@ -16,7 +16,15 @@ mysql -u <username> -p <password> <database_name> < upgrade/db/mysql/ezplatform-
 psql <database_name> < upgrade/db/postgresql/ezplatform-3.1.0-to-3.2.0.sql
 ```
 
-## Update entity managers
+## Updating to v3.2.6
+
+To update to v3.2.6, if you are using MySQL, additionally run the following update script:
+
+``` sql
+mysql -u <username> -p <password> <database_name> < upgrade/db/mysql/ezplatform-3.2.5-to-3.2.6.sql
+```
+
+### Update entity managers
 
 Version v3.2.6 introduces new entity managers.
 To ensure that they work in multi-repository setups, you must update the GraphQL schema.
@@ -38,3 +46,15 @@ You do this manually by following this procedure:
 1. For every entity manager prefixed with `ibexa_`, run the following command to run queries on the database:
 
     `php bin/console doctrine:schema:update --em=<ENTITY_MANAGER_NAME> --force`
+
+### VCL configuration for Fastly
+
+If you use Fastly, update your VCL configuration.
+
+Locate the `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_main.vcl` file and add the following lines to it:
+
+```
+if (req.restarts == 0 && resp.status == 301 && req.http.x-fos-original-url) {
+    set resp.http.location = regsub(resp.http.location, "/_fos_user_context_hash", req.http.x-fos-original-url);
+}
+```

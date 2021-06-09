@@ -77,7 +77,6 @@ public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, Field
             ]
         )
         ->add(
-            // Creating from FormBuilder as we need to add a DataTransformer.
             $fieldDefinitionForm->getConfig()->getFormFactory()->createBuilder()
                 ->create(
                     'defaultValue',

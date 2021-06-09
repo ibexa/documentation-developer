@@ -18,7 +18,7 @@ This release brings a completely reconstructed user interface of the Personaliza
 
 Ibexa DXP is now installed using [Symfony Flex](https://symfony.com/doc/current/quick_tour/flex_recipes.html).
 
-See [the updated installation instruction](../getting_started/install_ez_platform.md) for a new guide to installing the product.
+See [the updated installation instruction](https://doc.ibexa.co/en/3.3/getting_started/install_ez_platform) for a new guide to installing the product.
 
 ### Image Editor
 
@@ -28,11 +28,11 @@ The Image Editor is available when browsing the Media library, or creating or ed
 that contain an `ezimage` or `ezimageasset` Field.
 
 You can modify the Image Editor's default settings to change its appearance or behavior.
-For more information, see [Configuring the Image Editor](../guide/image_editor.md).
+For more information, see [Configuring the Image Editor](https://doc.ibexa.co/en/3.3/guide/image_editor).
 
 ### Migration bundle
 
-The new [migration bundle](../guide/data_migration.md) enables you to export and import your Repository data by using YAML files.
+The new [migration bundle](https://doc.ibexa.co/en/3.3/guide/data_migration) enables you to export and import your Repository data by using YAML files.
 
 ## Other changes
 
@@ -40,11 +40,11 @@ The new [migration bundle](../guide/data_migration.md) enables you to export and
 
 Search API has been extended with the following capabilities:
 
-- [Score Sort Clause](../guide/search/sort_clause_reference/score_sort_clause.md) orders search results by their score.
-- [CustomField Sort Clause](../guide/search/sort_clause_reference/customfield_sort_clause.md) sorts search results by raw search index fields.
-- [ContentTranslatedName Sort Clause](../guide/search/sort_clause_reference/contenttranslatedname_sort_clause.md) sorts search results by the Content items' translated names.
+- [Score Sort Clause](https://doc.ibexa.co/en/3.3/guide/search/sort_clause_reference/score_sort_clause) orders search results by their score.
+- [CustomField Sort Clause](https://doc.ibexa.co/en/3.3/guide/search/sort_clause_reference/customfield_sort_clause) sorts search results by raw search index fields.
+- [ContentTranslatedName Sort Clause](https://doc.ibexa.co/en/3.3/guide/search/sort_clause_reference/contenttranslatedname_sort_clause) sorts search results by the Content items' translated names.
 
-You can now access [additional search result data from PagerFanta](../api/public_php_api_search.md#additional-search-result-data).
+You can now access [additional search result data from PagerFanta](https://doc.ibexa.co/en/3.3/api/public_php_api_search/#additional-search-result-data).
 
 ### PHP API improvements
 
@@ -59,7 +59,7 @@ You can now use the following new PHP API methods:
 
 ### Query Field Location handling
 
-The [Query Field Type](../guide/content_rendering/queries_and_controllers/content_queries.md#content-query-field-type) now enables getting results for the current Location of a Content item.
+The [Query Field Type](https://doc.ibexa.co/en/3.3/guide/content_rendering/queries_and_controllers/content_queries.md#content-query-field-type) now enables getting results for the current Location of a Content item.
 
 ## Deprecations
 

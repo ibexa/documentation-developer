@@ -37,9 +37,9 @@ In the Page block config you can now specify the CSS class with its own style fo
 
 !!! caution "Updating to 2.2"
 
-    Refer to [Updating eZ Platform](../updating/5_update_2.2.md) for a database update script.
+    Refer to [Updating eZ Platform](https://doc.ibexa.co/en/2.5/updating/5_update_2.2) for a database update script.
 
-    To update to 2.2 with existing Content you will need a [dedicated script for converting the Landing Page into the new Page](../updating/5_update_2.2.md#migrate-landing-pages).
+    To update to 2.2 with existing Content you will need a [dedicated script for converting the Landing Page into the new Page](https://doc.ibexa.co/en/2.5/updating/5_update_2.2/#migrate-landing-pages).
 
 ### Bookmarks
 
@@ -51,13 +51,14 @@ You can find the list of all bookmarks in *Browse content* section. There, you c
 
 ### Image placeholders
 
-[Placeholder generator](../guide/images.md#setting-placeholder-generator) enables you to replace any missing image with downloaded or generated image placeholder. It can be used when you are working on an existing database and you are not able to download uploaded images to your local development environment because of their large size.
+[Placeholder generator](https://doc.ibexa.co/en/2.5/guide/images/#setting-placeholder-generator) enables you to replace any missing image with downloaded or generated image placeholder. It can be used when you are working on an existing database and you are not able to download uploaded images to your local development environment because of their large size.
 
 ![Placeholder GenericProvider](img/placeholder_generic_provider.png)
 
 ### Standard design
 
-eZ Platform now comes with two designs using the [design engine](../guide/content_rendering/design_engine/design_engine.md): `standard` for content view and `admin` for the Back Office.
+eZ Platform now comes with two designs using the [design engine](https://doc.ibexa.co/en/2.5/guide/design_engine): `standard` for content view and `admin` for the Back Office.
+See [default designs](https://doc.ibexa.co/en/2.5/guide/design_engine/#default-designs) for more information.
 
 !!! caution
 
@@ -70,7 +71,7 @@ When viewing User or User Group Content items you can now preview what permissio
 
 ![Preview of permissions assigned to a User](img/2.2_permissions_in_user_view.png)
 
-You can also [select which Content Types are treated the same way as User of User Group](../guide/configuration.md#user-identifiers) for these purposes.
+You can also [select which Content Types are treated the same way as User of User Group](https://doc.ibexa.co/en/2.5/guide/config_repository/#user-identifiers) for these purposes.
 
 ### Change from UTF8 to UTF8MB4
 
@@ -78,13 +79,13 @@ Database charset is changed from UTF8 to UTF8MB4, in order to support 4-byte cha
 
 !!! caution
 
-    To cover this change when upgrading, follow the instructions in the [update guide](../updating/5_update_2.2.md).
+    To cover this change when upgrading, follow the instructions in the [update guide](https://doc.ibexa.co/en/2.5/updating/5_update_2.2).
 
 ### URL generation pattern
 
 You can now select the pattern that will be used to generate URL patterns.
 
-See [URL alias patterns](../guide/url_management.md#url-alias-patterns) for more information about the available settings.
+See [URL alias patterns](https://doc.ibexa.co/en/2.5/guide/url_management/#url-alias-patterns) for more information about the available settings.
 
 !!! caution "Default URL generation pattern"
 
@@ -117,8 +118,8 @@ New Bookmark service had been added. Bookmark operations are now available via t
 
 This release introduces a few notable simplifications to API use. Here are some highlights:
 
-- [Location object now gives access to Content](../api/public_php_api_browsing.md#location-object-with-access-to-content)
-- [Optional SiteAccessAware Repository](../api/public_php_api_browsing.md#siteaccess-aware-repository-optional)
+- [Location object now gives access to Content](https://doc.ibexa.co/en/2.5/api/public_php_api_browsing/#getting-content-from-a-location)
+- [Optional SiteAccessAware Repository](https://doc.ibexa.co/en/2.5/api/public_php_api_browsing/#siteaccess-aware-repository)
 
 ## Full list of new features, improvements and bug fixes since v2.1.0
 
@@ -130,6 +131,6 @@ This release introduces a few notable simplifications to API use. Here are some 
 
 ## Installation
 
-[Installation Guide](../getting_started/install_ez_platform.md)
+[Installation guide](https://doc.ibexa.co/en/2.5/getting_started/install_ez_platform)
 
-[Technical Requirements](../getting_started/requirements.md)
+[Technical requirements](https://doc.ibexa.co/en/2.5/getting_started/requirements)

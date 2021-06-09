@@ -8,7 +8,7 @@ If you are looking for the Long Term Support (LTS) release, see[ https://ezplat
 
 Upgrade notes
 
-This release contains special steps to follow further described in [Updating eZ Platform](../updating/updating.md).
+This release contains special steps to follow further described in [Updating eZ Platform](https://doc.ibexa.co/en/1.13/updating/updating).
 
 
 
@@ -89,31 +89,23 @@ This release contains special steps to follow further described in [Updating eZ 
 
 ### Installation
 
-[Installation Guide](../getting_started/install_ez_platform.md)
+[Installation Guide](https://doc.ibexa.co/en/1.13/getting_started/install_ez_platform)
 
- [Technical Requirements](../getting_started/requirements.md)
+[Technical Requirements](https://doc.ibexa.co/en/1.13/getting_started/requirements)
 
 ### Download
 
 #### eZ Platform
 
--   Download at [eZPlatform.com](http://ezplatform.com/#download)
+- Download at [eZPlatform.com](http://ezplatform.com/#download)
 
- 
+#### eZ Enterprise
 
- 
+- [Customers: eZ Enterprise subscription (BUL License)](https://support.ez.no/Downloads)
+- Partners: Test & Trial software access (TTL License)
 
-#### eZ Platform Enterprise Edition
-
--   [Customers: eZ Enterprise subscription (BUL License)](https://support.ez.no/Downloads)
--   [Partners: Test & Trial software access (TTL License)](https://support.ez.no/Downloads)
-
-If you would like to request an Enterprise Demo instance: <http://ez.no/Forms/Discover-eZ-Studio>
-
- 
+If you would like to become familiar with the products, [request a demo](https://www.ibexa.co/forms/request-a-demo).
 
 ### Updating
 
-**eZ Platform**: To update to this version, follow the [Updating eZ Platform](../updating/updating.md) guide and use v1.8.0 as `<version>`.
-
- 
+To update the product, follow the [updating guide](https://doc.ibexa.co/en/1.13/updating/updating/).

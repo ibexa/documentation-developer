@@ -69,20 +69,21 @@ Log in to your service portal on [support.ibexa.co](https://support.ibexa.co), g
 !!! tip "Save the authentication token in `auth.json` to avoid re-typing it"
 
     Composer will ask whether you want to save the token every time you perform an update.
-    If you prefer, you can decline and create an `auth.json` file manually in one of the following ways:
-
-    - A: Store your credentials in the project directory (for security reasons, do not check them in to git):
-
-    ``` bash
-    composer config http-basic.updates.ibexa.co <installation-key> <token-password>
-    ```
-
-    - B: If you only have one project on the machine/server/vm, and want to install globally in [`COMPOSER_HOME`](https://getcomposer.org/doc/03-cli.md#composer-home) directory for machine-wide use:
+    If you prefer, you can decline and create an `auth.json` file globally
+    in [`COMPOSER_HOME`](https://getcomposer.org/doc/03-cli.md#composer-home) directory for machine-wide use:
 
     ``` bash
     composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
     ```
+
+    To store your credentials per project, add the credentials to the `COMPOSER_AUTH` variable:
+
+    ``` bash
+    export COMPOSER_AUTH='{"http-basic":{"updates.ibexa.co": {"username": "<your-key>", "password": "<your-password>"}}}'
+    ```
     
+    You then need to [add the contents of this variable to `auth.json`](#authentication-token).
+
 !!! tip "Different tokens for different projects on a single host"
 
     If you configure several projects on one machine, make sure that
@@ -126,6 +127,11 @@ run the following command:
     composer create-project ibexa/commerce-skeleton .
     ```
 
+!!! tip "Authentication token"
+
+    <a id="authentication-token"></a>If you added credentials to the `COMPOSER_AUTH` variable,
+    at this point add this variable to `auth.json` (for example, by running `echo $COMPOSER_AUTH > auth.json`).
+
 !!! tip
 
     You can set [different version constraints](https://getcomposer.org/doc/articles/versions.md):
@@ -150,7 +156,9 @@ run the following command:
 
 It is recommended to add your project to version control.
 
-For git, you can do it in the following way:
+First, create a `.gitignore` file based on the `.gitignore.dist` provided in the project.
+
+Then, initiate your project repository:
 
 ``` bash
 git init; git add . > /dev/null; git commit -m "init" > /dev/null

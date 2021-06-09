@@ -19,7 +19,7 @@ Note that the former way will be removed in a future major version.
 [EZP-24800](https://jira.ez.no/browse/EZP-24800): you can now specify a Content Type limitation for the Relation field,
 just like with the Relation List field. This enables you to limit what kind of relations Editors can select also on singular relation fields.
 
-![Adding a new Relation (single) Field with allowed Content Types](img\relation_single_allowed_cts.png)
+![Adding a new Relation (single) Field with allowed Content Types](img/relation_single_allowed_cts.png)
 
 This has been made possible by initial legacy contribution from [@peterkeung](https://github.com/peterkeung), and [@slaci](https://github.com/slaci) who ported this feature over to eZ Platform so that both could go in.
 
@@ -40,7 +40,7 @@ It enables you to manually select a set of Content items to be displayed.
 
     To enable adding content to a Collection block in a clean installation,
     you need to configure the views for the block and define which Content Types can be embedded in it.
-    See [block templates](../guide/content_rendering/render_content/render_page.md#render-a-block) for more information and an example.
+    See [block templates](https://doc.ibexa.co/en/1.13/guide/other_extensibility/#block-templates) for more information and an example.
 
 #### RecommendationBundle adapted for YooChoose v2
 
@@ -81,9 +81,9 @@ full support, maintenance, and priority security patch handling as they are used
 
 ### Installation
 
-[Installation Guide](../getting_started/install_ez_platform.md)
+[Installation Guide](https://doc.ibexa.co/en/1.13/getting_started/install_ez_platform)
 
-[Technical Requirements](../getting_started/requirements.md)
+[Technical Requirements](https://doc.ibexa.co/en/1.13/getting_started/requirements)
 
 ### Download
 
@@ -94,10 +94,10 @@ full support, maintenance, and priority security patch handling as they are used
 #### eZ Enterprise
 
 - [Customers: eZ Enterprise subscription (BUL License)](https://support.ez.no/Downloads)
-- [Partners: Test & Trial software access (TTL License)](https://ez.no/Partner-Portal/Software-Downloads-Release-Info)
+- Partners: Test & Trial software access (TTL License)
 
-If you would like to request an eZ Enterprise Demo instance: <http://ez.no/Forms/Discover-eZ-Studio>
+If you would like to become familiar with the products, [request a demo](https://www.ibexa.co/forms/request-a-demo).
 
 ### Updating
 
-To update to this version, follow the [Updating eZ Platform](../updating/updating.md) guide and use v1.11.0 as `<version>`.
+To update the product, follow the [updating guide](https://doc.ibexa.co/en/1.13/updating/updating/).
