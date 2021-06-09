@@ -155,6 +155,7 @@ nav:
                 - 'View matcher reference': 'guide/content_rendering/templates/view_matcher_reference.md'
                 - 'Shop templates': 'guide/content_rendering/templates/overriding_shop_templates.md'
             - 'Assets': 'guide/content_rendering/assets.md'
+            - 'Image variations': 'guide/content_rendering/image_variations.md'
             - Twig functions reference:
                 - 'Twig functions reference': 'guide/content_rendering/twig_function_reference/twig_functions_reference.md'
                 - 'Content Twig functions': 'guide/content_rendering/twig_function_reference/content_twig_functions.md'
@@ -175,6 +176,7 @@ nav:
                 - 'List content': 'guide/content_rendering/embed_and_list_content/list_content.md'
                 - 'Embed content': 'guide/content_rendering/embed_and_list_content/embed_content.md'
                 - 'Embed product': 'guide/content_rendering/embed_and_list_content/embed_product.md'
+                - 'Render images': 'guide/content_rendering/embed_and_list_content/render_images.md'
             - Layout:
                 - 'Add navigation menu': 'guide/content_rendering/layout/add_menu.md'
                 - 'Add search form to front page': 'guide/content_rendering/layout/add_search_form.md'
