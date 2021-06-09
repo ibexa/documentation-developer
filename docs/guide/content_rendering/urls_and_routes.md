@@ -1,6 +1,6 @@
 # URLs and routes
 
-To link to a Location or Content item, use the [`ez_path()`](twig_function_reference/url_twig_functions.md#ez_path) Twig function.
+To link to a [Location](../content_management.md#locations) or [Content item](../content_model.md#content-items), use the [`ez_path()`](twig_function_reference/url_twig_functions.md#ez_path) Twig function.
 You need to provide the function with a Location, Content, ContentInfo or [RouteReference](#routereference) object:
 
 ``` html+twig
@@ -18,21 +18,23 @@ Use [`ez_url()`](twig_function_reference/url_twig_functions.md#ez_url) to get an
 ## RouteReference
 
 You can use the [`ez_route()`](twig_function_reference/url_twig_functions.md#ez_route) Twig function
-to create a RouteReference object based on the provided information:
+to create a RouteReference object based on the provided information.
+
+A RouteReference contains a route with its parameters and can be modified after it is created.
 
 ``` html+twig
-{% set routeRef = ez_route("ez_urlalias", { 'locationId': 2 }) %}
-<p><a href="{{ ez_path(routeRef) }}">Route</a></p>
+{% set routeReference = ez_route("ez_urlalias", { 'locationId': 2 }) %}
+<p><a href="{{ ez_path(routeReference) }}">Route</a></p>
 ```
 
-`ez_route()` enables you to modify the route after creation, for example by providing additional parameters:
+With `ez_route()` you can modify the route contained in RouteReference after creation, for example, by providing additional parameters:
 
 ``` html+twig
-{% set routeRef = ez_route("ez_urlalias", { 'locationId': 2 }) %}
-{% do routeRef.set("param", "param-value") %}
+{% set routeReference = ez_route("ez_urlalias", { 'locationId': 2 }) %}
+{% do routeReference.set("param", "param-value") %}
 ```
 
-You can also use `ez_route()` to create links to predefined routes, such as the `ezplatform.search` route leading to a search form page:
+You can also use `ez_route()` to create links to predefined routes, such as the `ezplatform.search` route that leads to a search form page:
 
 ``` html+twig
 <a href="{{ ez_path(ez_route('ezplatform.search')) }}">Search</a>

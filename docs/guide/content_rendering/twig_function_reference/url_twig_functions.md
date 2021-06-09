@@ -3,6 +3,7 @@
 - [`ez_path()`](#ez_path) returns the relative URL to a Content item or Location.
 - [`ez_url()`](#ez_url) returns the absolute URL to a Content item or Location.
 - [`ez_urlalias()`](#ez_urlalias) generates URLs for a Location from the given arguments.
+- [`ez_route()`](#ez_route)  generates a RouteReference object from the given parameters.
 - [`ibexa_oauth2_connect_path()`](#ibexa_oauth2_connect_path) generates a relative path for the given OAuth2 route.
 - [`ibexa_oauth2_connect_url()`](#ibexa_oauth2_connect_url) generates an absolute URL for the given OAuth2 route.
 
@@ -59,7 +60,7 @@
 |`params`|`array`|Route parameters.|
 
 ``` html+twig
-{% set routeRef = ez_route("ez_urlalias", { 'locationId': 2 }) %}
+{% set routeReference = ez_route("ez_urlalias", { 'locationId': 2 }) %}
 ```
 
 ## OAuth2
