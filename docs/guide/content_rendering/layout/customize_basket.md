@@ -36,7 +36,7 @@ Next, modify the template to include the following changes:
 </td>   
 ```
 
-For the template to be applied, you need to [override the existing shop templates](../templates/overriding_shop_templates.md):
+Finally, for the template to be applied, you need to [override the existing shop templates](../templates/overriding_shop_templates.md):
 
 ``` yaml
 [[= include_file('code_samples/front/shop/override_navigation/config/packages/design.yaml') =]]

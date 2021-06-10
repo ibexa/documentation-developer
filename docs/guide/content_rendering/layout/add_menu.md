@@ -43,7 +43,7 @@ which renders the individual items of the menu:
 To make a more configurable menu, where you select the specific items to render,
 use the [KNPMenuBundle](https://github.com/KnpLabs/KnpMenuBundle) that is installed together with the product.
 
-To use it, create a `MenuBuilder.php` file in `src/Menu`:
+To use it, first create a `MenuBuilder.php` file in `src/Menu`:
 
 ``` php hl_lines="20 21 22 26"
 [[= include_file('code_samples/front/layouts/menu/src/Menu/MenuBuilder.php') =]]

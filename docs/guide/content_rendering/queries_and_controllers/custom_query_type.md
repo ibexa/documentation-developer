@@ -6,7 +6,7 @@ you can create a custom Query type.
 The following example shows how to create a custom Query type
 that renders the latest Content items of selected Types.
 
-Add the following `LatestContentQueryType.php` file to `src/QueryType`:
+First, add the following `LatestContentQueryType.php` file to `src/QueryType`:
 
 ``` php
 [[= include_file('code_samples/front/custom_query_type/src/QueryType/LatestContentQueryType.php') =]]
@@ -38,7 +38,7 @@ To have more control over the details of parameters, use the [Options resolver-b
 [[= include_file('code_samples/front/custom_query_type/src/QueryType/LatestContentQueryType.php', 31, 35) =]]
 ```
 
-In the content view configuration, indicate that the content view should use the custom Query type:
+Then, in the content view configuration, indicate that the content view should use the custom Query type:
 
 ``` hl_lines="10"
 [[= include_file('code_samples/front/custom_query_type/config/packages/views.yaml', 8, 21) =]]

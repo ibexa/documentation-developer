@@ -10,7 +10,7 @@ you can use one of two methods:
 
 The following example shows how to render the children of a Folder.
 
-In the [content view configuration](../templates/template_configuration.md), add the following view for the Folder Content Type:
+First, in the [content view configuration](../templates/template_configuration.md), add the following view for the Folder Content Type:
 
 ``` yaml
 [[= include_file('code_samples/front/list_content/config/packages/views.yaml', 8, 22) =]]
@@ -27,7 +27,7 @@ In this example, it is the default [Query controller](../queries_and_controllers
 This Query type automatically finds the children of the current Content item.
 The results of the query are placed in the `items` variable, which you can use in templates.
 
-Place the following template in `templates/themes/<my_theme>/full/folder.html.twig`:
+Then, place the following template in `templates/themes/<my_theme>/full/folder.html.twig`:
 
 ``` html+twig
 [[= include_file('code_samples/front/list_content/templates/themes/my_theme/full/folder.html.twig') =]]
@@ -41,7 +41,7 @@ to render every child of the folder with the default template for the `line` vie
 A [Content query Field](../../../api/field_types_reference/contentqueryfield.md) is a Field that defines a query.
 The following example shows how to use a Content query Field to render a Blog with its Blog Post children.
 
-Create a Blog Content Type that contains a Content query Field with the identifier `query`.
+First, create a Blog Content Type that contains a Content query Field with the identifier `query`.
 
 In the Field definition, select "Children" as the Query type. 
 Provide the `content` parameter that the Query type requires:
@@ -54,7 +54,7 @@ You can paginate the query results by checking the **Enable pagination** box and
 
 Select the Content Type you want to render (in this case, Blog Post) as **Returned type**.
 
-In the content view configuration, add the configuration under `content_query_field`:
+Then, in the content view configuration, add the configuration under `content_query_field`:
 
 ``` yaml
 [[= include_file('code_samples/front/list_content/config/packages/views.yaml', 8, 9) =]][[= include_file('code_samples/front/list_content/config/packages/views.yaml', 22, 28) =]]
@@ -62,7 +62,7 @@ In the content view configuration, add the configuration under `content_query_fi
 
 The `match` configuration matches both the Content Type and the identifier of the Content query Field.
 
-In the template `templates/themes/<my_theme/content_query/blog_posts.html.twig`, render all results of the query:
+Finally, in the template `templates/themes/<my_theme/content_query/blog_posts.html.twig`, render all results of the query:
 
 ``` html+twig
 [[= include_file('code_samples/front/list_content/templates/themes/my_theme/full/blog_post.html.twig') =]]
