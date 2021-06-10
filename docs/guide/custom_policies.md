@@ -107,7 +107,7 @@ class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
 
-    protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void
+    protected function build(ContainerBuilder $container): void
     {
         // ...
         
