@@ -130,7 +130,7 @@ metadata: Metadata
 user_data: User data
 ```
 
-In order to see your translations taking effect, you need to change your [Back Office language](back_office_translations.md#changing-back-office-languages) accordingly. 
+To see your translations, you need to change your [Back Office language](back_office_translations.md#changing-back-office-languages) accordingly. 
 
 ## Limit of archived Content item versions
 
