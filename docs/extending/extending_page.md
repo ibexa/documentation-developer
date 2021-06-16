@@ -317,7 +317,7 @@ Then, in `config/packages/ezplatform.yaml` add a new validator to the configurat
 ``` yaml
 ezplatform_page_fieldtype:
   block_validators:
-    my_custom_validator: 'Symfony\Component\Validator\Constraint\AlphaOnly'
+    my_custom_validator: 'App\Validator\AlphaOnly'
 ```
 
 Finally, in `config/packages/ezplatform_page_fieldtype.yaml` add the following code under the `blocks` key:
