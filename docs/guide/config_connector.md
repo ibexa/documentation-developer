@@ -20,11 +20,10 @@ To add the Unsplash connector to your system add the `ezsystems/ezplatform-conne
 
 ## Add Image Asset in the Page Builder
 
-If you want to add Image Assets directly in the Page Builder, you can do it using the Embed block. Follow the instructions below to learn how to add images from [Unsplash](https://unsplash.com/).
+To add Image Assets directly in the Page Builder, you can do it by using the Embed block. 
+The example below shows how to add images from [Unsplash](https://unsplash.com/).
 
-
-
-First, in `templates/embed/` create a custom template `dam.html.twig`:
+First, in `templates/embed/`, create a custom template `dam.html.twig`:
 
 ``` html+twig
 {% set dam_image = ez_field_value(content, 'image') %}
@@ -38,7 +37,8 @@ First, in `templates/embed/` create a custom template `dam.html.twig`:
 
 The `770px` parameter in the template above is used to render the DAM image. It is the `unsplash` specific image variation and must be defined separately.
 
-Next, define the created custom template for embed viewType matched for the DAM Image Content Type. For more information about displaying content, see [Content rendering](../guide/content_rendering.md).
+Next, in `config/packages/ezplatform.yaml`, set the `dam.html.twig` template for the `embed` view type that is matched for the Content Type, which you created for DAM images. 
+For more information about displaying content, see [Content rendering](../guide/content_rendering.md).
 
 ``` yaml
  ezplatform:
@@ -66,10 +66,12 @@ dam_unsplash:
             fit: max
 ```
 
-You can customize the parameters according to your needs. For more information about supported parameters, see the [Unsplash documentation](https://unsplash.com/documentation#dynamically-resizable-images).
+You can customize the parameters according to your needs. 
+For more information about supported parameters, see the [Unsplash documentation](https://unsplash.com/documentation#dynamically-resizable-images).
 
-In the Back Office go to **Admin** > **Content Types** and in the **Content** group create a Content Type with the Image Asset Field. 
+In the Back Office, go to **Admin** > **Content Types**.
+In the **Content** group, create a Content Type for DAM images, which includes the ImageAsset Field. 
 
 Now, when you use the Embed block in the Page Builder, you should see a DAM Image.
 
-For more information about blocks customization (defined templates, variations), see [Create custom block](../tutorials/enterprise_beginner/4_create_a_custom_block.md).
+For more information about block customization (defined templates, variations), see [Create custom block](../tutorials/enterprise_beginner/4_create_a_custom_block.md).
