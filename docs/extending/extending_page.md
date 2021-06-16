@@ -273,7 +273,7 @@ class AlphaOnly extends Constraint
 }
 ```
 
-In `src/Validator`, create a `AlphaOnly.php` class that performs the validation.
+In `src/Validator`, create a `AlphaOnlyValidator.php` class that performs the validation.
 
 ``` php
 namespace App\Validator;
