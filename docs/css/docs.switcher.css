@@ -30,7 +30,7 @@
     background-color: var(--mid-grey);
 }
 
-.switcher__list strong dd {
+.switcher__list dd.rtd-current-item {
     background-image: url(../images/check.svg);
     background-size: 15px 18px;
     background-repeat: no-repeat;
