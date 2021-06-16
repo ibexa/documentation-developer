@@ -16,10 +16,10 @@ For content view responses coming from [[= product_name =]] itself, this means:
 All of this works across all the supported reverse proxies:
 
 - [Symfony HttpCache Proxy](#symfony-reverse-proxy) - limited to a single server, and limited performance/features
-- [Varnish](https://varnish-cache.org/)
+- [Varnish](https://varnish-cache.org/) - high performance reverse proxy
 - [Fastly](https://www.fastly.com/) - Varnish-based CDN service
 
-You can take advantage of all these features in custom controllers as well.
+You can use all these features in custom controllers as well.
 
 ## Configuration
 
@@ -41,13 +41,13 @@ ezplatform:
 ```
 
 You may want to set a high default time to live (TTL) (`default_ttl`) to have a high cache hit ratio on your installation.
-As the system takes care of purges, the cache shouldn't become stale with exception of grace handing in Varnish and Fastly.
+As the system takes care of purges, the cache should not become stale with the exception of grace handing in Varnish and Fastly.
 
 ### Cache header rules
 
-A few redirect and error pages are served via the ContentView system, and if you set a high `default_ttl`, they could also end up being served from cache.
+A few redirect and error pages are served through the ContentView system. If you set a high `default_ttl`, they can also be served from cache.
 
-To avoid this, the installation ships with configuration to match those specific situations and set a much lower TTL.
+To avoid this, the installation ships with configuration to match these specific situations and set a much lower TTL.
 [FOSHttpCacheBundle matching rules](http://foshttpcachebundle.readthedocs.io/en/2.8.0/reference/configuration/headers.html) allow you to specify a different TTL:
 
 ``` yaml
@@ -65,7 +65,7 @@ fos_http_cache:
                         s_maxage: 20
 ```
 
-Similarly, by default we apply performance tuning to avoid crawlers affecting the setup too much, by caching of generic 404s and similar error pages in the following way:
+Similarly, by default the performance tuning is applied to avoid crawlers affecting the setup too much, by caching of generic 404s and similar error pages in the following way:
 
 ``` yaml
 fos_http_cache:
@@ -84,82 +84,80 @@ fos_http_cache:
                         s_maxage: 20
 ```
 
-### Setting time-to-live value for Page blocks
+### Set time-to-live value for Page blocks
 
 For the Page Builder, block cache by default respects `$content.ttl_cache$` and `$content.default_ttl$` settings.
-However, if the given block value has a since / till date,
-it is taken into account for the TTL calculation for the block and also for the whole page.
+However, if the given block value has a since or till date, 
+it is taken into account for the TTL calculation for both the block and the whole page.
 
 To overload this behavior, listen to [`BlockResponseEvents::BLOCK_RESPONSE`](../extending/extending_page.md#block-render-response),
 and set priority to `-200` to adapt what Page Field Type does by default.
-For example, in order to disable cache for the block, use `$event->getResponse()->setPrivate()`.
+
+For example, to disable cache for the block, use `$event->getResponse()->setPrivate()`.
 
 ### When to use ESI
 
-[Edge Side Includes](https://en.wikipedia.org/wiki/Edge_Side_Includes) (ESI) can be used 
-to split out the different parts of a web page into separate concerns that can be freely reused as pieces by Reverse proxy.
+[Edge Side Includes](https://symfony.com/doc/current/http_cache/esi.html) (ESI) can be used to split out the different parts of a web page into separate fragments that can be freely reused as pieces by reverse proxy.
 
-However, in practice ESI means every sub request needs to start over from scratch from application perspective.
-And while you can tune your system to reduce this, it always causes additional overhead:
+In practice, with ESI, every sub-request is regenerated from application perspective. And while you can tune your system to reduce this, it always causes additional overhead in the following situations:
 
 - When cache is cold on all or some of the sub-requests
 - With Symfony Proxy (AppCache) there is always some overhead, even on warm cache (hits)
 - In development environment
 
-It may differ depending on your system, but in general, we recommend staying below 5 ESI
+This may differ depending on your system, however, it is recommended staying below 5 ESI 
 requests per page and only using them for parts that are the same across the whole site or larger parts of it.
 
-You should not use ESI for parts that are effectively uncached,
-as it will cause your reverse proxy to wait for back end and not be able to deliver cached pages directly.
+You should not use ESI for parts that are effectively uncached, 
+because your reverse proxy has to wait for back-end and cannot deliver cached pages directly.
 
 !!! note "ESI limitations with the URIElement SiteAccess matcher"
 
-    Note that sharing ESIs across SiteAccesses when using URI matching is not possible by design,
-    as the URI contains the SiteAccess name encoded in its path information.
+    Is is not possible to share ESIs across the SiteAccesses when using URI matching 
+    as URI contains the SiteAccess name encoded in its path information.
 
 ## Symfony reverse proxy
 
 To use Symfony reverse proxy, follow the [Symfony documentation](https://symfony.com/doc/current/http_cache.html#symfony-reverse-proxy).
 
-However, instead of `Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache`, your caching kernel must use `\EzSystems\PlatformHttpCacheBundle\AppCache`.
+Before you start using Symfony reverse proxy, you must change your caching kernel to use `EzSystems\PlatformHttpCacheBundle\AppCache` instead of `Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache`.
 
-## Using Varnish or Fastly
+## Use Varnish or Fastly
 
 As [[= product_name =]] is built on top of Symfony, it uses standard HTTP cache headers.
 By default, the Symfony reverse proxy, written in PHP, is used to handle cache.
-You can easily replace it with reverse proxies like Varnish or CDN like Fastly.
+You can replace it with other reverse proxies such as Varnish or CDN like Fastly.
 
-This is highly recommended as they provide far better performance and more advanced features like grace handling, configurable logic through VCL and much more.
+This is highly recommended as they provide far better performance and more advanced features such as grace handling, configurable logic through VCL and much more.
 
 !!! note
 
-    Use of Varnish or Fastly is a requirement for a [Clustering](clustering.md) setup, as Symfony Proxy does not support
-    sharing cache between several application servers.
+    Use of Varnish or Fastly is a requirement for a [Clustering](clustering.md) setup, as Symfony Proxy does not support sharing cache between several application servers.
 
 ### Recommended VCL base files
 
-For setup to work properly with your installation, you'll need to adapt one of the provided VCL files as a basis:
+For setup to work properly with your installation, you need to adapt one of the provided VCL files as the basis:
 
 - [Varnish VCL xkey example](https://github.com/ezsystems/ezplatform-http-cache/blob/2.0/docs/varnish/vcl/varnish5.vcl)
 - Fastly VCL can be found in `vendor/ezsystems/ezplatform-http-cache-fastly/fastly` in Enterprise version
 
 !!! tip
 
-    When you extend [FOSHttpCacheBundle](https://foshttpcachebundle.readthedocs.io/en/2.8.0/),
+    When you extend [FOSHttpCacheBundle](https://foshttpcachebundle.readthedocs.io/en/2.9.1/),
     you can also adapt your VCL further with [FOSHttpCache documentation](http://foshttpcache.readthedocs.org/en/latest/varnish-configuration.html)
-    in order to use additional features.
+    to use additional features.
 
 ### Configure [[= product_name =]]
 
 Configuring [[= product_name =]] for Varnish or Fastly involves a few steps, starting with configuring proxy.
 
-#### Configuring Symfony front controller
+#### Configure Symfony front controller
 
-In order to configure Symfony to [work behind a load balancer or a reverse proxy](https://symfony.com/doc/5.1/deployment/proxies.html),
+Before you configure Symfony to [work behind a load balancer or a reverse proxy](https://symfony.com/doc/5.1/deployment/proxies.html),
 make sure that [Symfony reverse proxy](#symfony-reverse-proxy) is enabled.
 Set the following environment variable:
 
-- `TRUSTED_PROXIES`: String with trusted IP, multiple proxies can be configured with a comma, i.e. `TRUSTED_PROXIES="192.0.0.1,10.0.0.0/8"`
+- `TRUSTED_PROXIES`: String with trusted IP, multiple proxies can be configured with a comma, for example, `TRUSTED_PROXIES="192.0.0.1,10.0.0.0/8"`
 
 Add the trusted proxies to your configuration:
 
@@ -170,38 +168,38 @@ framework:
 
 !!! caution "Careful when trusting dynamic IP using REMOTE_ADDR value or similar"
 
-    On Platform.sh, Varnish does not have a static IP, like with [AWS LB.](https://symfony.com/doc/5.1/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly)
-    For this reason, the `TRUSTED_PROXIES` env variable supports being set to value "REMOTE_ADDR", which is equal to:
+    On Platform.sh, Varnish does not have a static IP, like with [AWS LB](https://symfony.com/doc/5.1/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly).
+    For this reason, the `TRUSTED_PROXIES` env variable supports being set to value `REMOTE_ADDR`, which is equal to:
   
     ```php
     Request::setTrustedProxies([$request->server->get('REMOTE_ADDR')], Request::HEADER_X_FORWARDED_ALL);
     ```
 
-    When trusting remote IP like this, make sure your application is only accessible through Varnish.
-    If it is accessible in other ways, you may end up trusting e.g. the IP of client browser instead, which would be a serious security issue.
+    When trusting remote IP like this, make sure your application is only accessible through Varnish. 
+    If it is accessible in other ways, you may end up trusting for example, the IP of client browser instead, which would be a serious security issue.
 
     Make sure that **all** traffic always comes from the trusted proxy/load balancer,
     and that there is no other way to configure it.
 
-See [Examples for configuring [[= product_name =]]](#examples-for-configuring-eZ-Platform) for how these variables can be set.
+For more information about setting these variables, see [Examples for configuring [[= product_name =]]](#examples-for-configuring-eZ-Platform).
 
 #### Update YML configuration
 
-Secondly, you need to tell [[= product_name =]] to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client),
+Next, you need to tell [[= product_name =]] to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client),
 and specify the URL Varnish can be reached on (in `config/packages/ezplatform.yaml`):
 
 | Configuration | Parameter| Environment variable| Possible values|
 |---------|--------|--------|----------|
 | `ezplatform.http_cache.purge_type` | `purge_type` | `HTTPCACHE_PURGE_TYPE` | local, varnish, fastly |
-| `ezplatform.system.<scope>.http_cache.purge_servers` | `purge_server` | `HTTPCACHE_PURGE_SERVER` | Array of URLs to proxies when using Varnish or Fastly (`https://api.fastly.com`) |
-| `ezplatform.system.<scope>.http_cache.varnish_invalidate_token` | `varnish_invalidate_token` | `HTTPCACHE_VARNISH_INVALIDATE_TOKEN` | (Optional) For token-based authentication |
-| `ezplatform.system.<scope>.http_cache.fastly.service_id` | `fastly_service_id` | `FASTLY_SERVICE_ID` | Service ID to authenticate with Fastly |
-| `ezplatform.system.<scope>.http_cache.fastly.key` | `fastly_key` | `FASTLY_KEY` | Service key/token to authenticate with Fastly |
+| `ezplatform.system.<scope>.http_cache.purge_servers` | `purge_server` | `HTTPCACHE_PURGE_SERVER` | Array of URLs to proxies when using Varnish or Fastly (`https://api.fastly.com`). |
+| `ezplatform.system.<scope>.http_cache.varnish_invalidate_token` | `varnish_invalidate_token` | `HTTPCACHE_VARNISH_INVALIDATE_TOKEN` | (Optional) For token-based authentication. |
+| `ezplatform.system.<scope>.http_cache.fastly.service_id` | `fastly_service_id` | `FASTLY_SERVICE_ID` | Service ID to authenticate with Fastly. |
+| `ezplatform.system.<scope>.http_cache.fastly.key` | `fastly_key` | `FASTLY_KEY` | Service key/token to authenticate with Fastly. |
 
-If you need to set multiple purge servers configure them in the YAML configuration,
+If you need to set multiple purge servers, configure them in the YAML configuration, 
 instead of parameter or environment variable as they only take single string value.
 
-Example configuration for Varnish as reverse proxy, assuming [front controller has been configured](#configuring-symfony-front-controller):
+Example configuration for Varnish as reverse proxy, providing that [front controller has been configured](#configuring-symfony-front-controller):
 
 ``` yaml
 ezplatform:
@@ -218,18 +216,18 @@ ezplatform:
 
 !!! note "Invalidating Varnish cache using tokens"
 
-    In setups where the Varnish server IP can change (for example on platform.sh/Ibexa Cloud),
-    you can use token-based cache invalidation via [`ez_purge_acl`.](https://github.com/ezsystems/ezplatform-http-cache/blob/v2.1.0/docs/varnish/vcl/varnish5.vcl#L174)
+    In setups where the Varnish server IP can change (for example, on platform.sh/Ibexa Cloud),
+    you can use token-based cache invalidation through [`ez_purge_acl`](https://github.com/ezsystems/ezplatform-http-cache/blob/v2.1.0/docs/varnish/vcl/varnish5.vcl#L174).
  
-    In such a case use a strong, secure hash and make sure to keep the token secret.
+    In such situation, use strong, secure hash and make sure to keep the token secret.
 
 #### Ensure proper Captcha behavior [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-If your installation uses Varnish and you want users to be able to configure and use Captcha in their forms,
-you must enable the sending of Captcha data as a response to an Ajax request.
-Otherwise, Varnish prohibits the transfer of Captcha data to the form, and users see an empty image.
+If your installation uses Varnish and you want users to be able to configure and use Captcha in their forms, 
+you must enable sending of Captcha data as a response to an Ajax request. 
+Otherwise, Varnish does not allow for the transfer of Captcha data to the form, and as a result, users will see an empty image.
 
-To enable sending Captcha over Ajax, modify the configuration file, for example `config/packages/ezplatform.yaml`, by adding the following code:
+To enable sending Captcha over Ajax, add the following configuration to `config/packages/ezplatform.yaml`:
 
 ``` yaml
 ezplatform:
@@ -262,12 +260,12 @@ As a result, your file should be similar to [this example.](https://github.com/e
 
 For more information about configuring Captcha fields, see [Captcha field](../extending/extending_form_builder.md#captcha-field).
 
-#### Using Fastly as HttpCache proxy
+#### Use Fastly as HttpCache proxy
 
 [Fastly](https://www.fastly.com/) delivers Varnish as a CDN service and is supported with [[= product_name =]].
-See [Fastly documentation](https://docs.fastly.com/guides/basic-concepts/how-fastlys-cdn-service-works) to learn how it works.
+To learn how it works, see [Fastly documentation](https://docs.fastly.com/guides/basic-concepts/how-fastlys-cdn-service-works).
 
-##### Configuring Fastly in YML
+##### Configure Fastly in YML
 
 ``` yaml
 ezplatform:
@@ -285,9 +283,9 @@ ezplatform:
                     key: "token"
 ```
 
-##### Configuring Fastly using environment variables
+##### Configure Fastly using environment variables
 
-Example when using `.env` file:
+See the example below to configure Fastly with the `.env` file:
 
 ```
 HTTPCACHE_PURGE_TYPE="fastly"
@@ -299,24 +297,22 @@ FASTLY_SERVICE_ID="ID"
 FASTLY_KEY="token"
 ```
 
-##### Configuring Fastly on Platform.sh
+##### Configure Fastly on Platform.sh
 
-If you are using Platform.sh, it's best to configure all environment variables via [Platform.sh variables](https://docs.platform.sh/frameworks/ibexa/fastly.html).
+If you use Platform.sh, it is recommended to configure all environment variables through [Platform.sh variables](https://docs.platform.sh/frameworks/ibexa/fastly.html).
 You also need to [disable Varnish](https://docs.platform.sh/frameworks/ibexa/fastly.html#remove-varnish-configuration),
 which is enabled by default in the provided configuration for Platform.sh.
 
-##### Obtaining Fastly service ID and API token
+##### Obtain Fastly service ID and API token
 
-The service ID can be obtained by logging in to http://fastly.com and clicking **CONFIGURE** in the top menu,
-then **Show service ID** at the top left of the page.
+To obtain the service ID, log in to http://fastly.com. In the upper menu, click **CONFIGURE**. In the upper left of the page, click **Show service ID**.
 
-See [the Fastly guide](https://docs.fastly.com/guides/account-management-and-security/using-api-tokens) for
-instructions on how to generate a Fastly API token.
+For instructions on how to generate a Fastly API token, see [the Fastly guide](https://docs.fastly.com/guides/account-management-and-security/using-api-tokens).
 The token needs the `purge_select` and `purge_all` scopes.
 
 #### Examples for configuring [[= product_name =]]
 
-Below you will find the most common examples for configuring the system completely by environment variables.
+See below the most common configuration examples for the system, using environment variables.
 
 Example when using `.env` file:
 
@@ -344,11 +340,11 @@ fastcgi_param HTTPCACHE_PURGE_SERVER "http://varnish:80";
 
 Example for Platform.sh:
 
-You can configure environment variables via [Platform.sh variables.](https://docs.platform.sh/frameworks/ibexa/fastly.html)
+You can configure environment variables through [Platform.sh variables](https://docs.platform.sh/frameworks/ibexa/fastly.html).
 
 !!! tip
 
-    For HTTP cache, you'll most likely only use this for configuring Fastly for production and optionally staging,
+    For HTTP cache, you will most likely only use this for configuring Fastly for production and optionally staging,
     allowing `variables:env:` in `.platform.app.yaml` to, for example, specify Varnish or Symfony proxy as default for dev environment.
 
 ##### Example for Apache with Varnish
@@ -379,18 +375,18 @@ fastcgi_param FASTLY_SERVICE_ID "ID"
 fastcgi_param FASTLY_KEY "token"
 ```
 
-### Understanding stale cache
+### Understand stale cache
 
-Stale cache, or grace mode in Varnish, is when cache continues to be served when expired (by means of TTL or soft purge),
-or when the back-end server is not responding.
+Stale cache, or grace mode in Varnish, occurs when cache continues to be served when expired (by means of TTL or soft purge), 
+or when the back-end server does not respond.
 
-This has several benefits for high traffic installations to reduce load to the back end.
-Instead of creating several concurrent requests for the same page to the back end,
+This has several benefits for high traffic installations to reduce load to the back-end. 
+Instead of creating several concurrent requests for the same page to the back-end, 
 the following happens when a page has been soft purged:
 
-- Next request hitting the cache will trigger an asynchronous lookup to a back end.
+- Next request hitting the cache will trigger an asynchronous lookup to a back-end.
 - If cache is still within grace period, first and subsequent requests for the content are served from cache,
-and don't wait for the asynchronous lookup to finish.
+and do not wait for the asynchronous lookup to finish.
 - The back-end lookup finishes and refreshes the cache so any subsequent requests get a fresh cache.
 
 By default, [[= product_name =]] always soft purges content on reverse proxies that support it (Varnish and Fastly),
@@ -413,13 +409,13 @@ Serving grace is not always allowed by default because:
 
 ## Context-aware HTTP cache
 
-[[= product_name =]] allows caching requests made by logged-in users.
+[[= product_name =]] allows caching requests made by logged in users.
 It is called (user) context-aware cache.
 
 It means that HTTP cache is unique per set of user permissions (Roles and Limitations), 
-and there are variations of cache shared only among users that have the exact same permissions.
-So if a user is browsing a list of children Locations,
-they will only see children Locations they have access to even if their rendering is served from HTTP cache.
+and there are variations of cache shared only among users that have the exact same permissions. 
+So if a user is browsing a list of children Locations, they will only see children Locations 
+they have access to, even if their rendering is served from HTTP cache.
 
 This is accomplished by varying on a header called `X-Context-User-Hash`, which the system populates on the request.
 The [logic for this](#request-lifecycle) is accomplished in provided VCL for Varnish and Fastly.
@@ -436,12 +432,12 @@ To expand on steps covered in [FOSHttpCacheBundle documentation on user context 
 1. The caching proxy receives the hash response, copies the hash header to the client's original request for `/foo` and restarts the modified original request.
 1. If the response to `/foo` should differ per user context, the application sets a `Vary: X-Context-User-Hash` header, which will make Proxy store the variations of this cache varying on the hash value.
 
-The next time a request comes in from the same user, application lookup for the hash (step 3) does not happen,
+The next time a request comes in from the same user, application lookup for the hash (step 3) does not take place,
 as the hash lookup itself is cached by the cache proxy as described below.
 
 ##### User Context Hash caching
 
-Example of response sent to reverse proxy from `/_fos_user_context_hash` with [[[= product_name =]]'s default config](#default-options-for-foshttpcachebundle-defined-in-ez-platform):
+Example of a response sent to reverse proxy from `/_fos_user_context_hash` with [[[= product_name =]]'s default config](#default-options-for-foshttpcachebundle-defined-in-[[= product_name =]]):
 
 ```
 HTTP/1.1 200 OK
@@ -453,26 +449,27 @@ Vary: Cookie, Authorization
 
 In the example above the response is set to be cached for 10 minutes.
 It varies on the `Cookie` header in order to be able to cache it for the given user.
-For cache efficiency reasons the default VCL strips any other cookie then session cookies to make this work.
+For cache efficiency reasons, the default VCL strips any other cookie then session cookies to make this work.
 
 It also varies on `Authorization` to cover any possible basic auth headers in case that is used over sessions for some requests.
 
 !!! note "Problems with stale user hash"
 
-    If you notice issues with stale hash usage, before you disable this cache make sure login/logout always
-    generates new session IDs and performs a full redirect to make sure no requests are being made using stale
+    If you notice issues with stale hash usage, before you disable this cache, make sure login or logout always 
+    generates new session IDs and performs a full redirect to make sure no requests are being made using stale 
     user context hashes.
 
-!!! caution "Known limitations of the user context hash"
+!!! caution "Limitations of the user context hash"
 
-    If you are using URI-based SiteAccess matching on a multi-repository installation (multiple databases),
-    the default SiteAccess on the domain needs to point to the same repository (database),
-    because `/_fos_user_context_hash` is not SiteAccess-aware by default (see `ezplatform.default_router.non_siteaccess_aware_routes` parameter).
-    This in turn is because reverse proxy does not have knowledge about SiteAccesses
-    and it does not pass the whole URL in order to be able to cache the user context hash response.
+    If you use URI-based SiteAccess matching on a multi-repository installation (multiple databases), 
+    the default SiteAccess on the domain needs to point to the same repository (database), 
+    because `/_fos_user_context_hash` is not SiteAccess-aware by default (see 
+    `ezplatform.default_router.non_siteaccess_aware_routes` parameter).
+    This occurs because reverse proxy does not have knowledge about SiteAccesses 
+    and it does not pass the whole URL to be able to cache the user context hash response.
 
     The only known workaround is to make it SiteAccess aware, and have custom VCL logic tied to your SiteAccess
-    matching with Varnish/Fastly, in order to send the SiteAccess prefix as URI.
+    matching with Varnish/Fastly, to send the SiteAccess prefix as URI.
 
 ##### Default options for FOSHttpCacheBundle defined in [[= product_name =]]
 
@@ -495,7 +492,7 @@ fos_http_cache:
         session_name_prefix: eZSESSID
 ```
 
-####  Personalizing responses
+####  Personalize responses
 
 Here are some generic recommendations on how to approach personalized content with [[= product_name =]] / Symfony:
 
@@ -504,8 +501,8 @@ Here are some generic recommendations on how to approach personalized content wi
 Default VCL strips everything except session cookie, so this will effectively be cached "per user".
 If you are on single-server setup without Varnish or Fastly, you can use the same cookie logic on the web server instead.
 
-This solution is low effort, and can be good enough for one fragment that is reused across whole site,
-for instance in header to show user name.
+This a low effort solution, and can be enough for one fragment that is reused across the whole site, 
+for example, in header to show user name:
 
 Example:
 
@@ -516,9 +513,9 @@ Example:
 
 2\. Ajax/JS lookup to "uncached" custom Symfony Controller(s):
 
-This method does not consume memory in Varnish.
-It can optionally be cached with custom logic: Symfony Cache on server side and/or with client side caching techniques.
-This should be done as Ajax/JS lookup to avoid the uncached request slowing down the whole delivery of Vanish if it's done as ESI.
+This method does not consume memory in Varnish. 
+It can optionally be cached with custom logic: Symfony Cache on server side and/or with client side caching techniques. 
+This should be done as Ajax/JS lookup to avoid the uncached request slowing down the whole delivery of Vanish if it is done as ESI.
 
 This solution requires more effort depending on project requirements (traffic load, etc.).
 
@@ -526,7 +523,7 @@ This solution requires more effort depending on project requirements (traffic lo
 
 This method allows for fine-grained caching as you can explicitly vary on this in only the places that needs it.
 
-This solution requires more effort (controller, VCL logic and adapting your own code), see below for examples.
+This solution requires more effort (controller, VCL logic and adapting your own code), see the examples below.
 
 !!! tip "Dealing with paywall use cases"
 
@@ -542,15 +539,15 @@ Refer to [FOSHttpCacheBundle documentation on how user context hashes are genera
 [[= product_name =]] implements a custom context provider in order to make user context hash reflect the current User's Roles and Limitations.
 This is needed given [[= product_name =]]'s more complex permission model compared to Symfony's.
 
-You can technically extend the user context hash by [implementing your own custom context provider(s)](https://foshttpcachebundle.readthedocs.io/en/2.8.0/reference/configuration/user-context.html#custom-context-providers).
+You can technically extend the user context hash by [implementing your own custom context provider(s)](https://foshttpcachebundle.readthedocs.io/en/latest/reference/configuration/user-context.html#custom-context-providers).
 However, **this is strongly discouraged** as it means increasing the amount of cache variations
 stored in proxy for every single cache item, lowering cache hit ratio and increasing memory use.
 
-Instead, it's recommended you create your own hash header for use cases where you need it.
+Instead, you can create your own hash header for use cases where you need it. 
 This way only controllers and views that really vary by your custom logic will vary on it.
 
-There are several ways you can do this, ranging from completely custom VCL logic and dedicated controller to respond with hash
-to trusted proxy lookups, however this means additional lookups.
+You can do it using several methods, ranging from completely custom VCL logic and dedicated controller to respond with hash 
+to trusted proxy lookups, but this means additional lookups.
 
 ##### Example for custom vary by logic
 
@@ -659,21 +656,21 @@ Current content tags (and when the system purges on them):
 
 #### Troubleshooting - Cache header too long errors
 
-In case of complex content, for instance Pages with many blocks, or RichText with a lot of embeds/links,
-you can encounter problems with too long cache header on responses.
-Because of this, necessary cache entries may not be tagged properly.
+In case of complex content, for example, Pages with many blocks, or RichText with a lot of embeds/links, 
+you can encounter problems with too long cache header on responses. 
+Because of this, necessary cache entries may not be tagged properly. 
 You may also see `502 Headers too long` errors, and webserver refusing to serve the page.
 
 Here are some options on how to solve this issue:
 
-###### A. Configure  allowing larger headers
+###### A. Configure allowing larger headers
 
 Varnish configuration:
 
-- [http_resp_hdr_len](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-hdr-len) (default 8k, change to i.e. 32k)
-- [http_max_hdr](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-max-hdr) (default 64, change to i.e. 128)
-- [http_resp_size](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-size) (default 23k, change to i.e. 96k)
-- [workspace_backend](https://varnish-cache.org/docs/6.0/reference/varnishd.html#workspace-backend) (default 64k, change to i.e. 128k)
+- [http_resp_hdr_len](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-hdr-len) (default 8k, change to for example, 32k)
+- [http_max_hdr](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-max-hdr) (default 64, change to for example, 128)
+- [http_resp_size](https://varnish-cache.org/docs/6.0/reference/varnishd.html#http-resp-size) (default 23k, change to for example, 96k)
+- [workspace_backend](https://varnish-cache.org/docs/6.0/reference/varnishd.html#workspace-backend) (default 64k, change to for example, 128k)
 
 If you need to see these long headers in `varnishlog`, adapt the [vsl_reclen](https://varnish-cache.org/docs/6.0/reference/varnishd.html#vsl-reclen) setting.
 
@@ -682,7 +679,7 @@ Nginx has a default limit of 4k/8k when buffering responses:
 - For [PHP-FPM](https://www.php.net/manual/en/install.fpm.php) setup using proxy module, configure [proxy_buffer_size](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffer_size)
 - For FastCGI setup using fastcgi module, configure [fastcgi_buffer_size](https://nginx.org/en/docs/http/ngx_http_fastcgi_module.html#fastcgi_buffer_size)
 
-Fastly has a `Surrogate-Key` header limit of 16 kB, this cannot be changed.
+Fastly has a `Surrogate-Key` header limit of 16 kB, and this cannot be changed.
 
 Apache has a [hard](https://github.com/apache/httpd/blob/5f32ea94af5f1e7ea68d6fca58f0ac2478cc18c5/server/util_script.c#L495) [coded](https://github.com/apache/httpd/blob/7e2d26eac309b2d79e467ef586526c10e0f226f8/include/httpd.h#L299-L303) limit of 8 kB, so if you face this issue consider using Nginx instead.
 
@@ -692,11 +689,11 @@ Apache has a [hard](https://github.com/apache/httpd/blob/5f32ea94af5f1e7ea68d6fc
 
 - Look into how many inline (non ESI) render calls for content rendering you are doing, and see if you can organize it differently.
 - Consider inlining the views not used elsewhere in the given template and [tagging the response in Twig](#response-tagging-in-twig) with "relation" tags.
-    - Optionally, you can set reduced cache TTL for the given view in order to reduce risk of stale cache on subtree operations affecting the inlined content.
+    - (Optional) You can set reduced cache TTL for the given view, to reduce the risk of stale cache on subtree operations affecting the inlined content.
 
-2\. If that is not an option, you can opt in to set a max length parameter (in bytes) and corresponding ttl (in seconds)
-for cases when the limit is reached. The system will log a warning for cases where the limit is reached so you can optimize
-these cases as described above when needed.
+2\. You can opt in to set a max length parameter (in bytes) and corresponding ttl (in seconds) 
+for cases when the limit is reached. The system will log a warning where the limit is reached, and when needed, you can optimize 
+these cases as described above.
 
 ```yaml
 parameters:
@@ -708,7 +705,7 @@ parameters:
 
 ### Response tagging done with content view
 
-For content views response tagging is done automatically, and cache system outputs headers like the following:
+For content views response tagging is done automatically, and cache system outputs headers as follows:
 
 ```
 HTTP/1.1 200 OK
@@ -728,10 +725,24 @@ If the given content has several Locations, you can see several `l<location-id>`
 
     If that checks out, the response is adapted with the following:
     
-    - `ResponseCacheConfigurator` applies SiteAccess settings for enabled/disabled cache and default TTL
+    - `ResponseCacheConfigurator` applies SiteAccess settings for enabled/disabled cache and default TTL.
     - `DispatcherTagger` dispatches the built-in ResponseTaggers which generate the tags as described above.
 
-    Further information can be found in [`ezplatform-http-cache` docs.](https://github.com/ezsystems/ezplatform-http-cache/blob/master/docs/response_taggers.md)
+#### The ResponseConfigurator
+
+A `ReponseCacheConfigurator` configures an HTTP Response object, makes the response public, adds tags and sets the shared max age. 
+It is provided to `ReponseTaggers` that uses it to add the tags to the response.
+
+The `ConfigurableResponseCacheConfigurator` (`ezplatform.view_cache.response_configurator`) follows the `view_cache` configuration and only enables cache if it is enabled in the configuration.
+
+#### Delegator and Value taggers
+
+    - Delegator taggers - extract another value or several from the given value and pass it on to another tagger. For example, a `ContentView` is covered both by the `ContentValueViewTagger` and `LocationValueViewTagger`, where the first extracts the Content from the `ContentView` and passes it to the `ContentInfoTagger`.
+    - Value taggers - extract the `Location` and pass it on to the `LocationViewTagger`.
+
+### The DispatcherTagger
+
+Accepts any value and passes it on to every tagger registered with the service tag `ezplatform.http_response_tagger`.
 
 ### Response tagging in controllers
 
@@ -805,23 +816,23 @@ $response->headers->set('X-Location-Id', '123,212,42');
 
 ### Response tagging in templates
 
-1\. `ez_http_tag_location()`
+1\. `ez_http_cache_tag_location()`
 
 For full content tagging when inline rendering, use the following:
 
 ``` html+twig
-{{ ez_http_tag_location(location) }}
+{{ ez_http_cache_tag_location(location) }}
 ```
 
-2\. `ez_http_tag_relation_ids()` or `ez_http_tag_relation_location_ids()`
+2\. `ez_http_cache_tag_relation_ids()` or `ez_http_cache_tag_relation_location_ids()`
 
 When you want to reduce the amount of tags, or the inline content is rendered using ESI, a minimum set of tags can be set:
 
 ``` html+twig
-{{ ez_http_tag_relation_ids(content.id) }}
+{{ ez_http_cache_tag_relation_ids(content.id) }}
 
 {# Or using array for several values #}
-{{ ez_http_tag_relation_ids([field1.value.destinationContentId, field2.value.destinationContentId]) }}
+{{ ez_http_cache_tag_relation_ids([field1.value.destinationContentId, field2.value.destinationContentId]) }}
 ```
 
 3\. `{{ fos_httpcache_tag(['r33', 'r44']) }}`
@@ -835,7 +846,7 @@ As a last resort you can also use function from FOS which lets you set low level
 {{ fos_httpcache_tag(['r33', 'r44']) }}
 ```
 
-See [Tagging from Twig Templates](https://foshttpcachebundle.readthedocs.io/en/2.8.0/features/tagging.html#tagging-from-twig-templates) in FOSHttpCacheBundle documentation.
+See [Tagging from Twig Templates](https://foshttpcachebundle.readthedocs.io/en/latest/features/tagging.html#tagging-from-twig-templates) in FOSHttpCacheBundle documentation.
 
 ### Tag purging
 
@@ -880,7 +891,7 @@ $purgeClient->purgeAll();
 
 #### Purging from command line
 
-Example for purging by Location and by content ID:
+Example for purging by Location and by Content ID:
 
 ```bash
 bin/console fos:httpcache:invalidate:tag l44 c33
@@ -894,5 +905,5 @@ bin/console fos:httpcache:invalidate:tag ez-all
 
 !!! tip "Purge is done on the current Repository"
 
-    Like when purging from code, tags you purge on are prefixed to match the currently configured SiteAccess.
-    So make sure to specify SiteAccess argument when using this command in combination with multi-repository setup.
+    Similarly to purging from code, the tags you purge on, are prefixed to match the currently configured SiteAccess. 
+    When you use this command in combination with multi-repository setup, make sure to specify SiteAccess argument.
