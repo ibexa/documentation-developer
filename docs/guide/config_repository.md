@@ -130,6 +130,8 @@ metadata: Metadata
 user_data: User data
 ```
 
+In order to see your translations taking effect, you need to change your [Back Office language](back_office_translations.md#changing-back-office-languages) accordingly. 
+
 ## Limit of archived Content item versions
 
 `default_version_archive_limit` controls the number of archived versions per Content item that are stored in the Repository.
