@@ -271,11 +271,11 @@ class AlphaOnly extends Constraint
 {
     public $message = 'The attribute can only contain letters or numbers.';
 }
-``` php
+```
 
 In `src/Validator`, create a `AlphaOnly.php` class that performs the validation.
 
-```
+``` php
 namespace App\Validator;
 
 use Symfony\Component\Validator\Constraint;
