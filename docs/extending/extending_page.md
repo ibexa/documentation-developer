@@ -75,7 +75,7 @@ A block has a number of attributes, each with the following properties:
 |`name`|The displayed name for the attribute. You can omit it, block identifier will then be used as the name.|
 |`value`|The default value for the attribute.|
 |`category`|The tab where the attribute is displayed in the block edit modal.|
-|`validators`|`not_blank` and `regexp` validators are readily available. You can add [custom validators](#custom_validators), if necessary.|
+|`validators`|`not_blank` and `regexp` validators are readily available. You can add [custom validators](#custom-validators), if necessary.|
 |`options`|Additional options, dependent on the attribute type.|
 
 #### Available attribute types
