@@ -6,16 +6,18 @@
 
     For example, an editorial workflow can pass a Content item from draft stage through design and proofreading.
 
-    You can define different workflow in configuration. The workflow is permission-aware.
+    You can define different workflows in configuration. 
+    Workflows are permission-aware.
 
     ## Workflow configuration
 
     Each workflow consists of stages and transitions between them.
 
-    The following configuration defines a workflow where you can pass a draft to proofreading, and then to final approval.
+    The following configuration defines a workflow where you can pass a draft 
+    to proofreading, and then to final approval.
     The workflow is defined in the `config/packages/ezplatform.yaml` configuration file.
 
-    ``` yaml hl_lines="16 17 18 30 31 32 33 34 35 36 37"
+    ``` yaml hl_lines="17 18 19 31 32 33 34 35 36 37 38"
     ezplatform:
         system:
             # Workflow configuration is SiteAccess-aware
@@ -28,6 +30,7 @@
                             # Which Content Types can use this workflow, optional
                             content_type: article
                             # Which status of the Content item can use this workflow, optional. Available statuses are draft and published.
+                            # For the workflow to apply to either of statuses, pass an array with both options: [draft, published].
                             content_status: draft
                         # All stages the content goes through
                         stages:
@@ -66,15 +69,21 @@
                                 icon: '/bundles/ezplatformadminui/img/ez-icons.svg#comment'
     ```
 
-    Each stage in the workflow has an identifier and can be assigned a label and a color (lines 16-18).
+    Each stage in the workflow has an identifier and can be assigned a label 
+    and a color (lines 17-19).
 
-    Each transition also has an identifier. It must state between which stages it transitions, or be marked as `reverse` of a different transition.
+    Each transition also has an identifier. 
+    It must state between which stages it transitions, or be marked 
+    as `reverse` of a different transition.
     
-    Transitions can also have labels, colors, and icons (lines 33-35).
-    If you don't define a custom color for a transition, a default setting will be used (`$ez-color-base-light`, i.e. `#878787`).
+    Transitions can also have labels, colors, and icons (lines 34-36).
+    If you don't define a custom color for a transition, a default setting will 
+    be used (`$ez-color-base-light`, i.e. `#878787`).
     
-    You can require that a reviewer has to be selected when content is sent through a transition (lines 36-37).
-    The user will then not have the option to send the Content item without selecting a reviewer:
+    You can require that a reviewer has to be selected when content is sent 
+    through a transition (lines 37-38).
+    The user will then not have the option to send the Content item without 
+    electing a reviewer:
     
     ![Required reviewer option in a workflow](img/workflow_reviewers.png)
     
@@ -89,7 +98,8 @@
 
     ## Publishing content with workflow
 
-    You can automatically publish a Content item once it goes through a specific transition.
+    You can automatically publish a Content item once it goes through 
+    a specific transition.
     To do so, configure the `publish` action for the transition:
     
     ``` yaml
@@ -108,7 +118,8 @@
     
     ## Sending notifications
 
-    When an editor selects a reviewer in the Back Office, your configuration can send a notification to the reviewer:
+    When an editor selects a reviewer in the Back Office, your configuration 
+    can send a notification to the reviewer:
     
     ``` yaml
     custom_workflow:
@@ -129,15 +140,21 @@
     ## Permissions
 
     You can limit access to workflows at stage and transition level.
-    Use the `workflow/change_stage` Policy to grant a User permission to change stages in a specific workflow.
+    Use the `workflow/change_stage` Policy to grant a User permission to change 
+    stages in a specific workflow.
 
-    This Policy can be limited with the [Workflow Transition Limitation](limitation_reference.md#workflow-transition-limitation) to only allow sending content in the allowed transition.
+    This Policy can be limited with the [Workflow Transition Limitation](limitation_reference.md#workflow-transition-limitation) to only 
+    allow sending content in the allowed transition.
 
-    For example, using the example above, a `workflow/change_stage` Policy with `WorkflowTransitionLimitation` set to `To Proofreading`
-    will allow the Technical team to send content to proofreading after they are done with technical review.
+    For example, using the example above, a `workflow/change_stage` Policy with 
+    `WorkflowTransitionLimitation` set to `To Proofreading`
+    will allow the Technical team to send content to proofreading after they are 
+    done with technical review.
 
-    You can also use the [Workflow Stage Limitation](limitation_reference.md#workflow-stage-limitation) together with the `content/edit` and `content/publish` Policy to limit the ability to edit content in specific stages.
-    For example, you can use it to only allow Technical team to edit content in the `technical` stage.
+    You can also use the [Workflow Stage Limitation](limitation_reference.md#workflow-stage-limitation) together with the `content/edit` and `content/publish` Policy 
+    to limit the ability to edit content in specific stages.
+    For example, you can use it to only allow Technical team to edit content 
+    in the `technical` stage.
 
     ## Workflow service
 
@@ -152,10 +169,12 @@
 
     !!! tip
 
-        The methods `apply` and `can` are the same as in Symfony Workflow, but the implementation in Workflow Service
+        The methods `apply` and `can` are the same as in Symfony Workflow, 
+        but the implementation in Workflow Service
         extends them, for example by providing messages.
 
-    You can also use the following methods to read information about workflow from the database:
+    You can also use the following methods to read information about workflow 
+    from the database:
 
     - `loadWorkflowMetadataForContent` - reads all workflow information about a Content item (as `WorkflowMetadata`)
     - `loadWorkflowMetadataOriginatedByUser` - reads all workflow actions performed by the provided user (as `WorkflowMetadata`)
