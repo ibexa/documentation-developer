@@ -1,0 +1,12 @@
+<div class="block-contentlist {{ block_class }}">
+    <h3>{{ parentName }}</h3>
+    {% if contentArray|length > 0 %}
+        <div class="block-contentlist-items">
+            {% for content in contentArray %}
+                <div class="block-contentlist-child">
+                    <h4><a href="{{ path('ez_urlalias', {'locationId': content.location.id}) }}">{{ ez_content_name(content.content) }}</a></h4>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>

@@ -1,0 +1,11 @@
+{{ render(
+    controller(
+        "App\\Controller\\BreadcrumbController::showBreadcrumbsAction",
+        {
+            'locationId': locationId,
+        }
+    )
+) }}
+
+{% block content %}
+{% endblock %}

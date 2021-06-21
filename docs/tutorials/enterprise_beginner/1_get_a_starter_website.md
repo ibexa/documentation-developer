@@ -95,7 +95,7 @@ php bin/console cache:clear
 
 In the `src` folder create a `QueryType` subfolder and add [`QueryType/MenuQueryType.php`](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/blob/v3-step1/src/QueryType/MenuQueryType.php) to it.
 
-This file takes care of displaying the top menu (read up on it [in the documentation](../../guide/controllers.md#query-controller)).
+This file takes care of displaying the top menu (read up on it [in the documentation](../../guide/content_rendering/queries_and_controllers/content_queries.md#query-types)).
 It is not the scope of this tutorial and we won't go here into detail on how it works.
 
 This is what the structure of the new and modified files should look like (excluding pre-existing files):

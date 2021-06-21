@@ -173,7 +173,7 @@ The list of common Sort Clauses has been extended by the Random sorting option.
 
 ### Contextual Twig variables
 
-You can now create [contextual Twig variables](https://doc.ibexa.co/en/latest/guide/templates/#contextual-twig-variables) for use in templates.
+You can now create [custom Twig variables](https://doc.ibexa.co/en/latest/guide/content_rendering/templates/templates.md#custom-template-variables) for use in templates.
 They can be defined per SiteAccess, or per content view.
 
 ### Built-in Query Types
