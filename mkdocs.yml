@@ -144,13 +144,17 @@ nav:
             - 'Shop configuration': 'guide/shop_configuration.md'
         - 'Admin management': 'guide/admin_panel.md'
         - Content rendering:
-            - 'Content rendering': 'guide/content_rendering.md'
-            - 'Controllers': 'guide/controllers.md'
-            - 'Templates': 'guide/templates.md'
-            - 'Design engine': 'guide/design_engine.md'
-            - 'Page rendering': 'guide/page_rendering.md'
-            - 'Displaying Content children': 'guide/displaying_children_of_a_content_item.md'
-            - 'Retrieving root Location': 'guide/retrieving_root_location.md'
+            - Render content:
+                - 'Render content': 'guide/content_rendering/render_content/render_content.md'
+                - 'Render page': 'guide/content_rendering/render_content/render_page.md'
+                - 'Render product': 'guide/content_rendering/render_content/render_product.md'
+            - Templates:
+                - 'Templates': 'guide/content_rendering/templates/templates.md'
+                - 'Template configuration': 'guide/content_rendering/templates/template_configuration.md'
+                - 'View matcher reference': 'guide/content_rendering/templates/view_matcher_reference.md'
+                - 'Shop templates': 'guide/content_rendering/templates/overriding_shop_templates.md'
+            - 'Assets': 'guide/content_rendering/assets.md'
+            - 'Image variations': 'guide/content_rendering/image_variations.md'
             - Twig functions reference:
                 - 'Twig functions reference': 'guide/content_rendering/twig_function_reference/twig_functions_reference.md'
                 - 'Content Twig functions': 'guide/content_rendering/twig_function_reference/content_twig_functions.md'
@@ -160,14 +164,30 @@ nav:
                 - 'URL Twig functions': 'guide/content_rendering/twig_function_reference/url_twig_functions.md'
                 - 'Date Twig filters': 'guide/content_rendering/twig_function_reference/date_twig_filters.md'
                 - 'Other Twig filters': 'guide/content_rendering/twig_function_reference/other_twig_filters.md'
-            - 'Overriding shop templates': 'guide/shop_templates/overriding_shop_templates.md'
+            - 'URLs and routes': 'guide/content_rendering/urls_and_routes.md'
+            - Design engine:
+                - 'Design engine': 'guide/content_rendering/design_engine/design_engine.md'
+            - Queries and controllers:
+                - 'Content queries': 'guide/content_rendering/queries_and_controllers/content_queries.md'
+                - 'Built-in Query types': 'guide/content_rendering/queries_and_controllers/built-in_query_types.md'
+                - 'Create custom Query type': 'guide/content_rendering/queries_and_controllers/custom_query_type.md'
+                - 'Controllers': 'guide/content_rendering/queries_and_controllers/controllers.md'
+            - Embed and list content:
+                - 'List content': 'guide/content_rendering/embed_and_list_content/list_content.md'
+                - 'Embed content': 'guide/content_rendering/embed_and_list_content/embed_content.md'
+                - 'Embed product': 'guide/content_rendering/embed_and_list_content/embed_product.md'
+                - 'Render images': 'guide/content_rendering/embed_and_list_content/render_images.md'
+            - Layout:
+                - 'Add navigation menu': 'guide/content_rendering/layout/add_menu.md'
+                - 'Add search form to front page': 'guide/content_rendering/layout/add_search_form.md'
+                - 'Add breadcrumbs': 'guide/content_rendering/layout/add_breadcrumbs.md'
+                - 'Customize basket': 'guide/content_rendering/layout/customize_basket.md'
         - Content management:
             - 'Content management': 'guide/content_management.md'
             - 'Images': 'guide/images.md'
             - 'Configuring the Image Editor': 'guide/image_editor.md'
             - 'File management': 'guide/file_management.md'
             - 'URL management': 'guide/url_management.md'
-            - 'RouteReference': 'guide/routereference.md'
             - 'User-generated content': 'guide/user_generated_content.md'
             - 'Editorial workflow': 'guide/workflow.md'
         - Permissions:
@@ -487,6 +507,7 @@ nav:
             - 'Creating custom icons': 'extending/custom_icons.md'
             - 'Extending thumbnails': 'extending/extending_thumbnails.md'
             - 'Injecting custom components': 'extending/custom_components.md'
+            - 'Import assets from a bundle': 'extending/import_assets_from_bundle.md'
         - 'Extending Form Builder': 'extending/extending_form_builder.md'
         - 'Extending Workflow': 'extending/extending_workflow.md'
         - 'Extending Calendar': 'extending/customizing_calendar.md'

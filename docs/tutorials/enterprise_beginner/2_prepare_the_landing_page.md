@@ -68,7 +68,7 @@ ezplatform_page_fieldtype:
 
 !!! tip
 
-    For a detailed description of creating a Page layout, see [Page layouts](../../guide/page_rendering.md#page-layouts).
+    For a detailed description of creating a Page layout, see [Page layouts](../../guide/content_rendering/render_content/render_page.md#render-a-layout).
 
 The `sidebar` (line 3) is the internal key of the layout. `name` (line 5) is displayed in the interface when the user selects a layout.
 The `thumbnail` (line 7) points to an image file that is shown when creating a new Landing Page next to the name.

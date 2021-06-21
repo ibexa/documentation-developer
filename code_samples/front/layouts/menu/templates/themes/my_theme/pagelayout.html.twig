@@ -1,0 +1,12 @@
+{{ ez_render_content_query({
+    'query': {
+        'query_type': 'Menu',
+        'assign_results_to': 'menuItems'
+    },
+    'template': '@ezdesign/pagelayout_menu.html.twig',
+}) }}
+
+{{ knp_menu_render('root') }}
+
+{% block content %}
+{% endblock %}

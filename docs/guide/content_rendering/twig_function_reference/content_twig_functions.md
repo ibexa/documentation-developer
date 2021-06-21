@@ -25,7 +25,7 @@ You can provide `ez_render()` with either a Content item or a Location object.
 |------|------|------|
 |`content`</br>or</br>`location`|`eZ\Publish\API\Repository\Values\Content\Content`</br>or</br>`eZ\Publish\API\Repository\Values\Content\Location`|Content item or its Location.|
 |`method`|`string`|(optional) [Rendering method](#rendering-methods). One of: `direct`, `inline`, `esi`, `ssi`.|
-|`viewType`|`string`|(optional) [View type](../../templates.md#full-line-and-other-views).|
+|`viewType`|`string`|(optional) [View type](../templates/template_configuration.md#view-types).|
 
 #### Rendering methods
 
@@ -69,15 +69,19 @@ the function returns the name in the main language.
 
 ### `ez_render_content_query()`
 
-`ez_render_content_query` renders the results of a [non-content related query made by using a Query Type](../../templates.md#non-content-related-query-types).
+`ez_render_content_query` renders the results of a non-content related query made by using a Query type.
 
 |Argument|Type|Description|
 |------|------|------|
 |`options`|array|Available options are: `query`, `pagination`, `template`.|
 
+!!! tip
+
+    For an example of using `ez_render_content_query`, see [Add navigation menu](../layout/add_menu.md#render-menu-using-a-query).
+
 ### `ez_render_location_query()`
 
-`ez_render_location_query` renders the results of a [non-content related Location query made by using a Query Type](../../templates.md#non-content-related-query-types).
+`ez_render_location_query` renders the results of a non-content related Location query made by using a Query type.
 
 |Argument|Type|Description|
 |------|------|------|
