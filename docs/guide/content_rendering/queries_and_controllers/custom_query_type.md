@@ -32,11 +32,14 @@ See [Content search](../../../api/public_php_api_search.md) for more information
 and [Search reference](../../search/search_criteria_reference.md) for a reference of available Criteria and Sort Clauses.
 
 The `getSupportedParameters()` method provides the parameters you can set in content view configuration.
-To have more control over the details of parameters, use the [Options resolver-based Query type](#options-resolver-based-query-type).
 
 ``` php
 [[= include_file('code_samples/front/custom_query_type/src/QueryType/LatestContentQueryType.php', 31, 35) =]]
 ```
+
+!!! note
+
+    To have more control over the details of parameters, use the [Options resolver-based Query type](#options-resolver-based-query-type).
 
 Then, in the content view configuration, indicate that the content view should use the custom Query type:
 

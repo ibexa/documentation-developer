@@ -40,7 +40,7 @@ and provide the name of the asset entry you configured in `webpack.config.js`, f
     After you add the asset files, clear the cache and run `yarn encore <dev|prod>`.
 
 To include a single asset file in your template, for example an image,
-use the Twig [`asset()`](https://symfony.com/doc/current/reference/twig_reference.html#asset) function:
+use the [`asset()`](https://symfony.com/doc/current/reference/twig_reference.html#asset) Twig function:
 
 ``` html+twig
 <img src="{{ asset('assets/images/logo.png') }}">
