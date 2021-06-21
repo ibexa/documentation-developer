@@ -75,7 +75,7 @@ A block has a number of attributes, each with the following properties:
 |`name`|The displayed name for the attribute. You can omit it, block identifier will then be used as the name.|
 |`value`|The default value for the attribute.|
 |`category`|The tab where the attribute is displayed in the block edit modal.|
-|`validators`|Available validators are `not_blank` and `regexp`.|
+|`validators`|`not_blank` and `regexp` validators are readily available. You can add [custom validators](#custom-validators), if necessary.|
 |`options`|Additional options, dependent on the attribute type.|
 
 #### Available attribute types
@@ -252,6 +252,88 @@ ezplatform_page_fieldtype:
                     type: my_string
                     name: MyString
 
+```
+
+#### Custom validators
+
+Data passed through page blocks may need to be validated.
+You can create Page block attributes with custom validators.
+
+First, create classes that support your intended method of validation.
+For example, in `src/Validator`, create a `AlphaOnly.php` file.
+
+``` php
+namespace App\Validator;
+
+use Symfony\Component\Validator\Constraint;
+
+class AlphaOnly extends Constraint
+{
+    public $message = 'The attribute can only contain letters or numbers.';
+}
+```
+
+In `src/Validator`, create a `AlphaOnlyValidator.php` class that performs the validation.
+
+``` php
+namespace App\Validator;
+
+use Symfony\Component\Validator\Constraint;
+use Symfony\Component\Validator\ConstraintValidator;
+use Symfony\Component\Validator\Exception\UnexpectedTypeException;
+use Symfony\Component\Validator\Exception\UnexpectedValueException;
+
+class AlphaOnlyValidator extends ConstraintValidator
+{
+    public function validate($value, Constraint $constraint)
+    {
+        if (!$constraint instanceof AlphaOnly) {
+            throw new UnexpectedTypeException($constraint, AlphaOnly::class);
+        }
+
+        // Your constraint can ignore null and empty values. There are other
+        // constraints (NotBlank, NotNull, etc.) that can take care of that.
+        if (null === $value || '' === $value) {
+            return;
+        }
+
+        if (!is_string($value)) {
+            // Throw this exception if your constraint cannot handle the passed type.
+            throw new UnexpectedValueException($value, 'string');
+        }
+
+        if (!preg_match('/^[a-zA-Z]+$/', $value, $matches)) {
+            // The argument must be a string or an object implementing __toString()
+            $this->context->buildViolation($constraint->message)
+                ->setParameter('{{ string }}', $value)
+                ->addViolation();
+        }
+    }
+}
+```
+
+Then, in `config/packages/ezplatform.yaml` add a new validator to the configuration:
+
+``` yaml
+ezplatform_page_fieldtype:
+  block_validators:
+    my_custom_validator: 'App\Validator\AlphaOnly'
+```
+
+Finally, in `config/packages/ezplatform_page_fieldtype.yaml` add the following code under the `blocks` key:
+
+``` yaml
+ezplatform_page_fieldtype:
+    blocks:
+        my_block:
+            # ...
+            attributes:
+                my_text_attribute:
+                    type: text
+                    name: My text attribute
+                    validators:
+                        my_custom_validator:
+                            message: Please provide a proper value
 ```
 
 ## Overwriting existing blocks

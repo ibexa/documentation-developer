@@ -44,11 +44,8 @@
 !!! note
 
     `ez_urlalias` is a not a Twig function, but a special route name.
-    Use `ez_urlalias` as a parameter with [Symfony `path` Twig function](https://symfony.com/doc/current/reference/twig_reference.html#path).
 
-``` html+twig
-{{ path( "ez_urlalias", { 'locationId': content.contentInfo.mainLocationId } ) }}
-```
+For more information about the use of `ez_urlalias` as a parameter of the [Symfony `path` Twig function](https://symfony.com/doc/current/reference/twig_reference.html#path), see [Links to other locations](../../templates.md#links-to-other-locations).
 
 ### `ez_route()`
 

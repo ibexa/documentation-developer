@@ -64,7 +64,7 @@ $(document).ready(function() {
 
     // Add version pill to top of navigation
     $('#site-name').append('<span class="pill">' + branchName + '</span>');
-    
+
     $('.rst-current-version.switcher__label').html(branchName);
 
     // Change navigation icons on onclick
@@ -76,13 +76,13 @@ $(document).ready(function() {
     var update = setInterval(function() {
         if ($('.injected .rst-versions').length) {
             clearInterval(update);
-            var version = $('.rst-other-versions strong dd a').text();
+            var version = $('.rst-other-versions dd.rtd-current-item a').text();
             $('.rst-current-version span:first').html(' ' + (version != '' ? version : 'Change version'));
             $('.rst-other-versions').html($('.injected dl:first').clone());
             $('.injected').remove();
 
             //replace url in version switcher
-            var currentVersion = $('.rst-other-versions strong dd a').attr('href'),
+            var currentVersion = $('.rst-other-versions dd.rtd-current-item a').attr('href'),
                 resourceUrl = document.location.href.replace(currentVersion, '');
 
             $('.rst-other-versions dd a').each(function() {
