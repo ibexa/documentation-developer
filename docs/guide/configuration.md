@@ -15,7 +15,7 @@ Configuration is provided per package in the `config/packages` folder,
 and routes are defined per package in `config/routes`.
 
 `config/packages/ezplatform.yaml` contains basic configuration (coming from [ezplatform-kernel](https://github.com/ezsystems/ezplatform-kernel)).
-It stores, among others, [SiteAccess](siteaccess.md) information and content view config.
+It stores, among others, [SiteAccess](multisite/multisite.md) information and content view config.
 
 Other configuration is provided in respective files, e.g. `config/packages/ezplatform_admin_ui.yaml`,
 `config/packages/ezplatform_http_cache.yaml`.
@@ -43,7 +43,7 @@ Keys are usually prefixed by a *namespace* corresponding to your application. Al
 For configuration that is meant to be exposed to an end-user (or end-developer),
 it's usually a good idea to also [implement semantic configuration.](https://symfony.com/doc/5.0/components/config/definition.html)
 
-Note that you can also [implement SiteAccess-aware semantic configuration](siteaccess.md#exposing-siteaccess-aware-configuration-for-your-bundle).
+Note that you can also [implement SiteAccess-aware semantic configuration](multisite/siteaccess_aware_configuration.md).
 
 For example:
 
@@ -68,8 +68,7 @@ For specific configuration settings, see:
 - [Back Office configuration](config_back_office.md)
 - [Repository configuration](config_repository.md)
 - [Content views](content_rendering/templates/template_configuration.md)
-- [Multisite](multisite.md#configuring-multisite)
-- [SiteAccess](siteaccess.md#configuring-siteaccesses)
+- [Multisite configuration](multisite/multisite_configuration.md)
 - [Image variations](images.md#configuring-image-variations)
 - [Logging and debug](devops.md#logging-and-debug-configuration)
 - [Authentication](security.md#symfony-authentication)

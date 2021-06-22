@@ -46,7 +46,7 @@ $myParamSettingAdmin = $configResolver->getParameter( 'my_param', 'myapp', 'admi
 
 !!! tip
 
-    To learn more about scopes, see [SiteAccess documentation](siteaccess.md#scope).
+    To learn more about scopes, see [SiteAccess documentation](multisite/multisite_configuration.md#scope).
 
 Both `getParameter()` and `hasParameter()` can take three arguments:
 

@@ -37,7 +37,7 @@ If you do not have a language defined in the browser, it will be selected based 
 To read more about language managing in [[= product_name =]], see the following doc pages:
 
 - [Back Office languages](../guide/internationalization/#back-office-languages)
-- [Multi-language SiteAccesses and corresponding translations](../guide/multi_language_siteaccesses.md)
+- [Multi-language SiteAccesses and corresponding translations](../guide/multisite/set_up_translation_siteaccess.md)
 
 #### How can I apply patches to the installation?
 

@@ -40,6 +40,25 @@ ezplatform:
             # ...
 ```
 
+#### Multisite URI matching with multi-Repository setup
+
+You can use only one Repository (database) per domain.
+This does not prohibit using [different Repositories](persistence_cache.md#multi-repository-setup) on different subdomains.
+However, when using URI matching for multisite setup, all SiteAccesses sharing domain also need to share Repository.
+For example:
+
+- `ibexa.co` domain can use `ibexa_repo`
+- `doc.ibexa.co` domain can use `doc_repo`
+
+But the following configuration would be invalid:
+
+- `ibexa.co` domain can use `ibexa_repo`
+- `ibexa.co/doc` **cannot** use `doc_repo`, as it is under the same domain.
+
+Invalid configuration will cause problems for different parts of the system,
+for example back-end UI, REST interface and other non-SiteAccess-aware Symfony routes
+such as `/_fos_user_context_hash` used by [HTTP cache](http_cache.md).
+
 ### Defining custom connection
 
 You can also explicitly define a custom Repository connection:
