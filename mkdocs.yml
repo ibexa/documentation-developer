@@ -179,7 +179,6 @@ nav:
                 - 'Render images': 'guide/content_rendering/embed_and_list_content/render_images.md'
             - Layout:
                 - 'Add navigation menu': 'guide/content_rendering/layout/add_menu.md'
-                - 'Add search form to front page': 'guide/content_rendering/layout/add_search_form.md'
                 - 'Add breadcrumbs': 'guide/content_rendering/layout/add_breadcrumbs.md'
                 - 'Customize basket': 'guide/content_rendering/layout/customize_basket.md'
         - Content management:
