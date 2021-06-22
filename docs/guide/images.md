@@ -214,7 +214,12 @@ Until the full support for this MIME type is in place, you can work things aroun
     SVG images may contain JavaScript, so they may introduce XSS or other security vulnerabilities.
     Make sure end users are not allowed to upload SVG images, and be restrictive about which editors are allowed to do so.
 
-First, you add a proper rule in the `config/routes.yaml` file:
+First, enable adding SVG files to content by removing them from the blacklist of allowed MIME types.
+
+To do it, comment out the relevant line under `ezsettings.default.io.file_storage.file_type_blacklist`
+in `EzPublishCoreBundle/Resources/config/default_settings.yml`.
+
+Then, add a download route to the `config/routes.yaml` file:
 
 ```yaml
 app.svg_download:
@@ -369,16 +374,6 @@ class SvgExtension extends AbstractExtension
         ]);
     }
 }
-```
-
-Next, you configure the extension within the `config/services.yaml` file:
-
-```yaml
-services:
-    # ...
-    App\Twig\SvgExtension:
-        autowire: true
-        autoconfigure: true
 ```
 
 Now you can load SVG files in your templates by using generated links and a newly created Twig helper:
