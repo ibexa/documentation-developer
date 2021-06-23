@@ -21,7 +21,7 @@ You can use the [`ez_route()`](twig_function_reference/url_twig_functions.md#ez_
 to create a RouteReference object based on the provided information.
 
 A RouteReference contains a route with its parameters and can be modified after it is created.
-Here, a route is based on the ID of the Location.
+Here, the route is based on the ID of the Location.
 
 ``` html+twig
 {% set routeReference = ez_route("ez_urlalias", { 'locationId': 2 }) %}
