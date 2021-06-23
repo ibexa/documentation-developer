@@ -1,5 +1,23 @@
 # File Management
 
+## Accessing binary files
+
+To access binary files from the PHP API, use the `eZ\Publish\Core\IO\IOServiceInterface::loadBinaryFile()` method:
+
+```php
+use eZ\Publish\Core\IO\IOServiceInterface;
+
+class FileController
+{
+    //...
+
+    $file = $this->ioService->loadBinaryFile($field->value->id);
+    $fileContent = $this->ioService->getFileContents($file);
+    
+    // ...
+}
+```
+
 ## Handling binary files
 
 [[= product_name =]] supports multiple binary file handling mechanisms by means of an `IOHandler` interface. This feature is used by the [BinaryFile](../api/field_types_reference/binaryfilefield.md), [Media](../api/field_types_reference/mediafield.md) and [Image](../api/field_types_reference/imagefield.md) Field Types.
