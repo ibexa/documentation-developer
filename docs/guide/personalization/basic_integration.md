@@ -62,7 +62,7 @@ foreach ($just_bought_products as $product_id) {
 
 ## Embedding recommendations
 
-As soon as the recommendation engine collects enough events, it can generate recommendations.
+As soon as the Personalization server collects enough events, it can generate recommendations.
 The more tracking data is available, the more accurate the recommendations.
 Recommendations can be fetched with the following calls, and the response is returned in JSON format.
 

@@ -1,9 +1,9 @@
 # Content API
 
-Apart from the [events](https://doc.ibexa.co/projects/userguide/en/latest/personalization/event_types) 
-collected by the recommendation client, the recommendation engine can use external information 
-about the products.
-This information must be uploaded to the recommendation engine by the administrator of the website.
+Apart from the [events](https://doc.ibexa.co/projects/userguide/en/latest/personalization/event_types) collected by the recommendation client, 
+the Personalization server can use external information about the products.
+This information must be uploaded to the Personalization server by the administrator 
+of the website.
 
 The following information can be loaded to the recommendation solution:
 
@@ -23,11 +23,13 @@ You can use HTTP methods to create, update or retrieve items that are in the dat
 
     For getting or posting content data, basic authentication is enabled by default.
     Use your customer ID and license key as username and password. 
-    If authentication is enabled for recommendation requests and you want to change this, contact support@ibexa.co.
+    If authentication is enabled for recommendation requests and you want to change 
+    this, contact support@ibexa.co.
 
 ## GET requests
 
-Use the GET method to retrieve all information that is stored in the database for the given item ID:
+Use the GET method to retrieve all information that is stored in the database 
+for the given item ID:
 
 `GET: https://admin.yoochoose.net/api/[customerid]/item/[itemtypeid]/[itemid]`
 
@@ -38,7 +40,8 @@ Use the POST request to create or update items with the given ID in the database
 `POST: https://admin.yoochoose.net/api/[customerid]/item`
 
 A body of the request must contain a valid XML document.
-Once uploaded, the item is scheduled to be inserted in the database, and it is not directly available.
+Once uploaded, the item is scheduled to be inserted in the database, and it 
+is not directly available.
 
 ## DELETE requests
 
@@ -97,7 +100,8 @@ An XML representation of the data object used for item import can look like this
 
 !!! note "XML schema definition"
 
-    The current schema that is used for interpreting the XML objects can be seen [here](https://admin.yoochoose.net/api/00000/item/schema.xsd).
+    The current schema that is used for interpreting the XML objects 
+    can be seen [here](https://admin.yoochoose.net/api/00000/item/schema.xsd).
 
 The following keys and attributes used in the XML object are available:
 
@@ -119,27 +123,31 @@ The following keys and attributes used in the XML object are available:
 
 ##### Currency
 
-If the currency does not have a fractional unit, the main unit is used, for example 12 for 12 Japanese Yen.
+If the currency does not have a fractional unit, the main unit is used, 
+for example 12 for 12 Japanese Yen.
 To check whether the currency has fractional units, see the [ISO 4217 standard](https://en.wikipedia.org/wiki/ISO_4217#cite_note-ReferenceA-6).
 
 ##### Validity
 
- Items with defined validity are recommended only in the specified timeframe. 
- Values in the `validto` and `validfrom` attributes must follow the [XSD format](https://www.w3.org/TR/xmlschema-2/#dateTime) and do not include the time zone. 
+Items with defined validity are recommended only in the specified timeframe. 
+Values in the `validto` and `validfrom` attributes must follow the [XSD format](https://www.w3.org/TR/xmlschema-2/#dateTime) 
+and do not include the time zone. 
 Time zone is always your time zone.
 
 ##### Category path
 
-With the data import interface, you can upload information about the paths to categories 
-in which the product is located.
+With the data import interface, you can upload information about the paths 
+to categories in which the product is located.
 However, the category path can be also updated as a result of the "Click" events.
-If you regularly upload product data, the "Click" event cannot contain the category path information.
+If you regularly upload product data, the "Click" event cannot contain the category 
+path information.
 Otherwise, the following negative side effects occur:
 
 - Every new category path attached to the "Click" event is appended to a list of the categories of the product
 - Imported product data overwrites the collected category paths
 
-For example, when a product that is originally located under `Garden` is clicked in the "Hot Sellers" section, the category path `TopSeller` is sent.
+For example, when a product that is originally located under `Garden` is clicked 
+in the "Hot Sellers" section, the category path `TopSeller` is sent.
 
 #### Content items/products with no attributes
 
@@ -147,7 +155,7 @@ All the elements and attributes except the `type` and `id` are optional.
 You can therefore upload a product without any additional information.
 You do it, for example, when a random recommendation model is used 
 or you want to want to apply ad-hoc boosting and filtering of recommendations.
-As a result, the recommendation engine randomly recommends the imported items/products.
+As a result, the Personalization server randomly recommends the imported items/products.
 This can prove useful for a news agency, where new items are published very often.
 
 #### Free-form data
@@ -164,8 +172,8 @@ By default, it is assumed that every attribute is of type "NOMINAL", which means
 there is a limited set of values, and values of an attribute are treated as distinct 
 when calculating the results of a content-based model.
 
-If you have an attribute that is of type "NUMERIC", and you add another attribute of the same type, 
-the recommendation engine treats the two values as a range.
+If you have an attribute that is of type "NUMERIC", and you add another attribute 
+of the same type, the Personalization server treats the two values as a range.
 
 ``` xml
 <attribute key="size" value="4" type="NUMERIC" />
@@ -200,9 +208,10 @@ The following HTTP response codes are used by the recommendation controller:
 ## Transferring item identifiers
 
 You could use the data import interface to help migrate the database, 
-when it involves changing item IDs of items that are supported by the recommendation engine.
-If you transfer items from one ID to another, you can use the events recorded for "old" item IDs 
-to calculate model results that present "new" IDs.
+when it involves changing item IDs of items that are supported by the 
+Personalization server.
+If you transfer items from one ID to another, you can use the events recorded 
+for "old" item IDs to calculate model results that present "new" IDs.
 
 Use the following method to pass the XML object:
 
@@ -223,5 +232,6 @@ The old item is wiped, including all attributes.
 
 !!! note
 
-    The attributes of the "old" item ID are not moved or merged, and if you rely on attributes, 
-    for example, for filtering based on prices, you must reimport the new item.
+    The attributes of the "old" item ID are not moved or merged, and if you 
+    rely on attributes, for example, for filtering based on prices, 
+    you must reimport the new item.

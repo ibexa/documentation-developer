@@ -2,26 +2,34 @@
 
 !!! caution
 
-    This is a page describing the old version of the recommendation API. It is available for reference purposes only.
+    This is a page describing the old version of the recommendation API. 
+    It is available for reference purposes only.
 
-    Please consider using the new [Recommendation API](recommendation_api.md) instead!
+    Use the new [Recommendation API](recommendation_api.md) instead!
 
-This page describes how to fetch recommendations from the Recommender System via recommendation requests.
-Before recommendation can be fetched from the recommendation controller, a sufficient number of events must be collected and the model build must finish successfully.
+This page describes how to fetch recommendations from the Recommender System through
+recommendation requests.
+Before recommendation can be fetched from the recommendation controller, a sufficient 
+number of events must be collected and the model build must finish successfully.
 
 !!! note
 
-    **BASIC Authentication** for fetching recommendations is enabled for some configurations (for example for Gambio Plugin) by default.
+    **BASIC Authentication** for fetching recommendations is enabled for some 
+    configurations (for example for Gambio Plugin) by default.
     Use the customerid as username and the license key as password.
-    The license key is displayed in the upper right in the Admin GUI ([https://admin.yoochoose.net](https://admin.yoochoose.net/)) after logging with your registration credentials.
+    The license key is displayed in the upper right in the [Admin GUI](https://admin.yoochoose.net/)) 
+    after you log in with your registration credentials.
 
-    If you plan to use [JSONP](https://en.wikipedia.org/wiki/JSONP), authentication must be disabled.
+    If you plan to use [JSONP](https://en.wikipedia.org/wiki/JSONP), authentication 
+    must be disabled.
     If it is enabled in your solution (can be easily tested with a recommendation request in a browser), please contact the eZ Recommender support (<support@yoochoose.com>) for further information and disabling.
 
 ## Getting recommendations
 
-Recommendations are retrieved from the recommendation engine via RESTful requests using the GET method.
-The result is a list of item IDs that can be used to call the underlying CMS or shop system in order to retrieve the necessary information for the rendering process.
+Recommendations are retrieved from the Personalization server with RESTful requests 
+by using the GET method.
+The result is a list of item IDs that can be used to call the underlying CMS 
+or shop system, to retrieve the necessary information for the rendering process.
 
 To allow the customer to retrieve different types of recommendations based on different methods (e.g. Collaborative Filtering, Content Based, Stereotype, etc.) the Recommendation System uses scenario IDs relating to a predefined set of configurations inside the system.
 These configurations are a combination of methods and filters that should be applied including possible fallbacks if the requested methods do not deliver a result.
@@ -117,7 +125,7 @@ Example XML response:
 </list>
 ```
 
-The "reason" field string tells the user out of which model the recommendations were provided. The models are preconfigured by the Recommendation Engine.
+The "reason" field string tells the user out of which model the recommendations were provided. The models are preconfigured by the Personalization server.
 For example "*CF\_I2I (context: ITEMS(s))*" means that the model which provides the recommendation is "Collaborative Filtering based on an Item to Item similarity" with the given context item as input.
 The human readable explanation is (in this case) "Users who bought this item also bought these items".
 

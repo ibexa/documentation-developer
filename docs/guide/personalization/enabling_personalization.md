@@ -19,6 +19,22 @@ RECOMMENDATION_CUSTOMER_ID=12345
 RECOMMENDATION_LICENSE_KEY=67890-1234-5678-90123-4567
 ```
 
+!!! note "Configuring user credentials for different customers"
+
+    If your installation [supports multiple sites](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#multiple-stores) with different customer IDs, for 
+    example, to provide separate recommendations for different language versions 
+    of the store, you can store all credentials in the same file:
+    
+    ```
+    # Main credentials - ENU store
+    RECOMMENDATION_CUSTOMER_ID=12345
+    RECOMMENDATION_LICENSE_KEY=67890-1234-5678-90123-4567
+
+    # Additional credentials - FRA store 
+    FRA_CUSTOMER_ID=54321
+    FRA_LICENSE_KEY=09876-5432-1098-7654-3210
+    ```
+
 ## Configuring event tracking
 
 Next, you must [configure the recommendation client](recommendation_client.md#configuration) 

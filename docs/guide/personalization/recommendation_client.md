@@ -2,9 +2,9 @@
 
 The [`ezrecommentation-client`](https://github.com/ezsystems/ezrecommendation-client) package 
 adds a personalization solution to [[= product_name =]] and communicates with 
-the server that runs the recommendation engine.
+the Personalization server.
 
-Its job is to track the way visitors use your website and recommends content 
+The client's job is to track the way visitors use the website and recommend content 
 based on their behavior.
 
 Once you become familiar with this article, for more information about integrating 
@@ -14,46 +14,66 @@ the Personalization service, see [Developer guide](developer_guide/tracking_api.
 
 Before you can use the Personalization service, you must configure the client.
 
-### Set up Content Type tracking
+### Set up item type tracking
 
 For the recommendations to be calculated, apart from visitor events (CLICK, BUY, etc.), 
-the Recommendation engine must be fed with the list of Content Types that are tracked.
+the Personalization server must be fed with the list of item types that are tracked.
 
-You define Content Types to be tracked in the `config/packages/ezplatform.yaml` file.
+You define item types to be tracked in the `config/packages/ezplatform.yaml` file.
 The content is then initially exported by a script.
 After this, it is synchronized with the Personalization service every time a change 
 occurs in the Back Office.
 
-The client's configuration is SiteAccess-aware, and can resemble the following example:
+The client's configuration is SiteAccess-aware.
+If your installation [supports multiple sites](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#multiple-stores) with different customer IDs, 
+for example, to provide separate recommendations for different language versions 
+of the site, provide the credentials that correspond to each of the sites.
+
+The client's configuration can resemble the following example:
 
 ``` yaml
 ezrecommendation:
     system:
-        <siteaccess>:
+        <site_access_name_1>:
+            site_name: '<site_name_1>' # For example 'ENU store'
             authentication:
-                customer_id: 12345
-                license_key: 1234-5678-9012-3456-7890
-            included_content_types: [blog, article]
-            random_content_types: [blog]
+                customer_id: `'%env(RECOMMENDATION_CUSTOMER_ID)%'`
+                license_key: `'%env(RECOMMENDATION_LICENSE_KEY)%'`
+            included_item_types: [product, article]
+            random_item_types: [blog]
+            host_uri: http://example.com
+
+        <site_access_name_1>:
+            site_name: '<site_name_2>' # For example 'ENU store'
+            authentication:
+                customer_id: `'%env(FRA_CUSTOMER_ID)%'`
+                license_key: `'%env(FRA_LICENSE_KEY)%'`
+            included_item_types: [product, article]
+            random_item_types: [blog]
             host_uri: http://example.com
 ```
 
-!!! tip
+!!! note "User credential variables"
 
-    It is recommended that you provide your `host_uri`, `customer_id` and 
-    `license_key` through environment variables: `'%env()%'`.
+    For security reasons, [store the authentication credentials in the ENV file](enabling_personalization.md#setting-up-customer-credentials), 
+    and do not commit them to the Version Control System.
+    Then, use environment variables to pull them into the YAML file.
 
 | Parameter                            | Description                                               |
 |--------------------------------------|-----------------------------------------------------------|
 | `authentication.customer_id`         | Your customer ID.                                         |
 | `authentication.license_key`         | Your license key.                                         |
 | `host_uri`                           | The URI your site's REST API can be accessed from.        |
-| `included_content_types`             | A list of alphanumerical identifiers of Content Types on which the tracking script is shown. |
-| `random_content_types`               | A list of alphanumerical identifiers of Content Types that are returned when the response from the server contains no content. |
+| `included_item_types`             | A list of alphanumerical identifiers of item types on which the tracking script is shown. |
+| `random_item_types`               | A list of alphanumerical identifiers of item types that are returned when the response from the server contains no content. |
+
+#### Configure multiple customer IDs
+
+ :
 
 #### Advanced configuration
 
-If the Content item's intro, author or image are stored in a different Field,
+If the item's intro, author or image are stored in a different Field,
 you can specify its name in the `ezplatform.yaml` file:
 
 ``` yaml
@@ -69,10 +89,10 @@ ezrecommendation:
                         blog_post: author
                         article: authors
                     image:
-                        <content_type_name>: <field_name>
+                        <item_type_name>: <field_name>
 ```
 
-In case a content owner ID is missing, you can set up the default content author in the `default_settings.yaml` file:
+In case a item owner ID is missing, you can set up the default item author in the `default_settings.yaml` file:
 
 ``` yaml
 ezrecommendation:
@@ -81,7 +101,7 @@ ezrecommendation:
             author_id: 14   # ID: 14 is default ID of admin user
 ```
 
-You can edit advanced options for the Recommendation engine using the following settings:
+You can edit advanced options for the Personalization server by using the following settings:
 
 ``` yaml
 ezrecommendation:
@@ -102,7 +122,7 @@ ezrecommendation:
 
 !!! caution
 
-    Changing any of these parameters without a valid reason breaks all calls to the Recommendation engine.
+    Changing any of these parameters without a valid reason breaks all calls to the Personalization server.
 
 #### Enable tracking
 
@@ -141,7 +161,7 @@ Accept application/vnd.ez.api.Content+json
 Authorization Basic xxxxxxxx
 ```
 
-The `content` endpoint returns one Content item and the `contenttypes` endpoint returns many.
+The `content` endpoint returns one item and the `contenttypes` endpoint returns many.
 
 ``` json
 {
@@ -184,50 +204,50 @@ The `content` endpoint returns one Content item and the `contenttypes` endpoint 
 }
 ```
 
-## Exporting content information
+## Exporting item information
 
-To get recommendations you must first export the content information to the Recommendation engine.
+To get recommendations you must first export the item information to the Personalization server.
 
-After you [define Content Types to be tracked and recommended](#set-up-content-type-tracking),
+After you [define item types to be tracked and recommended](#set-up-content-type-tracking),
 start the full export.
-You do it either with the `ibexa:recommendation:run-export` command...
+You do it with the `ibexa:recommendation:run-export` command:
 
 ``` bash
 php bin/console ibexa:recommendation:run-export
-    --contentTypeIdList=<contentTypeId>,<contentTypeId>
-    --webHook=https://admin.yoochoose.net/api/<your_customer_id>/items
-    --hidden=1 --mandatorId=<your_customer_id>
-    --host=<your_ezplatform_host_with_scheme>
+    --contentTypeIdList=<item_type>,<item_type>
+    --siteaccess=<site_access_name>
+    --customerId=<customer_id>
+    --licenseKey=<license_key>
 ```
 
-... or by accessing the `http://<yourdomain>/api/ezp/v2/ez_recommendation/` endpoint:
+If your installation supports multiple SiteAccesses with different customer IDs, 
+you must run the export separately for each of the `<site_access_name>`/`<customer_id>` pairs.
 
-```
-http://<yourdomain>/api/ezp/v2/ez_recommendation/v1/runExport/<contentTypeIdList>?webHook=<webhook>&customerId=<customerId>&licenseKey=<licenseKey>&host=<host>
-```
-
-The bundle exporter collects all content related to the SiteAccesses of this `customerID` and stores it in files (1).
-After finishing, the systems sends a POST request to the `webHook` endpoint and informs the Recommendation engine to fetch new content (2).
-An internal workflow is then triggered (3) so that the generated files are downloaded (4) and imported in the Recommendation engine's content store (5).
+The bundle exporter collects all content related to the `<site_access_name>`/`<customer_id>` 
+pair and stores it in files.
+After finishing, the systems sends a POST request to the endpoint and informs the 
+Personalization server to fetch new content.
+An internal workflow is then triggered, so that the generated files are downloaded 
+and imported in the Personalization server's content store.
 
 The export process can take several minutes.
 
 ![Recommendation Full Content Export](img/full_content_export.png)
 
-!!! caution "Re-exporting modified Content Types"
+!!! caution "Re-exporting modified item types"
 
-    If the Content Types to be recommended change, you must perform a new full export
+    If the item types to be recommended change, you must perform a new full export
     by running the `php bin/console ibexa:recommendation:run-export` command again.
 
 ### Checking export results
 
-There are three ways to check whether content was transferred and stored successfully in the Recommendation engine:
+There are three ways to check whether content was transferred and stored successfully in the Personalization server:
 
 #### REST request to the client's content store
 
-To get the content of an imported item you can request the following REST resource:
+To get the data of an imported item you can request the following REST resource:
 
-`GET https://admin.yoochoose.net/api/<your_customer_id>/item/<your_content_type_id>/<your_content_id>`
+`GET https://admin.yoochoose.net/api/<your_customer_id>/item/<your_item_type_id>/<your_item_id>`
 
 This way requires BASIC Auth. BASIC Auth username is the `customerID` and the password is the license key.
 
@@ -280,25 +300,30 @@ In the Back Office, navigate to **Personalization** > **Import** and review a li
 
 ### Subsequent content exports
 
-The Recommendation engine is automatically kept in sync with the content in [[= product_name =]].
+The Personalization server is automatically kept in sync with the content in [[= product_name =]].
 
-Every time an editor creates, updates or deletes content in the Back Office (1),
-a notification is sent to https://admin.yoochoose.net (2).
-The personalization service also notifies other components of the Recommendation engine (3)
-and it eventually fetches the affected content (4) and updates it internally (5).
+Every time an editor creates, updates or deletes content in the Back Office,
+a notification is sent to https://admin.yoochoose.net.
+The personalization service also notifies other components of the Personalization server
+and it eventually fetches the affected content and updates it internally.
 
-![Subsequent Content exports](img/incremental_content_export.png)
+![Subsequent content exports](img/incremental_content_export.png)
 
 ## Displaying recommendations
 
 !!! note "Client-based recommendations"
 
-    Recommendations are fetched and rendered asynchronously in the client, so there is no additional load on the server.
-    Therefore, it is crucial that you check whether the content export was successful, because certain references, for example, deeplinks and image references, are included.
-    If the export fails, the Recommendation engine does not have full content information.
-    As a result, even if the recommendations are displayed, they might miss images, titles or deeplinks.
+    Recommendations are fetched and rendered asynchronously in the client, so there 
+    is no additional load on the server.
+    Therefore, it is crucial that you check whether the content export was successful, 
+    because certain references, for example, deeplinks and image references, are 
+    included.
+    If the export fails, the Personalization server does not have full content information.
+    As a result, even if the recommendations are displayed, they might miss images, 
+    titles or deeplinks.
 
-To display recommendations on your site, you must add the following JavaScript assets to your header template:
+To display recommendations on your site, you must add the following JavaScript assets 
+to your header template:
 
 ``` html+twig
 {% javascripts
@@ -323,7 +348,8 @@ render_esi(controller('ez_recommendation::showRecommendationsAction', {
 
 !!! tip
 
-    To check whether tracking is enabled on the front end, use the `ez_recommendation_enabled()` Twig function.
+    To check whether tracking is enabled on the front end, use the 
+    `ez_recommendation_enabled()` Twig function.
     You can wrap the call to the `RecommendationController` with:
 
     ``` html+twig
@@ -340,10 +366,10 @@ render_esi(controller('ez_recommendation::showRecommendationsAction', {
 |------------------|--------|---------------|
 | `contextItems`   | int    | ID of the content you want to get recommendations for. |
 | `scenario`       | string | Scenario used to display recommendations. You can create custom scenarios in the Back Office. |
-| `outputTypeId`   | string | Content Type you are expecting in response, for example, `blog_post`. |
+| `outputTypeId`   | string | Item type that you expect in response, for example, `blog_post`. |
 | `limit`          | int    | Number of recommendations to fetch. |
 | `template`       | string | Template name. |
-| `attributes`     | array  | Fields that are required and are requested from the Recommendation engine. These Field names are also used inside Handlebars templates. |
+| `attributes`     | array  | Fields that are required and are requested from the Personalization server. These Field names are also used inside Handlebars templates. |
 
 You can also bypass named arguments with standard value passing as arguments.
 
@@ -354,13 +380,14 @@ You can also bypass named arguments with standard value passing as arguments.
 
     `{% include 'EzRecommendationClientBundle::event_tracking.html.twig' %}`.
 
-Recommendation responses contain all content data that is requested as attribute in the recommendation call.
+Recommendation responses contain all content data that is requested as attribute 
+in the recommendation call.
 This response data can be used in templates to render and style recommendations.
 
 For example, the following GET request should deliver the response below
 if the content Fields were previously exported by the export script.
 
-`GET https://reco.yoochoose.net/api/v2/<your_customer_id>/someuser/popular.json?contextitems=71&numrecs=5&categorypath=/&outputtypeid=<your_content_type>&attribute=name,author,uri,image`
+`GET https://reco.yoochoose.net/api/v2/<your_customer_id>/someuser/popular.json?contextitems=71&numrecs=5&categorypath=/&outputtypeid=<your_item_type>&attribute=name,author,uri,image`
 
 ??? note "Example response"
 
@@ -453,7 +480,8 @@ if the content Fields were previously exported by the export script.
 
 ### Modifying recommendation data
 
-You can retrieve data returned from the recommendation engine and modify it before it is shown to the user.
+You can retrieve data returned from the Personalization server and modify it 
+before it is shown to the user.
 
 To modify recommendation data, subscribe to `RecommendationResponseEvent`.
 See [`Event/Subscriber/RecommendationEventSubscriber.php`](https://github.com/ezsystems/ezrecommendation-client/blob/master/src/lib/Event/Subscriber/RecommendationEventSubscriber.php) for example:
@@ -467,7 +495,8 @@ public static function getSubscribedEvents(): array
 }
 ```
 
-The `-10` refers to priority, which must be negative so this action is performed before the main subscriber is run.
+The `-10` refers to priority, which must be negative so this action is performed 
+before the main subscriber is run.
 
 ### Image variations
 
@@ -476,7 +505,8 @@ Displaying image variations is not readily supported yet.
 You can work around this limitation by creating a template
 (based on [recommendations.html.twig](https://github.com/ezsystems/ezrecommendation-client/blob/master/src/bundle/Resources/views/recommendations.html.twig)).
 
-To access a specific image variation through API, add the `image` parameter to the request URL with the name of the variation as its value.
+To access a specific image variation through API, add the `image` parameter to the 
+request URL with the name of the variation as its value.
 For example, to retrieve the `rss` variation of the image, use:
 
 `/api/ezp/v2/ez_recommendation/v1/contenttypes/16?lang=eng-GB&fields=title,description,image,intro,name&page=1&page_size=20&image=rss`
