@@ -13,8 +13,6 @@ The communication covers, among other things, product and customer data, price a
 |Orders|Address data, Delivery address, products and customer number|When the customer makes an order, the order is sent immediately to the ERP system. If electronic payment is involved, the order is placed when the payment provider acknowledges the transaction.|
 |Documents|Invoices, orders, delivery notes, credit memos|The order history feature requests such documents in real time from the ERP. This ensures that the customer sees all documents even if they placed the order by phone or fax.|
 
-[[= product_name_com =]] offers out-of-the-box interface and connector for the Microsoft Dynamics ERP.
-
 ## ERP configuration
 
 To connect your shop to ERP, configure the following [ERP settings](../shop_configuration.md#erp) in the Back Office:
