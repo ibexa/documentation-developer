@@ -112,24 +112,7 @@ Note that the Field Type must take care on its own for being compliant with diff
 
 In order to allow the usage of a Field Type that uses external data with different data storages, it is recommended to implement a gateway infrastructure and a registry for the gateways. To make this easier, the Core implementation of Field Types provides corresponding interfaces and base classes. They can also be used for custom Field Types.
 
-The interface `eZ\Publish\Core\FieldType\StorageGateway` is implemented by gateways, in order to be handled correctly by the registry. It has one method:
-
-|Method|Description|
-|------|-----------|
-|`setConnection()`|The registry mechanism uses this method to set the SPI storage connection (e.g. the database connection to the Legacy Storage database) into the gateway, which might be used to store external data. The connection is retrieved from the `$context` array automatically by the registry.|
-
-Note that the Gateway implementation itself must take care of validating that it received a usable connection. If it does not, it should throw a `RuntimeException`.
-
-The registry mechanism is realized as a base class for `FieldStorage` implementations: `eZ\Publish\Core\FieldType\GatewayBasedStorage`. For managing `StorageGateway`s, the following methods are already implemented in the base class:
-
-|Method|Description|
-|------|-----------|
-|`addGateway()`|Allows the registration of additional `StorageGateway`s from the outside. Furthermore, an associative array of `StorageGateway`s can be given to the constructor for basic initialization. This array should originate from the dependency injection mechanism.|
-|`getGateway()`|This protected method is used by the implementation to retrieve the correct `StorageGateway` for the current context.|
-
-!!! tip
-
-    Refer to the built-in Keyword, URL and User Field Types for usages of such infrastructure.
+The class `eZ\Publish\SPI\FieldType\StorageGateway` is extended by gateways, in order to be handled correctly by the registry.
 
 ### Registering external storage
 
