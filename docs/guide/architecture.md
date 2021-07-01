@@ -6,7 +6,7 @@ The structure of an [[= product_name =]] app is based on the Symfony framework
 but content management functions rely on the Public API.
 Other applications integrate with [[= product_name =]] via REST API, which also relies on the Public API.
 
-![Architecture](img/ez_platform_architecture.png "Architecture")
+![Architecture](img/architecture.png "Architecture")
 
 The architecture of [[= product_name =]] is layered and uses clearly defined APIs between the layers.
 
