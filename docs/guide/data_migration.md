@@ -325,14 +325,6 @@ You can find which migration steps support actions in the table below:
 |`content`|&#10004;|||
 |`content_type`||&#10004;||
 |`role`|&#10004;|&#10004;||
-|`content_type_group`||||
-|`user`||||
-|`user_group`||||
-|`language`||||
-|`object_state_group`||||
-|`object_state`||||
-|`section`||||
-|`location`||||
 
 Actions are optional operations that can be run after the main "body" of a migration has been executed
 (that is, content has been created / updated, Object state has been added, and so on).
