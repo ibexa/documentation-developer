@@ -317,7 +317,23 @@ If you do not specify the output directory, the command overwrites the input fil
 
 ## Actions
 
-Some migrations contain a special `actions` property.
+Some migration steps can contain a special `actions` property.
+You can find which migration steps support actions in the table below:
+
+||`create`|`update`|`delete`|
+|---|:---:|:---:|:---:|
+|`content`|&#10004;|||
+|`content_type`||&#10004;||
+|`role`|&#10004;|&#10004;||
+|`content_type_group`||||
+|`user`||||
+|`user_group`||||
+|`language`||||
+|`object_state_group`||||
+|`object_state`||||
+|`section`||||
+|`location`||||
+
 Actions are optional operations that can be run after the main "body" of a migration has been executed
 (that is, content has been created / updated, Object state has been added, and so on).
 Their purpose is to allow additional operations to be performed as part of this particular migration.
