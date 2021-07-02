@@ -497,6 +497,7 @@ nav:
     - Extending Ibexa DXP:
         - Extending Back Office:
             - 'Extending Back Office': 'extending/extending_back_office.md'
+            - 'Reusable Back Office templates': 'extending/reusable_back_office_templates.md'
             - 'Extending Dashboard': 'extending/extending_dashboard.md'
             - 'Extending Menus': 'extending/extending_menus.md'
             - 'Extending tabs': 'extending/extending_tabs.md'
