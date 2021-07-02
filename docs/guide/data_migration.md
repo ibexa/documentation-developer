@@ -514,6 +514,17 @@ final class AssignContentTypeGroupActionDenormalizer extends AbstractActionDenor
 
 ```
 
+Then the action denormalizer needs to be tagged to be recognized by serializer used for migrations.
+
+``` yaml
+services:
+    Ibexa\Platform\Bundle\Migration\Serializer\Denormalizer\ContentType\Action\AssignContentTypeGroupActionDenormalizer:
+        # Autoconfigure set to false will prevent this normalizer from being registered in your application's serializer
+        autoconfigure: false
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer' }
+```
+
 And finally, add an executor to perform the action.
 
 The executor has to be tagged with `ibexa.migrations.executor.action.<type>` tag, where `<type>` is the "type" of the step
