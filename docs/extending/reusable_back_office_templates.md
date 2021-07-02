@@ -38,10 +38,45 @@ The tabs component supports the following variables:
 - `tab_content_class` - additional CSS classes attached to `.tab-content`
 - `tab_content_attributes` - additional HTML attributes added to `.tab-content`
 
-To use the components, either `embed` or `include` them in templates, for example:
+To use the components, either [`embed`](https://twig.symfony.com/doc/3.x/tags/embed.html)
+or [`include`](https://twig.symfony.com/doc/3.x/tags/include.html) them in templates.
+
+Using `embed` enables you to override blocks defined inside the included template, for example:
 
 ``` html+twig
 {% embed '@ezdesign/ui/component/table/table.html.twig' %}
+    {% block headline %}
+        Headline
+    {% endblock %}
+
+    {% block actions %}
+        <a href="#" class="btn btn-icon">
+            <svg class="ibexa-icon ibexa-icon--small ibexa-icon--create">
+                <use xlink:href="{{ ez_icon_path('create') }}"></use>
+            </svg>
+        </a>
+    {% endblock %}
+    
+    {% block thead %}
+        <tr>
+            <th></th>
+            <th>Column A</th>
+            <th>Column B</th>
+            <th>Column C</th>
+        </tr>
+    {% endblock %}
+
+    {% block tbody %}
+        {% for i in 1..10 %}
+            <tr>
+                <td></td>
+                <td>A{{ i }}</td>
+                <td>B{{ i }}</td>
+                <td>C{{ i }}</td>
+            </tr>
+        {% endfor %}
+    {% endblock %}
+{% endembed %}
 ```
 
 Use `include` instead of `embed` when you pass tab content as variable while rendering the template:
