@@ -50,9 +50,9 @@ In the example above, the Media and Images folders will be accessible using thei
 
     Leading slashes (`/`) are automatically trimmed internally, so they can be ignored.
 
-## Configuration example
+### Configuration example
 
-To see how multisite can be used, let's look at an example of two sites using the same [[= product_name =]] instance: a general company site and a site for a specific event.
+To see how multisite can be used, look at an example of two sites using the same [[= product_name =]] instance: a general company site and a site for a specific event.
 Separate SiteAccesses are set up for the two sites:
 
 ``` yaml
@@ -112,6 +112,12 @@ ezplatform:
 ```
 
 If not specified, the `index_page` is the configured content root.
+
+!!! tip "Separate recommendations for different sites"
+
+    If you use the [Personalization service](personalization/personalization.md) to provide 
+    recommendations to users of your sites, you can configure the service to [return 
+    separate recommendations for each of the SiteAccesses](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#support-for-multiple-websites).
 
 ## Multisite with multiple Repositories
 

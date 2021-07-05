@@ -21,6 +21,12 @@ Typical uses of a SiteAccess are:
 
     If you need to change between SiteAccesses in Site mode, do not use any functions in the page itself (for example, a language switcher). This may cause unexpected errors. Instead, switch between SiteAccesses using the SiteAccess bar above the page.
 
+!!! tip "Separate recommendations for different SiteAccesses"
+
+    If you use the [Personalization service](personalization/personalization.md) to provide 
+    recommendations to users of your sites, you can configure the service to [return 
+    separate recommendations for each of the SiteAccesses](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#support-for-multiple-websites).
+
 #### `admin` SiteAccess
 
 The back-office UI of [[= product_name =]] is housed in a predefined `admin` SiteAccess in `admin_group`.

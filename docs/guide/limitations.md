@@ -10,7 +10,7 @@ Limitations consist of two parts:
 - `LimitationType`
 
 Certain Limitations also serve as Role Limitations, which means they can be used to limit the rights of a Role assignment.
-Currently this covers [Subtree of Location](limitation_reference.md#subtree-of-location-limitation) and [Section](limitation_reference.md#section-limitation) Limitations.
+Currently this covers [Subtree of Location](limitation_reference.md#subtree-of-location-limitation), [Section](limitation_reference.md#section-limitation) and [Personalization access](limitation_reference.md#personalization-access) Limitations.
 
 `Limitation` represents the value, while `LimitationType` deals with the business logic surrounding how it actually works and is enforced.
 `LimitationTypes` have two modes of operation in regards to permission logic (see [`eZ\Publish\SPI\Limitation\Type`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/SPI/Limitation/Type.php) interface for more info):
@@ -167,6 +167,16 @@ Beyond that the following Limitations are available:
 `workflow/change_stage`:
 
 - [Workflow Transition](limitation_reference.md#workflow-transition-limitation)
+
+#### Personalization
+
+`personalization/view`:
+
+- [Personalization access](limitation_reference.md#personalization-access)
+
+`personalization/edit`:
+
+- [Personalization access](limitation_reference.md#personalization-access)
 
 #### Segment
 
