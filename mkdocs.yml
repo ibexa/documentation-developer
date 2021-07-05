@@ -182,6 +182,8 @@ nav:
                 - 'Add navigation menu': 'guide/content_rendering/layout/add_menu.md'
                 - 'Add search form to front page': 'guide/content_rendering/layout/add_search_form.md'
                 - 'Add breadcrumbs': 'guide/content_rendering/layout/add_breadcrumbs.md'
+                - 'Add user registration form': 'guide/content_rendering/layout/add_register_user_template.md'
+                - 'Add forget password option': 'guide/content_rendering/layout/add_forgot_password.md'
                 - 'Customize basket': 'guide/content_rendering/layout/customize_basket.md'
         - Content management:
             - 'Content management': 'guide/content_management.md'
