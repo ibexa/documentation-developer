@@ -522,7 +522,7 @@ final class AssignContentTypeGroupActionDenormalizer extends AbstractActionDenor
 
 ```
 
-Then the action denormalizer needs to be tagged to be recognized by serializer used for migrations.
+Then, tag the action denormalizer so it is recognized by the serializer used for migrations.
 
 ``` yaml
 services:
