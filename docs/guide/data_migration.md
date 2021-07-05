@@ -527,7 +527,7 @@ Then, tag the action denormalizer so it is recognized by the serializer used for
 ``` yaml
 services:
     Ibexa\Platform\Bundle\Migration\Serializer\Denormalizer\ContentType\Action\AssignContentTypeGroupActionDenormalizer:
-        # Autoconfigure set to false will prevent this normalizer from being registered in your application's serializer
+        # Make sure to set autoconfigure to false, otherwise this normalizer will be registered in your application's main serializer
         autoconfigure: false
         tags:
             - { name: 'ibexa.migrations.serializer.normalizer' }
