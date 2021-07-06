@@ -192,7 +192,7 @@ The URL to track user clicks has the following format:
 
 |Name|Description|Values|
 |---|---|---|
-|`customerid`|Your customer ID (for example "00000").|alphanumeric|
+|`customerid`|A customer ID (for example "00000"). Can be used to identify a website in installations that [supports multiple SiteAccesses](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#support-for-multiple-websites).|alphanumeric|
 |userid|A user's ID on the website of the customer. It could be an internal customer code, a session code or a cookie for anonymous users.|URL-encoded alphanumeric|
 |`itemtypeid`|Item type ID.|1 to 2147483647|
 |`itemid`|A unique ID of the item the user has clicked.</br>String-based identifiers are also supported as item IDs to track content on a website, but it is discouraged due to fraud and security issues. If you are unable to provide numeric identifiers for the tracking process, contact Ibexa for further information and implementation notes.|1 to 2147483647|

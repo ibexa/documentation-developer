@@ -61,15 +61,11 @@ ezrecommendation:
 
 | Parameter                            | Description                                               |
 |--------------------------------------|-----------------------------------------------------------|
-| `authentication.customer_id`         | Your customer ID.                                         |
-| `authentication.license_key`         | Your license key.                                         |
+| `authentication.customer_id`         | A customer ID related to the supported SiteAccess.                                         |
+| `authentication.license_key`         | The Personalization service's license key.                                         |
 | `host_uri`                           | The URI your site's REST API can be accessed from.        |
 | `included_item_types`             | A list of alphanumerical identifiers of item types on which the tracking script is shown. |
 | `random_item_types`               | A list of alphanumerical identifiers of item types that are returned when the response from the server contains no content. |
-
-#### Configure multiple customer IDs
-
- :
 
 #### Advanced configuration
 

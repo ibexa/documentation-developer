@@ -57,7 +57,7 @@ The following call attributes are available:
 
 | Parameter name | Description | Value |
 |---|---|---|
-| `customerid` | Your customer ID, as defined when [enabling Personalization](../enabling_personalization.md#configuring-customer-credentials) (for example, "00000"). | alphanumeric |
+| `customerid` |A customer ID (for example "00000"), as defined when [enabling Personalization](../enabling_personalization.md#configuring-customer-credentials). Can be used to identify a website in installations that [supports multiple SiteAccesses](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#support-for-multiple-websites).| alphanumeric |
 | `itemid` | A unique ID of the Content item/product. Used to identify the item in the database. | integer |
 | `itemtypeid` | An ID of the type of Content item/product. In most cases, the value is 1 but you might have items/products of more than one type. | integer |
 | `lang` | A [language code](../../internationalization.md) of the Content item/product (for example, "ger-DE"). This parameter is optional. | string |
