@@ -56,7 +56,8 @@ All User Groups and Users can be accessed in the Admin panel by selecting Users.
 
 Registration form for your website is placed under this address: <yourdomain>/register.
 By default, new Users created in this way are placed in the Guest accounts group.
-If you want to give your users possibility to register themselves follow a tutorial on [enabling account registration](user_generated_content/#registering-new-users).
+To give your users a possibility to register themselves, follow the instructions 
+on [enabling account registration](../tutorials/platform_beginner/8_enable_account_registration.md).
 
 ## Roles
 
