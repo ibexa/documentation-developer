@@ -136,7 +136,7 @@ Place the following code snippet in the `<head>` section of your header template
 
     For more information about tracking in general, see [Tracking API](developer_guide/tracking_api.md) and [Tracking with yct.js](developer_guide/tracking_with_yct.md).
 
-### Checking whether the bundle provides REST data
+### Check whether the bundle provides REST data
 
 You can verify the import controller of the bundle by calling the local API.
 Use the `Accept` header; you may need to add an `Authorization` header if authentication is required.
@@ -200,7 +200,7 @@ The `content` endpoint returns one item and the `contenttypes` endpoint returns 
 }
 ```
 
-## Exporting item information
+## Export item information
 
 To get recommendations you must first export the item information to the Personalization server.
 
@@ -235,7 +235,7 @@ The export process can take several minutes.
     If the item types to be recommended change, you must perform a new full export
     by running the `php bin/console ibexa:recommendation:run-export` command again.
 
-### Checking export results
+### Check export results
 
 There are three ways to check whether content was transferred and stored successfully in the Personalization server:
 
@@ -305,7 +305,7 @@ and it eventually fetches the affected content and updates it internally.
 
 ![Subsequent content exports](img/incremental_content_export.png)
 
-## Displaying recommendations
+## Display recommendations
 
 !!! note "Client-based recommendations"
 
@@ -474,7 +474,7 @@ if the content Fields were previously exported by the export script.
     }
     ```
 
-### Modifying recommendation data
+### Modify recommendation data
 
 You can retrieve data returned from the Personalization server and modify it 
 before it is shown to the user.

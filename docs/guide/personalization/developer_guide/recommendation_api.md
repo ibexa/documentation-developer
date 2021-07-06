@@ -46,7 +46,8 @@ For example, you can send the following request to the Personalization server: 
 
 The request fetches 8 recommendations for user ID `john.doe`, who is viewing item 123 
 and the category `/Camera/Compact`, based on the scenario with the identifier `landing_page`. 
-The recommendation response uses the JSON format and should include values of `title`, `deeplink` and `description` attributes.
+The recommendation response uses the JSON format and should include values of 
+`title`, `deeplink` and `description` attributes.
 
 You can use the following parameters to customize a request:
 
@@ -73,7 +74,7 @@ For more information, see [Submodels](https://doc.ibexa.co/projects/userguide/en
 |attribute key|`&color=red`|Applicable if a submodel with the same name and value is configured.|string|
 |`userattribute`|gender|If defined, the Personalization server tries to find the attribute value for the current user and, if found, "prefers" recommendations that are typically followed by users with the same value of the attribute. The default value is null.|string, csv list|
 
-## Response handling
+## Handle responses
 
 The recommendation request returns information about the currently used context 
 items and an array of recommendation objects in JSON or JSONP format. 
@@ -232,7 +233,7 @@ Error messages can change, do not use them for automated processing.
     can also fetch data used for rendering (for example "title", "description" 
     or "deeplink") from the recommendation response.
 
-## Recommendation caching
+## Cache recommendations
 
 In most cases the Personalization server's response can be cached. 
 Depending on the recommendation model and context, it can drastically reduce 

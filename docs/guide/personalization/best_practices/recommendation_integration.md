@@ -13,7 +13,7 @@ of the recommendation request.
 If the network is overloaded or the Personalization server is not available 
 it can lock the request.
 
-## Loading in the bottom
+## Load in the bottom
 
 You can place the code that loads the data from the eZ Recommender at the bottom 
 of the generated document and flush the output buffer to the client 
@@ -33,14 +33,14 @@ The page generation and the recommendation requests are accomplished in parallel
 By combining this idea with the previous solution and placing the recommendation 
 results at the bottom of the page you can avoid any interruption in the processing.
 
-## Loading from JavaScript using JSONP
+## Load from JavaScript using JSONP
 
 You can't request the recommendation controller server directly from the JavaScript 
 (over AJAX library or directly over XMLHttpRequest) because of the cross-domain 
 restriction in most browsers. 
 One of the possible ways to work around this limitation is JSONP.
 
-## Loading over proxy
+## Load over proxy
 
 A better solution than JSONP is to provide the proxy on the server side, which 
 forwards script requests to the Personalization service. 

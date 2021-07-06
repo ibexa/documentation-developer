@@ -163,7 +163,7 @@ Multiple category locations of an item (multi-homing) are therefore possible.
     Category path is required by default, contact Ibexa to change the default 
     configuration.
 
-## Tracking events
+## Track events
 
 !!! note
 
@@ -363,7 +363,7 @@ The format of the URL is:
 
 There are no query string parameters for this event. 
 
-## Tracking events based on recommendations
+## Track events based on recommendations
 
 Tracking events based on integrated recommendations are the only way to measure 
 success of recommendations. 

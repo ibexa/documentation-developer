@@ -71,7 +71,7 @@ For example:
 | `Customer<12.2014>` | `Customer%3C12.2014%3E` | `Customer&lt;12.2014&gt;` |
 
 
-## Response handling
+## Handle responses
 
 ### Response object format
 
