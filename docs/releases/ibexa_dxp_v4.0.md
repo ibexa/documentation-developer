@@ -27,6 +27,13 @@ For more information, see [Support for multiple websites](https://doc.ibexa.co/p
 
 Lorem ipsum
 
+### Migration API
+
+You can now manage [data migrations](../guide/data_migration.md) by using the PHP API,
+including getting migration information and running individual migration files.
+
+See [Managing migrations](../api/public_php_api_managing_migrations.md) for more information.
+
 ## Deprecations
 
 ### Code cleanup results
