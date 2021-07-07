@@ -61,6 +61,20 @@ system:
                                     label: Custom
 ```
 
+### Image quality
+
+You can configure the quality of the images modified in the Image Editor with the following configuration.
+
+The setting accepts values between 0 and 1, which corresponds to the compression level, with 0 being the strongest compression.
+The default quality is 0.92:
+
+``` yaml
+system:
+    <scope>:
+        image_editor:
+            image_quality: 0.8
+```
+
 ### Additional information
 
 Each image can be accompanied by additional information that is not visible to the user.

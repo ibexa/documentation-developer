@@ -133,7 +133,7 @@ By convention, your block must be named `<fieldTypeIdentifier>_field`.
     Template blocks for built-in Field Types are available in
     [`EzPublishCoreBundle/Resources/views/content_fields.html.twig`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig).
 
-    This template is also exposed as a part of Standard Design, so you can override it by [eZ Design Engine](../guide/design_engine.md).
+    This template is also exposed as a part of Standard Design, so you can override it with the [design engine](../guide/content_rendering/design_engine/design_engine.md).
     To do so, place the template `themes/standard/content_fields.html.twig` in your `Resources/views`
     (assuming `ez_platform_standard_design.override_kernel_templates` is set to true).
 
@@ -162,7 +162,7 @@ You can for example use `simple_block_field`, `simple_inline_field` or `field_at
 
 ### Registering your template
 
-If you don't use [eZ Design Engine](../guide/design_engine.md) or you want to have separate templates per Field Type and/or SiteAccess,
+If you don't use the [design engine](../guide/content_rendering/design_engine/design_engine.md) or you want to have separate templates per Field Type and/or SiteAccess,
 you can register a template with the following configuration:
 
 ``` yaml

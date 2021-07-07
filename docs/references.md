@@ -10,10 +10,10 @@
 ## Content model and rendering
 
 - [Twig functions](guide/content_rendering/twig_function_reference/twig_functions_reference.md)
-- [Twig helpers list](guide/content_rendering.md#twig-helper)
+- [Template variables](guide/content_rendering/templates/templates.md#template-variables)
 - [Image variation filters](guide/images.md#available-filters)
 - [SiteAccess matchers](guide/siteaccess_matching.md#available-matchers)
-- [View matchers](guide/content_rendering.md#available-matchers)
+- [View matcher reference](guide/content_rendering/templates/view_matcher_reference.md)
 
 ## Permissions
 

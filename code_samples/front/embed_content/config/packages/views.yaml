@@ -1,0 +1,30 @@
+ezdesign:
+    design_list:
+        my_design: [ my_theme ]
+
+ezplatform:
+    system:
+        site_group:
+            design: my_design
+            content_view:
+                full:
+                    blog_post:
+                        controller: ez_query::contentQueryAction
+                        template: '@ezdesign/full/blog_post.html.twig'
+                        params:
+                            query:
+                                query_type: 'Siblings'
+                                parameters:
+                                    content: '@=content'
+                                    limit: 3
+                                    sort: 'date_published desc'
+                                assign_results_to: items
+                        match:
+                            Identifier\ContentType: blog_post
+                    article:
+                        controller: App\Controller\RelationController::showContentAction
+                        template: '@ezdesign/full/article.html.twig'
+                        params:
+                            accepted_content_types: [ 'article', 'test_target', 'test_source' ]
+                        match:
+                            Identifier\ContentType: article

@@ -59,7 +59,7 @@ You can now use the following new PHP API methods:
 
 ### Query Field Location handling
 
-The [Query Field Type](https://doc.ibexa.co/en/3.3/guide/controllers/#content-query-field-type) now enables getting results for the current Location of a Content item.
+The [Query Field Type](https://doc.ibexa.co/en/3.3/guide/content_rendering/queries_and_controllers/content_queries.md#content-query-field-type) now enables getting results for the current Location of a Content item.
 
 ## Deprecations
 

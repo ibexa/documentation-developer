@@ -1,0 +1,23 @@
+ezdesign:
+    design_list:
+        my_design: [my_theme, eshop_base_theme, eshop_ui_base_theme, transaction_theme, checkout_base_theme]
+    templates_theme_paths:
+        eshop_base_theme:
+            - '%kernel.project_dir%/vendor/ezsystems/ezcommerce-shop/src/Silversolutions/Bundle/EshopBundle/Resources/views'
+        eshop_ui_base_theme:
+            - '%kernel.project_dir%/vendor/ezsystems/ezcommerce-shop-ui/src/bundle/Resources/views/themes/standard'
+        checkout_base_theme:
+            - '%kernel.project_dir%/vendor/ezsystems/ezcommerce-checkout/src/bundle/Resources/views/themes/standard/'
+        transaction_theme:
+            - '%kernel.project_dir%/vendor/ezsystems/ezcommerce-transaction/src/Siso/Bundle/ShopFrontendBundle/Resources/views/themes/standard/'
+
+ezplatform:
+    system:
+        site:
+            design: my_design
+            content_view:
+                embed:
+                    product_card:
+                        template: '@ezdesign/embed/product_card.html.twig'
+                        match:
+                            Identifier\ContentType: 'ses_product'

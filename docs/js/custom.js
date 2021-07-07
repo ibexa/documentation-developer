@@ -23,48 +23,9 @@ $(document).ready(function() {
         branchName = 'master';
     }
 
-    if (typeof window.doc_version_warning !== 'undefined') {
-        var doc_version_warning = window.doc_version_warning,
-            warningMessage = '';
-
-        if ($.inArray(branchName, doc_version_warning.previous_lts) !== -1) {
-            warningMessage =
-                'You are viewing documentation for an older Long-Term Support release. The latest LTS release is <span class="version">' +
-                doc_version_warning.lts[0] +
-                '</span>.';
-        }
-
-        if ($.inArray(branchName, doc_version_warning.ft) !== -1) {
-            warningMessage =
-                'You are viewing documentation for an older Fast Track release. The latest release is <span class="version">' +
-                doc_version_warning.latest[0] +
-                '</span>.';
-        }
-
-        if ($.inArray(branchName, doc_version_warning.dev) !== -1) {
-            warningMessage =
-                'You are viewing documentation for a development version. The latest stable release is <span class="version">' +
-                doc_version_warning.latest[0] +
-                '</span>.';
-        }
-
-        if (warningMessage) {
-            $('article').prepend(
-                $(
-                    '<div class="md-typeset admonition caution version-warning"> ' +
-                        '<p class="admonition-title">Version warning</p> ' +
-                        '<p> ' +
-                        warningMessage +
-                        '</p>' +
-                        '</div>'
-                )
-            );
-        }
-    }
-
     // Add version pill to top of navigation
     $('#site-name').append('<span class="pill">' + branchName + '</span>');
-    
+
     $('.rst-current-version.switcher__label').html(branchName);
 
     // Change navigation icons on onclick
@@ -76,13 +37,13 @@ $(document).ready(function() {
     var update = setInterval(function() {
         if ($('.injected .rst-versions').length) {
             clearInterval(update);
-            var version = $('.rst-other-versions strong dd a').text();
+            var version = $('.rst-other-versions dd.rtd-current-item a').text();
             $('.rst-current-version span:first').html(' ' + (version != '' ? version : 'Change version'));
             $('.rst-other-versions').html($('.injected dl:first').clone());
             $('.injected').remove();
 
             //replace url in version switcher
-            var currentVersion = $('.rst-other-versions strong dd a').attr('href'),
+            var currentVersion = $('.rst-other-versions dd.rtd-current-item a').attr('href'),
                 resourceUrl = document.location.href.replace(currentVersion, '');
 
             $('.rst-other-versions dd a').each(function() {

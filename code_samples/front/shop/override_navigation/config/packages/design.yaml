@@ -1,9 +1,11 @@
 ezdesign:
     design_list:
-        my_shop: [my_shop_theme, transaction_theme, eshop_base_theme, checkout_base_theme]
+        my_design: [my_theme, eshop_base_theme, eshop_ui_base_theme, transaction_theme, checkout_base_theme]
     templates_theme_paths:
         eshop_base_theme:
             - '%kernel.project_dir%/vendor/ezsystems/ezcommerce-shop/src/Silversolutions/Bundle/EshopBundle/Resources/views'
+        eshop_ui_base_theme:
+            - '%kernel.project_dir%/vendor/ezsystems/ezcommerce-shop-ui/src/bundle/Resources/views/themes/standard'
         checkout_base_theme:
             - '%kernel.project_dir%/vendor/ezsystems/ezcommerce-checkout/src/bundle/Resources/views/themes/standard/'
         transaction_theme:

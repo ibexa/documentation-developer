@@ -300,8 +300,7 @@ final class LoginFormViewSubscriber implements EventSubscriberInterface
 }
 ```
 
-In the provided example, in line 23, the `PRE_CONTENT_VIEW` event is used
-(for details, see [eZ Publish Core events](../content_rendering.md#ez-publish-core)).
+In the provided example, in line 23, the `PRE_CONTENT_VIEW` event is used.
 You can also pass additional parameters to the view (line 35).
 In this case, at the instance of exception (line 40), the subscriber displays the `expired_credentials.html.twig` template (line 42).
 

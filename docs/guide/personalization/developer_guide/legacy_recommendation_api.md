@@ -69,7 +69,7 @@ The result can be easily integrated into any webpage by using some lines of scri
 
 !!! tip
 
-    See the [Quickstart Guide](../personalization_quickstart.md) for a simple example written in PHP.
+    See the [Quickstart Guide](../basic_integration.md) for a simple example written in PHP.
 
 The recommendation result list looks like the following:
 

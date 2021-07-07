@@ -58,7 +58,7 @@
                         </h5>
                     <div class="tile-body">
                         <ul>
-                            <li><a href="guide/content_rendering/">Content rendering</a></li>
+                            <li><a href="guide/content_rendering/render_content/render_content/">Content rendering</a></li>
                             <li><a href="guide/search/search/">Search</a></li>
                             <li><a href="releases/ibexa_dxp_v3.3/">Releases</a></li>
                             <li><a href="api/public_php_api/">API</a></li>

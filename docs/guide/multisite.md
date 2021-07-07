@@ -31,7 +31,7 @@ ezplatform:
 ### Configuration parameters
 
 The two configuration parameters, `location_id` and `excluded_uri_prefixes` are taken into account in several places,
-for example in URL alias lookups for incoming web requests, and [URL alias path generation in Twig templates](templates.md#adding-links).
+for example in URL alias lookups for incoming web requests, and [URL alias path generation in Twig templates](content_rendering/twig_function_reference/url_twig_functions.md).
 In addition you need to consider them when generating site paths in your layout, or other places rendering site/tree structure.
 
 #### `location_id`
@@ -183,4 +183,3 @@ When no view is defined under `event`, such as in the case of the `news` Conte
 the template defined under `default` will apply. `default` will also be used for all SiteAccesses other than `event`.
 
 To load the base (default) layout in templates you now need to use `{% extends no_layout == true ? view_base_layout : page_layout %}`.
-(See [Template inheritance and sub-requests](content_rendering.md#template-inheritance-and-sub-requests) for more information).

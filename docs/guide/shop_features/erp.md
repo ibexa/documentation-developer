@@ -1,7 +1,6 @@
 # ERP [[% include 'snippets/commerce_badge.md' %]]
 
 [[= product_name =]] can be [connected to ERP systems](../erp_integration/erp_integration.md). 
-Out of the box, it offers connection for the Microsoft Dynamics ERP.
 
 Existing ERP customers can automatically create an account in the shop without waiting for a confirmation from the administrator.
 The shop updates customer data from the ERP in real time.
