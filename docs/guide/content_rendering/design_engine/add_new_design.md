@@ -1,7 +1,7 @@
 # Add new design
 
 To create different designs for different version of the website,
-you configure different sites based on the [SiteAccess](../../multisite/multisite.md) concent.
+you configure different sites based on the [SiteAccess](../../multisite/multisite.md) content.
 
 This example shows how to prepare a site for a "Summer Sale" marketing campaign
 and provide it with a distinct design.
@@ -28,7 +28,7 @@ Adding the `campaign` SiteAccess to [`site_group`](../../multisite/multisite_con
 
 ## Create themes
 
-Next, configure a new `summersale` design this a theme also named `summersale`:
+Next, configure a new `summersale` design for this theme, also named `summersale`:
 
 ``` yaml
 [[= include_file('code_samples/front/add_design/config/packages/views.yaml', 0, 3) =]]
@@ -102,7 +102,7 @@ This is because you defined `standard` design as fallback for this SiteAccess:
 
 In this case, if the design engine cannot find a template for the current design,
 it uses the template from the next configured design.
-In the case above, the engine doesn't find the footer template for the `campaign` SiteAccess,
+In the case above, the engine does not find the footer template for the `campaign` SiteAccess,
 so it uses the one from `standard`.
 
 This way you do not need to provide all templates for a new design, but only those that you want to be different than the fallback one.
