@@ -45,9 +45,9 @@ The default, built-in views are:
 The built-in views have built-in default templates.
 You can define any other custom views. For each custom view, you must define a custom template.
 
-!!! tip
+!!! tip "Direct path to previewing view types"
 
-    You can preview content in a specific view type using the direct path to the built-in view controller:
+    You can preview content in a specific view type by using a direct path to the built-in view controller:
 
     `<yourdomain>/view/content/<contentId>/<viewType>/true/<locationId>`
 
