@@ -45,6 +45,16 @@ The default, built-in views are:
 The built-in views have built-in default templates.
 You can define any other custom views. For each custom view, you must define a custom template.
 
+!!! tip
+
+    You can preview content in a specific view type using the direct path to the built-in view controller:
+
+    `<yourdomain>/view/content/<contentId>/<viewType>/true/<locationId>`
+
+    For example:
+
+    `<yourdomain>/view/content/55/embed/true/57`
+
 ## View rules and matching
 
 Each rule must have a name unique per view type.
