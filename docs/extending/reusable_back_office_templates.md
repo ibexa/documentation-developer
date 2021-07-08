@@ -8,11 +8,11 @@ The available templates are:
 - `@ezdesign/ui/component/tab/tabs.html.twig`
 
 To use the components, [`embed`](https://twig.symfony.com/doc/3.x/tags/embed.html) them in templates.
-Using `embed` enables you to override blocks defined inside the included template.
+With `embed` you can override blocks that are defined inside the included template.
 
-## Table
+## Tables
 
-Table contains the following blocks:
+The table component consist of the following blocks:
 
 - `header` - headline for the table section
 - `headline` - table name
@@ -21,7 +21,7 @@ Table contains the following blocks:
 - `thead` - table header content
 - `tbody` - table body content
 
-The table component supports the following variables:
+The table component supports the following variable:
 
 - `table_class` - additional CSS classes attached to the `<table>` tag
 
@@ -63,17 +63,17 @@ The table component supports the following variables:
 
 ## Tabs
 
-Tabs contain the following blocks:
+The tab component consists of the following block:
 
 - `tab_content` - tab content
 
-The tabs component supports the following variables:
+The tab component supports the following variables:
 
 - `tabs`
 - `id` - tab ID
 - `label` - human-readable label for the tab
 - `active` - true if tab is active
-- `content` - HTML content of tab if `tab_content` is not overridden, 
+- `content` - HTML content of tab if `tab_content` is not overridden
 - `tab_content_class` - additional CSS classes attached to `.tab-content`
 - `tab_content_attributes` - additional HTML attributes added to `.tab-content`
 
@@ -82,8 +82,8 @@ The tabs component supports the following variables:
     tabs: [
         { id: 'first', label: 'First' },
         { id: 'second', label: 'Second' },
-        ]
-    } %}
+     ]
+} %}
     {% block tab_content %}
         {% embed '@ezdesign/ui/component/tab/tab_pane.html.twig' with { id: 'first', active: true } %}
             {% block content %}
@@ -101,7 +101,7 @@ The tabs component supports the following variables:
 ```
 
 With tabs, you can use [`include`](https://twig.symfony.com/doc/3.x/tags/include.html) instead of `embed`
-when you pass tab content as variable while rendering the template:
+when you pass tab content as a variable while rendering the template:
 
 ``` html+twig
 {% include '@ezdesign/ui/component/tab/tabs.html.twig' with {
@@ -109,5 +109,5 @@ when you pass tab content as variable while rendering the template:
           { id: 'first', label: 'First', content: 'First tab content' },
           { id: 'second', label: 'Second', content: 'Second tab content', active: true },
         ]
-    } %}
+} %}
 ```
