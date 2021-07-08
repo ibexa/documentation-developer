@@ -19,7 +19,7 @@ for different websites.
 This way you can eliminate irrelevant recommendations when you set up stores that 
 operate on different markets or under different brands.
 
-For more information, see [Support for multiple websites](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#support-for-multiple-websites).
+For more information, see [Support for multiple websites](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#hosting-multiple-websites).
 
 ## Other changes
 
