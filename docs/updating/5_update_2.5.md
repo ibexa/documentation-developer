@@ -1,8 +1,8 @@
 # Update database to v2.5
     
-!!! caution
+!!! caution "Before you proceed"
 
-    If you are updating from a version prior to v2.4, you have to implement all the changes [from v2.4](5_update_2.4.md) before following the steps below.
+    When you are updating from a version prior to v2.4, you must implement all the changes [from v2.4](5_update_2.4.md) before you proceed to the steps below.
 
 !!! note
 

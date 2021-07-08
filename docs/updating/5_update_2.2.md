@@ -1,8 +1,8 @@
 # Update database to v2.2
 
-!!! caution
+!!! caution "Before you proceed"
 
-    If you are updating from a version prior to v2.2, you have to implement all the changes [from v1.13](5_update_1.13.md) before following the steps below.
+    When you are updating from a version prior to v2.2, you must implement all the changes [from v1.13](5_update_1.13.md) before you proceed to the steps below.
 
 ## Change from UTF8 to UTF8MB4
 
