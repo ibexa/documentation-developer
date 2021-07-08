@@ -1,6 +1,8 @@
 # Update database to v2.5
     
-If you are updating from a version prior to v2.4, you have to implement all the changes [from v2.4](5_update_2.4.md) before following the steps below.
+!!! caution
+
+    If you are updating from a version prior to v2.4, you have to implement all the changes [from v2.4](5_update_2.4.md) before following the steps below.
 
 !!! note
 
@@ -14,6 +16,8 @@ Apply the following database update script:
 ``` bash
 mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.4.0-to-7.5.0.sql
 ```
+
+Next, ensure you have followed all steps corresponding to the [version you are updating from](5_update_database.md).
 
 ### v2.5.3
 

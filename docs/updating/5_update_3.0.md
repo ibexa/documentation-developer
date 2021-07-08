@@ -1,6 +1,8 @@
 # Update database to v3.0
 
-If you are updating from a version prior to v2.5, you have to implement all the changes [from v2.5](5_update_2.5.md) before following the steps below.
+!!! caution
+
+    If you are updating from a version prior to v2.5, you have to implement all the changes [from v2.5](5_update_2.5.md) before following the steps below.
 
 Apply the following database update script:
 

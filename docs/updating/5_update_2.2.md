@@ -1,6 +1,8 @@
 # Update database to v2.2
 
-If you are updating from a version prior to v2.2, you have to implement all the changes [from v1.13](5_update_1.13.md) before following the steps below.
+!!! caution
+
+    If you are updating from a version prior to v2.2, you have to implement all the changes [from v1.13](5_update_1.13.md) before following the steps below.
 
 ## Change from UTF8 to UTF8MB4
 

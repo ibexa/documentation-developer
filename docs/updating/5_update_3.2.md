@@ -1,6 +1,8 @@
 # Update database to v3.2
 
-If you are updating from a version prior to v3.1, you have to implement all the changes [from v3.1](5_update_3.1.md) before following the steps below.
+!!! caution
+
+    If you are updating from a version prior to v3.1, you have to implement all the changes [from v3.1](5_update_3.1.md) before following the steps below.
 
 If you are using Ibexa DXP or Ibexa Commerce, apply one of the following database update scripts:
 

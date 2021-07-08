@@ -1,6 +1,8 @@
 # Update database to v2.3
-    
-If you are updating from a version prior to v2.2, you have to implement all the changes [from v2.2](5_update_2.2.md) before following the steps below.
+
+!!! caution
+
+    If you are updating from a version prior to v2.2, you have to implement all the changes [from v2.2](5_update_2.2.md) before following the steps below.
 
 ## Database update script
 
