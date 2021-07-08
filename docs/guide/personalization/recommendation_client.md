@@ -25,7 +25,7 @@ After this, it is synchronized with the Personalization service every time a cha
 occurs in the Back Office.
 
 The client's configuration is SiteAccess-aware.
-If your installation [supports multiple sites](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#multiple-stores) with different customer IDs, 
+If your installation [hosts multiple sites](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#multiple-stores) with different customer IDs, 
 for example, to provide separate recommendations for different language versions 
 of the site, provide the credentials that correspond to each of the sites.
 
@@ -55,7 +55,7 @@ ezrecommendation:
 
 !!! note "User credential variables"
 
-    For security reasons, [store the authentication credentials in the ENV file](enabling_personalization.md#setting-up-customer-credentials), 
+    For security reasons, [store the authentication credentials in the ENV file](enabling_personalization.md#set-up-customer-credentials), 
     and do not commit them to the Version Control System.
     Then, use environment variables to pull them into the YAML file.
 
@@ -216,7 +216,7 @@ php bin/console ibexa:recommendation:run-export
     --licenseKey=<license_key>
 ```
 
-If your installation supports multiple SiteAccesses with different customer IDs, 
+If your installation hosts multiple SiteAccesses with different customer IDs, 
 you must run the export separately for each of the `<site_access_name>`/`<customer_id>` pairs.
 
 The bundle exporter collects all content related to the `<site_access_name>`/`<customer_id>` 

@@ -133,7 +133,7 @@ you may prefer to use the UPC.
 If recommendations of the same item in different sizes or colors are desired, 
 you should use the SKU as item identifiers.
 
-Remember to use the same identifier in all interactions between your site 
+Remember to use the same identifier in all interactions between your website 
 and the Personalization server, for example, when a user buys an item, 
 clicks a recommendation or displays a product page.
 
@@ -192,7 +192,7 @@ The URL to track user clicks has the following format:
 
 |Name|Description|Values|
 |---|---|---|
-|`customerid`|A customer ID (for example "00000"). Can be used to identify a website in installations that [supports multiple SiteAccesses](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#support-for-multiple-websites).|alphanumeric|
+|`customerid`|A customer ID (for example "00000"). Can be used to identify a website in installations that [hosts multiple SiteAccesses](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#hosting-multiple-websites).|alphanumeric|
 |userid|A user's ID on the website of the customer. It could be an internal customer code, a session code or a cookie for anonymous users.|URL-encoded alphanumeric|
 |`itemtypeid`|Item type ID.|1 to 2147483647|
 |`itemid`|A unique ID of the item the user has clicked.</br>String-based identifiers are also supported as item IDs to track content on a website, but it is discouraged due to fraud and security issues. If you are unable to provide numeric identifiers for the tracking process, contact Ibexa for further information and implementation notes.|1 to 2147483647|
@@ -244,7 +244,7 @@ calculated by the amount of words.
 
     Consume events for a user can be sent incrementally as the recommender uses 
     only the highest percentage rate. For example, if a user watches a movie, 
-    the site could send Consume events in 10% steps to avoid losing tracking 
+    the website could send Consume events in 10% steps to avoid losing tracking 
     information when the browser window is forcibly closed.
 
 ### Buy event
@@ -296,7 +296,7 @@ Recommendations rely on the fact that user actions can be correlated over a long
 period of time. 
 Moreover, recommendations similar to "users who viewed this product ultimately 
 bought it" require correlating Click events with subsequent Buy events. 
-In general, users tend to browse a site anonymously and add products to their 
+In general, users tend to browse a website anonymously and add products to their 
 shopping cart. 
 Up to this point, a user is identified by a visit-scoped variable (for example, 
 a session ID or a first party cookie). 

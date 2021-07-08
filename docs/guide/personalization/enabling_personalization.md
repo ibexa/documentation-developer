@@ -5,8 +5,8 @@ To enable it, you must set up authentication parameters that you receive from Ib
 
 ## Get authentication parameters
 
-First, either you or another Ibexa user responsible for managing the website 
-must [request access to the service](https://doc.ibexa.co/projects/userguide/en/latest/personalization/enabling_personalization/#requesting-access-to-the-server).
+First, either you or another Ibexa user responsible for managing the [[= product_name =]]  
+instance must [request access to the service](https://doc.ibexa.co/projects/userguide/en/latest/personalization/enabling_personalization/#request-access-to-the-server).
 
 ## Set up customer credentials
 
@@ -21,7 +21,7 @@ RECOMMENDATION_LICENSE_KEY=67890-1234-5678-90123-4567
 
 !!! note "Configuring user credentials for different customers"
 
-    If your installation [supports multiple sites](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#support-for-multiple-websites) with different 
+    If your installation [hosts multiple sites](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#hosting-multiple-websites) with different 
     customer IDs, for example, to provide separate recommendations for different 
     language versions of the store, you can store all credentials in the same file:
     

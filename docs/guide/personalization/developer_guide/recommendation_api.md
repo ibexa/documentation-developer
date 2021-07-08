@@ -27,7 +27,7 @@ For the request to return recommendations, you must provide the following parame
 
 |Parameter|Description|Value|
 |---|---|---|
-|`customerid`|A customer ID (for example "00000"), as defined when [enabling Personalization](../enabling_personalization.md#configuring-customer-credentials). Can be used to identify a website in installations that [supports multiple SiteAccesses](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#support-for-multiple-websites).|alphanumeric|
+|`customerid`|A customer ID (for example "00000"), as defined when [enabling Personalization](../enabling_personalization.md#set-up-customer-credentials). Can be used to identify a website in installations that [hosts multiple SiteAccesses](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#hosting-multiple-websites).|alphanumeric|
 |`userid`|An ID of the tracked user in the website (for example, an internal customer code, a session code or a cookie for anonymous users.|alphanumeric|
 |`scenarioid`|An ID of the scenario used for providing recommendations, as defined in the Back Office.|alphanumeric|
 |`extension`|A format of the response (either JSON or JSONP).|`json` or `jsonp`|
@@ -87,7 +87,7 @@ For more information, see inline comments below.
 
     You can preview the actual responses that come from the Personalization server 
     and how they are rendered in the user interface.
-    For more information, see [Scenarios](https://doc.ibexa.co/projects/userguide/en/latest/personalization/scenarios/#previewing-scenario-results).
+    For more information, see [Previewing scenario results](https://doc.ibexa.co/projects/userguide/en/latest/personalization/previewing_scenario).
     
 For more information about integrating recommendations in the web page, 
 see [Best practices](../best_practices/recommendation_integration.md).

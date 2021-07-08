@@ -34,7 +34,7 @@ For the requests to function, you must provide the following parameters:
 
 |Parameter|Description|Value|
 |---|---|---|
-|`customerid`|A customer ID (for example "00000"), as defined when [enabling Personalization](../enabling_personalization.md#configuring-customer-credentials). Can be used to identify a website in installations that [supports multiple SiteAccesses](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#support-for-multiple-websites).|alphanumeric|
+|`customerid`|A customer ID (for example "00000"), as defined when [enabling Personalization](../enabling_personalization.md#set-up-customer-credentials). Can be used to identify a website in installations that [hosts multiple SiteAccesses](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#hosting-multiple-websites).|alphanumeric|
 |`source`|An ID of the source of the specified user's metadata.|alphanumeric|
 |`userid`|An ID of the tracked user in the website (for example, an internal customer code, a session code or a cookie for anonymous users.|alphanumeric|
   

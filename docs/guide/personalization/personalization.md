@@ -27,4 +27,4 @@ The idea behind the Personalization service is built upon four main steps.
 
 For more information about available functionalities, see [User Documentation](https://doc.ibexa.co/projects/userguide/en/latest/personalization/personalization).
 
-For more information about enabling the Personalization service, see [Enabling Personalization](enabling_personalization.md).
+For more information about enabling the Personalization service, see [Enable Personalization](enabling_personalization.md).

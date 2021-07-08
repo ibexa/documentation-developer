@@ -26,8 +26,8 @@ it is completely loaded.
 
 ## Non-blocking loading in the background
 
-If the website is implemented in a language which supports multithreading or n
-on-blocking I/O, the recommendation request can start just after the browser 
+If the website is implemented in a language that supports multithreading or 
+non-blocking I/O, the recommendation request can start just after the browser 
 request is received. 
 The page generation and the recommendation requests are accomplished in parallel. 
 By combining this idea with the previous solution and placing the recommendation 
