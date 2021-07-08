@@ -198,12 +198,32 @@ composer run post-install-cmd
     "minimum-stability": "stable",
     ```
 
-To update from one v3.3 patch version to another (for example, from v3.3.2 to v3.3.3), run:
+v3.3.6 starts using Symfony 5.3.
+To update from an earlier v3.3 patch version to v3.3.6, update the following package versions in your `composer.json`,
+including the Symfony version (line 9):
+
+``` json hl_lines="9"
+"symfony/flex": "^1.3.1"
+"sensio/framework-extra-bundle": "^6.1",
+"symfony/runtime": "*",
+"doctrine/doctrine-bundle": "^2.4"
+"symfony/maker-bundle": "^1.0",
+
+"symfony": {
+    "allow-contrib": true,
+    "require": "5.3.*",
+    "endpoint": "https://flex.ibexa.co"
+},
+```
+
+See https://github.com/ibexa/website-skeleton/pull/5/files for details of the package version change.
+
+Next, run:
 
 === "[[= product_name_content =]]"
 
     ``` bash
-    composer require ibexa/content:3.3.3 --with-all-dependencies --no-scripts
+    composer require ibexa/content:3.3.6 --with-all-dependencies --no-scripts
     composer recipes:install ibexa/content --force -v
     composer run post-install-cmd
     ```
@@ -211,7 +231,7 @@ To update from one v3.3 patch version to another (for example, from v3.3.2 to v3
 === "[[= product_name_exp =]]"
 
     ``` bash
-    composer require ibexa/experience:3.3.3 --with-all-dependencies --no-scripts
+    composer require ibexa/experience:3.3.6 --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
     composer run post-install-cmd
     ```
@@ -219,7 +239,7 @@ To update from one v3.3 patch version to another (for example, from v3.3.2 to v3
 === "[[= product_name_com =]]"
 
     ``` bash
-    composer require ibexa/commerce:3.3.3 --with-all-dependencies --no-scripts
+    composer require ibexa/commerce:3.3.6 --with-all-dependencies --no-scripts
     composer recipes:install ibexa/commerce --force -v
     composer run post-install-cmd
     ```
