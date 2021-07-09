@@ -176,7 +176,7 @@ Beyond that the following Limitations are available:
 
 `personalization/edit`:
 
-- [Personalization access](limitation_reference.md#personalization-access)
+- [Personalization access](limitation_reference.md#personalization-access-limitation)
 
 #### Segment
 
