@@ -25,7 +25,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 
 ## DBMS
 
-- MariaDB 10.0, 10.1, 10.2, 10.3 (the latter two not recommended with Legacy Bridge)
+- MariaDB 10.0, 10.1, 10.2, 10.3
 - MySQL 5.7 or 8.0 (with legacy authentication, or new caching ssh2 authentication)
 - PostgreSQL 10+
 
@@ -139,17 +139,6 @@ Ibexa software is developed to work with *any* web browser that supports modern 
         If you are in need of setting up your legacy project on Platform.sh for a transitional period,
         eZ can put you in contact with a partner experienced in setting up older projects on Platform.sh.
         This will save you a lot of time and effort.
-
-    !!! tip "How to move to a supported setup with relatively low effort"
-
-        If you would like to use a supported setup but need to run legacy code,
-        consider upgrading to eZ Platform with Legacy Bridge, using PHP 7 to avoid legacy admin getting slower.
-
-        Until you are ready for full migration you can continue to use legacy admin
-        and operate your front end(s) in legacy mode or partial legacy mode (Symfony pagelayout with fallbacks to legacy)
-        This makes your project ready to perform a gradual migration to eZ Platform.
-
-        eZ Systems offers enablement and technical services to help you perform such an upgrade, and helps you plan for the follow-up migration.
 
     ### Custom integrations
 
