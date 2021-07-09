@@ -152,6 +152,24 @@ This limit is enforced on publishing a new version and only covers archived vers
     The default value of 5 is the recommended value, but the less content you have overall,
     the more you can increase this to, for instance, 25 or even 50.
 
+### Removing versions on publication
+
+`remove_archived_versions_on_publish` enables you to control whether versions that exceed the limit are deleted when you publish a new version.
+
+``` yaml
+ezplatform:
+    repositories:
+        default:
+            options:
+                remove_archived_versions_on_publish: true
+```
+
+`remove_archived_versions_on_publish` is set to `true` by default.
+Set it to `false` if you have multiple older versions of content and need to avoid performance hits when publishing.
+
+When you set the value to `false`, you need to run [`ibexa:content:cleanup-versions`](#removing-old-versions) periodically
+to make sure Content item versions that exceed the limit are removed.
+
 ### Removing old versions
 
 You can use the `ibexa:content:cleanup-versions` command to remove old content versions.
