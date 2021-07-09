@@ -25,7 +25,7 @@ Typical uses of a SiteAccess are:
 
     If you use the [Personalization service](personalization/personalization.md) to provide 
     recommendations to users of your sites, you can configure the service to [return 
-    separate recommendations for each of the SiteAccesses](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#support-for-multiple-websites).
+    separate recommendations for each of the SiteAccesses](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#hosting-multiple-websites).
 
 #### `admin` SiteAccess
 

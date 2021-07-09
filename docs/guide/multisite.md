@@ -28,6 +28,12 @@ ezplatform:
                     excluded_uri_prefixes: [ /media, /images ]
 ```
 
+!!! tip "Separate recommendations for different sites"
+
+    If you use the [Personalization service](personalization/personalization.md) to provide 
+    recommendations to users of your sites, you can configure the service to [return 
+    separate recommendations for each of the SiteAccesses](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#hosting-multiple-websites).
+
 ### Configuration parameters
 
 The two configuration parameters, `location_id` and `excluded_uri_prefixes` are taken into account in several places,
@@ -112,12 +118,6 @@ ezplatform:
 ```
 
 If not specified, the `index_page` is the configured content root.
-
-!!! tip "Separate recommendations for different sites"
-
-    If you use the [Personalization service](personalization/personalization.md) to provide 
-    recommendations to users of your sites, you can configure the service to [return 
-    separate recommendations for each of the SiteAccesses](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#support-for-multiple-websites).
 
 ## Multisite with multiple Repositories
 
