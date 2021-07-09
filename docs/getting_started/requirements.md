@@ -25,7 +25,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 
 ## DBMS
 
-- MariaDB 10.0, 10.1, 10.2, 10.3 (the latter two not recommended with Legacy Bridge)
+- MariaDB 10.0, 10.1, 10.2, 10.3
 - MySQL 5.7 or 8.0 (with legacy authentication, or new caching ssh2 authentication)
 - PostgreSQL 10+
 
@@ -108,19 +108,6 @@ Ibexa software is developed to work with *any* web browser that supports modern 
 
     Features or services supported by eZ Platform but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
 
-    ### eZ Platform Cloud Setup support matrix
-
-    |Setup|Description|eZ Platform Cloud support|
-    |-----|-----|-----|
-    |Recommended setup|**eZ Platform**</br>eZ Platform setup, with no use of legacy.|eZ Platform software plus cloud hosting infrastructure is supported by eZ for version 1.13 and higher</br></br>Recommended configuration provided out of the box and fully supported, on-boarding help available.|
-    |Supported setup|**Legacy Bridge setup**</br>eZ Publish 5.x-like setup where web traffic goes to eZ Platform/Symfony and Legacy Bundle provides legacy fallback features.</br>Notably it allows among other things enabling a "Legacy mode" where legacy bundle lets legacy take over handling of URL aliases.|Installation and cloud is supported by eZ for version 1.13 and 2.x</br></br>Review and potential adaptation of the application configuration to be performed by eZ Systems technical services prior to deployments. The cost and effort of this review and potential adaptation is not included in eZ Platform Cloud subscription and will vary depending on each project's specificities.</br></br>*NOTE: Advanced legacy features like ezfind, Async publishing, ezodf, S3, and similar go under 'Experimental setup', to avoid this migrate to similar eZ Platform features.*|
-    |Experimental setup|**eZ Publish, eZ Publish Platform and other pure legacy setups**</br>eZ Publish (version 4.x) or eZ Publish Platform (version 5.x) standalone setup or an experimental setup with eZ Platform and Legacy Bridge.|Not covered by eZ Platform Cloud subscription.</br></br>The use of Platform.sh service is possible as a standalone service and can be used to bridge migration needs. We recommend involving an eZ business partner that has experience with setting up legacy projects on Platform.sh|
-
-    !!! note
-
-        As Platform.sh does not support a configuration with multiple PostgreSQL databases,
-        for eZ Platform Cloud / Platform.sh it is impossible to have a DFS table in a separate database.
-
     ### Recommended eZ Platform Cloud setup
 
     For more details on recommended setup configuration see bundled `.platform.app.yaml` and `.platform/` configuration files.
@@ -152,17 +139,11 @@ Ibexa software is developed to work with *any* web browser that supports modern 
         If you are in need of setting up your legacy project on Platform.sh for a transitional period,
         eZ can put you in contact with a partner experienced in setting up older projects on Platform.sh.
         This will save you a lot of time and effort.
+        
+    !!! note
 
-    !!! tip "How to move to a supported setup with relatively low effort"
-
-        If you would like to use a supported setup but need to run legacy code,
-        consider upgrading to eZ Platform with Legacy Bridge, using PHP 7 to avoid legacy admin getting slower.
-
-        Until you are ready for full migration you can continue to use legacy admin
-        and operate your front end(s) in legacy mode or partial legacy mode (Symfony pagelayout with fallbacks to legacy)
-        This makes your project ready to perform a gradual migration to eZ Platform.
-
-        eZ Systems offers enablement and technical services to help you perform such an upgrade, and helps you plan for the follow-up migration.
+        As Platform.sh does not support a configuration with multiple PostgreSQL databases,
+        for eZ Platform Cloud / Platform.sh it is impossible to have a DFS table in a separate database.
 
     ### Custom integrations
 
