@@ -139,6 +139,11 @@ Ibexa software is developed to work with *any* web browser that supports modern 
         If you are in need of setting up your legacy project on Platform.sh for a transitional period,
         eZ can put you in contact with a partner experienced in setting up older projects on Platform.sh.
         This will save you a lot of time and effort.
+        
+    !!! note
+
+        As Platform.sh does not support a configuration with multiple PostgreSQL databases,
+        for eZ Platform Cloud / Platform.sh it is impossible to have a DFS table in a separate database.
 
     ### Custom integrations
 
