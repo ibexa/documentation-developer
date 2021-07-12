@@ -1,11 +1,11 @@
 # Add user registration form
 
 You can add to your website a registration form for your users.
-Follow the instructions below to create and customize templates for the registration form and registration confirmation page.
+Follow the instructions below to create and customize templates for a registration form, and a registration confirmation page.
 
 First, make sure you [enabled user registration](../../../tutorials/platform_beginner/8_enable_account_registration.md#enable-registration).
 
-Next, in the `config/packages/views.yaml` file, under the site, at the same level as `content_view` add the following configuration:
+Next, in the `config/packages/views.yaml` file add the following configuration:
 
 ``` yaml
 ezplatform:
@@ -14,10 +14,13 @@ ezplatform:
             user_registration:
                 templates:
                     form: user/registration_form.html.twig
+                    confirmation: user/registration_confirmation.html.twig
 ```
-This defines which template will be used for rendering the registration form.
+This defines which templates will be used for rendering the registration form and confirmation page.
 
-Create the `templates/user/registration_form.html.twig` template:
+In the `templates/user/registration_form.html.twig` create the template for registration form.
+
+Example registration form:
 
 ``` html+twig
 {% extends no_layout is defined and no_layout == true ? view_base_layout : page_layout %}
@@ -48,20 +51,9 @@ Create the `templates/user/registration_form.html.twig` template:
 {% endblock %}
 ```
 
-Now you have to define the template which renders the confirmation page displayed after a user completes the registration process.
-Add the new template to the configuration. In the `config/packages/views.yaml`, add the `confirmation` key:
+In the `templates/user/registration_confirmation.html.twig`, create the template for confirmation form.
 
-``` yaml
-ezplatform:
-    system:
-        default:
-            user_registration:
-                templates:
-                    form: user/registration_form.html.twig
-                    confirmation: user/registration_confirmation.html.twig
-```
-
-In the `templates/user/registration_confirmation.html.twig`, create the confirmation template file:
+Example confirmation form:
 
 ``` html+twig
 {% extends no_layout is defined and no_layout == true ? view_base_layout : page_layout %}
@@ -71,4 +63,9 @@ In the `templates/user/registration_confirmation.html.twig`, create the confirma
         Thank you for registering an account. You can now <a href="{{ path('login') }}">login</a>.
     </p>
 {% endblock %}
+```
+To add a link redirecting to the login form, in the page layout template, provide the following code:
+
+```html+twig
+<a href="{{ path('ezplatform.user.register') }}">Register</a>
 ```
