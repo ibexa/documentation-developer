@@ -47,7 +47,7 @@ Then create all Fields with the following information: 
 | Field Type   | Name             | Identifier       |  Required | Searchable | Translatable |
 | ------------ | ---------------- | ---------------- | --------- | ---------- | ------------ |
 | Text line    | Name             | `name`           | yes       | yes        | yes          |
-| Image        | Photo            | `photo`          | no        | no         | no           |
+| Image Asset  | Photo            | `photo`          | no        | no         | no           |
 | Rich text    | Description      | `description`    | yes       | yes        | yes          |
 | Map location | Starting point   | `starting_point` | yes       | yes        | no           |
 | Map location | Ending point     | `ending_point`   | yes       | yes        | no           |
