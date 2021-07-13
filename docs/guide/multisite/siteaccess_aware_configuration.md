@@ -1,6 +1,6 @@
 # SiteAccess-aware configuration
 
-The [Symfony Config component](https://symfony.com/doc/5.0/components/config.html) makes it possible to define semantic configuration, exposed to the end developer.
+The [Symfony Config component](https://symfony.com/doc/current/components/config.html) makes it possible to define semantic configuration, exposed to the end developer.
 This configuration is validated by rules you define, e.g. validating type (string, array, integer, boolean, etc.).
 Usually, once validated and processed, this semantic configuration is then mapped to internal *key/value* parameters stored in the service container.
 
@@ -17,6 +17,13 @@ For this, internal keys need to follow the format `<namespace>.<scope>.<paramete
 
 For more information about the ConfigResolver, namespaces and scopes, see [[[= product_name =]] configuration basics](../configuration.md).
 
+The example below assumes you are using an `Acme\ExampleBundle`.
+Remember to register the bundle by adding it to `config/bundles.php`:
+
+``` php
+Acme\ExampleBundle\AcmeExampleBundle::class => ['all' => true],
+```
+
 ### Semantic configuration parsing
 
 To parse semantic configuration, create a `Configuration` class which extends
@@ -29,15 +36,14 @@ and the extend its `generateScopeBaseNode()` method:
 namespace Acme\ExampleBundle\DependencyInjection;
 
 use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\Configuration as SiteAccessConfiguration;
-use Symfony\Component\Config\Definition\Builder\NodeBuilder;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 
 class Configuration extends SiteAccessConfiguration
 {
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('my_configuration');
+        $treeBuilder = new TreeBuilder('acme_example');
+        $rootNode = $treeBuilder->getRootNode();
 
         // $systemNode is the root of SiteAccess-aware settings.
         $systemNode = $this->generateScopeBaseNode($rootNode);
@@ -45,9 +51,9 @@ class Configuration extends SiteAccessConfiguration
             ->scalarNode('name')->isRequired()->end()
             ->arrayNode('custom_setting')
                 ->children()
-                    ->scalarNode("string")->end()
-                    ->integerNode("number")->end()
-                    ->booleanNode("enabled")->end()
+                    ->scalarNode('string')->end()
+                    ->integerNode('number')->end()
+                    ->booleanNode('enabled')->end()
                 ->end()
             ->end();
 
@@ -64,7 +70,7 @@ class Configuration extends SiteAccessConfiguration
 This enables you to use the following SiteAccess-aware configuration:
 
 ``` yaml
-my_configuration:
+acme_example:
     system:
         <siteaccess>:
             name: name_1
@@ -91,31 +97,35 @@ namespace Acme\ExampleBundle\DependencyInjection;
 
 use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\ConfigurationProcessor;
 use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\ContextualizerInterface;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 class AcmeExampleExtension extends Extension
 {
-    public function load(array $configs, ContainerBuilder $container)
+    public const ACME_CONFIG_DIR = __DIR__ . '/../../../config/acme';
+
+    /**
+     * @throws \Exception
+     */
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $configuration = $this->getConfiguration($configs, $container);
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(self::ACME_CONFIG_DIR));
         $loader->load('default_settings.yaml');
 
-        $processor = new ConfigurationProcessor($container, 'my_configuration');
+        $processor = new ConfigurationProcessor($container, 'acme_example');
         $processor->mapConfig(
             $config,
             // Any kind of callable can be used here.
             // It is called for each declared scope/SiteAccess.
-            function ($scopeSettings, $currentScope, ContextualizerInterface $contextualizer)
-            {
+            static function ($scopeSettings, $currentScope, ContextualizerInterface $contextualizer) {
                 // Maps the "name" setting to "acme_example.<$currentScope>.name" container parameter
                 // It is then possible to retrieve this parameter through ConfigResolver in the application code:
-                // $helloSetting = $configResolver->getParameter( 'name', 'my_configuration' );
+                // $helloSetting = $configResolver->getParameter( 'name', 'acme_example' );
                 $contextualizer->setContextualParameter('name', $currentScope, $scopeSettings['name']);
             }
         );
@@ -130,7 +140,7 @@ class AcmeExampleExtension extends Extension
 You can also map simple settings by calling `$processor->mapSetting()`, without having to call `$processor->mapConfig()` with a callable.
 
 ``` php
-$processor = new ConfigurationProcessor($container, 'my_configuration');
+$processor = new ConfigurationProcessor($container, 'acme_example');
 $processor->mapSetting('name', $config);
 ```
 
@@ -142,8 +152,8 @@ In `@AcmeExampleBundle/Resources/config/default_settings.yaml`:
 
 ``` yaml
 parameters:
-    my_configuration.default.name: name_1
-    my_configuration.default.custom_setting:
+    acme_example.default.name: name_1
+    acme_example.default.custom_setting:
         string: ~
         number: 0
         enabled: false
@@ -163,7 +173,7 @@ Consider the following default config in `default_settings.yaml`:
 
 ``` yaml
 parameters:
-    my_configuration.default.custom_setting:
+    acme_example.default.custom_setting:
         string: ~
         os_types: [windows]
         number: 0
@@ -171,10 +181,10 @@ parameters:
         language: php
 ```
 
-And then this semantic configuration in `ezplatform.yaml`:
+And then this semantic configuration in `config/packages/acme.yaml`:
 
 ``` yaml
-my_configuration:
+acme_example:
     system:
         siteaccess_group:
             custom_setting:
@@ -195,7 +205,7 @@ where keys defined for `custom_setting` in default/group/SiteAccess scopes are m
 
 ``` yaml
 parameters:
-    my_configuration.siteaccess1.custom_setting:
+    acme_example.siteaccess1.custom_setting:
         string: value
         os_types: [linux, macos]
         number: 456
@@ -220,7 +230,7 @@ When you use `ContextualizerInterface::MERGE_FROM_SECOND_LEVEL` with the configu
 
 ``` yaml
 parameters:
-    my_configuration.siteaccess1.custom_setting:
+    acme_example.siteaccess1.custom_setting:
         string: value
         os_types: [windows, linux, macos]
         number: 456
