@@ -89,7 +89,7 @@ Here are some generic recommendations on how to approach personalized content wi
 
 1\. ESI with vary by cookie:
 
-Default VCL strips everything except session cookie, so this will effectively be cached "per user".
+Default VCL strips everything except session cookie, so this is effectively "per user".
 If you are on single-server setup without Varnish or Fastly, you can use the same cookie logic on the web server instead.
 
 This a low effort solution, and can be enough for one fragment that is reused across the whole site, 
