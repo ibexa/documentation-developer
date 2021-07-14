@@ -49,7 +49,7 @@ You can use the following parameters to customize a request:
 |Parameter|Example|Description|Value|
 |---|---|---|---|
 |`numrecs`|20|Defines a number of recommendations to be delivered. The lower this value, the shorter the response time. The default value is 10. |1 to 50|
-|`contextitems`|10,13,14 or "CLICKED"|A comma-separated list of items that the user is viewing on the web page. The list is required by [context-based recommendations](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models). All items must be of the same type. The type is defined in the scenario configuration. If history code is used ("CLICKED","CONSUMED", "OWNS", "RATED" or "BASKET"), context items are pulled from the user profile (for example, the most recent clicks or purchases). This parameter is optional. |1 to 2147483647 (or alphanumeric if enabled)|
+|`contextitems`|10,13,14 or "CLICKED"|A comma-separated list of items that the user is viewing on the web page. The list is required by [context-based recommendations]([[= user_doc =]]/personalization/recommendation_models). All items must be of the same type. The type is defined in the scenario configuration. If history code is used ("CLICKED","CONSUMED", "OWNS", "RATED" or "BASKET"), context items are pulled from the user profile (for example, the most recent clicks or purchases). This parameter is optional. |1 to 2147483647 (or alphanumeric if enabled)|
 |`outputtypeid`|1|Required for scenarios that are defined with multiple output item types, otherwise optional. By default it is the first/lowest output type enabled in the scenario config.|numeric|
 |`jsonpCallback`|"myCallback"|Function or method name (used for JSONP request only). It can be a function ("callme"), or a method ("obj.callme"). The default value is "jsonpCallback".|legal JavaScript function call|
 |`attribute`|"title" or "description"|If you apply this parameter, the engine tries to fetch the value of the attribute. For example, `&attribute=title` means fetching the title for the item that is delivered in the response, if available. The fetch works if content import has been successful. You can pass multiple attributes: `&attribute=title&attribute=description` or `&attribute=title,description`. Use this to pull "pure" client-based recommendations without requesting local customer data.|string|
@@ -60,7 +60,7 @@ You can use the following parameters to customize a request:
 ##### Submodel parameters
 
 If your recommendation model uses submodels to group content items/products based on an attribute, you can pass the following parameters to request recommendations for a specific group. 
-For more information, see [Submodels](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#submodels).
+For more information, see [Submodels]([[= user_doc =]]/personalization/recommendation_models/#submodels).
 
 |Parameter|Example|Description|Value|
 |---|---|---|---|
@@ -77,7 +77,7 @@ For more information, see inline comments below.
 !!! note "Previewing recommendations"
 
     You can preview the actual responses that come from the recommendation engine and how they are rendered in the user interface.
-    For more information, see [Scenarios](https://doc.ibexa.co/projects/userguide/en/latest/personalization/scenarios/#previewing-scenario-results).
+    For more information, see [Scenarios]([[= user_doc =]]/personalization/scenarios/#previewing-scenario-results).
     
 For more information about integrating recommendations in the web page, see [Best practices](../best_practices/recommendation_integration.md).
 

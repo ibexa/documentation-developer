@@ -628,6 +628,7 @@ extra:
   product_name_com: 'Ibexa Commerce'
 
   symfony_doc: 'http://symfony.com/doc/5.3'
+  user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'
 
 extra_css:
   - fonts/MavenPro.css
