@@ -2,7 +2,7 @@
 
 You can use special translation Content items called "text modules" to create translations of the interface.
 The translation service first checks if a Content item with a specific identifier exists and then returns the text attribute of this object.
-If it does not find any translations, the [standard Symfony translation service](http://symfony.com/doc/3.4/book/translation.html) is used.
+If it does not find any translations, the [standard Symfony translation service]([[= symfony_doc =]]/book/translation.html) is used.
 
 ## Twig filter
 
@@ -42,7 +42,7 @@ The translation service can use the given SiteAccess to specify the language or 
 
 ### Pluralisation
 
-To handle plurals in translations, use [Symfony pluralization](https://symfony.com/doc/3.4/translation.html#pluralization).
+To handle plurals in translations, use [Symfony pluralization]([[= symfony_doc =]]/translation.html#pluralization).
 
 ## Translation in PHP code
 

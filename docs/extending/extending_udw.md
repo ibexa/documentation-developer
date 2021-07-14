@@ -229,4 +229,4 @@ class JohnDoeCanSelectMore implements EventSubscriberInterface
 }
 ```
 
-For more information follow [Symfony Doctrine Event Listeners and Subscribers tutorial.](https://symfony.com/doc/5.0/event_dispatcher.html#creating-an-event-subscriber)
+For more information follow [Symfony Doctrine Event Listeners and Subscribers tutorial.]([[= symfony_doc =]]/event_dispatcher.html#creating-an-event-subscriber)

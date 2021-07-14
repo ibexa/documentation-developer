@@ -6,7 +6,7 @@ This and other features allow [[= product_name =]] to be scaled up to serve high
 
 This is handled by the [ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache) bundle,
 which extends [friendsofsymfony/http-cache-bundle](https://foshttpcachebundle.readthedocs.io/en/2.8.0/),
-a Symfony community bundle that in turn extends [Symfony HTTP cache](http://symfony.com/doc/5.1/http_cache.html).
+a Symfony community bundle that in turn extends [Symfony HTTP cache]([[= symfony_doc =]]/http_cache.html).
 
 For content view responses coming from [[= product_name =]] itself, this means:
 
@@ -119,7 +119,7 @@ as it will cause your reverse proxy to wait for back end and not be able to deli
 
 ## Symfony reverse proxy
 
-To use Symfony reverse proxy, follow the [Symfony documentation](https://symfony.com/doc/current/http_cache.html#symfony-reverse-proxy).
+To use Symfony reverse proxy, follow the [Symfony documentation]([[= symfony_doc =]]/http_cache.html#symfony-reverse-proxy).
 
 However, instead of `Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache`, your caching kernel must use `\EzSystems\PlatformHttpCacheBundle\AppCache`.
 
@@ -155,7 +155,7 @@ Configuring [[= product_name =]] for Varnish or Fastly involves a few steps, sta
 
 #### Configuring Symfony front controller
 
-In order to configure Symfony to [work behind a load balancer or a reverse proxy](https://symfony.com/doc/5.1/deployment/proxies.html),
+In order to configure Symfony to [work behind a load balancer or a reverse proxy]([[= symfony_doc =]]/deployment/proxies.html),
 make sure that [Symfony reverse proxy](#symfony-reverse-proxy) is enabled.
 Set the following environment variable:
 
@@ -170,7 +170,7 @@ framework:
 
 !!! caution "Careful when trusting dynamic IP using REMOTE_ADDR value or similar"
 
-    On Platform.sh, Varnish does not have a static IP, like with [AWS LB.](https://symfony.com/doc/5.1/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly)
+    On Platform.sh, Varnish does not have a static IP, like with [AWS LB.]([[= symfony_doc =]]/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly)
     For this reason, the `TRUSTED_PROXIES` env variable supports being set to value "REMOTE_ADDR", which is equal to:
   
     ```php
@@ -559,7 +559,7 @@ needs, and adapt the user context hash VCL logic to use the additional header.
 
 To avoid overloading any application code, take advantage of Symfony's event system:
 
-1\. Add a Response [event listener or subscriber](https://symfony.com/doc/5.1/event_dispatcher.html) to add your own hash to `/_fos_user_context_hash`:
+1\. Add a Response [event listener or subscriber]([[= symfony_doc =]]/event_dispatcher.html) to add your own hash to `/_fos_user_context_hash`:
 
 ```php
 public function addPreferenceHash(FilterResponseEvent $event)

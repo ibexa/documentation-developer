@@ -121,7 +121,7 @@ You can create Page blocks with custom attributes.
 First, define the attribute type.
 You can use one of the types available in `ezplatform-page-fieldtype/src/lib/Form/Type/BlockAttribute/*`.
 
-You can also use one of the [built-in Symfony types](https://symfony.com/doc/5.0/reference/forms/types.html), e.g. `AbstractType` for any custom type or `IntegerType` for numeric types.
+You can also use one of the [built-in Symfony types]([[= symfony_doc =]]/reference/forms/types.html), e.g. `AbstractType` for any custom type or `IntegerType` for numeric types.
 
 To define the type, create a file `src/Block/Attribute/MyStringAttributeType.php` that contains:
 
@@ -718,7 +718,7 @@ A language to be displayed is selected automatically based on [user preferences 
     For more information, see the following articles:
 
     - [Back office translations](../guide/back_office_translations.md)
-    - [Symfony translations](https://symfony.com/doc/current/translation.html)
+    - [Symfony translations]([[= symfony_doc =]]/translation.html)
     - [Setting language preferences in a browser](https://www.w3.org/International/questions/qa-lang-priorities)
 
 ## Block rendering events

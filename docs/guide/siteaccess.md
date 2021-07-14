@@ -347,7 +347,7 @@ class MyService implements SiteAccessAware
 
 ## Exposing SiteAccess-aware configuration for your bundle
 
-The [Symfony Config component](https://symfony.com/doc/5.0/components/config.html) makes it possible to define *semantic configuration*, exposed to the end developer.
+The [Symfony Config component]([[= symfony_doc =]]/components/config.html) makes it possible to define *semantic configuration*, exposed to the end developer.
 This configuration is validated by rules you define, e.g. validating type (string, array, integer, boolean, etc.).
 Usually, once validated and processed, this semantic configuration is then mapped to internal *key/value* parameters stored in the service container.
 
@@ -451,7 +451,7 @@ use Symfony\Component\DependencyInjection\Loader;
 /**
  * This is the class that loads and manages your bundle configuration
  *
- * To learn more see {@link http://symfony.com/doc/5.0/cookbook/bundles/extension.html}
+ * To learn more see {@link [[= symfony_doc =]]/cookbook/bundles/extension.html}
  */
 class AcmeExampleExtension extends Extension
 {

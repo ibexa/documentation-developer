@@ -92,7 +92,7 @@ twig_variables:
 {{ custom_variable.nested_variable }}
 ```
 
-You can use [Symfony Expression language](https://symfony.com/doc/current/components/expression_language.html)
+You can use [Symfony Expression language]([[= symfony_doc =]]/components/expression_language.html)
 to access other values, for example:
 
 ``` yaml

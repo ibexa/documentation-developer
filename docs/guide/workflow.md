@@ -157,7 +157,7 @@ in the `technical` stage.
 
 ## Workflow service
 
-Workflow makes use of the Symfony [Workflow Component](https://symfony.com/doc/5.0/components/workflow.html),
+Workflow makes use of the Symfony [Workflow Component]([[= symfony_doc =]]/components/workflow.html),
 but special [[= product_name =]] treatment is covered in the Workflow service.
 
 The service implements the following methods:

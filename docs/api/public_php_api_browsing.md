@@ -6,7 +6,7 @@ The service should be [injected into the constructor of your command or controll
 
 !!! tip "Console commands"
 
-    To learn more about commands in Symfony, refer to [Console Commands](https://symfony.com/doc/5.0/console.html).
+    To learn more about commands in Symfony, refer to [Console Commands]([[= symfony_doc =]]/console.html).
 
 ## Viewing content metadata
 

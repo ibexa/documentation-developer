@@ -33,7 +33,7 @@ When running [[= product_name =]] in the `dev` environment you have access to th
 
 #### SPI (persistence)
 
-This section provides the number of non-cached [SPI](repository.md#spi) calls and handlers. You can see details of these calls in the [Symfony Profiler](http://symfony.com/doc/5.0/profiler.html) page.
+This section provides the number of non-cached [SPI](repository.md#spi) calls and handlers. You can see details of these calls in the [Symfony Profiler]([[= symfony_doc =]]/profiler.html) page.
 
 #### SiteAccess
 

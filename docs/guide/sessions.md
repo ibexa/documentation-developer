@@ -11,7 +11,7 @@ It is further enhanced in [[= product_name =]] with support for SiteAccess-awar
 ## Configuration
 
 Symfony offers the possibility to change many session options at application level
-(i.e. in Symfony [`framework` configuration](https://symfony.com/doc/5.0/reference/configuration/framework.html#session)).
+(i.e. in Symfony [`framework` configuration]([[= symfony_doc =]]/reference/configuration/framework.html#session)).
 These options include:
 
 - `cookie_domain`
@@ -133,7 +133,7 @@ If you want to make sure sessions survive Redis or server restarts, consider usi
 For setups where database is preferred for storing sessions, you may use Symfony's PdoSessionHandler,
 although it is not currently recommended from performance perspective.
 
-Below is a configuration example for [[= product_name =]]. Refer to the [Symfony Cookbook](http://symfony.com/doc/5.0/doctrine/pdo_session_storage.html) for full documentation.
+Below is a configuration example for [[= product_name =]]. Refer to the [Symfony Cookbook]([[= symfony_doc =]]/doctrine/pdo_session_storage.html) for full documentation.
 
 ``` yaml
 framework:

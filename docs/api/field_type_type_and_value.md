@@ -123,11 +123,11 @@ services:
 
 #### `parent`
 
-As described in the [Symfony service container documentation](http://symfony.com/doc/5.0/components/dependency_injection/parentservices.html), the `parent` config key indicates that you want your service to inherit from the parent's dependencies, including constructor arguments and method calls. This helps avoiding repetition in your Field Type configuration and keeps consistency between all Field Types.
+As described in the [Symfony service container documentation]([[= symfony_doc =]]/components/dependency_injection/parentservices.html), the `parent` config key indicates that you want your service to inherit from the parent's dependencies, including constructor arguments and method calls. This helps avoiding repetition in your Field Type configuration and keeps consistency between all Field Types.
 
 #### `tags`
 
-Like most API components, Field Types use the [Symfony service tag mechanism](http://symfony.com/doc/5.0/service_container/tags.html).
+Like most API components, Field Types use the [Symfony service tag mechanism]([[= symfony_doc =]]/service_container/tags.html).
 
 A service can be assigned one or several tags, with specific parameters.
 When the [service container](../guide/service_container.md) is compiled into a PHP file, 

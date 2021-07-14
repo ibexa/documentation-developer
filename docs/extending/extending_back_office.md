@@ -6,7 +6,7 @@ React modules that handle specific parts of the application
 can be found in [`ezplatform-admin-ui-modules`](https://github.com/ezsystems/ezplatform-admin-ui-modules)
 The interface is accessible in your browser at `http://<yourdomain>/admin`.
 
-To extend the Back Office with PHP code, you can use [events](https://symfony.com/doc/5.0/event_dispatcher.html),
+To extend the Back Office with PHP code, you can use [events]([[= symfony_doc =]]/event_dispatcher.html),
 either built-in Symfony events or events dispatched by the application.
 
 Some extensibility, such as [adding custom tags](extending_online_editor.md#custom-tags),

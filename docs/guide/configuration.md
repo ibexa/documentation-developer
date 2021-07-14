@@ -25,14 +25,14 @@ These files contain additional settings and point to the general (not environmen
 
 !!! tip
 
-    Read more about [how configuration is handled in Symfony](https://symfony.com/doc/5.0/best_practices/configuration.html).
+    Read more about [how configuration is handled in Symfony]([[= symfony_doc =]]/best_practices/configuration.html).
 
 ### Configuration handling
 
 !!! note
 
     Configuration is tightly related to the [service container](service_container.md).
-    To fully understand it, you must be familiar with the service container and [its configuration](https://symfony.com/doc/5.0/service_container.html#service-parameters).
+    To fully understand it, you must be familiar with the service container and [its configuration]([[= symfony_doc =]]/service_container.html#service-parameters).
 
 Basic configuration handling in [[= product_name =]] is similar to what is commonly possible with Symfony.
 You can define key/value pairs in your configuration files.
@@ -41,7 +41,7 @@ Internally and by convention, keys follow a *dot syntax*, where the different se
 Keys are usually prefixed by a *namespace* corresponding to your application. All kinds of values are accepted, including arrays and deep hashes.
 
 For configuration that is meant to be exposed to an end-user (or end-developer),
-it's usually a good idea to also [implement semantic configuration.](https://symfony.com/doc/5.0/components/config/definition.html)
+it's usually a good idea to also [implement semantic configuration.]([[= symfony_doc =]]/components/config/definition.html)
 
 Note that you can also [implement SiteAccess-aware semantic configuration](siteaccess.md#exposing-siteaccess-aware-configuration-for-your-bundle).
 

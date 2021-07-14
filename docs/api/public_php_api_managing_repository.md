@@ -140,7 +140,7 @@ foreach ($workflowMetadata->markings as $marking) {
 
 !!! tip
 
-    `marking`, a term from [Symfony Workflow,](https://symfony.com/doc/5.0/components/workflow.html)
+    `marking`, a term from [Symfony Workflow,]([[= symfony_doc =]]/components/workflow.html)
     refers to a state in a workflow.
 
 To get a list of all workflows that can be used for a given Content item, use `WorkflowRegistry`:

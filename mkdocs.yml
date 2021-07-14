@@ -627,6 +627,8 @@ extra:
   product_name_exp: 'Ibexa Experience'
   product_name_com: 'Ibexa Commerce'
 
+  symfony_doc: 'http://symfony.com/doc/5.3'
+
 extra_css:
   - fonts/MavenPro.css
   - css/codehilite.css

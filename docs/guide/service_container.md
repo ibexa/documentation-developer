@@ -11,11 +11,11 @@ This is where the service container comes into play. The role of a service conta
 Each time you need a service, you may ask the service container for it.
 It will either build the service with the configuration you provided, or give you an existing instance if it is already available.
 
-[[= product_name =]] uses the [Symfony service container](http://symfony.com/doc/5.0/service_container.html).
+[[= product_name =]] uses the [Symfony service container]([[= symfony_doc =]]/service_container.html).
 
 !!! tip
 
-    To learn more about the service container, see the documentation for the [Symfony DependencyInjection component](http://symfony.com/doc/5.0/components/dependency_injection.html) documentation.
+    To learn more about the service container, see the documentation for the [Symfony DependencyInjection component]([[= symfony_doc =]]/components/dependency_injection.html) documentation.
 
 ## Service tags
 
@@ -23,14 +23,14 @@ Service tags used by the Symfony service container are a way to dedicate service
 
 For instance, if you want to register a [Twig extension](http://twig.sensiolabs.org/doc/advanced.html#creating-extensions) to add custom filters,
 you create the PHP class and declare it as a service in the service container configuration with the `twig.extension` tag
-(see the [Symfony cookbook entry](http://symfony.com/doc/5.0/templating/twig_extension.html) for a full example).
+(see the [Symfony cookbook entry]([[= symfony_doc =]]/templating/twig_extension.html) for a full example).
 
 [[= product_name =]] exposes several features this way (see the [list of core service tags](#core-and-api)).
 This is for example the case with Field Types.
 
 !!! tip
 
-    For a list of all service tags exposed by Symfony, see its [reference documentation](http://symfony.com/doc/5.0/reference/dic_tags.html).
+    For a list of all service tags exposed by Symfony, see its [reference documentation]([[= symfony_doc =]]/reference/dic_tags.html).
 
 ### Core and API
 
