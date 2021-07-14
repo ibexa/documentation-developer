@@ -1,10 +1,11 @@
 # Add user login form
 
-You can add a login form for your users. The template defines lots of config options for example, information about password expiration or [other user management templates](../../user_management/user_management.md#other-user-management-templates).
+You can add a login form for your users. 
+Follow the instruction below to create a template with login form. If you want to configure more options for example, password expiration, see [other user management templates](../../user_management/user_management.md#other-user-management-templates).
 
 First, make sure you have configured [login methods](../../user_management/user_management.md#login-methods).
 
-If you only want to change a template, in the `config/packages/views.yaml` add the following code:
+If you only want to change a template, in the `config/packages/views.yaml` add the following configuration:
 
 ```yaml
 ezpublish:
@@ -13,69 +14,16 @@ ezpublish:
             user:
                 login_template: '@ezdesign/Security/login.html.twig'
 ```
+
 To add a link redirecting to the login form, in the page layout template, provide the following code:
 
 ```html+twig
 <a href="{{ path('login') }}">Log in</a>
 ```
 
+Next, add the template defined in the event.
 
-For more advanced customization, you can use a subscriber.
- In the `src/EventSubscriber/ Create` create `LoginFormViewSubscriber.php`:
- 
- ``` php hl_lines="23 35 40 42"
- <?php
-
- declare(strict_types=1);
-
- namespace App\EventSubscriber;
-
- use eZ\Publish\Core\MVC\Symfony\Event\PreContentViewEvent;
- use eZ\Publish\Core\MVC\Symfony\MVCEvents;
- use eZ\Publish\Core\MVC\Symfony\View\LoginFormView;
- use Symfony\Component\EventDispatcher\EventSubscriberInterface;
- use Symfony\Component\Security\Core\Exception\CredentialsExpiredException;
-
- final class LoginFormViewSubscriber implements EventSubscriberInterface
- {
-     /**
-      * Returns an array of events this subscriber wants to listen to.
-      *
-      * @return string[]
-      */
-     public static function getSubscribedEvents(): array
-     {
-         return [
-             MVCEvents::PRE_CONTENT_VIEW => 'onPreContentView',
-         ];
-     }
-     
-     public function onPreContentView(PreContentViewEvent $event): void
-     {
-         $view = $event->getContentView();
-         
-         if (!($view instanceof LoginFormView)) {
-             return ;
-         }
-         
-         $view->addParameters([
-             'foo' => 'foo',
-             'bar' => 'bar'
-         ]);
-         
-         if ($view->getLastAuthenticationException() instanceof CredentialsExpiredException) {
-             // View with instruction to unlock account
-             $view->setTemplateIdentifier('login/expired_credentials.html.twig');
-         }
-     }
- }
- ```
- 
-In the provided example, in line 23, the `PRE_CONTENT_VIEW` event is used. You can also pass additional parameters to the view (line 35). In this case, at the instance of exception (line 40), the subscriber displays the `expired_credentials.html.twig` template (line 42).
-
-Next, add the template defined in the event. 
-
-In the `templates/login`, create the `expired_credentials/html.twig` file:
+In `templates/themes/<theme_name>/login`, create an `expired_credentials.html.twig` file:
 
 ```html+twig
 {% extends '@ezdesign/Security/base.html.twig' %}
@@ -101,16 +49,6 @@ In the `templates/login`, create the `expired_credentials/html.twig` file:
 
 You can use a custom template for example to display information about password expiration
 or to customize [other user management templates](../../user_management/user_management.md#other-user-management-templates).
-
-If you need only to change a template, you can use the following configuration:
-
-```yaml
-ezpublish:
-    system:
-        my_siteaccess:
-            user:
-                login_template: '@ezdesign/Security/login.html.twig'
-```
 
 In case of more advanced template customization, you can use a subscriber,
 for example in `src/EventSubscriber/LoginFormViewSubscriber.php`:

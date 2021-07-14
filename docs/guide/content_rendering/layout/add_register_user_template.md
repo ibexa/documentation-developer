@@ -1,9 +1,9 @@
 # Add user registration form
 
-You can add to your website a registration form for your users.
+You can add a registration form for users to your website.
 Follow the instructions below to create and customize templates for a registration form, and a registration confirmation page.
 
-First, make sure you [enabled user registration](../../../tutorials/platform_beginner/8_enable_account_registration.md#enable-registration).
+First, make sure you [enabled user registration](../../permissions.md#registering-users).
 
 Next, in the `config/packages/views.yaml` file add the following configuration:
 
@@ -13,12 +13,12 @@ ezplatform:
         default:
             user_registration:
                 templates:
-                    form: user/registration_form.html.twig
-                    confirmation: user/registration_confirmation.html.twig
+                    form: '@ezdesign/user/registration_form.html.twig'
+                    confirmation: '@ezdesign/user/registration_confirmation.html.twig'
 ```
 This defines which templates will be used for rendering the registration form and confirmation page.
 
-In the `templates/user/registration_form.html.twig` create the template for registration form.
+In the `templates/themes/<theme_name>/user/registration_form.html.twig` create the template for registration form.
 
 Example registration form:
 
@@ -51,7 +51,7 @@ Example registration form:
 {% endblock %}
 ```
 
-In the `templates/user/registration_confirmation.html.twig`, create the template for confirmation form.
+In the `templates/themes/<theme_name>/user/registration_confirmation.html.twig`, create the template for confirmation form.
 
 Example confirmation form:
 
