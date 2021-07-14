@@ -1,10 +1,10 @@
 # Injecting SiteAccess
 
-The [service container](../service_container.md) exposes the SiteAccess as the `@ezpublish.siteaccess` service,
-so you can inject it using setter injection into any custom service.
-The service should implement the `eZ\Publish\Core\MVC\Symfony\SiteAccess\SiteAccessAware` interface.
-
-For example, define a service which depends on the Repository's ContentService and the current SiteAccess.
+The [service container](../service_container.md) exposes the SiteAccess through the `@ezpublish.siteaccess_service` service, which fulfills the `\eZ\Publish\Core\MVC\Symfony\SiteAccess\SiteAccessServiceInterface` contract.
+This means you can inject it into any custom service constructor, type hinting that contract.
+You can get the current SiteAccess from that service by calling the `SiteAccessServiceInterface::getCurrent` method.
+	
+For example, define a service which depends on the Repository's ContentService and the SiteAccessService.
 
 ``` yaml
 services:
