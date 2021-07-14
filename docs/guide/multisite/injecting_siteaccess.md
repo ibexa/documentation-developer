@@ -9,38 +9,31 @@ For example, define a service which depends on the Repository's ContentService a
 ``` yaml
 services:
     App\MyService:
-        arguments: ['@ezpublish.api.service.content']
-        calls:
-            - [setSiteAccess, ['@ezpublish.siteaccess']]
+        arguments: ['@ezpublish.siteaccess_service']
 ```
 
 ``` php
+declare(strict_types=1);
+	
 namespace App;
 
 use eZ\Publish\API\Repository\ContentService;
-use eZ\Publish\Core\MVC\Symfony\SiteAccess;
-use eZ\Publish\Core\MVC\Symfony\SiteAccess\SiteAccessAware;
+use eZ\Publish\Core\MVC\Symfony\SiteAccess\SiteAccessServiceInterface;
 
-class MyService implements SiteAccessAware
+class MyService
 {
-    /**
-     * @var \eZ\Publish\API\Repository\ContentService
-     */
+    /** @var \eZ\Publish\API\Repository\ContentService */
     private $contentService;
 
-    /**
-     * @var \eZ\Publish\Core\MVC\Symfony\SiteAccess
-     */
-    private $siteAccess;
+    /** @var \eZ\Publish\Core\MVC\Symfony\SiteAccess\SiteAccessServiceInterface */
+    private $siteAccessService;
 
-    public function __construct(ContentService $contentService)
-    {
+    public function __construct(
+        SiteAccessServiceInterface $siteAccessService,
+        ContentService $contentService
+    ) {
+        $this->siteAccessService = $siteAccessService;
         $this->contentService = $contentService;
-    }
-
-    public function setSiteAccess(SiteAccess $siteAccess = null)
-    {
-        $this->siteAccess = $siteAccess;
     }
 }
 ```

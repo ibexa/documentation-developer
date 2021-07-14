@@ -1,6 +1,6 @@
 # Multisite configuration
 
-You configure the available SiteAccesses and under the `ezplatform.siteaccess` key.
+You configure the available SiteAccesses under the `ezplatform.siteaccess` key.
 
 ## SiteAccess configuration
 
@@ -41,6 +41,10 @@ If you need a multisite setup with multiple Back Offices, add any additional adm
 In cases where the sites are on separate databases, each needs its own [repository](../configuration.md#configuration-examples)
 (including their own storage and search connection), var dir, [cache pool](../persistence_cache.md#persistence-cache-configuration),
 and ideally also separate Varnish/Fastly configuration.
+
+!!! caution
+
+    Different SiteAccesses can only have different `var_dir` if they also have different repositories.
 
 ### Default SiteAccess
 
@@ -144,7 +148,7 @@ ezplatform:
 If you are using multiple domains, list all domains for an admin SiteAccess under `siteaccess_hosts`:
 
 ``` yaml
-ezpublish:
+ezplatform:
     system:
         admin:
             page_builder:
