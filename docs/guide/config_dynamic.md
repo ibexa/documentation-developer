@@ -69,7 +69,7 @@ You can also use the [autowire feature](https://symfony.com/doc/current/service_
 
 !!! tip
 
-    For more information about dependency injection, see [Service container](service_container.md).
+    For more information about dependency injection, see [Service container](../api/service_container.md).
 
 !!! note
 
