@@ -1,4 +1,4 @@
-# Configuration
+# HTTP cache configuration
 
 ## Content view configuration
 
@@ -7,7 +7,7 @@ You can configure cache globally for content views in `config/packages/ezplatfor
 ``` yaml
 ezplatform:
     system:
-        my_siteaccess:
+        <scope>:
             content:
                 # Activates HTTP cache for content
                 view_cache: true
@@ -22,16 +22,16 @@ As the system takes care of purges, the cache should not become stale with the e
 
 ## Cache header rules
 
-A few redirect and error pages are served through the ContentView system. If you set a high `default_ttl`, they can also be served from cache.
+A few redirect and error pages are served through the content view system. If you set a high `default_ttl`, they can also be served from cache.
 
 To avoid this, the installation ships with configuration to match these specific situations and set a much lower TTL.
-[FOSHttpCacheBundle matching rules](http://foshttpcachebundle.readthedocs.io/en/2.8.0/reference/configuration/headers.html) allow you to specify a different TTL:
+[FOSHttpCacheBundle matching rules](http://foshttpcachebundle.readthedocs.io/en/2.8.0/reference/configuration/headers.html) enables you to specify a different TTL:
 
 ``` yaml
 fos_http_cache:
     cache_control:
         rules:
-            # Make sure cacheable (fresh) responses from Ibexa Platform which are errors/redirects get lower TTL than default_ttl
+            # Make sure cacheable (fresh) responses from Ibexa DXP which are errors/redirects get lower TTL than default_ttl
             -
                 match:
                     match_response: 'response.isFresh() && ( response.isServerError() || response.isClientError() || response.isRedirect() )'
@@ -82,11 +82,11 @@ In practice, with ESI, every sub-request is regenerated from application perspec
 - With Symfony Proxy (AppCache) there is always some overhead, even on warm cache (hits)
 - In development environment
 
-This may differ depending on your system, however, it is recommended staying below 5 ESI 
+This may differ depending on your system, however, it is recommended to stay below 5 ESI 
 requests per page and only using them for parts that are the same across the whole site or larger parts of it.
 
 You should not use ESI for parts that are effectively uncached, 
-because your reverse proxy has to wait for back-end and cannot deliver cached pages directly.
+because your reverse proxy has to wait for the back end and cannot deliver cached pages directly.
 
 !!! note "ESI limitations with the URIElement SiteAccess matcher"
 

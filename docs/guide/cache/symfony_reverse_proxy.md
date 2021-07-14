@@ -1,27 +1,27 @@
-# Symfony reverse proxy
+# Reverse proxy
 
-Before you start using Symfony reverse proxy, you must change your caching kernel to use `EzSystems\PlatformHttpCacheBundle\AppCache` instead of `Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache`.
+Before you start using Symfony reverse proxy, you must change your kernel to use `EzSystems\PlatformHttpCacheBundle\AppCache` instead of `Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache`.
 
 Next, to use Symfony reverse proxy, follow the [Symfony documentation](https://symfony.com/doc/current/http_cache.html#symfony-reverse-proxy).
 
-# Use Varnish or Fastly
+## Use Varnish or Fastly
 
 As [[= product_name =]] is built on top of Symfony, it uses standard HTTP cache headers.
-By default, the Symfony reverse proxy, written in PHP, is used to handle cache.
-You can replace it with other, reverse proxy such as Varnish or CDN like Fastly.
+By default, the Symfony reverse proxy is used to handle cache.
+You can replace it with other reverse proxies, such as Varnish, or CDN like Fastly.
 
-This is highly recommended as they provide better performance and more advanced features such as grace handling, configurable logic through VCL and much more.
+Using a different proxy is highly recommended as they provide better performance and more advanced features such as grace handling, configurable logic through VCL and much more.
 
 !!! note
 
-    Use of Varnish or Fastly is a requirement for a [Clustering](/clustering/clustering.md) setup, as Symfony Proxy does not support sharing cache between several application servers.
+    Use of Varnish or Fastly is a requirement for a [Clustering](../clustering.md) setup, as Symfony Proxy does not support sharing cache between several application servers.
 
 ## Recommended VCL base files
 
-For setup to work properly with your installation, you need to adapt one of the provided VCL files as the basis:
+For reverse proxies to work properly with your installation, you need to adapt one of the provided VCL files as the basis:
 
 - [Varnish VCL xkey example](https://github.com/ezsystems/ezplatform-http-cache/blob/2.0/docs/varnish/vcl/varnish5.vcl)
-- Fastly VCL can be found in `vendor/ezsystems/ezplatform-http-cache-fastly/fastly` in Enterprise version
+- Fastly VCL can be found in `vendor/ezsystems/ezplatform-http-cache-fastly/fastly`
 
 !!! tip
 
@@ -29,7 +29,7 @@ For setup to work properly with your installation, you need to adapt one of the 
     you can also adapt your VCL further with [FOSHttpCache documentation](http://foshttpcache.readthedocs.org/en/latest/varnish-configuration.html)
     to use additional features.
 
-## Configure [[= product_name =]]
+## Configure Varnish and Fastly
 
 The configuration of [[= product_name =]] for using Varnish or Fastly requires a few steps, starting with configuring proxy.
 
@@ -58,17 +58,17 @@ framework:
     ```
 
     When trusting remote IP like this, make sure your application is only accessible through Varnish. 
-    If it is accessible in other ways, this may result in trusting for example, the IP of client browser instead, which would be a serious security issue.
+    If it is accessible in other ways, this may result in trusting, for example, the IP of client browser instead, which would be a serious security issue.
 
     Make sure that **all** traffic always comes from the trusted proxy/load balancer,
     and that there is no other way to configure it.
 
-For more information about setting these variables, see [Examples for configuring [[= product_name =]]](#examples-for-configuring-eZ-Platform).
+For more information about setting these variables, see [Examples for configuring [[= product_name =]]](#examples-for-configuring-ibexa-dxp).
 
 ### Update YML configuration
 
 Next, you need to tell [[= product_name =]] to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client),
-and specify the URL Varnish can be reached on (in `config/packages/ezplatform.yaml`):
+and specify the URL that Varnish can be reached on (in `config/packages/ezplatform.yaml`):
 
 | Configuration | Parameter| Environment variable| Possible values|
 |---------|--------|--------|----------|
@@ -79,9 +79,9 @@ and specify the URL Varnish can be reached on (in `config/packages/ezplatform.ya
 | `ezplatform.system.<scope>.http_cache.fastly.key` | `fastly_key` | `FASTLY_KEY` | Service key/token to authenticate with Fastly. |
 
 If you need to set multiple purge servers, configure them in the YAML configuration, 
-instead of parameter or environment variable as they only take single string value.
+instead of parameter or environment variable, as they only take single string value.
 
-Example configuration for Varnish as reverse proxy, providing that [front controller has been configured](#configure-symfony-front-controllert):
+Example configuration for Varnish as reverse proxy, providing that [front controller has been configured](#configure-symfony-front-controller):
 
 ``` yaml
 ezplatform:
@@ -98,7 +98,7 @@ ezplatform:
 
 !!! note "Invalidating Varnish cache using tokens"
 
-    In setups where the Varnish server IP can change (for example, on platform.sh/Ibexa Cloud),
+    In setups where the Varnish server IP can change (for example, on Ibexa Cloud),
     you can use token-based cache invalidation through [`ez_purge_acl`](https://github.com/ezsystems/ezplatform-http-cache/blob/v2.1.0/docs/varnish/vcl/varnish5.vcl#L174).
  
     In such situation, use strong, secure hash and make sure to keep the token secret.
@@ -106,8 +106,8 @@ ezplatform:
 ### Ensure proper Captcha behavior [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 If your installation uses Varnish and you want users to be able to configure and use Captcha in their forms, 
-you must enable sending of Captcha data as a response to an Ajax request. 
-Otherwise, Varnish does not allow for the transfer of Captcha data to the form, and as a result, users will see an empty image.
+you must enable sending Captcha data as a response to an Ajax request. 
+Otherwise, Varnish does not allow for the transfer of Captcha data to the form, and as a result, users see an empty image.
 
 To enable sending Captcha over Ajax, add the following configuration to `config/packages/ezplatform.yaml`:
 
@@ -117,7 +117,7 @@ ezplatform:
         default:
             form_builder:
                 captcha:
-                    use_ajax: <true|false>
+                    use_ajax: true
 ```
 
 ### Custom Captcha block [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
@@ -182,7 +182,7 @@ FASTLY_KEY="token"
 #### Configure Fastly on Platform.sh
 
 If you use Platform.sh, it is recommended to configure all environment variables through [Platform.sh variables](https://docs.platform.sh/frameworks/ibexa/fastly.html).
-In [[= product_name =]], Varnish is enabled by default. To use Fastly, firt, you must 
+In [[= product_name =]], Varnish is enabled by default. To use Fastly, first you must 
 [disable Varnish](https://docs.platform.sh/frameworks/ibexa/fastly.html#remove-varnish-configuration) 
 
 #### Get Fastly service ID and API token
@@ -264,11 +264,11 @@ Stale cache, or grace mode in Varnish, occurs when:
 - Cache is served some time after the TTL expired.
 - When the back-end server does not respond.
 
-This has several benefits for high traffic installations to reduce load to the back-end. 
-Instead of creating several concurrent requests for the same page to the back-end, 
+This has several benefits for high traffic installations to reduce load to the back end. 
+Instead of creating several concurrent requests for the same page to the back end, 
 the following happens when a page has been soft purged:
 
-- Next request hitting the cache will trigger an asynchronous lookup to a back-end.
+- Next request hitting the cache triggers an asynchronous lookup to the back end.
 - If cache is still within grace period, first and subsequent requests for the content are served from cache,
 and do not wait for the asynchronous lookup to finish.
 - The back-end lookup finishes and refreshes the cache so any subsequent requests get a fresh cache.
@@ -276,17 +276,17 @@ and do not wait for the asynchronous lookup to finish.
 By default, [[= product_name =]] always soft purges content on reverse proxies that support it (Varnish and Fastly),
 with the following logic in the out-of-the-box VCL:
 
-- Cache is within grace.
+- Cache is within grace period.
 - Either the server is not responding, or the request comes without a session cookie (anonymous user).
 
 Serving grace is not always allowed by default because:
 
-- It is a safe default. Even if just for anonymous users, stale cache can easily confuse your team during acceptance testing.
+- It is a safe default. Even if just for anonymous users, stale cache can easily be confusing during acceptance testing.
 - It means REST API, which is used by the Back Office, would serve stale data, breaking the UI.
 
 !!! tip "Customizing stale cache handling"
 
-    If you want to use grace handling for logged-in users as well, you can adapt the provided VCL to add condition
+    If you want to use grace handling for logged-in users as well, you can adapt the provided VCL to add a condition
     for opting out if the request has a cookie and the path contains REST API prefix to make sure the Back Office is not negatively affected.
 
     If you want to disable grace mode, you can adapt the VCL to do hard instead of soft purges, or set grace/stale time to `0s`.

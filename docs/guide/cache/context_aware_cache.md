@@ -5,7 +5,7 @@ This is called (user) context-aware cache.
 
 It means that HTTP cache is unique per set of user permissions (Roles and Limitations), 
 and there are variations of cache shared only among users that have the exact same permissions. 
-So if a user browsers a list of children Locations, they will only see children Locations 
+So if a user browses a list of children Locations, they will only see children Locations 
 they have access to, even if their rendering is served from HTTP cache.
 
 This is accomplished by varying on a header called `X-Context-User-Hash`, which the system populates on the request.
@@ -28,7 +28,7 @@ as the hash lookup itself is cached by the cache proxy as described below.
 
 ### User Context Hash caching
 
-Example of a response sent to reverse proxy from `/_fos_user_context_hash` with [[[= product_name =]]'s default config](#default-options-for-FOSHttpCacheBundle-defined-in-[[= product_name =]]):
+Example of a response sent to reverse proxy from `/_fos_user_context_hash` with [[[= product_name =]]'s default config](#default-options-for-FOSHttpCacheBundle-defined-in-ibexa-dxp):
 
 ```
 HTTP/1.1 200 OK
@@ -40,7 +40,7 @@ Vary: Cookie, Authorization
 
 In the example above the response is set to be cached for 10 minutes.
 It varies on the `Cookie` header in order to be able to cache it for the given user.
-To optimize it, the default VCL strips any other cookie than session cookies to make this work.
+To optimize it, the default VCL strips any cookie other than session cookies to make this work.
 
 It also varies on `Authorization` to cover any possible basic authorization headers in case that is used over sessions for some requests.
 
@@ -64,7 +64,7 @@ It also varies on `Authorization` to cover any possible basic authorization head
 
 ### Default options for FOSHttpCacheBundle defined in [[= product_name =]]
 
-The following configuration is defined in [[= product_name =]] by default for FOSHttpCacheBundle.
+The following configuration is defined by default for FOSHttpCacheBundle.
 You should not override these settings unless you know what you are doing.
 
 ``` yaml
@@ -102,7 +102,7 @@ Example:
     $response->setVary('Cookie');
 ```
 
-2\. Ajax/JS lookup to "uncached" custom Symfony Controllers:
+2\. Ajax/JS lookup to "uncached" custom Symfony controllers:
 
 This method does not consume memory in Varnish. 
 It can optionally be cached with custom logic: Symfony Cache on server side and/or with client side caching techniques. 

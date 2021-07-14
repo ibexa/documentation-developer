@@ -13,7 +13,7 @@ This awareness is accomplished by means of cache tagging. All supported reverse 
 Understanding tags is the key to making the most of `ezplatform-http-cache`.
 
 Tags form a secondary set of keys assigned to every cache item, on top of the "primary key" which is the URI.
-Like an index in a database, a tag is typically used for anything relevant, that represents the given cache item.
+Like an index in a database, a tag is typically used for anything relevant that represents the given cache item.
 Tags are used for cache invalidation.
 
 For example, the system tags every article response, and when the article Content Type is updated,
@@ -22,8 +22,8 @@ and updated in the background when someone requests them.
 
 Current content tags (and when the system purges on them):
 
-- Content: `c<content-id>` - Purged on all smaller or larger changes to Content (including its metadata, fields and locations).
-- Content Type: `ct<content-type-id>` - Used when the Content Type changes, affecting Content of its type.
+- Content: `c<content-id>` - Purged on all smaller or larger changes to content (including its metadata, Fields and Locations).
+- Content Type: `ct<content-type-id>` - Used when the Content Type changes, affecting content of its type.
 - Location: `l<location-id>` - Used for clearing all cache relevant for a given Location.
 - Parent Location: `pl<[parent-]location-id>` - Used for clearing all children of a Location (`pl<location-id>`), or all siblings (`pl<parent-location-id>`).
 - Path: `p<location-id>` - For operations that change the tree itself, like move, remove, etc.
@@ -47,7 +47,7 @@ you can encounter problems with too long cache header on responses.
 It happens because necessary cache entries may not be tagged properly. 
 You may also see `502 Headers too long` errors, and webserver refusing to serve the page.
 
-See below some options how to solve this issue:
+You can solve this issue in one of the following ways:
 
 #### A. Configure allowing larger headers
 
@@ -117,14 +117,14 @@ If the given content has several Locations, you can see several `l<location-id>`
 ### The ResponseConfigurator
 
 A `ReponseCacheConfigurator` configures an HTTP Response object, makes the response public, adds tags and sets the shared max age. 
-It is provided to `ReponseTaggers` that uses it to add the tags to the response.
+It is provided to `ReponseTaggers` that use it to add the tags to the response.
 
 The `ConfigurableResponseCacheConfigurator` (`ezplatform.view_cache.response_configurator`) follows the `view_cache` configuration and only enables cache if it is enabled in the configuration.
 
 ### Delegator and Value taggers
 
-    - Delegator taggers - extract another value or several from the given value and pass it on to another tagger. For example, a `ContentView` is covered both by the `ContentValueViewTagger` and `LocationValueViewTagger`, where the first extracts the Content from the `ContentView` and passes it to the `ContentInfoTagger`.
-    - Value taggers - extract the `Location` and pass it on to the `LocationViewTagger`.
+- Delegator taggers - extract another value or several from the given value and pass it on to another tagger. For example, a `ContentView` is covered both by the `ContentValueViewTagger` and `LocationValueViewTagger`, where the first extracts the Content from the `ContentView` and passes it to the `ContentInfoTagger`.
+- Value taggers - extract the `Location` and pass it on to the `LocationViewTagger`.
 
 ## The DispatcherTagger
 
@@ -172,7 +172,7 @@ $tagHandler->addRelationTags([33, 44]);
 In PHP, FOSHttpCache exposes the `fos_http_cache.http.symfony_response_tagger` service which enables you to add tags to a response.
 
 The following example adds minimal tags for when ID 33 and 34 are rendered in ESI,
-but parent response needs these tags to get refresh if they are deleted:
+but parent response needs these tags to get refreshed if they are deleted:
 
 ``` php
 /** @var \FOS\HttpCacheBundle\Http\SymfonyResponseTagger $responseTagger */
@@ -183,7 +183,7 @@ See [Tagging from code](https://foshttpcachebundle.readthedocs.io/en/2.8.0/featu
 
 4\. Use deprecated `X-Location-Id` header.
 
-For custom or eZ controllers (e.g. REST) still using `X-Location-Id`, `XLocationIdResponseSubscriber` handles translating
+For custom or built-in controllers (e.g. REST) still using `X-Location-Id`, `XLocationIdResponseSubscriber` handles translating
 this header to tags. It supports singular and comma-separated Location ID value(s):
 
 ```php
@@ -223,7 +223,7 @@ When you want to reduce the amount of tags, or the inline content is rendered us
 
 3\. `{{ fos_httpcache_tag(['r33', 'r44']) }}`
 
-As a last resort you can also use function from FOS which lets you set low level tags directly:
+As a last resort you can also use the following function from FOS which lets you set low level tags directly:
 
 ``` html+twig
 {{ fos_httpcache_tag('r33') }}
@@ -271,7 +271,7 @@ For that you can use the built-in purge client:
 // Example for purging by Location ID:
 $purgeClient->purge([ContentTagInterface::LOCATION_PREFIX . $location->id]);
 
-// Example for purging all cache for instance for full re-deploy cases , usually this will trigger a expiry (soft purge):
+// Example for purging all cache for instance for full re-deploy cases, usually this triggers an expiry (soft purge):
 $purgeClient->purgeAll();
 ```
 
