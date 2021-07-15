@@ -179,8 +179,12 @@ nav:
                 - 'Embed product': 'guide/content_rendering/embed_and_list_content/embed_product.md'
                 - 'Render images': 'guide/content_rendering/embed_and_list_content/render_images.md'
             - Layout:
-                - 'Add navigation menu': 'guide/content_rendering/layout/add_menu.md'
                 - 'Add breadcrumbs': 'guide/content_rendering/layout/add_breadcrumbs.md'
+                - 'Add forgot password option': 'guide/content_rendering/layout/add_forgot_password.md'
+                - 'Add login form': 'guide/content_rendering/layout/add_login_form.md'
+                - 'Add navigation menu': 'guide/content_rendering/layout/add_menu.md'
+                - 'Add search form to front page': 'guide/content_rendering/layout/add_search_form.md'
+                - 'Add user registration form': 'guide/content_rendering/layout/add_register_user_template.md'
                 - 'Customize basket': 'guide/content_rendering/layout/customize_basket.md'
         - Content management:
             - 'Content management': 'guide/content_management.md'
