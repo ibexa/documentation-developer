@@ -153,6 +153,7 @@ nav:
                 - 'Templates': 'guide/content_rendering/templates/templates.md'
                 - 'Template configuration': 'guide/content_rendering/templates/template_configuration.md'
                 - 'View matcher reference': 'guide/content_rendering/templates/view_matcher_reference.md'
+                - 'Add custom view matcher': 'guide/content_rendering/templates/custom_view_matcher.md'
                 - 'Shop templates': 'guide/content_rendering/templates/overriding_shop_templates.md'
             - 'Assets': 'guide/content_rendering/assets.md'
             - 'Image variations': 'guide/content_rendering/image_variations.md'

@@ -59,7 +59,7 @@ You can define any other custom views. For each custom view, you must define a c
 
 Each rule must have a name unique per view type.
 For each rule you must define the matching conditions.
-The `match` key can contain one or more [view matchers](view_matcher_reference.md).
+The `match` key can contain one or more [view matchers](view_matcher_reference.md), including [custom ones](custom_view_matcher.md).
 
 ``` yaml
 [[= include_file('code_samples/front/render_content/config/packages/views.yaml', 15, 20) =]]
