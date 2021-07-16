@@ -477,7 +477,13 @@ nav:
                 - 'Trash events': 'guide/repository/event_reference/trash_events.md'
                 - 'Other events': 'guide/repository/event_reference/other_events.md'
         - Cache:
-            - 'HTTP cache': 'guide/http_cache.md'
+            - 'HTTP cache': 
+              - 'HTTP cache': 'guide/cache/http_cache.md'
+              - 'HTTP cache configuration': 'guide/cache/http_cache_config.md'
+              - 'Reverse proxy': 'guide/cache/symfony_reverse_proxy.md'
+              - 'Context-aware HTTP cache': 'guide/cache/context_aware_cache.md'
+              - 'Content-aware HTTP cache': 'guide/cache/content_aware_cache.md'
+            
             - 'Persistence cache': 'guide/persistence_cache.md'
             - 'Shop caching': 'guide/cache/shop_caching.md'
         - Clustering:
