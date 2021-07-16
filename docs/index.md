@@ -79,7 +79,7 @@
             </h5>
                 <ul>
                     <li><a href="guide/content_rendering/twig_function_reference/twig_functions_reference/">Twig functions</a></li>
-                    <li><a href="guide/http_cache/">HTTP cache</a></li>
+                    <li><a href="guide/cache/http_cache/">HTTP cache</a></li>
                     <li><a href="guide/search/solr/">Solr search engine</a></li>
                     <li><a href="guide/images/">Images</a></li>
                 </ul>
