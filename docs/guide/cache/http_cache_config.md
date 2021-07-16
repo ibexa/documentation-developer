@@ -67,7 +67,7 @@ For the Page Builder, block cache by default respects `$content.ttl_cache$` and 
 However, if the given block value has a since or till date, 
 it is taken into account for the TTL calculation for both the block and the whole page.
 
-To overload this behavior, listen to [`BlockResponseEvents::BLOCK_RESPONSE`](../extending/extending_page.md#block-render-response),
+To overload this behavior, listen to [`BlockResponseEvents::BLOCK_RESPONSE`](../../extending/extending_page.md#block-render-response),
 and set priority to `-200` to adapt what Page Field Type does by default.
 
 For example, to disable cache for the block, use `$event->getResponse()->setPrivate()`.

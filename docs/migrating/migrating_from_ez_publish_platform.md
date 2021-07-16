@@ -452,7 +452,7 @@ For date-based publisher and form builder, there are additional tables, you can 
 
 #### Varnish *(optional)*
 
-If you use Varnish, the recommended Varnish (4 or higher) VCL configuration can be found in the `doc/varnish` folder. See also the [Using Varnish](../guide/cache/.md#using-varnish) page.
+If you use Varnish, the recommended Varnish (4 or higher) VCL configuration can be found in the [Using Varnish](../guide/cache/symfony_reverse_proxy.md#use-varnish-or-fastly) page.
 
 #### Web server configuration
 
