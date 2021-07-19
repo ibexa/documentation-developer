@@ -87,12 +87,13 @@ As such, `query` is recommended when the search is based on user input.
 The difference between `query` and `filter` is only relevant when using Solr search engine.
 With the Legacy search engine both properties will give identical results.
 
-#### Batch searching
+#### Processing large result sets
 
 To search in a large result set, use `eZ\Publish\API\Repository\Iterator\BatchIterator`.
-`BatchIterator` divides the result set into smaller batches, which helps with sets that are too large to handle due to memory limits.
+`BatchIterator` divides the results of search or filtering into smaller batches.
+This enables iterating over results that are too large to handle due to memory constraints.
 
-`BatchIterator` takes one of the available adapters, and a [`Query` or `Filter` object](#search-with-query-and-filter).
+`BatchIterator` takes one of the available adapters (`\eZ\Publish\API\Repository\Iterator\BatchIteratorAdapter` ) and optional batch size. For example: 
 
 ``` php
 $query = new LocationQuery;
@@ -104,7 +105,7 @@ foreach ($iterator as $result) {
 }
 ```
 
-You can additionally define the batch size by setting `$iterator->setBatchSize()`.
+You can also define the batch size by setting `$iterator->setBatchSize()`.
 
 The following BatchIterator adapters are available, for both `query` and `filter` searches:
 
