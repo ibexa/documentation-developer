@@ -320,4 +320,6 @@ The syntax is based on the Symfony's [expression language]([[= symfony_doc =]]/c
 
 The above configuration adds the following entry to the root resource:
 
+`<someresource media-type="application/vnd.ez.api.Content+xml" href="/api/ezp/v2/content/objects/2"/>`
+
 `<someresource media-type="application/vnd.ez.api.Content+xml" href="/api/ezp/v2/content/objects/2"/>

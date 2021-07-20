@@ -11,7 +11,7 @@ It is further enhanced in [[= product_name =]] with support for SiteAccess-awar
 ## Configuration
 
 Symfony offers the possibility to change many session options at application level
-(i.e. in Symfony [`framework` configuration]([[= symfony_doc =]]/reference/configuration/framework.html#session)).
+(for example, in Symfony [`framework` configuration]([[= symfony_doc =]]/reference/configuration/framework.html#session)).
 These options include:
 
 - `cookie_domain`

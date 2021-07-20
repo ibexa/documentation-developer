@@ -6,7 +6,7 @@ Image variations (image aliases) enable you to define and use different versions
 
 Image variations are generated with [LiipImagineBundle](https://github.com/liip/LiipImagineBundle), using the underlying [Imagine library from avalanche123](http://imagine.readthedocs.org/en/latest/). This bundle supports GD (default), Imagick or Gmagick PHP extensions, and enables you to define flexible filters in PHP. Image files are stored using the `IOService,` and are completely independent from the Image Field Type. They are generated only once and cleared on demand (e.g. on content removal).
 
-LiipImagineBundle only works on image blobs (no command line tool is needed). See the [bundle's documentation to learn more on that topic]([[= symfony_doc =]]/bundles/LiipImagineBundle/configuration.html).
+LiipImagineBundle only works on image blobs (no command line tool is needed). See the [bundle's documentation to learn more on that topic](https://symfony.com/doc/current/bundles/LiipImagineBundle/configuration.html).
 
 ## Images from a DAM system
 
