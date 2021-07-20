@@ -179,9 +179,12 @@ nav:
                 - 'Embed product': 'guide/content_rendering/embed_and_list_content/embed_product.md'
                 - 'Render images': 'guide/content_rendering/embed_and_list_content/render_images.md'
             - Layout:
+                - 'Add breadcrumbs': 'guide/content_rendering/layout/add_breadcrumbs.md'
+                - 'Add forgot password option': 'guide/content_rendering/layout/add_forgot_password.md'
+                - 'Add login form': 'guide/content_rendering/layout/add_login_form.md'
                 - 'Add navigation menu': 'guide/content_rendering/layout/add_menu.md'
                 - 'Add search form to front page': 'guide/content_rendering/layout/add_search_form.md'
-                - 'Add breadcrumbs': 'guide/content_rendering/layout/add_breadcrumbs.md'
+                - 'Add user registration form': 'guide/content_rendering/layout/add_register_user_template.md'
                 - 'Customize basket': 'guide/content_rendering/layout/customize_basket.md'
         - Content management:
             - 'Content management': 'guide/content_management.md'
@@ -478,7 +481,13 @@ nav:
                 - 'Trash events': 'guide/repository/event_reference/trash_events.md'
                 - 'Other events': 'guide/repository/event_reference/other_events.md'
         - Cache:
-            - 'HTTP cache': 'guide/http_cache.md'
+            - 'HTTP cache': 
+              - 'HTTP cache': 'guide/cache/http_cache.md'
+              - 'HTTP cache configuration': 'guide/cache/http_cache_config.md'
+              - 'Reverse proxy': 'guide/cache/symfony_reverse_proxy.md'
+              - 'Context-aware HTTP cache': 'guide/cache/context_aware_cache.md'
+              - 'Content-aware HTTP cache': 'guide/cache/content_aware_cache.md'
+            
             - 'Persistence cache': 'guide/persistence_cache.md'
             - 'Shop caching': 'guide/cache/shop_caching.md'
         - Clustering:
@@ -501,6 +510,7 @@ nav:
     - Extending Ibexa DXP:
         - Extending Back Office:
             - 'Extending Back Office': 'extending/extending_back_office.md'
+            - 'Reusable Back Office templates': 'extending/reusable_back_office_templates.md'
             - 'Extending Dashboard': 'extending/extending_dashboard.md'
             - 'Extending Menus': 'extending/extending_menus.md'
             - 'Extending tabs': 'extending/extending_tabs.md'
@@ -615,12 +625,6 @@ plugins:
         j2_variable_end_string: '=]]'
 
 extra:
-  version_warning:
-    latest: ['3.3']
-    previous_lts: ['2.5', '1.13']
-    lts: ['3.3']
-    ft: ['3.2','3.1']
-    dev: ['master']
   append_bootstrap:
     - '/guidelines/components/'
     - '/guidelines/resources/'
