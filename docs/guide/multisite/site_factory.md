@@ -155,8 +155,11 @@ You can adjust the place where the directory of the new site is created (Locatio
 To do it, go to `config/packages/ezplatform_site_factory.yaml`, and add the following parameter:
 
 ``` yaml
-parameters:
-    ezsettings.default.site_factory.sites_location_id: 42
+ezplatform:
+    system:
+        default:
+            site_factory:
+                sites_location_id: 42
 ```
 
 Now, all new directories are created under "Ibexa DXP".
