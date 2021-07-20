@@ -57,7 +57,7 @@ But the following configuration would be invalid:
 
 Invalid configuration will cause problems for different parts of the system,
 for example back-end UI, REST interface and other non-SiteAccess-aware Symfony routes
-such as `/_fos_user_context_hash` used by [HTTP cache](http_cache.md).
+such as `/_fos_user_context_hash` used by [HTTP cache](cache/http_cache.md).
 
 ### Defining custom connection
 
