@@ -291,7 +291,7 @@ There are two known limitations to moving between SiteAccesses in [[= product_na
 
 ## Injecting SiteAccess
 
-SiteAccess is exposed in the [service container](service_container.md) as the 
+SiteAccess is exposed in the [service container](../api/service_container.md) as the 
 `@ezpublish.siteaccess` service, so it can be injected into any custom service.
 
 The `@ezpublish.siteaccess` service, if needed, must be injected using setter injection. 
