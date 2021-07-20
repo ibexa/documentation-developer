@@ -313,7 +313,7 @@ This service is an instance of `Symfony\Component\Cache\Adapter\TagAwareAdapterI
 
 ##### With service container
 
-Like any other service, you can also get the cache service with the [service container](service_container.md) like so:
+Like any other service, you can also get the cache service with the [service container](../api/service_container.md) like so:
 
 ``` php
 // Getting the cache service in PHP
