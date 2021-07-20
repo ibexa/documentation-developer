@@ -62,7 +62,7 @@ class FormMapper implements FieldValueFormMapperInterface
 
 Next thing is to register the `FormMapper` as a service, so the system knows to use it
 to automatically add the input field to the Content Type edit form.
-You can read more about [services and service container in the documentation](../../guide/service_container.md).
+You can read more about [services and service container in the documentation](../../api/service_container.md).
 To register the `FormMapper` as a service, add the following lines to `Resources/config/fieldtypes.yml`:
 
 ``` yml

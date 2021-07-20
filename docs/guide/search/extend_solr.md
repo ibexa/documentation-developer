@@ -17,7 +17,7 @@ To do this effectively, you must understand how the data is indexed with the Sol
 Solr uses [documents](https://lucene.apache.org/solr/guide/7_7/overview-of-documents-fields-and-schema-design.html#how-solr-sees-the-world) as a unit of data that is indexed.
 Documents are indexed per translation, as content blocks. 
 A block is a nested document structure.
-When used in [[= product_name =]], a parent document represents content, 
+When used in eZ Platform, a parent document represents content, 
 and Locations are indexed as child documents of the Content item.
 To avoid duplication, full-text data is indexed on the Content document only. 
 Knowing this, you can index additional data by the following:
@@ -45,7 +45,7 @@ Each mapper implements two methods, by the same name, but accepting different ar
     - `::accept(Location $content)`
     - `::mapFields(Location $content)`
 
-Mappers can be used on the extension points by registering them with the [service container](../service_container.md) by using service tags, as follows:
+Mappers can be used on the extension points by registering them with the [service container](../../api/service_container.md) by using service tags, as follows:
 
 - All block documents
     - `ContentFieldMapper`

@@ -2,7 +2,7 @@
 
 To retrieve a Content item and its information, you need to make use of the [`ContentService`.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/ContentService.php)
 
-The service should be [injected into the constructor of your command or controller.](https://symfony.com/doc/3.4/service_container.html)
+The service should be [injected into the constructor of your command or controller](../api/service_container.md).
 
 !!! tip "Console commands"
 

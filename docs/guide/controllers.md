@@ -303,7 +303,7 @@ QueryType is an object that build a Query. It is different from [Public API quer
 
 To make a new QueryType available to the Query Controller, you need to create a PHP class that implements the QueryType interface, then register it as such in the Service Container.
 
-For more information about the [Service Container on its documentation page](service_container.md).
+For more information about the [Service Container on its documentation page](../api/service_container.md).
 
 ### The QueryType interface
 

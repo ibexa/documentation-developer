@@ -6,7 +6,7 @@ Next, to use Symfony reverse proxy, follow the [Symfony documentation](https://s
 
 ## Use Varnish or Fastly
 
-As [[= product_name =]] is built on top of Symfony, it uses standard HTTP cache headers.
+As eZ Platform is built on top of Symfony, it uses standard HTTP cache headers.
 By default, the Symfony reverse proxy is used to handle cache.
 You can replace it with other reverse proxies, such as Varnish, or CDN like Fastly.
 
@@ -31,7 +31,7 @@ For reverse proxies to work properly with your installation, you need to adapt o
 
 ## Configure Varnish and Fastly
 
-The configuration of [[= product_name =]] for using Varnish or Fastly requires a few steps, starting with configuring proxy.
+The configuration of eZ Platform for using Varnish or Fastly requires a few steps, starting with configuring proxy.
 
 ### Configure Symfony front controller
 
@@ -63,11 +63,11 @@ framework:
     Make sure that **all** traffic always comes from the trusted proxy/load balancer,
     and that there is no other way to configure it.
 
-For more information about setting these variables, see [Examples for configuring [[= product_name =]]](#examples-for-configuring-ibexa-dxp).
+For more information about setting these variables, see [Examples for configuring eZ Platform](#examples-for-configuring-ibexa-dxp).
 
 ### Update YML configuration
 
-Next, you need to tell [[= product_name =]] to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client),
+Next, you need to tell eZ Platform to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client),
 and specify the URL that Varnish can be reached on (in `config/packages/ezplatform.yaml`):
 
 | Configuration | Parameter| Environment variable| Possible values|
@@ -103,7 +103,7 @@ ezplatform:
  
     In such situation, use strong, secure hash and make sure to keep the token secret.
 
-### Ensure proper Captcha behavior [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+### Ensure proper Captcha behavior
 
 If your installation uses Varnish and you want users to be able to configure and use Captcha in their forms, 
 you must enable sending Captcha data as a response to an Ajax request. 
@@ -120,7 +120,7 @@ ezplatform:
                     use_ajax: true
 ```
 
-### Custom Captcha block [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+### Custom Captcha block
 
 If you created a custom Captcha block for your site by overriding the default file (`vendor/gregwar/captcha-bundle/Resources/views/captcha.html.twig`),
 you must make the following changes to the custom block template file:
@@ -140,11 +140,11 @@ data-field-id="{{ field.id }}"
 
 As a result, your file should be similar to [this example.](https://github.com/ezsystems/ezplatform-form-builder/blob/master/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig)
 
-For more information about configuring Captcha fields, see [Captcha field](../../extending/extending_form_builder.md#captcha-field).
+For more information about configuring Captcha fields, see [Captcha field](../extending/extending_form_builder.md#captcha-field).
 
 ### Use Fastly as HttpCache proxy
 
-[Fastly](https://www.fastly.com/) delivers Varnish as a CDN service and is supported with [[= product_name =]].
+[Fastly](https://www.fastly.com/) delivers Varnish as a CDN service and is supported with eZ Platform.
 To learn how it works, see [Fastly documentation](https://docs.fastly.com/guides/basic-concepts/how-fastlys-cdn-service-works).
 
 #### Configure Fastly in YML
@@ -182,7 +182,7 @@ FASTLY_KEY="token"
 #### Configure Fastly on Platform.sh
 
 If you use Platform.sh, it is recommended to configure all environment variables through [Platform.sh variables](https://docs.platform.sh/frameworks/ibexa/fastly.html).
-In [[= product_name =]], Varnish is enabled by default. To use Fastly, first you must 
+In eZ Platform, Varnish is enabled by default. To use Fastly, first you must 
 [disable Varnish](https://docs.platform.sh/frameworks/ibexa/fastly.html#remove-varnish-configuration) 
 
 #### Get Fastly service ID and API token
@@ -193,7 +193,7 @@ The service ID is displayed next to the name of your service on any page.
 For instructions on how to generate a Fastly API token, see [the Fastly guide](https://docs.fastly.com/guides/account-management-and-security/using-api-tokens).
 The API token needs the `purge_all` an `purge_select` scopes.
 
-### Examples for configuring [[= product_name =]]
+### Examples for configuring eZ Platform
 
 See below the most common configuration examples for the system, using environment variables.
 
@@ -273,7 +273,7 @@ the following happens when a page has been soft purged:
 and do not wait for the asynchronous lookup to finish.
 - The back-end lookup finishes and refreshes the cache so any subsequent requests get a fresh cache.
 
-By default, [[= product_name =]] always soft purges content on reverse proxies that support it (Varnish and Fastly),
+By default, eZ Platform always soft purges content on reverse proxies that support it (Varnish and Fastly),
 with the following logic in the out-of-the-box VCL:
 
 - Cache is within grace period.

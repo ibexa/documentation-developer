@@ -1,6 +1,6 @@
 # Context-aware HTTP cache
 
-[[= product_name =]] allows caching requests made by logged-in users.
+eZ Platform allows caching requests made by logged-in users.
 This is called (user) context-aware cache.
 
 It means that HTTP cache is unique per set of user permissions (Roles and Limitations), 
@@ -28,7 +28,7 @@ as the hash lookup itself is cached by the cache proxy as described below.
 
 ### User Context Hash caching
 
-Example of a response sent to reverse proxy from `/_fos_user_context_hash` with [[[= product_name =]]'s default config](#default-options-for-FOSHttpCacheBundle-defined-in-ibexa-dxp):
+Example of a response sent to reverse proxy from `/_fos_user_context_hash` with [eZ Platform's default config](#default-options-for-FOSHttpCacheBundle-defined-in-ibexa-dxp):
 
 ```
 HTTP/1.1 200 OK
@@ -62,7 +62,7 @@ It also varies on `Authorization` to cover any possible basic authorization head
     The only known workaround is to make it SiteAccess aware, and have custom VCL logic tied to your SiteAccess
     matching with Varnish/Fastly, to send the SiteAccess prefix as URI.
 
-### Default options for FOSHttpCacheBundle defined in [[= product_name =]]
+### Default options for FOSHttpCacheBundle defined in eZ Platform
 
 The following configuration is defined by default for FOSHttpCacheBundle.
 You should not override these settings unless you know what you are doing.
@@ -85,7 +85,7 @@ fos_http_cache:
 
 ##  Personalize responses
 
-Here are some generic recommendations on how to approach personalized content with [[= product_name =]] / Symfony:
+Here are some generic recommendations on how to approach personalized content with eZ Platform / Symfony:
 
 1\. ESI with vary by cookie:
 
@@ -127,8 +127,8 @@ This solution requires more effort (controller, VCL logic and adapting your own 
 
 For information on how user context hashes are generated, see [FOSHttpCacheBundle documentation](https://foshttpcachebundle.readthedocs.io/en/2.8.0/features/user-context.html#generating-hashes).
 
-[[= product_name =]] implements a custom context provider in order to make user context hash reflect the current User's Roles and Limitations.
-This is needed given [[= product_name =]]'s more complex permission model compared to Symfony's.
+eZ Platform implements a custom context provider in order to make user context hash reflect the current User's Roles and Limitations.
+This is needed given eZ Platform's more complex permission model compared to Symfony's.
 
 You can technically extend the user context hash by [implementing your own custom context provider(s)](https://foshttpcachebundle.readthedocs.io/en/latest/reference/configuration/user-context.html#custom-context-providers).
 However, **this is strongly discouraged** as it means increasing the amount of cache variations

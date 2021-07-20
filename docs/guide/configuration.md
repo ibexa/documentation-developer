@@ -30,7 +30,7 @@ These files contain additional settings and point to the general (not environmen
 !!! note
 
     Configuration is tightly related to the service container.
-    To fully understand it, you need to be familiar with [Symfony's service container](service_container.md) and [its configuration](https://symfony.com/doc/3.4/service_container.html#service-parameters).
+    To fully understand it, you need to be familiar with [Symfony's service container](../api/service_container.md) and [its configuration](https://symfony.com/doc/3.4/service_container.html#service-parameters).
 
 Basic configuration handling in eZ Platform is similar to what is commonly possible with Symfony.
 You can define key/value pairs in your configuration files.

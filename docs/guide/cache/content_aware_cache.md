@@ -1,6 +1,6 @@
 # Content-aware HTTP cache
 
-HTTP cache in [[= product_name =]] is aware of which content or entity it is connected to.
+HTTP cache in eZ Platform is aware of which content or entity it is connected to.
 This awareness is accomplished by means of cache tagging. All supported reverse proxies are content-aware.
 
 !!! note "Tag header is stripped in production for security reasons"
@@ -32,7 +32,7 @@ Current content tags (and when the system purges on them):
 
 !!! note "Automatic repository prefixing of cache tags"
 
-    As [[= product_name =]] supports multi-repository (multi-database) setups that can have overlapping IDs,
+    As eZ Platform supports multi-repository (multi-database) setups that can have overlapping IDs,
     the shared HTTP cache systems need to distinguish tags relevant to the different content repositories.
 
     This is why in multi-repository setup you can see cache tags such as `1p2`.
