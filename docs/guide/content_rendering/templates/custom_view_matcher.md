@@ -32,3 +32,8 @@ The following configuration uses a special template to render articles owned by 
 ``` yaml
 [[= include_file('code_samples/front/view_matcher/config/packages/views.yaml') =]]
 ```
+
+!!! note
+
+    If you use a matcher that is a service instead of a simple class,
+    you need to tag the service with `ezplatform.view.matcher`.
