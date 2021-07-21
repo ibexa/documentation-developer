@@ -1,7 +1,7 @@
 # Twig function reference
 
 In addition to the [native functions provided by Twig](http://twig.sensiolabs.org/doc/functions/index.html),
-and [Twig extensions provided by Symfony](http://symfony.com/doc/5.0/reference/twig_reference.html),
+and [Twig extensions provided by Symfony]([[= symfony_doc =]]/reference/twig_reference.html),
 [[= product_name =]] offers the following custom Twig functions and filters:
 
 - [Content Twig functions](content_twig_functions.md)

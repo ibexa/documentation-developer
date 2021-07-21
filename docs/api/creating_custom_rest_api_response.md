@@ -98,7 +98,7 @@ class ValueObjectVisitorDispatcher extends BaseValueObjectVisitorDispatcher
 }
 ```
 
-To be able to use the overridden type you also need to implement new Compiler Pass. For more details, see [Symfony doc.](https://symfony.com/doc/5.0/service_container/compiler_passes.html)
+To be able to use the overridden type you also need to implement new Compiler Pass. For more details, see [Symfony doc.]([[= symfony_doc =]]/service_container/compiler_passes.html)
 
 ```php
 <?php
