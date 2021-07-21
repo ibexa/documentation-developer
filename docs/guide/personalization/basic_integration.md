@@ -151,6 +151,6 @@ You can configure integration at a more advanced level to track more events,
 use additional parameters, apply custom scenario configurations, apply filters, 
 and enable additional features.
 
-For more information about available functionalities, see the [User Documentation](https://doc.ibexa.co/projects/userguide/en/latest/personalization/personalization).
+For more information about available functionalities, see the [User Documentation]([[= user_doc =]]/personalization/personalization).
 
 For more information about integrating the Personalization service, see [Developer guide](developer_guide/tracking_api.md) and [Best practices](best_practices/tracking_integration.md).

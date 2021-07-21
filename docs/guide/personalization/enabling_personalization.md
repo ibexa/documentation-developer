@@ -6,7 +6,7 @@ To enable it, you must set up authentication parameters that you receive from Ib
 ## Getting authentication parameters
 
 First, either you or another Ibexa user responsible for managing the website 
-must [request access to the service](https://doc.ibexa.co/projects/userguide/en/latest/personalization/enabling_personalization/#requesting-access-to-the-server).
+must [request access to the service]([[= user_doc =]]/personalization/enabling_personalization/#requesting-access-to-the-server).
 
 ## Setting up customer credentials
 
@@ -27,5 +27,5 @@ that tracks visitor events in relation to Content Types.
 ## Configuring recommendation logic
 
 Once you enable the recommendation client, you can go back to the Back Office, 
-refresh the Personalization dashboard and proceed with [configuring the logic](https://doc.ibexa.co/projects/userguide/en/latest/personalization/perso_configuration) used to calculate 
+refresh the Personalization dashboard and proceed with [configuring the logic]([[= user_doc =]]/personalization/perso_configuration) used to calculate 
 the recommendation results.

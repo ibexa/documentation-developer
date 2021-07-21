@@ -65,7 +65,7 @@ services:
         arguments: ['@ezpublish.config.resolver']
 ```
 
-You can also use the [autowire feature](https://symfony.com/doc/current/service_container/autowiring.html), by type hinting against ConfigResolverInterface.
+You can also use the [autowire feature]([[= symfony_doc =]]/service_container/autowiring.html), by type hinting against ConfigResolverInterface.
 
 !!! tip
 

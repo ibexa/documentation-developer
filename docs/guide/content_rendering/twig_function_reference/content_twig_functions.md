@@ -33,8 +33,8 @@ You can pass one of the following rendering methods to `ez_render()`:
 
 - `direct` - (default) renders the Content item without using a request
 - `inline` - Symfony inline rendering method, sends a request to the server and inserts the response
-- `esi` - uses the Symfony [Edge Side Include mechanism](https://symfony.com/doc/current/http_cache/esi.html) to render the correct tag that is handled by the reverse proxy
-- `ssi` - uses the Symfony [Server Side Include mechanism](https://symfony.com/doc/current/http_cache/ssi.html) to render the correct tag that is handled by the web server
+- `esi` - uses the Symfony [Edge Side Include mechanism]([[= symfony_doc =]]/http_cache/esi.html) to render the correct tag that is handled by the reverse proxy
+- `ssi` - uses the Symfony [Server Side Include mechanism]([[= symfony_doc =]]/http_cache/ssi.html) to render the correct tag that is handled by the web server
 
 ``` html+twig
 {{ ez_render(location) }}

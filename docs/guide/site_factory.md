@@ -278,7 +278,7 @@ ez_platform_site_factory:
             user_group_skeleton_remote_ids: [ <id_skeleton3>, <id_skeleton4>, ... ]
 ```
 
-Manage the permissions associated to the User Group skeleton by [assigning Roles](https://doc.ibexa.co/projects/userguide/en/latest/site_organization/organizing_the_site/#managing-permissions).
+Manage the permissions associated to the User Group skeleton by [assigning Roles]([[= user_doc =]]/site_organization/organizing_the_site/#managing-permissions).
 Make sure that the Roles that you assign to the User Group skeleton do not contain Location-based Limitations. 
 User Group skeletons cannot contain individual User Content items either.
 

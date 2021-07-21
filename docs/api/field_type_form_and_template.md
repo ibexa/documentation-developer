@@ -53,7 +53,7 @@ In the example above, `CheckboxFieldType::class` is used, but you can use standa
 
 It's good practice to encapsulate Fields with custom types as it allows easier templating.
 Type has to be compatible with your Field Type's `eZ\Publish\Core\FieldType\Value` implementation.
-You can use a [`DataTransformer`](https://symfony.com/doc/5.0/form/data_transformers.html) to achieve that or just assure correct property and form field names.
+You can use a [`DataTransformer`]([[= symfony_doc =]]/form/data_transformers.html) to achieve that or just assure correct property and form field names.
 
 ### FieldDefinitionFormMapperInterface
 
@@ -217,4 +217,4 @@ All built-in Field Types are implemented with this approach. In that case overri
 
 !!! tip
 
-    For more information on creating and overriding form type templates, see [Symfony documentation](https://symfony.com/doc/5.0/form/create_custom_field_type.html#creating-the-form-type-template).
+    For more information on creating and overriding form type templates, see [Symfony documentation]([[= symfony_doc =]]/form/create_custom_field_type.html#creating-the-form-type-template).
