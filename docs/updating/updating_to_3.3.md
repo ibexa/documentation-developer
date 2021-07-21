@@ -262,7 +262,7 @@ Version v3.3.2 introduces new entity managers.
 To ensure that they work in multi-repository setups, you must update the GraphQL schema.
 You do this manually by following this procedure:
 
-1. Update your project to v3.3.2 and run the `php bin/console cache:clear` command to generate the [service container](../guide/service_container.md).
+1. Update your project to v3.3.2 and run the `php bin/console cache:clear` command to generate the [service container](../api/service_container.md).
 
 1. Run the following command to discover the names of the new entity managers. 
     Take note of the names that you discover:
@@ -278,6 +278,15 @@ You do this manually by following this procedure:
 1. For every entity manager prefixed with `ibexa_`, run the following command to run queries on the database:
 
     `php bin/console doctrine:schema:update --em=<ENTITY_MANAGER_NAME> --force`
+
+#### Optimize workflow queries
+
+Run the following SQL queries to optimize workflow performance:
+
+``` sql
+CREATE INDEX idx_workflow_co_id_ver ON ezeditorialworkflow_workflows(content_id, version_no);
+CREATE INDEX idx_workflow_name ON ezeditorialworkflow_workflows(workflow_name);
+```
 
 ### Enable Commerce features
 

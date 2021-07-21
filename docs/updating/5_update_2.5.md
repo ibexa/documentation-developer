@@ -155,7 +155,7 @@ Version v2.5.18 introduces new entity managers.
 To ensure that they work in multi-repository setups, you must update the GraphQL schema.
 You do this manually by following this procedure:
 
-1. Update your project to v2.5.18 and run the `php bin/console cache:clear` command to generate the [service container](../guide/service_container.md).
+1. Update your project to v2.5.18 and run the `php bin/console cache:clear` command to generate the [service container](../api/service_container.md).
 
 1. Run the following command to discover the names of the new entity managers. 
     Take note of the names that you discover:
@@ -182,4 +182,13 @@ Locate the `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_main.vcl` fi
 if (req.restarts == 0 && resp.status == 301 && req.http.x-fos-original-url) {
     set resp.http.location = regsub(resp.http.location, "/_fos_user_context_hash", req.http.x-fos-original-url);
 }
+```
+
+### Optimize workflow queries
+
+Run the following SQL queries to optimize workflow performance:
+
+``` sql
+CREATE INDEX idx_workflow_co_id_ver ON ezeditorialworkflow_workflows(content_id, version_no);
+CREATE INDEX idx_workflow_name ON ezeditorialworkflow_workflows(workflow_name);
 ```

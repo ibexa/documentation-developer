@@ -120,7 +120,7 @@ Content Search explicitly refuses to accept Criteria and Sort Clauses implementi
 
 #### How to configure your own Criterion and Sort Clause Handlers
 
-After you have implemented your Criterion / Sort Clause and its handler, you will need to configure the handler for the [service container](../service_container.md) by using dedicated service tags for each type of search. Doing so will automatically register it and handle your Criterion / Search Clause when it is given as a parameter to one of the Search Service methods.
+After you have implemented your Criterion / Sort Clause and its handler, you will need to configure the handler for the [service container](../../api/service_container.md) by using dedicated service tags for each type of search. Doing so will automatically register it and handle your Criterion / Search Clause when it is given as a parameter to one of the Search Service methods.
 
 Available tags for Criterion handlers in Legacy Storage Engine are:
 

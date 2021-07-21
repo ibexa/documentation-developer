@@ -130,7 +130,7 @@ As described in the [Symfony service container documentation]([[= symfony_doc =]
 Like most API components, Field Types use the [Symfony service tag mechanism]([[= symfony_doc =]]/service_container/tags.html).
 
 A service can be assigned one or several tags, with specific parameters.
-When the [service container](../guide/service_container.md) is compiled into a PHP file, 
+When the [service container](../api/service_container.md) is compiled into a PHP file, 
 tags are read by `CompilerPass` implementations that add extra handling for tagged services.
 Each service tagged as `ezplatform.field_type` is added to a [registry](http://martinfowler.com/eaaCatalog/registry.html) using the `alias` key as its unique `fieldTypeIdentifier` e.g. `ezstring`.
 Each Field Type must also inherit from the abstract `ezplatform.field_type` service.

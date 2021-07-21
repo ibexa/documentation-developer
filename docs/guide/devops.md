@@ -4,7 +4,7 @@
 
 ### Clearing file cache using the Symfony cache:clear command
 
-Symfony provides a command for clearing cache. It will delete all file-based caches, which mainly consist of a Twig template, a [service container](service_container.md), and the Symfony route cache, but also everything else stored in the cache folder. Out of the box on a single-server setup this includes Content cache. For further information on the command's use, see its help text:
+Symfony provides a command for clearing cache. It will delete all file-based caches, which mainly consist of a Twig template, a [service container](../api/service_container.md), and the Symfony route cache, but also everything else stored in the cache folder. Out of the box on a single-server setup this includes Content cache. For further information on the command's use, see its help text:
 
 ``` bash
 php bin/console --env=prod cache:clear -h
@@ -20,9 +20,9 @@ php bin/console --env=prod cache:clear -h
 
 ### Clearing content cache on a cluster setup
 
-For a [cluster](clustering.md) setup, the content cache ([HTTP cache](http_cache.md) and [Persistence cache](persistence_cache.md)) must be set up to be shared among the servers. And while all relevant cache is cleared for you on Repository changes when using the APIs, there might be times where you'll need to clear cache manually: 
+For a [cluster](clustering.md) setup, the content cache ([HTTP cache](cache/http_cache.md) and [Persistence cache](persistence_cache.md)) must be set up to be shared among the servers. And while all relevant cache is cleared for you on Repository changes when using the APIs, there might be times where you'll need to clear cache manually: 
 
-- Varnish: [Cache purge](http_cache.md#cache-purging)
+- Varnish: [Cache purge](cache/symfony_reverse_proxy.md#using-varnish-or-fastly)
 - Persistence Cache: [Using Cache service](persistence_cache.md#using-cache-service)
 
 ## Web Debug Toolbar

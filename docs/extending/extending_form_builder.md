@@ -26,7 +26,7 @@ For information about available options, see [the bundle's documentation.](https
 
 !!! note
 
-    If your installation uses Varnish to manage content cache, you must modify the configuration to avoid issues with the Captcha field. For more information, see [Ensure proper captcha behavior](../guide/http_cache.md#ensure-proper-captcha-behavior).
+    If your installation uses Varnish to manage content cache, you must modify the configuration to avoid issues with the Captcha field. For more information, see [Ensure proper captcha behavior](../guide/cache/symfony_reverse_proxy.md#ensure-proper-captcha-behavior).
 
 ## Extending Form fields
 
