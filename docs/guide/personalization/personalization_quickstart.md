@@ -171,4 +171,4 @@ Additional features are available for the Advanced edition of the recommendation
 - Price-based filtering (do not recommend cheap products)
 - Grouping products by custom attributes (size, color, source, theme etc.)
 
-More detailed information can be found in the [User Guide](https://doc.ibexa.co/projects/userguide/en/latest/personalization/personalization).
+More detailed information can be found in the [User Guide](https://doc.ibexa.co/projects/userguide/en/3.3/personalization/personalization).

@@ -69,7 +69,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 
 - Linux NFS or S3/EFS (for IO, aka binary files stored in content repository, not supported with legacy)
 - Redis 3.2+ (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/topics/lru-cache), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
-- [Varnish](http://varnish-cache.org/) 5.1 or 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the bundle provided with [[= product_name_ee =]]](../guide/http_cache.md#serving-varnish-through-fastly) (for HttpCache)
+- [Varnish](http://varnish-cache.org/) 5.1 or 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the bundle provided with [[= product_name_ee =]]](../guide/cache/http_cache.md#serving-varnish-through-fastly) (for HttpCache)
 
 ## Filesystem
 

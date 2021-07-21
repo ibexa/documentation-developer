@@ -24,7 +24,7 @@ You can generate a new bundle using a `generate:bundle` command. See [Symfony do
 
 ### How to remove a bundle?
 
-To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need) see the [How to Remove a Bundle](https://symfony.com/doc/3.4/bundles.html) instruction in Symfony doc.
+To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need) see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles.html) instruction in Symfony doc.
 
 ## Structuring a bundle
 

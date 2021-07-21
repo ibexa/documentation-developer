@@ -23,14 +23,14 @@ These files contain additional settings and point to the general (not environmen
 
 !!! tip
 
-    Read more about [how configuration is handled in Symfony](https://symfony.com/doc/3.4/best_practices/configuration.html).
+    Read more about [how configuration is handled in Symfony]([[= symfony_doc =]]/best_practices/configuration.html).
 
 ### Configuration handling
 
 !!! note
 
     Configuration is tightly related to the service container.
-    To fully understand it, you need to be familiar with [Symfony's service container](../api/service_container.md) and [its configuration](https://symfony.com/doc/3.4/service_container.html#service-parameters).
+    To fully understand it, you need to be familiar with [Symfony's service container](../api/service_container.md) and [its configuration]([[= symfony_doc =]]/service_container.html#service-parameters).
 
 Basic configuration handling in eZ Platform is similar to what is commonly possible with Symfony.
 You can define key/value pairs in your configuration files.
@@ -39,7 +39,7 @@ Internally and by convention, keys follow a **dot syntax**, where the different 
 Keys are usually prefixed by a *namespace* corresponding to your application. All kinds of values are accepted, including arrays and deep hashes.
 
 For configuration that is meant to be exposed to an end-user (or end-developer),
-it's usually a good idea to also [implement semantic configuration](https://symfony.com/doc/3.4/components/config/definition.html).
+it's usually a good idea to also [implement semantic configuration]([[= symfony_doc =]]/components/config/definition.html).
 
 Note that you can also [implement SiteAccess-aware semantic configuration](siteaccess.md#exposing-siteaccess-aware-configuration-for-your-bundle).
 

@@ -134,4 +134,4 @@ The things you will need to do:
 2. Change the command so that the master process takes care of forking child processes in slices.
     1. For execution in-order, [you may look to our platform installer code](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Bundle/PlatformInstallerBundle/src/Command/InstallPlatformCommand.php)
     used to fork out Solr indexing after installation to avoid cache issues.
-    2. For parallel execution of the slices, [see Symfony doc for further instruction](https://symfony.com/doc/3.4/components/process.html#process-signals).
+    2. For parallel execution of the slices, [see Symfony doc for further instruction]([[= symfony_doc =]]/components/process.html#process-signals).

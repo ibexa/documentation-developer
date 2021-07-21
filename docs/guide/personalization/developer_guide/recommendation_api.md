@@ -14,7 +14,7 @@ Recommendations are retrieved from the Recommendation Engine via RESTful request
 
     If a data import via the [Content API](content_api.md) has been successful, it is also possible to fetch rendering data like e.g. "title", "description" or "deeplink" from the recommendation response.
 
-To allow a customer to get recommendations based on predefined configurations, so-called "scenarios" are used. Scenarios are a combination of models and filters that should be applied to recommendation results including possible fallbacks. See [Scenarios](https://doc.ibexa.co/projects/userguide/en/latest/personalization/scenarios/), [Recommendation Models](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/) and [Filters](https://doc.ibexa.co/projects/userguide/en/latest/personalization/filters/) for more information about scenario configuration.
+To allow a customer to get recommendations based on predefined configurations, so-called "scenarios" are used. Scenarios are a combination of models and filters that should be applied to recommendation results including possible fallbacks. See [Scenarios](https://doc.ibexa.co/projects/userguide/en/3.3/personalization/scenarios/), [Recommendation Models](https://doc.ibexa.co/projects/userguide/en/3.3/personalization/recommendation_models/) and [Filters](https://doc.ibexa.co/projects/userguide/en/3.3/personalization/filters/) for more information about scenario configuration.
 
 A recommendation request looks like this:
 

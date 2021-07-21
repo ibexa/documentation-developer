@@ -25,7 +25,7 @@ Persistence cache aims at caching most `SPI\Persistence` calls used in common p
 
 Notes:
 
-- [Cache tagging](https://symfony.com/doc/3.4/components/cache/cache_invalidation.html#using-cache-tags) is used in
+- [Cache tagging]([[= symfony_doc =]]/components/cache/cache_invalidation.html#using-cache-tags) is used in
   order to allow clearing cache by alternative indexes.
   For instance tree operations or changes to Content Types are
   examples of operations that also need to invalidate content cache by tags.
@@ -45,7 +45,7 @@ To see where and how to contribute additional caches, refer to the [source code]
 !!! note
 
     Current implementation uses Symfony cache. It technically supports the following cache backends:
-    [APCu, Array, Chain, Doctrine, Filesystem, Memcached, PDO & Doctrine DBAL, Php Array, Proxy, Redis](https://symfony.com/doc/3.4/components/cache/cache_pools.html#creating-cache-pools).
+    [APCu, Array, Chain, Doctrine, Filesystem, Memcached, PDO & Doctrine DBAL, Php Array, Proxy, Redis]([[= symfony_doc =]]/components/cache/cache_pools.html#creating-cache-pools).
     eZ Platform officially supports only using Filesystem for single server and Redis or Memcached for clustered setups.
 
 Use of Memcached or Redis as shared cache back end is a requirement for use in clustering setup.
@@ -130,7 +130,7 @@ parameters:
 [Redis](http://redis.io/), an in-memory data structure store, is one of the supported cache solutions for clustering.
 Redis is used via [Redis pecl extension](https://pecl.php.net/package/redis).
 
-See [Redis Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/redis_adapter.html#configure-the-connection)
+See [Redis Cache Adapter in Symfony documentation]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection)
 for information on how to connect to Redis.
 
 #### Supported Adapters
@@ -221,7 +221,7 @@ Several cloud providers have managed services that are easier to set up, handle 
 
 [Memcached, a distributed caching solution](http://memcached.org/) is a cache solution that is supported for clustering use, as an alternative to Redis.
 
-See [Memcached Cache Adapter in Symfony documentation](https://symfony.com/doc/3.4/components/cache/adapters/memcached_adapter.html#configure-the-connection)
+See [Memcached Cache Adapter in Symfony documentation]([[= symfony_doc =]]/components/cache/adapters/memcached_adapter.html#configure-the-connection)
 for information on how to configure Memcached.
 
 
@@ -345,7 +345,7 @@ $pool->save($cacheItem);
 return $myObject;
 ```
 
-For more info on usage, see [Symfony Cache's documentation](https://symfony.com/doc/3.4/components/cache.html).
+For more info on usage, see [Symfony Cache's documentation]([[= symfony_doc =]]/components/cache.html).
 
 ### Clearing Persistence cache
 

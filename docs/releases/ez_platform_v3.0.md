@@ -51,7 +51,7 @@ For details, see [Bundles](https://doc.ibexa.co/en/latest/guide/bundles).
     For more information about:
 
     - enabling and configuring, see [developer documentation](https://doc.ibexa.co/en/latest/guide/site_factory/)
-    - using the Site Factory, see [User Guide](https://doc.ibexa.co/projects/userguide/en/latest/site_organization/site_factory)
+    - using the Site Factory, see [User Guide]([[= user_doc =]]/site_organization/site_factory)
 
     ### Scheduling
 

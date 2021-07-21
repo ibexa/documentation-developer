@@ -321,7 +321,7 @@ with `someresource` being a unique key.
 
 The `router.generate` call dynamically renders a URI based on the name of the route and the optional parameters that are passed as the other arguments (in the code above this is the `contentId`).
 
-This syntax is based on [Symfony's expression language](https://symfony.com/doc/3.4/components/expression_language.html), an extensible component that allows limited/readable scripting to be used outside code context.
+This syntax is based on [Symfony's expression language[[= symfony_doc =]]/components/expression_language.html), an extensible component that allows limited/readable scripting to be used outside code context.
 
 The above configuration will add the following entry to the root resource:
 

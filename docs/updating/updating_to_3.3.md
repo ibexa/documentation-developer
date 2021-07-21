@@ -1,6 +1,6 @@
 # Updating Ibexa DXP to v3.3
 
-Ibexa DXP v3.3 uses [Symfony Flex](https://symfony.com/doc/current/quick_tour/flex_recipes.html).
+Ibexa DXP v3.3 uses [Symfony Flex]([[= symfony_doc =]]/quick_tour/flex_recipes.html).
 When updating from v3.2 to v3.3, you need to follow a special update procedure.
 
 If you are updating from an earlier version, start with [updating your installation to v3.2](updating.md).

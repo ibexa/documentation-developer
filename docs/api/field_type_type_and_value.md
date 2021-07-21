@@ -115,7 +115,7 @@ services:
 
 #### `parent`
 
-As described in the [Symfony Dependency Injection Component documentation](https://symfony.com/doc/3.4/service_container/parent_services.html), the `parent` config key indicates that you want your service to inherit from the parent's dependencies, including constructor arguments and method calls. This helps avoiding repetition in your Field Type configuration and keeps consistency between all Field Types.
+As described in the [Symfony Dependency Injection Component documentation]([[= symfony_doc =]]/service_container/parent_services.html), the `parent` config key indicates that you want your service to inherit from the parent's dependencies, including constructor arguments and method calls. This helps avoiding repetition in your Field Type configuration and keeps consistency between all Field Types.
 
 #### `tags`
 

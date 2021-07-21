@@ -565,7 +565,7 @@ For example, to retrieve the `rss` variation of the image, use:
 
 ### Logging
 
-Most operations are logged via the `ez_recommendation` [Monolog channel](http://symfony.com/doc/3.8/cookbook/logging/channels_handlers.html).
+Most operations are logged via the `ez_recommendation` [Monolog channel]([[= symfony_doc =]]/cookbook/logging/channels_handlers.html).
 To log everything about Recommendation to `dev.recommendation.log`, add the following to your `config.yml`:
 
 ``` yaml

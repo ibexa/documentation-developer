@@ -152,7 +152,7 @@ Item's attribute, e.g. color, price, etc.
 These are customer specific and can only be understood by the recommender system if the item attributes are imported by using the YOOCHOOSE content import APIs.
 There can be multiple attributename and attributevalue pairs.
 
-Legacy Recommendation API and [Submodel configuration](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#submodels) is required for taking an advantage from this parameter.
+Legacy Recommendation API and [Submodel configuration](https://doc.ibexa.co/projects/userguide/en/3.3/personalization/recommendation_models/#submodels) is required for taking an advantage from this parameter.
 
 **Values**: alphanumeric=alphanumeric [&alphanumeric=alphanumeric]
 

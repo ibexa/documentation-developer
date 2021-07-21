@@ -369,6 +369,9 @@ extra:
     - title: 'User Documentation'
       url: '/projects/userguide'
 
+  symfony_doc: 'http://symfony.com/doc/3.4'
+  user_doc: 'https://doc.ibexa.co/projects/userguide/en/3.3'
+
 extra_css:
   - fonts/MavenPro.css
   - css/codehilite.css

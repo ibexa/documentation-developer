@@ -12,7 +12,7 @@ In order to provide recommendations a tracking process needs to collect user beh
 - "Login" if a user logs in on a website and
 - "Clickrecommended" if a user decides to click on a recommendation
 
-See user guide chapter [Event Types](https://doc.ibexa.co/projects/userguide/en/latest/personalization/event_types) for a brief introduction to different types of events. Depending on the event type, some additional parameters like item price or user rating must be provided.
+See user guide chapter [Event Types](https://doc.ibexa.co/projects/userguide/en/3.3/personalization/event_types) for a brief introduction to different types of events. Depending on the event type, some additional parameters like item price or user rating must be provided.
 
 ## Wording of products, articles and the generic term items
 
@@ -60,7 +60,7 @@ High quality recommendations can only be delivered if the underlying data is cor
 
     The user identifier is required in tracking requests, otherwise it is discarded from the tracking servers.
 
-    If a browser has JavaScript or cookies disabled, please verify that you put some "dummy" value as identifier in the tracking request to avoid losing tracking information. Even if the event is not user-specific, it is still useful for popularity models (e.g. Topsellers, see [Recommendation Models](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models)).
+    If a browser has JavaScript or cookies disabled, please verify that you put some "dummy" value as identifier in the tracking request to avoid losing tracking information. Even if the event is not user-specific, it is still useful for popularity models (e.g. Topsellers, see [Recommendation Models](https://doc.ibexa.co/projects/userguide/en/3.3/personalization/recommendation_models)).
 
 Internally the recommendation engine creates a hash of every user ID. The original ID is not saved. It is still possible that the original ID appears in the log files for debug purposes but log files are are purged regularly. The user ID is case sensitive.
 
@@ -125,7 +125,7 @@ All embedded parameters are required for the request. Some optional request para
 
 |Name|Description|Values|
 |---|---|---|
-|categorypath|The forward slash-separated path of categories of the item. Like all other parameters it must be URL-encoded, for example `%2FCameras%26Foto%2FCompact%20Cameras%2FCanon`</br>See chapter [Category Filter](https://doc.ibexa.co/projects/userguide/en/latest/personalization/filters/#category-filter) of the user guide for additional use cases of the category path.|URL-encoded string.</br>Forward and trailing slash is ignored; "/Cameras/" is the same as "Cameras"|
+|categorypath|The forward slash-separated path of categories of the item. Like all other parameters it must be URL-encoded, for example `%2FCameras%26Foto%2FCompact%20Cameras%2FCanon`</br>See chapter [Category Filter](https://doc.ibexa.co/projects/userguide/en/3.3/personalization/filters/#category-filter) of the user guide for additional use cases of the category path.|URL-encoded string.</br>Forward and trailing slash is ignored; "/Cameras/" is the same as "Cameras"|
 
 ### Consume Event
 
