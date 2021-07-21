@@ -14,16 +14,12 @@ class Owner extends MultipleValued
 {
     public function matchLocation(Location $location)
     {
-        return $this->hasOwner($this->getRepository()->getContentService()->loadContentInfo($location->getContent()->id));
+        return $this->hasOwner($location->getContentInfo());
     }
 
     public function matchContentInfo(ContentInfo $contentInfo)
     {
-        $location = $this->repository->sudo(function (Repository $repository) use ($contentInfo) {
-            return $repository->getLocationService()->loadLocation($contentInfo->mainLocationId);
-        });
-
-        return $this->hasOwner($location);
+        return $this->hasOwner($contentInfo);
     }
 
     public function match(View $view): ?bool
