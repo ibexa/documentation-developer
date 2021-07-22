@@ -27,9 +27,11 @@ To install plugin from JetBrains marketplace:
 
 ### Install from file
 
-You can also install the plugin manually from a `.jar` file.
-To do so, download the latest version of the plugin from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/17239-ibexa-dxp/versions).
-Then, in PhpStorm settings. select **Plugins** > (gear icon) > **Install plugin from Disk...**
+You can also install the plugin manually from a `.jar` file:
+
+1\. Download the latest version of the plugin from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/17239-ibexa-dxp/versions).
+
+2\. In PhpStorm settings, select **Plugins** > (gear icon) > **Install plugin from Disk...**
 and select the downloaded file.
 
 ![Install Ibexa DXP PhpStorm plugin from a file](img/phpstorm_plugin_installation2.png)
