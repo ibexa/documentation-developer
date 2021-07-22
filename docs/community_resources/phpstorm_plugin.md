@@ -39,7 +39,7 @@ and select the downloaded file.
 ### Project wizard
 
 The plugin enables creating a new Ibexa DXP project directly from PhpStorm.
-To do it, select **File** > **New project...** > **Ibexa DXP**.
+To do it, select **File** > **New Project...** > **Ibexa DXP**.
 
 In project settings form you can choose:
 
@@ -51,7 +51,7 @@ In project settings form you can choose:
 
 ![Create a project](img/phpstorm_plugin_create_project.png)
 
-If you don't provide credentials for https://updates.ibexa.co/, the plugin uses the installation key and token password stored in global Composer configuration. Otherwise, it creates an `auth.json` file.
+If you do not provide credentials for https://updates.ibexa.co/, the plugin uses the installation key and token password stored in global Composer configuration. Otherwise, it creates an `auth.json` file.
 
 You can find details of the installation procedure in Composer log window.
 
@@ -93,7 +93,7 @@ For all file templates you can customize:
 
 ![File template](img/phpstorm_plugin_file_template.png)
 
-You can customize file templates in **File** > **Settings** > **Editor** > **File and Code templates**.
+To customize file templates, go to **File** > **Settings** > **Editor** > **File and Code templates**.
 
 !!! tip
 
@@ -117,7 +117,7 @@ The plugin provides the following built-in live templates in Twig files:
 | `ezrl` | `ez_render_location` |
 | `ezrlq` | `ez_render_location_query` |
 
-You can customize live templates in **File** > **Settings** > **Editor** > **Live Templates**.
+To customize live templates, go to **File** > **Settings** > **Editor** > **Live Templates**.
 
 !!! tip
 
