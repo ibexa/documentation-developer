@@ -79,7 +79,7 @@ ezplatform:
 
 ### Add site template configuration
 
-Add thumbnails and names for your site templates in `config/packages/ezplatform_site_factory.yaml`.
+Add thumbnails and names for your site templates in `config/packages/ezplatform_site_factory.yaml`:
 
 ```yaml
 ez_platform_site_factory:
@@ -190,7 +190,7 @@ Enabled Site Factory may cause following performance issues:
 You can disable Site Factory to boost ConfigResolver performance.
 Keep in mind that with disabled Site Factory you are unable to add new sites or use existing ones.
 
-1\. In `config/packages/ezplatform_site_factory.yaml` change enabled to `false`.
+1\. In `config/packages/ezplatform_site_factory.yaml` change `enabled` to `false`.
 
 2\. In `config/packages/ezplatform.yaml` comment the `ezplatform.siteaccess.match: '@EzSystems\EzPlatformSiteFactory\SiteAccessMatcher': ~` if it is uncommented.
 

@@ -6,7 +6,7 @@ You can define the parent Location for a new site in the configuration.
 Each new site is created in the designated Location.
 
 To define a parent Location, add a new configuration key to the site template definition.
-Each template is assigned its own Location.
+Each template is assigned to its own Location.
 This can be either a Location ID (for example, `62`), or a recommended remote Location ID (for example, `1548b8cd8dd4c6b5082e566615d45e91`).
 
 Add the configuration key to your template:
@@ -110,4 +110,4 @@ ez_platform_site_factory:
     update_roles: [Anonymous, Administrator]
 ```
 
-For more information about Roles and policies, see [Permissions](../permissions.md). 
+For more information about Roles and Policies, see [Permissions](../permissions.md). 

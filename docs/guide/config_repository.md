@@ -55,7 +55,7 @@ But the following configuration would be invalid:
 - `ibexa.co` domain can use `ibexa_repo`
 - `ibexa.co/doc` **cannot** use `doc_repo`, as it is under the same domain.
 
-Invalid configuration will cause problems for different parts of the system,
+Invalid configuration causes problems for different parts of the system,
 for example back-end UI, REST interface and other non-SiteAccess-aware Symfony routes
 such as `/_fos_user_context_hash` used by [HTTP cache](cache/http_cache.md).
 

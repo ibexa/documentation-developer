@@ -1,8 +1,8 @@
 # SiteAccess-aware configuration
 
 The [Symfony Config component](https://symfony.com/doc/current/components/config.html) makes it possible to define semantic configuration, exposed to the end developer.
-This configuration is validated by rules you define, e.g. validating type (string, array, integer, boolean, etc.).
-Usually, once validated and processed, this semantic configuration is then mapped to internal *key/value* parameters stored in the service container.
+This configuration is validated by rules you define, e.g. validating type (string, array, integer, boolean and so on).
+Usually, after it is validated and processed, this semantic configuration is then mapped to internal *key/value* parameters stored in the service container.
 
 [[= product_name =]] uses this for its core configuration, but adds another configuration level, the SiteAccess.
 For each defined SiteAccess, you need to be able to use the same configuration tree to define SiteAccess-specific config.
@@ -28,7 +28,7 @@ Acme\ExampleBundle\AcmeExampleBundle::class => ['all' => true],
 
 To parse semantic configuration, create a `Configuration` class which extends
 `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\Configuration`
-and the extend its `generateScopeBaseNode()` method:
+and then extend its `generateScopeBaseNode()` method:
 
 ``` php hl_lines="17"
 <?php
@@ -88,7 +88,7 @@ acme_example:
 ### Mapping to internal settings
 
 Semantic configuration must always be mapped to internal key/value settings within the service container.
-You usually do it the service container extension.
+You usually do it in the [service container](../../api/service_container.md) extension.
 
 ``` php
 <?php
@@ -161,7 +161,7 @@ parameters:
 
 #### Merging hash values between scopes
 
-When you define a hash as semantic config, you sometimes don't want the SiteAccess settings to replace the default or group values,
+When you define a hash as semantic config, you sometimes do not want the SiteAccess settings to replace the default or group values,
 but enrich them by appending new entries. This is possible by using `$processor->mapConfigArray()`,
 which you must call outside the closure (before or after), so that it is called only once.
 
@@ -226,7 +226,7 @@ as the third argument to `$contextualizer->mapConfigArray()`:
 $contextualizer->mapConfigArray('custom_setting', $config, ContextualizerInterface::MERGE_FROM_SECOND_LEVEL);
 ```
 
-When you use `ContextualizerInterface::MERGE_FROM_SECOND_LEVEL` with the configurtion above, you get the following result:
+When you use `ContextualizerInterface::MERGE_FROM_SECOND_LEVEL` with the configuration above, you get the following result:
 
 ``` yaml
 parameters:
@@ -250,7 +250,7 @@ that ensures the array setting has unique values. It only works on normal arrays
 Instead of passing a callable to `$processor->mapConfig()`, you can pass an instance of
 `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\ConfigurationMapperInterface`.
 
-This can be useful if you have a lot of configuration to map and don't want to pollute 
+This can be useful if you have a lot of configuration to map and do not want to pollute 
 your service container extension class (it is better for maintenance).
 
 #### Merging hash values between scopes

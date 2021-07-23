@@ -10,7 +10,7 @@ You can create a multisite setup with SiteAccesses covering different use cases,
 
 - [different language versions of the webpage](set_up_translation_siteaccess.md)
 - [a special sub-site for a campaign or event](set_up_campaign_siteaccess.md)
-- additional Back Office
+- additional [Back Office](multisite_configuration.md#admin-siteaccess)
 
 A multisite set-up enables you to configure different things per SiteAccess, for example:
 

@@ -22,7 +22,7 @@ ezplatform:
 
 The first matcher succeeding always wins, so be careful when using catch-all matchers like `URIElement`.
 
-If the matcher class doesn't start with a backslash (`\`), it is relative to `eZ\Publish\MVC\SiteAccess\Matcher`
+If the matcher class does not start with a backslash (`\`), it is relative to `eZ\Publish\MVC\SiteAccess\Matcher`
 (for example, `Map\URI` refers to `eZ\Publish\MVC\SiteAccess\Matcher\Map\URI`)
 
 You can specify [custom matchers](#custom-matchers) by using a fully qualified class name (e.g. `\My\SiteAccess\Matcher`)
@@ -282,4 +282,3 @@ You can define this environment variable directly in web server configuration:
     1. Request header
     1. Environment variable
     1. Configured matchers
-

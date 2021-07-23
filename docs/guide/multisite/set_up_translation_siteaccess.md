@@ -12,9 +12,9 @@ First, create a new language for the whole installation.
 
     For more details, see [Languages](../internationalization.md).
 
-1. In the Back Office **Admin** section, open the **Languages** tab.
+1. In the Back Office **Admin** section, click the **Languages** tab.
 1. Click **Create a new language** and provide the language name and code (examples below use French with `fre-FR`).
-1. After saving the new language, refresh the assets by running:
+1. After creating the new language, refresh the assets by running:
 
 ```bash
 yarn encore <prod|dev>
@@ -34,7 +34,7 @@ For example:
 
 To achieve this you need to create a new SiteAccess in the `config/packages/ezplatform.yaml` file.
 Add the `fr` SiteAccess to list of all SiteAccesses and it to the common `site_group`.
-This group is used for sharing settings such as API keys, cache locations, etc.
+This group is used for sharing settings such as API keys, cache locations and so on.
 
 ``` yaml
 siteaccess:
@@ -67,9 +67,9 @@ Clear the cache by running: `php bin/console cache:clear`.
 By default, the Anonymous user Role does not have permissions for new SiteAccesses.
 As a next step, allow Anonymous users to read content on the new SiteAccesses:
 
-1. In the Back Office **Admin** section, open the **Roles** tab.
+1. In the Back Office **Admin** section, click the **Roles** tab.
 1. Click the **Anonymous** role.
-1. Edit the Limitations of the module `user`, select both SiteAccesses and click **Update**.
+1. Edit the **Limitations** of the module `user`, select both SiteAccesses and click **Update**.
 1. Clear the cache by running: `php bin/console cache:clear`.
 
 You can now start translating content.

@@ -1,6 +1,6 @@
 # Multisite configuration
 
-You configure the available SiteAccesses under the `ezplatform.siteaccess` key.
+You can configure the available SiteAccesses under the `ezplatform.siteaccess` key.
 
 ## SiteAccess configuration
 
