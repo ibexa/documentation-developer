@@ -1,0 +1,19 @@
+ezdesign:
+    design_list:
+        summersale: [summersale, standard]
+
+ezplatform:
+    system:
+        site_group:
+            content_view:
+                full:
+                    article:
+                        template: '@ezdesign/full/article.html.twig'
+                        match:
+                            Identifier\ContentType: [ article ]
+        campaign:
+            languages: [eng-GB]
+            design: summersale        
+        site:
+            languages: [eng-GB]
+            design: standard
