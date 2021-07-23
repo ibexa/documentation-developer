@@ -40,6 +40,25 @@ ezplatform:
             # ...
 ```
 
+#### Multisite URI matching with multi-Repository setup
+
+You can use only one Repository (database) per domain.
+This does not prohibit using [different Repositories](persistence_cache.md#multi-repository-setup) on different subdomains.
+However, when using URI matching for multisite setup, all SiteAccesses sharing domain also need to share Repository.
+For example:
+
+- `ibexa.co` domain can use `ibexa_repo`
+- `doc.ibexa.co` domain can use `doc_repo`
+
+But the following configuration would be invalid:
+
+- `ibexa.co` domain can use `ibexa_repo`
+- `ibexa.co/doc` **cannot** use `doc_repo`, as it is under the same domain.
+
+Invalid configuration causes problems for different parts of the system,
+for example back-end UI, REST interface and other non-SiteAccess-aware Symfony routes
+such as `/_fos_user_context_hash` used by [HTTP cache](cache/http_cache.md).
+
 ### Defining custom connection
 
 You can also explicitly define a custom Repository connection:
@@ -151,6 +170,24 @@ This limit is enforced on publishing a new version and only covers archived vers
     In Legacy storage engine you will see performance degradation if you store too many versions.
     The default value of 5 is the recommended value, but the less content you have overall,
     the more you can increase this to, for instance, 25 or even 50.
+
+### Removing versions on publication
+
+With `remove_archived_versions_on_publish` setting, you can control whether versions that exceed the limit are deleted when you publish a new version.
+
+``` yaml
+ezplatform:
+    repositories:
+        default:
+            options:
+                remove_archived_versions_on_publish: true
+```
+
+`remove_archived_versions_on_publish` is set to `true` by default.
+Set it to `false` if you have multiple older versions of content and need to avoid performance drops when publishing.
+
+When you set the value to `false`, run [`ibexa:content:cleanup-versions`](#removing-old-versions) periodically
+to make sure that Content item versions that exceed the limit are removed.
 
 ### Removing old versions
 

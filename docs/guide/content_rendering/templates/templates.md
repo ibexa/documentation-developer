@@ -47,7 +47,7 @@ Main variables include:
 |------|------|
 |`content`|Content item, containing all Fields and version information (VersionInfo). |
 |`location`|Location object. Contains meta information on the Content (ContentInfo). |
-|`ezplatform.siteaccess`| Current [SiteAccess](../../siteaccess.md). |
+|`ezplatform.siteaccess`| Current [SiteAccess](../../multisite/multisite.md). |
 |`ezplatform.rootLocation`| Root Location object. |
 |`ezplatform.requestedUriString`| Requested URI string. |
 |`ezplatform.systemUriString`| System URI string. System URI is the URI for internal content controller. If the current route is not a URL alias, then the current PathInfo is returned. |
@@ -60,7 +60,7 @@ Main variables include:
 ### Custom template variables
 
 You can create custom Twig variables for use in templates.
-Set the variables per SiteAccess or SiteAccess group ([scope](../../siteaccess.md#scope)), or per content view.
+Set the variables per SiteAccess or SiteAccess group ([scope](../../multisite/multisite_configuration.md#scope)), or per content view.
 
 To configure a custom template variable per scope, use the `twig_variables` key:
 
@@ -92,7 +92,7 @@ twig_variables:
 {{ custom_variable.nested_variable }}
 ```
 
-You can use [Symfony Expression language](https://symfony.com/doc/current/components/expression_language.html)
+You can use [Symfony Expression language]([[= symfony_doc =]]/components/expression_language.html)
 to access other values, for example:
 
 ``` yaml

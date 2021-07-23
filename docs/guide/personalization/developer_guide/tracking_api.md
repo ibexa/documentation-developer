@@ -9,7 +9,7 @@ The most popular user events are:
 - Login - When a user logs in on a website
 - Clickrecommended - When a user clicks a recommendation
 
-For a complete list of events, see [Event types](https://doc.ibexa.co/projects/userguide/en/latest/personalization/event_types) in the user documentation. 
+For a complete list of events, see [Event types]([[= user_doc =]]/personalization/event_types) in the user documentation. 
 Depending on the event type, some additional parameters, such as item price 
 or user rating, must be provided.
 
@@ -82,7 +82,7 @@ After logout, the anonymous user ID can be used again.
     The user identifier is required in tracking requests, otherwise it is discarded from the tracking servers.
 
     If a browser has JavaScript or cookies disabled, make sure that you put some "dummy" value as identifier in the tracking request to avoid losing tracking information. 
-    Even if the event is not user-specific, it is still useful for [popularity models](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/).
+    Even if the event is not user-specific, it is still useful for [popularity models]([[= user_doc =]]/personalization/recommendation_models/).
 
 The recommendation engine internally creates a hash of every user ID. 
 The original ID is not saved. 
@@ -190,7 +190,7 @@ Some optional request parameters can be set over query string parameters (GET pa
 
 |Name|Description|Values|
 |---|---|---|
-|`categorypath`|The forward slash-separated path of categories of the item. Like all other parameters it must be URL-encoded, for example `%2FCameras%26Foto%2FCompact%20Cameras%2FCanon`.</br>For use cases, see [Category filter](https://doc.ibexa.co/projects/userguide/en/latest/personalization/filters/#category-filter) in the user documentation.|URL-encoded string.</br>Initial and trailing slashes are ignored: "/Cameras/" is the same as "Cameras".|
+|`categorypath`|The forward slash-separated path of categories of the item. Like all other parameters it must be URL-encoded, for example `%2FCameras%26Foto%2FCompact%20Cameras%2FCanon`.</br>For use cases, see [Category filter]([[= user_doc =]]/personalization/filters/#category-filter) in the user documentation.|URL-encoded string.</br>Initial and trailing slashes are ignored: "/Cameras/" is the same as "Cameras".|
 
 ### Consume event
 

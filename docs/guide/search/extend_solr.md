@@ -45,7 +45,7 @@ Each mapper implements two methods, by the same name, but accepting different ar
     - `::accept(Location $content)`
     - `::mapFields(Location $content)`
 
-Mappers can be used on the extension points by registering them with the [service container](../service_container.md) by using service tags, as follows:
+Mappers can be used on the extension points by registering them with the [service container](../../api/service_container.md) by using service tags, as follows:
 
 - All block documents
     - `ContentFieldMapper`

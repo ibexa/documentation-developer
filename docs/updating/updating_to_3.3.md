@@ -1,6 +1,6 @@
 # Updating Ibexa DXP to v3.3
 
-Ibexa DXP v3.3 uses [Symfony Flex](https://symfony.com/doc/current/quick_tour/flex_recipes.html).
+Ibexa DXP v3.3 uses [Symfony Flex]([[= symfony_doc =]]/quick_tour/flex_recipes.html).
 When updating from v3.2 to v3.3, you need to follow a special update procedure.
 
 If you are updating from an earlier version, start with [updating your installation to v3.2](updating.md).
@@ -198,12 +198,32 @@ composer run post-install-cmd
     "minimum-stability": "stable",
     ```
 
-To update from one v3.3 patch version to another (for example, from v3.3.2 to v3.3.3), run:
+v3.3.6 starts using Symfony 5.3.
+To update from an earlier v3.3 patch version to v3.3.6, update the following package versions in your `composer.json`,
+including the Symfony version (line 9):
+
+``` json hl_lines="9"
+"symfony/flex": "^1.3.1"
+"sensio/framework-extra-bundle": "^6.1",
+"symfony/runtime": "*",
+"doctrine/doctrine-bundle": "^2.4"
+"symfony/maker-bundle": "^1.0",
+
+"symfony": {
+    "allow-contrib": true,
+    "require": "5.3.*",
+    "endpoint": "https://flex.ibexa.co"
+},
+```
+
+See https://github.com/ibexa/website-skeleton/pull/5/files for details of the package version change.
+
+Next, run:
 
 === "[[= product_name_content =]]"
 
     ``` bash
-    composer require ibexa/content:3.3.3 --with-all-dependencies --no-scripts
+    composer require ibexa/content:3.3.6 --with-all-dependencies --no-scripts
     composer recipes:install ibexa/content --force -v
     composer run post-install-cmd
     ```
@@ -211,7 +231,7 @@ To update from one v3.3 patch version to another (for example, from v3.3.2 to v3
 === "[[= product_name_exp =]]"
 
     ``` bash
-    composer require ibexa/experience:3.3.3 --with-all-dependencies --no-scripts
+    composer require ibexa/experience:3.3.6 --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
     composer run post-install-cmd
     ```
@@ -219,7 +239,7 @@ To update from one v3.3 patch version to another (for example, from v3.3.2 to v3
 === "[[= product_name_com =]]"
 
     ``` bash
-    composer require ibexa/commerce:3.3.3 --with-all-dependencies --no-scripts
+    composer require ibexa/commerce:3.3.6 --with-all-dependencies --no-scripts
     composer recipes:install ibexa/commerce --force -v
     composer run post-install-cmd
     ```
@@ -242,7 +262,7 @@ Version v3.3.2 introduces new entity managers.
 To ensure that they work in multi-repository setups, you must update the GraphQL schema.
 You do this manually by following this procedure:
 
-1. Update your project to v3.3.2 and run the `php bin/console cache:clear` command to generate the [service container](../guide/service_container.md).
+1. Update your project to v3.3.2 and run the `php bin/console cache:clear` command to generate the [service container](../api/service_container.md).
 
 1. Run the following command to discover the names of the new entity managers. 
     Take note of the names that you discover:
@@ -258,6 +278,15 @@ You do this manually by following this procedure:
 1. For every entity manager prefixed with `ibexa_`, run the following command to run queries on the database:
 
     `php bin/console doctrine:schema:update --em=<ENTITY_MANAGER_NAME> --force`
+
+#### Optimize workflow queries
+
+Run the following SQL queries to optimize workflow performance:
+
+``` sql
+CREATE INDEX idx_workflow_co_id_ver ON ezeditorialworkflow_workflows(content_id, version_no);
+CREATE INDEX idx_workflow_name ON ezeditorialworkflow_workflows(workflow_name);
+```
 
 ### Enable Commerce features
 

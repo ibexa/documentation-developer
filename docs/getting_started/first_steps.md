@@ -137,8 +137,8 @@ For now the new SiteAccess does not differ from the main site.
 
 !!! tip "More information"
 
-    - [SiteAccess](../guide/siteaccess.md)
-    - [SiteAccess matchers](../guide/siteaccess_matching.md#available-matchers)
+    - [SiteAccess](../guide/multisite/multisite.md)
+    - [SiteAccess matchers](../guide/multisite/siteaccess_matching.md#available-matchers)
 
 ## Add a language and translate Content
 
@@ -178,7 +178,7 @@ Switch to the Translations tab and add a new translation.
 !!! tip "More information"
 
     - [Languages](../guide/internationalization.md)
-    - [Multi-language SiteAccesses and corresponding translations](../guide/multi_language_siteaccesses.md)
+    - [Set up translation SiteAccess](../guide/multisite/set_up_translation_siteaccess.md)
 
 ## Add a design
 

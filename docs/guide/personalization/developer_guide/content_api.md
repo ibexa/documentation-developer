@@ -1,6 +1,6 @@
 # Content API
 
-Apart from the [events](https://doc.ibexa.co/projects/userguide/en/latest/personalization/event_types) 
+Apart from the [events]([[= user_doc =]]/personalization/event_types) 
 collected by the recommendation client, the recommendation engine can use external information 
 about the products.
 This information must be uploaded to the recommendation engine by the administrator of the website.

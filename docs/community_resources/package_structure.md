@@ -32,20 +32,20 @@ The general package directory structure and corresponding PHP namespace mapping 
 ```
 .
 +-- src
-|   +-- bundle (`Ibexa\Platform\Bundle\<PackageName>`)
-|   +-- contracts (`Ibexa\Platform\Contracts\<PackageName>`)
-|   +-- lib (`Ibexa\Platform\<PackageName>`)
+|   +-- bundle (`Ibexa\Bundle\<PackageName>`)
+|   +-- contracts (`Ibexa\Contracts\<PackageName>`)
+|   +-- lib (`Ibexa\<PackageName>`)
 +-- tests
-|   +-- bundle (`Ibexa\Platform\Tests\Bundle\<PackageName>`)
-|   +-- integration (`Ibexa\Platform\Tests\Integration\<PackageName>`)
-|   +-- lib (`Ibexa\Platform\Tests\<PackageName>`)
+|   +-- bundle (`Ibexa\Tests\Bundle\<PackageName>`)
+|   +-- integration (`Ibexa\Tests\Integration\<PackageName>`)
+|   +-- lib (`Ibexa\Tests\<PackageName>`)
 ```
 
 If a package does not contain some of the described parts, you can skip those directories.
 
 ### Implementation (lib)
 
-The `src/lib` directory and its corresponding `Ibexa\Platform\<PackageName>` namespace are meant for internal implementation not tied to the Symfony Framework.
+The `src/lib` directory and its corresponding `Ibexa\<PackageName>` namespace are meant for internal implementation not tied to the Symfony Framework.
 
 Examples:
 
@@ -64,7 +64,7 @@ The bundle class definition in the `src/bundle` directory must be:
 ```php
 namespace Ibexa\Bundle\<PackageName>;
 
-class IbexaPlatform[ProductGroup]<PackageName>Bundle // ...
+class Ibexa[ProductGroup]<PackageName>Bundle // ...
 ```
 
 Examples:
@@ -73,13 +73,13 @@ Examples:
 ```php
 namespace Ibexa\Bundle\Search;
 
-class IbexaPlatformSearchBundle // ...
+class IbexaSearchBundle // ...
 ```
 
 ```php
 namespace Ibexa\Bundle\Commerce\Shop;
 
-class IbexaPlatformCommerceShopBundle // ...
+class IbexaCommerceShopBundle // ...
 ```
 
 ### Contracts

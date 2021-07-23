@@ -50,7 +50,7 @@ my_rest_routes:
 When you have a distinct file for the REST routes, you can apply the prefix to all the routes from this file, without affecting other routes.
 
 Next, you create the REST route. 
-In the `config/routes_rest.yaml` file, define the route's [controller as a service](http://symfony.com/doc/5.0/cookbook/controller/service.html) because your controller was defined as such.
+In the `config/routes_rest.yaml` file, define the route's [controller as a service]([[= symfony_doc =]]/cookbook/controller/service.html) because your controller was defined as such.
 
 ``` yaml
 my_rest_hello_world:
@@ -316,8 +316,10 @@ ez_publish_rest:
 The `router.generate` call dynamically renders a URI based on the name of the route and the optional parameters that are passed as the other arguments.
 In the above code sample, `contentId` is the additional parameter.
 
-The syntax is based on the Symfony's [expression language](http://symfony.com/doc/5.0/components/expression_language/index.html), an extensible component that allows limited/readable scripting to be used outside of the code context.
+The syntax is based on the Symfony's [expression language]([[= symfony_doc =]]/components/expression_language/index.html), an extensible component that allows limited/readable scripting to be used outside of the code context.
 
 The above configuration adds the following entry to the root resource:
+
+`<someresource media-type="application/vnd.ez.api.Content+xml" href="/api/ezp/v2/content/objects/2"/>`
 
 `<someresource media-type="application/vnd.ez.api.Content+xml" href="/api/ezp/v2/content/objects/2"/>

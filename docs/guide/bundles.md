@@ -14,18 +14,18 @@ For example, for Ibexa Content, see the [JSON file on GitHub](https://github.com
 All bundles containing built-in [[= product_name =]] functionalities are installed automatically.
 Additionally, you can install community-developed bundles from [[[= product_name =]] Packages.](https://developers.ibexa.co/packages)
 
-To learn how to create your own bundles, see [Symfony documentation on bundles.](https://symfony.com/doc/5.0/bundles.html)
+To learn how to create your own bundles, see [Symfony documentation on bundles.]([[= symfony_doc =]]/bundles.html)
 
 ### Overriding third-party bundles
 
 When you use an external bundle, you can override its parts, such as templates, controllers, etc.
-To do so, make use of [Symfony's bundle override mechanism](https://symfony.com/doc/5.0/bundles/override.html).
+To do so, make use of [Symfony's bundle override mechanism]([[= symfony_doc =]]/bundles/override.html).
 Note that when overriding files, the path inside your application has to correspond to the path inside the bundle.
 
 ### Removing bundles
 
 To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need),
-see the [How to Remove a Bundle](http://symfony.com/doc/5.0/bundles/remove.html) instruction in Symfony doc.
+see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instruction in Symfony doc.
 
 ## Core packages
 
@@ -43,7 +43,7 @@ see the [How to Remove a Bundle](http://symfony.com/doc/5.0/bundles/remove.html)
 |[ezsystems/ezplatform-cron](https://github.com/ezsystems/ezplatform-cron)|Cron package for use with the `ezplatform:cron:run` command|
 |[ezsystems/ezplatform-design-engine](https://github.com/ezsystems/ezplatform-design-engine)|[Design fallback system](content_rendering/design_engine/design_engine.md)|
 |[ezsystems/ezplatform-graphql](https://github.com/ezsystems/ezplatform-graphql)|GraphQL server for [[= product_name =]]|
-|[ezsystems/ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache)|[HTTP cache handling](http_cache.md), using multi tagging|
+|[ezsystems/ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache)|[HTTP cache handling](../guide/cache/http_cache.md), using multi tagging|
 |[ezsystems/ezplatform-kernel](https://github.com/ezsystems/ezplatform-kernel)|Core of the [[= product_name =]] application|
 |[ezsystems/ezplatform-matrix-fieldtype](https://github.com/ezsystems/ezplatform-matrix-fieldtype)|[Matrix Field Type](../api/field_types_reference/matrixfield.md)|
 |[ezsystems/ezplatform-query-fieldtype](https://github.com/ezsystems/ezplatform-query-fieldtype)|[Query Field Type](../api/field_types_reference/contentqueryfield.md)|

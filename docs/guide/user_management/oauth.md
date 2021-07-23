@@ -26,7 +26,7 @@ see [`knpuniversity/oauth2-client-bundle` configuration](https://github.com/knpu
 ## Firewall configuration
 
 Firewall configuration is located in `config/packages/security.yaml` under `security.firewalls`.
-The `guard.authenticators` setting specifies the [Guard authenticators](https://symfony.com/doc/current/security/guard_authentication.html) to use.
+The `guard.authenticators` setting specifies the [Guard authenticators]([[= symfony_doc =]]/security/guard_authentication.html) to use.
 
 ``` yaml
 [[= include_file('code_samples/user_management/oauth_google/config/packages/security.yaml', 20, 36) =]]

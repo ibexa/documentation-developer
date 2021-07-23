@@ -1,6 +1,8 @@
 # Update database to v3.2
 
-If you are updating from a version prior to v3.1, you have to implement all the changes [from v3.1](5_update_3.1.md) before following the steps below.
+!!! caution "Before you proceed"
+
+    When you are updating from a version prior to v3.1, you must implement all the changes [from v3.1](5_update_3.1.md) before you proceed to the steps below.
 
 If you are using Ibexa DXP or Ibexa Commerce, apply one of the following database update scripts:
 
@@ -30,7 +32,7 @@ Version v3.2.6 introduces new entity managers.
 To ensure that they work in multi-repository setups, you must update the GraphQL schema.
 You do this manually by following this procedure:
 
-1. Update your project to v3.2.6 and run the `php bin/console cache:clear` command to generate the [service container](../guide/service_container.md).
+1. Update your project to v3.2.6 and run the `php bin/console cache:clear` command to generate the [service container](../api/service_container.md).
 
 1. Run the following command to discover the names of the new entity managers. 
     Take note of the names that you discover:
@@ -57,4 +59,13 @@ Locate the `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_main.vcl` fi
 if (req.restarts == 0 && resp.status == 301 && req.http.x-fos-original-url) {
     set resp.http.location = regsub(resp.http.location, "/_fos_user_context_hash", req.http.x-fos-original-url);
 }
+```
+
+### Optimize workflow queries
+
+Run the following SQL queries to optimize workflow performance:
+
+``` sql
+CREATE INDEX idx_workflow_co_id_ver ON ezeditorialworkflow_workflows(content_id, version_no);
+CREATE INDEX idx_workflow_name ON ezeditorialworkflow_workflows(workflow_name);
 ```

@@ -11,40 +11,13 @@ To change password, the user must have the `user/password` permission.
 When the user requests a reset of a forgotten password, an email is sent to them with a token.
 It allows them to create a new password.
 
+For information about how to create and configure the template, see [Add forgot password option](../content_rendering/layout/add_forgot_password.md)
+
 The template for this email is located in `templates/Security/mail/forgot_user_password.html.twig` in `ezsystems/ezplatform-user`.
 You can [customize it according to your needs](#customize-login-form).
 
 The validity of the password recovery token can be set using the `ezplatform.system.<siteaccess>.security.token_interval_spec` parameter.
-By default it is set to `PT1H` (one hour).
-
-### Add forget password option
-
-You can add a "forgot password" option to the site front to allow users of a specific SiteAccess, both admin or front, request a password change by customizing the template used in `/user/forgot-password`. 
-
-Edit `config/packages/ezplatform.yaml`. The templates are defined with the following configuration:
-
-```yaml
-ezplatform:
-    system:
-        <siteaccess>:
-            user_forgot_password:
-                templates:
-                    form: <path_to_template>
-                    mail: <path_to_template>
-```
-
-Under the `templates` key, provide the path to templates responsible for rendering the forgot password form (`form`) and email (`mail`), which is sent to users after they request a password change.
-
-The [default templates](https://github.com/ezsystems/ezplatform-user/tree/master/src/bundle/Resources/views) for forgot password form and email are located in `ezplatform-user/src/bundle/Resources/views`.
-The [templates](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/account/forgot_password/) specific for the Back Office are in `ezplatform-admin-ui/src/bundle/Resources/views/themes/admin/account`.
-
-You can also modify [other user management templates](#other-user-management-templates).
-
-To add link redirecting to the reset password form, in the template, provide the following code:
-
-```html+twig
-<a href="{{ path('ezplatform.user.forgot_password') }}" tabindex="4">{{ 'authentication.forgot_password'|trans|desc('Forgot password?') }}</a>
-```
+By default, it is set to `PT1H` (one hour).
 
 ## Password rules
 
@@ -173,160 +146,6 @@ ezplatform:
                 group_id: <userGroupContentId>
 ```
 
-### Registration form templates
-
-You can use custom templates for the registration form and registration confirmation page.
-
-The templates are defined with the following configuration:
-
-``` yaml
-ezplatform:
-    system:
-        default:
-            user_registration:
-                templates:
-                    form: user/registration_form.html.twig
-                    confirmation: user/registration_confirmation.html.twig
-```
-
-With this configuration you place the templates in `templates/user/registration_form.html.twig` and `templates/user/registration_confirmation.html.twig`.
-
-Example registration form:
-
-``` html+twig
-{% extends no_layout is defined and no_layout == true ? view_base_layout : page_layout %}
-{% block content %}
-    <section class="ez-content-edit">
-        {{ form_start(form) }}
-
-        {% for fieldForm in form.fieldsData %}
-            {% set fieldIdentifier = fieldForm.vars.data.fieldDefinition.identifier %}
-            <div class="col-md-6">
-                {{ form_widget(fieldForm.value, {
-                    'contentData': form.vars.data
-                }) }}
-            </div>
-            {%- do fieldForm.setRendered() -%}
-        {% endfor %}
-
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                {{ form_widget(form.register, {'attr': {
-                    'class': 'btn btn-block btn-primary'
-                }}) }}
-            </div>
-        </div>
-
-        {{ form_end(form) }}
-    </section>
-{% endblock %}
-```
-
-Example confirmation form:
-
-``` html+twig
-{% extends no_layout is defined and no_layout == true ? view_base_layout : page_layout %}
-{% block content %}
-    <h1>Your account has been created</h1>
-    <p class="user-register-confirmation-message">
-        Thank you for registering an account. You can now <a href="{{ path('login') }}">login</a>.
-    </p>
-{% endblock %}
-```
-
-### Customize login form
-
-You can use a custom template for example to display information about password expiration
-or to customize [other user management templates](#other-user-management-templates).
-
-If you need only to change a template, you can use the following configuration:
-
-```yaml
-ezpublish:
-    system:
-        my_siteaccess:
-            user:
-                login_template: '@ezdesign/Security/login.html.twig'
-```
-
-In case of more advanced template customization, you can use a subscriber,
-for example in `src/EventSubscriber/LoginFormViewSubscriber.php`:
-
-``` php hl_lines="23 35 40 42"
-<?php
-
-declare(strict_types=1);
-
-namespace App\EventSubscriber;
-
-use eZ\Publish\Core\MVC\Symfony\Event\PreContentViewEvent;
-use eZ\Publish\Core\MVC\Symfony\MVCEvents;
-use eZ\Publish\Core\MVC\Symfony\View\LoginFormView;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Security\Core\Exception\CredentialsExpiredException;
-
-final class LoginFormViewSubscriber implements EventSubscriberInterface
-{
-    /**
-     * Returns an array of events this subscriber wants to listen to.
-     *
-     * @return string[]
-     */
-    public static function getSubscribedEvents(): array
-    {
-        return [
-            MVCEvents::PRE_CONTENT_VIEW => 'onPreContentView',
-        ];
-    }
-    
-    public function onPreContentView(PreContentViewEvent $event): void
-    {
-        $view = $event->getContentView();
-        
-        if (!($view instanceof LoginFormView)) {
-            return ;
-        }
-        
-        $view->addParameters([
-            'foo' => 'foo',
-            'bar' => 'bar'
-        ]);
-        
-        if ($view->getLastAuthenticationException() instanceof CredentialsExpiredException) {
-            // View with instruction to unlock account
-            $view->setTemplateIdentifier('login/expired_credentials.html.twig');
-        }
-    }
-}
-```
-
-In the provided example, in line 23, the `PRE_CONTENT_VIEW` event is used.
-You can also pass additional parameters to the view (line 35).
-In this case, at the instance of exception (line 40), the subscriber displays the `expired_credentials.html.twig` template (line 42).
-
-Remember to provide a template and point to it in the subscriber
-(in this case, in `templates/login/expired_credentials.html.twig`):
-
-```html+twig
-{% extends '@ezdesign/Security/base.html.twig' %}
-
-{%- block content -%}
-    <h2 class="ez-login__header">
-        {{ 'authentication.credentials_expired'|trans|desc('Your password has expired') }}
-    </h2>
-    <p>
-        {{ 'authentication.credentials_expired.message'|trans|desc(
-            'For security reasons, your password has expired and needs to be changed. An email has been sent to you with instructions.'
-        ) }}
-    </p>
-    <p>
-        <a href="{{ path('ezplatform.user.forgot_password') }}" class="btn btn-primary ez-btn ez-btn--login">
-            {{ 'authentication.credentials_expired.reset_password'|trans|desc('Reset password') }}
-        </a>
-    </p>
-{%- endblock -%}
-```
-
 ### Other user management templates
 
 You can also modify the following form templates:
@@ -368,7 +187,7 @@ ezsettings.<siteaccess>.user_settings.templates.update
 
 ## Authenticating user with multiple user providers
 
-Symfony provides native support for [multiple user providers](https://symfony.com/doc/5.0/security/multiple_user_providers.html).
+Symfony provides native support for [multiple user providers]([[= symfony_doc =]]/security/multiple_user_providers.html).
 This makes it easy to integrate any kind of login handlers, including SSO and existing third party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](http://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
 
 However, to be able to use *external* user providers with [[= product_name =]], a valid Platform user needs to be injected into the Repository.

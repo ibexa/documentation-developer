@@ -26,7 +26,7 @@ For information about available options, see [the bundle's documentation.](https
 
 !!! note
 
-    If your installation uses Varnish to manage content cache, you must modify the configuration to avoid issues with the Captcha field. For more information, see [Ensure proper captcha behavior](../guide/http_cache.md#ensure-proper-captcha-behavior).
+    If your installation uses Varnish to manage content cache, you must modify the configuration to avoid issues with the Captcha field. For more information, see [Ensure proper captcha behavior](../guide/cache/symfony_reverse_proxy.md#ensure-proper-captcha-behavior).
 
 ## Extending Form fields
 
@@ -218,7 +218,7 @@ By adjusting them to your needs, you will change your email template.
 Some email providers require a sender address to be set, so to avoid unsent emails when using Form Builder,
 it is recommended to configure `sender_address` in `config/packages/swiftmailer.yaml`.
 This email acts as a sender and return address for all bounced messages.
-For more information, see [Symfony Mailer Configuration Reference.](https://symfony.com/doc/5.0/reference/configuration/swiftmailer.html#sender-address)
+For more information, see [Symfony Mailer Configuration Reference.]([[= symfony_doc =]]/reference/configuration/swiftmailer.html#sender-address)
 
 Add `sender_address` entry to `config/packages/swiftmailer.yaml`:
 

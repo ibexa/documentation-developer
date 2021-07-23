@@ -25,7 +25,7 @@ Persistence cache aims at caching most `SPI\Persistence` calls used in common p
 
 Notes:
 
-- [Cache tagging](https://symfony.com/doc/5.0/components/cache/cache_invalidation.html#using-cache-tags) is used in
+- [Cache tagging]([[= symfony_doc =]]/components/cache/cache_invalidation.html#using-cache-tags) is used in
   order to allow clearing cache by alternative indexes.
   For instance tree operations or changes to Content Types are
   examples of operations that also need to invalidate content cache by tags.
@@ -45,7 +45,7 @@ To see where and how to contribute additional caches, refer to the [source code]
 !!! note
 
     Current implementation uses Symfony cache. It technically supports the following cache backends:
-    [APCu, Array, Chain, Doctrine, Filesystem, Memcached, PDO & Doctrine DBAL, Php Array, Proxy, Redis](https://symfony.com/doc/5.0/components/cache/cache_pools.html#creating-cache-pools).
+    [APCu, Array, Chain, Doctrine, Filesystem, Memcached, PDO & Doctrine DBAL, Php Array, Proxy, Redis]([[= symfony_doc =]]/components/cache/cache_pools.html#creating-cache-pools).
     [[= product_name =]] officially supports only using Filesystem for single server and Redis or Memcached for clustered setups.
 
 Use of Memcached or Redis as shared cache back end is a requirement for use in clustering setup.
@@ -67,7 +67,7 @@ You can select a different cache backend and configure its parameters in the rel
 
 #### Multi Repository setup
 
-You can [configure multisite to work with multiple Repositories](multisite.md#multisite-with-multiple-repositories).
+You can [configure multisite to work with multiple Repositories](multisite/multisite_configuration.md#location-id).
 Then, in `ezplatform.yaml` you can specify which cache pool you want to use on a SiteAccess or SiteAccess group level.
 
 The following example shows use in a SiteAccess group:
@@ -128,7 +128,7 @@ parameters:
 [Redis](http://redis.io/), an in-memory data structure store, is one of the supported cache solutions for clustering.
 Redis is used via [Redis pecl extension](https://pecl.php.net/package/redis).
 
-See [Redis Cache Adapter in Symfony documentation](https://symfony.com/doc/5.0/components/cache/adapters/redis_adapter.html#configure-the-connection)
+See [Redis Cache Adapter in Symfony documentation]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection)
 for information on how to connect to Redis.
 
 #### Supported Adapters
@@ -198,7 +198,7 @@ With that in mind, the following configurations of Redis are possible:
     - Provides high availability by providing one or several slaves (ideally 2 slaves or more, e.g. minimum 3 servers), and handle failover
     - [Slaves are asynchronously replicated](https://redis.io/topics/sentinel#fundamental-things-to-know-about-sentinel-before-deploying), so they can't be used for reads
     - Typically used with a load balancer (e.g. HAproxy with occasional calls to Redis Sentinel API) in the front in order to only speak to elected master
-    - As of v3 you can also configure this [directly on the connection string](https://symfony.com/doc/current/components/cache/adapters/redis_adapter.html#configure-the-connection), **if** you use `Predis` instead of `php-redis` 
+    - As of v3 you can also configure this [directly on the connection string]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection), **if** you use `Predis` instead of `php-redis` 
 
 Several cloud providers have managed services that are easier to set up, handle replication and scalability for you, and might perform better. Notable services include:
 
@@ -217,7 +217,7 @@ Several cloud providers have managed services that are easier to set up, handle 
 
 [Memcached, a distributed caching solution](http://memcached.org/) is a cache solution that is supported for clustering use, as an alternative to Redis.
 
-See [Memcached Cache Adapter in Symfony documentation](https://symfony.com/doc/5.0/components/cache/adapters/memcached_adapter.html#configure-the-connection)
+See [Memcached Cache Adapter in Symfony documentation]([[= symfony_doc =]]/components/cache/adapters/memcached_adapter.html#configure-the-connection)
 for information on how to configure Memcached.
 
 
@@ -313,7 +313,7 @@ This service is an instance of `Symfony\Component\Cache\Adapter\TagAwareAdapterI
 
 ##### With service container
 
-Like any other service, you can also get the cache service with the [service container](service_container.md) like so:
+Like any other service, you can also get the cache service with the [service container](../api/service_container.md) like so:
 
 ``` php
 // Getting the cache service in PHP
@@ -341,7 +341,7 @@ $pool->save($cacheItem);
 return $myObject;
 ```
 
-For more info on usage, see [Symfony Cache's documentation](https://symfony.com/doc/5.0/components/cache.html).
+For more info on usage, see [Symfony Cache's documentation]([[= symfony_doc =]]/components/cache.html).
 
 ### Clearing Persistence cache
 

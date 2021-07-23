@@ -1,6 +1,8 @@
 # Update database to v3.1
     
-If you are updating from a version prior to v3.0, you have to implement all the changes from [eZ Platform v3.0 project update instructions](../updating/4_upgrade_the_code.md) and [database updates from v3.0](5_update_3.0.md) before following the steps below.
+!!! caution "Before you proceed"
+
+    When you are updating from a version prior to v3.0, you must implement all the changes from [eZ Platform v3.0 project update instructions](../updating/4_upgrade_the_code.md) and [database updates from v3.0](5_update_3.0.md) before you proceed to the steps below.
 
 ## Site Factory
 

@@ -41,8 +41,8 @@ Exposing the dev mode exposes things like `phpinfo`, environment variables and s
 
     For more information about securing Symfony-based systems, see:
     
-    - [Authentication and authorisation](https://symfony.com/doc/current/security.html), and [more on this subject](https://symfony.com/doc/current/security.html#learn-more)
-    - Symfony's [secrets management system](https://symfony.com/doc/current/configuration/secrets.html)
+    - [Authentication and authorisation]([[= symfony_doc =]]/security.html), and [more on this subject]([[= symfony_doc =]]/security.html#learn-more)
+    - Symfony's [secrets management system]([[= symfony_doc =]]/configuration/secrets.html)
 
 ## [[= product_name =]]
 

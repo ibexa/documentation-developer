@@ -1,7 +1,7 @@
 # Configuring the Image Editor [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 When a Content item contains Fields of the [ezimage](../api/field_types_reference/imagefield.md) or [ezimageasset](../api/field_types_reference/imageassetfield.md) type, users can perform basic image editing functions with the Image Editor.
-For more information, see the [user documentation](https://doc.ibexa.co/projects/userguide/en/master/editing_images/).
+For more information, see the [user documentation]([[= user_doc =]]/editing_images/).
 
 !!! note
 
@@ -78,7 +78,7 @@ system:
 ### Additional information
 
 Each image can be accompanied by additional information that is not visible to the user.
-By default, additional information stores the coordinates of the [focal point](https://doc.ibexa.co/projects/userguide/en/master/editing_images/#focal-point),
+By default, additional information stores the coordinates of the [focal point]([[= user_doc =]]/editing_images/#focal-point),
 but you can use this extension point to pass various parameters of custom features
 that you add by extending the Image Editor.
 
