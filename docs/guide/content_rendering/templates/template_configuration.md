@@ -12,8 +12,8 @@ The following example configuration defines template usage for several cases:
 
 The content view configuration must be placed under `ezplatform.system.<scope>`.
 
-Scope defines the [SiteAccesses](../../siteaccess.md) for which the configuration is valid.
-It may be a SiteAccess, a SiteAccess group, or one of the [generic configuration scopes](../../siteaccess.md#scope).
+Scope defines the [SiteAccesses](../../multisite/multisite.md) for which the configuration is valid.
+It may be a SiteAccess, a SiteAccess group, or one of the [generic configuration scopes](../../multisite/multisite_configuration.md#scope).
 
 ## Page layout
 
