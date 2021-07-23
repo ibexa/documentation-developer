@@ -5,7 +5,7 @@ Back Office menus are based on the [KnpMenuBundle](https://github.com/KnpLabs/Kn
 !!! tip
 
     For general information on how to use `MenuBuilder`,
-    see [the official KnpMenuBundle documentation](https://symfony.com/doc/master/bundles/KnpMenuBundle/index.html).
+    see [the official KnpMenuBundle documentation](https://symfony.com/doc/current/bundles/KnpMenuBundle/index.html).
 
 Menus are extensible using event subscribers/listeners. You can hook into the following events:
 
@@ -69,7 +69,7 @@ class MenuListener implements EventSubscriberInterface
 }
 ```
 
-If [the autoconfigure option](https://symfony.com/doc/5.0/service_container.html#the-autoconfigure-option) is disabled,
+If [the autoconfigure option]([[= symfony_doc =]]/service_container.html#the-autoconfigure-option) is disabled,
 you need to register the service with the `kernel.event.subscriber` tag in `config/services.yaml`:
 
 ``` yaml

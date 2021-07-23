@@ -16,7 +16,7 @@ Every `dataProcessor` can set an additional error message that is displayed for 
 
 ## Form validators
 
-Besides standard [Symfony validators,](http://symfony.com/doc/3.4/validation.html)
+Besides standard [Symfony validators,]([[= symfony_doc =]]/validation.html)
 [[= product_name =]] offers additional validators.
 
 ### ZIP validator

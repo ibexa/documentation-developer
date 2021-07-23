@@ -45,7 +45,7 @@
 
     `ez_urlalias` is a not a Twig function, but a special route name.
 
-For more information about the use of `ez_urlalias` as a parameter of the [Symfony `path` Twig function](https://symfony.com/doc/current/reference/twig_reference.html#path), see [Links to other locations](../urls_and_routes.md).
+For more information about the use of `ez_urlalias` as a parameter of the [Symfony `path` Twig function]([[= symfony_doc =]]/reference/twig_reference.html#path), see [Links to other locations](../urls_and_routes.md).
 
 ### `ez_route()`
 

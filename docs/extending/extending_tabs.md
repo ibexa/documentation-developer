@@ -30,13 +30,13 @@ The `group` tag indicates where the group will be rendered.
 For the list of possible rendering places, see [Injecting custom components](custom_components.md).
 
 `$groupIdentifier` is the name that you point to when assigning a tab to this group.
-You can also provide the `$template` argument to use a custom template for rendering the group.
+You can also provide the `$template` argumenst to use a custom template for rendering the group.
 
 ### Adding a tab group with custom logic
 
 To create a custom tab group with additional logic, you need to create it at the level 
-of compiling the [service container](../guide/service_container.md),
-using a [CompilerPass](https://symfony.com/doc/5.0/service_container/compiler_passes.html).
+of compiling the [service container](../api/service_container.md),
+using a [CompilerPass]([[= symfony_doc =]]/service_container/compiler_passes.html).
 
 For example, in `src/DependencyInjection/Compiler/CustomTabGroupPass.php`:
 

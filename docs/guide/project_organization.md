@@ -43,7 +43,7 @@ See [Configuration](configuration.md) for more information.
 If you are keeping some of your code in a bundle, dealing with core bundle semantic configuration can be tedious
 if you maintain it in the main `config/packages/ezplatform.yaml` configuration file.
 
-You can import configuration from a bundle by following the Symfony tutorial [How to Import Configuration Files/Resources](https://symfony.com/doc/5.0/service_container/import.html).
+You can import configuration from a bundle by following the Symfony tutorial [How to Import Configuration Files/Resources]([[= symfony_doc =]]/service_container/import.html).
 
 ## Versioning a project
 

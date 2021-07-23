@@ -4,7 +4,7 @@
 
 ### Clearing file cache using the Symfony cache:clear command
 
-Symfony provides a command for clearing cache. It will delete all file-based caches, which mainly consist of a Twig template, a [service container](service_container.md), and the Symfony route cache, but also everything else stored in the cache folder. Out of the box on a single-server setup this includes Content cache. For further information on the command's use, see its help text:
+Symfony provides a command for clearing cache. It will delete all file-based caches, which mainly consist of a Twig template, a [service container](../api/service_container.md), and the Symfony route cache, but also everything else stored in the cache folder. Out of the box on a single-server setup this includes Content cache. For further information on the command's use, see its help text:
 
 ``` bash
 php bin/console --env=prod cache:clear -h
@@ -33,7 +33,7 @@ When running [[= product_name =]] in the `dev` environment you have access to th
 
 #### SPI (persistence)
 
-This section provides the number of non-cached [SPI](repository.md#spi) calls and handlers. You can see details of these calls in the [Symfony Profiler](http://symfony.com/doc/5.0/profiler.html) page.
+This section provides the number of non-cached [SPI](repository.md#spi) calls and handlers. You can see details of these calls in the [Symfony Profiler]([[= symfony_doc =]]/profiler.html) page.
 
 #### SiteAccess
 

@@ -1,6 +1,6 @@
 # SiteAccess-aware configuration
 
-The [Symfony Config component](https://symfony.com/doc/current/components/config.html) makes it possible to define semantic configuration, exposed to the end developer.
+The [Symfony Config component]([[= symfony_doc =]]/components/config.html) makes it possible to define semantic configuration, exposed to the end developer.
 This configuration is validated by rules you define, e.g. validating type (string, array, integer, boolean and so on).
 Usually, after it is validated and processed, this semantic configuration is then mapped to internal *key/value* parameters stored in the service container.
 
