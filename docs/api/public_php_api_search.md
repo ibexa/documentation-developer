@@ -89,7 +89,7 @@ With the Legacy search engine both properties will give identical results.
 
 #### Processing large result sets
 
-To search in a large result set, use `eZ\Publish\API\Repository\Iterator\BatchIterator`.
+To process a large result set, use `eZ\Publish\API\Repository\Iterator\BatchIterator`.
 `BatchIterator` divides the results of search or filtering into smaller batches.
 This enables iterating over results that are too large to handle due to memory constraints.
 
