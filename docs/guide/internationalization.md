@@ -22,7 +22,7 @@ yarn encore <environment>
 # OR php bin/console ibexa:encore:compile
 ```
 
-**The new language must then be added to the [SiteAccess](siteaccess.md) configuration**. Once this is done, any user with proper permissions can create Content item versions in these languages in the user interface.
+**The new language must then be added to the [SiteAccess](multisite/multisite.md) configuration**. Once this is done, any user with proper permissions can create Content item versions in these languages in the user interface.
 
 ### Translatable and untranslatable Fields
 
@@ -47,7 +47,7 @@ you can [use SiteAccesses](#using-siteaccesses-for-handling-translations).
 Depending on the URI used to access the website, a different site will open, with a language set in configuration settings.
 All Content items will then be displayed in this language.
 
-For details, see [Multi-language SiteAccesses](multi_language_siteaccesses.md).
+For details, see [Multi-language SiteAccesses](multisite/set_up_translation_siteaccess.md).
 
 ### Explicit translation SiteAccesses
 
@@ -168,7 +168,7 @@ ezplatform:
 If the `translation_siteaccesses` setting is not provided, implicit *related SiteAccesses* will be used instead. SiteAccesses are considered *related* if they share:
 
 - The same Repository
-- The same root `location_id` (see [Multisite](multisite.md))
+- The same root `location_id` (see [Multisite](multisite/multisite.md))
 
 ### Fallback languages and missing translations
 
