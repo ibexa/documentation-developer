@@ -169,6 +169,7 @@ nav:
             - 'URLs and routes': 'guide/content_rendering/urls_and_routes.md'
             - Design engine:
                 - 'Design engine': 'guide/content_rendering/design_engine/design_engine.md'
+                - 'Add new design': 'guide/content_rendering/design_engine/add_new_design.md'
             - Queries and controllers:
                 - 'Content queries': 'guide/content_rendering/queries_and_controllers/content_queries.md'
                 - 'Built-in Query types': 'guide/content_rendering/queries_and_controllers/built-in_query_types.md'
