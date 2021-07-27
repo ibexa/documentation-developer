@@ -61,3 +61,70 @@ To provide a download link for a file, use `ez_route()` with the `ez_content_dow
 
 <a href="{{ ez_path(download_route) }}">Download</a>
 ```
+
+## Route list
+
+The following built-in routes are available for the front of the website.
+
+!!! tip
+
+    To view all routes existing in the system, including internal and Back-Office related ones, run:
+
+    ``` bash
+    php bin/console debug:router
+    ```
+
+### Registration
+
+
+|Route name|Path|Description|
+|---|---|---|
+| `ezplatform.user.user_register` | `/user/register` | User registration form |
+| `ezplatform.user.register_confirmation`</br>`ezplatform.user.user_register_confirmation` | `/register-confirm`</br>`/user/register-confirm` | Confirmation page after user registration |
+
+### Login
+
+|Route name|Path|Description|
+|---|---|---|
+|`login` | `/login` | [Login form](layout/add_login_form.md) |
+|`logout`</br>`silversolutionsCustomerLogout` | `/logout`</br>`/profile/logout` | Route which logs out the current user |
+
+### Profile
+
+|Route name|Path|Description|
+|---|---|---|
+| `silversolutionsCustomerDetail` | `/profile` | User profile |
+| `silversolutions_address_book_list` | `/profile/address_book` | User address book |
+
+### Password
+
+|Route name|Path|Description|
+|---|---|---|
+| `ezplatform.user_profile.change_password`</br>`silversolutions_password_change` | `/user/change-password`</br>`/change_password` | Form for password change|
+| `ezplatform.user.forgot_password` | `/user/forgot-password` | [Password reset form](layout/add_forgot_password.md) |
+| `ezplatform.user.forgot_password.migration` | `/user/forgot-password/migration` | Form for resetting password after expiration|
+| `ezplatform.user.forgot_password.login` | `/user/forgot-password/login` | Form for resetting password using login instead of email address |
+| `ezplatform.user.reset_password` | `/user/reset-password/{hashKey}` | Form for resetting password based on a generated link |
+
+### Shop
+
+|Route name|Path|Description|
+|---|---|---|
+| `silversolutions_bestsellers` | `/bestsellers` | [Bestseller page](../bestsellers.md) |
+| `silversolutions_delegate` | `/delegate` | [Delegate function](../user_management/delegate_function.md) |
+| `silversolutions_undelegate` | `/undelegate` | [Undelegate function](../user_management/delegate_function.md) |
+
+### Content
+
+|Route name|Path|Description|
+|---|---|---|
+| `ez_content_download` | `/content/download/{contentId}/{fieldIdentifier}/{filename}` | Route for downloading a binary file |
+| `ezplatform.content.create_no_draft` | `/content/create/nodraft/{contentTypeIdentifier}/{language}/{parentLocationId}` | [Creating a Content item without using a draft](../user_generated_content.md#creating-a-content-item-without-using-a-draft) |
+| `ezplatform.content.draft.edit` | `/content/edit/draft/{contentId}/{versionNo}/{language}/{locationId}` | [Editing a Content item](../user_generated_content.md#editing-a-content-item) |
+| `ezplatform.content.draft.create` | `/content/create/draft/{contentId}/{fromVersionNo}/{fromLanguage}` | [Creating a new draft](../user_generated_content.md#creating-a-new-draft) |
+
+### Search
+
+|Route name|Path|Description|
+|---|---|---|
+| `ezplatform.search` | `/search` | Search form |
