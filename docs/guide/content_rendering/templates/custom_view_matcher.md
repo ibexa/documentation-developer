@@ -25,7 +25,7 @@ matches any of the values passed in configuration (line 48).
 
 ## View configuration
 
-To apply the matcher in view configuration, indicate it by its fully qualified class name, preceded by `\`.
+To apply the matcher in view configuration, indicate the matcher by its fully qualified class name, preceded by `\`.
 
 The following configuration uses a special template to render articles owned by the users with provided logins:
 
@@ -36,4 +36,4 @@ The following configuration uses a special template to render articles owned by 
 !!! note
 
     If you use a matcher that is a service instead of a simple class,
-    you need to tag the service with `ezplatform.view.matcher`.
+    tag the service with `ezplatform.view.matcher`.
