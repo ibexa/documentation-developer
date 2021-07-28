@@ -7,7 +7,7 @@ This page explains how to install [[= product_name =]] on macOS or Windows.
     This procedure is **for development purposes only**.
     Installing [[= product_name =]] for production purposes is supported only on Linux.
 
-    For information about installing the product on Linux, see [Installing [[= product_name =]]](../getting_started/install_ez_platform.md).  
+    For information about installing the product on Linux, see [Install [[= product_name =]]](../getting_started/install_ez_platform.md).  
 
 ### Prepare work environment
 
@@ -20,7 +20,7 @@ If you want to use a web server, you need to install it as well:
 
 The instructions below assume that you are using Apache.
 
-??? "Windows"
+??? note "Windows"
 
     Locate the `php.ini` file and open it in a text editor.
     Provide the missing values to relevant parameters, for example, `date.timezone` and `memory_limit`:
@@ -70,7 +70,7 @@ The instructions below assume that you are using Apache.
 ## Install [[= product_name =]]
 
 At this point the installation procedure is the same as when installing on Linux.
-Follow the steps from the main [Installing [[= product_name =]]](../getting_started/install_ez_platform.md#install-ibexa-dxp) page.
+Follow the steps from the main [Install [[= product_name =]]](../getting_started/install_ez_platform.md#install-ibexa-dxp) page.
 
 ## Set up virtual host
 
