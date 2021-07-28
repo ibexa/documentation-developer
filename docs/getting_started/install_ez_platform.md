@@ -5,7 +5,7 @@
     Installation for production is only supported on Linux.
 
     To install [[= product_name =]] for development on macOS or Windows,
-    see [installation guide for macOS and Windows](install-on-mac-os-and-windows.md).
+    see the [installation guide for macOS and Windows](install-on-mac-os-and-windows.md).
 
 ## Prepare the work environment
 
