@@ -9,7 +9,7 @@ The [LocationChildrenTermAggregation](https://github.com/ezsystems/ezplatform-ke
 ## Example
 
 ``` php
-$query = new Query();
+$query = new LocationQuery();
 $query->aggregations[] = new Aggregation\Location\LocationChildrenTermAggregation('location_children');
 ```
 
