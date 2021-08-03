@@ -24,33 +24,43 @@ The content is then initially exported by a script.
 After this, it is synchronized with the Personalization service every time a change 
 occurs in the Back Office.
 
-The client's configuration is SiteAccess-aware.
+The recommendation client's configuration is SiteAccess-aware.
 If your installation [hosts multiple sites](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#multiple-stores) with different customer IDs, 
 for example, to provide separate recommendations for different language versions 
 of the site, provide the credentials that correspond to each of the sites.
 
-The client's configuration can resemble the following example:
+The configuration can resemble the following example:
 
 ``` yaml
 ezrecommendation:
     system:
         <site_access_name_1>:
             site_name: '<site_name_1>' # For example 'ENU store'
+            host_uri: `'%env(RECOMMENDATION_HOST_URI)%'`
             authentication:
                 customer_id: `'%env(RECOMMENDATION_CUSTOMER_ID)%'`
                 license_key: `'%env(RECOMMENDATION_LICENSE_KEY)%'`
+            export:
+                authentication:
+                    method: 'basic'
+                    login: `'%env(RECOMMENDATION_CUSTOMER_ID)%'`
+                    password: `'%env(RECOMMENDATION_LICENSE_KEY)%'`
             included_item_types: [product, article]
             random_item_types: [blog]
-            host_uri: http://example.com
 
         <site_access_name_1>:
-            site_name: '<site_name_2>' # For example 'ENU store'
+            site_name: '<site_name_2>' # For example 'FRA store'
+            host_uri: `'%env(FRA_HOST_URI)%'`
             authentication:
                 customer_id: `'%env(FRA_CUSTOMER_ID)%'`
                 license_key: `'%env(FRA_LICENSE_KEY)%'`
-            included_item_types: [product, article]
-            random_item_types: [blog]
-            host_uri: http://example.com
+            export:
+                authentication:
+                    method: 'basic'
+                    login: `'%env(FRA_CUSTOMER_ID)%'`
+                    password: `'%env(FRA_LICENSE_KEY)%'`
+                included_item_types: [product, article]
+                random_item_types: [blog]
 ```
 
 !!! note "User credential variables"
@@ -61,9 +71,12 @@ ezrecommendation:
 
 | Parameter                            | Description                                               |
 |--------------------------------------|-----------------------------------------------------------|
+| `host_uri`                           | A location where the site's REST API can be accessed. This is where the Personalization server imports items from.       |
 | `authentication.customer_id`         | A customer ID related to the supported SiteAccess.                                         |
 | `authentication.license_key`         | The Personalization service's license key.                                         |
-| `host_uri`                           | The URI your site's REST API can be accessed from.        |
+| `export.authentication.method`         | Authentication method used to get access when importing items.                                         |
+| `export.authentication.login`         | A credential used when importing items.                                         |
+| `export.authentication.password`         | A password used when importing items.                                         |
 | `included_item_types`             | A list of alphanumerical identifiers of item types on which the tracking script is shown. |
 | `random_item_types`               | A list of alphanumerical identifiers of item types that are returned when the response from the server contains no content. |
 
