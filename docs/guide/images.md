@@ -196,7 +196,7 @@ Additionally you can provide two parameters:
 
 ## Normalizing images
 
-If you use image files with unprintable UTF-8 characters, you may come across a problem with images not displaying.
+If you use image files with unprintable UTF-8 characters in file names, you may come across a problem with images not displaying.
 In that case, run the `ezplatform:images:normalize-path` command to normalize them:
 
 ``` bash
