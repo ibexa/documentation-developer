@@ -382,6 +382,15 @@ Additionally you can provide two parameters:
 
     This command publishes a new version of each Content item it modifies.
 
+## Normalizing images
+
+If you use image files with unprintable UTF-8 characters in file names, you may come across a problem with images not displaying.
+In that case, run the `ezplatform:images:normalize-path` command to normalize them:
+
+``` bash
+php bin/console ezplatform:images:normalize-path
+```
+
 ## Reusing images
 
 You can store images in the media library as independent Content items of a generic Image Content Type to reuse them across the system.

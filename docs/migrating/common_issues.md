@@ -25,6 +25,15 @@ See [Regenerating URL aliases](../guide/url_management.md#regenerating-url-alias
     This command keeps history and replaces the old `ezplatform:regenerate:legacy_storage_url_aliases` command.
     `legacy_storage_url_aliases` is now deprecated.
 
+## Normalizing images
+
+If you use image files with unprintable UTF-8 characters, you may come across a problem with images not displaying.
+In that case, run the `ezplatform:images:normalize-path` command to normalize them:
+
+``` bash
+php bin/console ezplatform:images:normalize-path
+```
+
 ## Unknown relation type 0
 
 "Unknown relation type 0." error occurs only when using REST API. The issue does not occur
