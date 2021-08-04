@@ -15,6 +15,7 @@ There are three types of aggregations:
 |[ContentTypeTermAggregation](aggregation_reference/contenttypeterm_aggregation.md) | Term | Content Type  |
 |[ContentTypeGroupTermAggregation](aggregation_reference/contenttypegroupterm_aggregation.md) | Term | Content Type group |
 |[DateMetadataRangeAggregation](aggregation_reference/datemetadatarange_aggregation.md) | Range | Date metadata |
+|[LocationChildrenTermAggregation](aggregation_reference/locationchildrenterm_aggregation.md) | Term | Children on a Location |
 |[LanguageTermAggregation](aggregation_reference/languageterm_aggregation.md) | Term | Content language |
 |[ObjectStateTermAggregation](aggregation_reference/objectstateterm_aggregation.md) | Term | Object state |
 |[RawRangeAggregation](aggregation_reference/rawrange_aggregation.md) | Range | Search index field |
