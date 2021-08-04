@@ -158,6 +158,12 @@ ezplatform:
                     - another_domain.org
 ```
 
+!!! caution "SiteAccess with separate admin domain"
+
+    If an admin SiteAccess in your installation uses a different domain than the front SiteAccesses,
+    be sure to use SSL (https protocol).
+    Otherwise, you cannot preview content in Page Builder from the Back Office.
+
 #### SiteAccess switching in Page Builder [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 If you need to change between SiteAccesses in Site mode, do not use any functions in the page itself (for example, a language switcher).
