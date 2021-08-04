@@ -87,7 +87,7 @@ The following built-in routes are available for the front of the website.
 |Route name|Path|Description|
 |---|---|---|
 |`login` | `/login` | [Login form](layout/add_login_form.md) |
-|`logout`</br>`silversolutionsCustomerLogout` | `/logout`</br>`/profile/logout` | Route which logs out the current user |
+|`logout`</br>`silversolutionsCustomerLogout` | `/logout`</br>`/profile/logout` | Logging out the current user |
 
 ### Profile
 
@@ -101,9 +101,9 @@ The following built-in routes are available for the front of the website.
 |Route name|Path|Description|
 |---|---|---|
 | `ezplatform.user_profile.change_password`</br>`silversolutions_password_change` | `/user/change-password`</br>`/change_password` | Form for password change|
-| `ezplatform.user.forgot_password` | `/user/forgot-password` | [Password reset form](layout/add_forgot_password.md) |
+| `ezplatform.user.forgot_password` | `/user/forgot-password` | [Form for password resetting](layout/add_forgot_password.md) |
 | `ezplatform.user.forgot_password.migration` | `/user/forgot-password/migration` | Form for resetting password after expiration|
-| `ezplatform.user.forgot_password.login` | `/user/forgot-password/login` | Form for resetting password using login instead of email address |
+| `ezplatform.user.forgot_password.login` | `/user/forgot-password/login` | Form for resetting password based on login instead of email address |
 | `ezplatform.user.reset_password` | `/user/reset-password/{hashKey}` | Form for resetting password based on a generated link |
 
 ### Shop
@@ -118,7 +118,7 @@ The following built-in routes are available for the front of the website.
 
 |Route name|Path|Description|
 |---|---|---|
-| `ez_content_download` | `/content/download/{contentId}/{fieldIdentifier}/{filename}` | Route for downloading a binary file |
+| `ez_content_download` | `/content/download/{contentId}/{fieldIdentifier}/{filename}` | Downloading a binary file |
 | `ezplatform.content.create_no_draft` | `/content/create/nodraft/{contentTypeIdentifier}/{language}/{parentLocationId}` | [Creating a Content item without using a draft](../user_generated_content.md#creating-a-content-item-without-using-a-draft) |
 | `ezplatform.content.draft.edit` | `/content/edit/draft/{contentId}/{versionNo}/{language}/{locationId}` | [Editing a Content item](../user_generated_content.md#editing-a-content-item) |
 | `ezplatform.content.draft.create` | `/content/create/draft/{contentId}/{fromVersionNo}/{fromLanguage}` | [Creating a new draft](../user_generated_content.md#creating-a-new-draft) |
