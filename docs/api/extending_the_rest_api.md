@@ -71,6 +71,8 @@ my_rest_hello_world:
     methods: [GET]
 ```
 
+CSRF protection is enabled by default for all POST, PUT, DELETE requests.
+
 Due to [EZP-23016 - Custom REST API routes (v2) are not accessible from the legacy backend](https://jira.ez.no/browse/EZP-23016), 
 custom REST routes must be prefixed with `ezpublish_rest_`, or they are not recognized.
 Modify the `config/services.yaml` file by adding the following code:
