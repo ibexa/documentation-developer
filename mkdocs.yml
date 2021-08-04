@@ -399,6 +399,7 @@ nav:
                 - 'ContentTypeGroupTermAggregation': 'guide/search/aggregation_reference/contenttypegroupterm_aggregation.md'
                 - 'DateMetadataRangeAggregation': 'guide/search/aggregation_reference/datemetadatarange_aggregation.md'
                 - 'LanguageTermAggregation': 'guide/search/aggregation_reference/languageterm_aggregation.md'
+                - 'LocationChildrenTermAggregation': 'guide/search/aggregation_reference/locationchildrenterm_aggregation.md'
                 - 'ObjectStateTermAggregation': 'guide/search/aggregation_reference/objectstateterm_aggregation.md'
                 - 'RawRangeAggregation': 'guide/search/aggregation_reference/rawrange_aggregation.md'
                 - 'RawStatsAggregation': 'guide/search/aggregation_reference/rawstats_aggregation.md'
