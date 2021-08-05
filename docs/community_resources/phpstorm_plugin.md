@@ -17,9 +17,7 @@ or manually, from a downloaded .jar file.
 
 To install plugin from JetBrains marketplace:
 
-1\. In PhpStorm settings, select **Plugins** > (gear icon) > **Manage Plugin Repositories**.
-
-![Install Ibexa DXP PhpStorm plugin from the marketplace](img/phpstorm_plugin_installation.png)
+1\. In PhpStorm settings/preferences (depending on your system), select **Plugins** > (gear icon) > **Manage Plugin Repositories**.
 
 2\. Add `https://plugins.jetbrains.com/plugins/eap/17239` as new plugin repository.
 
@@ -31,10 +29,8 @@ You can also install the plugin manually from a `.jar` file:
 
 1\. Download the latest version of the plugin from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/17239-ibexa-dxp/versions).
 
-2\. In PhpStorm settings, select **Plugins** > (gear icon) > **Install plugin from Disk...**
+2\. In PhpStorm settings/preferences (depending on your system), select **Plugins** > (gear icon) > **Install plugin from Disk...**
 and select the downloaded file.
-
-![Install Ibexa DXP PhpStorm plugin from a file](img/phpstorm_plugin_installation2.png)
 
 ## Features
 
@@ -95,7 +91,7 @@ For all file templates you can customize:
 
 ![File template](img/phpstorm_plugin_file_template.png)
 
-To customize file templates, go to **File** > **Settings** > **Editor** > **File and Code templates**.
+To customize file templates, go to **File** > **Settings**/**Preferences** > **Editor** > **File and Code templates**.
 
 !!! tip
 
@@ -119,7 +115,7 @@ The plugin provides the following built-in live templates in Twig files:
 | `ezrl` | `ez_render_location` |
 | `ezrlq` | `ez_render_location_query` |
 
-To customize live templates, go to **File** > **Settings** > **Editor** > **Live Templates**.
+To customize live templates, go to **File** > **Settings**/**Preferences** > **Editor** > **Live Templates**.
 
 !!! tip
 
