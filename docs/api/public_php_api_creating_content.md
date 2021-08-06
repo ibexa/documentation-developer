@@ -89,7 +89,7 @@ For example, to add a simple RichText paragraph, provide the following as input:
 <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ezxhtml="http://ez.no/xmlns/ezpublish/docbook/xhtml" xmlns:ezcustom="http://ez.no/xmlns/ezpublish/docbook/custom" version="5.0-variant ezpublish-1.0"><para>Description of your Content item.</para></section>
 ```
 
-To learn more about the format and how ir represents different elements of rich text, see
+To learn more about the format and how it represents different elements of rich text, see
 [RichText Field Type reference](field_types_reference/richtextfield.md#custom-docbook-format).
 
 ## Publishing a draft
