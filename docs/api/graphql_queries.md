@@ -6,13 +6,13 @@ You can query a single Content item or a list of Content items using fields defi
 
 ### Get a Content item
 
-To get a specific Content item by its ID, use its relevant singular field,
+To get a specific Content item by its content or Location ID, use its relevant singular field,
 for example `article`, `folder`, `image`, etc.:
 
 ```
 {
   content {
-    article (id: 55) {
+    article (contentId: 62) {
       title
       author {
         name
@@ -256,7 +256,7 @@ You can also query the children of a Content item:
 ```
 {
   content {
-    folder(id: 1) {
+    folder(contentId: 1) {
       name
       _location {
         children {
