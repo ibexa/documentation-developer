@@ -69,6 +69,11 @@ The XHTML5 format is used by the Online Editor.
 
 ## Custom DocBook format
 
+!!! caution
+
+    The custom DocBook format described below is subject to change
+    and is not covered by backwards compatibility promise.
+
 You can use the Ibexa flavor of the DocBook format in PHP API and in REST API requests
 by providing the DocBook content as a string.
 
