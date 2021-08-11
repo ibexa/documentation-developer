@@ -84,7 +84,7 @@ In contrast to `filter`, `query` has an effect of search scoring (relevancy).
 It affects default sorting if no Sort Clause is used.
 As such, `query` is recommended when the search is based on user input.
 
-The difference between `query` and `filter` is only relevant when using Solr search engine.
+The difference between `query` and `filter` is only relevant when using Solr or Elasticsearch search engine.
 With the Legacy search engine both properties will give identical results.
 
 ## Repository filtering
