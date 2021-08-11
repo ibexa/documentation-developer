@@ -851,7 +851,7 @@ Configuration providers exposing the following JavaScript variables have been dr
 
 - `eZ.adminUiConfig.alloyEditor` replaced by `eZ.richText.alloyEditor`
 - `eZ.adminUiConfig.richTextCustomTags` replaced by `eZ.richText.customTags`
-- `eZ.adminUiConfig.richTextCustomStyles` replaced by `eZ.richtext.customStyles`
+- `eZ.adminUiConfig.richTextCustomStyles` replaced by `eZ.richText.customStyles`
 
 The following Webpack Encore entries have been changed:
 
