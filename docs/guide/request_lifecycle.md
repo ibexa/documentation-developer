@@ -18,13 +18,15 @@ The schemas start with a `Request` object entering Symfony and Ibexa DXP, only r
 
 
 
-## From request to response: rlowcharts
+## From request to response: flowcharts
 
-### Concept Flowchart
+### Concept flowchart
 
 ![Simplified request lifecycle flowchart](img/request_lifecycle_concept.png)
 
-### Kernel Events Flowchart
+### Kernel events flowchart
+
+The following chart shows events, listeners and data added to the `Request` or the wrapping event object.
 
 <img src="../img/request_lifecycle_events.png" width="741" height="2061" style="max-height: none;" alt="Detailed request lifecycle flowchart organised around kernel events" />
 
@@ -156,7 +158,8 @@ The `HttpKernel` send a last `kernel.terminate` event (`KernelEvents::TERMINATE`
 
 
 
-## Summary of events and listeners
+## Summaries
+### Summary of events and listeners
 
 * event=`kernel.request`
     - 45:`ezpublish.siteaccess_match_listener`
@@ -189,7 +192,7 @@ The `HttpKernel` send a last `kernel.terminate` event (`KernelEvents::TERMINATE`
 
 
 
-## Examples of info retrieval during request lifecycle
+### Examples of info retrieval during request lifecycle
 
 |  Event                  |  Service                              |  Request attribute  |  Example #1   |  Example #2     |
 | ----------------------- | ------------------------------------- | ------------------- | ------------- | --------------- |
@@ -217,4 +220,4 @@ The `HttpKernel` send a last `kernel.terminate` event (`KernelEvents::TERMINATE`
 
 ## Outro: HTTP Response leaving the architecture
 
-[TODO]
+The web server output the HTTP response. Depending on the architecture few things may still occur. For example, Varnish or Fastly will take specific headers into account when setting the cache or serving it.
