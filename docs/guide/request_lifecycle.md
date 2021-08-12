@@ -157,7 +157,7 @@ The `HttpKernel` send a last `kernel.terminate` event (`KernelEvents::TERMINATE`
 
 
 ## Summaries
-### Summary of events and listeners
+### Summary of events and services
 
 * event=`kernel.request`
     - 45:`ezpublish.siteaccess_match_listener`
@@ -190,7 +190,7 @@ The `HttpKernel` send a last `kernel.terminate` event (`KernelEvents::TERMINATE`
 
 
 
-### Examples of info retrieval during request lifecycle
+### Examples of `Request` attributes timeline
 
 |  Event                  |  Service                              |  Request attribute  |  Example #1   |  Example #2     |
 | ----------------------- | ------------------------------------- | ------------------- | ------------- | --------------- |
@@ -200,7 +200,7 @@ The `HttpKernel` send a last `kernel.terminate` event (`KernelEvents::TERMINATE`
 |  kernel.request         |  router.default                       |  _route             |  N/A          |  login          |
 |  kernel.request         |  router.default                       |  _controller        |  N/A          |  ezpublish.security.controller:loginAction  |
 |  kernel.request         |  ezpublish.urlalias_router            |  _route             |  ez_urlalias  |  login          |
-|  kernel.request         |  ezpublish.urlalias_router            |  _controller        |  **ez_content:viewAction**  |  ezpublish.security.controller:loginAction  |
+|  kernel.request         |  ezpublish.urlalias_router            |  _controller        |  <strong>ez_content:</strong>viewAction  |  ezpublish.security.controller:loginAction  |
 |  kernel.request         |  ezpublish.urlalias_router            |  viewType           |  full         |  N/A            |
 |  kernel.request         |  ezpublish.urlalias_router            |  contentId          |  1            |  N/A            |
 |  kernel.request         |  ezpublish.urlalias_router            |  locationId         |  42           |  N/A            |
