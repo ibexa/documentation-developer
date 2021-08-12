@@ -157,7 +157,7 @@ Finally, the `HttpKernel` send the `Response`.
 
 If an exception occurs during this chain of events, the `HttpKernel` send a `kernel.exception` and try to obtain a `Response` from its listeners.
 
-The `HttpKernel` send a last `kernel.terminate` event (`KernelEvents::TERMINATE`). For example, the `BackgroundIndexingTerminateListener` (`ezpublish.search.background_indexer`) (priority 0) remove from the `SearchService` index possible contents existing in the index but not in the database.
+The `HttpKernel` sends the last `kernel.terminate` event (`KernelEvents::TERMINATE`). For example, the `BackgroundIndexingTerminateListener` (`ezpublish.search.background_indexer`) (priority 0) removes from the `SearchService` index possible content existing in the index but not in the database.
 
 
 
