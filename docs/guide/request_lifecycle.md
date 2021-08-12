@@ -112,7 +112,7 @@ The `locale_listener` (priority 16) will set the **`_locale`** `Request` attribu
     When a route gets a `siteaccess_group_whitelist` parameter, this listener checks that the current SiteAccess is in one of the listed groups.
     For example, the Back Office sets an early protection of its routes by passing them a `siteaccess_group_whitelist` containing only the `admin_group`.
 
-Now, the `Request` know its controller, the `HttpKernel` dispatch the `kernel.controller` event.
+Now, when the `Request` knows its controller, the `HttpKernel` dispatches the `kernel.controller` event.
 
 
 
@@ -120,9 +120,9 @@ Now, the `Request` know its controller, the `HttpKernel` dispatch the `kernel.co
 
 ### View building and matching
 
-The HttpKernel just dispatched the `kernel.controller` event.
+When HttpKernel dispatches the `kernel.controller` event, the following things happen.
 
-Listening to `kernel.controller`, the `ViewControllerListener` (`ezpublish.view_controller_listener`) (priority 10) checks if the `_controller` Request attribute is associated to a `ViewBuilder` (a service tagged `ibexa.view_builder`) in the `ViewBuilderRegistry` (`ezpublish.view_builder.registry`).
+Listening to `kernel.controller`, the `ViewControllerListener` (`ezpublish.view_controller_listener`) (priority 10) checks if the `_controller` request attribute is associated with a `ViewBuilder` (a service tagged `ibexa.view_builder`) in the `ViewBuilderRegistry` (`ezpublish.view_builder.registry`).
 The `ContentViewBuilder` (`ezpublish.view_builder.content`) matches on controller starting with `ez_content:` (see `eZ\Publish\Core\MVC\Symfony\View\Builder\ContentViewBuilder::matches`).
 The `ContentViewBuilder` builds a `ContentView`.
 
