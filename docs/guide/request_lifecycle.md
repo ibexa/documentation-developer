@@ -128,16 +128,18 @@ The `ContentViewBuilder` builds a `ContentView`.
 
 First, the `ContentViewBuilder` loads the `Location` and the `Content`, and adds them to the `ContentView` object.
 
-**Notice about Permission Control**: `content/read` and/or `content/view_embed` permissions are controlled during this `ContentView` building.
+!!! caution "Permission control"
+
+    `content/read` and/or `content/view_embed` permissions are controlled during this `ContentView` building.
 
 Then, the `ContentViewBuilder` passes the `ContentView` to its `View\Configurator` (`ezpublish.view.configurator`).
-It's implemented by the `View\Configurator\ViewProvider` and its `View\Provider\Registry`, this registry receives the services tagged `ezpublish.view_provider` thanks to the `ViewProviderPass`.
+It's implemented by the `View\Configurator\ViewProvider` and its `View\Provider\Registry`. This registry receives the services tagged `ezpublish.view_provider` thanks to the `ViewProviderPass`.
 Among the view providers, the services using the `eZ\Bundle\EzPublishCoreBundle\View\Provider\Configured` have an implementation of the `MatcherFactoryInterface` (`ezpublish.content_view.matcher_factory`).
-Through service decoration and class inheritance, the `ClassNameMatcherFactory` will be responsible for the [View Matching](content_rendering/templates/template_configuration/#view-rules-and-matching).
+Through service decoration and class inheritance, the `ClassNameMatcherFactory` is responsible for the [view matching](content_rendering/templates/template_configuration/#view-rules-and-matching).
 The `View\Configurator\ViewProvider` will use the matched view rule to add possible **`templateIdentifier`** and **`controllerReference`** to the `ContentView` object.
 
 The `ViewControllerListener` adds the ContentView to the `Request` as **`view`** attribute.
-The `ViewControllerListener` eventually updates the `Request` `_controller` attribute with the `ContentView`'s `controllerReference`.
+The `ViewControllerListener` eventually updates the request's `_controller` attribute with the `ContentView`'s `controllerReference`.
 
 The `HttpKernel` then dispatches a `kernel.controller_arguments` (`KernelEvents::CONTROLLER_ARGUMENTS`) but nothing from [[= product_name =]] is listening to it.
 
@@ -145,12 +147,12 @@ The `HttpKernel` then dispatches a `kernel.controller_arguments` (`KernelEvents:
 
 ## Controller execution
 
-The `HttpKernel` extracts from the Request the controller and the arguments to pass to the controller. [Argument resolvers](https://symfony.com/doc/current/controller/argument_value_resolver.html) way is similar to autowiring.
+The `HttpKernel` extracts from the request the controller and the arguments to pass to the controller. [Argument resolvers](https://symfony.com/doc/current/controller/argument_value_resolver.html) work in a way similar to autowiring.
 The `HttpKernel` executes the controller with those arguments.
 
 As a reminder, the controller and its argument can be:
 
-- A controller set by a route matching and the `Request` as its argument.
+- A controller set by the matched route and the request as its argument.
 - The default `ez_content:viewAction` controller and a `ContentView` as its argument.
 - A [custom controller](content_rendering/queries_and_controllers/controllers/) set by the matched view rule and a `View` or the `Request` as its argument (most likely a `ContentView` but there is no restriction). **Notice about Permission Control**: See [Permissions for custom controller](https://doc.ibexa.co/en/latest/guide/permissions/#permissions-for-custom-controllers).
 
@@ -158,22 +160,22 @@ As a reminder, the controller and its argument can be:
 
 ## Kernel's view event and `ContentView` rendering
 
-If the controller returns something else than a `Response`, the `HttpKernel` dispatches a `kernel.view` event (`KernelEvents::VIEW`).
+If the controller returns something other than `Response`, the `HttpKernel` dispatches a `kernel.view` event (`KernelEvents::VIEW`).
 In the case of a URL Alias, the controller most likely returns a ContentView.
-The `ViewRendererListener` (`ezpublish.view.renderer_listener`) will use the `ContentView` and the `TemplateRenderer` (`ezpublish.view.template_renderer`) to get the content of the `Response` and attach this new `Response` to the event.
-The `HttpKernel` retrieve the Response attached to the event and continue.
+The `ViewRendererListener` (`ezpublish.view.renderer_listener`) uses the `ContentView` and the `TemplateRenderer` (`ezpublish.view.template_renderer`) to get the content of the `Response` and attach this new `Response` to the event.
+The `HttpKernel` retrieves the response attached to the event and continues.
 
 
 
 ## Kernel's response event and `Response` sending
 
-The `HttpKernel` send a `kernel.response` event (`KernelEvents::RESPONSE`). For example, if HTTP Cache is used, `Response`'s headers may be enhanced.
+The `HttpKernel` sends a `kernel.response` event (`KernelEvents::RESPONSE`). For example, if HTTP cache is used, response's headers may be enhanced.
 
 The `HttpKernel` send a `kernel.finish_request` event (`KernelEvents::FINISH_REQUEST`). The `VerifyUserPoliciesRequestListener` (`siso_core.verify_user_policies_request_listener`) (priority 100) is filtering route on its policy configuration. **Notice about Permission Control**: See [Permissions for routes](permissions/#permissions-for-routes).
 
-Finally, the `HttpKernel` send the `Response`.
+Finally, the `HttpKernel` send the response.
 
-If an exception occurs during this chain of events, the `HttpKernel` send a `kernel.exception` and try to obtain a `Response` from its listeners.
+If an exception occurs during this chain of events, the `HttpKernel` sends a `kernel.exception` and tries to get a `Response` from its listeners.
 
 The `HttpKernel` sends the last `kernel.terminate` event (`KernelEvents::TERMINATE`). For example, the `BackgroundIndexingTerminateListener` (`ezpublish.search.background_indexer`) (priority 0) removes from the `SearchService` index possible content existing in the index but not in the database.
 
