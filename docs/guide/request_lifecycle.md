@@ -141,7 +141,7 @@ Then, the `ContentViewBuilder` passes the `ContentView` to its `View\Configurato
 It's implemented by the `View\Configurator\ViewProvider` and its `View\Provider\Registry`. This registry receives the services tagged `ezpublish.view_provider` thanks to the `ViewProviderPass`.
 Among the view providers, the services using the `eZ\Bundle\EzPublishCoreBundle\View\Provider\Configured` have an implementation of the `MatcherFactoryInterface` (`ezpublish.content_view.matcher_factory`).
 Through service decoration and class inheritance, the `ClassNameMatcherFactory` is responsible for the [view matching](content_rendering/templates/template_configuration/#view-rules-and-matching).
-The `View\Configurator\ViewProvider` will use the matched view rule to add possible **`templateIdentifier`** and **`controllerReference`** to the `ContentView` object.
+The `View\Configurator\ViewProvider` uses the matched view rule to add possible **`templateIdentifier`** and **`controllerReference`** to the `ContentView` object.
 
 The `ViewControllerListener` adds the ContentView to the `Request` as **`view`** attribute.
 The `ViewControllerListener` eventually updates the request's `_controller` attribute with the `ContentView`'s `controllerReference`.
