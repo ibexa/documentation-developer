@@ -160,7 +160,7 @@ As a reminder, the controller and its argument can be:
 - The default `ez_content:viewAction` controller and a `ContentView` as its argument.
 - A [custom controller](content_rendering/queries_and_controllers/controllers.md) set by the matched view rule and a `View` or the request as its argument (most likely a `ContentView` but there is no restriction).
 
-!!! caution "Permission Control"
+!!! caution "Permission control"
 
     See [Permissions for custom controller](permissions.md#permissions-for-custom-controllers).
 
@@ -179,7 +179,7 @@ The `HttpKernel` sends a `kernel.response` event (`KernelEvents::RESPONSE`). For
 
 The `HttpKernel` sends a `kernel.finish_request` event (`KernelEvents::FINISH_REQUEST`). The `VerifyUserPoliciesRequestListener` (`siso_core.verify_user_policies_request_listener`) (priority 100) filters routes on its policy configuration.
 
- !!! note "Permission control
+!!! caution "Permission control"
  
      See [Permissions for routes](permissions.md#permissions-for-routes).
 
