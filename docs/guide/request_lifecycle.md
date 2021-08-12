@@ -1,5 +1,7 @@
 # Request lifecycle: from request to response
 
+
+
 ## HTTP request entering
 
 When entering the architecture, the HTTP request can be handled by several component like a firewall, a load balancer, a reverse-proxy, etc. before arriving on the web server itself.
@@ -64,7 +66,6 @@ This service will
 - then dispatch the `ezpublish.siteaccess` event (`MVCEvents::SITEACCESS`).
 
 The `SiteAccessListener` (`ezpublish.siteaccess_listener`) subscribes to this `ezpublish.siteaccess` event with top priority (priority 255). The `SiteAccessListener` add the attribute **`semanticPathinfo`**, the path without siteaccess indications ([`URIElement`](multisite/siteaccess_matching/#urielement), [`URIText`](multisite/siteaccess_matching/#uritext) or [`Map\URI`](multisite/siteaccess_matching/#mapuri) implementing the `URILexer` interface), to the Request.
-
 
 ### Routing
 
@@ -161,6 +162,7 @@ The `HttpKernel` send a last `kernel.terminate` event (`KernelEvents::TERMINATE`
 
 
 ## Summaries
+
 ### Summary of events and services
 
 * event=`kernel.request`
@@ -191,8 +193,6 @@ The `HttpKernel` send a last `kernel.terminate` event (`KernelEvents::TERMINATE`
     - 100:`siso_core.verify_user_policies_request_listener`
 * event=`kernel.terminate`
     - 0:`ezpublish.search.background_indexer`
-
-
 
 ### Examples of `Request` attributes timeline
 
