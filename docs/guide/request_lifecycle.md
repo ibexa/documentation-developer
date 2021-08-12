@@ -67,7 +67,7 @@ Several listeners are called in decreasing priority.
 ### SiteAccess matching
 
 The [`FragmentListener`](https://github.com/symfony/http-kernel/blob/5.3/EventListener/FragmentListener.php) (priority 48) handles the request first, and then it passes to the `ezpublish.siteaccess_match_listener` service (priority 45).
-This service can be
+This service can be either:
 
 - purely the `SiteAccessMatchListener` or
 - its `UserContextSiteAccessMatchSubscriber` decoration when HTTP Cache is used.
