@@ -467,7 +467,7 @@ nav:
             - 'Recommendation client': 'guide/personalization/recommendation_client.md'
         - Repository:
             - 'Repository': 'guide/repository.md'
-            - 'Request Lifecycle': 'guide/request_lifecycle.md'
+            - 'Request lifecycle': 'guide/request_lifecycle.md'
             - 'Databases': 'guide/databases.md'
             - 'Data migration': 'guide/data_migration.md'
             - Event reference:
