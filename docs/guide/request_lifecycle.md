@@ -8,7 +8,7 @@ For an overview of what happens on reverse proxy like Varnish or Fastly, see [Co
 
 When arriving at a Web server, the request is filtered by Apache Virtual Host, Nginx Server Blocks or equivalent. This mainly (and shortly) separates requests of static resources from requests to the application.
 
-As Ibexa DXP is a Symfony application, everything starts like in Symfony &mdash; see [Symfony and HTTP Fundamentals](https://symfony.com/doc/current/introduction/http_fundamentals.html).
+As Ibexa DXP is a Symfony application, everything starts like in Symfony, see [Symfony and HTTP Fundamentals](https://symfony.com/doc/current/introduction/http_fundamentals.html).
 
 If the HTTP request is to be treated by Ibexa DXP, it goes to the [Symfony Front Controller](https://symfony.com/doc/current/configuration/front_controllers_and_kernel.html#the-front-controller) public/index.php
 
@@ -100,7 +100,7 @@ Now, the `Request` know its controller, the `HttpKernel` dispatch the `kernel.co
 The HttpKernel just dispatched the `kernel.controller` event.
 
 Listening to `kernel.controller`, the `ViewControllerListener` (`ezpublish.view_controller_listener`) (priority 10) checks if the `_controller` Request attribute is associated to a `ViewBuilder` (a service tagged `ibexa.view_builder`) in the `ViewBuilderRegistry` (`ezpublish.view_builder.registry`).
-The `ContentViewBuilder` (`ezpublish.view_builder.content`) matches on controller starting with `ez_content:` (`see eZ\Publish\Core\MVC\Symfony\View\Builder\ContentViewBuilder::matches`).
+The `ContentViewBuilder` (`ezpublish.view_builder.content`) matches on controller starting with `ez_content:` (see `eZ\Publish\Core\MVC\Symfony\View\Builder\ContentViewBuilder::matches`).
 The `ContentViewBuilder` builds a `ContentView`.
 
 First, the `ContentViewBuilder` will load the `Location` and the `Content`, and, add them to the `ContentView` object.
