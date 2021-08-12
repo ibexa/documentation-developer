@@ -1,6 +1,6 @@
 # Request lifecycle: from request to response
 
-## Intro: HTTP request entering the architecture
+## HTTP request entering
 
 When entering the architecture, the HTTP request can be handled by several component like a firewall, a load balancer, a reverse-proxy, etc. before arriving on the web server itself.
 
@@ -18,7 +18,7 @@ The schemas start with a `Request` object entering Symfony and Ibexa DXP, only r
 
 
 
-## From request to response: flowcharts
+## Lifecycle flowcharts
 
 ### Concept flowchart
 
@@ -78,7 +78,7 @@ The `DefaultRouter` is trying to match the `semanticPathinfo` against routes, cl
 If a route matches, the controller associated to it will have the responsibility to build a `View` or `Response` object.
 
 `UrlWildcardRouter` (`ezpublish.urlwildcard_router`):
-If [URL Wildcards](url_management/#url-wildcards) have been enabled, then the `<URLWildcardRouter` is the next tried router.
+If [URL Wildcards](url_management/#url-wildcards) have been enabled, then the `URLWildcardRouter` is the next tried router.
 If a wildcard matches, the `Request`'s `semanticPathinfo` is updated and the router pretend a `ResourceNotFoundException` to continue with the `ChainRouter` collection's next entry.
 
 `UrlAliasRouter` (`ezpublish.urlalias_router`):
@@ -95,7 +95,7 @@ Now, the `Request` know its controller, the `HttpKernel` dispatch the `kernel.co
 
 ## Kernel's controller event
 
-### ContentView building (content loading and view matching)
+### View building and matching
 
 The HttpKernel just dispatched the `kernel.controller` event.
 
@@ -122,16 +122,16 @@ The `HttpKernel` then dispatches a `kernel.controller_arguments` (a.k.a. `Kernel
 
 ## Controller execution
 
-The `HttpKernel` extracts from the Request the controller and the arguments to pass to the controller. [TODO: According to https://symfony.com/doc/current/controller/argument_value_resolver.html and \Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory::createArgumentMetadata, controller arguments extraction seems based on comparing PHP classes from controller function signature type hinting to Reguest attributes object classes, like autowiring. ]
+The `HttpKernel` extracts from the Request the controller and the arguments to pass to the controller. [Argument resolvers](https://symfony.com/doc/current/controller/argument_value_resolver.html) way is similar to autowiring.
 The `HttpKernel` executes the controller with those arguments.
 
 As a reminder, the controller and its argument can be:
 
-- A controller set by a route matching and the Request as its argument.
-- The default `ez_content:viewAction` controller and a ContentView as its argument.
-- A [custom controller](content_rendering/queries_and_controllers/controllers/) set by the matched view rule and a `ContentView` or the `Request` as its argument (most likely a `ContentView` but there is no restriction).
+- A controller set by a route matching and the `Request` as its argument.
+- The default `ez_content:viewAction` controller and a `ContentView` as its argument.
+- A [custom controller](content_rendering/queries_and_controllers/controllers/) set by the matched view rule and a `View` or the `Request` as its argument (most likely a `ContentView` but there is no restriction).
 
-**Notice about Permission Control**: [TODO] https://doc.ibexa.co/en/latest/guide/permissions/#permissions-for-custom-controllers
+**Notice about Permission Control**: [Permissions for custom controller](https://doc.ibexa.co/en/latest/guide/permissions/#permissions-for-custom-controllers)
 
 
 
@@ -148,7 +148,7 @@ The `HttpKernel` retrieve the Response attached to the event and continue.
 
 The `HttpKernel` send a `kernel.response` event (`KernelEvents::RESPONSE`). For example, if HTTP Cache is used, `Response`'s headers may be enhanced.
 
-The `HttpKernel` send a `kernel.finish_request` event (`KernelEvents::FINISH_REQUEST`). The `VerifyUserPoliciesRequestListener` (`siso_core.verify_user_policies_request_listener`) (priority 100) is filtering route on its policy configuration (see [Permissions for routes](https://doc.ibexa.co/en/latest/guide/permissions/#permissions-for-routes)). [TODO: This is ridiculous to check this so lately, it should be done during kernel.request like the siteaccess_group_whitelist]
+The `HttpKernel` send a `kernel.finish_request` event (`KernelEvents::FINISH_REQUEST`). The `VerifyUserPoliciesRequestListener` (`siso_core.verify_user_policies_request_listener`) (priority 100) is filtering route on its policy configuration (see [Permissions for routes](permissions/#permissions-for-routes)).
 
 Finally, the `HttpKernel` send the `Response`.
 
@@ -218,6 +218,6 @@ The `HttpKernel` send a last `kernel.terminate` event (`KernelEvents::TERMINATE`
 
 
 
-## Outro: HTTP Response leaving the architecture
+## HTTP response leaving
 
 The web server output the HTTP response. Depending on the architecture few things may still occur. For example, Varnish or Fastly will take specific headers into account when setting the cache or serving it.
