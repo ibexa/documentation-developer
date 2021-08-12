@@ -143,7 +143,7 @@ Among the view providers, the services using the `eZ\Bundle\EzPublishCoreBundle\
 Through service decoration and class inheritance, the `ClassNameMatcherFactory` is responsible for the [view matching](content_rendering/templates/template_configuration/#view-rules-and-matching).
 The `View\Configurator\ViewProvider` uses the matched view rule to add possible **`templateIdentifier`** and **`controllerReference`** to the `ContentView` object.
 
-The `ViewControllerListener` adds the ContentView to the `Request` as **`view`** attribute.
+The `ViewControllerListener` adds the ContentView to the `Request` as the **`view`** attribute.
 The `ViewControllerListener` eventually updates the request's `_controller` attribute with the `ContentView`'s `controllerReference`.
 
 The `HttpKernel` then dispatches a `kernel.controller_arguments` (`KernelEvents::CONTROLLER_ARGUMENTS`) but nothing from [[= product_name =]] is listening to it.
