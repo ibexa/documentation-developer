@@ -72,9 +72,9 @@ This service can be either:
 
 The `ezpublish.siteaccess_match_listener` service:
 
-- find the current siteaccess using the `SiteAccess\Router` (`ezpublish.siteaccess_router`) regarding the [SiteAccess Matching configurations](multisite/siteaccess_matching/),
-- add the current siteaccess to the `Request` object's attribute **`siteaccess`**,
-- then dispatch the `ezpublish.siteaccess` event (`MVCEvents::SITEACCESS`).
+- finds the current SiteAccess using the `SiteAccess\Router` (`ezpublish.siteaccess_router`) regarding the [SiteAccess Matching configurations](multisite/siteaccess_matching.md),
+- adds the current SiteAccess to the `Request` object's attribute **`siteaccess`**,
+- then dispatches the `ezpublish.siteaccess` event (`MVCEvents::SITEACCESS`).
 
 The `SiteAccessListener` (`ezpublish.siteaccess_listener`) subscribes to this `ezpublish.siteaccess` event with top priority (priority 255). The `SiteAccessListener` add the attribute **`semanticPathinfo`**, the path without siteaccess indications ([`URIElement`](multisite/siteaccess_matching/#urielement), [`URIText`](multisite/siteaccess_matching/#uritext) or [`Map\URI`](multisite/siteaccess_matching/#mapuri) implementing the `URILexer` interface), to the Request.
 
