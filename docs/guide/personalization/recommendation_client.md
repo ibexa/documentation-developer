@@ -1,6 +1,6 @@
 # Recommendation client
 
-The [`ezrecommentation-client`](https://github.com/ezsystems/ezrecommendation-client) package 
+The [recommentation client package](https://github.com/ezsystems/ezrecommendation-client) package 
 adds a personalization solution to [[= product_name =]] and communicates with 
 the Personalization server.
 
@@ -78,7 +78,7 @@ ezrecommendation:
 
 #### Enable tracking
 
-The `EzRecommendationClientBundle` delivers a Twig extension
+The Personalization client bundle delivers a Twig extension
 which helps integrate the user tracking functionality into your site.
 Place the following code snippet in the `<head>` section of your header template:
 
@@ -162,19 +162,28 @@ To get recommendations you must first export the item information to the Persona
 
 After you [define item types to be tracked and recommended](#set-up-content-type-tracking),
 start the full export.
-You do it with the `ibexa:recommendation:run-export` command:
+
+You do it with the `ibexa:recommendation:run-export` command.
+
+If your installation hosts just one SiteAccess, run the following command to export your data:
 
 ``` bash
 php bin/console ibexa:recommendation:run-export
-    --contentTypeIdList=<item_type>,<item_type>
-    --siteaccess=<site_access_name>
-    --customerId=<customer_id>
-    --licenseKey=<license_key>
+    --item-type-identifier-list=<item_type>,<item_type>
     -—languages=<language>,<language>
 ```
 
 If your installation hosts multiple SiteAccesses with different customer IDs, 
 you must run the export separately for each of the `<site_access_name>`/`<customer_id>` pairs.
+
+``` bash
+php bin/console ibexa:recommendation:run-export
+    --item-type-identifier-list=<item_type>,<item_type>
+    --siteaccess=<site_access_name>
+    --customerId=<customer_id>
+    --licenseKey=<license_key>
+    -—languages=<language>,<language>
+```
 
 The bundle exporter collects all content related to the `<site_access_name>`/`<customer_id>` 
 pair and stores it in files.
@@ -468,7 +477,7 @@ For example, to retrieve the `rss` variation of the image, use:
 
 ### Logging
 
-Most operations are logged via the `ibexa_recommendation` [Monolog channel](http://symfony.com/doc/5.0/cookbook/logging/channels_handlers.html).
+Most operations are logged by using the `ibexa-recommendation` [Monolog channel](http://symfony.com/doc/5.0/cookbook/logging/channels_handlers.html).
 To log everything about Recommendation to `dev.recommendation.log`, add the following to the `ezplatform.yaml`:
 
 ``` yaml
@@ -477,7 +486,7 @@ monolog:
         ibexa_recommendation:
             type: stream
             path: '%kernel.logs_dir%/%kernel.environment%.recommendation.log'
-            channels: [ibexa_recommendation]
+            channels: [ibexa-recommendation]
             level: info
 ```
 
