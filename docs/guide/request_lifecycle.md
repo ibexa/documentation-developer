@@ -1,7 +1,6 @@
 # Request lifecycle: from request to response
 
 
-
 ## Beginning of HTTP request
 
 When entering the architecture, the HTTP request can be handled by several component such as a firewall, a load balancer, or a reverse-proxy before arriving on the web server itself.
@@ -56,7 +55,6 @@ This schema is described below event by event.
     ``` bash
     bin/console debug:container --tag=router
     ```
-
 
 
 ## Kernel's request event
@@ -121,7 +119,6 @@ The `locale_listener` (priority 16) will set the **`_locale`** `Request` attribu
 Now, when the `Request` knows its controller, the `HttpKernel` dispatches the `kernel.controller` event.
 
 
-
 ## Kernel's controller event
 
 ### View building and matching
@@ -150,7 +147,6 @@ The `ViewControllerListener` eventually updates the request's `_controller` attr
 The `HttpKernel` then dispatches a `kernel.controller_arguments` (`KernelEvents::CONTROLLER_ARGUMENTS`) but nothing from [[= product_name =]] is listening to it.
 
 
-
 ## Controller execution
 
 The `HttpKernel` extracts from the request the controller and the arguments to pass to the controller. [Argument resolvers](https://symfony.com/doc/current/controller/argument_value_resolver.html) work in a way similar to autowiring.
@@ -163,14 +159,12 @@ As a reminder, the controller and its argument can be:
 - A [custom controller](content_rendering/queries_and_controllers/controllers/) set by the matched view rule and a `View` or the `Request` as its argument (most likely a `ContentView` but there is no restriction). **Notice about Permission Control**: See [Permissions for custom controller](https://doc.ibexa.co/en/latest/guide/permissions/#permissions-for-custom-controllers).
 
 
-
 ## Kernel's view event and `ContentView` rendering
 
 If the controller returns something other than `Response`, the `HttpKernel` dispatches a `kernel.view` event (`KernelEvents::VIEW`).
 In the case of a URL Alias, the controller most likely returns a ContentView.
 The `ViewRendererListener` (`ezpublish.view.renderer_listener`) uses the `ContentView` and the `TemplateRenderer` (`ezpublish.view.template_renderer`) to get the content of the `Response` and attach this new `Response` to the event.
 The `HttpKernel` retrieves the response attached to the event and continues.
-
 
 
 ## Kernel's response event and `Response` sending
@@ -184,7 +178,6 @@ Finally, the `HttpKernel` send the response.
 If an exception occurs during this chain of events, the `HttpKernel` sends a `kernel.exception` and tries to get a `Response` from its listeners.
 
 The `HttpKernel` sends the last `kernel.terminate` event (`KernelEvents::TERMINATE`). For example, the `BackgroundIndexingTerminateListener` (`ezpublish.search.background_indexer`) (priority 0) removes from the `SearchService` index possible content existing in the index but not in the database.
-
 
 
 ## Summaries
@@ -243,7 +236,6 @@ The `HttpKernel` sends the last `kernel.terminate` event (`KernelEvents::TERMINA
 |  kernel.controller      |  ezpublish.view_controller_listener   |  _controller        |  ez_content:viewAction  |  ezpublish.security.controller:loginAction  |
 | (controller execution)  |  http_kernel                          |                     |  ContentView  |  LoginFormView  |
 |  kernel.view            |  ezpublish.view.renderer_listener     |  response           |  Response     |  Response       |
-
 
 
 ## End of HTTP response
