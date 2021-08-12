@@ -98,7 +98,7 @@ If a route matches, the controller associated to it has the responsibility to bu
 
 `UrlWildcardRouter` (`ezpublish.urlwildcard_router`):
 If [URL Wildcards](url_management/#url-wildcards) have been enabled, then the `URLWildcardRouter` is the next tried router.
-If a wildcard matches, the `Request`'s `semanticPathinfo` is updated and the router pretend a `ResourceNotFoundException` to continue with the `ChainRouter` collection's next entry.
+If a wildcard matches, the request's `semanticPathinfo` is updated and the router throws a `ResourceNotFoundException` to continue with the `ChainRouter` collection's next entry.
 
 `UrlAliasRouter` (`ezpublish.urlalias_router`):
 This router will use the `UrlAliasService` to associate the `semanticPathinfo` to a location.
