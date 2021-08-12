@@ -12,7 +12,7 @@ When arriving at a web server, the request is filtered by Apache Virtual Host, N
 
 As [[= product_name =]] is a Symfony application, the handling of requests starts like in Symfony (see [Symfony and HTTP Fundamentals](https://symfony.com/doc/current/introduction/http_fundamentals.html)).
 
-If the HTTP request is to be treated by [[= product_name =]], it goes to the [Symfony Front Controller](https://symfony.com/doc/current/configuration/front_controllers_and_kernel.html#the-front-controller) public/index.php
+If the HTTP request is to be treated by [[= product_name =]], it goes to the [Symfony Front Controller](https://symfony.com/doc/current/configuration/front_controllers_and_kernel.html#the-front-controller) `public/index.php`.
 
 The Front Controller transform the HTTP request into a PHP [`Request` object](https://symfony.com/doc/current/introduction/http_fundamentals.html#symfony-request-object) and pass it to Symfony's Kernel to obtain a [`Response` object](https://symfony.com/doc/current/introduction/http_fundamentals.html#symfony-response-object) that will be transform and sent back as an HTTP response.
 
