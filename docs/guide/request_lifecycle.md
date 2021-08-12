@@ -82,7 +82,8 @@ The `SiteAccessListener` (`ezpublish.siteaccess_listener`) subscribes to this `e
 
 ### Routing
 
-Lately, also listening the `kernel.request` event, the `Symfony\Component\HttpKernel\EventListener\RouterListener` (`router_listener`)(priority 32) calls the `eZ\Publish\Core\MVC\Symfony\Routing\ChainRouter::matchRequest` and add its returned parameters to the `Request`.
+Finally, the `Symfony\Component\HttpKernel\EventListener\RouterListener` (`router_listener`)(priority 32), which also listens to the `kernel.request` event,
+calls `eZ\Publish\Core\MVC\Symfony\Routing\ChainRouter::matchRequest` and adds its returned parameters to the request.
 
 #### ChainRouter
 
