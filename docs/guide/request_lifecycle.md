@@ -194,7 +194,7 @@ The `HttpKernel` sends the last `kernel.terminate` event (`KernelEvents::TERMINA
 * event=`kernel.terminate`
     - 0:`ezpublish.search.background_indexer`
 
-### Examples of `Request` attributes timeline
+### Examples request attributes timeline
 
 |  Event                  |  Service                              |  Request attribute  |  Example #1   |  Example #2     |
 | ----------------------- | ------------------------------------- | ------------------- | ------------- | --------------- |
