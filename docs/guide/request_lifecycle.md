@@ -2,7 +2,7 @@
 
 
 
-## HTTP request entering
+## Beginning of HTTP request
 
 When entering the architecture, the HTTP request can be handled by several component such as a firewall, a load balancer, or a reverse-proxy before arriving on the web server itself.
 
