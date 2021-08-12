@@ -112,7 +112,7 @@ The `locale_listener` (priority 16) will set the **`_locale`** `Request` attribu
     When a route gets a `siteaccess_group_whitelist` parameter, this listener checks that the current SiteAccess is in one of the listed groups.
     For example, the Back Office sets an early protection of its routes by passing them a `siteaccess_group_whitelist` containing only the `admin_group`.
 
-Now, the `Request` know its controller, the `HttpKernel` dispatch the `kernel.controller` event.
+Now, when the `Request` knows its controller, the `HttpKernel` dispatches the `kernel.controller` event.
 
 
 
