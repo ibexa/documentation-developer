@@ -126,7 +126,7 @@ Listening to `kernel.controller`, the `ViewControllerListener` (`ezpublish.view_
 The `ContentViewBuilder` (`ezpublish.view_builder.content`) matches on controller starting with `ez_content:` (see `eZ\Publish\Core\MVC\Symfony\View\Builder\ContentViewBuilder::matches`).
 The `ContentViewBuilder` builds a `ContentView`.
 
-First, the `ContentViewBuilder` will load the `Location` and the `Content`, and, add them to the `ContentView` object.
+First, the `ContentViewBuilder` loads the `Location` and the `Content`, and adds them to the `ContentView` object.
 
 **Notice about Permission Control**: `content/read` and/or `content/view_embed` permissions are controlled during this `ContentView` building.
 
