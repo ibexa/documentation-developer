@@ -10,7 +10,7 @@ For an overview of what happens on a reverse proxy like Varnish or Fastly, see [
 
 When arriving at a web server, the request is filtered by Apache Virtual Host, Nginx Server Blocks or equivalent. This mainly (and shortly) separates requests of static resources from requests to the application.
 
-As Ibexa DXP is a Symfony application, everything starts like in Symfony, see [Symfony and HTTP Fundamentals](https://symfony.com/doc/current/introduction/http_fundamentals.html).
+As [[= product_name =]] is a Symfony application, the handling of requests starts like in Symfony (see [Symfony and HTTP Fundamentals](https://symfony.com/doc/current/introduction/http_fundamentals.html)).
 
 If the HTTP request is to be treated by Ibexa DXP, it goes to the [Symfony Front Controller](https://symfony.com/doc/current/configuration/front_controllers_and_kernel.html#the-front-controller) public/index.php
 
