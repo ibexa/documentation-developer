@@ -139,7 +139,7 @@ The `View\Configurator\ViewProvider` will use the matched view rule to add possi
 The `ViewControllerListener` adds the ContentView to the `Request` as **`view`** attribute.
 The `ViewControllerListener` eventually updates the `Request` `_controller` attribute with the `ContentView`'s `controllerReference`.
 
-The `HttpKernel` then dispatches a `kernel.controller_arguments` (a.k.a. `KernelEvents::CONTROLLER_ARGUMENTS`) but nothing from [[= product_name =]] is listening to it.
+The `HttpKernel` then dispatches a `kernel.controller_arguments` (`KernelEvents::CONTROLLER_ARGUMENTS`) but nothing from [[= product_name =]] is listening to it.
 
 
 
