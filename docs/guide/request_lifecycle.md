@@ -72,7 +72,7 @@ This service can be either:
 - purely the `SiteAccessMatchListener` or
 - its `UserContextSiteAccessMatchSubscriber` decoration when HTTP cache is used.
 
-This service will
+The `ezpublish.siteaccess_match_listener` service:
 
 - find the current siteaccess using the `SiteAccess\Router` (`ezpublish.siteaccess_router`) regarding the [SiteAccess Matching configurations](multisite/siteaccess_matching/),
 - add the current siteaccess to the `Request` object's attribute **`siteaccess`**,
