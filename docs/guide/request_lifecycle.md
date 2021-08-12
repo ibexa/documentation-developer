@@ -82,23 +82,29 @@ The `SiteAccessListener` (`ezpublish.siteaccess_listener`) subscribes to this `e
 
 ### Routing
 
-Finally, the `Symfony\Component\HttpKernel\EventListener\RouterListener` (`router_listener`)(priority 32), which also listens to the `kernel.request` event,
+Finally, the `Symfony\Component\HttpKernel\EventListener\RouterListener` (`router_listener`) (priority 32), which also listens to the `kernel.request` event,
 calls `eZ\Publish\Core\MVC\Symfony\Routing\ChainRouter::matchRequest` and adds its returned parameters to the request.
 
-#### ChainRouter
+#### `ChainRouter`
 
 The [`ChainRouter`](https://symfony.com/doc/current/cmf/components/routing/chain.html) is a Symfony Content Management Framework (CMF) component. [[= product_name =]] makes it a service named `ezpublish.chain_router`.
 It has a collection of prioritized routers that is goes through until it finds one matching the request to define what to do next.
 The `ChainRouter` router collection is built by the ChainRoutingPass, collecting the services tagged `router`.
 The `DefaultRouter` is always added to the collection with top priority (priority 255).
 
+#### `DefaultRouter`
+
 `DefaultRouter` (`router.default`):
 The `DefaultRouter` tries to match the `semanticPathinfo` against routes, close to [the way pure Symfony does](https://symfony.com/doc/current/routing.html), by extending and using `Symfony\Component\Routing\Router`.
 If a route matches, the controller associated to it has the responsibility to build a `View` or `Response` object.
 
+### `UrlWildcardRouter`
+
 `UrlWildcardRouter` (`ezpublish.urlwildcard_router`):
 If [URL Wildcards](url_management/#url-wildcards) have been enabled, then the `URLWildcardRouter` is the next tried router.
 If a wildcard matches, the request's `semanticPathinfo` is updated and the router throws a `ResourceNotFoundException` to continue with the `ChainRouter` collection's next entry.
+
+### `UrlAliasRouter`
 
 `UrlAliasRouter` (`ezpublish.urlalias_router`):
 This router uses the `UrlAliasService` to associate the `semanticPathinfo` to a Location.
