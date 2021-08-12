@@ -24,7 +24,7 @@ For information on how to create and configure new blocks for the Page, see [Pag
 
 ## Blocks
 
-For information on how to create and configure new blocks for the Page, see [Creating Page blocks](../../extending/extending_page.md#creating-page-blocks).
+For information on how to create and configure new blocks for the Page, see [Create custom Page block](../../guide/page/create_custom_page_block.md).
 
 ## Rendering Pages
 
