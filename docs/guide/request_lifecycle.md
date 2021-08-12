@@ -88,7 +88,7 @@ calls `eZ\Publish\Core\MVC\Symfony\Routing\ChainRouter::matchRequest` and adds i
 #### ChainRouter
 
 The [`ChainRouter`](https://symfony.com/doc/current/cmf/components/routing/chain.html) is a Symfony Content Management Framework (CMF) component. [[= product_name =]] makes it a service named `ezpublish.chain_router`.
-It has a collection of prioritized routers to crawl in until finding one matching the Request to define what to do next.
+It has a collection of prioritized routers that is goes through until it finds one matching the request to define what to do next.
 The `ChainRouter` router collection is build by the ChainRoutingPass collecting the services tagged `router`.
 The `DefaultRouter` is always added to the collection with top priority (priority 255).
 
