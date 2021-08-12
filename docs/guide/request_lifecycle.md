@@ -158,7 +158,11 @@ As a reminder, the controller and its argument can be:
 
 - A controller set by the matched route and the request as its argument.
 - The default `ez_content:viewAction` controller and a `ContentView` as its argument.
-- A [custom controller](content_rendering/queries_and_controllers/controllers/) set by the matched view rule and a `View` or the `Request` as its argument (most likely a `ContentView` but there is no restriction). **Notice about Permission Control**: See [Permissions for custom controller](https://doc.ibexa.co/en/latest/guide/permissions/#permissions-for-custom-controllers).
+- A [custom controller](content_rendering/queries_and_controllers/controllers.md) set by the matched view rule and a `View` or the request as its argument (most likely a `ContentView` but there is no restriction).
+
+!!! caution "Permission Control"
+
+    See [Permissions for custom controller](permissions.md#permissions-for-custom-controllers).
 
 
 ## Kernel's view event and `ContentView` rendering
