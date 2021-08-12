@@ -8,7 +8,7 @@ When entering the architecture, the HTTP request can be handled by several compo
 
 For an overview of what happens on reverse proxy like Varnish or Fastly, see [Context-aware HTTP cache / Request lifecycle](cache/context_aware_cache/#request-lifecycle).
 
-When arriving at a Web server, the request is filtered by Apache Virtual Host, Nginx Server Blocks or equivalent. This mainly (and shortly) separates requests of static resources from requests to the application.
+When arriving at a web server, the request is filtered by Apache Virtual Host, Nginx Server Blocks or equivalent. This mainly (and shortly) separates requests of static resources from requests to the application.
 
 As Ibexa DXP is a Symfony application, everything starts like in Symfony, see [Symfony and HTTP Fundamentals](https://symfony.com/doc/current/introduction/http_fundamentals.html).
 
