@@ -93,7 +93,7 @@ The `ChainRouter` router collection is built by the ChainRoutingPass, collecting
 The `DefaultRouter` is always added to the collection with top priority (priority 255).
 
 `DefaultRouter` (`router.default`):
-The `DefaultRouter` is trying to match the `semanticPathinfo` against routes, close to [the way pure Symfony does](https://symfony.com/doc/current/routing.html) by extending and using the `Symfony\Component\Routing\Router`.
+The `DefaultRouter` tries to match the `semanticPathinfo` against routes, close to [the way pure Symfony does](https://symfony.com/doc/current/routing.html), by extending and using `Symfony\Component\Routing\Router`.
 If a route matches, the controller associated to it will have the responsibility to build a `View` or `Response` object.
 
 `UrlWildcardRouter` (`ezpublish.urlwildcard_router`):
