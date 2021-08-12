@@ -101,7 +101,7 @@ If [URL Wildcards](url_management/#url-wildcards) have been enabled, then the `U
 If a wildcard matches, the request's `semanticPathinfo` is updated and the router throws a `ResourceNotFoundException` to continue with the `ChainRouter` collection's next entry.
 
 `UrlAliasRouter` (`ezpublish.urlalias_router`):
-This router will use the `UrlAliasService` to associate the `semanticPathinfo` to a location.
+This router uses the `UrlAliasService` to associate the `semanticPathinfo` to a Location.
 If a location is found, the `Request` will receive the attributes **`locationId`** and **`contentId`** as well as that **`viewType`** is `full` and that, for now, the **`_controller`** is `ez_content:viewAction`.
 
 The `locale_listener` (priority 16) will set the **`_locale`** `Request` attribute.
