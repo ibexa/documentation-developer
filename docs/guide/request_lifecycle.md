@@ -94,7 +94,7 @@ The `DefaultRouter` is always added to the collection with top priority (priorit
 
 `DefaultRouter` (`router.default`):
 The `DefaultRouter` tries to match the `semanticPathinfo` against routes, close to [the way pure Symfony does](https://symfony.com/doc/current/routing.html), by extending and using `Symfony\Component\Routing\Router`.
-If a route matches, the controller associated to it will have the responsibility to build a `View` or `Response` object.
+If a route matches, the controller associated to it has the responsibility to build a `View` or `Response` object.
 
 `UrlWildcardRouter` (`ezpublish.urlwildcard_router`):
 If [URL Wildcards](url_management/#url-wildcards) have been enabled, then the `URLWildcardRouter` is the next tried router.
