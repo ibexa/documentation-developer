@@ -16,8 +16,7 @@ If the HTTP request is to be treated by [[= product_name =]], it goes to the [Sy
 
 The front controller transforms the HTTP request into a PHP [`Request` object](https://symfony.com/doc/current/introduction/http_fundamentals.html#symfony-request-object) and passes it to Symfony's Kernel to get a [`Response` object](https://symfony.com/doc/current/introduction/http_fundamentals.html#symfony-response-object) that is transformed and sent back as an HTTP response.
 
-The schemas start with a `Request` object entering Symfony and [[= product_name =]], only regular request from a browser. No ESI, no REST nor GraphQL request.
-
+The schemas start with a regular `Request` object from a browser that enters Symfony and [[= product_name =]]. There is no ESI, no REST, and no GraphQL request performed.
 
 
 ## Lifecycle flowcharts
