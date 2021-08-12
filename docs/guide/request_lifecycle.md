@@ -34,7 +34,7 @@ The next chart will detail how this is implemented using Symfony HTTP kernel lis
 
 The following chart shows events, listeners and attributes added to the request or its wrapping event object.
 
-<img src="../img/request_lifecycle_events.png" width="741" height="2061" style="max-height: none;" alt="Detailed request lifecycle flowchart organised around kernel events" />
+![Detailed request lifecycle flowchart organised around kernel events](img/request_lifecycle_events.png){: width="741" height="2061" style="max-height: none;"}
 
 This schema is described below event by event.
 
