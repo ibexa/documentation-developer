@@ -12,11 +12,11 @@ When arriving at a web server, the request is filtered by Apache Virtual Host, N
 
 As [[= product_name =]] is a Symfony application, the handling of requests starts like in Symfony (see [Symfony and HTTP Fundamentals](https://symfony.com/doc/current/introduction/http_fundamentals.html)).
 
-If the HTTP request is to be treated by Ibexa DXP, it goes to the [Symfony Front Controller](https://symfony.com/doc/current/configuration/front_controllers_and_kernel.html#the-front-controller) public/index.php
+If the HTTP request is to be treated by [[= product_name =]], it goes to the [Symfony Front Controller](https://symfony.com/doc/current/configuration/front_controllers_and_kernel.html#the-front-controller) public/index.php
 
 The Front Controller transform the HTTP request into a PHP [`Request` object](https://symfony.com/doc/current/introduction/http_fundamentals.html#symfony-request-object) and pass it to Symfony's Kernel to obtain a [`Response` object](https://symfony.com/doc/current/introduction/http_fundamentals.html#symfony-response-object) that will be transform and sent back as an HTTP response.
 
-The schemas start with a `Request` object entering Symfony and Ibexa DXP, only regular request from a browser. No ESI, no REST nor GraphQL request.
+The schemas start with a `Request` object entering Symfony and [[= product_name =]], only regular request from a browser. No ESI, no REST nor GraphQL request.
 
 
 
@@ -73,7 +73,7 @@ Lately, also listening the `kernel.request` event, the `Symfony\Component\HttpKe
 
 #### ChainRouter
 
-The [`ChainRouter`](https://symfony.com/doc/current/cmf/components/routing/chain.html) is a Symfony Content Management Framework (CMF) component. Ibexa DXP makes it a service named `ezpublish.chain_router`.
+The [`ChainRouter`](https://symfony.com/doc/current/cmf/components/routing/chain.html) is a Symfony Content Management Framework (CMF) component. [[= product_name =]] makes it a service named `ezpublish.chain_router`.
 It has a collection of prioritized routers to crawl in until finding one matching the Request to define what to do next.
 The `ChainRouter` router collection is build by the ChainRoutingPass collecting the services tagged `router`.
 The `DefaultRouter` is always added to the collection with top priority (priority 255).
@@ -121,7 +121,7 @@ The `View\Configurator\ViewProvider` will use the matched view rule to add possi
 The `ViewControllerListener` adds the ContentView to the `Request` as **`view`** attribute.
 The `ViewControllerListener` eventually updates the `Request` `_controller` attribute with the `ContentView`'s `controllerReference`.
 
-The `HttpKernel` then dispatches a `kernel.controller_arguments` (a.k.a. `KernelEvents::CONTROLLER_ARGUMENTS`) but nothing from Ibexa DXP is listening to it.
+The `HttpKernel` then dispatches a `kernel.controller_arguments` (a.k.a. `KernelEvents::CONTROLLER_ARGUMENTS`) but nothing from [[= product_name =]] is listening to it.
 
 
 
