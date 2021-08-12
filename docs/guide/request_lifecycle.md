@@ -22,15 +22,19 @@ The schemas start with a `Request` object entering Symfony and Ibexa DXP, only r
 
 ### Concept flowchart
 
+The chart below introduces the logic of the request treatment.
+
 ![Simplified request lifecycle flowchart](img/request_lifecycle_concept.png)
+
+The next chart will detail how this is implemented using Symfony HTTP kernel listeners.
 
 ### Kernel events flowchart
 
-The following chart shows events, listeners and data added to the `Request` or the wrapping event object.
+The following chart shows events, listeners and attributes added to the request or its wrapping event object.
 
 <img src="../img/request_lifecycle_events.png" width="741" height="2061" style="max-height: none;" alt="Detailed request lifecycle flowchart organised around kernel events" />
 
-This schema is detailed below event by event. 
+This schema is described below event by event.
 
 !!! tip
 
