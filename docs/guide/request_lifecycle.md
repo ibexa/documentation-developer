@@ -173,7 +173,11 @@ The `HttpKernel` retrieves the response attached to the event and continues.
 
 The `HttpKernel` sends a `kernel.response` event (`KernelEvents::RESPONSE`). For example, if HTTP cache is used, response's headers may be enhanced.
 
-The `HttpKernel` send a `kernel.finish_request` event (`KernelEvents::FINISH_REQUEST`). The `VerifyUserPoliciesRequestListener` (`siso_core.verify_user_policies_request_listener`) (priority 100) is filtering route on its policy configuration. **Notice about Permission Control**: See [Permissions for routes](permissions/#permissions-for-routes).
+The `HttpKernel` sends a `kernel.finish_request` event (`KernelEvents::FINISH_REQUEST`). The `VerifyUserPoliciesRequestListener` (`siso_core.verify_user_policies_request_listener`) (priority 100) filters routes on its policy configuration.
+
+ !!! note "Permission control
+ 
+     See [Permissions for routes](permissions.md#permissions-for-routes).
 
 Finally, the `HttpKernel` send the response.
 
