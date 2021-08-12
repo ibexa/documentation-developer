@@ -108,7 +108,7 @@ If a wildcard matches, the request's `semanticPathinfo` is updated and the route
 
 `UrlAliasRouter` (`ezpublish.urlalias_router`):
 This router uses the `UrlAliasService` to associate the `semanticPathinfo` to a Location.
-If a location is found, the `Request` will receive the attributes **`locationId`** and **`contentId`** as well as that **`viewType`** is `full` and that, for now, the **`_controller`** is `ez_content:viewAction`.
+If it finds a Location, the request receives the attributes **`locationId`** and **`contentId`**, **`viewType`** is set to `full`, and the **`_controller`** is set to `ez_content:viewAction` for now.
 
 The `locale_listener` (priority 16) will set the **`_locale`** `Request` attribute.
 
