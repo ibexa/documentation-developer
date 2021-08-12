@@ -70,7 +70,7 @@ The [`FragmentListener`](https://github.com/symfony/http-kernel/blob/5.3/EventLi
 This service can be either:
 
 - purely the `SiteAccessMatchListener` or
-- its `UserContextSiteAccessMatchSubscriber` decoration when HTTP Cache is used.
+- its `UserContextSiteAccessMatchSubscriber` decoration when HTTP cache is used.
 
 This service will
 
