@@ -40,19 +40,19 @@ This schema is described below event by event.
 
     To list all listeners that listen to an event, run `php bin/console debug:event-dispatcher <event.name>`, for example:
     
-    ``` bash
+    ```bash
     bin/console debug:event-dispatcher kernel.request
-    ````
+    ```
     
     To view details of a service (including class, arguments and tags), run `bin/console debug:container --show-arguments <service.name>`, for example:
     
-    ``` bash
+    ```bash
     bin/console debug:container --show-arguments ezpublish.siteaccess_match_listener`
-    ````    
+    ```
     
-    To list all services with a specific tag, run `bin/console debug:container --tag=<tag>>`, for example:
+    To list all services with a specific tag, run `bin/console debug:container --tag=<tag>`, for example:
     
-    ``` bash
+    ```bash
     bin/console debug:container --tag=router
     ```
 
