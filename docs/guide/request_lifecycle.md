@@ -220,6 +220,6 @@ The `HttpKernel` sends the last `kernel.terminate` event (`KernelEvents::TERMINA
 
 
 
-## HTTP response leaving
+## End of HTTP response
 
 The web server outputs the HTTP response. Depending on the architecture, few things may still occur. For example, Varnish or Fastly can take specific headers into account when setting the cache or serving it.
