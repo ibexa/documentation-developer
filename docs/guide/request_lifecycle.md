@@ -62,7 +62,7 @@ This schema is described below event by event.
 ## Kernel's request event
 
 When the request enters the Symfony's kernel (and goes underneath the [`HttpKernel`](https://symfony.com/doc/current/components/http_kernel.html), `http_kernel`), a `kernel.request` event (`KernelEvents::REQUEST`) is dispatched.
-Several listeners are called by decreasing priority.
+Several listeners are called in decreasing priority.
 
 ### SiteAccess matching
 
