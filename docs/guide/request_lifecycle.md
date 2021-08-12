@@ -56,10 +56,10 @@ This service can be
 This service will
 
 - find the current siteaccess using the `SiteAccess\Router` (`ezpublish.siteaccess_router`) regarding the [SiteAccess Matching configurations](multisite/siteaccess_matching/),
-- add the current siteaccess to the `Request` object's attribute `siteaccess`,
+- add the current siteaccess to the `Request` object's attribute **`siteaccess`**,
 - then dispatch the `ezpublish.siteaccess` event (`MVCEvents::SITEACCESS`).
 
-The `SiteAccessListener` (`ezpublish.siteaccess_listener`) subscribes to this `ezpublish.siteaccess` event with top priority (priority 255). The `SiteAccessListener` add the attribute `semanticPathinfo`, the path without siteaccess indications ([`URIElement`](multisite/siteaccess_matching/#urielement), [`URIText`](multisite/siteaccess_matching/#uritext) or [`Map\URI`](multisite/siteaccess_matching/#mapuri) implementing the `URILexer` interface), to the Request.
+The `SiteAccessListener` (`ezpublish.siteaccess_listener`) subscribes to this `ezpublish.siteaccess` event with top priority (priority 255). The `SiteAccessListener` add the attribute **`semanticPathinfo`**, the path without siteaccess indications ([`URIElement`](multisite/siteaccess_matching/#urielement), [`URIText`](multisite/siteaccess_matching/#uritext) or [`Map\URI`](multisite/siteaccess_matching/#mapuri) implementing the `URILexer` interface), to the Request.
 
 
 ### Routing
@@ -83,9 +83,9 @@ If a wildcard matches, the `Request`'s `semanticPathinfo` is updated and the rou
 
 `UrlAliasRouter` (`ezpublish.urlalias_router`):
 This router will use the `UrlAliasService` to associate the `semanticPathinfo` to a location.
-If a location is found, the `Request` will receive the attributes `locationId` and `contentId` as well as that `viewType` is `full` and that, for now, the `_controller` is `ez_content:viewAction`.
+If a location is found, the `Request` will receive the attributes **`locationId`** and **`contentId`** as well as that **`viewType`** is `full` and that, for now, the **`_controller`** is `ez_content:viewAction`.
 
-The `locale_listener` (priority 16) will set the `_locale` `Request` attribute.
+The `locale_listener` (priority 16) will set the **`_locale`** `Request` attribute.
 
 **Notice about Permission Control**: Another `kernel.request` event listener is the `EzSystems\EzPlatformAdminUi\EventListener\RequestListener` (priority 13): When a route got a `siteaccess_group_whitelist` parameter, this listener check that the current siteaccess is in one of the listed groups. For example, the Admin UI set an early protection of its route by passing them a `siteaccess_group_whitelist` containing only the `admin_group`.
 
@@ -111,9 +111,9 @@ Then, the `ContentViewBuilder` passes the `ContentView` to its `View\Configurato
 It's implemented by the `View\Configurator\ViewProvider` and its `View\Provider\Registry`, this registry receives the services tagged `ezpublish.view_provider` thanks to the `ViewProviderPass`.
 Among the view providers, the services using the `eZ\Bundle\EzPublishCoreBundle\View\Provider\Configured` have an implementation of the `MatcherFactoryInterface` (`ezpublish.content_view.matcher_factory`).
 Through service decoration and class inheritance, the `ClassNameMatcherFactory` will be responsible for the [View Matching](content_rendering/templates/template_configuration/#view-rules-and-matching).
-The `View\Configurator\ViewProvider` will use the matched view rule to add possible `templateIdentifier` and `controllerReference` to the `ContentView` object.
+The `View\Configurator\ViewProvider` will use the matched view rule to add possible **`templateIdentifier`** and **`controllerReference`** to the `ContentView` object.
 
-The `ViewControllerListener` adds the ContentView to the `Request` as `view` attribute.
+The `ViewControllerListener` adds the ContentView to the `Request` as **`view`** attribute.
 The `ViewControllerListener` eventually updates the `Request` `_controller` attribute with the `ContentView`'s `controllerReference`.
 
 The `HttpKernel` then dispatches a `kernel.controller_arguments` (a.k.a. `KernelEvents::CONTROLLER_ARGUMENTS`) but nothing from Ibexa DXP is listening to it.
@@ -129,9 +129,7 @@ As a reminder, the controller and its argument can be:
 
 - A controller set by a route matching and the `Request` as its argument.
 - The default `ez_content:viewAction` controller and a `ContentView` as its argument.
-- A [custom controller](content_rendering/queries_and_controllers/controllers/) set by the matched view rule and a `View` or the `Request` as its argument (most likely a `ContentView` but there is no restriction).
-
-**Notice about Permission Control**: [Permissions for custom controller](https://doc.ibexa.co/en/latest/guide/permissions/#permissions-for-custom-controllers)
+- A [custom controller](content_rendering/queries_and_controllers/controllers/) set by the matched view rule and a `View` or the `Request` as its argument (most likely a `ContentView` but there is no restriction). **Notice about Permission Control**: See [Permissions for custom controller](https://doc.ibexa.co/en/latest/guide/permissions/#permissions-for-custom-controllers).
 
 
 
@@ -148,7 +146,7 @@ The `HttpKernel` retrieve the Response attached to the event and continue.
 
 The `HttpKernel` send a `kernel.response` event (`KernelEvents::RESPONSE`). For example, if HTTP Cache is used, `Response`'s headers may be enhanced.
 
-The `HttpKernel` send a `kernel.finish_request` event (`KernelEvents::FINISH_REQUEST`). The `VerifyUserPoliciesRequestListener` (`siso_core.verify_user_policies_request_listener`) (priority 100) is filtering route on its policy configuration (see [Permissions for routes](permissions/#permissions-for-routes)).
+The `HttpKernel` send a `kernel.finish_request` event (`KernelEvents::FINISH_REQUEST`). The `VerifyUserPoliciesRequestListener` (`siso_core.verify_user_policies_request_listener`) (priority 100) is filtering route on its policy configuration. **Notice about Permission Control**: See [Permissions for routes](permissions/#permissions-for-routes).
 
 Finally, the `HttpKernel` send the `Response`.
 
