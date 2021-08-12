@@ -6,7 +6,7 @@
 
 When entering the architecture, the HTTP request can be handled by several component such as a firewall, a load balancer, or a reverse-proxy before arriving on the web server itself.
 
-For an overview of what happens on reverse proxy like Varnish or Fastly, see [Context-aware HTTP cache / Request lifecycle](cache/context_aware_cache/#request-lifecycle).
+For an overview of what happens on a reverse proxy like Varnish or Fastly, see [Context-aware HTTP cache / Request lifecycle](cache/context_aware_cache/#request-lifecycle).
 
 When arriving at a web server, the request is filtered by Apache Virtual Host, Nginx Server Blocks or equivalent. This mainly (and shortly) separates requests of static resources from requests to the application.
 
