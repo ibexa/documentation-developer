@@ -106,7 +106,11 @@ If a location is found, the `Request` will receive the attributes **`locationId`
 
 The `locale_listener` (priority 16) will set the **`_locale`** `Request` attribute.
 
-**Notice about Permission Control**: Another `kernel.request` event listener is the `EzSystems\EzPlatformAdminUi\EventListener\RequestListener` (priority 13): When a route got a `siteaccess_group_whitelist` parameter, this listener check that the current siteaccess is in one of the listed groups. For example, the Admin UI set an early protection of its route by passing them a `siteaccess_group_whitelist` containing only the `admin_group`.
+!!! caution "Permission control"
+
+    Another `kernel.request` event listener is the `EzSystems\EzPlatformAdminUi\EventListener\RequestListener` (priority 13).
+    When a route gets a `siteaccess_group_whitelist` parameter, this listener checks that the current SiteAccess is in one of the listed groups.
+    For example, the Back Office sets an early protection of its routes by passing them a `siteaccess_group_whitelist` containing only the `admin_group`.
 
 Now, the `Request` know its controller, the `HttpKernel` dispatch the `kernel.controller` event.
 
