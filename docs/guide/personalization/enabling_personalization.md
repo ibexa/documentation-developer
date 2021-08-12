@@ -17,7 +17,7 @@ by adding the following lines with your customer ID and license key:
 ```
 RECOMMENDATION_CUSTOMER_ID=12345
 RECOMMENDATION_LICENSE_KEY=67890-1234-5678-90123-4567
-RECOMMENDATION_HOST_URI=https://server_uri'
+RECOMMENDATION_HOST_URI=https://server_uri
 ```
 
 !!! note "Configuring user credentials for different customers"
@@ -30,12 +30,14 @@ RECOMMENDATION_HOST_URI=https://server_uri'
     # Main credentials - ENU store
     RECOMMENDATION_CUSTOMER_ID=12345
     RECOMMENDATION_LICENSE_KEY=67890-1234-5678-90123-4567
-    RECOMMENDATION_HOST_URI=https://server_uri'
+    RECOMMENDATION_HOST_URI=https://server_uri
 
     # Additional credentials - FRA store 
     FRA_CUSTOMER_ID=54321
     FRA_LICENSE_KEY=09876-5432-1098-7654-3210
-    FRA_HOST_URI=https://FRA_server_uri'
+    FRA_HOST_URI=https://FRA_server_uri
+    FRA_CUSTOM_EXPORT_LOGIN=65432
+    FRA_CUSTOM_EXPORT_PASSWORD=#prtpswd_1
     ```
 
 ## Configure event tracking

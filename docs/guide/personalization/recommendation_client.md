@@ -36,31 +36,27 @@ ezrecommendation:
     system:
         <site_access_name_1>:
             site_name: '<site_name_1>' # For example 'ENU store'
-            host_uri: `'%env(RECOMMENDATION_HOST_URI)%'`
+            host_uri: '%env(RECOMMENDATION_HOST_URI)%'
             authentication:
-                customer_id: `'%env(RECOMMENDATION_CUSTOMER_ID)%'`
-                license_key: `'%env(RECOMMENDATION_LICENSE_KEY)%'`
+                customer_id: '%env(RECOMMENDATION_CUSTOMER_ID)%'
+                license_key: '%env(RECOMMENDATION_LICENSE_KEY)%'
             export:
                 authentication:
                     method: 'basic'
-                    login: `'%env(RECOMMENDATION_CUSTOMER_ID)%'`
-                    password: `'%env(RECOMMENDATION_LICENSE_KEY)%'`
             included_item_types: [product, article]
-            random_item_types: [blog]
 
-        <site_access_name_1>:
+        <site_access_name_2>:
             site_name: '<site_name_2>' # For example 'FRA store'
-            host_uri: `'%env(FRA_HOST_URI)%'`
+            host_uri: '%env(FRA_HOST_URI)%'
             authentication:
-                customer_id: `'%env(FRA_CUSTOMER_ID)%'`
-                license_key: `'%env(FRA_LICENSE_KEY)%'`
+                customer_id: '%env(FRA_CUSTOMER_ID)%'
+                license_key: '%env(FRA_LICENSE_KEY)%'
             export:
                 authentication:
-                    method: 'basic'
-                    login: `'%env(FRA_CUSTOMER_ID)%'`
-                    password: `'%env(FRA_LICENSE_KEY)%'`
+                    method: 'user'
+                    login: '%env(FRA_CUSTOM_EXPORT_LOGIN)%'
+                    password: '%env(FRA_CUSTOM_EXPORT_PASSWORD)%'
                 included_item_types: [product, article]
-                random_item_types: [blog]
 ```
 
 !!! note "User credential variables"
@@ -80,59 +76,6 @@ ezrecommendation:
 | `included_item_types`             | A list of alphanumerical identifiers of item types on which the tracking script is shown. |
 | `random_item_types`               | A list of alphanumerical identifiers of item types that are returned when the response from the server contains no content. |
 
-#### Advanced configuration
-
-If the item's intro, author or image are stored in a different Field,
-you can specify its name in the `ezplatform.yaml` file:
-
-``` yaml
-ezrecommendation:
-    system:
-        <siteaccess>
-            field:
-                identifiers:
-                    intro:
-                        blog_post: intro
-                        article: lead
-                    author:
-                        blog_post: author
-                        article: authors
-                    image:
-                        <item_type_name>: <field_name>
-```
-
-In case a item owner ID is missing, you can set up the default item author in the `default_settings.yaml` file:
-
-``` yaml
-ezrecommendation:
-    system:
-        <siteaccess>:
-            author_id: 14   # ID: 14 is default ID of admin user
-```
-
-You can edit advanced options for the Personalization server by using the following settings:
-
-``` yaml
-ezrecommendation:
-    system:
-        <siteaccess>:
-            api:
-                admin:
-                    endpoint: 'https://admin.yoochoose.net'
-                recommendation:
-                    endpoint: 'https://reco.yoochoose.net'
-                    consume_timeout: 20
-                event_tracking:
-                    endpoint: 'https://event.yoochoose.net'
-                    script_url: 'cdn.yoochoose.net/yct.js'
-                notifier:
-                    endpoint: 'https://admin.yoochoose.net'
-```
-
-!!! caution
-
-    Changing any of these parameters without a valid reason breaks all calls to the Personalization server.
-
 #### Enable tracking
 
 The `EzRecommendationClientBundle` delivers a Twig extension
@@ -141,7 +84,7 @@ Place the following code snippet in the `<head>` section of your header template
 
 ``` html+twig
 {% if content is defined %}
-    {{ ez_recommendation_track_user(content.id) }}
+    {{ ibexa_recommendation_track_user(content.id) }}
 {% endif %}
 ```
 
@@ -157,7 +100,7 @@ Use the `Accept` header; you may need to add an `Authorization` header if authen
 To check whether the `content` endpoint is working as expected, perform the following request:
 
 ```
-GET http://<yourdomain>/api/ezp/v2/ez_recommendation/v1/content/{contentId}
+GET http://<yourdomain>/api/ezp/v2/ibexa_recommendation/v1/content/{contentId}
 Accept application/vnd.ez.api.Content+json
 Authorization Basic xxxxxxxx
 ```
@@ -165,7 +108,7 @@ Authorization Basic xxxxxxxx
 Additionally, check whether the `contenttypes` endpoint is working with the following request:
 
 ```
-GET http://<yourdomain>/api/ezp/v2/ez_recommendation/v1/contenttypes/38?page=1&page_size=10
+GET http://<yourdomain>/api/ezp/v2/ibexa_recommendation/v1/contenttypes/38?page=1&page_size=10
 Accept application/vnd.ez.api.Content+json
 Authorization Basic xxxxxxxx
 ```
@@ -227,6 +170,7 @@ php bin/console ibexa:recommendation:run-export
     --siteaccess=<site_access_name>
     --customerId=<customer_id>
     --licenseKey=<license_key>
+    -—languages=<language>,<language>
 ```
 
 If your installation hosts multiple SiteAccesses with different customer IDs, 
@@ -345,7 +289,7 @@ This file is responsible for sending notifications to the [Recommendation API](d
 To render recommended content, use a dedicated `showRecommendationsAction` from the `RecommendationController.php`:
 
 ``` html+twig
-render_esi(controller('ez_recommendation::showRecommendationsAction', {
+render_esi(controller('ibexa_recommendation::showRecommendationsAction', {
         'contextItems': content.id,
         'scenario': 'front',
         'outputTypeId': 'blog_post',
@@ -358,11 +302,11 @@ render_esi(controller('ez_recommendation::showRecommendationsAction', {
 !!! tip
 
     To check whether tracking is enabled on the front end, use the 
-    `ez_recommendation_enabled()` Twig function.
+    `ibexa_recommendation_enabled()` Twig function.
     You can wrap the call to the `RecommendationController` with:
 
     ``` html+twig
-    {% if ez_recommendation_enabled() %}
+    {% if ibexa_recommendation_enabled() %}
         <div class="container">
             {# ... #}
         </div>
@@ -518,22 +462,22 @@ To access a specific image variation through API, add the `image` parameter to 
 request URL with the name of the variation as its value.
 For example, to retrieve the `rss` variation of the image, use:
 
-`/api/ezp/v2/ez_recommendation/v1/contenttypes/16?lang=eng-GB&fields=title,description,image,intro,name&page=1&page_size=20&image=rss`
+`/api/ezp/v2/ibexa_recommendation/v1/contenttypes/16?lang=eng-GB&fields=title,description,image,intro,name&page=1&page_size=20&image=rss`
 
 ## Troubleshooting
 
 ### Logging
 
-Most operations are logged via the `ez_recommendation` [Monolog channel](http://symfony.com/doc/5.0/cookbook/logging/channels_handlers.html).
+Most operations are logged via the `ibexa_recommendation` [Monolog channel](http://symfony.com/doc/5.0/cookbook/logging/channels_handlers.html).
 To log everything about Recommendation to `dev.recommendation.log`, add the following to the `ezplatform.yaml`:
 
 ``` yaml
 monolog:
     handlers:
-        ez_recommendation:
+        ibexa_recommendation:
             type: stream
             path: '%kernel.logs_dir%/%kernel.environment%.recommendation.log'
-            channels: [ez_recommendation]
+            channels: [ibexa_recommendation]
             level: info
 ```
 
