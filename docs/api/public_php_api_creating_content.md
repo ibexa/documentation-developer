@@ -82,14 +82,15 @@ based on the input file.
 
 ### Creating content with RichText
 
-The RichText Field accepts values in eZ Platform's variant of the [Docbook](https://github.com/docbook/wiki/wiki) format.
-You can see more information about this format in [Field Types reference](field_types_reference/richtextfield.md#example-of-the-field-types-internal-format).
-
+The RichText Field accepts values in a custom flavor of [Docbook](https://github.com/docbook/wiki/wiki) format.
 For example, to add a simple RichText paragraph, provide the following as input:
 
 ``` xml
 <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ezxhtml="http://ez.no/xmlns/ezpublish/docbook/xhtml" xmlns:ezcustom="http://ez.no/xmlns/ezpublish/docbook/custom" version="5.0-variant ezpublish-1.0"><para>Description of your Content item.</para></section>
 ```
+
+To learn more about the format and how it represents different elements of rich text, see
+[RichText Field Type reference](field_types_reference/richtextfield.md#custom-docbook-format).
 
 ## Publishing a draft
 
