@@ -53,7 +53,7 @@ Edit it to remove the Image Field that has a Content Relation (ezobjectrelation)
 
 !!! note "Alternative text requirement"
 
-    In some cases you might want to require an alternative text for the image. 
+    It is recommended that you require an alternative text for the image. 
     To do this, select the "Alternative text is required" checkbox.
 
 ## Add template, configuration and style files
