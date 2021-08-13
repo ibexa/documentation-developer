@@ -1,53 +1,84 @@
-.codehilite .o,.highlight .o,.codehilite .ow,.highlight .ow {
-    color: var(--md-code-hl-operator-color)
+/* Keywords */
+.codehilite .k,
+.codehilite .kd,
+.codehilite .kn,
+.codehilite .kp,
+.codehilite .kr,
+.codehilite .kt,
+/* Other names (types) */
+.codehilite .nx
+/* Keyword constants */
+.codehilite .kc,
+.codehilite .n {
+    color: royalblue;
 }
 
-.codehilite .p,.highlight .p {
-    color: var(--md-code-hl-punctuation-color)
+/* Operators and punctuation */
+.codehilite .o,
+.codehilite .ow,
+.codehilite .p
+{
+    color: var(--ibexa-dusk-black);
 }
 
-.codehilite .cpf,.highlight .cpf,.codehilite .l,.highlight .l,.codehilite .s,.highlight .s,.codehilite .sb,.highlight .sb,.codehilite .sc,.highlight .sc,.codehilite .s2,.highlight .s2,.codehilite .si,.highlight .si,.codehilite .s1,.highlight .s1,.codehilite .ss,.highlight .ss {
-    color: var(--md-code-hl-string-color)
+/* HTML tags and YAML keys */
+.codehilite .nt {
+    color: #32707D;
 }
 
-.codehilite .cp,.highlight .cp,.codehilite .se,.highlight .se,.codehilite .sh,.highlight .sh,.codehilite .sr,.highlight .sr,.codehilite .sx,.highlight .sx {
-    color: var(--md-code-hl-special-color)
+/* Function names */
+.codehilite .nc,
+.codehilite .nb,
+.codehilite .ne,
+.codehilite .nf,
+.codehilite .fm,
+.codehilite .nn {
+    color: var(--ibexa-jazzberry);
 }
 
-.codehilite .m,.highlight .m,.codehilite .mf,.highlight .mf,.codehilite .mh,.highlight .mh,.codehilite .mi,.highlight .mi,.codehilite .il,.highlight .il,.codehilite .mo,.highlight .mo {
-    color: var(--md-code-hl-number-color)
+/* Variable names */
+.codehilite .nv,
+.codehilite .vc,
+.codehilite .vg,
+.codehilite .vi {
+    color: #41000F;
 }
 
-.codehilite .k,.highlight .k,.codehilite .kd,.highlight .kd,.codehilite .kn,.highlight .kn,.codehilite .kp,.highlight .kp,.codehilite .kr,.highlight .kr,.codehilite .kt,.highlight .kt {
-    color: var(--md-code-hl-keyword-color)
+/* Attributes */
+.codehilite .na {
+    color: var(--ibexa-jazzberry);
 }
 
-.codehilite .kc,.highlight .kc,.codehilite .n,.highlight .n {
-    color: var(--md-code-hl-name-color)
+/* Strings */
+.codehilite .l,
+.codehilite .s,
+.codehilite .sb,
+.codehilite .sc,
+.codehilite .s2,
+.codehilite .si,
+.codehilite .s1,
+.codehilite .ss {
+    color: #A8604A;
 }
 
-.codehilite .no,.highlight .no,.codehilite .nb,.highlight .nb,.codehilite .bp,.highlight .bp {
-    color: var(--md-code-hl-constant-color)
+/* Numbers */
+.codehilite .m,
+.codehilite .mf,
+.codehilite .mh,
+.codehilite .mi,
+.codehilite .il,
+.codehilite .mo {
+    color: #A8604A;
 }
 
-.codehilite .nc,.highlight .nc,.codehilite .ne,.highlight .ne,.codehilite .nf,.highlight .nf,.codehilite .nn,.highlight .nn {
-    color: var(--md-code-hl-function-color)
-}
-
-.codehilite .nd,.highlight .nd,.codehilite .ni,.highlight .ni,.codehilite .nl,.highlight .nl,.codehilite .nt,.highlight .nt {
-    color: var(--md-code-hl-keyword-color)
-}
-
-.codehilite .c,.highlight .c,.codehilite .cm,.highlight .cm,.codehilite .c1,.highlight .c1,.codehilite .ch,.highlight .ch,.codehilite .cs,.highlight .cs,.codehilite .sd,.highlight .sd {
-    color: var(--md-code-hl-comment-color)
-}
-
-.codehilite .na,.highlight .na,.codehilite .nv,.highlight .nv,.codehilite .vc,.highlight .vc,.codehilite .vg,.highlight .vg,.codehilite .vi,.highlight .vi {
-    color: var(--md-code-hl-variable-color)
-}
-
-.codehilite .ge,.highlight .ge,.codehilite .gr,.highlight .gr,.codehilite .gh,.highlight .gh,.codehilite .go,.highlight .go,.codehilite .gp,.highlight .gp,.codehilite .gs,.highlight .gs,.codehilite .gu,.highlight .gu,.codehilite .gt,.highlight .gt {
-    color: var(--md-code-hl-generic-color)
+/* Comments */
+.codehilite .c,
+.codehilite .cm,
+.codehilite .c1,
+.codehilite .ch,
+.codehilite .cs,
+.codehilite .sd {
+    color: gray;
 }
 
 .codehilite .gd,.highlight .gd,.codehilite .gi,.highlight .gi {

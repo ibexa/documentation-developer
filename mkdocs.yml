@@ -661,9 +661,6 @@ extra_javascript:
 
 markdown_extensions:
   - admonition
-  - codehilite:
-      guess_lang: false
-      linenums: true
   - def_list
   - footnotes
   - meta
