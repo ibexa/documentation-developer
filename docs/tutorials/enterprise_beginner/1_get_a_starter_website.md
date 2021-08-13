@@ -52,6 +52,11 @@ Edit it to remove the Image Field that has a Content Relation (ezobjectrelation)
 
 ![New image Field in the Article Content Type](img/enterprise_tut_image_in_article_ct.png)
 
+!!! note "Alternative text requirement"
+
+    It is recommended that you require an alternative text for the image. 
+    To do this, select the "Alternative text is required" checkbox.
+
 ## Add template, configuration and style files
 
 !!! tip

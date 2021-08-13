@@ -19,7 +19,7 @@ The `value` property of an Image Field returns an `\eZ\Publish\Core\FieldType\I
 |Property|Type|Example|Description|
 |------|------|------|------|
 |`id`|string|`0/8/4/1/1480-1-eng-GB/image.png`|The image's unique identifier. Usually the path, or a part of the path. To get the full path, use the `uri` property.|
-|`alternativeText`|string|`Picture of an apple.`|The alternative text, as entered in the Field's properties.|
+|`alternativeText`|string|`Picture of an apple.`|The alternative text, as entered in the Field's properties. This property is optional. It is recommended that you require the alternative text for an image when you add the Image Field to a Content Type, by selecting the "Alternative text is required" checkbox.|
 |`fileName`|string|`image.png`|The original image's filename, without the path.|
 |`fileSize`|int|`37931`|The original image's size, in bytes.|
 |`uri`|string|`var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/image.png`|The original image's URI.|
