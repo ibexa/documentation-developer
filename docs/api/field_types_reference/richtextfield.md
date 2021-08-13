@@ -8,29 +8,40 @@ This Field Type validates and stores structured rich text, and exposes it in sev
 |------|------|------|
 |`RichText`|`ezrichtext`|mixed|
 
-## PHP API Field Type 
+## PHP API Field Type 
+
+### Value object
+
+`EzSystems\EzPlatformRichText\eZ\FieldType\RichText\Value` offers the following properties:
+
+|Property|Type|Description|
+|------|------|------|
+|`xml`|`DOMDocument`|Internal format value as an instance of `DOMDocument`.|
 
 ### Input expectations
 
-|Type|Description|Example|
-|------|------|------|
-|`string`|XML document in one of the Field Type's input formats as a string.|See the example below.|
-|`DOMDocument`|XML document in one of the Field Type's input formats as a `DOMDocument` object.|See the example below.|
-|`EzSystems\EzPlatformRichText\eZ\FieldType\RichText\Value`|An instance of the Field Type's `Value` object.|See the example below.|
+|Type|Description|
+|------|------|
+|`string`|XML document in one of the Field Type's input formats as a string.|
+|`DOMDocument`|XML document in one of the Field Type's input formats as a `DOMDocument` object.|
+|`EzSystems\EzPlatformRichText\eZ\FieldType\RichText\Value`|An instance of the Field Type's `Value` object.|
 
 ##### Input formats
 
-The Field Type works with XML and also expects an XML value as input, whether as a string, `DOMDocument` object or Field Type's `Value` object. When the value is given as a string or a `DOMDocument` object, it will be checked for conformance with one of the supported input formats, then dispatched to the appropriate converter, to be converted to the Field Type's internal format. No conversion will be performed if providing the value in Field Type's internal format or as Field Type's `Value` object. In the latter case it will be expected that the `Value` object holds the value in the Field Type's internal format.
+The Field Type expects an XML value as input, in the form of a string, `DOMDocument` object, or Field Type's `Value` object.
+The Field Type's `Value` object must hold the value in the Field Type's [internal format](#internal-format).
+For a string of a `DOMDocument` object, if the input does not conform to this format, it is converted into it.
 
-Currently supported input formats are described in the table below:
+!!! note "Legacy eZXML format"
 
-|Name|Description|
-|------|------|
-|[[= product_name =]]'s DocBook variant|Field Type's internal format.|
-|XHTML5 editing format|Typically used with in-browser HTML editor.|
-|Legacy eZXML format|Compatibility with legacy XML format, used by [XmlText Field Type](xmltextfield.md).|
+    The Legacy eZXML format is also supported by the RichText Field Type,
+    but can be used only for migration, in compatibility with the [legacy XML format](xmltextfield.md).
+    For more information about migrating eZXML content,
+    see [Migrating from eZ Publish Platform](../..//migrating/migrating_from_ez_publish_platform.md#321-migrate-xmltext-content-to-richtext).
 
-##### Example of the Field Type's internal format
+##### Internal format
+
+As its internal format, the RichText Field Type uses a [custom flavor of the DocBook format](#custom-docbook-format).
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -44,9 +55,9 @@ Currently supported input formats are described in the table below:
 </section>
 ```
 
-##### Example of the Field Type's XHTML5 edit format
+##### XHTML5 edit format
 
-This format is used by [[= product_name =]]'s Online Editor.
+The XHTML5 format is used by the Online Editor.
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -56,19 +67,19 @@ This format is used by [[= product_name =]]'s Online Editor.
 </section>
 ```
 
-For more information about internal format and input formats, see [Field Type's conversion test fixtures on GitHub](https://github.com/ezsystems/ezplatform-richtext/tree/master/tests/lib/eZ/RichText/Converter/Xslt/_fixtures).
+## Custom DocBook format
 
-For example, eZXML does not use explicit level attributes for `<header>` elements, instead `<header>` element levels are indicated through the level of nesting inside `<section>` elements.
+!!! caution
 
-##### Example of using XML document in internal format as a string
+    The custom DocBook format described below is subject to change
+    and is not covered by backwards compatibility promise.
+
+You can use the Ibexa flavor of the DocBook format in PHP API and in REST API requests
+by providing the DocBook content as a string.
+
+The following example shows how to pass DocBook content to a [create struct](../public_php_api_creating_content.md#creating-content-item-draft):
 
 ``` php
-...
-
-$contentService = $repository->getContentService();
-$contentTypeService = $repository->getContentTypeService();
-
-$contentType = $contentTypeService->loadContentTypeByIdentifier( "article" );
 $contentCreateStruct = $contentService->newContentCreateStruct( $contentType, "eng-GB" );
 
 $inputString = <<<DOCBOOK
@@ -84,23 +95,9 @@ $inputString = <<<DOCBOOK
 DOCBOOK;
 
 $contentCreateStruct->setField( "description", $inputString );
-
-...
 ```
 
-### Value object
-
-`EzSystems\EzPlatformRichText\eZ\FieldType\RichText\Value` offers the following properties:
-
-|Property|Type|Description|
-|------|------|------|
-|`xml`|`DOMDocument`|Internal format value as an instance of `DOMDocument`.|
-
-## REST API specifics
-
-### Creating or updating Content
-
-When creating RichText content with the REST API, it is possible to provide data as a string, using the `xml` fieldValue key:
+When creating RichText content with the REST API, use the `xml` key of the `fieldValue` tag:
 
 ``` xml
 <fieldValue>
@@ -108,8 +105,193 @@ When creating RichText content with the REST API, it is possible to provide data
 &lt;section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ezxhtml="http://ez.no/xmlns/ezpublish/docbook/xhtml" xmlns:ezcustom="http://ez.no/xmlns/ezpublish/docbook/custom" version="5.0-variant ezpublish-1.0"&gt;
 &lt;title ezxhtml:level="2"&gt;This is a title.&lt;/title&gt;
 &lt;/section&gt;
-</value>
+    </value>
 </fieldValue>
 ```
 
-When the value given over REST API is transformed into a Field Type's `Value` object, it will be treated as a string. This means you can use any supported input format for input over REST API.
+### DocBook elements
+
+The RichText format enriches [DocBook](https://docbook.org/) with the following custom elements:
+
+- `section` - main element of a RichText Field
+- `ezembed` - holds embedded images
+- `ezembedinline` - holds embedded Content items
+- `eztemplate` - holds custom tags, including built-in custom tags for embedded Facebook, Twitter and YouTube content
+- `eztemplateinline` - holds inline custom tags
+- `ezconfig` - contains configuration for custom tags and other elements
+- `ezvalue` - contains values for other elements, such as `ezconfig` or `ezembed`
+- `ezattribute` - contains attributes for other elements, such as `ezconfig` or `ezembed`
+
+!!! note "Unsupported DocBook elements"
+
+    Some DocBook elements are not supported by RichText.
+    Refer to [`ezpublish.rng`](https://github.com/ezsystems/ezplatform-richtext/blob/master/src/lib/eZ/RichText/Resources/schemas/docbook/ezpublish.rng#L120) for a full list.
+
+### Online Editor elements
+
+Elements of the Online Editor correspond to the following sample DocBook code blocks.
+
+#### Text formatting
+
+``` xml
+<para xml:id="anchor" ezxhtml:class="ez-has-anchor">Anchor text</para>
+<para ezxhtml:class="" ezxhtml:textalign="center">Center aligned</para>
+<para ezxhtml:class="" ezxhtml:textalign="left">Left aligned <emphasis role="strong">bold</emphasis>
+    <emphasis>italic </emphasis>
+    <emphasis role="underlined">underlined </emphasis>
+    <subscript>subscript </subscript>
+    <superscript>superscript </superscript>
+    <emphasis role="strikedthrough">crossed out</emphasis>
+</para>
+<blockquote>
+    <para ezxhtml:class="" ezxhtml:textalign="left">This is a block quote.</para>
+</blockquote>
+```
+
+#### Heading
+
+``` xml
+<title ezxhtml:level="1">My heading</title>
+```
+
+#### Code block
+
+``` xml
+<programlisting><![CDATA[Code sample here]]></programlisting>
+```
+
+#### Unordered list
+
+``` xml
+<itemizedlist>
+    <listitem>
+        <para>1st level bullet point</para>
+    </listitem>
+    <listitem>
+        <para>1st level bullet point
+            <itemizedlist>
+                <listitem>
+                    <para>2nd level bullet point</para>
+                </listitem>
+                <listitem>
+                    <para>2nd level bullet point</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+    </listitem>
+</itemizedlist>
+```
+
+#### Ordered list
+
+``` xml
+<orderedlist>
+    <listitem>
+        <para>1st level numbered point</para>
+    </listitem>
+    <listitem>
+        <para>1st level numbered point
+            <orderedlist>
+                <listitem>
+                    <para>2nd level numbered point</para>
+                </listitem>
+            </orderedlist>
+        </para>
+    </listitem>
+</orderedlist>
+```
+
+#### Embedded content
+
+``` xml
+<ezembedinline xlink:href="ezcontent://58" view="embed-inline"/>
+```
+
+#### Inline embedded content
+
+``` xml
+<link xlink:href="ezlocation://60" xlink:show="none">embed inline</link>
+```
+
+#### Image
+
+``` xml
+<ezembed xlink:href="ezcontent://67" view="embed" ezxhtml:class="ez-embed-type-image">
+    <ezconfig>
+        <ezvalue key="size">medium</ezvalue>
+    </ezconfig>
+</ezembed>
+```
+
+#### Table
+
+``` xml
+<informaltable width="100%" border="1">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th colspan="2" scope="col">This is a merged table cell</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row"></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th scope="row"></th>
+            <td colspan="2"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th scope="row"></th>
+            <td colspan="2"></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</informaltable>
+```
+
+#### YouTube
+
+``` xml
+<eztemplate name="ezyoutube" ezxhtml:class="ez-custom-tag ez-custom-tag--attributes-visible">
+    <ezconfig>
+        <ezvalue key="video_url">https://youtu.be/Y-1d5zdeg9A</ezvalue>
+        <ezvalue key="autoplay">false</ezvalue>
+    </ezconfig>
+</eztemplate>
+```
+
+#### Twitter
+
+``` xml
+<eztemplate name="eztwitter" ezxhtml:class="ez-custom-tag ez-custom-tag--attributes-visible">
+    <ezconfig>
+        <ezvalue key="tweet_url">https://twitter.com/BBCSpringwatch/status/1401622026973032452</ezvalue>
+        <ezvalue key="theme">light</ezvalue>
+        <ezvalue key="width">500</ezvalue>
+        <ezvalue key="lang">en</ezvalue>
+        <ezvalue key="dnt">true</ezvalue>
+    </ezconfig>
+</eztemplate>
+```
+
+#### Facebook
+
+``` xml
+<eztemplate name="ezfacebook" ezxhtml:class="ez-custom-tag ez-custom-tag--attributes-visible">
+    <ezconfig>
+        <ezvalue key="post_url">https://www.facebook.com/bbcnews/posts/10158930827817217?__tn__=-R</ezvalue>
+        <ezvalue key="width">120</ezvalue>
+    </ezconfig>
+</eztemplate>
+```
+
