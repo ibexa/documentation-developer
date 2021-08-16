@@ -5,7 +5,7 @@
 
 When entering the architecture, the HTTP request can be handled by several component such as a firewall, a load balancer, or a reverse-proxy before arriving on the web server itself.
 
-For an overview of what happens on a reverse proxy like Varnish or Fastly, see [Context-aware HTTP cache / Request lifecycle](cache/context_aware_cache/#request-lifecycle).
+For an overview of what happens on a reverse proxy like Varnish or Fastly, see [Context-aware HTTP cache / Request lifecycle](cache/context_aware_cache.md#request-lifecycle).
 
 When arriving at a web server, the request is filtered by Apache Virtual Host, Nginx Server Blocks or equivalent. This mainly (and shortly) separates requests of static resources from requests to the application.
 
@@ -77,8 +77,8 @@ The `ezpublish.siteaccess_match_listener` service:
 - then dispatches the `ezpublish.siteaccess` event (`MVCEvents::SITEACCESS`).
 
 The `SiteAccessListener` (`ezpublish.siteaccess_listener`) subscribes to this `ezpublish.siteaccess` event with top priority (priority 255).
-The `SiteAccessListener` adds the **`semanticPathinfo`** attribute, the path without SiteAccess indications ([`URIElement`](multisite/siteaccess_matching/#urielement), [`URIText`](multisite/siteaccess_matching/#uritext),
-or [`Map\URI`](multisite/siteaccess_matching/#mapuri) implementing the `URILexer` interface) to the request.
+The `SiteAccessListener` adds the **`semanticPathinfo`** attribute, the path without SiteAccess indications ([`URIElement`](multisite/siteaccess_matching.md#urielement), [`URIText`](multisite/siteaccess_matching.md#uritext),
+or [`Map\URI`](multisite/siteaccess_matching.md#mapuri) implementing the `URILexer` interface) to the request.
 
 ### Routing
 
@@ -101,7 +101,7 @@ If a route matches, the controller associated to it has the responsibility to bu
 ### `UrlWildcardRouter`
 
 `UrlWildcardRouter` (`ezpublish.urlwildcard_router`):
-If [URL Wildcards](url_management/#url-wildcards) have been enabled, then the `URLWildcardRouter` is the next tried router.
+If [URL Wildcards](url_management.md#url-wildcards) have been enabled, then the `URLWildcardRouter` is the next tried router.
 If a wildcard matches, the request's `semanticPathinfo` is updated and the router throws a `ResourceNotFoundException` to continue with the `ChainRouter` collection's next entry.
 
 ### `UrlAliasRouter`
@@ -140,7 +140,7 @@ First, the `ContentViewBuilder` loads the `Location` and the `Content`, and adds
 Then, the `ContentViewBuilder` passes the `ContentView` to its `View\Configurator` (`ezpublish.view.configurator`).
 It's implemented by the `View\Configurator\ViewProvider` and its `View\Provider\Registry`. This registry receives the services tagged `ezpublish.view_provider` thanks to the `ViewProviderPass`.
 Among the view providers, the services using the `eZ\Bundle\EzPublishCoreBundle\View\Provider\Configured` have an implementation of the `MatcherFactoryInterface` (`ezpublish.content_view.matcher_factory`).
-Through service decoration and class inheritance, the `ClassNameMatcherFactory` is responsible for the [view matching](content_rendering/templates/template_configuration/#view-rules-and-matching).
+Through service decoration and class inheritance, the `ClassNameMatcherFactory` is responsible for the [view matching](content_rendering/templates/template_configuration.md#view-rules-and-matching).
 The `View\Configurator\ViewProvider` uses the matched view rule to add possible **`templateIdentifier`** and **`controllerReference`** to the `ContentView` object.
 
 The `ViewControllerListener` adds the ContentView to the `Request` as the **`view`** attribute.
