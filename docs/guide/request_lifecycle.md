@@ -3,7 +3,7 @@
 
 ## Beginning of HTTP request
 
-When entering the architecture, the HTTP request can be handled by several component such as a firewall, a load balancer, or a reverse-proxy before arriving on the web server itself.
+When entering the architecture, the HTTP request can be handled by several component such as a firewall, a load balancer, or a reverse proxy before arriving on the web server itself.
 
 For an overview of what happens on a reverse proxy like Varnish or Fastly, see [Context-aware HTTP cache / Request lifecycle](cache/context_aware_cache/#request-lifecycle).
 
@@ -11,7 +11,7 @@ When arriving at a web server, the request is filtered by Apache Virtual Host, N
 
 As [[= product_name =]] is a Symfony application, the handling of requests starts like in Symfony (see [Symfony and HTTP Fundamentals](https://symfony.com/doc/current/introduction/http_fundamentals.html)).
 
-If the HTTP request is to be treated by [[= product_name =]], it goes to the [Symfony Front Controller](https://symfony.com/doc/current/configuration/front_controllers_and_kernel.html#the-front-controller)'s `public/index.php`.
+If the HTTP request is to be treated by [[= product_name =]], it goes to the `public/index.php` of the [Symfony Front Controller](https://symfony.com/doc/current/configuration/front_controllers_and_kernel.html#the-front-controller).
 
 The front controller transforms the HTTP request into a PHP [`Request` object](https://symfony.com/doc/current/introduction/http_fundamentals.html#symfony-request-object) and passes it to Symfony's Kernel to get a [`Response` object](https://symfony.com/doc/current/introduction/http_fundamentals.html#symfony-response-object) that is transformed and sent back as an HTTP response.
 
@@ -26,7 +26,6 @@ The chart below introduces the logic of the request treatment.
 
 ![Simplified request lifecycle flowchart](img/request_lifecycle_concept.png)
 
-The next chart will detail how this is implemented using Symfony HTTP kernel listeners.
 
 ### Kernel events flowchart
 
@@ -73,7 +72,7 @@ This service can be either:
 The `ezpublish.siteaccess_match_listener` service:
 
 - finds the current SiteAccess using the `SiteAccess\Router` (`ezpublish.siteaccess_router`) regarding the [SiteAccess Matching configurations](multisite/siteaccess_matching.md),
-- adds the current SiteAccess to the `Request` object's attribute **`siteaccess`**,
+- adds the current SiteAccess to the `Request` object's **`siteaccess`** attribute,
 - then dispatches the `ezpublish.siteaccess` event (`MVCEvents::SITEACCESS`).
 
 The `SiteAccessListener` (`ezpublish.siteaccess_listener`) subscribes to this `ezpublish.siteaccess` event with top priority (priority 255).
@@ -96,12 +95,12 @@ The `DefaultRouter` is always added to the collection with top priority (priorit
 
 `DefaultRouter` (`router.default`):
 The `DefaultRouter` tries to match the `semanticPathinfo` against routes, close to [the way pure Symfony does](https://symfony.com/doc/current/routing.html), by extending and using `Symfony\Component\Routing\Router`.
-If a route matches, the controller associated to it has the responsibility to build a `View` or `Response` object.
+If a route matches, the controller associated with it is responsible for building a `View` or `Response` object.
 
 ### `UrlWildcardRouter`
 
 `UrlWildcardRouter` (`ezpublish.urlwildcard_router`):
-If [URL Wildcards](url_management/#url-wildcards) have been enabled, then the `URLWildcardRouter` is the next tried router.
+If [URL Wildcards](url_management/#url-wildcards) have been enabled, then the `URLWildcardRouter` is the next router tried.
 If a wildcard matches, the request's `semanticPathinfo` is updated and the router throws a `ResourceNotFoundException` to continue with the `ChainRouter` collection's next entry.
 
 ### `UrlAliasRouter`
@@ -112,7 +111,7 @@ If it finds a Location, the request receives the attributes **`locationId`** and
 
 The `locale_listener` (priority 16) sets the request's **`_locale`** attribute.
 
-!!! caution "Permission control"
+!!! note "Permission control"
 
     Another `kernel.request` event listener is the `EzSystems\EzPlatformAdminUi\EventListener\RequestListener` (priority 13).
     When a route gets a `siteaccess_group_whitelist` parameter, this listener checks that the current SiteAccess is in one of the listed groups.
@@ -190,7 +189,7 @@ If an exception occurs during this chain of events, the `HttpKernel` sends a `ke
 The `HttpKernel` sends the last `kernel.terminate` event (`KernelEvents::TERMINATE`). For example, the `BackgroundIndexingTerminateListener` (`ezpublish.search.background_indexer`) (priority 0) removes from the `SearchService` index possible content existing in the index but not in the database.
 
 
-## Summaries
+## Summary
 
 ### Summary of events and services
 
