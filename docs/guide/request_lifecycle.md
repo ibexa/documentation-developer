@@ -3,7 +3,7 @@
 
 ## Beginning of HTTP request
 
-When entering the architecture, the HTTP request can be handled by several component such as a firewall, a load balancer, or a reverse proxy before arriving on the web server itself.
+When entering the server infrastructure, the HTTP request can be handled by several component such as a firewall, a load balancer, or a reverse proxy before arriving on the web server itself.
 
 For an overview of what happens on a reverse proxy like Varnish or Fastly, see [Context-aware HTTP cache / Request lifecycle](cache/context_aware_cache/#request-lifecycle).
 
@@ -26,7 +26,6 @@ The chart below introduces the logic of the request treatment.
 
 ![Simplified request lifecycle flowchart](img/request_lifecycle_concept.png)
 
-
 ### Kernel events flowchart
 
 The following chart shows events, listeners and attributes added to the request or its wrapping event object.
@@ -40,19 +39,19 @@ This schema is described below event by event.
     To list all listeners that listen to an event, run `php bin/console debug:event-dispatcher <event.name>`, for example:
     
     ```bash
-    bin/console debug:event-dispatcher kernel.request
+    php bin/console debug:event-dispatcher kernel.request
     ```
     
-    To view details of a service (including class, arguments and tags), run `bin/console debug:container --show-arguments <service.name>`, for example:
+    To view details of a service (including class, arguments and tags), run `php bin/console debug:container --show-arguments <service.name>`, for example:
     
     ```bash
-    bin/console debug:container --show-arguments ezpublish.siteaccess_match_listener`
+    php bin/console debug:container --show-arguments ezpublish.siteaccess_match_listener`
     ```
     
-    To list all services with a specific tag, run `bin/console debug:container --tag=<tag>`, for example:
+    To list all services with a specific tag, run `php bin/console debug:container --tag=<tag>`, for example:
     
     ```bash
-    bin/console debug:container --tag=router
+    php bin/console debug:container --tag=router
     ```
 
 
