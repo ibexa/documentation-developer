@@ -7,7 +7,7 @@ When entering the server infrastructure, the HTTP request can be handled by seve
 
 For an overview of what happens on a reverse proxy like Varnish or Fastly, see [Context-aware HTTP cache / Request lifecycle](cache/context_aware_cache.md#request-lifecycle).
 
-When arriving at a web server, the request is filtered by Apache Virtual Host, Nginx Server Blocks or equivalent. This mainly (and shortly) separates requests of static resources from requests to the application.
+When arriving at a web server, the request is filtered by Apache Virtual Host, Nginx Server Blocks or equivalent. There, requests of static resources are separated from requests to PHP interpreter.
 
 As [[= product_name =]] is a Symfony application, the handling of requests starts like in Symfony (see [Symfony and HTTP Fundamentals](https://symfony.com/doc/current/introduction/http_fundamentals.html)).
 
