@@ -223,27 +223,27 @@ The `HttpKernel` sends the last `kernel.terminate` event (`KernelEvents::TERMINA
 
 ### Examples request attributes timeline
 
-|  Event                  |  Service                              |  Request attribute  |  Example #1   |  Example #2     |
-| ----------------------- | ------------------------------------- | ------------------- | ------------- | --------------- |
-|                         |  http_kernel                          |  pathInfo           |  /en/about    |  /admin/login   |
-|  kernel.request         |  ezpublish.siteaccess_match_listener  |  siteaccess         |  en           |  admin          |
-|  ezpublish.siteaccess   |  ezpublish.siteaccess_listener        |  semanticPathinfo   |  /about       |  /login         |
-|  kernel.request         |  router.default                       |  _route             |  N/A          |  login          |
-|  kernel.request         |  router.default                       |  _controller        |  N/A          |  ezpublish.security.controller:loginAction  |
-|  kernel.request         |  ezpublish.urlalias_router            |  _route             |  ez_urlalias  |  login          |
-|  kernel.request         |  ezpublish.urlalias_router            |  _controller        |  <strong>ez_content:</strong>viewAction  |  ezpublish.security.controller:loginAction  |
-|  kernel.request         |  ezpublish.urlalias_router            |  viewType           |  full         |  N/A            |
-|  kernel.request         |  ezpublish.urlalias_router            |  contentId          |  1            |  N/A            |
-|  kernel.request         |  ezpublish.urlalias_router            |  locationId         |  42           |  N/A            |
-|  kernel.request         |  locale_listener                      |  _locale            |  en_GB        |  fr             |
-|  kernel.controller      |  ezpublish.view_builder.content       |  view.content       |  Content      |  N/A            |
-|  kernel.controller      |  ezpublish.view_builder.content       |  view.location      |  Location     |  N/A            |
-|  kernel.controller      |  ezpublish.view.configurator          |  view.templateIdentifier   |  @EzPublishCore/default/content/full.html.twig  |  @ezdesign/account/login/index.html.twig  |
-|  kernel.controller      |  ezpublish.view.configurator          |  view.controllerReference  |  null  |  null           |
-|  kernel.controller      |  ezpublish.view_controller_listener   |  view               |  ContentView  |  N/A            |
-|  kernel.controller      |  ezpublish.view_controller_listener   |  _controller        |  ez_content:viewAction  |  ezpublish.security.controller:loginAction  |
-| (controller execution)  |  http_kernel                          |                     |  ContentView  |  LoginFormView  |
-|  kernel.view            |  ezpublish.view.renderer_listener     |  response           |  Response     |  Response       |
+|  Event                  |  Service                              |  Request attribute  |  Example      |
+| ----------------------- | ------------------------------------- | ------------------- | ------------- |
+|                         |  http_kernel                          |  pathInfo           |  /en/about    |
+|  kernel.request         |  ezpublish.siteaccess_match_listener  |  siteaccess         |  en           |
+|  ezpublish.siteaccess   |  ezpublish.siteaccess_listener        |  semanticPathinfo   |  /about       |
+|  kernel.request         |  router.default                       |  _route             |  N/A          |
+|  kernel.request         |  router.default                       |  _controller        |  N/A          |
+|  kernel.request         |  ezpublish.urlalias_router            |  _route             |  ez_urlalias  |
+|  kernel.request         |  ezpublish.urlalias_router            |  _controller        |  <strong>ez_content:</strong>viewAction
+|  kernel.request         |  ezpublish.urlalias_router            |  viewType           |  full         |
+|  kernel.request         |  ezpublish.urlalias_router            |  contentId          |  1            |
+|  kernel.request         |  ezpublish.urlalias_router            |  locationId         |  42           |
+|  kernel.request         |  locale_listener                      |  _locale            |  en_GB        |
+|  kernel.controller      |  ezpublish.view_builder.content       |  view.content       |  Content      |
+|  kernel.controller      |  ezpublish.view_builder.content       |  view.location      |  Location     |
+|  kernel.controller      |  ezpublish.view.configurator          |  view.templateIdentifier   |  @EzPublishCore/default/content/full.html.twig  |
+|  kernel.controller      |  ezpublish.view.configurator          |  view.controllerReference  |  null  |
+|  kernel.controller      |  ezpublish.view_controller_listener   |  view               |  ContentView  |
+|  kernel.controller      |  ezpublish.view_controller_listener   |  _controller        |  ez_content:viewAction  |
+| (controller execution)  |  http_kernel                          |                     |  ContentView  |
+|  kernel.view            |  ezpublish.view.renderer_listener     |  response           |  Response     |
 
 
 ## End of HTTP response
