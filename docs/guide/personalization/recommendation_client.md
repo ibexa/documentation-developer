@@ -1,6 +1,6 @@
-# Recommendation client
+# Personalization client
 
-The [recommentation client package](https://github.com/ezsystems/ezrecommendation-client) package 
+The [personalization client package](https://github.com/ezsystems/ezrecommendation-client) 
 adds a personalization solution to [[= product_name =]] and communicates with 
 the Personalization server.
 
@@ -24,7 +24,7 @@ The content is then initially exported by a script.
 After this, it is synchronized with the Personalization service every time a change 
 occurs in the Back Office.
 
-The recommendation client's configuration is SiteAccess-aware.
+The personalization client's configuration is SiteAccess-aware.
 If your installation [hosts multiple sites](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#multiple-stores) with different customer IDs, 
 for example, to provide separate recommendations for different language versions 
 of the site, provide the credentials that correspond to each of the sites.
@@ -40,9 +40,6 @@ ezrecommendation:
             authentication:
                 customer_id: '%env(RECOMMENDATION_CUSTOMER_ID)%'
                 license_key: '%env(RECOMMENDATION_LICENSE_KEY)%'
-            export:
-                authentication:
-                    method: 'basic'
             included_item_types: [product, article]
 
         <site_access_name_2>:
@@ -59,8 +56,10 @@ ezrecommendation:
                 included_item_types: [product, article]
 ```
 
-!!! note "User credential variables"
+!!! note "Authentication"
 
+    For data exchange purposes, basic authentication is enabled by default. 
+    To change this, contact support@ibexa.co.
     For security reasons, [store the authentication credentials in the ENV file](enabling_personalization.md#set-up-customer-credentials), 
     and do not commit them to the Version Control System.
     Then, use environment variables to pull them into the YAML file.
@@ -180,8 +179,8 @@ you must run the export separately for each of the `<site_access_name>`/`<custom
 php bin/console ibexa:recommendation:run-export
     --item-type-identifier-list=<item_type>,<item_type>
     --siteaccess=<site_access_name>
-    --customerId=<customer_id>
-    --licenseKey=<license_key>
+    --customer-id=<customer_id>
+    --license-key=<license_key>
     -—languages=<language>,<language>
 ```
 
@@ -194,7 +193,7 @@ and imported in the Personalization server's content store.
 
 The export process can take several minutes.
 
-![Recommendation Full Content Export](img/full_content_export.png)
+![Personalization Full Content Export](img/full_content_export.png)
 
 !!! caution "Re-exporting modified item types"
 
@@ -211,7 +210,8 @@ To get the data of an imported item you can request the following REST resource:
 
 `GET https://admin.yoochoose.net/api/<your_customer_id>/item/<your_item_type_id>/<your_item_id>`
 
-This way requires BASIC Auth. BASIC Auth username is the `customerID` and the password is the license key.
+This way uses basic authentication. 
+The username is the customer ID and the password is the license key.
 
 ??? note "Example response"
 
@@ -254,7 +254,7 @@ This way requires BASIC Auth. BASIC Auth username is the `customerID` and the pa
     </items>
     ```
 
-#### Recommendation client backend
+#### Personalization client backend
 
 In the Back Office, navigate to **Personalization** > **Import** and review a list of historical import operations to see whether a full import was successful.
 
@@ -478,7 +478,7 @@ For example, to retrieve the `rss` variation of the image, use:
 ### Logging
 
 Most operations are logged by using the `ibexa-recommendation` [Monolog channel](http://symfony.com/doc/5.0/cookbook/logging/channels_handlers.html).
-To log everything about Recommendation to `dev.recommendation.log`, add the following to the `ezplatform.yaml`:
+To log everything about Personalization to `dev.recommendation.log`, add the following to the `ezplatform.yaml`:
 
 ``` yaml
 monolog:

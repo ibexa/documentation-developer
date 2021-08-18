@@ -42,7 +42,7 @@ RECOMMENDATION_HOST_URI=https://server_uri
 
 ## Configure event tracking
 
-Next, you must [configure the recommendation client](recommendation_client.md#configuration) 
+Next, you must [configure the personalization client](recommendation_client.md#configuration) 
 that tracks visitor events in relation to Content Types.
 
 ## Set up user roles and permissions
@@ -53,6 +53,6 @@ and results that come from these websites.
 
 ## Configure recommendation logic
 
-Once you enable the recommendation client, you can go back to the Back Office, 
+Once you enable the personalization client, you can go back to the Back Office, 
 refresh the Personalization dashboard and proceed with [configuring the logic](https://doc.ibexa.co/projects/userguide/en/latest/personalization/perso_configuration) 
 used to calculate the recommendation results.

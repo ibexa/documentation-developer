@@ -1,6 +1,6 @@
 # Content API
 
-Apart from the [events](https://doc.ibexa.co/projects/userguide/en/latest/personalization/event_types) collected by the recommendation client, 
+Apart from the [events](https://doc.ibexa.co/projects/userguide/en/latest/personalization/event_types) collected by the personalization client, 
 the Personalization server can use external information about the products.
 This information must be uploaded to the Personalization server by the administrator 
 of the website.
@@ -13,7 +13,7 @@ The following information can be loaded to the recommendation solution:
 
 For more information about personalization, see [Introduction](../personalization.md) and [Best practices](../best_practices/recommendation_integration.md).
 
-The recommendation client provides a REST interface that accepts items in XML format.
+The personalization client provides a REST interface that accepts items in XML format.
 You can use the interface to post item information within the request's body into the store, 
 and to display or update the items directly.
 
