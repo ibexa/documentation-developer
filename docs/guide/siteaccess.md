@@ -95,6 +95,12 @@ The rule or set of rules by which SiteAccesses are matched. See [SiteAccess matc
                         - another_domain.org
     ```
 
+!!! caution "SiteAccess with separate admin domain"
+
+    If an admin SiteAccess in your installation uses a different domain than the front SiteAccesses,
+    be sure to use SSL (https protocol).
+    Otherwise, you cannot preview content in Page Builder from the Back Office.
+
 ### Settings per SiteAccess
 
 Various system settings can be set per SiteAccess or SiteAccess group under the `ezpublish.system` key. These settings include languages or the `var` directory.
