@@ -459,6 +459,7 @@ nav:
             - 'Recommendation client': 'guide/personalization/recommendation_client.md'
         - Repository:
             - 'Repository': 'guide/repository.md'
+            - 'Request lifecycle': 'guide/request_lifecycle.md'
             - 'Databases': 'guide/databases.md'
             - 'Data migration': 'guide/data_migration.md'
             - Event reference:
@@ -661,6 +662,7 @@ extra_javascript:
 
 markdown_extensions:
   - admonition
+  - attr_list
   - codehilite:
       guess_lang: false
       linenums: true
