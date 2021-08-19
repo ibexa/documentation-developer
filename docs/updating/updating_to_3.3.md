@@ -54,10 +54,10 @@ Resolve the conflicts in the following way:
 - If a package is only used as a dependency of an `ezsystems` package, remove it. You can check how the package is used with `composer why <packageName>`.
 - Keep the dependencies listed in the website skeleton.
 
-Make sure `extra.symfony.endpoint` is set to `https://flex.ibexa.co`, and `extra.symfony.require` to `5.2.*`:
+Make sure `extra.symfony.endpoint` is set to `https://flex.ibexa.co`, and `extra.symfony.require` to `5.3.*`:
 
 ``` json
-"require": "5.2.*",
+"require": "5.3.*",
 "endpoint": "https://flex.ibexa.co"
 ```
 
