@@ -1,0 +1,50 @@
+{
+  "Basket": {
+    "_media-type": "application\/vnd.ez.api.Basket+json",
+    "basketId": 7,
+    "originId": null,
+    "erpOrderId": null,
+    "guid": null,
+    "state": "new",
+    "type": "storedBasket",
+    "erpFailCounter": null,
+    "erpFailErrorLog": null,
+    "sessionId": "sbnla08g8seeoua51v46jns3vc",
+    "userId": 14,
+    "basketName": "foo",
+    "invoiceParty": null,
+    "deliveryParty": null,
+    "buyerParty": null,
+    "remark": null,
+    "dateCreated": {
+      "_media-type": "application\/vnd.ez.api.DateTime+json",
+      "string": "2021-03-12 07:40:00"
+    },
+    "dateLastModified": {
+      "_media-type": "application\/vnd.ez.api.DateTime+json",
+      "string": "2021-03-12 07:40:00"
+    },
+    "shop": null,
+    "requirePriceUpdate": false,
+    "totals": null,
+    "totalsSum": null,
+    "currency": null,
+    "totalsSumNet": null,
+    "totalsSumGross": null,
+    "additionalLines": null,
+    "lines": [],
+    "dateLastPriceCalculation": null,
+    "shippingMethod": null,
+    "paymentMethod": null,
+    "paymentTransactionId": null,
+    "confirmationEmail": null,
+    "salesConfirmationEmail": null,
+    "allProductsAvailable": true,
+    "dataMap": {
+      "dateLastCatalogUpdate": {
+        "_media-type": "application\/vnd.ez.api.DateTime+json",
+        "string": "2021-03-12 07:40:00"
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+    "ObjectStateCreate": {
+        "identifier": "new-state",
+        "priority": "1",
+        "defaultLanguageCode": "eng-GB",
+        "languageCodes": "eng-GB",
+        "names": {
+            "value": [
+                {
+                    "_languageCode": "eng-GB",
+                    "#text": "New State"
+                }
+            ]
+        },
+        "descriptions": {
+            "value": [
+                {
+                    "_languageCode": "eng-GB",
+                    "#text": "New Object State"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{% set tabId = tabId is defined ? tabId : '' %}
+<div class="example position-relative border p-3 mb-3">
+    <div class="tab-content" id="{{ tabId }}Content">
+        {% if examples is defined and examples|length > 0 %}
+            {% for type, example in examples %}
+                {% set elemId = tabId ~ '-' ~ type %}
+                <div class="tab-pane fade {{ loop.index == 1 ? 'show active' : '' }}" id="{{ elemId }}" role="tabpanel"
+                     aria-labelledby="{{ elemId }}-tab">
+                    {% for body in example %}
+                        {% set margin = example|length > 1 and loop.index ==  1 ? 'mb-4' : '' %}
+                        {% set border = loop.index > 1 ? 'border-top' : '' %}
+                        <div class="position-relative {{ margin }} {{ border }}">
+                            {% set clipboardId = type ~ '_' ~ uuid() %}
+                            <p class="mb-0 icon icon--copy-clipboard">
+                                <i class="material-icons-outlined clipboard"
+                                   data-toggle="tooltip"
+                                   data-placement="top"
+                                   data-clipboard-target="#{{ clipboardId }}"
+                                   title="Copy to clipboard">file_copy
+                                </i>
+                            </p>
+                            <pre id="{{ clipboardId }}" class="example__code-wrapper">
+                                <code class="{{ type }}">{{ body|slice(0,1000) }}</code>
+                            </pre>
+                        </div>
+                        <a href="" data-toggle="modal" data-target="#{{ tabId }}Modal" class="btn btn--example-view-more text-center">View more</a>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>

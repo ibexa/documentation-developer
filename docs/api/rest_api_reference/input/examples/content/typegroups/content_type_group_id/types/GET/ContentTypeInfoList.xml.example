@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentTypeInfoList media-type="application/vnd.ez.api.ContentTypeInfoList+xml" href="/api/ezp/v2/content/typegroups/1/types">
+    <ContentTypeInfo media-type="application/vnd.ez.api.ContentTypeInfo+xml" href="/api/ezp/v2/content/types/2">
+        <id>2</id>
+        <status>DEFINED</status>
+        <identifier>article</identifier>
+        <names>
+            <value languageCode="eng-GB">Article</value>
+        </names>
+        <descriptions/>
+        <creationDate>2002-06-18T11:21:38+02:00</creationDate>
+        <modificationDate>2004-04-20T11:56:29+02:00</modificationDate>
+        <Creator media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+        <Modifier media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+        <Groups media-type="application/vnd.ez.api.ContentTypeGroupRefList+xml" href="/api/ezp/v2/content/types/2/groups"/>
+        <Draft media-type="application/vnd.ez.api.ContentType+xml" href="/api/ezp/v2/content/types/2/draft"/>
+        <remoteId>c15b600eb9198b1924063b5a68758232</remoteId>
+        <urlAliasSchema></urlAliasSchema>
+        <nameSchema>&lt;short_title|title&gt;</nameSchema>
+        <isContainer>true</isContainer>
+        <mainLanguageCode>eng-GB</mainLanguageCode>
+        <defaultAlwaysAvailable>false</defaultAlwaysAvailable>
+        <defaultSortField>PATH</defaultSortField>
+        <defaultSortOrder>ASC</defaultSortOrder>
+    </ContentTypeInfo>
+    <ContentTypeInfo media-type="application/vnd.ez.api.ContentTypeInfo+xml" href="/api/ezp/v2/content/types/1">
+        <id>1</id>
+        <status>DEFINED</status>
+        <identifier>folder</identifier>
+        <names>
+            <value languageCode="eng-GB">Folder</value>
+        </names>
+        <descriptions/>
+        <creationDate>2002-06-18T11:21:38+02:00</creationDate>
+        <modificationDate>2015-11-29T22:14:32+01:00</modificationDate>
+        <Creator media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+        <Modifier media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+        <Groups media-type="application/vnd.ez.api.ContentTypeGroupRefList+xml" href="/api/ezp/v2/content/types/1/groups"/>
+        <Draft media-type="application/vnd.ez.api.ContentType+xml" href="/api/ezp/v2/content/types/1/draft"/>
+        <remoteId>a3d405b81be900468eb153d774f4f0d2</remoteId>
+        <urlAliasSchema></urlAliasSchema>
+        <nameSchema>&lt;short_name|name&gt;</nameSchema>
+        <isContainer>true</isContainer>
+        <mainLanguageCode>eng-GB</mainLanguageCode>
+        <defaultAlwaysAvailable>true</defaultAlwaysAvailable>
+        <defaultSortField>PATH</defaultSortField>
+        <defaultSortOrder>ASC</defaultSortOrder>
+    </ContentTypeInfo>
+</ContentTypeInfoList>

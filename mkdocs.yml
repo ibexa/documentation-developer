@@ -52,7 +52,7 @@ nav:
             - 'REST API usage': 'api/general_rest_usage.md'
             - 'Extending the REST API': 'api/extending_the_rest_api.md'
             - REST API reference:
-                - 'REST API reference': 'https://doc.ezplatform.com/rest-api-reference'
+                - 'REST API reference': 'api/rest_api_reference/rest_api_reference.html'
                 - 'REST API best practices': 'api/rest_api_best_practices.md'
                 - 'REST API authentication': 'api/rest_api_authentication.md'
             - 'Accept header-based REST API response': 'api/creating_custom_rest_api_response.md'

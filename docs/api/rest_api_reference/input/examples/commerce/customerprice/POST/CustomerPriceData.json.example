@@ -1,0 +1,8 @@
+{
+  "PriceResponse": {
+    "_media-type": "application\/vnd.ez.api.PriceResponse+json",
+    "priceResponse": {
+      "_media-type": "application\/vnd.ez.api.priceResponse+json"
+    }
+  }
+}

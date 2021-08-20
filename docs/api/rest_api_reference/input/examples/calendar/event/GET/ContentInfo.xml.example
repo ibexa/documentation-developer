@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EventList media-type="application/vnd.ez.api.EventList+xml" currentPage="/api/ezp/v2/calendar/event?start=1597104000&amp;end=1598745600&amp;count=10">
+    <totalCount>5</totalCount>
+</EventList>

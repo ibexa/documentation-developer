@@ -1,0 +1,10 @@
+{
+  "ValidationResponse": {
+    "_media-type": "application\/vnd.ez.api.ValidationResponse+json",
+    "messages": {
+      "_error": [
+        "msg.duplicate_basket_name_not_allowed"
+      ]
+    }
+  }
+}

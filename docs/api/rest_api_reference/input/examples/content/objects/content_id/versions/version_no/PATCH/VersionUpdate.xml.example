@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VersionUpdate xmlns:p="http://ez.no/API/Values"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://ez.no/API/Values ../VersionUpdate.xsd ">
+  <modificationDate>2012-02-20T12:00:00</modificationDate>
+  <initialLanguageCode>ger-DE</initialLanguageCode>
+  <fields>
+    <field>
+      <id>1234</id>
+      <fieldDefinitionIdentifier>title</fieldDefinitionIdentifier>
+      <languageCode>ger-DE</languageCode>
+      <fieldValue>Neuer Titel</fieldValue>
+    </field>
+    <field>
+      <id>1235</id>
+      <fieldDefinitionIdentifier>summary</fieldDefinitionIdentifier>
+      <languageCode>ger-DE</languageCode>
+      <fieldValue>Dies ist eine neuse Zusammenfassungy</fieldValue>
+    </field>
+  </fields>
+</VersionUpdate>

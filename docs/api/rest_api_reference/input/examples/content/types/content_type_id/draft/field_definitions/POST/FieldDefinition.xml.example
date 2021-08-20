@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldDefinition media-type="application/vnd.ez.api.FieldDefinition+xml" href="/api/ezp/v2/content/types/14/draft/fieldDefinitions/221">
+    <id>221</id>
+    <identifier>name2</identifier>
+    <fieldType>ezstring</fieldType>
+    <fieldGroup></fieldGroup>
+    <position>0</position>
+    <isTranslatable>true</isTranslatable>
+    <isRequired>true</isRequired>
+    <isInfoCollector>false</isInfoCollector>
+    <defaultValue/>
+    <isSearchable>true</isSearchable>
+    <names/>
+    <descriptions/>
+    <fieldSettings/>
+    <validatorConfiguration>
+        <value key="StringLengthValidator">
+            <value key="maxStringLength">32</value>
+            <value key="minStringLength">8</value>
+        </value>
+    </validatorConfiguration>
+</FieldDefinition>

@@ -1,0 +1,12 @@
+{
+    "ObjectStateGroup": {
+        "names": {
+            "value": [
+                {
+                    "_languageCode": "eng-GB",
+                    "#text": "New Custom State name"
+                }
+            ]
+        }
+    }
+}

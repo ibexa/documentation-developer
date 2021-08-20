@@ -1,0 +1,37 @@
+{
+    "name": "ezsystems/raml2html",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adam Wójs",
+            "email": "adam@wojs.pl"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/adamwojs/raml-php-parser"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "symfony/console": "^4.2",
+        "raml-org/raml-php-parser": "dev-master",
+        "twig/twig": "^2.0",
+        "symfony/filesystem": "^4.2",
+        "ramsey/uuid": "^3.9"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^4.2",
+        "ezsystems/ezplatform-code-style": "^0.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "EzSystems\\Raml2Html\\": "src"
+        }
+    },
+    "scripts": {
+        "fix-cs": "php-cs-fixer fix -v --show-progress=estimating"
+    }
+}

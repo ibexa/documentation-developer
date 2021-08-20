@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UserRefList media-type="application/vnd.ez.api.UserRefList+xml" href="/api/ezp/v2/user/users">
+    <User media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+</UserRefList>

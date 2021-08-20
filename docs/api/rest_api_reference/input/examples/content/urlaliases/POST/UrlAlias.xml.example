@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UrlAlias media-type="application/vnd.ez.api.UrlAlias+xml" href="/api/ezp/v2/content/urlaliases/0-deca3dadca45c3dff7861274b8e67ed7" id="0-deca3dadca45c3dff7861274b8e67ed7" type="LOCATION">
+    <location media-type="application/vnd.ez.api.Location+xml" href="/api/ezp/v2/content/locations/59"/>
+    <path>/example-urlalias</path>
+    <languageCodes>eng-GB</languageCodes>
+    <alwaysAvailable>true</alwaysAvailable>
+    <isHistory>false</isHistory>
+    <forward>true</forward>
+    <custom>true</custom>
+</UrlAlias>

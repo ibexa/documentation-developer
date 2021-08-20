@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectStateGroupCreate>
+    <identifier>custom</identifier>
+    <defaultLanguageCode>eng-GB</defaultLanguageCode>
+    <names>
+        <value languageCode="eng-GB">Custom State</value>
+    </names>
+    <descriptions>
+        <value languageCode="eng-GB">Custom Object state</value>
+    </descriptions>
+</ObjectStateGroup>
