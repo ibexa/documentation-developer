@@ -96,3 +96,29 @@ h5.tile-title {
 .features ul li {
     margin-bottom: 0;
 }
+
+.announcement {
+    margin-bottom: 1rem;
+    padding: .75rem 1.25rem;
+    background-color: #FFFFFF;
+    border: 1px solid var(--ibexa-jazzberry);
+    border-radius: 5px;
+    font-size: 18px;
+    color: var(--ibexa-jazzberry);
+}
+
+.announcement a.external:after {
+    content: none;
+}
+
+.announcement .btn {
+    border: 1px solid var(--ibexa-jazzberry);
+    background: var(--ibexa-jazzberry);
+    color: #FFFFFF;
+    font-size: 0.8rem;
+    padding: .4rem .8rem;
+}
+
+.announcement .btn:hover, .announcement .btn:focus {
+    background: #FFFFFF;
+}
