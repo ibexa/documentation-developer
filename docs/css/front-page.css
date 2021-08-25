@@ -112,13 +112,29 @@ h5.tile-title {
 }
 
 .announcement .btn {
-    border: 1px solid var(--ibexa-jazzberry);
-    background: var(--ibexa-jazzberry);
-    color: #FFFFFF;
     font-size: 0.8rem;
     padding: .4rem .8rem;
 }
 
-.announcement .btn:hover, .announcement .btn:focus {
+.announcement .btn-announcement {
+    background: var(--ibexa-jazzberry);
+    border: 1px solid var(--ibexa-jazzberry);
+    color: #FFFFFF;
+}
+
+.announcement .btn-announcement-outline {
+    background: #FFFFFF;
+    border: 1px solid var(--ibexa-jazzberry);
+    color: var(--ibexa-jazzberry);
+}
+
+.announcement .btn-announcement-outline:hover,
+.announcement .btn-announcement-outline:focus {
+    background: var(--ibexa-jazzberry);
+    color: #FFFFFF;
+}
+
+.announcement .btn-announcement:hover,
+.announcement .btn-announcement:focus {
     background: #FFFFFF;
 }

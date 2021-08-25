@@ -12,9 +12,14 @@
                         </svg>
                         Ibexa DXP plugin for PhpStorm is now available
                     </span>
-                    <a href="https://plugins.jetbrains.com/plugin/17239-ibexa-dxp" class="btn btn-sm btn-outline-announcement" target="_blank">
-                        Get from marketplace
-                    </a>
+                    <span>
+                        <a href="#" class="btn btn-sm btn-announcement-outline mr-4" target="_blank">
+                            Read blog post
+                        </a>
+                        <a href="https://plugins.jetbrains.com/plugin/17239-ibexa-dxp" class="btn btn-sm btn-announcement" target="_blank">
+                            Get it from marketplace
+                        </a>
+                    </span>
                 </div>
             </div>
         </div>
