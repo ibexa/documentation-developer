@@ -57,7 +57,7 @@ The plugin provides the following built-in file templates:
 |---|---|
 | Back Office tab | Class implementing `EzSystems\EzPlatformAdminUi\Tab\AbstractTab` |
 | Block event subscriber | Event subscriber for `BlockRenderEvents::getBlockPreRenderEventName(...)` event |
-| Command | Symfony command using content repository |
+| Command | Symfony command that uses content repository |
 | Composite Criterion | Criterion class based on `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\CompositeCriterion` |
 | Field definition form mapper | Class implementing `EzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface` |
 | Field Type | Field Type class based on `eZ\Publish\SPI\FieldType\Generic\Type` |
