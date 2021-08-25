@@ -5,7 +5,7 @@ and providing file templates, intentions, autocompletion, and other features.
 
 ## Requirements
 
-- PhpStorm 2021.1.1 or newer
+- PhpStorm 2021.2 or newer
 - Enabled Symfony support plugin
 
 ## Install PhpStorm plugin
@@ -17,11 +17,7 @@ or manually, from a downloaded .jar file.
 
 To install plugin from JetBrains marketplace:
 
-1\. In PhpStorm settings/preferences (depending on your system), select **Plugins** > (gear icon) > **Manage Plugin Repositories**.
-
-2\. Add `https://plugins.jetbrains.com/plugins/eap/17239` as new plugin repository.
-
-3\. Look for "Ibexa DXP" in the plugin browser and click **Install**.
+Look for "Ibexa DXP" in the plugin browser and click **Install**.
 
 ### Install from file
 
@@ -61,6 +57,7 @@ The plugin provides the following built-in file templates:
 |---|---|
 | Back Office tab | Class implementing `EzSystems\EzPlatformAdminUi\Tab\AbstractTab` |
 | Block event subscriber | Event subscriber for `BlockRenderEvents::getBlockPreRenderEventName(...)` event |
+| Command | Symfony command that uses content repository |
 | Composite Criterion | Criterion class based on `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\CompositeCriterion` |
 | Field definition form mapper | Class implementing `EzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface` |
 | Field Type | Field Type class based on `eZ\Publish\SPI\FieldType\Generic\Type` |
@@ -114,6 +111,27 @@ The plugin provides the following built-in live templates in Twig files:
 | `ezrf?` | `ez_render_field` wrapped in an `ez_field_is_empty` check |
 | `ezrl` | `ez_render_location` |
 | `ezrlq` | `ez_render_location_query` |
+
+and in PHP files:
+
+| Abbreviation | Comment |
+|---|---|
+| `ibx_create_c` | Create content |
+| `ibx_create_cd` | Create content draft | 
+| `ibx_create_ct` | Create content type |
+| `ibx_find_c` | Create and execute content query | 
+| `ibx_find_ci` | Create and execute content info query |
+| `ibx_find_l` | Create and execute location query |
+| `ibx_load_c` | Load content by ID |
+| `ibx_load_ci` | Load content info by ID |
+| `ibx_load_ct` | Load content type by identifier |
+| `ibx_load_l` | Load location by ID |
+| `ibx_param` | Get SiteAccess parameter value |
+| `ibx_pub` | Publish content draft |
+| `ibx_switch_user` | Switch  user context |
+| `ibx_trans` | Repository transaction |
+| `ibx_update_c` | Update content |
+| `ibx_update_ct` | Update content type |
 
 To customize live templates, go to **File** > **Settings**/**Preferences** > **Editor** > **Live Templates**.
 
