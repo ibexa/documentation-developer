@@ -13,7 +13,7 @@
                         Ibexa DXP plugin for PhpStorm is now available
                     </span>
                     <span>
-                        <a href="#" class="btn btn-sm btn-announcement-outline mr-4" target="_blank">
+                        <a href="https://www.ibexa.co/blog/save-time-with-ibexa-dxp-s-latest-ide-plugin" class="btn btn-sm btn-announcement-outline mr-4" target="_blank">
                             Read blog post
                         </a>
                         <a href="https://plugins.jetbrains.com/plugin/17239-ibexa-dxp" class="btn btn-sm btn-announcement" target="_blank">
