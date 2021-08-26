@@ -444,12 +444,12 @@ nav:
             - 'Shop translations': 'guide/shop_translations.md'
         - Personalization:
             - 'Personalization': 'guide/personalization/personalization.md'
-            - 'Enabling personalization': 'guide/personalization/enabling_personalization.md'
+            - 'Enable personalization': 'guide/personalization/enabling_personalization.md'
             - 'Basic service integration': 'guide/personalization/basic_integration.md'
             - Developer guide:
                 - 'Tracking API': 'guide/personalization/developer_guide/tracking_api.md'
-                - 'Importing historical user tracking data': 'guide/personalization/developer_guide/importing_historical_user_tracking_data.md'
-                - 'Tracking with yct.js': 'guide/personalization/developer_guide/tracking_with_yct.md'
+                - 'Import historical user tracking data': 'guide/personalization/developer_guide/importing_historical_user_tracking_data.md'
+                - 'Track with yct.js': 'guide/personalization/developer_guide/tracking_with_yct.md'
                 - 'Recommendation API': 'guide/personalization/developer_guide/recommendation_api.md'
                 - 'Content API': 'guide/personalization/developer_guide/content_api.md'
                 - 'User API': 'guide/personalization/developer_guide/user_api.md'
