@@ -336,7 +336,7 @@ Section.
 
 ## Segment Group Limitation
 
-A Limitation to specify whether the User has access Segments within a specific 
+A Limitation to specify whether the User has access to Segments within a specific 
 Segment Group.
 
 |                 |                                                                      |
@@ -375,7 +375,7 @@ by `user/login`.
 ### Legacy compatibility notes
 
 `SiteAccess` Limitation is deprecated and is not used actively in Public API, 
-but is allowed for being able to read / create Limitations for legacy.
+but is allowed for being able to read/create Limitations for legacy.
 
 ## Subtree of Location Limitation
 

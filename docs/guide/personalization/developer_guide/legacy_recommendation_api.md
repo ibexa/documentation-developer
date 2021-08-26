@@ -5,7 +5,7 @@
     This is a page describing the old version of the recommendation API. 
     It is available for reference purposes only.
 
-    Use the new [Recommendation API](recommendation_api.md) instead!
+    Use the new [Recommendation API](recommendation_api.md) instead.
 
 This page describes how to fetch recommendations from the Recommender System through
 recommendation requests.

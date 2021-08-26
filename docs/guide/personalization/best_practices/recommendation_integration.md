@@ -10,7 +10,7 @@ The simplest way to load recommendations is to synchronously request the Persona
 server for recommendations as they are needed. This way is sufficient in most cases. 
 The most important drawback is that the request time increases by the time 
 of the recommendation request. 
-If the network is overloaded or the Personalization server is not available 
+If the network is overloaded or the Personalization server is not available, 
 it can lock the request.
 
 ## Load in the bottom
@@ -35,7 +35,7 @@ results at the bottom of the page you can avoid any interruption in the processi
 
 ## Load from JavaScript using JSONP
 
-You can't request the recommendation controller server directly from the JavaScript 
+You cannot request the recommendation controller server directly from the JavaScript 
 (over AJAX library or directly over XMLHttpRequest) because of the cross-domain 
 restriction in most browsers. 
 One of the possible ways to work around this limitation is JSONP.

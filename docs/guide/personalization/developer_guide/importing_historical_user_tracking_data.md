@@ -13,7 +13,7 @@ to the tracking endpoint.
 
 !!! note "User identifiers"
 
-    Ensure that user identifiers being used in an import file are the same that 
+    Ensure that user identifiers used in an import file are the same that 
     are used in the live tracking, for example, the user login identifiers.
 
 There must be some validation to avoid importing buy events by any user.
@@ -29,7 +29,7 @@ Therefore a signature param needs to be added, which is calculated like followin
     Encodings must always contain capital letters (for example, %3A and not %3a).
 
     If a param value is "" or "null" or "undefined" it needs to be excluded from 
-    the signing and must not be sent in the query string!
+    the signing and must not be sent in the query string.
 
     **valid**: `https://event.yoochoose.net/api/00000/buy/johndoe/1/11?fullprice=19.99EUR&overridetimestamp=2012-01-01T11%3A00%3A00&quantity=1&signature=d0026f017ae823f19530d93318c5a2f6`
 
