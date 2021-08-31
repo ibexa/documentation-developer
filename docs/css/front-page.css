@@ -116,6 +116,10 @@ h5.tile-title {
     padding: .4rem .8rem;
 }
 
+.announcement .tile-icon {
+    flex-shrink: 0;
+}
+
 .announcement .btn-announcement {
     background: var(--ibexa-jazzberry);
     border: 1px solid var(--ibexa-jazzberry);
