@@ -3,7 +3,7 @@
         <h1>Ibexa developer documentation</h1>
     </div>
     <div class="row mt-5 pb-4">
-        <div class="col-12">
+        <div class="col-lg px-2 px-lg-4">
             <div class="announcement" role="alert">
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
                     <span class="d-flex align-items-center">
