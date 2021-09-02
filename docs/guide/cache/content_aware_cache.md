@@ -562,7 +562,7 @@ controller and the `Surrogate-Key` only contains the default `ez-all` value. Tha
 doesn't return values from any Content in the [[= product_name =]] Repository. If it does, the controller should also add
 the corresponding IDs to such objects in that header.
 
-The big problem here is however the `Set-Cookie`. A ESI fragment should never a cookie because:
+The big problem here is however the `Set-Cookie`. A ESI fragment should never set a cookie because:
 - Clients will only receive the headers set in the "mother" document (the headers in the "/" response in this case)
 - Only the content of ESIs responses will be returned to the client. *No headers set in the ESI response will ever reach
   the client*. ESI headers are only seen by the HTTP Cache
@@ -573,5 +573,5 @@ The big problem here is however the `Set-Cookie`. A ESI fragment should never a 
   Fastly cache needs to be purged (`Purge-all` request) in order to remove this flag
 - This means that it is a bad idea to always initiate a session when loading the front-page
 
-Therefore, you must ensure yourself that you do not unintendedly starts a session in a controller by for instance trying
-to access as session variable before a session has been initiated yet.
+Therefore, you must ensure yourself that you do not unintendedly starts a session in a controller used by ESIs by for
+instance trying to access as session variable before a session has been initiated yet.
