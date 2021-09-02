@@ -41,6 +41,17 @@ Current content tags (and when the system purges on them):
 
     Tags are not prefixed for default repository (index "0").
 
+The content tags are returned in a header in the responses from [[= product_name =]]. The header name is dependent on
+which HTTP Cache [[= product_name =]] is configured with:
+- Symfony Reverse proxy : `X-Cache-Tags`
+- Varnish : `xkey`
+- Fastly : `Surrogate-Key`
+
+Examples :
+- `X-Cache-Tags: ez-all,c52,ct42,l2,pl1,p1,p2,r56,r57`
+- `xkey: ez-all c52 ct42 l2 pl1 p1 p2 r56 r57`
+- `Surrogate-Key: ez-all c52 ct42 l2 pl1 p1 p2 r56 r57`
+
 ### Troubleshooting - Cache header too long errors
 
 In case of complex content, for example, Pages with many blocks, or RichText with a lot of embeds/links, 
