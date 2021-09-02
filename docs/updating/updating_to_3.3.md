@@ -248,6 +248,20 @@ Review the changes to make sure your custom configuration was not affected.
 
 Then, perform a database upgrade relevant to the version you are updating to.
 
+!!! caution "Clear Redis cache"
+    If you are using Redis as your persistence cache storage you should always clear it manually after an upgrade.
+    You can do it in two ways, by using `redis-cli` and executing the following command:
+
+    ```bash
+    FLUSHALL
+    ```
+
+    or by executing the following command:
+
+    ```bash
+    bin/console cache:pool:clear cache.redis
+    ```
+
 ### Update database to v3.3.2
 
 To update to v3.3.2, if you are using MySQL, additionally run the following update script:
