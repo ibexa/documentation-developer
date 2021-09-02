@@ -350,3 +350,228 @@ bin/console fos:httpcache:invalidate:tag ez-all
 
     Similarly to purging from code, the tags you purge on, are prefixed to match the currently configured SiteAccess. 
     When you use this command in combination with multi-repository setup, make sure to specify SiteAccess argument.
+
+## Testing and Debugging HTTP cache
+
+It is important to test your code in an environment which is as similar as your production environment as possible. That
+means that if only are testing locally using the default Symfony Reverse proxy when your are going to use Varnish or
+Fastly in production, you are likely edning up some (bad) surprises. Due to the symfony reverse proxy's lack of support for ESIs, it behaves
+quite different from Varnish and Fastly in some aspects.
+If you are going to use Varnish in production, make sure you also test your code with Varnish.
+If you are going to use Fastly in production, testing with Fastly in your developer install is likely not feasible
+(you're local development environment must then be accessible for Fastly). Testing with Varnish instead will in most
+cases do the job. But if you need to change the varnish configuration to make your site work, be aware that Varnish and Fastly uses different dialects, and
+that .vcl code for Varnish V6.x will likely not work as-is on Fastly.
+
+In this chapter we'll look into how to debug problems related to HTTP-cache. In order to that we must be able to look at
+the responses and headers [[= product_name =]] sends to the HTTP Cache, and not so much on what responses and headers
+the HTTP Cache sends the client (web-browser).
+That means that you must be able to send requests to your origin (webserver), requests that does *not* go through Varnish/Fastly.
+If you run nginx and Varnish on premise, you likely know what host and port number both Varnish and nginx runs on. If you
+are testing on a Fastly enabled environment on Ibexa Cloud provided by Platform.sh, you'll need to use the Platform.sh
+Dashboard in order to obtain the endpoint for nginx.
+
+In the example below we'll debug and figure out why a given frontpage is not cached properly by Fastly. We have learned
+that by running the following command *multiple* times:
+
+```curl -IXGET https://www.staging.foobar.com.us-2.platformsh.site```
+
+And it always outputs
+
+```
+HTTP/2 200
+(...)
+x-cache: MISS
+```
+
+### Finding the nginx endpoint on Platform.sh
+
+Assuming you on Platform have a project with id=`asd123asd123` and an environment named `Staging` which you access via Fastly on
+`https://www.staging.foobar.com.us-2.platformsh.site`. In the Platform.sh dashboard, you need to select and find a valid route to
+that environment by clicking on an element in the `URLs` dropdown for that environment. A route then may look like this:
+`https://www.staging.foobar.com.c.asd123asd123.dev.ent.platform.sh/`
+
+Next thing you need is to do is to resolve that route and get the IP address.
+This may be done using the nslookup available on both unix and Windows:
+
+```bash
+    $ nslookup
+    > www.staging.foobar.com.c.asd123asd123.dev.ent.platform.sh
+   (...)
+   Address:  1.2.3.4
+```
+
+### Fetching the User-Context-Hash
+
+As explained in [User Context Hash caching](#user-context-hash-caching), the HTTP Cache indexes the cache based on the
+user-context-hash. Users with the same user-context-hash will share the same cache (as long as [[= product_name =]]
+responds with `Vary: X-Context-User-Hash`).
+
+So in order to simulate the requests the HTTP-Cache sends to [[= product_name =]], we need that user-context-hash.
+That can be obtained using `curl`
+
+```bash
+    $ curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "accept: application/vnd.fos.user-context-hash" --header "x-fos-original-url: /" https://www.staging.foobar.com.us-2.platformsh.site/_fos_user_context_hash
+```
+
+Some notes about each of these parameters:
+- `-IXGET`, one of many ways to tell curl that we want to send a GET request, but we are only interested in outputting the headers
+- `--resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4`
+  - We tell curl not to do a DNS lookup for `www.staging.foobar.com.us-2.platformsh.site`. We do that because in our case
+    that will resolve to the Fastly endpoint, not our origin (nginx)
+  - We specify `443` because we are using `https`
+  - We provide the IP of the nginx endpoint at platform.sh (`1.2.3.4` in this example)
+- `--header "Surrogate-Capability: abc=ESI/1.0"`, strictly speaking not needed when fetching the user-context-hash, but this tells [[= product_name =]] that client understands ESI tags.
+  It is good practice to always include this header when imitating the HTTP Cache.
+- `--header "accept: application/vnd.fos.user-context-hash"` tells [[= product_name =]] that the client wants to receive the user-context-hash
+- `--header "x-fos-original-url: /"` is required by the fos-http-cache bundle in order to deliver the user-context-hash
+- `https://your-page-blah-blah.us-2.platformsh.site/_fos_user_context_hash` : here we use the hostname we earlier told
+  curl how to resolve using `---resolve`. `/_fos_user_context_hash` is the route to the controller that are able to
+  deliver the user-context-hash.
+- You may also provide the session cookie (`--cookie ".....=....") for a logged-in-user if you are interested in
+  the x-user-context-hash for a different user but anonymous
+
+The output for the given command should look similar to this:
+```
+    HTTP/1.1 200 OK
+    Server: nginx/1.20.0
+    Content-Type: application/vnd.fos.user-context-hash
+    Transfer-Encoding: chunked
+    Connection: keep-alive
+    X-User-Context-Hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814
+    Cache-Control: max-age=600, public
+    Date: Tue, 31 Aug 2021 13:35:00 GMT
+    Vary: Origin
+    Vary: cookie
+    Vary: authorization
+    X-Cache-Debug: 1
+    Surrogate-Key: ez-user-context-hash ez-all fos_http_cache_hashlookup-
+```
+
+The header `X-User-Context-Hash` is the one we are interested in here, but you may also note the `Surrogate-Key` which
+holds the [cache tags](#understanding-cache-tags).
+
+### Fetching the HTML response
+
+Now that we have the user-context-hash, we can ask origin for the actual resource we are after:
+
+```bash
+    $ curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" https://www.staging.foobar.com.us-2.platformsh.site/
+```
+
+The output :
+```
+HTTP/1.1 200 OK
+Server: nginx/1.20.0
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Cache-Control: public, s-maxage=86400
+Date: Wed, 01 Sep 2021 07:18:27 GMT
+X-Cache-Debug: 1
+Vary: X-User-Context-Hash
+Vary: X-Editorial-Mode
+Surrogate-Control: content="ESI/1.0"
+Surrogate-Key: ez-all c52 ct42 l2 pl1 p1 p2 r56 r57
+```
+
+The `Cache-Control` header tells the HTTP cache to store the result in the cache for 1 day (86400 seconds)
+The `Vary: X-User-Context-Hash` header tells the HTTP cache that this cache element may be used for all users which has
+the given `x-user-context-hash` (`daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814`).
+The document might also be removed from the cache by purging any of the keys provided in the `Surrogate-Key` header.
+
+So back to the original problem here. This resource is for some reason not cached by Fastly ( remember the
+`x-cache: MISS` we started with). But origin says this page can be cached for 1 day. How can that be?
+The likely reason is that this page also contains some ESI fragments and that one or more of these are not cachable.
+
+So, first let's see if there are any ESIs here. We remove the `-IXGET` options (in order to see content of the response,
+not only headers) to curl and search for esi:
+
+```bash
+    $ curl --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" https://www.staging.foobar.com.us-2.platformsh.site/ | grep esi
+```
+
+Output is :
+
+```HTML
+    <esi:include src="/_fragment?_hash=B%2BLUWB2kxTCc6nc5aEEn0eEqBSFar%2Br6jNm8fvSKdWU%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D11%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CEzPlatformPageFieldTypeBundle%255CController%255CBlockController%253A%253ArenderAction" />
+    <esi:include src="/_fragment?_hash=egcfVhka%2Beo80g%2B6ztYi12ebiaWfoWwKIACmSWVRqjI%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D12%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CEzPlatformPageFieldTypeBundle%255CController%255CBlockController%253A%253ArenderAction" />
+    <esi:include src="/_fragment?_hash=lnKTnmv6bb1XpaMPWRjV3sNazbn9rDXskhjGae1BDw8%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D13%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CCustomBundle%255CController%255CFooController%253A%253AcustomAction" />
+```
+
+Now we must investigate the response of each of these ESI fragments to understand what is going on. It is important to
+now put that URL in single quotes since the URLS to the ESIs include special characters that can be interpreted by the
+shell.
+
+#### 1st ESI
+
+```bash
+    $ curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" 'https://www.staging.foobar.com.us-2.platformsh.site/_fragment?_hash=B%2BLUWB2kxTCc6nc5aEEn0eEqBSFar%2Br6jNm8fvSKdWU%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D11%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CEzPlatformPageFieldTypeBundle%255CController%255CBlockController%253A%253ArenderAction'
+```
+
+We can also note that this esi is handled by a controller in the `EzPlatformPageFieldTypeBundle` bundle provided by [[= product_name =]]
+
+Output:
+
+```
+HTTP/1.1 200 OK
+Server: nginx/1.20.0
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Cache-Control: public, s-maxage=86400
+Date: Wed, 01 Sep 2021 07:51:40 GMT
+Vary: Origin
+Vary: X-User-Context-Hash
+Vary: X-Editorial-Mode
+X-Cache-Debug: 1
+Surrogate-Key: ez-all c52 l2
+```
+
+The headers here looks Okay and nothing indicates that this ESI won't be cached by the HTTP-Cache
+The second ESI gives a similar response so we'll jump right down to the 3rd ESI
+
+#### 3rd ESI
+
+```bash
+    $ curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" 'https://www.staging.foobar.com.us-2.platformsh.site//_fragment?_hash=lnKTnmv6bb1XpaMPWRjV3sNazbn9rDXskhjGae1BDw8%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D13%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CCustomBundle%255CController%255CFooController%253A%253AcustomAction'
+```
+
+This ESI is handled by a custom `FooController::customAction` and the output of the command is:
+
+Output:
+
+```
+HTTP/1.1 200 OK
+Server: nginx/1.20.0
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Set-Cookie: eZSESSID21232f297a57a5a743894a0e4a801fc3=asrpqgmh5ll5ssseca3cov8er7; path=/; HttpOnly; SameSite=lax
+Cache-Control: public, s-maxage=86400
+Date: Wed, 01 Sep 2021 07:51:40 GMT
+Vary: Origin
+Vary: X-User-Context-Hash
+Vary: X-Editorial-Mode
+X-Cache-Debug: 1
+Surrogate-Key: ez-all
+```
+
+As you can see, the `Cache-Control` and `Vary` headers looks all good. The request is as mentioned handled by a custom
+controller and the `Surrogate-Key` only contains the default `ez-all` value. That is not a problem as long as the controller
+doesn't return values from any Content in the [[= product_name =]] Repository. If it does, the controller should also add
+the corresponding IDs to such objects in that header.
+
+The big problem here is however the `Set-Cookie`. A ESI fragment should never a cookie because:
+- Clients will only receive the headers set in the "mother" document (the headers in the "/" response in this case)
+- Only the content of ESIs responses will be returned to the client. *No headers set in the ESI response will ever reach
+  the client*. ESI headers are only seen by the HTTP Cache
+- Symfony reverse proxy doesn't support ESIs at all, and any ESI calls (`render_esi()`) will implicitly be replaced by
+  sub-requests (`render()`). So any `Set-Cookie` *will* be sent to the client when using Symgony reverse proxy.
+- Fastly will flag that resource as "not cachable" since it did set a cookie at least once. Even though that endpoint
+  stops setting cookies, Fastly will still not cache that fragment. Any document referencing that ESI will be a `MISS`.
+  Fastly cache needs to be purged (`Purge-all` request) in order to remove this flag
+- This means that it is a bad idea to always initiate a session when loading the front-page
+
+Therefore, you must ensure yourself that you do not unintendedly starts a session in a controller by for instance trying
+to access as session variable before a session has been initiated yet.
