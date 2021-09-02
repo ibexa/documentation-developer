@@ -252,25 +252,70 @@ See [Tagging from Twig Templates](https://foshttpcachebundle.readthedocs.io/en/l
 
 `ezplatform-http-cache` uses Repository API event subscribers to listen to events emitted on Repository operations,
 and depending on the operation triggers expiry on a specific tag or set of tags.
+All event subscribers can be found in `ezplatform-http-cache/src/EventSubscriber/CachePurge`.
 
-For example on the move Location event the following tags are purged:
+### Understanding when the different tags are purged
 
-```php
-[
-    // The tree itself being moved (all children will have this tag)
-    ContentTagInterface::PATH_PREFIX . $event->getLocation()->id,
-    // old parent
-    ContentTagInterface::LOCATION_PREFIX . $event->getLocation()->parentLocationId,
-    // old siblings
-    ContentTagInterface::PARENT_LOCATION_PREFIX . $event->getLocation()->parentLocationId,
-    // new parent
-    ContentTagInterface::LOCATION_PREFIX . $event->getNewParentLocation()->id,
-    // new siblings
-    ContentTagInterface::PARENT_LOCATION_PREFIX . $event->getNewParentLocation()->id,
-];
+#### Tags that are purged during a publish event.
+
+Below is an example of a Content structure. The tags that the content-view controller will tag each location with is
+also listed
+
+```
+   - [Home] (content-id=52, location-id=2)
+     ez-all c52 ct42 l2 pl1 p1 p2
+     |
+     - [Parent1](content-id=53, location-id=20)
+       ez-all c53 ct1 l20 pl2 p1 p2 p20
+       |
+       - [Child](content-id=55, location-id=22)
+         ez-all c55 ct1 l22 pl20 p1 p2 p20 p22
+     - [Parent2](content-id=54, location-id=21)
+       ez-all c55 ct1 l22 pl2 p1 p2 p22
 ```
 
-All event subscribers can be found in `ezplatform-http-cache/src/EventSubscriber/CachePurge`.
+In the event that a new version of `Child` is published, the following keys will be purged:
+- `c55`, because Content `[Child]` was changed
+- `r55`, because cache for any object that has a relation to Content `[Child]` should be purged
+- `l22`, because Location `[Child]` has changed ( that would be location holding content-id=55)
+- `pl22`, because cache for children of `[Child]` should be purged
+- `rl22`, because cache for any object that has a relation to Location `[Child]` should be purged
+- `l20`, because cache for parent of `[Child]` should be purged
+- `pl20`, because cache for siblings of `[Child]` should be purged
+
+In words, HTTP Cache for any location representing `[Child]`, any Content that relates to the Content `[Child]`, the 
+location for `[Child]`, any children of `[Child]`, any Location that relates to the Location `[Child]`, location for
+`[Parent1]`, any children on `[Parent1]`.
+Effectively, in this example HTTP cache for `[Parent1]` and `[Child]` will be cleared.
+
+
+#### Tags that are purged during a move event.
+
+With the same Content structure as above, the `[Child]` location is moved below `[Parent2]`.
+
+The new structure will then be:
+```
+   - [Home] (content-id=52, location-id=2)
+     ez-all c52 ct42 l2 pl1 p1 p2
+     |
+     - [Parent1](content-id=53, location-id=20)
+       ez-all c53 ct1 l20 pl2 p1 p2 p20
+     - [Parent2](content-id=54, location-id=21)
+       ez-all c55 ct1 l22 pl2 p1 p2 p22
+       |
+       - [Child](content-id=55, location-id=22)
+         ez-all c55 ct1 l22 pl21 p1 p2 p21 p22
+```
+
+The following keys will be purged during the move:
+- `l20`, because cache for previous parent of `[Child]` should be purged (`[Parent1]`)
+- `pl20`, because cache for children of `[Parent1]` should be purged
+- `l21`, because cache for new parent of `[Child]` should be purged (`[Parent2]`)
+- `pl21`, because cache for all children of new parent (`[Parent2]`) should be purged
+- `p22`, because cache for any element below `[Child]` should be purged (because path has changed)
+
+In Word, HTTP Cache for `[Parent1]`, children of `[Parent1]` ( if any ), `[Parent2]`, children of `[Parent2]` ( if any ),
+`[Child]` and any subtree below `[Child]`.
 
 ### Custom purging from code
 
