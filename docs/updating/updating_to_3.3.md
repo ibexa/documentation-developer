@@ -259,7 +259,7 @@ Then, perform a database upgrade relevant to the version you are updating to.
     or by executing the following command:
 
     ```bash
-    bin/console cache:pool:clear cache.redis
+php bin/console cache:pool:clear cache.redis
     ```
 
 ### Update database to v3.3.2
