@@ -250,16 +250,10 @@ Then, perform a database upgrade relevant to the version you are updating to.
 
 !!! caution "Clear Redis cache"
     If you are using Redis as your persistence cache storage you should always clear it manually after an upgrade.
-    You can do it in two ways, by using `redis-cli` and executing the following command:
+    You can do it by executing the following command:
 
     ```bash
-    FLUSHALL
-    ```
-
-    or by executing the following command:
-
-    ```bash
-php bin/console cache:pool:clear cache.redis
+    php bin/console cache:pool:clear cache.redis
     ```
 
 ### Update database to v3.3.2
