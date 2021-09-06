@@ -94,12 +94,12 @@ See [documentation](../guide/content_rendering/render_content/render_page.md#ren
 #### Migrate custom blocks
 
 Landing Page blocks (from v2.1 and earlier) were defined using a class implementing `EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\AbstractBlockType`. 
-In Page Builder (from v2.2 onwards), this interface is no longer present. Instead the logic of your block must be implemented in a [Listener](../extending/extending_page.md#block-rendering-events).
+In Page Builder (from v2.2 onwards), this interface is no longer present. Instead the logic of your block must be implemented in a [Listener](../guide/page/page_blocks.md#block-events).
 Typically, what you previously would do in `getTemplateParameters()`, you'll now do in the `onBlockPreRender()` event handler.
 
-The definition of block parameters has to be moved from `createBlockDefinition()` to the [YAML configuration](../extending/extending_page.md#creating-page-blocks) for your custom blocks.
+The definition of block parameters has to be moved from `createBlockDefinition()` to the [YAML configuration](../guide/page/create_custom_page_block.md) for your custom blocks.
 
-For more information about how custom blocks are implemented in Pagebuilder, have a look at [Creating custom Page blocks](../extending/extending_page.md)
+For more information about how custom blocks are implemented in Pagebuilder, have a look at [Creating custom Page blocks](../guide/page/create_custom_page_block.md) for your custom blocks.
 
 For the migration of blocks from Landing Page to Page Builder, you'll need to provide a converter for attributes of custom blocks. For simple blocks you can use `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\DefaultConverter`.
 Custom converters must implement the `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\ConverterInterface` interface.
@@ -599,7 +599,6 @@ defined in the [Enterprise Beginner tutorial](../tutorials/enterprise_beginner/e
             name: Random
             category: default
             thumbnail: assets/images/layouts/sidebar.png
-            # read https://doc.ezplatform.com/en/latest/guide/extending/extending_page/#block-modal-template
             #configuration_template: blocks/random_config.html.twig
             views:
                 random:
