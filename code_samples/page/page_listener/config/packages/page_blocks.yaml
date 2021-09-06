@@ -1,0 +1,15 @@
+ezplatform_page_fieldtype:
+    blocks:
+        my_block:
+            name: My Block
+            category: default
+            thumbnail: images/thumbnails/my_block.svg
+            views:
+                default:
+                    name: Default block layout
+                    template: my_block.html.twig
+                    priority: -255
+            attributes:
+                my_text_attribute:
+                    type: text
+                    name: My text attribute

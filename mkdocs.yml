@@ -194,6 +194,13 @@ nav:
             - 'Images': 'guide/images.md'
             - 'Configuring the Image Editor': 'guide/image_editor.md'
             - 'File management': 'guide/file_management.md'
+            - Page:
+                - 'Page blocks': 'guide/page/page_blocks.md'
+                - 'Page block attributes': 'guide/page/page_block_attributes.md'
+                - 'Page block validators': 'guide/page/page_block_validators.md'
+                - 'Create custom Page block': 'guide/page/create_custom_page_block.md'
+            - Workflow:
+                - 'Editorial workflow': 'guide/workflow.md'
             - 'URL management': 'guide/url_management.md'
             - 'User-generated content': 'guide/user_generated_content.md'
             - 'Editorial workflow': 'guide/workflow.md'
@@ -511,7 +518,6 @@ nav:
             - 'Extending tabs': 'extending/extending_tabs.md'
             - 'Extending settings': 'extending/extending_settings.md'
             - 'Extending date and time': 'extending/extending_date_and_time.md'
-            - 'Creating custom Page blocks': 'extending/extending_page.md'
             - 'Creating custom RichText blocks': 'extending/richtext_block.md'
             - 'Creating custom drop-downs': 'extending/creating_custom_dropdowns.md'
             - 'Creating custom icons': 'extending/custom_icons.md'

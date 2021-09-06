@@ -18,3 +18,14 @@ The following events are dispatched when editing a Page in the Page builder.
 |`BlockConfigurationViewEvent`|`BlockController::dispatchBlockConfigurationViewEvent`|`BlockConfigurationView $blockConfigurationView`</br>`BlockDefinition $blockDefinition`</br>`BlockConfiguration $blockConfiguration`</br>`FormInterface $blockConfigurationForm`|
 |`BlockPreviewPageContextEvent`|`PreviewController::dispatchPageContextEvent`|`BlockContextInterface $blockContext`</br>`LandingPage\Model\Page $page`</br>`array $pagePreviewParameters`|
 |`BlockPreviewResponseEvent`|`PreviewController::dispatchBlockPreviewResponseEvent`|`BlockContextInterface $blockContext`</br>`array $pagePreviewParameters`</br>`LandingPage\Model\Page $page`</br>`BlockValue $blockValue`</br>`array  $responseData`|
+
+## Page blocks
+
+The following events are dispatched when editing a Page block.
+
+| Event | Dispatched by | Properties |
+|---|---|---|
+|`BlockDefinitionEvent`|`BlockDefinitionFactory::getBlockDefinition`|`BlockDefinition $definition`</br>`array $configuration`|
+|`BlockAttributeDefinitionEvent`|`BlockDefinitionFactory::getBlockDefinition`|`BlockAttributeDefinition $definition`</br>`array $configuration`|
+|`PreRenderEvent`|`BlockService::render`|`BlockContextInterface $blockContext`</br>`BlockValue $blockValue`</br>`RenderRequestInterface $renderRequest`|
+|`PostRenderEvent`|`BlockService::render`|`BlockContextInterface $blockContext`</br>`BlockValue $blockValue`</br>`string $renderedBlock`|

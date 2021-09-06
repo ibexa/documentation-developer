@@ -1,6 +1,6 @@
 # Creating custom RichText blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-To create a RichText [custom Page block](extending_page.md), you need to define its layout, provide templates, add a subscriber and register it as a service.
+To create a RichText [custom Page block](../guide/page/create_custom_page_block.md), you need to define its layout, provide templates, add a subscriber and register it as a service.
 
 Start with providing the block configuration in `config/packages/ezplatform_page_fieldtype.yaml`:
 
@@ -128,4 +128,4 @@ Now, you can add your custom RichText block in the Site tab.
 
 ![RichText block](img/extending_richtext_block.png)
 
-For details on customizing additional options of the block or creating custom blocks with other attribute types, see [Creating custom Page blocks](extending_page.md).
+For details on customizing additional options of the block or creating custom blocks with other attribute types, see [Create custom Page block](../guide/page/create_custom_page_block.md).
