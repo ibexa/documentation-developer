@@ -17,13 +17,13 @@ Each configured block has an identifier and the following settings:
 
 |Setting|Description|
 |---|---|
-| `name` | Name of the block used in the Page Builder interface |
-| `category` | Category in the Page Builder elements menu that the block is shown in |
-| `thumbnail` | Thumbnail used in the Page Builder elements menu |
-| `views` | Available [templates for the block](#block-templates) |
-| `visible` | (Optional) Toggles the block's visibility in the Page Builder elements menu |
-| `configuration_template` | (Optional) Template for the block settings modal |
-| `attributes` | (Optional) List of [block attributes](page_block_attributes.md) |
+| `name` | Name of the block used in the Page Builder interface. |
+| `category` | Category in the Page Builder elements menu that the block is shown in. |
+| `thumbnail` | Thumbnail used in the Page Builder elements menu. |
+| `views` | Available [templates for the block](#block-templates). |
+| `visible` | (Optional) Toggles the block's visibility in the Page Builder elements menu. |
+| `configuration_template` | (Optional) Template for the block settings modal. |
+| `attributes` | (Optional) List of [block attributes](page_block_attributes.md). |
 
 For example:
 
