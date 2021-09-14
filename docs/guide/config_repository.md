@@ -244,3 +244,59 @@ depending on the complexity of the Content Scheduler blocks:
 parameters:
     ezplatform.fieldtype.ezlandingpage.block.schedule.snapshots.amount: 10
 ```
+
+## Repository-aware configuration
+
+In your custom development, you can create Repository-aware configuration settings.
+
+This enables you to use different settings for different Repositories.
+
+!!! tip "SiteAccess-aware configuration"
+
+    If you need to use different settings per SiteAccess, not per Repository,
+    see [SiteAccess-aware configuration](multisite/siteaccess_aware_configuration.md).
+
+To do this, create a parser that implements `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\RepositoryConfigParserInterface`:
+
+``` php
+use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\RepositoryConfigParserInterface;
+use Symfony\Component\Config\Definition\Builder\NodeBuilder;
+
+final class CustomRepositoryConfigParser implements RepositoryConfigParserInterface
+{
+    public function addSemanticConfig(NodeBuilder $nodeBuilder): void
+    {
+        $nodeBuilder
+            ->arrayNode('acme')
+                ->children()
+                    ->scalarNode('my_setting')
+                        ->isRequired()
+                        ->defaultValue(120)
+                    ->end()
+                ->end()
+            ->end();
+    }
+}
+```
+
+You need to register this configuration extension in the following way:
+
+``` php
+final class AcmeFeatureBundle extends Bundle
+{
+    public function build(ContainerBuilder $container): void
+    {
+        // ...
+
+        /** @var \eZ\Bundle\EzPublishCoreBundle\DependencyInjection\EzPublishCoreExtension $kernel */
+        $kernel = $container->getExtension('ezpublish');
+        $kernel->addRepositoryConfigParser(new CustomRepositoryConfigParser());
+    }
+}
+```
+
+To access the configuration settings, use the `eZ\Bundle\EzPublishCoreBundle\ApiLoader\RepositoryConfigurationProvider::getRepositoryConfig` method:
+
+``` php
+$acmeConfig = $repositoryConfigProvider->getRepositoryConfig()['acme'];
+```

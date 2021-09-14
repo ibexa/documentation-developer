@@ -54,10 +54,10 @@ Resolve the conflicts in the following way:
 - If a package is only used as a dependency of an `ezsystems` package, remove it. You can check how the package is used with `composer why <packageName>`.
 - Keep the dependencies listed in the website skeleton.
 
-Make sure `extra.symfony.endpoint` is set to `https://flex.ibexa.co`, and `extra.symfony.require` to `5.2.*`:
+Make sure `extra.symfony.endpoint` is set to `https://flex.ibexa.co`, and `extra.symfony.require` to `5.3.*`:
 
 ``` json
-"require": "5.2.*",
+"require": "5.3.*",
 "endpoint": "https://flex.ibexa.co"
 ```
 
@@ -140,7 +140,7 @@ Add the following rewrite rule to your web server configuration:
 
 Apply the following database update script:
 
-=== "Mysql"
+=== "MySQL"
 
     ```
     mysql -u <username> -p <password> <database_name> < upgrade/db/mysql/ezplatform-3.2.0-to-3.3.0.sql
@@ -248,6 +248,14 @@ Review the changes to make sure your custom configuration was not affected.
 
 Then, perform a database upgrade relevant to the version you are updating to.
 
+!!! caution "Clear Redis cache"
+    If you are using Redis as your persistence cache storage you should always clear it manually after an upgrade.
+    You can do it by executing the following command:
+
+    ```bash
+    php bin/console cache:pool:clear cache.redis
+    ```
+
 ### Update database to v3.3.2
 
 To update to v3.3.2, if you are using MySQL, additionally run the following update script:
@@ -299,6 +307,52 @@ Run the following SQL queries to optimize workflow performance:
 CREATE INDEX idx_workflow_co_id_ver ON ezeditorialworkflow_workflows(content_id, version_no);
 CREATE INDEX idx_workflow_name ON ezeditorialworkflow_workflows(workflow_name);
 ```
+
+### Update database to v3.3.7
+
+To update to v3.3.7, additionally run the following script:
+
+=== "MySQL"
+
+    ``` sql
+    CREATE TABLE IF NOT EXISTS `ibexa_workflow_version_lock` (
+        `id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        `content_id` INT(11) NOT NULL,
+        `version` INT(11) NOT NULL,
+        `user_id` INT(11) NOT NULL,
+        `created` INT(11) NOT NULL DEFAULT 0,
+        `modified` INT(11) NOT NULL DEFAULT 0,
+        `is_locked` BOOLEAN NOT NULL DEFAULT true,
+        KEY `ibexa_workflow_version_lock_content_id_index` (`content_id`) USING BTREE,
+        KEY `ibexa_workflow_version_lock_user_id_index` (`user_id`) USING BTREE,
+        UNIQUE KEY `ibexa_workflow_version_lock_content_id_version_uindex` (`content_id`,`version`) USING BTREE
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    CREATE TABLE IF NOT EXISTS ibexa_workflow_version_lock
+    (
+        "id" SERIAL,
+        "content_id" INTEGER,
+        "version" INTEGER,
+        "user_id" INTEGER,
+        "created" INTEGER DEFAULT 0 NOT NULL,
+        "modified" INTEGER DEFAULT 0 NOT NULL,
+        "is_locked" boolean DEFAULT TRUE NOT NULL,
+        CONSTRAINT "ibexa_workflow_version_lock_pk" PRIMARY KEY ("id")
+    );
+
+    CREATE INDEX IF NOT EXISTS "ibexa_workflow_version_lock_content_id_index"
+        ON "ibexa_workflow_version_lock" ("content_id");
+
+    CREATE INDEX IF NOT EXISTS "ibexa_workflow_version_lock_user_id_index"
+        ON "ibexa_workflow_version_lock" ("user_id");
+
+    CREATE UNIQUE INDEX IF NOT EXISTS "ibexa_workflow_version_lock_content_id_version_uindex"
+        ON "ibexa_workflow_version_lock" ("content_id", "version");
+    ```
 
 ### Enable Commerce features
 

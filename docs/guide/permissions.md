@@ -238,6 +238,8 @@ and to pass it after creating design to the "Proofread stage", use following per
 |               | `activation`         | unused                                                                                                                                  |
 | `workflow`    | `change_stage`       | change stage in the specified workflow                                                                                                  |
 | `comparison` | `view` | view version comparison |
+| `personalization`    | `view`       | view scenario configuration and results for selected SiteAccesses |
+|| `edit`|modify scenario configuration for selected SiteAccesses|
 | `segment` | `read`|load Segment information|
 || `create`|create Segments|
 || `update`|update Segments|

@@ -48,7 +48,7 @@ You can add new block templates by using configuration, for example, for the Con
 
 !!! tip
 
-    Use the same configuration to provide a template for [custom blocks](../../../extending/extending_page.md) you create.
+    Use the same configuration to provide a template for [custom blocks](../../page/create_custom_page_block.md) you create.
 
 ### Block template
 

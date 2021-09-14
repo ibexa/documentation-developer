@@ -195,6 +195,13 @@ nav:
             - 'Images': 'guide/images.md'
             - 'Configuring the Image Editor': 'guide/image_editor.md'
             - 'File management': 'guide/file_management.md'
+            - Page:
+                - 'Page blocks': 'guide/page/page_blocks.md'
+                - 'Page block attributes': 'guide/page/page_block_attributes.md'
+                - 'Page block validators': 'guide/page/page_block_validators.md'
+                - 'Create custom Page block': 'guide/page/create_custom_page_block.md'
+            - Workflow:
+                - 'Editorial workflow': 'guide/workflow.md'
             - 'URL management': 'guide/url_management.md'
             - 'User-generated content': 'guide/user_generated_content.md'
             - 'Editorial workflow': 'guide/workflow.md'
@@ -444,12 +451,12 @@ nav:
             - 'Shop translations': 'guide/shop_translations.md'
         - Personalization:
             - 'Personalization': 'guide/personalization/personalization.md'
-            - 'Enabling personalization': 'guide/personalization/enabling_personalization.md'
+            - 'Enable personalization': 'guide/personalization/enabling_personalization.md'
             - 'Basic service integration': 'guide/personalization/basic_integration.md'
             - Developer guide:
                 - 'Tracking API': 'guide/personalization/developer_guide/tracking_api.md'
-                - 'Importing historical user tracking data': 'guide/personalization/developer_guide/importing_historical_user_tracking_data.md'
-                - 'Tracking with yct.js': 'guide/personalization/developer_guide/tracking_with_yct.md'
+                - 'Import historical user tracking data': 'guide/personalization/developer_guide/importing_historical_user_tracking_data.md'
+                - 'Track with yct.js': 'guide/personalization/developer_guide/tracking_with_yct.md'
                 - 'Recommendation API': 'guide/personalization/developer_guide/recommendation_api.md'
                 - 'Content API': 'guide/personalization/developer_guide/content_api.md'
                 - 'User API': 'guide/personalization/developer_guide/user_api.md'
@@ -459,6 +466,7 @@ nav:
             - 'Recommendation client': 'guide/personalization/recommendation_client.md'
         - Repository:
             - 'Repository': 'guide/repository.md'
+            - 'Request lifecycle': 'guide/request_lifecycle.md'
             - 'Databases': 'guide/databases.md'
             - 'Data migration': 'guide/data_migration.md'
             - Event reference:
@@ -511,7 +519,6 @@ nav:
             - 'Extending tabs': 'extending/extending_tabs.md'
             - 'Extending settings': 'extending/extending_settings.md'
             - 'Extending date and time': 'extending/extending_date_and_time.md'
-            - 'Creating custom Page blocks': 'extending/extending_page.md'
             - 'Creating custom RichText blocks': 'extending/richtext_block.md'
             - 'Creating custom drop-downs': 'extending/creating_custom_dropdowns.md'
             - 'Creating custom icons': 'extending/custom_icons.md'
@@ -539,6 +546,7 @@ nav:
         - 'Resources': 'community_resources/resources.md'
         - 'Release process and roadmap': 'community_resources/release_process.md'
         - 'Support and Maintenance FAQ': 'community_resources/support_maintenance_faq.md'
+        - 'Ibexa DXP PhpStorm plugin': 'community_resources/phpstorm_plugin.md'
         - Contributing:
             - 'How to contribute': 'community_resources/contributing.md'
             - 'Report and follow issues': 'community_resources/report_follow_issues.md'
@@ -661,6 +669,7 @@ extra_javascript:
 
 markdown_extensions:
   - admonition
+  - attr_list
   - def_list
   - footnotes
   - meta

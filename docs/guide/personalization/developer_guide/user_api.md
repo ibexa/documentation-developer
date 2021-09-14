@@ -34,7 +34,7 @@ For the requests to function, you must provide the following parameters:
 
 |Parameter|Description|Value|
 |---|---|---|
-|`customerid`|Your customer ID, as defined when [enabling Personalization](../enabling_personalization.md#configuring-customer-credentials) (for example, "00000").|alphanumeric|
+|`customerid`|A customer ID (for example "00000"), as defined when [enabling Personalization](../enabling_personalization.md#set-up-customer-credentials). Can be used to identify a website in installations that [hosts multiple SiteAccesses]([[= user_doc =]]/personalization/use_cases/#hosting-multiple-websites).|alphanumeric|
 |`source`|An ID of the source of the specified user's metadata.|alphanumeric|
 |`userid`|An ID of the tracked user in the website (for example, an internal customer code, a session code or a cookie for anonymous users.|alphanumeric|
   
@@ -71,7 +71,7 @@ For example:
 | `Customer<12.2014>` | `Customer%3C12.2014%3E` | `Customer&lt;12.2014&gt;` |
 
 
-## Response handling
+## Handle responses
 
 ### Response object format
 

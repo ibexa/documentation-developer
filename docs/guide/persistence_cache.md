@@ -59,9 +59,9 @@ The underlying cache system is exposed as an `ezpublish.cache_pool` service, and
 ### Configuration
 
 By default, configuration uses the `cache.tagaware.filesystem` service to store cache files.
-The service is defined in `app/config/cache_pool/cache.tagaware.filesystem.yml`
+The service is defined in `bin/config/cache_pool/cache.tagaware.filesystem.yml`
 to use [FilesystemTagAwareAdapter](https://github.com/ezsystems/ezplatform/blob/master/config/packages/cache_pool/cache.tagaware.filesystem.yaml#L8).
-This service is loaded through `app/config/env/generic.php`.
+This service is loaded through `bin/config/env/generic.php`.
 
 You can select a different cache backend and configure its parameters in the relevant file in the `cache_pool` folder.
 
@@ -78,7 +78,7 @@ ezplatform:
         # "site_group" refers to the group configured in site access
         site_group:
             # cache_pool is set to '%env(CACHE_POOL)%'
-            # env(CACHE_POOL) is set to 'cache.tagaware.filesystem' (a Symfony service) by default, for more examples see app/config/cache_pool/*
+            # env(CACHE_POOL) is set to 'cache.tagaware.filesystem' (a Symfony service) by default, for more examples see bin/config/cache_pool/*
             cache_service_name: '%cache_pool%'
 ```
 
@@ -159,9 +159,9 @@ Out of the box in `config/packages/cache_pool/cache.redis.yaml` you'll find a de
 
 !!! note "Ibexa Cloud"
 
-    For Ibexa Cloud/Platform.sh: This is automatically configured in `app/config/env/platformsh.php` if you have enabled Redis as `rediscache` Platform.sh service.
+    For Ibexa Cloud/Platform.sh: This is automatically configured in `bin/config/env/platformsh.php` if you have enabled Redis as `rediscache` Platform.sh service.
 
-For anything else, you can enable it with environment variables detected automatically by `app/config/env/generic.php`.
+For anything else, you can enable it with environment variables detected automatically by `bin/config/env/generic.php`.
 For instance, if you set the following environment variables `export CACHE_POOL="cache.redis" CACHE_DSN="secret@example.com:1234/13"`, it will result in config like this:
 
 ``` yaml
@@ -174,7 +174,7 @@ services:
             - name: cache.pool
               clearer: cache.app_clearer
               provider: 'redis://secret@example.com:1234/13'
-              # Default CACHE_NAMESPACE value, see app/config/cache_pool/cache.redis.yaml for usage with e.g. multi repo.
+              # Default CACHE_NAMESPACE value, see bin/config/cache_pool/cache.redis.yaml for usage with e.g. multi repo.
               namespace: 'ez'
 ```
 
@@ -250,7 +250,7 @@ services:
             - name: cache.pool
               clearer: cache.app_clearer
               provider: 'memcached://user:pass@localhost?weight=33'
-              # Default CACHE_NAMESPACE value, see app/config/cache_pool/cache.redis.yaml for usage with e.g. multi repo.
+              # Default CACHE_NAMESPACE value, see bin/config/cache_pool/cache.redis.yaml for usage with e.g. multi repo.
               namespace: 'ez'
 ```
 
