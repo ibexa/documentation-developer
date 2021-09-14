@@ -74,7 +74,7 @@ The context contains:
 
 - `$workflowId` - the ID of the current workflow
 - `$message` - content of the user's message when sending the Content item through the transitions
-- `$reviewerId` - ID of the User who was selected as a reviewer
+- `$reviewerId` - ID of the user who was selected as a reviewer
 - `$result` - an array of transition actions performed so far
 
 You can also modify the context using the `setContext()` method.

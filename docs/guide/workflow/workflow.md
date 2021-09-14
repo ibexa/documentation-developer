@@ -36,7 +36,7 @@ Matchers define when the workflow is used. Their configuration is optional.
 
 Each stage in the workflow has an identifier and can have a label and a color.
 
-The optional `last_stage` key indicates that content in this stage doesn't appear on the dashboard or in Review Queue.
+The optional `last_stage` key indicates that content in this stage does not appear on the dashboard or in Review Queue.
 
 One stage, listed under `initial_stage`, is the one that the workflow starts with.
 
