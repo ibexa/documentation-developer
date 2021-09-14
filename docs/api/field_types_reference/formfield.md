@@ -8,5 +8,4 @@ The Form Field Type stores a Form consisting of one or more form fields.
 
 
 
-See [Extending Form Builder](../../extending/extending_form_builder.md) for more information
-about working with Forms.
+See [Forms](../../guide/form_builder/forms.md) for more information about working with Forms.
