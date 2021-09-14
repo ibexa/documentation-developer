@@ -35,9 +35,7 @@ To get it, access the metadata for this transition through `getActionMetadata()`
 Register the listener as a service (in `config/services.yaml`):
 
 ``` yaml
-App\EventListener\LegalTransitionListener:
-    tags:
-        - { name: ezplatform.workflow.action_listener }
+[[= include_file('code_samples/workflow/custom_workflow/config/custom_services.yaml', 0, 4) =]]
 ```
 
 ## Use custom transition value
@@ -59,9 +57,7 @@ Then, the following `src/EventListener/ApprovedTransitionListener` is called:
 Register this listener as a service:
 
 ``` yaml
-App\EventListener\ApprovedTransitionListener:
-    tags:
-        - { name: ezplatform.workflow.action_listener }
+[[= include_file('code_samples/workflow/custom_workflow/config/custom_services.yaml', 0, 1) =]][[= include_file('code_samples/workflow/custom_workflow/config/custom_services.yaml', 4, 7) =]]
 ```
 
 This listener also displays a notification, but in this case its content is taken from the message
