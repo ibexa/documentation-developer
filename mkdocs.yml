@@ -200,10 +200,10 @@ nav:
                 - 'Page block validators': 'guide/page/page_block_validators.md'
                 - 'Create custom Page block': 'guide/page/create_custom_page_block.md'
             - Workflow:
-                - 'Editorial workflow': 'guide/workflow.md'
+                - 'Workflow': 'guide/workflow/workflow.md'
+                - 'Add custom workflow action': 'guide/workflow/add_custom_workflow_action.md'
             - 'URL management': 'guide/url_management.md'
             - 'User-generated content': 'guide/user_generated_content.md'
-            - 'Editorial workflow': 'guide/workflow.md'
         - Permissions:
             - 'Permissions': 'guide/permissions.md'
             - 'Limitations': 'guide/limitations.md'
@@ -525,7 +525,6 @@ nav:
             - 'Injecting custom components': 'extending/custom_components.md'
             - 'Import assets from a bundle': 'extending/import_assets_from_bundle.md'
         - 'Extending Form Builder': 'extending/extending_form_builder.md'
-        - 'Extending Workflow': 'extending/extending_workflow.md'
         - 'Extending Calendar': 'extending/customizing_calendar.md'
         - 'Extending Image Editor': 'extending/extending_image_editor.md'
         - 'Extending Online Editor':
