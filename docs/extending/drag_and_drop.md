@@ -1,4 +1,4 @@
-# Creating drag and drop interface
+# Create drag and drop
 
 In [[= product_name =]], you can create a generic interface for drag and drop interactions reusable in many places.
 

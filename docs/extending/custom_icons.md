@@ -1,4 +1,4 @@
-# Creating custom icons
+# Custom icons
 
 ## Custom Content Type icons
 

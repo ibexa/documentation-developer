@@ -1,4 +1,4 @@
-# Injecting custom components
+# Custom components
 
 The Back Office has designated places where you can use your own components.
 

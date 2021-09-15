@@ -1,18 +1,44 @@
-# Reusable Back Office templates
+# Reusable components
 
-When extending the Back Office, you can use base Twig templates for commonly used UI components such as tabs or tables.
+When extending the Back Office, you can use base Twig templates for commonly used UI components such as alerts, tables or tabs.
 
 The available templates are:
 
+- `@ezdesign/ui/component/alert/alert.html.twig`
 - `@ezdesign/ui/component/table/table.html.twig`
 - `@ezdesign/ui/component/tab/tabs.html.twig`
 
 To use the components, [`embed`](https://twig.symfony.com/doc/3.x/tags/embed.html) them in templates.
 With `embed` you can override blocks that are defined inside the included template.
 
+## Alerts
+
+The alert component consists of the following elements:
+
+- `type` - available types of alert: error, info, success and warning
+- `icon_path` - overrides the default icon set, can be modified
+- `title` - alert title
+- `subtitle` - displays subtitle content
+- `show_subtitle_below` - default set to false, the subtitle is displayed next to the title
+- `extra_content` - use to add custom elements, such as buttons or additional text
+- `close_btn` - by default set to false, if set to true, an 'X' button is displayed but requires additional JavaScript configuration to work
+- `class` - additional CSS classes
+- `attributes` - additional HTML attributes
+
+``` html+twig
+{% include '@ezdesign/ui/component/alert/alert.html.twig' with {
+    type: 'info',
+    title: 'Some title',
+    subtitle: 'Some subtitle',
+    show_subtitle_below: true,
+    icon_path: ibexa_icon_path('hide'),
+    class: 'mb-4',
+} only %}
+```
+
 ## Tables
 
-The table component consist of the following blocks:
+The table component consists of the following blocks:
 
 - `header` - headline for the table section
 - `headline` - table name

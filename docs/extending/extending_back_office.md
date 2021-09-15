@@ -1,4 +1,4 @@
-# Extending Back Office
+# Back Office
 
 The Back Office interface is produced by the [`ezplatform-admin-ui` bundle](https://github.com/ezsystems/ezplatform-admin-ui).
 Additionally, it uses React-based modules that make each part of the UI extensible, and Bootstrap for styling.
