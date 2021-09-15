@@ -66,7 +66,7 @@ And a new Country Form field:
 
 ![Country field](../img/extending_form_builder_country_field.png)
 
-## Modifying existing Form fields
+## Modify existing Form fields
 
 Field or field attribute definition can be modified by subscribing to one of the following events:
 
@@ -85,7 +85,7 @@ Register this subscriber as a service:
 [[= include_file('code_samples/forms/custom_form_field/config/custom_services.yaml', 0, 1) =]][[= include_file('code_samples/forms/custom_form_field/config/custom_services.yaml', 7, 11) =]]
 ```
 
-## Accessing Form field definitions
+## Access Form field definitions
 
 Field definitions are accessible through:
 
