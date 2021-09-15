@@ -23,6 +23,13 @@ For more information, see [Support for multiple websites](https://doc.ibexa.co/p
 
 ## Other changes
 
+### Draft locking
+
+You can now configure and use the locking feature to lock a draft of a Content item, 
+so that only an assigned person can edit it, and no other user can take it over. 
+
+For more information, see the [developer](../guide/workflow.md#draft-locking) and the [user](https://doc.ibexa.co/projects/userguide/en/master/publishing/editorial_workflow/#draft-locking) documentation.
+
 ### Enhanced GraphQL location handling
 
 Lorem ipsum
