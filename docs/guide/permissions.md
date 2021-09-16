@@ -208,6 +208,7 @@ and to pass it after creating design to the "Proofread stage", use following per
 |               | `pendinglist`        | unused                                                                                                                                  |
 |               | `restore`            | restore content from Trash                                                                                                              |
 |               | `cleantrash`         | empty the Trash (even when the User does not have access to individual Content items) |
+|               | `unlock`         | unlock drafts locked to a user for performing actions |
 | `Content Type`       | `update`             | modify existing Content Types. Also required to create new Content Types                                                                |
 |               | `create`             | create new Content Types. Also required to edit exiting Content Types                                                                   |
 |               | `delete`             | delete Content Types                                                                                                                    |
