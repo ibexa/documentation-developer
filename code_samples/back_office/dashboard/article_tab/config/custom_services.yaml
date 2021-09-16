@@ -1,0 +1,7 @@
+services:
+    App\Tab\Dashboard\Everyone\EveryoneArticleTab:
+        autowire: true
+        autoconfigure: true
+        public: false
+        tags:
+            - { name: ezplatform.tab, group: dashboard-everyone }
