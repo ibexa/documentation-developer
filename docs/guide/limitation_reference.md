@@ -416,10 +416,10 @@ Content items that are in a specific workflow stage.
 
 ### Possible values
 
-| UI value | Description |
+| Value | UI value | Description |
 |------|------|------|
-| 'userId' | Only an assigned user can perform actions on a version of the Content item. |
-| `null` | All users can perform actions on all drafts. |
+| 'userId' | "Assigned only | Only an assigned user can perform actions on a version of the Content item. |
+| `null` | "none" | All users can perform actions on all drafts. |
 
 ## Workflow Stage Limitation
 
