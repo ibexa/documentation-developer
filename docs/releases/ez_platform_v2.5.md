@@ -168,7 +168,7 @@ This version introduces stricter default password quality requirements.
 Passwords must be at least 10 characters long, and must include upper and lower case letters, and digits.
 Existing passwords are not changed.
 
-See [backwards compatibility changes](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/bc/changes-7.5.md)
+See [backwards compatibility changes](https://github.com/ezsystems/ezpublish-kernel/blob/7.5/doc/bc/changes-7.5.md)
 for detailed information.
 
 ## Full changelog
@@ -239,7 +239,7 @@ This section provides a list of deprecated features to be removed in eZ Platform
 
 #### Custom Installers
 
-- The `\EzSystems\PlatformInstallerBundle\Installer\CleanInstaller` class and its [service container](https://doc.ibexa.co/en/2.5/guide/service_container) definition (`ezplatform.installer.clean_installer`) have been deprecated in favor of `EzSystems\PlatformInstallerBundle\Installer\CoreInstaller` which requires the [Doctrine Schema Bundle](https://github.com/ezsystems/doctrine-dbal-schema) to be enabled.
+- The `\EzSystems\PlatformInstallerBundle\Installer\CleanInstaller` class and its [service container](https://doc.ibexa.co/en/2.5/api/service_container) definition (`ezplatform.installer.clean_installer`) have been deprecated in favor of `EzSystems\PlatformInstallerBundle\Installer\CoreInstaller` which requires the [Doctrine Schema Bundle](https://github.com/ezsystems/doctrine-dbal-schema) to be enabled.
 - The `ezplatform.installer.db_based_installer` service container definition has been deprecated in favor of its FQCN-named equivalent (`EzSystems\PlatformInstallerBundle\Installer\DbBasedInstaller`).
 - `vendor/ezsystems/ezpublish-kernel/data/mysql/schema.sql` has been deprecated and is not used by the installation process anymore.
 
