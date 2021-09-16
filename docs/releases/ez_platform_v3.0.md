@@ -15,7 +15,7 @@
 The version 3.0 moves eZ Platform to Symfony 5.0 from the previously used Symfony 3.4.
 
 This entails several changes to the way projects are organized.
-For details, see [Symfony 4.0](https://github.com/symfony/symfony/blob/5.0/UPGRADE-4.0.md)
+For details, see [Symfony 4.0](https://github.com/symfony/symfony/blob/4.0/UPGRADE-4.0.md)
 and [Symfony 5.0 upgrade documentation](https://github.com/symfony/symfony/blob/5.0/UPGRADE-5.0.md)
 
 ### Using Events instead of SignalSlots
@@ -50,7 +50,7 @@ For details, see [Bundles](https://doc.ibexa.co/en/latest/guide/bundles).
 
     For more information about:
 
-    - enabling and configuring, see [developer documentation](https://doc.ibexa.co/en/latest/guide/site_factory/)
+    - enabling and configuring, see [Enable Site Factory](https://doc.ibexa.co/en/latest/guide/multisite/site_factory/#enable-site-factory)
     - using the Site Factory, see [User Guide]([[= user_doc =]]/site_organization/site_factory)
 
     ### Scheduling
@@ -173,7 +173,7 @@ The list of common Sort Clauses has been extended by the Random sorting option.
 
 ### Contextual Twig variables
 
-You can now create [contextual Twig variables](https://doc.ibexa.co/en/latest/guide/templates/#contextual-twig-variables) for use in templates.
+You can now create [custom Twig variables](https://doc.ibexa.co/en/latest/guide/content_rendering/templates/templates/#custom-template-variables) for use in templates.
 They can be defined per SiteAccess, or per content view.
 
 ### Built-in Query Types
