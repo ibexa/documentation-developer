@@ -78,13 +78,14 @@ The notification is displayed in the user menu:
 
 #### Draft locking
 
-You can enable draft locking, so that when a user sends a draft to review, only 
-the assigned reviewer can either edit the draft or unlock it for editing, and no 
+You can configure draft assignment in a way that when a user sends a draft to review, 
+only the assigned reviewer can either edit the draft or unlock it for editing, and no 
 other user can take it over. 
 
-Use the [Version Lock Limitation](../limitation_reference.md#version-lock-limitation) together with the `content/edit` and 
-`content/unlock` Policies to enable locking drafts to specific users and prevent 
-unassigned users from unlocking drafts respectively.
+Use the [Version Lock Limitation](../limitation_reference.md#version-lock-limitation), 
+set to "Assigned only", together with the `content/edit` and `content/unlock` 
+Policies to prevent users from editing and unlocking drafts that are assigned 
+to other users.
 
 ### Publishing content
 

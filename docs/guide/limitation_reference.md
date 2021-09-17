@@ -404,8 +404,8 @@ follow [the example in the Admin management section](admin_panel.md#restrict-edi
 
 ## Version Lock Limitation
 
-A Limitation to specify whether the User can perform edit or unlock actions on 
-Content items that are in a specific workflow stage.
+A Limitation to specify whether the User can perform actions, for example, edit 
+or unlock, on Content items that are in a workflow.
 
 | | |
 |-----------------|------------------------------------------------------------------------------------------------|
@@ -418,8 +418,8 @@ Content items that are in a specific workflow stage.
 
 | Value | UI value | Description |
 |------|------|------|
-| `userId` | "Assigned only" | Only an assigned user can perform actions on a draft of the Content item. |
-| `null` | "none" | All users can perform actions on all drafts. |
+| `userId` | "Assigned only" | Users can perform actions only on Content items that are assigned to them or not assigned to anybody. |
+| `null` | "none" | Users can perform actions on all drafts, regardless of the assignments or whether drafts are locked or not. |
 
 ## Workflow Stage Limitation
 
