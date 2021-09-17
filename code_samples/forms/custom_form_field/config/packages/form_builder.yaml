@@ -1,0 +1,18 @@
+ez_platform_form_builder:
+    fields:
+        country:
+            name: Country
+            category: Custom form fields
+            thumbnail: '/bundles/ibexaplatformicons/img/all-icons.svg#places'
+            attributes:
+                label:
+                    name: Display label
+                    type: string
+                    validators:
+                        not_blank:
+                            message: You must provide a label for the field
+                help:
+                    name: Help text
+                    type: string
+            validators:
+                required: ~

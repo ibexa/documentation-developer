@@ -1,0 +1,11 @@
+services:
+    App\FormBuilder\Field\Mapper\CountryFieldMapper:
+        arguments:
+            $fieldIdentifier: country
+            $formType: Symfony\Component\Form\Extension\Core\Type\CountryType
+        tags:
+            - { name: ezplatform.form_builder.field_mapper }
+    App\EventSubscriber\FormFieldDefinitionSubscriber:
+        public: true
+        tags:
+            - kernel.event_subscriber

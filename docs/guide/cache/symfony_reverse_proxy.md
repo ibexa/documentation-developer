@@ -140,7 +140,7 @@ data-field-id="{{ field.id }}"
 
 As a result, your file should be similar to [this example.](https://github.com/ezsystems/ezplatform-form-builder/blob/master/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig)
 
-For more information about configuring Captcha fields, see [Captcha field](../../extending/extending_form_builder.md#captcha-field).
+For more information about configuring Captcha fields, see [Captcha field](../../guide/form_builder/forms.md#captcha-field).
 
 ### Use Fastly as HttpCache proxy
 
