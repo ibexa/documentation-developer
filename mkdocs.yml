@@ -199,6 +199,10 @@ nav:
                 - 'Page block attributes': 'guide/page/page_block_attributes.md'
                 - 'Page block validators': 'guide/page/page_block_validators.md'
                 - 'Create custom Page block': 'guide/page/create_custom_page_block.md'
+            - Forms:
+                - 'Forms': 'guide/form_builder/forms.md'
+                - 'Create custom Form field': 'guide/form_builder/create_custom_form_field.md'
+                - 'Customize email notifications': 'guide/form_builder/customize_email_notifications.md'
             - Workflow:
                 - 'Workflow': 'guide/workflow/workflow.md'
                 - 'Add custom workflow action': 'guide/workflow/add_custom_workflow_action.md'
@@ -524,7 +528,6 @@ nav:
             - 'Extending thumbnails': 'extending/extending_thumbnails.md'
             - 'Injecting custom components': 'extending/custom_components.md'
             - 'Import assets from a bundle': 'extending/import_assets_from_bundle.md'
-        - 'Extending Form Builder': 'extending/extending_form_builder.md'
         - 'Extending Calendar': 'extending/customizing_calendar.md'
         - 'Extending Image Editor': 'extending/extending_image_editor.md'
         - 'Extending Online Editor':
