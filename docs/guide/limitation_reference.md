@@ -370,6 +370,25 @@ A Limitation to specify if the User has access to content within a specific Subt
 
 For more information on how to restrict User's access to part of the Subtree follow [the example in the Admin management section](admin_panel.md#restrict-editing-to-part-of-the-tree).
 
+## Version Lock Limitation
+
+A Limitation to specify whether the User can perform actions, for example, edit 
+or unlock, on Content items that are in a workflow.
+
+| | |
+|-----------------|------------------------------------------------------------------------------------------------|
+| Identifier | `VersionLock` |
+| Value Class | `Ibexa\Workflow\Security\Limitation\VersionLockLimitation.php` |
+| Type Class | `Ibexa\Workflow\Security\Limitation\VersionLockLimitationType.php` |
+| Role Limitation | yes |
+
+### Possible values
+
+| Value | UI value | Description |
+|------|------|------|
+| `userId` | "Assigned only" | Users can perform actions only on Content items that are assigned to them or not assigned to anybody. |
+| `null` | "none" | Users can perform actions on all drafts, regardless of the assignments or whether drafts are locked or not. |
+
 ## Workflow Stage Limitation
 
 A Limitation to specify if the User can edit content in a specific workflow stage.

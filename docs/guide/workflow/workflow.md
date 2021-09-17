@@ -76,6 +76,17 @@ The notification is displayed in the user menu:
 
 ![Notification about content to review](../img/workflow_notification.png)
 
+#### Draft locking
+
+You can configure draft assignment in a way that when a user sends a draft to review, 
+only the assigned reviewer can either edit the draft or unlock it for editing, and no 
+other user can take it over. 
+
+Use the [Version Lock Limitation](../limitation_reference.md#version-lock-limitation), 
+set to "Assigned only", together with the `content/edit` and `content/unlock` 
+Policies to prevent users from editing and unlocking drafts that are assigned 
+to other users.
+
 ### Publishing content
 
 You can automatically publish a Content item once it goes through a specific transition.
