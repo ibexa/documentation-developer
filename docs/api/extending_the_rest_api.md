@@ -60,6 +60,19 @@ my_rest_hello_world:
     methods: [GET]
 ```
 
+To configure whether the endpoint uses CSRF validation, add the `csrf_protection` setting to the route:
+
+``` yaml
+my_rest_hello_world:
+    path: '/my_rest_bundle/hello/{name}'
+    defaults:
+        _controller: App\Rest\Controller\DefaultController::sayHello
+        csrf_protection: false
+    methods: [GET]
+```
+
+CSRF protection is enabled by default for all POST, PUT, and DELETE requests.
+
 Due to [EZP-23016 - Custom REST API routes (v2) are not accessible from the legacy backend](https://jira.ez.no/browse/EZP-23016), 
 custom REST routes must be prefixed with `ezpublish_rest_`, or they are not recognized.
 Modify the `config/services.yaml` file by adding the following code:

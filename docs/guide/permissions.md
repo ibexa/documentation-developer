@@ -172,7 +172,7 @@ Users are treated like other content, so to create and modify them the User need
 
 #### Editorial workflows 
 
-You can control which stages in an [editorial workflow](workflow.md) the user can work with.
+You can control which stages in an [editorial workflow](workflow/workflow.md) the user can work with.
 
 Do this by adding the `WorkflowStageLimitation` to `content` Policies such as `content/edit` or `content/publish`.
 

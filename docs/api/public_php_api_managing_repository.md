@@ -129,7 +129,7 @@ $this->objectStateService->setContentState($contentInfo, $objectStateGroup, $obj
 
 ### Getting workflow information
 
-To get information about a specific [workflow](../guide/workflow.md) for a Content item, use `WorkflowServiceInterface::loadWorkflowMetadataForContent`:
+To get information about a specific [workflow](../guide/workflow/workflow.md) for a Content item, use `WorkflowServiceInterface::loadWorkflowMetadataForContent`:
 
 ``` php
 $workflowMetadata = $this->workflowService->loadWorkflowMetadataForContent($content, $workflowName);
@@ -165,6 +165,13 @@ if ($this->workflowService->can($workflowMetadata, $transitionName)) {
     $this->workflowService->apply($workflowMetadata, $transitionName, 'Please review');
 }
 ```
+
+!!! tip
+
+    `\EzSystems\EzPlatformWorkflow\Value\WorkflowMetadata` object contains all 
+    information about a workflow, such as ID, name, transitions and current stage.
+    `\EzSystems\EzPlatformWorkflow\Value\WorkflowMetadata::$workflow` gives you direct 
+    access to native Symfony Workflow object.
 
 ## Bookmarks
 

@@ -87,6 +87,36 @@ As such, `query` is recommended when the search is based on user input.
 The difference between `query` and `filter` is only relevant when using Solr or Elasticsearch search engine.
 With the Legacy search engine both properties will give identical results.
 
+#### Processing large result sets
+
+To process a large result set, use `eZ\Publish\API\Repository\Iterator\BatchIterator`.
+`BatchIterator` divides the results of search or filtering into smaller batches.
+This enables iterating over results that are too large to handle due to memory constraints.
+
+`BatchIterator` takes one of the available adapters (`\eZ\Publish\API\Repository\Iterator\BatchIteratorAdapter` ) and optional batch size. For example: 
+
+``` php
+$query = new LocationQuery;
+
+$iterator = new BatchIterator(new BatchIteratorAdapter\LocationSearchAdapter($this->searchService, $query));
+
+foreach ($iterator as $result) {
+    $output->writeln($result->valueObject->getContentInfo()->name);
+}
+```
+
+You can also define the batch size by setting `$iterator->setBatchSize()`.
+
+The following BatchIterator adapters are available, for both `query` and `filter` searches:
+
+| Adapter                    | Method                                                      |
+|----------------------------|-------------------------------------------------------------|
+| `ContentFilteringAdapter`  | `\eZ\Publish\API\Repository\ContentService::find`           |
+| `ContentInfoSearchAdapter` | `\eZ\Publish\API\Repository\SearchService::findContentInfo` |
+| `ContentSearchAdapter`     | `\eZ\Publish\API\Repository\SearchService::findContent`     |
+| `LocationFilteringAdapter` | `\eZ\Publish\API\Repository\LocationService::find`          |
+| `LocationSearchAdapter`    | `\eZ\Publish\API\Repository\SearchService::findLocations`   |
+
 ## Repository filtering
 
 You can use the `ContentService::find(Filter)` method to find Content items or
