@@ -46,7 +46,7 @@ The API responded here with a standard `200 OK` HTTP response code, which is the
 Some GET requests, like [getting a Content item's current version](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/doc/specifications/rest/REST-API-V2.rst#get-current-version) may return a `301 Moved permanently` or `307 Temporary redirect` code.
 
 Errors are indicated with HTTP error codes, e.g. `404 Not Found` or `500 Internal Server Error`.
-The [REST specifications](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/doc/specifications/rest/REST-API-V2.rst) provide the list of every HTTP response code you can expect from implemented resources.
+The [REST reference](rest_api_reference/rest_api_reference.html) provide the list of every HTTP response code you can expect from implemented resources.
 
 ###### Content-Type header
 
@@ -344,7 +344,9 @@ Error handling in the REST API is fully based on HTTP error codes.
 The most common are: `401 Unauthorized`, `404 Not Found`, or `500 Internal Server Error`.
 The REST API uses then along with a few more, to allow proper error handling.
 
-For the complete list of error codes used and the conditions in which they apply, see [reference documentation.](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/doc/specifications/rest/REST-API-V2.rst).
+For the complete list of error codes and the conditions in which they apply, see the [reference documentation](rest_api_reference/rest_api_reference.html).
+
+### General error codes
 
 A few error codes apply to most resources (if they *are* applicable):
 
