@@ -2,9 +2,8 @@
 
 The REST API v2 introduced in eZ Platform allows you to interact with an eZ Platform installation using the HTTP protocol, following a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
 
-!!! info "API"
-
-    An Application Programming Interface (API) allows you to connect your code to eZ Platform. You can learn the basic idea behind it from [the eZ Blog article](http://ez.no/Blog/How-would-you-explain-what-an-API-is-to-your-mom).
+See [REST API reference](rest_api_reference/rest_api_reference.html) for detailed information about
+REST API resources and endpoints.
 
 ## Accessing the REST API
 

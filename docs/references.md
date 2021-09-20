@@ -2,7 +2,7 @@
 
 ## API
 
-- [REST API](https://doc.ezplatform.com/rest-api-reference)
+- [REST API](api/rest_api_reference/rest_api_reference.html)
 - [Public PHP API](api/public_php_api.md)
 - [Field Types](api/field_type_reference.md)
 
