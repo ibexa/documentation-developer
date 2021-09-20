@@ -1,0 +1,3171 @@
+#%RAML 1.0
+---
+title: Ibexa Platform
+baseUri: http://localhost/
+version: 2.5
+
+/:
+    displayName: Root resources
+    get:
+        displayName: List of root resources
+        description: Lists the root resources of the Ibexa Platform installation.
+        headers:
+            Accept:
+                description: If set, the list is return in XML or JSON format.
+                type: string
+                example:
+                  - application/vnd.ez.api.Root+xml
+                  - application/vnd.ez.api.Root+json
+        responses:
+            200:
+                body:
+                    application/vnd.ez.api.Root+xml:
+                        type: Root
+                        example: !include examples/GET/Root.xml.example
+                    application/vnd.ez.api.Root+json:
+                        type: Root
+                        example: !include examples/GET/Root.json.example
+
+/bookmark:
+    displayName: Managing bookmarks
+    get:
+        displayName: List of bookmarks
+        description: Lists bookmarked Locations for the current user.
+        queryParameters:
+            offset:
+                description: The offset of the result set.
+                type: integer
+                default: 0
+            limit:
+                description: The number of returned bookmarks.
+                type: integer
+                default: 25
+        headers:
+            Accept:
+                description: If set, the list is returned in XML or JSON format.
+                example:
+                    - application/vnd.ez.api.BookmarkList+xml
+                    - application/vnd.ez.api.BookmarkList+json
+        responses:
+            200:
+                body:
+                    application/vnd.ez.api.BookmarkList+xml:
+                        type: BookmarkList
+                        example: !include examples/bookmark/GET/BookmarkList.xml.example
+                    application/vnd.ez.api.BookmarkList+json:
+                        type: BookmarkList
+                        example: !include examples/bookmark/GET/BookmarkList.json.example
+            401:
+                description: Error - the user is not authorized to list bookmarks.
+    /{locationId}:
+        post:
+            displayName: Create bookmark
+            description: Add given Location to bookmarks of the current user.
+            responses:
+                201:
+                    description: Created.
+                401:
+                    description: Error - the user is not authorized to given Location.
+                404:
+                    description: Error - the given Location does not exist.
+                409:
+                    description: Error - Location is already bookmarked.
+        head:
+            displayName: Check if Location is bookmarked
+            description: Checks if the given Location is bookmarked by the current user.
+            responses:
+                200:
+                    description: OK - bookmarked.
+                401:
+                    description: Error - the user is not authorized for the given Location.
+                404:
+                    description: Error - the given Location does not exist / is not bookmarked.
+        delete:
+            displayName: Delete bookmark
+            description: Deletes the given Location from bookmarks of the current user.
+            responses:
+                204:
+                    description: Deleted - no content.
+                401:
+                    description: Error - the user is not authorized for the given Location.
+                404:
+                    description: Error - the given Location does not exist / is not bookmarked.
+
+/content:
+    displayName: Managing content
+    /objects:
+        post:
+            displayName: Create Content item
+            description: Creates a draft assigned to the authenticated user. If a different user ID is given in the input, the draft is assigned to the given user but this action requires special permissions for the authenticated user (this is useful for content staging where the transfer process does not have to authenticate with the user who created the Content item in the source server). The user needs to publish the Content item if it should be visible.
+            headers:
+                Accept:
+                    description: Content - If set, all information for the Content item including the embedded current version is returned in XML or JSON format. ContentInfo - If set, all information for the Content item (excluding the current version) is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ez.api.Content+xml
+                        application/vnd.ez.api.Content+json
+                        application/vnd.ez.api.ContentInfo+xml
+                        application/vnd.ez.api.ContentInfo+json
+                Content-Type:
+                    description: The ContentCreate schema encoded in XML or JSON format.
+                    example:  |
+                        application/vnd.ez.api.ContentCreate+xml
+                        application/vnd.ez.api.ContentCreate+json
+            body:
+                application/vnd.ez.api.ContentCreate+xml:
+                    type: ContentCreate
+                    example: !include examples/content/objects/POST/ContentCreate.xml.example
+            responses:
+                201:
+                    body:
+                        application/vnd.ez.api.Content+xml:
+                            type: Content
+                            example: !include examples/content/objects/POST/Content.xml.example
+                        application/vnd.ez.api.ContentInfo+xml:
+                            type: ContentInfo
+                            example: !include examples/content/objects/POST/ContentInfo.xml.example
+                400:
+                    description: Error - the input does not match the input schema definition or the validation on a field fails.
+                401:
+                    description: Error - the user is not authorized to create this Object in this Location.
+                404:
+                    description: Error - the parent Location specified in the request body does not exist.
+        get:
+            displayName: Load content by remote ID
+            description: Loads Content item for a given remote ID.
+            queryParameters:
+                remoteId:
+                    description: The remote ID of the Content item. If present, the Content item with the given remote ID is returned.
+            responses:
+                307:
+                    description: Temporary redirect.
+                404:
+                    description: Error - the content with the given remote ID does not exist.
+        /{contentId}:
+            get:
+                displayName: Load content
+                description: Loads the Content item for the given ID. Depending on the Accept header the current version is embedded (i.e. the current published version or if it does not exist, the draft of the authenticated user).
+                queryParameters:
+                     languages:
+                        description: Restricts the output of translatable fields to the given languages. Comma separated list.
+                        type: string
+                headers:
+                    Accept:
+                        description: Content -	If set, all information for the Content item including the embedded current version is returned in XML or JSON format. ContentInfo - If set, all information for the Content item (excluding the current version) is returned in XML or JSON format.
+                        example:  |
+                            application/vnd.ez.api.Content+xml
+                            application/vnd.ez.api.Content+json
+                            application/vnd.ez.api.ContentInfo+xml
+                            application/vnd.ez.api.ContentInfo+json
+                    If-None-Match:
+                        description: If the provided ETag matches the current ETag then a "304 Not Modified" is returned. The ETag changes if the meta data has changed, this happens also if there is a new published version.
+                        example: ETag
+                responses:
+                    200:
+                        body:
+                            application/vnd.ez.api.Content+xml:
+                                type: Content
+                                example: !include examples/content/objects/content_id/GET/Content.xml.example
+                            application/vnd.ez.api.ContentInfo+xml:
+                                type: ContentInfo
+                                example: !include examples/content/objects/content_id/GET/ContentInfo.xml.example
+                    401:
+                        description: Error - the user is not authorized to read this object. This could also happen if there is no published version yet and another user owns a draft of this Content item.
+                    404:
+                        description: Error - the ID is not found.
+            patch:
+                displayName: Update content
+                description: This method updates the content metadata which is independent from a version. PATCH or POST with header X-HTTP-Method-Override PATCH.
+                headers:
+                     Accept:
+                        description: If set, all information for the Content item (excluding the current version) is returned in XML or JSON format.
+                        example:  |
+                            application/vnd.ez.api.ContentInfo+xml
+                            application/vnd.ez.api.ContentInfo+json
+                     If-match:
+                         description: Causes to patch only if the specified ETag is the current one. Otherwise a 412 is returned.
+                         example: ETag
+                     Content-Type:
+                        description: The ContentUpdate schema encoded in XML or JSON format.
+                        example:  |
+                            application/vnd.ez.api.ContentUpdate+xml
+                            application/vnd.ez.api.ContentUpdate+json
+                body:
+                    application/vnd.ez.api.ContentUpdate+xml:
+                        type: ContentInfo
+                        example: !include examples/content/objects/content_id/PATCH/ContentUpdate.xml.example
+                responses:
+                    200:
+                        body:
+                            application/vnd.ez.api.ContentInfo+xml:
+                                type: ContentInfo
+                                example: !include examples/content/objects/content_id/PATCH/ContentInfo.xml.example
+                    400:
+                        description: Error - the input does not match the input schema definition.
+                    401:
+                        description: Error - the user is not authorized to update this object.
+                    404:
+                        description: Error - the content ID does not exist.
+                    412:
+                        description: Error - the current ETag does not match with the one provided in the If-Match header.
+                    415:
+                        description: Error - the media-type is not one of those specified in headers.
+            delete:
+                displayName: Delete Content
+                description: Deletes Content item. If Content item has multiple Locations, all of them will be deleted via delete a subtree.
+                responses:
+                    204:
+                        description: The Content item is deleted.
+                    404:
+                        description: Error - Content item was not found.
+                    401:
+                        description: Error - the user is not authorized to delete this Content item.
+            copy:
+                displayName: Copy content
+                description: Creates new Content item as a copy, under the given parent Location given in the destination header. COPY or POST with header X-HTTP-Method-Override COPY.
+                headers:
+                    destination:
+                        description: A Location resource to which the Content item should be copied.
+                responses:
+                    201:
+                        description: Copy created.
+                    401:
+                        description: Error - the user is not authorized to copy this Content item to the given Location.
+                    404:
+                        description: Error - the source or destination resource does not exist.
+            /translations/{languageCode}:
+                delete:
+                    displayName: Delete translation (permanently)
+                    description: Permanently deletes a translation from all versions of a Content item.
+                    responses:
+                        204:
+                            description: No Content
+                        401:
+                            description: Error - the user is not authorized to delete Content item (content/remove policy).
+                        404:
+                            description: Error - the Content item was not found.
+                        406:
+                            description: Error - the given translation does not exist for the Content item.
+                        409:
+                            description: Error - the specified translation is the only one any version has or is the main translation.
+            /currentversion:
+                get:
+                    displayName: Get current version
+                    description: Redirects to the current version of the Content item.
+                    responses:
+                        200:
+                            body:
+                                application/vnd.ez.api.Version+xml:
+                                    type: Version
+                                    example: !include examples/content/objects/content_id/currentversion/GET/Version.xml.example
+                        307:
+                            description: Temporary redirect.
+                        404:
+                            description: Error - the resource does not exist.
+                copy:
+                    displayName: Create a draft from current version
+                    description: The system creates a new draft as a copy of the current version. COPY or POST with header X-HTTP-Method-Override COPY.
+                    headers:
+                      Accept:
+                          description: If set, the updated version is returned in XML or JSON format.
+                          example:  |
+                              application/vnd.ez.api.Version+xml
+                              application/vnd.ez.api.Version+json
+                    responses:
+                        201:
+                            description: Created
+                            body:
+                                application/vnd.ez.api.Version+xml:
+                                    type: Version
+                                    example: !include examples/content/objects/content_id/currentversion/COPY/Version.xml.example
+                        401:
+                            description: Error - the user is not authorized to update this Content item.
+                        403:
+                            description: Error - the current version is already a draft.
+                        404:
+                            description: Error - the Content item was not found.
+            /versions:
+                get:
+                    displayName: List versions
+                    description: Returns a list of all versions of the Content item. This method does not include fields and relations in the version elements of the response.
+                    headers:
+                        Accept:
+                            description: If set, the version list is returned in XML or JSON format.
+                            example:  |
+                                application/vnd.ez.api.VersionList+xml
+                                application/vnd.ez.api.VersionList+json
+                    responses:
+                        200:
+                            body:
+                                application/vnd.ez.api.VersionList+xml:
+                                    type: VersionList
+                                    example: !include examples/content/objects/content_id/versions/GET/VersionList.xml.example
+                        401:
+                            description: Error - the user has no permission to read the versions.
+                /{versionNo}:
+                    get:
+                        displayName: Load version
+                        description: Loads a specific version of a Content item. This method returns Fields and relations.
+                        queryParameters:
+                            fields:
+                                description: Fields which should be returned in the response. Comma separated list.
+                                type: string
+                            responseGroups:
+                                description: Alternative comma separated lists of predefined Field groups.
+                                type: string
+                            languages:
+                                description: Restricts the output of translatable Fields to the given languages. Comma separated list.
+                                type: string
+                        headers:
+                            If-None-Match:
+                                description: Only return the version if the given ETag is the not current one, otherwise a 304 is returned.
+                                example: ETag
+                            Accept:
+                                description: If set, the version list is returned in XML or JSON format.
+                                example:  |
+                                    application/vnd.ez.api.Version+xml
+                                    application/vnd.ez.api.Version+json
+                        responses:
+                            200:
+                                body:
+                                    application/vnd.ez.api.Version+xml:
+                                        type: Version
+                                        example: !include examples/content/objects/content_id/versions/version_no/GET/Version.xml.example
+                            304:
+                                description: Error - the ETag does not match the current one.
+                            401:
+                                description: Error - the user is not authorized to read this Content item.
+                            404:
+                                description: Error - the ID or version is not found.
+                    patch:
+                        displayName: Update version
+                        description: A specific draft is updated. PATCH or POST with header X-HTTP-Method-Override PATCH.
+                        queryParameters:
+                            languages:
+                                description: Restricts the output of translatable Fields to the given languages. Comma separated list.
+                                type: string
+                        headers:
+                            Accept:
+                                description: If set, the updated version is returned in XML or JSON format.
+                                example:  |
+                                    application/vnd.ez.api.Version+xml
+                                    application/vnd.ez.api.Version+json
+                            If-match:
+                                description: Performs the patch only if the specified ETag is the current one.
+                            Content-Type:
+                                description: The VersionUpdate schema encoded in XML or JSON format.
+                                example:  |
+                                    application/vnd.ez.api.VersionUpdate+xml
+                                    application/vnd.ez.api.VersionUpdate+json
+                        body:
+                            application/vnd.ez.api.VersionUpdate+xml:
+                                type: VersionUpdate
+                                example: !include examples/content/objects/content_id/versions/version_no/PATCH/VersionUpdate.xml.example
+                        responses:
+                            200:
+                                body:
+                                    application/vnd.ez.api.Version+xml:
+                                        type: Version
+                                        example: !include examples/content/objects/content_id/versions/version_no/PATCH/Version.xml.example
+                            400:
+                                description: Error - the input does not match the input schema definition.
+                            401:
+                                description: Error - the user is not authorized to update this version.
+                            403:
+                                description: Error - the version is not allowed to change - i.e. version is not a DRAFT.
+                            404:
+                                description: Error - the content ID or version ID does not exist.
+                            412:
+                                description: Error - the current ETag does not match with the one provided in the If-Match header.
+                    copy:
+                        displayName: Create a draft from a version
+                        description: The system creates a new draft as a copy of the given version. COPY or POST with header X-HTTP-Method-Override COPY.
+                        headers:
+                            Accept:
+                                description: If set, the updated version is returned in XML or JSON format.
+                                example:  |
+                                    application/vnd.ez.api.Version+xml
+                                    application/vnd.ez.api.Version+json
+                        responses:
+                            201:
+                                description: Created.
+                                body:
+                                    application/vnd.ez.api.Version+xml:
+                                        type: Version
+                                        example: !include examples/content/objects/content_id/versions/version_no/COPY/Version.xml.example
+                            401:
+                                description: Error - the user is not authorized to update this Content item.
+                            404:
+                                description: Error - the Content item was not found.
+                    delete:
+                        displayName: Delete content version
+                        description: Deletes the content version.
+                        responses:
+                            204:
+                                description: No Content - the version is deleted.
+                            404:
+                                description: Error - the Content item or version were not found.
+                            401:
+                                description: Error - the user is not authorized to delete this version.
+                            403:
+                                description: Error - the version is in published state.
+                    publish:
+                        displayName: Publish a content version
+                        description: Publishes the content version. PUBLISH or POST with header X-HTTP-Method-Override PUBLISH
+                        responses:
+                            204:
+                                description: No Content - the content version is published.
+                            401:
+                                description: Error - the user is not authorized to publish this version.
+                            403:
+                                description: Error - the version is not a draft.
+                            404:
+                                description: Error - the Content item or version were not found.
+                    /translations/{languageCode}:
+                        delete:
+                            displayName: Delete translation from version draft
+                            description: Removes a translation from a version draft.
+                            responses:
+                                204:
+                                    description: No Content - removes a translation from a version draft.
+                                401:
+                                    description: Error - the user is not authorized to delete this translation.
+                                403:
+                                    description: Error - the version is not in draft state.
+                                404:
+                                    description: Error - the Content item or version number were not found.
+                                406:
+                                    description: Error - the given translation does not exist for the version.
+                                409:
+                                    description: Error - the specified translation is the only one the version has or is the main translation.
+                    /relations:
+                        get:
+                            displayName: Load Relations of Content item version
+                            description: Loads the Relations of the given version.
+                            queryParameters:
+                                offset:
+                                    description: The offset of the result set.
+                                    type: integer
+                                limit:
+                                    description: The number of bookmarks returned.
+                                    type: integer
+                            headers:
+                                Accept:
+                                    description: If set, the Relation is returned in XML or JSON format.
+                                    example:  |
+                                        application/vnd.ez.api.RelationList+xml
+                                        application/vnd.ez.api.RelationList+json
+                            responses:
+                                200:
+                                    body:
+                                        application/vnd.ez.api.RelationList+xml:
+                                            type: RelationList
+                                            example: !include examples/content/objects/content_id/versions/version_no/relations/GET/RelationList.xml.example
+                                401:
+                                    description: Error - the user is not authorized to read this Content item.
+                                404:
+                                    description: Error - the Content item was not found.
+                        post:
+                            displayName: Create new Relation
+                            description: Creates a new Relation of type COMMON for the given draft.
+                            headers:
+                                Accept:
+                                    description: If set, the updated version is returned in XML or JSON format.
+                                    example:  |
+                                        application/vnd.ez.api.Relation+xml
+                                        application/vnd.ez.api.Relation+json
+                                Content-Type:
+                                    description: The RelationCreate schema encoded in XML or JSON format.
+                                    example:  |
+                                        application/vnd.ez.api.RelationCreate+xml
+                                        application/vnd.ez.api.RelationCreate+json
+                            body:
+                                application/vnd.ez.api.RelationCreate+xml:
+                                    type: Relation
+                                    example: !include examples/content/objects/content_id/versions/version_no/relations/POST/RelationCreate.xml.example
+                            responses:
+                                201:
+                                    body:
+                                        application/vnd.ez.api.Relation+xml:
+                                            type: Relation
+                                            example: !include examples/content/objects/content_id/versions/version_no/relations/POST/Relation.xml.example
+                        /{relationId}:
+                            get:
+                                displayName: Load Relation
+                                description: Loads a Relation for the given Content item.
+                                headers:
+                                    Accept:
+                                        description: If set, the Relation is returned in XML or JSON format.
+                                        example:  |
+                                            application/vnd.ez.api.Relation+xml
+                                            application/vnd.ez.api.Relation+json
+                                responses:
+                                    200:
+                                        description: OK - loads a Relation for the given Content item.
+                                        body:
+                                            application/vnd.ez.api.Relation+xml:
+                                                type: Relation
+                                                example: !include examples/content/objects/content_id/versions/version_no/relations/relation_id/GET/Relation.xml.example
+                                    401:
+                                        description: Error - the user is not authorized to read this Content item.
+                                    404:
+                                        description: Error - the Content item with the given ID or the Relation does not exist.
+                            delete:
+                                displayName: Delete Relation
+                                description: Deletes a Relation of the given draft.
+                                responses:
+                                    204:
+                                        description: No Content - deleted a Relation of the given draft.
+                                    401:
+                                        description: Error - the user is not authorized to delete this Relation.
+                                    403:
+                                        description: Error - the Relation is not of type COMMON or the given version is not a draft.
+                                    404:
+                                        description: Error - Content item  or the Relation were not found in the given version.
+            /relations:
+                get:
+                    displayName: Load Relations of Content item
+                    description: Redirects to the Relations of the current version.
+                    responses:
+                      307:
+                          description: Temporary redirect.
+                      401:
+                          description: Error - the user is not authorized to read this Content item.
+                      404:
+                          description: Error - the Content item was not found.
+            /locations:
+                    post:
+                        displayName: Create new Location for Content item
+                        description: Creates a new Location for the given Content item.
+                        headers:
+                            Accept:
+                                description: If set, the new Location is returned in XML or JSON format.
+                                example:  |
+                                    application/vnd.ez.api.Location+xml
+                                    application/vnd.ez.api.Location+json
+                            Content-Type:
+                                description: The LocationCreate schema encoded in XML or JSON format.
+                                example:  |
+                                    application/vnd.ez.api.LocationCreate+json
+                                    application/vnd.ez.api.LocationCreate+xml
+                        body:
+                            application/vnd.ez.api.LocationCreate+xml:
+                                type: LocationCreate
+                                example: !include examples/content/objects/content_id/locations/POST/LocationCreate.xml.example
+                        responses:
+                            201:
+                                body:
+                                    application/vnd.ez.api.Location+xml:
+                                        type: Location
+                                        example: !include examples/content/objects/content_id/locations/POST/Location.xml.example
+                            400:
+                                description: Error - the input does not match the input schema definition.
+                            401:
+                                description: Error - the user is not authorized to create this Location.
+                            403:
+                                description: Error - a Location under the given parent ID already exists.
+                    get:
+                        displayName: Get Locations for Content item
+                        description: Loads all Locations for the given Content item.
+                        headers:
+                            Accept:
+                                description: If set, the Location list is returned in XML or JSON format.
+                                example:  |
+                                    application/vnd.ez.api.LocationList+xml
+                                    application/vnd.ez.api.LocationList+json
+                            If-None-Match:
+                                description: ETag
+                        responses:
+                            200:
+                                body:
+                                    application/vnd.ez.api.LocationList+xml:
+                                        type: LocationList
+                                        example: !include examples/content/objects/content_id/locations/GET/LocationList.xml.example
+                            401:
+                                description: Error - the user is not authorized to read this Content item.
+                            404:
+                                description: Error - the Content item with the given ID does not exist.
+            /objectstates:
+                get:
+                    displayName: Get Object states of Content item
+                    description: Returns the Object states of a Content item
+                    headers:
+                        Accept:
+                            description: If set, the Object states are returned in XML or JSON format.
+                            example: |
+                                application/vnd.ez.api.ContentObjectStates+xml
+                                application/vnd.ez.api.ContentObjectStates+json
+                        If-None-Match:
+                            description: ETag
+                    responses:
+                        200:
+                            description: OK - returns the Object state.
+                            body:
+                                application/vnd.ez.api.ContentObjectStates+xml:
+                                    type: ContentObjectStates
+                                    example: !include examples/content/objects/content_id/objectstates/GET/ContentObjectStates.xml.example
+                        404:
+                            description: Error - The Content item does not exist.
+                patch:
+                    displayName: Set Object states of Content item
+                    description: Updates Object states of a Content item. An Object state in the input overrides the state of the Object state group. PATCH or POST with header X-HTTP-Method-Override PATCH.
+                    headers:
+                        Accept:
+                            description: If set, the updated Object state is returned in XML or JSON format.
+                            example: |
+                                application/vnd.ez.api.ObjectState+xml
+                                application/vnd.ez.api.ObjectState+json
+                        Content-Type:
+                            description: The Content item Object states input schema encoded in XML or JSON format.
+                            example: |
+                                application/vnd.ez.api.ObjectStateUpdate+xml
+                                application/vnd.ez.api.ObjectStateUpdate+json
+                        If-Match:
+                            description: ETag
+                    body:
+                        application/vnd.ez.api.ObjectState+xml:
+                            type: ObjectStateUpdate
+                    responses:
+                        204:
+                            description: OK - Object state updated.
+                            body:
+                                application/vnd.ez.api.ObjectState+xml:
+                                    type: ObjectState
+                        400:
+                            description: Error - The input does not match the input schema definition.
+                        401:
+                            description: Error - The user is not authorized to set an Object state.
+                        403:
+                            description: Error - The input contains multiple Object states of the same Object state group.
+                        412:
+                            description: Error - The current ETag does not match the one provided in the If-Match header.
+    /objectstategroups:
+        get:
+            displayName: List Object state groups
+            description: Returns a list of all Object state groups.
+            headers:
+                Accept:
+                    description: If set, the Object state group list is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ez.api.ObjectStateGroupList+xml
+                        application/vnd.ez.api.ObjectStateGroupList+json
+                If-None-Match:
+                    description: ETag
+            responses:
+                200:
+                    description: OK - returns a list of Object state groups.
+                    body:
+                        application/vnd.ez.api.ObjectStateGroupList+xml:
+                            type: ObjectStateGroupList
+                            example: !include examples/content/objectstategroups/GET/ObjectStateGroupList.xml.example
+                        application/vnd.ez.api.ObjectStateGroupList+json:
+                            type: ObjectStateGroupList
+                            # example: !include examples/content/objectstategroups/GET/ObjectStateGroupList.json.example
+                401:
+                    description: Error - The user has no permission to read Object state groups.
+        post:
+            displayName: Create Object state group
+            description: Creates a new Object state group.
+            headers:
+                Accept:
+                    description: If set, the new Object state group is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ez.api.ObjectStateGroup+xml
+                        application/vnd.ez.api.ObjectStateGroup+json
+                Content-Type:
+                    description: The Object state group input schema encoded in XML or JSON format.
+                    example: |
+                        application/vnd.ez.api.ObjectStateGroupCreate+json
+                        application/vnd.ez.api.ObjectStateGroupCreate+xml
+            body:
+                application/vnd.ez.api.ObjectStateGroupCreate+xml:
+                    type: ObjectStateGroupCreate
+                    #example: !include examples/content/objectstategroups/POST/ObjectStateGroupCreate.xml.example
+                application/vnd.ez.api.ObjectStateGroupCreate+json:
+                    type: ObjectStateGroupCreate
+                    #example: !include examples/content/objectstategroups/POST/ObjectStateGroupCreate.json.example
+            responses:
+                201:
+                    description: Object state group created.
+                    body:
+                        application/vnd.ez.api.ObjectStateGroup+xml:
+                            type: ObjectStateGroup
+                            example: !include examples/content/objectstategroups/POST/ObjectStateGroup.xml.example
+                400:
+                    description: Error - The input does not match the input schema definition.
+                401:
+                    description: Error - The user is not authorized to create an Object state group.
+                403:
+                    description: Error - An Object state group with the same identifier already exists.
+        /{objectStateGroupId}:
+            get:
+                displayName: Get Object state group
+                description: Returns the Object state group with the provided ID.
+                headers:
+                    Accept:
+                        description: If set, the Object state group is returned in XML or JSON format.
+                        example: |
+                            application/vnd.ez.api.ObjectStateGroup+xml
+                            application/vnd.ez.api.ObjectStateGroup+json
+                    If-None-Match:
+                        description: ETag
+                responses:
+                    200:
+                        description: OK - returns the Object state group.
+                        body:
+                            application/vnd.ez.api.ObjectStateGroup+xml:
+                                type: ObjectStateGroup
+                                example: !include examples/content/objectstategroups/object_state_group_id/GET/ObjectStateGroup.xml.example
+                            application/vnd.ez.api.ObjectStateGroup+json:
+                                type: ObjectStateGroup
+                                # example: !include examples/content/objectstategroups/object_state_group_id/GET/ObjectStateGroup.xml.example
+                    401:
+                        description: Error - The user is not authorized to read this Object state group.
+                    404:
+                        description: Error - The Object state group does not exist.
+            patch:
+                displayName: Update Object state group
+                description: Updates an Object state group. PATCH or POST with header X-HTTP-Method-Override PATCH.
+                headers:
+                    Accept:
+                        description: If set, the updated Object state group is returned in XML or JSON format.
+                        example: |
+                            application/vnd.ez.api.ObjectStateGroup+xml
+                            application/vnd.ez.api.ObjectStateGroup+json
+                    Content-Type:
+                        description: The Object state group input schema encoded in XML or JSON format.
+                        example: |
+                            application/vnd.ez.api.ObjectStateGroupUpdate+json
+                            application/vnd.ez.api.ObjectStateGroupUpdate+xml
+                    If-Match:
+                        description: ETag
+                body:
+                    application/vnd.ez.api.ObjectStateGroupUpdate+xml:
+                        type: ObjectStateGroupUpdate
+                        example: !include examples/content/objectstategroups/object_state_group_id/PATCH/ObjectStateGroupUpdate.xml.example
+                responses:
+                    200:
+                        description: OK - Object stated group updated.
+                        body:
+                            application/vnd.ez.api.ObjectStateGroup+xml:
+                                type: ObjectStateGroup
+                                example: !include examples/content/objectstategroups/object_state_group_id/PATCH/ObjectStateGroup.xml.example
+                    400:
+                        description: Error - The input does not match the input schema definition.
+                    401:
+                        description: Error - The user is not authorized to update an Object state group.
+                    403:
+                        description: Error - An Object state group with the provided identifier already exists.
+                    412:
+                        description: Error - The current ETag does not match the one provided in the If-Match header.
+            delete:
+                displayName: Delete Object state group
+                description: Deletes the given Object state group including Object states.
+                responses:
+                    204:
+                        description: No Content - Object state group deleted.
+                    401:
+                        description: Error - The user is not authorized to delete an Object state group.
+                    404:
+                        description: Error - The Object state group does not exist.
+            /objectstates:
+                get:
+                    displayName: List Object states
+                    description: Returns a list of all Object states of the given group.
+                    headers:
+                        Accept:
+                            description: If set, the Object state list is returned in XML or JSON format.
+                            example: |
+                                application/vnd.ez.api.ObjectStateList+xml
+                                application/vnd.ez.api.ObjectStateList+json
+                        If-None-Match:
+                            description: ETag
+                    responses:
+                        200:
+                            description: OK - returns a list of Object states.
+                            body:
+                                application/vnd.ez.api.ObjectStateList+xml:
+                                    type: ObjectStateList
+                                    example: !include examples/content/objectstategroups/object_state_group_id/objectstates/GET/ObjectStateList.xml.example
+                        401:
+                            description: Error - The user has no permission to read Object states.
+                post:
+                    displayName: Create Object state
+                    description: Creates a new Object state.
+                    headers:
+                        Accept:
+                            description: If set, the new Object state is returned in XML or JSON format.
+                            example:
+                                application/vnd.ez.api.ObjectState+xml
+                                application/vnd.ez.api.ObjectState+json
+                        Content-Type:
+                            description: The Object state input schema encoded in XML or JSON format.
+                            example: |
+                                application/vnd.ez.api.ObjectStateCreate+json
+                                application/vnd.ez.api.ObjectStateCreate+xml
+                    body:
+                        application/vnd.ez.api.ObjectStateCreate+xml:
+                            type: ObjectStateCreate
+                            example: !include examples/content/objectstategroups/object_state_group_id/objectstates/POST/ObjectStateCreate.xml.example
+                    responses:
+                        201:
+                            description: Object state created.
+                            body:
+                                application/vnd.ez.api.ObjectState+xml:
+                                    type: ObjectState
+                                    example: !include examples/content/objectstategroups/object_state_group_id/objectstates/POST/ObjectState.xml.example
+                        400:
+                            description: Error - The input does not match the input schema definition.
+                        401:
+                            description: Error - The user is not authorized to create an Object state.
+                        403:
+                            description: Error - An Object state with the same identifier already exists in the given group.
+                /{objectStateId}:
+                    get:
+                        displayName: Get Object state
+                        description: Returns the Object state.
+                        headers:
+                            Accept:
+                                description: If set, the Object State is returned in XML or JSON format.
+                                example: |
+                                    application/vnd.ez.api.ObjectState+xml
+                                    application/vnd.ez.api.ObjectState+json
+                            If-None-Match:
+                                description: ETag
+                        responses:
+                            200:
+                                description: OK - returns the Object state.
+                                body:
+                                    application/vnd.ez.api.ObjectState+xml:
+                                        type: ObjectState
+                                        example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/GET/ObjectState.xml.example
+                            401:
+                                description: Error - The user is not authorized to read this Object state.
+                            404:
+                                description: Error - The Object state does not exist.
+                    patch:
+                        displayName: Update Object state
+                        description: Updates an Object state. PATCH or POST with header X-HTTP-Method-Override PATCH.
+                        headers:
+                            Accept:
+                                description: If set, the updated Object state is returned in XML or JSON format.
+                                example: |
+                                    application/vnd.ez.api.ObjectState+xml
+                                    application/vnd.ez.api.ObjectState+json
+                            Content-Type:
+                                description: The Object state input schema encoded in XML or JSON format.
+                                example: |
+                                    application/vnd.ez.api.ObjectStateUpdate+json
+                                    application/vnd.ez.api.ObjectStateUpdate+xml
+                            If-Match:
+                                description: ETag
+                        body:
+                            application/vnd.ez.api.ObjectStateUpdate+xml:
+                                type: ObjectStateUpdate
+                                example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/PATCH/ObjectStateUpdate.xml.example
+                        responses:
+                            200:
+                                description: OK - Object State updated
+                                body:
+                                    application/vnd.ez.api.ObjectState+xml:
+                                        type: ObjectState
+                                        example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/PATCH/ObjectState.xml.example
+                            400:
+                                description: Error - The input does not match the input schema definition.
+                            401:
+                                description: Error - The user is not authorized to update the Object state.
+                            403:
+                                description: Error - An Object state with the provided identifier already exists in this group.
+                            412:
+                                description: Error - The current ETag does not match the one provided in the If-Match header.
+                    delete:
+                        displayName: Delete Object state
+                        description: Deletes provided Object state.
+                        responses:
+                            204:
+                                description: No Content - Object state deleted.
+                            401:
+                                description: Error - The user is not authorized to delete an Object state.
+                            404:
+                                description: Error - The Object state does not exist.
+    /binary/images/{imageId}/variations/{variationIdentifier}:
+        get:
+            displayName: Load an image variation
+            description: Loads an image variation.
+            headers:
+                Accept:
+                    description: If set, the image is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ez.api.ImageVariation+xml
+                        application/vnd.ez.api.ImageVariation+json
+            responses:
+                200:
+                    body:
+                         application/vnd.ez.api.ImageVariation+xml:
+                            type: ContentImageVariation
+                            example: !include examples/content/binary/images/image_id/variations/variation_identifier/GET/ImageVariation.xml.example
+                401:
+                    description: Error - the user is not authorized to read this Content item.
+                404:
+                    description: Error - image ID doesn't match any image or variationIdentifier doesn't match any known variation.
+    /locations:
+        get:
+            displayName: Load Locations by id/remoteId/urlAlias
+            description: Loads the Location for a given ID (x), remote ID or URL alias.
+            queryParameters:
+                id:
+                    description: The ID of the Location. If present, the Location with the given ID is returned.
+                remoteId:
+                    description: The remote ID of the Location. If present, the Location with the given remote ID is returned.
+                urlAlias:
+                    description: One of the URL aliases of the Location. If present, the Location with given URL Alias is returned.
+            responses:
+                307:
+                    description: Temporary redirect to the main resource URL.
+                200:
+                    body:
+                        application/vnd.ez.api.LocationList+xml:
+                            type: Location
+                            example: !include examples/content/locations/GET/LocationList.xml.example
+                404:
+                    description: Error - the Location with the given ID (remote ID or URL  Alias) does not exist.
+        /{path}:
+            get:
+                displayName: Load Location
+                description: Loads the Location for the given path e.g. '/content/locations/1/2/61'.
+                headers:
+                    Accept:
+                        description: If set, the new Location is returned in XML or JSON format.
+                        example:  |
+                            application/vnd.ez.api.Location+xml
+                            application/vnd.ez.api.Location+json
+                    If-None-Match:
+                        description: ETag
+                responses:
+                    200:
+                        body:
+                            application/vnd.ez.api.Location+xml:
+                                type: Location
+                                example: !include examples/content/locations/path/GET/Location.xml.example
+                    401:
+                        description: Error - the user is not authorized to read this Location.
+                    404:
+                        description: Error - the Location with the given path does not exist.
+            move:
+                displayName: Move subtree
+                description: Moves Location to a different parent. The destination can also be '/content/trash' where the Location is put into the trash. (NOTE - Be aware that the user might lose access to the item after it has been moved, for example when read access is limited by a subtree). MOVE or POST with header X-HTTP-Method-Override MOVE.
+                headers:
+                    Destination:
+                        description: A parent Location resource to which the Location is moved e.g. '/api/ezp/v2/content/locations/1/63'.
+                responses:
+                    201:
+                        description: Created. If destination is '/api/ezp/v2/content/trash' and content only has one Location (NOTE - Like on normal subtree moves, be aware that the user might lose access to the item after it has been moved to Trash.)
+                    204:
+                        description: No Content. If destination is '/api/ezp/v2/content/trash' and content still has other Locations (no trash item is created).
+                    401:
+                        description: Error - the user is not authorized to move this Location.
+                    404:
+                        description: Error - the Location with the given ID does not exist.
+            copy:
+                displayName: Copy subtree
+                description: Copies the subtree to a different parent. COPY or POST with header X-HTTP-Method-Override COPY.
+                headers:
+                    Destination:
+                        description: A parent Location resource to which the Location is moved e.g. '/api/ezp/v2/content/locations/1/63'.
+                responses:
+                    201:
+                        description: Created. Copied the subtree to a different parent.
+                    401:
+                        description: Error - the user is not authorized to move this Location.
+                    404:
+                        description: Error - the Location with the given ID does not exist.
+            delete:
+                displayName: Delete subtree
+                description: Deletes the complete subtree for the given path. Every Content item which does not have any other Location is deleted. Otherwise the deleted Location is removed from the Content item. The children are recursively deleted.
+                responses:
+                    204:
+                        description: No Content - deleted.
+                    401:
+                        description: Error - the user is not authorized to delete this subtree.
+                    404:
+                        description: Error - the Location with the given ID does not exist.
+            /children:
+                get:
+                    displayName: Get child Locations.
+                    description: Loads all child Locations for the given parent Location.
+                    queryParameters:
+                        offset:
+                            description: The offset of the result set.
+                            type: integer
+                        limit:
+                            description: The number of Locations returned.
+                            type: integer
+                    headers:
+                        Accept:
+                            description: If set, the new Location list is returned in XML or JSON format.
+                            example:  |
+                                 application/vnd.ez.api.LocationList+xml
+                                 application/vnd.ez.api.LocationList+json
+                    responses:
+                        200:
+                            body:
+                                application/vnd.ez.api.LocationList+xml:
+                                    type: LocationList
+                                    example: !include examples/content/locations/path/children/GET/LocationList.xml.example
+                        401:
+                            description: Error - the user is not authorized to read this Content item.
+                        404:
+                            description: Error - the Content item with the given ID does not exist.
+            /urlaliases:
+                get:
+                    displayName: List URL aliases for Location
+                    description: Returns the list of URL aliases for a Location.
+                    queryParameters:
+                        custom:
+                            description: Indicates whether autogenerated (false) or manual URL aliases (true) should be returned (default true).
+                            type: boolean
+                    headers:
+                        Accept:
+                            description: If set, the URL alias list contains only references and is returned in XML or JSON format.
+                            example: |
+                                application/vnd.ez.api.UrlAliasRefList+xml
+                                application/vnd.ez.api.UrlAliasRefList+json
+                    responses:
+                        200:
+                            description: OK - returns the list of URL aliases.
+                            body:
+                                application/vnd.ez.api.UrlAliasRefList+xml:
+                                    type: UrlAliasRefList
+                                    exammple: examples/content/locations/path/urlaliases/GET/UrlAliasRefList.xml.example
+                        400:
+                            description: Error - The user has no permission to read URL aliases.
+                        401:
+                            description: Error - The Location was not found.
+        /{locationId}:
+            patch:
+                displayName: Update Location
+                description: Updates the Location. This method can also be used to hide/reveal a Location via the hidden field in the LocationUpdate. PATCH or POST with header X-HTTP-Method-Override PATCH.
+                headers:
+                    Accept:
+                        description: If set, the Location is returned in XML or JSON format.
+                        example:  |
+                            application/vnd.ez.api.Location+xml
+                            application/vnd.ez.api.Location+json
+                    Content-Type:
+                        description: The LocationUpdate schema encoded in XML or JSON format.
+                        example:  |
+                            application/vnd.ez.api.LocationUpdate+xml
+                            application/vnd.ez.api.LocationUpdate+json
+                    If-Match:
+                        description: ETag
+                body:
+                    application/vnd.ez.api.LocationUpdate+xml:
+                        type: LocationUpdateStruct
+                        example: !include examples/content/locations/location_id/PATCH/LocationUpdate.xml.example
+                responses:
+                    200:
+                        body:
+                            application/vnd.ez.api.Location+xml:
+                                type: Location
+                                example: !include examples/content/locations/location_id/PATCH/Location.xml.example
+                    401:
+                        description: Error - the user is not authorized to update this Location.
+                    404:
+                        description: Error - the Location with the given ID does not exist.
+            swap:
+                displayName: Swap Location
+                description: Swaps the Location of a Content item with the given Location of another Content item. SWAP or POST with header X-HTTP-Method-Override SWAP.
+                headers:
+                    Destination:
+                        description: A parent Location resource to which the Location is moved e.g. '/api/ezp/v2/content/locations/1/63'.
+                responses:
+                    204:
+                        description: No Content. Swapped the Location of a Content item with the given Location of another Content item.
+                    401:
+                        description: Error - the user is not authorized to swap this Location.
+                    404:
+                        description: Error - the Location with the given ID does not exist.
+    /views:
+        post:
+            displayName: Create View
+            description: Executes a query and returns View including the results. The View input reflects the criteria model of the public API. Will respond with a 301, as the resource has been moved to /views (Platform 1.0) - DEPRECATED.
+            headers:
+                Accept:
+                    description: The View in XML or JSON format.
+                    example:  |
+                        application/vnd.ez.api.View+xml
+                        application/vnd.ez.api.View+json
+                        application/vnd.ez.api.View+xml; version=1.1
+                        application/vnd.ez.api.View+json; version=1.1
+                Content-Type:
+                    description: The View input in XML or JSON format.
+                    example:  |
+                        application/vnd.ez.api.ViewInput+xml
+                        application/vnd.ez.api.ViewInput+json
+                        application/vnd.ez.api.ViewInput+xml; version=1.1
+                        application/vnd.ez.api.ViewInput+json; version=1.1
+            responses:
+                301:
+                    description: Moved permanently.
+                400:
+                    description: Error - the input does not match the input schema definition.
+        get:
+            displayName: List Views
+            description: Returns a list of View URIs. The list includes a public View and a private View of the authenticated user. - DEPRECATED
+            headers:
+                Accept:
+                    description: The view link list in XML or JSON format.
+                    example:  |
+                        application/vnd.ez.api.RefList+xml
+                        application/vnd.ez.api.RefList+json
+            responses:
+                200:
+                    description: OK - list of View URIs.
+        /{identifier}:
+            get:
+                displayName: Get View
+                description: Returns the View - DEPRECATED.
+                headers:
+                    Accept:
+                        description: The View results in XML or JSON format.
+                        example:  |
+                            application/vnd.ez.api.View+xml
+                            application/vnd.ez.api.View+json
+                responses:
+                    200:
+                        description: OK - returns the View.
+                    401:
+                        description: Error - the View is not public and from another user.
+            delete:
+                displayName: Delete View
+                description: The given View is deleted - DEPRECATED.
+                responses:
+                    204:
+                        description: No content - the given View is deleted.
+                    401:
+                        description: Error - the user is not authorized to delete this View.
+                    404:
+                        description: Error - the View does not exist.
+            /results:
+                get:
+                    displayName: Get results of existing View
+                    description: Returns result of the View - DEPRECATED.
+                    headers:
+                        Accept:
+                            description: The View excluding results in XML or JSON format.
+                            example:  |
+                                application/vnd.ez.api.ViewResult+xml
+                                application/vnd.ez.api.ViewResult+json
+                    responses:
+                        200:
+                            description: OK - result of the View.
+                        401:
+                            description: Error - the View is not public and from another user.
+    /sections:
+        post:
+            displayName: Create new Section
+            description: Creates a new Section.
+            headers:
+                Accept:
+                    description: If set, the new Section is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ez.api.Section+xml
+                        application/vnd.ez.api.Section+json
+                Content-Type:
+                    description: The Section input schema encoded in XML or JSON format.
+                    example:  |
+                        application/vnd.ez.api.SectionInput+json
+                        application/vnd.ez.api.SectionInput+xml
+            body:
+                application/vnd.ez.api.SectionInput+xml:
+                    type: SectionInput
+                    example: !include examples/content/sections/POST/SectionInput.xml.example
+            responses:
+                201:
+                    body:
+                        application/vnd.ez.api.Section+xml:
+                            type: Section
+                            example: !include examples/content/sections/POST/Section.xml.example
+        get:
+            displayName: Get Sections
+            description: Returns a list of all Sections.
+            queryParameters:
+                identifer:
+                    description: Only the Section with the given identifier is returned.
+            headers:
+                Accept:
+                    description: If set, the Section list is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ez.api.SectionList+xml
+                        application/vnd.ez.api.SectionList+json
+                If-None-Match:
+                    description: ETag
+            responses:
+                200:
+                    body:
+                        application/vnd.ez.api.SectionList+xml:
+                            type: SectionList
+                            example: !include examples/content/sections/GET/SectionList.xml.example
+                401:
+                    description: Error - The user has no permission to read the Section.
+        /{sectionId}:
+            get:
+                displayName: Get Section
+                description: Returns the Section by given Section ID.
+                headers:
+                    Accept:
+                        description: If set, the Section is returned in XML or JSON format.
+                        example:  |
+                            application/vnd.ez.api.Section+xml
+                            application/vnd.ez.api.Section+json
+                    If-None-match:
+                        description: ETag
+                responses:
+                    200:
+                        body:
+                            application/vnd.ez.api.Section+xml:
+                                type: Section
+                                example: !include examples/content/sections/section_id/GET/Section.xml.example
+                    401:
+                        description: Error - The user is not authorized to read this Section.
+                    404:
+                        description: Error - The Section does not exist.
+            patch:
+                displayName: Update a Section
+                description: Updates a Section. PATCH or POST with header X-HTTP-Method-Override PATCH.
+                headers:
+                    Accept:
+                        description: If set, the updated Section is returned in XML or JSON format.
+                        example:  |
+                            application/vnd.ez.api.Section+xml
+                            application/vnd.ez.api.Section+json
+                    Content-Type:
+                        description: The Section input schema encoded in XML or JSON.
+                        example:  |
+                            application/vnd.ez.api.SectionInput+xml
+                            application/vnd.ez.api.SectionInput+json
+                    If-Match:
+                        description: ETag
+                body:
+                    application/vnd.ez.api.SectionInput+xml:
+                        type: SectionInput
+                        example: !include examples/content/sections/section_id/PATCH/SectionInput.xml.example
+                responses:
+                    200:
+                        description: OK - Section updated.
+                        body:
+                            application/vnd.ez.api.Section+xml:
+                                type: Section
+                                example: !include examples/content/sections/section_id/PATCH/Section.xml.example
+                    400:
+                        description: Error - the input does not match the input schema definition.
+                    401:
+                       description: Error - the user is not authorized to create this Section.
+                    403:
+                       description: Error - a Section with the given identifier already exists.
+                    412:
+                       description: Error - the current ETag does not match with the one provided in the If-Match header.
+            delete:
+                displayName: Delete Section
+                description: The given Section is deleted.
+                #headers: TODO
+                # a little obvious?
+                    #Accept:
+                        #description: If set, in the case of an error the error message is returned in XML or JSON format
+                        #example:  |
+                            #application/vnd.ez.api.ErrorMessage+xml
+                            #application/vnd.ez.api.ErrorMessage+json
+                responses:
+                    204:
+                        description: No Content - given Section is deleted.
+                    401:
+                        description: Error - the user is not authorized to delete this Section.
+                    404:
+                        description: Error - the Section does not exist.
+    /trash:
+        get:
+            displayName: List Trash items
+            description: Returns a list of all items in the Trash.
+            queryParameters:
+                limit:
+                    description: Only limit. Items will be returned, starting with the offset.
+                offset:
+                    description: Offset of the result set.
+            headers:
+                Accept:
+                    description: If set, the Trash item list is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ez.api.Trash+xml
+                        application/vnd.ez.api.Trash+json
+            responses:
+                200:
+                    description: OK - returns the list of items in the Trash.
+                    body:
+                        application/vnd.ez.api.Trash+xml:
+                            type: Trash
+                            example: !include examples/content/trash/GET/Trash.xml.example
+                401:
+                    description: Error - The user has no permission to read the Trash.
+        delete:
+            displayName: Empty Trash
+            description: Empties the Trash.
+            responses:
+                204:
+                    description: No Content - Trash emptied.
+                401:
+                    description: Error - The user is not authorized to empty all items from Trash.
+        /{trashItemid}:
+            get:
+                displayName: Get Trash item
+                description: Returns the item in Trash with the provided ID.
+                headers:
+                    Accept:
+                        description: If set, the item in Trash is returned in XML or JSON format.
+                        example: |
+                            application/vnd.ez.api.TrashItem+xml
+                            application/vnd.ez.api.TrashItem+json
+                responses:
+                    200:
+                        body:
+                            application/vnd.ez.api.TrashItem+xml:
+                                type: TrashItem
+                                example: examples/content/trash/trash_itemid/GET/TrashItem.xml.example
+                    401:
+                        description: Error - The user has no permission to read the item in Trash.
+                    404:
+                        description: Error - An item in Trash with the provided ID does not exist.
+            move:
+                displayName: Untrash Content item
+                description: Restores an item from Trash. MOVE or POST with header X-HTTP-Method-Override MOVE.
+                headers:
+                    Destination:
+                        description: If the destination Location URI is provided, the item from Trash is restored under this Location, otherwise it is restored under its original parent Location.
+                responses:
+                    201:
+                        description: Item restored.
+                    401:
+                        description: Error - The user is not authorized to restore this item from Trash.
+                    403:
+                        description: Error - The provided parent Location does not exist.
+                    404:
+                        description: Error - The provided item does not exist in Trash.
+            delete:
+                displayName: Delete Trash item
+                description: Deletes the provided item from Trash.
+                responses:
+                    204:
+                        description: No Content - item deleted.
+                    401:
+                        description: Error - The user is not authorized to delete the provided item.
+                    404:
+                        description: Error - The provided item does not exist in Trash.
+    /urlaliases:
+        get:
+            displayName: List global URL aliases
+            description: Returns the list of global URL aliases.
+            headers:
+                Accept:
+                    description: If set, the URL alias list contains only references and is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ez.api.UrlAliasRefList+xml
+                        application/vnd.ez.api.UrlAliasRefList+json
+            responses:
+                200:
+                    description: OK - returns the list of URL aliases.
+                    body:
+                        application/vnd.ez.api.UrlAliasRefList+xml:
+                            type: UrlAliasRefList
+                            example: !include examples/content/urlaliases/GET/UrlAliasRefList.xml.example
+                401:
+                    description: Error - The user has no permission to read URL aliases.
+        post:
+            displayName: Create URL alias
+            description: Creates a URL alias.
+            headers:
+                Accept:
+                    description: If set, the created URL alias is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ez.api.UrlAlias+xml
+                        application/vnd.ez.api.UrlAlias+json
+                Content-Type:
+                    description: The URL alias input schema encoded in XML or JSON format.
+                    example: |
+                        application/vnd.ez.api.UrlAliasCreate+xml
+                        application/vnd.ez.api.UrlAliasCreate+json
+            body:
+                application/vnd.ez.api.UrlAliasCreate+xml:
+                    type: UrlAliasCreate
+                    example: !include examples/content/urlaliases/POST/UrlAliasCreate.xml.example
+            responses:
+                201:
+                    description: URL alias created.
+                    body:
+                        application/vnd.ez.api.UrlAlias+xml:
+                            type: UrlAlias
+                            example: !include examples/content/urlaliases/POST/UrlAlias.xml.example
+                400:
+                    description: Error - The input does not match the input schema definition.
+                401:
+                    description: Error - The user is not authorized to create a URL alias.
+                403:
+                    description: Error - A URL alias with the same identifier already exists.
+        /{urlAliasId}:
+            get:
+                displayName: Get URL alias
+                description: Returns the URL alias with the given ID.
+                headers:
+                    Accept:
+                        description: If set, the URL alias is returned in XML or JSON format.
+                        example: |
+                            application/vnd.ez.api.UrlAlias+xml
+                            application/vnd.ez.api.UrlAlias+json
+                responses:
+                    200:
+                        description: OK - returns the URL alias.
+                        body:
+                            application/vnd.ez.api.UrlAlias+xml:
+                                type: UrlAlias
+                                example: !include examples/content/urlaliases/url_alias_id/GET/UrlAlias.xml.example
+                    401:
+                        description: Error - The user is not authorized to read URL aliases.
+                    404:
+                        description: Error - The URL alias does not exist.
+            delete:
+                displayName: Delete URL alias
+                description: Deletes the provided URL alias.
+                responses:
+                    204:
+                        description: No Content - URL alias deleted.
+                    401:
+                        description: Error - The user is not authorized to delete a URL alias.
+                    404:
+                        description: Error - The URL alias does not exist.
+    /urlwildcards:
+        get:
+            displayName: List URL wildcards
+            description: Returns a list of URL wildcards.
+            headers:
+                Accept:
+                    description: If set, the URL wildcard is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ez.api.UrlWildcardList+xml
+                        application/vnd.ez.api.UrlWildcardList+json
+            responses:
+                200:
+                    description: OK - returns a list of URL wildcards.
+                    body:
+                        application/vnd.ez.api.UrlWildcardList+xml:
+                            type: UrlWildcardList
+                            example: !include examples/content/urlwildcards/GET/UrlWildcardList.xml.example
+                401:
+                    description: Error - The user has no permission to read URL wildcards.
+        post:
+            displayName: Create URL wildcard
+            description: Creates a new URL wildcard.
+            headers:
+                Accept:
+                    description: If set, the new URL wildcard is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ez.api.UrlWildcard+xml
+                        application/vnd.ez.api.UrlWildcard+json
+                Content-Type:
+                    description: The URL Wildcard input schema encoded in XML or JSON format.
+                    example: |
+                        application/vnd.ez.api.UrlWildcardCreate+xml
+                        application/vnd.ez.api.UrlWildcardCreate+json
+            body:
+                application/vnd.ez.api.UrlWildcardCreate.xml:
+                    type: UrlWildcardCreate
+                    # example: !include examples/content/urlwildcards/POST/UrlWildcardCreate.xml.example
+            responses:
+                201:
+                    description: URL wildcard created.
+                    body:
+                        application/vnd.ez.api.UrlWildcard+xml:
+                            type: UrlWildcard
+                            example: !include examples/content/urlwildcards/POST/UrlWildcard.xml.example
+                400:
+                    description: Error - The input does not match the input schema definition.
+                401:
+                    description: Error - The user is not authorized to create a URL wildcard.
+                403:
+                    description: Error - A URL wildcard with the same identifier already exists.
+        /{wildcardId}:
+            get:
+                displayName: Get URL wildcard
+                description: Returns the URL wildcard with the given ID.
+                headers:
+                    Accept:
+                        description: If set, the URL wildcard is returned in XML or JSON format.
+                        example: |
+                            application/vnd.ez.api.UrlWildcard+xml
+                            application/vnd.ez.api.UrlWildcard+json
+                responses:
+                    200:
+                        description: OK - returns the URL wildcard.
+                        body:
+                            application/vnd.ez.api.UrlWildcard+xml:
+                                type: UrlWildcard
+                                example: !include examples/content/urlwildcards/wildcard_id/GET/UrlWildcard.xml.example
+                    401:
+                        description: Error - The user is not authorized to read URL wildcards.
+                    404:
+                        description: Error - The URL wildcard does not exist.
+            delete:
+                displayName: Delete URL wildcard
+                description: Deletes the given URL wildcard.
+                responses:
+                    204:
+                        description: No Content - URL wildcard deleted.
+                    401:
+                        description: Error - The user is not authorized to delete a URL wildcard.
+                    404:
+                        description: Error - The URL wildcard does not exist.
+    /typegroups:
+        displayName: Managing Content Type groups
+        get:
+            displayName: Get Content Type groups
+            description: Returns a list of all Content Type groups. If an identifier is provided, loads the Content Type group for this identifier.
+            queryParameters:
+                identifier:
+                    description: The identifier of the Content Type group. If present, the Content Type group with this identifier is returned.
+                    required: false
+            headers:
+                Accept:
+                    description: If set, the Content Type group list is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ez.api.ContentTypeGroupList+xml
+                        application/vnd.ez.api.ContentTypeGroupList+json
+            responses:
+                200:
+                    description: OK - returns a list of Content Type groups.
+                    body:
+                        application/vnd.ez.api.ContentTypeGroupList+xml:
+                            type: ContentTypeGroupList
+                            example: !include examples/content/typegroups/GET/ContentTypeGroupList.xml.example
+                307:
+                    description: Temporary redirect.
+                401:
+                    description: Error - The user has no permission to read Content Types.
+                404:
+                    description: Error - The Content Type group with the given identifier does not exist.
+        post:
+            displayName: Create Content Type group
+            description: Creates a new Content Type group.
+            headers:
+                Accept:
+                    description: If set, the new Content Type group is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ez.api.ContentTypeGroup+xml
+                        application/vnd.ez.api.ContentTypeGroup+json
+                Content-Type:
+                    description: The Content Type group input schema encoded in XML or JSON.
+                    example: |
+                        application/vnd.ez.api.ContentTypeGroupInput+xml
+                        application/vnd.ez.api.ContentTypeGroupInput+json
+            body:
+                application/vnd.ez.api.ContentTypeGroupInput+xml:
+                    type: ContentTypeGroupInput
+                    example: !include examples/content/typegroups/POST/ContentTypeGroupInput.xml.example
+            responses:
+                201:
+                    description: Content Type group created.
+                    body:
+                        application/vnd.ez.api.ContentTypeGroup+xml:
+                            type: ContentTypeGroup
+                            example: !include examples/content/typegroups/POST/ContentTypeGroup.xml.example
+                400:
+                    description: Error - The input does not match the input schema definition.
+                401:
+                    description: Error - The user is not authorized to create this Content Type group.
+                403:
+                    description: Error - A Content Type group with the same identifier already exists.
+        /{contentTypeGroupId}:
+            get:
+                displayName: Get Content Type group
+                description: Returns the Content Type group with provided ID.
+                headers:
+                    Accept:
+                        description: If set, the Content Type group is returned in XML or JSON format.
+                        example: |
+                            application/vnd.ez.api.ContentTypeGroup+xml
+                            application/vnd.ez.api.ContentTypeGroup+json
+                    If-None-Match:
+                        description: ETag
+                responses:
+                    200:
+                        description: OK - returns the Content Type group.
+                        body:
+                            application/vnd.ez.api.ContentTypeGroup+xml:
+                                type: ContentTypeGroup
+                                example: !include examples/content/typegroups/content_type_group_id/GET/ContentTypeGroup.xml.example
+                    401:
+                        description: Error - The user is not authorized to read this Content Type group.
+                    404:
+                        description: Error - The Content Type group does not exist.
+            patch:
+                displayName: Update Content Type group
+                description: Updates a Content Type group. PATCH or POST with header X-HTTP-Method-Override PATCH.
+                headers:
+                    Accept:
+                        description: If set, the updated Content Type group is returned in XML or JSON format.
+                        example: |
+                            application/vnd.ez.api.ContentTypeGroup+xml
+                            application/vnd.ez.api.ContentTypeGroup+json
+                    Content-Type:
+                        description: The Content Type group input schema encoded in XML or JSON format.
+                        example: |
+                            application/vnd.ez.api.ContentTypeGroupInput+xml
+                            application/vnd.ez.api.ContentTypeGroupInput+json
+                    If-Match:
+                        description: ETag causes patching only if the specified ETag is the current one. Otherwise a 412 is returned.
+                body:
+                    application/vnd.ez.api.ContentTypeGroupInput+xml:
+                        type: ContentTypeGroupInput
+                        example: !include examples/content/typegroups/content_type_group_id/PATCH/ContentTypeGroupInput.xml.example
+                responses:
+                    200:
+                        description: Content Type group updated.
+                        body:
+                            application/vnd.ez.api.ContentTypeGroup+xml:
+                                type: ContentTypeGroup
+                                example: !include examples/content/typegroups/content_type_group_id/PATCH/ContentTypeGroup.xml.example
+                    400:
+                        description: Error - The input does not match the input schema definition.
+                    401:
+                        description: Error - The user is not authorized to create this Content Type group.
+                    403:
+                        description: Error - A Content Type group with the given identifier already exists.
+                    412:
+                        description: Error - The current ETag does not match the one provided in the If-Match header.
+            delete:
+                displayName: Delete Content Type group
+                description: Deletes the provided Content Type group.
+                responses:
+                    204:
+                        description: No Content - Content Type group deleted.
+                    401:
+                        description: Error - The user is not authorized to delete this Content Type group.
+                    403:
+                        description: Error - The Content Type group is not empty.
+                    404:
+                        description: Error - The Content Type group does not exist.
+            /types:
+                get:
+                    displayName: List Content Types for group
+                    description: Returns a list of Content Types in the provided group.
+                    headers:
+                        Accept:
+                            description: If set, the list of Content Type info objects or Content Types (including Field definitions) is returned in XML or JSON format.
+                            example: |
+                                application/vnd.ez.api.ContentTypeInfoList+xml
+                                application/vnd.ez.api.ContentTypeInfoList+json
+                                application/vnd.ez.api.ContentTypeList+xml
+                                application/vnd.ez.api.ContentTypeList+json
+                    responses:
+                        200:
+                            description: OK - returns a list on Content Types.
+                            body:
+                                application/vnd.ez.api.ContentTypeInfoList+xml:
+                                    type: ContentTypeInfoList
+                                    example: !include examples/content/typegroups/content_type_group_id/types/GET/ContentTypeInfoList.xml.example
+                                application/vnd.ez.api.ContentTypeList+xml:
+                                    type: ContentTypeList
+                                    example: !include examples/content/typegroups/content_type_group_id/types/GET/ContentTypeList.xml.example
+                        401:
+                            description: Error - The user has no permission to read the Content Types.
+                post:
+                    displayName: Create Content Type
+                    description: Creates a new Content Type draft in the given Content Type group.
+                    queryParameters:
+                        publish:
+                            description: If true, the Content Type is published after creating (default false).
+                            type: boolean
+                    headers:
+                        Accept:
+                            description: If set, the new Content Type or draft is returned in XML or JSON format.
+                            example: |
+                                application/vnd.ez.api.ContentType+xml
+                                application/vnd.ez.api.ContentType+json
+                        Content-Type:
+                            description: The Content Type Create schema encoded in XML or JSON format.
+                            example: |
+                                application/vnd.ez.api.ContentTypeCreate+xml
+                                application/vnd.ez.api.ContentTypeCreate+json
+                    body:
+                        application/vnd.ez.api.ContentTypeCreate.xml:
+                            type: ContentTypeCreate
+                            example: !include examples/content/typegroups/content_type_group_id/types/POST/ContentTypeCreate.xml.example
+                    responses:
+                        201:
+                            description: Content Type created.
+                            body:
+                                application/vnd.ez.api.ContentType+xml:
+                                    type: ContentType
+                                    example: !include examples/content/typegroups/content_type_group_id/types/POST/ContentType.xml.example
+                        400:
+                            description: Error - The input does not match the input schema definition. Validation on a Field definition fails. Validation of the Content Type fails, e.g. multiple Fields of a same singular Field Type are provided. Publish is set to true and the input is not complete e.g. no Field definitions are provided.
+                        401:
+                            description: Error - The user is not authorized to create this Content Type.
+                        403:
+                            description: Error - A Content Type with same identifier already exists.
+    /types:
+        displayName: Managing Content Types
+        get:
+            displayName: List Content Types
+            description: Returns a list of Content Types.
+            queryParameters:
+                identifier:
+                    description: Retrieves the Content Type for the given identifer.
+                remoteId:
+                    description: Retrieves the Content Type for the given remote ID.
+                limit:
+                    description: Only 'limit' items will be returned, starting with the offset.
+                offset:
+                    description: Offset of the result set.
+                orderby:
+                    description: One of (name|lastmodified).
+                sort:
+                    description: One of (asc|desc).
+            headers:
+                Accept:
+                    description: If set, the list of Content Type info objects or Content Types (including Field definitions) is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ez.api.ContentTypeInfoList+xml
+                        application/vnd.ez.api.ContentTypeInfoList+json
+                        application/vnd.ez.api.ContentTypeList+xml
+                        application/vnd.ez.api.ContentTypeList+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ez.api.ContentTypeInfoList+xml:
+                            type: ContentTypeInfoList
+                            example: !include examples/content/types/GET/ContentTypeInfoList.xml.example
+                    description: OK - returns a list of Content Types.
+                401:
+                    description: Error - The user has no permission to read the Content Types.
+        /{contentTypeId}:
+            get:
+                displayName: Get Content Type
+                description: Returns the Content Type with the provided ID.
+                headers:
+                    Accept:
+                        description: If set, the Content Type is returned in XML or JSON format.
+                        example: |
+                            application/vnd.ez.api.ContentType+xml
+                            application/vnd.ez.api.ContentType+json
+                    If-None-Match:
+                        description: ETag
+                responses:
+                    200:
+                        body:
+                            application/vnd.ez.api.ContentType+xml:
+                                type: ContentType
+                                example: !include examples/content/types/content_type_id/GET/ContentType.xml.example
+                        description: OK - returns the Content Type.
+                    401:
+                        description: Error - The user is not authorized to read this Content Type.
+                    404:
+                        description: Error - The Content Type does not exist.
+            copy:
+                displayName: Copy Content Type
+                description: Copies a Content Type. A new remote ID is generated, and the identifier of the copy is set to 'copy_of_originalBaseIdentifier_newTypeId' (or another random string). COPY or POST with header X-HTTP-Method-Override COPY.
+                responses:
+                    201:
+                        description: Copy of the Content Type created.
+                    401:
+                        description: Error - The user is not authorized to copy this Content Type.
+            post:
+                displayName: Create Draft
+                description: Creates a draft and updates it with the given data.
+                headers:
+                    Accept:
+                        description: If set, the new Content Type draft is returned in XML or JSON format.
+                        example: |
+                            application/vnd.ez.api.ContentTypeInfo+xml
+                            application/vnd.ez.api.ContentTypeInfo+json
+                    Content-Type:
+                        description: The Content Type Update schema encoded in XML or JSON format.
+                        example: |
+                            application/vnd.ez.api.ContentTypeUpdate+xml
+                            application/vnd.ez.api.ContentTypeUpdate+json
+                body:
+                    application/vnd.ez.api.ContentTypeUpdate+xml:
+                        type: ContentTypeUpdate
+                        example: !include examples/content/types/content_type_id/POST/ContentTypeUpdate.xml.example
+                responses:
+                    201:
+                        description: Draft created.
+                        body:
+                            application/vnd.ez.api.ContentTypeInfo+xml:
+                                type: ContentTypeInfo
+                                example: !include examples/content/types/content_type_id/POST/ContentTypeInfo.xml.example
+                    400:
+                        description: Error - The input does not match the input schema definition.
+                    401:
+                        description: Error - The user is not authorized to create the draft.
+                    403:
+                        description: Error - A Content Type with the given new identifier already exists. A draft already exists.
+            delete:
+                displayName: Delete Content Type
+                description: Deletes the provided Content Type.
+                responses:
+                    204:
+                        description: No Content - Content Type deleted.
+                    401:
+                        description: Error - The user is not authorized to delete this Content Type.
+                    403:
+                        description: Error - There are object instances of this Content Type.
+                    404:
+                        description: Error - The Content Type does not exist.
+            /{fieldDefinitionId}:
+                get:
+                    displayName: Get Field definition
+                    description: Returns the Field definition by the given ID.
+                    headers:
+                        Accept:
+                            description: If set, the Field definition is returned in XML or JSON format.
+                            example: |
+                                application/vnd.ez.api.FieldDefinition+xml
+                                application/vnd.ez.api.FieldDefinition+json
+                    responses:
+                        200:
+                            description: OK - returns the Field definition.
+                            body:
+                                application/vnd.ez.api.FieldDefinition+xml:
+                                    type: FieldDefinition
+                                    example: !include examples/content/types/content_type_id/field_definition_id/GET/FieldDefinition.xml.example
+                        401:
+                            description: Error - The user is not authorized to read the Content Type.
+                        404:
+                            description: Error - The Content Type does not exist.
+            /draft:
+                patch:
+                    displayName: Update Content Type draft
+                    description: Updates metadata of a draft. This method does not handle Field definitions. PATCH or POST with header X-HTTP-Method-Override PATCH.
+                    headers:
+                        Accept:
+                            description: If set, the new Content Type draft is returned in XML or JSON format.
+                            example: |
+                                application/vnd.ez.api.ContentTypeInfo+xml
+                                application/vnd.ez.api.ContentTypeInfo+json
+                        Content-Type:
+                            description: The Content Type update schema encoded in XML or JSON format.
+                            example: |
+                                application/vnd.ez.api.ContentTypeUpdate+xml
+                                application/vnd.ez.api.ContentTypeUpdate+json
+                    body:
+                        application/vnd.ez.api.ContentTypeUpdate+xml:
+                            type: ContentTypeUpdate
+                            example: !include examples/content/types/content_type_id/draft/PATCH/ContentTypeUpdate.xml.example
+                    responses:
+                        200:
+                            description: Draft metadata updated.
+                            body:
+                                application/vnd.ez.api.ContentTypeInfo+xml:
+                                    type: ContentTypeInfo
+                                    example: !include examples/content/types/content_type_id/draft/PATCH/ContentTypeInfo.xml.example
+
+                        400:
+                            description: Error - The input does not match the input schema definition.
+                        401:
+                            description: Error - The user is not authorized to update the draft.
+                        403:
+                            description: Error - A Content Type with the given new identifier already exists.
+                        404:
+                            description: Error - There is no draft for this Content Type.
+                publish:
+                    displayName: Publish Content Type draft
+                    description: Publishes a Content Type draft. PUBLISH or POST with header X-HTTP-Method-Override PUBLISH.
+                    responses:
+                        200:
+                            body:
+                                application/vnd.ez.api.ContentType+xml:
+                                    type: ContentType
+                                    example: !include examples/content/types/content_type_id/draft/PUBLISH/ContentType.xml.example
+                            description: Content Type draft published.
+                        401:
+                            description: Error - The user is not authorized to publish this Content Type draft.
+                        403:
+                            description: Error - The Content Type draft is not complete, e.g. there is no Field definition provided.
+                        404:
+                            description: Error - If there is no draft or Content Type with the given ID.
+                delete:
+                    displayName: Delete Content Type draft
+                    description: Deletes the provided Content Type draft.
+                    responses:
+                        204:
+                            description: No Content - Content Type draft deleted.
+                        401:
+                            description: Error - The user is not authorized to delete this Content Type draft.
+                        404:
+                            description: Error - The Content Type draft does not exist.
+                /fieldDefinitions:
+                    post:
+                        displayName: Add Content Type Draft Field definition
+                        description: Creates a new Field definition for the given Content Type.
+                        headers:
+                            Accept:
+                                description: If set, the new Field definition is returned in XML or JSON format.
+                                example: |
+                                    application/vnd.ez.api.FieldDefinition+xml
+                                    application/vnd.ez.api.FieldDefinition+json
+                            Content-Type:
+                                description: The Field Definition Create schema encoded in XML or JSON format.
+                                example: |
+                                    application/vnd.ez.api.FieldDefinitionCreate+xml
+                                    application/vnd.ez.api.FieldDefinitionCreate+json
+                        body:
+                            application/vnd.ez.api.FieldDefinitionCreate+xml:
+                                type: FieldDefinitionCreate
+                                example: !include examples/content/types/content_type_id/draft/field_definitions/POST/FieldDefinitionCreate.xml.example
+                        responses:
+                            201:
+                                description: Field definition created.
+                                body:
+                                    application/vnd.ez.api.FieldDefinition+xml:
+                                        type: FieldDefinition
+                                        example: !include examples/content/types/content_type_id/draft/field_definitions/POST/FieldDefinition.xml.example
+                            400:
+                                description: Error - The input does not match the input schema definition or validation on the Field definition fails.
+                            401:
+                                description: Error - The user is not authorized to add a Field definition.
+                            403:
+                                description: Error - A Field definition with the same identifier already exists in the given Content Type. The Field definition is of singular type, already existing in the given Content Type. The Field definition you want to add is of a type that can't be added to a Content Type that already has content instances.
+                    /{fieldDefinitionId}:
+                        get:
+                            displayName: Get Content Type Draft Field definition
+                            description: Returns the Field definition by the given ID.
+                            headers:
+                                Accept:
+                                    description: If set, the Field definition is returned in XML or JSON format.
+                                    example: |
+                                        application/vnd.ez.api.FieldDefinition+xml
+                                        application/vnd.ez.api.FieldDefinition+json
+                            responses:
+                                200:
+                                    description: OK - returns the Field definition.
+                                    body:
+                                        application/vnd.ez.api.FieldDefinition+xml:
+                                            type: FieldDefinition
+                                            example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/GET/FieldDefinition.xml.example
+                                401:
+                                    description: Error - The user is not authorized to read the Content Type draft.
+                                404:
+                                    description: Error - The Content Type or draft does not exist.
+                        patch:
+                            displayName: Update Content Type Draft Field definition
+                            description: Updates the attributes of a Field definition.
+                            headers:
+                                Accept:
+                                    description: If set, the updated Field definition is returned in XML or JSON format.
+                                    example: |
+                                        application/vnd.ez.api.FieldDefinition+xml
+                                        application/vnd.ez.api.FieldDefinition+json
+                                Content-Type:
+                                    description: The Field definition update schema encoded in XML or JSON format.
+                                    example: |
+                                        application/vnd.ez.api.FieldDefinitionUpdate+xml
+                                        application/vnd.ez.api.FieldDefinitionUpdate+json
+                            body:
+                                application/vnd.ez.api.FieldDefinitionUpdate+xml:
+                                    type: FieldDefinitionUpdate
+                                    example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/PATCH/FieldDefinitionUpdate.xml.example
+                            responses:
+                                200:
+                                    description: OK - attributes updated.
+                                    body:
+                                        application/vnd.ez.api.FieldDefinition+xml:
+                                            type: FieldDefinition
+                                            example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/PATCH/FieldDefinition.xml.example
+                                400:
+                                    description: Error - The input does not match the input schema definition.
+                                401:
+                                    description: Error - The user is not authorized to update the Field definition.
+                                403:
+                                    description: Error - A Field definition with the given identifier already exists in the given Content Type.
+                        delete:
+                            displayName: Delete Content Type Draft Field definition
+                            description: Deletes the provided Field definition.
+                            responses:
+                                204:
+                                    description: No Content - Field definition deleted.
+                                401:
+                                    description: Error - The user is not authorized to delete this Content Type.
+                                403:
+                                    description: Error - There is no draft of the Content Type assigned to the authenticated user.
+            /groups:
+                get:
+                    displayName: Get groups of Content Type
+                    description: Returns the Content Type group to which Content Type belongs to.
+                    headers:
+                        Accept:
+                            description: If set, the Content Type group list is returned in XML or JSON format.
+                            example: |
+                                application/vnd.ez.api.ContentTypeGroupRefList+xml
+                                application/vnd.ez.api.ContentTypeGroupRefList+json
+                    responses:
+                        200:
+                            body:
+                                application/vnd.ez.api.ContentTypeGroupRefList+xml:
+                                    type: ContentTypeGroupRefList
+                                    example: !include examples/content/types/content_type_id/groups/GET/ContentTypeGroupRefList.xml.example
+                        401:
+                            description: Error - The user is not authorized to read this Content Type.
+                        404:
+                            description: Error - The Content Type does not exist.
+                post:
+                    displayName: Link group to Content Type
+                    description: Links a Content Type group to the Content Type and returns the updated group list.
+                    queryParameters:
+                        group:
+                            description: The URI of the group to which the Content Type should be linked to.
+                            type: string
+                    headers:
+                        Accept:
+                            description: If set, the updated Content Type group list is returned in XML or JSON format.
+                            example: |
+                                application/vnd.ez.api.ContentTypeGroupRefList+xml
+                                application/vnd.ez.api.ContentTypeGroupRefList+json
+                    responses:
+                        200:
+                            body:
+                                application/vnd.ez.api.ContentTypeGroupRefList+xml:
+                                    type: ContentTypeGroupRefList
+                                    example: !include examples/content/types/content_type_id/groups/POST/ContentTypeGroupRefList.xml.example
+                        400:
+                            description: Error - The input does not match the input schema definition.
+                        401:
+                            description: Error - The user is not authorized to add a group.
+                        403:
+                            description: Error - The Content Type is already assigned to the group.
+                /{id}:
+                    delete:
+                        displayName: Unlink group from Content Type
+                        description: Removes the given group from the Content Type and returns the updated group list.
+                        headers:
+                            Accept:
+                                description: If set, the updated Content Type group list is returned in XML or JSON format.
+                                example: |
+                                    application/vnd.ez.api.ContentTypeGroupRefList+xml
+                                    application/vnd.ez.api.ContentTypeGroupRefList+json
+                        responses:
+                            200:
+                                body:
+                                    application/vnd.ez.api.ContentTypeGroup+xml:
+                                        type: ContentTypeGroup
+                                        example: !include examples/content/types/content_type_id/groups/id/DELETE/ContentTypeGroup.xml.example
+                            401:
+                                description: Error - The user is not authorized to delete this Content Type.
+                            403:
+                                description: Error - Content Type cannot be unlinked from the only remaining group.
+                            404:
+                                description: Error - The resource does not exist.
+/views:
+    displayName: Views
+    post:
+        displayName: Create View
+        description: Executes a query and returns a View including the results. The View input reflects the criteria model of the public API.
+        headers:
+            Accept:
+                description: The view in XML or JSON format.
+                example:  |
+                    application/vnd.ez.api.View+xml
+                    application/vnd.ez.api.View+json
+                    application/vnd.ez.api.View+xml; version=1.1
+                    application/vnd.ez.api.View+json; version=1.1
+            Content-Type:
+                description: The view input in XML or JSON format.
+                example:  |
+                    application/vnd.ez.api.ViewInput+xml
+                    application/vnd.ez.api.ViewInput+json
+                    application/vnd.ez.api.ViewInput+xml; version=1.1
+                    application/vnd.ez.api.ViewInput+json; version=1.1
+        body:
+            application/vnd.ez.api.ViewInput+xml:
+                type: ViewInput
+                example: !include examples/views/POST/ViewInput.xml.example
+        responses:
+            200:
+                body:
+                    application/vnd.ez.api.View+xml; version=1.1:
+                        type: View
+                        example: !include examples/views/POST/View.xml.v11.example
+            400:
+              description: Error - the input does not match the input schema definition.
+/user:
+    displayName: Managing users
+    /groups:
+        get:
+            displayName: Load User Groups
+            description: Loads User Groups for either an an ID or a remote ID or a Role.
+            queryParameters:
+                roleId:
+                    description: Lists User Groups assigned to the given Role.
+                id:
+                    description: Retrieves the User Groups for the given ID.
+                remoteID:
+                    description: Retrieves the User Groups for the given remote ID.
+            headers:
+                Accept:
+                    description: UserGroupList - If set, the User Group List is returned in XML or JSON format. UserGroupRefList - If set, the link list of User Group is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ez.api.UserGroupList+xml
+                        application/vnd.ez.api.UserGroupList+json
+                        application/vnd.ez.api.UserGroupRefList+xml
+                        application/vnd.ez.api.UserGroupRefList+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ez.api.UserGroupList+xml:
+                            type: UserGroupList
+                            example: !include examples/user/groups/GET/UserGroupList.xml.example
+                401:
+                    description: Error - the user has no permission to read User Groups.
+        /root:
+            get:
+                # Currently does not work
+                displayName: Get root User Group
+                description: Redirects to the root User Group.
+                responses:
+                    301:
+                        description: Moved permanently.
+        /{path}:
+            get:
+                displayName: Load User Group
+                description: Loads User Groups for the given {path}.
+                headers:
+                    Accept:
+                        description: If set, the new User Group is returned in XML or JSON format.
+                        example: |
+                            application/vnd.ez.api.UserGroup+xml
+                            application/vnd.ez.api.UserGroup+json
+                    If-None-Match:
+                        description: ETag
+                responses:
+                    200:
+                        description: OK - loads User Groups.
+                        body:
+                            application/vnd.ez.api.UserGroup+xml:
+                                type: UserGroup
+                                example: !include examples/user/groups/path/GET/UserGroup.xml.example
+                    401:
+                       description: Error - the user has no permission to read User Groups.
+                    404:
+                       description: Error -	the User Group does not exist.
+            patch:
+                displayName: Update User Group
+                description: Updates a User Group. PATCH or POST with header X-HTTP-Method-Override PATCH.
+                headers:
+                    Accept:
+                        description: If set, the new User Group is returned in XML or JSON format.
+                        example:  |
+                            application/vnd.ez.api.UserGroup+xml
+                            application/vnd.ez.api.UserGroup+json
+                    Content-Type:
+                        description: The UserGroupUpdate schema encoded in XML or JSON format.
+                        example:  |
+                            application/vnd.ez.api.UserGroupUpdate+json
+                            application/vnd.ez.api.UserGroupUpdate+xml
+                    If-Match:
+                        description: Performs the PATCH only if the specified ETag is the current one. Otherwise a 412 is returned.
+                        example: ETag
+                body:
+                    application/vnd.ez.api.UserGroupUpdate+xml:
+                        type: UserGroupUpdate
+                        example: !include examples/user/groups/path/PATCH/UserGroupUpdate.xml.example
+                responses:
+                    200:
+                       description: OK - updated User Group.
+                       body:
+                           application/vnd.ez.api.UserGroup+xml:
+                               type: UserGroup
+                               example: !include examples/user/groups/path/PATCH/UserGroup.xml.example
+                    400:
+                       description: Error - the input does not match the input schema definition.
+                    401:
+                       description: Error - the user is not authorized to update the User Group.
+                    412:
+                       description: Error -	if the current ETag does not match with the one provided in the If-Match header.
+            delete:
+                displayName: Delete User Group
+                description: The given User Group is deleted.
+                responses:
+                    204:
+                       description: No content - the given User Group is deleted.
+                    401:
+                       description: Error - the user is not authorized to delete this Content Type.
+                    403:
+                       description: Error - the User Group is not empty.
+            move:
+                displayName: Move User Group
+                description: Moves the User Group to another parent. MOVE or POST with header X-HTTP-Method-Override MOVE.
+                headers:
+                    Destination:
+                        description: A parent group resource to which the Location is moved.
+                responses:
+                    201:
+                       description: Created - moves the User Group to another parent.
+                    401:
+                       description: Error - the user is not authorized to update the User Group.
+                    403:
+                       description: Error - the new parent does not exist.
+                    404:
+                       description: Error - the User Group does not exist.
+            /users:
+                post:
+                    displayName: Create User
+                    description: Creates a new User in the given Group.
+                    headers:
+                        Accept:
+                            description: If set, the new User is returned in XML or JSON format.
+                            example:  |
+                                application/vnd.ez.api.User+xml
+                                application/vnd.ez.api.User+json
+                        Content-Type:
+                            description: The UserCreate schema encoded in XML or JSON format.
+                            example:  |
+                                application/vnd.ez.api.UserCreate+json
+                                application/vnd.ez.api.UserCreate+xml
+                    body:
+                        application/vnd.ez.api.UserCreate+xml:
+                            type: UserCreate
+                            example: examples/user/groups/path/users/POST/UserCreate.xml.example
+                    responses:
+                        201:
+                            body:
+                                application/vnd.ez.api.User+xml:
+                                    type: User
+                                    example: !include examples/user/groups/path/users/POST/User.xml.example
+                        400:
+                            description: Error - the input does not match the input schema definition.
+                        401:
+                            description: Error - the user is not authorized to create this User.
+                        403:
+                            description: Error - a User with the same login already exists.
+                        404:
+                            description: Error - the Group with the given ID does not exist.
+            /subgroups:
+                post:
+                    displayName: Create User Group
+                    description: Creates a new User Group under the given parent. To create a top level group use '/user/groups/subgroups'.
+                    headers:
+                        Accept:
+                            description: If set, the new User Group is returned in XML or JSON format.
+                            example:  |
+                                application/vnd.ez.api.UserGroup+xml
+                                application/vnd.ez.api.UserGroup+json
+                        Content-Type:
+                            description: The UserGroupCreate schema encoded in XML or JSON format.
+                            example:  |
+                                application/vnd.ez.api.UserGroupCreate+json
+                                application/vnd.ez.api.UserGroupCreate+xml
+                    body:
+                        application/vnd.ez.api.UserGroupCreate+xml:
+                            type: UserGroupCreate
+                            example: !include examples/user/groups/path/subgroups/POST/UserGroupCreate.xml.example
+                    responses:
+                        201:
+                            body:
+                                application/vnd.ez.api.UserGroup+xml:
+                                    type: UserGroup
+                                    example: !include examples/user/groups/path/subgroups/POST/UserGroup.xml.example
+                        400:
+                            description: Error - the input does not match the input schema definition.
+                        401:
+                            description: Error - the user is not authorized to create this User Group.
+            /Roles:
+                get:
+                    displayName: Load Roles for User Group
+                    description: Returns a list of all Roles assigned to the given User Group.
+                    headers:
+                        Accept:
+                            description: If set, the Role assignment list is returned in XML or JSON format.
+                            example: |
+                                application/vnd.ez.api.RoleAssignmentList+xml
+                                application/vnd.ez.api.RoleAssignmentList+json
+                    responses:
+                        200:
+                            body:
+                                application/vnd.ez.api.RoleAssignmentList+xml:
+                                    type: RoleAssignmentList
+                                    example: !include examples/user/groups/path/roles/GET/RoleAssignmentList.xml.example
+                        400:
+                            description: Error - the user has no permission to read Roles.
+                post:
+                    displayName: Assign Role to User Group
+                    description: Assigns a Role to a User Group.
+                    headers:
+                        Accept:
+                            description: If set, the updated Role assignment list is returned in XML or JSON format.
+                            example:  |
+                                application/vnd.ez.api.RoleAssignmentList+xml
+                                application/vnd.ez.api.RoleAssignmentList+json
+                        Content-Type:
+                            description: The RoleAssignInput schema encoded in XML or JSON format.
+                            example:  |
+                                application/vnd.ez.api.RoleAssignInput+json
+                                application/vnd.ez.api.RoleAssignInput+xml
+                    body:
+                        application/vnd.ez.api.RoleAssignInput+xml:
+                            type: RoleAssignInput
+                            example: !include examples/user/groups/path/roles/POST/RoleAssignInput.xml.example
+                    responses:
+                        200:
+                            body:
+                                application/vnd.ez.api.RoleAssignmentList+xml:
+                                    type: RoleAssignmentList
+                                    example: !include examples/user/groups/path/roles/POST/RoleAssignmentList.xml.example
+                        400:
+                            description: Error - validation of limitation in RoleAssignInput fails.
+                        401:
+                            description: Error - the user is not authorized to assign this Role.
+                /{roleId}:
+                    get:
+                        displayName: Load User Group Role Assignment
+                        description: Returns a Role assignment of the given User Group.
+                        headers:
+                            Accept:
+                                description: If set, the Role assignment list is returned in XML or JSON format.
+                                example: |
+                                    application/vnd.ez.api.RoleAssignment+xml
+                                    application/vnd.ez.api.RoleAssignment+json
+                        responses:
+                            200:
+                                description: OK - returns a Role assignment of the given User Group.
+                                body:
+                                    application/vnd.ez.api.RoleAssignment+xml:
+                                        type: RoleAssignment
+                                        example: !include examples/user/groups/path/roles/role_id/GET/RoleAssignment.xml.example
+                            401:
+                                description: Error - the user has no permission to read Roles.
+                    delete:
+                        displayName: Unassign Role from User Group
+                        description: The given Role is removed from the User or User Group.
+                        headers:
+                            Accept:
+                                description: If set, the updated Role assignment list is returned in XML or JSON format.
+                                example: |
+                                    application/vnd.ez.api.RoleAssignmentList+xml
+                                    application/vnd.ez.api.RoleAssignmentList+json
+                        responses:
+                            200:
+                                body:
+                                    application/vnd.ez.api.RoleAssignmentList+xml:
+                                        type: RoleAssignmentList
+                                        example: !include examples/user/groups/path/roles/role_id/DELETE/RoleAssignmentList.xml.example
+                            401:
+                                description: Error - the user is not authorized to delete this Role assignment.
+        /{id}/users:
+            get:
+                displayName: Load Users of Group
+                description: Loads the Users of the Group with the given ID.
+                queryParameters:
+                    limit:
+                        description: Only 'limit' items will be returned started by offset.
+                    offset:
+                        description: Offset of the result set.
+                headers:
+                    Accept:
+                      description: UserList - If set, the User list returned in XML or JSON format. UserRefList - If set, the link list of Users returned in XML or JSON format.
+                      example: |
+                          application/vnd.ez.api.UserList+xml
+                          application/vnd.ez.api.UserList+json
+                          application/vnd.ez.api.UserRefList+xml
+                          application/vnd.ez.api.UserRefList+json
+                responses:
+                    200:
+                        description: OK - the Users of the Group with the given ID.
+                        body:
+                            application/vnd.ez.api.UserRefList+xml:
+                                type: UserRefList
+                                example: !include examples/user/groups/id/users/GET/UserRefList.xml.example
+                    401:
+                       description: Error - the user has no permission to read User Groups.
+                    404:
+                       description: Error - the User Group does not exist.
+        /{id}/subgroups:
+            get:
+                displayName: Load subgroups
+                description: Returns a list of the subgroups.
+                queryParameters:
+                    limit:
+                        description: The number of Locations returned.
+                    offset:
+                        description: The offset of the result set.
+                headers:
+                    Accept:
+                        description: UserGroupList - If set, the User Group list is returned in XML or JSON format. UserGroupRefList - If set, the link list of User Groups is returned in XML or JSON format.
+                        example: |
+                            application/vnd.ez.api.UserGroupList+xml
+                            application/vnd.ez.api.UserGroupList+json
+                            application/vnd.ez.api.UserGroupRefList+xml
+                            application/vnd.ez.api.UserGroupRefList+json
+                responses:
+                    200:
+                        description: OK - list of the subgroups.
+                        body:
+                            application/vnd.ez.api.UserGroupRefList+xml:
+                                type: UserGroupRefList
+                                example: !include examples/user/groups/id/subgroups/GET/UserGroupRefList.xml.example
+                    401:
+                       description: Error - the user has no permission to read User Groups.
+                    404:
+                       description: Error - the User Group does not exist.
+    /users:
+        get:
+            displayName: List Users
+            description: Load Users either for a given remote ID or Role.
+            queryParameters:
+                roleId:
+                    description: Lists Users assigned to the given Role (e.g. GET /user/users?roleId=/user/roles/1).
+                remoteId:
+                    description: Retrieves the User for the given remote ID (e.g. GET /user/users?remoteId=55dd9713db75145f374bbd0b4f60ad29).
+                login:
+                    description: Retrieves the User for the given login (e.g. GET /user/users?login=editor).
+                email:
+                    description: Lists Users with the given email (e.g. GET /user/users?email=editor@example.com).
+            headers:
+                Accept:
+                    description: UserList - If set, the User list is returned in XML or JSON format. UserRefList - If set, the link list of Users is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ez.api.UserList+xml
+                        application/vnd.ez.api.UserList+json
+                        application/vnd.ez.api.UserRefList+xml
+                        application/vnd.ez.api.UserRefList+json
+            responses:
+                200:
+                    description: OK - Loads Users either for a given remote ID or Role.
+                    body:
+                        application/vnd.ez.api.UserRefList+xml:
+                            type: UserRefList
+                            example: !include examples/user/users/GET/UserRefList.xml.example
+                        application/vnd.ez.api.UserList+xml:
+                            type: UserList
+                            example: !include examples/user/users/GET/UserList.xml.example
+                404:
+                    description: If there are no visibile Users matching the filter.
+        head:
+            displayName: Verify Users
+            description: Verifies if there are Users matching given filter.
+            queryParameters:
+                roleId:
+                    description: Lists Users assigned to the given Role (e.g. GET /user/users?roleId=/user/roles/1).
+                remoteId:
+                    description: Retrieves the User for the given remote ID (e.g. GET /user/users?remoteId=55dd9713db75145f374bbd0b4f60ad29).
+                login:
+                    description: Retrieves the User for the given login (e.g. GET /user/users?login=editor).
+                email:
+                    description: Lists Users with the given email (e.g. GET /user/users?email=editor@example.com).
+            responses:
+                200:
+                    description: OK - verifies if there are Users matching the given filter.
+                404:
+                    description: Error - there are no visibile Users matching the filter.
+        /{userId}:
+            get:
+                displayName: Load User
+                description: Loads User with the given ID.
+                headers:
+                    Accept:
+                      description: If set, the User is returned in XML or JSON format.
+                      example:  |
+                            application/vnd.ez.api.User+xml
+                            application/vnd.ez.api.User+json
+                    If-None-Match:
+                        description: ETag
+                responses:
+                    200:
+                        description: OK - the User with the given ID.
+                        body:
+                            application/vnd.ez.api.User+xml:
+                                type: UserList
+                                example: !include examples/user/users/user_id/GET/User.xml.example
+                    401:
+                        description: Error - the user has no permission to read Users.
+                    404:
+                        description: Error - the User does not exist.
+            patch:
+                displayName: Update User
+                description: Updates a User.
+                headers:
+                    Accept:
+                        description: If set, the updated User is returned in XML or JSON format.
+                        example:  |
+                            application/vnd.ez.api.User+xml
+                            application/vnd.ez.api.User+json
+                    Content-Type:
+                        description: The UserUpdate schema encoded in XML or JSON format.
+                        example:  |
+                            application/vnd.ez.api.UserUpdate+json
+                            application/vnd.ez.api.UserUpdate+xml
+                    If-Match:
+                        description: Performs a PATCH only if the specified ETag is the current one.
+                        example: ETag
+                body:
+                    application/vnd.ez.api.UserUpdate+xml:
+                        type: UserUpdate
+                        example: !include examples/user/users/user_id/PATCH/UserUpdate.xml.example
+                responses:
+                    200:
+                        description: OK - User updated.
+                        body:
+                            application/vnd.ez.api.User+xml:
+                                type: User
+                                example: !include examples/user/users/user_id/PATCH/User.xml.example
+                    400:
+                        description: Error - the input does not match the input schema definition.
+                    401:
+                        description: Error - the user is not authorized to update the User.
+                    404:
+                        description: Error - the User does not exist.
+                    412:
+                        description: Error - the current ETag does not match with the provided one in the If-Match header.
+            delete:
+                displayName: Delete User
+                description: Deletes the given User.
+                responses:
+                    204:
+                        description: No Content.
+                    401:
+                        description: Error - the user is not authorized to delete this User.
+                    403:
+                        description: Error - the user is the same as the authenticated User.
+                    404:
+                        description: Error - the User does not exist.
+            /groups:
+                get:
+                    displayName: Load Groups of User
+                    description: Returns a list of User Groups the User belongs to. The returned list includes the resources for unassigning a User Group if the User is in multiple groups.
+                    queryParameters:
+                       offset:
+                            description: The offset of the result set.
+                            type: integer
+                       limit:
+                            description: The number of Locations returned.
+                            type: integer
+                    headers:
+                        Accept:
+                            description: If set, the link list of User Groups is returned in XML or JSON format.
+                            example:  |
+                                application/vnd.ez.api.UserGroupRefList+xml
+                                application/vnd.ez.api.UserGroupRefList+json
+                    responses:
+                        200:
+                            body:
+                                application/vnd.ez.api.UserGroupRefList:
+                                    type: UserGroupRefList
+                                    example: !include examples/user/users/user_id/groups/GET/UserGroupRefList.xml.example
+                        401:
+                            description: Error - the user has no permission to read User Groups.
+                        404:
+                          description: Error - the user does not exist.
+                post:
+                    displayName: Assign User Group
+                    description: Assigns the User to a User Group.
+                    queryParameters:
+                        group:
+                            description: The new parent group resource of the User.
+                    headers:
+                        Accept:
+                            description: If set, the link list of User Groups is returned in XML or JSON format.
+                            example:  |
+                                application/vnd.ez.api.UserGroupRefList+xml
+                                application/vnd.ez.api.UserGroupRefList+json
+                    responses:
+                        200:
+                            body:
+                                application/vnd.ez.api.UserGroupRefList:
+                                    type: UserGroupRefList
+                                    example: !include examples/user/users/user_id/groups/POST/UserGroupRefList.xml.example
+                        401:
+                            description: Error - the user is not authorized to assign User Groups.
+                        403:
+                            description: Error - the new User Group does not exist or the User is already in this group.
+                        404:
+                            description: Error - the User does not exist.
+                /{groupId}:
+                    delete:
+                        displayName: Unassign User Group
+                        description: Unassigns the User from a User Group.
+                        headers:
+                            Accept:
+                                description: If set, the link list of User Groups is returned in XML or JSON format.
+                                example: |
+                                    application/vnd.ez.api.UserGroupRefList+xml
+                                    application/vnd.ez.api.UserGroupRefList+json
+                        responses:
+                            200:
+                                body:
+                                    application/vnd.ez.api.UserGroupRefList:
+                                        type: UserGroupRefList
+                                        example: !include examples/user/users/user_id/groups/group_id/DELETE/UserGroupRefList.xml.example
+                            401:
+                                description: Error - the user is not authorized to unassign User Groups.
+                            403:
+                                description: Error - the User is not in the given group.
+                            404:
+                                description: Error - the User does not exist.
+            /Roles:
+                get:
+                    displayName: Load Roles for User
+                    description: Returns a list of all Roles assigned to the given User.
+                    headers:
+                        Accept:
+                            description: If set, the Role assignment list is returned in XML or JSON format.
+                            example:  |
+                                application/vnd.ez.api.RoleAssignmentList+xml
+                                application/vnd.ez.api.RoleAssignmentList+json
+                    responses:
+                        200:
+                            body:
+                                application/vnd.ez.api.RoleAssignmentList+xml:
+                                    type: RoleAssignmentList
+                                    example: !include examples/user/users/user_id/roles/GET/RoleAssignmentList.xml.example
+                        400:
+                            description: Error - the user has no permission to read Roles
+                post:
+                    displayName: Assign Role to User
+                    description: Assigns a Role to a user.
+                    headers:
+                        Accept:
+                            description: If set, the updated Role assignment list is returned in XML or JSON format.
+                            example:  |
+                                application/vnd.ez.api.RoleAssignmentList+xml
+                                application/vnd.ez.api.RoleAssignmentList+json
+                        Content-Type:
+                            description: The RoleAssignInput schema encoded in XML or JSON format.
+                            example:  |
+                                application/vnd.ez.api.RoleAssignInput+json
+                                application/vnd.ez.api.RoleAssignInput+xml
+                    body:
+                        application/vnd.ez.api.RoleAssignInput+xml:
+                            type: RoleAssignInput
+                            example: !include examples/user/users/user_id/roles/POST/RoleAssignInput.xml.example
+                    responses:
+                        200:
+                            body:
+                                application/vnd.ez.api.RoleAssignmentList+xml:
+                                    type: RoleAssignmentList
+                                    example: !include examples/user/users/user_id/roles/POST/RoleAssignmentList.xml.example
+                        400:
+                            description: Error - validation of limitation in RoleAssignInput fails.
+                        401:
+                            description: Error - the user is not authorized to assign this Role.
+                /{roleId}:
+                    get:
+                        displayName: Load User Role Assignment
+                        description: Returns a Role assignment to the given User.
+                        headers:
+                            Accept:
+                                description: If set, the Role assignment list is returned in XML or JSON format.
+                                example:  |
+                                    application/vnd.ez.api.RoleAssignment+xml
+                                    application/vnd.ez.api.RoleAssignment+json
+                        responses:
+                            200:
+                                description: OK - Role assignment to the given User Group.
+                                body:
+                                    application/vnd.ez.api.RoleAssignment+xml:
+                                        type: RoleAssignment
+                                        example: !include examples/user/users/user_id/roles/role_id/GET/RoleAssignment.xml.example
+                            401:
+                                description: Error - the user has no permission to read Roles
+                    delete:
+                        displayName: Unassign Role from User
+                        description: The given Role is removed from the user
+                        headers:
+                            Accept:
+                                description: If set, the updated Role assignment list is returned in XML or JSON format
+                                example:  |
+                                    application/vnd.ez.api.RoleAssignmentList+xml
+                                    application/vnd.ez.api.RoleAssignmentList+json
+                        responses:
+                            200:
+                                body:
+                                    application/vnd.ez.api.RoleAssignmentList+xml:
+                                        type: RoleAssignmentList
+                                        example: !include examples/user/users/user_id/roles/role_id/DELETE/RoleAssignmentList.xml.example
+                            401:
+                                description: Error - the user is not authorized to delete this Content Type
+    /roles:
+        get:
+            displayName: Load Roles
+            description: Returns a list of all Roles
+            queryParameters:
+                identifier:
+                    description: Restricts the result to a list containing the Role with the given identifier. If the Role is not found an empty list is returned.
+                offset:
+                    description: The offset of the result set
+                    type: integer
+                limit:
+                    description: Only limit items will be returned started by offset
+                    type: integer
+            headers:
+                Accept:
+                    description: If set, the user list returned in XML or JSON format
+                    example:  |
+                        application/vnd.ez.api.RoleList+xml
+                        application/vnd.ez.api.RoleList+json
+            responses:
+                200:
+                    description: OK - list of all Roles
+                    body:
+                        application/vnd.ez.api.RoleList+xml:
+                            type: RoleList
+                            example: !include examples/user/roles/GET/RoleList.xml.example
+                401:
+                    description: Error - the user has no permission to read Roles
+        post:
+            displayName: Create Role / Role Draft
+            description: Creates a new Role or Role draft
+            queryParameters:
+                publish:
+                    type: boolean
+                    description: If true the Role is published after creation
+                    default: true
+            headers:
+                Accept:
+                    description: If set, the new user is returned in XML or JSON format
+                    example:  |
+                        application/vnd.ez.api.Role+xml
+                        application/vnd.ez.api.Role+json
+                        application/vnd.ez.api.RoleDraft+xml
+                        application/vnd.ez.api.RoleDraft+json
+                Content-Type:
+                    description: The RoleInput schema encoded in XML or JSON
+                    example:  |
+                        application/vnd.ez.api.RoleInput+json
+                        application/vnd.ez.api.RoleInput+xml
+            body:
+                 application/vnd.ez.api.RoleInput+xml:
+                    type: RoleInput
+                    example: examples/user/roles/POST/RoleInput.xml.example
+            responses:
+                201:
+                    body:
+                        application/vnd.ez.api.Role+xml:
+                            type: Role
+                            example: !include examples/user/roles/POST/Role.xml.example
+                400:
+                    description: Error - the input does not match the input schema definition.
+                401:
+                    description: Error - the user is not authorized to create this Role / Role draft
+        /{id}:
+            get:
+                displayName: Load Role
+                description: Loads a Role for the given ID
+                headers:
+                    Accept:
+                        description: If set, the user list returned in XML or JSON format
+                        example:  |
+                            application/vnd.ez.api.Role+xml
+                            application/vnd.ez.api.Role+json
+                    If-None-Match:
+                        description: ETag
+                responses:
+                    200:
+                        description: OK - Role for the given ID
+                        body:
+                            application/vnd.ez.api.Role+xml:
+                                type: Role
+                                example: !include examples/user/roles/id/GET/Role.xml.example
+                    401:
+                        description: Error - the user has no permission to read Roles
+                    404:
+                        description: Error - the Role does not exist
+            post:
+                displayName: Create Role Draft
+                description: Creates a new Role draft from an existing Role.
+                headers:
+                    Accept:
+                        description: If set, the new user is returned in XML or JSON format
+                        example:  |
+                            application/vnd.ez.api.Role+xml
+                            application/vnd.ez.api.Role+json
+                    Content-Type:
+                        description: The RoleInput schema encoded in XML or JSON
+                        example:  |
+                            application/vnd.ez.api.RoleInput+json
+                            application/vnd.ez.api.RoleInput+xml
+                responses:
+                    201:
+                        body:
+                            application/vnd.ez.api.RoleDraft+xml:
+                                type: RoleDraft
+                                example: !include examples/user/roles/id/POST/RoleDraft.xml.example
+                    401:
+                        description: Error - the user is not authorized to create this Role / Role draft
+            patch:
+                displayName: Update Role
+                description: Updates a Role. PATCH or POST with header X-HTTP-Method-Override PATCH
+                headers:
+                    Accept:
+                        description: If set, the new user is returned in XML or JSON format
+                        example:  |
+                            application/vnd.ez.api.Role+xml
+                            application/vnd.ez.api.Role+json
+                    Content-Type:
+                        description: The RoleInput schema encoded in XML or JSON
+                        example:  |
+                            application/vnd.ez.api.RoleInput+json
+                            application/vnd.ez.api.RoleInput+xml
+                    If-Match:
+                        description: ETag Causes to patch only if the specified ETag is the current one. Otherwise a 412 is returned.
+                body:
+                    application/vnd.ez.api.RoleInput+xml:
+                        type: RoleInput
+                        example: !include examples/user/roles/id/PATCH/RoleInput.xml.example
+                responses:
+                    200:
+                        description: OK - Role updated
+                        body:
+                            application/vnd.ez.api.Role+xml:
+                                type: Role
+                                example: !include examples/user/roles/id/PATCH/Role.xml.example
+                    400:
+                        description: Error - the input does not match the input schema definition.
+                    401:
+                        description: Error - the user is not authorized to update the Role
+                    412:
+                        description: Error - the current ETag does not match with the provided one in the If-Match header
+            delete:
+                displayName: Delete Role
+                description: The given Role and all assignments to Users or User Groups are deleted.
+                responses:
+                    204:
+                        description: No Content.
+                    401:
+                        description: Error - the User is not authorized to delete this Role.
+            /draft:
+                get:
+                    displayName: Load Role draft
+                    description: Loads a Role draft by original Role ID.
+                    headers:
+                        Accept:
+                            description: If set, the User list returned in XML or JSON format.
+                            example:  |
+                                application/vnd.ez.api.Role+xml
+                                application/vnd.ez.api.Role+json
+                        If-None-Match:
+                            description: ETag
+                    responses:
+                        200:
+                            description: OK - Role draft by original Role ID.
+                            body:
+                                application/vnd.ez.api.Role+xml:
+                                    type: Role
+                                    example: !include examples/user/roles/id/draft/GET/Role.xml.example
+                        401:
+                            description: Error - the user has no permission to read Roles
+                        404:
+                            description: Error - there is no draft or Role with the given ID
+                patch:
+                    displayName: Update Role draft
+                    description: Updates a Role draft. PATCH or POST with header X-HTTP-Method-Override PATCH.
+                    headers:
+                        Accept:
+                            description: If set, the updated Role is returned in XML or JSON format.
+                            example:  |
+                                application/vnd.ez.api.Role+xml
+                                application/vnd.ez.api.Role+json
+                        Content-Type:
+                            description: The RoleInput schema encoded in XML or JSON format.
+                            example:  |
+                                application/vnd.ez.api.RoleInput+json
+                                application/vnd.ez.api.RoleInput+xml
+                        If-Match:
+                            description: Performs a PATCH only if the specified ETag is the current one. Otherwise a 412 is returned.
+                    body:
+                        application/vnd.ez.api.RoleInput+xml:
+                            type: RoleInput
+                            example: !include examples/user/roles/id/draft/PATCH/RoleInput.xml.example
+                    responses:
+                        200:
+                            description: OK - Role draft updated.
+                            body:
+                                application/vnd.ez.api.Role+xml:
+                                    type: Role
+                                    example: !include examples/user/roles/id/draft/PATCH/Role.xml.example
+                        400:
+                            description: Error - the input does not match the input schema definition.
+                        401:
+                            description: Error - the user is not authorized to update the Role.
+                        404:
+                            description: Error - there is no draft or Role with the given ID.
+                        412:
+                            description: Error - the current ETag does not match with the one provided in the If-Match header.
+                publish:
+                    displayName: Publish Role draft
+                    description: Publishes a Role draft. PUBLISH or POST with header X-HTTP-Method-Override PUBLISH.
+                    responses:
+                        204:
+                            description: No Content.
+                        401:
+                            description: Error - the user is not authorized to publish this Content Type draft.
+                        403:
+                            description: Error - the Content Type draft is not complete e.g. there is no Field definition provided.
+                        404:
+                            description: Error - there is no draft or Role with the given ID.
+                delete:
+                    displayName: Delete Role draft
+                    description: The given Role draft is deleted.
+                    responses:
+                        204:
+                            description: No Content.
+                        401:
+                            description: Error - the user is not authorized to delete this Role.
+            /policies:
+                get:
+                    displayName: Load Policies
+                    description: Loads Policies for the given Role.
+                    headers:
+                        Accept:
+                            description: If set, the Policy list is returned in XML or JSON format.
+                            example:  |
+                                application/vnd.ez.api.PolicyList+xml
+                                application/vnd.ez.api.PolicyList+json
+                    responses:
+                        200:
+                            body:
+                                application/vnd.ez.api.PolicyList+xml:
+                                    type: PolicyList
+                                    example: !include examples/user/roles/id/policies/GET/PolicyList.xml.example
+                        401:
+                            description: Error - the user has no permission to read Roles.
+                        404:
+                            description: Error - the Role does not exist.
+                delete:
+                    displayName: Delete Policies
+                    description: All Policies of the given Role are deleted.
+                    responses:
+                        204:
+                            description: No Content - all Policies of the given Role are deleted.
+                        401:
+                            description: Error - the user is not authorized to delete this Content Type.
+                post:
+                    # Currently does not work
+                    displayName: Create Policy
+                    description: Creates a Policy
+                    headers:
+                        Accept:
+                            description: If set, the updated Policy is returned in XML or JSON format.
+                            example:  |
+                                application/vnd.ez.api.Policy+xml
+                                application/vnd.ez.api.Policy+json
+                        Content-Type:
+                            description: If set, the updated Policy is returned in XML or JSON format.
+                            example: |
+                                application/vnd.ez.api.PolicyCreate+xml
+                                application/vnd.ez.api.PolicyCreate+json
+                    body:
+                        application/vnd.ez.api.PolicyCreate+xml:
+                            type: PolicyCreate
+                            example: !include examples/user/roles/id/policies/POST/PolicyCreate.xml.example
+                    responses:
+                        201:
+                            body:
+                                application/vnd.ez.api.Policy+xml:
+                                    type: Policy
+                                    example: !include examples/user/roles/id/policies/POST/Policy.xml.example
+                        400:
+                            description: Error - the input does not match the input schema definition or validation of limitation in PolicyCreate fails.
+                        401:
+                            description: Error - the user is not authorized to create the Policy.
+                        404:
+                            description: Error - the Role does not exist.
+                /{id}:
+                    patch:
+                        # Currently does not work
+                        displayName: Update Policy
+                        description: Updates a Policy. PATCH or POST with header X-HTTP-Method-Override PATCH.
+                        headers:
+                            Accept:
+                                description: If set, the updated Policy is returned in XML or JSON format.
+                                example:  |
+                                    application/vnd.ez.api.Policy+xml
+                                    application/vnd.ez.api.Policy+json
+                            Content-Type:
+                                description: If set, the updated Policy is returned in XML or JSON format.
+                                example:  |
+                                    application/vnd.ez.api.PolicyUpdate+xml
+                                    application/vnd.ez.api.PolicyUpdate+json
+                            If-Match:
+                                description: Causes to patch only if the specified ETag is the current one. Otherwise a 412 is returned.
+                                example: ETag
+                        body:
+                            application/vnd.ez.api.PolicyUpdate+xml:
+                                type: PolicyUpdate
+                                example: !include examples/user/roles/id/policies/id/PATCH/PolicyUpdate.xml.example
+                        responses:
+                            200:
+                                body:
+                                    application/vnd.ez.api.Policy+xml:
+                                        type: Policy
+                                        example: !include examples/user/roles/id/policies/id/PATCH/Policy.xml.example
+                            400:
+                                description: Error - the input does not match the input schema definition or validation of limitation in PolicyUpdate fails.
+                            401:
+                                description: Error - the user is not authorized to update the Policy.
+                            404:
+                                description: Error - the Role does not exist.
+                            412:
+                                description: Error - the current ETag does not match with the one provided in the If-Match header.
+                    get:
+                        displayName: Load Policy
+                        description: Loads a Policy for the given module and function.
+                        headers:
+                            Accept:
+                                description: If set, the Policy is returned in XML or JSON format.
+                                example:  |
+                                    application/vnd.ez.api.Policy+xml
+                                    application/vnd.ez.api.Policy+json
+                            If-None-Match:
+                                description: ETag
+                        responses:
+                            200:
+                                body:
+                                    application/vnd.ez.api.Policy+xml:
+                                        type: Policy
+                                        example: !include examples/user/roles/id/policies/id/GET/Policy.xml.example
+                            401:
+                                description: Error - the user has no permission to read Roles.
+                            404:
+                                description: Error - the Role or Policy does not exist.
+                    delete:
+                        displayName: Delete Policy
+                        description: Deletes given Policy.
+                        responses:
+                            204:
+                                description: No Content - the given Policy is deleted.
+                            401:
+                                description: Error - the user is not authorized to delete this Content Type.
+                            404:
+                                description: Error - the Role or Policy does not exist.
+    /policies:
+        get:
+            displayName: List Policies for User
+            description: Search all Policies which are applied to a given User.
+            queryParameters:
+                userId:
+                    description: The User ID.
+            headers:
+                Accept:
+                    description: If set, the Policy list is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ez.api.PolicyList+xml
+                        application/vnd.ez.api.PolicyList+json
+            responses:
+                200:
+                    description: OK - Policies which are applied to a given User.
+                    body:
+                        application/vnd.ez.api.PolicyList+xml:
+                            type: PolicyList
+                            example: !include examples/user/policies/GET/PolicyList.xml.example
+                401:
+                    description: Error - the user has no permission to read Roles.
+    /sessions:
+        displayName: User sessions
+        post:
+            displayName: Create session (login a User)
+            description: Performs a login for the user or checks if session exists and returns the session and session cookie. The client will need to remember both session name/ID and CSRF token as this is for security reasons not exposed via GET.
+            headers:
+                Accept:
+                    description: If set, the session is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ez.api.Session+xml
+                        application/vnd.ez.api.Session+json
+                Content-Type:
+                    description: The SessionInput schema encoded in XML or JSON format.
+                    example:  |
+                        application/vnd.ez.api.SessionInput+xml
+                        application/vnd.ez.api.SessionInput+json
+                Cookie:
+                    description: Only needed for session's checking {sessionName}={sessionID}.
+                X-CSRF-Token:
+                    description: Only needed for session's checking. The {csrfToken} needed on all unsafe http methods with session.
+            body:
+                application/vnd.ez.api.SessionInput+xml:
+                    type: SessionInput
+                    example: !include examples/user/sessions/POST/SessionInput.xml.example
+                application/vnd.ez.api.SessionInput+json:
+                    type: SessionInput
+                    example: !include examples/user/sessions/POST/SessionInput.json.example
+            responses:
+                200:
+                    description: Session already exists.
+                    body:
+                        application/vnd.ez.api.Session+xml:
+                            type: Session
+                            example: !include examples/user/sessions/POST/Session.xml.example
+                        application/vnd.ez.api.Session+json:
+                            type: Session
+                            example: !include examples/user/sessions/POST/Session.json.example
+                201:
+                    description: Session is created.
+                    body:
+                        application/vnd.ez.api.Session+xml:
+                            type: Session
+                            example: !include examples/user/sessions/POST/Session.xml.example
+                        application/vnd.ez.api.Session+json:
+                            type: Session
+                            example: !include examples/user/sessions/POST/Session.json.example
+                400:
+                    description: Error - the input does not match the input schema definition.
+                401:
+                    description: Error - the authorization failed.
+                409:
+                    description: Error - header contained a session cookie but different user was authorized.
+        /{sessionId}:
+            delete:
+                displayName: Delete session (logout a User)
+                description: The user session is removed i.e. the user is logged out.
+                headers:
+                    Cookie:
+                        description: "{sessionName}={sessionID}"
+                    X-CSRF-Token:
+                        description: The {csrfToken} needed on all unsafe http methods with session.
+                responses:
+                    204:
+                        description: OK - session deleted.
+                    404:
+                        description: Error - the session does not exist.
+            /refresh:
+                post:
+                    displayName: Refresh session
+                    description: Get the session's User information.
+                    headers:
+                        Cookie:
+                            description: "{sessionName}={sessionID}"
+                        X-CSRF-Token:
+                            description: The {csrfToken} needed on all unsafe http methods with session.
+                    responses:
+                        200:
+                            body:
+                                application/vnd.ez.api.Session+xml:
+                                    type: Session
+                                    example: !include examples/user/sessions/session_id/refresh/POST/Session.xml.example
+                                application/vnd.ez.api.Session+json:
+                                    type: Session
+                                    example: !include examples/user/sessions/session_id/refresh/POST/Session.json.example
+                        404:
+                            description: Error - the session does not exist.
+/services:
+    displayName: Services
+    /countries:
+        get:
+            displayName: Countries list
+            description: Gives access to an ISO-3166 formatted list of world countries. It is useful when presenting a country options list from any application.
+            headers:
+                Accept:
+                    description: If set, the country list is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ez.api.CountriesLis+xml
+                        application/vnd.ez.api.CountriesLis+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ez.api.CountriesList+xml:
+                            type: CountryList
+                            example: !include examples/services/countries/GET/CountriesList.xml.example
+
+types: !include ez-types.raml

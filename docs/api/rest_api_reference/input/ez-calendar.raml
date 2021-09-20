@@ -1,0 +1,93 @@
+displayName: Calendar
+/calendar/event:
+    get:
+        displayName: Calendar list
+        description: Calendar event list.
+        queryParameters:
+            start:
+                description: Query start date.
+                type: datetime
+            end:
+                description: Query end date.
+                type: datetime
+            types:
+                description: The types of events that are displayed.
+                type: string
+            languages:
+                description: Language code. Restricts the output of translatable Fields to the given languages.
+                type: string
+            count:
+                description: Number of parameters that are returned in the list.
+                type: string
+            cursor:
+                description: Starting point of calendar event list. It should be taken from the URL.
+                type: string
+        headers:
+            Accept:
+                description: If set, the calendar event list is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ez.api.ContentInfo+xml
+                    application/vnd.ez.api.ContentInfo+json
+        responses:
+            200:
+                body:
+                    application/vnd.ez.api.ContentInfo+xml:
+                        type: ContentInfo
+                        example: !include examples/calendar/event/GET/ContentInfo.xml.example
+                    application/vnd.ez.api.ContentInfo+json:
+                        type: ContentInfo
+                        example: !include examples/calendar/event/GET/ContentInfo.json.example
+    /grouped-by-day:
+        get:
+            displayName: Calendar list grouped by day
+            description: Calendar event list grouped by day.
+            queryParameters:
+                start:
+                    description: Query start date.
+                    type: integer
+                end:
+                    description: Query end date.
+                    type: integer
+                types:
+                    description: The types of events that are displayed.
+                    type: string
+                languages:
+                    description: Language code. Restricts the output of event list to the given languages.
+                    type: string
+                count:
+                    description: Number of parameters that are returned in the list.
+                    type: integer
+                cursor:
+                    description: Starting point of calendar event list. It should be taken from the URL.
+                    type: string
+            headers:
+                Accept:
+                    description: If set, the calendar event list grouped by day is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ez.api.ScheduledVersion+xml
+                        application/vnd.ez.api.ScheduledVersion+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ez.api.ContentInfo+xml:
+                            type: ContentInfo
+                            example: !include examples/calendar/event/grouped-by-day/GET/ContentInfo.xml.example
+                        application/vnd.ez.api.ContentInfo+json:
+                            type: ContentInfo
+                            example: !include examples/calendar/event/grouped-by-day/GET/ContentInfo.json.example
+    /{eventType}:
+        post:
+            displayName: Calendar action
+            description: A calendar action that e.g. reschedules or unschedules calendar events. The event type should always be copied from an event.
+            headers:
+                Content-Type:
+                    description:
+                    example:  |
+                        application/vnd.ez.api.calendar.future_publication.UnscheduleAction+json
+            body:
+                application/vnd.ez.api.UnscheduleActionInput+json:
+                    type: RoleAssignInput
+                    example: !include examples/calendar/event/eventType/POST/UnscheduleActionInput.json.example
+            responses:
+                204:
+                    description: No Content - the action has been unscheduled.

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UrlAlias media-type="application/vnd.ez.api.UrlAlias+xml" href="/api/ezp/v2/content/urlaliases/0-2cecdff5f90b8595d76b68c417b09f36" id="0-2cecdff5f90b8595d76b68c417b09f36" type="RESOURCE">
+    <resource>content/view/full</resource>
+    <path>/example-global</path>
+    <languageCodes>eng-GB</languageCodes>
+    <alwaysAvailable>true</alwaysAvailable>
+    <isHistory>false</isHistory>
+    <forward>true</forward>
+    <custom>true</custom>
+</UrlAlias>

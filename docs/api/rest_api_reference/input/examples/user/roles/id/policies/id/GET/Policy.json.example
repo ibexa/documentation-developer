@@ -1,0 +1,9 @@
+{
+    "Policy": {
+        "_media-type": "application/vnd.ez.api.Policy+json",
+        "_href": "/api/ezp/v2/user/roles/1/policies/352",
+        "id": 352,
+        "module": "user",
+        "function": "register"
+    }
+}

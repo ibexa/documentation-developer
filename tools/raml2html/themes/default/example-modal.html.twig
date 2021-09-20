@@ -1,0 +1,81 @@
+<div class="modal fade" id="{{ tabId }}Modal" tabindex="-1" role="dialog" aria-labelledby="{{ tabId }}Title" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" id="{{ tabId }}Title">
+                    <span data-field="method" class="badge badge--sm badge--{{ method.type|lower }}">{{ method.type }}</span>
+                    {{ method.displayName }}
+                </p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-between align-items-baseline">
+                    <ul class="nav nav-tabs border-bottom-0" id="{{ tabId }}ModalTab" role="tablist">
+                        {% if tabItems|length > 0 %}
+                            <li class="nav-item">
+                                <a href="#" class="nav-link disabled">
+                                    {{ response is defined ? 'Responses' : 'Request' }}
+                                </a>
+                            </li>
+                            {% for item in tabItems %}
+                                {% set itemId = tabId ~ '-' ~ item ~ '-modal' %}
+                                <li class="nav-item">
+                                    <a class="nav-link {{ loop.index == 1 ? 'active' : '' }} text-gray" id="{{ itemId ~ '-tab' }}"
+                                       data-toggle="tab"
+                                       href="#{{ itemId }}"
+                                       role="tab"
+                                       aria-controls="{{ itemId }}"
+                                       aria-selected="{{ loop.index == 1 ? 'true' : 'false' }}">
+                                        {{ item }}
+                                    </a>
+                                </li>
+                                <li>
+
+                                </li>
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+                    {% if response is defined and tabItems|length > 0 %}
+                        <div>
+                            <code>Code: {{ response.statusCode }}</code>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="example position-relative border p-3 mb-3">
+                    <div class="tab-content" id="{{ tabId }}ModalContent">
+                        {% for type, example in examples %}
+                            <div class="tab-pane fade {{ loop.index == 1 ? 'show active' : '' }}"
+                                 id="{{ tabId ~ '-' ~ type }}-modal" role="tabpanel"
+                                 aria-labelledby="{{ tabId ~ '-' ~ type }}-modal-tab">
+                                {% for body in example %}
+                                    {% set margin = example|length > 1 and loop.index ==  1 ? 'mb-4' : '' %}
+                                    {% set border = loop.index > 1 ? 'border-top' : '' %}
+                                    {% for body in example %}
+                                        {% set margin = example|length > 1 and loop.index ==  1 ? 'mb-4' : '' %}
+                                        {% set border = loop.index > 1 ? 'border-top' : '' %}
+                                        <div class="position-relative {{ margin }} {{ border }}">
+                                            {% set clipboardId = type ~ '_' ~ uuid() %}
+                                            <p class="mb-0 icon icon--copy-clipboard">
+                                                <i class="material-icons-outlined clipboard"
+                                                   data-toggle="tooltip"
+                                                   data-placement="top"
+                                                   data-clipboard-target="#{{ clipboardId }}"
+                                                   title="Copy to clipboard">file_copy
+                                                </i>
+                                            </p>
+                                            <pre id="{{ clipboardId }}">
+                                                <code class="{{ type }}">{{ body }}</code>
+                                            </pre>
+                                        </div>
+                                    {% endfor %}
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

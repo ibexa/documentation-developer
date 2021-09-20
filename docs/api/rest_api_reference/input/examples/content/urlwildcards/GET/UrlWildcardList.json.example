@@ -1,0 +1,16 @@
+{
+    "UrlWildcardList": {
+        "_media-type": "application/vnd.ez.api.UrlWildcardList+json",
+        "_href": "/api/ezp/v2/content/urlwildcards",
+        "UrlWildcard": [
+            {
+                "_media-type": "application/vnd.ez.api.UrlWildcard+json",
+                "_href": "/api/ezp/v2/content/urlwildcards/1",
+                "_id": 1,
+                "sourceUrl": "/api/ezp/v2/content/location/2",
+                "destinationUrl": "/api/ezp/v2/content/location/59",
+                "forward": true
+            }
+        ]
+    }
+}

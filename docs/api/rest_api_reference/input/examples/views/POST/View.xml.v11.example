@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<View href="/views/TitleView" media-type="application/vnd.ez.api.View+xml; version=1.1">
+  <identifier>TitleView</identifier>
+  <User href="/user/users/14" media-type="vnd.ez.api.User+xml"/>
+  <public>false</public>
+  <LocationQuery>
+    <Filter>
+      <ParentLocationIdCriterion>2</ParentLocationIdCriterion>
+    </Filter>
+    <limit>10</limit>
+    <offset>0</offset>
+    <SortClauses>
+      <ContentName>ascending</ContentName>
+    </SortClauses>
+    <FacetBuilders>
+      <contentTypeFacetBuilder/>
+    </FacetBuilders>
+  </LocationQuery>
+  <Result href="/content/views/view1234/results"
+    media-type="application/vnd.ez.api.ViewResult+xml" count="34" time="31" maxScore="1.0">
+    <searchHits>
+      <searchHit score="1.0" index="installid1234567890">
+        <hightlight/>
+        <value>
+          <Location media-type="application/vnd.ez.api.Location+xml" href="/api/ezp/v2/content/locations/1/2">
+            <id>2</id>
+            <priority>0</priority>
+            <hidden>false</hidden>
+            <invisible>false</invisible>
+            <ParentLocation media-type="application/vnd.ez.api.Location+xml" href="/api/ezp/v2/content/locations/1"/>
+            <pathString>/1/2/</pathString>
+            <depth>1</depth>
+            <childCount>8</childCount>
+            <remoteId>f3e90596361e31d496d4026eb624c983</remoteId>
+            <Children media-type="application/vnd.ez.api.LocationList+xml" href="/api/ezp/v2/content/locations/1/2/children"/>
+            <Content media-type="application/vnd.ez.api.Content+xml" href="/api/ezp/v2/content/objects/57"/>
+            <sortField>PRIORITY</sortField>
+            <sortOrder>ASC</sortOrder>
+            <UrlAliases media-type="application/vnd.ez.api.UrlAliasRefList+xml" href="/api/ezp/v2/content/locations/1/2/urlaliases"/>
+          </Location>
+
+        </value>
+      </searchHit>
+      <!-- ... -->
+    </searchHits>
+    <facets>
+      <contentTypeFacet>
+        <contentTypeFacetEntry>
+          <contentType href="/content/types/1"  media-type="application/vnd.ez.api.ContentType+xml"/>
+          <count>3</count>
+        </contentTypeFacetEntry>
+        <contentTypeFacetEntry>
+          <contentType href="/content/types/7"  media-type="application/vnd.ez.api.ContentType+xml"/>
+          <count>9</count>
+        </contentTypeFacetEntry>
+        <contentTypeFacetEntry>
+          <contentType href="/content/types/11"  media-type="application/vnd.ez.api.ContentType+xml"/>
+          <count>1</count>
+        </contentTypeFacetEntry>
+        <contentTypeFacetEntry>
+          <contentType href="/content/types/15"  media-type="application/vnd.ez.api.ContentType+xml"/>
+          <count>8</count>
+        </contentTypeFacetEntry>
+      </contentTypeFacet>
+    </facets>
+  </Result>
+</View>

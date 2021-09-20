@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role media-type="application/vnd.ez.api.Role+xml" href="/api/ezp/v2/user/roles/9">
+    <identifier>UpdatedIdentifier</identifier>
+    <Policies media-type="application/vnd.ez.api.PolicyList+xml" href="/api/ezp/v2/user/roles/9/policies"/>
+</Role>

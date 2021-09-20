@@ -1,0 +1,2263 @@
+Asset:
+    type: object
+    description: 'Asset value object'
+    properties:
+        uri: 
+            type: string
+            description: Asset's URI address.
+        assetId:
+            type: string
+            description: Asset's identifier.
+        assetSource:
+            type: string
+            description: Asset provider's identifier.
+        assetMetadata:
+            type: assetMetadata
+            description: 'Asset metadata object. Depending on the provider, it can contain different parameters.'
+
+assetMetadata:
+    type: object
+    description: 'Asset metadata object. Depending on the provider, it can contain different parameters.'
+    properties:
+        alternativeText:
+            type: datetime
+            description: 'Alternative text for the image asset'
+        width:
+            type: integer
+            description: 'Image width'
+        height:
+            type: integer
+            description: 'Image height'
+        created_at:
+            type: datetime
+            description: Image asset's creation date
+        updated_at:
+            type: datetime
+            description: Image asset's modification date
+        author:
+            type: string
+            description: 'A name of the author of the image asset'
+        author_link_html:
+            type: string
+            description: 'A URL address of the author of the image asset'
+
+BaseObject:
+    type: object
+    properties:
+        _media-type:
+            type: string
+        _href:
+            type: string
+
+BookmarkList:
+    description: 'List of bookmarked Locations.'
+    type: object
+    properties:
+        totalCount:
+            description: 'The total number of bookmarks.'
+            type: integer
+        items:
+            description: 'List of bookmarked Locations.'
+            type: Location[]
+
+Content:
+    description: 'Content ID matcher class.'
+    type: BaseObject
+    properties:
+        _remoteId:
+            description: 'Remote ID of the Content Type.'
+            type: string
+        _id:
+            description: 'Unique ID of the Content Type.'
+            type: integer
+        ContentType:
+            description: 'Content Type.'
+            type: BaseObject
+        Name:
+            description: 'Name of the domain object in a given language.'
+            type: string
+        Versions:
+            description: 'Returns the VersionInfo for this version.'
+            type: BaseObject
+        CurrentVersion:
+            description: 'Current version.'
+            type: BaseObject
+        Section:
+            description: 'The Section to which the Content item is assigned to.'
+            type: BaseObject
+        Locations:
+            description: 'Location of the Content item.'
+            type: BaseObject
+        Owner:
+            description: 'The owner of the Content item.'
+            type: BaseObject
+        lastModificationDate:
+            description: 'Content item modification date.'
+            type: datetime
+        publishedDate:
+            description: 'Content item publication date.'
+            type: datetime
+        mainLanguageCode:
+            description: 'The main language code of the Content item.'
+            type: string
+        currentVersionNo:
+            description: 'Current version number is the version number of the published version or the version number of a newly created draft (which is 1).'
+            type: integer
+        alwaysAvailable:
+            description: "Indicates if the Content item is shown in the main language if it's not present in an other requested language."
+            type: boolean
+        status:
+            description: 'Status of the content. Possible values: const STATUS_DRAFT = 0;const STATUS_PUBLISHED = 1; const STATUS_TRASHED = 2.'
+            #enum: ['DRAFT', 'PUBLISHED', 'TRASHED']
+        ObjectStates:
+            description: 'Object states.'
+            type: BaseObject
+
+ContentCreate:
+    description: 'This class is used for creating a new Content item.'
+    type: object
+
+ContentCreateStruct:
+    description: 'This class is used for creating a new Content item.'
+    type: object
+    properties:
+        contentType:
+            descritpion: 'The Content Type for which the new Content item is created.'
+            required: true
+            type: ContentType
+        sectionId:
+            description: 'The Section the Content item is assigned to. If not set the Section of the parent is used or a default Section.'
+            type: integer
+        ownerId:
+            description: 'The owner of the content. If not given the current authenticated User is set as owner.'
+            type: integer
+        alwaysAvailable:
+            description: "Indicates if the Content item is shown in the main language if it's not present in an other requested language."
+            type: boolean
+        remoteId:
+            description: 'Remote identifier used as a custom identifier for the Content item. Needs to be a unique Content->remoteId string value.'
+            type: string
+        mainLanguageCode:
+            description: 'The main language code for the content. This language will also be used for as initial language for the first created version. It is also used as default language for added fields.'
+            required: true
+            type: string
+        modificationDate:
+            descritpion: 'Modification date. If not given the current integer is used.'
+            type: datetime
+ContentImageVariation:
+    description: 'This class represents an image.'
+    type: BaseObject
+    properties:
+        uri:
+            description: 'This class represents a URI.'
+            type: string
+        contentType:
+            description: 'Type of an image.'
+            type: string
+        width:
+            description: 'Width of an image.'
+            type: integer
+        height:
+            description: 'Height of an image.'
+            type: integer
+        fileSize:
+            description: 'Size of an image file.'
+            type: integer
+ContentInfo:
+    description: 'This class provides all version independent information of the Content item.'
+    type: BaseObject
+    properties:
+        Content:
+            description: 'Content ID matcher class.'
+            type: Content
+#            id:
+#                description: 'The unique ID of the Content item.'
+#                type: integer
+#            contentTypeId:
+#                description: 'The Content Type ID of the Content item.'
+#                type: integer
+#            name:
+#                description: 'The computed name (via name schema) in the main language of the Content item.'
+#                type: string
+#            sectionId:
+#                description: 'The Section to which the Content item is assigned.'
+#                type: integer
+#            currentVersionNo:
+#                description: 'Current Version number is the version number of the published version or the version number of a newly created draft (which is 1).'
+#                type: integer
+#            published:
+#                description: 'True if there exists a published version, false otherwise.'
+#                type: boolean
+#            ownerId:
+#                description: 'The owner of the Content item.'
+#                type: integer
+#            modificationDate:
+#                description: 'Content modification date.'
+#                type: datetime
+#            publishedDate:
+#                description: 'Content publication date.'
+#                type: datetime
+#            alwaysAvailable:
+#                description: "Indicates if the Content item is shown in the main language if it's not present in an other requested language."
+#                type: boolean
+#            remoteId:
+#                description: 'Remote identifier used as a custom identifier for the object.'
+#                type: string
+#            mainLanguageCode:
+#                description: 'The main language code of the Content item.'
+#                type: string
+#            mainLocationId:
+#                description: 'Identifier of the main Location. If the Content item has multiple Locations, mainLocationId will point to the main one.'
+#                type: integer
+#            status:
+#                description: 'Status of the content. Possible values: const STATUS_DRAFT = 0;const STATUS_PUBLISHED = 1; const STATUS_TRASHED = 2.'
+#                type: integer
+ContentMetadataUpdateStruct:
+    description: 'With this class data can be provided to update version independent Fields of the Content item. It is used in content update methods. At least one property in this class must be set.'
+    type: object
+    properties:
+        ownerId:
+            description: 'If set this value changes the owner ID of the Content item.'
+            type: integer
+        publishedDate:
+            description: 'If set this value overrides the publication date of the content. (Used in staging scenarios).'
+            type: datetime
+        modificationDate:
+            description: 'If set this value overrides the modification date. (Used for staging scenarios).'
+            type: datetime
+        mainLanguageCode:
+            description: 'If set the main language of the Content item is changed.'
+            type: string
+        alwaysAvailable:
+            description: 'If set this value changes the always available flag.'
+            type: boolean
+        remoteId:
+            description: 'If set this value changes the remoteId. Needs to be a unique Content->remoteId string value.'
+            type: string
+        mainLocationId:
+            description: 'If set  main Location is changed to this value. If the Content item has multiple Locations, $mainLocationId will point to the main one.'
+            type: integer
+        name:
+            description: "If set, will change the content's 'always-available' name."
+            type: string
+ContentObjectStates:
+    description: 'Base struct for content create/update structs.'
+    type: BaseObject
+    properties:
+        ObjectState:
+            description: 'Object state value.'
+            type: BaseObject
+ContentStruct:
+    description: 'Base struct for content create/update structs.'
+    type: object
+    properties:
+        setField:
+            description: 'Adds a field to the field collection. This method could also be implemented by a magic setter so that $fields[$fieldDefIdentifier][$language] = $value or without language $fields[$fieldDefIdentifier] = $value is an equivalent call.'
+            type: string
+ContentType:
+    descritpion: 'This class represents a Content Type.'
+    type: BaseObject
+    properties:
+        id:
+            description: 'Content Type ID.'
+            type: integer
+        status:
+            description: 'The status of the Content Type. Possible values: const STATUS_DEFINED = 0; Status constant for defined (aka published) Type, const STATUS_DRAFT = 1; Status constant for draft (aka temporary) Type; const STATUS_MODIFIED = 2; Status constant for modified (aka deferred for publishing) Type.'
+            enum: []
+        identifier:
+            description: 'String identifier of a Content Type.'
+            type: string
+        names:
+            description: 'Name of a Content Type.'
+            type: Value[]
+        descriptions:
+            description: 'Description of a Content Type.'
+            type: Value[]
+        creationDate:
+            description: 'Creation date of the Content Type.'
+            type: datetime
+        modificationDate:
+            description: 'Modification date of the Content Type.'
+            type: datetime
+        Creator:
+            descritpion: 'Creator User of the Content Type.'
+            type: BaseObject
+        Modifier:
+            description: 'Modifier User of the Content Type.'
+            type: BaseObject
+        Groups:
+            description: 'Group User of the Content Type.'
+            type: BaseObject
+        Draft:
+            description: 'Draft of the Content Type.'
+            type: BaseObject
+        remoteId:
+            description: 'Unique remote ID of the Content Type.'
+            type: string
+        urlAliasSchema:
+            description: 'URL alias schema. If nothing is provided, $nameSchema will be used instead.'
+            type: string
+        nameSchema:
+            description: 'Name schema. Can be composed of FieldDefinition identifier place holders.'
+            type: string
+        isContainer:
+            description: 'A flag used to hint if content of this type may have children or not. It is highly recommended to respect this flag and not create/move content below non-containers. But this flag is not considered as part of the content model and the API will not in any way enforce this flag to be respected.'
+            type: boolean
+        defaultAlwaysAvailable:
+            description: 'If an instance of a Content Type is created the always available flag is set by default to this value.'
+            type: boolean
+        defaultSortField:
+            descritpion: 'Specifies which property the child Locations should be sorted on by default when created. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: const SORT_FIELD_PATH = 1; const SORT_FIELD_PUBLISHED = 2; const SORT_FIELD_MODIFIED = 3; const SORT_FIELD_SECTION = 4; const SORT_FIELD_DEPTH = 5; const SORT_FIELD_PRIORITY = 8; const SORT_FIELD_NAME = 9; const SORT_FIELD_NODE_ID = 11; const SORT_FIELD_CONTENTOBJECT_ID = 12.'
+            enum: []
+        defaultSortOrder:
+            description: 'Specifies whether the sort order should be ascending or descending by default when created. Map for Location sort order to their respective Query SORT constants. Possible values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1.'
+            enum: []
+        FieldDefinitions:
+            description: 'This method returns the Content Type Field definitions from this type.'
+            type: BaseObject
+            properties:
+                FieldDefinitions:
+                    type: FieldDefinition[]
+
+ContentTypeCreateStruct:
+    description: 'This class is used for creating Content Types.'
+    type: object
+    properties:
+        identifier:
+            description: 'String unique identifier of a type.'
+            required: true
+            type: string
+        mainLanguageCode:
+            description: 'Main language Code.'
+            required: true
+            type: string
+        remoteId:
+            description: 'The remote ID.'
+            type: string
+        urlAliasSchema:
+            description: 'URL alias schema.'
+            type: string
+        nameSchema:
+            description: 'Name schema.'
+            type: string
+        isContainer:
+            description: 'Determines if the type is a container.'
+            type: boolean
+        defaultSortField:
+            description: 'Specifies which property the child Locations should be sorted on by default when created.'
+            type: integer
+        defaultSortOrder:
+            description: 'Specifies whether the sort order should be ascending or descending by default when created.'
+            type: integer
+        defaultAlwaysAvailable:
+            description: 'If an instance of a Content Type is created the always available flag is set by default this this value.'
+            type: boolean
+        names:
+            description: 'An array of names with languageCode keys. At least one name in the main language is required.'
+            required: true
+            type: string[]
+        descriptions:
+            description: 'An array of descriptions with languageCode keys.'
+            type: string[]
+        addFieldDefinition:
+            description: 'Adds a new Field definition.'
+            type: FieldDefinitionCreateStruct
+        creatorId:
+            description: 'If set this value overrides the current User as creator.'
+            type: integer
+        creationDate:
+            description: 'f set this value overrides the current time for creation.'
+            type: datetime
+
+ContentTypeDraft:
+    description: 'This class represents a draft of a Content Type.'
+    type: object
+ContentTypeGroup:
+    description: 'This class represents a Content Type group value.'
+    type: BaseObject
+    properties:
+        id:
+            description: 'Primary key.'
+            type: integer
+        identifier:
+            description: 'Readable string identifier of a group.'
+            type: string
+        created:
+            description: 'Created date (integer).'
+            type: datetime
+        modified:
+            description: 'Modified date (integer).'
+            type: datetime
+        Creator:
+            description: 'Creator User ID.'
+            type: BaseObject
+        Modifier:
+            description: 'Modifier User ID.'
+            type: BaseObject
+        ContentTypes:
+            description: 'Content Types.'
+            type: BaseObject
+
+ContentTypeGroupInput:
+  type: BaseObject
+
+ContentTypeGroupCreateStruct:
+    description: 'This class is used for creating a Content Type group.'
+    type: object
+    properties:
+        creatorId:
+            description: 'If set this value overrides the current User as creator.'
+            type: integer
+        creationDate:
+            description: 'If set this value overrides the current time for creation.'
+            type: datetime
+ContentTypeGroupList:
+    description: 'List of Content Type groups.'
+    type: BaseObject
+    properties:
+        ContentTypeGroup:
+            type: ContentTypeGroup[]
+ContentTypeGroupRef:
+    description: 'Content Type group reference.'
+    type: BaseObject
+    properties:
+        Unlink:
+            type: Unlink
+ContentTypeGroupRefList:
+    description: 'List of Content Type groups references.'
+    type: BaseObject
+    properties:
+        ContentTypeGroupRef:
+            type: ContentTypeGroupRef
+ContentTypeGroupStruct:
+    description: 'This class is used for updating a Content Type group.'
+    type: object
+    properties:
+        identifier:
+            description: 'Readable and unique string identifier of a group.'
+            type: string
+ContentTypeGroupUpdateStruct:
+    description: 'This class is used for updating a Content Type group.'
+    type: object
+    properties:
+        modifierId:
+            description: 'If set this value overrides the current User as modifier.'
+            type: integer
+        modificationDate:
+            description: 'If set this value overrides the current time for modified.'
+            type: datetime
+ContentTypeInfo:
+    description: 'This class stores Content Type information.'
+    type: BaseObject
+    properties:
+        id:
+            description: 'Content Type ID.'
+            type: integer
+        status:
+            description: 'The status of the Content Type. Possible values: const STATUS_DEFINED = 0; Status constant for defined (aka published) Type, const STATUS_DRAFT = 1; Status constant for draft (aka temporary) Type; const STATUS_MODIFIED = 2; Status constant for modified (aka deferred for publishing) Type.'
+            enum: []
+        identifier:
+            description: 'String identifier of a Content Type.'
+            type: string
+        names:
+            description: 'Name of a Content Type.'
+            type: Value[]
+        descriptions:
+            description: 'Description of a Content Type.'
+            type: Value[]
+        creationDate:
+            description: 'Creation date of the Content Type.'
+            type: datetime
+        modificationDate:
+            description: 'Modification date of the Content Type.'
+            type: datetime
+        Creator:
+            descritpion: 'Creator User of the Content Type.'
+            type: BaseObject
+        Modifier:
+            description: 'Modifier User of the Content Type.'
+            type: BaseObject
+        Groups:
+            description: 'Group User of the Content Type.'
+            type: BaseObject
+        Draft:
+            description: 'Draft of the Content Type.'
+            type: BaseObject
+        remoteId:
+            description: 'Unique remote ID of the Content Type.'
+            type: string
+        urlAliasSchema:
+            description: 'URL alias schema. If nothing is provided, $nameSchema will be used instead.'
+            type: string
+        nameSchema:
+            description: 'Name schema. Can be composed of FieldDefinition identifier place holders.'
+            type: string
+        isContainer:
+            description: 'A flag used to hint if content of this type may have children or not. It is highly recommended to respect this flag and not create/move content below non-containers. But this flag is not considered as part of the content model and the API will not in any way enforce this flag to be respected.'
+            type: boolean
+        mainLanguageCode:
+            description: 'Main language code.'
+            type: string
+        defaultAlwaysAvailable:
+            description: 'If an instance of a Content Type is created the always available flag is set by default to this value.'
+            type: boolean
+        defaultSortField:
+            descritpion: 'Specifies which property the child Locations should be sorted on by default when created. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: const SORT_FIELD_PATH = 1; const SORT_FIELD_PUBLISHED = 2; const SORT_FIELD_MODIFIED = 3; const SORT_FIELD_SECTION = 4; const SORT_FIELD_DEPTH = 5; const SORT_FIELD_PRIORITY = 8; const SORT_FIELD_NAME = 9; const SORT_FIELD_NODE_ID = 11; const SORT_FIELD_CONTENTOBJECT_ID = 12.'
+            enum: []
+        defaultSortOrder:
+            description: 'Specifies whether the sort order should be ascending or descending by default when created. Map for Location sort order to their respective Query SORT constants. Possible values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1.'
+            enum: []
+ContentTypeInfoList:
+    description: 'List of Content Type information.'
+    type: BaseObject
+    properties:
+        ContentType:
+            type: ContentTypeInfo[]
+ContentTypeList:
+    description: 'List of Content Types.'
+    type: BaseObject
+    properties:
+        ContentType:
+            type: ContentType[]
+ContentTypeUpdateStruct:
+    description: 'This class is used for updating a Content Type.'
+    type: object
+    properties:
+        identifier:
+            description: 'If set the unique identifier of a type is changed to this value.'
+            type: string
+        remoteId:
+            description: 'If set the remote ID is changed to this value.'
+            type: string
+        urlAliasSchema:
+            description: 'If set the URL alias schema is changed to this value.'
+            type: string
+        nameSchema:
+            description: 'f set the name schema is changed to this value.'
+            type: string
+        isContainer:
+            description: 'If set the container flag is set to this value.'
+            type: boolean
+        mainLanguageCode:
+            description: 'If set the main language is changed to this value.'
+            type: string
+        defaultSortField:
+            description: 'If set the default sort field is changed to this value.'
+            type: integer
+        defaultSortOrder:
+            description: 'If set the default sort order is set to this value.'
+            type: integer
+        defaultAlwaysAvailable:
+            description: 'If set the default always available flag is set to this value.'
+            type: boolean
+        modifierId:
+            description: 'If set this value overrides the current User as creator.'
+            type: integer
+        modificationDate:
+            description: 'If set this value overrides the current time for creation.'
+            type: datetime
+        names:
+            description: 'If set this array of names with languageCode keys replace the complete name collection.'
+            type: array
+        descriptions:
+            description: 'If set this array of descriptions with languageCode keys replace the complete description collection.'
+            type: array
+ContentUpdateStruct:
+    description: 'This class is used for updating the fields of a Content item draft.'
+    type: object
+    properties:
+        initialLanguageCode:
+            description: 'The language code of the version. This code is used as the language code of the translation (which is shown in the admin interface). It is also used as default language for added fields.'
+            type: string
+        creatorId:
+            description: 'Creator User ID. Creator of the version, in the search API this is referred to as the modifier of the published content.'
+            type: integer
+Country:
+    description: 'This class is representing a country.'
+    type: BaseObject
+    properties:
+        _id:
+            description: 'ID that represents a country name.'
+            type: string
+        name:
+            description: 'Name of the country.'
+            type: string
+        Alpha2:
+            description: 'Two-letter code that represents a country name.'
+            type: string
+        Alpha3:
+            description: 'Three-letter code that represents a country name.'
+            type: string
+        IDC:
+            description: 'IDC'
+            type: integer
+CountryList:
+    description: 'This class is representing an ISO-3166 formatted list of world countries.'
+    type: BaseObject
+    properties:
+        Country:
+            type: Country[]
+CreateStruct:
+    description: 'This class is used for creating a notification.'
+    type: object
+    properties:
+        ownerId:
+            description: 'Owner ID.'
+            type: integer
+        type:
+            description: 'This class represents type.'
+            type: string
+        isPending:
+            description: 'If the notification is pending.'
+            type: boolean
+        data:
+            description: 'Notification data.'
+            type: array
+Criterion:
+    description: 'Criterion implementations.'
+    type: object
+    properties:
+        operator:
+            description: 'The operator used by the Criterion.'
+            type: string
+        value:
+            description: 'The value(s) matched by the Criteria.'
+            type: array
+        target:
+            description: 'The target used by the Criteria (field, metadata...).'
+            type: string
+        valueData:
+            description: 'Additional value data, required by some Criteria, MapLocationDistance for instance.'
+            type: Value
+        Specifications:
+            description: "Criterion description function. Returns the combination of the Criterion's supported operator/value, as an array of objects."
+            type: Specifications[]
+        ValueTypeCheckCallback:
+            description: 'Returns a callback that checks the values types depending on the operator specifications.'
+            type: integer
+DateRange:
+  description: 'Representation of date range.'
+  type: object
+datetime:
+    description: 'Representation of date and time.'
+    type: object
+Event:
+    description: 'Calendar event.'
+    type: BaseObject
+    properties:
+        id:
+            description: 'The unique ID.'
+            type: string
+        datetime:
+            type: datetime
+        type:
+            description: 'Event type identifier or name.'
+            type: string
+        name:
+            description: 'Name of the calendar event.'
+            type: string
+        attributes:
+            description: 'List of event attributes.'
+            type: EventAttribute[]
+EventAttribute:
+    type: object
+    properties:
+        label:
+            description: 'Label of the attribute.'
+            type: string
+        value:
+            description: 'Value of the attribute.'
+            type: string
+EventGroup:
+    description: 'Event group.'
+    type: BaseObject
+    properties:
+        currentPage:
+            description: 'Current page representation.'
+            type: string
+        nextPage:
+            description: 'Next page representation.'
+            type: string
+        groupKey:
+            type: DateRange
+        totalCount:
+            description: 'Total count of events.'
+            type: integer
+        events:
+            type: Event[]
+EventGroupList:
+    description: 'Grouped calendar event list.'
+    type: EventList
+    properties:
+        groups:
+            type: EventGroup[]
+EventList:
+    description: 'List of calendar events.'
+    type: BaseObject
+    properties:
+        currentPage:
+            description: 'Current page representation.'
+            type: string
+        nextPage:
+            description: 'Next page representation.'
+            type: string
+        totalCount:
+            description: 'Total count of events.'
+            type: integer
+        events:
+            type: Event[]
+FacetBuilder:
+    description: 'This class is the base class for facet builders.'
+    type: object
+    properties:
+        name:
+            description: 'The name of the facet.'
+            type: string
+        global:
+            description: 'If true the facet runs in a global mode not restricted by the query.'
+            type: boolean
+        filter:
+            description: 'An additional facet filter that will further filter the documents the facet will be executed on.'
+            type: Criterion
+        limit:
+            description: 'Number of facets (terms) returned.'
+            type: integer
+        minCount:
+            description: 'Specifies the minimum count. Only facet groups with more or equal results are returned.'
+            type: integer
+Field:
+    description: 'This class represents a field of a Content item.'
+    type: object
+    properties:
+        id:
+            description: 'The field ID.'
+            type: integer
+        fieldDefinitionIdentifier:
+            description: 'The Field definition identifier.'
+            type: string
+        languageCode:
+            description: 'The language code.'
+            type: string
+        fieldTypeIdentifier:
+            description: 'Field Type identifier.'
+            type: string
+        fieldValue:
+            description: 'A Field Type value or a value type which can be converted by the corresponding field type.'
+            type: any
+FieldDefinition:
+    description: 'This class represents a Field definition.'
+    type: BaseObject
+    properties:
+        id:
+            description: 'The unique ID of this Field definition.'
+            type: integer
+        identifier:
+            description: 'Readable string identifier of a Field definition.'
+            type: string
+        fieldType:
+            description: 'String identifier of the field type.'
+            type: string
+        fieldGroup:
+            description: 'Field group name.'
+            type: string
+        position:
+            description: 'The position of the Field definition in the content type.'
+            type: integer
+        isTranslatable:
+            description: 'If the field is translatable.'
+            type: boolean
+        isRequired:
+            description: 'Is the field required.'
+            type: boolean
+        isInfoCollector:
+            description: 'The flag if this field is used for information collection.'
+            type: boolean
+        defaultValue:
+            description: 'Default value of the field.'
+            type: any
+        isSearchable:
+            description: 'Indicates if th the content is searchable by this attribute.'
+            type: boolean
+        names:
+            description: 'Names of Content Types.'
+            type: Value[]
+        descriptions:
+            description: 'Descriptions of Content Types.'
+            type: Value[]
+        fieldSettings:
+            description: 'Settings for the Field definition supported by the field type.'
+            type: any
+        validatorConfiguration:
+            description: 'Validator configuration of this Field definition supported by the field type.'
+            type: StringLengthValidator
+
+FieldDefinitionCreate:
+    type: BaseObject
+
+FieldDefinitionUpdate:
+    type: BaseObject
+
+FieldDefinitionCreateStruct:
+    description: 'This class is used to create a Field definition.'
+    type: object
+    properties:
+        fieldTypeIdentifier:
+            description: 'String identifier of the field type.'
+            required: true
+            type: string
+        identifier:
+            description: 'Readable string identifier of a Field definition. Needs to be unique within the context of the Content Type this is added to.'
+            required: true
+            type: string
+        names:
+            description: 'An array of names with languageCode keys.'
+            type: array
+        descriptions:
+            description: 'An array of descriptions with languageCode keys.'
+            type: array
+        fieldGroup:
+            description: 'Field group name.'
+            type: string
+        position:
+            description: 'The position of the Field definition in the Content Type if not set the field is added at the end.'
+            type: integer
+        isTranslatable:
+            description: 'Indicates if the field is translatable.'
+            type: boolean
+        isRequired:
+            description: 'Indicates if the field is required.'
+            type: boolean
+        isInfoCollector:
+            description: 'Indicates if this attribute is used for information collection.'
+            type: boolean
+        validatorConfiguration:
+            description: 'The validator configuration supported by the field type.'
+            type: any
+        fieldSettings:
+            description: 'The settings supported by the field type.'
+            type: any
+        defaultValue:
+            description: 'Default value of the field.'
+            type: any
+        isSearchable:
+            description: 'Indicates if th the content is searchable by this attribute.'
+            type: boolean
+FieldDefinitionUpdateStruct:
+    description: 'This class is used to update a Field definition.'
+    type: object
+    properties:
+        identifier:
+            description: 'If set the identifier of a Field definition is changed to this value. Needs to be unique within the context of the Content Type this is added to.'
+            type: string
+        names:
+            description: 'If set this array of names with languageCode keys replace the complete name collection.'
+            type: array
+        descriptions:
+            description: 'If set this array of descriptions with languageCode keys replace the complete description collection.'
+            type: array
+        fieldGroup:
+            description: 'If set the field group is changed to this name.'
+            type: string
+        position:
+            description: 'If set the position of the field in the Content Type.'
+            type: integer
+        isTranslatable:
+            description: 'If set translatable flag is set to this value.'
+            type: boolean
+        isRequired:
+            description: 'If set the required flag is set to this value.'
+            type: boolean
+        isInfoCollector:
+            description: 'If set the information collector flag is set to this value.'
+            type: boolean
+        validatorConfiguration:
+            description: 'If set this validator configuration supported by the Field Type replaces the existing one.'
+            type: any
+        fieldSettings:
+            description: 'If set this settings supported by the Field Type replaces the existing ones.'
+            type: any
+        defaultValue:
+            description: 'If set the default value for this field is changed to the given value.'
+            type: any
+        isSearchable:
+            description: 'If set the the searchable flag is set to this value.'
+            type: boolean
+JWT:
+    description: 'This class represents the JWT authentication token'
+    type: object
+    properties:
+        token:
+            description: 'JWT authentication token'
+            type: string
+JWTInput:
+    description: 'This class represents the input for a JWT authentication token'
+    type: object
+    properties:
+        user:
+            description: 'User name'
+            type: string
+        password:
+            description: 'User password'
+            type: string
+Language:
+    description: 'This class represents a language in the Repository.'
+    type: object
+    properties:
+        ALL:
+            description: "Constant for use in API's to specify that you want to load all languages."
+            type: array
+        id:
+            description: 'The language ID (auto generated).'
+            type: integer
+        languageCode:
+            description: 'The languageCode code.'
+            type: string
+        name:
+            description: 'Human readable name of the language.'
+            type: string
+        enabled:
+            description: 'Indicates if the language is enabled or not.'
+            type: boolean
+LanguageCode:
+    description: 'Language code.'
+    type: object
+    properties:
+        languageCode:
+            type: string
+LanguageCreateStruct:
+    description: 'This class represents a value for creating a language.'
+    type: object
+    properties:
+        languageCode:
+            description: 'The languageCode code. Needs to be a unique.'
+            type: string
+        name:
+            description: 'Human readable name of the language.'
+            type: string
+        enabled:
+            description: 'Indicates if the language is enabled or not.'
+            type: boolean
+Limitation:
+    description: 'This class represents a Limitation applied to a policy.'
+    type: BaseObject
+    properties:
+        _identifier:
+            description: 'Returns the limitation identifier (one of the defined constants) or a custom limitation. Constants: CONTENTTYPE = Class; LANGUAGE = Language; LOCATION = Node; OWNER = Owner; PARENTOWNER = ParentOwner; PARENTCONTENTTYPE = ParentClass; PARENTDEPTH = ParentDepth; SECTION = Section; NEWSECTION = NewSection; SITEACCESS = SiteAccess; STATE = State; NEWSTATE = NewState; SUBTREE = Subtree; USERGROUP = Group; PARENTUSERGROUP = ParentGroup; STATUS = Status.'
+            enum: ['CONTENTTYPE', 'LANGUAGE', 'LOCATION', 'OWNER', 'PARENTOWNER', 'PARENTCONTENTTYPE', 'PARENTDEPTH', 'SECTION', 'NEWSECTION','SITEACCESS', 'STATE', 'NEWSTATE', 'SUBTREE', 'USERGROUP', 'PARENTUSERGROUP', 'STATUS']
+        Values:
+            description: 'A read-only list of IDs or identifiers for which the limitation should be applied. The value of this property must conform to a hash, which means that it may only consist of array and scalar values, but must not contain objects or resources.'
+            type: Ref[]
+Location:
+    description: 'This class represents a Location in the Repository.'
+    type: BaseObject
+    properties:
+        id:
+            description: 'The ID of the Location.'
+            type: integer
+        priority:
+            description: 'Location priority. Position of the Location among its siblings when sorted using priority sort order.'
+            type: integer
+        hidden:
+            description: 'Indicates that the Location entity has been explicitly marked as hidden.'
+            type: boolean
+        invisible:
+            description: 'Indicates that the Location is implicitly marked as hidden by a parent Location.'
+            type: boolean
+#            explicitlyHidden:
+#                description: 'Indicates that the Location entity has been explicitly marked as hidden.'
+#                type: boolean
+        remoteId:
+            description: 'Remote ID, universally unique identifier.'
+            type: string
+        ContentInfo:
+            description: 'This class provides all version independent information of the Content item.'
+            type: ContentInfo
+        ParentLocation:
+            description: 'Parent Location.'
+            type: Ref
+        Children:
+            description: 'Children Location.'
+            type: Ref
+        pathString:
+            description: 'The materialized path of the Location entry e.g. /1/2/.'
+            type: string
+        depth:
+            description: 'Depth Location has in the Location tree.'
+            type: integer
+        childCount:
+            description: 'Depth Location has in the Location tree.'
+            type: integer
+        sortField:
+            description: 'Specifies which property the child Locations should be sorted on. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: PATH.'
+            enum: ['PATH', 'PUBLISHED', 'MODIFIED', 'SECTION', 'DEPTH', 'CLASS_IDENTIFIER', 'CLASS_NAME', 'PRIORITY', 'NAME', 'MODIFIED_SUBNODE', 'NODE_ID', 'CONTENTOBJECT_ID']
+        sortOrder:
+            description: 'Specifies whether the sort order should be ascending or descending. Map for Location sort order to their respective Query SORT constants. One of the fallowing values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1.'
+            enum: ['ASC', 'DESC']
+        Content:
+            description: 'Represents a Content item in a specific version.'
+            type: Ref
+        UrlAliases:
+            description: 'This class represents URL aliases.'
+            type: Ref
+
+LocationCreate:
+  type: BaseObject
+
+LocationCreateStruct:
+    description: 'This class is used to create a new Location for a Content item.'
+    type: object
+    properties:
+        priority:
+            description: 'Location priority. Position of the Location among its siblings when sorted using priority sort order.'
+            type: integer
+        hidden:
+            description: 'Indicates that the Location entity has been explicitly marked as hidden.'
+            type: boolean
+        remoteId:
+            description: 'An universally unique string identifier. Needs to be a unique Location->remoteId string value.'
+            type: integer
+        sortField:
+            description: 'Specifies which property the child locations should be sorted on. Valid values are found at {@link Location::SORT_FIELD_*}.'
+            type: integer
+        sortOrder:
+            description: 'Specifies whether the sort order should be ascending or descending.  Valid values are {@link Location::SORT_ORDER_*}.'
+            type: integer
+        parentLocationId:
+            description: 'The ID of the parent Location under which the new Location should be created.'
+            required: true
+            type: integer
+LocationList:
+    description: 'This class represents a queried Location list holding a totalCount and a partial list of Locations (by offset/limit parameters and permission filters).'
+    type: object
+    properties:
+        totalCount:
+            description: 'The total count of found Locations (filtered by permissions).'
+            type: integer
+        Locations:
+            description: 'The partial list of Locations controlled by offset/limit.'
+            type: Location[]
+LocationQuery:
+    description: 'This class is used to perform a Location query.'
+    type: object
+LocationUpdateStruct:
+    description: 'This class is used for updating Location meta data.'
+    type: object
+    properties:
+        priority:
+            description: 'If set the Location priority is changed to the new value.'
+            type: integer
+        remoteId:
+            description: 'If set the Location gets a new remoteId. Needs to be a unique Location->remoteId string value.'
+            type: integer
+        sortField:
+            description: 'If set the sortField is changed. The sort field specifies which property the child Locations should be sorted on. Valid values are found at {@link Location::SORT_FIELD_*}.'
+            type: integer
+        sortOrder:
+            description: 'If set the sortOrder is changed. The sort order specifies whether the sort order should be ascending or descending. Valid values are {@link Location::SORT_ORDER_*}.'
+            type: integer
+Message:
+    description: 'Class for translatable messages, which only occur in singular form. The message might include replacements, in the form %[A-Za-z]%. Those are replaced by the values provided. A raw % can be escaped like %%.'
+    type: object
+    properties:
+        message:
+            description: 'Message string. Might use replacements like %foo%, which are replaced by the values specified in the values array.'
+            type: string
+        values:
+            description: 'Translation value objects. May not contain any numbers, which might result in requiring plural forms. Use Plural for that.'
+            type: array
+Notification:
+    description: 'This class represents a notification value.'
+    type: object
+    properties:
+        id:
+            description: 'This class represents ID.'
+            type: integer
+        ownerId:
+            description: 'Owner ID.'
+            type: integer
+        isPending:
+            description: 'If the notification is pending.'
+            type: boolean
+        type:
+            description: 'This class represents type.'
+            type: string
+        created:
+            description: 'Creation date.'
+            type: datetime
+        data:
+            description: 'This class represents data.'
+            type: array
+NotificationList:
+    description: 'This class represents a notifications list.'
+    type: object
+    properties:
+       totalCount:
+            description: 'Number of notifications.'
+            type: integer
+       items:
+            description: 'List of notifications.'
+            type: Notification[]
+ObjectState:
+    description: 'This class represents a Object state value.'
+    type: BaseObject
+    properties:
+        id:
+            description: 'Primary key.'
+            type: integer
+        identifier:
+            description: 'Readable string identifier of the Object state.'
+            type: string
+        priority:
+            description: 'Priority for ordering.'
+            type: integer
+        ObjectStateGroup:
+            description: 'The Object state group this Object state belongs to.'
+            type: BaseObject
+        languageCodes:
+            description: 'The available language codes for names an descriptions.'
+            type: string[]
+        names:
+            description: 'Names.'
+            type: object
+            properties:
+                Value:
+                    type: Value
+        descriptions:
+            description: 'Descriptions.'
+            type: object
+            properties:
+                Value:
+                    type: Value
+ObjectStateCreate:
+    type: BaseObject
+
+ObjectStateCreateStruct:
+    description: 'This class represents a value for creating Object states.'
+    type: object
+    properties:
+        identifier:
+            description: 'Readable unique string identifier of a group.'
+            required: true
+            type: string
+        priority:
+            description: 'Priority for ordering. If not set the Object state is created as the last one.'
+            type: integer
+        defaultLanguageCode:
+            description: 'The default language code.'
+            required: true
+            type: string
+        names:
+            description: 'An array of names with languageCode keys. At least one name in the main language is required.'
+            required: true
+            type: string[]
+        descriptions:
+            description: 'An array of descriptions with languageCode keys.'
+            type: string[]
+ObjectStateGroup:
+    description: 'This class represents an Object state group value.'
+    type: BaseObject
+    properties:
+        id:
+            description: 'Primary key.'
+            type: integer
+        identifier:
+            description: 'Readable string identifier of a group.'
+            type: string
+        defaultLanguageCode:
+            description: 'The default language code.'
+            type: string
+        languageCodes:
+            description: 'The available language codes for names an descriptions.'
+            type: string[]
+        ObjectStates:
+            description: 'Object States.'
+            type: BaseObject
+        Names:
+            description: 'List of names.'
+            type: object
+            properties:
+                Value:
+                    type: Value
+        Descriptions:
+            description: 'List of descriptions.'
+            type: object
+            properties:
+                Value:
+                    type: Value
+
+ObjectStateGroupCreate:
+    type: BaseObject
+
+ObjectStateGroupCreateStruct:
+    description: 'This class represents a value for creating Object state groups.'
+    type: object
+    properties:
+        identifier:
+            description: 'Readable unique string identifier of a group.'
+            required: true
+            type: string
+        defaultLanguageCode:
+            description: 'The default language code.'
+            required: true
+            type: string
+        names:
+            description: 'An array of names with languageCode keys. At least one name in the main language is required.'
+            required: true
+            type: string[]
+        descriptions:
+            description: 'An array of descriptions with languageCode keys.'
+            type: string[]
+ObjectStateGroupList:
+    description: 'List of Object state groups.'
+    type: BaseObject
+    properties:
+        ObjectStateGroup:
+            description: 'This class represents an Object state group value.'
+            type: ObjectStateGroup
+
+ObjectStateGroupUpdate:
+    type: BaseObject
+
+ObjectStateGroupUpdateStruct:
+    description: 'This class represents a value for updating Object state groups.'
+    type: object
+    properties:
+        identifier:
+            description: 'Readable unique string identifier of a group.'
+            type: string
+        defaultLanguageCode:
+            description: 'The default language code.'
+            type: string
+        names:
+            description: 'An array of names with languageCode keys.'
+            type: string[]
+        descriptions:
+            description: 'An array of descriptions with languageCode keys.'
+            type: string[]
+ObjectStateList:
+    description: 'List of Object states.'
+    type: BaseObject
+    properties:
+        ObjectState:
+            type: ObjectState[]
+
+ObjectStateUpdate:
+    type: BaseObject
+
+ObjectStateUpdateStruct:
+    description: 'This class represents a value for updating Object states.'
+    type: object
+    properties:
+        identifier:
+            description: 'Readable unique string identifier of a group.'
+            type: string
+        defaultLanguageCode:
+            description: 'The default language code.'
+            type: string
+        names:
+            description: 'An array of names with languageCode keys.'
+            type: string[]
+        descriptions:
+            description: 'An array of descriptions with languageCode keys.'
+            type: string[]
+PasswordValidationContext:
+    description: 'Context of the password validation.'
+    type: object
+    properties:
+        contentType:
+            description: 'Content Type of the password owner.'
+            type: ContentType
+        user:
+            description: 'Owner of the password.'
+            type: User
+Plural:
+    description: 'Class for translatable messages, which may contain plural forms. The message might include replacements, in the form %[A-Za-z]%. Those are replaced by the values provided. A raw % can be escaped like %%.'
+    type: object
+    properties:
+        singular:
+            description: 'Singular string. Might use replacements like %foo%, which are replaced by the values specified in the values array.'
+            type: string
+        plural:
+            description: 'Message string. Might use replacements like %foo%, which are replaced by the values specified in the values array.'
+            type: string
+        values:
+            description: 'Translation value objects. May not contain any numbers, which might result in requiring plural forms. Use MessagePlural for that.'
+            type: array
+Policy:
+    description: 'This class represents a policy value.'
+    type: BaseObject
+    properties:
+        id:
+            description: 'ID of the policy.'
+            type: integer
+        module:
+            description: 'Name of module, associated with the Policy e.g. content.'
+            type: string
+        function:
+            description: "Name of the module function Or all functions with '*' e.g. read."
+            type: string
+        Limitations:
+            description: 'Limitations.'
+            type: Limitation[]
+PolicyCreateStruct:
+    description: 'This class is used to create a policy.'
+    type: object
+    properties:
+        module:
+            description: 'Name of module, associated with the Policy e.g. content.'
+            type: string
+        function:
+            description: 'Name of the module function Or all functions with "*" e.g. read.'
+            type: string
+PolicyDraft:
+    description: 'Original policy ID the policy was created from.'
+    type: object
+    properties:
+        originalId:
+            description: 'Original policy ID the policy was created from. Used when role status is Role::STATUS_DRAFT.'
+            type: integer
+PolicyList:
+    description: 'List of policies.'
+    type: BaseObject
+    properties:
+        Policy:
+            type: Policy[]
+PolicyStruct:
+    description: 'This class is used to edit a policy.'
+    type: object
+    properties:
+        Limitations:
+            description: 'Returns list of limitations added to policy.'
+            type: Limitation[]
+        Limitation:
+            description: 'Adds a limitation with the given identifier and list of values.'
+            type: Limitation
+PolicyUpdateStruct:
+    description: 'This class is used for updating a policy. The limitations of the policy are replaced with those which are added in instances of this class.'
+    type: object
+Query:
+    description: 'This class is used to perform a Content query.'
+    type: object
+    properties:
+        filter:
+            description: 'The Query filter. Can contain multiple criterion, as items of a logical one (by default AND).'
+            type: Criterion
+        query:
+            description: 'The Query query. Can contain multiple criterion, as items of a logical one (by default AND).'
+            type: Criterion
+        sortClauses:
+            description: 'Query sorting clauses.'
+            type: SortClause[]
+        facetBuilders:
+            description: "An array of facet builders. Search engines may ignore any, or given facet builders they don't support and will just return search result facets supported by the engine. API consumer should dynamically iterate over returned facets for further use."
+            type: FacetBuilder[]
+        offset:
+            description: 'Query offset. Sets the offset for search hits, used for paging the results.'
+            type: integer
+        limit:
+            description: 'Query limit. Limit for number of search hits to return. If value is `0`, search query will not return any search hits, useful for doing a count.'
+            type: integer
+        spellcheck:
+            description: 'If true spellcheck suggestions are returned.'
+            type: boolean
+        performCount:
+            description: 'If true, search engine should perform count even if that means extra lookup.'
+            type: boolean
+Ref:
+    type: object
+    properties:
+        _media-type:
+          type: string
+        _href:
+          type: string
+Relation:
+    description: 'Class representing a relation between content.'
+    type: BaseObject
+    properties:
+        id:
+            description: 'ID of the relation.'
+            type: integer
+        sourceFieldDefinitionIdentifier:
+            description: 'Source Content Type Field Definition ID. For relation not of type RelationType::COMMON this field denotes the Field definition ID of the attribute where the relation is anchored.'
+            type: string
+        SourceContentInfo:
+            description: 'The content of the source content of the relation.'
+            type: ContentInfo
+        DestinationContentInfo:
+            description: 'The content of the destination content of the relation.'
+            type: ContentInfo
+        type:
+            description: 'The relation type bitmask. Relations: Relation::COMMON = 1, Relation::EMBED = 2, Relation::LINK = 4, Relation::FIELD = 8, Relation::ASSET = 16'
+            type: integer
+RelationList:
+    description: 'Class representing a list of relations between content.'
+    type: BaseObject
+    properties:
+        Relation:
+            type: Relation[]
+Role:
+    description: 'This class represents a role.'
+    type:  BaseObject
+    peoperties:
+        identifier:
+            description: 'Readable string identifier of a role.'
+            type: string
+        Policies:
+            description: 'Returns the list of policies of this role.'
+            type: BaseObject
+RoleAssignment:
+    description: 'This value object represents an assignment of a User or User group to a role including a limitation.'
+    type:  BaseObject
+    properties:
+        Limitation:
+            description: 'Returns the limitation of the role assignment.'
+            type: RoleLimitation
+        Role:
+            description: 'Returns the role to which the User or User group is assigned to.'
+            type: Ref
+RoleAssignmentList:
+    description: 'This value object represents a list of assignments of a User or User group to a role including a limitation.'
+    type:  BaseObject
+    properties:
+        RoleAssignment:
+            type: RoleAssignment[]
+RoleCreateStruct:
+    description: 'This class is used to create a new role.'
+    type:  object
+    properties:
+        identifier:
+            description: 'Readable string identifier of a role.'
+            type: string
+        Policies:
+            description: 'Returns policies associated with the role.'
+            type: PolicyCreateStruct[]
+        Policy:
+            description: 'Adds a policy to this role.'
+            type: PolicyCreateStruct
+RoleDraft:
+    description: 'This class represents a draft of a role, extends Role.'
+    type:  Role
+RoleLimitation:
+    description: 'Role limitation extends Limitation.'
+    type:  Limitation
+
+RoleUpdateStruct:
+    description: 'This class is used to update a role.'
+    type:  object
+    properties:
+        identifier:
+            description: 'Readable string identifier of a role.'
+            type: string
+RoleList:
+    description: 'This class represents a list roles.'
+    type: BaseObject
+    properties:
+        Role:
+            type: Role[]
+
+Root:
+    description: 'This class represents a root.'
+    type: BaseObject
+    properties:
+        content:
+            description: 'Content.'
+            type: BaseObject
+        contentByRemoteId:
+            description: 'Content by the given remote ID.'
+            type: BaseObject
+        contentTypes:
+            description: 'Content Types.'
+            type: BaseObject
+        contentTypeByIdentifier:
+            description: 'Content Type by the given identifier.'
+            type: BaseObject
+        contentTypeGroups:
+            description: 'Content Type Groups.'
+            type: BaseObject
+        contentTypeGroupByIdentifier:
+            description: 'Content Type Groups by the given identifier.'
+            type: BaseObject
+        users:
+            description: 'Users.'
+            type: BaseObject
+        usersByRoleId:
+            description: 'Users by Role ID.'
+            type: BaseObject
+        usersByRemoteId:
+            description: 'Users by remote ID.'
+            type: BaseObject
+        usersByEmail:
+            description: 'Users by e-mail.'
+            type: BaseObject
+        usersByLogin:
+            description: 'Users by login.'
+            type: BaseObject
+        roles:
+            description: 'Roles.'
+            type: BaseObject
+        rootLocation:
+            description: 'Root Location.'
+            type: BaseObject
+        rootUserGroup:
+            description: 'Root User Group.'
+            type: BaseObject
+        rootMediaFolder:
+            description: 'Root media folder.'
+            type: BaseObject
+        locationByRemoteId:
+            description: 'Location by remote ID.'
+            type: BaseObject
+        locationByPath:
+            description: 'Location by path.'
+            type: BaseObject
+        trash:
+            description: 'Trash.'
+            type: BaseObject
+        sections:
+            description: 'Sections.'
+            type: BaseObject
+        views:
+            description: 'Views.'
+            type: BaseObject
+        objectStateGroups:
+            description: 'Object state groups.'
+            type: BaseObject
+        objectStates:
+            description: 'Object states.'
+            type: BaseObject
+        globalUrlAliases:
+            description: 'Global URL aliases.'
+            type: BaseObject
+        urlWildcards:
+            description: 'URL Wildcards.'
+            type: BaseObject
+        createSession:
+            description: 'Creates a new session based on the credentials provided as POST parameters.'
+            type: BaseObject
+        refreshSession:
+            description: 'Refresh given session.'
+            type: BaseObject
+SearchResult:
+    description: 'The total number of URLs.'
+    type:  object
+    properties:
+        totalCount:
+            description: 'The total number of URLs.'
+            type: integer
+        items:
+            description: 'The value objects found for the query.'
+            type: URL[]
+Section:
+    description: 'This class represents a Section.'
+    type:  BaseObject
+    properties:
+        sectionId:
+            description: 'ID of the Section.'
+            type: integer
+        identifier:
+            description: 'Unique identifier of the Section.'
+            type: string
+        name:
+            description: 'Name of the Section.'
+            type: string
+SectionInput:
+    type: BaseObject
+
+SectionCreateStruct:
+    description: 'This class represents a Section.'
+    type: object
+SectionLimitation:
+    type: RoleLimitation
+SectionList:
+    description: 'This class represents a Section list.'
+    type: BaseObject
+    properties:
+        Section:
+            type: Section[]
+SectionStruct:
+    description: 'This class is used for updating Section meta data.'
+    type: object
+    properties:
+        identifier:
+            description: 'If set the Unique identifier of the Section is changes. Needs to be a unique Section->identifier string value.'
+            type: string
+        name:
+            description: 'If set the name of the Section is changed.'
+            type: string
+SectionUpdateStruct:
+    description: 'This class is used to provide data for updating a Section. At least one property has to be set.'
+    type: object
+Session:
+    description: 'Value for session.'
+    type: BaseObject
+    properties:
+        name:
+            description: 'Name.'
+            type: string
+        identifier:
+            description: 'Identifier.'
+            type: string
+        csrfToken:
+            description: 'csrfToken.'
+            type: string
+        User:
+            description: 'User.'
+            type: BaseObject
+SortClause:
+    description: 'This class is the base for SortClause classes, used to set sorting of content queries.'
+    type: object
+    properties:
+        direction:
+            description: 'Sort direction. One of Query::SORT_ASC or Query::SORT_DESC.'
+            type: string
+        target:
+            description: 'Sort target, high level: section_identifier, attribute_value, etc.'
+            type: string
+        targetData:
+            description: 'Extra target data, required by some sort clauses, field for instance.'
+            type: Target
+Specifications:
+    description: 'This class is used by Criteria to describe which operators they support. Instances of this class are returned in an array by the {@see Criterion::getSpecifications()} method.'
+    type: object
+    properties:
+        operator:
+            description: 'Specified operator, as one of the Operator::* constants.'
+            type: string
+        valueFormat:
+            description: 'Format supported for the Criterion value, either {@see self::FORMAT_SINGLE} for single or {@see self::FORMAT_ARRAY} for multiple.'
+            type: string
+        valueTypes:
+            description: 'Accepted values types, specifying what type of variables are accepted as a value. Criterion input value type description constants: const TYPE_INTEGER = 1; const TYPE_STRING = 2; const TYPE_BOOLEAN = 4.'
+            type: integer
+        valueCount:
+            description: 'Limitation on the number of items as the value. Only usable if {@see $valueFormat} is {@see self::FORMAT_ARRAY}.'
+            type: integer
+StringLengthValidator:
+    description: 'Validator for checking min. and max. length of strings.'
+    type: object
+    properties:
+        maxStringLength:
+            description: 'Maximum length of strings.'
+            type: integer
+        minStringLength:
+            description: 'Minimum length of strings.'
+            type: integer
+SubtreeLimitation:
+    type: RoleLimitation
+Target:
+    description: 'Struct that stores extra target information for a SortClause object.'
+    type: object
+Translation:
+    description: 'Base class for translation messages extends ValueObject.'
+    type: object
+Trash:
+  type: BaseObject
+  properties:
+      TrashItem:
+          type: TrashItem[]
+TrashItem:
+    description: 'This class represents a trash item, which is actually a trashed Location.'
+    type: Location
+#         TODO: Powinno byc w odpowiedzi:
+#        properties:
+#            trashed:
+#                description: 'Trashed integer.'
+#                type: datetime
+Unlink:
+    description: 'Unlink a Content Type group from a Content Type.'
+    type: object
+    properties:
+        _href:
+            type: string
+        _method:
+            enum: []
+URL:
+    description: 'This class represents a URL in the Repository.'
+    type: object
+    properties:
+        id:
+            description: 'The unique ID of the URL.'
+            type: integer
+        url:
+            description: 'URL itself e.g. "http://ez.no".'
+            type: string
+        isValid:
+            description: 'Is URL valid?'
+            type: boolean
+        lastChecked:
+            description: 'Date of last check.'
+            type: datetime
+        created:
+            description: 'Creation date.'
+            type: datetime
+        modified:
+            description: 'Modified date.'
+            type: datetime
+
+UrlAliasCreate:
+    type: BaseObject
+
+UrlAlias:
+    description: 'This class represents a URL alias in the Repository.'
+    type: BaseObject
+    properties:
+        _id:
+            description: 'A unique identifier for the alias.'
+            type: integer
+        _type:
+            description: 'The type of the URL Alias i.e. one of URLAlias::LOCATION=0, URLAlias::RESOURCE=1, URLAlias::VIRTUAL=2.'
+            enum: []
+        resource:
+            description: 'If type = URLAlias::LOCATION it is a Location ID otherwise a string (e.g. /content/search).'
+            type: any
+        path:
+            description: 'The full path of the alias.'
+            type:
+        languageCodes:
+            description: 'The languageCodes for which this path is valid.'
+            type: string[]
+        alwaysAvailable:
+            description: 'Fallback indicator for other languages.'
+            type: boolean
+        isHistory:
+            description: 'Indicates that this alias was autogenerated for an in the meanwhile archived version of the content.'
+            type: boolean
+        forward:
+            description: 'Indicates if the URL should be redirected.'
+            type: boolean
+        custom:
+            description: 'If false this alias was autogenerated otherwise manually created.'
+            type: boolean
+UrlAliasRefList:
+    description: 'List of URL alias in the Repository.'
+    type: BaseObject
+    properties:
+        URLAlias:
+            type: URLAlias[]
+UrlQuery:
+    description: 'This class is used to perform a URL query.'
+    type: object
+    properties:
+        filter:
+            description: 'The Query filter.'
+            type: Criterion
+        sortClauses:
+            description: 'Query sorting clauses.'
+            type: SortClause[]
+        offset:
+            description: 'Query offset. Sets the offset for search hits, used for paging the results.'
+            type: integer
+        limit:
+            description: 'Query limit. Limit for number of search hits to return. If value is `0`, search query will not return any search hits, useful for doing a count.'
+            type: integer
+UsageSearchResult:
+    description: 'This class is used to find usage search results.'
+    type: object
+    properties:
+        totalCount:
+            description: 'The total number of content objects using URL.'
+            type: integer
+        items:
+            description: 'The value objects found for the query.'
+            type: ContentInfo[]
+URLUpdateStruct:
+    description: 'Structure used to update URL data.'
+    type: object
+    properties:
+        url:
+            description: 'URL itself e.g. "http://ez.no".'
+            type: string
+        isValid:
+            description: 'Is URL valid?'
+            type: boolean
+        lastChecked:
+            description: 'Modified date.'
+            type: datetime
+UrlWildcard:
+    description: 'This class represents a URL alias in the Repository.'
+    type: BaseObject
+    properties:
+        id:
+            description: 'The unique ID.'
+            type: integer
+        sourceUrl:
+            description: 'The source URL.'
+            type: string
+        destinationUrl:
+            description: 'The destination URL containing placeholders e.g. /destination/{1}.'
+            type: string
+        forward:
+            description: 'Indicates if the URL is redirected or not.'
+            type: boolean
+
+UrlWildcardCreate:
+    type: BaseObject
+
+UrlWildcardList:
+    description: 'List of URL alias in the Repository.'
+    type: BaseObject
+    properties:
+        UrlWildcard:
+            type: UrlWildcard[]
+URLWildcardTranslationResult:
+    description: 'This class represents a result of a translated URL wildcard which is not an URLAlias.'
+    type: object
+    properties:
+        uri:
+            description: 'The found resource URI.'
+            type: string
+        forward:
+            description: 'Indicates if the URL is redirected or not.'
+            type: boolean
+User:
+    description: 'This class represents a User value.'
+    type: BaseObject
+    properties:
+        _id:
+            description: 'Unique ID of the Content Type.'
+            type: integer
+        _remoteId:
+            description: 'Remote ID of the Content Type.'
+            type: string
+        ContentType:
+            description: 'This class represents a Content Type.'
+            type: BaseObject
+        name:
+            description: 'Name of the domain object in a given language.'
+            type: string
+        Versions:
+            description: 'Returns the VersionInfo for this version.'
+            type: BaseObject
+        Section:
+            description: 'The Section to which the Content item is assigned.'
+            type: BaseObject
+        MainLocation:
+            description: 'Main Location of the object.'
+            type: BaseObject
+        Locations:
+            description: 'Locations of the object.'
+            type: BaseObject
+        Groups:
+            description: 'Group User of the Content Type.'
+            type: BaseObject
+        Owner:
+            description: 'The owner of the Content item.'
+            type: BaseObject
+        publishDate:
+            description: 'Content publication date.'
+            type: datetime
+        lastModificationDate:
+            description: 'Content modification date.'
+            type: datetime
+        mainLanguageCode:
+            description: 'The main language code of the Content item.'
+            type: string
+        alwaysAvailable:
+            description: "Indicates if the Content item is shown in the main language if it's not present in an other requested language."
+            type: boolean
+        Version:
+            description: 'Returns the VersionInfo for this version.'
+            type: Version
+        login:
+            description: 'User login.'
+            type: string
+        email:
+            description: 'User email address.'
+            type: string
+        enabled:
+            description: 'Flag to Signal if User is enabled or not. User can not login if false.'
+            type: boolean
+        UserGroups:
+            description: 'User groups.'
+            type: BaseObject
+        Roles:
+            description: 'Roles.'
+            type: BaseObject
+#            maxLogin:
+#                description: 'Max number of time User is allowed to login.'
+#                type: integer
+UserCreateStruct:
+    description: 'This class is used to create a new User in the Repository.'
+    type: object
+    properties:
+        login:
+            description: 'User login.'
+            required: true
+            type: string
+        email:
+            description: 'User email address.'
+            required: true
+            type: string
+        password:
+            description: 'The plain password.'
+            required: true
+            type: string
+        enabled:
+            description: 'Indicates if the User is enabled after creation.'
+            type: boolean
+UserGroup:
+    description: 'This class represents a User group.'
+    type: BaseObject
+    properties:
+        Unassign:
+            type: Unlink
+UserGroupCreateStruct:
+    description: 'This class is used to create a new User group in the Repository, extends ContentCreateStruct.'
+    type: object
+
+UserGroupRefList:
+    description: 'Returns a list of the sub groups.'
+    type: BaseObject
+    properties:
+        UserGroup:
+            description: 'This class represents a User group.'
+            type: UserGroup
+UserGroupRoleAssignment:
+    description: 'This class represents a User group to role assignment.'
+    type: object
+    properties:
+        UserGroup:
+            description: 'Returns the User group to which the role is assigned to.'
+            type: UserGroup
+
+UserGroupUpdate:
+    type: BaseObject
+
+UserGroupUpdateStruct:
+    description: 'This class is used to update a User group in the Repository.'
+    type: object
+    properties:
+        contentUpdateStruct:
+            description: 'The update structure for the profile content.'
+            type: ContentUpdateStruct
+        contentMetadataUpdateStruct:
+            description: 'The update structure for the profile meta data.'
+            type: ContentMetadataUpdateStruct
+UserGroupList:
+    type: BaseObject
+
+UserList:
+    description: 'This class represents a list of users.'
+    type: BaseObject
+    properties:
+        User:
+            type: User[]
+UserPreference:
+    description: 'This class represents a User preference value.'
+    type: object
+    properties:
+        name:
+            description: 'Name of User preference e.g. timezone.'
+            type: string
+        value:
+            description: 'Value of User preference e.g. America/New_York.'
+            type: string
+UserPreferenceList:
+    description: 'List of User preferences.'
+    type: object
+    properties:
+        totalCount:
+            description: 'The total number of User preferences.'
+            type: integer
+        items:
+            description: 'List of User preferences.'
+            type: UserPreference[]
+UserPreferenceSetStruct:
+    description: 'This class creates User preferences.'
+    type: object
+    properties:
+        name:
+            description: 'Name of User preference e.g. timezone.'
+            type: string
+        value:
+            description: 'Value of User preference e.g. America/New_York.'
+            type: string
+UserRefList:
+    description: 'Returns a list of the users.'
+    type: BaseObject
+    properties:
+        User:
+            description: 'This class represents a User.'
+            type: BaseObject[]
+UserRoleAssignment:
+    description: 'This class represents a User to role assignment.'
+    type: object
+    properties:
+        User:
+            description: 'Returns the User to which the role is assigned to.'
+            type: User
+UserTokenUpdateStruct:
+    description: 'This class is used to update a User token in the Repository.'
+    type: object
+    properties:
+        hashKey:
+            description: 'Hash key date for User account.'
+            type: string
+        time:
+            description: 'Time to which the token is valid.'
+            type: datetime
+UserUpdateStruct:
+    description: 'This class is used to update a User in the Repository.'
+    type: object
+    properties:
+        email:
+            description: 'If set the email address is updated with this value.'
+            type: string
+        password:
+            description: 'If set the password is updated with this plain password.'
+            type: string
+        enabled:
+            description: 'Flag to Signal if User is enabled or not. If set the enabled status is changed to this value.'
+            type: boolean
+        maxLogin:
+            description: 'Max number of time User is allowed to login. If set the maximum number of login attempts is changed to this value.'
+            type: integer
+        contentUpdateStruct:
+            description: 'The update structure for the profile content.'
+            type: ContentUpdateStruct
+        contentMetadataUpdateStruct:
+            description: 'The update structure  for the profile meta data.'
+            type: ContentMetadataUpdateStruct
+Value:
+    description: 'Struct that stores extra value information for a Criterion object.'
+    type: object
+    properties:
+        _languageCode:
+            description: 'Language code.'
+            type: string
+        '#text':
+            description: 'Content Type description.'
+            type: string
+ValueObject:
+    description: 'The base class for all value objects and structs. Supports readonly properties by marking them as protected.'
+    type: object
+    properties:
+        Properties:
+            description: 'Function where list of properties are returned.'
+            type: array
+Version:
+    description: 'Returns the VersionInfo for this version.'
+    type: BaseObject
+    properties:
+        VersionInfo:
+            description: 'VersionInfo for this version.'
+            type: VersionInfo
+        Fields:
+            description: 'Fields.'
+            type: Field
+        Relations:
+            description: 'Relations of the user.'
+            type: BaseObject
+            properties:
+                Relation:
+                    type: Relation[]
+VersionInfo:
+    description: 'This class holds version information data. It also contains the corresponding {@link Content} to which the version belongs to.'
+    type: object
+    properties:
+        id:
+            description: 'Version ID.'
+            type: integer
+        versionNo:
+            description: 'Version number. In contrast to {@link $id}, this is the version number, which only increments in scope of a single Content item.'
+            type: integer
+        status:
+            description: 'One of: VersionInfo::STATUS_DRAFT=0, VersionInfo::STATUS_PUBLISHED=1, VersionInfo::STATUS_ARCHIVED=3.'
+            enum: []
+        modificationDate:
+            description: 'The last modified date of this version.'
+            type: datetime
+        Creator:
+            description: 'Creator of the version, in the search API this is referred to as the modifier of the published content.'
+            type: BaseObject
+        creationDate:
+            description: 'Content creation date.'
+            type: datetime
+        initialLanguageCode:
+            description: 'The language code which is used for labeling a translation.'
+            type: string
+        languageCodes:
+            description: 'List of languages in this version. Reflects which languages fields exists in for this version.'
+            type: string[]
+        VersionTranslationInfo:
+            description: 'Translation information.'
+            type: VersionTranslationInfo
+        names:
+            description: 'Names.'
+            type: Value
+        Content:
+            description: 'Represents a Content item in a specific version.'
+            type: BaseObject
+VersionItem:
+    description: 'Version of content.'
+    type: BaseObject
+    properties:
+        Version:
+            description: 'Returns the VersionInfo for this version.'
+            type: BaseObject
+        VersionInfo:
+            type: VersionInfo
+VersionList:
+    description: 'List of all versions of the content.'
+    type: BaseObject
+    properties:
+        VersionItem:
+            type: VersionItem[]
+VersionTranslationInfo:
+    description: 'Translation information.'
+    type: object
+    properties:
+        _media-type:
+            type: string # Always "application/vnd.ez.api.VersionTranslationInfo+json"
+        Language:
+            type: LanguageCode[]
+
+VersionUpdate:
+    type: BaseObject
+
+View: #TODO outdated example
+    description: 'View.'
+    type: BaseObject
+    properties:
+        identifier:
+            description: 'Content identifier.'
+            type: string
+
+ContentTypeCreate:
+    type: BaseObject
+
+ContentTypeUpdate:
+    type: BaseObject
+
+ViewInput:
+    type: BaseObject
+
+UserCreate:
+    type: BaseObject
+
+UserGroupCreate:
+    type: BaseObject
+
+RoleAssignInput:
+    type: BaseObject
+
+UserUpdate:
+    type: BaseObject
+
+RoleInput:
+    type: BaseObject
+
+PolicyCreate:
+    type: BaseObject
+
+PolicyUpdate:
+    type: BaseObject
+
+SessionInput:
+    type: BaseObject
+
+BaseCommerceResponse:
+    type: object
+    properties:
+        _media-type:
+            type: string
+
+Basket:
+    type: BaseCommerceResponse
+
+BasketLineData:
+    type: object
+    properties:
+        quantity:
+            type: string
+            required: true
+        isVariant:
+            type: string
+        variantCode:
+            type: string
+        sku:
+            type: string
+            required: true
+        dataMap:
+            type: array
+            required: false
+
+PartyTypeInput:
+    type: object
+
+Party:
+    type: object
+    properties:
+        PartyIdentification: array
+        PartyName: array
+        PostalAddress: object
+        Contact: object
+        Person: object
+        SesExtension: object
+
+ShippingMethodDataResponse:
+    type: BaseCommerceResponse
+    properties:
+        shippingMethods: object
+        defaultMethod: string
+        shippingMethodsSorted: array
+
+PaymentMethodDataResponse:
+    type: BaseCommerceResponse
+
+ShippingAddressesResponse:
+    type: BaseCommerceResponse
+
+BasketListResponse:
+    type: BaseCommerceResponse
+    properties:
+        Parties: Party[]
+
+ValidationResponse:
+    type: BaseCommerceResponse
+    properties:
+        _media_type: string
+        messages: array
+
+CountrySelectionResponse:
+    type: BaseCommerceResponse
+    properties:
+        _media_type: string
+        countryOptions: object
+
+ShippingMethodData:
+    type: object
+    properties:
+        shippingMethod:
+            type: string
+            required: true
+
+PaymentMethodData:
+    type: object
+
+VoucherData:
+    type: object
+
+CustomerPriceData:
+    type: object
+    properties:
+        Meta:
+            type: object
+            required: false
+        Items: array
+
+BasketHeaderData:
+    type: object
+    properties:
+        value: string
+
+BasketLinesData:
+    type: object
+    properties:
+        sku: string
+        quantity: string
+        basketLineId: integer
+        lineNumber: integer
+
+PriceResponse:
+    type: BaseCommerceResponse

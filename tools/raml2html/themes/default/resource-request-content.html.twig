@@ -1,0 +1,35 @@
+<div class="request">
+    {% if method.bodies %}
+        {% set tabId = method_name_id(sectionId ~ '-' ~ method.type|lower ~ '-request') %}
+        <div class="pb-3" id="{{ tabId }}">
+            <div class="d-flex justify-content-between align-items-baseline">
+                <ul class="nav nav-tabs border-bottom-0" id="{{ tabId }}Tab" role="tablist">
+                    {% set tabItems = examples_tabs(method.bodies) %}
+                    {% if tabItems|length > 0 %}
+                        <li class="nav-item">
+                            <a href="#" class="nav-link disabled">Request</a>
+                        </li>
+                        {% for item in tabItems %}
+                            {% set itemId = tabId ~ '-' ~ item %}
+                            <li class="nav-item">
+                                <a class="nav-link {{ loop.index == 1 ? 'active' : '' }} text-gray" id="{{ itemId }}-tab"
+                                   data-toggle="tab"
+                                   href="#{{ itemId }}"
+                                   role="tab"
+                                   aria-controls="{{ itemId }}"
+                                   aria-selected="{{ loop.index == 1 ? 'true' : 'false' }}">
+                                    {{ item }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+            {% set examples = examples_body(method.bodies) %}
+            {% if examples|length > 0 %}
+                {% include theme ~ "/example.html.twig" %}
+                {% include theme ~ "/example-modal.html.twig" %}
+            {% endif %}
+        </div>
+    {% endif %}
+</div>

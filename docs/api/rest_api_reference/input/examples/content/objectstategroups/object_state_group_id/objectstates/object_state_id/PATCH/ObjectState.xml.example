@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectState media-type="application/vnd.ez.api.ObjectState+xml" href="/api/ezp/v2/content/objectstategroups/2/objectstates/2">
+    <id>2</id>
+    <identifier>locked</identifier>
+    <priority>1</priority>
+    <ObjectStateGroup media-type="application/vnd.ez.api.ObjectStateGroup+xml" href="/api/ezp/v2/content/objectstategroups/2"/>
+    <defaultLanguageCode>eng-GB</defaultLanguageCode>
+    <languageCodes>eng-GB</languageCodes>
+    <names>
+        <value languageCode="eng-GB">New Object State name</value>
+    </names>
+    <descriptions>
+        <value languageCode="eng-GB"></value>
+    </descriptions>
+</ObjectState>

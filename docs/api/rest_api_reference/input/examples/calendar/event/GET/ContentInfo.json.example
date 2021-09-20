@@ -1,0 +1,8 @@
+{
+    "EventList": {
+        "_media-type": "application/vnd.ez.api.EventList+json",
+        "_currentPage": "/api/ezp/v2/calendar/event?start=1597104000&end=1598745600&count=10",
+        "totalCount": 5,
+        "events": []
+    }
+}

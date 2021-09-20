@@ -1,0 +1,46 @@
+{% set methodNameId = method_name_id(method.displayName) %}
+<div id="{{ rootElemId ~ '-' ~ methodNameId }}-section" class="search-container px-3" data-parent="{{ rootParentName }}">
+    <div class="row px-1 pr-lg-0">
+        <div class="col-12">
+            <h5 id="{{ rootElemId ~ '-' ~ methodNameId }}"
+                class="heading text-gray font-weight-medium"
+                data-field="name"
+                data-search="{{ methodNameId }}">
+                {{ method.displayName }}
+                <a href="#{{ rootElemId ~ '-' ~ methodNameId }}" class="heading__link">¶</a>
+            </h5>
+        </div>
+        <div class="col-lg-6">
+            <p class="text-break">
+                <span data-field="method" class="badge badge--sm badge--{{ method.type|lower }}">{{ method.type }}</span>
+                <span data-field="url">{{ resource.uri }}</span>
+            </p>
+            <p data-field="body">{{ method.description }}</p>
+            {% include theme ~ "/method-headers.html.twig" %}
+
+            {% include theme ~ "/method-query-parameters.html.twig" %}
+
+            {% include theme ~ "/method-possible-responses.html.twig" %}
+
+            {% include theme ~ "/types.html.twig" %}
+        </div>
+        <div class="col-lg-6 px-3 examples">
+            {% set has_request = method.queryParameters or method.headers or method.bodies %}
+            {% set has_response = method.responses is not empty %}
+            {% set has_securedby = method.securitySchemes is not empty %}
+
+            {% if has_request or has_response or has_securedby %}
+                {% if has_request %}
+                    {% include theme ~ "/resource-request-content.html.twig" %}
+                {% endif %}
+                {% if has_securedby %}
+                    <h6>Security</h6>
+                    {% include theme ~ "/resource-securedby-content.html.twig" %}
+                {% endif %}
+                {% if has_response %}
+                    {% include theme ~ "/resource-response-content.html.twig" %}
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</div>

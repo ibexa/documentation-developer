@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrashItem media-type="application/vnd.ez.api.TrashItem+xml" href="/api/ezp/v2/content/trash/81">
+    <id>81</id>
+    <priority>0</priority>
+    <hidden>false</hidden>
+    <invisible>false</invisible>
+    <ParentLocation media-type="application/vnd.ez.api.Location+xml" href="/api/ezp/v2/content/locations/1/2/42"/>
+    <pathString>/1/2/42/81/</pathString>
+    <depth>3</depth>
+    <childCount>0</childCount>
+    <remoteId>135e8a84b61848a67be36e9552d2724d</remoteId>
+    <Content media-type="application/vnd.ez.api.Content+xml" href="/api/ezp/v2/content/objects/99"/>
+    <sortField>PATH</sortField>
+    <sortOrder>ASC</sortOrder>
+    <ContentInfo media-type="application/vnd.ez.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/99">
+        <Content media-type="application/vnd.ez.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/99" remoteId="ae2b4568c0d2e7a4a9bca9495e73591a" id="99">
+            <ContentType media-type="application/vnd.ez.api.ContentType+xml" href="/api/ezp/v2/content/types/1"/>
+            <Name>Folder 1</Name>
+            <Versions media-type="application/vnd.ez.api.VersionList+xml" href="/api/ezp/v2/content/objects/99/versions"/>
+            <CurrentVersion media-type="application/vnd.ez.api.Version+xml" href="/api/ezp/v2/content/objects/99/currentversion"/>
+            <Section media-type="application/vnd.ez.api.Section+xml" href="/api/ezp/v2/content/sections/1"/>
+            <Locations media-type="application/vnd.ez.api.LocationList+xml" href="/api/ezp/v2/content/objects/99/locations"/>
+            <Owner media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+            <lastModificationDate>2019-04-25T12:45:58+02:00</lastModificationDate>
+            <publishedDate>2019-04-25T12:45:58+02:00</publishedDate>
+            <mainLanguageCode>eng-GB</mainLanguageCode>
+            <currentVersionNo>1</currentVersionNo>
+            <alwaysAvailable>true</alwaysAvailable>
+            <status>TRASHED</status>
+            <ObjectStates media-type="application/vnd.ez.api.ContentObjectStates+xml" href="/api/ezp/v2/content/objects/99/objectstates"/>
+        </Content>
+    </ContentInfo>
+</TrashItem>
