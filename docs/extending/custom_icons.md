@@ -29,7 +29,7 @@ Content Type icons are accessible in Twig templates via the `ez_content_type_ico
 It requires Content Type identifier as an argument. The function returns the path to a Content Type icon.
 
 ```twig
-<svg class="ez-icon ez-icon-{{ content.contentType.identifier }}">
+<svg class="ibexa-icon ibexa-icon-{{ content.contentType.identifier }}">
     <use xlink:href="{{ ez_content_type_icon(content.contentType.identifier) }}"></use>
 </svg>
 ```
@@ -42,15 +42,19 @@ You can easily retrieve the icon URL with the `getContentTypeIcon`  helper funct
 It takes Content Type identifier as an argument and returns one of the following items:
 
  - URL of a given Content Type's icon
- - `null` if there is no Content Type with given identifier
+ - `null` if there is no Content Type with specified identifier
 
 Example with `getContentTypeIcon`:
 
 ```jsx
 const contentTypeIconUrl = eZ.helpers.contentType.getContentTypeIconUrl(contentTypeIdentifier);
 return (
-   <svg className="ez-icon">
+   <svg className="ibexa-icon">
        <use xlinkHref={contentTypeIconUrl} />
    </svg>
 )
 ```
+
+### Custom icons in React
+
+In Page Builder and Back Office React icons can be configured.

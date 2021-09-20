@@ -1,6 +1,6 @@
 # Reusable components
 
-When extending the Back Office, you can use base Twig templates for commonly used UI components such as alerts, tables or tabs.
+When you extend the Back Office, you can use base Twig templates for commonly used UI components such as alerts, tables or tabs.
 
 The available templates are:
 

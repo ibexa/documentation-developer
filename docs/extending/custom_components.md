@@ -2,7 +2,7 @@
 
 The Back Office has designated places where you can use your own components.
 
-Components enable you to inject widgets (e.g. **My dashboard** blocks) and HTML code (e.g. a tag for loading JS or CSS files).
+Components enable you to inject widgets (for example, **My dashboard** blocks) and HTML code (for example, a tag for loading JS or CSS files).
 A component is any class that implements the `Renderable` interface.
 It must be tagged as a service in `config/services.yaml`:
 
@@ -12,7 +12,7 @@ App\Component\MyNewComponent:
         - { name: ezplatform.admin_ui.component, group: content-edit-form-before }
 ```
 
-`group` indicates where the widget will be displayed. The available groups are:
+`group` indicates where the widget is displayed. The available groups are:
 
 - [`stylesheet-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L98)
 - [`script-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L99)
@@ -32,7 +32,7 @@ App\Component\MyNewComponent:
 
 ## Base component classes
 
-If you only need to inject a short element (e.g. a Twig template or a CSS link) without writing a class,
+If you only need to inject a short element (for example, a Twig template or a CSS link) without writing a class,
 you can make use of the following base classes:
 
 - `TwigComponent` renders a Twig template.
