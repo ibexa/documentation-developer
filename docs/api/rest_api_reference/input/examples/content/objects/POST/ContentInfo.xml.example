@@ -1,0 +1,1213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Version media-type="application/vnd.ez.api.Version+xml" href="/api/ezp/v2/content/objects/67/versions/5">
+    <VersionInfo>
+        <id>1114</id>
+        <versionNo>5</versionNo>
+        <status>PUBLISHED</status>
+        <modificationDate>2019-03-16T11:19:51+01:00</modificationDate>
+        <Creator media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+        <creationDate>2019-03-16T11:18:45+01:00</creationDate>
+        <initialLanguageCode>eng-GB</initialLanguageCode>
+        <languageCodes>eng-GB,fre-FR,ger-DE,nor-NO</languageCodes>
+        <VersionTranslationInfo media-type="application/vnd.ez.api.VersionTranslationInfo+xml">
+            <Language>
+                <languageCode>eng-GB</languageCode>
+            </Language>
+            <Language>
+                <languageCode>fre-FR</languageCode>
+            </Language>
+            <Language>
+                <languageCode>ger-DE</languageCode>
+            </Language>
+            <Language>
+                <languageCode>nor-NO</languageCode>
+            </Language>
+        </VersionTranslationInfo>
+        <names>
+            <value languageCode="eng-GB">Spanish seafood paella</value>
+            <value languageCode="fre-FR">Paella de fruits de mer espagnols</value>
+            <value languageCode="ger-DE">Spanische Meeresfrüchte Paella</value>
+            <value languageCode="nor-NO">Spansk sjømat paella</value>
+        </names>
+        <Content media-type="application/vnd.ez.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/67"/>
+    </VersionInfo>
+    <Fields>
+        <field>
+            <id>1041</id>
+            <fieldDefinitionIdentifier>title</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+            <fieldValue>Spanish seafood paella</fieldValue>
+        </field>
+        <field>
+            <id>1056</id>
+            <fieldDefinitionIdentifier>title</fieldDefinitionIdentifier>
+            <languageCode>fre-FR</languageCode>
+            <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+            <fieldValue>Paella de fruits de mer espagnols</fieldValue>
+        </field>
+        <field>
+            <id>1071</id>
+            <fieldDefinitionIdentifier>title</fieldDefinitionIdentifier>
+            <languageCode>ger-DE</languageCode>
+            <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+            <fieldValue>Spanische Meeresfrüchte Paella</fieldValue>
+        </field>
+        <field>
+            <id>1086</id>
+            <fieldDefinitionIdentifier>title</fieldDefinitionIdentifier>
+            <languageCode>nor-NO</languageCode>
+            <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+            <fieldValue>Spansk sjømat paella</fieldValue>
+        </field>
+        <field>
+            <id>1042</id>
+            <fieldDefinitionIdentifier>description</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezrichtext</fieldTypeIdentifier>
+            <fieldValue>
+                <value key="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:ezxhtml=&quot;http://ez.no/xmlns/ezpublish/docbook/xhtml&quot; xmlns:ezcustom=&quot;http://ez.no/xmlns/ezpublish/docbook/custom&quot; version=&quot;5.0-variant ezpublish-1.0&quot;&gt;&lt;para&gt;A real taste of Britain’s most acknowledged culinary export of a take-away food and early example of food fusion. A popular lunch meal that is conquering the world.&lt;/para&gt;&lt;para&gt; &lt;/para&gt;&lt;ezembed xlink:href=&quot;ezcontent://196&quot; view=&quot;embed&quot; ezxhtml:class=&quot;ez-embed-type-image&quot;&gt;&lt;ezconfig&gt;&lt;ezvalue key=&quot;size&quot;&gt;medium&lt;/ezvalue&gt;&lt;/ezconfig&gt;&lt;/ezembed&gt;&lt;ezembed xlink:href=&quot;ezcontent://70&quot; view=&quot;embed&quot;/&gt;&lt;/section&gt;
+</value>
+                <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;&gt;&lt;p&gt;A real taste of Britain’s most acknowledged culinary export of a take-away food and early example of food fusion. A popular lunch meal that is conquering the world.&lt;/p&gt;&lt;p&gt; &lt;/p&gt;&lt;div data-ezelement=&quot;ezembed&quot; data-href=&quot;ezcontent://196&quot; data-ezview=&quot;embed&quot; class=&quot;ez-embed-type-image&quot;&gt;&lt;span data-ezelement=&quot;ezconfig&quot;&gt;&lt;span data-ezelement=&quot;ezvalue&quot; data-ezvalue-key=&quot;size&quot;&gt;medium&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div data-ezelement=&quot;ezembed&quot; data-href=&quot;ezcontent://70&quot; data-ezview=&quot;embed&quot;/&gt;&lt;/section&gt;
+</value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1057</id>
+            <fieldDefinitionIdentifier>description</fieldDefinitionIdentifier>
+            <languageCode>fre-FR</languageCode>
+            <fieldTypeIdentifier>ezrichtext</fieldTypeIdentifier>
+            <fieldValue>
+                <value key="xml">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:ezxhtml=&quot;http://ez.no/xmlns/ezpublish/docbook/xhtml&quot; xmlns:ezcustom=&quot;http://ez.no/xmlns/ezpublish/docbook/custom&quot; version=&quot;5.0-variant ezpublish-1.0&quot;&gt;
+  &lt;para&gt; Un vrai avant-go&amp;#xFB;t de l'exportation culinaire la plus reconnue en Grande-Bretagne d'un plat &amp;#xE0; emporter et de
+    l'exemple pr&amp;#xE9;coce de la fusion des aliments. Un repas de midi populaire qui conquiert le monde.
+  &lt;/para&gt;
+&lt;/section&gt;
+</value>
+                <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;&gt;
+  &lt;p&gt; Un vrai avant-goût de l'exportation culinaire la plus reconnue en Grande-Bretagne d'un plat à emporter et de
+    l'exemple précoce de la fusion des aliments. Un repas de midi populaire qui conquiert le monde.
+  &lt;/p&gt;
+&lt;/section&gt;
+</value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1072</id>
+            <fieldDefinitionIdentifier>description</fieldDefinitionIdentifier>
+            <languageCode>ger-DE</languageCode>
+            <fieldTypeIdentifier>ezrichtext</fieldTypeIdentifier>
+            <fieldValue>
+                <value key="xml">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:ezxhtml=&quot;http://ez.no/xmlns/ezpublish/docbook/xhtml&quot; xmlns:ezcustom=&quot;http://ez.no/xmlns/ezpublish/docbook/custom&quot; version=&quot;5.0-variant ezpublish-1.0&quot;&gt;
+  &lt;para&gt; Ein echter Geschmack von Gro&amp;#xDF;britanniens anerkanntem kulinarischen Export von Speisen zum Mitnehmen und einem
+    fr&amp;#xFC;hen Beispiel der Fusion von Lebensmitteln. Ein beliebtes Mittagessen, das die Welt erobert.
+  &lt;/para&gt;
+&lt;/section&gt;
+</value>
+                <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;&gt;
+  &lt;p&gt; Ein echter Geschmack von Großbritanniens anerkanntem kulinarischen Export von Speisen zum Mitnehmen und einem
+    frühen Beispiel der Fusion von Lebensmitteln. Ein beliebtes Mittagessen, das die Welt erobert.
+  &lt;/p&gt;
+&lt;/section&gt;
+</value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1087</id>
+            <fieldDefinitionIdentifier>description</fieldDefinitionIdentifier>
+            <languageCode>nor-NO</languageCode>
+            <fieldTypeIdentifier>ezrichtext</fieldTypeIdentifier>
+            <fieldValue>
+                <value key="xml">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:ezxhtml=&quot;http://ez.no/xmlns/ezpublish/docbook/xhtml&quot; xmlns:ezcustom=&quot;http://ez.no/xmlns/ezpublish/docbook/custom&quot; version=&quot;5.0-variant ezpublish-1.0&quot;&gt;
+  &lt;para&gt; En ekte smak av Storbritannias mest anerkjente kulinariske eksport av en take-away mat og tidlig eksempel p&amp;#xE5;
+    matfusjon. Et popul&amp;#xE6;rt lunsjm&amp;#xE5;ltid som erobre verden.
+  &lt;/para&gt;
+&lt;/section&gt;
+</value>
+                <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;&gt;
+  &lt;p&gt; En ekte smak av Storbritannias mest anerkjente kulinariske eksport av en take-away mat og tidlig eksempel på
+    matfusjon. Et populært lunsjmåltid som erobre verden.
+  &lt;/p&gt;
+&lt;/section&gt;
+</value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1043</id>
+            <fieldDefinitionIdentifier>cooking_instructions</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezrichtext</fieldTypeIdentifier>
+            <fieldValue>
+                <value key="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:ezxhtml=&quot;http://ez.no/xmlns/ezpublish/docbook/xhtml&quot; xmlns:ezcustom=&quot;http://ez.no/xmlns/ezpublish/docbook/custom&quot; version=&quot;5.0-variant ezpublish-1.0&quot;&gt; &lt;para&gt;Make a seafood broth:&lt;/para&gt; &lt;para&gt;For the Canadian lobster - In a medium pot, bring 8 cups of water to boil. Add one bay leaf, chopped onion and salt and pepper according to the weight of the Canadian lobster. Boiling time will be based on weight.&lt;/para&gt; &lt;para&gt;Remove cooked Canadian lobster, strain broth and let sit off.&lt;/para&gt; &lt;para&gt;For the mussels - Warm the butter or olive oil over medium-high heat in the pot (if using butter, let it melt completely). Add the minced onion and garlic. Sauté until the onions are translucent and the garlic is fragrant, 1 to 2 minutes. Pour the water (2 cups) and half cup of white wine, bring it to boil. Pour all of the mussels into the pot. Remove the opened mussels and discard any mussels that haven’t opened. Strain the broth and let sit off.&lt;/para&gt; &lt;para&gt;Mix both broths and let them sit off.&lt;/para&gt; &lt;para&gt;Saute the seafood:&lt;/para&gt; &lt;para&gt;In a 16-inch paella pan, heat the oil just until it is hot. Sauté the shrimp, scallops, and calamari (if using) until just cooked through, about 2 minutes.&lt;/para&gt; &lt;para&gt;Make the sofrito:&lt;/para&gt; &lt;para&gt;Reduce the heat to medium and sauté the garlic. Add the tomato and pimenton and cook, stirring often, until the mixture has darkened to a deep burgundy and is thick like a compote, 5 to 10 min.&lt;/para&gt; &lt;para&gt;Add the rice and cook:&lt;/para&gt; &lt;para&gt;Bring the broth back to a simmer. Add the rice to the pan, and cook for 1 to 2 min. Raise the heat to medium-high. Pour in 7 cups of the seafood broth (reserve the rest) and stir or shake the pan to evenly distribute the rice. From this point on, do not stir the rice. Once broth is boiling, count 4 minutes.&lt;/para&gt; &lt;para&gt;After the 4 minutes, reduce the heat to medium-low and count 10 minutes.&lt;/para&gt; &lt;para&gt;Continue to simmer more gently, rotating the pan as necessary. Arrange the shrimp and Canadian lobster in the pan.&lt;/para&gt; &lt;para&gt;Create the socarrat:&lt;/para&gt; &lt;para&gt;Increase the heat to medium-high and, rotating the pan, cook for about 2 min., until the bottom layer of rice starts to caramelize, creating the socarrat. The rice will crackle, but if it starts to smell burned, remove the pan from the heat immediately.&lt;/para&gt; &lt;para&gt;Let the paella rest:&lt;/para&gt; &lt;para&gt;Remove the pan from the heat and let the paella rest for 5 min. to even the cooking and let the flavors meld.&lt;/para&gt; &lt;/section&gt;
+</value>
+                <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;&gt; &lt;p&gt;Make a seafood broth:&lt;/p&gt; &lt;p&gt;For the Canadian lobster - In a medium pot, bring 8 cups of water to boil. Add one bay leaf, chopped onion and salt and pepper according to the weight of the Canadian lobster. Boiling time will be based on weight.&lt;/p&gt; &lt;p&gt;Remove cooked Canadian lobster, strain broth and let sit off.&lt;/p&gt; &lt;p&gt;For the mussels - Warm the butter or olive oil over medium-high heat in the pot (if using butter, let it melt completely). Add the minced onion and garlic. Sauté until the onions are translucent and the garlic is fragrant, 1 to 2 minutes. Pour the water (2 cups) and half cup of white wine, bring it to boil. Pour all of the mussels into the pot. Remove the opened mussels and discard any mussels that haven’t opened. Strain the broth and let sit off.&lt;/p&gt; &lt;p&gt;Mix both broths and let them sit off.&lt;/p&gt; &lt;p&gt;Saute the seafood:&lt;/p&gt; &lt;p&gt;In a 16-inch paella pan, heat the oil just until it is hot. Sauté the shrimp, scallops, and calamari (if using) until just cooked through, about 2 minutes.&lt;/p&gt; &lt;p&gt;Make the sofrito:&lt;/p&gt; &lt;p&gt;Reduce the heat to medium and sauté the garlic. Add the tomato and pimenton and cook, stirring often, until the mixture has darkened to a deep burgundy and is thick like a compote, 5 to 10 min.&lt;/p&gt; &lt;p&gt;Add the rice and cook:&lt;/p&gt; &lt;p&gt;Bring the broth back to a simmer. Add the rice to the pan, and cook for 1 to 2 min. Raise the heat to medium-high. Pour in 7 cups of the seafood broth (reserve the rest) and stir or shake the pan to evenly distribute the rice. From this point on, do not stir the rice. Once broth is boiling, count 4 minutes.&lt;/p&gt; &lt;p&gt;After the 4 minutes, reduce the heat to medium-low and count 10 minutes.&lt;/p&gt; &lt;p&gt;Continue to simmer more gently, rotating the pan as necessary. Arrange the shrimp and Canadian lobster in the pan.&lt;/p&gt; &lt;p&gt;Create the socarrat:&lt;/p&gt; &lt;p&gt;Increase the heat to medium-high and, rotating the pan, cook for about 2 min., until the bottom layer of rice starts to caramelize, creating the socarrat. The rice will crackle, but if it starts to smell burned, remove the pan from the heat immediately.&lt;/p&gt; &lt;p&gt;Let the paella rest:&lt;/p&gt; &lt;p&gt;Remove the pan from the heat and let the paella rest for 5 min. to even the cooking and let the flavors meld.&lt;/p&gt; &lt;/section&gt;
+</value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1058</id>
+            <fieldDefinitionIdentifier>cooking_instructions</fieldDefinitionIdentifier>
+            <languageCode>fre-FR</languageCode>
+            <fieldTypeIdentifier>ezrichtext</fieldTypeIdentifier>
+            <fieldValue>
+                <value key="xml">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:ezxhtml=&quot;http://ez.no/xmlns/ezpublish/docbook/xhtml&quot; xmlns:ezcustom=&quot;http://ez.no/xmlns/ezpublish/docbook/custom&quot; version=&quot;5.0-variant ezpublish-1.0&quot;&gt; &lt;para&gt; Faire un bouillon de fruits de mer:&lt;/para&gt; &lt;para&gt; Pour le homard canadien - Dans une casserole moyenne, porter &amp;#xE0; &amp;#xE9;bullition 8 tasses d'eau. Ajouter une feuille de laurier, de l'oignon hach&amp;#xE9;, du sel et du poivre selon le poids du homard canadien. Le temps d'&amp;#xE9;bullition sera bas&amp;#xE9; sur le poids. &lt;/para&gt; &lt;para&gt; Retirer le homard canadien cuit, filtrer le bouillon et laisser reposer.&lt;/para&gt; &lt;para&gt; Pour les moules - Chauffer le beurre ou l'huile d'olive &amp;#xE0; feu moyen-vif dans le pot (si vous utilisez du beurre, laissez-le fondre compl&amp;#xE8;tement). Ajouter l'oignon &amp;#xE9;minc&amp;#xE9; et l'ail. Faire sauter jusqu'&amp;#xE0; ce que les oignons soient translucides et que l'ail soit parfum&amp;#xE9;, 1 &amp;#xE0; 2 minutes. Verser l'eau (2 tasses) et la moiti&amp;#xE9; de la tasse de vin blanc, porter &amp;#xE0; &amp;#xE9;bullition. Verser toutes les moules dans le pot. Retirez les moules ouvertes et jetez les moules qui ne se sont pas ouvertes. Passer le bouillon et laisser reposer. &lt;/para&gt; &lt;para&gt; M&amp;#xE9;langer les deux bouillons et les laisser reposer.&lt;/para&gt; &lt;para&gt; Saute les fruits de mer:&lt;/para&gt; &lt;para&gt; Dans une po&amp;#xEA;le &amp;#xE0; paella de 16 pouces, chauffer l'huile jusqu'&amp;#xE0; ce qu'elle soit chaude. Faire sauter les crevettes, les p&amp;#xE9;toncles et les calamars (si vous utilisez) jusqu'&amp;#xE0; ce qu'ils soient bien cuits, environ 2 minutes. &lt;/para&gt; &lt;para&gt; Faites le sofrito:&lt;/para&gt; &lt;para&gt; R&amp;#xE9;duire le feu &amp;#xE0; moyen et faire revenir l'ail. Ajouter la tomate et le pimenton et cuire, en remuant souvent, jusqu'&amp;#xE0; ce que le m&amp;#xE9;lange noircisse et soit &amp;#xE9;pais comme une compote, de 5 &amp;#xE0; 10 min. &lt;/para&gt; &lt;para&gt; Ajouter le riz et cuire:&lt;/para&gt; &lt;para&gt; Ramener le bouillon &amp;#xE0; &amp;#xE9;bullition. Ajouter le riz dans la po&amp;#xEA;le et cuire de 1 &amp;#xE0; 2 minutes. Augmenter le feu &amp;#xE0; moyen-&amp;#xE9;lev&amp;#xE9;. Verser 7 tasses de bouillon de fruits de mer (r&amp;#xE9;server le reste) et m&amp;#xE9;langer ou agiter la po&amp;#xEA;le pour r&amp;#xE9;partir uniform&amp;#xE9;ment le riz. &amp;#xC0; partir de ce moment, ne pas remuer le riz. Une fois que le bouillon est en &amp;#xE9;bullition, comptez 4 minutes. &lt;/para&gt; &lt;para&gt; Apr&amp;#xE8;s les 4 minutes, r&amp;#xE9;duire le feu &amp;#xE0; moyen-doux et compter 10 minutes.&lt;/para&gt; &lt;para&gt; Continuez &amp;#xE0; mijoter plus doucement, en tournant la casserole au besoin. Disposer les crevettes et le homard canadien dans la po&amp;#xEA;le. &lt;/para&gt; &lt;para&gt; Cr&amp;#xE9;er le socarrat:&lt;/para&gt; &lt;para&gt; Augmenter le feu &amp;#xE0; moyen-vif et, en faisant tourner la casserole, cuire environ 2 minutes, jusqu'&amp;#xE0; ce que la couche de riz commence &amp;#xE0; caram&amp;#xE9;liser, cr&amp;#xE9;ant le socarrat. Le riz cr&amp;#xE9;pite, mais s'il commence &amp;#xE0; sentir br&amp;#xFB;l&amp;#xE9;, retirez imm&amp;#xE9;diatement la casserole du feu. &lt;/para&gt; &lt;para&gt; Laissez la paella se reposer:&lt;/para&gt; &lt;para&gt; Retirer la casserole du feu et laisser reposer la paella pendant 5 minutes. &amp;#xE9;galiser la cuisson et laisser m&amp;#xE9;langer les saveurs. &lt;/para&gt; &lt;/section&gt;
+</value>
+                <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;&gt; &lt;p&gt; Faire un bouillon de fruits de mer:&lt;/p&gt; &lt;p&gt; Pour le homard canadien - Dans une casserole moyenne, porter à ébullition 8 tasses d'eau. Ajouter une feuille de laurier, de l'oignon haché, du sel et du poivre selon le poids du homard canadien. Le temps d'ébullition sera basé sur le poids. &lt;/p&gt; &lt;p&gt; Retirer le homard canadien cuit, filtrer le bouillon et laisser reposer.&lt;/p&gt; &lt;p&gt; Pour les moules - Chauffer le beurre ou l'huile d'olive à feu moyen-vif dans le pot (si vous utilisez du beurre, laissez-le fondre complètement). Ajouter l'oignon émincé et l'ail. Faire sauter jusqu'à ce que les oignons soient translucides et que l'ail soit parfumé, 1 à 2 minutes. Verser l'eau (2 tasses) et la moitié de la tasse de vin blanc, porter à ébullition. Verser toutes les moules dans le pot. Retirez les moules ouvertes et jetez les moules qui ne se sont pas ouvertes. Passer le bouillon et laisser reposer. &lt;/p&gt; &lt;p&gt; Mélanger les deux bouillons et les laisser reposer.&lt;/p&gt; &lt;p&gt; Saute les fruits de mer:&lt;/p&gt; &lt;p&gt; Dans une poêle à paella de 16 pouces, chauffer l'huile jusqu'à ce qu'elle soit chaude. Faire sauter les crevettes, les pétoncles et les calamars (si vous utilisez) jusqu'à ce qu'ils soient bien cuits, environ 2 minutes. &lt;/p&gt; &lt;p&gt; Faites le sofrito:&lt;/p&gt; &lt;p&gt; Réduire le feu à moyen et faire revenir l'ail. Ajouter la tomate et le pimenton et cuire, en remuant souvent, jusqu'à ce que le mélange noircisse et soit épais comme une compote, de 5 à 10 min. &lt;/p&gt; &lt;p&gt; Ajouter le riz et cuire:&lt;/p&gt; &lt;p&gt; Ramener le bouillon à ébullition. Ajouter le riz dans la poêle et cuire de 1 à 2 minutes. Augmenter le feu à moyen-élevé. Verser 7 tasses de bouillon de fruits de mer (réserver le reste) et mélanger ou agiter la poêle pour répartir uniformément le riz. À partir de ce moment, ne pas remuer le riz. Une fois que le bouillon est en ébullition, comptez 4 minutes. &lt;/p&gt; &lt;p&gt; Après les 4 minutes, réduire le feu à moyen-doux et compter 10 minutes.&lt;/p&gt; &lt;p&gt; Continuez à mijoter plus doucement, en tournant la casserole au besoin. Disposer les crevettes et le homard canadien dans la poêle. &lt;/p&gt; &lt;p&gt; Créer le socarrat:&lt;/p&gt; &lt;p&gt; Augmenter le feu à moyen-vif et, en faisant tourner la casserole, cuire environ 2 minutes, jusqu'à ce que la couche de riz commence à caraméliser, créant le socarrat. Le riz crépite, mais s'il commence à sentir brûlé, retirez immédiatement la casserole du feu. &lt;/p&gt; &lt;p&gt; Laissez la paella se reposer:&lt;/p&gt; &lt;p&gt; Retirer la casserole du feu et laisser reposer la paella pendant 5 minutes. égaliser la cuisson et laisser mélanger les saveurs. &lt;/p&gt; &lt;/section&gt;
+</value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1073</id>
+            <fieldDefinitionIdentifier>cooking_instructions</fieldDefinitionIdentifier>
+            <languageCode>ger-DE</languageCode>
+            <fieldTypeIdentifier>ezrichtext</fieldTypeIdentifier>
+            <fieldValue>
+                <value key="xml">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:ezxhtml=&quot;http://ez.no/xmlns/ezpublish/docbook/xhtml&quot; xmlns:ezcustom=&quot;http://ez.no/xmlns/ezpublish/docbook/custom&quot; version=&quot;5.0-variant ezpublish-1.0&quot;&gt; &lt;para&gt; Machen Sie eine Meeresfr&amp;#xFC;chte-Br&amp;#xFC;he:&lt;/para&gt; &lt;para&gt; F&amp;#xFC;r den kanadischen Hummer - In einem mittleren Topf 8 Tassen Wasser zum Kochen bringen. F&amp;#xFC;gen Sie ein Lorbeerblatt, gehackte Zwiebel und Salz und Pfeffer entsprechend dem Gewicht des kanadischen Hummers hinzu. Die Kochzeit basiert auf dem Gewicht. &lt;/para&gt; &lt;para&gt; Den gekochten kanadischen Hummer entfernen, die Br&amp;#xFC;he entkernen und abtropfen lassen.&lt;/para&gt; &lt;para&gt; F&amp;#xFC;r die Muscheln - Erw&amp;#xE4;rmen Sie die Butter oder das Oliven&amp;#xF6;l bei mittlerer Hitze im Topf (wenn Sie Butter verwenden, lassen Sie sie vollst&amp;#xE4;ndig schmelzen). F&amp;#xFC;gen Sie die gehackte Zwiebel und den Knoblauch hinzu. Die Zwiebeln glasig machen und 1 bis 2 Minuten d&amp;#xFC;nsten. Gie&amp;#xDF;en Sie das Wasser (2 Tassen) und eine halbe Tasse Wei&amp;#xDF;wein, bringen Sie es zum Kochen. Gie&amp;#xDF;en Sie alle Muscheln in den Topf. Entfernen Sie die ge&amp;#xF6;ffneten Muscheln und entsorgen Sie Muscheln, die nicht ge&amp;#xF6;ffnet haben. Die Br&amp;#xFC;he abseihen und absetzen lassen. &lt;/para&gt; &lt;para&gt; Mischen Sie beide Br&amp;#xFC;hen und lassen Sie sie sitzen.&lt;/para&gt; &lt;para&gt; Braten Sie die Meeresfr&amp;#xFC;chte:&lt;/para&gt; &lt;para&gt; In einer 16-Zoll-Paellapfanne das &amp;#xD6;l erhitzen, bis es hei&amp;#xDF; ist. Die Garnelen, die Jakobsmuscheln und die Calamari (falls verwendet) bissfest durchgaren, ca. 2 Minuten. &lt;/para&gt; &lt;para&gt; Mach das sofrito:&lt;/para&gt; &lt;para&gt; Reduziere die Hitze auf mittlere Stufe und sautiere den Knoblauch. F&amp;#xFC;gen Sie die Tomate und das Piment hinzu und kochen Sie, h&amp;#xE4;ufig r&amp;#xFC;hrend, bis die Mischung zu einem tiefen Burgunder verdunkelt wird und dick wie ein Kompott ist, 5 bis 10 min. &lt;/para&gt; &lt;para&gt; F&amp;#xFC;gen Sie den Reis hinzu und kochen Sie:&lt;/para&gt; &lt;para&gt; Bringen Sie die Br&amp;#xFC;he wieder zum Kochen. Den Reis in die Pfanne geben und 1 bis 2 Minuten kochen lassen. Erh&amp;#xF6;hen Sie die Hitze auf mittlere bis hohe. Pour 7 Tassen der Meeresfr&amp;#xFC;chtesuppe (behalten Sie den Rest) und r&amp;#xFC;hren Sie oder sch&amp;#xFC;tteln Sie die Wanne, um den Reis gleichm&amp;#xE4;&amp;#xDF;ig zu verteilen. Von diesem Punkt an den Reis nicht umr&amp;#xFC;hren. Sobald die Br&amp;#xFC;he kocht, z&amp;#xE4;hlen Sie 4 Minuten. &lt;/para&gt; &lt;para&gt; Nach den 4 Minuten die Hitze auf mittel-niedrig reduzieren und 10 Minuten z&amp;#xE4;hlen.&lt;/para&gt; &lt;para&gt; Weiter vorsichtig k&amp;#xF6;cheln lassen und die Pfanne nach Bedarf drehen. Ordnen Sie die Garnelen und den kanadischen Hummer in der Pfanne an. &lt;/para&gt; &lt;para&gt; Erstelle den Socarrat:&lt;/para&gt; &lt;para&gt; Erh&amp;#xF6;hen Sie die Hitze auf mittlere bis hohe und drehen Sie die Pfanne, f&amp;#xFC;r etwa 2 Minuten kochen, bis die untere Schicht Reis zu karamellisieren beginnt, so dass die Socarrat. Der Reis wird knistern, aber wenn er anf&amp;#xE4;ngt zu brennen, entfernen Sie die Pfanne sofort von der Hitze. &lt;/para&gt; &lt;para&gt; Lass die Paella ruhen:&lt;/para&gt; &lt;para&gt; Die Pfanne von der Hitze nehmen und die Paella f&amp;#xFC;r 5 Minuten ruhen lassen. um sogar das Kochen und die Aromen verschmelzen zu lassen. &lt;/para&gt; &lt;/section&gt;
+</value>
+                <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;&gt; &lt;p&gt; Machen Sie eine Meeresfrüchte-Brühe:&lt;/p&gt; &lt;p&gt; Für den kanadischen Hummer - In einem mittleren Topf 8 Tassen Wasser zum Kochen bringen. Fügen Sie ein Lorbeerblatt, gehackte Zwiebel und Salz und Pfeffer entsprechend dem Gewicht des kanadischen Hummers hinzu. Die Kochzeit basiert auf dem Gewicht. &lt;/p&gt; &lt;p&gt; Den gekochten kanadischen Hummer entfernen, die Brühe entkernen und abtropfen lassen.&lt;/p&gt; &lt;p&gt; Für die Muscheln - Erwärmen Sie die Butter oder das Olivenöl bei mittlerer Hitze im Topf (wenn Sie Butter verwenden, lassen Sie sie vollständig schmelzen). Fügen Sie die gehackte Zwiebel und den Knoblauch hinzu. Die Zwiebeln glasig machen und 1 bis 2 Minuten dünsten. Gießen Sie das Wasser (2 Tassen) und eine halbe Tasse Weißwein, bringen Sie es zum Kochen. Gießen Sie alle Muscheln in den Topf. Entfernen Sie die geöffneten Muscheln und entsorgen Sie Muscheln, die nicht geöffnet haben. Die Brühe abseihen und absetzen lassen. &lt;/p&gt; &lt;p&gt; Mischen Sie beide Brühen und lassen Sie sie sitzen.&lt;/p&gt; &lt;p&gt; Braten Sie die Meeresfrüchte:&lt;/p&gt; &lt;p&gt; In einer 16-Zoll-Paellapfanne das Öl erhitzen, bis es heiß ist. Die Garnelen, die Jakobsmuscheln und die Calamari (falls verwendet) bissfest durchgaren, ca. 2 Minuten. &lt;/p&gt; &lt;p&gt; Mach das sofrito:&lt;/p&gt; &lt;p&gt; Reduziere die Hitze auf mittlere Stufe und sautiere den Knoblauch. Fügen Sie die Tomate und das Piment hinzu und kochen Sie, häufig rührend, bis die Mischung zu einem tiefen Burgunder verdunkelt wird und dick wie ein Kompott ist, 5 bis 10 min. &lt;/p&gt; &lt;p&gt; Fügen Sie den Reis hinzu und kochen Sie:&lt;/p&gt; &lt;p&gt; Bringen Sie die Brühe wieder zum Kochen. Den Reis in die Pfanne geben und 1 bis 2 Minuten kochen lassen. Erhöhen Sie die Hitze auf mittlere bis hohe. Pour 7 Tassen der Meeresfrüchtesuppe (behalten Sie den Rest) und rühren Sie oder schütteln Sie die Wanne, um den Reis gleichmäßig zu verteilen. Von diesem Punkt an den Reis nicht umrühren. Sobald die Brühe kocht, zählen Sie 4 Minuten. &lt;/p&gt; &lt;p&gt; Nach den 4 Minuten die Hitze auf mittel-niedrig reduzieren und 10 Minuten zählen.&lt;/p&gt; &lt;p&gt; Weiter vorsichtig köcheln lassen und die Pfanne nach Bedarf drehen. Ordnen Sie die Garnelen und den kanadischen Hummer in der Pfanne an. &lt;/p&gt; &lt;p&gt; Erstelle den Socarrat:&lt;/p&gt; &lt;p&gt; Erhöhen Sie die Hitze auf mittlere bis hohe und drehen Sie die Pfanne, für etwa 2 Minuten kochen, bis die untere Schicht Reis zu karamellisieren beginnt, so dass die Socarrat. Der Reis wird knistern, aber wenn er anfängt zu brennen, entfernen Sie die Pfanne sofort von der Hitze. &lt;/p&gt; &lt;p&gt; Lass die Paella ruhen:&lt;/p&gt; &lt;p&gt; Die Pfanne von der Hitze nehmen und die Paella für 5 Minuten ruhen lassen. um sogar das Kochen und die Aromen verschmelzen zu lassen. &lt;/p&gt; &lt;/section&gt;
+</value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1088</id>
+            <fieldDefinitionIdentifier>cooking_instructions</fieldDefinitionIdentifier>
+            <languageCode>nor-NO</languageCode>
+            <fieldTypeIdentifier>ezrichtext</fieldTypeIdentifier>
+            <fieldValue>
+                <value key="xml">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:ezxhtml=&quot;http://ez.no/xmlns/ezpublish/docbook/xhtml&quot; xmlns:ezcustom=&quot;http://ez.no/xmlns/ezpublish/docbook/custom&quot; version=&quot;5.0-variant ezpublish-1.0&quot;&gt; &lt;para&gt; Lag en sj&amp;#xF8;mat kj&amp;#xF8;ttkraft:&lt;/para&gt; &lt;para&gt; For den kanadiske hummeren - I en middels potte, ta med 8 kopper vann &amp;#xE5; koke. Legg ett l&amp;#xF8;vblad, hakket l&amp;#xF8;k og salt og pepper i henhold til den kanadiske hummerens vekt. Koketiden vil v&amp;#xE6;re basert p&amp;#xE5; vekt. &lt;/para&gt; &lt;para&gt; Fjern kokt kanadisk hummer, stamme kj&amp;#xF8;ttkraft og la sitte av.&lt;/para&gt; &lt;para&gt; For bl&amp;#xE5;skjellene - Varm sm&amp;#xF8;r eller olivenolje over middels h&amp;#xF8;y varme i potten (hvis du bruker sm&amp;#xF8;r, la den smelte helt). Tilsett hakket l&amp;#xF8;k og hvitl&amp;#xF8;k. Saut&amp;#xE9;r til l&amp;#xF8;kene er gjennomskinnelige og hvitl&amp;#xF8;k er duftende, 1 til 2 minutter. Hell vannet (2 kopper) og en halv kopp hvitvin, bring den til &amp;#xE5; koke. Hell alle muslingene i potten. Fjern de &amp;#xE5;pnede bl&amp;#xE5;skjellene og kast bort eventuelle bl&amp;#xE5;skjell som ikke har &amp;#xE5;pnet. Stam kj&amp;#xF8;ttkraft og la sitte av. &lt;/para&gt; &lt;para&gt; Bland begge kj&amp;#xF8;ttkraftene og la dem sitte av.&lt;/para&gt; &lt;para&gt; Saute sj&amp;#xF8;mat:&lt;/para&gt; &lt;para&gt; I en 16-tommers paella-panne, varme opp oljen til den er varm. Saute reker, kamskjell og calamari (hvis du bruker) til bare kokt gjennom, ca 2 minutter. &lt;/para&gt; &lt;para&gt; Gj&amp;#xF8;r sofrito:&lt;/para&gt; &lt;para&gt; Reduser varmen til middels og saut&amp;#xE9; hvitl&amp;#xF8;k. Tilsett tomat og pimenton og kok, r&amp;#xF8;r ofte, til blandingen er m&amp;#xF8;rknet til en dyp bourgogne og tykk som en kompott, 5 til 10 minutter. &lt;/para&gt; &lt;para&gt; Tilsett ris og kok:&lt;/para&gt; &lt;para&gt; Ta med buljongen tilbake til en simmer. Legg risen p&amp;#xE5; pannen, og lag den i 1 til 2 minutter. &amp;#xD8;k varmen til middels h&amp;#xF8;y. Hell i 7 kopper av sj&amp;#xF8;mat kj&amp;#xF8;ttkraft (reserve resten) og r&amp;#xF8;r eller rist pannen for jevnt fordelt risen. Fra dette punktet m&amp;#xE5; du ikke r&amp;#xF8;re risen. N&amp;#xE5;r kj&amp;#xF8;ttkraft koker, teller 4 minutter. &lt;/para&gt; &lt;para&gt; Etter 4 minutter, reduser varmen til middels lav og teller 10 minutter.&lt;/para&gt; &lt;para&gt; Fortsett &amp;#xE5; simre mer forsiktig, roter pannen etter behov. Ordne reker og kanadisk hummer i pannen.&lt;/para&gt; &lt;para&gt; Opprett socarrat:&lt;/para&gt; &lt;para&gt; &amp;#xD8;k varmen til middels h&amp;#xF8;y og roter pannen, kok i ca 2 minutter, til bunnlaget av ris begynner &amp;#xE5; karamellisere, og skape socarraten. Risen vil knekke, men hvis det begynner &amp;#xE5; lukte brent, ta av pannen fra varmen umiddelbart. &lt;/para&gt; &lt;para&gt; La paellaen hvile:&lt;/para&gt; &lt;para&gt; Ta av pannen fra varmen og la paella hvile i 5 min. til og med matlagingen og la smakene meldes.&lt;/para&gt; &lt;/section&gt;
+</value>
+                <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;&gt; &lt;p&gt; Lag en sjømat kjøttkraft:&lt;/p&gt; &lt;p&gt; For den kanadiske hummeren - I en middels potte, ta med 8 kopper vann å koke. Legg ett løvblad, hakket løk og salt og pepper i henhold til den kanadiske hummerens vekt. Koketiden vil være basert på vekt. &lt;/p&gt; &lt;p&gt; Fjern kokt kanadisk hummer, stamme kjøttkraft og la sitte av.&lt;/p&gt; &lt;p&gt; For blåskjellene - Varm smør eller olivenolje over middels høy varme i potten (hvis du bruker smør, la den smelte helt). Tilsett hakket løk og hvitløk. Sautér til løkene er gjennomskinnelige og hvitløk er duftende, 1 til 2 minutter. Hell vannet (2 kopper) og en halv kopp hvitvin, bring den til å koke. Hell alle muslingene i potten. Fjern de åpnede blåskjellene og kast bort eventuelle blåskjell som ikke har åpnet. Stam kjøttkraft og la sitte av. &lt;/p&gt; &lt;p&gt; Bland begge kjøttkraftene og la dem sitte av.&lt;/p&gt; &lt;p&gt; Saute sjømat:&lt;/p&gt; &lt;p&gt; I en 16-tommers paella-panne, varme opp oljen til den er varm. Saute reker, kamskjell og calamari (hvis du bruker) til bare kokt gjennom, ca 2 minutter. &lt;/p&gt; &lt;p&gt; Gjør sofrito:&lt;/p&gt; &lt;p&gt; Reduser varmen til middels og sauté hvitløk. Tilsett tomat og pimenton og kok, rør ofte, til blandingen er mørknet til en dyp bourgogne og tykk som en kompott, 5 til 10 minutter. &lt;/p&gt; &lt;p&gt; Tilsett ris og kok:&lt;/p&gt; &lt;p&gt; Ta med buljongen tilbake til en simmer. Legg risen på pannen, og lag den i 1 til 2 minutter. Øk varmen til middels høy. Hell i 7 kopper av sjømat kjøttkraft (reserve resten) og rør eller rist pannen for jevnt fordelt risen. Fra dette punktet må du ikke røre risen. Når kjøttkraft koker, teller 4 minutter. &lt;/p&gt; &lt;p&gt; Etter 4 minutter, reduser varmen til middels lav og teller 10 minutter.&lt;/p&gt; &lt;p&gt; Fortsett å simre mer forsiktig, roter pannen etter behov. Ordne reker og kanadisk hummer i pannen.&lt;/p&gt; &lt;p&gt; Opprett socarrat:&lt;/p&gt; &lt;p&gt; Øk varmen til middels høy og roter pannen, kok i ca 2 minutter, til bunnlaget av ris begynner å karamellisere, og skape socarraten. Risen vil knekke, men hvis det begynner å lukte brent, ta av pannen fra varmen umiddelbart. &lt;/p&gt; &lt;p&gt; La paellaen hvile:&lt;/p&gt; &lt;p&gt; Ta av pannen fra varmen og la paella hvile i 5 min. til og med matlagingen og la smakene meldes.&lt;/p&gt; &lt;/section&gt;
+</value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1044</id>
+            <fieldDefinitionIdentifier>ingredients</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezrichtext</fieldTypeIdentifier>
+            <fieldValue>
+                <value key="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:ezxhtml=&quot;http://ez.no/xmlns/ezpublish/docbook/xhtml&quot; xmlns:ezcustom=&quot;http://ez.no/xmlns/ezpublish/docbook/custom&quot; version=&quot;5.0-variant ezpublish-1.0&quot;&gt; &lt;itemizedlist&gt;  &lt;listitem&gt;&lt;para&gt;6 oz. large shrimp&lt;/para&gt;&lt;/listitem&gt;   &lt;listitem&gt;&lt;para&gt;1 Canadian lobster (around 1.7 pounds)&lt;/para&gt;&lt;/listitem&gt;   &lt;listitem&gt;&lt;para&gt;1 pound of mussels, scrubbed&lt;/para&gt;&lt;/listitem&gt;   &lt;listitem&gt;&lt;para&gt;Pinch saffron threads&lt;/para&gt;&lt;/listitem&gt;   &lt;listitem&gt;&lt;para&gt;Kosher salt&lt;/para&gt;&lt;/listitem&gt;   &lt;listitem&gt;&lt;para&gt;1/4 cup extra-virgin olive oil&lt;/para&gt;&lt;/listitem&gt;   &lt;listitem&gt;&lt;para&gt;6 oz. dry scallops, patted dry&lt;/para&gt;&lt;/listitem&gt;   &lt;listitem&gt;&lt;para&gt;4 oz. calamari, cut in rings (optional), patted dry&lt;/para&gt;&lt;/listitem&gt;   &lt;listitem&gt;&lt;para&gt;6 garlic cloves, peeled&lt;/para&gt;&lt;/listitem&gt;   &lt;listitem&gt;&lt;para&gt;1 tomato, halved and grated on a box grater (discard the skin)&lt;/para&gt;&lt;/listitem&gt;   &lt;listitem&gt;&lt;para&gt;1/2 teaspoon pimenton&lt;/para&gt;&lt;/listitem&gt;   &lt;listitem&gt;&lt;para&gt;3 1/2 cups of arborio rice&lt;/para&gt;&lt;/listitem&gt;   &lt;listitem&gt;&lt;para&gt;7 cups seafood broth (from the Canadian lobster and mussels)&lt;/para&gt;&lt;/listitem&gt;  &lt;/itemizedlist&gt; &lt;/section&gt;
+</value>
+                <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;&gt; &lt;ul&gt;  &lt;li&gt;6 oz. large shrimp&lt;/li&gt;   &lt;li&gt;1 Canadian lobster (around 1.7 pounds)&lt;/li&gt;   &lt;li&gt;1 pound of mussels, scrubbed&lt;/li&gt;   &lt;li&gt;Pinch saffron threads&lt;/li&gt;   &lt;li&gt;Kosher salt&lt;/li&gt;   &lt;li&gt;1/4 cup extra-virgin olive oil&lt;/li&gt;   &lt;li&gt;6 oz. dry scallops, patted dry&lt;/li&gt;   &lt;li&gt;4 oz. calamari, cut in rings (optional), patted dry&lt;/li&gt;   &lt;li&gt;6 garlic cloves, peeled&lt;/li&gt;   &lt;li&gt;1 tomato, halved and grated on a box grater (discard the skin)&lt;/li&gt;   &lt;li&gt;1/2 teaspoon pimenton&lt;/li&gt;   &lt;li&gt;3 1/2 cups of arborio rice&lt;/li&gt;   &lt;li&gt;7 cups seafood broth (from the Canadian lobster and mussels)&lt;/li&gt;  &lt;/ul&gt; &lt;/section&gt;
+</value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1059</id>
+            <fieldDefinitionIdentifier>ingredients</fieldDefinitionIdentifier>
+            <languageCode>fre-FR</languageCode>
+            <fieldTypeIdentifier>ezrichtext</fieldTypeIdentifier>
+            <fieldValue>
+                <value key="xml">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:ezxhtml=&quot;http://ez.no/xmlns/ezpublish/docbook/xhtml&quot; xmlns:ezcustom=&quot;http://ez.no/xmlns/ezpublish/docbook/custom&quot; version=&quot;5.0-variant ezpublish-1.0&quot;&gt; &lt;itemizedlist&gt; &lt;listitem&gt; &lt;para&gt; 6 onces. grosses crevettes&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 1 homard canadien (environ 1,7 lb)&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 1 livre de moules, nettoy&amp;#xE9;e&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; Pincer les fils de safran&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; Sel kasher&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 1/4 tasse d'huile d'olive extra-vierge&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 6 onces. p&amp;#xE9;toncles secs, patt&amp;#xE9;s secs&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 125 grammes. calamars, coup&amp;#xE9;s en rondelles (facultatif), ass&amp;#xE9;ch&amp;#xE9;s&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 6 gousses d'ail &amp;#xE9;pluch&amp;#xE9;es&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 1 tomate, coup&amp;#xE9;e en deux et r&amp;#xE2;p&amp;#xE9;e sur une r&amp;#xE2;pe &amp;#xE0; bo&amp;#xEE;te (jeter la peau)&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 1/2 cuill&amp;#xE8;re &amp;#xE0; caf&amp;#xE9; de pimenton&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 3 1/2 tasses de riz arborio&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 7 tasses de bouillon de fruits de mer (du homard canadien et des moules)&lt;/para&gt; &lt;/listitem&gt; &lt;/itemizedlist&gt; &lt;/section&gt;
+</value>
+                <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;&gt; &lt;ul&gt;  &lt;li&gt; 6 onces. grosses crevettes&lt;/li&gt;   &lt;li&gt; 1 homard canadien (environ 1,7 lb)&lt;/li&gt;   &lt;li&gt; 1 livre de moules, nettoyée&lt;/li&gt;   &lt;li&gt; Pincer les fils de safran&lt;/li&gt;   &lt;li&gt; Sel kasher&lt;/li&gt;   &lt;li&gt; 1/4 tasse d'huile d'olive extra-vierge&lt;/li&gt;   &lt;li&gt; 6 onces. pétoncles secs, pattés secs&lt;/li&gt;   &lt;li&gt; 125 grammes. calamars, coupés en rondelles (facultatif), asséchés&lt;/li&gt;   &lt;li&gt; 6 gousses d'ail épluchées&lt;/li&gt;   &lt;li&gt; 1 tomate, coupée en deux et râpée sur une râpe à boîte (jeter la peau)&lt;/li&gt;   &lt;li&gt; 1/2 cuillère à café de pimenton&lt;/li&gt;   &lt;li&gt; 3 1/2 tasses de riz arborio&lt;/li&gt;   &lt;li&gt; 7 tasses de bouillon de fruits de mer (du homard canadien et des moules)&lt;/li&gt;  &lt;/ul&gt; &lt;/section&gt;
+</value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1074</id>
+            <fieldDefinitionIdentifier>ingredients</fieldDefinitionIdentifier>
+            <languageCode>ger-DE</languageCode>
+            <fieldTypeIdentifier>ezrichtext</fieldTypeIdentifier>
+            <fieldValue>
+                <value key="xml">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:ezxhtml=&quot;http://ez.no/xmlns/ezpublish/docbook/xhtml&quot; xmlns:ezcustom=&quot;http://ez.no/xmlns/ezpublish/docbook/custom&quot; version=&quot;5.0-variant ezpublish-1.0&quot;&gt; &lt;itemizedlist&gt; &lt;listitem&gt; &lt;para&gt; 6 Unzen. gro&amp;#xDF;e Garnelen&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 1 kanadischer Hummer (ca. 1,7 Pfund)&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 1 Pfund Muscheln, geschrubbt&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; Safranf&amp;#xE4;den falten&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; Koscheres Salz&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 1/4 Tasse extra-natives Oliven&amp;#xF6;l&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 6 Unzen. trockene Jakobsmuscheln, trocken getupft&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 4 Unzen. Calamari, in Ringe geschnitten (optional), trocken getupft&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 6 Knoblauchzehen, gesch&amp;#xE4;lt&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 1 Tomate, halbiert und gerieben auf einer Kastenreibe (die Haut wegwerfen)&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 1/2 Teel&amp;#xF6;ffel Pimenton&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 3 1/2 Tassen Arborio Reis&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 7 Tassen Meeresfr&amp;#xFC;chte Br&amp;#xFC;he (vom kanadischen Hummer und Muscheln)&lt;/para&gt; &lt;/listitem&gt; &lt;/itemizedlist&gt; &lt;/section&gt;
+</value>
+                <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;&gt; &lt;ul&gt;  &lt;li&gt; 6 Unzen. große Garnelen&lt;/li&gt;   &lt;li&gt; 1 kanadischer Hummer (ca. 1,7 Pfund)&lt;/li&gt;   &lt;li&gt; 1 Pfund Muscheln, geschrubbt&lt;/li&gt;   &lt;li&gt; Safranfäden falten&lt;/li&gt;   &lt;li&gt; Koscheres Salz&lt;/li&gt;   &lt;li&gt; 1/4 Tasse extra-natives Olivenöl&lt;/li&gt;   &lt;li&gt; 6 Unzen. trockene Jakobsmuscheln, trocken getupft&lt;/li&gt;   &lt;li&gt; 4 Unzen. Calamari, in Ringe geschnitten (optional), trocken getupft&lt;/li&gt;   &lt;li&gt; 6 Knoblauchzehen, geschält&lt;/li&gt;   &lt;li&gt; 1 Tomate, halbiert und gerieben auf einer Kastenreibe (die Haut wegwerfen)&lt;/li&gt;   &lt;li&gt; 1/2 Teelöffel Pimenton&lt;/li&gt;   &lt;li&gt; 3 1/2 Tassen Arborio Reis&lt;/li&gt;   &lt;li&gt; 7 Tassen Meeresfrüchte Brühe (vom kanadischen Hummer und Muscheln)&lt;/li&gt;  &lt;/ul&gt; &lt;/section&gt;
+</value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1089</id>
+            <fieldDefinitionIdentifier>ingredients</fieldDefinitionIdentifier>
+            <languageCode>nor-NO</languageCode>
+            <fieldTypeIdentifier>ezrichtext</fieldTypeIdentifier>
+            <fieldValue>
+                <value key="xml">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:ezxhtml=&quot;http://ez.no/xmlns/ezpublish/docbook/xhtml&quot; xmlns:ezcustom=&quot;http://ez.no/xmlns/ezpublish/docbook/custom&quot; version=&quot;5.0-variant ezpublish-1.0&quot;&gt; &lt;itemizedlist&gt; &lt;listitem&gt; &lt;para&gt; 6 oz. store reker&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 1 kanadisk hummer (rundt 1,7 pund)&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 1 pund bl&amp;#xE5;skjell, skrubbet&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; Klem saffron tr&amp;#xE5;der&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; Kosher salt&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 1/4 kopp ekstra jomfruolje&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 6 oz. t&amp;#xF8;rr kamskjell, klappert&amp;#xF8;rr&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 4 oz. calamari, kuttet i ringer (valgfritt), t&amp;#xF8;rketatt&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 6 hvitl&amp;#xF8;kskl&amp;#xE6;r, skr&amp;#xE6;llet&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 1 tomat, halvert og revet p&amp;#xE5; en boksrist (kast huden)&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 1/2 ts pimenton&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 3 1/2 kopper arborio ris&lt;/para&gt; &lt;/listitem&gt; &lt;listitem&gt; &lt;para&gt; 7 kopper sj&amp;#xF8;mat kj&amp;#xF8;ttkraft (fra canadisk hummer og bl&amp;#xE5;skjell)&lt;/para&gt; &lt;/listitem&gt; &lt;/itemizedlist&gt; &lt;/section&gt;
+</value>
+                <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;&gt; &lt;ul&gt;  &lt;li&gt; 6 oz. store reker&lt;/li&gt;   &lt;li&gt; 1 kanadisk hummer (rundt 1,7 pund)&lt;/li&gt;   &lt;li&gt; 1 pund blåskjell, skrubbet&lt;/li&gt;   &lt;li&gt; Klem saffron tråder&lt;/li&gt;   &lt;li&gt; Kosher salt&lt;/li&gt;   &lt;li&gt; 1/4 kopp ekstra jomfruolje&lt;/li&gt;   &lt;li&gt; 6 oz. tørr kamskjell, klappertørr&lt;/li&gt;   &lt;li&gt; 4 oz. calamari, kuttet i ringer (valgfritt), tørketatt&lt;/li&gt;   &lt;li&gt; 6 hvitløksklær, skrællet&lt;/li&gt;   &lt;li&gt; 1 tomat, halvert og revet på en boksrist (kast huden)&lt;/li&gt;   &lt;li&gt; 1/2 ts pimenton&lt;/li&gt;   &lt;li&gt; 3 1/2 kopper arborio ris&lt;/li&gt;   &lt;li&gt; 7 kopper sjømat kjøttkraft (fra canadisk hummer og blåskjell)&lt;/li&gt;  &lt;/ul&gt; &lt;/section&gt;
+</value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1045</id>
+            <fieldDefinitionIdentifier>image</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezimage</fieldTypeIdentifier>
+            <fieldValue>
+                <value key="id">5/4/0/1/1045-1-eng-GB/cheesecake_figs.jpg</value>
+                <value key="path">/5/4/0/1/1045-1-eng-GB/cheesecake_figs.jpg</value>
+                <value key="alternativeText"></value>
+                <value key="fileName">cheesecake_figs.jpg</value>
+                <value key="fileSize">44846</value>
+                <value key="imageId">67-1045-5</value>
+                <value key="uri">/var/site/storage/images/5/4/0/1/1045-1-eng-GB/cheesecake_figs.jpg</value>
+                <value key="inputUri"/>
+                <value key="width">686</value>
+                <value key="height">686</value>
+                <value key="variations">
+                    <value key="article_full_width">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/article_full_width</value>
+                    </value>
+                    <value key="card_view">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/card_view</value>
+                    </value>
+                    <value key="embed-header">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/embed-header</value>
+                    </value>
+                    <value key="ezplatform_admin_ui_profile_picture_user_menu">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/ezplatform_admin_ui_profile_picture_user_menu</value>
+                    </value>
+                    <value key="gallery">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/gallery</value>
+                    </value>
+                    <value key="large">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/large</value>
+                    </value>
+                    <value key="medium">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/medium</value>
+                    </value>
+                    <value key="place">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/place</value>
+                    </value>
+                    <value key="product_card">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/product_card</value>
+                    </value>
+                    <value key="product_large">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/product_large</value>
+                    </value>
+                    <value key="reference">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/reference</value>
+                    </value>
+                    <value key="search_result_item">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/search_result_item</value>
+                    </value>
+                    <value key="search_result_item_large">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/search_result_item_large</value>
+                    </value>
+                    <value key="small">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/small</value>
+                    </value>
+                    <value key="social_network_image">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/social_network_image</value>
+                    </value>
+                    <value key="tiny">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/tiny</value>
+                    </value>
+                </value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1060</id>
+            <fieldDefinitionIdentifier>image</fieldDefinitionIdentifier>
+            <languageCode>fre-FR</languageCode>
+            <fieldTypeIdentifier>ezimage</fieldTypeIdentifier>
+            <fieldValue>
+                <value key="id">0/6/0/1/1060-2-fre-FR/cheesecake_figs.jpg</value>
+                <value key="path">/0/6/0/1/1060-2-fre-FR/cheesecake_figs.jpg</value>
+                <value key="alternativeText"></value>
+                <value key="fileName">cheesecake_figs.jpg</value>
+                <value key="fileSize">44846</value>
+                <value key="imageId">67-1060-5</value>
+                <value key="uri">/var/site/storage/images/0/6/0/1/1060-2-fre-FR/cheesecake_figs.jpg</value>
+                <value key="inputUri"/>
+                <value key="width">686</value>
+                <value key="height">686</value>
+                <value key="variations">
+                    <value key="article_full_width">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/article_full_width</value>
+                    </value>
+                    <value key="card_view">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/card_view</value>
+                    </value>
+                    <value key="embed-header">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/embed-header</value>
+                    </value>
+                    <value key="ezplatform_admin_ui_profile_picture_user_menu">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/ezplatform_admin_ui_profile_picture_user_menu</value>
+                    </value>
+                    <value key="gallery">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/gallery</value>
+                    </value>
+                    <value key="large">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/large</value>
+                    </value>
+                    <value key="medium">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/medium</value>
+                    </value>
+                    <value key="place">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/place</value>
+                    </value>
+                    <value key="product_card">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/product_card</value>
+                    </value>
+                    <value key="product_large">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/product_large</value>
+                    </value>
+                    <value key="reference">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/reference</value>
+                    </value>
+                    <value key="search_result_item">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/search_result_item</value>
+                    </value>
+                    <value key="search_result_item_large">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/search_result_item_large</value>
+                    </value>
+                    <value key="small">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/small</value>
+                    </value>
+                    <value key="social_network_image">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/social_network_image</value>
+                    </value>
+                    <value key="tiny">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/tiny</value>
+                    </value>
+                </value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1075</id>
+            <fieldDefinitionIdentifier>image</fieldDefinitionIdentifier>
+            <languageCode>ger-DE</languageCode>
+            <fieldTypeIdentifier>ezimage</fieldTypeIdentifier>
+            <fieldValue>
+                <value key="id">5/7/0/1/1075-3-ger-DE/cheesecake_figs.jpg</value>
+                <value key="path">/5/7/0/1/1075-3-ger-DE/cheesecake_figs.jpg</value>
+                <value key="alternativeText"></value>
+                <value key="fileName">cheesecake_figs.jpg</value>
+                <value key="fileSize">44846</value>
+                <value key="imageId">67-1075-5</value>
+                <value key="uri">/var/site/storage/images/5/7/0/1/1075-3-ger-DE/cheesecake_figs.jpg</value>
+                <value key="inputUri"/>
+                <value key="width">686</value>
+                <value key="height">686</value>
+                <value key="variations">
+                    <value key="article_full_width">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/article_full_width</value>
+                    </value>
+                    <value key="card_view">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/card_view</value>
+                    </value>
+                    <value key="embed-header">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/embed-header</value>
+                    </value>
+                    <value key="ezplatform_admin_ui_profile_picture_user_menu">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/ezplatform_admin_ui_profile_picture_user_menu</value>
+                    </value>
+                    <value key="gallery">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/gallery</value>
+                    </value>
+                    <value key="large">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/large</value>
+                    </value>
+                    <value key="medium">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/medium</value>
+                    </value>
+                    <value key="place">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/place</value>
+                    </value>
+                    <value key="product_card">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/product_card</value>
+                    </value>
+                    <value key="product_large">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/product_large</value>
+                    </value>
+                    <value key="reference">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/reference</value>
+                    </value>
+                    <value key="search_result_item">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/search_result_item</value>
+                    </value>
+                    <value key="search_result_item_large">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/search_result_item_large</value>
+                    </value>
+                    <value key="small">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/small</value>
+                    </value>
+                    <value key="social_network_image">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/social_network_image</value>
+                    </value>
+                    <value key="tiny">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/tiny</value>
+                    </value>
+                </value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1090</id>
+            <fieldDefinitionIdentifier>image</fieldDefinitionIdentifier>
+            <languageCode>nor-NO</languageCode>
+            <fieldTypeIdentifier>ezimage</fieldTypeIdentifier>
+            <fieldValue>
+                <value key="id">0/9/0/1/1090-4-nor-NO/cheesecake_figs.jpg</value>
+                <value key="path">/0/9/0/1/1090-4-nor-NO/cheesecake_figs.jpg</value>
+                <value key="alternativeText"></value>
+                <value key="fileName">cheesecake_figs.jpg</value>
+                <value key="fileSize">44846</value>
+                <value key="imageId">67-1090-5</value>
+                <value key="uri">/var/site/storage/images/0/9/0/1/1090-4-nor-NO/cheesecake_figs.jpg</value>
+                <value key="inputUri"/>
+                <value key="width">686</value>
+                <value key="height">686</value>
+                <value key="variations">
+                    <value key="article_full_width">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/article_full_width</value>
+                    </value>
+                    <value key="card_view">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/card_view</value>
+                    </value>
+                    <value key="embed-header">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/embed-header</value>
+                    </value>
+                    <value key="ezplatform_admin_ui_profile_picture_user_menu">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/ezplatform_admin_ui_profile_picture_user_menu</value>
+                    </value>
+                    <value key="gallery">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/gallery</value>
+                    </value>
+                    <value key="large">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/large</value>
+                    </value>
+                    <value key="medium">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/medium</value>
+                    </value>
+                    <value key="place">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/place</value>
+                    </value>
+                    <value key="product_card">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/product_card</value>
+                    </value>
+                    <value key="product_large">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/product_large</value>
+                    </value>
+                    <value key="reference">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/reference</value>
+                    </value>
+                    <value key="search_result_item">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/search_result_item</value>
+                    </value>
+                    <value key="search_result_item_large">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/search_result_item_large</value>
+                    </value>
+                    <value key="small">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/small</value>
+                    </value>
+                    <value key="social_network_image">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/social_network_image</value>
+                    </value>
+                    <value key="tiny">
+                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/tiny</value>
+                    </value>
+                </value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1046</id>
+            <fieldDefinitionIdentifier>price</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezfloat</fieldTypeIdentifier>
+            <fieldValue>30.000000</fieldValue>
+        </field>
+        <field>
+            <id>1061</id>
+            <fieldDefinitionIdentifier>price</fieldDefinitionIdentifier>
+            <languageCode>fre-FR</languageCode>
+            <fieldTypeIdentifier>ezfloat</fieldTypeIdentifier>
+            <fieldValue>30.000000</fieldValue>
+        </field>
+        <field>
+            <id>1076</id>
+            <fieldDefinitionIdentifier>price</fieldDefinitionIdentifier>
+            <languageCode>ger-DE</languageCode>
+            <fieldTypeIdentifier>ezfloat</fieldTypeIdentifier>
+            <fieldValue>30.000000</fieldValue>
+        </field>
+        <field>
+            <id>1091</id>
+            <fieldDefinitionIdentifier>price</fieldDefinitionIdentifier>
+            <languageCode>nor-NO</languageCode>
+            <fieldTypeIdentifier>ezfloat</fieldTypeIdentifier>
+            <fieldValue>30.000000</fieldValue>
+        </field>
+        <field>
+            <id>1047</id>
+            <fieldDefinitionIdentifier>serving</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezinteger</fieldTypeIdentifier>
+            <fieldValue>8</fieldValue>
+        </field>
+        <field>
+            <id>1062</id>
+            <fieldDefinitionIdentifier>serving</fieldDefinitionIdentifier>
+            <languageCode>fre-FR</languageCode>
+            <fieldTypeIdentifier>ezinteger</fieldTypeIdentifier>
+            <fieldValue>8</fieldValue>
+        </field>
+        <field>
+            <id>1077</id>
+            <fieldDefinitionIdentifier>serving</fieldDefinitionIdentifier>
+            <languageCode>ger-DE</languageCode>
+            <fieldTypeIdentifier>ezinteger</fieldTypeIdentifier>
+            <fieldValue>8</fieldValue>
+        </field>
+        <field>
+            <id>1092</id>
+            <fieldDefinitionIdentifier>serving</fieldDefinitionIdentifier>
+            <languageCode>nor-NO</languageCode>
+            <fieldTypeIdentifier>ezinteger</fieldTypeIdentifier>
+            <fieldValue>8</fieldValue>
+        </field>
+        <field>
+            <id>1048</id>
+            <fieldDefinitionIdentifier>spicy</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezselection</fieldTypeIdentifier>
+            <fieldValue>
+                <value>0</value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1063</id>
+            <fieldDefinitionIdentifier>spicy</fieldDefinitionIdentifier>
+            <languageCode>fre-FR</languageCode>
+            <fieldTypeIdentifier>ezselection</fieldTypeIdentifier>
+            <fieldValue>
+                <value>0</value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1078</id>
+            <fieldDefinitionIdentifier>spicy</fieldDefinitionIdentifier>
+            <languageCode>ger-DE</languageCode>
+            <fieldTypeIdentifier>ezselection</fieldTypeIdentifier>
+            <fieldValue>
+                <value>0</value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1093</id>
+            <fieldDefinitionIdentifier>spicy</fieldDefinitionIdentifier>
+            <languageCode>nor-NO</languageCode>
+            <fieldTypeIdentifier>ezselection</fieldTypeIdentifier>
+            <fieldValue>
+                <value>0</value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1049</id>
+            <fieldDefinitionIdentifier>dairy</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+            <fieldValue>false</fieldValue>
+        </field>
+        <field>
+            <id>1064</id>
+            <fieldDefinitionIdentifier>dairy</fieldDefinitionIdentifier>
+            <languageCode>fre-FR</languageCode>
+            <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+            <fieldValue>false</fieldValue>
+        </field>
+        <field>
+            <id>1079</id>
+            <fieldDefinitionIdentifier>dairy</fieldDefinitionIdentifier>
+            <languageCode>ger-DE</languageCode>
+            <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+            <fieldValue>false</fieldValue>
+        </field>
+        <field>
+            <id>1094</id>
+            <fieldDefinitionIdentifier>dairy</fieldDefinitionIdentifier>
+            <languageCode>nor-NO</languageCode>
+            <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+            <fieldValue>false</fieldValue>
+        </field>
+        <field>
+            <id>1050</id>
+            <fieldDefinitionIdentifier>egg</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+            <fieldValue>false</fieldValue>
+        </field>
+        <field>
+            <id>1065</id>
+            <fieldDefinitionIdentifier>egg</fieldDefinitionIdentifier>
+            <languageCode>fre-FR</languageCode>
+            <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+            <fieldValue>false</fieldValue>
+        </field>
+        <field>
+            <id>1080</id>
+            <fieldDefinitionIdentifier>egg</fieldDefinitionIdentifier>
+            <languageCode>ger-DE</languageCode>
+            <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+            <fieldValue>false</fieldValue>
+        </field>
+        <field>
+            <id>1095</id>
+            <fieldDefinitionIdentifier>egg</fieldDefinitionIdentifier>
+            <languageCode>nor-NO</languageCode>
+            <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+            <fieldValue>false</fieldValue>
+        </field>
+        <field>
+            <id>1051</id>
+            <fieldDefinitionIdentifier>nuts</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+            <fieldValue>false</fieldValue>
+        </field>
+        <field>
+            <id>1066</id>
+            <fieldDefinitionIdentifier>nuts</fieldDefinitionIdentifier>
+            <languageCode>fre-FR</languageCode>
+            <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+            <fieldValue>false</fieldValue>
+        </field>
+        <field>
+            <id>1081</id>
+            <fieldDefinitionIdentifier>nuts</fieldDefinitionIdentifier>
+            <languageCode>ger-DE</languageCode>
+            <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+            <fieldValue>false</fieldValue>
+        </field>
+        <field>
+            <id>1096</id>
+            <fieldDefinitionIdentifier>nuts</fieldDefinitionIdentifier>
+            <languageCode>nor-NO</languageCode>
+            <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+            <fieldValue>false</fieldValue>
+        </field>
+        <field>
+            <id>1052</id>
+            <fieldDefinitionIdentifier>seafood</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+            <fieldValue>true</fieldValue>
+        </field>
+        <field>
+            <id>1067</id>
+            <fieldDefinitionIdentifier>seafood</fieldDefinitionIdentifier>
+            <languageCode>fre-FR</languageCode>
+            <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+            <fieldValue>true</fieldValue>
+        </field>
+        <field>
+            <id>1082</id>
+            <fieldDefinitionIdentifier>seafood</fieldDefinitionIdentifier>
+            <languageCode>ger-DE</languageCode>
+            <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+            <fieldValue>true</fieldValue>
+        </field>
+        <field>
+            <id>1097</id>
+            <fieldDefinitionIdentifier>seafood</fieldDefinitionIdentifier>
+            <languageCode>nor-NO</languageCode>
+            <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+            <fieldValue>true</fieldValue>
+        </field>
+        <field>
+            <id>1053</id>
+            <fieldDefinitionIdentifier>gluten</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+            <fieldValue>true</fieldValue>
+        </field>
+        <field>
+            <id>1068</id>
+            <fieldDefinitionIdentifier>gluten</fieldDefinitionIdentifier>
+            <languageCode>fre-FR</languageCode>
+            <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+            <fieldValue>true</fieldValue>
+        </field>
+        <field>
+            <id>1083</id>
+            <fieldDefinitionIdentifier>gluten</fieldDefinitionIdentifier>
+            <languageCode>ger-DE</languageCode>
+            <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+            <fieldValue>true</fieldValue>
+        </field>
+        <field>
+            <id>1098</id>
+            <fieldDefinitionIdentifier>gluten</fieldDefinitionIdentifier>
+            <languageCode>nor-NO</languageCode>
+            <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+            <fieldValue>true</fieldValue>
+        </field>
+        <field>
+            <id>1054</id>
+            <fieldDefinitionIdentifier>tags</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>eztags</fieldTypeIdentifier>
+            <fieldValue>
+                <value>
+                    <value key="id">394</value>
+                    <value key="parent_id">360</value>
+                    <value key="main_tag_id">0</value>
+                    <value key="keywords">
+                        <value key="eng-GB">Spanish</value>
+                    </value>
+                    <value key="depth">3</value>
+                    <value key="path_string">/359/360/394/</value>
+                    <value key="modified">1542478859</value>
+                    <value key="remote_id">6e74965a20befeb124245bf9d3ec27dc</value>
+                    <value key="always_available">true</value>
+                    <value key="main_language_code">eng-GB</value>
+                    <value key="language_codes">
+                        <value>eng-GB</value>
+                    </value>
+                </value>
+                <value>
+                    <value key="id">413</value>
+                    <value key="parent_id">402</value>
+                    <value key="main_tag_id">0</value>
+                    <value key="keywords">
+                        <value key="eng-GB">Entrée</value>
+                    </value>
+                    <value key="depth">3</value>
+                    <value key="path_string">/359/402/413/</value>
+                    <value key="modified">1542478859</value>
+                    <value key="remote_id">f92af0861ca801f630f8d25e59d7b812</value>
+                    <value key="always_available">true</value>
+                    <value key="main_language_code">eng-GB</value>
+                    <value key="language_codes">
+                        <value>eng-GB</value>
+                    </value>
+                </value>
+                <value>
+                    <value key="id">425</value>
+                    <value key="parent_id">402</value>
+                    <value key="main_tag_id">0</value>
+                    <value key="keywords">
+                        <value key="eng-GB">Rice</value>
+                    </value>
+                    <value key="depth">3</value>
+                    <value key="path_string">/359/402/425/</value>
+                    <value key="modified">1542478859</value>
+                    <value key="remote_id">2f658a344299b3aea907d0bf1b83aee0</value>
+                    <value key="always_available">true</value>
+                    <value key="main_language_code">eng-GB</value>
+                    <value key="language_codes">
+                        <value>eng-GB</value>
+                    </value>
+                </value>
+                <value>
+                    <value key="id">428</value>
+                    <value key="parent_id">402</value>
+                    <value key="main_tag_id">0</value>
+                    <value key="keywords">
+                        <value key="eng-GB">Seafood</value>
+                    </value>
+                    <value key="depth">3</value>
+                    <value key="path_string">/359/402/428/</value>
+                    <value key="modified">1542478859</value>
+                    <value key="remote_id">3ee44c45d910bb3a1d258f52a693215c</value>
+                    <value key="always_available">true</value>
+                    <value key="main_language_code">eng-GB</value>
+                    <value key="language_codes">
+                        <value>eng-GB</value>
+                    </value>
+                </value>
+                <value>
+                    <value key="id">430</value>
+                    <value key="parent_id">428</value>
+                    <value key="main_tag_id">0</value>
+                    <value key="keywords">
+                        <value key="eng-GB">Shrimp</value>
+                    </value>
+                    <value key="depth">4</value>
+                    <value key="path_string">/359/402/428/430/</value>
+                    <value key="modified">1542478859</value>
+                    <value key="remote_id">470a900e8d271699a2074f67859b0405</value>
+                    <value key="always_available">true</value>
+                    <value key="main_language_code">eng-GB</value>
+                    <value key="language_codes">
+                        <value>eng-GB</value>
+                    </value>
+                </value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1069</id>
+            <fieldDefinitionIdentifier>tags</fieldDefinitionIdentifier>
+            <languageCode>fre-FR</languageCode>
+            <fieldTypeIdentifier>eztags</fieldTypeIdentifier>
+            <fieldValue>
+                <value>
+                    <value key="id">394</value>
+                    <value key="parent_id">360</value>
+                    <value key="main_tag_id">0</value>
+                    <value key="keywords">
+                        <value key="eng-GB">Spanish</value>
+                    </value>
+                    <value key="depth">3</value>
+                    <value key="path_string">/359/360/394/</value>
+                    <value key="modified">1542478859</value>
+                    <value key="remote_id">6e74965a20befeb124245bf9d3ec27dc</value>
+                    <value key="always_available">true</value>
+                    <value key="main_language_code">eng-GB</value>
+                    <value key="language_codes">
+                        <value>eng-GB</value>
+                    </value>
+                </value>
+                <value>
+                    <value key="id">413</value>
+                    <value key="parent_id">402</value>
+                    <value key="main_tag_id">0</value>
+                    <value key="keywords">
+                        <value key="eng-GB">Entrée</value>
+                    </value>
+                    <value key="depth">3</value>
+                    <value key="path_string">/359/402/413/</value>
+                    <value key="modified">1542478859</value>
+                    <value key="remote_id">f92af0861ca801f630f8d25e59d7b812</value>
+                    <value key="always_available">true</value>
+                    <value key="main_language_code">eng-GB</value>
+                    <value key="language_codes">
+                        <value>eng-GB</value>
+                    </value>
+                </value>
+                <value>
+                    <value key="id">425</value>
+                    <value key="parent_id">402</value>
+                    <value key="main_tag_id">0</value>
+                    <value key="keywords">
+                        <value key="eng-GB">Rice</value>
+                    </value>
+                    <value key="depth">3</value>
+                    <value key="path_string">/359/402/425/</value>
+                    <value key="modified">1542478859</value>
+                    <value key="remote_id">2f658a344299b3aea907d0bf1b83aee0</value>
+                    <value key="always_available">true</value>
+                    <value key="main_language_code">eng-GB</value>
+                    <value key="language_codes">
+                        <value>eng-GB</value>
+                    </value>
+                </value>
+                <value>
+                    <value key="id">428</value>
+                    <value key="parent_id">402</value>
+                    <value key="main_tag_id">0</value>
+                    <value key="keywords">
+                        <value key="eng-GB">Seafood</value>
+                    </value>
+                    <value key="depth">3</value>
+                    <value key="path_string">/359/402/428/</value>
+                    <value key="modified">1542478859</value>
+                    <value key="remote_id">3ee44c45d910bb3a1d258f52a693215c</value>
+                    <value key="always_available">true</value>
+                    <value key="main_language_code">eng-GB</value>
+                    <value key="language_codes">
+                        <value>eng-GB</value>
+                    </value>
+                </value>
+                <value>
+                    <value key="id">430</value>
+                    <value key="parent_id">428</value>
+                    <value key="main_tag_id">0</value>
+                    <value key="keywords">
+                        <value key="eng-GB">Shrimp</value>
+                    </value>
+                    <value key="depth">4</value>
+                    <value key="path_string">/359/402/428/430/</value>
+                    <value key="modified">1542478859</value>
+                    <value key="remote_id">470a900e8d271699a2074f67859b0405</value>
+                    <value key="always_available">true</value>
+                    <value key="main_language_code">eng-GB</value>
+                    <value key="language_codes">
+                        <value>eng-GB</value>
+                    </value>
+                </value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1084</id>
+            <fieldDefinitionIdentifier>tags</fieldDefinitionIdentifier>
+            <languageCode>ger-DE</languageCode>
+            <fieldTypeIdentifier>eztags</fieldTypeIdentifier>
+            <fieldValue>
+                <value>
+                    <value key="id">394</value>
+                    <value key="parent_id">360</value>
+                    <value key="main_tag_id">0</value>
+                    <value key="keywords">
+                        <value key="eng-GB">Spanish</value>
+                    </value>
+                    <value key="depth">3</value>
+                    <value key="path_string">/359/360/394/</value>
+                    <value key="modified">1542478859</value>
+                    <value key="remote_id">6e74965a20befeb124245bf9d3ec27dc</value>
+                    <value key="always_available">true</value>
+                    <value key="main_language_code">eng-GB</value>
+                    <value key="language_codes">
+                        <value>eng-GB</value>
+                    </value>
+                </value>
+                <value>
+                    <value key="id">413</value>
+                    <value key="parent_id">402</value>
+                    <value key="main_tag_id">0</value>
+                    <value key="keywords">
+                        <value key="eng-GB">Entrée</value>
+                    </value>
+                    <value key="depth">3</value>
+                    <value key="path_string">/359/402/413/</value>
+                    <value key="modified">1542478859</value>
+                    <value key="remote_id">f92af0861ca801f630f8d25e59d7b812</value>
+                    <value key="always_available">true</value>
+                    <value key="main_language_code">eng-GB</value>
+                    <value key="language_codes">
+                        <value>eng-GB</value>
+                    </value>
+                </value>
+                <value>
+                    <value key="id">425</value>
+                    <value key="parent_id">402</value>
+                    <value key="main_tag_id">0</value>
+                    <value key="keywords">
+                        <value key="eng-GB">Rice</value>
+                    </value>
+                    <value key="depth">3</value>
+                    <value key="path_string">/359/402/425/</value>
+                    <value key="modified">1542478859</value>
+                    <value key="remote_id">2f658a344299b3aea907d0bf1b83aee0</value>
+                    <value key="always_available">true</value>
+                    <value key="main_language_code">eng-GB</value>
+                    <value key="language_codes">
+                        <value>eng-GB</value>
+                    </value>
+                </value>
+                <value>
+                    <value key="id">428</value>
+                    <value key="parent_id">402</value>
+                    <value key="main_tag_id">0</value>
+                    <value key="keywords">
+                        <value key="eng-GB">Seafood</value>
+                    </value>
+                    <value key="depth">3</value>
+                    <value key="path_string">/359/402/428/</value>
+                    <value key="modified">1542478859</value>
+                    <value key="remote_id">3ee44c45d910bb3a1d258f52a693215c</value>
+                    <value key="always_available">true</value>
+                    <value key="main_language_code">eng-GB</value>
+                    <value key="language_codes">
+                        <value>eng-GB</value>
+                    </value>
+                </value>
+                <value>
+                    <value key="id">430</value>
+                    <value key="parent_id">428</value>
+                    <value key="main_tag_id">0</value>
+                    <value key="keywords">
+                        <value key="eng-GB">Shrimp</value>
+                    </value>
+                    <value key="depth">4</value>
+                    <value key="path_string">/359/402/428/430/</value>
+                    <value key="modified">1542478859</value>
+                    <value key="remote_id">470a900e8d271699a2074f67859b0405</value>
+                    <value key="always_available">true</value>
+                    <value key="main_language_code">eng-GB</value>
+                    <value key="language_codes">
+                        <value>eng-GB</value>
+                    </value>
+                </value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1099</id>
+            <fieldDefinitionIdentifier>tags</fieldDefinitionIdentifier>
+            <languageCode>nor-NO</languageCode>
+            <fieldTypeIdentifier>eztags</fieldTypeIdentifier>
+            <fieldValue>
+                <value>
+                    <value key="id">394</value>
+                    <value key="parent_id">360</value>
+                    <value key="main_tag_id">0</value>
+                    <value key="keywords">
+                        <value key="eng-GB">Spanish</value>
+                    </value>
+                    <value key="depth">3</value>
+                    <value key="path_string">/359/360/394/</value>
+                    <value key="modified">1542478859</value>
+                    <value key="remote_id">6e74965a20befeb124245bf9d3ec27dc</value>
+                    <value key="always_available">true</value>
+                    <value key="main_language_code">eng-GB</value>
+                    <value key="language_codes">
+                        <value>eng-GB</value>
+                    </value>
+                </value>
+                <value>
+                    <value key="id">413</value>
+                    <value key="parent_id">402</value>
+                    <value key="main_tag_id">0</value>
+                    <value key="keywords">
+                        <value key="eng-GB">Entrée</value>
+                    </value>
+                    <value key="depth">3</value>
+                    <value key="path_string">/359/402/413/</value>
+                    <value key="modified">1542478859</value>
+                    <value key="remote_id">f92af0861ca801f630f8d25e59d7b812</value>
+                    <value key="always_available">true</value>
+                    <value key="main_language_code">eng-GB</value>
+                    <value key="language_codes">
+                        <value>eng-GB</value>
+                    </value>
+                </value>
+                <value>
+                    <value key="id">425</value>
+                    <value key="parent_id">402</value>
+                    <value key="main_tag_id">0</value>
+                    <value key="keywords">
+                        <value key="eng-GB">Rice</value>
+                    </value>
+                    <value key="depth">3</value>
+                    <value key="path_string">/359/402/425/</value>
+                    <value key="modified">1542478859</value>
+                    <value key="remote_id">2f658a344299b3aea907d0bf1b83aee0</value>
+                    <value key="always_available">true</value>
+                    <value key="main_language_code">eng-GB</value>
+                    <value key="language_codes">
+                        <value>eng-GB</value>
+                    </value>
+                </value>
+                <value>
+                    <value key="id">428</value>
+                    <value key="parent_id">402</value>
+                    <value key="main_tag_id">0</value>
+                    <value key="keywords">
+                        <value key="eng-GB">Seafood</value>
+                    </value>
+                    <value key="depth">3</value>
+                    <value key="path_string">/359/402/428/</value>
+                    <value key="modified">1542478859</value>
+                    <value key="remote_id">3ee44c45d910bb3a1d258f52a693215c</value>
+                    <value key="always_available">true</value>
+                    <value key="main_language_code">eng-GB</value>
+                    <value key="language_codes">
+                        <value>eng-GB</value>
+                    </value>
+                </value>
+                <value>
+                    <value key="id">430</value>
+                    <value key="parent_id">428</value>
+                    <value key="main_tag_id">0</value>
+                    <value key="keywords">
+                        <value key="eng-GB">Shrimp</value>
+                    </value>
+                    <value key="depth">4</value>
+                    <value key="path_string">/359/402/428/430/</value>
+                    <value key="modified">1542478859</value>
+                    <value key="remote_id">470a900e8d271699a2074f67859b0405</value>
+                    <value key="always_available">true</value>
+                    <value key="main_language_code">eng-GB</value>
+                    <value key="language_codes">
+                        <value>eng-GB</value>
+                    </value>
+                </value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1055</id>
+            <fieldDefinitionIdentifier>metas</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>novaseometas</fieldTypeIdentifier>
+            <fieldValue>
+                <value key="canonical">
+                    <value key="meta_name">canonical</value>
+                    <value key="meta_content"></value>
+                </value>
+                <value key="description">
+                    <value key="meta_name">description</value>
+                    <value key="meta_content"></value>
+                </value>
+                <value key="keywords">
+                    <value key="meta_name">keywords</value>
+                    <value key="meta_content"></value>
+                </value>
+                <value key="og:description">
+                    <value key="meta_name">og:description</value>
+                    <value key="meta_content"></value>
+                </value>
+                <value key="og:image">
+                    <value key="meta_name">og:image</value>
+                    <value key="meta_content"></value>
+                </value>
+                <value key="og:title">
+                    <value key="meta_name">og:title</value>
+                    <value key="meta_content"></value>
+                </value>
+                <value key="title">
+                    <value key="meta_name">title</value>
+                    <value key="meta_content"></value>
+                </value>
+                <value key="twitter:description">
+                    <value key="meta_name">twitter:description</value>
+                    <value key="meta_content"></value>
+                </value>
+                <value key="twitter:image">
+                    <value key="meta_name">twitter:image</value>
+                    <value key="meta_content"></value>
+                </value>
+                <value key="twitter:title">
+                    <value key="meta_name">twitter:title</value>
+                    <value key="meta_content"></value>
+                </value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>1070</id>
+            <fieldDefinitionIdentifier>metas</fieldDefinitionIdentifier>
+            <languageCode>fre-FR</languageCode>
+            <fieldTypeIdentifier>novaseometas</fieldTypeIdentifier>
+            <fieldValue/>
+        </field>
+        <field>
+            <id>1085</id>
+            <fieldDefinitionIdentifier>metas</fieldDefinitionIdentifier>
+            <languageCode>ger-DE</languageCode>
+            <fieldTypeIdentifier>novaseometas</fieldTypeIdentifier>
+            <fieldValue/>
+        </field>
+        <field>
+            <id>1100</id>
+            <fieldDefinitionIdentifier>metas</fieldDefinitionIdentifier>
+            <languageCode>nor-NO</languageCode>
+            <fieldTypeIdentifier>novaseometas</fieldTypeIdentifier>
+            <fieldValue/>
+        </field>
+    </Fields>
+    <Relations media-type="application/vnd.ez.api.RelationList+xml" href="/api/ezp/v2/content/objects/67/versions/5/relations">
+        <Relation media-type="application/vnd.ez.api.Relation+xml" href="/api/ezp/v2/content/objects/67/versions/5/relations/1316">
+            <SourceContent media-type="application/vnd.ez.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/67"/>
+            <DestinationContent media-type="application/vnd.ez.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/196"/>
+            <RelationType>EMBED</RelationType>
+        </Relation>
+        <Relation media-type="application/vnd.ez.api.Relation+xml" href="/api/ezp/v2/content/objects/67/versions/5/relations/1317">
+            <SourceContent media-type="application/vnd.ez.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/67"/>
+            <DestinationContent media-type="application/vnd.ez.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/70"/>
+            <RelationType>EMBED</RelationType>
+        </Relation>
+    </Relations>
+</Version>

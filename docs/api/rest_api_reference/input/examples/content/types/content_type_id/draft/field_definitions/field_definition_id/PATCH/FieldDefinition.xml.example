@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldDefinition media-type="application/vnd.ez.api.FieldDefinition+xml" href="/api/ezp/v2/content/types/15/draft/fieldDefinitions/197">
+    <id>197</id>
+    <identifier>author</identifier>
+    <fieldType>ezauthor</fieldType>
+    <fieldGroup>new_field_group</fieldGroup>
+    <position>10</position>
+    <isTranslatable>true</isTranslatable>
+    <isRequired>false</isRequired>
+    <isInfoCollector>false</isInfoCollector>
+    <defaultValue/>
+    <isSearchable>false</isSearchable>
+    <names>
+        <value languageCode="eng-GB">Author</value>
+    </names>
+    <descriptions/>
+    <fieldSettings>
+        <value key="defaultAuthor">1</value>
+    </fieldSettings>
+    <validatorConfiguration/>
+</FieldDefinition>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Content media-type="application/vnd.ez.api.Content+xml" href="/api/ezp/v2/content/objects/83" remoteId="a9c8f00b1dba880df7a5ed3e93fad421" id="83">
+    <ContentType media-type="application/vnd.ez.api.ContentType+xml" href="/api/ezp/v2/content/types/2"/>
+    <Name>draft article</Name>
+    <Versions media-type="application/vnd.ez.api.VersionList+xml" href="/api/ezp/v2/content/objects/83/versions"/>
+    <CurrentVersion media-type="application/vnd.ez.api.Version+xml" href="/api/ezp/v2/content/objects/83/currentversion">
+        <Version media-type="application/vnd.ez.api.Version+xml" href="/api/ezp/v2/content/objects/83/versions/1">
+            <VersionInfo>
+                <id>547</id>
+                <versionNo>1</versionNo>
+                <status>DRAFT</status>
+                <modificationDate>2019-02-19T15:55:37+01:00</modificationDate>
+                <Creator media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+                <creationDate>2019-02-19T15:55:37+01:00</creationDate>
+                <initialLanguageCode>eng-GB</initialLanguageCode>
+                <languageCodes>eng-GB</languageCodes>
+                <VersionTranslationInfo media-type="application/vnd.ez.api.VersionTranslationInfo+xml">
+                    <Language>
+                        <languageCode>eng-GB</languageCode>
+                    </Language>
+                </VersionTranslationInfo>
+                <names>
+                    <value languageCode="eng-GB">draft article</value>
+                </names>
+                <Content media-type="application/vnd.ez.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/83"/>
+            </VersionInfo>
+            <Fields>
+                <field>
+                    <id>446</id>
+                    <fieldDefinitionIdentifier>title</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+                    <fieldValue>draft article</fieldValue>
+                </field>
+                <field>
+                    <id>447</id>
+                    <fieldDefinitionIdentifier>short_title</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+                    <fieldValue/>
+                </field>
+                <field>
+                    <id>448</id>
+                    <fieldDefinitionIdentifier>author</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldTypeIdentifier>ezauthor</fieldTypeIdentifier>
+                    <fieldValue/>
+                </field>
+                <field>
+                    <id>449</id>
+                    <fieldDefinitionIdentifier>intro</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldTypeIdentifier>ezrichtext</fieldTypeIdentifier>
+                    <fieldValue>
+                        <value key="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:ezxhtml=&quot;http://ez.no/xmlns/ezpublish/docbook/xhtml&quot; xmlns:ezcustom=&quot;http://ez.no/xmlns/ezpublish/docbook/custom&quot; version=&quot;5.0-variant ezpublish-1.0&quot;&gt;&lt;para&gt;draft draft&lt;/para&gt;&lt;/section&gt;
+</value>
+                        <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;&gt;&lt;p&gt;draft draft&lt;/p&gt;&lt;/section&gt;
+</value>
+                    </fieldValue>
+                </field>
+                <field>
+                    <id>450</id>
+                    <fieldDefinitionIdentifier>body</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldTypeIdentifier>ezrichtext</fieldTypeIdentifier>
+                    <fieldValue>
+                        <value key="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:ezxhtml=&quot;http://ez.no/xmlns/ezpublish/docbook/xhtml&quot; xmlns:ezcustom=&quot;http://ez.no/xmlns/ezpublish/docbook/custom&quot; version=&quot;5.0-variant ezpublish-1.0&quot;&gt;&lt;para&gt;draft draft draft &lt;/para&gt;&lt;/section&gt;
+</value>
+                        <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;&gt;&lt;p&gt;draft draft draft &lt;/p&gt;&lt;/section&gt;
+</value>
+                    </fieldValue>
+                </field>
+                <field>
+                    <id>451</id>
+                    <fieldDefinitionIdentifier>enable_comments</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+                    <fieldValue>false</fieldValue>
+                </field>
+                <field>
+                    <id>452</id>
+                    <fieldDefinitionIdentifier>image</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldTypeIdentifier>ezobjectrelation</fieldTypeIdentifier>
+                    <fieldValue>
+                        <value key="destinationContentId"/>
+                    </fieldValue>
+                </field>
+            </Fields>
+            <Relations media-type="application/vnd.ez.api.RelationList+xml" href="/api/ezp/v2/content/objects/83/versions/1/relations"/>
+        </Version>
+    </CurrentVersion>
+    <Section media-type="application/vnd.ez.api.Section+xml" href="/api/ezp/v2/content/sections/1"/>
+    <Locations media-type="application/vnd.ez.api.LocationList+xml" href="/api/ezp/v2/content/objects/83/locations"/>
+    <Owner media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+    <mainLanguageCode>eng-GB</mainLanguageCode>
+    <currentVersionNo>1</currentVersionNo>
+    <alwaysAvailable>true</alwaysAvailable>
+    <ObjectStates media-type="application/vnd.ez.api.ContentObjectStates+xml" href="/api/ezp/v2/content/objects/83/objectstates"/>
+</Content>

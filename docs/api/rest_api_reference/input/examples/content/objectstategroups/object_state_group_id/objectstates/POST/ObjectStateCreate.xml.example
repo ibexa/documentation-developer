@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectStateCreate>
+  <identifier>new-state</identifier>
+  <priority>1</priority>
+  <defaultLanguageCode>eng-GB</defaultLanguageCode>
+  <names>
+    <value languageCode="eng-GB">New State</value>
+  </names>
+  <descriptions>
+    <value languageCode="eng-GB">New Object State</value>
+  </descriptions>
+</ObjectStateCreate>

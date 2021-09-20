@@ -1,0 +1,9 @@
+{
+    "LocationUpdate": {
+        "priority": "3",
+        "hidden": true,
+        "remoteId": "remoteId-qwert999",
+        "sortField": "NAME",
+        "sortOrder": "DESC"
+    }
+}

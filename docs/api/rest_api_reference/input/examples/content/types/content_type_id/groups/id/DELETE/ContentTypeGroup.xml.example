@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentTypeGroupRefList media-type="application/vnd.ez.api.ContentTypeGroupRefList+xml" href="/api/ezp/v2/content/typegroups/15/types">
+    <ContentTypeGroupRef media-type="application/vnd.ez.api.ContentTypeGroup+xml" href="/api/ezp/v2/content/typegroups/1">
+        <unlink href="/api/ezp/v2/content/types/15/groups/1" method="DELETE"/>
+    </ContentTypeGroupRef>
+    <ContentTypeGroupRef media-type="application/vnd.ez.api.ContentTypeGroup+xml" href="/api/ezp/v2/content/typegroups/2">
+        <unlink href="/api/ezp/v2/content/types/15/groups/2" method="DELETE"/>
+    </ContentTypeGroupRef>
+</ContentTypeGroupRefList>

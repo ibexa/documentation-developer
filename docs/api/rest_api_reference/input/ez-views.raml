@@ -1,0 +1,31 @@
+displayName: Views
+post:
+    displayName: Create View
+    description: Executes a query and returns a View including the results. The View input reflects the criteria model of the public API.
+    headers:
+        Accept:
+            description: The view in XML or JSON format.
+            example:  |
+                application/vnd.ez.api.View+xml
+                application/vnd.ez.api.View+json
+                application/vnd.ez.api.View+xml; version=1.1
+                application/vnd.ez.api.View+json; version=1.1
+        Content-Type:
+            description: The view input in XML or JSON format.
+            example:  |
+                application/vnd.ez.api.ViewInput+xml
+                application/vnd.ez.api.ViewInput+json
+                application/vnd.ez.api.ViewInput+xml; version=1.1
+                application/vnd.ez.api.ViewInput+json; version=1.1
+    body:
+        application/vnd.ez.api.ViewInput+xml:
+            type: ViewInput
+            example: !include examples/views/POST/ViewInput.xml.example
+    responses:
+        200:
+            body:
+                application/vnd.ez.api.View+xml; version=1.1:
+                    type: View
+                    example: !include examples/views/POST/View.xml.v11.example
+        400:
+            description: Error - the input does not match the input schema definition.

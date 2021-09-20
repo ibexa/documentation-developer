@@ -1,0 +1,11 @@
+{
+  "ShippingMethodDataResponse": {
+    "_media-type": "application\/vnd.ez.api.ShippingMethodDataResponse+json",
+    "shippingMethods": {
+      "standard": "standard",
+      "expressDel": "express_delivery"
+    },
+    "defaultMethod": "standard",
+    "shippingMethodsSorted": []
+  }
+}

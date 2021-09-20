@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UserCreate>
+  <mainLanguageCode>eng-GB</mainLanguageCode>
+  <remoteId>remoteId-qwert426</remoteId>
+  <login>yura</login>
+  <email>yurarajzer@example.net</email>
+  <password>Secrepassword5!</password>
+  <fields>
+    <field>
+      <fieldDefinitionIdentifier>first_name</fieldDefinitionIdentifier>
+      <languageCode>eng-GB</languageCode>
+      <fieldValue>Yura</fieldValue>
+    </field>
+    <field>
+      <fieldDefinitionIdentifier>last_name</fieldDefinitionIdentifier>
+      <languageCode>eng-GB</languageCode>
+      <fieldValue>Rajzer</fieldValue>
+    </field>
+  </fields>
+</UserCreate>

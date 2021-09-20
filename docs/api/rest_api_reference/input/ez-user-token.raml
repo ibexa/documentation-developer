@@ -1,0 +1,35 @@
+/jwt:
+    post:
+        displayName: Create JWT token
+        description: Creates JWT authentication token.
+        headers:
+            Accept:
+                description: If set, the token is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ez.api.JWT+xml
+                    application/vnd.ez.api.JWT+json
+            Content-Type:
+                description: The SessionInput schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ez.api.JWTInput+xml
+                    application/vnd.ez.api.JWTInput+json
+        body:
+            application/vnd.ez.api.JWTInput+xml:
+                type: JWTInput
+                example: !include examples/user/token/jwt/POST/JWTInput.xml.example
+            application/vnd.ez.api.JWTInput+json:
+                type: JWTInput
+                example: !include examples/user/token/jwt/POST/JWTInput.json.example
+        responses:
+            200:
+                body:
+                    application/vnd.ez.api.JWT+xml:
+                        type: JWT
+                        example: !include examples/user/token/jwt/POST/JWT.xml.example
+                    application/vnd.ez.api.JWT+json:
+                        type: JWT
+                        example: !include examples/user/token/jwt/POST/JWT.json.example
+            401:
+                description: Error - Unauthorized
+            
+    

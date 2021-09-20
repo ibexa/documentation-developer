@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Asset media-type="application/vnd.ez.api.Asset+xml" href="/api/ezp/v2/content/assets/images/UtrE5DcgEyg/unsplash">
+    <uri>https://images.unsplash.com/photo-1544568100-847a948585b9?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjE1MDk5MH0</uri>
+    <assetId>UtrE5DcgEyg</assetId>
+    <assetSource>unsplash</assetSource>
+    <assetMetadata>
+        <alternativeText>medium-coated brown dog during daytime</alternativeText>
+        <width>5184</width>
+        <height>3888</height>
+        <created_at>2018-12-11T17:46:12-05:00</created_at>
+        <updated_at>2020-10-23T23:08:44-04:00</updated_at>
+        <author>Jamie Street</author>
+        <author_link_html>https://unsplash.com/@jamie452?utm_source=Ibexa+Platform+DAM+Connector&amp;utm_medium=referral&amp;utm_campaign=api-credit</author_link_html>
+    </assetMetadata>
+</Asset>

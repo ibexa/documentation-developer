@@ -1,0 +1,16 @@
+{
+  "ContentTypeUpdate": {
+    "names": {
+      "value": [ { 
+        "_languageCode": "eng-GB",
+        "#text": "Updated Content Type name"
+       } ]
+    },
+    "descriptions": {
+      "value": [ {
+        "_languageCode": "eng-GB",
+        "#text": "This is an updated Content Type description"
+      } ]
+    }
+  }
+}

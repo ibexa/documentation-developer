@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentType media-type="application/vnd.ez.api.ContentType+xml" href="/api/ezp/v2/content/types/14">
+    <id>14</id>
+    <status>DEFINED</status>
+    <identifier>copy_of_article_14</identifier>
+    <names>
+        <value languageCode="eng-GB">Updated Content Type name</value>
+    </names>
+    <descriptions>
+        <value languageCode="eng-GB">This is an updated Content Type description</value>
+    </descriptions>
+    <creationDate>2019-02-06T10:56:36+01:00</creationDate>
+    <modificationDate>2019-02-25T12:15:51+01:00</modificationDate>
+    <Creator media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+    <Modifier media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+    <Groups media-type="application/vnd.ez.api.ContentTypeGroupRefList+xml" href="/api/ezp/v2/content/types/14/groups"/>
+    <Draft media-type="application/vnd.ez.api.ContentType+xml" href="/api/ezp/v2/content/types/14/draft"/>
+    <remoteId>d7ae816f22fe929e67a359a2ef6e7cde</remoteId>
+    <urlAliasSchema></urlAliasSchema>
+    <nameSchema>&lt;short_title|title&gt;</nameSchema>
+    <isContainer>true</isContainer>
+    <mainLanguageCode>eng-GB</mainLanguageCode>
+    <defaultAlwaysAvailable>false</defaultAlwaysAvailable>
+    <defaultSortField>PATH</defaultSortField>
+    <defaultSortOrder>ASC</defaultSortOrder>
+    <FieldDefinitions media-type="application/vnd.ez.api.FieldDefinitionList+xml" href="/api/ezp/v2/content/types/14/fieldDefinitions">
+        <FieldDefinition media-type="application/vnd.ez.api.FieldDefinition+xml" href="/api/ezp/v2/content/types/14/fieldDefinitions/188">
+            <id>188</id>
+            <identifier>title</identifier>
+            <fieldType>ezstring</fieldType>
+            <fieldGroup></fieldGroup>
+            <position>1</position>
+            <isTranslatable>true</isTranslatable>
+            <isRequired>true</isRequired>
+            <isInfoCollector>false</isInfoCollector>
+            <defaultValue>New article</defaultValue>
+            <isSearchable>true</isSearchable>
+            <names>
+                <value languageCode="eng-GB">Title</value>
+            </names>
+            <descriptions/>
+            <fieldSettings/>
+            <validatorConfiguration>
+                <value key="StringLengthValidator">
+                    <value key="maxStringLength">255</value>
+                    <value key="minStringLength"/></value>
+            </validatorConfiguration>
+        </FieldDefinition>
+        </FieldDefinitions>
+</ContentType>

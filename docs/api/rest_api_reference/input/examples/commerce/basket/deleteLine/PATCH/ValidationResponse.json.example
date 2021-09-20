@@ -1,0 +1,6 @@
+{
+  "ValidationResponse": {
+    "_media-type": "application\/vnd.ez.api.ValidationResponse+json",
+    "messages": []
+  }
+}

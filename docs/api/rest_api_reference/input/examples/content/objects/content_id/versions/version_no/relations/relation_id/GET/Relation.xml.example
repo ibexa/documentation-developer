@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Relation media-type="application/vnd.ez.api.Relation+xml" href="/api/ezp/v2/content/objects/86/versions/1/relations/1">
+    <SourceContent media-type="application/vnd.ez.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/86"/>
+    <DestinationContent media-type="application/vnd.ez.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/86"/>
+    <RelationType>COMMON</RelationType>
+</Relation>

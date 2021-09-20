@@ -1,0 +1,17 @@
+displayName: Services
+/countries:
+    get:
+        displayName: Countries list
+        description: Gives access to an ISO-3166 formatted list of world countries. It is useful when presenting a country options list from any application.
+        headers:
+            Accept:
+                description: If set, the country list is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ez.api.CountriesLis+xml
+                    application/vnd.ez.api.CountriesLis+json
+        responses:
+            200:
+                body:
+                    application/vnd.ez.api.CountriesList+xml:
+                        type: CountryList
+                        example: !include examples/services/countries/GET/CountriesList.xml.example

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentTypeGroup media-type="application/vnd.ez.api.ContentTypeGroup+xml" href="/api/ezp/v2/content/typegroups/1">
+    <id>4</id>
+    <identifier>updatedIdentifer</identifier>
+    <created>2002-09-05T11:08:48+02:00</created>
+    <modified>2019-02-22T14:42:55+01:00</modified>
+    <Creator media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+    <Modifier media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+    <ContentTypes media-type="application/vnd.ez.api.ContentTypeInfoList+xml" href="/api/ezp/v2/content/typegroups/1/types"/>
+</ContentTypeGroup>

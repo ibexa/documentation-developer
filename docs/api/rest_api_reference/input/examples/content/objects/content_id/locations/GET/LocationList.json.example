@@ -1,0 +1,12 @@
+{
+    "LocationList": {
+        "_media-type": "application/vnd.ez.api.LocationList+json",
+        "_href": "/api/ezp/v2/content/objects/63/locations",
+        "Location": [
+            {
+                "_media-type": "application/vnd.ez.api.Location+json",
+                "_href": "/api/ezp/v2/content/locations/1/2/57/65"
+            }
+        ]
+    }
+}

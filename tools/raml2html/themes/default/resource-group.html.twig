@@ -1,0 +1,10 @@
+{% if resource.resources|length > 1 %}
+    {% for resource in resource.resources %}
+        <div class="px-3">
+            <h3 class="heading text-gray py-5 border-top">{{ resource.uri }}</h3>
+        </div>
+        {% include theme ~ "/resource-endpoints.html.twig" %}
+    {% endfor %}
+{% else %}
+    {% include theme ~ "/resource-endpoints.html.twig" %}
+{% endif %}

@@ -1,0 +1,20 @@
+displayName: Root resources
+get:
+    displayName: List of root resources
+    description: Lists the root resources of the Ibexa Platform installation.
+    headers:
+        Accept:
+            description: If set, the list is return in XML or JSON format.
+            type: string
+            example: |
+                application/vnd.ez.api.Root+xml
+                application/vnd.ez.api.Root+json
+    responses:
+        200:
+            body:
+                application/vnd.ez.api.Root+xml:
+                    type: Root
+                    example: !include examples/GET/Root.xml.example
+                application/vnd.ez.api.Root+json:
+                    type: Root
+                    example: !include examples/GET/Root.json.example

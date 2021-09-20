@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UrlAliasRefList media-type="application/vnd.ez.api.UrlAliasRefList+xml" href="/api/ezp/v2/content/locations/1/2/59/urlaliases">
+    <UrlAlias media-type="application/vnd.ez.api.UrlAlias+xml" href="/api/ezp/v2/content/urlaliases/0-deca3dadca45c3dff7861274b8e67ed7"/>
+    <UrlAlias media-type="application/vnd.ez.api.UrlAlias+xml" href="/api/ezp/v2/content/urlaliases/0-e1511fd04f57162341c2950fa1375867"/>
+</UrlAliasRefList>
