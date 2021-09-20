@@ -1,6 +1,6 @@
 # REST API authentication
 
-This page refers to [REST API reference](https://doc.ezplatform.com/rest-api-reference), where you can find detailed information about
+This page refers to [REST API reference](rest_api_reference/rest_api_reference.html), where you can find detailed information about
 REST API resources and endpoints.
 
 Using HTTPS for authenticated (REST) traffic is highly recommended.

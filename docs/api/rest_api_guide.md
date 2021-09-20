@@ -4,7 +4,7 @@ The REST API v2 introduced in [[= product_name =]] allows you to interact with a
 
 ## REST API reference
 
-See [REST API reference](https://doc.ezplatform.com/rest-api-reference) for detailed information about
+See [REST API reference](rest_api_reference/rest_api_reference.html) for detailed information about
 REST API resources and endpoints.
 
 !!! tip
