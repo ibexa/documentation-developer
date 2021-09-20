@@ -1,0 +1,22 @@
+{
+    "ObjectStateGroup": {
+        "identifier": "custom-states",
+        "defaultLanguageCode": "eng-GB",
+        "names": {
+            "value": [
+                {
+                    "_languageCode": "eng-GB",
+                    "#text": "Custom State"
+                }
+            ]
+        },
+        "descriptions": {
+            "value": [
+                {
+                    "_languageCode": "eng-GB",
+                    "#text": "Custom Object state"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "Relation": {
+        "_media-type": "application/vnd.ez.api.Relation+json",
+        "_href": "/api/ezp/v2/content/objects/59/versions/2/relations/38",
+        "SourceContent": {
+            "_media-type": "application/vnd.ez.api.ContentInfo+json",
+            "_href": "/api/ezp/v2/content/objects/59"
+        },
+        "DestinationContent": {
+            "_media-type": "application/vnd.ez.api.ContentInfo+json",
+            "_href": "/api/ezp/v2/content/objects/59"
+        },
+        "RelationType": "COMMON"
+    }
+}

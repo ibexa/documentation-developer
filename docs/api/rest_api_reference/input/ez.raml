@@ -1,0 +1,42 @@
+#%RAML 1.0
+---
+title: Ibexa REST API
+baseUri: https://ezsystems.github.io/ezplatform-rest-reference
+version: v3.3.2
+
+/: !include ez-root.raml
+
+/bookmark: !include ez-bookmark.raml
+
+/content:
+    displayName: Managing content
+    /objects: !include ez-content-object.raml
+    /objectstategroups: !include ez-objectstategroups.raml
+    /locations:  !include ez-content-location.raml
+    /views: !include ez-content-views.raml
+    /sections: !include ez-content-section.raml
+    /trash: !include ez-content-trash.raml
+    /urlaliases: !include ez-content-urlaliases.raml
+    /urlwildcards: !include ez-content-urlwildcards.raml
+    /typegroups: !include ez-content-typegroups.raml
+    /types: !include ez-content-types.raml
+    /assets: !include ez-content-assets.raml
+
+/calendar: !include ez-calendar.raml
+
+/views: !include ez-views.raml
+
+/user:
+    displayName: Managing users
+    /groups: !include ez-user-groups.raml
+    /users: !include ez-user-users.raml
+    /roles: !include ez-user-roles.raml
+    /policies: !include ez-user-policies.raml
+    /sessions: !include ez-user-sessions.raml
+    /token: !include ez-user-token.raml
+
+/services: !include ez-services.raml
+
+/commerce: !include ez-commerce.raml
+
+types: !include ez-types.raml

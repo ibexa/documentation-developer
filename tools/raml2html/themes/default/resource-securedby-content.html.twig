@@ -1,0 +1,98 @@
+<div id="{{ method.type }}_securedby">
+    <ul class="tabs response">
+        {% for securityScheme in method.securitySchemes %}
+            <li class="tab">
+                <a href="#{{ method.type }}_securedby_{{ securityScheme.key }}">
+                    {{ securityScheme.key }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    {% for securityScheme in method.securitySchemes %}
+    <div id="{{ method.type }}_securedby_{{ securityScheme.key }}">
+        {% if securityScheme.description %}
+            <ul class="collection with-header">
+                <li class="collection-header"><h5>Description</h5></li>
+                <li class="collection-item">
+                    {{ securityScheme.description }}
+                </li>
+            </ul>
+        {% endif %}
+
+        {% if securityScheme.type is constant('Raml\\SecurityScheme\\SecuritySettings\\OAuth2SecuritySettings::TYPE') %}
+            {% if securityScheme.settings.scopes is not empty %}
+            <ul class="collection with-header">
+                <li class="collection-header"><h5>Scopes</h5></li>
+                <li class="collection-item">
+                    <ul class="browser-default">
+                        {% for scope in securityScheme.settings.scopes %}
+                            <li>{{ scope }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+            {% endif %}
+        {% endif %}
+
+        {% if securityScheme.describedBy %}
+            {% if securityScheme.describedBy.headers %}
+                <ul class="collection with-header">
+                    <li class="collection-header"><h5>Headers</h5></li>
+                    <li class="collection-item">
+                        <ul class="browser-default">
+                            {% for item in securityScheme.describedBy.headers %}
+                                {% include theme ~ "/named-parameter.html.twig" %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+            {% endif %}
+
+            {% if securityScheme.describedBy.queryParameters %}
+                <ul class="collection with-header">
+                    <li class="collection-header"><h5>Query Parameters</h5></li>
+                    <li class="collection-item">
+                        <ul class="browser-default">
+                            {% for item in securityScheme.describedBy.queryParameters %}
+                                {% include theme ~ "/named-parameter.html.twig" %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+            {% endif %}
+
+            {% if securityScheme.describedBy.responses %}
+                <ul class="tabs">
+                    {% for response in securityScheme.describedBy.responses %}
+                        <li class="tab">
+                            <a href="#{{ method.type }}_securedby_response_{{ response.statusCode }}">
+                                {{ response.statusCode }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+                {% for response in securityScheme.describedBy.responses %}
+                    <div id="{{ method.type }}_securedby_response_{{ response.statusCode }}">
+                        <p>{{ response.description }}</p>
+
+                        {% if response.headers %}
+                            <ul class="collection with-header">
+                                <li class="collection-header"><h5>Headers</h5></li>
+                                <li class="collection-item">
+                                    <ul class="browser-default">
+                                        {% for item in response.headers %}
+                                            {% include theme ~ "/named-parameter.html.twig" %}
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            </ul>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>

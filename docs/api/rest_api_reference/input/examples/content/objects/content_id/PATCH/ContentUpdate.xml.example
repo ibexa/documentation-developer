@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentUpdate>
+  <mainLanguageCode>eng-GB</mainLanguageCode>
+  <Section href="/api/ezp/v2/content/sections/1"/>
+  <MainLocation href="/api/ezp/v2/content/locations/2/63/66"/>
+  <Owner href="/api/ezp/v2/user/users/11"/>
+  <alwaysAvailable>false</alwaysAvailable>
+  <remoteId>69848aeb86164c35e5c98202eebe9e05</remoteId>
+</ContentUpdate>

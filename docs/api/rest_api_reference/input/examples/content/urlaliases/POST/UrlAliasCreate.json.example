@@ -1,0 +1,10 @@
+{
+  "UrlAliasCreate": {
+    "_type": "GLOBAL",
+    "resource": "module:content/view/full",
+    "path": "example-global",
+    "languageCode": "eng-GB",
+    "alwaysAvailable": "true",
+    "forward": "true"
+  }
+}

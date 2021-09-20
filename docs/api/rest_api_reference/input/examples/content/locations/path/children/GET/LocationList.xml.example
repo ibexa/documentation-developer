@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LocationList media-type="application/vnd.ez.api.LocationList+xml" href="/api/ezp/v2/content/locations/1/63/children">
+    <Location media-type="application/vnd.ez.api.Location+xml" href="/api/ezp/v2/content/locations/1/2/63/60"/>
+    <Location media-type="application/vnd.ez.api.Location+xml" href="/api/ezp/v2/content/locations/1/2/63/61"/>
+    <Location media-type="application/vnd.ez.api.Location+xml" href="/api/ezp/v2/content/locations/1/2/63/62"/>
+    <Location media-type="application/vnd.ez.api.Location+xml" href="/api/ezp/v2/content/locations/1/2/63/67"/>
+</LocationList>

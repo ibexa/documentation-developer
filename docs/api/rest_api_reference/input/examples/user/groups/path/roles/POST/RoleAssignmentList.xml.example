@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RoleAssignmentList media-type="application/vnd.ez.api.RoleAssignmentList+xml" href="/api/ezp/v2/user/groups/1/5/65/roles">
+<RoleAssignment media-type="application/vnd.ez.api.RoleAssignment+xml" href="/api/ezp/v2/user/groups/1/5/65/roles/3">
+    <limitation identifier="Section">
+        <values>
+            <ref media-type="application/vnd.ez.api.ref+xml" href="1"/>
+        </values>
+    </limitation>
+    <Role media-type="application/vnd.ez.api.Role+xml" href="/api/ezp/v2/user/roles/3"/>
+</RoleAssignment>
+<RoleAssignment media-type="application/vnd.ez.api.RoleAssignment+xml" href="/api/ezp/v2/user/groups/1/5/65/roles/10">
+    <limitation identifier="Section">
+        <values>
+            <ref media-type="application/vnd.ez.api.ref+xml" href="1"/>
+        </values>
+    </limitation>
+    <Role media-type="application/vnd.ez.api.Role+xml" href="/api/ezp/v2/user/roles/10"/>
+</RoleAssignment>
+<RoleAssignment media-type="application/vnd.ez.api.RoleAssignment+xml" href="/api/ezp/v2/user/groups/1/5/65/roles/10">
+    <limitation identifier="Section">
+        <values>
+            <ref media-type="application/vnd.ez.api.ref+xml" href="4"/>
+        </values>
+    </limitation>
+    <Role media-type="application/vnd.ez.api.Role+xml" href="/api/ezp/v2/user/roles/10"/>
+</RoleAssignment>
+</RoleAssignmentList>

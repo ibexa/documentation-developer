@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EventGroupList media-type="application/vnd.ez.api.EventGroupList+xml">
+    <EventGroup media-type="application/vnd.ez.api.EventGroup+xml" currentPage="/api/ezp/v2/calendar/event?start=1597104000&amp;end=1597190400&amp;count=10">
+        <DateRange media-type="application/vnd.ez.api.DateRange+xml">
+            <startDate>1597104000</startDate>
+            <endDate>1597190400</endDate>
+        </DateRange>
+        <totalCount>0</totalCount>
+    </EventGroup>
+    <EventGroup media-type="application/vnd.ez.api.EventGroup+xml" currentPage="/api/ezp/v2/calendar/event?start=1597190400&amp;end=1597276800&amp;count=10">
+        <DateRange media-type="application/vnd.ez.api.DateRange+xml">
+            <startDate>1597190400</startDate>
+            <endDate>1597276800</endDate>
+        </DateRange>
+        <totalCount>0</totalCount>
+    </EventGroup>
+    <EventGroup media-type="application/vnd.ez.api.EventGroup+xml" currentPage="/api/ezp/v2/calendar/event?start=1597276800&amp;end=1597363200&amp;count=10">
+        <DateRange media-type="application/vnd.ez.api.DateRange+xml">
+            <startDate>1597276800</startDate>
+            <endDate>1597363200</endDate>
+        </DateRange>
+        <totalCount>1</totalCount>
+    </EventGroup>
+    <EventGroup media-type="application/vnd.ez.api.EventGroup+xml" currentPage="/api/ezp/v2/calendar/event?start=1597363200&amp;end=1597449600&amp;count=10">
+        <DateRange media-type="application/vnd.ez.api.DateRange+xml">
+            <startDate>1597363200</startDate>
+            <endDate>1597449600</endDate>
+        </DateRange>
+        <totalCount>1</totalCount>
+    </EventGroup>
+    <EventGroup media-type="application/vnd.ez.api.EventGroup+xml" currentPage="/api/ezp/v2/calendar/event?start=1597449600&amp;end=1597536000&amp;count=10">
+        <DateRange media-type="application/vnd.ez.api.DateRange+xml">
+            <startDate>1597449600</startDate>
+            <endDate>1597536000</endDate>
+        </DateRange>
+        <totalCount>1</totalCount>
+    </EventGroup>
+    <EventGroup media-type="application/vnd.ez.api.EventGroup+xml" currentPage="/api/ezp/v2/calendar/event?start=1597536000&amp;end=1597622400&amp;count=10">
+        <DateRange media-type="application/vnd.ez.api.DateRange+xml">
+            <startDate>1597536000</startDate>
+            <endDate>1597622400</endDate>
+        </DateRange>
+        <totalCount>1</totalCount>
+    </EventGroup>
+    <EventGroup media-type="application/vnd.ez.api.EventGroup+xml" currentPage="/api/ezp/v2/calendar/event?start=1597622400&amp;end=1597708800&amp;count=10">
+        <DateRange media-type="application/vnd.ez.api.DateRange+xml">
+            <startDate>1597622400</startDate>
+            <endDate>1597708800</endDate>
+        </DateRange>
+        <totalCount>0</totalCount>
+    </EventGroup>
+    <EventGroup media-type="application/vnd.ez.api.EventGroup+xml" currentPage="/api/ezp/v2/calendar/event?start=1597708800&amp;end=1597795200&amp;count=10">
+        <DateRange media-type="application/vnd.ez.api.DateRange+xml">
+            <startDate>1597708800</startDate>
+            <endDate>1597795200</endDate>
+        </DateRange>
+        <totalCount>0</totalCount>
+    </EventGroup>
+    <EventGroup media-type="application/vnd.ez.api.EventGroup+xml" currentPage="/api/ezp/v2/calendar/event?start=1597795200&amp;end=1597881600&amp;count=10">
+        <DateRange media-type="application/vnd.ez.api.DateRange+xml">
+            <startDate>1597795200</startDate>
+            <endDate>1597881600</endDate>
+        </DateRange>
+        <totalCount>1</totalCount>
+    </EventGroup>
+    <EventGroup media-type="application/vnd.ez.api.EventGroup+xml" currentPage="/api/ezp/v2/calendar/event?start=1597881600&amp;end=1597968000&amp;count=10">
+        <DateRange media-type="application/vnd.ez.api.DateRange+xml">
+            <startDate>1597881600</startDate>
+            <endDate>1597968000</endDate>
+        </DateRange>
+        <totalCount>0</totalCount>
+    </EventGroup>
+    <EventGroup media-type="application/vnd.ez.api.EventGroup+xml" currentPage="/api/ezp/v2/calendar/event?start=1597968000&amp;end=1598054400&amp;count=10">
+        <DateRange media-type="application/vnd.ez.api.DateRange+xml">
+            <startDate>1597968000</startDate>
+            <endDate>1598054400</endDate>
+        </DateRange>
+        <totalCount>0</totalCount>
+    </EventGroup>
+    <EventGroup media-type="application/vnd.ez.api.EventGroup+xml" currentPage="/api/ezp/v2/calendar/event?start=1598054400&amp;end=1598140800&amp;count=10">
+        <DateRange media-type="application/vnd.ez.api.DateRange+xml">
+            <startDate>1598054400</startDate>
+            <endDate>1598140800</endDate>
+        </DateRange>
+        <totalCount>0</totalCount>
+    </EventGroup>
+    <EventGroup media-type="application/vnd.ez.api.EventGroup+xml" currentPage="/api/ezp/v2/calendar/event?start=1598140800&amp;end=1598227200&amp;count=10">
+        <DateRange media-type="application/vnd.ez.api.DateRange+xml">
+            <startDate>1598140800</startDate>
+            <endDate>1598227200</endDate>
+        </DateRange>
+        <totalCount>0</totalCount>
+    </EventGroup>
+    <EventGroup media-type="application/vnd.ez.api.EventGroup+xml" currentPage="/api/ezp/v2/calendar/event?start=1598227200&amp;end=1598313600&amp;count=10">
+        <DateRange media-type="application/vnd.ez.api.DateRange+xml">
+            <startDate>1598227200</startDate>
+            <endDate>1598313600</endDate>
+        </DateRange>
+        <totalCount>0</totalCount>
+    </EventGroup>
+    <EventGroup media-type="application/vnd.ez.api.EventGroup+xml" currentPage="/api/ezp/v2/calendar/event?start=1598313600&amp;end=1598400000&amp;count=10">
+        <DateRange media-type="application/vnd.ez.api.DateRange+xml">
+            <startDate>1598313600</startDate>
+            <endDate>1598400000</endDate>
+        </DateRange>
+        <totalCount>0</totalCount>
+    </EventGroup>
+    <EventGroup media-type="application/vnd.ez.api.EventGroup+xml" currentPage="/api/ezp/v2/calendar/event?start=1598400000&amp;end=1598486400&amp;count=10">
+        <DateRange media-type="application/vnd.ez.api.DateRange+xml">
+            <startDate>1598400000</startDate>
+            <endDate>1598486400</endDate>
+        </DateRange>
+        <totalCount>0</totalCount>
+    </EventGroup>
+    <EventGroup media-type="application/vnd.ez.api.EventGroup+xml" currentPage="/api/ezp/v2/calendar/event?start=1598486400&amp;end=1598572800&amp;count=10">
+        <DateRange media-type="application/vnd.ez.api.DateRange+xml">
+            <startDate>1598486400</startDate>
+            <endDate>1598572800</endDate>
+        </DateRange>
+        <totalCount>0</totalCount>
+    </EventGroup>
+    <EventGroup media-type="application/vnd.ez.api.EventGroup+xml" currentPage="/api/ezp/v2/calendar/event?start=1598572800&amp;end=1598659200&amp;count=10">
+        <DateRange media-type="application/vnd.ez.api.DateRange+xml">
+            <startDate>1598572800</startDate>
+            <endDate>1598659200</endDate>
+        </DateRange>
+        <totalCount>0</totalCount>
+    </EventGroup>
+    <EventGroup media-type="application/vnd.ez.api.EventGroup+xml" currentPage="/api/ezp/v2/calendar/event?start=1598659200&amp;end=1598745600&amp;count=10">
+        <DateRange media-type="application/vnd.ez.api.DateRange+xml">
+            <startDate>1598659200</startDate>
+            <endDate>1598745600</endDate>
+        </DateRange>
+        <totalCount>0</totalCount>
+    </EventGroup>
+</EventGroupList>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<User media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/59" id="59" remoteId="remoteId-qwert426">
+<ContentType media-type="application/vnd.ez.api.ContentType+xml" href="/api/ezp/v2/content/types/4"/>
+<name>Yura Rajzer</name>
+<Versions media-type="application/vnd.ez.api.VersionList+xml" href="/api/ezp/v2/content/objects/59/versions"/>
+<Section media-type="application/vnd.ez.api.Section+xml" href="/api/ezp/v2/content/sections/2"/>
+<MainLocation media-type="application/vnd.ez.api.Location+xml" href="/api/ezp/v2/content/locations/1/5/65/67"/>
+<Locations media-type="application/vnd.ez.api.LocationList+xml" href="/api/ezp/v2/content/objects/59/locations"/>
+<Groups media-type="application/vnd.ez.api.UserGroupRefList+xml" href="/api/ezp/v2/user/users/59/groups"/>
+<Owner media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+<publishDate>2019-02-27T11:23:42+01:00</publishDate>
+<lastModificationDate>2019-02-27T11:23:42+01:00</lastModificationDate>
+<mainLanguageCode>eng-GB</mainLanguageCode>
+<alwaysAvailable>true</alwaysAvailable>
+<Version media-type="application/vnd.ez.api.Version+xml" href="/api/ezp/v2/content/objects/59/versions/1">
+    <VersionInfo>
+        <id>515</id>
+        <versionNo>1</versionNo>
+        <status>PUBLISHED</status>
+        <modificationDate>2019-02-27T11:23:42+01:00</modificationDate>
+        <Creator media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+        <creationDate>2019-02-27T11:23:42+01:00</creationDate>
+        <initialLanguageCode>eng-GB</initialLanguageCode>
+        <languageCodes>eng-GB</languageCodes>
+        <VersionTranslationInfo media-type="application/vnd.ez.api.VersionTranslationInfo+xml">
+            <Language>
+                <languageCode>eng-GB</languageCode>
+            </Language>
+        </VersionTranslationInfo>
+        <names>
+            <value languageCode="eng-GB">Yura Rajzer</value>
+        </names>
+        <Content media-type="application/vnd.ez.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/59"/>
+    </VersionInfo>
+    <Fields>
+        <field>
+            <id>207</id>
+            <fieldDefinitionIdentifier>first_name</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+            <fieldValue>Yura</fieldValue>
+        </field>
+        <field>
+            <id>208</id>
+            <fieldDefinitionIdentifier>last_name</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+            <fieldValue>Rajzer</fieldValue>
+        </field>
+        <field>
+            <id>209</id>
+            <fieldDefinitionIdentifier>user_account</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezuser</fieldTypeIdentifier>
+            <fieldValue>
+                <value key="hasStoredLogin">true</value>
+                <value key="contentId">59</value>
+                <value key="login">yura</value>
+                <value key="email">yurarajzer@example.net</value>
+                <value key="enabled">true</value>
+                <value key="maxLogin">0</value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>210</id>
+            <fieldDefinitionIdentifier>signature</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>eztext</fieldTypeIdentifier>
+            <fieldValue/>
+        </field>
+        <field>
+            <id>211</id>
+            <fieldDefinitionIdentifier>image</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezimage</fieldTypeIdentifier>
+            <fieldValue/>
+        </field>
+    </Fields>
+    <Relations media-type="application/vnd.ez.api.RelationList+xml" href="/api/ezp/v2/content/objects/59/versions/1/relations"/>
+</Version>
+<login>yura</login>
+<email>yurarajzer@example.net</email>
+<enabled>true</enabled>
+<UserGroups media-type="application/vnd.ez.api.UserGroupList+xml" href="/api/ezp/v2/user/users/59/groups"/>
+<Roles media-type="application/vnd.ez.api.RoleAssignmentList+xml" href="/api/ezp/v2/user/users/59/roles"/>
+</User>

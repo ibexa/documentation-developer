@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewInput>
+  <identifier>TitleView</identifier>
+  <ContentQuery>
+    <Filter>
+      <ContentTypeIdentifierCriterion>image</ContentTypeIdentifierCriterion>
+      <SectionIdentifierCriterion>media</SectionIdentifierCriterion>
+    </Filter>
+    <limit>10</limit>
+    <offset>0</offset>
+    <SortClauses>
+      <ContentName>ascending</ContentName>
+    </SortClauses>
+    <FacetBuilders>
+      <contentTypeFacetBuilder/>
+    </FacetBuilders>
+  </ContentQuery>
+</ViewInput>

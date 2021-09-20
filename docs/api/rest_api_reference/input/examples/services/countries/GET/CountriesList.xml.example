@@ -1,0 +1,1479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CountryList media-type="application/vnd.ez.api.CountryList+xml">
+    <Country media-type="application/vnd.ez.api.Country+xml" id="AF">
+        <name>Afghanistan</name>
+        <Alpha2>AF</Alpha2>
+        <Alpha3>AFG</Alpha3>
+        <IDC>93</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="AX">
+        <name>Åland</name>
+        <Alpha2>AX</Alpha2>
+        <Alpha3>ALA</Alpha3>
+        <IDC>358</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="AL">
+        <name>Albania</name>
+        <Alpha2>AL</Alpha2>
+        <Alpha3>ALB</Alpha3>
+        <IDC>355</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="DZ">
+        <name>Algeria</name>
+        <Alpha2>DZ</Alpha2>
+        <Alpha3>DZA</Alpha3>
+        <IDC>213</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="AS">
+        <name>American Samoa</name>
+        <Alpha2>AS</Alpha2>
+        <Alpha3>ASM</Alpha3>
+        <IDC>1684</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="AD">
+        <name>Andorra</name>
+        <Alpha2>AD</Alpha2>
+        <Alpha3>AND</Alpha3>
+        <IDC>376</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="AO">
+        <name>Angola</name>
+        <Alpha2>AO</Alpha2>
+        <Alpha3>AGO</Alpha3>
+        <IDC>244</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="AI">
+        <name>Anguilla</name>
+        <Alpha2>AI</Alpha2>
+        <Alpha3>AIA</Alpha3>
+        <IDC>1264</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="AQ">
+        <name>Antarctica</name>
+        <Alpha2>AQ</Alpha2>
+        <Alpha3>ATA</Alpha3>
+        <IDC>672</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="AG">
+        <name>Antigua and Barbuda</name>
+        <Alpha2>AG</Alpha2>
+        <Alpha3>ATG</Alpha3>
+        <IDC>1268</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="AR">
+        <name>Argentina</name>
+        <Alpha2>AR</Alpha2>
+        <Alpha3>ARG</Alpha3>
+        <IDC>54</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="AM">
+        <name>Armenia</name>
+        <Alpha2>AM</Alpha2>
+        <Alpha3>ARM</Alpha3>
+        <IDC>374</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="AW">
+        <name>Aruba</name>
+        <Alpha2>AW</Alpha2>
+        <Alpha3>ABW</Alpha3>
+        <IDC>297</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="AU">
+        <name>Australia</name>
+        <Alpha2>AU</Alpha2>
+        <Alpha3>AUS</Alpha3>
+        <IDC>61</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="AT">
+        <name>Austria</name>
+        <Alpha2>AT</Alpha2>
+        <Alpha3>AUT</Alpha3>
+        <IDC>43</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="AZ">
+        <name>Azerbaijan</name>
+        <Alpha2>AZ</Alpha2>
+        <Alpha3>AZE</Alpha3>
+        <IDC>994</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="BS">
+        <name>Bahamas</name>
+        <Alpha2>BS</Alpha2>
+        <Alpha3>BHS</Alpha3>
+        <IDC>1242</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="BH">
+        <name>Bahrain</name>
+        <Alpha2>BH</Alpha2>
+        <Alpha3>BHR</Alpha3>
+        <IDC>973</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="BD">
+        <name>Bangladesh</name>
+        <Alpha2>BD</Alpha2>
+        <Alpha3>BGD</Alpha3>
+        <IDC>880</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="BB">
+        <name>Barbados</name>
+        <Alpha2>BB</Alpha2>
+        <Alpha3>BRB</Alpha3>
+        <IDC>1246</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="BY">
+        <name>Belarus</name>
+        <Alpha2>BY</Alpha2>
+        <Alpha3>BLR</Alpha3>
+        <IDC>375</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="BE">
+        <name>Belgium</name>
+        <Alpha2>BE</Alpha2>
+        <Alpha3>BEL</Alpha3>
+        <IDC>32</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="BZ">
+        <name>Belize</name>
+        <Alpha2>BZ</Alpha2>
+        <Alpha3>BLZ</Alpha3>
+        <IDC>501</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="BJ">
+        <name>Benin</name>
+        <Alpha2>BJ</Alpha2>
+        <Alpha3>BEN</Alpha3>
+        <IDC>229</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="BM">
+        <name>Bermuda</name>
+        <Alpha2>BM</Alpha2>
+        <Alpha3>BMU</Alpha3>
+        <IDC>1441</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="BT">
+        <name>Bhutan</name>
+        <Alpha2>BT</Alpha2>
+        <Alpha3>BTN</Alpha3>
+        <IDC>975</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="BO">
+        <name>Bolivia</name>
+        <Alpha2>BO</Alpha2>
+        <Alpha3>BOL</Alpha3>
+        <IDC>591</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="BA">
+        <name>Bosnia and Herzegovina</name>
+        <Alpha2>BA</Alpha2>
+        <Alpha3>BIH</Alpha3>
+        <IDC>387</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="BW">
+        <name>Botswana</name>
+        <Alpha2>BW</Alpha2>
+        <Alpha3>BWA</Alpha3>
+        <IDC>267</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="BV">
+        <name>Bouvet Island</name>
+        <Alpha2>BV</Alpha2>
+        <Alpha3>BVT</Alpha3>
+        <IDC>47</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="BR">
+        <name>Brazil</name>
+        <Alpha2>BR</Alpha2>
+        <Alpha3>BRA</Alpha3>
+        <IDC>55</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="IO">
+        <name>British Indian Ocean Territory</name>
+        <Alpha2>IO</Alpha2>
+        <Alpha3>IOT</Alpha3>
+        <IDC>246</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="BN">
+        <name>Brunei Darussalam</name>
+        <Alpha2>BN</Alpha2>
+        <Alpha3>BRN</Alpha3>
+        <IDC>673</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="BG">
+        <name>Bulgaria</name>
+        <Alpha2>BG</Alpha2>
+        <Alpha3>BGR</Alpha3>
+        <IDC>359</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="BF">
+        <name>Burkina Faso</name>
+        <Alpha2>BF</Alpha2>
+        <Alpha3>BFA</Alpha3>
+        <IDC>226</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="BI">
+        <name>Burundi</name>
+        <Alpha2>BI</Alpha2>
+        <Alpha3>BDI</Alpha3>
+        <IDC>257</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="KH">
+        <name>Cambodia</name>
+        <Alpha2>KH</Alpha2>
+        <Alpha3>KHM</Alpha3>
+        <IDC>855</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="CM">
+        <name>Cameroon</name>
+        <Alpha2>CM</Alpha2>
+        <Alpha3>CMR</Alpha3>
+        <IDC>237</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="CA">
+        <name>Canada</name>
+        <Alpha2>CA</Alpha2>
+        <Alpha3>CAN</Alpha3>
+        <IDC>1</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="CV">
+        <name>Cape Verde</name>
+        <Alpha2>CV</Alpha2>
+        <Alpha3>CPV</Alpha3>
+        <IDC>238</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="KY">
+        <name>Cayman Islands</name>
+        <Alpha2>KY</Alpha2>
+        <Alpha3>CYM</Alpha3>
+        <IDC>1345</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="CF">
+        <name>Central African Republic</name>
+        <Alpha2>CF</Alpha2>
+        <Alpha3>CAF</Alpha3>
+        <IDC>236</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="TD">
+        <name>Chad</name>
+        <Alpha2>TD</Alpha2>
+        <Alpha3>TCD</Alpha3>
+        <IDC>235</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="CL">
+        <name>Chile</name>
+        <Alpha2>CL</Alpha2>
+        <Alpha3>CHL</Alpha3>
+        <IDC>56</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="CN">
+        <name>China</name>
+        <Alpha2>CN</Alpha2>
+        <Alpha3>CHN</Alpha3>
+        <IDC>86</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="CX">
+        <name>Christmas Island</name>
+        <Alpha2>CX</Alpha2>
+        <Alpha3>CXR</Alpha3>
+        <IDC>61</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="CC">
+        <name>Cocos (Keeling) Islands</name>
+        <Alpha2>CC</Alpha2>
+        <Alpha3>CCK</Alpha3>
+        <IDC>61</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="CO">
+        <name>Colombia</name>
+        <Alpha2>CO</Alpha2>
+        <Alpha3>COL</Alpha3>
+        <IDC>57</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="KM">
+        <name>Comoros</name>
+        <Alpha2>KM</Alpha2>
+        <Alpha3>COM</Alpha3>
+        <IDC>269</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="CG">
+        <name>Congo</name>
+        <Alpha2>CG</Alpha2>
+        <Alpha3>COG</Alpha3>
+        <IDC>242</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="CD">
+        <name>Congo, The Democratic Republic Of The</name>
+        <Alpha2>CD</Alpha2>
+        <Alpha3>COD</Alpha3>
+        <IDC>243</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="CK">
+        <name>Cook Islands</name>
+        <Alpha2>CK</Alpha2>
+        <Alpha3>COK</Alpha3>
+        <IDC>682</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="CR">
+        <name>Costa Rica</name>
+        <Alpha2>CR</Alpha2>
+        <Alpha3>CRI</Alpha3>
+        <IDC>506</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="CI">
+        <name>Côte d'Ivoire</name>
+        <Alpha2>CI</Alpha2>
+        <Alpha3>CIV</Alpha3>
+        <IDC>225</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="HR">
+        <name>Croatia</name>
+        <Alpha2>HR</Alpha2>
+        <Alpha3>HRV</Alpha3>
+        <IDC>385</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="CU">
+        <name>Cuba</name>
+        <Alpha2>CU</Alpha2>
+        <Alpha3>CUB</Alpha3>
+        <IDC>53</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="CY">
+        <name>Cyprus</name>
+        <Alpha2>CY</Alpha2>
+        <Alpha3>CYP</Alpha3>
+        <IDC>357</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="CZ">
+        <name>Czech Republic</name>
+        <Alpha2>CZ</Alpha2>
+        <Alpha3>CZE</Alpha3>
+        <IDC>420</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="DK">
+        <name>Denmark</name>
+        <Alpha2>DK</Alpha2>
+        <Alpha3>DNK</Alpha3>
+        <IDC>45</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="DJ">
+        <name>Djibouti</name>
+        <Alpha2>DJ</Alpha2>
+        <Alpha3>DJI</Alpha3>
+        <IDC>253</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="DM">
+        <name>Dominica</name>
+        <Alpha2>DM</Alpha2>
+        <Alpha3>DMA</Alpha3>
+        <IDC>1767</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="DO">
+        <name>Dominican Republic</name>
+        <Alpha2>DO</Alpha2>
+        <Alpha3>DOM</Alpha3>
+        <IDC>1809</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="EC">
+        <name>Ecuador</name>
+        <Alpha2>EC</Alpha2>
+        <Alpha3>ECU</Alpha3>
+        <IDC>593</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="EG">
+        <name>Egypt</name>
+        <Alpha2>EG</Alpha2>
+        <Alpha3>EGY</Alpha3>
+        <IDC>20</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="SV">
+        <name>El Salvador</name>
+        <Alpha2>SV</Alpha2>
+        <Alpha3>SLV</Alpha3>
+        <IDC>503</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="GQ">
+        <name>Equatorial Guinea</name>
+        <Alpha2>GQ</Alpha2>
+        <Alpha3>GNQ</Alpha3>
+        <IDC>240</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="ER">
+        <name>Eritrea</name>
+        <Alpha2>ER</Alpha2>
+        <Alpha3>ERI</Alpha3>
+        <IDC>291</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="EE">
+        <name>Estonia</name>
+        <Alpha2>EE</Alpha2>
+        <Alpha3>EST</Alpha3>
+        <IDC>372</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="ET">
+        <name>Ethiopia</name>
+        <Alpha2>ET</Alpha2>
+        <Alpha3>ETH</Alpha3>
+        <IDC>251</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="FK">
+        <name>Falkland Islands (Malvinas)</name>
+        <Alpha2>FK</Alpha2>
+        <Alpha3>FLK</Alpha3>
+        <IDC>500</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="FO">
+        <name>Faroe Islands</name>
+        <Alpha2>FO</Alpha2>
+        <Alpha3>FRO</Alpha3>
+        <IDC>298</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="FJ">
+        <name>Fiji</name>
+        <Alpha2>FJ</Alpha2>
+        <Alpha3>FJI</Alpha3>
+        <IDC>679</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="FI">
+        <name>Finland</name>
+        <Alpha2>FI</Alpha2>
+        <Alpha3>FIN</Alpha3>
+        <IDC>358</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="FR">
+        <name>France</name>
+        <Alpha2>FR</Alpha2>
+        <Alpha3>FRA</Alpha3>
+        <IDC>33</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="GF">
+        <name>French Guiana</name>
+        <Alpha2>GF</Alpha2>
+        <Alpha3>GUF</Alpha3>
+        <IDC>594</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="PF">
+        <name>French Polynesia</name>
+        <Alpha2>PF</Alpha2>
+        <Alpha3>PYF</Alpha3>
+        <IDC>689</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="TF">
+        <name>French Southern Territories</name>
+        <Alpha2>TF</Alpha2>
+        <Alpha3>ATF</Alpha3>
+        <IDC>0</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="GA">
+        <name>Gabon</name>
+        <Alpha2>GA</Alpha2>
+        <Alpha3>GAB</Alpha3>
+        <IDC>241</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="GM">
+        <name>Gambia</name>
+        <Alpha2>GM</Alpha2>
+        <Alpha3>GMB</Alpha3>
+        <IDC>220</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="GE">
+        <name>Georgia</name>
+        <Alpha2>GE</Alpha2>
+        <Alpha3>GEO</Alpha3>
+        <IDC>995</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="DE">
+        <name>Germany</name>
+        <Alpha2>DE</Alpha2>
+        <Alpha3>DEU</Alpha3>
+        <IDC>49</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="GH">
+        <name>Ghana</name>
+        <Alpha2>GH</Alpha2>
+        <Alpha3>GHA</Alpha3>
+        <IDC>233</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="GI">
+        <name>Gibraltar</name>
+        <Alpha2>GI</Alpha2>
+        <Alpha3>GIB</Alpha3>
+        <IDC>350</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="GR">
+        <name>Greece</name>
+        <Alpha2>GR</Alpha2>
+        <Alpha3>GRC</Alpha3>
+        <IDC>30</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="GL">
+        <name>Greenland</name>
+        <Alpha2>GL</Alpha2>
+        <Alpha3>GRL</Alpha3>
+        <IDC>299</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="GD">
+        <name>Grenada</name>
+        <Alpha2>GD</Alpha2>
+        <Alpha3>GRD</Alpha3>
+        <IDC>1473</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="GP">
+        <name>Guadeloupe</name>
+        <Alpha2>GP</Alpha2>
+        <Alpha3>GLP</Alpha3>
+        <IDC>590</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="GU">
+        <name>Guam</name>
+        <Alpha2>GU</Alpha2>
+        <Alpha3>GUM</Alpha3>
+        <IDC>1671</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="GT">
+        <name>Guatemala</name>
+        <Alpha2>GT</Alpha2>
+        <Alpha3>GTM</Alpha3>
+        <IDC>502</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="GG">
+        <name>Guernsey</name>
+        <Alpha2>GG</Alpha2>
+        <Alpha3>GGY</Alpha3>
+        <IDC>44</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="GN">
+        <name>Guinea</name>
+        <Alpha2>GN</Alpha2>
+        <Alpha3>GIN</Alpha3>
+        <IDC>224</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="GW">
+        <name>Guinea-Bissau</name>
+        <Alpha2>GW</Alpha2>
+        <Alpha3>GNB</Alpha3>
+        <IDC>245</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="GY">
+        <name>Guyana</name>
+        <Alpha2>GY</Alpha2>
+        <Alpha3>GUY</Alpha3>
+        <IDC>592</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="HT">
+        <name>Haiti</name>
+        <Alpha2>HT</Alpha2>
+        <Alpha3>HTI</Alpha3>
+        <IDC>509</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="HM">
+        <name>Heard Island and McDonald Islands</name>
+        <Alpha2>HM</Alpha2>
+        <Alpha3>HMD</Alpha3>
+        <IDC>672</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="HN">
+        <name>Honduras</name>
+        <Alpha2>HN</Alpha2>
+        <Alpha3>HND</Alpha3>
+        <IDC>504</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="HK">
+        <name>Hong Kong</name>
+        <Alpha2>HK</Alpha2>
+        <Alpha3>HKG</Alpha3>
+        <IDC>852</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="HU">
+        <name>Hungary</name>
+        <Alpha2>HU</Alpha2>
+        <Alpha3>HUN</Alpha3>
+        <IDC>36</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="IS">
+        <name>Iceland</name>
+        <Alpha2>IS</Alpha2>
+        <Alpha3>ISL</Alpha3>
+        <IDC>354</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="IN">
+        <name>India</name>
+        <Alpha2>IN</Alpha2>
+        <Alpha3>IND</Alpha3>
+        <IDC>91</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="ID">
+        <name>Indonesia</name>
+        <Alpha2>ID</Alpha2>
+        <Alpha3>IDN</Alpha3>
+        <IDC>62</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="IR">
+        <name>Iran, Islamic Republic of</name>
+        <Alpha2>IR</Alpha2>
+        <Alpha3>IRN</Alpha3>
+        <IDC>98</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="IQ">
+        <name>Iraq</name>
+        <Alpha2>IQ</Alpha2>
+        <Alpha3>IRQ</Alpha3>
+        <IDC>964</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="IE">
+        <name>Ireland</name>
+        <Alpha2>IE</Alpha2>
+        <Alpha3>IRL</Alpha3>
+        <IDC>353</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="IM">
+        <name>Isle of Man</name>
+        <Alpha2>IM</Alpha2>
+        <Alpha3>IMN</Alpha3>
+        <IDC>44</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="IL">
+        <name>Israel</name>
+        <Alpha2>IL</Alpha2>
+        <Alpha3>ISR</Alpha3>
+        <IDC>972</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="IT">
+        <name>Italy</name>
+        <Alpha2>IT</Alpha2>
+        <Alpha3>ITA</Alpha3>
+        <IDC>39</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="JM">
+        <name>Jamaica</name>
+        <Alpha2>JM</Alpha2>
+        <Alpha3>JAM</Alpha3>
+        <IDC>1876</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="JP">
+        <name>Japan</name>
+        <Alpha2>JP</Alpha2>
+        <Alpha3>JPN</Alpha3>
+        <IDC>81</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="JE">
+        <name>Jersey</name>
+        <Alpha2>JE</Alpha2>
+        <Alpha3>JEY</Alpha3>
+        <IDC>44</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="JO">
+        <name>Jordan</name>
+        <Alpha2>JO</Alpha2>
+        <Alpha3>JOR</Alpha3>
+        <IDC>962</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="KZ">
+        <name>Kazakhstan</name>
+        <Alpha2>KZ</Alpha2>
+        <Alpha3>KAZ</Alpha3>
+        <IDC>7</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="KE">
+        <name>Kenya</name>
+        <Alpha2>KE</Alpha2>
+        <Alpha3>KEN</Alpha3>
+        <IDC>254</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="KI">
+        <name>Kiribati</name>
+        <Alpha2>KI</Alpha2>
+        <Alpha3>KIR</Alpha3>
+        <IDC>686</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="KP">
+        <name>Korea, Democratic People's Republic of</name>
+        <Alpha2>KP</Alpha2>
+        <Alpha3>PRK</Alpha3>
+        <IDC>850</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="KR">
+        <name>Korea, Republic of</name>
+        <Alpha2>KR</Alpha2>
+        <Alpha3>KOR</Alpha3>
+        <IDC>82</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="KW">
+        <name>Kuwait</name>
+        <Alpha2>KW</Alpha2>
+        <Alpha3>KWT</Alpha3>
+        <IDC>965</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="KG">
+        <name>Kyrgyzstan</name>
+        <Alpha2>KG</Alpha2>
+        <Alpha3>KGZ</Alpha3>
+        <IDC>996</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="LA">
+        <name>Lao People's Democratic Republic</name>
+        <Alpha2>LA</Alpha2>
+        <Alpha3>LAO</Alpha3>
+        <IDC>856</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="LV">
+        <name>Latvia</name>
+        <Alpha2>LV</Alpha2>
+        <Alpha3>LVA</Alpha3>
+        <IDC>371</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="LB">
+        <name>Lebanon</name>
+        <Alpha2>LB</Alpha2>
+        <Alpha3>LBN</Alpha3>
+        <IDC>961</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="LS">
+        <name>Lesotho</name>
+        <Alpha2>LS</Alpha2>
+        <Alpha3>LSO</Alpha3>
+        <IDC>266</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="LR">
+        <name>Liberia</name>
+        <Alpha2>LR</Alpha2>
+        <Alpha3>LBR</Alpha3>
+        <IDC>231</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="LY">
+        <name>Libyan Arab Jamahiriya</name>
+        <Alpha2>LY</Alpha2>
+        <Alpha3>LBY</Alpha3>
+        <IDC>218</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="LI">
+        <name>Liechtenstein</name>
+        <Alpha2>LI</Alpha2>
+        <Alpha3>LIE</Alpha3>
+        <IDC>423</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="LT">
+        <name>Lithuania</name>
+        <Alpha2>LT</Alpha2>
+        <Alpha3>LTU</Alpha3>
+        <IDC>370</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="LU">
+        <name>Luxembourg</name>
+        <Alpha2>LU</Alpha2>
+        <Alpha3>LUX</Alpha3>
+        <IDC>352</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="MO">
+        <name>Macau</name>
+        <Alpha2>MO</Alpha2>
+        <Alpha3>MAC</Alpha3>
+        <IDC>853</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="MK">
+        <name>Macedonia, The Former Yugoslav Republic of</name>
+        <Alpha2>MK</Alpha2>
+        <Alpha3>MKD</Alpha3>
+        <IDC>389</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="MG">
+        <name>Madagascar</name>
+        <Alpha2>MG</Alpha2>
+        <Alpha3>MDG</Alpha3>
+        <IDC>261</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="MW">
+        <name>Malawi</name>
+        <Alpha2>MW</Alpha2>
+        <Alpha3>MWI</Alpha3>
+        <IDC>265</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="MY">
+        <name>Malaysia</name>
+        <Alpha2>MY</Alpha2>
+        <Alpha3>MYS</Alpha3>
+        <IDC>60</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="MV">
+        <name>Maldives</name>
+        <Alpha2>MV</Alpha2>
+        <Alpha3>MDV</Alpha3>
+        <IDC>960</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="ML">
+        <name>Mali</name>
+        <Alpha2>ML</Alpha2>
+        <Alpha3>MLI</Alpha3>
+        <IDC>223</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="MT">
+        <name>Malta</name>
+        <Alpha2>MT</Alpha2>
+        <Alpha3>MLT</Alpha3>
+        <IDC>356</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="MH">
+        <name>Marshall Islands</name>
+        <Alpha2>MH</Alpha2>
+        <Alpha3>MHL</Alpha3>
+        <IDC>692</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="MQ">
+        <name>Martinique</name>
+        <Alpha2>MQ</Alpha2>
+        <Alpha3>MTQ</Alpha3>
+        <IDC>596</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="MR">
+        <name>Mauritania</name>
+        <Alpha2>MR</Alpha2>
+        <Alpha3>MRT</Alpha3>
+        <IDC>222</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="MU">
+        <name>Mauritius</name>
+        <Alpha2>MU</Alpha2>
+        <Alpha3>MUS</Alpha3>
+        <IDC>230</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="YT">
+        <name>Mayotte</name>
+        <Alpha2>YT</Alpha2>
+        <Alpha3>MYT</Alpha3>
+        <IDC>262</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="MX">
+        <name>Mexico</name>
+        <Alpha2>MX</Alpha2>
+        <Alpha3>MEX</Alpha3>
+        <IDC>52</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="FM">
+        <name>Micronesia, Federated States of</name>
+        <Alpha2>FM</Alpha2>
+        <Alpha3>FSM</Alpha3>
+        <IDC>691</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="MD">
+        <name>Moldova, Republic of</name>
+        <Alpha2>MD</Alpha2>
+        <Alpha3>MDA</Alpha3>
+        <IDC>373</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="MC">
+        <name>Monaco</name>
+        <Alpha2>MC</Alpha2>
+        <Alpha3>MCO</Alpha3>
+        <IDC>377</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="MN">
+        <name>Mongolia</name>
+        <Alpha2>MN</Alpha2>
+        <Alpha3>MNG</Alpha3>
+        <IDC>976</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="ME">
+        <name>Montenegro</name>
+        <Alpha2>ME</Alpha2>
+        <Alpha3>MNE</Alpha3>
+        <IDC>382</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="MS">
+        <name>Montserrat</name>
+        <Alpha2>MS</Alpha2>
+        <Alpha3>MSR</Alpha3>
+        <IDC>1664</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="MA">
+        <name>Morocco</name>
+        <Alpha2>MA</Alpha2>
+        <Alpha3>MAR</Alpha3>
+        <IDC>212</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="MZ">
+        <name>Mozambique</name>
+        <Alpha2>MZ</Alpha2>
+        <Alpha3>MOZ</Alpha3>
+        <IDC>258</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="MM">
+        <name>Myanmar</name>
+        <Alpha2>MM</Alpha2>
+        <Alpha3>MMR</Alpha3>
+        <IDC>95</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="NA">
+        <name>Namibia</name>
+        <Alpha2>NA</Alpha2>
+        <Alpha3>NAM</Alpha3>
+        <IDC>264</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="NR">
+        <name>Nauru</name>
+        <Alpha2>NR</Alpha2>
+        <Alpha3>NRU</Alpha3>
+        <IDC>674</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="NP">
+        <name>Nepal</name>
+        <Alpha2>NP</Alpha2>
+        <Alpha3>NPL</Alpha3>
+        <IDC>977</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="NL">
+        <name>Netherlands</name>
+        <Alpha2>NL</Alpha2>
+        <Alpha3>NLD</Alpha3>
+        <IDC>31</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="AN">
+        <name>Netherlands Antilles</name>
+        <Alpha2>AN</Alpha2>
+        <Alpha3>ANT</Alpha3>
+        <IDC>599</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="NC">
+        <name>New Caledonia</name>
+        <Alpha2>NC</Alpha2>
+        <Alpha3>NCL</Alpha3>
+        <IDC>687</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="NZ">
+        <name>New Zealand</name>
+        <Alpha2>NZ</Alpha2>
+        <Alpha3>NZL</Alpha3>
+        <IDC>64</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="NI">
+        <name>Nicaragua</name>
+        <Alpha2>NI</Alpha2>
+        <Alpha3>NIC</Alpha3>
+        <IDC>505</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="NE">
+        <name>Niger</name>
+        <Alpha2>NE</Alpha2>
+        <Alpha3>NER</Alpha3>
+        <IDC>227</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="NG">
+        <name>Nigeria</name>
+        <Alpha2>NG</Alpha2>
+        <Alpha3>NGA</Alpha3>
+        <IDC>234</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="NU">
+        <name>Niue</name>
+        <Alpha2>NU</Alpha2>
+        <Alpha3>NIU</Alpha3>
+        <IDC>683</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="NF">
+        <name>Norfolk Island</name>
+        <Alpha2>NF</Alpha2>
+        <Alpha3>NFK</Alpha3>
+        <IDC>6723</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="MP">
+        <name>Northern Mariana Islands</name>
+        <Alpha2>MP</Alpha2>
+        <Alpha3>MNP</Alpha3>
+        <IDC>1670</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="NO">
+        <name>Norway</name>
+        <Alpha2>NO</Alpha2>
+        <Alpha3>NOR</Alpha3>
+        <IDC>47</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="OM">
+        <name>Oman</name>
+        <Alpha2>OM</Alpha2>
+        <Alpha3>OMN</Alpha3>
+        <IDC>968</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="PK">
+        <name>Pakistan</name>
+        <Alpha2>PK</Alpha2>
+        <Alpha3>PAK</Alpha3>
+        <IDC>92</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="PW">
+        <name>Palau</name>
+        <Alpha2>PW</Alpha2>
+        <Alpha3>PLW</Alpha3>
+        <IDC>680</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="PS">
+        <name>Palestinian Territory, Occupied</name>
+        <Alpha2>PS</Alpha2>
+        <Alpha3>PSE</Alpha3>
+        <IDC>970</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="PA">
+        <name>Panama</name>
+        <Alpha2>PA</Alpha2>
+        <Alpha3>PAN</Alpha3>
+        <IDC>507</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="PG">
+        <name>Papua New Guinea</name>
+        <Alpha2>PG</Alpha2>
+        <Alpha3>PNG</Alpha3>
+        <IDC>675</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="PY">
+        <name>Paraguay</name>
+        <Alpha2>PY</Alpha2>
+        <Alpha3>PRY</Alpha3>
+        <IDC>595</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="PE">
+        <name>Peru</name>
+        <Alpha2>PE</Alpha2>
+        <Alpha3>PER</Alpha3>
+        <IDC>51</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="PH">
+        <name>Philippines</name>
+        <Alpha2>PH</Alpha2>
+        <Alpha3>PHL</Alpha3>
+        <IDC>63</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="PN">
+        <name>Pitcairn</name>
+        <Alpha2>PN</Alpha2>
+        <Alpha3>PCN</Alpha3>
+        <IDC>64</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="PL">
+        <name>Poland</name>
+        <Alpha2>PL</Alpha2>
+        <Alpha3>POL</Alpha3>
+        <IDC>48</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="PT">
+        <name>Portugal</name>
+        <Alpha2>PT</Alpha2>
+        <Alpha3>PRT</Alpha3>
+        <IDC>351</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="PR">
+        <name>Puerto Rico</name>
+        <Alpha2>PR</Alpha2>
+        <Alpha3>PRI</Alpha3>
+        <IDC>1787</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="QA">
+        <name>Qatar</name>
+        <Alpha2>QA</Alpha2>
+        <Alpha3>QAT</Alpha3>
+        <IDC>974</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="RE">
+        <name>Reunion</name>
+        <Alpha2>RE</Alpha2>
+        <Alpha3>REU</Alpha3>
+        <IDC>262</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="RO">
+        <name>Romania</name>
+        <Alpha2>RO</Alpha2>
+        <Alpha3>ROU</Alpha3>
+        <IDC>40</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="RU">
+        <name>Russian Federation</name>
+        <Alpha2>RU</Alpha2>
+        <Alpha3>RUS</Alpha3>
+        <IDC>7</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="RW">
+        <name>Rwanda</name>
+        <Alpha2>RW</Alpha2>
+        <Alpha3>RWA</Alpha3>
+        <IDC>250</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="BL">
+        <name>Saint Barthélemy</name>
+        <Alpha2>BL</Alpha2>
+        <Alpha3>BLM</Alpha3>
+        <IDC>590</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="SH">
+        <name>Saint Helena</name>
+        <Alpha2>SH</Alpha2>
+        <Alpha3>SHN</Alpha3>
+        <IDC>290</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="KN">
+        <name>Saint Kitts and Nevis</name>
+        <Alpha2>KN</Alpha2>
+        <Alpha3>KNA</Alpha3>
+        <IDC>1869</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="LC">
+        <name>Saint Lucia</name>
+        <Alpha2>LC</Alpha2>
+        <Alpha3>LCA</Alpha3>
+        <IDC>1758</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="MF">
+        <name>Saint Martin</name>
+        <Alpha2>MF</Alpha2>
+        <Alpha3>MAF</Alpha3>
+        <IDC>590</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="PM">
+        <name>Saint Pierre and Miquelon</name>
+        <Alpha2>PM</Alpha2>
+        <Alpha3>SPM</Alpha3>
+        <IDC>508</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="VC">
+        <name>Saint Vincent and The Grenadines</name>
+        <Alpha2>VC</Alpha2>
+        <Alpha3>VCT</Alpha3>
+        <IDC>1784</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="WS">
+        <name>Samoa</name>
+        <Alpha2>WS</Alpha2>
+        <Alpha3>WSM</Alpha3>
+        <IDC>685</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="SM">
+        <name>San Marino</name>
+        <Alpha2>SM</Alpha2>
+        <Alpha3>SMR</Alpha3>
+        <IDC>378</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="ST">
+        <name>Sao Tome and Principe</name>
+        <Alpha2>ST</Alpha2>
+        <Alpha3>STP</Alpha3>
+        <IDC>239</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="SA">
+        <name>Saudi Arabia</name>
+        <Alpha2>SA</Alpha2>
+        <Alpha3>SAU</Alpha3>
+        <IDC>966</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="SN">
+        <name>Senegal</name>
+        <Alpha2>SN</Alpha2>
+        <Alpha3>SEN</Alpha3>
+        <IDC>221</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="RS">
+        <name>Serbia</name>
+        <Alpha2>RS</Alpha2>
+        <Alpha3>SRB</Alpha3>
+        <IDC>381</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="SC">
+        <name>Seychelles</name>
+        <Alpha2>SC</Alpha2>
+        <Alpha3>SYC</Alpha3>
+        <IDC>248</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="SL">
+        <name>Sierra Leone</name>
+        <Alpha2>SL</Alpha2>
+        <Alpha3>SLE</Alpha3>
+        <IDC>232</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="SG">
+        <name>Singapore</name>
+        <Alpha2>SG</Alpha2>
+        <Alpha3>SGP</Alpha3>
+        <IDC>65</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="SK">
+        <name>Slovakia</name>
+        <Alpha2>SK</Alpha2>
+        <Alpha3>SVK</Alpha3>
+        <IDC>421</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="SI">
+        <name>Slovenia</name>
+        <Alpha2>SI</Alpha2>
+        <Alpha3>SVN</Alpha3>
+        <IDC>386</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="SB">
+        <name>Solomon Islands</name>
+        <Alpha2>SB</Alpha2>
+        <Alpha3>SLB</Alpha3>
+        <IDC>677</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="SO">
+        <name>Somalia</name>
+        <Alpha2>SO</Alpha2>
+        <Alpha3>SOM</Alpha3>
+        <IDC>252</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="ZA">
+        <name>South Africa</name>
+        <Alpha2>ZA</Alpha2>
+        <Alpha3>ZAF</Alpha3>
+        <IDC>27</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="GS">
+        <name>South Georgia and The South Sandwich Islands</name>
+        <Alpha2>GS</Alpha2>
+        <Alpha3>SGS</Alpha3>
+        <IDC>500</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="ES">
+        <name>Spain</name>
+        <Alpha2>ES</Alpha2>
+        <Alpha3>ESP</Alpha3>
+        <IDC>34</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="LK">
+        <name>Sri Lanka</name>
+        <Alpha2>LK</Alpha2>
+        <Alpha3>LKA</Alpha3>
+        <IDC>94</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="SD">
+        <name>Sudan</name>
+        <Alpha2>SD</Alpha2>
+        <Alpha3>SDN</Alpha3>
+        <IDC>249</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="SR">
+        <name>Suriname</name>
+        <Alpha2>SR</Alpha2>
+        <Alpha3>SUR</Alpha3>
+        <IDC>597</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="SJ">
+        <name>Svalbard and Jan Mayen</name>
+        <Alpha2>SJ</Alpha2>
+        <Alpha3>SJM</Alpha3>
+        <IDC>47</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="SZ">
+        <name>Swaziland</name>
+        <Alpha2>SZ</Alpha2>
+        <Alpha3>SWZ</Alpha3>
+        <IDC>268</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="SE">
+        <name>Sweden</name>
+        <Alpha2>SE</Alpha2>
+        <Alpha3>SWE</Alpha3>
+        <IDC>46</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="CH">
+        <name>Switzerland</name>
+        <Alpha2>CH</Alpha2>
+        <Alpha3>CHE</Alpha3>
+        <IDC>41</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="SY">
+        <name>Syrian Arab Republic</name>
+        <Alpha2>SY</Alpha2>
+        <Alpha3>SYR</Alpha3>
+        <IDC>963</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="TW">
+        <name>Taiwan</name>
+        <Alpha2>TW</Alpha2>
+        <Alpha3>TWN</Alpha3>
+        <IDC>886</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="TJ">
+        <name>Tajikistan</name>
+        <Alpha2>TJ</Alpha2>
+        <Alpha3>TJK</Alpha3>
+        <IDC>992</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="TZ">
+        <name>Tanzania, United Republic of</name>
+        <Alpha2>TZ</Alpha2>
+        <Alpha3>TZA</Alpha3>
+        <IDC>255</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="TH">
+        <name>Thailand</name>
+        <Alpha2>TH</Alpha2>
+        <Alpha3>THA</Alpha3>
+        <IDC>66</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="TL">
+        <name>Timor-Leste</name>
+        <Alpha2>TL</Alpha2>
+        <Alpha3>TLS</Alpha3>
+        <IDC>670</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="TG">
+        <name>Togo</name>
+        <Alpha2>TG</Alpha2>
+        <Alpha3>TGO</Alpha3>
+        <IDC>228</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="TK">
+        <name>Tokelau</name>
+        <Alpha2>TK</Alpha2>
+        <Alpha3>TKL</Alpha3>
+        <IDC>690</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="TO">
+        <name>Tonga</name>
+        <Alpha2>TO</Alpha2>
+        <Alpha3>TON</Alpha3>
+        <IDC>676</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="TT">
+        <name>Trinidad and Tobago</name>
+        <Alpha2>TT</Alpha2>
+        <Alpha3>TTO</Alpha3>
+        <IDC>1868</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="TN">
+        <name>Tunisia</name>
+        <Alpha2>TN</Alpha2>
+        <Alpha3>TUN</Alpha3>
+        <IDC>216</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="TR">
+        <name>Turkey</name>
+        <Alpha2>TR</Alpha2>
+        <Alpha3>TUR</Alpha3>
+        <IDC>90</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="TM">
+        <name>Turkmenistan</name>
+        <Alpha2>TM</Alpha2>
+        <Alpha3>TKM</Alpha3>
+        <IDC>993</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="TC">
+        <name>Turks and Caicos Islands</name>
+        <Alpha2>TC</Alpha2>
+        <Alpha3>TCA</Alpha3>
+        <IDC>1649</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="TV">
+        <name>Tuvalu</name>
+        <Alpha2>TV</Alpha2>
+        <Alpha3>TUV</Alpha3>
+        <IDC>688</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="UG">
+        <name>Uganda</name>
+        <Alpha2>UG</Alpha2>
+        <Alpha3>UGA</Alpha3>
+        <IDC>256</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="UA">
+        <name>Ukraine</name>
+        <Alpha2>UA</Alpha2>
+        <Alpha3>UKR</Alpha3>
+        <IDC>380</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="AE">
+        <name>United Arab Emirates</name>
+        <Alpha2>AE</Alpha2>
+        <Alpha3>ARE</Alpha3>
+        <IDC>971</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="GB">
+        <name>United Kingdom</name>
+        <Alpha2>GB</Alpha2>
+        <Alpha3>GBR</Alpha3>
+        <IDC>44</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="UM">
+        <name>United States Minor Outlying Islands</name>
+        <Alpha2>UM</Alpha2>
+        <Alpha3>UMI</Alpha3>
+        <IDC>1</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="US">
+        <name>United States of America</name>
+        <Alpha2>US</Alpha2>
+        <Alpha3>USA</Alpha3>
+        <IDC>1</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="UY">
+        <name>Uruguay</name>
+        <Alpha2>UY</Alpha2>
+        <Alpha3>URY</Alpha3>
+        <IDC>598</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="UZ">
+        <name>Uzbekistan</name>
+        <Alpha2>UZ</Alpha2>
+        <Alpha3>UZB</Alpha3>
+        <IDC>998</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="VU">
+        <name>Vanuatu</name>
+        <Alpha2>VU</Alpha2>
+        <Alpha3>VUT</Alpha3>
+        <IDC>678</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="VA">
+        <name>Holy See (Vatican City State)</name>
+        <Alpha2>VA</Alpha2>
+        <Alpha3>VAT</Alpha3>
+        <IDC>3906</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="VE">
+        <name>Venezuela</name>
+        <Alpha2>VE</Alpha2>
+        <Alpha3>VEN</Alpha3>
+        <IDC>58</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="VN">
+        <name>Viet Nam</name>
+        <Alpha2>VN</Alpha2>
+        <Alpha3>VNM</Alpha3>
+        <IDC>84</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="VG">
+        <name>Virgin Islands, British</name>
+        <Alpha2>VG</Alpha2>
+        <Alpha3>VGB</Alpha3>
+        <IDC>1284</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="VI">
+        <name>Virgin Islands, U.S.</name>
+        <Alpha2>VI</Alpha2>
+        <Alpha3>VIR</Alpha3>
+        <IDC>1340</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="WF">
+        <name>Wallis and Futuna</name>
+        <Alpha2>WF</Alpha2>
+        <Alpha3>WLF</Alpha3>
+        <IDC>681</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="EH">
+        <name>Western Sahara</name>
+        <Alpha2>EH</Alpha2>
+        <Alpha3>ESH</Alpha3>
+        <IDC>212</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="YE">
+        <name>Yemen</name>
+        <Alpha2>YE</Alpha2>
+        <Alpha3>YEM</Alpha3>
+        <IDC>967</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="ZM">
+        <name>Zambia</name>
+        <Alpha2>ZM</Alpha2>
+        <Alpha3>ZMB</Alpha3>
+        <IDC>260</IDC>
+    </Country>
+    <Country media-type="application/vnd.ez.api.Country+xml" id="ZW">
+        <name>Zimbabwe</name>
+        <Alpha2>ZW</Alpha2>
+        <Alpha3>ZWE</Alpha3>
+        <IDC>263</IDC>
+    </Country>
+</CountryList>

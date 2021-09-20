@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentTypeGroupList media-type="application/vnd.ez.api.ContentTypeGroupList+xml" href="/api/ezp/v2/content/typegroups">
+    <ContentTypeGroup media-type="application/vnd.ez.api.ContentTypeGroup+xml" href="/api/ezp/v2/content/typegroups/1">
+        <id>1</id>
+        <identifier>Content</identifier>
+        <created>2002-09-05T11:08:48+02:00</created>
+        <modified>2002-10-06T18:35:06+02:00</modified>
+        <Creator media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+        <Modifier media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+        <ContentTypes media-type="application/vnd.ez.api.ContentTypeInfoList+xml" href="/api/ezp/v2/content/typegroups/1/types"/>
+    </ContentTypeGroup>
+    <ContentTypeGroup media-type="application/vnd.ez.api.ContentTypeGroup+xml" href="/api/ezp/v2/content/typegroups/2">
+        <id>2</id>
+        <identifier>Users</identifier>
+        <created>2002-09-05T11:09:01+02:00</created>
+        <modified>2002-10-06T18:35:13+02:00</modified>
+        <Creator media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+        <Modifier media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+        <ContentTypes media-type="application/vnd.ez.api.ContentTypeInfoList+xml" href="/api/ezp/v2/content/typegroups/2/types"/>
+    </ContentTypeGroup>
+    <ContentTypeGroup media-type="application/vnd.ez.api.ContentTypeGroup+xml" href="/api/ezp/v2/content/typegroups/3">
+        <id>3</id>
+        <identifier>Media</identifier>
+        <created>2002-09-14T15:22:23+02:00</created>
+        <modified>2002-10-06T18:35:20+02:00</modified>
+        <Creator media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+        <Modifier media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+        <ContentTypes media-type="application/vnd.ez.api.ContentTypeInfoList+xml" href="/api/ezp/v2/content/typegroups/3/types"/>
+    </ContentTypeGroup>
+</ContentTypeGroupList>

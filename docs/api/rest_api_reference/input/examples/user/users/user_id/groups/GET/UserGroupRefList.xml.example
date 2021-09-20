@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UserGroupRefList media-type="application/vnd.ez.api.UserGroupRefList+xml" href="/api/ezp/v2/user/users/55/groups">
+    <UserGroup media-type="application/vnd.ez.api.UserGroup+xml" href="/api/ezp/v2/user/groups/1/5/12">
+        <unassign href="/api/ezp/v2/user/users/55/groups/12" method="DELETE"/>
+    </UserGroup>
+    <UserGroup media-type="application/vnd.ez.api.UserGroup+xml" href="/api/ezp/v2/user/groups/1/5/14">
+        <unassign href="/api/ezp/v2/user/users/55/groups/14" method="DELETE"/>
+    </UserGroup>
+</UserGroupRefList>

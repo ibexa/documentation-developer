@@ -1,0 +1,93 @@
+{
+    "Root": {
+        "_media-type": "application/vnd.ez.api.Root+json",
+        "content": {
+            "_href": "/api/ezp/v2/content/objects",
+            "_media-type": ""
+        },
+        "contentByRemoteId": {
+            "_href": "/api/ezp/v2/content/objects{?remoteId}",
+            "_media-type": ""
+        },
+        "contentTypeByIdentifier": {
+            "_href": "/api/ezp/v2/content/types{?identifier}",
+            "_media-type": ""
+        },
+        "contentTypeGroupByIdentifier": {
+            "_href": "/api/ezp/v2/content/typegroups{?identifier}",
+            "_media-type": ""
+        },
+        "contentTypeGroups": {
+            "_href": "/api/ezp/v2/content/typegroups",
+            "_media-type": "application/vnd.ez.api.ContentTypeGroupList+json"
+        },
+        "contentTypes": {
+            "_href": "/api/ezp/v2/content/types",
+            "_media-type": "application/vnd.ez.api.ContentTypeInfoList+json"
+        },
+        "createSession": {
+            "_href": "/api/ezp/v2/user/sessions",
+            "_media-type": "application/vnd.ez.api.UserSession+json"
+        },
+        "globalUrlAliases": {
+            "_href": "/api/ezp/v2/content/urlaliases",
+            "_media-type": "application/vnd.ez.api.UrlAliasRefList+json"
+        },
+        "locationByPath": {
+            "_href": "/api/ezp/v2/content/locations{?locationPath}",
+            "_media-type": ""
+        },
+        "locationByRemoteId": {
+            "_href": "/api/ezp/v2/content/locations{?remoteId}",
+            "_media-type": ""
+        },
+        "objectStateGroups": {
+            "_href": "/api/ezp/v2/content/objectstategroups",
+            "_media-type": "application/vnd.ez.api.ObjectStateGroupList+json"
+        },
+        "objectStates": {
+            "_href": "/api/ezp/v2/content/objectstategroups/{objectStateGroupId}/objectstates",
+            "_media-type": "application/vnd.ez.api.ObjectStateList+json"
+        },
+        "roles": {
+            "_href": "/api/ezp/v2/user/roles",
+            "_media-type": "application/vnd.ez.api.RoleList+json"
+        },
+        "rootLocation": {
+            "_href": "/api/ezp/v2/content/locations/1/2",
+            "_media-type": "application/vnd.ez.api.Location+json"
+        },
+        "rootMediaFolder": {
+            "_href": "/api/ezp/v2/content/locations/1/43",
+            "_media-type": "application/vnd.ez.api.Location+json"
+        },
+        "rootUserGroup": {
+            "_href": "/api/ezp/v2/user/groups/1/5",
+            "_media-type": "application/vnd.ez.api.UserGroup+json"
+        },
+        "sections": {
+            "_href": "/api/ezp/v2/content/sections",
+            "_media-type": "application/vnd.ez.api.SectionList+json"
+        },
+        "trash": {
+            "_href": "/api/ezp/v2/content/trash",
+            "_media-type": "application/vnd.ez.api.Trash+json"
+        },
+        "urlWildcards": {
+            "_href": "/api/ezp/v2/content/urlwildcards",
+            "_media-type": "application/vnd.ez.api.UrlWildcardList+json"
+        },
+        "users": {
+            "_href": "/api/ezp/v2/user/users",
+            "_media-type": "application/vnd.ez.api.UserRefList+json"
+        },
+        "views": {
+            "_href": "/api/ezp/v2/views",
+            "_media-type": "application/vnd.ez.api.RefList+json"
+        },
+        "refreshSession": {
+            "_media-type": "application\/vnd.ez.api.UserSession+json",
+            "_href": "\/api\/ezp\/v2\/user\/sessions\/{sessionId}\/refresh"
+        }
+    }
+}

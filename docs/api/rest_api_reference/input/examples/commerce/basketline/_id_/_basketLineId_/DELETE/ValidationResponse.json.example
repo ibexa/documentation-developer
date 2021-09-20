@@ -1,0 +1,14 @@
+{
+  "ValidationResponse": {
+    "_media-type": "application\/vnd.ez.api.ValidationResponse+json",
+    "messages": {
+      "CustomerPrice": {
+        "_errors": [
+          {
+            "_message": "msg.invalid_customer_price_request"
+          }
+        ]
+      }
+    }
+  }
+}

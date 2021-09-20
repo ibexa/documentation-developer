@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UserList media-type="application/vnd.ez.api.UserList+xml" href="/api/ezp/v2/user/users">
+    <User media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14" id="14" remoteId="1bb4fe25487f05527efa8bfd394cecc7">
+        <ContentType media-type="application/vnd.ez.api.ContentType+xml" href="/api/ezp/v2/content/types/4"/>
+        <name>Administrator User</name>
+        <Versions media-type="application/vnd.ez.api.VersionList+xml" href="/api/ezp/v2/content/objects/14/versions"/>
+        <Section media-type="application/vnd.ez.api.Section+xml" href="/api/ezp/v2/content/sections/2"/>
+        <MainLocation media-type="application/vnd.ez.api.Location+xml" href="/api/ezp/v2/content/locations/1/5/13/15"/>
+        <Locations media-type="application/vnd.ez.api.LocationList+xml" href="/api/ezp/v2/content/objects/14/locations"/>
+        <Groups media-type="application/vnd.ez.api.UserGroupRefList+xml" href="/api/ezp/v2/user/users/14/groups"/>
+        <Owner media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+        <publishDate>2002-10-06T18:13:50+02:00</publishDate>
+        <lastModificationDate>2011-03-25T15:07:04+01:00</lastModificationDate>
+        <mainLanguageCode>eng-GB</mainLanguageCode>
+        <alwaysAvailable>true</alwaysAvailable>
+        <Version media-type="application/vnd.ez.api.Version+xml" href="/api/ezp/v2/content/objects/14/versions/3">
+            <VersionInfo>
+                <id>499</id>
+                <versionNo>3</versionNo>
+                <status>PUBLISHED</status>
+                <modificationDate>2011-03-25T15:07:04+01:00</modificationDate>
+                <Creator media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+                <creationDate>2011-03-25T15:03:03+01:00</creationDate>
+                <initialLanguageCode>eng-GB</initialLanguageCode>
+                <languageCodes>eng-GB</languageCodes>
+                <VersionTranslationInfo media-type="application/vnd.ez.api.VersionTranslationInfo+xml">
+                    <Language>
+                        <languageCode>eng-GB</languageCode>
+                    </Language>
+                </VersionTranslationInfo>
+                <names>
+                    <value languageCode="eng-GB">Administrator User</value>
+                </names>
+                <Content media-type="application/vnd.ez.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/14"/>
+            </VersionInfo>
+            <Fields>
+                <field>
+                    <id>28</id>
+                    <fieldDefinitionIdentifier>first_name</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+                    <fieldValue>Administrator</fieldValue>
+                </field>
+                <field>
+                    <id>29</id>
+                    <fieldDefinitionIdentifier>last_name</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+                    <fieldValue>User</fieldValue>
+                </field>
+                <field>
+                    <id>30</id>
+                    <fieldDefinitionIdentifier>user_account</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldTypeIdentifier>ezuser</fieldTypeIdentifier>
+                    <fieldValue>
+                        <value key="hasStoredLogin">true</value>
+                        <value key="contentId">14</value>
+                        <value key="login">admin</value>
+                        <value key="email">nospam@ez.no</value>
+                        <value key="enabled">true</value>
+                        <value key="maxLogin">10</value>
+                    </fieldValue>
+                </field>
+                <field>
+                    <id>178</id>
+                    <fieldDefinitionIdentifier>signature</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldTypeIdentifier>eztext</fieldTypeIdentifier>
+                    <fieldValue/>
+                </field>
+                <field>
+                    <id>180</id>
+                    <fieldDefinitionIdentifier>image</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldTypeIdentifier>ezimage</fieldTypeIdentifier>
+                    <fieldValue/>
+                </field>
+            </Fields>
+            <Relations media-type="application/vnd.ez.api.RelationList+xml" href="/api/ezp/v2/content/objects/14/versions/3/relations"/>
+        </Version>
+        <login>admin</login>
+        <email>nospam@ez.no</email>
+        <enabled>true</enabled>
+        <UserGroups media-type="application/vnd.ez.api.UserGroupList+xml" href="/api/ezp/v2/user/users/14/groups"/>
+        <Roles media-type="application/vnd.ez.api.RoleAssignmentList+xml" href="/api/ezp/v2/user/users/14/roles"/>
+    </User>
+</UserList>

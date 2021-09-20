@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Section media-type="application/vnd.ez.api.Section+xml" href="/api/ezp/v2/content/sections/7">
+    <sectionId>7</sectionId>
+    <identifier>template</identifier>
+    <name>Template</name>
+</Section>

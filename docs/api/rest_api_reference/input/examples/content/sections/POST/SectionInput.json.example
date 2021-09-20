@@ -1,0 +1,9 @@
+{
+    "Section": {
+        "_media-type": "application/vnd.ez.api.Section+json",
+        "_href": "/api/ezp/v2/content/sections/13",
+        "sectionId": 13,
+        "identifier": "restricted",
+        "name": "Restricted"
+    }
+}

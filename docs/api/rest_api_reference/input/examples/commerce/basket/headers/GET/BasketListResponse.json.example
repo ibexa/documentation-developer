@@ -1,0 +1,45 @@
+{
+  "BasketListResponse": {
+    "_media-type": "application\/vnd.ez.api.BasketListResponse+json",
+    "basketList": [
+      {
+        "_media-type": "application\/vnd.ez.api.stdClass+json",
+        "basketId": 5,
+        "state": "new",
+        "type": "storedBasket",
+        "sessionId": "mrt02u8u2rbh6aeeibm7rj0i1j",
+        "userId": 14,
+        "basketName": "test",
+        "dateCreated": {
+          "_media-type": "application\/vnd.ez.api.DateTime+json"
+        },
+        "dateLastModified": {
+          "_media-type": "application\/vnd.ez.api.DateTime+json"
+        },
+        "totals": [
+          {
+            "_media-type": "application\/vnd.ez.api.BasketTotals+json"
+          },
+          {
+            "_media-type": "application\/vnd.ez.api.BasketTotals+json"
+          }
+        ],
+        "totalsSum": {
+          "_media-type": "application\/vnd.ez.api.BasketTotals+json"
+        },
+        "dateLastPriceCalculation": {
+          "_media-type": "application\/vnd.ez.api.DateTime+json"
+        },
+        "allProductsAvailable": true,
+        "dataMap": {
+          "dateLastCatalogUpdate": {
+            "_media-type": "application\/vnd.ez.api.DateTime+json",
+            "date": "2021-03-10 11:11:06.291444",
+            "timezone_type": 3,
+            "timezone": "UTC"
+          }
+        }
+      }
+    ]
+  }
+}
