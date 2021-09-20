@@ -1,6 +1,6 @@
 # REST API best practices
 
-This page refers to [REST API reference](https://doc.ezplatform.com/rest-api-reference), where you can find detailed information about
+This page refers to [REST API reference](rest_api_reference/rest_api_reference.html), where you can find detailed information about
 REST API resources and endpoints.
 
 ## Specifying SiteAccess
@@ -105,7 +105,7 @@ The URIs should be used directly as identifiers on the client side and the clien
 
 ### URIs prefix
 
-In [eZ Platform REST reference](https://doc.ezplatform.com/rest-api-reference), for the sake of readability, there are no prefixes used in the URIs.
+In [REST reference](rest_api_reference/rest_api_reference.html), for the sake of readability, there are no prefixes used in the URIs.
 In practice, the `/api/ezp/v2` prefixes are all REST hrefs.
 
 Remember that the URIs to REST resources should never be generated manually, but obtained from earlier REST calls.
