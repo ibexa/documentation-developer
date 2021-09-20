@@ -1,0 +1,23 @@
+{
+  "UserCreate": {
+    "mainLanguageCode": "eng-GB",
+    "remoteId": "remoteId-qwert426",
+    "login": "yura",
+    "email": "yurarajzer@example.net",
+    "password": "Password1!",
+    "fields": {
+      "field": [
+        {
+          "fieldDefinitionIdentifier": "first_name",
+          "languageCode": "eng-GB",
+          "fieldValue": "Yura"
+        },
+        {
+          "fieldDefinitionIdentifier": "last_name",
+          "languageCode": "eng-GB",
+          "fieldValue": "Rajzer"
+        }
+      ]
+    }
+  }
+}

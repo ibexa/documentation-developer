@@ -1,0 +1,6 @@
+{
+    "JWT": {
+        "_media-type": "application/vnd.ez.api.JWT+json",
+        "_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDI4NDA3ODAsImV4cCI6MTYwMjg0NDM4MCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiYWRtaW4ifQ.0LHa799HwSwwfDBZd2V0q2xHwGt86PpyZamKnXHQyYI"
+    }
+}

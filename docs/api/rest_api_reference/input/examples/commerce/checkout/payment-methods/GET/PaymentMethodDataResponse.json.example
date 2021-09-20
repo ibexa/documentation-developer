@@ -1,0 +1,10 @@
+{
+  "PaymentMethodDataResponse": {
+    "_media-type": "application\/vnd.ez.api.PaymentMethodDataResponse+json",
+    "paymentMethods": {
+      "paypal": "paypal",
+      "invoice": "invoice"
+    },
+    "defaultMethod": "invoice"
+  }
+}

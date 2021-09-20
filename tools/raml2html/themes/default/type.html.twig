@@ -1,0 +1,43 @@
+<span class="font-weight-medium">{{ type.name }}</span>
+
+{% if type.getRequired() %}
+    <span class="red-text">*</span>
+{% endif %}
+
+(<span class="font-italic">
+    {%- if type is array type %}
+        {{- type.items.name -}}[]
+    {% else %}
+        {{- type.type -}}
+    {% endif -%}
+</span>)
+ - 
+<span>
+    {% if type.definition.description is defined %}
+        {{- type.definition.description -}}
+    {% endif %}
+</span>
+
+{% if type.enum is not empty %}
+    <p>
+        <span>Allowed values:</span>
+        {% for value in type.enum %}
+            <code>{{ value }}</code>
+            {% if not loop.last %}, {% endif %}
+        {% endfor %}
+    </p>
+{% endif %}
+
+{% if type is object type %}
+    <div class="items">
+        <ul class="browser-default">
+            {% for property in type.properties %}
+                <li>
+                    {% include theme ~ '/type.html.twig' with {
+                        type: property
+                    } %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}

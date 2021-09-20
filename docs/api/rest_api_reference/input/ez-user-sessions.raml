@@ -1,0 +1,84 @@
+post:
+    displayName: Create session (login a User)
+    description: Performs a login for the user or checks if session exists and returns the session and session cookie. The client will need to remember both session name/ID and CSRF token as this is for security reasons not exposed via GET.
+    headers:
+        Accept:
+            description: If set, the session is returned in XML or JSON format.
+            example:  |
+                application/vnd.ez.api.Session+xml
+                application/vnd.ez.api.Session+json
+        Content-Type:
+            description: The SessionInput schema encoded in XML or JSON format.
+            example:  |
+                application/vnd.ez.api.SessionInput+xml
+                application/vnd.ez.api.SessionInput+json
+        Cookie:
+            description: Only needed for session's checking {sessionName}={sessionID}.
+        X-CSRF-Token:
+            description: Only needed for session's checking. The {csrfToken} needed on all unsafe http methods with session.
+    body:
+        application/vnd.ez.api.SessionInput+xml:
+            type: SessionInput
+            example: !include examples/user/sessions/POST/SessionInput.xml.example
+        application/vnd.ez.api.SessionInput+json:
+            type: SessionInput
+            example: !include examples/user/sessions/POST/SessionInput.json.example
+    responses:
+        200:
+            description: Session already exists.
+            body:
+                application/vnd.ez.api.Session+xml:
+                    type: Session
+                    example: !include examples/user/sessions/POST/Session.xml.example
+                application/vnd.ez.api.Session+json:
+                    type: Session
+                    example: !include examples/user/sessions/POST/Session.json.example
+        201:
+            description: Session is created.
+            body:
+                application/vnd.ez.api.Session+xml:
+                    type: Session
+                    example: !include examples/user/sessions/POST/Session.xml.example
+                application/vnd.ez.api.Session+json:
+                    type: Session
+                    example: !include examples/user/sessions/POST/Session.json.example
+        400:
+            description: Error - the input does not match the input schema definition.
+        401:
+            description: Error - the authorization failed.
+        409:
+            description: Error - header contained a session cookie but different user was authorized.
+/{sessionId}:
+    delete:
+        displayName: Delete session (logout a User)
+        description: The user session is removed i.e. the user is logged out.
+        headers:
+            Cookie:
+                description: "{sessionName}={sessionID}"
+            X-CSRF-Token:
+                description: The {csrfToken} needed on all unsafe http methods with session.
+        responses:
+            204:
+                description: OK - session deleted.
+            404:
+                description: Error - the session does not exist.
+    /refresh:
+        post:
+            displayName: Refresh session
+            description: Get the session's User information.
+            headers:
+                Cookie:
+                    description: "{sessionName}={sessionID}"
+                X-CSRF-Token:
+                    description: The {csrfToken} needed on all unsafe http methods with session.
+            responses:
+                200:
+                    body:
+                        application/vnd.ez.api.Session+xml:
+                            type: Session
+                            example: !include examples/user/sessions/session_id/refresh/POST/Session.xml.example
+                        application/vnd.ez.api.Session+json:
+                            type: Session
+                            example: !include examples/user/sessions/session_id/refresh/POST/Session.json.example
+                404:
+                    description: Error - the session does not exist.

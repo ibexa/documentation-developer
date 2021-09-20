@@ -1,0 +1,20 @@
+{
+  "UserGroupCreate": {
+    "mainLanguageCode": "eng-GB",
+    "remoteId": "remoteId-qwert098",
+    "fields": {
+      "field": [
+        {
+          "fieldDefinitionIdentifier": "name",
+          "languageCode": "eng-GB",
+          "fieldValue": "UserGroup2"
+        },
+        {
+          "fieldDefinitionIdentifier": "description",
+          "languageCode": "eng-GB",
+          "fieldValue": "This is the description of the user group"
+        }
+      ]
+    }
+  }
+}

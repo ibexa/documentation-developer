@@ -1,0 +1,11 @@
+{
+    "Role": {
+        "_media-type": "application/vnd.ez.api.Role+json",
+        "_href": "/api/ezp/v2/user/roles/6",
+        "identifier": "UpdatedIdentifier",
+        "Policies": {
+            "_media-type": "application/vnd.ez.api.PolicyList+json",
+            "_href": "/api/ezp/v2/user/roles/6/policies"
+        }
+    }
+}

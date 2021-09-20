@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentImageVariation media-type="application/vnd.ez.api.ContentImageVariation+xml" href="/api/ezp/v2/content/binary/images/61-216-1/variations/large">
+    <uri>http://127.0.0.1:8000/var/site/storage/images/_aliases/large/6/1/2/0/216-1-eng-GB/ez-logo-small.png</uri>
+    <contentType>image/png</contentType>
+    <width>20</width>
+    <height>20</height>
+    <fileSize>1709</fileSize>
+</ContentImageVariation>

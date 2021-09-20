@@ -1,0 +1,44 @@
+<tr>
+    <td>
+        {{ item.key }}
+    </td>
+    <td>
+    {% set is_structured_value = not item.type is scalar type or not item.type == 'array' %}
+
+    {% if not is_structured_value %}
+        <span>
+        {% if item.enum %}
+            {% if item.enum|length > 1 %}
+                (one of {{ item.enum | join(', ') }})
+            {% else %}
+                {{ item.enum | first }}
+            {% endif %}
+        {% else %}
+            {% if item.type == 'array' %}
+                (array of X)
+            {% else %}
+                {{ item.type }}
+            {% endif %}
+        {% endif %}
+        </span>
+        {% if item.isRequired() %}&nbsp;<span class="blue-text">(required)</span>{% endif %}
+
+        {% if item.canRepeat() %} repeat: {{ item.repeat }}{% endif %}
+
+        {% if item.type == 'string' %}
+            {% if item.minLength or item.minLength is same as(0) %} | minLength: {{ item.minLength }}{% endif %}
+            {% if item.maxLength or item.maxLength is same as(0) %} | maxLength: {{ item.maxLength }}{% endif %}
+        {% else %}
+            {% if item.minimum or item.minimum is same as(0) %} | minimum: {{ item.minimum }}{% endif %}
+            {% if item.maximum or item.maximum is same as(0) %} | maximum: {{ item.maximum }}{% endif %}
+        {% endif %}
+
+        {% if item.validationPattern %} | pattern: {{ item.validationPattern }}{% endif %}
+    {% endif %}
+    </td>
+    <td>
+    {% if item.description %}
+        {{ item.description }}
+    {% endif %}
+    </td>
+</tr>

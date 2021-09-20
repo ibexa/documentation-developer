@@ -1,0 +1,9 @@
+{
+    "Section": {
+        "_media-type": "application/vnd.ez.api.Section+json",
+        "_href": "/api/ezp/v2/content/sections/7",
+        "sectionId": 7,
+        "identifier": "template",
+        "name": "Template"
+    }
+}

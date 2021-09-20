@@ -1,0 +1,11 @@
+{
+  "BasketLinesData": [
+    {
+      "basketLineId": 1,
+      "lineNumber": 1,
+      "sku": "test",
+      "quantity": "3",
+      "dataMap": []
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "Basket": {
+    "_media-type": "application\/vnd.ez.api.Basket+json",
+    "basketId": 1,
+    "originId": null,
+    "erpOrderId": null,
+    "guid": null,
+    "state": "new",
+    "type": "basket",
+    "erpFailCounter": null,
+    "erpFailErrorLog": null,
+    "sessionId": null,
+    "userId": 14,
+    "basketName": null,
+    "invoiceParty": null,
+    "deliveryParty": null,
+    "buyerParty": null,
+    "remark": null,
+    "dateCreated": {
+      "_media-type": "application\/vnd.ez.api.DateTime+json",
+      "string": "2021-03-12 10:33:26"
+    },
+    "dateLastModified": {
+      "_media-type": "application\/vnd.ez.api.DateTime+json",
+      "string": "2021-03-12 10:35:22"
+    },
+    "shop": "MAIN",
+    "requirePriceUpdate": false,
+    "totals": {
+      "lines": {
+        "_media-type": "application\/vnd.ez.api.BasketTotals+json",
+        "name": "lines",
+        "totalNet": 0,
+        "totalGross": 0,
+        "vatList": {
+          "19": 0
+        },
+        "groupType": "order",
+        "currency": "EUR"
+      },
+      "additionalLines": {
+        "_media-type": "application\/vnd.ez.api.BasketTotals+json",
+        "name": "additionalLines",
+        "totalNet": 0,
+        "totalGross": 0,
+        "vatList": {},
+        "groupType": "order",
+        "currency": "EUR"
+      }
+    },
+    "totalsSum": {
+      "_media-type": "application\/vnd.ez.api.BasketTotals+json",
+      "name": "",
+      "totalNet": 0,
+      "totalGross": 0,
+      "vatList": {
+        "19": 0
+      },
+      "groupType": "order",
+      "currency": "EUR"
+    },
+    "currency": "EUR",
+    "totalsSumNet": 0,
+    "totalsSumGross": 0,
+    "additionalLines": {},
+    "lines": [
+      {
+        "_media-type": "application\/vnd.ez.api.BasketLine+json",
+        "basketLineId": 2,
+        "lineNumber": 1,
+        "sku": "test",
+        "variantCode": null,
+        "productType": "OrderableProductNode",
+        "quantity": 9,
+        "unit": null,
+        "price": 0,
+        "priceNet": 0,
+        "priceGross": 0,
+        "linePriceAmountNet": 0,
+        "linePriceAmountGross": 0,
+        "vat": 19,
+        "isIncVat": true,
+        "currency": "EUR",
+        "catalogElement": {
+          "_media-type": "application\/vnd.ez.api.OrderableProductNode+json",
+          "seoUrl": "\/product-catalog\/test",
+          "permanentUrl": "\/Products\/test",
+          "dataMap": {
+            "discontinued": {
+              "_media-type": "application\/vnd.ez.api.BoolField+json",
+              "_exception": {
+                "Name": "EzSystems\\EzPlatformRest\\Output\\Exceptions\\NoVisitorFoundException",
+                "Message": "No visitor found for Silversolutions\\Bundle\\EshopBundle\\Content\\Fields\\BoolField, Silversolutions\\Bundle\\EshopBundle\\Content\\AbstractField, Silversolutions\\Bundle\\EshopBundle\\Content\\ValueObject."
+              }
+            }
+          },
+          "subtitle": null,
+          "displayInSearch": false,
+          "displayInProductList": false,
+          "sku": "test",
+          "manufacturerSku": "",
+          "ean": "",
+          "type": "",
+          "isOrderable": null,
+          "price": {
+            "_media-type": "application\/vnd.ez.api.PriceField+json",
+            "price": {
+              "_media-type": "application\/vnd.ez.api.Price+json",
+              "price": 0,
+              "priceInclVat": 0,
+              "priceExclVat": 0,
+              "isVatPrice": true,
+              "vatPercent": 19,
+              "currency": "EUR",
+              "discount": null,
+              "timestamp": "1615545324",
+              "campaign": null,
+              "source": "eZ",
+              "quantityDiscount": null
+            }
+          },
+          "customerPrice": null,
+          "scaledPrices": null,
+          "stock": {
+            "_media-type": "application\/vnd.ez.api.StockField+json",
+            "_exception": {
+              "Name": "EzSystems\\EzPlatformRest\\Output\\Exceptions\\NoVisitorFoundException",
+              "Message": "No visitor found for Silversolutions\\Bundle\\EshopBundle\\Content\\Fields\\StockField, Silversolutions\\Bundle\\EshopBundle\\Content\\AbstractField, Silversolutions\\Bundle\\EshopBundle\\Content\\ValueObject."
+            }
+          },
+          "shortDescription": {
+            "_media-type": "application\/vnd.ez.api.TextBlockField+json",
+            "_exception": {
+              "Name": "EzSystems\\EzPlatformRest\\Output\\Exceptions\\NoVisitorFoundException",
+              "Message": "No visitor found for Silversolutions\\Bundle\\EshopBundle\\Content\\Fields\\TextBlockField, Silversolutions\\Bundle\\EshopBundle\\Content\\AbstractField, Silversolutions\\Bundle\\EshopBundle\\Content\\ValueObject."
+            }
+          },
+          "longDescription": {
+            "_media-type": "application\/vnd.ez.api.TextBlockField+json",
+            "_exception": {
+              "Name": "EzSystems\\EzPlatformRest\\Output\\Exceptions\\NoVisitorFoundException",
+              "Message": "No visitor found for Silversolutions\\Bundle\\EshopBundle\\Content\\Fields\\TextBlockField, Silversolutions\\Bundle\\EshopBundle\\Content\\AbstractField, Silversolutions\\Bundle\\EshopBundle\\Content\\ValueObject."
+            }
+          },
+          "specifications": null,
+          "imageList": null,
+          "minOrderQuantity": null,
+          "maxOrderQuantity": null,
+          "allowedQuantity": "#^[0-9]+$#",
+          "packagingUnit": null,
+          "unit": "",
+          "vatCode": "VATNORMAL",
+          "name": "test",
+          "section": null,
+          "text": "test",
+          "image": {
+            "_media-type": "application\/vnd.ez.api.ImageField+json",
+            "_exception": {
+              "Name": "EzSystems\\EzPlatformRest\\Output\\Exceptions\\NoVisitorFoundException",
+              "Message": "No visitor found for Silversolutions\\Bundle\\EshopBundle\\Content\\Fields\\ImageField, Silversolutions\\Bundle\\EshopBundle\\Content\\AbstractField, Silversolutions\\Bundle\\EshopBundle\\Content\\ValueObject."
+            }
+          },
+          "path": null,
+          "url": "\/product-catalog\/test",
+          "parentElementIdentifier": "126",
+          "identifier": "130",
+          "cacheIdentifier": null
+        },
+        "groupCalc": null,
+        "groupOrder": null,
+        "remark": null,
+        "remoteDataMap": {
+          "lineRemark": null,
+          "scaledPrices": null,
+          "special_offers": {
+            "0": "Buy 3 pay 2",
+            "1": "Customer price"
+          },
+          "stockSign": "",
+          "stock": {
+            "_media-type": "application\/vnd.ez.api.StockField+json",
+            "_exception": {
+              "Name": "EzSystems\\EzPlatformRest\\Output\\Exceptions\\NoVisitorFoundException",
+              "Message": "No visitor found for Silversolutions\\Bundle\\EshopBundle\\Content\\Fields\\StockField, Silversolutions\\Bundle\\EshopBundle\\Content\\AbstractField, Silversolutions\\Bundle\\EshopBundle\\Content\\ValueObject."
+            }
+          },
+          "isPriceValid": true
+        },
+        "variantCharacteristics": null,
+        "assignedLines": null
+      }
+    ],
+    "dateLastPriceCalculation": {
+      "_media-type": "application\/vnd.ez.api.DateTime+json",
+      "string": "2021-03-12 10:35:22"
+    },
+    "shippingMethod": null,
+    "paymentMethod": null,
+    "paymentTransactionId": null,
+    "confirmationEmail": null,
+    "salesConfirmationEmail": null,
+    "allProductsAvailable": false,
+    "dataMap": {
+      "pricesValid": true,
+      "priceResponseSourceType": "ShopMaster",
+      "dateLastCatalogUpdate": {
+        "_media-type": "application\/vnd.ez.api.DateTime+json",
+        "string": "2021-03-12 10:35:22"
+      }
+    }
+  }
+}

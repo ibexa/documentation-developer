@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Session href="user/sessions/go327ij2cirpo59pb6rrv2a4el2/refresh" media-type="application/vnd.ez.api.Session+xml">
+  <name>eZSSID</name>
+  <identifier>go327ij2cirpo59pb6rrv2a4el2</identifier>
+  <csrfToken>23lkneri34ijajedfw39orj3j93</csrfToken>
+  <User href="/user/users/14" media-type="vnd.ez.api.User+xml"/>
+</Session>
