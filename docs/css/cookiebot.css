@@ -1,0 +1,19 @@
+#CybotCookiebotDialog {
+    border: 0 !important;
+    box-shadow: rgba(18, 18, 18, 0.3) 2px 2px 32px 2px !important;
+  }
+  #CybotCookiebotDialog div {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji" !important;
+  }
+  .CybotCookiebotDialogBodyButton {
+    border-radius: 2px !important;
+  }
+  a#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection {
+    background-color: #ffffff !important;
+    border: 1px solid #ff4713 !important;
+    color: #ff4713 !important;
+  }
+  a#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection:hover {
+    text-decoration: none !important;
+    color: #ff4713 !important;
+  } 
