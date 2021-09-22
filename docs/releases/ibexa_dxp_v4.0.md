@@ -41,6 +41,11 @@ including getting migration information and running individual migration files.
 
 See [Managing migrations](../api/public_php_api_managing_migrations.md) for more information.
 
+### Decide whether alternative text for Image field is optional
+
+Alternative text for an Image field is now optional by default. 
+You can set it as required when adding the Image field to a Content Type.
+
 ## Deprecations
 
 ### Code cleanup results
