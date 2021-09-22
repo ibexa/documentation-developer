@@ -358,3 +358,19 @@ To update to v3.3.7, additionally run the following script:
 
 With the v3.3.2 update, Commerce features in Experience and Content editions are disabled by default.
 If you use these features, after the update refer to [Enable Commerce features](../guide/config_back_office.md#enable-commerce-features) and manually enable them.
+
+### Update database to v3.3.9
+
+Apply the following database update script:
+
+=== "MySQL"
+
+    ```
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.8-to-3.3.9.sql
+    ```
+
+=== "PostgreSQL"
+
+    ```
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.8-to-3.3.9.sql
+    ```
