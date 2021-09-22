@@ -58,3 +58,7 @@ ezplatform:
                             icon: '/bundles/ibexaplatformicons/img/all-icons.svg#checkbox'
                             actions:
                                 publish: ~
+                quick_review:
+                    name: Quick Review
+                    matchers:
+                        content_type: []

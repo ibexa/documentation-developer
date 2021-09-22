@@ -5,7 +5,8 @@ The workflow functionality passes a Content item version through a series of sta
 For example, an editorial workflow can pass a Content item from draft stage through 
 design and proofreading.
 
-You can define different workflows in configuration. 
+By default, [[= product_name =]] comes pre-configured with a Quick Review workflow.
+You can disable the default workflow and define different workflows in configuration. 
 Workflows are permission-aware.
 
 ## Workflow configuration
@@ -87,13 +88,22 @@ set to "Assigned only", together with the `content/edit` and `content/unlock`
 Policies to prevent users from editing and unlocking drafts that are assigned 
 to other users.
 
-### Publishing content
+### Content publishing
 
 You can automatically publish a Content item once it goes through a specific transition.
 To do so, configure the `publish` action for the transition:
 
 ``` yaml hl_lines="7 8"
 [[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 52, 60) =]]
+```
+
+### Quick Review disabling
+
+You can disable the default workflow, for example, if your project does not use 
+workflows, or Quick Review entries clog your database:
+
+``` yaml
+[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 0, 4) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 60, 64) =]]
 ```
 
 ## Custom actions
@@ -106,12 +116,12 @@ Workflow event timeline displays workflow transitions.
 
 You can also use it to render custom entries in the timeline, for example system alerts on workflows.
 
-### Adding custom entry type
+### Custom entry type
 
 To add a custom entry type, create a custom class extending `EzSystems\EzPlatformWorkflow\WorkflowTimeline\Value\AbstractEntry`.
 Use an `EzSystems\EzPlatformWorkflow\Event\TimelineEvents::COLLECT_ENTRIES` event to add your entries to the timeline.
 
-### Providing custom templates
+### Custom templates
 
 To provide custom templates for new event timeline entries, use the following configuration:
 
