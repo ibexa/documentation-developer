@@ -2,13 +2,7 @@
 
 ## Login
 
-In [[= product_name =]], users can log in not only with their user name or email, but also with the customer number.
-
-To enable logging in with customer number, use the `enable_customer_number_login` configuration parameter:
-
-``` yaml
-siso_core.default.enable_customer_number_login: true
-```
+In [[= product_name =]], users can log in with their user name or email.
 
 ## Registration
 
