@@ -5,6 +5,6 @@ ezplatform:
                 event_types:
                     future_publication:
                         color: '#47BEDB'
-                        reschedule:
-                            action_name:
+                        actions:
+                            reschedule:
                                 icon: '/bundles/ibexaplatformicons/img/all-icons.svg#notice'
