@@ -26,7 +26,7 @@ App\Component\MyNewComponent:
 - [`dashboard-all-tab-groups`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/ui/dashboard/block/all.html.twig#L6)
 - [`dashboard-my-tab-groups`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/ui/dashboard/block/me.html.twig#L6)
 - [`content-type-tab-groups`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/content_type/index.html.twig#L10)
-- [`calendar-widget-before`](https://github.com/ezsystems/ezplatform-calendar/blob/master/src/bundle/Resources/views/themes/admin/calendar/view.html.twig#L24)
+- `calendar-widget-before`
 - [`login-form-before`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/account/login/index.html.twig#L8)
 - [`login-form-after`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/account/login/index.html.twig#L69)
 

@@ -38,7 +38,7 @@ To enable in-context translation you need to create Crowdin account and join [[[
 
 Strings in the interface that can be translated will be outlined in red (untranslated), blue (translated) or green (approved). When moving over them, an edit button will show up on the top left corner of the outline. Click on it, and edit the string in the window that shows up.
 
-![In-context translation of Admin UI](img/crowdin_translation.png "In-context translation of Admin UI")
+![In-context translation of Back Office](img/crowdin_translation.png "In-context translation of Back Office")
 
 #### Troubleshooting
 
@@ -46,7 +46,7 @@ Make sure you clear your browser's cache in addition to [[= product_name =]]'s. 
 
 ## Translating outside in-context
 
-If you prefer not to use in-context, simply visit [[[= product_name =]]'s Crowdin page](https://crowdin.com/project/ezplatform), choose a language and you will see a list of files containing strings. Here you can suggest your translations.
+If you prefer not to use in-context, visit [[[= product_name =]]'s Crowdin page](https://crowdin.com/project/ezplatform), choose a language and you will see a list of files containing strings. Here you can suggest your translations.
 
 If the language you want to translate to is not available, you can ask for it to be added in the [Crowdin discussion forum for [[= product_name =]]](https://crowdin.com/project/ezplatform/discussions).
 

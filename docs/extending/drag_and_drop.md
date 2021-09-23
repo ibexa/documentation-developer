@@ -26,11 +26,11 @@ Full list of options:
 
 |Option|Description|Required|
 |------|-----------|--------|
-|`itemsContainer`|Reference to DOM node containing a draggable item|required|
-|`selectorItem`|CSS selector of a draggable item|required|
-|`selectorPlaceholder`|CSS selector of a placeholder|required|
-|`afterInit`|Callback function invoked after interface initialization|optional|
-|`afterDragStart`|Callback function invoked after starting to drag|optional|
-|`afterDragOver`|Callback function invoked after moving onto a droppable element|optional|
-|`afterDrop`|Callback function invoked after dropping an element|optional|
-|`attachCustomEventHandlersToItem`|Function to be invoked while attaching event handlers to every item in the item's container. Item of `HTMLElement` type is passed to the function as the first param|optional|
+|`itemsContainer`|Reference to DOM node that contains a draggable item.|required|
+|`selectorItem`|CSS selector of a draggable item.|required|
+|`selectorPlaceholder`|CSS selector of a placeholder.|required|
+|`afterInit`|Callback function invoked after interface initialization.|optional|
+|`afterDragStart`|Callback function invoked after starting to drag.|optional|
+|`afterDragOver`|Callback function invoked after moving onto a droppable element.|optional|
+|`afterDrop`|Callback function invoked after dropping an element.|optional|
+|`attachCustomEventHandlersToItem`|Function to be invoked while attaching event handlers to every item in the item's container. Item of `HTMLElement` type is passed to the function as the first param.|optional|

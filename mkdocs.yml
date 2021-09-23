@@ -515,7 +515,7 @@ nav:
         - Back Office elements: 
             - 'Reusable components': 'extending/reusable_back_office_templates.md'
             - 'Custom drop-downs': 'extending/creating_custom_dropdowns.md'
-            - 'Custom icons': 'extending/custom_icons.md'
+            - 'Icons': 'extending/custom_icons.md'
             - 'Create drag and drop': 'extending/drag_and_drop.md'
             - 'Custom components': 'extending/custom_components.md'
             - 'Extending Dashboard': 'extending/extending_dashboard.md'
