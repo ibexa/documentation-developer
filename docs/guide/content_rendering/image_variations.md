@@ -1,6 +1,7 @@
 # Image variations
 
-Image variations enable you to render different versions of one image by means of scaling, cropping and other filters.
+With image variations you can render different versions of one image by means 
+of scaling, cropping and other filters.
 
 Built-in image variations include four versions that provide the image at a specific scale:
 `tiny`, `small`, `medium`, and `large`.
@@ -23,12 +24,13 @@ ezplatform:
                         <filter>: <parameters>
 ```
 
-Variation name must be unique. It may contain underscores (`_`), hyphens (`-`) or numbers, but no spaces.
+Variation name must be unique. 
+It may contain characters, numbers, underscores (`_`) or hyphens (`-`), but no spaces.
 
 Each variation takes the following parameters:
 
-- `reference` - (optional) name of a reference variation to base the variation on. If set to `null` or `~`,
-the variation takes the original image for reference.
+- `reference` - (optional) name of a reference variation to base the variation on. 
+If set to `null` or `~`, the variation takes the original image for reference.
 - `filters` - array of variation filters and their parameters.
 
 ## Available variation filters
@@ -52,7 +54,7 @@ the variation takes the original image for reference.
 
 !!! note
 
-    After changing image variation configuration, remove the existing variations
+    After you change the image variation configuration, remove the existing variations
     with the `liip:imagine:cache:remove` command and provide the variation name:
     
     ``` bash
@@ -61,7 +63,7 @@ the variation takes the original image for reference.
     
     Next, clear the cache.
     
-    You can also remove all generated image variations by using:
+    You can also remove all generated image variations:
     
     ``` bash
     php bin/console liip:imagine:cache:remove -v
