@@ -1,0 +1,10 @@
+ezplatform:
+    system:
+        admin_group:
+            calendar:
+                event_types:
+                    future_publication:
+                        color: '#47BEDB'
+                        actions:
+                            reschedule:
+                                icon: '/bundles/ibexaplatformicons/img/all-icons.svg#notice'

@@ -1,0 +1,16 @@
+services:
+    App\Calendar\Holidays\EventType:
+        arguments:
+            $actions: [ ]
+        tags:
+            - { name: ezplatform.calendar.event_type }
+            
+    App\Calendar\Holidays\EventSourceFactory:
+        arguments:
+            $eventType: '@App\Calendar\Holidays\EventType'
+
+    App\Calendar\Holidays\EventSource:
+        class: EzSystems\EzPlatformCalendar\Calendar\EventSource\InMemoryEventSource
+        factory: [ '@App\Calendar\Holidays\EventSourceFactory','createEventSource' ]
+        tags:
+            - { name: ezplatform.calendar.event_source }

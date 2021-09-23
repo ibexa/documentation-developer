@@ -9,4 +9,4 @@ you need to rewrite this extension using the [new YAML configuration](../extendi
 ## Back Office extensibility
 
 If you added custom tab groups in the Back Office,
-you now need to [make use of the `TabsComponent`](../extending/extending_tabs.md#adding-a-new-tab-group).
+you now need to [make use of the `TabsComponent`](../extending/tabs/back_office_tabs.md#tab-groups).

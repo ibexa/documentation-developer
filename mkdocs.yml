@@ -519,10 +519,6 @@ nav:
         - Extending Back Office:
             - 'Extending Back Office': 'extending/extending_back_office.md'
             - 'Reusable Back Office templates': 'extending/reusable_back_office_templates.md'
-            - 'Extending Dashboard': 'extending/extending_dashboard.md'
-            - 'Extending Menus': 'extending/extending_menus.md'
-            - 'Extending tabs': 'extending/extending_tabs.md'
-            - 'Extending settings': 'extending/extending_settings.md'
             - 'Extending date and time': 'extending/extending_date_and_time.md'
             - 'Creating custom RichText blocks': 'extending/richtext_block.md'
             - 'Creating custom drop-downs': 'extending/creating_custom_dropdowns.md'
@@ -530,7 +526,14 @@ nav:
             - 'Extending thumbnails': 'extending/extending_thumbnails.md'
             - 'Injecting custom components': 'extending/custom_components.md'
             - 'Import assets from a bundle': 'extending/import_assets_from_bundle.md'
-        - 'Extending Calendar': 'extending/customizing_calendar.md'
+        - Back Office tabs:
+            - 'Back Office tabs':  'extending/tabs/back_office_tabs.md'
+            - 'Add dashboard tab': 'extending/tabs/add_dashboard_tab.md'
+        - Back Office menus:
+            - 'Back Office menus': 'extending/menus/back_office_menus.md'
+            - 'Add menu item': 'extending/menus/add_menu_item.md'
+        - 'Add user setting': 'extending/add_user_setting.md'
+        - 'Customize calendar': 'extending/customize_calendar.md'
         - 'Extending Image Editor': 'extending/extending_image_editor.md'
         - 'Extending Online Editor':
             - 'Extending Online Editor': 'extending/extending_online_editor.md'

@@ -18,7 +18,7 @@ This tab, called "Articles", will list ten most recently modified Content items 
 First, add the following block to `config/services.yaml`. Place the block indented, under the `services` key:
 
 ``` yaml
-[[= include_file('code_samples/back_office/dashboard/article_tab/config/services.yaml', 33, 39) =]]
+[[= include_file('code_samples/back_office/dashboard/article_tab/config/custom_services.yaml') =]]
 ```
 
 The tags indicate that this is a tab on the **My dashboard** page that will be placed in the "Common content" block.
@@ -29,17 +29,17 @@ This configuration points to the `EveryoneArticleTab.php` file, which you now ne
 
 Create an `EveryoneArticleTab.php` file in `src/Tab/Dashboard/Everyone`:
 
-``` php hl_lines="17 47"
+``` php hl_lines="17 45"
 [[= include_file('code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php') =]]
 ```
 
 !!! tip
 
     The tab extends `AbstractTab`.
-    There are also [other tab types that you can extend](../../extending/extending_tabs.md).
+    There are also [other tab types that you can extend](../../extending/tabs/back_office_tabs.md).
 
 The tab also implements `OrderedTabInterface` (see line 17), which enables you to define the order in which the tab is displayed on the **My dashboard** page.
-This is done using the `getOrder` method (see line 47).
+This is done using the `getOrder` method (see line 45).
 
 The rendering is done using the built-in `all_content.html.twig` template,
 which ensures the tab looks the same as the existing tabs.
