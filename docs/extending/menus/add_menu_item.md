@@ -16,7 +16,7 @@ First, create an event subscriber in `src/EventSubscriber/MyMenuSubscriber.php`:
 ```
 
 This subscriber subscribes to the `ConfigureMenuEvent::MAIN_MENU` event (see line 14)
-and creates an `all_content_list` menu item (lines 22-23)
+and creates an `all_content_list` menu item (lines 22-23).
 
 ## Add route
 

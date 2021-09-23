@@ -22,7 +22,7 @@ To customize the appearance settings, add the following configuration:
 [[= include_file('code_samples/back_office/calendar/config/packages/calendar.yaml') =]]
 ```
 
-Line 6 contains the name of the event type, either a built-in a custom one.
+Line 6 contains the name of the event type, either a built-in custom one.
 
 `color` defines the color in which events of this type are displayed in the calendar.
 `icon` is the icon used for a button with the relevant event action.
