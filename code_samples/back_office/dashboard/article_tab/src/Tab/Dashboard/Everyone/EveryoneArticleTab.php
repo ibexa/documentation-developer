@@ -16,10 +16,8 @@ use Twig\Environment;
 
 class EveryoneArticleTab extends AbstractTab implements OrderedTabInterface
 {
-    /** @var PagerContentToDataMapper */
     protected $pagerContentToDataMapper;
 
-    /** @var SearchService */
     protected $searchService;
 
     public function __construct(

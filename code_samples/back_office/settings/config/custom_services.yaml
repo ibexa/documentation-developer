@@ -1,0 +1,5 @@
+services:
+    App\Setting\Unit:
+        tags:
+            - { name: ezplatform.admin_ui.user_setting.value, identifier: unit, priority: 50 }
+            - { name: ezplatform.admin_ui.user_setting.form_mapper, identifier: unit }
