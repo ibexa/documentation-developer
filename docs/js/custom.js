@@ -122,6 +122,8 @@ $(document).ready(function() {
         $(this).hide();
     });
 
-    $('.md-sidebar--primary .md-sidebar__scrollwrap')[0].scrollTop =
+    if ($('.md-sidebar--primary .md-sidebar__scrollwrap')[0] && $('.md-sidebar--primary .md-nav__item--active:not(.md-nav__item--nested)')[0]) {
+        $('.md-sidebar--primary .md-sidebar__scrollwrap')[0].scrollTop =
         $('.md-sidebar--primary .md-nav__item--active:not(.md-nav__item--nested)')[0].offsetTop - 33;
+    }
 });
