@@ -28,6 +28,9 @@ $(document).ready(function() {
 
     $('.rst-current-version.switcher__label').html(branchName);
 
+    // Add current branch name to cookie declaration link
+    $('#cookie-declaration').attr('href', $('#cookie-declaration').attr('href').replace('latest', branchName));
+
     // Change navigation icons on onclick
     $('.md-nav--primary .md-nav__item--nested .md-nav__link').click(function() {
         $(this).addClass('open');
