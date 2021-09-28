@@ -294,6 +294,60 @@ ezplatform:
                 - { template: '@ezdesign/limitation/custom_limitation_value.html.twig', priority: 0 }
 ```
 
+To check if current user has this custom limitation set to true from a custom controller:
+```php
+<?php
+
+namespace App\Controller;
+
+use eZ\Publish\API\Repository\PermissionResolver;
+use EzSystems\EzPlatformAdminUiBundle\Controller\Controller;
+use EzSystems\EzPlatformAdminUi\Permission\PermissionCheckerInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
+class CustomController extends Controller
+{
+    // ...
+    /** @var PermissionResolver */
+    private $permissionResolver;
+
+    /** @var PermissionCheckerInterface */
+    private $permissionChecker;
+
+    public function __construct(
+        // ...,
+        PermissionResolver   $permissionResolver,
+        PermissionCheckerInterface $permissionChecker
+    )
+    {
+        // ...
+        $this->permissionResolver = $permissionResolver;
+        $this->permissionChecker = $permissionChecker;
+    }
+
+    // Controller actions...
+    public function customAction(Request $request): Response {
+        // ...
+        if ($this->getCustomLimitationValue()) {
+            // Action only for user having the custom limitation checked
+        }
+    }
+
+    private function getCustomLimitationValue(): bool {
+        $customLimitationValues = $this->permissionChecker->getRestrictions($this->permissionResolver->hasAccess('custom_module', 'custom_function_2'), CustomLimitationValue::class);
+
+        return $customLimitationValues['value'] ?? false;
+    }
+
+    public function performAccessCheck()
+    {
+        parent::performAccessCheck();
+        $this->denyAccessUnlessGranted(new Attribute('custom_module', 'custom_function_2'));
+    }
+}
+```
+
 ## Translations
 
 `form` domain for policy creation and module display:
