@@ -1,0 +1,22 @@
+{% extends '@ezdesign/ui/field_type/preview/content_fields.html.twig' %}
+
+{% block string_diff_render %}
+    {% set extra_class = extra_class|default('') %}
+    {% for string_diff in comparison_result %}
+        <span class="ez-compared-part {{ extra_class }} ez-compared-part--{{ string_diff.getStatus() }}">
+            {{- string_diff.getToken()|nl2br  -}}
+        </span>
+    {% endfor %}
+{% endblock %}
+
+{% block hello_world_field_comparison %}
+    {% apply spaceless %}
+        <span {{ block( 'field_attributes' ) }}>
+            {% with {
+                'comparison_result': comparison_result.getTextLineDiff()
+                } %}
+                {{ block('string_diff_render') }}
+            {% endwith %}
+        </span>
+    {% endapply %}
+{% endblock %}
