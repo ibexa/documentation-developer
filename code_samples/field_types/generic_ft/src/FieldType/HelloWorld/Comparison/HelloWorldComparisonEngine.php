@@ -7,7 +7,6 @@ namespace App\FieldType\HelloWorld\Comparison;
 use EzSystems\EzPlatformVersionComparison\FieldType\FieldTypeComparisonValue;
 use EzSystems\EzPlatformVersionComparison\Engine\FieldTypeComparisonEngine;
 use EzSystems\EzPlatformVersionComparison\Engine\Value\StringComparisonEngine;
-use EzSystems\EzPlatformVersionComparison\Result\FieldType\TextLineComparisonResult;
 use EzSystems\EzPlatformVersionComparison\Result\ComparisonResult;
 
 final class HelloWorldComparisonEngine implements FieldTypeComparisonEngine
@@ -26,7 +25,7 @@ final class HelloWorldComparisonEngine implements FieldTypeComparisonEngine
      */
     public function compareFieldsTypeValues(FieldTypeComparisonValue $comparisonDataA, FieldTypeComparisonValue $comparisonDataB): ComparisonResult
     {
-        return new TextLineComparisonResult(
+        return new HelloWorldComparisonResult(
             $this->stringValueComparisonEngine->compareValues($comparisonDataA->name, $comparisonDataB->name)
         );
     }

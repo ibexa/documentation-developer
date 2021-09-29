@@ -54,6 +54,14 @@ Register the comparison engine as a service:
 [[= include_file('code_samples/field_types/generic_ft/config/custom_services.yaml', 0, 1) =]][[= include_file('code_samples/field_types/generic_ft/config/custom_services.yaml', 11, 14) =]]
 ```
 
+## Add comparison result
+
+Next, create a comparison result class in `src/FieldType/HelloWorld/Comparison/HelloWorldComparisonResult.php`.
+
+``` php
+[[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Comparison/HelloWorldComparisonResult.php') =]]
+```
+
 ## Provide templates
 
 Finally, create a template for the new comparison view in `templates/field_type_comparison.html.twig`:
