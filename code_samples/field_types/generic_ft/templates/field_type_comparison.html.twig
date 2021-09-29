@@ -4,7 +4,7 @@
     {% apply spaceless %}
         <span {{ block( 'field_attributes' ) }}>
             {% with {
-                'comparison_result': comparison_result.getTextLineDiff()
+                'comparison_result': comparison_result.getHelloWorldDiff()
                 } %}
                 {{ block('string_diff_render') }}
             {% endwith %}
