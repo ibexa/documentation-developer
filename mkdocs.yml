@@ -90,6 +90,8 @@ nav:
             - 'Storage': 'api/field_type_storage.md'
             - 'Validation': 'api/field_type_validation.md'
             - 'Searching': 'api/field_type_search.md'
+            - 'Create custom generic Field Type': 'api/field_type/create_custom_generic_field_type.md'
+            - 'Create custom Field Type comparison': 'api/field_type/create_custom_field_type_comparison.md'
             - 'Field Types reference': 'api/field_type_reference.md'
             - Field Types reference:
                - 'Author Field Type': 'api/field_types_reference/authorfield.md'
@@ -545,9 +547,6 @@ nav:
             - 'Extending Multi-file Upload': 'extending/extending_multifile_upload.md'
             - 'Extending Sub-items List': 'extending/extending_subitems_list.md'
             - 'Creating drag and drop interface': 'extending/drag_and_drop.md'
-        - 'Field Types':
-            - 'Creating custom Field Type': 'extending/extending_field_type.md'
-            - 'Creating custom Field Type comparison': 'extending/custom_fieldtype_comparison.md'
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'
         - 'Release process and roadmap': 'community_resources/release_process.md'
