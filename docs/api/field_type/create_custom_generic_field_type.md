@@ -1,6 +1,6 @@
-# Creating custom generic Field Type
+# Create custom generic Field Type
 
-The Generic Field Type is an abstract implementation of Field Types holding structured data e.g. address.
+The Generic Field Type is an abstract implementation of Field Types holding structured data for example, address.
 You can use it as a base for custom Field Types.
 The Generic Field Type comes with the implementation of basic methods,
 reduces the number of classes which must be created, and simplifies the tagging process. 
