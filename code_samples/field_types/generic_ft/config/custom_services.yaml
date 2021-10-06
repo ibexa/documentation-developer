@@ -1,0 +1,14 @@
+services:
+    App\FieldType\HelloWorld\Type:
+        public: true
+        tags:
+            - { name: ezplatform.field_type, alias: hello_world }
+            - { name: ezplatform.field_type.form_mapper.value, fieldType: hello_world }
+
+    App\FieldType\HelloWorld\Comparison\Comparable:
+        tags:
+            - { name: ezplatform.field_type.comparable, alias: hello_world }
+
+    App\FieldType\HelloWorld\Comparison\HelloWorldComparisonEngine:
+        tags:
+            - { name: ezplatform.field_type.comparable.engine, supported_type: App\FieldType\HelloWorld\Comparison\Value }
