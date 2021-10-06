@@ -1,0 +1,21 @@
+ezplatform:
+    # ...
+    image_placeholder:
+        <BINARY_HANDLER>:
+            provider: <PROVIDER TYPE>
+            options:  <CONFIGURATION>
+        default:
+            provider: generic
+            options:
+                fontpath: '%kernel.project_dir%/src/Resources/font/font.ttf'
+                background: '#EEEEEE'
+                foreground: '#FF0000'
+                text: 'MISSING IMAGE %%width%%x%%height%%'
+        default:
+           provider: remote
+            options:
+                url_pattern: 'https://placekitten.com/%%width%%/%%height%%'
+        default:
+            provider: remote
+            options:
+                url_pattern: 'http://example.com/var/site/storage/%%id%%'
