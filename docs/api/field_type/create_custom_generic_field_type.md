@@ -53,9 +53,10 @@ It enables you to edit the new Field Type.
 ```
 
 Now you can map Field definitions into Symfony forms with FormMapper.
-Add the `mapFieldValueForm()` method required by `FieldValueFormMapperInterface` in `src/FieldType/HelloWorld/Type.php`:
+Add the `mapFieldValueForm()` method required by `FieldValueFormMapperInterface`
+and the required `use` statements to `src/FieldType/HelloWorld/Type.php`:
 
-```php hl_lines="18-26"
+```php hl_lines="7-9 18-26"
 [[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Type.php') =]]
 ```
 
