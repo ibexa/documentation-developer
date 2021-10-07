@@ -1,26 +1,36 @@
 # Create drag and drop
 
-In [[= product_name =]], you can create a generic interface for drag and drop interactions reusable in many places.
+In [[= product_name =]], you can create a generic interface for drag and drop interactions that you can reuse in many places across the Back Office.
 
-First, prepare the HTML code structure that will be placed in a Twig template in the following way:
+First, prepare the HTML code structure and place in a Twig template. See the example:
 
 ```html
-<div class="items-container" data-placeholder="HTML template for placeholder"></div>
+<div 
+        class="items-container-drag"
+        data-placeholder='<div class="item-placeholder-drag">item placeholder name</div>'>
+        <div class="item-drag" draggable="true">item name</div>
+        <div class="item-drag" draggable="true">item name</div>
+        <div class="item-drag" draggable="true">item name</div>
+    </div>
 ```
 
-Next, add options in the same Twig template or in a JavaScript code that comes with the template following the convention:
+## Initialize
+
+To initialize a drag and drop interface, add a JavaScript code that comes with the template following the convention:
 
 ```javascript
-const draggable = new window.eZ.core.Draggable({
-        itemsContainer: HTMLElement of .items-container,
-        selectorItem: String,
-        selectorPlaceholder: String,
-});
+    const draggable = new eZ.core.Draggable({
+        itemsContainer: doc.querySelector('.items-container-drag'),
+        selectorItem: '.item-drag',
+        selectorPlaceholder: '.item-placeholder-drag',
+    });
+
+    draggable.init();
 ```
 
-For more information on creating Twig templates, see [Templating basics](../guide/content_rendering/templates/templates.md).
+For more information about creating Twig templates, see [Templating basics](../guide/content_rendering/templates/templates.md).
 
-## Options
+## Configuraiotn options
 
 Full list of options:
 
@@ -34,3 +44,4 @@ Full list of options:
 |`afterDragOver`|Callback function invoked after moving onto a droppable element.|optional|
 |`afterDrop`|Callback function invoked after dropping an element.|optional|
 |`attachCustomEventHandlersToItem`|Function to be invoked while attaching event handlers to every item in the item's container. Item of `HTMLElement` type is passed to the function as the first param.|optional|
+|`timeoutRemovePlaceholders`|The amount of time after which the not dropped item disappears.The default vaule is set to 500ms.|optional|
