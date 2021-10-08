@@ -1,4 +1,4 @@
-# 4.5. Upgrade Online Editor
+# 4.5. Update Online Editor
 
 ## RichText
 

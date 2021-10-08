@@ -1,13 +1,15 @@
-# 4. Upgrade the code
+# Update code to v3
 
-If you are updating to v3.0 from a lower version, you need to make a number of modifications to your code.
+!!! note
 
-!!! caution
+    Before you start this procedure, make sure you have completed the previous step,
+    [Updating to v2.5](to_3.2.md)
 
-    Perform these steps only if you are updating to version v3.0.
-    If not, move on to the [5. Update the database](5_update_database.md) step.
+## 4. Update the code
 
-## Familiarize yourself with a new project structure
+To adapt you installation to v3, you need to make a number of modifications to your code.
+
+### New project structure
 
 !!! tip
 
@@ -18,15 +20,15 @@ If you are updating to v3.0 from a lower version, you need to make a number of m
 The latest Symfony versions changed the organization of your project into folders and bundles.
 When updating to eZ Platform v3 you need to move your files and modify file paths and namespace references.
 
-![Project structure changes in v3](../updating/img/folder_structure_v3.png "Project folder structure changes between v2 and v3")
+![Project structure changes in v3](../img/folder_structure_v3.png "Project folder structure changes between v2 and v3")
 
-### Configuration
+#### Configuration
 
 Configuration files have been moved from `app/Resources/config` to `config`.
 Package-specific configuration is placed in `config/packages` (e.g. `config/packages/ezplatform_admin_ui.yaml`).
 This folder also contains `config/packages/ezplatform.yaml`, which contains all settings coming in from Kernel.
 
-### PHP code and bundle organization
+#### PHP code and bundle organization
 
 Since Symfony 4 `src/` code is no longer organized in bundles, `AppBundle` has been removed from the default eZ Platform install.
 In order to adapt, you'll need to move all your PHP code, such as controllers or event listeners, to the `src` folder and use the `App` namespace for your custom code instead.
@@ -46,16 +48,16 @@ In order to adapt, you'll need to move all your PHP code, such as controllers or
     
     Once you are ready to refactor the code to `App` namespace, follow [Bye Bye AppBundle](https://symfonycasts.com/screencast/symfony4-upgrade/bye-appbundle) article.
 
-### View templates
+#### View templates
 
 Templates are no longer stored in `app/Resources/views`.
 You need to move all your templates to the `templates` folder in your project's root.
 
-### Translations
+#### Translations
 
 Translation files have been moved out of `app/Resources/translations` into `translations` in your project's root.
 
-### `web` and assets
+#### `web` and assets
 
 Content of the `web` folder is now placed in `public`.
 Content of `app/Resources/assets` has been moved to `assets`.
@@ -63,20 +65,20 @@ Content of `app/Resources/assets` has been moved to `assets`.
 !!! note
 
     You also need to update paths that refer to the old location,
-    for example in [`webpack.config.js`](../guide/project_organization.md#importing-configuration-from-a-bundle).
+    for example in [`webpack.config.js`](../../guide/project_organization.md#importing-configuration-from-a-bundle).
 
 !!! note "Full list of deprecations"
 
     If you encounter any issue during the upgrade,
-    see [eZ Platform v3.0 deprecations](../releases/ez_platform_v3.0_deprecations.md#template-organization)
+    see [eZ Platform v3.0 deprecations](../../releases/ez_platform_v3.0_deprecations.md#template-organization)
     for details of all required changes to your code.
 
-## Third-party dependencies
+### Third-party dependencies
 
 Because eZ Platform v3 is based on Symfony 5, you need to make sure all additional third-party dependencies
 that your project uses have been adapted to Symfony 5.
 
-## Automatic code refactoring - non-essential step
+### Automatic code refactoring - non-essential step
 
 To simplify the process of adapting your code to Symfony 5, you can use [Rector, a reconstructor tool](https://github.com/rectorphp/rector)
 that will automatically refactor your Symfony and PHPunit code.
@@ -87,3 +89,17 @@ To properly refactor your code, you might need to run the Rector `process` comma
 
 You can find all the available sets in [the Rector repository](https://github.com/rectorphp/rector/tree/v0.7.65/config/set). 
 Keep in mind that after automatic refactoring finishes there might be some code chunks that you need to fix manually.
+
+### Update code for specific parts of the system
+
+Now, go through the following steps and ensure all your code is up to date with v3:
+
+- [1. Update templates](update_code/1_update_templates.md)
+- [2. Update configuration](update_code/2_update_configuration.md)
+- [3. Update Field Types](update_code/3_update_field_types.md)
+- [4. Update Signal Slots](update_code/4_update_signal_slots.md)
+- [5. Update Online Editor](update_code/5_update_online_editor.md)
+- [6. Update workflow](update_code/6_update_workflow.md)
+- [7. Update extended code](update_code/7_update_extensions.md)
+- [8. Update REST](update_code/8_update_rest.md)
+- [9. Other code updates](update_code/9_update_other.md)
