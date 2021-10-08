@@ -1,5 +1,4 @@
 # Official VirtualHost configuration for Apache 2.4 template
-# See Readme.md for how to generate your config manually, or in automated deployments.
 # Note: This is meant to be manually tailored for your needs, expires headers might for instance not work for your dev setup.
 
 # NameVirtualHost %IP_ADDRESS%
@@ -40,8 +39,8 @@
         Require all granted
     </Directory>
 
-    ## eZ Platform/Symfony ENVIRONMENT variables, for customizing index.php* execution
-    # * Only APP_ENV and APP_DEBUG supported by console command, rest are eZ Platform features in index.php.
+    ## Ibexa/Symfony ENVIRONMENT variables, for customizing index.php* execution
+    # * Only APP_ENV and APP_DEBUG supported by console command, rest are Ibexa DXP features in index.php.
 
     # Environment.
     # Possible values: "prod" and "dev" out-of-the-box, other values possible with proper configuration
@@ -66,7 +65,7 @@
     # Defaults to not be set if env value is omitted or empty
     #if[TRUSTED_PROXIES] SetEnv TRUSTED_PROXIES "%TRUSTED_PROXIES%"
 
-    # TIP: There are many more environment variables supported by eZ Platform. However unlike those listed above
+    # TIP: There are many more environment variables supported by Ibexa DXP. However unlike those listed above
     #      they should in most cases rather be set in the environment then in vhost config to make sure cronjobs
     #      and cli command usage takes them into account as well.
 
@@ -110,7 +109,7 @@
     # to suite project needs.
     <IfModule mod_expires.c>
         <LocationMatch "^/var/[^/]+/storage/images/.*">
-            # eZ Platform appends the version number to image URL (ezimage
+            # Ibexa DXP appends the version number to image URL (ezimage
             # datatype) so when an image is updated, its URL changes too
             ExpiresActive on
             ExpiresDefault "now plus 10 years"
