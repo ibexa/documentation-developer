@@ -1,0 +1,125 @@
+# Official VirtualHost configuration for Apache 2.4 template
+# See Readme.md for how to generate your config manually, or in automated deployments.
+# Note: This is meant to be manually tailored for your needs, expires headers might for instance not work for your dev setup.
+
+# NameVirtualHost %IP_ADDRESS%
+
+<VirtualHost %IP_ADDRESS%:%PORT%>
+    ServerName %HOST_NAME%
+    ServerAlias %HOST_ALIAS%
+    DocumentRoot %BASEDIR%/public
+    DirectoryIndex index.php
+
+    # Request size limit in bytes, 0 to disable
+    LimitRequestBody %BODY_SIZE_LIMIT%
+
+    # Request timeout limit in seconds, 0 to disable
+    TimeOut %TIMEOUT%
+
+    # Enabled for Dev environment
+    #LogLevel debug
+
+    # "public" folder is what we expose to the world, all rewrite rules further down are relative to it.
+    <Directory %BASEDIR%/public>
+        <FilesMatch \.php$>
+            # For serving php files configure mod_proxy to talk to php-fpm using Apache 2.4.10 and higher.
+            # See: https://wiki.apache.org/httpd/PHP-FPM#apache_httpd_2.4
+
+            # For best performance, prefer socket use. This requires Linux, and that both Apache and PHP has access to
+            # the socket file `/var/run/php5-fpm.sock` via local file system and hence run on the same machine.
+            #SetHandler "proxy:unix:/var/run/php5-fpm.sock|fcgi://localhost/"
+            # For TCP usage, if you're not on Linux, or Apache and PHP are on separate machines, instead use fcgi: form.
+            # (Optionally hint php-fpm processes count using: https://wiki.apache.org/httpd/PHP-FPM#Proxy_via_handler)
+            #SetHandler "proxy:fcgi://localhost/:9000"
+
+            SetHandler "proxy:%FASTCGI_PASS%|fcgi://localhost/"
+        </FilesMatch>
+
+        Options FollowSymLinks
+        AllowOverride None
+        Require all granted
+    </Directory>
+
+    ## eZ Platform/Symfony ENVIRONMENT variables, for customizing index.php* execution
+    # * Only APP_ENV and APP_DEBUG supported by console command, rest are eZ Platform features in index.php.
+
+    # Environment.
+    # Possible values: "prod" and "dev" out-of-the-box, other values possible with proper configuration
+    # Defaults to "dev" if omitted (uses SetEnvIf so value can be used in rewrite rules)
+    #if[APP_ENV] SetEnvIf Request_URI ".*" APP_ENV=%APP_ENV%
+
+    # Optional: Whether to use debugging.
+    # Possible values: 0, 1 or ""
+    # Defaults to enabled if APP_ENV is set to "dev" if env value is omitted or empty
+    #if[APP_DEBUG] SetEnv APP_DEBUG "%APP_DEBUG%"
+
+    # Optional: Whether to use Symfony's builtin HTTP Caching Proxy.
+    # Disable it if you are using an external reverse proxy (e.g. Varnish)
+    # Possible values: 0, 1 or ""
+    # Defaults to disabled if APP_ENV is set to "dev" or TRUSTED_PROXIES is set,
+    # and if this env value is omitted or empty
+    #if[APP_HTTP_CACHE] SetEnv APP_HTTP_CACHE "%APP_HTTP_CACHE%"
+
+    # Optional: Defines the proxies to trust
+    # Needed when using Varnish as proxy, if so disable APP_HTTP_CACHE.
+    # Separate entries by a comma, example: "ip1,ip2"
+    # Defaults to not be set if env value is omitted or empty
+    #if[TRUSTED_PROXIES] SetEnv TRUSTED_PROXIES "%TRUSTED_PROXIES%"
+
+    # TIP: There are many more environment variables supported by eZ Platform. However unlike those listed above
+    #      they should in most cases rather be set in the environment then in vhost config to make sure cronjobs
+    #      and cli command usage takes them into account as well.
+
+    <IfModule mod_rewrite.c>
+        RewriteEngine On
+
+        # For FastCGI mode or when using PHP-FPM, to get basic auth working.
+        RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+        # Disable .php(3) and other executable extensions in the var directory
+        RewriteRule ^var/.*(?i)\.(php3?|phar|phtml|sh|exe|pl|bin)$ - [F]
+
+        # Cluster/streamed files rewrite rules. Enable on cluster with DFS as a binary data handler
+        RewriteCond %{ENV:BINARY_DATA_HANDLER} "dfs"
+        RewriteRule ^/var/([^/]+/)?storage/images(-versioned)?/.* /index.php [L]
+
+        RewriteRule ^/var/([^/]+/)?storage/images(-versioned)?/.* - [L]
+
+        # Makes it possible to placed your favicon and robots.txt at the root of your public folder
+        RewriteRule ^/favicon\.ico - [L]
+        RewriteRule ^/robots\.txt - [L]
+
+        # The following rules are needed to correctly display bundle and project assets
+        RewriteRule ^/bundles/ - [L]
+        RewriteRule ^/assets/ - [L]
+        RewriteRule ^/build/ - [L]
+
+        # Additional Assetic rules for environments different from dev,
+        # remember to run php bin/console assetic:dump --env=prod
+        RewriteCond %{ENV:APP_ENV} !^(dev)
+        RewriteRule ^/(css|js|fonts?)/.*\.(css|js|otf|eot|ttf|svg|woff) - [L]
+
+        # Prevent access to website with direct usage of index.php in URL
+        RewriteRule ^/([^/]+/)?index\.php([/?#]|$) - [R=404,L]
+
+        RewriteRule .* /index.php
+    </IfModule>
+
+    # Everything below is optional to improve performance by forcing
+    # clients to cache image and design files, change the expires time
+    # to suite project needs.
+    <IfModule mod_expires.c>
+        <LocationMatch "^/var/[^/]+/storage/images/.*">
+            # eZ Platform appends the version number to image URL (ezimage
+            # datatype) so when an image is updated, its URL changes too
+            ExpiresActive on
+            ExpiresDefault "now plus 10 years"
+        </LocationMatch>
+    </IfModule>
+
+    # Enable gzip encoding
+    <IfModule mod_deflate.c>
+        AddOutputFilterByType DEFLATE text/plain text/css application/json text/javascript application/javascript text/xml application/xml application/xml+rss
+        # NOTE: Using gzip on text/html can be a security issue. See http://breachattack.com.
+    </IfModule>
+</VirtualHost>
