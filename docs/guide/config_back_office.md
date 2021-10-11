@@ -197,6 +197,8 @@ ezplatform:
                 default_icon_set: my_icons
 ```
 
+For more information about configuring icons, see [Icon sets](../extending/custom_icons.md)
+
 ## Enable Commerce features
 
 The `commerce.enabled` setting responsible for displaying the eCommerce tab, Content and Field types for Commerce in the Back Office, is set to `false` by default.
