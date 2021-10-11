@@ -1,4 +1,4 @@
-# Configuring the Image Editor [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+# Configure the Image Editor [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 When a Content item contains Fields of the [ezimage](../api/field_types_reference/imagefield.md) or [ezimageasset](../api/field_types_reference/imageassetfield.md) type, users can perform basic image editing functions with the Image Editor.
 For more information, see the [user documentation]([[= user_doc =]]/editing_images/).
@@ -23,42 +23,7 @@ Image Editor settings are [SiteAccess-aware](config_dynamic.md).
 The following example sets the aspect ratio values and label names for buttons used by the Crop feature.
 
 ``` yaml
-system:
-    <siteaccess>:
-        image_editor:
-            action_groups:
-                default:
-                    id: default
-                    label: Default
-                    actions:
-                        (...)
-                        crop:
-                            id: crop
-                            priority: 1
-                            visible: true
-                            buttons:
-                                1-1:
-                                    label: 1:1
-                                    ratio:
-                                        x: 1
-                                        y: 1
-                                3-4:
-                                    label: 3:4
-                                    ratio:
-                                        x: 3
-                                        y: 4
-                                4-3:
-                                    label: 4:3
-                                    ratio:
-                                        x: 4
-                                        y: 3
-                                16-9:
-                                    label: 16:9
-                                    ratio:
-                                        x: 16
-                                        y: 9
-                                custom:
-                                    label: Custom
+[[= include_file('code_samples/back_office/image_editor/config/packages/ezplatform.yaml', 0, 37) =]]
 ```
 
 ### Image quality
@@ -69,10 +34,7 @@ The setting accepts values between 0 and 1, which corresponds to the compression
 The default quality is 0.92:
 
 ``` yaml
-system:
-    <scope>:
-        image_editor:
-            image_quality: 0.8
+[[= include_file('code_samples/back_office/image_editor/config/packages/ezplatform.yaml', 0, 4) =]] [[= include_file('code_samples/back_office/image_editor/config/packages/ezplatform.yaml', 37, 38) =]]
 ```
 
 ### Additional information
@@ -85,19 +47,5 @@ that you add by extending the Image Editor.
 To modify the value of additional information programmatically, you can set a value of the `Image` field by using the PHP API, for example:
 
 ``` php
-new FieldValue([
-     'data' => [
-         'width' => '100',
-         'height' => '200',
-         'alternativeText' => 'test',
-         'mime' => 'image/png',
-         'id' => 1,
-         'fileName' => 'image.png',
-         'additionalData' => [
-             'focalPointX' => 50,
-             'focalPointY' => 100,
-             'author' => 'John Smith',
-         ],
-     ],
- ]),
+[[= include_file('code_samples/back_office/image_editor/src/AdditionalInformation.php', 2, 17) =]]
 ```

@@ -195,7 +195,7 @@ nav:
             - Images:
               - 'Images': 'guide/images.md'
               - 'Configure the Image Editor': 'guide/image_editor.md'
-              - 'Extend the Image Editor': 'guide/image_editor.md'
+              - 'Extend the Image Editor': 'extending/extending_image_editor.md'
             - Rich Text:
                 - 'Extend Online Editor': 'extending/extending_online_editor.md'
                 - 'Create custom RichText blocks': 'extending/richtext_block.md'

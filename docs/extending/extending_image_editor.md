@@ -1,7 +1,7 @@
-# Extending Image Editor
+# Extend Image Editor
 
 With the Image Editor, users can do basic image modifications.
-You can [modify the Image Editor's default appearance or behavior](../guide/image_editor.md).
+You can configure the Image Editor's [default appearance or behavior](../guide/image_editor.md).
 You can also extend it by adding custom features.
 
 The following example shows how to extend the Image Editor
@@ -24,7 +24,7 @@ in `config/packages` either modify the `ezplatform.yaml` file, or create the `im
 by adding settings similar to the following example:
 
 ``` yaml
-[[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml') =]]
+[[= include_file('code_samples/back_office/image_editor/config/packages/ezplatform.yaml', 0, 10) =]][[= include_file('code_samples/back_office/image_editor/config/packages/ezplatform.yaml', 39, 42) =]]
 ```
 
 ## Add entry to the Webpack configuration
