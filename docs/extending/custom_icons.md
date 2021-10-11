@@ -33,6 +33,7 @@ The default icon size in the Back Office is `32px`. To change the default size, 
   <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
 </svg>
 ```
+
 `ez_icon_path` - deprecated
 `ibexa_icon_path` - allows to specify the path to to icons. free licence and paid licence.
 community, public icons
