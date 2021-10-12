@@ -300,7 +300,7 @@ for information on how to do it on different systems.
 
 Prepare a [virtual host configuration](https://httpd.apache.org/docs/2.4/vhosts/) for your site.
 
-You can copy [the example vhost file](https://github.com/ezsystems/developer-documentation/tree/master/code_samples/install/vhost_template/vhost.template)
+You can copy [the example vhost file](https://github.com/ezsystems/developer-documentation/tree/3.3/code_samples/install/vhost_template/vhost.template)
 to `/etc/apache2/sites-available` as a `.conf` file and modify it to fit your project.
 
 Specify `/<your installation directory>/public` as the `DocumentRoot` and `Directory`.
