@@ -149,6 +149,14 @@ Then, perform a database upgrade relevant to the version you are updating to.
 
 ### v3.3.7
 
+#### Commerce configuration
+
+If you are using Commerce, run the following migration action to update the way Commerce configuration is stored:
+
+``` bash
+php bin/console ibexa:migrations:migrate --file=src/bundle/Resources/install/migrations/content/Components/move_configuration_to_settings.yaml
+```
+
 #### Database update
 
 Run the following scripts:
