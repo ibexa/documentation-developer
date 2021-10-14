@@ -702,4 +702,3 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
   - pymdownx.details
-  - ez_code_example
