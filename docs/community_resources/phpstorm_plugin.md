@@ -30,23 +30,25 @@ and select the downloaded file.
 
 ## Plugin configuration
 
-Plugin configuration is available under PhpStorm settings/preferences (depending on your system), 
-select **PHP** > **Frameworks** > **Ibexa DXP** and allows to
+Plugin configuration is available in PhpStorm settings/preferences (depending on your system), 
+under **PHP** > **Frameworks** > **Ibexa DXP**.
 
-* Enable and disable plugin features for current project
-* Change product edition and version by current project
+You can use it to:
+
+- Enable and disable plugin features for the current project
+- Change product edition and version by the current project
 
 ![Intention](img/phpstorm_plugin_settings.png)
 
 !!! note
 
-    Some plugin features depends on selected product edition and version are selected e.g. 
-    "deprecated namespaces usage" inspection is enabled only if project use 4.x product version.  
+    Some plugin features depends on the selected product edition and version. 
+    For example, "deprecated namespaces usage" inspection is enabled only if the project uses v4.x.  
 
-Plugin configuration is automatically resolved while opening Ibexa DXP project for the first time. If detection 
-completed successfully, suitable notification will appear with "Enable Ibexa DXP support for this project" link.
+Plugin configuration is automatically resolved when opening Ibexa DXP project for the first time.
+If detection is successful, a notification appears with an "Enable Ibexa DXP support for this project" link.
 
-If project was created using Ibexa DXP project wizard, plugin will be automatically enabled and configured based 
+If you created your project by using Ibexa DXP project wizard, the plugin is automatically enabled and configured based 
 on wizard data.
 
 ## Features
@@ -61,7 +63,7 @@ In project settings form you can choose:
 - Location of the project
 - Product edition: Ibexa OSS, Ibexa Content, Ibexa Experience, Ibexa Commerce
 - Authentication token (for Content, Experience and Commerce editions)
-- Product version: Default (latest LTS version), Latest (fast track or LTS), Latest LTS and "Next 3.x" (unstable, based on 3.x branch) and "Next 4.x" (unstable, base on 4.x branch)
+- Product version: Default (latest LTS version), Latest (fast track or LTS), Latest LTS and "Next 3.x" (unstable, based on the 3.x branch) and "Next 4.x" (unstable, based on the 4.x branch)
 - Generate [Ibexa Cloud configuration](getting_started/install_on_ibexa_cloud) 
 - Composer settings
 
@@ -210,22 +212,22 @@ Parameter names suggestions are available in `\eZ\Publish\Core\MVC\ConfigResolve
 Suggested results take into account namespace argument, if its value can be resolved without running interpreter
 (for example, string literal or const reference).
 
-### Query Types names autocompletion
+### Query type name autocompletion
 
-Query Types names suggestions are available in `\eZ\Publish\Core\QueryType\QueryTypeRegistry::getQueryType` method calls.
+Query type name suggestions are available in `\eZ\Publish\Core\QueryType\QueryTypeRegistry::getQueryType` method calls.
 
-Suggestions are based services definition tagged as `ezplatform.query_type`.
+Suggestions are based on service definitions tagged as `ezplatform.query_type`.
 
-### Query Types parameters autocompletion
+### Query type parameter autocompletion
 
-Parameter names suggestions are available for query types implementing `\eZ\Publish\Core\QueryType\QueryType` interface
-or extending `\eZ\Publish\Core\QueryType\OptionsResolverBasedQueryType` class in the following places:
+Parameter name suggestions are available for Query types which implement the `eZ\Publish\Core\QueryType\QueryType` interface
+or extend the `eZ\Publish\Core\QueryType\OptionsResolverBasedQueryType` class in the following places:
 
 * `\eZ\Publish\Core\QueryType\QueryType::getQuery` method calls
 * `\eZ\Publish\Core\QueryType\QueryType::getQuery` method definition
 * `\eZ\Publish\Core\QueryType\OptionsResolverBasedQueryType::doGetQuery` method definition 
 
-![File template](img/phpstorm_plugin_query_type_params.png)
+![Query Type parameter autocompletion](img/phpstorm_plugin_query_type_params.png)
 
 ### Intentions and inspections
 
