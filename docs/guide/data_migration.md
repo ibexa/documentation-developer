@@ -43,14 +43,15 @@ Below you can see part of the output of the default Ibexa DXP installation.
     mode: create
     metadata:
         contentType: user_group
-        mainTranslation: eng-US
+        mainTranslation: eng-GB
         creatorId: 14
-        modificationDate: '2002-10-06T15:19:56+00:00'
-        publicationDate: '2002-10-06T15:19:56+00:00'
+        modificationDate: '2002-10-06T17:19:56+02:00'
+        publicationDate: '2002-10-06T17:19:56+02:00'
         remoteId: f5c88a2209584891056f987fd965b0ba
         alwaysAvailable: true
-        section: 2
-        objectStates: {  }
+        section:
+            id: 2
+            identifier: users
     location:
         parentLocationId: 1
         parentLocationRemoteId: null
@@ -62,13 +63,12 @@ Below you can see part of the output of the default Ibexa DXP installation.
     fields:
         -
             fieldDefIdentifier: name
-            languageCode: eng-US
+            languageCode: eng-GB
             value: Users
         -
             fieldDefIdentifier: description
-            languageCode: eng-US
+            languageCode: eng-GB
             value: 'Main group'
-    actions: {  }
     references:
         -
             name: ref__content__user_group__users
@@ -97,7 +97,7 @@ They are particularly useful combined with `match-property`.
 This option is automatically added as part of `match` expression in the update/delete migration:
 
 ``` bash
-bin/console ibexa:migrations:generate --type=content_type --mode=update --match-property=content_type_identifier --value=article
+php bin/console ibexa:migrations:generate --type=content_type --mode=update --match-property=content_type_identifier --value=article
 ```
 
 ```yaml
@@ -357,9 +357,11 @@ You can find which migration steps support actions in the table below:
 
 ||`create`|`update`|`delete`|
 |---|:---:|:---:|:---:|
-|`content`|&#10004;|||
-|`content_type`||&#10004;||
+|`content`|&#10004;|&#10004;|&#10004;|
+|`content_type`|&#10004;|&#10004;|&#10004;|
 |`role`|&#10004;|&#10004;||
+|`user`|&#10004;|&#10004;||
+|`user_group`|&#10004;|||
 
 Actions are optional operations that can be run after the main "body" of a migration has been executed
 (that is, content has been created / updated, Object state has been added, and so on).
@@ -389,8 +391,23 @@ When executed, this migration:
 - Removes the `short_title` Field
 - Removes its existing drafts, if any.
 
+### Available migration actions
+
+The following migration actions are available out of the box:
+
+- `assign_object_state`
+- `assign_parent_location`
+- `assign_content_type_group`
+- `remove_drafts`
+- `remove_field_by_identifier`
+- `unassign_content_type_group`
+- `assign_role_to_user`
+- `assign_role_to_user_group`
+- `assign_user_to_role`
+- `assign_user_group_to_role`
+
 In contrast with Kaliop migrations, actions provide you with ability to perform additional operations and extend
-the migration functionality. See [creating your own Actions](#creating-your-own-actions)
+the migration functionality. See [creating your own Actions](#creating-your-own-actions).
 
 ## References
 
