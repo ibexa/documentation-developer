@@ -200,7 +200,8 @@ nav:
                 - 'Extend Online Editor': 'extending/extending_online_editor.md'
                 - 'Create custom RichText blocks': 'extending/richtext_block.md'
                 - 'Create Online Editor button': 'extending/online_editor_button.md'
-#                - 'Create Online Editor plugin': 'extending/online_editor_plugin.md'            - 'File management': 'guide/file_management.md'
+                - 'Create Online Editor plugin': 'extending/online_editor_plugin.md'            
+            - 'File management': 'guide/file_management.md'
             - Page:
                 - 'Page blocks': 'guide/page/page_blocks.md'
                 - 'Page block attributes': 'guide/page/page_block_attributes.md'
@@ -526,7 +527,6 @@ nav:
             - 'Extending Back Office': 'extending/extending_back_office.md'
             - 'Reusable Back Office templates': 'extending/reusable_back_office_templates.md'
             - 'Extending date and time': 'extending/extending_date_and_time.md'
-            - 'Creating custom RichText blocks': 'extending/richtext_block.md'
             - 'Creating custom drop-downs': 'extending/creating_custom_dropdowns.md'
             - 'Creating custom icons': 'extending/custom_icons.md'
             - 'Extending thumbnails': 'extending/extending_thumbnails.md'
