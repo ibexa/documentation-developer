@@ -5,4 +5,3 @@ Markdown>=3.2.1
 mkdocs-material>=7.2.4
 mkdocs-macros-plugin>=0.5.12
 Jinja2>=2.10
-file:./extension#egg=mdx_ez_code_example
