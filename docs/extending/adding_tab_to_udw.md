@@ -70,7 +70,7 @@ Create a service for fetching the images by adding `images.service.js` to `asset
 Next, create an image list by adding an `images.list.js` to `assets/js/image-tab/components/`:
 
 ```js
-[[= include_file('code_samples/back_office/udw/assets/js/image-tab/components/image.list.js') =]]
+[[= include_file('code_samples/back_office/udw/assets/js/image-tab/components/images.list.js') =]]
 ```
 
 ### `image.js`

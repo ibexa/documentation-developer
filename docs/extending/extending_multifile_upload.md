@@ -1,4 +1,4 @@
-# Extending Multi-file Upload
+# Multi-file upload
 
 The Multi-file Upload module is meant to be used as a part of editorial interface of [[= product_name =]].
 It provides an interface to publish content based on dropped files while uploading them in the interface.
@@ -10,7 +10,7 @@ It provides an interface to publish content based on dropped files while uploadi
 
 ## How to use it?
 
-With vanilla JS:
+With Vanilla JS:
 
 ``` js
 React.createElement(eZ.modules.MultiFileUpload, {

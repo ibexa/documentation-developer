@@ -1,7 +1,6 @@
-# Extending Universal Discovery Widget
+# Browser
 
-Universal Discovery Widget (UDW) allows you to browse the content structure and search for content
-using an interactive interface: browse, search, create, and bookmarks view.
+Universal Discovery Widget (UDW) allows you to search and browse the content structure using an interactive interface: browse, search, create, and bookmarks view.
 
 ## How to use UDW?
 
@@ -13,9 +12,9 @@ UDW requires that you provide configuration by using the `ez_udw_config` Twig he
 </button>
 ```
 
-> `single` configuration is one of the default configuration provided. You can also do your [own configuration](#Adding-new-configuration).
+> `single` configuration is one of the default configuration provided. You can also do your [own configuration](#adding-new-configuration).
 
-With vanilla JS:
+With Vanilla JS:
 
 ``` js
 const container = document.querySelector('#react-udw');
@@ -81,7 +80,7 @@ There you can set the following properties:
 
 ### Tabs Config Group
 
-General configuration for tabs e.g. browse, search, bookmarks etc.
+General configuration for tabs, for example, browse, search, bookmarks and so on.
 
 |YML</br>React props|Values|Required|Definition|
 |-------------------|------|--------|----------|

@@ -1,4 +1,4 @@
-# Extending Sub-items List
+# Extending Sub-items list
 
 The Sub-items List module is meant to be used as a part of the editorial interface of [[= product_name =]].
 It provides an interface for listing the sub-items of any Location.
@@ -10,7 +10,7 @@ It provides an interface for listing the sub-items of any Location.
 
 ## How to use it?
 
-With vanilla JS:
+With Vanilla JS:
 
 ``` js
 const containerNode = document.querySelector('#sub-items-container');
@@ -43,7 +43,7 @@ const attrs = {
 
 ## Properties list
 
-The `<SubItemsModule />` module can handle additional properties. There are 2 types of properties: **required** and **optional**. All of them are listed below.
+The `<SubItemsModule />` module can handle additional properties. There are two types of properties: **required** and **optional**. All of them are listed below.
 
 ### Required props
 
@@ -60,12 +60,12 @@ Without all the following properties the Sub-items module will not work.
 
 Optionally, Sub-items module can take a following list of props:
 
-- **loadContentInfo** _{Function}_ - loads Content item info. Takes 2 params:
+- **loadContentInfo** _{Function}_ - loads Content item info. Takes two params:
     - **contentIds** _{Array}_ - list of content IDs
     - **callback** _{Function}_ - a callback invoked when content info is loaded
 - **loadContentTypes** _{Function}_ - loads Content Types. Takes one param:
     - **callback** _{Function}_ - callback invoked when Content Types are loaded
-- **loadLocation** _{Function}_ - loads Location. Takes 4 params:
+- **loadLocation** _{Function}_ - loads Location. Takes four params:
     - **restInfo** _{Object}_ - REST info params:
         - **token** _{String}_ - the user token
         - **siteaccess** _{String}_ - the current SiteAccess
@@ -73,9 +73,9 @@ Optionally, Sub-items module can take a following list of props:
         - **locationId** _{Number}_ - Location ID
         - **limit** _{Number}_ - Content item limit
         - **offset** _{Number}_ - items offset
-        - **sortClauses** _{Object}_ - the Sort Clauses, e.g. {LocationPriority: 'ascending'}
+        - **sortClauses** _{Object}_ - the Sort Clauses, for example, {LocationPriority: 'ascending'}
     - **callback** _{Function}_ - callback invoked when Location is loaded
-- **updateLocationPriority** - updates item Location priority. Takes 2 params:
+- **updateLocationPriority** - updates item Location priority. Takes two params:
     - **params** _{Object}_ - parameters hash containing:
         - **priority** _{Number}_ - priority value
         - **location** _{String}_ - REST Location ID
