@@ -5,13 +5,13 @@ in the Content box of a Page, by using the Online Editor.
 
 You can extend the Online Editor by adding custom tags and styles, defining custom 
 data attributes, re-arranging existing buttons, grouping buttons into custom toolbars, 
-and creating [custom buttons](extending/online_editor_button.md) and 
-[custom plugins](extending/online_editor_plugin.md).
+and creating [custom buttons](online_editor_button.md) and 
+[custom plugins](online_editor_plugin.md).
 
 Online Editor is based on the Alloy Editor.
 Refer to [Alloy Editor documentation](https://alloyeditor.com/docs/develop/) to learn 
 how you can extend the Online Editor with even more elements.
-For more information about extending the admin UI, see [Extend Back Office](extending/extending_back_office.md).
+For more information about extending the admin UI, see [Extend Back Office](extending_back_office.md).
 
 !!! note
 
@@ -37,12 +37,12 @@ the built-in ones.
 You configure custom tags in the `ezplatform.yaml` file, under the `ezrichtext` key.
 
 For more information about how you apply them in your installation, see 
-[Create a custom tag](../../tutorials/extending_admin_ui/4_adding_a_custom_tag.md).
+[Create a custom tag](../tutorials/extending_admin_ui/4_adding_a_custom_tag.md).
 
 Start preparing the tag by adding a configuration file to the `config` folder. 
 
 ```yaml
-[[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 21, 35) =]]
+[[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 0, 21) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 23, 37) =]]
 ```
 
 Custom tags can have as many attributes as needed.
@@ -60,7 +60,7 @@ Place the `ezfactbox.html.twig` template in the
 
 !!! tip
 
-    If an attribute is not required, verify whether it is defined by adding a check 
+    If an attribute is not required, check if it is defined by adding a check 
     in the template, for example:
 
     ```html+twig
@@ -86,7 +86,7 @@ In the Online Editor, click **Add**, and from the list of available tags select 
 You can also place Custom tags inline with the following configuration:
 
 ``` yaml hl_lines="6"
-[[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 22, 24) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 53, 59) =]]
+[[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 23, 25) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 54, 60) =]]
 ```
 
 `is_inline` is an optional key.
@@ -106,13 +106,13 @@ You can only use inline custom tags in the `text` toolbar.
 
 #### Link tag
 
-You can also configure a custom tag with a `link` attribute that offers a basic UI with text input.
+You can configure a custom tag with a `link` attribute that offers a basic UI with text input.
 It is useful when migrating from eZ Publish to [[= product_name =]].
 
 The configuration in `app/config/custom_tags.yaml` is:
 
-```yaml hl_lines="24 25"
-[[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 0, 5) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 21, 23) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 23, 25) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 60, 67) =]]
+```yaml hl_lines="23 24"
+[[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 0, 5) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 21, 22) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 23, 25) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 37, 54) =]]
 ```
 
 Provide your own files for the Twig template and the icon.
@@ -180,11 +180,11 @@ The styles are available in the text toolbar when a section of text is selected.
 There are two kinds of custom styles: block and inline.
 Inline styles apply to the selected portion of text only, while block styles apply to the whole paragraph.
 
-The feature depends on [Alloy Editor styles](https://alloyeditor.com/docs/features/styles.html).
+!!! note
 
-### Configuration
+    The feature depends on [Alloy Editor styles](https://alloyeditor.com/docs/features/styles.html).
 
-The system expects two kinds of configuration:
+Start creating a custom style by providing configuration:
 
 - a global list of custom styles, defined under the node `ezrichtext.custom_styles`,
 - a list of enabled custom styles for a given Admin SiteAccess or Admin SiteAccess group, located under the node `ezplatform.system.<scope>.fieldtypes.ezrichtext.custom_styles`
@@ -197,7 +197,7 @@ A sample configuration could look as follows:
 
 !!! note
 
-    Currently, defining these lists for a front site SiteAccess has no effect.
+    Currently, if you define these lists for a front site SiteAccess, it has no effect.
 
 Add labels for the new styles by providing translations in `translations/custom_tags.en.yaml`:
 
@@ -230,7 +230,7 @@ Templates for Content View in the Back Office would be `templates/themes/admin/f
 
 #### Note box
 
-You can create a custom style that will place a paragraph in a note box:
+You can create a custom style that places a paragraph in a note box:
 
 ![Example of a note box custom style](img/oe_custom_style_note_box.png)
 
@@ -267,7 +267,7 @@ ezrichtext.custom_styles.note_box.label: 'Note box'
 
 !!! tip
 
-    You can also create a similar note box using [custom classes](#note-box_1).
+    You can also create a similar note box with [custom classes](#note-box_1).
 
 #### Text highlight
 
@@ -350,7 +350,7 @@ Use the example below to add two data attributes, `custom_attribute` and
 [[= include_file('code_samples/back_office/online_editor/config/packages/custom_data_attributes.yaml') =]]
 ```
 
-Such configuration outputs `data-ezattribute-<attribute_name>="<value>"` in the 
+The configuration outputs `data-ezattribute-<attribute_name>="<value>"` in the 
 corresponding HTML element.
 Here, the resulting values are `data-ezattribute-custom-attribute="false"` and 
 `data-ezattribute-another-attribute="attr1,attr2"`.
@@ -364,24 +364,24 @@ You must provide the available `choices`.
 You can also set the values for `required`, `default_value` and `multiple`.
 `multiple` is set to true by default.
 
-The example below adds a class choice to the Paragraph element:
+Use the example below to add a class choice to the Paragraph element:
 
 ``` yaml
 [[= include_file('code_samples/back_office/online_editor/config/packages/custom_classes.yaml', 0, 12) =]]
 ```
 
-### Label translations
+!!! note "Label translations"
 
-If there are many custom attributes, to provide label translations for these 
-attributes, you can use the `ez_online_editor_attributes` translation extractor 
-to get a full list of all custom attributes for all elements in all scopes.
+    If there are many custom attributes, to provide label translations for these 
+    attributes, you can use the `ez_online_editor_attributes` translation extractor 
+    to get a full list of all custom attributes for all elements in all scopes.
 
-For example:
+    For example:
 
-``` bash
-php ./bin/console translation:extract --enable-extractor=ez_online_editor_attributes
-    --dir=./templates --output-dir=./translations/ --output-format=yaml
-```
+    ``` bash
+    php ./bin/console translation:extract --enable-extractor=ez_online_editor_attributes
+        --dir=./templates --output-dir=./translations/ --output-format=yaml
+    ```
 
 ### Use cases
 
@@ -405,7 +405,7 @@ You can then style the class by using CSS.
 
 !!! tip
 
-    You can also create a similar note box using [custom styles](#note-box).
+    You can also create a similar note box with [custom styles](#note-box).
 
 ## Rearrange buttons
 
@@ -423,7 +423,8 @@ For a full list of standard buttons, see the RichText module's [configuration fi
 
 !!! tip
 
-    You can also [create your own custom buttons](online_editor_button.md).
+    You can also add your own buttons to the Online Editor.
+    For more information, see [Create Online Editor button](online_editor_button.md).
 
 ## Create custom toolbars
 
@@ -464,7 +465,7 @@ ezrichtext:
 The name of a plugin must be the same as the one that is passed to the 
 `CKEDITOR.plugins.add` method in the [plugin's source code](https://ckeditor.com/docs/ckeditor4/latest/guide/plugin_sdk_sample.html#plugin-source-code).
 
-!!! note "Supported changes to xhtml5"
+!!! caution "Supported changes to xhtml5"
 
     When a plugin changes the RichText input (in xhtml5 edit DocBook format), the 
     changes must be [supported by the RichText Field Type](../api/field_types_reference/richtextfield.md#input-formats).
@@ -473,5 +474,7 @@ The name of a plugin must be the same as the one that is passed to the
     Otherwise, it could result in either XML validation error or could be omitted 
     by the RichText processor.
 
-You can also add your own plugins to the Online Editor.
-For more information, see [Creating Online Editor plugin](online_editor_plugin.md).
+!!! tip
+
+    You can also add your own plugins to the Online Editor.
+    For more information, see [Creating Online Editor plugin](online_editor_plugin.md).
