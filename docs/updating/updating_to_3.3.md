@@ -181,6 +181,10 @@ php bin/console ibexa:graphql:generate-schema
 composer run post-install-cmd
 ```
 
+## Notify Support
+
+Please tell Support that you have updated your installation. They will update your support portal to match the new version. This ensures that you will receive notification about new maintenance releases and security advisories for the correct version. You can contact Support at support@ibexa.co.
+
 ## Update to v3.3.x
 
 !!! note
