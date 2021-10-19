@@ -413,7 +413,7 @@ You can modify the order and visibility of buttons that are available in the
 Online Editor toolbar through configuration:
 
 ``` yaml
-[[= include_file('code_samples/back_office/online_editor/config/packages/custom_buttons.yaml') =]]
+[[= include_file('code_samples/back_office/online_editor/config/packages/custom_buttons.yaml', 0, 12) =]]
 ```
 
 For each button you can set `priority`, which defines the order of buttons in 

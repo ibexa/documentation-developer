@@ -198,9 +198,9 @@ nav:
               - 'Extend the Image Editor': 'extending/extending_image_editor.md'
             - Rich Text:
                 - 'Extend Online Editor': 'extending/extending_online_editor.md'
-                - 'Create custom RichText blocks': 'extending/richtext_block.md'
                 - 'Create Online Editor button': 'extending/online_editor_button.md'
                 - 'Create Online Editor plugin': 'extending/online_editor_plugin.md'            
+                - 'Create custom RichText blocks': 'extending/richtext_block.md'
             - 'File management': 'guide/file_management.md'
             - Page:
                 - 'Page blocks': 'guide/page/page_blocks.md'
