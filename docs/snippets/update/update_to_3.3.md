@@ -33,14 +33,15 @@ If you have not done it before, add the relevant meta-repository as an `upstream
 
 ### A. Merge composer.json
 
-Merge the special `v3.2-to-v3.3-upgrade` update branch into your project:
+Merge the current skeleton into your project. For example, for Ibexa Content run:
 
-```
-git pull upstream v3.2-to-v3.3-upgrade
+``` bash
+git remote add content-skeleton https://github.com/ibexa/content-skeleton.git
+git fetch content-skeleton --tags
+git merge v[[= latest_tag =]] --allow-unrelated-histories
 ```
 
-This will introduce changes from the [website skeleton](https://github.com/ibexa/website-skeleton/blob/main/composer.json)
-and result in conflicts in `composer.json`.
+This introduces changes from the relevant website skeleton and results in conflicts in `composer.json`.
 
 Resolve the conflicts in the following way:
 
@@ -48,25 +49,6 @@ Resolve the conflicts in the following way:
 - Review the rest of the packages. If your project requires a package, keep it.
 - If a package is only used as a dependency of an `ezsystems` package, remove it. You can check how the package is used with `composer why <packageName>`.
 - Keep the dependencies listed in the website skeleton.
-
-Make sure `extra.symfony.endpoint` is set to `https://flex.ibexa.co`, and `extra.symfony.require` to `*`:
-
-``` json
-"require": "*",
-"endpoint": "https://flex.ibexa.co"
-```
-
-For all dependencies that you removed from `composer.json`, check if the `bin` folder contains files that will not be used and remove them, for example:
-
-``` bash
-rm bin/{ezbehat,ezreport,phpunit,behat,fastest}
-```
-
-Add your Ibexa DXP edition to `composer.json`, for example:
-
-```
-composer require ibexa/experience:^3.3 --no-update
-```
 
 !!! caution
 
@@ -83,35 +65,7 @@ composer update
 
 If Composer informs you that the `composer.lock` file is out of date, run `composer update` again.
 
-### C. Update recipes for third party packages
-
-Run `composer recipes` to get a list of all the available recipes.
-
-For every recipe that needs updating, run:
-
-``` bash
-composer sync-recipes <package_name> --force -v
-```
-
-Review changes from each package and integrate them into your project.
-
-### D. Install Ibexa recipes
-
-Install recipes for Ibexa packages for your product edition, for example:
-
-``` bash
-composer recipes:install ibexa/experience --force -v
-```
-
-Review the changes and add them to your project.
-
-Then, run the post-installation command:
-
-``` bash
-composer run post-install-cmd
-```
-
-### E. Configure the web server
+### C. Configure the web server
 
 Add the following rewrite rule to your web server configuration:
 
