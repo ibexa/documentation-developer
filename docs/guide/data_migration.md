@@ -395,16 +395,16 @@ When executed, this migration:
 
 The following migration actions are available out of the box:
 
-- `assign_object_state`
-- `assign_parent_location`
-- `assign_content_type_group`
-- `remove_drafts`
-- `remove_field_by_identifier`
-- `unassign_content_type_group`
-- `assign_role_to_user`
-- `assign_role_to_user_group`
-- `assign_user_to_role`
-- `assign_user_group_to_role`
+- `assign_object_state` (Content Create)
+- `assign_parent_location` (Content Create / Update)
+- `assign_content_type_group` (Content Type Create / Update)
+- `remove_drafts` (Content Type Update)
+- `remove_field_by_identifier` (Content Type Update)
+- `unassign_content_type_group` (Content Type Update)
+- `assign_role_to_user` (Role Create / Update)
+- `assign_role_to_user_group` (Role Create / Update)
+- `assign_user_to_role` (User Create / Update)
+- `assign_user_group_to_role` (User Group Create / Update)
 
 In contrast with Kaliop migrations, actions provide you with ability to perform additional operations and extend
 the migration functionality. See [creating your own Actions](#creating-your-own-actions).
