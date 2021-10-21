@@ -12,7 +12,6 @@ import React, { useContext } from 'react';
             </div>
         );
     };
-    
 eZ.addConfig(
     'adminUiConfig.universalDiscoveryWidget.tabs',
     [

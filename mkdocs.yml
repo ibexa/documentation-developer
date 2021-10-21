@@ -517,21 +517,33 @@ nav:
             - 'Security checklist': 'guide/security_checklist.md'
             - 'Reporting Issues': 'guide/reporting_issues.md'
         - 'Notifications': 'guide/sending_notifications.md'
-    - Extending Ibexa DXP:
-        - Extending Back Office:
-            - 'Extending Back Office': 'extending/extending_back_office.md'
-            - 'Reusable Back Office templates': 'extending/reusable_back_office_templates.md'
+    - Extend Back Office:
+        - Back Office: 'extending/extending_back_office.md'
+        - Back Office elements:
+            - 'Reusable components': 'extending/reusable_back_office_templates.md'
+            - 'Custom drop-downs': 'extending/creating_custom_dropdowns.md'
+            - 'Custom icons': 'extending/custom_icons.md'
+            - 'Create drag and drop': 'extending/drag_and_drop.md'
+            - 'Custom components': 'extending/custom_components.md'
             - 'Extending date and time': 'extending/extending_date_and_time.md'
             - 'Creating custom RichText blocks': 'extending/richtext_block.md'
-            - 'Creating custom drop-downs': 'extending/creating_custom_dropdowns.md'
-            - 'Creating custom icons': 'extending/custom_icons.md'
-            - 'Extending thumbnails': 'extending/extending_thumbnails.md'
-            - 'Injecting custom components': 'extending/custom_components.md'
+            - 'Extending thumbnails': 'extending/extending_thumbnails.md'         
             - 'Import assets from a bundle': 'extending/import_assets_from_bundle.md'
+        - 'Extend dashboard with X': 'extending/extending_dashboard.md'
+        - Back Office menus:
+            - 'Back Office menus': 'extending/extending_menus.md'
+            - 'Extend menu X': ''
         - Back Office tabs:
             - 'Back Office tabs':  'extending/tabs/back_office_tabs.md'
             - 'Add dashboard tab': 'extending/tabs/add_dashboard_tab.md'
-        - Back Office menus:
+        - 'Add setting': 'extending/extending_settings.md'
+        - 'Add events to calendar': 'extending/customizing_calendar.md'
+        - 'Browser':
+            - 'Browser': 'extending/extending_udw.md'
+            - 'Add browser tab': 'extending/adding_tab_to_udw.md'
+        - 'Multi-file upload': 'extending/extending_multifile_upload.md'
+        - 'Sub-items list': 'extending/extending_subitems_list.md'
+        
             - 'Back Office menus': 'extending/menus/back_office_menus.md'
             - 'Add menu item': 'extending/menus/add_menu_item.md'
         - 'Add user setting': 'extending/add_user_setting.md'
@@ -541,12 +553,8 @@ nav:
             - 'Extending Online Editor': 'extending/extending_online_editor.md'
             - 'Creating Online Editor button': 'extending/online_editor_button.md'
             - 'Creating Online Editor plugin': 'extending/online_editor_plugin.md'
-        - 'Extending Modules':
-            - 'Extending UDW': 'extending/extending_udw.md'
-            - 'Creating a UDW tab': 'extending/adding_tab_to_udw.md'
-            - 'Extending Multi-file Upload': 'extending/extending_multifile_upload.md'
-            - 'Extending Sub-items List': 'extending/extending_subitems_list.md'
-            - 'Creating drag and drop interface': 'extending/drag_and_drop.md'
+       
+            
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'
         - 'Release process and roadmap': 'community_resources/release_process.md'

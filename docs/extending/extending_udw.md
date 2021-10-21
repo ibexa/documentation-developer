@@ -41,13 +41,13 @@ const config = /* fetch the config somewhere */;
 <UniversalDiscoveryModule {...props} {...config} />
 ```
 
-## Adding new tabs to the UDW
+## Add new tabs to UDW
 
-The Universal Discovery Widget enables you to add new tabs to the module. To learn more, see [Creating a UDW tab tutorial](adding_tab_to_udw.md).
+The Universal Discovery Widget enables you to add new tabs to the module. To learn how to add new tabs, see [Creating a UDW tab tutorial](adding_tab_to_udw.md).
 
 ## Configuration
 
-You can configure Universal Discovery Widget in the [`universal_discovery_widget.yaml`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/universal_discovery_widget.yaml) file.
+You can configure UDW in the [`universal_discovery_widget.yaml`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/universal_discovery_widget.yaml) file.
 
 There you can set the following properties:
 
@@ -63,7 +63,7 @@ There you can set the following properties:
 |active_sort_order</br>`activeSortOrder`|ascending</br>descending|no|Sorting order of the children in the Content Tree.|
 |active_tab</br>`activeTab`|browse</br>search</br>bookmarks|no|Starting tab in the UDW.|
 |active_view</br>`activeView`|finder</br>grid|no|Starting view in the UDW.|
-|allow_redirects</br>`allowRedirects`|true</br>false|yes|Allows to redirect content from the UDW tab to another page, e.g. to Content Edit page.|
+|allow_redirects</br>`allowRedirects`|true</br>false|yes|Allows to redirect content from the UDW tab to another page, for example, to Content Edit page.|
 |selected_locations</br>`selectedLocations`|[]</br>[locationId]|no|Location that will be selected automatically.|
 |allow_confirmation</br>`allowConfirmation`|true</br>false|yes|Shows confirmations buttons in the UDW. If set to false, it will not be possible to confirm selection.|
 
@@ -80,76 +80,32 @@ There you can set the following properties:
 
 ### Tabs Config Group
 
-General configuration for tabs, for example, browse, search, bookmarks and so on.
+General configuration for tabs, for example, browse, search, bookmarks.
 
 |YML</br>React props|Values|Required|Definition|
 |-------------------|------|--------|----------|
-|items_per_page</br>`itemsPerPage`|number|yes|Number of items that will be shown on one page.|
-|priority</br>`priority`|number|yes|Priority of items shown in the tab list. Item with a highest value will be displayed as first.|
+|items_per_page</br>`itemsPerPage`|number|yes|Number of items shown on one page.|
+|priority</br>`priority`|number|yes|Priority of items shown in the tab list. Item with a highest value is displayed as first.|
 |hidden</br>`hidden`|true</br>false|yes|Hides or reveals specific tabs.|
 
 ### Configuration available only through JS
 
 |React props|Values|Required|Definition|
 |-----------|------|--------|----------|
-|`onConfirm`|function|yes|A callback to be invoked when a user clicks on the confirm button in a Universal Discovery Widget.|
-|`onCancel`|function|yes|A callback to be invoked when a user clicks on the cancel button in a Universal Discovery Widget.|
+|`onConfirm`|function|yes|A callback to be invoked when a user clicks the confirm button in a Universal Discovery Widget.|
+|`onCancel`|function|yes|A callback to be invoked when a user clicks the cancel button in a Universal Discovery Widget.|
 |`title`|string|yes|The title of Universal Discovery Widget.|
 
-UDW configuration is SiteAccess-aware. For each defined SiteAccess, you need to be able to use the same configuration tree in order to define SiteAccess-specific config.
+UDW configuration is SiteAccess-aware. For each defined SiteAccess, you need to be able to use the same configuration tree to define SiteAccess-specific config.
 These settings need to be mapped to SiteAccess-aware internal parameters that 
 you can retrieve with the [ConfigResolver](../guide/config_dynamic.md#configresolver).
 
-### Example configuration
-
-Default configuration of [the Universal Discovery Widget:](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/universal_discovery_widget.yaml)
-
-```yaml
-system:
-    default:
-        universal_discovery_widget_module:
-            configuration:
-                # Default UDW Configuration
-                _default:
-                    multiple: false
-                    multiple_items_limit: 0
-                    root_location_id: 1
-                    starting_location_id: 1
-                    containers_only: false
-                    allowed_content_types: null
-                    active_sort_clause: 'DatePublished'
-                    active_sort_order: 'ascending'
-                    active_tab: 'browse'
-                    active_view: 'finder'
-                    allow_redirects: false
-                    allow_confirmation: true
-                    content_on_the_fly:
-                        allowed_languages: null
-                        allowed_locations: null
-                        preselected_language: null
-                        preselected_content_type: null
-                        hidden: false
-                        auto_confirm_after_publish: false
-                    tabs_config:
-                        search:
-                            items_per_page: 50
-                            priority: 10
-                            hidden: false
-                        bookmarks:
-                            items_per_page: 50
-                            priority: 20
-                            hidden: false
-                        browse:
-                            items_per_page: 50
-                            priority: 30
-```
-
-## Adding new configuration
+## Add new configuration
 
 UDW configuration can change dynamically depending on occurring events.
-It can be used e.g. for defining which content should be exposed to a user after logging in.
+It can be used for example, for defining which content should be exposed to a user after logging in.
 
-By default only one element from configuration file is applied to Universal Discovery Widget.
+By default, only one element from configuration file is applied to Universal Discovery Widget.
 You can modify it dynamically by passing context to generate configuration based on a specific event.
 This context event is caught by event listener `ConfigResolveEvent::NAME` before the original configuration is used.
 Depending on what additional parameters are provided, original or event-specific configuration is applied.
@@ -166,9 +122,9 @@ ezplatform:
                         multiple: false
 ```
 
-#### Adding new configuration to a button
+### Adding new configuration to button
 
-In the `ez_udw_config` Twig helper define a specific part of YAML configuration that will be used to render the **Content Browser**.
+In the `ez_udw_config` Twig helper, define a specific part of YAML configuration that will be used to render the **Content Browser**.
 You can find Twig helper in your button template.
 In the example below, a key is pointing to `my_custom_udw` configuration and has additional parameter `johndoe`.
 
@@ -182,11 +138,11 @@ In the example below, a key is pointing to `my_custom_udw` configuration and has
 </button>
 ```
 
-#### Additional parameters
+### Additional parameters
 
 If an event listener catches additional parameters passed with context, it will use a configuration specified for it in the event subscriber.
 
-In the example below the `johndoe` parameter enables the user to choose multiple items from a **Browser window** by changing `multiple: false` from `my_custom_udw` configuration to `multiple: true`.
+In the example below, the `johndoe` parameter enables the user to choose multiple items from a **Browser window** by changing `multiple: false` from `my_custom_udw` configuration to `multiple: true`.
 
 ```php hl_lines="29 30 31"
 class JohnDoeCanSelectMore implements EventSubscriberInterface
@@ -228,4 +184,4 @@ class JohnDoeCanSelectMore implements EventSubscriberInterface
 }
 ```
 
-For more information follow [Symfony Doctrine Event Listeners and Subscribers tutorial.]([[= symfony_doc =]]/event_dispatcher.html#creating-an-event-subscriber)
+For more information, see [Symfony Doctrine Event Listeners and Subscribers tutorial.]([[= symfony_doc =]]/event_dispatcher.html#creating-an-event-subscriber)
