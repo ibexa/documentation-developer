@@ -31,7 +31,7 @@ Each tab definition is an object containing the following properties:
 The module will govern the creation of the new tab.
 
 <details class="tip">
-<summary>Complete `image.tab.module.js` code</summary>
+<summary>Complete image.tab.module.js code</summary>
 ```js
 [[= include_file('code_samples/back_office/udw/assets/js/image-tab/image.tab.module.js') =]]
 ```
