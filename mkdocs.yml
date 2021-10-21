@@ -538,7 +538,7 @@ nav:
             - 'Add dashboard tab': 'extending/tabs/add_dashboard_tab.md'
         - 'Add setting': 'extending/extending_settings.md'
         - 'Add events to calendar': 'extending/customizing_calendar.md'
-        - 'Browser':
+        - Browser:
             - 'Browser': 'extending/extending_udw.md'
             - 'Add browser tab': 'extending/adding_tab_to_udw.md'
         - 'Multi-file upload': 'extending/extending_multifile_upload.md'
