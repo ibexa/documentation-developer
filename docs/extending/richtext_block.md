@@ -1,12 +1,16 @@
-# Create custom RichText blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+# Create custom RichText block [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-To create a RichText [custom Page block](../guide/page/create_custom_page_block.md), you must define its 
-layout, provide templates, add a subscriber and register the subscriber as a service.
+In addition to existing blocks that you can use when creating a Page, you can 
+also create a custom blocks. 
+To do this, you must define the block's layout, provide templates, add a subscriber 
+and register the subscriber as a service.
 
-Start with providing the block configuration in `config/packages/ezplatform_page_fieldtype.yaml`.
+Follow the procedure below to create a [custom RichText Page block](../guide/page/create_custom_page_block.md).
 
-The following configuration defines a new block, its view and configuration 
-templates, and attribute type `richtext` (line 15):
+First, provide the block configuration in `config/packages/ezplatform_page_fieldtype.yaml`. 
+The following code defines a new block, its view and configuration 
+templates.
+It also sets the attribute type to `richtext` (line 15):
 
 ``` yaml hl_lines="3 15"
 [[= include_file('code_samples/back_office/online_editor/config/packages/ezplatform_page_fieldtype.yaml') =]]
@@ -18,7 +22,7 @@ templates, and attribute type `richtext` (line 15):
 Then, create a subscriber that converts a string of data into an XML code.
 Create a `src/Event/Subscriber/RichTextBlockSubscriber.php` file.
 
-In the line 32, `my_block` is the name of the block that is defined in line 3 
+In line 32, `my_block` is the same name of the block that you defined in line 3 
 of the `ezplatform_page_fieldtype.yaml` file above.
 Line 32 also implements the `PreRender` method.
 Lines 41-51 handle the conversion of content into an XML string:
@@ -51,7 +55,7 @@ Then, create a separate `templates/blocks/my_block/config.html.twig` template:
 {% endblock %}
 ```
 
-Complete the procedure with registering the subscriber as a service in `config/services.yaml`:
+Finally, register the subscriber as a service in `config/services.yaml`:
 
 ``` yaml
 services:

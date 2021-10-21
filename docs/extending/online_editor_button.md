@@ -1,4 +1,4 @@
-# Create Online Editor button
+# Create custom Online Editor button
 
 There are different ways to [extend the Online Editor](extending_online_editor.md).
 Here you can learn how to add your own buttons.
@@ -12,7 +12,7 @@ First, create the button file in `assets/js/online_editor/buttons/hr.js`:
 [[= include_file('code_samples/back_office/online_editor/assets/js/online_editor/buttons/hr.js') =]]
 ```
 
-Then, you must enable the button.
+Then, enable the button.
 You do it by adding the following code in the `webpack.config.js` file, under 
 `// Put your config here`:
 

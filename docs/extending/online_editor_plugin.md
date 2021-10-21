@@ -1,4 +1,4 @@
-# Create Online Editor plugin
+# Create custom Online Editor plugin
 
 There are different ways to [extend the Online Editor](extending_online_editor.md).
 Here you can learn how to add your own plugin to the Online Editor.
@@ -13,20 +13,20 @@ a RichText Field.
     [the way you do it in CKEditor](https://ckeditor.com/docs/ckeditor4/latest/guide/plugin_sdk_sample.html).
 
 First, create the plugin file in `assets/js/online_editor/plugins/date.js`.
-This file implements an `InsertDate` command and attaches it to the editor:
+The following code implements an `InsertDate` command and attaches it to the editor:
 
 ``` js
 [[= include_file('code_samples/back_office/online_editor/assets/js/online_editor/plugins/date.js') =]]
 ```
 
-Then, in the Online Editor toolbar, add a button for inserting the date.
+Then, modify the Online Editor toolbar by adding a button that inserts the date.
 To do this, create a file for the button in `assets/js/online_editor/buttons/date.js`:
 
 ``` js
 [[= include_file('code_samples/back_office/online_editor/assets/js/online_editor/buttons/date.js') =]]
 ```
 
-Next, you must enable the plugin and the button.
+Next, enable the plugin and the button.
 You do it by adding the following code in the `webpack.config.js` file, under 
 `// Put your config here`.
 This way, [[= product_name =]] loads the plugin and button files when loading 
