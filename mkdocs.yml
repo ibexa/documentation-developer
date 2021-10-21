@@ -542,8 +542,7 @@ nav:
             - 'Browser': 'extending/extending_udw.md'
             - 'Add browser tab': 'extending/adding_tab_to_udw.md'
         - 'Multi-file upload': 'extending/extending_multifile_upload.md'
-        - 'Sub-items list': 'extending/extending_subitems_list.md'
-        
+        - 'Sub-items list': 'extending/extending_subitems_list.md'        
             - 'Back Office menus': 'extending/menus/back_office_menus.md'
             - 'Add menu item': 'extending/menus/add_menu_item.md'
         - 'Add user setting': 'extending/add_user_setting.md'
@@ -552,9 +551,7 @@ nav:
         - 'Extending Online Editor':
             - 'Extending Online Editor': 'extending/extending_online_editor.md'
             - 'Creating Online Editor button': 'extending/online_editor_button.md'
-            - 'Creating Online Editor plugin': 'extending/online_editor_plugin.md'
-       
-            
+            - 'Creating Online Editor plugin': 'extending/online_editor_plugin.md' 
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'
         - 'Release process and roadmap': 'community_resources/release_process.md'
