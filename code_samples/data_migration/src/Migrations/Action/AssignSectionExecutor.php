@@ -4,7 +4,6 @@ namespace App\Migrations\Action;
 
 use eZ\Publish\API\Repository\SectionService;
 use eZ\Publish\API\Repository\ContentService;
-
 use eZ\Publish\API\Repository\Values\ValueObject as APIValueObject;
 use Ibexa\Platform\Migration\StepExecutor\ActionExecutor\ExecutorInterface;
 use Ibexa\Platform\Migration\ValueObject;
@@ -13,13 +12,14 @@ final class AssignSectionExecutor implements ExecutorInterface
 {
     /** @var \eZ\Publish\API\Repository\SectionService */
     private $sectionService;
+
+    /** @var \eZ\Publish\API\Repository\ContentService */
     private $contentService;
 
     public function __construct(
         ContentService $contentService,
         SectionService $sectionService
-    )
-    {
+    ) {
         $this->sectionService = $sectionService;
         $this->contentService = $contentService;
     }

@@ -21,7 +21,7 @@ final class AssignSection implements Action
     /**
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
         return $this->sectionIdentifier;
     }

@@ -23,7 +23,7 @@ final class AssignSectionDenormalizer extends AbstractActionDenormalizer
      *
      * @return \App\Migrations\Action\AssignSection
      */
-    public function denormalize($data, string $type, string $format = null, array $context = [])
+    public function denormalize($data, string $type, string $format = null, array $context = []): AssignSection
     {
         Assert::keyExists($data, 'value');
 
