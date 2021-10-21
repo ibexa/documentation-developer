@@ -23,3 +23,5 @@ Finally, bring your installation to the latest release of v3.3.
 ## 8. Finish the update
 
 [[% include 'snippets/update/finish_the_update.md' %]]
+
+[[% include 'snippets/update/notify_support.md' %]]

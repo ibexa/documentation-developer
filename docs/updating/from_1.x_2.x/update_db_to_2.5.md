@@ -916,6 +916,8 @@ CREATE INDEX idx_workflow_name ON ezeditorialworkflow_workflows(workflow_name);
 
 [[% include 'snippets/update/finish_the_update.md' %]]
 
+[[% include 'snippets/update/notify_support.md' %]]
+
 ## Update to v3.3
 
 It is strongly recommended to also [update to the latest LTS, v3.3](../from_2.5/update_from_2.5.md).
