@@ -2,9 +2,8 @@
 
 You can build forms consisting of different fields in the Form Builder.
 
-!!! note "Areas of application"
+!!! note "Forms in the shop"
 
-    This article discusses forms that you create with Form Builder.
     For information about forms that you can use in your shop, see [Forms](../forms/forms.md)
 
 ## Existing Form fields
@@ -39,11 +38,11 @@ For information about available options, see [Gregwar/CaptchaBundle's documentat
 ## Form submission purging
 
 You can purge all submissions of a given form. 
-To do this, run the following command, where `form-id` stands for a Content ID 
-of the form, for which you want to purge data:
+To do this, run the following command, where `form-id` stands for Content ID 
+of the form for which you want to purge data:
 
 ```bash
-bin/console ibexa:form-builder:purge-form-submissions [options] [--] <form-id>
+php bin/console ibexa:form-builder:purge-form-submissions [options] [--] <form-id>
 ```
 
 The following table lists some of the available options and their meaning: 
@@ -54,5 +53,3 @@ The following table lists some of the available options and their meaning:
 | `-u` | `--user[=USER]` | Passes a repository username. By default it is "admin". |
 | `-c` | `--batch-size[=BATCH-SIZE]` | Passes a number of URLs to check in a single iteration. Set it to avoid using too much memory. By default it is set to 50. |
 | | `--siteaccess[=SITEACCESS]` | Passes a SiteAccess to use for operations. If not provided, the default SiteAccess is used. |
-| `-e` | `--env=ENV` | Passes a name of the environment. By default it is set to "dev". |
-| `-h` | `--help` | Displays help for the command. |

@@ -30,9 +30,8 @@ Usually a confirmation page is displayed, but you can choose one of the followin
 
 [[= product_name =]] uses [Symfony forms]([[= symfony_doc =]]//forms.html) as part of the solution.
 
-!!! note "Areas of application"
+!!! note "Form Builder"
 
-    This article discusses forms that you use in your shop.
     For information about forms that you can create with Form Builder, see [Forms](../form_builder/forms.md)
 
 ## Creating a form
