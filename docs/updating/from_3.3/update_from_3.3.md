@@ -1,7 +1,12 @@
+---
+latest_tag: '3.3.10'
+---
+
 # Update from v3.3.x to v3.3.latest
 
-If you have a v3.3 installation,
-go through the following steps to update to the latest maintenance release.
+This update procedure applies yf you have a v3.3 installation.
+
+Go through the following steps to update to the latest maintenance release of v3.3 (v[[= latest_tag =]]).
 
 !!! note
 
@@ -12,7 +17,7 @@ go through the following steps to update to the latest maintenance release.
 #### Update entity managers
 
 Version v3.3.2 introduces new entity managers.
-To ensure that they work in multi-repository setups, you must update the GraphQL schema.
+To ensure that they work in multi-repository setups, you must update the Doctrine schema.
 You do this manually by following this procedure:
 
 1. Update your project to v3.3.2 and run the `php bin/console cache:clear` command to generate the service container.

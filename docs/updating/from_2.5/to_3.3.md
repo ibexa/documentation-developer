@@ -1,5 +1,5 @@
 ---
-target_version: '3.2'
+target_version: '3.3'
 latest_tag: '3.3.10'
 ---
 
@@ -19,7 +19,7 @@ When updating from v3.2 to v3.3, you need to follow a special update procedure.
 
     Ibexa DXP v3.3 requires Composer 2.0.13 or higher.
 
-First, create an update branch in git and commit your work.
+First, create an update branch `update-[[=target_version=]]` in git and commit your work.
 
 If you have not done it before, add the relevant meta-repository as an `upstream` remote:
 

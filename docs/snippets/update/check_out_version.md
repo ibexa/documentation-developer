@@ -3,11 +3,10 @@
 Create a new branch for handling update changes from the branch you're updating on:
 
 ``` bash
-git checkout -b [[= target_version =]]
+git checkout -b update-[[= target_version =]]
 ```
 
-This creates a new project branch (for example, `update-[[= target_version =]]`) for the update based on your current project branch.
-In the following steps it is referred to as *update branch*.
+This creates a new project branch (`update-[[= target_version =]]`) for the update based on your current project branch.
 
 ### B. Add `upstream` remote
 
@@ -80,7 +79,7 @@ If it is not added as a remote yet, add an `upstream` remote:
 
 ### D. Pull the tag into your branch
 
-Pull the latest v[[= target_version =]] tag into your update branch with the following command:
+Pull the latest v[[= target_version =]] tag into the `update-[[= target_version =]]` branch with the following command:
 
 ``` bash
 git pull upstream v[[= latest_tag =]]

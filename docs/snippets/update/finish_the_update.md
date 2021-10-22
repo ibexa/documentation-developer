@@ -29,11 +29,11 @@ You may or may not keep `composer.lock`, depending on your version management wo
 If you do not want to keep it, run `git reset HEAD composer.lock` to remove it from the changes.
 Run `git commit`, and adapt the message if necessary.
 
-Go back to `master`, and merge your update branch:
+Go back to `master`, and merge the `update-[[= target_version =]]` branch:
 
 ``` sh
 git checkout master
-git merge <branch_name>
+git merge update-[[= target_version =]]
 ```
 
 !!! note "Insecure password hashes"
@@ -41,6 +41,9 @@ git merge <branch_name>
     To ensure that no users have unsupported, insecure password hashes, run the following command:
     
     ``` bash
+    # In v1 and v2:
+    php bin/console ezplatform:user:validate-password-hashes
+    # In v3:
     php bin/console ibexa:user:validate-password-hashes
     ```
     
@@ -51,6 +54,10 @@ git merge <branch_name>
 Complete the update by running the following commands:
 
 ``` bash
+# In v2.5:
+php bin/console ezplatform:graphql:generate-schema
+# In v3:
 php bin/console ibexa:graphql:generate-schema
+
 composer run post-install-cmd
 ```

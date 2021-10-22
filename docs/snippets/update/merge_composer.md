@@ -3,7 +3,7 @@
 If you get a lot of conflicts and you installed from the [support.ez.no / support.ibexa.co](https://support.ibexa.co) tarball
 or from [ezplatform.com](https://ezplatform.com), you may have incomplete history.
 
-To load the full history, run `git fetch upstream --unshallow` from your update branch, and run the merge again.
+To load the full history, run `git fetch upstream --unshallow` from the `update-[[= target_version =]]` branch, and run the merge again.
 
 Ignore the conflicts in `composer.lock`, because this file is regenerated when you execute `composer update` later.
 It is easiest to check out the version of `composer.lock` from the tag and add it to the changes:
@@ -22,7 +22,7 @@ git rm composer.lock
 
 You need to fix conflicts in `composer.json` manually.
 
-If you're not familiar with the diff output, you may check out the tag's version from your update branch and inspect the changes.
+If you're not familiar with the diff output, you may check out the tag's version from the `update-[[= target_version =]]` branch and inspect the changes.
 
 ``` bash
 git checkout --theirs composer.json && git diff HEAD composer.json

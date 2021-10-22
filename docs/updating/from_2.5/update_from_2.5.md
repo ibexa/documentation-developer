@@ -5,8 +5,9 @@ latest_tag: '3.2.8'
 
 # From 2.5
 
-If you have a v2.5 installation,
-go through the following steps to update to the v3.3 LTS.
+This update procedure applies if you have a v2.5 installation.
+
+Go through the following steps to update to the latest v3.3 LTS (v[[= latest_tag =]]).
 
 1. [Check out a version](to_3.2.md#1-check-out-a-version)
 1. [Resolve conflicts](to_3.2.md#2-resolve-conflicts)

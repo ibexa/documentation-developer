@@ -4,7 +4,7 @@ To update [[= product_name =]] to a newer version, select the version you are cu
 
 ## v1.13 or v2.x
 
-If you have a v1.13 installation, or a v2.x installation lower than v2.5,
+If you have a v1.13 installation, or a v2.x installation lower than the latest v2.5,
 [update to the v2.5 LTS](from_1.x_2.x/update_from_1.x_2.x.md).
 
 Afterwards, it is strongly recommended to also [update to the latest LTS, v3.3](from_2.5/update_from_2.5.md).

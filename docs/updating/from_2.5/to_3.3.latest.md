@@ -1,6 +1,6 @@
 ---
-target_version: '3.2'
-latest_tag: '3.2.8'
+target_version: '3.3'
+latest_tag: '3.3.10'
 ---
 
 # Update to latest version of v3.3
@@ -23,7 +23,7 @@ Finally, bring your installation to the latest release of v3.3.
 #### Update entity managers
 
 Version v3.3.2 introduces new entity managers.
-To ensure that they work in multi-repository setups, you must update the GraphQL schema.
+To ensure that they work in multi-repository setups, you must update the Doctrine schema.
 You do this manually by following this procedure:
 
 1. Run the `php bin/console cache:clear` command to generate the service container.
@@ -165,8 +165,6 @@ Run the following scripts:
     ``` sql
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.8-to-3.3.9.sql
     ```
-
-
 
 ## 8. Finish the update
 

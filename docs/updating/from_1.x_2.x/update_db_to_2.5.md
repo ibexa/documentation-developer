@@ -657,16 +657,6 @@ Apply the following database update script:
 mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.2.0-to-7.3.0.sql
 ```
 
-#### Changes to timestamp
-
-A new timestamp column has been added in order to keep track of when items were trashed.
-
-To apply this change, use the following database update script:
-
-``` bash
-mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.2.0-to-7.3.0.sql
-```
-
 #### Form Builder
 
 In an Enterprise installation, to create the *Forms* container under the content tree root use the following command:

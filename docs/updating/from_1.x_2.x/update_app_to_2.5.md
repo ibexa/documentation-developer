@@ -15,9 +15,7 @@ latest_tag: '2.5.24'
 
 ## 3. Update the app
 
-[[% include 'snippets/update/update_app.md' %]]
-
-Next, perform version-specific steps depending on which version you are updating from.
+First, perform version-specific steps depending on which version you are updating from.
 
 ### v2.2
     
@@ -35,6 +33,10 @@ will not compile correctly with Assetic.
 In this case, use Webpack Encore. See [Importing assets from a bundle](../../guide/project_organization.md#importing-assets-from-a-bundle) for more information.
 
 If you experience issues during the update, see [Troubleshooting](../../getting_started/troubleshooting.md#cloning-failed-using-an-ssh-key).
+
+### Run composer update
+
+[[% include 'snippets/update/update_app.md' %]]
 
 ## Next steps
 
