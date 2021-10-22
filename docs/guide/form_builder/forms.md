@@ -46,7 +46,7 @@ of the form, for which you want to purge data:
 bin/console ibexa:form-builder:purge-form-submissions [options] [--] <form-id>
 ```
 
-The following table lists some of the available options and their meaning. For a full list of options, use the `-h` switch:
+The following table lists some of the available options and their meaning: 
 
 | Switch | Option | Description |
 |--------------|------------|------------|
@@ -55,3 +55,4 @@ The following table lists some of the available options and their meaning. For a
 | `-c` | `--batch-size[=BATCH-SIZE]` | Passes a number of URLs to check in a single iteration. Set it to avoid using too much memory. By default it is set to 50. |
 | | `--siteaccess[=SITEACCESS]` | Passes a SiteAccess to use for operations. If not provided, the default SiteAccess is used. |
 | `-e` | `--env=ENV` | Passes a name of the environment. By default it is set to "dev". |
+| `-h` | `--help` | Displays help for the command. |
