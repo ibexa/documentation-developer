@@ -2,6 +2,11 @@
 
 You can build forms consisting of different fields in the Form Builder.
 
+!!! note "Areas of application"
+
+    This article discusses forms that you create with Form Builder.
+    For information about forms that you can use in your shop, see [Forms](../forms/forms.md)
+
 ## Existing Form fields
 
 ### Captcha field
@@ -30,3 +35,23 @@ For information about available options, see [Gregwar/CaptchaBundle's documentat
 !!! note
 
     If your installation uses Varnish to manage content cache, you must modify the configuration to avoid issues with the Captcha field. For more information, see [Ensure proper captcha behavior](../cache/symfony_reverse_proxy.md#ensure-proper-captcha-behavior).
+
+## Form submission purging
+
+You can purge all submissions of a given form. 
+To do this, run the following command, where `form-id` stands for a Content ID 
+of the form, for which you want to purge data:
+
+```bash
+bin/console ibexa:form-builder:purge-form-submissions [options] [--] <form-id>
+```
+
+The following table lists some of the available options and their meaning. For a full list of options, use the `-h` switch:
+
+| Switch | Option | Description |
+|--------------|------------|------------|
+| `-l` | `--language-code=LANGUAGE-CODE` | Passes a language code, for example, "eng-GB". |
+| `-u` | `--user[=USER]` | Passes a repository username. By default it is "admin". |
+| `-c` | `--batch-size[=BATCH-SIZE]` | Passes a number of URLs to check in a single iteration. Set it to avoid using too much memory. By default it is set to 50. |
+| | `--siteaccess[=SITEACCESS]` | Passes a SiteAccess to use for operations. If not provided, the default SiteAccess is used. |
+| `-e` | `--env=ENV` | Passes a name of the environment. By default it is set to "dev". |
