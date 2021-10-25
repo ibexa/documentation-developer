@@ -2,11 +2,11 @@
 
 The workflow functionality passes a Content item version through a series of stages.
 
-For example, an editorial workflow can pass a Content item from draft stage through
+For example, an editorial workflow can pass a Content item from draft stage through 
 design and proofreading.
 
 By default, [[= product_name =]] comes pre-configured with a Quick Review workflow.
-You can disable the default workflow and define different workflows in configuration.
+You can disable the default workflow and define different workflows in configuration. 
 Workflows are permission-aware.
 
 ## Workflow configuration
@@ -79,13 +79,13 @@ The notification is displayed in the user menu:
 
 #### Draft locking
 
-You can configure draft assignment in a way that when a user sends a draft to review,
-only the assigned reviewer can either edit the draft or unlock it for editing, and no
+You can configure draft assignment in a way that when a user sends a draft to review, 
+only the assigned reviewer can either edit the draft or unlock it for editing, and no 
 other user can take it over.
 
-Use the [Version Lock Limitation](../limitation_reference.md#version-lock-limitation),
-set to "Assigned only", together with the `content/edit` and `content/unlock`
-Policies to prevent users from editing and unlocking drafts that are assigned
+Use the [Version Lock Limitation](../limitation_reference.md#version-lock-limitation), 
+set to "Assigned only", together with the `content/edit` and `content/unlock` 
+Policies to prevent users from editing and unlocking drafts that are assigned 
 to other users.
 
 ### Content publishing
@@ -99,7 +99,7 @@ To do so, configure the `publish` action for the transition:
 
 ### Quick Review disabling
 
-You can disable the default workflow, for example, if your project does not use
+You can disable the default workflow, for example, if your project does not use 
 workflows, or Quick Review entries clog your database:
 
 ``` yaml
@@ -142,14 +142,14 @@ You can limit access to workflows at stage and transition level.
 
 The `workflow/change_stage` Policy grants permission to change stages in a specific workflow.
 
-You can limit this Policy with the [Workflow Transition Limitation](../limitation_reference.md#workflow-transition-limitation)
+You can limit this Policy with the [Workflow Transition Limitation](../limitation_reference.md#workflow-transition-limitation) 
 to only allow sending content in the selected transition.
 
-For example, by using the example above, a `workflow/change_stage` Policy
+For example, by using the example above, a `workflow/change_stage` Policy 
 with `WorkflowTransitionLimitation` set to `Approved by legal` allows a legal team to send content forward
 after they are done with their review.
 
-You can also use the [Workflow Stage Limitation](../limitation_reference.md#workflow-stage-limitation)
+You can also use the [Workflow Stage Limitation](../limitation_reference.md#workflow-stage-limitation) 
 together with the `content/edit` and `content/publish` Policies to limit the ability to edit content in specific stages.
 For example, you can use it to only allow a legal team to edit content in the `legal` stage.
 
