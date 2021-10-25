@@ -569,8 +569,8 @@ nav:
         - Update from v2.5:
             - 'Update from v2.5': 'updating/from_2.5/update_from_2.5.md'
             - 'Update to v3.2': 'updating/from_2.5/to_3.2.md'
-            - Update code to v3:
-                - 'Update code to v3': 'updating/from_2.5/update_code_to_v3.md'
+            - Adapt code to v3:
+                - 'Adapt code to v3': 'updating/from_2.5/adapt_code_to_v3.md'
                 - '1. Update templates': 'updating/from_2.5/update_code/1_update_templates.md'
                 - '2. Update configuration': 'updating/from_2.5/update_code/2_update_configuration.md'
                 - '3. Update Field Types': 'updating/from_2.5/update_code/3_update_field_types.md'
@@ -581,7 +581,7 @@ nav:
                 - '8. Update REST': 'updating/from_2.5/update_code/8_update_rest.md'
                 - '9. Other code updates': 'updating/from_2.5/update_code/9_update_other.md'
             - 'Update to v3.3': 'updating/from_2.5/to_3.3.md'
-            - 'Update to latest v3.3 version': 'updating/from_2.5/to_3.3.latest.md'
+            - 'Update to latest v3.3': 'updating/from_2.5/to_3.3.latest.md'
         - 'Update from v3.3': 'updating/from_3.3/update_from_3.3.md'
         - Migrating to Ibexa DXP:
             - 'Migrating from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'

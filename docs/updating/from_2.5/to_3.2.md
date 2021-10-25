@@ -21,4 +21,4 @@ To move from v2.5 to v3.3, first, you need to bring the app to version v3.2.
 
 ## Next steps
 
-Now, proceed to the next step, [updating the code to v3.0](update_code_to_v3.md).
+Now, proceed to the next step, [updating the code to v3.0](adapt_code_to_v3.md).

@@ -6,7 +6,7 @@ latest_tag: '3.3.10'
 # Update the app to v3.3
 
 Before you start this procedure, make sure you have completed the previous step,
-[Updating code to v3](update_code_to_v3.md).
+[Updating code to v3](adapt_code_to_v3.md).
 
 ## 5. Update to v3.3
 

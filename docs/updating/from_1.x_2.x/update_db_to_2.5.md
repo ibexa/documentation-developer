@@ -16,7 +16,7 @@ Before you start this procedure, make sure you have completed the previous step,
 
     If you are starting from version v2.2 or later, skip to the relevant section.
 
-### Update to v2.2
+### A. Update to v2.2
 
 #### Change from UTF8 to UTF8MB4
 
@@ -645,7 +645,7 @@ defined in the [Enterprise Beginner tutorial](../../tutorials/enterprise_beginne
     ```
 
 
-### Update to v2.3
+### B. Update to v2.3
 
 #### Database update script
 
@@ -677,7 +677,7 @@ You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.3
     After the update, in order to create forms, you have to add a new Content Type (e.g. named "Form") that contains `Form` Field (this Content Type can contain other fields
     as well). After that you can use forms inside Landing Pages via Embed block.
 
-### Update to v2.4
+### C. Update to v2.4
 
 #### Workflow
 
@@ -715,7 +715,7 @@ ezrichtext:
 The old configuration is deprecated, so if you use custom tags, you need to modify your config accordingly.
 
 
-### Update to v2.5
+### D. Update to v2.5
     
 #### Database update script
 

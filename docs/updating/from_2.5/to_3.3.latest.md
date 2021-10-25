@@ -16,7 +16,7 @@ Finally, bring your installation to the latest release of v3.3.
 
 ## 7. Update to the latest patch version
 
-### v3.3.2
+### A. v3.3.2
 
 #### Update entity managers
 
@@ -90,7 +90,7 @@ If you are using MySQL, run the following update script:
 mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.1-to-3.3.2.sql
 ```
 
-### v3.3.7
+### B. v3.3.7
 
 #### Commerce configuration
 
@@ -146,7 +146,7 @@ Run the following scripts:
         ON "ibexa_workflow_version_lock" ("content_id", "version");
     ```
 
-### v3.3.9
+### C. v3.3.9
 
 #### Database update
 
