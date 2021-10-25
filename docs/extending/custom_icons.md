@@ -1,6 +1,6 @@
-# Creating custom icons
+# Custom icons
 
-## Custom Content Type icons
+## Customize Content Type icons
 
 To add custom icons for existing Content Types or custom Content Types in [[= product_name =]], follow the instructions below.
 
@@ -17,7 +17,7 @@ ezplatform:
                     thumbnail: /assets/images/custom_icon.svg#custom
 ```
 
-Place the icon in `public/assets/images` and remember to run `yarn encore <dev|prod>` after adding it.
+Place the icon in `public/assets/images` and run `yarn encore <dev|prod>` after adding it.
 
 !!! note "Icons format"
 
@@ -41,8 +41,9 @@ Content Types icons configuration is stored in a global object: `eZ.adminUiConfi
 You can easily retrieve the icon URL with the `getContentTypeIcon`  helper function that is set on the global `eZ.helpers.contentType` object.
 It takes Content Type identifier as an argument and returns one of the following items:
 
- - URL of a given Content Type's icon
- - `null` if there is no Content Type with given identifier
+- URL of a specified Content Type's icon
+
+- `null` if there is no Content Type with specified identifier
 
 Example with `getContentTypeIcon`:
 

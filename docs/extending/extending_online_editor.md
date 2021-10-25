@@ -2,7 +2,7 @@
 
 The Online Editor is based on [Alloy Editor](https://alloyeditor.com/).
 Refer to [Alloy Editor documentation](https://alloyeditor.com/docs/develop/) to learn how to extend the Online Editor with new elements.
-To learn how to extend the [[= product_name =]] Back Office follow [Extending Admin UI tutorial](../../tutorials/extending_admin_ui/extending_admin_ui).
+To learn how to extend the [[= product_name =]] Back Office follow [Extending Back Office tutorial](../../tutorials/extending_admin_ui/extending_admin_ui).
 
 !!! note
 

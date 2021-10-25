@@ -299,7 +299,7 @@ You now need to [make use of the `TabsComponent`](https://doc.ibexa.co/en/latest
 Content Type editing, including Action Dispatchers, Form Processors, Types and Data classes related to Content Types/Limitations,
 has been moved to `ezplatform-admin-ui` from `repository-forms`.
 
-### Code cleanup in Admin UI
+### Code cleanup in Back Office
 
 The following deprecated items have been removed:
 
