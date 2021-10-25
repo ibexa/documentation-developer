@@ -2,11 +2,11 @@
 
 The workflow functionality passes a Content item version through a series of stages.
 
-For example, an editorial workflow can pass a Content item from draft stage through 
+For example, an editorial workflow can pass a Content item from draft stage through
 design and proofreading.
 
 By default, [[= product_name =]] comes pre-configured with a Quick Review workflow.
-You can disable the default workflow and define different workflows in configuration. 
+You can disable the default workflow and define different workflows in configuration.
 Workflows are permission-aware.
 
 ## Workflow configuration
@@ -79,13 +79,13 @@ The notification is displayed in the user menu:
 
 #### Draft locking
 
-You can configure draft assignment in a way that when a user sends a draft to review, 
-only the assigned reviewer can either edit the draft or unlock it for editing, and no 
-other user can take it over. 
+You can configure draft assignment in a way that when a user sends a draft to review,
+only the assigned reviewer can either edit the draft or unlock it for editing, and no
+other user can take it over.
 
-Use the [Version Lock Limitation](../limitation_reference.md#version-lock-limitation), 
-set to "Assigned only", together with the `content/edit` and `content/unlock` 
-Policies to prevent users from editing and unlocking drafts that are assigned 
+Use the [Version Lock Limitation](../limitation_reference.md#version-lock-limitation),
+set to "Assigned only", together with the `content/edit` and `content/unlock`
+Policies to prevent users from editing and unlocking drafts that are assigned
 to other users.
 
 ### Content publishing
@@ -99,7 +99,7 @@ To do so, configure the `publish` action for the transition:
 
 ### Quick Review disabling
 
-You can disable the default workflow, for example, if your project does not use 
+You can disable the default workflow, for example, if your project does not use
 workflows, or Quick Review entries clog your database:
 
 ``` yaml
@@ -142,14 +142,14 @@ You can limit access to workflows at stage and transition level.
 
 The `workflow/change_stage` Policy grants permission to change stages in a specific workflow.
 
-You can limit this Policy with the [Workflow Transition Limitation](../limitation_reference.md#workflow-transition-limitation) 
+You can limit this Policy with the [Workflow Transition Limitation](../limitation_reference.md#workflow-transition-limitation)
 to only allow sending content in the selected transition.
 
-For example, by using the example above, a `workflow/change_stage` Policy 
+For example, by using the example above, a `workflow/change_stage` Policy
 with `WorkflowTransitionLimitation` set to `Approved by legal` allows a legal team to send content forward
 after they are done with their review.
 
-You can also use the [Workflow Stage Limitation](../limitation_reference.md#workflow-stage-limitation) 
+You can also use the [Workflow Stage Limitation](../limitation_reference.md#workflow-stage-limitation)
 together with the `content/edit` and `content/publish` Policies to limit the ability to edit content in specific stages.
 For example, you can use it to only allow a legal team to edit content in the `legal` stage.
 
@@ -168,3 +168,17 @@ The methods `apply` and `can` are the same as in Symfony Workflow,
 but the implementation in workflow service extends them, for example by providing messages.
 
 For examples of using the Workflow Service, see [PHP API documentation](../../api/public_php_api_managing_repository.md#workflow).
+
+### Validate form in UI before send workflow
+
+By default, sending Content to the next stage of the workflow does not validate the form in UI, so with the publish action, the form is not verified for errors in UI, however, during the publish action, the sent form is validated in service.
+
+Therefore, if there are any errors in the form, we will be returned to the page with editing content but errors will not be triggered, which can be very confusing when having two or more tabs
+
+To enable form validation in UI before sending it to the next stage of the workflow, add `validate: true` to the transitions of the stage, in the example below the form will be validated in two stages:` to_legal` and `done`:
+
+``` yaml hl_lines="10 26"
+[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows_validate.yaml') =]]
+```
+
+Checking the validation for a particular stage of the workflow does not require a given stage to have any actions, therefore validation can be added at each stage of the workflow
