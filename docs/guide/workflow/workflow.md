@@ -169,30 +169,23 @@ but the implementation in workflow service extends them, for example by providin
 
 For examples of using the Workflow Service, see [PHP API documentation](../../api/public_php_api_managing_repository.md#workflow).
 
-### Validate form in UI before send workflow
+## Validation
 
-By default, sending Content to the next stage of the workflow does not validate the form in UI, so with the publish action, the form is not verified for errors in UI, however, during the publish action, the sent form is validated in service.
+### Validate form before workflow transition
 
-Therefore, if there are any errors in the form, we will be returned to the page with editing content but errors will not be triggered, which can be very confusing when having two or more tabs
+By default, sending content to the next stage of the workflow does not validate the form in UI,
+so with the publish action, the form is not verified for errors in UI.
+However, during the publish action, the sent form is validated in the service.
 
-To enable form validation in UI before sending it to the next stage of the workflow, add `validate: true` to the transitions of the stage, in the example below the form will be validated in two stages:` to_legal` and `done`:
+Therefore, if there are any errors in the form, you return to the edit page but errors aren't triggered,
+which can be confusing when you have two or more tabs.
 
-``` yaml hl_lines="10 26"
-[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows_validate.yaml') =]]
-```
-
-Checking the validation for a particular stage of the workflow does not require a given stage to have any actions, therefore validation can be added at each stage of the workflow
-
-### Validate form in UI before send workflow
-
-By default, sending Content to the next stage of the workflow does not validate the form in UI, so with the publish action, the form is not verified for errors in UI, however, during the publish action, the sent form is validated in service.
-
-Therefore, if there are any errors in the form, we will be returned to the page with editing content but errors will not be triggered, which can be very confusing when having two or more tabs
-
-To enable form validation in UI before sending it to the next stage of the workflow, add `validate: true` to the transitions of the stage, in the example below the form will be validated in two stages:` to_legal` and `done`:
+To enable form validation in UI before sending it to the next stage of the workflow,
+add `validate: true` to the transitions of the stage.
+In the example below the form is validated in two stages:` to_legal` and `done`:
 
 ``` yaml hl_lines="10 26"
 [[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows_validate.yaml') =]]
 ```
 
-Checking the validation for a particular stage of the workflow does not require a given stage to have any actions, therefore validation can be added at each stage of the workflow
+You can check validation for a particular stage of the workflow even if the stage doesn't have any actions.
