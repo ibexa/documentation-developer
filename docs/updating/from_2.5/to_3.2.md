@@ -5,7 +5,7 @@ latest_tag: '3.2.8'
 
 # Update the app to v3.2
 
-First, you need to bring the app to version v3.2.
+To move from v2.5 to v3.3, first, you need to bring the app to version v3.2.
 
 ## 1. Check out a version
 

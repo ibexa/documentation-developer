@@ -7,10 +7,8 @@ latest_tag: '2.5.24'
 
 ## 4. Update the database
 
-!!! note
-
-    Before you start this procedure, make sure you have completed the previous step,
-    [Updating the app to v2.5](update_app_to_2.5.md).
+Before you start this procedure, make sure you have completed the previous step,
+[Updating the app to v2.5](update_app_to_2.5.md).
 
 [[% include 'snippets/update/db/db_backup_warning.md' %]]
 

@@ -5,10 +5,8 @@ latest_tag: '3.3.10'
 
 # Update to latest version of v3.3
 
-!!! note
-
-    Before you start this procedure, make sure you have completed the previous step,
-    [Updating the app to v3.3](to_3.3.md)
+Before you start this procedure, make sure you have completed the previous step,
+[Updating the app to v3.3](to_3.3.md).
 
 Finally, bring your installation to the latest release of v3.3.
 

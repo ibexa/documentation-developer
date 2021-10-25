@@ -1,11 +1,11 @@
 ---
 target_version: '3.2'
-latest_tag: '3.2.8'
+latest_tag: '3.3.10'
 ---
 
 # From 2.5
 
-This update procedure applies if you have a v2.5 installation.
+This update procedure applies if you are using v2.5.
 
 Go through the following steps to update to the latest v3.3 LTS (v[[= latest_tag =]]).
 

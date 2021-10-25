@@ -4,7 +4,7 @@ latest_tag: '3.3.10'
 
 # Update from v3.3.x to v3.3.latest
 
-This update procedure applies yf you have a v3.3 installation.
+This update procedure applies if you are using a v3.3 installation without the latest maintenance release.
 
 Go through the following steps to update to the latest maintenance release of v3.3 (v[[= latest_tag =]]).
 
