@@ -103,7 +103,7 @@ you can retrieve with the [ConfigResolver](../guide/config_dynamic.md#configreso
 ## Add new configuration
 
 UDW configuration can change dynamically depending on occurring events.
-It can be used for example, for defining which content should be exposed to a user after logging in.
+You can use it, for example, to define which content should be exposed to a user after logging in.
 
 By default, only one element from configuration file is applied to Universal Discovery Widget.
 You can modify it dynamically by passing context to generate configuration based on a specific event.
@@ -122,7 +122,7 @@ ezplatform:
                         multiple: false
 ```
 
-### Adding new configuration to button
+### Add new configuration to button
 
 In the `ez_udw_config` Twig helper, define a specific part of YAML configuration that will be used to render the **Content Browser**.
 You can find Twig helper in your button template.

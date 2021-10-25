@@ -1,16 +1,16 @@
 # Multi-file upload
 
-The Multi-file Upload module can be used as a part of editorial interface of [[= product_name =]].
+You can use the multi-file upload module in the editorial interface of [[= product_name =]].
 It provides an interface to publish content based on dropped files while uploading them in the interface.
 
 !!! caution
 
-    If you want to load the Multi-file upload module, you need to load the JS code for it in your view,
+    If you want to load the multi-file upload module, you need to load the JS code for it in your view,
     as it is not available by default.
 
 ## Use multi-file upload
 
-With Vanilla JS:
+With JS only:
 
 ``` js
 React.createElement(eZ.modules.MultiFileUpload, {
@@ -85,7 +85,7 @@ There are two types of properties: **required** and **optional**.
 
 ### Required properties
 
-All of the following properties must be used, otherwise the Multi-file upload will not work.
+All of the following properties must be used, otherwise the multi-file upload does not work.
 
 - **onAfterUpload** _{Function}_ - a callback to be invoked immediately after a file has been uploaded
 - **adminUiConfig** _{Object}_ - UI config object. It should keep the following structure:
@@ -112,7 +112,7 @@ All of the following properties must be used, otherwise the Multi-file upload wi
 
 ### Optional properties
 
-Optionally, the Multi-file upload module can take a following list of properties:
+Optionally, the multi-file upload module can take a following list of properties:
 
 - **checkCanUpload** _{Function}_ - checks whether am uploaded file can be uploaded. The callback takes four params:
     - **file** _{File}_ - file object
