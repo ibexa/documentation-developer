@@ -18,7 +18,7 @@ The following example configuration defines a workflow where you can optionally 
 ![Diagram of custom workflow](../img/workflow_custom_diagram.png)
 
 ``` yaml
-[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 0, 32) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 36, 49) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 52, 60) =]]
+[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 0, 32) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 37, 50) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 53, 61) =]]
 ```
 
 ### Matchers
@@ -53,7 +53,7 @@ A transition must state between which stages it transitions (lines 3-4),
 or be `reverse` to a different transition (line 9).
 
 ``` yaml hl_lines="3 4 9"
-[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 23, 30) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 36, 41) =]]
+[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 23, 30) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 37, 42) =]]
 ```
 
 ### Reviewers
@@ -94,7 +94,7 @@ You can automatically publish a Content item once it goes through a specific tra
 To do so, configure the `publish` action for the transition:
 
 ``` yaml hl_lines="7 8"
-[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 52, 60) =]]
+[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 53, 61) =]]
 ```
 
 ### Quick Review disabling
@@ -103,7 +103,7 @@ You can disable the default workflow, for example, if your project does not use
 workflows, or Quick Review entries clog your database:
 
 ``` yaml
-[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 0, 4) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 60, 64) =]]
+[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 0, 4) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 62, 66) =]]
 ```
 
 ## Custom actions
@@ -184,8 +184,8 @@ To enable form validation in UI before sending it to the next stage of the workf
 add `validate: true` to the transitions of the stage.
 In the example below the form is validated in two stages:` to_legal` and `done`:
 
-``` yaml hl_lines="10 26"
-[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows_validate.yaml') =]]
+``` yaml hl_lines="14 27"
+[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 23, 42) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 54, 62) =]]
 ```
 
 You can check validation for a particular stage of the workflow even if the stage doesn't have any actions.
