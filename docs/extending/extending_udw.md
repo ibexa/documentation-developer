@@ -1,6 +1,7 @@
 # Browser
 
-Universal Discovery Widget (UDW) allows you to search and browse the content structure using an interactive interface: browse, search, create, and bookmarks view.
+Browsing the content structure and selecting content from the Repository uses the module Universal Discovery Widget (UDW). UDW has an interactive interface
+which allows you to create, move or copy Content items.
 
 ## How to use UDW?
 
@@ -12,9 +13,9 @@ UDW requires that you provide configuration by using the `ez_udw_config` Twig he
 </button>
 ```
 
-> `single` configuration is one of the default configuration provided. You can also do your [own configuration](#adding-new-configuration).
+`single` configuration is one of the default configuration provided. You can also do your [own configuration](#adding-new-configuration).
 
-With Vanilla JS:
+With plain JS:
 
 ``` js
 const container = document.querySelector('#react-udw');

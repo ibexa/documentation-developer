@@ -10,7 +10,7 @@ It provides an interface for listing the sub-items of any Location.
 
 ## How to use it?
 
-With Vanilla JS:
+With plain JS:
 
 ``` js
 const containerNode = document.querySelector('#sub-items-container');
