@@ -540,7 +540,7 @@ nav:
         - 'Add setting': 'extending/extending_settings.md'
         - 'Add events to calendar': 'extending/customizing_calendar.md'
         - 'Extending Image Editor': 'extending/extending_image_editor.md'
-            - 'Extending Online Editor':
+            - Extending Online Editor:
             - 'Extending Online Editor': 'extending/extending_online_editor.md'
             - 'Creating Online Editor button': 'extending/online_editor_button.md'
             - 'Creating Online Editor plugin': 'extending/online_editor_plugin.md' 
