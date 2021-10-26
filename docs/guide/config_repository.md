@@ -59,6 +59,34 @@ Invalid configuration causes problems for different parts of the system,
 for example back-end UI, REST interface and other non-SiteAccess-aware Symfony routes
 such as `/_fos_user_context_hash` used by [HTTP cache](cache/http_cache.md).
 
+### Entity manager
+
+If you use the [Doctrine entity manager](https://www.doctrine-project.org/projects/doctrine-orm/en/2.10/tutorials/getting-started.html#obtaining-the-entitymanager),
+you are unable to connect different SiteAccesses to different databases.
+
+To have this possibility, you need to use the SiteAccess-aware entity manager: `ibexa.doctrine.orm.entity_manager`.
+
+To inject your entities into the SiteAccess-aware entity manager, use the following configuration:
+
+``` yaml
+ezplatform:
+    orm:
+        entity_mappings:
+            EzPublishCoreBundle:
+                is_bundle: true
+                type: annotation
+                dir: Entity
+                prefix: eZ\Bundle\EzPublishCoreBundle\Entity
+```
+
+Refer to [DoctrineBundle documentation](https://symfony.com/doc/3.4/reference/configuration/doctrine.html)
+for more information.
+
+!!! note
+
+    In contrast with DoctrineBundle, when using the SiteAccess-aware entity manager you need to explicitly set all options:
+    `dir` (it still accepts relative path in case of bundles), `prefix`, `type`, and `is_bundle`.
+
 ### Defining custom connection
 
 You can also explicitly define a custom Repository connection:
