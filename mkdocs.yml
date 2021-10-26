@@ -535,8 +535,8 @@ nav:
         - Back Office menus:
             - 'Back Office menus': 'extending/menus/back_office_menus.md'
             - 'Add menu item': 'extending/menus/add_menu_item.md'
-         - 'Add user setting': 'extending/add_user_setting.md'
-         - 'Customize calendar': 'extending/customize_calendar.md'
+        - 'Add user setting': 'extending/add_user_setting.md'
+        - 'Customize calendar': 'extending/customize_calendar.md'
         - 'Add setting': 'extending/extending_settings.md'
         - 'Add events to calendar': 'extending/customizing_calendar.md'
         - 'Extending Image Editor': 'extending/extending_image_editor.md'
