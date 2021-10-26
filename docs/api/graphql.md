@@ -25,6 +25,13 @@ you can [query](graphql_queries.md) and [operate on](graphql_operations.md).
 
     See [overview of the upcoming changes](https://github.com/ezsystems/ezplatform-graphql/pull/90).
 
+### Schema generation limitations
+
+GraphQL schema cannot be generated for names that do not follow the [GraphQL specification](http://spec.graphql.org/June2018/#sec-Names),
+for example names that start with a digit.
+This concerns image variations, Content Types, Content Type groups, and Field definition identifiers.
+If any of those identifiers are not included in the schema, they are not available from GraphQL.
+
 ## Domain schema
 
 GraphQL for [[= product_name =]] is based on the Content Types, Content Type groups, and Content items
