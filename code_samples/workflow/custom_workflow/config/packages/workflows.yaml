@@ -34,6 +34,7 @@ ezplatform:
                                 legal_transition_action:
                                     data:
                                         message: "Sent to the legal department"
+                            validate: true
                         back_to_draft:
                             reverse: to_legal
                             label: Back to draft
@@ -58,6 +59,7 @@ ezplatform:
                             icon: '/bundles/ibexaplatformicons/img/all-icons.svg#checkbox'
                             actions:
                                 publish: ~
+                            validate: true
                 quick_review:
                     name: Quick Review
                     matchers:
