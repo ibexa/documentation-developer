@@ -1,4 +1,4 @@
-# 4.8. Upgrade REST
+# 4.8. Update REST
 
 If your code extends the REST API, you need to modify namespaces.
 The `eZ\Publish\Core\REST` and `eZ\Publish\Core\REST\Common\` namespaces have been replaced by `EzSystems\EzPlatformRest`.
