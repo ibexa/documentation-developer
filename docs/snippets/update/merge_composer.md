@@ -46,7 +46,7 @@ You may also test the file with `composer validate`,
 and test the dependencies by running `composer update --dry-run`
 (it outputs what it would do to the dependencies, without applying the changes).
 
-Once finished, run `git add composer.json` and commit.
+When finished, run `git add composer.json` and commit.
 
 ### C. Fix other conflicts
 

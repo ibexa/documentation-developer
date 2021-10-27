@@ -663,7 +663,7 @@ In an Enterprise installation, to create the *Forms* container under the content
 php bin/console ezplatform:form-builder:create-forms-container
 ```
 
-You can also specify Content Type, Field values and language code of the container, e.g.:
+You can also specify Content Type, Field values and language code of the container, for example:
 
 ``` bash
 php bin/console ezplatform:form-builder:create-forms-container --content-type custom --field title --value 'My Forms' --field description --value 'Custom container for the forms' --language-code eng-US
@@ -674,7 +674,7 @@ You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.3
 
 !!! caution "Form (ezform) Field Type"
 
-    After the update, in order to create forms, you have to add a new Content Type (e.g. named "Form") that contains `Form` Field (this Content Type can contain other fields
+    After the update, in order to create forms, you have to add a new Content Type (for example, named "Form") that contains `Form` Field (this Content Type can contain other fields
     as well). After that you can use forms inside Landing Pages via Embed block.
 
 ### C. Update to v2.4

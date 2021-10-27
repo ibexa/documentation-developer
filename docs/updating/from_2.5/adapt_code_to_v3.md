@@ -1,7 +1,7 @@
 # Update code to v3
 
 Before you start this procedure, make sure you have completed the previous step,
-[Updating to v2.5](to_3.2.md).
+[Updating to v3.2](to_3.2.md).
 
 ## 4. Update the code
 

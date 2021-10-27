@@ -1,6 +1,6 @@
-### A. Create a branch
+### A. Create branch
 
-Create a new branch for handling update changes from the branch you're updating on:
+Create a new branch for handling update changes from the branch you are updating on:
 
 ``` bash
 git checkout -b update-[[= target_version =]]
