@@ -11,7 +11,6 @@ It enables you to configure new sites without editing [YAML-based SiteAccess con
     and then create a site that uses the `fr` path in Site Factory, matchers ignore the second site.
 
 Site Factory is disabled by default after installation.
-If you are not working on a clean installation, follow the [update guide to v3](../../updating/5_update_3.0.md#site-factory-upgrade).
 
 If you plan to use Site Factory, you need to enable and configure it.
 To enable or disable Site Factory, follow respectively:

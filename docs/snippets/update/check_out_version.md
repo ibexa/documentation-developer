@@ -1,21 +1,16 @@
-# 1. Check out a version
+### A. Create branch
 
-## 1.1. Create a branch
-
-Create a new branch for handling update changes from the project's `master` branch, or from the branch you're updating on:
+Create a new branch for handling update changes from the branch you are updating on:
 
 ``` bash
-git checkout -b <branch_name>
+git checkout -b update-[[= target_version =]]
 ```
 
-This creates a new project branch for the update based on your current project branch.
-An example `<branch_name>` would be `update-1.4`.
-In the following steps it will be referred to as *update branch*.
+This creates a new project branch (`update-[[= target_version =]]`) for the update based on your current project branch.
 
-## 1.2. Add `upstream` remote
+### B. Add `upstream` remote
 
-If it is not added as a remote yet, add `ezsystems/ezplatform` as an `upstream` remote
-(on an Enterprise installation use `ezsystems/ezplatform-ee`, and on an eZ Commerce installation, `ezsystems/ezcommerce`):
+If it is not added as a remote yet, add an `upstream` remote:
 
 === "ezplatform"
 
@@ -35,7 +30,7 @@ If it is not added as a remote yet, add `ezsystems/ezplatform` as an `upstream` 
     git remote add upstream http://github.com/ezsystems/ezcommerce.git
     ```
 
-## 1.3. Prepare for pulling changes
+### C. Prepare for pulling changes
 
 ??? note "Adding `sort-packages` option when updating from <=v1.13.4, v2.2.3, v2.3.2"
 
@@ -82,18 +77,12 @@ If it is not added as a remote yet, add `ezsystems/ezplatform` as an `upstream` 
     git commit -am "Sort my existing composer packages in anticipation of update with sorted merge"
     ```
 
-## 1.4. Pull the tag into your branch
+### D. Pull the tag into your branch
 
-Pull the selected tag into your update branch with the following command:
+Pull the latest v[[= target_version =]] tag into the `update-[[= target_version =]]` branch with the following command:
 
 ``` bash
-git pull upstream <version>
+git pull upstream v[[= latest_tag =]]
 ```
 
-!!! tip
-
-    Always provide the version number with the `v` prefix, which indicates a tag, not a branch
-    (for example, `v3.2.0` indicates a tag, while `3.2.0` or `3.2` indicates a development branch).
-
 At this stage you may get conflicts, which are a normal part of the update procedure.
-The most common ones will be on `composer.json` and `composer.lock`.
