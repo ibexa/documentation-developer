@@ -1,11 +1,11 @@
 # Create custom drop-downs
 
-In [[= product_name =]], you can create a reusable custom drop-downs and implemetn it anywhere in the Back Office.
+In [[= product_name =]], you can create a reusable custom drop-down and implement it anywhere in the Back Office.
 Follow the steps below to learn how to integrate this component to fit it to your project needs.
 
 ## Prepare custom drop-down structure
 
-First prepare the component HTML code structure in the template inside the `content` section. See the example:
+First prepare the component HTML code structure in the template inside the `content` section:
 
 ```html hl_lines="2 11 12"
 <div class="ez-custom-dropdown">
@@ -33,7 +33,7 @@ Input is hidden because a custom drop-down duplicates its functionality.
 
 !!! caution
 
-    Do not remove the `select` input, otherwise submission form may not work.
+    Do not remove the `select` input, otherwise form submission may not work.
 
 ![Dropdown expanded state](img/dropdown_expanded_state.jpg)
 
@@ -53,7 +53,7 @@ Example:
 
 ## Add attributes
 
-Next, look into the `data-value` attribute in the code (line 11 and 12) to duplicated options with the CSS class: `ez-custom-dropdown__item`.
+Next, look at the `data-value` attribute in the code (line 11 and 12) for duplicated options with the CSS class: `ez-custom-dropdown__item`.
 It stores a value of an option from a select input.
 
 You can provide placeholder text for your custom drop-down. To do so:

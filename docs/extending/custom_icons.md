@@ -42,7 +42,6 @@ You can easily retrieve the icon URL with the `getContentTypeIcon`  helper funct
 It takes Content Type identifier as an argument and returns one of the following items:
 
 - URL of a specified Content Type's icon
-
 - `null` if there is no Content Type with specified identifier
 
 Example with `getContentTypeIcon`:

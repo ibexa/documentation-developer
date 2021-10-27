@@ -521,8 +521,8 @@ nav:
         - 'Extend Back Office': 'extending/extending_back_office.md'
         - Back Office elements:
             - 'Reusable components': 'extending/reusable_back_office_templates.md'
-            - 'Custom drop-downs': 'extending/creating_custom_dropdowns.md'
-            - 'Icons': 'extending/custom_icons.md'
+            - 'Create custom drop-downs': 'extending/creating_custom_dropdowns.md'
+            - 'Custom icons': 'extending/custom_icons.md'
             - 'Create drag and drop': 'extending/drag_and_drop.md'
             - 'Custom components': 'extending/custom_components.md'
             - 'Extending date and time': 'extending/extending_date_and_time.md'
