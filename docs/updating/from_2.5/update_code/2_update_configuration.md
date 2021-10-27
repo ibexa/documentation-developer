@@ -1,8 +1,8 @@
-# 4.2. Upgrade configuration
+# 4.2. Update configuration
 
 ## `ezpublish` configuration key
 
-The main YAML configuration key is now [`ezplatform` instead of `ezpublish`](../releases/ez_platform_v3.0_deprecations.md#configuration-through-ezplatform).
+The main YAML configuration key is now [`ezplatform` instead of `ezpublish`](../../../releases/ez_platform_v3.0_deprecations.md#configuration-through-ezplatform).
 You need to change your configuration files to make use of the new key. For example:
 
 **Use:**

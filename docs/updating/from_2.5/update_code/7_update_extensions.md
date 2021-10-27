@@ -1,4 +1,4 @@
-# 4.7. Upgrade extended code
+# 4.7. Update extended code
 
 ## Universal Discovery Widget
 

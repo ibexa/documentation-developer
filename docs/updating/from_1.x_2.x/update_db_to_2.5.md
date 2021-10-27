@@ -1,10 +1,24 @@
-# Update database to v2.2
+---
+target_version: '2.5'
+latest_tag: '2.5.24'
+---
 
-!!! caution "Before you proceed"
+# Update database to v2.5
 
-    When you are updating from a version prior to v2.2, you must implement all the changes [from v1.13](5_update_1.13.md) before you proceed to the steps below.
+## 4. Update the database
 
-## Change from UTF8 to UTF8MB4
+Before you start this procedure, make sure you have completed the previous step,
+[Updating the app to v2.5](update_app_to_2.5.md).
+
+[[% include 'snippets/update/db/db_backup_warning.md' %]]
+
+!!! note
+
+    If you are starting from version v2.2 or later, skip to the relevant section.
+
+### A. Update to v2.2
+
+#### Change from UTF8 to UTF8MB4
 
 In v2.2 the character set for MySQL/MariaDB database tables changes from `utf8` to `utf8mb4` to support 4-byte characters.
 
@@ -40,7 +54,7 @@ doctrine:
 
 Also make the corresponding change in `app/config/dfs/dfs.yml`.
 
-## Migrate Landing Pages
+#### Migrate Landing Pages
 
 To update to v2.2 with existing Landing Pages, you need to use a dedicated script.
 The script is contained in the `ezplatform-page-migration` bundle and **works since version v2.2.2**.
@@ -63,7 +77,7 @@ You can remove the bundle after the migration is complete.
 The command migrates Landing Pages created in eZ Platform v1.x, v2.0 and v2.1 to new Pages.
 The operation is transactional and rolls back in case of errors.
 
-### Block migration
+##### Block migration
 
 In v2.2 Page Builder does not offer all blocks that Landing Page editor did. The removed blocks include Keyword, Schedule, and Form blocks.
 The Places block has been removed from the clean installation and will only be available in the demo out of the box.
@@ -85,15 +99,21 @@ you have an option to continue, but migrated Landing Pages will come without tho
 
 After the migration is finished, you need to clear cache.
 
-### Migrate custom blocks
+###### Migrate layouts
+
+The `ez_block:renderBlockAction` controller used in layout templates has been replaced by `EzPlatformPageFieldTypeBundle:Block:render`. This controller has two additional parameters, `locationId` and `languageCode`. Only `languageCode` is required.
+Also, the HTML class `data-studio-zone` has been replaced with `data-ez-zone-id`
+See [documentation](https://doc.ibexa.co/en/master/guide/page_rendering.md#layout-template) for an example on usage of the new controller.
+
+###### Migrate custom blocks
 
 Landing Page blocks (from v2.1 and earlier) were defined using a class implementing `EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\AbstractBlockType`. 
-In Page Builder (from v2.2 onwards), this interface is no longer present. Instead the logic of your block must be implemented in a [Listener](https://doc.ibexa.co/en/latest/guide/extending/extending_page.md#block-rendering-events).
+In Page Builder (from v2.2 onwards), this interface is no longer present. Instead the logic of your block must be implemented in a [Listener](https://doc.ibexa.co/en/master/guide/extending/extending_page.md#block-rendering-events).
 Typically, what you previously would do in `getTemplateParameters()`, you'll now do in the `onBlockPreRender()` event handler.
 
-The definition of block parameters has to be moved from `createBlockDefinition()` to the [YAML configuration](https://doc.ibexa.co/en/latest/guide/extending/extending_page.md#creating-page-blocks) for your custom blocks.
+The definition of block parameters has to be moved from `createBlockDefinition()` to the [YAML configuration](https://doc.ibexa.co/en/master/guide/extending/extending_page.md#creating-page-blocks) for your custom blocks.
 
-For more information about how custom blocks are implemented in Pagebuilder, have a look at [Creating custom Page blocks](https://doc.ibexa.co/en/latest/guide/extending/extending_page.md)
+For more information about how custom blocks are implemented in Pagebuilder, have a look at [Creating custom Page blocks](https://doc.ibexa.co/en/master/guide/extending/extending_page.md)
 
     Since v2.2 you no longer need to use services for custom Page Blocks, you can create them using YAML configuration.
 
@@ -108,10 +128,10 @@ Notice service tag `ezplatform.fieldtype.ezlandingpage.migration.attribute.conve
 
 This converter is only needed when running the `ezplatform:page:migrate` script and can be removed once that has completed.
 
-#### Page migration example
+###### Page migration example
 
 Below is an example how to migrate a Landing Page Layout and Block to new Page Builder. The code is based on the Random block 
-defined in the [Enterprise Beginner tutorial](../tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md)
+defined in the [Enterprise Beginner tutorial](../../tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md)
 
 ??? tip "Landing Page code"
 
@@ -620,3 +640,269 @@ defined in the [Enterprise Beginner tutorial](../tutorials/enterprise_beginner/e
             tags:
                 - { name: ezplatform.fieldtype.ezlandingpage.migration.attribute.converter, block_type: random }
     ```
+
+
+### B. Update to v2.3
+
+#### Database update script
+
+Apply the following database update script:
+
+``` bash
+mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.2.0-to-7.3.0.sql
+```
+
+#### Form Builder
+
+In an Enterprise installation, to create the *Forms* container under the content tree root use the following command:
+
+``` bash
+php bin/console ezplatform:form-builder:create-forms-container
+```
+
+You can also specify Content Type, Field values and language code of the container, for example:
+
+``` bash
+php bin/console ezplatform:form-builder:create-forms-container --content-type custom --field title --value 'My Forms' --field description --value 'Custom container for the forms' --language-code eng-US
+```
+
+You also need to run a script to add database tables for the Form Builder.
+You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.3/Resources/sql/schema.sql#L136
+
+!!! caution "Form (ezform) Field Type"
+
+    After the update, in order to create forms, you have to add a new Content Type (for example, named "Form") that contains `Form` Field (this Content Type can contain other fields
+    as well). After that you can use forms inside Landing Pages via Embed block.
+
+### C. Update to v2.4
+
+#### Workflow
+
+When updating an Enterprise installation, you need to [run a script](https://github.com/ezsystems/ezplatform-ee-installer/blob/2.4/Resources/sql/schema.sql#L198)
+to add database tables for the Editorial Workflow.
+
+#### Changes to the Forms folder
+
+The built-in Forms folder is located in the Form Section in versions 2.4+.
+
+If you are updating your Enterprise installation, you need to add this Section manually and move the folder to it.
+
+To allow anonymous users to access Forms, you also need to add the `content/read` Policy
+with the *Form* Section to the Anonymous User.
+
+#### Changes to Custom tags
+
+v2.4 changed the way of configuring custom tags. They are no longer configured under the `ezpublish` key,
+but one level higher in the YAML structure:
+
+``` yaml
+ezpublish:
+    system:
+        <siteaccess>:
+            fieldtypes:
+                ezrichtext:
+                    custom_tags: [exampletag]
+
+ezrichtext:
+    custom_tags:
+        exampletag:
+            # ...
+```
+
+The old configuration is deprecated, so if you use custom tags, you need to modify your config accordingly.
+
+
+### D. Update to v2.5
+    
+#### Database update script
+
+Apply the following database update script:
+
+``` bash
+mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.4.0-to-7.5.0.sql
+```
+
+##### v2.5.3
+
+To update to v2.5.3, additionally run the following script:
+
+``` bash
+mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.5.2-to-7.5.3.sql
+```
+
+##### v2.5.6
+
+To update to v2.5.6, additionally run the following script:
+
+``` bash
+mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.5.4-to-7.5.5.sql
+```
+
+or for PostgreSQL:
+
+``` bash
+psql <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-7.5.4-to-7.5.5.sql
+```
+
+##### v2.5.9
+
+To update to v2.5.9, additionally run the following script:
+
+``` bash
+mysql -u <username> -p <password> <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/mysql/dbupdate-7.5.6-to-7.5.7.sql
+```
+
+or for PostgreSQL:
+
+``` bash
+psql <database_name> < vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-7.5.6-to-7.5.7.sql
+```
+
+Additionally, reindex the content:
+
+``` bash
+php bin/console ezplatform:reindex
+```
+
+#### Changes to database schema
+
+The introduction of [support for PostgreSQL](https://doc.ibexa.co/en/master/guide/databases.md#using-postgresql) includes a change in the way database schema is generated.
+
+It is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml), using the new [`DoctrineSchemaBundle`](https://github.com/ezsystems/doctrine-dbal-schema).
+
+If you are updating your application according to the usual procedure, no additional actions are required.
+However, if you do not update your meta-repository, you need to take two additional steps:
+
+- enable `EzSystems\DoctrineSchemaBundle\DoctrineSchemaBundle()` in `AppKernel.php`
+- add [`ez_doctrine_schema`](https://github.com/ezsystems/ezplatform/blob/2.5/app/config/config.yml#L33) configuration
+
+#### Changes to Matrix Field Type
+
+To migrate your content from legacy XML format to a new `ezmatrix` value use the following command:
+
+```bash
+bin/console ezplatform:migrate:legacy_matrix
+```
+
+#### Required manual cache clearing if using Redis
+
+If you are using Redis as your persistence cache storage you should always clear it manually after an upgrade.
+You can do it in two ways, by using `redis-cli` and executing the following command:
+
+```bash
+FLUSHALL
+```
+
+or by executing the following command:
+
+```bash
+bin/console cache:pool:clear cache.redis
+```
+
+#### Updating to 2.5.3
+
+##### Page Builder
+
+This step is only required when updating an Enterprise installation from versions higher than v2.2 and lower than v2.5.3.
+In case of versions lower than 2.2, skip this step or ignore the information that indexes from a script below already exist.
+
+When updating to v2.5.3, you need to run the following script to add missing indexes:
+
+``` bash
+CREATE INDEX ezpage_map_zones_pages_zone_id ON ezpage_map_zones_pages(zone_id);
+CREATE INDEX ezpage_map_zones_pages_page_id ON ezpage_map_zones_pages(page_id);
+CREATE INDEX ezpage_map_blocks_zones_block_id ON ezpage_map_blocks_zones(block_id);
+CREATE INDEX ezpage_map_blocks_zones_zone_id ON ezpage_map_blocks_zones(zone_id);
+CREATE INDEX ezpage_map_attributes_blocks_attribute_id ON ezpage_map_attributes_blocks(attribute_id);
+CREATE INDEX ezpage_map_attributes_blocks_block_id ON ezpage_map_attributes_blocks(block_id);
+CREATE INDEX ezpage_blocks_design_block_id ON ezpage_blocks_design(block_id);
+CREATE INDEX ezpage_blocks_visibility_block_id ON ezpage_blocks_visibility(block_id);
+CREATE INDEX ezpage_pages_content_id_version_no ON ezpage_pages(content_id, version_no);
+```
+
+#### Updating to 2.5.16
+
+##### Powered-By header
+
+In order to promote use of eZ Platform, `ezsystems/ez-support-tools` v1.0.10, as of eZ Platform v2.5.16, sets the Powered-By header.
+It is enabled by default and generates a header like `Powered-By: eZ Platform Enterprise v2`.
+
+To omit the version number, use the following configuration:
+``` yaml
+ezplatform_support_tools:
+    system_info:
+        powered_by:
+            release: "none"
+```
+
+To opt out of the whole feature, disable it with the following configuration:
+
+``` yaml
+ezplatform_support_tools:
+    system_info:
+        powered_by:
+            enabled: false
+```
+
+#### Updating to v2.5.18
+
+To update to v2.5.18, if you are using MySQL, additionally run the following update script:
+
+``` sql
+ALTER TABLE ezpage_attributes MODIFY value LONGTEXT;
+```
+
+##### Update entity managers
+
+Version v2.5.18 introduces new entity managers.
+To ensure that they work in multi-repository setups, you must update the GraphQL schema.
+You do this manually by following this procedure:
+
+1. Update your project to v2.5.18 and run the `php bin/console cache:clear` command to generate the [service container](https://doc.ibexa.co/en/master/api/service_container.md).
+
+1. Run the following command to discover the names of the new entity managers. 
+    Take note of the names that you discover:
+
+    `php bin/console debug:container --parameter=doctrine.entity_managers --format=json | grep ibexa_`
+
+1. For every entity manager prefixed with `ibexa_`, run the following command:
+
+    `php bin/console doctrine:schema:update --em=<ENTITY_MANAGER_NAME> --dump-sql`
+  
+1. Review the queries and ensure that there are no harmful changes that could affect your data.
+
+1. For every entity manager prefixed with `ibexa_`, run the following command to run queries on the database:
+
+    `php bin/console doctrine:schema:update --em=<ENTITY_MANAGER_NAME> --force`
+
+###### VCL configuration for Fastly
+
+If you use Fastly, update your VCL configuration.
+
+Locate the `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_main.vcl` file and add the following lines to it:
+
+``` vcl
+if (req.restarts == 0 && resp.status == 301 && req.http.x-fos-original-url) {
+    set resp.http.location = regsub(resp.http.location, "/_fos_user_context_hash", req.http.x-fos-original-url);
+}
+```
+
+##### Optimize workflow queries
+
+Run the following SQL queries to optimize workflow performance:
+
+``` sql
+CREATE INDEX idx_workflow_co_id_ver ON ezeditorialworkflow_workflows(content_id, version_no);
+CREATE INDEX idx_workflow_name ON ezeditorialworkflow_workflows(workflow_name);
+```
+
+
+## 5. Finish the update
+
+[[% include 'snippets/update/finish_the_update.md' %]]
+
+[[% include 'snippets/update/notify_support.md' %]]
+
+## Update to v3.3
+
+It is strongly recommended to also [update to the latest LTS, v3.3](../from_2.5/update_from_2.5.md).

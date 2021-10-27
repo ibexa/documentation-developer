@@ -1,4 +1,4 @@
-# 4.4. Upgrade Signal Slots
+# 4.4. Update Signal Slots
 
 If you used Signal Slots to listen for events in you custom code,
 you need to rewrite them using Symfony Events and Listeners instead.

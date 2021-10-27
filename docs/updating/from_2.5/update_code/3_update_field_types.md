@@ -1,4 +1,4 @@
-# 4.3. Upgrade Field Types
+# 4.3. Update Field Types
 
 You need to adapt your custom Field Types to the new Field Type architecture.
 
