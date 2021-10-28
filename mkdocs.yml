@@ -518,11 +518,11 @@ nav:
             - 'Reporting Issues': 'guide/reporting_issues.md'
         - 'Notifications': 'guide/sending_notifications.md'
     - Extend Back Office:
-        - 'Extend Back Office': 'extending/extending_back_office.md'
+        - 'Back Office': 'extending/extending_back_office.md'
         - Back Office elements:
             - 'Reusable components': 'extending/reusable_back_office_templates.md'
-            - 'Create custom drop-downs': 'extending/creating_custom_dropdowns.md'
-            - 'Custom icons': 'extending/custom_icons.md'
+            - 'Custom drop-downs': 'extending/creating_custom_dropdowns.md'
+            - 'Icons': 'extending/custom_icons.md'
             - 'Create drag and drop': 'extending/drag_and_drop.md'
             - 'Custom components': 'extending/custom_components.md'
             - 'Extending date and time': 'extending/extending_date_and_time.md'
@@ -538,16 +538,15 @@ nav:
         - 'Add user setting': 'extending/add_user_setting.md'
         - 'Customize calendar': 'extending/customize_calendar.md'
         - 'Extending Image Editor': 'extending/extending_image_editor.md'
-        - 'Extending Online Editor':
+        - Extending Online Editor :
             - 'Extending Online Editor': 'extending/extending_online_editor.md'
             - 'Creating Online Editor button': 'extending/online_editor_button.md'
-            - 'Creating Online Editor plugin': 'extending/online_editor_plugin.md'
-        - 'Extending Modules':
-            - 'Extending UDW': 'extending/extending_udw.md'
-            - 'Creating a UDW tab': 'extending/adding_tab_to_udw.md'
-            - 'Extending Multi-file Upload': 'extending/extending_multifile_upload.md'
-            - 'Extending Sub-items List': 'extending/extending_subitems_list.md'
-            
+            - 'Creating Online Editor plugin': 'extending/online_editor_plugin.md' 
+        - Browser:
+            - 'Browser': 'extending/extending_udw.md'
+            - 'Add browser tab': 'extending/adding_tab_to_udw.md'
+        - 'Multi-file upload': 'extending/extending_multifile_upload.md'
+        - 'Sub-items list': 'extending/extending_subitems_list.md'        
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'
         - 'Release process and roadmap': 'community_resources/release_process.md'
