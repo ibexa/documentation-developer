@@ -8,9 +8,9 @@
 
 To use PostgreSQL, you need to have the `pdo_pgsql` PHP extension installed.
 
-Make sure you have the `ezsystems/doctrine-dbal-schema` Composer package installed
+Make sure you have the `ibexa/doctrine-dbal-schema` Composer package installed
 and `EzSystems\DoctrineSchemaBundle\DoctrineSchemaBundle()` enabled.
-If not, install the package with `composer require ezsystems/doctrine-dbal-schema`
+If not, install the package with `composer require ibexa/doctrine-dbal-schema`
 and enable `DoctrineSchemaBundle` in `AppKernel.php`.
 
 ### Provide parameters

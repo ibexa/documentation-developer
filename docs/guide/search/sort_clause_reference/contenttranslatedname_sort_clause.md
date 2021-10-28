@@ -1,6 +1,6 @@
 # ContentTranslatedName Sort Clause
 
-The [`ContentTranslatedName` Sort Clause](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Query/SortClause/ContentTranslatedName.php)
+The [`ContentTranslatedName` Sort Clause](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/SortClause/ContentTranslatedName.php)
 sorts search results by the Content items' translated names.
 
 ## Arguments

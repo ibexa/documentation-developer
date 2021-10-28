@@ -4,7 +4,7 @@
 to make Varnish and Fastly act as the view cache for the system.
 This and other features allow [[= product_name =]] to be scaled up to serve high traffic websites and applications.
 
-HTTP cache is handled by the [ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache) bundle,
+HTTP cache is handled by the [ibexa/http-cache](https://github.com/ibexa/http-cache) bundle,
 which extends [friendsofsymfony/http-cache-bundle](https://foshttpcachebundle.readthedocs.io/en/2.8.0/),
 a Symfony community bundle that in turn extends [Symfony HTTP cache](http://symfony.com/doc/5.1/http_cache.html).
 

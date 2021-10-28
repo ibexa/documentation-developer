@@ -64,7 +64,7 @@ The highest number shows first on the list.
 ### Block modal template
 
 The template for the configuration modal of built-in Page blocks is contained in
-`vendor/ezsystems/ezplatform-page-builder/src/bundle/Resources/views/page_builder/block/config.html.twig`.
+`vendor/ibexa/page-builder/src/bundle/Resources/views/page_builder/block/config.html.twig`.
 
 You can override it by using the `configuration_template` setting:
 

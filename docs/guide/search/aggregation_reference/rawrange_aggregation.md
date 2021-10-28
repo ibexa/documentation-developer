@@ -1,6 +1,6 @@
 # RawRangeAggregation
 
-The [RawRangeAggregation](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Query/Aggregation/RawRangeAggregation.php) aggregates search results by the value of the selected search index field.
+The [RawRangeAggregation](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Aggregation/RawRangeAggregation.php) aggregates search results by the value of the selected search index field.
 
 ## Arguments
 

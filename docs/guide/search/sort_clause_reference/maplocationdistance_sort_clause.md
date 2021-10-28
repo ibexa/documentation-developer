@@ -1,6 +1,6 @@
 # MapLocationDistance Sort Clause
 
-The [`MapLocationDistance` Sort Clause](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Query/SortClause/MapLocationDistance.php)
+The [`MapLocationDistance` Sort Clause](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/SortClause/MapLocationDistance.php)
 sorts search results by the distance of the indicated MapLocation Field to the provided location.
 
 ## Arguments

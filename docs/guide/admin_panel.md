@@ -7,7 +7,7 @@ Your most useful tools can be found in **Admin Panel**.
 
 ## System Information
 
-The System Information panel in the Back Office is sourced in a [ezsystems/ez-support-tools repository](https://github.com/ezsystems/ez-support-tools).
+The System Information panel in the Back Office is sourced in a [ibexa/support-tools repository](https://github.com/ibexa/support-tools).
 There you will also find basic system information such as versions of all installed packages.
 
 ![System Information](img/admin_panel_system_info.png "System Information")

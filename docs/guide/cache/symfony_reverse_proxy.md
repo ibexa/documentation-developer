@@ -20,8 +20,8 @@ Using a different proxy is highly recommended as they provide better performance
 
 For reverse proxies to work properly with your installation, you need to adapt one of the provided VCL files as the basis:
 
-- [Varnish VCL xkey example](https://github.com/ezsystems/ezplatform-http-cache/blob/2.0/docs/varnish/vcl/varnish5.vcl)
-- Fastly VCL can be found in `vendor/ezsystems/ezplatform-http-cache-fastly/fastly`
+- [Varnish VCL xkey example](https://github.com/ibexa/http-cache/blob/main/docs/varnish/vcl/varnish5.vcl)
+- Fastly VCL can be found in `vendor/ibexa/http-cache-fastly/fastly`
 
 !!! tip
 
@@ -99,7 +99,7 @@ ezplatform:
 !!! note "Invalidating Varnish cache using tokens"
 
     In setups where the Varnish server IP can change (for example, on Ibexa Cloud),
-    you can use token-based cache invalidation through [`ez_purge_acl`](https://github.com/ezsystems/ezplatform-http-cache/blob/v2.1.0/docs/varnish/vcl/varnish5.vcl#L174).
+    you can use token-based cache invalidation through [`ez_purge_acl`](https://github.com/ibexa/http-cache/blob/main/docs/varnish/vcl/varnish5.vcl#L174).
  
     In such situation, use strong, secure hash and make sure to keep the token secret.
 
@@ -138,7 +138,7 @@ you must make the following changes to the custom block template file:
 data-field-id="{{ field.id }}"
 ```
 
-As a result, your file should be similar to [this example.](https://github.com/ezsystems/ezplatform-form-builder/blob/master/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig)
+As a result, your file should be similar to [this example.](https://github.com/ibexa/form-builder/blob/main/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig)
 
 For more information about configuring Captcha fields, see [Captcha field](../../guide/form_builder/forms.md#captcha-field).
 

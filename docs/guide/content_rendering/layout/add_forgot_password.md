@@ -20,8 +20,8 @@ ezplatform:
 Under the `templates` key, provide the path to templates responsible for rendering the forgot password form (`form`) and email (`mail`),
 which users receive after they request a password change.
 
-The [default templates](https://github.com/ezsystems/ezplatform-user/tree/master/src/bundle/Resources/views) for forgot password form and email are located in `ezplatform-user/src/bundle/Resources/views`.
-The [templates](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/account/forgot_password/) specific for the Back Office are in `ezplatform-admin-ui/src/bundle/Resources/views/themes/admin/account`.
+The [default templates](https://github.com/ibexa/user/tree/main/src/bundle/Resources/views) for forgot password form and email are located in `ibexa/user/src/bundle/Resources/views`.
+The [templates](https://github.com/ibexa/admin-ui/tree/main/src/bundle/Resources/views/themes/admin/account/forgot_password) specific for the Back Office are in `ibexa/admin-ui/src/bundle/Resources/views/themes/admin/account`.
 
 You can also modify [other user management templates](../../user_management/user_management.md#other-user-management-templates).
 

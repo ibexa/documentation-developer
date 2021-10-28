@@ -1,6 +1,6 @@
 # Personalization client
 
-The [Personalization client package](https://github.com/ezsystems/ezrecommendation-client) 
+The [Personalization client package](https://github.com/ibexa/personalization-client) 
 adds a personalization solution to [[= product_name =]] and communicates with 
 the Personalization server.
 
@@ -443,7 +443,7 @@ You can retrieve data returned from the Personalization server and modify it
 before it is shown to the user.
 
 To modify recommendation data, subscribe to `RecommendationResponseEvent`.
-See [`Event/Subscriber/RecommendationEventSubscriber.php`](https://github.com/ezsystems/ezrecommendation-client/blob/master/src/lib/Event/Subscriber/RecommendationEventSubscriber.php) for example:
+See [`Event/Subscriber/RecommendationEventSubscriber.php`](https://github.com/ibexa/personalization-client/blob/main/src/lib/Event/Subscriber/RecommendationEventSubscriber.php) for example:
 
 ``` php
 public static function getSubscribedEvents(): array
@@ -462,7 +462,7 @@ before the main subscriber is run.
 Displaying image variations is not readily supported yet.
 
 You can work around this limitation by creating a template
-(based on [recommendations.html.twig](https://github.com/ezsystems/ezrecommendation-client/blob/master/src/bundle/Resources/views/recommendations.html.twig)).
+(based on [recommendations.html.twig](https://github.com/ibexa/personalization-client/blob/main/src/bundle/Resources/views/recommendations.html.twig)).
 
 To access a specific image variation through API, add the `image` parameter to the 
 request URL with the name of the variation as its value.

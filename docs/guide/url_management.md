@@ -183,7 +183,7 @@ ezplatform:
 | `separator`             | Decides what separator is used. There are three types of separator available: dash, underscore and space. |
 | `transformation_groups` | Contains the available patterns for URL generation.                                                       |
 
-A transformation group consists of an array of commands (see [all available commands](https://github.com/ezsystems/ezplatform-kernel/tree/v1.0.0/eZ/Publish/Core/Persistence/Tests/TransformationProcessor/_fixtures/transformations)) and a [`cleanupMethod`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Persistence/Legacy/Content/UrlAlias/SlugConverter.php#L288).
+A transformation group consists of an array of commands (see [all available commands](https://github.com/ibexa/core/tree/main/eZ/Publish/Core/Persistence/Tests/TransformationProcessor/_fixtures/transformations)) and a [`cleanupMethod`](https://github.com/ibexa/core/blob/main/eZ/Publish/Core/Persistence/Legacy/Content/UrlAlias/SlugConverter.php#L288).
 
 You can make use of pre-defined transformation groups.
 You can also add your own, with your own set of commands.

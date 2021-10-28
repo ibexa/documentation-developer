@@ -1,6 +1,6 @@
 # Score Sort Clause
 
-The [`Score` Sort Clause](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Query/SortClause/Score.php)
+The [`Score` Sort Clause](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/SortClause/Score.php)
 orders search results by their score.
 
 ## Arguments

@@ -48,7 +48,7 @@ The Universal Discovery Widget enables you to add new tabs to the module. To lea
 
 ## Configuration
 
-You can configure UDW in the [`universal_discovery_widget.yaml`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/universal_discovery_widget.yaml) file.
+You can configure UDW in the [`universal_discovery_widget.yaml`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/config/universal_discovery_widget.yaml) file.
 
 There you can set the following properties:
 

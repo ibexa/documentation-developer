@@ -35,45 +35,45 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 
 |Bundle|Description|
 |---------|-----------|
-|[ezsystems/ez-support-tools](https://github.com/ezsystems/ez-support-tools)|System information|
-|[ezsystems/ezplatform-admin-ui-assets](https://github.com/ezsystems/ezplatform-admin-ui-assets)|Assets for the Back Office|
-|[ezsystems/ezplatform-admin-ui](https://github.com/ezsystems/ezplatform-admin-ui)|Back Office interface|
-|[ezsystems/ezplatform-content-forms](https://github.com/ezsystems/ezplatform-content-forms)|Form-based integration for the Symfony Forms into Content and User objects in kernel|
-|[ezsystems/ezplatform-core](https://github.com/ezsystems/ezplatform-core)|Core system functionalities|
-|[ezsystems/ezplatform-cron](https://github.com/ezsystems/ezplatform-cron)|Cron package for use with the `ezplatform:cron:run` command|
-|[ezsystems/ezplatform-design-engine](https://github.com/ezsystems/ezplatform-design-engine)|[Design fallback system](content_rendering/design_engine/design_engine.md)|
-|[ezsystems/ezplatform-graphql](https://github.com/ezsystems/ezplatform-graphql)|GraphQL server for [[= product_name =]]|
-|[ezsystems/ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache)|[HTTP cache handling](../guide/cache/http_cache.md), using multi tagging|
-|[ezsystems/ezplatform-kernel](https://github.com/ezsystems/ezplatform-kernel)|Core of the [[= product_name =]] application|
-|[ezsystems/ezplatform-matrix-fieldtype](https://github.com/ezsystems/ezplatform-matrix-fieldtype)|[Matrix Field Type](../api/field_types_reference/matrixfield.md)|
-|[ezsystems/ezplatform-query-fieldtype](https://github.com/ezsystems/ezplatform-query-fieldtype)|[Query Field Type](../api/field_types_reference/contentqueryfield.md)|
-|[ezsystems/ezplatform-rest](https://github.com/ezsystems/ezplatform-rest)|REST API|
-|[ezsystems/ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext)|Field Type for supporting rich-formatted text stored in a structured XML format|
-|[ezsystems/ezplatform-search](https://github.com/ezsystems/ezplatform-search)|Common search functionalities|
-|[ezsystems/ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine)|[Solr-powered](http://lucene.apache.org/solr/) search handler|
-|[ezsystems/ezplatform-standard-design](https://github.com/ezsystems/ezplatform-standard-design)|Standard design and theme to be handled by `ezplatform-design-engine`|
-|[ezsystems/ezplatform-user](https://github.com/ezsystems/ezplatform-user)|User management|
+|[ibexa/support-tools](https://github.com/ibexa/support-tools)|System information|
+|[ibexa/admin-ui-assets](https://github.com/ibexa/admin-ui-assets)|Assets for the Back Office|
+|[ibexa/admin-ui](https://github.com/ibexa/admin-ui)|Back Office interface|
+|[ibexa/content-forms](https://github.com/ibexa/content-forms)|Form-based integration for the Symfony Forms into Content and User objects in kernel|
+|[ibexa/core-extensions](https://github.com/ibexa/core-extensions)|Core system functionalities|
+|[ibexa/cron](https://github.com/ibexa/cron)|Cron package for use with the `ezplatform:cron:run` command|
+|[ibexa/design-engine](https://github.com/ibexa/design-engine)|[Design fallback system](content_rendering/design_engine/design_engine.md)|
+|[ibexa/graphql](https://github.com/ibexa/graphql)|GraphQL server for [[= product_name =]]|
+|[ibexa/http-cache](https://github.com/ibexa/http-cache)|[HTTP cache handling](../guide/cache/http_cache.md), using multi tagging|
+|[ibexa/core](https://github.com/ibexa/core)|Core of the [[= product_name =]] application|
+|[ibexa/matrix-fieldtype](https://github.com/ibexa/matrix-fieldtype)|[Matrix Field Type](../api/field_types_reference/matrixfield.md)|
+|[ibexa/query-fieldtype](https://github.com/ibexa/query-fieldtype)|[Query Field Type](../api/field_types_reference/contentqueryfield.md)|
+|[ibexa/rest](https://github.com/ibexa/rest)|REST API|
+|[ibexa/richtext](https://github.com/ibexa/richtext)|Field Type for supporting rich-formatted text stored in a structured XML format|
+|[ibexa/search](https://github.com/ibexa/search)|Common search functionalities|
+|[ibexa/solr-search-engine](https://github.com/ibexa/solr-search-engine)|[Solr-powered](http://lucene.apache.org/solr/) search handler|
+|[ibexa/standard-design](https://github.com/ibexa/standard-design)|Standard design and theme to be handled by `design-engine`|
+|[ibexa/user](https://github.com/ibexa/user)|User management|
 
 ## Ibexa Content packages
 
 |Bundle|Description|
 |---------|-----------|
-|ezsystems/date-based-publisher|Date-based publishing functionality|
-|ezsystems/ezcommerce-base-design|Standard design and theme for the shop|
-|ezsystems/ezcommerce-checkout|Shop checkout functionality|
-|ezsystems/ezcommerce-fieldtypes|Shop-specific Field Types|
-|ezsystems/ezcommerce-price-engine|Engine for handling prices|
-|ezsystems/ezcommerce-shop-ui|UI for the shop front page|
-|ezsystems/ezcommerce-shop|Main shop functionalities|
-|ezsystems/ezplatform-calendar|Calendar tab with a calendar widget|
-|ezsystems/ezplatform-connector-dam|Connector for DAM (Digital Asset Management) systems|
-|ezsystems/ezplatform-elastic-search-engine|Integration with Elasticsearch search engine|
-|ezsystems/ezplatform-http-cache-fastly|Fastly support for `ezplatform-http-cache`, for use on Platform.sh or standalone|
-|ezsystems/ezplatform-icons|Icon set for the Back Office|
-|ezsystems/ezplatform-personalization|Functionality for personalized recommendations|
-|ezsystems/ezplatform-version-comparison|Enables comparing between two versions of the same Field|
-|ezsystems/ezplatform-workflow|Collaboration feature that enables you to send content draft to any user for a review or rewriting|
-|ezsystems/ezrecommendation-client|Client for connecting with the personalization engine|
+|ibexa/date-based-publisher|Date-based publishing functionality|
+|ibexa/commerce-base-design|Standard design and theme for the shop|
+|ibexa/commerce-checkout|Shop checkout functionality|
+|ibexa/commerce-fieldtypes|Shop-specific Field Types|
+|ibexa/commerce-price-engine|Engine for handling prices|
+|ibexa/commerce-shop-ui|UI for the shop front page|
+|ibexa/commerce-shop|Main shop functionalities|
+|ibexa/calendar|Calendar tab with a calendar widget|
+|ibexa/connector-dam|Connector for DAM (Digital Asset Management) systems|
+|ibexa/elastic-search-engine|Integration with Elasticsearch search engine|
+|ibexa/http-cache-fastly|Fastly support for `http-cache`, for use on Platform.sh or standalone|
+|ibexa/icons|Icon set for the Back Office|
+|ibexa/personalization|Functionality for personalized recommendations|
+|ibexa/version-comparison|Enables comparing between two versions of the same Field|
+|ibexa/workflow|Collaboration feature that enables you to send content draft to any user for a review or rewriting|
+|ibexa/recommendation-client|Client for connecting with the personalization engine|
 |ibexa/image-editor|[Image Editor](image_editor.md)|
 |ibexa/installer|Provides the `ibexa:install` command|
 |ibexa/migrations|[Migration of Repository data](data_migration.md)|
@@ -83,19 +83,19 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 
 |Bundle|Description|
 |---------|-----------|
-|ezsystems/ezplatform-form-builder|Enables creating Form Content items with multiple form fields|
-|ezsystems/ezplatform-page-builder|Page editor|
-|ezsystems/ezplatform-page-fieldtype|Page handling Field Type|
-|ezsystems/ezplatform-permissions|Additional permission functionalities|
-|ezsystems/ezplatform-segmentation|Segment functionality for profiling the content displayed to specific users|
-|ezsystems/ezplatform-site-factory|Enables configuration of sites from UI|
+|ibexa/form-builder|Enables creating Form Content items with multiple form fields|
+|ibexa/page-builder|Page editor|
+|ibexa/page-fieldtype|Page handling Field Type|
+|ibexa/permissions|Additional permission functionalities|
+|ibexa/segmentation|Segment functionality for profiling the content displayed to specific users|
+|ibexa/site-factory|Enables configuration of sites from UI|
 
 ## Ibexa Commerce packages
 
 |Bundle|Description|
 |---------|-----------|
-|ezsystems/ezcommerce-admin-ui|Shop-related Back Office functionalities|
-|ezsystems/ezcommerce-erp-admin|ERP connection for the shop|
-|ezsystems/ezcommerce-order-history|[Order history](order_history/order_history.md) functionality|
-|ezsystems/ezcommerce-page-builder|Shop-related Page blocks|
-|ezsystems/ezcommerce-transaction|Transactional shop functionalities|
+|ibexa/commerce-admin-ui|Shop-related Back Office functionalities|
+|ibexa/commerce-erp-admin|ERP connection for the shop|
+|ibexa/commerce-order-history|[Order history](order_history/order_history.md) functionality|
+|ibexa/commerce-page-builder|Shop-related Page blocks|
+|ibexa/commerce-transaction|Transactional shop functionalities|

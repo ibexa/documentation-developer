@@ -13,7 +13,7 @@ It allows them to create a new password.
 
 For information about how to create and configure the template, see [Add forgot password option](../content_rendering/layout/add_forgot_password.md)
 
-The template for this email is located in `templates/Security/mail/forgot_user_password.html.twig` in `ezsystems/ezplatform-user`.
+The template for this email is located in `templates/Security/mail/forgot_user_password.html.twig` in `ibexa/user`.
 You can [customize it according to your needs](#customize-login-form).
 
 The validity of the password recovery token can be set using the `ezplatform.system.<siteaccess>.security.token_interval_spec` parameter.

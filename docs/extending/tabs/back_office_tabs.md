@@ -59,7 +59,7 @@ You can also influence tab display (for example, order tabs, remove or modify th
 
 ## Tab groups
 
-You can create new tab groups by using the [`TabsComponent`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Component/TabsComponent.php).
+You can create new tab groups by using the [`TabsComponent`](https://github.com/ibexa/admin-ui/blob/main/src/lib/Component/TabsComponent.php).
 
 To create a tab group, register it as a service:
 
