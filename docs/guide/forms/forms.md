@@ -8,8 +8,6 @@ One-page forms have several common criteria:
 - After submitting some processes are executed in the backend.
 - After server response the user sees a confirmation page with a success or error message.
 
-[[= product_name =]] uses [Symfony forms]([[= symfony_doc =]]//forms.html) as part of the solution.
-
 You can pre-fill the form with default values when it is loaded for the first time.
 The process that pre-fills the form is called a [pre-data processor](form_api/predataprocessors.md).
 
@@ -29,6 +27,12 @@ Usually a confirmation page is displayed, but you can choose one of the followin
 - redirect to another page:
     - another route from the shop
     - external URL
+
+[[= product_name =]] uses [Symfony forms]([[= symfony_doc =]]//forms.html) as part of the solution.
+
+!!! note "Form Builder"
+
+    For information about forms that you can create with Form Builder, see [Forms](../form_builder/forms.md)
 
 ## Creating a form
 

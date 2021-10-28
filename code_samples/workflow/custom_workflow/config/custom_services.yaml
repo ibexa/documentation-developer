@@ -2,6 +2,6 @@ services:
     App\EventListener\LegalTransitionListener:
         tags:
             - { name: ezplatform.workflow.action_listener }
-    App\EventListener\DoneTransitionListener:
+    App\EventListener\ApprovedTransitionListener:
         tags:
             - { name: ezplatform.workflow.action_listener }

@@ -2,7 +2,7 @@
 
 The Online Editor is based on [Alloy Editor](https://alloyeditor.com/).
 Refer to [Alloy Editor documentation](https://alloyeditor.com/docs/develop/) to learn how to extend the Online Editor with new elements.
-To learn how to extend the [[= product_name =]] Back Office follow [Extending Admin UI tutorial](../../tutorials/extending_admin_ui/extending_admin_ui).
+To learn how to extend the [[= product_name =]] Back Office follow [Extending Back Office tutorial](../../tutorials/extending_admin_ui/extending_admin_ui).
 
 !!! note
 
@@ -127,7 +127,7 @@ You can only use inline custom tags in the `text` toolbar.
 !!! caution "Incorrect configuration"
 
     Newer configuration options, such as `is_inline`, only work with the configuration provided above.
-    If your project uses [configuration from version prior to 2.4](../updating/5_update_2.4.md#changes-to-custom-tags),
+    If your project uses [configuration from version prior to 2.4](../updating/from_1.x_2.x/update_db_to_2.5.md#changes-to-custom-tags),
     these options will not work.
     You need to update your configuration to be placed under the `ezrichtext` key.
 

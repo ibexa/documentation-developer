@@ -1,6 +1,6 @@
-# Reusable Back Office templates
+# Reusable components
 
-When extending the Back Office, you can use base Twig templates for commonly used UI components such as tabs or tables.
+When you extend the Back Office, you can use base Twig templates for commonly used UI components such as tables or tabs.
 
 The available templates are:
 
@@ -12,7 +12,7 @@ With `embed` you can override blocks that are defined inside the included templa
 
 ## Tables
 
-The table component consist of the following blocks:
+The table component consists of the following blocks:
 
 - `header` - headline for the table section
 - `headline` - table name
