@@ -21,6 +21,17 @@ you can [query](graphql_queries.md) and [operate on](graphql_operations.md).
     When you modify Content Types in your installation, you need to regenerate the schema
     using the command above.
 
+### Schema generation limitations
+
+GraphQL schema cannot be generated for names that do not follow the [GraphQL specification](http://spec.graphql.org/June2018/#sec-Names),
+for example names that start with a digit.
+
+This concerns image variations, Content Types, Content Type groups, and Field definition identifiers.
+
+It is recommended to rename the relevant identifiers. Failure to generate schema is registered in logs.
+To find identifiers that are not included in the schema, look for "Skipped schema generation" log messages, for example:
+`Skipped schema generation for Image Variation`.
+
 ## Domain schema
 
 GraphQL for eZ Platform is based on the Content Types, Content Type groups, and Content items
