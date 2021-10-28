@@ -74,7 +74,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 
 ## Package manager
 
-- Composer 2.1 or higher
+- Composer: recent 2.1 version
 
 ## Asset manager
 
