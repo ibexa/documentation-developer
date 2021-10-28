@@ -95,7 +95,7 @@ Full list of options:
 |Name|Description|Required|
 |----|-----------|--------|
 |`container`|contains a reference to a DOM node where custom drop-down is initialized.|required|
-|`sourceInput`|contains a reference to a DOM node where the value of selected option is stored. Presumably, it should be a reference to a select input node.|required|
+|`sourceInput`|contains a reference to a DOM node where the value of selected option is stored. Preferably, it should be a reference to a select input node.|required|
 |`itemsContainer`|contains a reference to a duplicated items container.|required|
 |`hasDefaultSelection`|contains a boolean value. If set to `true` the first option is selected as a placeholder or selected value.|optional|
 |`selectedItemTemplate`|contains a literal template string with placeholders for `value` and `label` data.|optional|
