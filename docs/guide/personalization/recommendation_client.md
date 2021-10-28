@@ -294,7 +294,6 @@ You can do it with the `ezrecommendation:export:run` command or by accessing the
 php bin/console ezrecommendation:export:run
     --contentTypeIdList=<contentTypeId>,<contentTypeId>
     --webHook=https://admin.yoochoose.net/api/<your_customer_id>/items
-    --hidden=1 --mandatorId=<your_customer_id>
     --host=<your_ezplatform_host_with_scheme>
 ```
 
