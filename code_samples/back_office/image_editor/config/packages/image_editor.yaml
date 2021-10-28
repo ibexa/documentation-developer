@@ -7,7 +7,6 @@ ezplatform:
                         id: default
                         label: Default
                         actions:
-                            # ...
                             crop:
                                 id: crop
                                 priority: 1
@@ -35,8 +34,7 @@ ezplatform:
                                             y: 9
                                     custom:
                                         label: Custom
-                image_quality: 0.8
-                            # ...
                             dot:
                                 id: dot
                                 priority: 50
+                image_quality: 0.8

@@ -13,17 +13,18 @@ You can modify the default settings to change the appearance or behavior of the 
 You can also expand the default set of parameters to create buttons that may be required by custom features
 that you add by extending the Image Editor, for example, to enable changes to the color palette of an image.
 
-To do this, modify the `config/packages/ezplatform.yaml` file, or create a separate YAML file
-in the `config/packages` folder, and add a settings tree similar to the following example.
+To do this, modify the `config/packages/ezplatform.yaml` file, or create a separate 
+YAML file in the `config/packages` folder, and add a settings tree similar to 
+the following example.
 The settings tree can contain one or more action groups.
 You can control the order of actions within a group by setting the `priority` parameter.
 You can also toggle the visibility of actions within the user interface.
 Image Editor settings are [SiteAccess-aware](config_dynamic.md).
 
-The following example sets the aspect ratio values and label names for buttons used by the Crop feature.
+The following example sets the aspect ratio values and label names for buttons used by the Crop feature. 
 
 ``` yaml
-[[= include_file('code_samples/back_office/image_editor/config/packages/ezplatform.yaml', 0, 37) =]]
+[[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 0, 37) =]]
 ```
 
 ### Image quality
@@ -34,7 +35,7 @@ The setting accepts values between 0 and 1, which corresponds to the compression
 The default quality is 0.92:
 
 ``` yaml
-[[= include_file('code_samples/back_office/image_editor/config/packages/ezplatform.yaml', 0, 4) =]] [[= include_file('code_samples/back_office/image_editor/config/packages/ezplatform.yaml', 37, 38) =]]
+[[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 0, 4) =]] [[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 39, 40) =]]
 ```
 
 ### Additional information

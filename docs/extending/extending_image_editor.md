@@ -20,11 +20,11 @@ The code does not perform any action yet, you add the action in the following st
 ## Add configuration
 
 Depending on whether you [modified the default settings](../guide/image_editor.md#configuration), and where you did it,
-in `config/packages` either modify the `ezplatform.yaml` file, or create the `image_editor.yaml`
-by adding settings similar to the following example:
+in `config/packages` either modify the `ezplatform.yaml` file, or create the 
+`image_editor.yaml` file by adding settings similar to the following example:
 
 ``` yaml
-[[= include_file('code_samples/back_office/image_editor/config/packages/ezplatform.yaml', 0, 10) =]][[= include_file('code_samples/back_office/image_editor/config/packages/ezplatform.yaml', 39, 42) =]]
+[[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 0, 9) =]][[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 36, 39) =]]
 ```
 
 ## Add entry to the Webpack configuration
