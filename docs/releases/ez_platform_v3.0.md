@@ -45,7 +45,7 @@ For details, see [Bundles](https://doc.ibexa.co/en/latest/guide/bundles).
 
     ### Site Factory
 
-    The new Site management User Interface is now integrated with Admin UI.
+    The new Site management User Interface is now integrated with Back Office.
     It enables you to easily create and manage multiple sites from the Back Office without editing the configuration files.
 
     For more information about:

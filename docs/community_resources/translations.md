@@ -38,7 +38,7 @@ To enable in-context translation you need to create Crowdin account and join [[[
 
 Strings in the interface that can be translated will be outlined in red (untranslated), blue (translated) or green (approved). When moving over them, an edit button will show up on the top left corner of the outline. Click on it, and edit the string in the window that shows up.
 
-![In-context translation of Admin UI](img/crowdin_translation.png "In-context translation of Admin UI")
+![In-context translation of Back Office](img/crowdin_translation.png "In-context translation of Back Office")
 
 #### Troubleshooting
 
