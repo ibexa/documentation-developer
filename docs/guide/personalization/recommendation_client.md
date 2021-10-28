@@ -196,7 +196,6 @@ You do it either with the `ibexa:recommendation:run-export` command...
 php bin/console ibexa:recommendation:run-export
     --contentTypeIdList=<contentTypeId>,<contentTypeId>
     --webHook=https://admin.yoochoose.net/api/<your_customer_id>/items
-    --hidden=1 --mandatorId=<your_customer_id>
     --host=<your_ezplatform_host_with_scheme>
 ```
 
