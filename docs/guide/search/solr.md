@@ -404,8 +404,9 @@ The configuration above will result in the following boosting (Content Type / Fi
     Remember to clear the cache and perform search engine reindex afterwords.
 
     The above configuration will result in the following boosting (Content Type / Field):
+    
     - `folder/name: 20.0`
-    - `folder/title: 10.0`
+    - `folder/description: 10.0`
 
 ## Extending the Solr Search Engine Bundle
 
