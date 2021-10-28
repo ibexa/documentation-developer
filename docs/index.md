@@ -61,7 +61,7 @@
                                 <li><a href="tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform/">Beginner tutorial</a></li>
                                 <li><a href="tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world/">DXP beginner</a></li>
                                 <li><a href="tutorials/generic_field_type/creating_a_point2d_field_type/">Generic Field Type</a></li>
-                                <li><a href="tutorials/extending_admin_ui/extending_admin_ui/">Extending Admin UI</a></li>
+                                <li><a href="tutorials/extending_admin_ui/extending_admin_ui/">Extend Back Office</a></li>
                             </ul>
                         </div>
                     </div>
