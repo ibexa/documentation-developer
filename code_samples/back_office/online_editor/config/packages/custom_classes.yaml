@@ -1,18 +1,11 @@
 ezplatform:
     system:
-        # The configuration only works with an admin (Back Office) SiteAccess
-        <siteaccess>:
+        admin_group:
             fieldtypes:
                 ezrichtext:                            
                     classes:
                         paragraph:
-                            choices: [regular, special]
-                            default_value: regular
-                            required: false
-                            multiple: false
-
-                        paragraph:
-                            choices: [regular, tip_box, warning_box]
+                            choices: [regular, special, tip_box, warning_box]
                             default_value: regular
                             required: false
                             multiple: false

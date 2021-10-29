@@ -11,7 +11,7 @@ and creating [custom buttons](online_editor_button.md) and
 Online Editor is based on the Alloy Editor.
 Refer to [Alloy Editor documentation](https://alloyeditor.com/docs/develop/) to learn 
 how you can extend the Online Editor with even more elements.
-For more information about extending the admin UI, see [Extend Back Office](extending_back_office.md).
+For more information about extending the Back Office UI, see [Extend Back Office](extending_back_office.md).
 
 !!! note
 
@@ -187,12 +187,12 @@ Inline styles apply to the selected portion of text only, while block styles app
 Start creating a custom style by providing configuration:
 
 - a global list of custom styles, defined under the node `ezrichtext.custom_styles`,
-- a list of enabled custom styles for a given Admin SiteAccess or Admin SiteAccess group, located under the node `ezplatform.system.<scope>.fieldtypes.ezrichtext.custom_styles`
+- a list of enabled custom styles for a given `admin` SiteAccess or `admin_group` SiteAccess group, located under the node `ezplatform.system.<scope>.fieldtypes.ezrichtext.custom_styles`
 
 A sample configuration could look as follows:
 
 ``` yaml
-[[= include_file('code_samples/back_office/online_editor/config/packages/custom_styles.yaml', 0, 15) =]]
+[[= include_file('code_samples/back_office/online_editor/config/packages/custom_styles.yaml') =]]
 ```
 
 !!! note
@@ -224,7 +224,7 @@ The template files for the front end could look as follows:
 <div {% if id is defined %}id="{{ id }}"{% endif %} class="{% if align is defined %}align-{{ align }}{% endif %} ezstyle-{{ name }}">{% apply spaceless %}{{ content|raw }}{% endapply %}</div>
 ```
 
-Templates for Content View in the Back Office would be `templates/themes/admin/field_type/ezrichtext/custom_style/highlighted_word.html.twig` and `templates/themes/admin/field_type/ezrichtext/custom_style/highlighted_block.html.twig` respectively (assuming that the Admin SiteAccess uses the `admin` theme).
+Templates for Content View in the Back Office would be `templates/themes/admin/field_type/ezrichtext/custom_style/highlighted_word.html.twig` and `templates/themes/admin/field_type/ezrichtext/custom_style/highlighted_block.html.twig` respectively (assuming that the Back Office SiteAccess uses the default `admin` theme).
 
 ### Use cases
 
@@ -235,7 +235,7 @@ You can create a custom style that places a paragraph in a note box:
 ![Example of a note box custom style](img/oe_custom_style_note_box.png)
 
 ``` yaml
-[[= include_file('code_samples/back_office/online_editor/config/packages/custom_styles.yaml', 16, 27) =]]
+[[= include_file('code_samples/back_office/online_editor/config/packages/custom_styles_note_box.yaml') =]]
 ```
 
 The `note_box.html.twig` template wraps the content of the selected text 
@@ -276,7 +276,7 @@ You can create an inline custom style that highlights a part of a text:
 ![Example of a custom style highlighting a portion of text](img/oe_custom_style_highlight.png)
 
 ``` yaml
-[[= include_file('code_samples/back_office/online_editor/config/packages/custom_styles.yaml', 28, 40) =]]
+[[= include_file('code_samples/back_office/online_editor/config/packages/custom_styles_highlight.yaml') =]]
 ```
 
 The `highlight.html.twig` template wraps the content of the selected text 
@@ -344,7 +344,7 @@ By adding `multiple`, you can decide whether more than one option can be selecte
 It is set to `false` by default.
 
 Use the example below to add two data attributes, `custom_attribute` and 
-`another_attribute` to the Heading element:
+`another_attribute` to the Heading element in the `admin_group` SiteAccess:
 
 ``` yaml
 [[= include_file('code_samples/back_office/online_editor/config/packages/custom_data_attributes.yaml') =]]
@@ -364,12 +364,12 @@ You must provide the available `choices`.
 You can also set the values for `required`, `default_value` and `multiple`.
 `multiple` is set to true by default.
 
-Use the example below to add a class choice to the Paragraph element:
+Use the example below to add a class choice to the Paragraph element in the `admin_group` SiteAccess:
 
 ``` yaml
-[[= include_file('code_samples/back_office/online_editor/config/packages/custom_classes.yaml', 0, 12) =]]
+[[= include_file('code_samples/back_office/online_editor/config/packages/custom_classes.yaml') =]]
 ```
-
+ 
 !!! note "Label translations"
 
     If there are many custom attributes, to provide label translations for these 

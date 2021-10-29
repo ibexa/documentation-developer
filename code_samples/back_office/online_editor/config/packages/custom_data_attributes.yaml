@@ -1,7 +1,6 @@
 ezplatform:
     system:
-        # The configuration only works with an admin (Back Office) SiteAccess
-        <siteaccess>:
+        admin_group:
             fieldtypes:
                 ezrichtext:
                     attributes:

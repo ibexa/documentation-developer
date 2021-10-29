@@ -1,6 +1,6 @@
 ezplatform:
     system:
-        <siteaccess>:
+        my_site:
             image_editor:
                 action_groups:
                     default:

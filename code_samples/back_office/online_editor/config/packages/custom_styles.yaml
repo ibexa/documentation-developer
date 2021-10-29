@@ -4,7 +4,6 @@ ezplatform:
             fieldtypes:
                 ezrichtext:
                     custom_styles: [highlighted_block, highlighted_word]
-
 ezrichtext:
     custom_styles:
         highlighted_word:
@@ -13,28 +12,3 @@ ezrichtext:
         highlighted_block:
             template: '@ezdesign/field_type/ezrichtext/custom_style/highlighted_block.html.twig'
             inline: false
-            
-ezplatform:
-    system:
-        admin_group:
-            fieldtypes:
-                ezrichtext:
-                    custom_styles: [note_box]
-
-ezrichtext:
-    custom_styles:
-        note_box:
-            template: field_type/ezrichtext/custom_style/note_box.html.twig
-
-ezpublish:
-    system:
-        admin_group:
-            fieldtypes:
-                ezrichtext:
-                    custom_styles: [highlight]
-                    
-ezrichtext:
-    custom_styles:
-        highlight:
-            template: field_type/ezrichtext/custom_style/highlight.html.twig
-            inline: true
