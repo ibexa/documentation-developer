@@ -386,17 +386,42 @@ x-cache: MISS
 
 ### Finding the nginx endpoint on Platform.sh
 
-Assuming you on Platform have a project with id=`asd123asd123` and an environment named `Staging` which you access via Fastly on
-`https://www.staging.foobar.com.us-2.platformsh.site`. In the Platform.sh dashboard, you need to select and find a valid route to
-that environment by clicking on an element in the `URLs` dropdown for that environment. A route then may look like this:
-`https://www.staging.foobar.com.c.asd123asd123.dev.ent.platform.sh/`
+#### Finding the nginx endpoint for environments located on the grid
 
-Next thing you need is to do is to resolve that route and get the IP address.
-This may be done using the nslookup available on both unix and Windows:
+In order to find the nginx point you'll need to know in which region your project is located. You can usually find that
+using the Platform.sh dashboard: You need to select and find a valid route to
+a given environment by clicking on an element in the `URLs` dropdown for that environment. A route then may look like this:
+`https://www.staging.foobar.com.us-2.platformsh.site/`
+
+In this case the region is `us-2` and you can look up the [public IP list on Platform.sh documentation page](https://docs.platform.sh/development/public-ips.html)
+Typically, you may just add a `gw` to the hostname and use nslookup to look it up
 
 ```bash
     $ nslookup
-    > www.staging.foobar.com.c.asd123asd123.dev.ent.platform.sh
+    > gw.us-2.platformsh.site
+   (...)
+   Address:  1.2.3.4
+```
+
+You may also use the [Platform.sh CLI command](https://docs.platform.sh/development/cli.html) to find [the endpoint](https://docs.platform.sh/domains/steps/dns.html?#where-should-the-cname-point-to) :
+
+```bash
+    $ platform environment:info edge_hostname
+```
+
+#### Finding nginx endpoint on dedicated cloud
+
+If you have a dedicated 3-node cluster on Platform.sh, the procedure for getting the endpoint to environments that are 
+located on that cluster (`production` and sometimes also `staging`) is slightly different:
+In the `URLs` dropdown in the Platform.sh dashboard you need to find the route that has the format 
+`something.[clusterid].ent.platform.sh/`, for instance `myenvironment.asddfs2323.ent.platform.sh/`
+
+The endpoint will in that case be in the format `c.[clusterid].ent.platform.sh`, for instance `c.asddfs2323.ent.platform.sh/`
+Next, use nslookup to find the IP:
+
+```bash
+    $ nslookup
+    > c.asddfs2323.ent.platform.sh
    (...)
    Address:  1.2.3.4
 ```
