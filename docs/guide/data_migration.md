@@ -43,14 +43,15 @@ Below you can see part of the output of the default Ibexa DXP installation.
     mode: create
     metadata:
         contentType: user_group
-        mainTranslation: eng-US
+        mainTranslation: eng-GB
         creatorId: 14
-        modificationDate: '2002-10-06T15:19:56+00:00'
-        publicationDate: '2002-10-06T15:19:56+00:00'
+        modificationDate: '2002-10-06T17:19:56+02:00'
+        publicationDate: '2002-10-06T17:19:56+02:00'
         remoteId: f5c88a2209584891056f987fd965b0ba
         alwaysAvailable: true
-        section: 2
-        objectStates: {  }
+        section:
+            id: 2
+            identifier: users
     location:
         parentLocationId: 1
         parentLocationRemoteId: null
@@ -62,13 +63,12 @@ Below you can see part of the output of the default Ibexa DXP installation.
     fields:
         -
             fieldDefIdentifier: name
-            languageCode: eng-US
+            languageCode: eng-GB
             value: Users
         -
             fieldDefIdentifier: description
-            languageCode: eng-US
+            languageCode: eng-GB
             value: 'Main group'
-    actions: {  }
     references:
         -
             name: ref__content__user_group__users
@@ -97,7 +97,7 @@ They are particularly useful combined with `match-property`.
 This option is automatically added as part of `match` expression in the update/delete migration:
 
 ``` bash
-bin/console ibexa:migrations:generate --type=content_type --mode=update --match-property=content_type_identifier --value=article
+php bin/console ibexa:migrations:generate --type=content_type --mode=update --match-property=content_type_identifier --value=article
 ```
 
 ```yaml
@@ -357,9 +357,11 @@ You can find which migration steps support actions in the table below:
 
 ||`create`|`update`|`delete`|
 |---|:---:|:---:|:---:|
-|`content`|&#10004;|||
-|`content_type`||&#10004;||
+|`content`|&#10004;|&#10004;|&#10004;|
+|`content_type`|&#10004;|&#10004;|&#10004;|
 |`role`|&#10004;|&#10004;||
+|`user`|&#10004;|&#10004;||
+|`user_group`|&#10004;|||
 
 Actions are optional operations that can be run after the main "body" of a migration has been executed
 (that is, content has been created / updated, Object state has been added, and so on).
@@ -384,13 +386,29 @@ For example, when updating a Content Type object, some fields might be removed:
 When executed, this migration:
 
 - Finds Content Type using its identifier (`article`)
-- Assigns Content Type group "Media"
-- Removes it from Content Type group "Content"
+- Assigns Content Type Group "Media"
+- Removes it from Content Type Group "Content"
 - Removes the `short_title` Field
 - Removes its existing drafts, if any.
 
+### Available migration actions
+
+The following migration actions are available out of the box:
+
+- `assign_object_state` (Content Create)
+- `assign_parent_location` (Content Create / Update)
+- `assign_content_type_group` (Content Type Create / Update)
+- `remove_drafts` (Content Type Update)
+- `remove_field_by_identifier` (Content Type Update)
+- `unassign_content_type_group` (Content Type Update)
+- `assign_role_to_user` (Role Create / Update)
+- `assign_role_to_user_group` (Role Create / Update)
+- `assign_user_to_role` (User Create / Update)
+- `assign_user_group_to_role` (User Group Create / Update)
+
 In contrast with Kaliop migrations, actions provide you with ability to perform additional operations and extend
-the migration functionality. See [creating your own Actions](#creating-your-own-actions)
+the migration functionality. 
+See [creating your own Actions](#creating-your-own-actions).
 
 ## References
 
@@ -489,127 +507,39 @@ To create an action, you need:
 - An action denormalizer, to convert YAML definition into your action class.
 - An action executor, to handle the action.
 
-Built-in actions work in exactly the same way.
-Existing `AssignContentTypeGroup` action is used as an example below.
+The following example shows how to create an action that assigns a Content item to a Section.
 
-First, create an action class.
+First, create an action class, in `src/Migrations/Action/AssignSection.php`:
 
 ``` php
-use Ibexa\Platform\Migration\ValueObject\Step\Action;
-
-final class AssignContentTypeGroup implements Action
-{
-    public const TYPE = 'assign_content_type_group';
-
-    /** @var string */
-    private $groupName;
-
-    public function __construct(string $groupName)
-    {
-        $this->groupName = $groupName;
-    }
-
-    /**
-     * @return string
-     */
-    public function getValue()
-    {
-        return $this->groupName;
-    }
-
-    public function getSupportedType(): string
-    {
-        return self::TYPE;
-    }
-}
-
+[[= include_file('code_samples/data_migration/src/Migrations/Action/AssignSection.php') =]]
 ```
 
-Then you need a denormalizer to convert data read from YAML into an action object.
+Then you need a denormalizer to convert data that comes from YAML into an action object,
+in `src/Migrations/Action/AssignSectionDenormalizer.php`:
 
 ``` php
-use Ibexa\Platform\Contracts\Migration\Serializer\Denormalizer\AbstractActionDenormalizer;
-use Ibexa\Platform\Migration\ValueObject\Step\Action\ContentType\AssignContentTypeGroup;
-use Webmozart\Assert\Assert;
-
-final class AssignContentTypeGroupActionDenormalizer extends AbstractActionDenormalizer
-{
-    protected function supportsActionName(string $actionName, string $format = null): bool
-    {
-        return $actionName === AssignContentTypeGroup::TYPE;
-    }
-
-    /**
-     * @param array<mixed> $data
-     * @param string $type
-     * @param string|null $format
-     * @param array<mixed> $context
-     *
-     * @return \Ibexa\Platform\Migration\ValueObject\Step\Action\ContentType\AssignContentTypeGroup
-     */
-    public function denormalize($data, string $type, string $format = null, array $context = [])
-    {
-        Assert::keyExists($data, 'value');
-
-        return new AssignContentTypeGroup($data['value']);
-    }
-}
-
+[[= include_file('code_samples/data_migration/src/Migrations/Action/AssignSectionDenormalizer.php') =]]
 ```
 
 Then, tag the action denormalizer so it is recognized by the serializer used for migrations.
 
 ``` yaml
-services:
-    Ibexa\Platform\Bundle\Migration\Serializer\Denormalizer\ContentType\Action\AssignContentTypeGroupActionDenormalizer:
-        # Make sure to set autoconfigure to false, otherwise this normalizer will be registered in your application's main serializer
-        autoconfigure: false
-        tags:
-            - { name: 'ibexa.migrations.serializer.normalizer' }
+[[= include_file('code_samples/data_migration/config/custom_services.yaml', 0, 5) =]]
 ```
 
-And finally, add an executor to perform the action.
-
-The executor has to be tagged with `ibexa.migrations.executor.action.<type>` tag, where `<type>` is the "type" of the step
-that executor works with ("content", "content_type", "location", etc.). The tag has to have a `key` property with the
-action type.
-
-For example, `AssignGroupExecutor` is defined as follows:
-
-```yaml
-services:
-    Ibexa\Platform\Migration\StepExecutor\ActionExecutor\ContentType\Update\AssignGroupExecutor:
-        tags:
-            - { name: 'ibexa.migrations.executor.action.content_type', key: !php/const \Ibexa\Platform\Migration\ValueObject\Step\Action\ContentType\AssignContentTypeGroup::TYPE }
-```
+And finally, add an executor to perform the action, in `src/Migrations/Action/AssignSectionExecutor.php`:
 
 ``` php
-use eZ\Publish\API\Repository\ContentTypeService;
-use Ibexa\Platform\Migration\ValueObject;
-use Ibexa\Platform\Migration\StepExecutor\ActionExecutor\ExecutorInterface;
-use eZ\Publish\API\Repository\Values\ValueObject as APIValueObject;
+[[= include_file('code_samples/data_migration/src/Migrations/Action/AssignSectionExecutor.php') =]]
+```
 
-final class AssignGroupExecutor implements ExecutorInterface
-{
-    /** @var \eZ\Publish\API\Repository\ContentTypeService */
-    private $contentTypeService;
+Tag the executor with `ibexa.migrations.executor.action.<type>` tag, where `<type>` is the "type" of the step
+that executor works with (`content`, `content_type`, `location`, and so on).
+The tag has to have a `key` property with the action type.
 
-    public function __construct(
-        ContentTypeService $contentTypeService
-    ) {
-        $this->contentTypeService = $contentTypeService;
-    }
-
-    /**
-     * @param \Ibexa\Platform\Migration\ValueObject\Step\Action\ContentType\AssignContentTypeGroup $action
-     * @param \eZ\Publish\API\Repository\Values\ContentType\ContentType $contentType
-     */
-    public function handle(ValueObject\Step\Action $action, APIValueObject $contentType): void
-    {
-        $group = $this->contentTypeService->loadContentTypeGroupByIdentifier($action->getValue());
-        $this->contentTypeService->assignContentTypeGroup($contentType, $group);
-    }
-}
+```yaml
+[[= include_file('code_samples/data_migration/config/custom_services.yaml', 6, 9) =]]
 ```
 
 ## Configuration reference
