@@ -1,0 +1,9 @@
+ezplatform:
+    image_placeholder:
+        default:
+            provider: generic
+            options:
+                fontpath: '%kernel.project_dir%/src/Resources/font/font.ttf'
+                background: '#EEEEEE'
+                foreground: '#FF0000'
+                text: 'MISSING IMAGE %%width%%x%%height%%'

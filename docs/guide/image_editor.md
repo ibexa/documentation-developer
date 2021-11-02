@@ -24,7 +24,7 @@ Image Editor settings are [SiteAccess-aware](config_dynamic.md).
 The following example sets the aspect ratio values and label names for buttons used by the Crop feature. 
 
 ``` yaml
-[[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 0, 37) =]]
+[[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 0, 36) =]]
 ```
 
 ### Image quality

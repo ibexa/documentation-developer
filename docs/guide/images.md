@@ -7,13 +7,13 @@ In [[= product_name =]], you can reuse them, normalize their file names, generat
 different size variations, resize images programmatically, or even define 
 placeholders for missing ones.  
 
-## Images from a DAM system
+## Images from DAM systems
 
 If your installation is connected to a DAM system, you can use images directly 
 from a DAM system in your content.
 
-The [specific configuration](config_connector.md#dam-configuration) will depend on 
-the DAM system in question.
+Specific [DAM configuration](config_connector.md#dam-configuration) depends on 
+the system that the installation uses.
 
 ## Reuse images
 
@@ -98,10 +98,10 @@ You can also pass two additional parameters:
 
 - `iteration-count` is the number of images to be recreated in a single iteration, 
   to reduce memory use. 
-  Default is `25`.
+  The default value is `25`.
 - `user` is the identifier of a User with proper permission who will perform 
   the operation (`read`, `versionread`, `edit` and `publish`). 
-  Default is `admin`.
+  The default value is `admin`.
 
 !!! caution
 
@@ -131,15 +131,11 @@ In [[= product_name =]], there are two implementations of the `PlaceholderProvid
 ### GenericProvider
 
 The [`GenericProvider`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Imagine/PlaceholderProvider.php) package generates placeholders 
-with basic information about the original image (see [example 1](#configuration-examples).
+with basic information about the original image (see [example 1](#configuration-examples)).
 
-**Generic image example:**
+![Placeholder image GenericProvider](img/placeholder_info.jpg "Example of a generic placeholder image")
 
-![Placeholder image GenericProvider](img/placeholder_info.jpg)
-
-**Full page example:**
-
-![Placeholder GenericProvider](img/placeholder_generic_provider.png)
+![Placeholder GenericProvider](img/placeholder_generic_provider.png "Generic placeholder images on a page")
 
 |Option|Default value|Description|Required?|
 |------|-------------|-----------|-|
@@ -158,9 +154,7 @@ placeholders from:
  - remote sources, for example, <http://placekitten.com> (see [example 2](#configuration-examples))
  - live version of a site (see [example 3](#configuration-examples))
 
-**Full page example:**
-
-![Placeholder RemoteProvider - placekitten.com](img/placeholder_remote_provider.jpg)
+![Placeholder RemoteProvider - placekitten.com](img/placeholder_remote_provider.jpg "Remote placeholder images on a page")
 
 |Option|Default value|Description|
 |------|-------------|-----------|
@@ -171,9 +165,14 @@ placeholders from:
 
 Placeholder generation can be configured for each [`binary_handler`](file_management.md#handling-binary-files) under the 
 `ezplatform.image_placeholder` key:
-
+ 
 ```yaml
-[[= include_file('code_samples/back_office/images/config/packages/images.yaml', 0, 6) =]]
+ezplatform:
+    # ...
+    image_placeholder:
+        <BINARY_HANDLER_NAME>:
+            provider: <PROVIDER TYPE>
+            options:  <CONFIGURATION>
 ```
 
 If there is no configuration assigned to the `binary_handler`, the placeholder 
@@ -184,19 +183,19 @@ generation is disabled.
 **Example 1 - placeholders with basic information about original image**
 
 ```yaml
-[[= include_file('code_samples/back_office/images/config/packages/images.yaml', 0, 3) =]] [[= include_file('code_samples/back_office/images/config/packages/images.yaml', 6, 13) =]]
+[[= include_file('code_samples/back_office/images/config/packages/images_basic.yaml') =]]
 ```
 
 **Example 2 - placeholders from remote source**
 
 ```yaml
-[[= include_file('code_samples/back_office/images/config/packages/images.yaml', 0, 3) =]] [[= include_file('code_samples/back_office/images/config/packages/images.yaml', 13, 17) =]]
+[[= include_file('code_samples/back_office/images/config/packages/images_remote.yaml) =]]
 ```
 
 **Example 3 - placeholders from live version of a site**
 
 ```yaml
-[[= include_file('code_samples/back_office/images/config/packages/images.yaml', 0, 3) =]] [[= include_file('code_samples/back_office/images/config/packages/images.yaml', 17, 22) =]]
+[[= include_file('code_samples/back_office/images/config/packages/images_live.yaml') =]]
 ```
 
 ## Support for SVG images

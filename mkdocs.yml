@@ -533,8 +533,6 @@ nav:
             - 'Create drag and drop': 'extending/drag_and_drop.md'
             - 'Custom components': 'extending/custom_components.md'
             - 'Extending date and time': 'extending/extending_date_and_time.md'
-            - 'Creating custom drop-downs': 'extending/creating_custom_dropdowns.md'
-            - 'Creating custom icons': 'extending/custom_icons.md'
             - 'Extending thumbnails': 'extending/extending_thumbnails.md'
             - 'Import assets from a bundle': 'extending/import_assets_from_bundle.md'
         - Back Office tabs:
