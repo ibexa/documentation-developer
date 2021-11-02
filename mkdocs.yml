@@ -194,8 +194,8 @@ nav:
             - 'Content management': 'guide/content_management.md'
             - Images:
               - 'Images': 'guide/images.md'
-              - 'Configure the Image Editor': 'guide/image_editor.md'
-              - 'Extend the Image Editor': 'extending/extending_image_editor.md'
+              - 'Configure Image Editor': 'guide/image_editor.md'
+              - 'Extend Image Editor': 'extending/extending_image_editor.md'
             - Rich Text:
                 - 'Extend Online Editor': 'extending/extending_online_editor.md'
                 - 'Create Online Editor button': 'extending/online_editor_button.md'

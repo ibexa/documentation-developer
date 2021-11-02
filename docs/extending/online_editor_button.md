@@ -13,7 +13,7 @@ First, create the button file in `assets/js/online_editor/buttons/hr.js`:
 ```
 
 Then, enable the button.
-You do it by adding the following code in the `webpack.config.js` file, under 
+Add the following code in the `webpack.config.js` file, under 
 `// Put your config here`:
 
 ``` js

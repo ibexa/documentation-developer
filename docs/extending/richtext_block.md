@@ -1,11 +1,11 @@
 # Create custom RichText block [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-In addition to existing blocks that you can use when creating a Page, you can 
-also create a custom blocks. 
-To do this, you must define the block's layout, provide templates, add a subscriber 
+A RichText block is a specific example of a [custom block](../guide/page/create_custom_page_block.md) that you can use when 
+you create a Page. 
+To create a custom block, you must define the block's layout, provide templates, add a subscriber 
 and register the subscriber as a service.
 
-Follow the procedure below to create a [custom RichText Page block](../guide/page/create_custom_page_block.md).
+Follow the procedure below to create a RichText Page block.
 
 First, provide the block configuration in `config/packages/ezplatform_page_fieldtype.yaml`. 
 The following code defines a new block, its view and configuration 
@@ -19,7 +19,7 @@ It also sets the attribute type to `richtext` (line 15):
 
     Make sure that you provide an icon for the block in the `assets/images/blocks/` folder.
 
-Then, create a subscriber that converts a string of data into an XML code.
+Then, create a subscriber that converts a string of data into XML code.
 Create a `src/Event/Subscriber/RichTextBlockSubscriber.php` file.
 
 In line 32, `my_block` is the same name of the block that you defined in line 3 

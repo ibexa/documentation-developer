@@ -13,21 +13,21 @@ a RichText Field.
     [the way you do it in CKEditor](https://ckeditor.com/docs/ckeditor4/latest/guide/plugin_sdk_sample.html).
 
 First, create the plugin file in `assets/js/online_editor/plugins/date.js`.
-The following code implements an `InsertDate` command and attaches it to the editor:
+The following code implements an `InsertDate` method and attaches it to the editor:
 
 ``` js
 [[= include_file('code_samples/back_office/online_editor/assets/js/online_editor/plugins/date.js') =]]
 ```
 
 Then, modify the Online Editor toolbar by adding a button that inserts the date.
-To do this, create a file for the button in `assets/js/online_editor/buttons/date.js`:
+Create a file for the button in `assets/js/online_editor/buttons/date.js`:
 
 ``` js
 [[= include_file('code_samples/back_office/online_editor/assets/js/online_editor/buttons/date.js') =]]
 ```
 
 Next, enable the plugin and the button.
-You do it by adding the following code in the `webpack.config.js` file, under 
+Add the following code in the `webpack.config.js` file, under 
 `// Put your config here`.
 This way, [[= product_name =]] loads the plugin and button files when loading 
 the Online Editor:

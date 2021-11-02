@@ -20,7 +20,7 @@ The code does not perform any action yet, you add the action in the following st
 ## Add configuration
 
 Depending on whether you [modified the default settings](../guide/image_editor.md#configuration), and where you did it,
-in `config/packages` either modify the `ezplatform.yaml` file, or create the 
+in `config/packages` either modify the `ezplatform.yaml` file, or create an 
 `image_editor.yaml` file by adding settings similar to the following example:
 
 ``` yaml
