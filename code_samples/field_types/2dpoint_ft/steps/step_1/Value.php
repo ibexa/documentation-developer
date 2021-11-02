@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\FieldType\Point2D;
 
-use eZ\Publish\SPI\FieldType\Value as ValueInterface;
+use Ibexa\Contracts\Core\FieldType\Value as ValueInterface;
 
 final class Value implements ValueInterface
 {

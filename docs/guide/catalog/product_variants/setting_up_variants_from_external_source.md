@@ -77,9 +77,9 @@ You can adapt this behavior. For example, you can receive a special flag from ER
 
         // if the product has variants, call createVariantProductNode
         if (isset($nodeInfo['dataMap']['ses_variants'])
-            && $nodeInfo['dataMap']['ses_variants'] instanceof \EzSystems\MatrixBundle\FieldType\Matrix\Value
+            && $nodeInfo['dataMap']['ses_variants'] instanceof \Ibexa\FieldTypeMatrix\FieldType\Value
         ){
-            /** @var \EzSystems\MatrixBundle\FieldType\Matrix\Value $matrix */
+            /** @var \Ibexa\FieldTypeMatrix\FieldType\Value $matrix */
             $matrix = $nodeInfo['dataMap']['ses_variants'];
             $rows = $matrix->rows->toArray();
             if (!$this->hasEmptyRowsOnly($rows)) {

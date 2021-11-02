@@ -1,6 +1,6 @@
 # Checkout summary form
 
-`CheckoutSummary` (`Ibexa\Platform\Commerce\Checkout\Form\CheckoutSummary`) extends `AbstractFormEntity`
+`CheckoutSummary` (`Ibexa\Commerce\Checkout\Form\CheckoutSummary`) extends `AbstractFormEntity`
 and manages the HTML form for order summary in checkout process.
 
 ## Fields
@@ -17,7 +17,7 @@ See [configuration for checkout forms](configuration_for_checkout_forms.md).
 
 ## Form Type
 
-`Ibexa\Platform\Commerce\Checkout\Form\CheckoutSummaryType`
+`Ibexa\Commerce\Checkout\Form\CheckoutSummaryType`
 (service ID: `siso_checkout.form_entity.checkout_summary_type`)
 implements the setup for this form.
 
@@ -27,4 +27,4 @@ and to be able to read configuration settings.
 !!! note
 
     The scope of this service is set to `prototype`.
-    A new instance of  `Siso\Bundle\CheckoutBundle\Form\Type\CheckoutSummaryType` is created every time this service is called.
+    A new instance of  `Ibexa\Commerce\Checkout\Form\Type\CheckoutSummaryType` is created every time this service is called.

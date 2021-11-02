@@ -30,7 +30,7 @@ parameters:
 
 ## VoucherManager
 
-The `Siso/Bundle/VoucherBundle/Service/VoucherManager` service manages general voucher processes, like redeeming or removing the voucher.
+The `Ibexa\Bundle\Commerce\Voucher\Service\VoucherManager` service manages general voucher processes, like redeeming or removing the voucher.
 
 ``` php
 //get the voucher manager

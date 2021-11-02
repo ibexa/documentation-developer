@@ -284,10 +284,10 @@ This enables you to use different settings for different Repositories.
     If you need to use different settings per SiteAccess, not per Repository,
     see [SiteAccess-aware configuration](multisite/siteaccess_aware_configuration.md).
 
-To do this, create a parser that implements `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\RepositoryConfigParserInterface`:
+To do this, create a parser that implements `Ibexa\Bundle\Core\DependencyInjection\Configuration\RepositoryConfigParserInterface`:
 
 ``` php
-use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\RepositoryConfigParserInterface;
+use Ibexa\Bundle\Core\DependencyInjection\Configuration\RepositoryConfigParserInterface;
 use Symfony\Component\Config\Definition\Builder\NodeBuilder;
 
 final class CustomRepositoryConfigParser implements RepositoryConfigParserInterface
@@ -316,14 +316,14 @@ final class AcmeFeatureBundle extends Bundle
     {
         // ...
 
-        /** @var \eZ\Bundle\EzPublishCoreBundle\DependencyInjection\EzPublishCoreExtension $kernel */
+        /** @var Ibexa\Bundle\Core\DependencyInjection\EzPublishCoreExtension $kernel */
         $kernel = $container->getExtension('ezpublish');
         $kernel->addRepositoryConfigParser(new CustomRepositoryConfigParser());
     }
 }
 ```
 
-To access the configuration settings, use the `eZ\Bundle\EzPublishCoreBundle\ApiLoader\RepositoryConfigurationProvider::getRepositoryConfig` method:
+To access the configuration settings, use the `Ibexa\Bundle\Core\ApiLoader\RepositoryConfigurationProvider::getRepositoryConfig` method:
 
 ``` php
 $acmeConfig = $repositoryConfigProvider->getRepositoryConfig()['acme'];

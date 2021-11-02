@@ -13,8 +13,8 @@ This Field Type validates and stores formatted text using the eZ Publish legacy 
 |Type|Description|Example|
 |------|------|------|
 |`string`|XML document in the Field Type internal format as a string.|See the example below.|
-|`eZ\Publish\Core\FieldType\XmlText\Input`|An instance of the class implementing the Field Type's abstract `Input` class.|See the example below.|
-|`eZ\Publish\Core\FieldType\XmlText\Value`|An instance of the Field Type's `Value` object.|See the example below.|
+|`Ibexa\Core\FieldType\XmlText\Input`|An instance of the class implementing the Field Type's abstract `Input` class.|See the example below.|
+|`Ibexa\Core\FieldType\XmlText\Value`|An instance of the Field Type's `Value` object.|See the example below.|
 
 ### Example of the Field Type's internal format
 
@@ -40,20 +40,20 @@ Learn more about `<strong>`, `<b>`, `<em>`, `<i>`:
 
 `Input` object is intended as a vector for different input formats. It should accept input value in a foreign format and convert it to the Field Type's internal format.
 
-It should implement the abstract `eZ\Publish\Core\FieldType\XmlText\Input` class, which defines only one method:
+It should implement the abstract `Ibexa\Core\FieldType\XmlText\Input` class, which defines only one method:
 
 |Method|Description|
 |------|------|
 |`getInternalRepresentation`|The method returns the input value in the internal format.|
 
-At the moment there is only one implementation of the `Input` class, `eZ\Publish\Core\FieldType\XmlText\Input\EzXml`, which accepts input value in the internal format, and therefore only performs validation of the input value.
+At the moment there is only one implementation of the `Input` class, `Ibexa\Core\FieldType\XmlText\Input\EzXml`, which accepts input value in the internal format, and therefore only performs validation of the input value.
 
 ``` php
 // Example of using the Input object
 
 ...
  
-use eZ\Publish\Core\FieldType\XmlText\Input\EzXml as EzXmlInput;
+use Ibexa\Core\FieldType\XmlText\Input\EzXml as EzXmlInput;
 
 ...
 
@@ -82,7 +82,7 @@ $contentCreateStruct->setField( "description", $ezxmlInput );
 
 ## Value object API
 
-`eZ\Publish\Core\FieldType\XmlText\Value` offers the following properties:
+`Ibexa\Core\FieldType\XmlText\Value` offers the following properties:
 
 |Property|Type|Description|
 |------|------|------|
@@ -90,7 +90,7 @@ $contentCreateStruct->setField( "description", $ezxmlInput );
 
 ## Validation
 
-Validation of the internal format is performed in the `eZ\Publish\Core\FieldType\XmlText\Input\EzXml` class.
+Validation of the internal format is performed in the `Ibexa\Core\FieldType\XmlText\Input\EzXml` class.
 
 ## Settings
 
@@ -103,7 +103,7 @@ Following settings are available:
 
 ### Tag presets
 
-Following tag presets are available as constants in the `eZ\Publish\Core\FieldType\XmlText` class:
+Following tag presets are available as constants in the `Ibexa\Core\FieldType\XmlText` class:
 
 |Constant|Description|
 |------|------|
@@ -115,7 +115,7 @@ Following tag presets are available as constants in the `eZ\Publish\Core\FieldTy
 
 ...
  
-use eZ\Publish\Core\FieldType\XmlText\Type;
+use Ibexa\Core\FieldType\XmlText\Type;
 
 ...
 

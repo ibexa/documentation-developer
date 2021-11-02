@@ -38,7 +38,7 @@ nelmio_cors:
 
 #### Changing configuration of NelmioCorsBundle for [[= product_name =]] REST
 
-The default configuration of NelmioCorsBundle for [[= product_name =]] REST paths is set in the [nelmio_cors.yaml](https://github.com/ezsystems/ezplatform-rest/blob/master/src/bundle/Resources/config/nelmio_cors.yml) file.
+The default configuration of NelmioCorsBundle for [[= product_name =]] REST paths is set in the [nelmio_cors.yaml](https://github.com/ibexa/rest/blob/main/src/bundle/Resources/config/nelmio_cors.yml) file.
 To adapt these settings to your own needs you have to overwrite them in the `nelmio_cors.yaml` file under the same configuration path, for instance:
 
 ```yaml

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\EventListener;
 
-use EzSystems\EzPlatformWorkflow\Event\Action\AbstractTransitionWorkflowActionListener;
+use Ibexa\Contracts\Workflow\Event\Action\AbstractTransitionWorkflowActionListener;
 use Symfony\Component\Workflow\Event\TransitionEvent;
-use EzSystems\EzPlatformAdminUi\Notification\TranslatableNotificationHandlerInterface as NotificationInterface;
+use Ibexa\Contracts\AdminUi\Notification\TranslatableNotificationHandlerInterface as NotificationInterface;
 
 class ApprovedTransitionListener extends AbstractTransitionWorkflowActionListener
 {

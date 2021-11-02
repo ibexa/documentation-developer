@@ -24,8 +24,8 @@ declare(strict_types=1);
 
 namespace App\EventSubscriber;
 
-use eZ\Publish\SPI\Search\Field;
-use eZ\Publish\SPI\Search\FieldType\StringField;
+use Ibexa\Contracts\Core\Search\Field;
+use Ibexa\Contracts\Core\Search\FieldType\StringField;
 use Ibexa\Platform\Contracts\ElasticSearchEngine\Mapping\Event\ContentIndexCreateEvent;
 use Ibexa\Platform\Contracts\ElasticSearchEngine\Mapping\Event\LocationIndexCreateEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -88,8 +88,8 @@ declare(strict_types=1);
 
 namespace App\EventSubscriber;
 
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\LogicalAnd;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\ObjectStateIdentifier;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\LogicalAnd;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\ObjectStateIdentifier;
 use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\Event\QueryFilterEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -141,7 +141,7 @@ declare(strict_types=1);
 
 namespace App\Query\Criterion;
 
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\CriterionVisitor;
 use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\LanguageFilter;
 
@@ -172,9 +172,9 @@ declare(strict_types=1);
 
 namespace App\Query\Criterion;
 
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\Operator;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\Operator\Specifications;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Operator;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Operator\Specifications;
 
 final class CameraManufacturer extends Criterion
 {
@@ -228,8 +228,8 @@ declare(strict_types=1);
 
 namespace App\Query\SortClause;
 
-use eZ\Publish\API\Repository\Values\Content\Query;
-use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
 use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\LanguageFilter;
 use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\SortClauseVisitor;
 
@@ -266,8 +266,8 @@ declare(strict_types=1);
 
 namespace App\Query\SortClause;
 
-use eZ\Publish\API\Repository\Values\Content\Query;
-use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
 
 final class Score extends SortClause
 {
@@ -301,8 +301,8 @@ declare(strict_types=1);
 
 namespace App\Query\Aggregation;
 
-use eZ\Publish\API\Repository\Values\Content\Query\Aggregation\AbstractRangeAggregation;
-use eZ\Publish\API\Repository\Values\Content\Query\Aggregation\LocationAggregation;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractRangeAggregation;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\LocationAggregation;
 
 final class PriorityRangeAggregation extends AbstractRangeAggregation implements LocationAggregation
 {
@@ -313,17 +313,17 @@ final class PriorityRangeAggregation extends AbstractRangeAggregation implements
 PriorityRangeAggregation` in the example above extends `AbstractRangeAggregation`.
 The name indicates that it is going to aggregate the results according to the Location priority, using Range aggregation.
 
-An aggregation must implement the `eZ\Publish\API\Repository\Values\Content\Query\Aggregation` interface or inherit one of following abstract classes:
+An aggregation must implement the `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation` interface or inherit one of following abstract classes:
 
-- `eZ\Publish\API\Repository\Values\Content\Query\Aggregation\AbstractRangeAggregation`
-- `eZ\Publish\API\Repository\Values\Content\Query\Aggregation\AbstractStatsAggregation`
-- `eZ\Publish\API\Repository\Values\Content\Query\Aggregation\AbstractTermAggregation`
+- `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractRangeAggregation`
+- `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractStatsAggregation`
+- `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractTermAggregation`
 
 An aggregation can also implement one of the following interfaces:
 
-- `eZ\Publish\API\Repository\Values\Content\Query\Aggregation\FieldAggregation`, based on a content Field
-- `eZ\Publish\API\Repository\Values\Content\Query\Aggregation\LocationAggregation`, based on content Location
-- `eZ\Publish\API\Repository\Values\Content\Query\Aggregation\RawAggregation`, based on details of the index structure
+- `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\FieldAggregation`, based on a content Field
+- `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\LocationAggregation`, based on content Location
+- `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\RawAggregation`, based on details of the index structure
 
 !!! note "Aggregation definition"
 
@@ -400,7 +400,7 @@ declare(strict_types=1);
 namespace App\Query\Aggregation\Elasticsearch;
 
 use App\Query\Aggregation\PriorityRangeAggregation;
-use eZ\Publish\API\Repository\Values\Content\Query\Aggregation;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
 use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\AggregationVisitor;
 use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\LanguageFilter;
 
@@ -468,8 +468,8 @@ declare(strict_types=1);
 namespace App\Query\Aggregation\Elasticsearch;
 
 use App\Query\Aggregation\PriorityRangeAggregation;
-use eZ\Publish\API\Repository\Values\Content\Query\Aggregation;
-use eZ\Publish\API\Repository\Values\Content\Search\AggregationResult;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+use Ibexa\Contracts\Core\Repository\Values\Content\Search\AggregationResult;
 use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\AggregationResultExtractor;
 use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\LanguageFilter;
 use stdClass;
@@ -540,7 +540,7 @@ declare(strict_types=1);
 
 namespace App\Query\Facet;
 
-use eZ\Publish\API\Repository\Values\Content\Search\Facet;
+use Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet;
 
 /**
  * This class holds counts of content with content type.
@@ -565,7 +565,7 @@ declare(strict_types=1);
 
 namespace App\Query\FacetBuilder;
 
-use eZ\Publish\API\Repository\Values\Content\Query\FacetBuilder;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder;
 
 final class ContentTypeGroupFacetBuilder extends FacetBuilder
 {
@@ -581,7 +581,7 @@ declare(strict_types=1);
 
 namespace App\Query\FacetBuilder;
 
-use eZ\Publish\API\Repository\Values\Content\Query\FacetBuilder;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder;
 use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\FacetBuilderVisitor;
 use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\LanguageFilter;
 
@@ -616,8 +616,8 @@ declare(strict_types=1);
 namespace App\Query\FacetBuilder;
 
 use App\Query\Facet\ContentTypeGroupFacet;
-use eZ\Publish\API\Repository\Values\Content\Query\FacetBuilder;
-use eZ\Publish\API\Repository\Values\Content\Search\Facet;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder;
+use Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet;
 use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\FacetResultExtractor;
 
 final class ContentTypeGroupFacetResultExtractor implements FacetResultExtractor

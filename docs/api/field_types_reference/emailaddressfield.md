@@ -21,7 +21,7 @@ The `Value` class of this Field Type contains the following properties:
 ``` php
 // Value object content example
 
-use eZ\Publish\Core\FieldType\EmailAddress\Type;
+use Ibexa\Core\FieldType\EmailAddress\Type;
 
 // Instantiates an EmailAddress Value object with default value (empty string)
 $emailaddressValue = new Type\Value();
@@ -37,7 +37,7 @@ The `EmailAddress\Value` constructor will initialize a new Value object with t
 ``` php
 // Constructor example
 
-use eZ\Publish\Core\FieldType\EmailAddress\Type;
+use Ibexa\Core\FieldType\EmailAddress\Type;
  
 // Instantiates an EmailAddress Value object
 $emailaddressValue = new Type\Value( "someuser@example.com" );

@@ -36,7 +36,7 @@ services:
             - { name: ibexa.oauth2_client.resource_owner_mapper, identifier: google }
 
     app.components.oauth2_login:
-        parent: EzSystems\EzPlatformAdminUi\Component\TwigComponent
+        parent: Ibexa\AdminUi\Component\TwigComponent
         arguments:
             $template: '@@ezdesign/account/login/oauth2_login.html.twig'
         tags:

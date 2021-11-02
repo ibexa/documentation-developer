@@ -16,11 +16,11 @@ To use them, create an `src\Service\MyService.php` file containing:
 
 namespace App\Service;
 
-use EzSystems\EzPlatformUser\UserSetting\DateTimeFormat\FormatterInterface;
+use Ibexa\User\UserSetting\DateTimeFormat\FormatterInterface;
 
 class MyService
 {
-    /** @var \EzSystems\EzPlatformUser\UserSetting\DateTimeFormat\FormatterInterface */
+    /** @var \Ibexa\User\UserSetting\DateTimeFormat\FormatterInterface */
     private $shortDateTimeFormatter;
 
     public function __construct(FormatterInterface $shortDateTimeFormatter)

@@ -6,7 +6,7 @@ To do this, you can use the [`SearchService`](#searchservice) or [Repository fil
 
 ## SearchService
 
-[`SearchService`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php)
+[`SearchService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SearchService.php)
 enables you to perform search queries using the PHP API.
 
 The service should be [injected into the constructor of your command or controller](../api/service_container.md).
@@ -18,7 +18,7 @@ The service should be [injected into the constructor of your command or controll
 
 ### Performing a search
 
-To search through content you need to create a [`LocationQuery`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/LocationQuery.php)
+To search through content you need to create a [`LocationQuery`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/LocationQuery.php)
 and provide your search criteria as a series of Criterion objects.
 
 For example, to search for all content of a selected Content Type, use one Criterion,
@@ -28,9 +28,9 @@ The following command takes the Content Type identifier as an argument and lists
 
 ``` php hl_lines="14 16"
 //...
-use eZ\Publish\API\Repository\SearchService;
-use eZ\Publish\API\Repository\Values\Content\LocationQuery;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\SearchService;
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 
 class FindContentCommand extends Command
 {
@@ -51,12 +51,12 @@ class FindContentCommand extends Command
 }
 ```
 
-[`SearchService::findContentInfo`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php#L144) (line 16)
-retrieves [`ContentInfo`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) objects of the found Content items.
-You can also use [`SearchService::findContent`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php#L124) to get full Content objects, together with their Field information.
+[`SearchService::findContentInfo`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SearchService.php#L144) (line 16)
+retrieves [`ContentInfo`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php) objects of the found Content items.
+You can also use [`SearchService::findContent`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SearchService.php#L124) to get full Content objects, together with their Field information.
 
 To query for a single result, for example by providing a Content ID,
-use the [`SearchService::findSingle`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php#L161) method:
+use the [`SearchService::findSingle`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SearchService.php#L161) method:
 
 ``` php
 $criterion = new Criterion\ContentId($contentId);
@@ -89,11 +89,11 @@ With the Legacy search engine both properties will give identical results.
 
 #### Processing large result sets
 
-To process a large result set, use `eZ\Publish\API\Repository\Iterator\BatchIterator`.
+To process a large result set, use `Ibexa\Contracts\Core\Repository\Iterator\BatchIterator`.
 `BatchIterator` divides the results of search or filtering into smaller batches.
 This enables iterating over results that are too large to handle due to memory constraints.
 
-`BatchIterator` takes one of the available adapters (`\eZ\Publish\API\Repository\Iterator\BatchIteratorAdapter` ) and optional batch size. For example: 
+`BatchIterator` takes one of the available adapters (`\Ibexa\Contracts\Core\Repository\Iterator\BatchIteratorAdapter` ) and optional batch size. For example: 
 
 ``` php
 $query = new LocationQuery;
@@ -111,34 +111,34 @@ The following BatchIterator adapters are available, for both `query` and `filter
 
 | Adapter                    | Method                                                      |
 |----------------------------|-------------------------------------------------------------|
-| `ContentFilteringAdapter`  | `\eZ\Publish\API\Repository\ContentService::find`           |
-| `ContentInfoSearchAdapter` | `\eZ\Publish\API\Repository\SearchService::findContentInfo` |
-| `ContentSearchAdapter`     | `\eZ\Publish\API\Repository\SearchService::findContent`     |
-| `LocationFilteringAdapter` | `\eZ\Publish\API\Repository\LocationService::find`          |
-| `LocationSearchAdapter`    | `\eZ\Publish\API\Repository\SearchService::findLocations`   |
+| `ContentFilteringAdapter`  | `\Ibexa\Contracts\Core\Repository\ContentService::find`           |
+| `ContentInfoSearchAdapter` | `\Ibexa\Contracts\Core\Repository\SearchService::findContentInfo` |
+| `ContentSearchAdapter`     | `\Ibexa\Contracts\Core\Repository\SearchService::findContent`     |
+| `LocationFilteringAdapter` | `\Ibexa\Contracts\Core\Repository\LocationService::find`          |
+| `LocationSearchAdapter`    | `\Ibexa\Contracts\Core\Repository\SearchService::findLocations`   |
 
 ## Repository filtering
 
 You can use the `ContentService::find(Filter)` method to find Content items or
 `LocationService::find(Filter)` to find Locations using a defined Filter.
 
-`ContentService::find` returns an iterable [`ContentList`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.1.0/eZ/Publish/API/Repository/Values/Content/ContentList)
-while `LocationService::find` returns an iterable [`LocationList`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.1.0/eZ/Publish/API/Repository/Values/Content/LocationList).
+`ContentService::find` returns an iterable [`ContentList`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentList.php)
+while `LocationService::find` returns an iterable [`LocationList`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/LocationList).
 
 Filtering differs from search. It does not use the `SearchService` and is not based on indexed data.
 
-[`Filter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.1.0/eZ/Publish/API/Repository/Values/Filter/Filter.php) enables you to configure a query using chained methods to select criteria, sorting, limit and offset.
+[`Filter`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Filter/Filter.php) enables you to configure a query using chained methods to select criteria, sorting, limit and offset.
 
 For example, the following command lists all Content items under the specified parent Location
 and sorts them by name in descending order:
 
 ``` php hl_lines="15 16 17 18"
 // ...
-use eZ\Publish\API\Repository\ContentService;
-use eZ\Publish\API\Repository\Values\Filter\Filter;
-use eZ\Publish\API\Repository\Values\Content\Query;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
+use Ibexa\Contracts\Core\Repository\ContentService;
+use Ibexa\Contracts\Core\Repository\Values\Filter\Filter;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
 
 class FilterCommand extends Command
 {
@@ -169,11 +169,11 @@ The same Filter can be applied to find Locations instead of Content items, for e
 
 ``` php hl_lines="19"
 // ...
-use eZ\Publish\API\Repository\LocationService;
-use eZ\Publish\API\Repository\Values\Filter\Filter;
-use eZ\Publish\API\Repository\Values\Content\Query;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
+use Ibexa\Contracts\Core\Repository\LocationService;
+use Ibexa\Contracts\Core\Repository\Values\Filter\Filter;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
 
 class FilterCommand extends Command
 {
@@ -235,8 +235,8 @@ $filter
 
     Not all Search Criteria and Sort Clauses are available for use in Repository filtering.
 
-    Only Criteria implementing [`FilteringCriterion`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.1.0/eZ/Publish/SPI/Repository/Values/Filter/FilteringCriterion.php)
-    and Sort Clauses implementing [`FilteringSortClause`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.1.0/eZ/Publish/SPI/Repository/Values/Filter/FilteringSortClause.php)
+    Only Criteria implementing [`FilteringCriterion`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Filter/FilteringCriterion.php)
+    and Sort Clauses implementing [`FilteringSortClause`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Filter/FilteringSortClause.php)
     are supported.
 
     See [Search Criteria](../guide/search/search_criteria_reference.md)
@@ -254,9 +254,9 @@ For example, in the code below, `locationId` is provided to list all children of
 
 ``` php hl_lines="20 21 22"
 //...
-use eZ\Publish\API\Repository\SearchService;
-use eZ\Publish\API\Repository\Values\Content\LocationQuery;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\SearchService;
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 
 class CustomController extends Controller
 {
@@ -285,11 +285,11 @@ When using Repository filtering, provide the results of `ContentService::find()`
 
 ``` php hl_lines="19"
 // ...
-use eZ\Publish\API\Repository\ContentService;
-use eZ\Publish\API\Repository\Values\Content\Query;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\ParentLocationId;
-use eZ\Publish\API\Repository\Values\Filter\Filter;
-use eZ\Publish\Core\MVC\Symfony\View\ContentView;
+use Ibexa\Contracts\Core\Repository\ContentService;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\ParentLocationId;
+use Ibexa\Contracts\Core\Repository\Values\Filter\Filter;
+use Ibexa\Core\MVC\Symfony\View\ContentView;
 
 class CustomController extends Controller
 {
@@ -313,11 +313,11 @@ class CustomController extends Controller
 
 ### Paginating search results
 
-To paginate search or filtering results, it is recommended to use the [Pagerfanta library](https://github.com/whiteoctober/Pagerfanta) and [[[= product_name =]]'s adapters for it.](https://github.com/ezsystems/ezplatform-kernel/tree/v1.0.0/eZ/Publish/Core/Pagination/Pagerfanta)
+To paginate search or filtering results, it is recommended to use the [Pagerfanta library](https://github.com/whiteoctober/Pagerfanta) and [[[= product_name =]]'s adapters for it.](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/Pagerfanta.php)
 
 ``` php
 //...
-use eZ\Publish\Core\Pagination\Pagerfanta\ContentSearchAdapter;
+use Ibexa\Core\Pagination\Pagerfanta\ContentSearchAdapter;
 use Symfony\Component\HttpFoundation\Request;
 use Pagerfanta\Pagerfanta;
 
@@ -367,7 +367,7 @@ You can access the following additional search result data from PagerFanta:
 - Timeout flag
 
 ``` php
-use eZ\Publish\Core\Pagination\Pagerfanta\Pagerfanta;
+use Ibexa\Core\Pagination\Pagerfanta\Pagerfanta;
 //...
 
 class CustomController extends Controller
@@ -389,12 +389,12 @@ class CustomController extends Controller
 
 |Adapter class name|Description|
 |------|------|
-|[`ContentSearchAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Pagination/Pagerfanta/ContentSearchAdapter.php)|Makes a search against passed Query and returns [Content](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Content.php) objects.|
-|[`ContentSearchHitAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Pagination/Pagerfanta/ContentSearchHitAdapter.php)|Makes a search against passed Query and returns [SearchHit](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects instead.|
-|[`LocationSearchAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Pagination/Pagerfanta/LocationSearchAdapter.php)|Makes a Location search against passed Query and returns [Location](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Location.php) objects.|
-|[`LocationSearchHitAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Pagination/Pagerfanta/LocationSearchHitAdapter.php)|Makes a Location search against passed Query and  returns [SearchHit](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Search/SearchHit.php) objects instead.|
-|[`ContentFilteringAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/Core/Pagination/Pagerfanta/ContentFilteringAdapter.php)|Applies a Content filter and returns a `ContentList` object.|
-|[`LocationFilteringAdapter`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/Core/Pagination/Pagerfanta/LocationFilteringAdapter.php)|Applies a Location filter and returns a `LocationList` object.|
+|[`ContentSearchAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/ContentSearchAdapter.php)|Makes a search against passed Query and returns [Content](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Content.php) objects.|
+|[`ContentSearchHitAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/ContentSearchHitAdapter.php)|Makes a search against passed Query and returns [SearchHit](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Search/SearchHit.php) objects instead.|
+|[`LocationSearchAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/LocationSearchAdapter.php)|Makes a Location search against passed Query and returns [Location](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Location.php) objects.|
+|[`LocationSearchHitAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/LocationSearchHitAdapter.php)|Makes a Location search against passed Query and  returns [SearchHit](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Search/SearchHit.php) objects instead.|
+|[`ContentFilteringAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/ContentFilteringAdapter.php)|Applies a Content filter and returns a `ContentList` object.|
+|[`LocationFilteringAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/LocationFilteringAdapter.php)|Applies a Location filter and returns a `LocationList` object.|
 
 ## Complex search
 
@@ -491,7 +491,7 @@ For a list of supported Criteria and Sort Clauses, see [Searching in trash refer
     Searching through the trashed Content items operates directly on the database, therefore you cannot use external search engines, such as Solr or Elasticsearch, and it is impossible to reindex the data.
 
 ``` php
-use eZ\Publish\API\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
 
     // ...
 
@@ -500,7 +500,7 @@ use eZ\Publish\API\Repository\Values\Content\Query;
     $query->filter = new Query\Criterion\ContentTypeId([1]);
     $results = $this->trashService->findTrashItems($query);
     foreach ($results->items as $trashedLocation) {
-        /** @var \eZ\Publish\API\Repository\Values\Content\TrashItem[] $trashedLocation */
+        /** @var \Ibexa\Contracts\Core\Repository\Values\Content\TrashItem[] $trashedLocation */
         // ...
     }
 ```
@@ -594,7 +594,7 @@ See [Agrregation reference](../guide/search/aggregation_reference.md) for detail
     Faceted search is available only for the Solr search engine.
 
     To find out if a given search engine supports any of the advanced search capabilities,
-    use the [`eZ\Publish\API\Repository\SearchService::supports`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php#L188-L199) method:
+    use the [`Ibexa\Contracts\Core\Repository\SearchService::supports`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SearchService.php#L188-L199) method:
 
     ``` php
     $facetSupport = $this->searchService->supports(SearchService::CAPABILITY_FACETS);

@@ -1,6 +1,6 @@
 # Reverse proxy
 
-Before you start using Symfony reverse proxy, you must change your kernel to use `EzSystems\PlatformHttpCacheBundle\AppCache` instead of `Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache`.
+Before you start using Symfony reverse proxy, you must change your kernel to use `Ibexa\Bundle\HttpCache\AppCache` instead of `Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache`.
 
 Next, to use Symfony reverse proxy, follow the [Symfony documentation](https://symfony.com/doc/current/http_cache.html#symfony-reverse-proxy).
 

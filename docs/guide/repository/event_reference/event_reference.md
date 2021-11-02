@@ -14,7 +14,7 @@ For example, copying a Content item is connected with two events:
 
 namespace App\EventSubscriber;
 
-use eZ\Publish\API\Repository\Events\Content\CopyContentEvent;
+use Ibexa\Contracts\Core\Repository\Events\Content\CopyContentEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class MyEventSubscriber implements EventSubscriberInterface

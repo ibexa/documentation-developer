@@ -299,7 +299,7 @@ You can control access to a custom controller by implementing the `performAccess
 In the following example the user does not have access to the controller unless they have the `section/view` Policy:
 
 ``` php
-use eZ\Publish\Core\MVC\Symfony\Security\Authorization\Attribute;
+use Ibexa\Core\MVC\Symfony\Security\Authorization\Attribute;
 
 public function performAccessCheck(): void
 {
@@ -329,7 +329,7 @@ $hasAccess = $this->isGranted(
 );
 ```
 
-You can also use the permission resolver (`eZ\Publish\API\Repository\PermissionResolver`).
+You can also use the permission resolver (`Ibexa\Core\Repository\Permission\PermissionResolver`).
 The `canUser()` method checks if the user can perform a given action with the selected object.
 
 For example: `canUser('content', 'edit', $content, $location );`

@@ -46,7 +46,7 @@ class CustomCatalogFactory extends Ez5CatalogFactory
                     : ucfirst(strtolower($identifiers[$i]));
             }
 
-            if ($ezField instanceof \eZ\Publish\Core\FieldType\Keyword\Value) {
+            if ($ezField instanceof \Ibexa\Core\FieldType\Keyword\Value) {
                 $catalogElement->addFieldToDataMap('tags',
                     $this->extractKeywords($ezField)
                 );
@@ -55,7 +55,7 @@ class CustomCatalogFactory extends Ez5CatalogFactory
         return $catalogElement;
     }
 
-    protected function extractKeywords (\eZ\Publish\Core\FieldType\Keyword\Value $keywordField) {
+    protected function extractKeywords (\Ibexa\Core\FieldType\Keyword\Value $keywordField) {
 
         $keywordFields = array();
         $keywordData = $keywordField->values;

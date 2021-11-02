@@ -2,14 +2,14 @@
 
 namespace App\Controller;
 
-use EzSystems\EzPlatformAdminUiBundle\Controller\Controller;
-use eZ\Publish\API\Repository\SearchService;
-use eZ\Publish\API\Repository\ContentTypeService;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\API\Repository\Values\Content\LocationQuery;
-use eZ\Publish\Core\Pagination\Pagerfanta\LocationSearchAdapter;
+use Ibexa\Contracts\AdminUi\Controller\Controller;
+use Ibexa\Contracts\Core\Repository\SearchService;
+use Ibexa\Contracts\Core\Repository\ContentTypeService;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Core\Pagination\Pagerfanta\LocationSearchAdapter;
 use Pagerfanta\Pagerfanta;
-use EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory;
+use Ibexa\AdminUi\Form\Factory\FormFactory;
 
 class AllContentListController extends Controller
 {

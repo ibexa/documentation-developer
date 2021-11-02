@@ -6,7 +6,7 @@ Due to a restriction in JmsPaymentBundle, an order exceeding 99999.99999 causes 
 
 It is possible to extend this limit using an [official workaround for the JMSPaymentCoreBundle.](http://jmspaymentcorebundle.readthedocs.io/en/latest/guides/overriding_entity_mapping.html)
 
-You need to override the service class `Siso\Bundle\PaymentBundle\Api\StandardPaymentService` and modify the `EXCEEDED_ENTITY_AMOUNT_VALUE` constant.
+You need to override the service class `Ibexa\Bundle\Commerce\Payment\Api\StandardPaymentService` and modify the `EXCEEDED_ENTITY_AMOUNT_VALUE` constant.
 This constant is read by late static binding and will use the overridden value.
 
 For example:
@@ -16,7 +16,7 @@ For example:
 
 namespace App\Service;
 
-use Siso\Bundle\PaymentBundle\Api\StandardPaymentService;
+use Ibexa\Bundle\Commerce\Payment\Api\StandardPaymentService;
 
 /**
  * Service class override

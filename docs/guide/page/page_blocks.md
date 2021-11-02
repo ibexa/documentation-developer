@@ -118,7 +118,7 @@ When creating a custom block with embeds, you can ensure such Relations are crea
 The event is dispatched on content publication.
 You can hook your event listener to the `BlockRelationEvents::getCollectBlockRelationsEventName` event.
 
-To expose relations, pass an array containing Content IDs to the `\EzSystems\EzPlatformPageFieldType\Event\CollectBlockRelationsEvent::setRelations()` method.
+To expose relations, pass an array containing Content IDs to the `Ibexa\FieldTypePage\Event\CollectBlockRelationsEvent::setRelations()` method.
 If embedded Content changes, old Relations are removed automatically.
 
 Providing Relations also invalidates HTTP cache for your block response in one of the related Content items changes.

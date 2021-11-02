@@ -2,17 +2,17 @@
 
 namespace App\Block\Attribute;
 
-use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Definition\BlockAttributeDefinition;
-use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Definition\BlockDefinition;
-use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Attribute\FormTypeMapper\AttributeFormTypeMapperInterface;
+use Ibexa\Contracts\FieldTypePage\FieldType\Page\Block\Definition\BlockAttributeDefinition;
+use Ibexa\Contracts\FieldTypePage\FieldType\Page\Block\Definition\BlockDefinition;
+use Ibexa\Contracts\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\AttributeFormTypeMapperInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class MyStringAttributeMapper implements AttributeFormTypeMapperInterface
 {
     /**
      * @param \Symfony\Component\Form\FormBuilderInterface $formBuilder
-     * @param \EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Definition\BlockDefinition $blockDefinition
-     * @param \EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Definition\BlockAttributeDefinition $blockAttributeDefinition
+     * @param \Ibexa\Contracts\FieldTypePage\FieldType\Page\Block\Definition\BlockDefinition $blockDefinition
+     * @param \Ibexa\Contracts\FieldTypePage\FieldType\Page\Block\Definition\BlockAttributeDefinition $blockAttributeDefinition
      * @param array $constraints
      *
      * @return \Symfony\Component\Form\FormBuilderInterface

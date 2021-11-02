@@ -28,7 +28,7 @@ The Value class of this Field Type contains the following properties:
 
 ``` php
 // Value object content example
-use eZ\Publish\Core\FieldType\Keyword\Value;
+use Ibexa\Core\FieldType\Keyword\Value;
  
 // Instantiates a Value object
 $keywordValue = new Value();
@@ -45,7 +45,7 @@ It expects a list of keywords, either comma-separated in a string or as an array
 
 ``` php
 // Constructor example
-use eZ\Publish\Core\FieldType\Keyword\Value;
+use Ibexa\Core\FieldType\Keyword\Value;
  
 // Instantiates a Value object with an array of keywords
 $keywordValue = new Value( [ "php5", "css3", "html5" ] );

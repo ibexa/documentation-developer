@@ -39,7 +39,7 @@ As Search Criteria and Sort Clauses are value objects which are used to define 
 Each storage engine needs to implement its own handlers for the corresponding Criterion and Sort Clause value object,
 which will be used to translate the value object into a storage-specific search query.
 
-As an example take a look at the [`ContentId` Criterion handler](https://github.com/ibexa/core/blob/main/eZ/Publish/Core/Search/Legacy/Content/Common/Gateway/CriterionHandler/ContentId.php) in Legacy search engine
+As an example take a look at the [`ContentId` Criterion handler](https://github.com/ibexa/core/blob/main/src/lib/Search/Legacy/Content/Common/Gateway/CriterionHandler/ContentId.php) in Legacy search engine
 or [`ContentId` Criterion handler](https://github.com/ibexa/solr-search-engine/blob/main/lib/Query/Common/CriterionVisitor/ContentIdIn.php) in Solr search engine.
 
 ## Search Facet reference
@@ -115,8 +115,8 @@ In this context some Criteria and Sort Clauses would produce ambiguous queries t
 
 Content Search explicitly refuses to accept Criteria and Sort Clauses implementing these abstract classes:
 
-- `eZ\Publish\API\Repository\Values\Content\Query\Criterion\Location`
-- `eZ\Publish\API\Repository\Values\Content\SortClause\Criterion\Location`
+- `Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Location`
+- `Ibexa\Contracts\Core\Repository\Values\Content\SortClause\Criterion\Location`
 
 #### How to configure your own Criterion and Sort Clause Handlers
 
@@ -151,7 +151,7 @@ Available tags for Sort Clause handlers in Legacy Storage Engine are:
 
 ``` yaml
 services:
-    eZ\Publish\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler\ContentId:
+    Ibexa\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler\ContentId:
         arguments: ['@ezpublish.api.storage_engine.legacy.dbhandler']
         tags:
           - {name: ezpublish.search.legacy.gateway.criterion_handler.content}
@@ -161,7 +161,7 @@ services:
 ##### Example of registering a Depth Sort Clause handler for Location Search
 
 ``` yaml
-eZ\Publish\Core\Search\Legacy\Content\Location\Gateway\SortClauseHandler\Location\Depth:
+Ibexa\Core\Search\Legacy\Content\Location\Gateway\SortClauseHandler\Location\Depth:
     arguments: ['@ezpublish.api.storage_engine.legacy.dbhandler']
     tags:
         - {name: ezpublish.search.legacy.gateway.sort_clause_handler.location}
@@ -175,7 +175,7 @@ eZ\Publish\Core\Search\Legacy\Content\Location\Gateway\SortClauseHandler\Locatio
 
 REST search can be performed via `POST /views` using custom `FieldCriterion`. This allows you to build custom content logic queries with nested logical operators OR/AND/NOT.
 
-Custom Field Criterion search mirrors the one already existing in PHP API `eZ\Publish\API\Repository\Values\Content\Query\Criterion\Field` by exposing it to REST.
+Custom Field Criterion search mirrors the one already existing in PHP API `Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Field` by exposing it to REST.
 
 ##### Example of custom Content Query:
 

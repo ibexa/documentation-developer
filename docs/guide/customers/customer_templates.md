@@ -6,7 +6,7 @@ their addresses and data from the ERP.
 If the user has a customer number, customer information is automatically fetched from the ERP.
 The data is stored in the session and is provided by the variable `ses.profile`.
 
-`SilversolutionsEshopBundle/Resources/views/details.html.twig` is the standard template for displaying customer data.
+`Eshop/Resources/views/details.html.twig` is the standard template for displaying customer data.
 
 ## Getting customer profile data
 

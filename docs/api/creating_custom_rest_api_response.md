@@ -2,7 +2,7 @@
 
 Customized REST API response can be used in many situations, both for headless and more traditional setups. REST responses can be enriched in a clean way and limit client-to-server round trips.
 
-To do this you can take advantage of [[= product_name =]]'s [HATEOAS-based](https://en.wikipedia.org/wiki/HATEOAS) REST API and extend it with custom Content Types for your own needs. In this section you will add comments count to `eZ\Publish\API\Repository\Values\Content\VersionInfo` responses.
+To do this you can take advantage of [[= product_name =]]'s [HATEOAS-based](https://en.wikipedia.org/wiki/HATEOAS) REST API and extend it with custom Content Types for your own needs. In this section you will add comments count to `Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo` responses.
 
 ## Implementation of dedicated Visitor
 
@@ -16,11 +16,11 @@ The first step is creating your own implementation of `ValueObjectVisitor`. It c
 
 namespace ExampleBundle\Rest\ValueObjectVisitor;
 
-use eZ\Publish\API\Repository\Repository;
-use EzSystems\EzPlatformRest\Output\Generator;
-use EzSystems\EzPlatformRest\Output\Visitor;
-use EzSystems\EzPlatformRest\Server\Output\ValueObjectVisitor\VersionInfo as BaseVersionInfo;
-use eZ\Publish\API\Repository\Values\Content\VersionInfo as APIVersionInfo;
+use Ibexa\Contracts\Core\Repository\Repository;
+use Ibexa\Contracts\Rest\Output\Generator;
+use Ibexa\Contracts\Rest\Output\Visitor;
+use Ibexa\Rest\Server\Output\ValueObjectVisitor\VersionInfo as BaseVersionInfo;
+use Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo as APIVersionInfo;
 
 class VersionInfo extends BaseVersionInfo
 {
@@ -54,17 +54,17 @@ class VersionInfo extends BaseVersionInfo
 ## Overriding response type
 
 Next, make sure that your new implementation of serialization applies only to the selected objects. In order to do that, you need to
-decorate `EzSystems\EzPlatformRest\Output\ValueObjectVisitorDispatcher` from `ezplatform-kernel`.
+decorate `Ibexa\Contracts\Rest\Output\ValueObjectVisitorDispatcher` from `ezplatform-kernel`.
 
 ```php
 <?php
 
 namespace ExampleBundle\Rest;
 
-use EzSystems\EzPlatformRest\Output\Generator;
-use EzSystems\EzPlatformRest\Output\ValueObjectVisitorDispatcher as BaseValueObjectVisitorDispatcher;
-use EzSystems\EzPlatformRest\Output\Exceptions\NoVisitorFoundException;
-use EzSystems\EzPlatformRest\Output\Visitor;
+use Ibexa\Contracts\Rest\Output\Generator;
+use Ibexa\Contracts\Rest\Output\ValueObjectVisitorDispatcher as BaseValueObjectVisitorDispatcher;
+use Ibexa\Contracts\Rest\Output\Exceptions\NoVisitorFoundException;
+use Ibexa\Contracts\Rest\Output\Visitor;
 
 class ValueObjectVisitorDispatcher extends BaseValueObjectVisitorDispatcher
 {
@@ -177,7 +177,7 @@ parameters:
 
 services:
     app.rest.output.generator.json:
-        class: EzSystems\EzPlatformRest\Output\Generator\Json
+        class: Ibexa\Rest\Output\Generator\Json
         arguments:
             - '@ezpublish_rest.output.generator.json.field_type_hash_generator'
             - '%app.rest.generator.json.vendor%'
@@ -203,7 +203,7 @@ services:
         arguments:
             - '@ezpublish.api.repository'
         tags:
-            - { name: app.value_object_visitor, type: eZ\Publish\API\Repository\Values\Content\VersionInfo }
+            - { name: app.value_object_visitor, type: Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo }
 ```
 
 ## Fetching the modified response

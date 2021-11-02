@@ -24,7 +24,7 @@ security:
 
         ezpublish_front:
             pattern: ^/
-            user_checker: eZ\Publish\Core\MVC\Symfony\Security\UserChecker
+            user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
             anonymous: ~
             ezpublish_rest_session: ~
             guard:

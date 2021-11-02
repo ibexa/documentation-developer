@@ -13,7 +13,7 @@ It allows them to create a new password.
 
 For information about how to create and configure the template, see [Add forgot password option](../content_rendering/layout/add_forgot_password.md)
 
-The template for this email is located in `templates/Security/mail/forgot_user_password.html.twig` in `ibexa/user`.
+The template for this email is located in `Resources/views/forgot_password/mail/forgot_user_password.html.twig` in `ibexa/user`.
 You can [customize it according to your needs](#customize-login-form).
 
 The validity of the password recovery token can be set using the `ezplatform.system.<siteaccess>.security.token_interval_spec` parameter.
@@ -196,7 +196,7 @@ This is mainly for the kernel to be able to manage content-related permissions (
 Depending on your context, you will either want to create a Platform User, return an existing User, or even always use a generic User.
 
 Whenever an *external* user is matched (i.e. one that does not come from Platform repository, like coming from LDAP), [[= product_name =]] kernel initiates an `MVCEvents::INTERACTIVE_LOGIN` event.
-Every service listening to this event receives an `eZ\Publish\Core\MVC\Symfony\Event\InteractiveLoginEvent` object which contains the original security token (that holds the matched user) and the request.
+Every service listening to this event receives an `Ibexa\Core\MVC\Symfony\Event\InteractiveLoginEvent` object which contains the original security token (that holds the matched user) and the request.
 
 Then, it is up to the listener to retrieve a Platform User from the Repository and to assign it back to the event object.
 This user will be injected into the repository and used for the rest of the request.
@@ -212,9 +212,9 @@ Note that the *API user* is mainly used for permission checks against the repo
 
 ### Customizing the User class
 
-It is possible to customize the user class used by extending `ezpublish.security.login_listener` service, which defaults to `eZ\Publish\Core\MVC\Symfony\Security\EventListener\SecurityListener`.
+It is possible to customize the user class used by extending `ezpublish.security.login_listener` service, which defaults to `Ibexa\Core\MVC\Symfony\Security\EventListener\SecurityListener`.
 
-You can override `getUser()` to return whatever User class you want, as long as it implements `eZ\Publish\Core\MVC\Symfony\Security\UserInterface`.
+You can override `getUser()` to return whatever User class you want, as long as it implements `Ibexa\Core\MVC\Symfony\Security\UserInterface`.
 
 The following is an example of using the in-memory user provider:
 
@@ -257,15 +257,15 @@ Do not mix `MVCEvents::INTERACTIVE_LOGIN` event (specific to [[= product_name =]
 
 namespace App\EventListener;
 
-use eZ\Publish\API\Repository\UserService;
-use eZ\Publish\Core\MVC\Symfony\Event\InteractiveLoginEvent;
-use eZ\Publish\Core\MVC\Symfony\MVCEvents;
+use Ibexa\Contracts\Core\Repository\UserService;
+use eIbexa\Core\MVC\Symfony\Event\InteractiveLoginEvent;
+use Ibexa\Core\MVC\Symfony\MVCEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class InteractiveLoginListener implements EventSubscriberInterface
 {
     /**
-     * @var \eZ\Publish\API\Repository\UserService
+     * @var \Ibexa\Contracts\Core\Repository\UserService
      */
     private $userService;
 

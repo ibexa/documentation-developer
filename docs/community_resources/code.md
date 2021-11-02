@@ -11,7 +11,7 @@ Ibexa uses a regular git workflow, so if you are familiar with the concept, the 
 The core of our system is [`ibexa/core`](https://github.com/ibexa/core)
 containing an advanced Content Model and aiming to provide additional features for the MVC layer (Symfony).
 On the other hand, e.g. `ezplatform-admin-ui` is strictly dedicated to the Admin Panel purposes.
-If you want to learn more about our code structure, take a look at [our organization page on GitHub](https://github.com/ezsystems)
+If you want to learn more about our code structure, take a look at [our organization page on GitHub](https://github.com/ibexa)
 or the list of [core bundles](../guide/bundles.md#core-packages).
 
 After finishing your work, fork repository which you want to contribute to.

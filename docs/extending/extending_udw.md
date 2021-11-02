@@ -163,7 +163,7 @@ class JohnDoeCanSelectMore implements EventSubscriberInterface
     }
 
     /**
-     * @param \EzSystems\EzPlatformAdminUi\UniversalDiscovery\Event\ConfigResolveEvent $event
+     * @param \Ibexa\AdminUi\UniversalDiscovery\Event $event
      */
     public function onUdwConfigResolve(ConfigResolveEvent $event)
     {

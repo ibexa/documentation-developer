@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\FieldType\HelloWorld\Comparison;
 
-use EzSystems\EzPlatformVersionComparison\Result\ComparisonResult;
-use EzSystems\EzPlatformVersionComparison\Result\Value\StringComparisonResult;
+use Ibexa\Contracts\VersionComparison\Result\ComparisonResult;
+use Ibexa\Contracts\VersionComparison\Result\Value\StringComparisonResult;
 
 final class HelloWorldComparisonResult implements ComparisonResult
 {
-    /** @var \EzSystems\EzPlatformVersionComparison\Result\Value\StringComparisonResult */
+    /** @var \Ibexa\Contracts\VersionComparison\Result\Value\StringComparisonResult */
     private $stringDiff;
 
     public function __construct(StringComparisonResult $stringDiff)

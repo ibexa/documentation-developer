@@ -118,8 +118,8 @@ You can also use it to render custom entries in the timeline, for example system
 
 ### Custom entry type
 
-To add a custom entry type, create a custom class extending `EzSystems\EzPlatformWorkflow\WorkflowTimeline\Value\AbstractEntry`.
-Use an `EzSystems\EzPlatformWorkflow\Event\TimelineEvents::COLLECT_ENTRIES` event to add your entries to the timeline.
+To add a custom entry type, create a custom class extending `Ibexa\Workflow\WorkflowTimeline\Value\AbstractEntry`.
+Use an `Ibexa\Contracts\Workflow\Event\TimelineEvents::COLLECT_ENTRIES` event to add your entries to the timeline.
 
 ### Custom templates
 
@@ -131,7 +131,7 @@ ezplatform:
         default:
             workflows_config:
                 timeline_entry_templates:
-                    - { template: '@EzPlatformWorkflow/ezplatform_workflow/timeline/entries.html.twig', priority: 10 }
+                    - { template: '@IbexaWorkflow/ezplatform_workflow/timeline/entries.html.twig', priority: 10 }
 ```
 
 The template has to provide a block named `ez_workflow_timeline_entry_{ENTRY_IDENTIFIER}`.

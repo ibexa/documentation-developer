@@ -71,7 +71,7 @@ The Field definition of this Field Type can be configured with several options:
 
 ``` php
 // Time Field Type example settings
-use eZ\Publish\Core\FieldType\Time\Type;
+use Ibexa\Core\FieldType\Time\Type;
 
 $settings = [
     "defaultType" => DateAndTime::DEFAULT_EMPTY

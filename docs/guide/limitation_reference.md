@@ -12,8 +12,8 @@ the permissions system move on to the next Policy.
 |                 |                                                                                       |
 |-----------------|---------------------------------------------------------------------------------------|
 | Identifier      | `n/a` (configured for `ezjscore` limitation `FunctionList` out of the box)            |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\BlockingLimitation`                 |
-| Type Class      | `eZ\Publish\Core\Limitation\BlockingLimitationType`                                   |
+| Value Class     | `Ibexa\Contracts\Core\Repository\Values\User\Limitation\BlockingLimitation`                 |
+| Type Class      | `Ibexa\Core\Limitation\BlockingLimitationType`                                   |
 | Criterion used  | MatchNone                                                                             |
 | Role Limitation | no                                                                                    |
 
@@ -46,9 +46,9 @@ Group with the owner of content get the selected access right.
 |                 |                                                                                                |
 |-----------------|------------------------------------------------------------------------------------------------|
 | Identifier      | `Group`                                                                                        |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\UserGroupLimitation`                         |
-| Type Class      | `eZ\Publish\Core\Limitation\UserGroupLimitationType`                                           |
-| Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\UserMetadata( UserMetadata::GROUP )` |
+| Value Class     | `Ibexa\Contracts\Core\Repository\Values\User\Limitation\UserGroupLimitation`                         |
+| Type Class      | `Ibexa\Core\Limitation\UserGroupLimitationType`                                           |
+| Criterion used  | `Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\UserMetadata( UserMetadata::GROUP )` |
 | Role Limitation | no                                                                                             |
 
 ### Possible values
@@ -67,8 +67,8 @@ used by `content/create` permission.
 |                 |                                                                              |
 |-----------------|------------------------------------------------------------------------------|
 | Identifier      | `Content Type Group of Parent`                                                                |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\ParentUserGroupLimitation` |
-| Type Class      | `eZ\Publish\Core\Limitation\ParentUserGroupLimitationType`                   |
+| Value Class     | `Ibexa\Contracts\Core\Repository\Values\User\Limitation\ParentUserGroupLimitation` |
+| Type Class      | `Ibexa\Core\Limitation\ParentUserGroupLimitationType`                   |
 | Criterion used  | n/a                                                                          |
 | Role Limitation | no                                                                           |
 
@@ -86,9 +86,9 @@ Content Type.
 |                 |                                                                          |
 |-----------------|--------------------------------------------------------------------------|
 | Identifier      | `Content Type`                                                                  |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\ContentTypeLimitation` |
-| Type Class      | `eZ\Publish\Core\Limitation\ContentTypeLimitationType`                   |
-| Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\ContentTypeId` |
+| Value Class     | `Ibexa\Contracts\Core\Repository\Values\User\Limitation\ContentTypeLimitation` |
+| Type Class      | `Ibexa\Core\Limitation\ContentTypeLimitationType`                   |
+| Criterion used  | `Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\ContentTypeId` |
 | Role Limitation | no                                                                       |
 
 ### Possible values
@@ -111,8 +111,8 @@ access to create Blog Posts in the Users' own Blogs.
 |                 |                                                                                |
 |-----------------|--------------------------------------------------------------------------------|
 | Identifier      | `Content Type of Parent`                                                                  |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\ParentContentTypeLimitation` |
-| Type Class      | `eZ\Publish\Core\Limitation\ParentContentTypeLimitationType`                   |
+| Value Class     | `Ibexa\Contracts\Core\Repository\Values\User\Limitation\ParentContentTypeLimitation` |
+| Type Class      | `Ibexa\Core\Limitation\ParentContentTypeLimitationType`                   |
 | Criterion used  | n/a                                                                            |
 | Role Limitation | no                                                                             |
 
@@ -158,9 +158,9 @@ This only applies to creating the first version of a Content item.
 |                 |                                                                         |
 |-----------------|-------------------------------------------------------------------------|
 | Identifier      | `Language`                                                              |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\LanguageLimitation`   |
-| Type Class      | `eZ\Publish\Core\Limitation\LanguageLimitationType`                     |
-| Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\LanguageCode` |
+| Value Class     | `Ibexa\Contracts\Core\Repository\Values\User\Limitation\LanguageLimitation`   |
+| Type Class      | `Ibexa\Core\Limitation\LanguageLimitationType`                     |
+| Criterion used  | `Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\LanguageCode` |
 | Role Limitation | no                                                                      |
 
 ### Possible values
@@ -177,9 +177,9 @@ Location, in case of `content/create` the parent Location is evaluated.
 |                 |                                                                       |
 |-----------------|-----------------------------------------------------------------------|
 | Identifier      | `Location`                                                                |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\LocationLimitation` |
-| Type Class      | `eZ\Publish\Core\Limitation\LocationLimitationType`                   |
-| Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\LocationId` |
+| Value Class     | `Ibexa\Contracts\Core\Repository\Values\User\Limitation\LocationLimitation` |
+| Type Class      | `Ibexa\Core\Limitation\LocationLimitationType`                   |
+| Criterion used  | `Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\LocationId` |
 | Role Limitation | no                                                                    |
 
 ### Possible values
@@ -198,8 +198,8 @@ limit both from and to values.
 |                 |                                                                         |
 |-----------------|-------------------------------------------------------------------------|
 | Identifier      | `NewSection`                                                            |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\NewSectionLimitation` |
-| Type Class      | `eZ\Publish\Core\Limitation\NewSectionLimitationType`                   |
+| Value Class     | `Ibexa\Contracts\Core\Repository\Values\User\Limitation\NewSectionLimitation` |
+| Type Class      | `Ibexa\Core\Limitation\NewSectionLimitationType`                   |
 | Criterion used  | n/a                                                                     |
 | Role Limitation | no                                                                      |
 
@@ -220,8 +220,8 @@ both from and to values.
 |                 |                                                                             |
 |-----------------|-----------------------------------------------------------------------------|
 | Identifier      | `NewState`                                                                  |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\NewObjectStateLimitation` |
-| Type Class      | `eZ\Publish\Core\Limitation\NewObjectStateLimitationType`                   |
+| Value Class     | `Ibexa\Contracts\Core\Repository\Values\User\Limitation\NewObjectStateLimitation` |
+| Type Class      | `Ibexa\Core\Limitation\NewObjectStateLimitationType`                   |
 | Criterion used  | n/a                                                                         |
 | Role Limitation | no                                                                          |
 
@@ -239,9 +239,9 @@ Object state.
 |                 |                                                                          |
 |-----------------|--------------------------------------------------------------------------|
 | Identifier      | `State`                                                                  |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\ObjectStateLimitation` |
-| Type Class      | `eZ\Publish\Core\Limitation\ObjectStateLimitationType`                   |
-| Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\ObjectStateId` |
+| Value Class     | `Ibexa\Contracts\Core\Repository\Values\User\Limitation\ObjectStateLimitation` |
+| Type Class      | `Ibexa\Core\Limitation\ObjectStateLimitationType`                   |
+| Criterion used  | `Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\ObjectStateId` |
 | Role Limitation | no                                                                       |
 
 ### Possible values
@@ -258,9 +258,9 @@ access right.
 |                 |                                                                                                |
 |-----------------|------------------------------------------------------------------------------------------------|
 | Identifier      | `Owner`                                                                                        |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\OwnerLimitation`                             |
-| Type Class      | `eZ\Publish\Core\Limitation\OwnerLimitationType`                                               |
-| Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\UserMetadata( UserMetadata::OWNER )` |
+| Value Class     | `Ibexa\Contracts\Core\Repository\Values\User\Limitation\OwnerLimitation`                             |
+| Type Class      | `Ibexa\Core\Limitation\OwnerLimitationType`                                               |
+| Criterion used  | `Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\UserMetadata( UserMetadata::OWNER )` |
 | Role Limitation | no                                                                                             |
 
 ### Possible values
@@ -278,8 +278,8 @@ a Content item get a certain access right, used for `content/create` permission.
 |                 |                                                                          |
 |-----------------|--------------------------------------------------------------------------|
 | Identifier      | `Owner of Parent`                                                            |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\ParentOwnerLimitation` |
-| Type Class      | `eZ\Publish\Core\Limitation\ParentOwnerLimitationType`                   |
+| Value Class     | `Ibexa\Contracts\Core\Repository\Values\User\Limitation\ParentOwnerLimitation` |
+| Type Class      | `Ibexa\Core\Limitation\ParentOwnerLimitationType`                   |
 | Criterion used  | n/a                                                                      |
 | Role Limitation | no                                                                       |
 
@@ -299,8 +299,8 @@ permission.
 |                 |                                                                          |
 |-----------------|--------------------------------------------------------------------------|
 | Identifier      | `Parent Depth`                                                            |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\ParentDepthLimitation` |
-| Type Class      | `eZ\Publish\Core\Limitation\ParentDepthLimitationType`                   |
+| Value Class     | `Ibexa\Contracts\Core\Repository\Values\User\Limitation\ParentDepthLimitation` |
+| Type Class      | `Ibexa\Core\Limitation\ParentDepthLimitationType`                   |
 | Criterion used  | n/a                                                                      |
 | Role Limitation | no                                                                       |
 
@@ -323,9 +323,9 @@ Section.
 |                 |                                                                      |
 |-----------------|----------------------------------------------------------------------|
 | Identifier      | `Section`                                                            |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\SectionLimitation` |
-| Type Class      | `eZ\Publish\Core\Limitation\SectionLimitationType`                   |
-| Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\SectionId` |
+| Value Class     | `Ibexa\Contracts\Core\Repository\Values\User\Limitation\SectionLimitation` |
+| Type Class      | `Ibexa\Core\Limitation\SectionLimitationType`                   |
+| Criterion used  | `Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\SectionId` |
 | Role Limitation | yes                                                                  |
 
 ### Possible values
@@ -361,8 +361,8 @@ by `user/login`.
 |                 |                                                                         |
 |-----------------|-------------------------------------------------------------------------|
 | Identifier      | `SiteAccess`                                                            |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\SiteAccessLimitation` |
-| Type Class      | `eZ\Publish\Core\Limitation\SiteAccessLimitationType`                   |
+| Value Class     | `Ibexa\Contracts\Core\Repository\Values\User\Limitation\SiteAccessLimitation` |
+| Type Class      | `Ibexa\Core\Limitation\SiteAccessLimitationType`                   |
 | Criterion used  | n/a                                                                     |
 | Role Limitation | no                                                                      |
 
@@ -386,9 +386,9 @@ is evaluated.
 |                 |                                                                      |
 |-----------------|----------------------------------------------------------------------|
 | Identifier      | `Subtree of Location`                                                            |
-| Value Class     | `eZ\Publish\API\Repository\Values\User\Limitation\SubtreeLimitation` |
-| Type Class      | `eZ\Publish\Core\Limitation\SubtreeLimitationType`                   |
-| Criterion used  | `eZ\Publish\API\Repository\Values\Content\Query\Criterion\Subtree`   |
+| Value Class     | `Ibexa\Contracts\Core\Repository\Values\User\Limitation\SubtreeLimitation` |
+| Type Class      | `Ibexa\Core\Limitation\SubtreeLimitationType`                   |
+| Criterion used  | `Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Subtree`   |
 | Role Limitation | yes                                                                  |
 
 ### Possible values
@@ -429,8 +429,8 @@ stage.
 |                 |                                                                                                |
 |-----------------|------------------------------------------------------------------------------------------------|
 | Identifier      | `WorkflowStage`                                                                                |
-| Value Class     | `API\Repository\Value\Limitation\WorkflowStageLimitation.php`                                  |
-| Type Class      | `Core\Security\Limitation\WorkflowStageLimitationType.php`                                     |
+| Value Class     | `Ibexa\Workflow\Value\Limitation\WorkflowStageLimitation.php`                                  |
+| Type Class      | `Ibexa\Workflow\Security\Limitation\WorkflowStageLimitationType.php`                                     |
 | Role Limitation | no |
 
 ### Possible values
@@ -445,8 +445,8 @@ a specific transition.
 |                 |                                                                                                |
 |-----------------|------------------------------------------------------------------------------------------------|
 | Identifier      | `WorkflowTransition`                                                                           |
-| Value Class     | `API\Repository\Value\Limitation\WorkflowTransitionLimitation.php`                             |
-| Type Class      | `Core\Security\Limitation\WorkflowTransitionLimitationType.php`                                |
+| Value Class     | `Ibexa\Workflow\Value\Limitation\WorkflowTransitionLimitation.php`                             |
+| Type Class      | `Ibexa\Workflow\Security\Limitation\WorkflowTransitionLimitationType.php`                                |
 | Role Limitation | no |
 
 ### Possible values

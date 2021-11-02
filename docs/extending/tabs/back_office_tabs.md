@@ -10,9 +10,9 @@ You can extend existing tab groups with new tabs, or create your own tab groups.
 
 A custom tab can extend one of the following classes:
 
-- `EzSystems\EzPlatformAdminUi\Tab\AbstractTab` - base tab.
-- `EzSystems\EzPlatformAdminUi\Tab\AbstractControllerBasedTab` - embeds the results of a controller action in the tab.
-- `EzSystems\EzPlatformAdminUi\Tab\AbstractRouteBasedTab` - embeds the results of the selected route, passing applicable parameters.
+- `Ibexa\Contracts\AdminUi\Tab\AbstractTab` - base tab.
+- `Ibexa\Contracts\AdminUi\Tab\AbstractControllerBasedTab` - embeds the results of a controller action in the tab.
+- `Ibexa\Contracts\AdminUi\Tab\AbstractRouteBasedTab` - embeds the results of the selected route, passing applicable parameters.
 
 ``` php
 //...
@@ -66,7 +66,7 @@ To create a tab group, register it as a service:
 ``` yaml
 services:
     app.my_tabs.custom_group:
-        parent: EzSystems\EzPlatformAdminUi\Component\TabsComponent
+        parent: Ibexa\AdminUi\Component\TabsComponent
         arguments:
             $groupIdentifier: 'custom_group'
         tags:

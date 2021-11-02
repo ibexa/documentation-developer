@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace App\FieldType\HelloWorld\Comparison;
 
-use EzSystems\EzPlatformVersionComparison\FieldType\FieldTypeComparisonValue;
-use EzSystems\EzPlatformVersionComparison\Engine\FieldTypeComparisonEngine;
-use EzSystems\EzPlatformVersionComparison\Engine\Value\StringComparisonEngine;
-use EzSystems\EzPlatformVersionComparison\Result\ComparisonResult;
+use Ibexa\Contracts\VersionComparison\FieldType\FieldTypeComparisonValue;
+use Ibexa\Contracts\VersionComparison\Engine\FieldTypeComparisonEngine;
+use Ibexa\VersionComparison\ComparisonValue\StringComparisonEngine;
+use Ibexa\Contracts\VersionComparison\Result\ComparisonResult;
 
 final class HelloWorldComparisonEngine implements FieldTypeComparisonEngine
 {
-    /** @var \EzSystems\EzPlatformVersionComparison\Engine\Value\StringComparisonEngine */
+    /** @var \Ibexa\VersionComparison\ComparisonValue\StringComparisonEngine */
     private $stringValueComparisonEngine;
 
     public function __construct(StringComparisonEngine $stringValueComparisonEngine)
@@ -20,8 +20,8 @@ final class HelloWorldComparisonEngine implements FieldTypeComparisonEngine
     }
 
     /**
-     * @param \EzSystems\EzPlatformVersionComparison\FieldType\TextLine\Value $comparisonDataA
-     * @param \EzSystems\EzPlatformVersionComparison\FieldType\TextLine\Value $comparisonDataB
+     * @param \Ibexa\Contracts\VersionComparison\FieldType\TextLine\Value $comparisonDataA
+     * @param \Ibexa\Contracts\VersionComparison\FieldType\TextLine\Value $comparisonDataB
      */
     public function compareFieldsTypeValues(FieldTypeComparisonValue $comparisonDataA, FieldTypeComparisonValue $comparisonDataB): ComparisonResult
     {

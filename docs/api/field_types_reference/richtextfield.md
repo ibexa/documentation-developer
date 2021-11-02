@@ -1,6 +1,6 @@
 # RichText Field Type
 
-The RichText Field Type is available via the RichText Field Type Bundle provided by the [ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext) package.
+The RichText Field Type is available via the RichText Field Type Bundle provided by the [ibexa/richtext](https://github.com/ibexa/richtext) package.
 
 This Field Type validates and stores structured rich text, and exposes it in several formats.
 
@@ -12,7 +12,7 @@ This Field Type validates and stores structured rich text, and exposes it in sev
 
 ### Value object
 
-`EzSystems\EzPlatformRichText\eZ\FieldType\RichText\Value` offers the following properties:
+`Ibexa\FieldTypeRichText\FieldType\RichText\Value` offers the following properties:
 
 |Property|Type|Description|
 |------|------|------|
@@ -24,7 +24,7 @@ This Field Type validates and stores structured rich text, and exposes it in sev
 |------|------|
 |`string`|XML document in one of the Field Type's input formats as a string.|
 |`DOMDocument`|XML document in one of the Field Type's input formats as a `DOMDocument` object.|
-|`EzSystems\EzPlatformRichText\eZ\FieldType\RichText\Value`|An instance of the Field Type's `Value` object.|
+|`Ibexa\FieldTypeRichText\FieldType\RichText\Value`|An instance of the Field Type's `Value` object.|
 
 ##### Input formats
 
@@ -125,7 +125,7 @@ The RichText format enriches [DocBook](https://docbook.org/) with the following 
 !!! note "Unsupported DocBook elements"
 
     Some DocBook elements are not supported by RichText.
-    Refer to [`ezpublish.rng`](https://github.com/ezsystems/ezplatform-richtext/blob/master/src/lib/eZ/RichText/Resources/schemas/docbook/ezpublish.rng#L120) for a full list.
+    Refer to [`ezpublish.rng`](https://github.com/ibexa/richtext/blob/main/src/bundle/Resources/richtext/schemas/docbook/ezpublish.rng#L120) for a full list.
 
 ### Online Editor elements
 

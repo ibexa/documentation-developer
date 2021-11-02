@@ -2,7 +2,7 @@
 
 ## Model class
 
-`CheckoutDeliveryAddress` (`Ibexa\Platform\Commerce\Checkout\Form\CheckoutDeliveryAddress`)
+`CheckoutDeliveryAddress` (`Ibexa\Commerce\Checkout\Form\CheckoutDeliveryAddress`)
 extends `AbstractFormEntity` and implements `CheckoutAddressInterface`.
 It manages the form for choosing delivery address in checkout process.
 
@@ -27,7 +27,7 @@ It manages the form for choosing delivery address in checkout process.
 
 ## Form Type
 
-`Ibexa\Platform\Commerce\Checkout\Form\TypeCheckoutDeliveryAddressType`
+`Ibexa\Commerce\Checkout\Form\TypeCheckoutDeliveryAddressType`
 (service ID: `siso_checkout.form_entity.checkout_delivery_address_type`)
 implements the setup for this form.
 
@@ -47,8 +47,8 @@ You set the parameters in the [configuration for checkout forms](configuration_f
 
 |                              |        |
 | ---------------------------- | ------ |
-| Main template                | `EshopBundle/Resources/views/Checkout/checkout_delivery_address.html.twig` |
-| Sidebar template for invoice | `EshopBundle/Resources/views/Checkout/sidebar_delivery_address.html.twig`  |
+| Main template                | `Eshop/Resources/views/Checkout/checkout_delivery_address.html.twig` |
+| Sidebar template for invoice | `Eshop/Resources/views/Checkout/sidebar_delivery_address.html.twig`  |
 
 ## Exceptions in validation process for delivery
 

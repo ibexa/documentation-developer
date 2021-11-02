@@ -13,9 +13,9 @@ Each of them is rendered independently and consists of three sets of parameters.
 
 |Parameter|Type|Description|
 |---------|----|-----------|
-|`content`|`eZ\Publish\API\Repository\Values\Content\Content`|Name of the form, its Content Type|
-|`form`|`EzSystems\EzPlatformFormBuilder\FieldType\Model\Form`|Definition of the form|
-|`data`|`EzSystems\EzPlatformFormBuilder\FieldType\Model\FormSubmission`|Sent data|  
+|`content`|`Ibexa\Contracts\Core\Repository\Values\Content\Content`|Name of the form, its Content Type|
+|`form`|`Ibexa\Contracts\FormBuilder\FieldType\Model\Form`|Definition of the form|
+|`data`|`Ibexa\Contracts\FormBuilder\FieldType\Model\FormSubmission`|Sent data|  
 
 ## Configure sender details
 

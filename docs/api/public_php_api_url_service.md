@@ -1,11 +1,11 @@
 # URLService
 
-[`URLService`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/URLService.php)
+[`URLService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/URLService.php)
 enables you to find, load and update external URLs used in RichText and URL Fields.
 
-To view a list of all URLs, use [`URLService::findUrls`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/URLService.php#L38)
+To view a list of all URLs, use [`URLService::findUrls`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/URLService.php#L38)
 
-`URLService::findUrls` takes as argument a [`URLQuery`,](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/URL/URLQuery.php)
+`URLService::findUrls` takes as argument a [`URLQuery`,](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/URL/URLQuery.php)
 in which you need to specify:
 
 - query filter e.g. Section
@@ -14,9 +14,9 @@ in which you need to specify:
 - query limit. If value is `0`, search query will not return any search hits
 
 ```php
-use eZ\Publish\API\Repository\Values\URL\URLQuery;
-use eZ\Publish\API\Repository\Values\URL\Query\Criterion;
-use eZ\Publish\API\Repository\Values\URL\Query\SortClause; 
+use Ibexa\Contracts\Core\Repository\Values\URL\URLQuery;
+use Ibexa\Contracts\Core\Repository\Values\URL\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\Values\URL\Query\SortClause; 
 
 # ...
 
@@ -57,7 +57,7 @@ Sort Clauses are the sorting options for URLs.
 
 All Sort Clauses can take the following optional argument:
 
-- `sortDirection` - the direction of the sorting, either `\eZ\Publish\API\Repository\Values\URL\Query\SortClause::SORT_ASC` (default) or `\eZ\Publish\API\Repository\Values\URL\Query\SortClause::SORT_DESC`
+- `sortDirection` - the direction of the sorting, either `\Ibexa\Contracts\Core\Repository\Values\URL\Query\SortClause::SORT_ASC` (default) or `\Ibexa\Contracts\Core\Repository\Values\URL\Query\SortClause::SORT_DESC`
 
 #### Sort Clauses 
 

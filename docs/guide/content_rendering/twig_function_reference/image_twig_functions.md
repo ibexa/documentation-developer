@@ -20,8 +20,8 @@ with the variation name passed as an argument, for example:
 
 | Argument | Type | Description |
 |-----|-----|-----|
-| `field` | `eZ\Publish\API\Repository\Values\Content\Field` | The image Field. |
-| `versionInfo` | `eZ\Publish\API\Repository\Values\Content\VersionInfo` | The VersionInfo that the Field belongs to. |
+| `field` | `Ibexa\Contracts\Core\Repository\Values\Content\Field` | The image Field. |
+| `versionInfo` | `Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo` | The VersionInfo that the Field belongs to. |
 | `variantName` | `string` | Name of the image variation to be used. To display the original image variation, use `original` as the variation name. |
 
 ``` html+twig
@@ -45,7 +45,7 @@ with the variation name passed as an argument, for example:
 
 | Argument | Type | Description |
 | ------ |----- | ----- |
-| `content` | `eZ\Publish\API\Repository\Values\Content\Content` | Content item to display the image for. |
+| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content` | Content item to display the image for. |
 
 ``` html+twig
 {% set firstImage = ez_content_field_identifier_first_filled_image(content) %}

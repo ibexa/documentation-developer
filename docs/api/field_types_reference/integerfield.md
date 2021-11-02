@@ -35,7 +35,7 @@ The `Integer\Value` constructor will initialize a new Value object with the v
 
 ``` php
 // Constructor example
-use eZ\Publish\Core\FieldType\Integer;
+use Ibexa\Core\FieldType\Integer;
  
 // Instantiates a Integer Value object
 $integerValue = new Integer\Value( 8 );

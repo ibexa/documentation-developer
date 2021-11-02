@@ -18,7 +18,7 @@ Field Types are responsible for:
 To do so, you need to create a custom Field Type.
 
 A custom Field Type must implement the **FieldType Service Provider Interfaces**
-available in the [`eZ\Publish\SPI\FieldType`](https://github.com/ezsystems/ezplatform-kernel/tree/v1.0.0/eZ/Publish/SPI/FieldType) namespace.
+available in the [`Ibexa\Core\FieldType`](https://github.com/ibexa/core/tree/main/src/lib/FieldType) namespace.
 
 !!! note "Registration"
 

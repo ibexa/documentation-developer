@@ -8,8 +8,8 @@
 |`basket/widget.html.twig`|Basket preview in the upper right corner of the shop screen|
 |`basket/row.html.twig`|Single row of basket preview|
 |`basket/basket_summary.html.twig`|Basket summary|
-|`SilversolutionsEshopBundle:Basket:stored_basket_preview_wish_list.html.twig`|Wishlist row with a number of products in the "My Shop" menu|
-|`SilversolutionsEshopBundle:Basket:stored_basket_preview_comparison.html.twig`|Comparison row with a number of products in the "My Shop" menu|
+|`Eshop:Basket:stored_basket_preview_wish_list.html.twig`|Wishlist row with a number of products in the "My Shop" menu|
+|`Eshop:Basket:stored_basket_preview_comparison.html.twig`|Comparison row with a number of products in the "My Shop" menu|
 
 ## Display the content of a basket
 

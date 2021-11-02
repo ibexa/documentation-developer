@@ -134,7 +134,7 @@ parameters:
 
 Service ID: `siso_core.data_processor.send_cancellation_email`
     
-Corresponding form: `Silversolutions\Bundle\EshopBundle\Form\Cancellation`
+Corresponding form: `Ibexa\Bundle\Commerce\Eshop\Form\Cancellation`
 
 ## SendConfirmationMailDataProcessor
 
@@ -202,7 +202,7 @@ parameters:
 
 Service ID: `siso_core.data_processor.send_contact_email`
 
-Corresponding form: `Silversolutions\Bundle\EshopBundle\Form\Contact`
+Corresponding form: `Ibexa\Bundle\Commerce\Eshop\Form\Contact`
 
 ## SendRmaEmailDataProcessor
 
@@ -225,7 +225,7 @@ parameters:
 
 Service ID: `siso_core.data_processor.send_rma_email`
 
-Corresponding form: `Silversolutions\Bundle\EshopBundle\Form\RMA`
+Corresponding form: `Ibexa\Bundle\Commerce\Eshop\Form\RMA`
 
 ## UpdateBuyerDataProcessor
 
@@ -235,7 +235,7 @@ The changes are stored only if the user has no customer number.
 
 Service ID: `ses.customer_profile_data.data_processor.update_buyer`
 
-Corresponding form: `Silversolutions\Bundle\EshopBundle\Form\Customer\Buyer`
+Corresponding form: `SIbexa\Bundle\Commerce\Eshop\Form\Customer\Buyer`
 
 ## UpdateCustomerProfileDataProcessor
 
@@ -243,7 +243,7 @@ Corresponding form: `Silversolutions\Bundle\EshopBundle\Form\Customer\Buyer`
 
 Service ID: `siso_core.data_processor.update_customer_profile_data`
 
-Corresponding form: `Silversolutions\Bundle\EshopBundle\Form\Address`
+Corresponding form: `Ibexa\Bundle\Commerce\Eshop\Form\Address`
 
 ## UpdateMyAccountDataProcessor
 
@@ -254,7 +254,7 @@ The changes are stored only if the user has no customer number.
 
 Service ID: `ses.customer_profile_data.data_processor.update_buyer`
 
-Corresponding form: `Silversolutions\Bundle\EshopBundle\Form\Customer\MyAccount`
+Corresponding form: `Ibexa\Bundle\Commerce\Eshop\Form\Customer\MyAccount`
 
 ## ValidateBusinessActivationDataProcessor
 

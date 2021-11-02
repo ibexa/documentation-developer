@@ -27,8 +27,8 @@ parameters:
 Templates are located in the following files:
 
 ``` 
-EshopBundle/Resources/views/Emails/NotificationMail_FailedOrder.html.twig
-EshopBundle/Resources/views/Emails/NotificationMail_FailedOrder.txt.twig
+Eshop/Resources/views/Emails/NotificationMail_FailedOrder.html.twig
+Eshop/Resources/views/Emails/NotificationMail_FailedOrder.txt.twig
 ```
 
 ## Lost order command

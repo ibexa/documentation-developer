@@ -351,7 +351,7 @@ Persistence cache prefixes it's cache using "ez-". Clearing persistence cache ca
 // To clear all cache (not recommended without a good reason)
 $pool->clear();
 
-// To clear a specific cache item (check source for more examples in eZ\Publish\Core\Persistence\Cache\*)
+// To clear a specific cache item (check source for more examples in Ibexa\Core\Persistence\Cache\*)
 $pool->deleteItems(["ez-content-info-$contentId"]);
 
 // Symfony cache is tag-based, so you can clear all cache related to a Content item like this:

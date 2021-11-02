@@ -3,7 +3,7 @@
         {% if zones[0].blocks %}
             {% for block in zones[0].blocks %}
                 <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
-                    {{ render_esi(controller('EzSystems\\EzPlatformPageFieldTypeBundle\\Controller\\BlockController::renderAction', {
+                    {{ render_esi(controller('Ibexa\\Bundle\\FieldTypePage\\Controller\\BlockController::renderAction', {
                         'contentId': contentInfo.id,
                         'blockId': block.id,
                         'versionNo': versionInfo.versionNo,
@@ -18,7 +18,7 @@
         {% if zones[1].blocks %}
             {% for block in zones[1].blocks %}
                 <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
-                    {{ render_esi(controller('EzSystems\\EzPlatformPageFieldTypeBundle\\Controller\\BlockController::renderAction', {
+                    {{ render_esi(controller('Ibexa\\Bundle\\FieldTypePage\\Controller\\BlockController::renderAction', {
                         'contentId': contentInfo.id,
                         'blockId': block.id,
                         'versionNo': versionInfo.versionNo,

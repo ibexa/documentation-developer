@@ -106,7 +106,7 @@ If the given content has several Locations, you can see several `l<location-id>`
     In `ezplatform-http-cache` there is a dedicated response listener `HttpCacheResponseSubscriber` that checks if:
     
     - the response has attribute `view`
-    - the view implements `eZ\Publish\Core\MVC\Symfony\View\CachableView`
+    - the view implements `Ibexa\Core\MVC\Symfony\View\CachableView`
     - cache is not disabled on the individual view
 
     If that checks out, the response is adapted with the following:
@@ -139,7 +139,7 @@ For tagging needs in controllers, there are several options, here presented in r
 Examples for tagging everything needed for content using the autowirable `ResponseTagger` interface:
 
 ``` php
-/** @var \EzSystems\PlatformHttpCacheBundle\ResponseTagger\ResponseTagger $responseTagger */
+/** @var \Ibexa\Contracts\HttpCache\ResponseTagger\ResponseTagger $responseTagger */
 
 // If you have a View object you can simply call:
 $responseTagger->tag($view);
@@ -154,7 +154,7 @@ $responseTagger->tag($location);
 Examples for adding specific content tags using the autowireable `ContentTagInterface`:
 
 ``` php
-/** @var \EzSystems\PlatformHttpCacheBundle\Handler\ContentTagInterface $tagHandler */
+/** @var \Ibexa\Contracts\HttpCache\Handler\ContentTagInterface $tagHandler */
 
 // Example for tagging everything needed for Content:
 $tagHandler->addContentTags([$content->id]);
@@ -266,7 +266,7 @@ While the system purges tags whenever API is used to change data, you may need t
 For that you can use the built-in purge client:
 
 ```php
-/** @var \EzSystems\PlatformHttpCacheBundle\PurgeClient\PurgeClientInterface $purgeClient */
+/** @var \Ibexa\Contracts\HttpCache\PurgeClient\PurgeClientInterface $purgeClient */
 
 // Example for purging by Location ID:
 $purgeClient->purge([ContentTagInterface::LOCATION_PREFIX . $location->id]);

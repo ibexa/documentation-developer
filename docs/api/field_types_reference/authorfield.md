@@ -13,7 +13,7 @@ This Field Type allows the storage and retrieval of one or more authors. For eac
 
 |Attribute|Type|Description|Example|
 |------|------|------|------|
-|`authors`|`\eZ\Publish\Core\FieldType\Author\Author[] `|List of authors.|See below|
+|`authors`|`\Ibexa\Core\FieldType\Author\Author[] `|List of authors.|See below|
 
 Example:
 
@@ -71,7 +71,7 @@ The Field definition of this Field Type can be configured with a single option:
 |------|------|------|------|
 |`defaultAuthor`|`mixed`|`Type::DEFAULT_VALUE_EMPTY`|One of the `DEFAULT_*` constants, used by the administration interface for setting the default Field value. See below for more details.|
 
-Following `defaultAuthor` default value options are available as constants in the `eZ\Publish\Core\FieldType\Author\Type` class:
+Following `defaultAuthor` default value options are available as constants in the `Ibexa\Core\FieldType\Author\Type` class:
 
 |Constant|Description|
 |------|------|
@@ -81,7 +81,7 @@ Following `defaultAuthor` default value options are available as constants in 
 ``` php
 // Author Field Type example settings
 
-use eZ\Publish\Core\FieldType\Author\Type;
+use Ibexa\Core\FieldType\Author\Type;
 
 $settings = [
     "defaultAuthor" => Type::DEFAULT_VALUE_EMPTY

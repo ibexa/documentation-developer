@@ -2,7 +2,7 @@
 
 You can use generic configuration for checkout forms to override the forms and form logic for your project.
 
-`Ibexa\Platform\Commerce\Checkout\ModelFormConfig` is the class managing the configuration.
+`Ibexa\Commerce\Checkout\Model\FormConfig` is the class managing the configuration.
 
 You configure the checkout forms in `ezcommerce-checkout/src/bundle/Resources/config/checkout_parameters.yaml`.
 

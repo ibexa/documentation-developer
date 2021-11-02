@@ -12,7 +12,7 @@ A **variation service** handles the conversion of the original image into diffe
 
 ### Value object
 
-The `value` property of an Image Field returns an `\eZ\Publish\Core\FieldType\Image\Value` object with the following properties:
+The `value` property of an Image Field returns an `Ibexa\Core\FieldType\Image\Value` object with the following properties:
 
 ##### Properties
 
@@ -40,7 +40,7 @@ This Field Type does not support settings.
 
 ### Image Variations
 
-Using the variation Service, variations of the original image can be obtained. They are `\eZ\Publish\SPI\Variation\Values\ImageVariation` objects with the following properties:
+Using the variation Service, variations of the original image can be obtained. They are `Ibexa\Contracts\Core\Variation\Values\ImageVariation` objects with the following properties:
 
 | Property       | Type     | Example  | Description|
 |----------------|----------|----------|------------|
@@ -189,7 +189,7 @@ $createStruct = $contentService->newContentCreateStruct(
     'eng-GB'
 );
 
-$imageField = \eZ\Publish\Core\FieldType\Image\Value::fromString( '/tmp/image.png' );
+$imageField = \Ibexa\Core\FieldType\Image\Value::fromString( '/tmp/image.png' );
 $imageField->alternativeText = 'My alternative text';
 $createStruct->setField( 'image', $imageField );
 ```
@@ -197,7 +197,7 @@ $createStruct->setField( 'image', $imageField );
 You can also provide a hash of `Image\Value` properties, either to `setField()`, or to the constructor:
 
 ``` php
-$imageValue = new \eZ\Publish\Core\FieldType\Image\Value(
+$imageValue = new \Ibexa\Core\FieldType\Image\Value(
     [
         'id' => '/tmp/image.png',
         'fileSize' => 37931,

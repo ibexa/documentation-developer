@@ -25,4 +25,4 @@ ezplatform:
                         template: '@ezdesign/content_query/blog_posts.html.twig'
                         match:
                             Identifier\ContentType: blog
-                            '@EzSystems\EzPlatformQueryFieldType\eZ\ContentView\FieldDefinitionIdentifierMatcher': query
+                            '@Ibexa\FieldTypeQuery\ContentView\FieldDefinitionIdentifierMatcher': query

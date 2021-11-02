@@ -27,9 +27,9 @@ To listen to one of these events, define a service and tag it in configuration:
 In the implemented class you can access and manipulate the normalized `FormEntity`:
 
 ``` php
-use Silversolutions\Bundle\EshopBundle\Entities\Forms\Normalize\Entity;
-use Silversolutions\Bundle\EshopBundle\Event\DataProcessor\PreDataProcessorExecuteEvent;
-use Silversolutions\Bundle\EshopBundle\Event\DataProcessor\PostDataProcessorExecuteEvent;
+use Ibexa\Bundle\Commerce\Eshop\Entities\Forms\Normalize\Entity;
+use Ibexa\Bundle\Commerce\Eshop\Event\DataProcessor\PreDataProcessorExecuteEvent;
+use Ibexa\Bundle\Commerce\Eshop\Event\DataProcessor\PostDataProcessorExecuteEvent;
 
 class EzCreateUserEventHandler
 {

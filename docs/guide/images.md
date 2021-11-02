@@ -130,7 +130,7 @@ In [[= product_name =]], there are two implementations of the `PlaceholderProvid
 
 ### GenericProvider
 
-The [`GenericProvider`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Imagine/PlaceholderProvider.php) package generates placeholders 
+The [`GenericProvider`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Imagine/PlaceholderProvider.php) package generates placeholders 
 with basic information about the original image (see [example 1](#configuration-examples)).
 
 ![Placeholder image GenericProvider](img/placeholder_info.jpg "Example of a generic placeholder image")
@@ -148,7 +148,7 @@ with basic information about the original image (see [example 1](#configuration-
 
 ### RemoteProvider
 
-With the [`RemoteProvider`](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Imagine/PlaceholderProvider/RemoteProvider.php) you can download 
+With the [`RemoteProvider`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Imagine/PlaceholderProvider/RemoteProvider.php) you can download 
 placeholders from:
 
  - remote sources, for example, <http://placekitten.com> (see [example 2](#configuration-examples))
@@ -216,7 +216,7 @@ First, enable adding SVG files to content by removing them from the blacklist
 of allowed MIME types.
 
 To do it, comment out the relevant line under `ezsettings.default.io.file_storage.file_type_blacklist`
-in `EzPublishCoreBundle/Resources/config/default_settings.yml`.
+in `Core/Resources/config/default_settings.yml`.
 
 Then, add a download route to the `config/routes.yaml` file:
 

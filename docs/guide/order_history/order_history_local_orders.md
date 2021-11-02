@@ -30,4 +30,4 @@ siso_order_history.default.default_list_fields:
         - SesExtension_Invoice
 ```
 
-The `EshopBundle/Resources/views/Invoice/show.html.twig` template renders the invoice view and the invoice PDF.
+The `Eshop/Resources/views/Invoice/show.html.twig` template renders the invoice view and the invoice PDF.

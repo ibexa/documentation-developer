@@ -2,10 +2,10 @@
 
 ## Accessing binary files
 
-To access binary files from the PHP API, use the `eZ\Publish\Core\IO\IOServiceInterface::loadBinaryFile()` method:
+To access binary files from the PHP API, use the `Ibexa\Core\IO\IOServiceInterface::loadBinaryFile()` method:
 
 ```php
-use eZ\Publish\Core\IO\IOServiceInterface;
+use Ibexa\Core\IO\IOServiceInterface;
 
 class FileController
 {
@@ -26,8 +26,8 @@ class FileController
 
 The IO API is organized around two types of handlers, both used by the IOService:
 
-- `eZ\Publish\IO\IOMetadataHandler`: Stores and reads metadata (validity, size, etc.)
-- `eZ\Publish\IO\IOBinarydataHandler`: Stores and reads the actual binary data
+- `Ibexa\Core\IO\IOMetadataHandler`: Stores and reads metadata (validity, size, etc.)
+- `Ibexa\Core\IO\IOBinarydataHandler`: Stores and reads the actual binary data
 
 IO handlers can be configured using semantic configuration and are configurable per SiteAccess.
 This is the default configuration:

@@ -20,7 +20,7 @@ The Value class of this Field Type contains the following properties:
 
 ``` php
 //Value object content examples
-use eZ\Publish\Core\FieldType\Checkbox\Type;
+use Ibexa\Core\FieldType\Checkbox\Type;
  
 // Instantiates a checkbox value with a default state (false)
 $checkboxValue = new Checkbox\Value();
@@ -38,7 +38,7 @@ The `Checkbox\Value` constructor accepts a boolean value:
 
 ``` php
 // Constructor example
-use eZ\Publish\Core\FieldType\Checkbox\Type;
+use Ibexa\Core\FieldType\Checkbox\Type;
  
 // Instantiates a checkbox value with a checked state
 $checkboxValue = new Checkbox\Value( true );

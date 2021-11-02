@@ -25,13 +25,13 @@ The following example shows how an `example` Field Type could be configured as a
 # Null Fieldtype example configuration
 services:
     ezpublish.fieldType.example:
-        class: eZ\Publish\Core\FieldType\Null\Type
+        class: Ibexa\Core\FieldType\Null\Type
         autowire: true
         autoconfigure: false
         arguments: [example]
         tags: [{name: ezplatform.field_type, alias: example}]
     ezpublish.fieldType.example.converter:
-        class: eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter\NullConverter
+        class: Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\NullConverter
         tags: [{name: ezplatform.field_type.legacy_storage.converter, alias: example}]
     ezpublish.fieldType.example.indexable:
     class: '%ezpublish.fieldType.indexable.unindexed.class%'

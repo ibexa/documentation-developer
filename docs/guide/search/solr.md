@@ -357,7 +357,7 @@ The configuration above will result in the following boosting (Content Type / Fi
                         - folder/description
     ```
 
-    The second step requires you to use `\Novactive\EzSolrSearchExtra\Query\Content\Criterion\MultipleFieldsFullText` instead of default `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\FullText`.
+    The second step requires you to use `\Novactive\EzSolrSearchExtra\Query\Content\Criterion\MultipleFieldsFullText` instead of default `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\FullText`.
     The following example shows custom query which benefits from the custom fields created in the previous example.
 
     ```php
@@ -365,15 +365,15 @@ The configuration above will result in the following boosting (Content Type / Fi
 
     namespace App\Controller;
 
-    use eZ\Publish\API\Repository\SearchService;
-    use eZ\Publish\API\Repository\Values\Content\Query;
+    use Ibexa\Contracts\Core\Repository\SearchService;
+    use Ibexa\Contracts\Core\Repository\Values\Content\Query;
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\Response;
 
     class SearchController
     {
         /**
-         * @var \eZ\Publish\API\Repository\SearchService
+         * @var \Ibexa\Contracts\Core\Repository\SearchService
          */
         private $searchService;
 

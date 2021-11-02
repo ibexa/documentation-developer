@@ -2,7 +2,7 @@
 
 ## Payment bundle
 
-`SisoPaymentBundle` defines and implements an interface to the `JMSPaymentCoreBundle`. 
+`IbexaCommercePaymentBundle` defines and implements an interface to the `JMSPaymentCoreBundle`. 
 The main interface is represented by `PaymentServiceInterface`, which is the public access point to payment processing.
 
 ## PaymentServiceInterface

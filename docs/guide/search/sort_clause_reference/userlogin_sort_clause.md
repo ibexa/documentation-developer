@@ -1,6 +1,6 @@
 # UserLogin Sort Clause
 
-The [`UserLogin` Sort Clause](https://github.com/ibexa/core/tree/ibx-538-ibexa-namespaces-rebranding/src/contracts/Repository/Values/Content/Query/SortClause/Trash/UserLogin.php)
+The [`UserLogin` Sort Clause](https://github.com/ibexa/core/tree/main/src/contracts/Repository/Values/Content/Query/SortClause/Trash/UserLogin.php)
 sorts the results of searching in Trash by the login of the Content item's creator.
 
 ## Arguments

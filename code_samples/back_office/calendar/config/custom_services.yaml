@@ -10,7 +10,7 @@ services:
             $eventType: '@App\Calendar\Holidays\EventType'
 
     App\Calendar\Holidays\EventSource:
-        class: EzSystems\EzPlatformCalendar\Calendar\EventSource\InMemoryEventSource
+        class: Ibexa\Tests\Calendar\Calendar\EventSource
         factory: [ '@App\Calendar\Holidays\EventSourceFactory','createEventSource' ]
         tags:
             - { name: ezplatform.calendar.event_source }

@@ -2,9 +2,9 @@
 
 namespace App\EventSubscriber;
 
-use EzSystems\EzPlatformFormBuilder\Definition\FieldAttributeDefinitionBuilder;
-use EzSystems\EzPlatformFormBuilder\Event\FieldDefinitionEvent;
-use EzSystems\EzPlatformFormBuilder\Event\FormEvents;
+use Ibexa\FormBuilder\Definition\FieldAttributeDefinitionBuilder;
+use Ibexa\FormBuilder\Event\FieldDefinitionEvent;
+use Ibexa\FormBuilder\Event\FormEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class FormFieldDefinitionSubscriber implements EventSubscriberInterface

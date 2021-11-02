@@ -28,7 +28,7 @@ You can also get the product objects by using the following Twig functions:
     
 | Argument | Type | Description |
 |-----|-----|-----|
-|`catalogElement`|`EshopBundle\Catalog\CatalogElement`|Catalog element of the product.|
+|`catalogElement`|`Ibexa\Bundle\Commerce\Eshop\Catalog\CatalogElement`|Catalog element of the product.|
 |`fieldIdentifier`|`string`|Field of the Catalog element.|
 
 ``` html+twig
@@ -41,8 +41,8 @@ You can also get the product objects by using the following Twig functions:
 
 | Argument | Type | Description |
 |-----|-----|-----|
-|`catalogElement`|`EshopBundle\Catalog\CatalogElement`|Catalog element of the product.|
-|`field`|`EshopBundle\Content\Fields\PriceField`|Field of the Catalog element.|
+|`catalogElement`|`Ibexa\Bundle\Commerce\Eshop\Catalog\CatalogElement`|Catalog element of the product.|
+|`field`|`Ibexa\Bundle\Commerce\Eshop\Content\Fields\PriceField`|Field of the Catalog element.|
 |`params`|`array`||
 
 ``` html+twig
@@ -55,7 +55,7 @@ You can also get the product objects by using the following Twig functions:
 
 | Argument | Type | Description |
 |-----|-----|-----|
-|`field`|`EshopBundle\Content\Fields\StockField`|Field of the Catalog element.|
+|`field`|`Ibexa\Bundle\Commerce\Eshop\Content\Fields\StockField`|Field of the Catalog element.|
 |`params`|`array`||
 
 ``` html+twig
@@ -68,7 +68,7 @@ You can also get the product objects by using the following Twig functions:
 
 | Argument | Type | Description |
 |-----|-----|-----|
-|`catalogElement`|`EshopBundle\Catalog\CatalogElement`|Catalog element of the product.|
+|`catalogElement`|`Ibexa\Bundle\Commerce\Eshop\Catalog\CatalogElement`|Catalog element of the product.|
 |`params`|`array`||
 
 ``` html+twig

@@ -101,7 +101,7 @@ ezplatform:
         eng-DE: en_DE
 ```
 
-A locale *conversion map* example [can be found in `ibexa/core`, in `locale.yaml`](hhttps://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/config/locale.yml).
+A locale *conversion map* example [can be found in `ibexa/core`, in `locale.yaml`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/config/locale.yml).
 
 ### More complex translation setup
 

@@ -80,7 +80,7 @@ The Field definition of this Field Type can be configured with several options:
 |`defaultType`|`mixed`|`Type::DEFAULT_EMPTY`|One of the `DEFAULT_*` constants, used by the administration interface for setting the default Field value. See below for more details.|
 |`dateInterval`|`null|\DateInterval`|`null`|This setting complements `defaultType` setting and can be used only when the latter is set to `Type::DEFAULT_CURRENT_DATE_ADJUSTED`. In that case the default input value when using administration interface will be adjusted by the given `\DateInterval`.|
 
-Following `defaultType` default value options are available as constants in the `eZ\Publish\Core\FieldType\DateAndTime\Type` class:
+Following `defaultType` default value options are available as constants in the `Ibexa\Core\FieldType\DateAndTime\Type` class:
 
 |Constant|Description|
 |------|------|
@@ -91,7 +91,7 @@ Following `defaultType` default value options are available as constants in the
 ``` php
 // DateAndTime FieldType example settings
 
-use eZ\Publish\Core\FieldType\DateAndTime\Type;
+use Ibexa\Core\FieldType\DateAndTime\Type;
 
 $settings = [
     "useSeconds" => false,

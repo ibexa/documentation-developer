@@ -2,9 +2,9 @@
 
 namespace App\Calendar\Holidays;
 
-use EzSystems\EzPlatformCalendar\Calendar\Event;
-use EzSystems\EzPlatformCalendar\Calendar\EventAction\EventActionCollection;
-use EzSystems\EzPlatformCalendar\Calendar\EventType\EventTypeInterface;
+use Ibexa\Contracts\Calendar\Event;
+use Ibexa\Contracts\Calendar\EventAction\EventActionCollection;
+use Ibexa\Contracts\Calendar\EventType\EventTypeInterface;
 
 class EventType implements EventTypeInterface
 {

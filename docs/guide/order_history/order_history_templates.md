@@ -4,12 +4,12 @@
 
 |Path|Description|
 |--- |--- |
-|`OrderHistoryBundle/Resources/views/OrderHistory/list.html.twig`|Renders the document list.|
-|`OrderHistoryBundle/Resources/views/OrderHistory/Components/list_table.html.twig`|Renders the document table. Included in `OrderHistory/list.html.twig`.|
-|`OrderHistoryBundle/Resources/views/OrderHistory/detail.html.twig`|Renders the detail view of a single document.|
-|`OrderHistoryBundle/Resources/views/OrderHistory/Components/header_default.html.twig`|Renders the header information for document detail. Included in `OrderHistory/detail.html.twig`.|
-|`OrderHistoryBundle/Resources/views/OrderHistory/Components/fields.html.twig`|Contains blocks that render the content of the individual fields (defined in the configuration). Included in `OrderHistory/Components/list_table.html.twig` and `OrderHistory/detail.html.twig`.|
-|`OrderHistoryBundle/Resources/views/OrderHistory/Components/user_menu.html.twig`|Renders the "Your documents" item in user menu.|
+|`IbexaCommerceOrderHistoryBundle/Resources/views/OrderHistory/list.html.twig`|Renders the document list.|
+|`IbexaCommerceOrderHistoryBundle/Resources/views/OrderHistory/Components/list_table.html.twig`|Renders the document table. Included in `OrderHistory/list.html.twig`.|
+|`IbexaCommerceOrderHistoryBundle/Resources/views/OrderHistory/detail.html.twig`|Renders the detail view of a single document.|
+|`IbexaCommerceOrderHistoryBundle/Resources/views/OrderHistory/Components/header_default.html.twig`|Renders the header information for document detail. Included in `OrderHistory/detail.html.twig`.|
+|`IbexaCommerceOrderHistoryBundle/Resources/views/OrderHistory/Components/fields.html.twig`|Contains blocks that render the content of the individual fields (defined in the configuration). Included in `OrderHistory/Components/list_table.html.twig` and `OrderHistory/detail.html.twig`.|
+|`IbexaCommerceOrderHistoryBundle/Resources/views/OrderHistory/Components/user_menu.html.twig`|Renders the "Your documents" item in user menu.|
 
 ## Custom Twig functions
 

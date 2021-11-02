@@ -13,23 +13,6 @@ Refer to [Alloy Editor documentation](https://alloyeditor.com/docs/develop/) to 
 how you can extend the Online Editor with even more elements.
 For more information about extending the Back Office UI, see [Extend Back Office](extending_back_office.md).
 
-!!! note
-
-    Online Editor configuration works out of the box only if you have the Rich 
-    Text bundle enabled.
-    If the bundle is not enabled, for example, when you upgrade from an earlier 
-    version of [[= product_name =]], enable the bundle:
-    
-    `composer require ezsystems/ezplatform-richtext`
-    
-    Add the following line to the `config/bundles.php` file:
-
-    `EzSystems\EzPlatformRichTextBundle\EzPlatformRichTextBundle::class => ['all' => true],`
-    
-    And clear the cache:
-
-    `php bin/console cache:clear`
-
 ## Configure custom tags
 
 With custom tags, you can enhance the Online Editor with features that go beyond 
@@ -416,7 +399,7 @@ Online Editor toolbar through configuration:
 For each button you can set `priority`, which defines the order of buttons in 
 the toolbar, and `visible`, which can turn off the button when set to `false`.
 
-For a full list of standard buttons, see the RichText module's [configuration file](https://github.com/ezsystems/ezplatform-richtext/blob/v2.0.0/src/bundle/Resources/config/prepend/ezpublish.yaml)
+For a full list of standard buttons, see the RichText module's [configuration file](https://github.com/ibexa/richtext/blob/main/src/bundle/Resources/config/prepend/ezpublish.yaml)
 
 !!! tip
 

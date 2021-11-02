@@ -18,7 +18,7 @@ security:
     firewalls:
         ezpublish_front:
             pattern: ^/
-            user_checker: eZ\Publish\Core\MVC\Symfony\Security\UserChecker
+            user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
             anonymous: ~
             form_login:
                 require_previous_session: false
@@ -54,7 +54,7 @@ Authentication is provided using the Symfony Security component.
 
 A `SecurityController` is used to manage all security-related actions and is thus used to display the login form. It follows all standards explained in [Symfony security documentation]([[= symfony_doc =]]/security/form_login_setup.html).
 
-The base template used is [`EzPublishCore/Security/login.html.twig`](https://github.com/ibexa/core/blob/main/eZ/Bundle/EzPublishCoreBundle/Resources/views/Security/login.html.twig).
+The base template used is [`Security/login.html.twig`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/views/Security/login.html.twig).
 
 The layout used by default is `%ezpublish.content_view.viewbase_layout%` (empty layout) but can be configured together with the login template:
 
@@ -121,8 +121,8 @@ It is already provided in `config/packages/security.yaml`, you only need to unco
 security:
     firewalls:
         ezplatform_rest:
-            request_matcher: EzSystems\EzPlatformAdminUi\REST\Security\NonAdminRESTRequestMatcher
-            user_checker: eZ\Publish\Core\MVC\Symfony\Security\UserChecker
+            request_matcher: Ibexa\AdminUi\REST\Security\NonAdminRESTRequestMatcher
+            user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
             anonymous: ~
             guard:
                 authenticators:
@@ -131,8 +131,8 @@ security:
             stateless: true
 
         ezplatform_graphql:
-            request_matcher: EzSystems\EzPlatformGraphQL\Security\NonAdminGraphQLRequestMatcher
-            user_checker: eZ\Publish\Core\MVC\Symfony\Security\UserChecker
+            request_matcher: Ibexa\GraphQL\Security\NonAdminGraphQLRequestMatcher
+            user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
             anonymous: ~
             guard:
                 authenticators:

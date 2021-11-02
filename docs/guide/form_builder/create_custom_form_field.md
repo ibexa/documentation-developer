@@ -43,7 +43,7 @@ Each type of Form field can have validators of the following types:
 
 ## Add mapper
 
-New types of fields require a mapper which implements the `EzSystems\EzPlatformFormBuilder\FieldType\Field\FieldMapperInterface` interface.
+New types of fields require a mapper which implements the `Ibexa\Contracts\FormBuilder\FieldType\Field\FieldMapperInterface` interface.
 
 To create a Country field type, implement the `FieldMapperInterface` interface in `src/FormBuilder/Field/Mapper/CountryFieldMapper.php`:
 
@@ -89,5 +89,5 @@ Register this subscriber as a service:
 
 Field definitions are accessible through:
 
-- `\EzSystems\EzPlatformFormBuilder\Definition\FieldDefinitionFactory` in the back end
+- `Ibexa\FormBuilder\Definition\FieldDefinitionFactory` in the back end
 - global variable `eZ.formBuilder.config.fieldsConfig` in the front end

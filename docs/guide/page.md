@@ -12,9 +12,9 @@
 
 |Block|Template|Subtemplates|
 |--- |--- |--- |
-|Last viewed items|`IbexaPlatformCommercePageBuilderBundle:blocks:product_last_viewed_slider.html.twig`|Uses the `SilversolutionsEshopBundle:EzFlow:showLastViewedProducts` subcontroller and `SilversolutionsEshopBundle:Catalog:last_viewed_slider.html.twig` template|
-|Bestsellers|`IbexaPlatformCommercePageBuilderBundle:blocks:bestseller.html.twig`|Uses the `SilversolutionsEshopBundle:Bestsellers:getBestsellers` subcontroller and the `SilversolutionsEshopBundle:Bestsellers:bestsellers_box.html.twig` template|
-|Product slider|`IbexaPlatformCommercePageBuilderBundle:blocks:product_slider.html.twig`|Uses the `SilversolutionsEshopBundle:EzFlow:getSkuListByString` subcontroller and the `SisoEzStudioBundle:blocks:product_slider_tabs.html.twig` template|
+|Last viewed items|`IbexaPlatformCommercePageBuilderBundle:blocks:product_last_viewed_slider.html.twig`|Uses the `Ibexa\Bundle\Commerce\Eshop\Controller\EzFlowController:showLastViewedProducts` subcontroller and `Ibexa\Bundle\Commerce\Eshop\Controller\CatalogController:last_viewed_slider.html.twig` template|
+|Bestsellers|`IbexaPlatformCommercePageBuilderBundle:blocks:bestseller.html.twig`|Uses the `Ibexa\Bundle\Commerce\Eshop\Controller\BestsellersController:getBestsellers` subcontroller and the `Ibexa\Bundle\Commerce\Eshop\Controller\BestsellersController:bestsellers_box.html.twig` template|
+|Product slider|`IbexaPlatformCommercePageBuilderBundle:blocks:product_slider.html.twig`|Uses the `Ibexa\Bundle\Commerce\Eshop\Controller\EzFlowController:getSkuListByString` subcontroller|
 
 ## Page API
 
@@ -43,7 +43,7 @@ To display a list of recently viewed products, place the following code in a tem
 ``` html+twig
 {{ render_esi(
     controller(
-        'Silversolutions\\Bundle\\EshopBundle\\Controller\\EzFlowController::showLastViewedProductsAction',
+        'Ibexa\\Bundle\\Commerce\\Eshop\\Controller\\EzFlowController::showLastViewedProductsAction',
         { }
     )) }}
 ```

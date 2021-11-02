@@ -49,7 +49,7 @@ which forms configuration should be used.
 ``` yaml
 silversolutions_service:
     path:  /service/{formTypeResolver}
-    defaults: { _controller: Silversolutions\Bundle\EshopBundle\Controller\FormsController::formsAction }
+    defaults: { _controller: Ibexa\Bundle\Commerce\Eshop\Controller\FormsController::formsAction }
 ```
 
 When you call the URL `/service/registration_private` the `FormsController::formsAction` method
@@ -64,7 +64,7 @@ The parameter `formTypeResolver` must still be part of the URL.
 ``` yaml
 test_project_forms:
     path:  /shop_functions/{formTypeResolver}
-    defaults: { _controller: Silversolutions\Bundle\EshopBundle\Controller\FormsController::formsAction }
+    defaults: { _controller: Ibexa\Bundle\Commerce\Eshop\Controller\FormsController::formsAction }
 ```
 
 Then, when you call `/shop_functions/registration_private`, the `FormsController::formsAction` is used.
@@ -81,30 +81,28 @@ ses_forms.configs.{formTypeResolver}
 
 You can define the whole form behavior using configuration.
 
-In the following example, `formTypeResolver` value is `registration_private`.
+In the following example, `formTypeResolver` value is `private`.
 
 ``` yaml
-parameters:
-    ses_forms.configs.registration_private:
-        modelClass: Silversolutions\Bundle\EshopBundle\Entities\Forms\RegisterPrivate
-        # either typeClass or typeService has to be defined
-        typeClass: Silversolutions\Bundle\EshopBundle\Entities\Forms\Types\RegisterPrivateType
+    ses_forms.configs.private:
+        modelClass: Ibexa\Bundle\Commerce\Eshop\Entities\Forms\RegisterPrivate
+#        typeClass: Ibexa\Bundle\Commerce\Eshop\Entities\Forms\Types\RegisterPrivateType
         typeService: silver_forms.register_private_type
-        template: SilversolutionsEshopBundle:Forms:register_private.html.twig
-        invalidMessage: error_message_register
-        validMessage: success_register_private 
-        policy: siso_policy/forms_profile_edit
-        response:
-            valid:
-               template: SilversolutionsEshopBundle:Forms:register_private_valid.html.twig 
-                httpResponse: 'http://www.google.de'
-                routeName: 'silversolutions_forms_user_choice'
-            invalid:         
-                template: SilversolutionsEshopBundle:Forms:register_private_valid.html.twig
-                httpResponse: 'http://www.google.de'
-                routeName: 'silversolutions_forms_user_choice'
-        preDataProcessor: ses_forms.fill_private_form
-        dataProcessors:            
+        template: '@@ezdesign\Forms\register_private.html.twig'
+        invalidMessage: error_message_register # textmodule
+        validMessage: success_register_private # textmodule
+        #response:
+            #valid:
+                #httpResponse: http://www.google.de
+                #template: '@@ezdesign/Forms/register_private_valid.html.twig'
+                #routeName: silversolutions_forms_user_choice
+            #invalid:
+                #httpResponse: http://www.google.de
+                #template: '@@ezdesign/pagelayout.html.twig'
+                #routeName: silversolutions_forms_user_choice
+        dataProcessors:
+            - ses.customer_profile_data.data_processor.create_customer_profile_data
+            - siso_newsletter.newsletter.subscribe_newsletter_data_processor
             - ses_forms.create_ez_user
             - ses_forms.disable_ez_user
             - ses_forms.create_registration_token_data_processor

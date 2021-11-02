@@ -1,7 +1,7 @@
 # GraphQL
 
 [GraphQL](https://graphql.org/) is a query language for the API.
-The GraphQL implementation for [[= product_name =]] is located in [`ezsystems/ezplatform-graphql`](https://github.com/ezsystems/ezplatform-graphql).
+The GraphQL implementation for [[= product_name =]] is located in [`ezsystems/ezplatform-graphql`](https://github.com/ibexa/graphql).
 
 ## Setup
 

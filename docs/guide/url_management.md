@@ -96,28 +96,25 @@ For more information about ezPlatform configuration, see [Configuration](configu
 ### Custom protocol support
 
 You can extend the external URL address validation with a custom protocol.
-To do this, you must provide a service that implements the `\eZ\Bundle\EzPublishCoreBundle\URLChecker\URLHandlerInterface` interface:
+To do this, you must provide a service that implements the `Ibexa\Bundle\Core\URLChecker\URLHandlerInterface` interface:
 
 ```php
 <?php
 
-namespace eZ\Bundle\EzPublishCoreBundle\URLChecker;
+/**
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
+ * @license For full copyright and license information view LICENSE file distributed with this source code.
+ */
+namespace Ibexa\Bundle\Core\URLChecker;
 
 interface URLHandlerInterface
 {
     /**
      * Validates given list of URLs.
      *
-     * @param \eZ\Publish\API\Repository\Values\URL\URL[] $urls
+     * @param \Ibexa\Contracts\Core\Repository\Values\URL\URL[] $urls
      */
     public function validate(array $urls);
-
-    /**
-     * Set handler options.
-     *
-     * @param array|null $options
-     */
-    public function setOptions(array $options = null);
 }
 ```
 
@@ -183,7 +180,7 @@ ezplatform:
 | `separator`             | Decides what separator is used. There are three types of separator available: dash, underscore and space. |
 | `transformation_groups` | Contains the available patterns for URL generation.                                                       |
 
-A transformation group consists of an array of commands (see [all available commands](https://github.com/ibexa/core/tree/main/eZ/Publish/Core/Persistence/Tests/TransformationProcessor/_fixtures/transformations)) and a [`cleanupMethod`](https://github.com/ibexa/core/blob/main/eZ/Publish/Core/Persistence/Legacy/Content/UrlAlias/SlugConverter.php#L288).
+A transformation group consists of an array of commands (see [all available commands](https://github.com/ibexa/core/tree/main/tests/lib/Persistence/TransformationProcessor/_fixtures/transformations)) and a [`cleanupText`](https://github.com/ibexa/core/blob/main/src/lib/Persistence/Legacy/Content/UrlAlias/SlugConverter.php#L286).
 
 You can make use of pre-defined transformation groups.
 You can also add your own, with your own set of commands.
