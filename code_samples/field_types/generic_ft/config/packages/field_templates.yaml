@@ -1,0 +1,7 @@
+ezplatform:
+    system:
+        default:
+            field_templates:
+                - { template: 'field_type.html.twig', priority: 0 }
+            field_comparison_templates:
+                - { template: 'field_type_comparison.html.twig', priority: 10 }
