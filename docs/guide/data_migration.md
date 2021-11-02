@@ -407,7 +407,8 @@ The following migration actions are available out of the box:
 - `assign_user_group_to_role` (User Group Create / Update)
 
 In contrast with Kaliop migrations, actions provide you with ability to perform additional operations and extend
-the migration functionality. See [creating your own Actions](#creating-your-own-actions).
+the migration functionality. 
+See [creating your own Actions](#creating-your-own-actions).
 
 ## References
 
@@ -508,13 +509,13 @@ To create an action, you need:
 
 The following example shows how to create an action that assigns a Content item to a Section.
 
-First, create an action class in `src/Migrations/Action/AssignSection.php`:
+First, create an action class, in `src/Migrations/Action/AssignSection.php`:
 
 ``` php
 [[= include_file('code_samples/data_migration/src/Migrations/Action/AssignSection.php') =]]
 ```
 
-Then you need a denormalizer to convert data read from YAML into an action object,
+Then you need a denormalizer to convert data that comes from YAML into an action object,
 in `src/Migrations/Action/AssignSectionDenormalizer.php`:
 
 ``` php
