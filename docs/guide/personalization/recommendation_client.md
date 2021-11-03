@@ -297,12 +297,10 @@ and it eventually fetches the affected content (4) and updates it internally (5)
     If the export fails, the Recommendation engine does not have full content information.
     As a result, even if the recommendations are displayed, they might miss images, titles or deeplinks.
 
-To display recommendations on your site, you must add the following JavaScript assets to your header template:
+To display recommendations on your site, you must include the asset in the template using the following code:
 
 ``` html+twig
-{% javascripts
-    '@EzRecommendationClientBundle/Resources/public/js/EzRecommendationClient.js'
-%}
+{{ encore_entry_script_tags('ezrecommendation-client-js', null, 'ezplatform') }}
 ```
 
 This file is responsible for sending notifications to the [Recommendation API](developer_guide/recommendation_api.md) after the user clicks on a tracking element.
