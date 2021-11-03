@@ -189,7 +189,7 @@ generation is disabled.
 **Example 2 - placeholders from remote source**
 
 ```yaml
-[[= include_file('code_samples/back_office/images/config/packages/images_remote.yaml) =]]
+[[= include_file('code_samples/back_office/images/config/packages/images_remote.yaml') =]]
 ```
 
 **Example 3 - placeholders from live version of a site**
