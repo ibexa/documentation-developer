@@ -1,0 +1,11 @@
+ezplatform:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:                            
+                    classes:
+                        paragraph:
+                            choices: [regular, special, tip_box, warning_box]
+                            default_value: regular
+                            required: false
+                            multiple: false

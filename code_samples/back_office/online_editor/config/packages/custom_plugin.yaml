@@ -1,0 +1,13 @@
+ezplatform:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    toolbars:
+                        paragraph:
+                            buttons:
+                                date:
+                                    priority: 0
+ezrichtext:
+    alloy_editor:
+        extra_plugins: [date]
