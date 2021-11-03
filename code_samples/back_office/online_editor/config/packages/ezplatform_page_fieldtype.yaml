@@ -1,0 +1,15 @@
+ezplatform_page_fieldtype:
+    blocks:
+        my_block:
+            name: My Richtext Block
+            thumbnail: assets/images/blocks/richtext_block_icon.svg
+            configuration_template: blocks/my_block/config.html.twig
+            views:
+                default:
+                    template: blocks/my_block/default.html.twig
+                    name: My block view
+                    priority: -255                    
+            attributes:
+                content:
+                    name: Content
+                    type: richtext

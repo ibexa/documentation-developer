@@ -1,0 +1,11 @@
+ezpublish:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    custom_styles: [highlight]
+ezrichtext:
+    custom_styles:
+        highlight:
+            template: field_type/ezrichtext/custom_style/highlight.html.twig
+            inline: true

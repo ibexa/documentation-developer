@@ -1,0 +1,16 @@
+ezplatform:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    toolbars:
+                        heading:
+                            buttons:
+                                ezanchor:
+                                    priority: 100
+                                ezembedinline:
+                                    visible: false
+                        ezadd:
+                            buttons:
+                                hr:
+                                    priority: 50

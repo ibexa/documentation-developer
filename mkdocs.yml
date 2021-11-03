@@ -194,8 +194,15 @@ nav:
                 - 'Customize basket': 'guide/content_rendering/layout/customize_basket.md'
         - Content management:
             - 'Content management': 'guide/content_management.md'
-            - 'Images': 'guide/images.md'
-            - 'Configuring the Image Editor': 'guide/image_editor.md'
+            - Images:
+              - 'Images': 'guide/images.md'
+              - 'Configure Image Editor': 'guide/image_editor.md'
+              - 'Extend Image Editor': 'extending/extending_image_editor.md'
+            - Rich Text:
+                - 'Extend Online Editor': 'extending/extending_online_editor.md'
+                - 'Create Online Editor button': 'extending/online_editor_button.md'
+                - 'Create Online Editor plugin': 'extending/online_editor_plugin.md'            
+                - 'Create custom RichText block': 'extending/richtext_block.md'
             - 'File management': 'guide/file_management.md'
             - Page:
                 - 'Page blocks': 'guide/page/page_blocks.md'
@@ -526,7 +533,6 @@ nav:
             - 'Create drag and drop': 'extending/drag_and_drop.md'
             - 'Custom components': 'extending/custom_components.md'
             - 'Extending date and time': 'extending/extending_date_and_time.md'
-            - 'Creating custom RichText blocks': 'extending/richtext_block.md'
             - 'Extending thumbnails': 'extending/extending_thumbnails.md'
             - 'Import assets from a bundle': 'extending/import_assets_from_bundle.md'
         - Back Office tabs:
@@ -537,16 +543,11 @@ nav:
             - 'Add menu item': 'extending/menus/add_menu_item.md'
         - 'Add user setting': 'extending/add_user_setting.md'
         - 'Customize calendar': 'extending/customize_calendar.md'
-        - 'Extending Image Editor': 'extending/extending_image_editor.md'
-        - Extending Online Editor :
-            - 'Extending Online Editor': 'extending/extending_online_editor.md'
-            - 'Creating Online Editor button': 'extending/online_editor_button.md'
-            - 'Creating Online Editor plugin': 'extending/online_editor_plugin.md' 
         - Browser:
             - 'Browser': 'extending/extending_udw.md'
             - 'Add browser tab': 'extending/adding_tab_to_udw.md'
         - 'Multi-file upload': 'extending/extending_multifile_upload.md'
-        - 'Sub-items list': 'extending/extending_subitems_list.md'        
+        - 'Sub-items list': 'extending/extending_subitems_list.md'
     - Resources and community:
         - 'Resources': 'community_resources/resources.md'
         - 'Release process and roadmap': 'community_resources/release_process.md'

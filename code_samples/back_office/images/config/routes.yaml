@@ -1,0 +1,3 @@
+app.svg_download:
+    path: /asset/download/{contentId}/{fieldIdentifier}/{filename}
+    defaults: { _controller: app.controller.content.svg:downloadSvgAction }

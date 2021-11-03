@@ -1,0 +1,8 @@
+services:
+    # ...
+    App\Controller\SvgController:
+        public: true
+        arguments:
+            - '@ezpublish.api.service.content'
+            - '@ezpublish.fieldType.ezbinaryfile.io_service'
+            - '@ezpublish.translation_helper'

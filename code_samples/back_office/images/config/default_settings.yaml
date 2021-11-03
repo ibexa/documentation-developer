@@ -1,0 +1,3 @@
+parameters:
+    ezplatform.content_view.image_embed_content_types_identifiers: [image, photo, banner]
+    ezplatform.default_view_templates.content.embed_image: content/view/embed/image.html.twig
