@@ -12,8 +12,6 @@ either built-in Symfony events or events dispatched by the application.
 Some extensibility, such as [adding custom tags](extending_online_editor.md#custom-tags),
 is possible without writing your own code, with configuration and templating only.
 
-To learn more, see the more specific cases in Extend Back Office section.
-
 !!! note "String translations"
 
     Refer to [Custom string translations](../guide/back_office_translations.md#custom-string-translations)
