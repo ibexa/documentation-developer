@@ -36,9 +36,6 @@ With custom tags, you can enhance the Online Editor with features that go beyond
 the built-in ones.
 You configure custom tags in the `ezplatform.yaml` file, under the `ezrichtext` key.
 
-For more information about how you apply them in your installation, see 
-[Create a custom tag](../tutorials/extending_admin_ui/4_adding_a_custom_tag.md).
-
 Start preparing the tag by adding a configuration file to the `config` folder. 
 
 ```yaml
