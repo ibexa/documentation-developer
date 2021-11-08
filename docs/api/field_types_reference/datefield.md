@@ -80,7 +80,7 @@ The Field definition of this Field Type can be configured with a single option:
 |------|------|------|------|
 |`defaultType`|`mixed`|`Type::DEFAULT_EMPTY`|One of the `DEFAULT_*` constants, used by the administration interface for setting the default Field value. See below for more details.|
 
-Following `defaultType` default value options are available as constants in the `eZ\Publish\Core\FieldType\Date\Type` class:
+Following `defaultType` default value options are available as constants in the `Ibexa\Core\FieldType\Date\Type` class:
 
 |Constant|Description|
 |------|------|
@@ -90,7 +90,7 @@ Following `defaultType` default value options are available as constants in th
 ``` php
 // Date Field Type example settings
 
-use eZ\Publish\Core\FieldType\Date\Type;
+use Ibexa\Core\FieldType\Date\Type;
 
 $settings = [
     "defaultType" => Type::DEFAULT_EMPTY

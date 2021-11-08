@@ -1,6 +1,6 @@
 # Visibility Criterion
 
-The [`Visibility` Search Criterion](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Query/Criterion/Visibility.php)
+The [`Visibility` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/Visibility.php)
 searches for content based on whether it is visible or not.
 
 This Criterion takes into account both hiding content and hiding Locations.

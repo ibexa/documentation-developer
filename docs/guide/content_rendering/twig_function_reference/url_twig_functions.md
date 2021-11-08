@@ -15,7 +15,7 @@
 
 |Argument|Type|Description|
 |------|------|------|
-|`name`|`string`</br>`eZ\Publish\API\Repository\Values\Content\Location`</br>`eZ\Publish\API\Repository\Values\Content\Content`</br>`eZ\Publish\API\Repository\Values\Content\ContentInfo`</br>`eZ\Publish\API\Repository\Values\Content\Location`</br>`eZ\Publish\Core\MVC\Symfony\Routing\RouteReference`|The name of the route, Location or Content.|
+|`name`|`string`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`</br>`Ibexa\Core\MVC\Symfony\Routing\RouteReference`|The name of the route, Location or Content.|
 |`parameters`|`array`|Route parameters.|
 |`relative`|`boolean`|Whether to generate a relative path.|
 
@@ -29,7 +29,7 @@
 
 |Argument|Type|Description|
 |------|------|------|
-|`name`|`string`</br>`eZ\Publish\API\Repository\Values\Content\Location`</br>`eZ\Publish\API\Repository\Values\Content\Content`</br>`eZ\Publish\API\Repository\Values\Content\ContentInfo`</br>`eZ\Publish\API\Repository\Values\Content\Location`</br>`eZ\Publish\Core\MVC\Symfony\Routing\RouteReference`|The name of the route, Location or Content.|
+|`name`|`string`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`</br>`Ibexa\Core\MVC\Symfony\Routing\RouteReference`|The name of the route, Location or Content.|
 |`parameters`|`array`|Route parameters.|
 |`schemeRelative`|`boolean`|Whether to generate a relative URL.|
 
@@ -53,7 +53,7 @@ For more information about the use of `ez_urlalias` as a parameter of the [Symfo
 
 |Argument|Type|Description|
 |------|------|------|
-|`resource`|`string`</br>`eZ\Publish\API\Repository\Values\Content\Location`</br>`eZ\Publish\API\Repository\Values\Content\Content`</br>`eZ\Publish\API\Repository\Values\Content\ContentInfo`</br>`eZ\Publish\API\Repository\Values\Content\Location`</br>`eZ\Publish\Core\MVC\Symfony\Routing\RouteReference`|Resource or route name.|
+|`resource`|`string`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`</br>`Ibexa\Core\MVC\Symfony\Routing\RouteReference`|Resource or route name.|
 |`params`|`array`|Route parameters.|
 
 ``` html+twig

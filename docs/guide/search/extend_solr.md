@@ -156,18 +156,18 @@ The `PriorityRangeAggregation` class extends `AbstractRangeAggregation`.
 The name of the class indicates that it aggregates the results by using 
 the Range aggregation.
 
-An aggregation must implement the `eZ\Publish\API\Repository\Values\Content\Query\Aggregation` 
+An aggregation must implement the `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation` 
 interface or inherit one of following abstract classes:
 
-- `eZ\Publish\API\Repository\Values\Content\Query\Aggregation\AbstractRangeAggregation`
-- `eZ\Publish\API\Repository\Values\Content\Query\Aggregation\AbstractStatsAggregation`
-- `eZ\Publish\API\Repository\Values\Content\Query\Aggregation\AbstractTermAggregation`
+- `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractRangeAggregation`
+- `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractStatsAggregation`
+- `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractTermAggregation`
 
 An aggregation can also implement one of the following interfaces:
 
-- `eZ\Publish\API\Repository\Values\Content\Query\Aggregation\FieldAggregation`, based on content Field
-- `eZ\Publish\API\Repository\Values\Content\Query\Aggregation\LocationAggregation`, based on content Location
-- `eZ\Publish\API\Repository\Values\Content\Query\Aggregation\RawAggregation`, based on details of the index structure
+- `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\FieldAggregation`, based on content Field
+- `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\LocationAggregation`, based on content Location
+- `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\RawAggregation`, based on details of the index structure
 
 !!! note "Aggregation definition"
 
@@ -212,16 +212,16 @@ Tag the service with `ezplatform.search.solr.query.location.aggregation_result_e
 
 You can use a different type of aggregation, followed by respective visitor and extractor classes:
 
-- `EzSystems\EzPlatformSolrSearchEngine\Query\Common\AggregationVisitor\StatsAggregationVisitor`
-- `EzSystems\EzPlatformSolrSearchEngine\Query\Common\AggregationVisitor\TermAggregationVisitor`
-- `EzSystems\EzPlatformSolrSearchEngine\ResultExtractor\AggregationResultExtractor\StatsAggregationResultExtractor`
-- `EzSystems\EzPlatformSolrSearchEngine\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor`
+- `Ibexa\Solr\Query\Common\AggregationVisitor\StatsAggregationVisitor`
+- `Ibexa\Solr\Query\Common\AggregationVisitor\TermAggregationVisitor`
+- `Ibexa\Solr\ResultExtractor\AggregationResultExtractor\StatsAggregationResultExtractor`
+- `Ibexa\Solr\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor`
 
 In a more complex use case, you must create your own visitor and extractor.
 
 ### Custom aggregation visitor
 
-The aggregation visitor must implement `EzSystems\EzPlatformSolrSearchEngine\Query\AggregationVisitor`:
+The aggregation visitor must implement `Ibexa\Contracts\Solr\Query\AggregationVisitor`:
 
 ``` php
 [[= include_file('code_samples/search/solr/src/Query/Aggregation/PriorityRangeAggregationVisitor.php') =]]
@@ -234,7 +234,7 @@ The `visit()` method returns an array of results.
 
 ### Custom result extractor
 
-You must also create a result extractor, which implements  `EzSystems\EzPlatformSolrSearchEngine\ResultExtractor\AggregationResultExtractor` 
+You must also create a result extractor, which implements  `Ibexa\Solr\ResultExtractor\AggregationResultExtractor` 
 that transforms raw aggregation results from Solr into `AggregationResult` objects:
 
 ``` php

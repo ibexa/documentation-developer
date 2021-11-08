@@ -1,7 +1,7 @@
 # Searching in trash reference
 
 When you [search for Content items that are held in trash](../../api/public_php_api_search.md#searching-in-trash), you can apply only a limited set of Search Criteria and Sort Clauses.
-They can be used by `eZ\Publish\API\Repository\TrashService::findTrashItems` only.
+They can be used by `Ibexa\Contracts\Core\Repository\TrashService::findTrashItems` only.
 
 ## Supported Search Criteria
 

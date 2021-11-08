@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Query\Criterion;
 
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\Operator;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\Operator\Specifications;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Operator;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Operator\Specifications;
 
 final class CameraManufacturer extends Criterion
 {

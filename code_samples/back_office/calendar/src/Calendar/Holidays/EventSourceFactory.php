@@ -4,9 +4,9 @@ namespace App\Calendar\Holidays;
 
 use DateTime;
 use DateTimeInterface;
-use EzSystems\EzPlatformCalendar\Calendar\EventCollection;
-use EzSystems\EzPlatformCalendar\Calendar\EventSource\EventSourceInterface;
-use EzSystems\EzPlatformCalendar\Calendar\EventSource\InMemoryEventSource;
+use Ibexa\Contracts\Calendar\EventCollection;
+use Ibexa\Contracts\Calendar\EventSource\EventSourceInterface;
+use Ibexa\Contracts\Calendar\EventSource\InMemoryEventSource;
 
 class EventSourceFactory
 {

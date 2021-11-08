@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 namespace App\Query\Aggregation;
-use eZ\Publish\API\Repository\Values\Content\Query\Aggregation;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
 use EzSystems\EzPlatformSolrSearchEngine\Query\AggregationVisitor;
 
 final class PriorityRangeAggregationVisitor implements AggregationVisitor
@@ -14,7 +14,7 @@ final class PriorityRangeAggregationVisitor implements AggregationVisitor
     }
 
     /**
-     * @param \eZ\Publish\API\Repository\Values\Content\Query\Aggregation\AbstractRangeAggregation $aggregation
+     * @param \Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractRangeAggregation $aggregation
      */
     
     public function visit(

@@ -2,7 +2,7 @@
 
 namespace App\FieldType\HelloWorld;
 
-use eZ\Publish\SPI\FieldType\Value as ValueInterface;
+use Ibexa\Contracts\Core\FieldType\Value as ValueInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 final class Value implements ValueInterface

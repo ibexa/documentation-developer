@@ -2,10 +2,10 @@
 
 namespace App\QueryType;
 
-use eZ\Publish\API\Repository\Values\Content\Query;
-use eZ\Publish\API\Repository\Values\Content\LocationQuery;
-use eZ\Publish\Core\QueryType\OptionsResolverBasedQueryType;
-use eZ\Publish\Core\QueryType\QueryType;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Core\QueryType\OptionsResolverBasedQueryType;
+use Ibexa\Core\QueryType\QueryType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class OptionsBasedLatestContentQueryType extends OptionsResolverBasedQueryType implements QueryType

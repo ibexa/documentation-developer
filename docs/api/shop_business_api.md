@@ -15,8 +15,8 @@ The method takes two parameters:
 The following example shows how to use the Business API basket operation service.
 
 ``` php
-use Ibexa\Platform\Commerce\Checkout\Entities\BusinessLayer\InputValueObjects\GetBasket as InputGetBasket;
-use Ibexa\Platform\Commerce\Checkout\Entities\BusinessLayer\InputValueObjects\GetBasket as OutputGetBasket;
+use Ibexa\Commerce\Checkout\Entities\BusinessLayer\InputValueObjects\GetBasket as InputGetBasket;
+use Ibexa\Commerce\Checkout\Entities\BusinessLayer\OutputValueObjects\GetBasket as OutputGetBasket;
 
 /** @var InputGetBasket $input */
 $input = new InputGetBasket(array('request' => $request));
@@ -76,8 +76,8 @@ $message = $this->getBasketMessage($outputGetBasket->basket);
 ### Example
 
 ``` php
-use Ibexa\Platform\Commerce\Checkout\Entities\BusinessLayer\InputValueObjects\GetBasket as InputGetBasket;
-use Ibexa\Platform\Commerce\Checkout\Entities\BusinessLayer\OutputValueObjects\GetBasket as OutputGetBasket;
+use Ibexa\Commerce\Checkout\Entities\BusinessLayer\InputValueObjects\GetBasket as InputGetBasket;
+use Ibexa\Commerce\Checkout\Entities\BusinessLayer\OutputValueObjects\GetBasket as OutputGetBasket;
 
 /** @var InputGetBasket $inputGetBasket */
 $inputGetBasket = new InputGetBasket(array('request' => $request));
@@ -110,7 +110,7 @@ $input = new InputLoadList(
 $output = $this->getBusinessApi()->call('catalog.load_products', $input);
 
 $html = $this->renderView(
-    '@SilversolutionsEshopBundle/Catalog/listProductNodes.html.twig',
+    '@Eshop/Catalog/listProductNodes.html.twig',
     array(
         'catalogList' => $output->catalogList,
         'params' => $data,

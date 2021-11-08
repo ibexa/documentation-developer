@@ -23,7 +23,7 @@ You can provide `ez_render()` with either a Content item or a Location object.
 
 |Argument|Type|Description|
 |------|------|------|
-|`content`</br>or</br>`location`|`eZ\Publish\API\Repository\Values\Content\Content`</br>or</br>`eZ\Publish\API\Repository\Values\Content\Location`|Content item or its Location.|
+|`content`</br>or</br>`location`|`Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>or</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`|Content item or its Location.|
 |`method`|`string`|(optional) [Rendering method](#rendering-methods). One of: `direct`, `inline`, `esi`, `ssi`.|
 |`viewType`|`string`|(optional) [View type](../templates/template_configuration.md#view-types).|
 
@@ -56,7 +56,7 @@ the function returns the name in the main language.
 
 | Argument | Type | Description |
 |---------------|------|-------------|
-| `content` | `eZ\Publish\API\Repository\Values\Content\Content`</br>or</br>`eZ\Publish\API\Repository\Values\Content\ContentInfo` | Content item or its ContentInfo object.|
+| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>or</br>`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | Content item or its ContentInfo object.|
 | `forcedLanguage` | `string` | (optional) Language to use (for example, `fre-FR`). |
 
 ``` html+twig

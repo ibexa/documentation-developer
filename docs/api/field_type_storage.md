@@ -4,7 +4,7 @@
 
 If you want to store Field values in regular [[= product_name =]] database tables,
 the `FieldValue` must be converted to the storage-specific format used by the Persistence SPI:
-`eZ\Publish\SPI\Persistence\Content\FieldValue`.
+`Ibexa\Contracts\Core\Persistence\Content\FieldValue`.
 After restoring a Field of the Field Type, you must reverse the conversion.
 
 The following methods of the Field Type are responsible for that:
@@ -45,7 +45,7 @@ The default Legacy storage engine cannot store arbitrary value information as pr
 This means that using this storage engine requires a conversion.
 Converters will map a Field's semantic values to the fields described above, for both settings (validation and configuration) and value.
 
-The conversion takes place through the `eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter` interface,
+The conversion takes place through the `Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter` interface,
 which you must implement in your Field Type. The interface contains the following methods:
 
 |Method|Description|
@@ -60,13 +60,13 @@ Just like a Type, a Legacy Converter needs to be registered and tagged in the [s
 
 #### Registering a converter
 
-The registration of a `Converter` currently works through the `$config` parameter of [`eZ\Publish\Core\Persistence\Legacy\Handler`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Persistence/Legacy/Handler.php).
+The registration of a `Converter` currently works through the `$config` parameter of [`Ibexa\Core\Persistence\Legacy\Handler`](https://github.com/ibexa/core/blob/main/src/lib/Persistence/Legacy/Handler.php).
 
 Those converters also need to be correctly exposed as services and tagged with `ezplatform.field_type.legacy_storage.converter`:
 
 ``` yaml
 services:
-    eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter\TextLine:
+    Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\TextLine:
         tags:
             - {name: ezplatform.field_type.legacy_storage.converter, alias: ezstring}
 ```
@@ -79,7 +79,7 @@ The tag has the following attribute:
 
 !!! tip
 
-    Converter configuration for built-in Field Types is located in [`eZ/Publish/Core/settings/fieldtype_external_storages.yaml`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
+    Converter configuration for built-in Field Types is located in [`ibexa/core/src/lib/Resources/settings/fieldtype_external_storages.yml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/fieldtype_external_storages.yml).
 
 ## Storing external data
 
@@ -88,7 +88,7 @@ External storage can be e.g. a web service, a file in the file system, another d
 or even the [[= product_name =]] database itself (in form of a non-standard table).
 
 In order to store data in external storage, the Field Type will interact with the Persistence SPI
-through the `eZ\Publish\SPI\FieldType\FieldStorage` interface.
+through the `Ibexa\Contracts\Core\FieldType\FieldStorage` interface.
 
 Accessing the internal storage of a Content item that includes a Field of the Field Type
 calls one of the following methods to also access the external data:
@@ -99,7 +99,7 @@ calls one of the following methods to also access the external data:
 |`storeFieldData()`|Called right before a Field of the Field Type is stored. The method stores `$externalData`. It returns `true` if the call manipulated internal data of the given Field, so that it is updated in the internal database.|
 |`getFieldData()`|Called after a Field has been restored from the database in order to restore `$externalData`.|
 |`deleteFieldData()`|Must delete external data for the given Field, if exists.|
-|`getIndexData()`|Returns the actual index data for the provided `eZ\Publish\SPI\Persistence\Content\Field`. For more information, see [search service](field_type_search.md#search-field-values).|
+|`getIndexData()`|Returns the actual index data for the provided `Ibexa\Contracts\Core\Persistence\Content\Field`. For more information, see [search service](field_type_search.md#search-field-values).|
 
 Each of the above methods (except `hasFieldData`) receives a `$context` array with information on the underlying storage and the environment.
 To retrieve and store data in the [[= product_name =]] data storage,
@@ -112,7 +112,7 @@ Note that the Field Type must take care on its own for being compliant with diff
 
 In order to allow the usage of a Field Type that uses external data with different data storages, it is recommended to implement a gateway infrastructure and a registry for the gateways. To make this easier, the Core implementation of Field Types provides corresponding interfaces and base classes. They can also be used for custom Field Types.
 
-The interface `eZ\Publish\Core\FieldType\StorageGateway` is implemented by gateways, in order to be handled correctly by the registry. It has one method:
+The interface `Ibexa\Contracts\Core\FieldType\StorageGateway` is implemented by gateways, in order to be handled correctly by the registry. It has one method:
 
 |Method|Description|
 |------|-----------|
@@ -120,7 +120,7 @@ The interface `eZ\Publish\Core\FieldType\StorageGateway` is implemented by gatew
 
 Note that the Gateway implementation itself must take care of validating that it received a usable connection. If it does not, it should throw a `RuntimeException`.
 
-The registry mechanism is realized as a base class for `FieldStorage` implementations: `eZ\Publish\Core\FieldType\GatewayBasedStorage`. For managing `StorageGateway`s, the following methods are already implemented in the base class:
+The registry mechanism is realized as a base class for `FieldStorage` implementations: `Ibexa\Core\FieldType\GatewayBasedStorage`. For managing `StorageGateway`s, the following methods are already implemented in the base class:
 
 |Method|Description|
 |------|-----------|
@@ -133,7 +133,7 @@ The registry mechanism is realized as a base class for `FieldStorage` implementa
 
 ### Registering external storage
 
-To use external storage, you need to define a service implementing the `eZ\Publish\SPI\FieldType\FieldStorage` interface
+To use external storage, you need to define a service implementing the `Ibexa\Contracts\Core\FieldType\FieldStorage` interface
 and tag it as `ezplatform.field_type.external_storage_handler` to be recognized by the Repository.
 
 Here is an example for the `myfield` Field Type:
@@ -152,11 +152,11 @@ services:
 
 The configuration requires providing the `ezplatform.field_type.external_storage_handler` tag, with the `alias` attribute being the *fieldTypeIdentifier*. You also have to inject the gateway in `arguments`, [see below](#gateway-based-storage).
 
-External storage configuration for basic Field Types is located in [eZ/Publish/Core/settings/fieldtype_external_storages.yaml](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
+External storage configuration for basic Field Types is located in [`ibexa/core/src/lib/Resources/settings/fieldtype_external_storages.yml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/fieldtype_external_storages.yml).
 
 #### Registration
 
-Using gateway-based storage requires another service implementing `eZ\Publish\SPI\FieldType\StorageGateway` to be injected into the [external storage handler](#storing-external-data)).
+Using gateway-based storage requires another service implementing `Ibexa\Core\FieldType\StorageGateway` to be injected into the [external storage handler](#storing-external-data)).
 
 ``` yaml
 services:
@@ -175,4 +175,4 @@ Also note that there can be several gateways per Field Type (one per storage eng
 
 !!! tip
 
-    Gateway configuration for built-in Field Types is located in [`EzPublishCoreBundle/Resources/config/storage_engines.yaml`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage_engines.yml).
+    Gateway configuration for built-in Field Types is located in [`core/src/lib/Resources/settings/storage_engines/`](https://github.com/ibexa/core/tree/main/src/lib/Resources/settings/storage_engines).

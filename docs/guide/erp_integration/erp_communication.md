@@ -23,7 +23,7 @@ The shop comes with a predefined set of messages that are used to communicate wi
 |`createdeliveryaddress`|Creates a new delivery address for the provided party ID|
 |`deletedeliveryaddress`|Deletes a delivery address|
 
-You can find the standard messages in `EshopBundle/Resources/config/messages.yml`.
+You can find the standard messages in `Eshop/Resources/config/messages.yml`.
 
 ## Order history ERP messages
 

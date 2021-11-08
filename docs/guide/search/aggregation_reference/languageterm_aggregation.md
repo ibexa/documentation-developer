@@ -1,6 +1,6 @@
 # LanguageTermAggregation
 
-The [LanguageTermAggregation](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Query/Aggregation/LanguageTermAggregation.php) aggregates search results by the Content item's language.
+The [LanguageTermAggregation](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Aggregation/LanguageTermAggregation.php) aggregates search results by the Content item's language.
 
 ## Arguments
 

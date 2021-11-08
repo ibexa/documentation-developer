@@ -4,10 +4,10 @@
 
 The following templates are used to render the catalog and its parts:
 
-- `SilversolutionsEshopBundle:Catalog:catalog.html.twig` - whole catalog
+- `IbexaCommerceEshopBundle:Catalog:catalog.html.twig` - whole catalog
 - `catalog/product.html.twig` - individual product
-- `SilversolutionsEshopBundle:Catalog:productType.html.twig` - product type
-- `SilversolutionsEshopBundle:Catalog:Subrequests/listChildren.html.twig` - product categories
+- `IbexaCommerceEshopBundle:Catalog:productType.html.twig` - product type
+- `IbexaCommerceEshopBundle:Catalog:Subrequests/listChildren.html.twig` - product categories
 
 The templates have access to the catalog node provided by the controller.
 To show all the available attributes, use `getAttributeNames()`: `{{ catalogElement.attributeNames|json_encode }}`.

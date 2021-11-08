@@ -13,7 +13,7 @@ and to enable using Platform API in commerce routes.
     product_route:
         path: /products/{url}
         defaults:
-            _controller: SilversolutionsEshopBundle:Catalog:show
+            _controller: IbexaCommerceEshopBundle:Catalog:show
             url: /
         requirements:
             url: ".+"

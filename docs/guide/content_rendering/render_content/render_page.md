@@ -63,14 +63,14 @@ Create the block template file in the provided path, for example, `templates/the
 To override the default block template, create a new template.
 Place it in a path that mirrors the original default template from the bundle folder.
 For example:
-`templates/bundles/EzPlatformPageFieldTypeBundle/blocks/contentlist.html.twig`.
+`templates/bundles/IbexaFieldTypePageBundle/blocks/contentlist.html.twig`.
 
 !!! tip
 
     To use a different file structure when overriding default templates,
     add an import statement to the template.
 
-    For example, in `templates/bundles/EzPlatformPageFieldTypeBundle/blocks/contentlist.html.twig`:
+    For example, in `templates/bundles/IbexaFieldTypePageBundle/blocks/contentlist.html.twig`:
 
     ``` html+twig
     {% import 'templates/blocks/contentlist/new_default.html.twig'}

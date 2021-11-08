@@ -17,7 +17,7 @@ To do so, you create:
 
 ### Controller
 
-To create a REST controller, you extend the `ezpublish_rest.controller.base` service, as well as the `EzSystems\EzPlatformRest\Server\Controller` class.
+To create a REST controller, you extend the `ezpublish_rest.controller.base` service, as well as the `Ibexa\Rest\Server\Controller` class.
 
 First, create a simple controller with a `sayHello()` method that takes a name as an argument.
 It can be, for example, `src/Rest/Controller/DefaultController.php`.
@@ -25,7 +25,7 @@ It can be, for example, `src/Rest/Controller/DefaultController.php`.
 ``` php
 namespace App\Rest\Controller;
 
-use EzSystems\EzPlatformRest\Server\Controller as BaseController;
+use Ibexa\Rest\Server\Controller as BaseController;
 
 class DefaultController extends BaseController
 {
@@ -113,7 +113,7 @@ An instance of this class is returned from the `sayHello()` controller method in
 ``` php
 namespace App\Controller\Rest;
 
-use EzSystems\EzPlatformRest\Server\Controller as BaseController;
+use Ibexa\Rest\Server\Controller as BaseController;
 use App\Rest\Values\Hello as HelloValue;
 
 class DefaultController extends BaseController
@@ -145,7 +145,7 @@ services:
 ```
 
 Then create your visitor. 
-It must extend the  `EzSystems\EzPlatformRest\Output\ValueObjectVisitor` abstract class, and implement 
+It must extend the  `Ibexa\Contracts\Rest\Output\ValueObjectVisitor` abstract class, and implement 
 the `visit()` method.
 The visitor receives the following arguments:
 
@@ -160,9 +160,9 @@ In the `src/Rest/ValueObjectVisitor/Hello.php` file, add the following code:
 ``` php
 namespace App\Rest\ValueObjectVisitor;
 
-use EzSystems\EzPlatformRest\Output\ValueObjectVisitor;
-use EzSystems\EzPlatformRest\Output\Generator;
-use EzSystems\EzPlatformRest\Output\Visitor;
+use Ibexa\Contracts\Rest\Output\ValueObjectVisitor;
+use Ibexa\Contracts\Rest\Output\Generator;
+use Ibexa\Contracts\Rest\Output\Visitor;
 
 class Hello extends ValueObjectVisitor
 {
@@ -187,7 +187,7 @@ For the response to be cached, return an instance of `CachedValue`, with the val
 You can also pass the Location ID as the second argument, so that the response is tagged with it:
 
 ``` php
-use EzSystems\EzPlatformRest\Server\Values\CachedValue;
+use Ibexa\Rest\Server\Values\CachedValue;
 //...
     public function sayHello(string $name)
     {
@@ -217,7 +217,7 @@ an input parser so that the payload can be converted to an actual `ValueObject`.
 
 Each payload is dispatched to its input parser based on the request's `Content-Type` header. 
 For example, a request with a `Content-Type` of `application/vnd.ez.api.ContentCreate` is parsed 
-by `EzSystems\EzPlatformRest\Server\Input\Parser`. 
+by `Ibexa\Contracts\Rest\Input\Parser`. 
 This parser builds and returns `ContentCreateStruct` that can then be used to create content with the Public API.
 
 Input parsers are provided with a pre-parsed version of the input payload, as an associative array.
@@ -244,7 +244,7 @@ services:
 ```
 
 Then, implement the parser. 
-It must extend `EzSystems\EzPlatformRest\Server\Input\Parser`, and implement the `parse()` method. 
+It must extend `Ibexa\Contracts\Rest\Input\Parser`, and implement the `parse()` method. 
 As an argument, the `parse()` method accepts the `$data` array with input payload, and an instance 
 of `ParsingDispatcher` that can be used to forward the parsing of embedded content.
 
@@ -254,10 +254,10 @@ Add the following code to the `src/Rest/InputParser/Greetings.php` file.
 ``` php
 namespace App\Rest\InputParser;
 
-use EzSystems\EzPlatformRest\Input\BaseParser;
-use EzSystems\EzPlatformRest\Input\ParsingDispatcher;
+use Ibexa\Rest\Input\BaseParser;
+use Ibexa\Rest\Input\ParsingDispatcher;
 use App\Rest\Value\Hello;
-use EzSystems\EzPlatformRest\Exceptions;
+use Ibexa\Rest\Server\Exceptions;
 
 class Greetings extends BaseParser
 {
@@ -276,7 +276,7 @@ class Greetings extends BaseParser
 Modify the existing `DefaultController` by adding a method to handle the new POST request:
 
 ``` php
-use EzSystems\EzPlatformRest\Message;
+use Ibexa\Rest\Message;
 //...
     public function sayHelloUsingPost()
     {
@@ -306,9 +306,9 @@ my_rest_hello_world_using_post:
 
 !!! note
 
-    POST requests are unable to access the Repository without performing user authentication. For more information, see [REST API Authentication](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta5/doc/specifications/rest/REST-API-V2.rst#authentication).
+    POST requests are unable to access the Repository without performing user authentication. For more information, see [REST API Authentication](rest_api_authentication.md).
 
-For more examples, examine the built-in `InputParsers` in `eZ/Publish/Core/REST/Server/Input/Parser`.
+For more examples, examine the built-in `InputParsers` in `Ibexa\Rest\Server\Input\Parser`.
 
 ## Registering resources in the REST root
 

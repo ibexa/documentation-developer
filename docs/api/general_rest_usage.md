@@ -57,13 +57,13 @@ As long as a response contains an actual HTTP body, the Content Type header will
 
 ###### Accept-Patch header
 
-It tells you that the received content can be modified by patching it with a [ContentUpdateStruct](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentUpdateStruct.php) in XML format:
+It tells you that the received content can be modified by patching it with a [ContentUpdateStruct](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentUpdateStruct.php) in XML format:
 
  `Accept-Patch: application/vnd.ez.api.ContentUpdate+xml;charset=utf8`
 
 JSON would also work, with the proper format.
 
-As the example above shows, sending a PATCH `/content/objects/23` request with a [ContentUpdateStruct](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentUpdateStruct.php) XML payload will update this content.
+As the example above shows, sending a PATCH `/content/objects/23` request with a [ContentUpdateStruct](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentUpdateStruct.php) XML payload will update this content.
 
 REST will use the `Accept-Patch` header to indicate how to **modify** the returned **data**.
 
@@ -107,17 +107,17 @@ Load ContentInfo response body, expand source:
 </Content>
 ```
 
-The XML body is a serialized version of a [ContentInfo](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) struct.
+The XML body is a serialized version of a [ContentInfo](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php) struct.
 Most of the REST API calls will involve exchanging XML or JSON representations of the public API.
 
 The example above shows that Content item 23 can be modified by sending a `vendor/application/vnd.ez.ContentUpdate+xml`.
-This media type again matches a Value in the API, [ContentUpdateStruct](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentUpdateStruct.php).
+This media type again matches a Value in the API, [ContentUpdateStruct](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentUpdateStruct.php).
 
 The REST API data structs mostly match a PHP Public API value object.
 
 #### Value objects representation
 
-Value objects like [ContentInfo](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) feature two types of fields: 
+Value objects like [ContentInfo](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php) feature two types of fields: 
 
 - local fields (e.g. currentVersionNo, name)
 - foreign field(s) references (e.g. sectionId, mainLocationId)

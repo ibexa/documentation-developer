@@ -22,8 +22,8 @@ ezplatform:
 
 The first matcher succeeding always wins, so be careful when using catch-all matchers like `URIElement`.
 
-If the matcher class does not start with a backslash (`\`), it is relative to `eZ\Publish\MVC\SiteAccess\Matcher`
-(for example, `Map\URI` refers to `eZ\Publish\MVC\SiteAccess\Matcher\Map\URI`)
+If the matcher class does not start with a backslash (`\`), it is relative to `Ibexa\Core\MVC\Symfony\SiteAccess\Matcher`
+(for example, `Map\URI` refers to `Ibexa\Core\MVC\Symfony\SiteAccess\Matcher\Map\URI`)
 
 You can specify [custom matchers](#custom-matchers) by using a fully qualified class name (e.g. `\My\SiteAccess\Matcher`)
 or a service identifier (e.g. `@my_matcher_service`).
@@ -40,7 +40,7 @@ The matching configuration is passed to `setMatchingConfiguration()`.
 - [`Map\Host`](#maphost)
 - [`Map\URI`](#mapuri)
 - [`Map\Port`](#mapport)
-- [`EzSystems\EzPlatformSiteFactory\SiteAccessMatcher`](#siteaccessmatcher)
+- [`Ibexa\SiteFactory\SiteAccessMatcher`](#siteaccessmatcher)
 
 ### `URIElement`
 
@@ -166,7 +166,7 @@ ezplatform:
 
 Example URL `http://my_site.com:8080/content` matches SiteAccess `site`.
 
-### `EzSystems\EzPlatformSiteFactory\SiteAccessMatcher`
+### `Ibexa\SiteFactory\SiteAccessMatcher`
 
 Enables the use of [Site Factory](site_factory.md).
 Does not take any parameters in configuration:
@@ -175,7 +175,7 @@ Does not take any parameters in configuration:
 ezplatform:
     siteaccess:
         match:
-            '@EzSystems\EzPlatformSiteFactory\SiteAccessMatcher': ~
+            '@Ibexa\SiteFactory\SiteAccessMatcher': ~
 ```
 
 ## Custom matchers
@@ -194,8 +194,8 @@ ezplatform:
 ```
 
 The service must be tagged with `ezplatform.siteaccess.matcher`
-and must implement `eZ\Bundle\EzPublishCoreBundle\SiteAccess\Matcher`
-(and `eZ\Publish\Core\MVC\Symfony\SiteAccess\VersatileMatcher` if you want to use compound logical matchers).
+and must implement `Ibexa\Bundle\Core\SiteAccess\Matcher`
+(and `Ibexa\Core\MVC\Symfony\SiteAccess\VersatileMatcher` if you want to use compound logical matchers).
 
 ## Combining SiteAccess matchers
 

@@ -65,7 +65,7 @@ The Field definition of this Field Type can be configured with three options:
 ``` php
 // Relation FieldType example settings
 
-use eZ\Publish\Core\FieldType\Relation\Type;
+use Ibexa\Core\FieldType\Relation\Type;
 
 $settings = [
     "selectionMethod" => 1,

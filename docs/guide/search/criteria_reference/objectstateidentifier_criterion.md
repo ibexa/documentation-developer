@@ -1,6 +1,6 @@
 # ObjectStateIdentifier Criterion
 
-The [`ObjectStateIdentifier` Search Criterion](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Query/Criterion/ObjectStateId.php)
+The [`ObjectStateIdentifier` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/ObjectStateId.php)
 searches for content based on its Object State identifier.
 
 ## Arguments

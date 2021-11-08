@@ -71,5 +71,5 @@ siso_local_order_management.default.generate_header_for_pdf: true
 
 In this case, the header and/or footer are generated using these separate templates:
 
-- `src/Silversolutions/Bundle/EshopBundle/Resources/views/Invoice/header.html.twig`
-- `src/Silversolutions/Bundle/EshopBundle/Resources/views/Invoice/footer.html.twig`
+- `src/bundle/Eshop/Resources/views/Invoice/header.html.twig`
+- `src/bundle/Eshop/Resources/views/Invoice/footer.html.twig`

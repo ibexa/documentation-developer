@@ -15,7 +15,7 @@ The templates are defined in the following configuration:
 ``` yaml
 search_content_list:
     siso_search_folder_item:
-        template: SilversolutionsEshopBundle:Search/result/search_content_list:folder.html.twig
+        template: IbexaCommerceEshopBundle:Search/result/search_content_list:folder.html.twig
         match:
             Identifier\ContentType: [folder]
     # ...

@@ -2,13 +2,13 @@
 
 namespace App\View\Matcher;
 
-use eZ\Publish\API\Repository\Repository;
-use eZ\Publish\API\Repository\Values\Content\ContentInfo;
-use eZ\Publish\API\Repository\Values\Content\Location;
-use eZ\Publish\Core\MVC\Symfony\View\ContentValueView;
-use eZ\Publish\Core\MVC\Symfony\View\LocationValueView;
-use eZ\Publish\Core\MVC\Symfony\View\View;
-use eZ\Publish\Core\MVC\Symfony\Matcher\ContentBased\MultipleValued;
+use Ibexa\Core\Repository\Repository;
+use Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo;
+use Ibexa\Contracts\Core\Repository\Values\Content\Location;
+use Ibexa\Core\MVC\Symfony\View\ContentValueView;
+use Ibexa\Core\MVC\Symfony\View\LocationValueView;
+use Ibexa\Core\MVC\Symfony\View\View;
+use Ibexa\Core\MVC\Symfony\Matcher\ContentBased\MultipleValued;
 
 class Owner extends MultipleValued
 {

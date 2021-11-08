@@ -81,7 +81,7 @@ or [`Map\URI`](multisite/siteaccess_matching.md#mapuri) implementing the `URILex
 ### Routing
 
 Finally, the `Symfony\Component\HttpKernel\EventListener\RouterListener` (`router_listener`) (priority 32), which also listens to the `kernel.request` event,
-calls `eZ\Publish\Core\MVC\Symfony\Routing\ChainRouter::matchRequest` and adds its returned parameters to the request.
+calls `Ibexa\Core\MVC\Symfony\Routing\ChainRouter::matchRequest` and adds its returned parameters to the request.
 
 #### `ChainRouter`
 
@@ -112,7 +112,7 @@ The `locale_listener` (priority 16) sets the request's **`_locale`** attribute.
 
 !!! note "Permission control"
 
-    Another `kernel.request` event listener is the `EzSystems\EzPlatformAdminUi\EventListener\RequestListener` (priority 13).
+    Another `kernel.request` event listener is the `Ibexa\AdminUi\EventListener\RequestListener` (priority 13).
     When a route gets a `siteaccess_group_whitelist` parameter, this listener checks that the current SiteAccess is in one of the listed groups.
     For example, the Back Office sets an early protection of its routes by passing them a `siteaccess_group_whitelist` containing only the `admin_group`.
 
@@ -126,7 +126,7 @@ Now, when the `Request` knows its controller, the `HttpKernel` dispatches the `k
 When HttpKernel dispatches the `kernel.controller` event, the following things happen.
 
 Listening to `kernel.controller`, the `ViewControllerListener` (`ezpublish.view_controller_listener`) (priority 10) checks if the `_controller` request attribute is associated with a `ViewBuilder` (a service tagged `ibexa.view_builder`) in the `ViewBuilderRegistry` (`ezpublish.view_builder.registry`).
-The `ContentViewBuilder` (`ezpublish.view_builder.content`) matches on controller starting with `ez_content:` (see `eZ\Publish\Core\MVC\Symfony\View\Builder\ContentViewBuilder::matches`).
+The `ContentViewBuilder` (`ezpublish.view_builder.content`) matches on controller starting with `ez_content:` (see `Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder::matches`).
 The `ContentViewBuilder` builds a `ContentView`.
 
 First, the `ContentViewBuilder` loads the `Location` and the `Content`, and adds them to the `ContentView` object.
@@ -137,7 +137,7 @@ First, the `ContentViewBuilder` loads the `Location` and the `Content`, and adds
 
 Then, the `ContentViewBuilder` passes the `ContentView` to its `View\Configurator` (`ezpublish.view.configurator`).
 It's implemented by the `View\Configurator\ViewProvider` and its `View\Provider\Registry`. This registry receives the services tagged `ezpublish.view_provider` thanks to the `ViewProviderPass`.
-Among the view providers, the services using the `eZ\Bundle\EzPublishCoreBundle\View\Provider\Configured` have an implementation of the `MatcherFactoryInterface` (`ezpublish.content_view.matcher_factory`).
+Among the view providers, the services using the `Ibexa\Bundle\Core\View\Provider\Configured` have an implementation of the `MatcherFactoryInterface` (`ezpublish.content_view.matcher_factory`).
 Through service decoration and class inheritance, the `ClassNameMatcherFactory` is responsible for the [view matching](content_rendering/templates/template_configuration.md#view-rules-and-matching).
 The `View\Configurator\ViewProvider` uses the matched view rule to add possible **`templateIdentifier`** and **`controllerReference`** to the `ContentView` object.
 
@@ -204,7 +204,7 @@ The `HttpKernel` sends the last `kernel.terminate` event (`KernelEvents::TERMINA
                 - `ezpublish.urlwildcard_router`
                 - `ezpublish.urlalias_router`
     - 16:`locale_listener`
-    - 13:`EzSystems\EzPlatformAdminUi\EventListener\RequestListener`
+    - 13:`Ibexa\AdminUi\EventListener\RequestListener`
 * event=`kernel.controller`
     - 10:`ezpublish.view_controller_listener`
         - `ezpublish.view_builder.registry`

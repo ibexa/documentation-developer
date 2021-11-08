@@ -6,7 +6,7 @@ in the root Location defined in [the configuration](navigation_configuration.md)
 You can control which items are included in the navigation by setting the displayed Content Types,
 Sections, and by modifying element priority.
 
-The navigation is built using `EshopBundle/Service/NavigationHelper`.
+The navigation is built using `Ibexa\Bundle\Commerce\Eshop\Service\NavigationHelper`.
 
 ### Using a product catalog
 

@@ -6,8 +6,8 @@ The FormMapper maps Field definitions into Symfony forms, allowing Field editing
 
 It can implement two interfaces:
 
-- `EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface` to provide editing support
-- `EzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface` to provide Field Type definition editing support,
+- `Ibexa\Contracts\ContentForms\FieldType\FieldValueFormMapperInterface` to provide editing support
+- `Ibexa\AdminUi\FieldType\FieldDefinitionFormMapperInterface` to provide Field Type definition editing support,
 when you require non-standard settings
 
 ### FieldValueFormMapperInterface
@@ -20,8 +20,8 @@ The `FieldValueFormMapperInterface::mapFieldValueForm` method accepts two argume
 You have to add your form type to the content editing form. The example shows how `ezboolean` injects the form:
 
 ``` php
-use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
-use EzSystems\RepositoryForms\Form\Type\FieldType\CheckboxFieldType;
+use Ibexa\Contracts\ContentForms\Data\Content\FieldData;
+use Ibexa\ContentForms\Form\Type\FieldType\CheckboxFieldType;
 use Symfony\Component\Form\FormInterface;
 
 public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data)
@@ -52,7 +52,7 @@ Your type has to be called `value`.
 In the example above, `CheckboxFieldType::class` is used, but you can use standard Symfony form type instead.
 
 It's good practice to encapsulate Fields with custom types as it allows easier templating.
-Type has to be compatible with your Field Type's `eZ\Publish\Core\FieldType\Value` implementation.
+Type has to be compatible with your Field Type's `Ibexa\Core\FieldType` implementation.
 You can use a [`DataTransformer`]([[= symfony_doc =]]/form/data_transformers.html) to achieve that or just assure correct property and form field names.
 
 ### FieldDefinitionFormMapperInterface
@@ -60,8 +60,8 @@ You can use a [`DataTransformer`]([[= symfony_doc =]]/form/data_transformers.htm
 Providing definition editing support is almost identical to creating content editing support. The only difference are field names:
 
 ``` php
-use EzSystems\RepositoryForms\Data\FieldDefinitionData;
-use EzSystems\RepositoryForms\Form\Type\FieldType\CountryFieldType;
+use Ibexa\AdminUi\Form\Data\FieldDefinitionData;
+use Ibexa\ContentForms\Form\Type\FieldType\CountryFieldType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormInterface;
 
@@ -94,7 +94,7 @@ public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, Field
 }
 ```
 
-Use names corresponding to the keys used in Field Type's `eZ\Publish\SPI\FieldType\FieldType::$settingsSchema` implementation.
+Use names corresponding to the keys used in Field Type's `Ibexa\Core\FieldType\FieldType::$settingsSchema` implementation.
 The special `defaultValue` key allows you to specify a field for setting the default value assigned during content editing.
 
 ### Registering the service
@@ -131,7 +131,7 @@ By convention, your block must be named `<fieldTypeIdentifier>_field`.
 !!! tip
 
     Template blocks for built-in Field Types are available in
-    [`EzPublishCoreBundle/Resources/views/content_fields.html.twig`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig).
+    [`Core/Resources/views/content_fields.html.twig`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/views/content_fields.html.twig).
 
     This template is also exposed as a part of Standard Design, so you can override it with the [design engine](../guide/content_rendering/design_engine/design_engine.md).
     To do so, place the template `themes/standard/content_fields.html.twig` in your `Resources/views`
@@ -143,9 +143,9 @@ The block can receive the following variables:
 
 | Name | Type | Description |
 |------|------|-------------|
-| `field` | `eZ\Publish\API\Repository\Values\Content\Field` | The field to display |
-| `contentInfo` | `eZ\Publish\API\Repository\Values\Content\ContentInfo` | The ContentInfo of the Content item the Field belongs to |
-| `versionInfo` | `eZ\Publish\API\Repository\Values\Content\VersionInfo` | The VersionInfo of the Content item the Field belongs to |
+| `field` | `Ibexa\Contracts\Core\Repository\Values\Content\Field` | The field to display |
+| `contentInfo` | `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | The ContentInfo of the Content item the Field belongs to |
+| `versionInfo` | `Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo` | The VersionInfo of the Content item the Field belongs to |
 | `fieldSettings` | array | Settings of the Field (depends on the Field Type) |
 | `parameters` | hash | Options passed to `ez_render_field()` under the `'parameters'` key |
 | `attr` | hash | The attributes to add the generate the HTML markup, passed to ez_render_field()` under the `'attr'` key. <br> Contains at least a class entry, containing <fieldtypeidentifier>-field |
@@ -154,7 +154,7 @@ The block can receive the following variables:
 
 For easier Field Type template development you can take advantage of all defined blocks by using the [`block()` function](http://twig.sensiolabs.org/doc/functions/block.html).
 
-You can for example use `simple_block_field`, `simple_inline_field` or `field_attributes` blocks provided in [`content_fields.html.twig`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig#L477).
+You can for example use `simple_block_field`, `simple_inline_field` or `field_attributes` blocks provided in [`content_fields.html.twig`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/views/content_fields.html.twig#L486).
 
 !!! caution
 

@@ -39,7 +39,7 @@ First, create a new event in `src/Calendar/Holidays/Event.php`:
 [[= include_file('code_samples/back_office/calendar/src/Calendar/Holidays/Event.php') =]]
 ```
 
-Here, you define a new class for your event based on `EzSystems\EzPlatformCalendar\Calendar\Event`.
+Here, you define a new class for your event based on `Ibexa\Contracts\Calendar\Event`.
 
 Next, create `src/Calendar/Holidays/EventType.php`:
 
@@ -59,7 +59,7 @@ Complete the procedure by registering the new event type as a service:
 
 To add specific events to your calendar, you need to create an event source.
 
-An event source must implement `EzSystems\EzPlatformCalendar\Calendar\EventSource\EventSourceInterface`.
+An event source must implement `Ibexa\Contracts\Calendar\EventSource\EventSourceInterface`.
 
 One such built-in implementation is `InMemoryEventSource`.
 To add an in-memory collection as an event source, create `src/Calendar/Holidays/EventSourceFactory.php`:

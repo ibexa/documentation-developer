@@ -147,7 +147,7 @@ To render a Content query Field, in the content view configuration, use the `con
 ```
 
 The identifier of the Content query Field must be matched by
-using the `'@EzSystems\EzPlatformQueryFieldType\eZ\ContentView\FieldDefinitionIdentifierMatcher'` matcher.
+using the `'@Ibexa\FieldTypeQuery\ContentView\FieldDefinitionIdentifierMatcher'` matcher.
 
 Query results are provided to the template in the `items` variable.
 See [List content](../embed_and_list_content/list_content.md#content-query-field) for an example of using the Content query Field.

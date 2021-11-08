@@ -27,7 +27,7 @@ The `HelloWorld` Value class should contain:
 ## Define fields and configuration
 
 Next, implement a definition of a Field Type extending the Generic Field Type in the `src/FieldType/HelloWorld/Type.php` class.
-It provides settings for the Field Type and an implementation of the `eZ\Publish\SPI\FieldType\FieldType` abstract class.
+It provides settings for the Field Type and an implementation of the `Ibexa\Core\FieldType\FieldType` abstract class.
 
 ```php
 [[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Type.php', 0, 6) =]][[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Type.php', 9, 16) =]]}

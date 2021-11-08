@@ -3,7 +3,7 @@
 namespace App\Calendar\Holidays;
 
 use DateTimeInterface;
-use EzSystems\EzPlatformCalendar\Calendar\Event as CalendarEvent;
+use Ibexa\Contracts\Calendar\Event as CalendarEvent;
 
 class Event extends CalendarEvent
 {

@@ -38,7 +38,7 @@ which has info on cache use in two places:
 - Symfony Cache tab: for Symfony Cache itself, the tab shows cache lookups to cache backends
 - eZ Platform tab: shows calls made to database back end, and if they are cached or not
 
-To see where and how to contribute additional caches, refer to the [source code](https://github.com/ezsystems/ezplatform-kernel/tree/v1.0.0/eZ/Publish/Core/Persistence/Cache).
+To see where and how to contribute additional caches, refer to the [source code](https://github.com/ibexa/core/blob/main/src/lib/Persistence/Cache/Readme.md).
 
 ## Persistence cache configuration
 
@@ -60,7 +60,7 @@ The underlying cache system is exposed as an `ezpublish.cache_pool` service, and
 
 By default, configuration uses the `cache.tagaware.filesystem` service to store cache files.
 The service is defined in `bin/config/cache_pool/cache.tagaware.filesystem.yml`
-to use [FilesystemTagAwareAdapter](https://github.com/ezsystems/ezplatform/blob/master/config/packages/cache_pool/cache.tagaware.filesystem.yaml#L8).
+to use [FilesystemTagAwareAdapter](https://github.com/ibexa/recipes/blob/master/ibexa/oss/4.0.x-dev/config/packages/cache_pool/cache.tagaware.filesystem.yaml#L8).
 This service is loaded through `bin/config/env/generic.php`.
 
 You can select a different cache backend and configure its parameters in the relevant file in the `cache_pool` folder.
@@ -351,7 +351,7 @@ Persistence cache prefixes it's cache using "ez-". Clearing persistence cache ca
 // To clear all cache (not recommended without a good reason)
 $pool->clear();
 
-// To clear a specific cache item (check source for more examples in eZ\Publish\Core\Persistence\Cache\*)
+// To clear a specific cache item (check source for more examples in Ibexa\Core\Persistence\Cache\*)
 $pool->deleteItems(["ez-content-info-$contentId"]);
 
 // Symfony cache is tag-based, so you can clear all cache related to a Content item like this:

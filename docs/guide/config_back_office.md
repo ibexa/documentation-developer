@@ -14,7 +14,7 @@ You can copy subtree from CLI using the command: `bin/console ibexa:copy-subtree
 ## Pagination limits
 
 Default pagination limits for different sections of the Back Office can be defined through respective settings in
-[`ezplatform_default_settings.yaml`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/ezplatform_default_settings.yaml#L7)
+[`ezplatform_default_settings.yaml`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/config/ezplatform_default_settings.yaml#L7)
 
 You can set the pagination limit for user settings with the following configuration:
 

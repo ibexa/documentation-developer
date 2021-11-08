@@ -32,7 +32,7 @@ Acme\ExampleBundle\AcmeExampleBundle::class => ['all' => true],
 ### Semantic configuration parsing
 
 To parse semantic configuration, create a `Configuration` class which extends
-`eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\Configuration`
+`Ibexa\Bundle\Core\DependencyInjection\Configuration\SiteAccessAware\Configuration`
 and then extend its `generateScopeBaseNode()` method:
 
 ``` php hl_lines="17"
@@ -40,7 +40,7 @@ and then extend its `generateScopeBaseNode()` method:
 
 namespace Acme\ExampleBundle\DependencyInjection;
 
-use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\Configuration as SiteAccessConfiguration;
+use Ibexa\Bundle\Core\DependencyInjection\Configuration\SiteAccessAware\Configuration as SiteAccessConfiguration;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 
 class Configuration extends SiteAccessConfiguration
@@ -100,8 +100,8 @@ You usually do it in the [service container](../../api/service_container.md) ext
 
 namespace Acme\ExampleBundle\DependencyInjection;
 
-use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\ConfigurationProcessor;
-use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\ContextualizerInterface;
+use Ibexa\Bundle\Core\DependencyInjection\Configuration\SiteAccessAware\ConfigurationProcessor;
+use Ibexa\Bundle\Core\DependencyInjection\Configuration\SiteAccessAware\ContextualizerInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader;
@@ -253,7 +253,7 @@ that ensures the array setting has unique values. It only works on normal arrays
 ### Dedicated mapper object
 
 Instead of passing a callable to `$processor->mapConfig()`, you can pass an instance of
-`eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\ConfigurationMapperInterface`.
+`Ibexa\Bundle\Core\DependencyInjection\Configuration\SiteAccessAware\ConfigurationMapperInterface`.
 
 This can be useful if you have a lot of configuration to map and do not want to pollute 
 your service container extension class (it is better for maintenance).

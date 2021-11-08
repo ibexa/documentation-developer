@@ -1,6 +1,6 @@
 # Ancestor Criterion
 
-The [`Ancestor` Search Criterion](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Query/Criterion/Ancestor.php)
+The [`Ancestor` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/Ancestor.php)
 searches for content that is an ancestor of the provided Location, including this Location.
 
 ## Arguments

@@ -3,9 +3,9 @@
 namespace App\FieldType\HelloWorld;
 
 use App\Form\Type\HelloWorldType;
-use eZ\Publish\SPI\FieldType\Generic\Type as GenericType;
-use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
-use EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface;
+use Ibexa\Contracts\Core\FieldType\Generic\Type as GenericType;
+use Ibexa\Contracts\ContentForms\Data\Content\FieldData;
+use Ibexa\Contracts\ContentForms\FieldType\FieldValueFormMapperInterface;
 use Symfony\Component\Form\FormInterface;
 
 final class Type extends GenericType implements FieldValueFormMapperInterface

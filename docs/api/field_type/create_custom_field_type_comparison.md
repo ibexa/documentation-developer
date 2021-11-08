@@ -14,7 +14,7 @@ You can add the possibility to compare custom and other unsupported Field Types.
 
 First, create a `Comparable.php` class in `src/FieldType/HelloWorld/Comparison`.
 
-This class implements the `EzSystems\EzPlatformVersionComparison\FieldType\Comparable` interface with the `getDataToCompare()` method:
+This class implements the `Ibexa\Contracts\VersionComparison\FieldType\Comparable` interface with the `getDataToCompare()` method:
 
 ``` php
 [[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Comparison/Comparable.php') =]]
@@ -39,7 +39,7 @@ Next, create a `src/FieldType/HelloWorld/Comparison/Value.php` file that holds t
 ## Create comparison engine
 
 The comparison engine handles the operations required for comparing the contents of Fields.
-Each Field Type requires a separate comparison engine, which implements the `EzSystems\EzPlatformVersionComparison\Engine\FieldTypeComparisonEngine` interface.
+Each Field Type requires a separate comparison engine, which implements the `Ibexa\Contracts\VersionComparison\Engine\FieldTypeComparisonEngine` interface.
 
 For the "Hello World" Field Type, create the following comparison engine based on the engine for the TextLine Field Type.
 Place it in `src/FieldType/HelloWorld/Comparison/HelloWorldComparisonEngine.php`:

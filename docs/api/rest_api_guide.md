@@ -47,7 +47,7 @@ On top of methods, HTTP request headers will allow you to personalize the reques
 
 !!! note "More information"
 
-    [REST specifications chapter "Media Types"](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta5/doc/specifications/rest/REST-API-V2.rst#media-types)
+    For more information, see [Media Types](rest_api_best_practices.md#media-types).
 
 ### Other headers
 

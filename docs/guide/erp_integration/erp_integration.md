@@ -49,8 +49,8 @@ The parameter `webservice_url` can be set to the URL of the responsible webservi
 
 ``` yaml
 siso_erp.default.message_settings.createsalesorder:
-    message_class: "Silversolutions\\Bundle\\EshopBundle\\Entities\\Messages\\CreateSalesOrderMessage"
-    response_document_class: "\\Silversolutions\\Bundle\\EshopBundle\\Entities\\Messages\\Document\\OrderResponse"
+    message_class: "Ibexa\\Bundle\\Commerce\\Eshop\\Entities\\Messages\\CreateSalesOrderMessage"
+    response_document_class: "\\Ibexa\\Bundle\\Commerce\\Eshop\\Entities\\Messages\\Document\\OrderResponse"
     webservice_operation: "CreateSalesOrder"
     webservice_url: "$web_connector.service_location;siso_erp$/InboundCreateOrderIISWebService.svc?wsdl"
     mapping_identifier: "createorder"

@@ -3,10 +3,10 @@ ezdesign:
         my_design: [my_theme, eshop_base_theme, eshop_ui_base_theme, transaction_theme, checkout_base_theme]
     templates_theme_paths:
         eshop_base_theme:
-            - '%kernel.project_dir%/vendor/ezsystems/ezcommerce-shop/src/Silversolutions/Bundle/EshopBundle/Resources/views'
+            - '%kernel.project_dir%/vendor/ibexa/commerce-shop/src/bundle/Eshop/Resources/views'
         eshop_ui_base_theme:
-            - '%kernel.project_dir%/vendor/ezsystems/ezcommerce-shop-ui/src/bundle/Resources/views/themes/standard'
+            - '%kernel.project_dir%/vendor/ibexa/commerce-shop-ui/src/bundle/Resources/views/themes/standard'
         checkout_base_theme:
-            - '%kernel.project_dir%/vendor/ezsystems/ezcommerce-checkout/src/bundle/Resources/views/themes/standard/'
+            - '%kernel.project_dir%/vendor/ibexa/commerce-checkout/src/bundle/Resources/views/themes/standard/'
         transaction_theme:
-            - '%kernel.project_dir%/vendor/ezsystems/ezcommerce-transaction/src/Siso/Bundle/ShopFrontendBundle/Resources/views/themes/standard/'
+            - '%kernel.project_dir%/vendor/ibexa/commerce-transaction/src/bundle/ShopFrontend/Resources/views/themes/standard/'

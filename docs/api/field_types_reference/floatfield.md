@@ -30,7 +30,7 @@ The Value class of this Field Type contains the following properties:
 ``` php
 // Value object content example
 
-use eZ\Publish\Core\FieldType\Float\Type;
+use Ibexa\Core\FieldType\Float\Type;
 
 // Instantiates a Float Value object
 $floatValue = new Type\Value();
@@ -45,7 +45,7 @@ The `Float\Value` constructor will initialize a new Value object with the val
 ``` php
 // Constructor example
 
-use eZ\Publish\Core\FieldType\Float\Type;
+use Ibexa\Core\FieldType\Float\Type;
 
 // Instantiates a Float Value object
 $floatValue = new Type\Value( 284.773 );
@@ -63,7 +63,7 @@ This Field Type supports `FloatValueValidator`, defining maximum and minimum flo
 ``` php
 // Validator configuration example in PHP
 
-use eZ\Publish\Core\FieldType\Float\Type;
+use Ibexa\Core\FieldType\Float\Type;
 
 $contentTypeService = $repository->getContentTypeService();
 $floatFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct( "float", "ezfloat" );

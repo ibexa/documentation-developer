@@ -2,7 +2,7 @@
 
 ## CheckoutFormServiceInterface
 
-`CheckoutFormServiceInterface` (`Silversolutions\Bundle\EshopBundle\Service\CheckoutFormServiceInterface`)
+`CheckoutFormServiceInterface` (`Ibexa\Contracts\Commerce\Checkout\CheckoutFormServiceInterface`)
 is an interface for checkout forms that defines a common way to prefill the form and store the data in basket.
 
 |Method|Parameters|Usage|
@@ -12,7 +12,7 @@ is an interface for checkout forms that defines a common way to prefill the form
 
 ## CheckoutSummaryFormServiceInterface
 
-`CheckoutSummaryFormServiceInterface` (`Silversolutions\Bundle\EshopBundle\Service\CheckoutSummaryFormServiceInterface`)
+`CheckoutSummaryFormServiceInterface` (`Ibexa\Contracts\Commerce\Checkout\CheckoutSummaryFormServiceInterface`)
 is an interface for checkout summary forms that handles getting the user confirmation email.
 
 |Method|Parameters|Usage|
@@ -23,7 +23,7 @@ is an interface for checkout summary forms that handles getting the user confirm
 
 ## CheckoutAddressFormServiceInterface
 
-`CheckoutAddressFormServiceInterface` (`Silversolutions\Bundle\EshopBundle\Service\CheckoutAddressFormServiceInterface`)
+`CheckoutAddressFormServiceInterface` (`Ibexa\Contracts\Commerce\Checkout\CheckoutAddressFormServiceInterface`)
 is an interface for checkout forms that handles addresses and defines a way to convert form data into a party and back.
 
 |Method|Parameters|Usage|
@@ -33,7 +33,7 @@ is an interface for checkout forms that handles addresses and defines a way to c
 
 ## DeliveryAddressCheckoutFormService
 
-`DeliveryAddressCheckoutFormService` (`Siso\Bundle\CheckoutBundle\Service\DeliveryAddressCheckoutFormService`)
+`DeliveryAddressCheckoutFormService` (`Ibexa\Commerce\Checkout\Service\DeliveryAddressCheckoutFormService`)
 implements the logic for the `CheckoutDeliveryAddress` form.
 You assign this service to the `CheckoutDeliveryAddress` form in the [configuration](configuration_for_checkout_forms.md).
 
@@ -43,7 +43,7 @@ The service ID is `siso_checkout.checkout_form.delivery_address`.
 
 ## InvoiceAddressCheckoutFormService
 
-`InvoiceAddressCheckoutFormService` (`Siso\Bundle\CheckoutBundle\Service\InvoiceAddressCheckoutFormService`)
+`InvoiceAddressCheckoutFormService` (`Ibexa\Commerce\Checkout\Service\InvoiceAddressCheckoutFormService`)
 implements the logic for the `CheckoutInvoiceAddress` form.
 You assign this service to the `CheckoutInvoiceAddress` form in the [configuration](configuration_for_checkout_forms.md).
 
@@ -53,7 +53,7 @@ The service ID is `siso_checkout.checkout_form.invoice_address`.
 
 ## ShippingPaymentCheckoutFormService
 
-`ShippingPaymentCheckoutFormService` (`Siso\Bundle\CheckoutBundle\Service\ShippingPaymentCheckoutFormService`) implements the logic for the `CheckoutShippingPayment` form.
+`ShippingPaymentCheckoutFormService` (`Ibexa\Commerce\Checkout\Service\ShippingPaymentCheckoutFormService`) implements the logic for the `CheckoutShippingPayment` form.
 You assign this service to the `CheckoutShippingPayment` form in the [configuration](configuration_for_checkout_forms.md).
 
 This service implements [`CheckoutFormServiceInterface`](#checkoutformserviceinterface).
@@ -62,7 +62,7 @@ The service ID is `siso_checkout.checkout_form.shipping_payment`.
 
 ## SummaryCheckoutFormService
 
-`SummaryCheckoutFormService` (`Siso\Bundle\CheckoutBundle\Service\SummaryCheckoutFormService`) implements the logic for the `CheckoutSummary` form.
+`SummaryCheckoutFormService` (`Ibexa\Commerce\Checkout\Service\SummaryCheckoutFormService`) implements the logic for the `CheckoutSummary` form.
 You assign this service to the `CheckoutSummary` form in the [configuration](configuration_for_checkout_forms.md).
 
 This service implements [`CheckoutFormServiceInterface`](#checkoutformserviceinterface) and  [`CheckoutSummaryFormServiceInterface`](#checkoutsummaryformserviceinterface).
@@ -81,4 +81,4 @@ parameters:
 ```
 
 The mapping of the request order should be modified to unlimit the number of characters
-in `EshopBundle/Resources/mapping/wc3-nav/xsl/include/request.order.xsl`.
+in `Eshop/Resources/mapping/wc3-nav/xsl/include/request.order.xsl`.

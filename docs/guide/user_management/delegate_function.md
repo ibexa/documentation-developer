@@ -38,18 +38,18 @@ The user can return to their own profile by clicking the **Undelegate** button.
 
 ### Routes
 
-The `EshopBundle/Controller/DelegateCustomerController.php` controller handles delegating and undelegating actions.
+The `Ibexa\Bundle\Commerce\Eshop\Controller\DelegateCustomerController` controller handles delegating and undelegating actions.
 
 The function adds two routes:
 
 ``` yaml
 silversolutions_delegate:
-    path:  /delegate
-    defaults: { _controller: SilversolutionsEshopBundle:DelegateCustomer:delegate }
+    path: /delegate
+    defaults: { _controller: silver_eshop.delegate_customer_controller:delegateAction }
 
 silversolutions_undelegate:
-    path:  /undelegate
-    defaults: { _controller: SilversolutionsEshopBundle:DelegateCustomer:undelegate }
+    path: /undelegate
+    defaults: { _controller: silver_eshop.delegate_customer_controller:undelegateAction }
 ```
 
 Delegating is not always allowed, you can use the `DelegateCustomerController::isDelegateAllowed` method to check that.

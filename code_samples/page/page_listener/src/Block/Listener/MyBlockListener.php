@@ -2,11 +2,11 @@
 
 namespace App\Block\Listener;
 
-use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Definition\BlockDefinitionEvents;
-use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Definition\Event\BlockAttributeDefinitionEvent;
-use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\BlockRenderEvents;
-use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\Event\PreRenderEvent;
-use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Attribute\ValueConverter;
+use Ibexa\FieldTypePage\FieldType\Page\Block\Definition\BlockDefinitionEvents;
+use Ibexa\FieldTypePage\FieldType\Page\Block\Definition\Event\BlockAttributeDefinitionEvent;
+use Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\BlockRenderEvents;
+use Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Event\PreRenderEvent;
+use Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\ValueConverter;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class MyBlockListener implements EventSubscriberInterface

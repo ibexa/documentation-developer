@@ -25,7 +25,7 @@ The Field is rendered with the default template, but you can optionally pass a d
 
 | Argument | Type | Description |
 | ------ | ----- | ----- |
-| `content` | `eZ\Publish\API\Repository\Values\Content\Content` | Content item the Field belongs to. |
+| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content` | Content item the Field belongs to. |
 | `fieldDefinitionIdentifier` | `string` | Field identifier. |
 | `params` | `hash` | (optional) Hash of parameters passed to the template block. |
 
@@ -74,7 +74,7 @@ the function returns the value in the main language.
 
 | Argument | Type | Description |
 |-----|------|-----|
-| `content`| `eZ\Publish\API\Repository\Values\Content\Content` | Content item the Field belongs to.|
+| `content`| `Ibexa\Contracts\Core\Repository\Values\Content\Content` | Content item the Field belongs to.|
 | `fieldDefIdentifier` | `string` | Identifier of the Field. |
 | `forcedLanguage`  | `string` | (optional) Language to use (for example, "fre-FR"). |
 
@@ -91,7 +91,7 @@ the function returns the Field object in the main language.
 
 | Argument | Type | Description |
 |-------|------|------|
-| `content`| `eZ\Publish\API\Repository\Values\Content\Content` | Content item the Field belongs to.|
+| `content`| `Ibexa\Contracts\Core\Repository\Values\Content\Content` | Content item the Field belongs to.|
 | `fieldDefIdentifier` | `string` | Identifier of the Field. |
 | `forcedLanguage` | `string` | {optional) Language to use (for example, "fre-FR"). |
 
@@ -116,7 +116,7 @@ the function returns the name in the main language.
 
 | Argument | Type | Description |
 |---------------|------|-------------|
-| `content` | `eZ\Publish\API\Repository\Values\Content\Content` or `eZ\Publish\API\Repository\Values\Content\ContentInfo` | Content item the Field belongs to. |
+| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content` or `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | Content item the Field belongs to. |
 | `fieldDefIdentifier` | `string` | Identifier of the Field. |
 | `forcedLanguage` | `string` | (optional) Language to use (for example, `fre-FR`). |
 
@@ -137,7 +137,7 @@ the function returns the description in the main language.
 
 | Argument | Type | Description |
 |---------------|------|-------------|
-| `content` | `eZ\Publish\API\Repository\Values\Content\Content` or `eZ\Publish\API\Repository\Values\Content\ContentInfo` | Content item the Field belongs to. |
+| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content` or `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | Content item the Field belongs to. |
 | `fieldDefIdentifier` | `string` | Identifier of the Field. |
 | `forcedLanguage` | `string` | (optional) Language to use (for example, `fre-FR`). |
 
@@ -153,7 +153,7 @@ the function returns the description in the main language.
 
 | Argument | Type | Description |
 |---------------|------|-------------|
-| `content` | `eZ\Publish\API\Repository\Values\Content\Content` or `eZ\Publish\API\Repository\Values\Content\ContentInfo` | Content item the Field belongs to. |
+| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content` or `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | Content item the Field belongs to. |
 | `fieldDefIdentifier` | `string` | Identifier of the Field. |
 | `forcedLanguage` | `string` | (optional) Language to use (for example, `fre-FR`). |
 

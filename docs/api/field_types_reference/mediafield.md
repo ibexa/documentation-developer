@@ -23,13 +23,13 @@ It is capable of handling the following types of files:
 | Type | Description | Example|
 |------|-------------|--------|
 | `string` | Path to the media file.| `/Users/jane/butterflies.mp4`     |
-| `eZ\Publish\Core\FieldType\Media\Value` | Media Field Type Value Object with path to the media file as the value of `id` property. | See below. |
+| `Ibexa\Core\FieldType\Media\Value` | Media Field Type Value Object with path to the media file as the value of `id` property. | See below. |
 
 ### Value object
 
 ##### Properties
 
-`eZ\Publish\Core\FieldType\Media\Value` offers the following properties.
+`Ibexa\Core\FieldType\Media\Value` offers the following properties.
 
 Note that both `Media` and `BinaryFile` Value and Type inherit from the `BinaryBase` abstract Field Type and share common properties.
 
@@ -74,7 +74,7 @@ The Field Type supports `FileSizeValidator`, defining maximum size of media fil
 ``` php
 // Example of using Media Field Type validator in PHP
 
-use eZ\Publish\Core\FieldType\Media\Type;
+use Ibexa\Core\FieldType\Media\Type;
 
 $contentTypeService = $repository->getContentTypeService();
 $mediaFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct( "media", "ezmedia" );
@@ -95,7 +95,7 @@ The Field Type supports the `mediaType` setting, defining how the media file sho
 |------|------|------|------|
 |`mediaType`|mixed|`Type::TYPE_HTML5_VIDEO`|Type of the media, accepts one of the predefined constants.|
 
-List of all available `mediaType` constants is defined in the `eZ\Publish\Core\FieldType\Media\Type` class:
+List of all available `mediaType` constants is defined in the `Ibexa\Core\FieldType\Media\Type` class:
 
 |Name|Description|
 |------|------|
@@ -110,7 +110,7 @@ List of all available `mediaType` constants is defined in the `eZ\Publish\Core
 ``` php
 // Example of using Media Field Type settings in PHP
 
-use eZ\Publish\Core\FieldType\Media\Type;
+use Ibexa\Core\FieldType\Media\Type;
  
 $contentTypeService = $repository->getContentTypeService();
 $mediaFieldCreateStruct = $contentTypeService->newFieldDefinitionCreateStruct( "media", "ezmedia" );

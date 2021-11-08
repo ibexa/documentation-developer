@@ -71,7 +71,7 @@ Inside each tab there are additional definitions:
 If multiple sections are defined, products or content must be assigned to either of them (OR operator).
 - `visibility` - enables searching for content that is or isn't visible
 
-Tab label are defined in the translation file `EshopBundle/Resources/translations/messages.en.php` using the key value as ID, for example:
+Tab label are defined in the translation file `Eshop/Resources/translations/messages.en.php` using the key value as ID, for example:
 
 ``` php
 'special|search' => 'Special',

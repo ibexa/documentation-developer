@@ -1,6 +1,6 @@
 # CustomField Sort Clause
 
-The [`CustomField` Sort Clause](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Query/SortClause/CustomField.php)
+The [`CustomField` Sort Clause](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/SortClause/CustomField.php)
 sorts search results by raw search index fields.
 
 ## Arguments

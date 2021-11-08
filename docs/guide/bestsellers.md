@@ -24,19 +24,19 @@ The following settings are available in the eCommerce->Configuration Settings->M
 
 ## Template list
 
-- `EshopBundle/Resources/views/Bestsellers/bestsellers.html.twig` renders a bestseller page, available by default under the `/bestsellers` route.
+- `Eshop/Resources/views/Bestsellers/bestsellers.html.twig` renders a bestseller page, available by default under the `/bestsellers` route.
 
 ![Bestseller page](img/bestseller_page.png)
 
-- `EshopBundle/Resources/views/Bestsellers/bestsellers_box.html.twig` renders a slider for the Bestseller Page block.
+- `Eshop/Resources/views/Bestsellers/bestsellers_box.html.twig` renders a slider for the Bestseller Page block.
 
 ![Bestseller Page block](img/bestseller_block_slider.png)
 
-- `EshopBundle/Resources/views/Bestsellers/bestsellers_catalog.html.twig` renders a slider for the catalog page.
+- `Eshop/Resources/views/Bestsellers/bestsellers_catalog.html.twig` renders a slider for the catalog page.
 
 ![Bestsellers in product category](img/bestseller_category.png)
 
-- `EshopBundle/Resources/views/Bestsellers/bestsellers_box_esi.html.twig` creates an Edge Side Includes tag and calls the controller for Landing Page bestsellers.
+- `Eshop/Resources/views/Bestsellers/bestsellers_box_esi.html.twig` creates an Edge Side Includes tag and calls the controller for Landing Page bestsellers.
 
 !!! note "Category pages/Caching"
 
@@ -46,8 +46,8 @@ The following settings are available in the eCommerce->Configuration Settings->M
 
 ### `BestsellerService`
 
-`Siso/Bundle/SearchBundle/Service/BestsellerService.php` fetches bestsellers from Solr.
+`Ibexa\Bundle\Commerce\Search\Api\Engine/BestsellerService.php` fetches bestsellers from Solr.
 
 ### `EcontentBestsellerIndexerPlugin`
 
-`Siso/Bundle/SearchBundle/Service/EcontentBestsellerIndexerPlugin.php` adds an additional Solr field with a sum of basket lines.
+`Ibexa\Bundle\Commerce\Search\Service\EcontentBestsellerIndexerPlugin.php` adds an additional Solr field with a sum of basket lines.

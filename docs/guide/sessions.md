@@ -88,7 +88,7 @@ Alternatively if you need to configure Memcached servers dynamically:
 
 ```yaml
     app.session.handler.native_memcached:
-        class: eZ\Bundle\EzPublishCoreBundle\Session\Handler\NativeSessionHandler
+        class: Ibexa\Bundle\Core\Session\Handler\NativeSessionHandler
         arguments:
          - '%session.save_path%'
          - memcached

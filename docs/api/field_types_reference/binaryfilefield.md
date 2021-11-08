@@ -16,7 +16,7 @@ It is capable of handling virtually any file type and is typically used for stor
 
 Note that both `BinaryFile` and `Media` Value and Type inherit from the `BinaryBase` abstract Field Type, and share common properties.
 
-`eZ\Publish\Core\FieldType\BinaryFile\Value` offers the following properties:
+`Ibexa\Core\FieldType\BinaryFile\Value` offers the following properties:
 
 |Attribute|Type|Description|Example|
 |------|------|------|------|

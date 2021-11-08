@@ -60,7 +60,7 @@ try {
     );
  } catch (\Exception $e) {
     return $this->render(
-        'SilversolutionsEshopBundle:Catalog:exception.html.twig',
+        'IbexaCommerceEshopBundle:Catalog:exception.html.twig',
         array(
             'exception' => $e
         ),

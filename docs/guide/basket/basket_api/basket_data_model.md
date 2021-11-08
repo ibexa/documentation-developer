@@ -114,4 +114,4 @@ It is possible to store several success, error or notice messages for products.
 |`clearAllMessages()`|Deletes all messages from the basket||
 |`removeSuccessMessageForSku()`|Deletes all success messages for the given SKU from the success messages|`sku`|
 
-The messages are rendered using the `EshopBundle/Resources/views/Basket/messages.html.twig` template.
+The messages are rendered using the `IbexaCommerceEshopBundle/Resources/views/Basket/messages.html.twig` template.

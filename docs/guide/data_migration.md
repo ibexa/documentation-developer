@@ -434,7 +434,7 @@ Then this reference is reused as part of a new role, as a limitation.
     location:
         parentLocationId: 1
         hidden: false
-        sortField: !php/const eZ\Publish\API\Repository\Values\Content\Location::SORT_FIELD_NAME
+        sortField: !php/const Ibexa\Contracts\Core\Repository\Values\Content\Location::SORT_FIELD_NAME
         sortOrder: 1
         priority: 0
     fields:

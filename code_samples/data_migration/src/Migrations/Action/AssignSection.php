@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Migrations\Action;
 
-use Ibexa\Platform\Migration\ValueObject\Step\Action;
+use Ibexa\Migration\ValueObject\Step\Action;
 
 final class AssignSection implements Action
 {

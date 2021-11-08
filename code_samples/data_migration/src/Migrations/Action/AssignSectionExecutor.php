@@ -2,18 +2,18 @@
 
 namespace App\Migrations\Action;
 
-use eZ\Publish\API\Repository\SectionService;
-use eZ\Publish\API\Repository\ContentService;
-use eZ\Publish\API\Repository\Values\ValueObject as APIValueObject;
-use Ibexa\Platform\Migration\StepExecutor\ActionExecutor\ExecutorInterface;
-use Ibexa\Platform\Migration\ValueObject;
+use Ibexa\Contracts\Core\Repository\SectionService;
+use Ibexa\Contracts\Core\Repository\ContentService;
+use Ibexa\Contracts\Core\Repository\Values\ValueObject as APIValueObject;
+use Ibexa\Migration\StepExecutor\ActionExecutor\ExecutorInterface;
+use Ibexa\Migration\ValueObject;
 
 final class AssignSectionExecutor implements ExecutorInterface
 {
-    /** @var \eZ\Publish\API\Repository\SectionService */
+    /** @var \Ibexa\Contracts\Core\Repository\SectionService */
     private $sectionService;
 
-    /** @var \eZ\Publish\API\Repository\ContentService */
+    /** @var \Ibexa\Contracts\Core\Repository\ContentService */
     private $contentService;
 
     public function __construct(
@@ -26,7 +26,7 @@ final class AssignSectionExecutor implements ExecutorInterface
 
     /**
      * @param \App\Migrations\Action\AssignSection $action
-     * @param \eZ\Publish\API\Repository\Values\Content\Content $content
+     * @param \Ibexa\Contracts\Core\Repository\Values\Content\Content $content
      */
     public function handle(ValueObject\Step\Action $action, APIValueObject $content): void
     {

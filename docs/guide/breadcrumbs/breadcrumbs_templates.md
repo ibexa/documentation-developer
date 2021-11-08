@@ -4,8 +4,8 @@
 
 | Path  | Description     |
 | ----- | --------------- |
-| `Silversolutions/Bundle/EshopBundle/Resources/views/pagelayout.html.twig` | Defines the `breadcrumb` block, which calls the sub-controller for the breadcrumb generation. |
-| `Silversolutions/Bundle/EshopBundle/Resources/views/Breadcrumbs/breadcrumb_list.html.twig` | Used by all WhiteOctober-based breadcrumb generators to render the generated breadcrumbs elements. |
+| `Eshop/Resources/views/pagelayout.html.twig` | Defines the `breadcrumb` block, which calls the sub-controller for the breadcrumb generation. |
+| `Eshop/Resources/views/Breadcrumbs/breadcrumb_list.html.twig` | Used by all WhiteOctober-based breadcrumb generators to render the generated breadcrumbs elements. |
 
 !!! note "No breadcrumbs displayed"
 

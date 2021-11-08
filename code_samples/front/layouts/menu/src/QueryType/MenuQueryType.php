@@ -2,10 +2,10 @@
 
 namespace App\QueryType;
 
-use eZ\Publish\Core\QueryType\QueryType;
-use eZ\Publish\API\Repository\Values\Content\Query;
-use eZ\Publish\API\Repository\Values\Content\LocationQuery;
-use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
+use Ibexa\Core\QueryType\QueryType;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
 
 class MenuQueryType implements QueryType
 {

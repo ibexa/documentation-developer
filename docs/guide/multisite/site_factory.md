@@ -46,13 +46,13 @@ ezplatform:
         example_site_factory_group_2:
 ```
 
-Uncomment the SiteAccess matcher (`EzSystems\EzPlatformSiteFactory\SiteAccessMatcher`):
+Uncomment the SiteAccess matcher (`Ibexa\SiteFactory\SiteAccessMatcher`):
 
 ``` yaml
 ezplatform:
     siteaccess:
         match:
-        '@EzSystems\EzPlatformSiteFactory\SiteAccessMatcher': ~
+        '@Ibexa\SiteFactory\SiteAccessMatcher': ~
 ```
 
 `ezdesign` defines templates for your sites, so add them before continuing.
@@ -191,7 +191,7 @@ Keep in mind that with disabled Site Factory you are unable to add new sites or 
 
 1\. In `config/packages/ezplatform_site_factory.yaml` change `enabled` to `false`.
 
-2\. In `config/packages/ezplatform.yaml` comment the `ezplatform.siteaccess.match: '@EzSystems\EzPlatformSiteFactory\SiteAccessMatcher': ~` if it is uncommented.
+2\. In `config/packages/ezplatform.yaml` comment the `ezplatform.siteaccess.match: '@Ibexa\SiteFactory\SiteAccessMatcher': ~` if it is uncommented.
 
 3\. Remove separate connection to database in `config/packages/doctrine.yaml`.
 

@@ -51,15 +51,15 @@ Dispatch the event with `document.body.dispatchEvent(eventInfo);`.
 
 You can send your own custom notifications to the user which will be displayed in the user menu.
 
-To create a new notification you must use the `createNotification(eZ\Publish\API\Repository\Values\Notification\CreateStruct $createStruct)` method from `\eZ\Publish\API\Repository\NotificationService`.
+To create a new notification you must use the `createNotification(Ibexa\Contracts\Core\Repository\Values\Notification\CreateStruct $createStruct)` method from `Ibexa\Contracts\Core\Repository\NotificationService`.
 
 Example:
 
 ```php
 <?php
 
-use eZ\Publish\API\Repository\NotificationService;
-use eZ\Publish\API\Repository\Values\Notification\CreateStruct;
+use Ibexa\Contracts\Core\Repository\NotificationService;
+use Ibexa\Contracts\Core\Repository\Values\Notification\CreateStruct;
 
 //..
 /** @var NotificationService */
@@ -100,8 +100,8 @@ declare(strict_types=1);
 
 namespace App\Notification;
 
-use eZ\Publish\API\Repository\Values\Notification\Notification;
-use eZ\Publish\Core\Notification\Renderer\NotificationRenderer;
+use Ibexa\Contracts\Core\Repository\Values\Notification\Notification;
+use Ibexa\Core\Notification\Renderer\NotificationRenderer;
 use Symfony\Component\Routing\RouterInterface;
 use Twig\Environment;
 

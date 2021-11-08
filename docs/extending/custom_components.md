@@ -14,21 +14,21 @@ App\Component\MyNewComponent:
 
 `group` indicates where the widget is displayed. The available groups are:
 
-- [`stylesheet-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L98)
-- [`script-head`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L99)
-- [`stylesheet-body`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L163)
-- [`script-body`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L164)
-- [`content-edit-form-before`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/user/edit.html.twig#L57)
-- [`content-edit-form-after`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/user/edit.html.twig#L67)
-- [`content-create-form-before`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/user/create.html.twig#L54)
-- [`content-create-form-after`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/user/create.html.twig#L62)
-- [`dashboard-blocks`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/ui/dashboard/dashboard.html.twig#L30)
-- [`dashboard-all-tab-groups`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/ui/dashboard/block/all.html.twig#L6)
-- [`dashboard-my-tab-groups`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/ui/dashboard/block/me.html.twig#L6)
-- [`content-type-tab-groups`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/content_type/index.html.twig#L10)
-- [`calendar-widget-before`](https://github.com/ezsystems/ezplatform-calendar/blob/master/src/bundle/Resources/views/themes/admin/calendar/view.html.twig#L24)
-- [`login-form-before`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/account/login/index.html.twig#L8)
-- [`login-form-after`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/account/login/index.html.twig#L69)
+- [`stylesheet-head`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L101)
+- [`script-head`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L102)
+- [`stylesheet-body`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L210)
+- [`script-body`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L211)
+- [`content-edit-form-before`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/user/edit.html.twig#L37)
+- [`content-edit-form-after`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/user/edit.html.twig#L47)
+- [`content-create-form-before`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/user/create.html.twig#L37)
+- [`content-create-form-after`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/user/create.html.twig#L45)
+- [`dashboard-blocks`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/ui/dashboard/dashboard.html.twig#L30)
+- [`dashboard-all-tab-groups`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/ui/dashboard/block/all.html.twig#L6)
+- [`dashboard-my-tab-groups`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/ui/dashboard/block/me.html.twig#L6)
+- [`content-type-tab-groups`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/content_type/index.html.twig#L37)
+- [`calendar-widget-before`](https://github.com/ibexa/calendar/blob/main/src/bundle/Resources/views/themes/admin/calendar/view.html.twig#L22)
+- [`login-form-before`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/account/login/index.html.twig#L7)
+- [`login-form-after`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/account/login/index.html.twig#L70)
 
 ## Base component classes
 

@@ -1,6 +1,6 @@
 # DateMetadataRangeAggregation
 
-The [DateMetadataRangeAggregation](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Query/Aggregation/DateMetadataRangeAggregation.php) aggregates search results by the value of the Content items' date metadata.
+The [DateMetadataRangeAggregation](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Aggregation/DateMetadataRangeAggregation.php) aggregates search results by the value of the Content items' date metadata.
 
 ## Arguments
 

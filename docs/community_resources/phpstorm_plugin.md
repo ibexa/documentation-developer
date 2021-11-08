@@ -79,25 +79,25 @@ The plugin provides the following built-in file templates:
 
 | Name | Comment |
 |---|---|
-| Back Office tab | Class implementing `EzSystems\EzPlatformAdminUi\Tab\AbstractTab` |
+| Back Office tab | Class implementing `Ibexa\Contracts\AdminUi\Tab` |
 | Block event subscriber | Event subscriber for `BlockRenderEvents::getBlockPreRenderEventName(...)` event |
 | Command | Symfony command that uses content repository |
-| Composite Criterion | Criterion class based on `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\CompositeCriterion` |
-| Field definition form mapper | Class implementing `EzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface` |
-| Field Type | Field Type class based on `eZ\Publish\SPI\FieldType\Generic\Type` |
-| Field Type Comparable | Class implementing `EzSystems\EzPlatformVersionComparison\FieldType\Comparable` |
-| Field Type Indexable | Class implementing `eZ\Publish\SPI\FieldType\Indexable` |
-| Field value form mapper | Class implementing `EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface` |
+| Composite Criterion | Criterion class based on `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\CompositeCriterion` |
+| Field definition form mapper | Class implementing `Ibexa\AdminUi\FieldType\FieldDefinitionFormMapperInterface` |
+| Field Type | Field Type class based on `Ibexa\Contracts\Core\FieldType\Generic\Type` |
+| Field Type Comparable | Class implementing `Ibexa\Contracts\VersionComparison\FieldType\Comparable` |
+| Field Type Indexable | Class implementing `Ibexa\Contracts\Core\FieldType\Indexable` |
+| Field value form mapper | Class implementing `Ibexa\Contracts\ContentForms\FieldType\FieldValueFormMapperInterface` |
 | Field value object | Field Type value class |
-| Menu configuration event subscriber | Event subscriber for `EzSystems\EzPlatformAdminUi\Menu\Event\ConfigureMenuEvent::MAIN_MENU`  |
-| Policy provider | Class implementing `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Security\PolicyProvider\PolicyProviderInterface` |
-| Policy provider (YAML) | Policy provider class based on `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider` |
-| Query Type | Query Type class based on `eZ\Publish\Core\QueryType\OptionsResolverBasedQueryType` |
-| Schema builder subscriber | Event subscriber for `EzSystems\DoctrineSchema\API\Event\SchemaBuilderEvent::BUILD_SCHEMA` event |
-| SiteAccess-aware configuration | SiteAccess-aware configuration definition class based on `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\AbstractParser` |
-| Value object input parser | REST input parser class based on `EzSystems\EzPlatformRest\Input\BaseParser` |
-| Value object visitor | REST value visitor class based on `EzSystems\EzPlatformRest\Output\ValueObjectVisitor` |
-| Workflow action listener | Workflow action listener class based on `EzSystems\EzPlatformWorkflow\Event\Action\AbstractTransitionWorkflowActionListener` |
+| Menu configuration event subscriber | Event subscriber for `Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent::MAIN_MENU`  |
+| Policy provider | Class implementing `Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\PolicyProviderInterface` |
+| Policy provider (YAML) | Policy provider class based on `Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider` |
+| Query Type | Query Type class based on `Ibexa\Core\QueryType\OptionsResolverBasedQueryType` |
+| Schema builder subscriber | Event subscriber for `Ibexa\Contracts\DoctrineSchema\Event\SchemaBuilderEvent::BUILD_SCHEMA` event |
+| SiteAccess-aware configuration | SiteAccess-aware configuration definition class based on `Ibexa\Bundle\Core\DependencyInjection\Configuration\AbstractParser` |
+| Value object input parser | REST input parser class based on `Ibexa\Rest\Input\BaseParser` |
+| Value object visitor | REST value visitor class based on `Ibexa\Contracts\Rest\Output\ValueObjectVisitor` |
+| Workflow action listener | Workflow action listener class based on `Ibexa\Contracts\Workflow\Event\Action\AbstractTransitionWorkflowActionListener` |
 
 The templates are available in, for example, the context menu in **Project window** > **New** > **Ibexa DXP**.
 
@@ -207,25 +207,25 @@ To enable autocompletion, you must place the file in the `config` directory and 
 
 ### Dynamic settings autocompletion
 
-Parameter names suggestions are available in `\eZ\Publish\Core\MVC\ConfigResolverInterface::{hasParameter,getParameter}` method calls.
+Parameter names suggestions are available in `Ibexa\Core\MVC\ConfigResolverInterface::{hasParameter,getParameter}` method calls.
 
 Suggested results take into account namespace argument, if its value can be resolved without running interpreter
 (for example, string literal or const reference).
 
 ### Query type name autocompletion
 
-Query type name suggestions are available in `\eZ\Publish\Core\QueryType\QueryTypeRegistry::getQueryType` method calls.
+Query type name suggestions are available in `Ibexa\Core\QueryType\QueryTypeRegistry::getQueryType` method calls.
 
 Suggestions are based on service definitions tagged as `ezplatform.query_type`.
 
 ### Query type parameter autocompletion
 
-Parameter name suggestions are available for Query types which implement the `eZ\Publish\Core\QueryType\QueryType` interface
-or extend the `eZ\Publish\Core\QueryType\OptionsResolverBasedQueryType` class in the following places:
+Parameter name suggestions are available for Query types which implement the `Ibexa\Core\QueryType\QueryType` interface
+or extend the `Ibexa\Core\QueryType\OptionsResolverBasedQueryType` class in the following places:
 
-* `\eZ\Publish\Core\QueryType\QueryType::getQuery` method calls
-* `\eZ\Publish\Core\QueryType\QueryType::getQuery` method definition
-* `\eZ\Publish\Core\QueryType\OptionsResolverBasedQueryType::doGetQuery` method definition 
+* `Ibexa\Core\QueryType\QueryType::getQuery` method calls
+* `Ibexa\Core\QueryType\QueryType::getQuery` method definition
+* `Ibexa\Core\QueryType\OptionsResolverBasedQueryType::doGetQuery` method definition 
 
 ![Query Type parameter autocompletion](img/phpstorm_plugin_query_type_params.png)
 

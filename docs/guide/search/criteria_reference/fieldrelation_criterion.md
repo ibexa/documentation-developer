@@ -1,6 +1,6 @@
 # FieldRelation Criterion
 
-The [`FieldRelation` Search Criterion](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Query/Criterion/FieldRelation.php)
+The [`FieldRelation` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/FieldRelation.php)
 searches for content based on the Content items it has Relations to.
 
 ## Arguments

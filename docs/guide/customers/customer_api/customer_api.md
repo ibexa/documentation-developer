@@ -13,7 +13,7 @@ $customer = $this->get('silver_customer.customer_service')->getCurrentCustomer()
 $customerNumber = $customer->getCustomerNumber();
 $email = $customer->getEmail();
  
-/** @var $deliveryAddresses \Silversolutions\Bundle\EshopBundle\Entities\Messages\Document\Party */
+/** @var $deliveryAddresses \Ibexa\Bundle\Commerce\Eshop\Entities\Messages\Document\Party */
 $deliveryAddresses = $customer->getDeliveryAddresses();
  
 ```

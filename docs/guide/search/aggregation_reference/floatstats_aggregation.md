@@ -1,6 +1,6 @@
 # FloatStatsAggregation
 
-The Field-based [FloatStatsAggregation](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Query/Aggregation/Field/FloatStatsAggregation.php) aggregates search results by the value of the Float Field
+The Field-based [FloatStatsAggregation](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Aggregation/Field/FloatStatsAggregation.php) aggregates search results by the value of the Float Field
 and provides statistical information for the values including:
 
 - sum

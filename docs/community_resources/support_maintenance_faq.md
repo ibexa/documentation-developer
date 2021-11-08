@@ -9,10 +9,10 @@ When reporting a problem to Customer Support the most important information is t
 The best way to specify it is to provide the list of currently installed packages by running:
 
 ``` bash
-composer show ezsystems/*
+composer show ibexa/*
 ```
 
-Besides that, all the configuration from the `app/config` directory may be helpful.
+Besides that, all the configuration from the `config` directory may be helpful.
 
 You should also list the steps to reproduce the issue,
 or at least provide a clear description of the circumstances under which the problem occurred.

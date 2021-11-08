@@ -2,8 +2,8 @@
 
 namespace App\FormBuilder\Field\Mapper;
 
-use EzSystems\EzPlatformFormBuilder\FieldType\Field\Mapper\GenericFieldMapper;
-use EzSystems\EzPlatformFormBuilder\FieldType\Model\Field;
+use Ibexa\FormBuilder\FieldType\Field\Mapper\GenericFieldMapper;
+use Ibexa\Contracts\FormBuilder\FieldType\Model\Field;
 
 class CountryFieldMapper extends GenericFieldMapper
 

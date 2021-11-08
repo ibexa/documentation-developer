@@ -1,20 +1,20 @@
 # Type and Value classes
 
 A Field Type must contain a Type class which contains the logic of the Field Type: validating data, transforming from various formats, describing the validators, etc.
-A Type class must implement `eZ\Publish\SPI\FieldType\FieldType` ("Field Type interface").
-All native Field Types also extend the `eZ\Publish\SPI\FieldType\FieldType` abstract class that implements this interface and provides implementation facilities through a set of abstract methods of its own.
+A Type class must implement `Ibexa\Core\FieldType\FieldType` ("Field Type interface").
+All native Field Types also extend the `Ibexa\Core\FieldType\FieldType` abstract class that implements this interface and provides implementation facilities through a set of abstract methods of its own.
 
 You should also provide a Value object class for storing the custom Field value provided by the Field Type.
 The Value is used to represent an instance of the Field Type within a Content item.
 Each Field will present its data using an instance of the Type's Value class.
-A Value class must implement the `eZ\Publish\SPI\FieldType\Value` interface.
-It may also extend the `eZ\Publish\Core\FieldType\Value` abstract class.
+A Value class must implement the `Ibexa\Contracts\Core\FieldType` interface.
+It may also extend the `Ibexa\Core\FieldType\Value` abstract class.
 It is meant to be stateless and as lightweight as possible.
 This class must contain as little logic as possible, because the logic is handled by the Type class.
 
 ## Type class
 
-The Type class of a Field Type provides an implementation of the [`eZ\Publish\SPI\FieldType\FieldType`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/SPI/FieldType/FieldType.php) interface.
+The Type class of a Field Type provides an implementation of the [`Ibexa\Contracts\Core\FieldType\FieldType`](https://github.com/ibexa/core/blob/main/src/contracts/FieldType/FieldType.php) interface.
 
 ### Field Definition handling
 
@@ -53,12 +53,12 @@ This will also apply to all user interfaces and the REST API, which therefore mu
 
 ### Field Type name
 
-The content item name is retrieved by the `eZ\Publish\SPI\FieldType\FieldType::getName` method which must be implemented.
+The content item name is retrieved by the `Ibexa\Core\FieldType\FieldType::getName` method which must be implemented.
 To generate Content item name or URL alias the Field Type name must be a part of a name schema or a URL schema.
 
 ## Value handling
 
-A Field Type needs to deal with the custom value format provided by it. In order for the public API to work properly, it delegates working with such custom Field values to the corresponding Field Type. The `ez\Publish\SPI\FieldType\FieldType` interface therefore provides the following methods:
+A Field Type needs to deal with the custom value format provided by it. In order for the public API to work properly, it delegates working with such custom Field values to the corresponding Field Type. The `Ibexa\Core\FieldType\FieldType` interface therefore provides the following methods:
 
 #### `acceptValue()`
 
@@ -105,7 +105,7 @@ If you are using Solr Bundle, each Field Type must be registered in `config/serv
 
 ``` yaml
 services:
-    EzSystems\EzPlatformMatrixFieldtype\FieldType\Type:
+    Ibexa\FieldTypeMatrix\FieldType\Type:
         parent: ezpublish.fieldType
         tags:
             - {name: ezplatform.field_type, alias: ezmatrix}
@@ -115,7 +115,7 @@ Items that are not to be indexed should be registered with the `unindexed` class
 
 ```yaml
 services:
-    EzSystems\EzPlatformMatrixFieldtype\FieldType\Type:
+    Ibexa\FieldTypeMatrix\FieldType\Type:
         class: %ezpublish.fieldType.indexable.unindexed.class%
         tags:
             - {name: ezplatform.field_type, alias: ezmatrix}
@@ -138,11 +138,11 @@ This ensures that the initialization steps shared by all Field Types are execute
 
 !!! tip
 
-    The configuration of built-in Field Types is located in [`EzPublishCoreBundle/Resources/config/fieldtypes.yaml`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/settings/fieldtypes.yml).
+    The configuration of built-in Field Types is located in [`core/src/lib/Resources/settings/fieldtypes.yml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/fieldtypes.yml).
 
 ## Field Type settings
 
-It is recommended to use a simple associative array format for the settings schema returned by `eZ\Publish\SPI\FieldType\FieldType::getSettingsSchema()`, which follows these rules:
+It is recommended to use a simple associative array format for the settings schema returned by `Ibexa\Contracts\Core\FieldType\FieldType::getSettingsSchema()`, which follows these rules:
 
 - The key of the associative array identifies a setting (e.g. `default`)
 - Its value is an associative array describing the setting using:
@@ -168,7 +168,7 @@ The settings are mapped into Symfony forms via the [FormMapper](field_type_form_
 
 ## Extensibility points
 
-Some Field Types will require additional processing, for example a Field Type storing a binary file, or one having more complex settings or validator configuration. For this purpose specific implementations of an abstract class `EzSystems\EzPlatformRest\FieldTypeProcessor` are used.
+Some Field Types will require additional processing, for example a Field Type storing a binary file, or one having more complex settings or validator configuration. For this purpose specific implementations of an abstract class `Ibexa\Contracts\Rest\FieldTypeProcessor` are used.
 
 This class provides the following methods:
 

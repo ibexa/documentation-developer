@@ -1,18 +1,8 @@
 # Solr search engine
 
-[ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine) aims to be a transparent drop-in replacement for the SQL-based Legacy search engine powering [[= product_name =]] Search API by default. When you enable Solr and re-index your content, all your existing Search queries using `SearchService` will be powered by Solr automatically. This allows you to scale up your [[= product_name =]] installation and be able to continue development locally against SQL engine, and have a test infrastructure, Staging and Prod powered by Solr. This removes considerable load from your database. See [further information on the architecture of [[= product_name =]]](../architecture.md).
+[ibexa/solr-search-engine](https://github.com/ibexa/solr-search-engine) aims to be a transparent drop-in replacement for the SQL-based Legacy search engine powering [[= product_name =]] Search API by default. When you enable Solr and re-index your content, all your existing Search queries using `SearchService` will be powered by Solr automatically. This allows you to scale up your [[= product_name =]] installation and be able to continue development locally against SQL engine, and have a test infrastructure, Staging and Prod powered by Solr. This removes considerable load from your database. See [further information on the architecture of [[= product_name =]]](../architecture.md).
 
 ## How to set up Solr search engine
-
-!!! note "Installing the bundle"
-
-    If you have previously removed the bundle, add/update composer dependencies:
-    ``` bash
-    composer require --no-update ezsystems/ezplatform-solr-search-engine:~3.0
-    composer update
-    ```
-
-    Symfony Flex will enable the bundle for you when installing the package.
 
 ### Step 1: Configuring and starting Solr
 
@@ -86,7 +76,7 @@ It can be used for deploying to Ibexa Cloud (Platform.sh) and on-premise install
 Execute the script from the [[= product_name =]] root directory for further information:
 
 ``` bash
-./vendor/ezsystems/ezplatform-solr-search-engine/bin/generate-solr-config.sh --help
+./vendor/ibexa/solr-search-engine/bin/generate-solr-config.sh --help
 ```
 
 ### Step 2: Configuring the bundle
@@ -367,7 +357,7 @@ The configuration above will result in the following boosting (Content Type / Fi
                         - folder/description
     ```
 
-    The second step requires you to use `\Novactive\EzSolrSearchExtra\Query\Content\Criterion\MultipleFieldsFullText` instead of default `\eZ\Publish\API\Repository\Values\Content\Query\Criterion\FullText`.
+    The second step requires you to use `\Novactive\EzSolrSearchExtra\Query\Content\Criterion\MultipleFieldsFullText` instead of default `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\FullText`.
     The following example shows custom query which benefits from the custom fields created in the previous example.
 
     ```php
@@ -375,15 +365,15 @@ The configuration above will result in the following boosting (Content Type / Fi
 
     namespace App\Controller;
 
-    use eZ\Publish\API\Repository\SearchService;
-    use eZ\Publish\API\Repository\Values\Content\Query;
+    use Ibexa\Contracts\Core\Repository\SearchService;
+    use Ibexa\Contracts\Core\Repository\Values\Content\Query;
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\Response;
 
     class SearchController
     {
         /**
-         * @var \eZ\Publish\API\Repository\SearchService
+         * @var \Ibexa\Contracts\Core\Repository\SearchService
          */
         private $searchService;
 

@@ -3,7 +3,7 @@
 ## Locations
 
 You can manage [Locations](../guide/content_management.md#locations) that hold content
-using [`LocationService`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php)
+using [`LocationService`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php)
 
 ### Adding a new Location to a Content item
 
@@ -15,8 +15,8 @@ Creating a new Location, like creating content, requires using a struct,
 because a Location value object is read-only.
 
 To add a new Location to existing content you need to create
-a [`LocationCreateStruct`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/LocationCreateStruct.php)
-and pass it to the [`LocationService::createLocation`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L140) method:
+a [`LocationCreateStruct`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/LocationCreateStruct.php)
+and pass it to the [`LocationService::createLocation`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php#L141) method:
 
 ``` php
 $locationCreateStruct = $this->locationService->newLocationCreateStruct($parentLocationId);
@@ -37,8 +37,8 @@ $locationCreateStruct->hidden = true;
 ### Changing the main Location
 
 When a Content item has more that one Location, one Location is always considered the main one.
-You can change the main Location using [`ContentService`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php),
-by updating the `ContentInfo` with a [`ContentUpdateStruct`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentUpdateStruct.php)
+You can change the main Location using [`ContentService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php),
+by updating the `ContentInfo` with a [`ContentUpdateStruct`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentUpdateStruct.php)
 that sets the new main Location:
 
 ``` php
@@ -51,8 +51,8 @@ $this->contentService->updateContentMetadata($contentInfo, $contentUpdateStruct)
 ### Hiding and revealing Locations
 
 To hide or reveal (unhide) a Location you need to make use of
-[`LocationService::hideLocation`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L174)
-or [`LocationService::unhideLocation`:](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L188)
+[`LocationService::hideLocation`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php#L175)
+or [`LocationService::unhideLocation`:](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php#L189)
 
 ``` php
 $hiddenLocation = $locationService->hideLocation($location);
@@ -66,7 +66,7 @@ on the behavior of visible and hidden Locations.
 
 You can remove a Location either by deleting it, or sending it to Trash.
 
-Deleting makes use of [`LocationService::deleteLocation()`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L212)
+Deleting makes use of [`LocationService::deleteLocation()`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php#L215)
 It permanently deletes the Location, together with its whole subtree.
 
 Content which has only this one Location will be permanently deleted as well.
@@ -79,7 +79,7 @@ $this->locationService->deleteLocation($location);
 ```
 
 To send the Location and its subtree to Trash,
-use [`TrashService::trash`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/TrashService.php#L49)
+use [`TrashService::trash`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/TrashService.php#L49)
 Items in Trash can be later [restored, or deleted permanently](#trash).
 
 ``` php
@@ -88,7 +88,7 @@ $this->trashService->trash($location);
 
 ### Moving and copying a subtree
 
-You can move a Location with its whole subtree using [`LocationService::moveSubtree`:](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L203)
+You can move a Location with its whole subtree using [`LocationService::moveSubtree`:](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php#L206)
 
 ``` php
 $sourceLocation = $this->locationService->loadLocation($sourceLocationId);
@@ -96,7 +96,7 @@ $targetLocation = $this->locationService->loadLocation($targetLocationId);
 $this->locationService->moveSubtree($sourceLocation, $targetLocation);
 ```
 
-[`LocationService::copySubtree`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L37) is used in the same way,
+[`LocationService::copySubtree`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php#L38) is used in the same way,
 but it copies the Location and its subtree instead of moving it.
 
 !!! tip
@@ -111,10 +111,10 @@ but it copies the Location and its subtree instead of moving it.
 
 ## Trash
 
-To empty the Trash (remove all Locations in Trash), use [`TrashService::emptyTrash`,](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/TrashService.php#L75)
+To empty the Trash (remove all Locations in Trash), use [`TrashService::emptyTrash`,](https://github.com/ibexa/core/blob/main/src/contracts/Repository/TrashService.php#L75)
 which takes no arguments.
 
-You can recover an item from Trash using [`TrashService::recover`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/TrashService.php#L63)
+You can recover an item from Trash using [`TrashService::recover`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/TrashService.php#L63)
 You must provide the method with the ID of the object in Trash.
 Trash Location is identical to the origin Location of the object.
 
@@ -137,10 +137,10 @@ For more information, see [Searching in trash](public_php_api_search.md#searchin
 
 ### Creating Content Types
 
-To operate on Content Types, you need to make use of [`ContentTypeService`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentTypeService.php)
+To operate on Content Types, you need to make use of [`ContentTypeService`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentTypeService.php)
 
 Creating a new Content Type, like creating content, must happen with the use of a struct, because a Content Type value object is read-only.
-In this case you use [`ContentTypeCreateStruct`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/ContentType/ContentTypeCreateStruct.php)
+In this case you use [`ContentTypeCreateStruct`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/ContentType/ContentTypeCreateStruct.php)
 
 A Content Type must have at least one name, in the main language, and at least one Field definition.
 
@@ -183,7 +183,7 @@ $contentTypeCreateStruct->addFieldDefinition($titleFieldCreateStruct);
 
 ### Copying Content Types
 
-To copy a Content Type, use [`ContentTypeService::copyContentType`:](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentTypeService.php#L241)
+To copy a Content Type, use [`ContentTypeService::copyContentType`:](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentTypeService.php#L241)
 
 ``` php
 $copy = $this->contentTypeService->copyContentType($contentType);
@@ -192,7 +192,7 @@ $copy = $this->contentTypeService->copyContentType($contentType);
 The copy will automatically be given an identifier based on the original Content Type identifier
 and the copy's ID, for example: `copy_of_folder_21`.
 
-To change the identifier of the copy, use a [`ContentTypeUpdateStruct`:](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/ContentType/ContentTypeUpdateStruct.php)
+To change the identifier of the copy, use a [`ContentTypeUpdateStruct`:](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/ContentType/ContentTypeUpdateStruct.php)
 
 ``` php
 $copyDraft = $this->contentTypeService->createContentTypeDraft($copiedContentType);
@@ -204,7 +204,7 @@ $this->contentTypeService->publishContentTypeDraft($copyDraft);
 
 ## Calendar events
 
-You can handle the calendar using `CalendarServiceInterface` (`EzSystems\EzPlatformCalendar\Calendar\CalendarServiceInterface`).
+You can handle the calendar using `CalendarServiceInterface` (`Ibexa\Contracts\Calendar\CalendarServiceInterface`).
 
 ### Getting events
 
@@ -225,7 +225,7 @@ foreach ($eventList as $event) {
 }
 ```
 
-You can also get the first and last event in the list by using the `first()` and `last()` methods of an `EventCollection` (`EzSystems\EzPlatformCalendar\Calendar\EventCollection`) respectively:
+You can also get the first and last event in the list by using the `first()` and `last()` methods of an `EventCollection` (`Ibexa\Contracts\Calendar\EventCollection`) respectively:
 
 ``` php
 $eventCollection = $eventList->getEvents();
@@ -245,7 +245,7 @@ foreach ($newCollection as $event) {
 ### Performing calendar actions
 
 You can perform a calendar action (e.g. reschedule or unschedule calendar events) using the `CalendarServiceInterface::executeAction()` method.
-You must pass an `EzSystems\EzPlatformCalendar\Calendar\EventAction\EventActionContext` instance as argument.
+You must pass an `Ibexa\Contracts\Calendar\EventAction\EventActionContext` instance as argument.
 `EventActionContext` defines events on which the action is performed, as well as action-specific parameters e.g. a new date:
 
 ``` php

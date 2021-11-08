@@ -37,8 +37,8 @@ For example:
 ``` php
 namespace App\Security;
 
-use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\ConfigBuilderInterface;
-use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Security\PolicyProvider\PolicyProviderInterface;
+use Ibexa\Bundle\Core\DependencyInjection\Configuration\ConfigBuilderInterface;
+use Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\PolicyProviderInterface;
 
 class MyPolicyProvider implements PolicyProviderInterface
 {
@@ -64,7 +64,7 @@ Extend `YamlPolicyProvider` and implement `getFiles()` to return absolute paths 
 ``` php
 namespace App\Security;
 
-use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider;
+use Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider;
 
 class MyPolicyProvider extends YamlPolicyProvider
 {
@@ -121,7 +121,7 @@ class Kernel extends BaseKernel
 
 ## Integrating custom Limitation types with the UI
 
-To provide support for editing custom policies in the Back Office, you need to implement [`EzSystems\EzPlatformAdminUi\Limitation\LimitationFormMapperInterface`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Limitation/LimitationFormMapperInterface.php).
+To provide support for editing custom policies in the Back Office, you need to implement [`Ibexa\AdminUi\Limitation\LimitationFormMapperInterface`](https://github.com/ibexa/admin-ui/blob/main/src/lib/Limitation/LimitationFormMapperInterface.php).
 
 Next, register the service with the `ez.limitation.formMapper` tag and set the `limitationType` attribute to the Limitation type's identifier:
 
@@ -133,7 +133,7 @@ App\Security\Limitation\Mapper\CustomLimitationFormMapper:
         - { name: 'ez.limitation.formMapper', limitationType: 'Custom' }
 ```
 
-If you want to provide human-readable names of the custom Limitation values, you need to implement [`EzSystems\EzPlatformAdminUi\Limitation\LimitationValueMapperInterface`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Limitation/LimitationValueMapperInterface.php).
+If you want to provide human-readable names of the custom Limitation values, you need to implement [`Ibexa\AdminUi\Limitation\LimitationValueMapperInterface`](https://github.com/ibexa/admin-ui/blob/main/src/lib/Limitation/LimitationValueMapperInterface.php).
 
 Then register the service with the `ez.limitation.valueMapper` tag and set the `limitationType` attribute to Limitation type's identifier:
 
@@ -169,7 +169,7 @@ ezplatform:
 
 !!! note
 
-    If you skip this part, Limitation values will be rendered using an [`ez_limitation_value_fallback`](https://github.com/ezsystems/repository-forms/blob/master/bundle/Resources/views/limitation_values.html.twig#L1-L6) block as comma-separated list.
+    If you skip this part, Limitation values will be rendered using an [`ez_limitation_value_fallback`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig#L1-L6) block as comma-separated list.
 
 You can also provide translation of the Limitation type identifier by adding an entry to the translation file under the `ezrepoforms_policies` domain.
 The key must follow the naming convention: `policy.limitation.identifier.<LIMITATION TYPE>`.

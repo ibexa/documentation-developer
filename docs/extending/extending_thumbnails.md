@@ -44,9 +44,9 @@ declare(strict_types=1);
 ​
 namespace App\Strategy;
 ​
-use eZ\Publish\API\Repository\Values\Content\Thumbnail;
-use eZ\Publish\API\Repository\Values\ContentType\ContentType;
-use eZ\Publish\SPI\Repository\Strategy\ContentThumbnail\ThumbnailStrategy;
+use Ibexa\Contracts\Core\Repository\Values\Content\Thumbnail;
+use Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType;
+use Ibexa\Contracts\Core\Repository\Strategy\ContentThumbnail\ThumbnailStrategy;
 ​
 final class StaticStrategy implements ThumbnailStrategy
 {
@@ -103,9 +103,9 @@ declare(strict_types=1);
 ​
 namespace App\Thumbnails;
 ​
-use eZ\Publish\API\Repository\Values\Content\Field;
-use eZ\Publish\API\Repository\Values\Content\Thumbnail;
-use eZ\Publish\SPI\Repository\Strategy\ContentThumbnail\Field\FieldTypeBasedThumbnailStrategy;
+use Ibexa\Contracts\Core\Repository\Values\Content\Field;
+use Ibexa\Contracts\Core\Repository\Values\Content\Thumbnail;
+use Ibexa\Contracts\Core\Repository\Strategy\ContentThumbnail\Field\FieldTypeBasedThumbnailStrategy;
 ​
 class FieldValueUrl implements FieldTypeBasedThumbnailStrategy
 {

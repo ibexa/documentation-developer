@@ -17,8 +17,8 @@ A token contains:
 - a service and method that are called if a customer uses the link with the token
 
 ``` php
-use Silversolutions\Bundle\ToolsBundle\Entity\Token;
-use Silversolutions\Bundle\ToolsBundle\Services\TokenService;
+use Ibexa\Bundle\Commerce\ShopTools\Entity\Token;
+use Ibexa\Bundle\Commerce\ShopTools\Services\TokenService;
 
 $newsletterTokenData = new NewsletterTokenData();
 $newsletterTokenData->setParams($newsletterParams);

@@ -74,7 +74,7 @@ For a generic mapper, add a new service definition to `config/services.yaml`:
 
 ``` yaml
 my_application.block.attribute.my_string:
-    class: EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Attribute\FormTypeMapper\GenericFormTypeMapper
+    class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\GenericFormTypeMapper
     arguments:
         $formTypeClass: App\Block\Attribute\MyStringAttributeType
     tags:
@@ -83,7 +83,7 @@ my_application.block.attribute.my_string:
 
 #### Custom mapper
 
-To use a custom mapper, create a class that inherits from `EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Attribute\FormTypeMapper\AttributeFormTypeMapperInterface`,
+To use a custom mapper, create a class that inherits from `Ibexa\Contracts\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\AttributeFormTypeMapperInterface`,
 for example in `src/Block/Attribute/MyStringAttributeMapper.php`:
 
 ``` php
