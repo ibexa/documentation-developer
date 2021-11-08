@@ -460,7 +460,7 @@ Some notes about each of these parameters:
 - You may also provide the session cookie (`--cookie ".....=....") for a logged-in-user if you are interested in
   the x-user-context-hash for a different user but anonymous
 
-The output for the given command should look similar to this:
+The output for this command should look similar to this:
 ```
     HTTP/1.1 200 OK
     Server: nginx/1.20.0
