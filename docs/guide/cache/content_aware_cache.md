@@ -258,7 +258,7 @@ All event subscribers can be found in `ezplatform-http-cache/src/EventSubscriber
 
 ### Understanding when the different tags are purged
 
-#### Tags that are purged during a publish event.
+#### Tags purged during a publish event
 
 Below is an example of a Content structure. The tags which the content view controller adds to each location are
 also listed
@@ -586,9 +586,9 @@ X-Cache-Debug: 1
 Surrogate-Key: ez-all
 ```
 
-As you can see, the `Cache-Control` and `Vary` headers looks all good. The request is as mentioned handled by a custom
-controller and the `Surrogate-Key` only contains the default `ez-all` value. That is not a problem as long as the controller
-doesn't return values from any Content in the [[= product_name =]] Repository. If it does, the controller should also add
+The `Cache-Control` and `Vary` headers look correct. The request is handled by a custom controller and the `Surrogate-Key` only contains the default `ez-all` value. 
+This is not a problem as long as the controller
+does not return values from any Content in the [[= product_name =]] Repository. If it does, the controller should also add
 the corresponding IDs to such objects in that header.
 
 The `Set-Cookie` here may cause the problem. A ESI fragment should never set a cookie because:
