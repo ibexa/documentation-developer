@@ -477,10 +477,10 @@ The output for this command should look similar to this:
     Surrogate-Key: ez-user-context-hash ez-all fos_http_cache_hashlookup-
 ```
 
-The header `X-User-Hash` is the one we are interested in here, but you may also note the `Surrogate-Key` which
+The header `X-User-Hash` is the one of the interest here, but you may also note the `Surrogate-Key` which
 holds the [cache tags](#understanding-cache-tags).
 
-### Fetching the HTML response
+### Fetch the HTML response
 
 Now that we have the user-context-hash, we can ask origin for the actual resource we are after:
 
@@ -520,7 +520,7 @@ not only headers) to curl and search for esi:
     $ curl --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" https://www.staging.foobar.com.us-2.platformsh.site/ | grep esi
 ```
 
-Output is :
+The output is :
 
 ```HTML
     <esi:include src="/_fragment?_hash=B%2BLUWB2kxTCc6nc5aEEn0eEqBSFar%2Br6jNm8fvSKdWU%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D11%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CEzPlatformPageFieldTypeBundle%255CController%255CBlockController%253A%253ArenderAction" />
@@ -528,8 +528,8 @@ Output is :
     <esi:include src="/_fragment?_hash=lnKTnmv6bb1XpaMPWRjV3sNazbn9rDXskhjGae1BDw8%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D13%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CCustomBundle%255CController%255CFooController%253A%253AcustomAction" />
 ```
 
-Now we must investigate the response of each of these ESI fragments to understand what is going on. It is important to
-now put that URL in single quotes since the URLS to the ESIs include special characters that can be interpreted by the
+Now, investigate the response of each of these ESI fragments to understand what is going on. It is important to
+put that URL in single quotes as the URLS to the ESIs include special characters that can be interpreted by the
 shell.
 
 #### 1st ESI
@@ -538,9 +538,9 @@ shell.
     $ curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" 'https://www.staging.foobar.com.us-2.platformsh.site/_fragment?_hash=B%2BLUWB2kxTCc6nc5aEEn0eEqBSFar%2Br6jNm8fvSKdWU%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D11%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CEzPlatformPageFieldTypeBundle%255CController%255CBlockController%253A%253ArenderAction'
 ```
 
-We can also note that this esi is handled by a controller in the `EzPlatformPageFieldTypeBundle` bundle provided by [[= product_name =]]
+You can also note that this ESI is handled by a controller in the `EzPlatformPageFieldTypeBundle` bundle provided by [[= product_name =]].
 
-Output:
+The output is:
 
 ```
 HTTP/1.1 200 OK
@@ -557,8 +557,8 @@ X-Cache-Debug: 1
 Surrogate-Key: ez-all c52 l2
 ```
 
-The headers here looks Okay and nothing indicates that this ESI won't be cached by the HTTP-Cache
-The second ESI gives a similar response so we'll jump right down to the 3rd ESI
+The headers here look correct and do not indicate that this ESI will not be cached by the HTTP cache
+The second ESI has a similar response.
 
 #### 3rd ESI
 
@@ -591,16 +591,18 @@ controller and the `Surrogate-Key` only contains the default `ez-all` value. Tha
 doesn't return values from any Content in the [[= product_name =]] Repository. If it does, the controller should also add
 the corresponding IDs to such objects in that header.
 
-The big problem here is however the `Set-Cookie`. A ESI fragment should never set a cookie because:
-- Clients will only receive the headers set in the "mother" document (the headers in the "/" response in this case)
-- Only the content of ESIs responses will be returned to the client. *No headers set in the ESI response will ever reach
-  the client*. ESI headers are only seen by the HTTP Cache
-- Symfony reverse proxy doesn't support ESIs at all, and any ESI calls (`render_esi()`) will implicitly be replaced by
-  sub-requests (`render()`). So any `Set-Cookie` *will* be sent to the client when using Symgony reverse proxy.
-- Fastly will flag that resource as "not cachable" since it did set a cookie at least once. Even though that endpoint
-  stops setting cookies, Fastly will still not cache that fragment. Any document referencing that ESI will be a `MISS`.
-  Fastly cache needs to be purged (`Purge-all` request) in order to remove this flag
-- This means that it is a bad idea to always initiate a session when loading the front-page
+The `Set-Cookie` here may cause the problem. A ESI fragment should never set a cookie because:
+- Clients will only receive the headers set in the "mother" document (the headers in the "/" response in this case).
 
-Therefore, you must ensure yourself that you do not unintendedly starts a session in a controller used by ESIs by for
-instance trying to access as session variable before a session has been initiated yet.
+- Only the content of ESIs responses will be returned to the client. **No headers set in the ESI response will ever reach the client**. ESI headers are only seen by the HTTP cache.
+  
+- Symfony reverse proxy does not support ESIs at all, and any ESI calls (`render_esi()`) will implicitly be replaced by
+  sub-requests (`render()`). So any `Set-Cookie` **will** be sent to the client when using Symfony reverse proxy.
+  
+- Fastly will flag it resource as "not cachable" because it set a cookie at least once. Even though that endpoint.
+  stops setting cookies, Fastly will still not cache that fragment. Any document referring to that ESI will be a `MISS`.
+  Fastly cache needs to be purged (`Purge-all` request) in order to remove this flag.
+  
+- It means that it is not recommended to always initiate a session when loading the front page.
+
+You must ensure that you do not unintendedly start a session in a controller used by ESIs, for example, when trying to access as session variable before a session has been initiated yet.
