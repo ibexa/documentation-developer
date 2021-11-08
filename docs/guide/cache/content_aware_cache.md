@@ -43,6 +43,7 @@ Current content tags (and when the system purges on them):
 
 The content tags are returned in a header in the responses from [[= product_name =]]. The header name is dependent on
 which HTTP Cache [[= product_name =]] is configured with:
+
 - Symfony Reverse proxy : `X-Cache-Tags`
 - Varnish : `xkey`
 - Fastly : `Surrogate-Key`
