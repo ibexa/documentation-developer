@@ -460,22 +460,8 @@ Some notes about each of these parameters:
 - You may also provide the session cookie (`--cookie ".....=....") for a logged-in-user if you are interested in
   the x-user-context-hash for a different user but anonymous
 
-The output for the given command should look similar to this:
-```
-    HTTP/1.1 200 OK
-    Server: nginx/1.20.0
-    Content-Type: application/vnd.fos.user-context-hash
-    Transfer-Encoding: chunked
-    Connection: keep-alive
-    X-User-Hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814
-    Cache-Control: max-age=600, public
-    Date: Tue, 31 Aug 2021 13:35:00 GMT
-    Vary: Origin
-    Vary: cookie
-    Vary: authorization
-    X-Cache-Debug: 1
-    Surrogate-Key: ez-user-context-hash ez-all fos_http_cache_hashlookup-
-```
+The output for this command should look similar to this:
+
 
 The header `X-User-Hash` is the one we are interested in here, but you may also note the `Surrogate-Key` which
 holds the [cache tags](#understanding-cache-tags).
