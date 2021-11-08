@@ -134,7 +134,7 @@ Available tags for Sort Clause handlers in Legacy Storage Engine are:
 
 !!! note
 
-    You will find all the native handlers and the tags for the Legacy Storage Engine in files located in `eZ/Publish/Core/settings/storage_engines/legacy/`.
+    You will find all the native handlers and the tags for the Legacy Storage Engine in files located in `core/src/lib/Resources/settings/storage_engines/`.
 
 !!! tip
 
@@ -248,4 +248,4 @@ For further info on possible options, see `php bin/console ibexa:reindex --help`
 
 ## Search view
 
-You can extend the search view by overwriting or extending `Ibexa\Platform\Search\View\SearchViewFilter` and `Ibexa\Platform\Search\View\SearchViewBuilder`.
+You can extend the search view by overwriting or extending `Ibexa\Search\View\SearchViewFilter` and `Ibexa\Search\View\SearchViewBuilder`.

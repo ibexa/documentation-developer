@@ -7,8 +7,8 @@ Besides what is indexed automatically, you can add additional data to the Elasti
 
 To do so, subscribe to one of the following events:
 
-- `Ibexa\Platform\Contracts\ElasticSearchEngine\Mapping\Event\ContentIndexCreateEvent`
-- `Ibexa\Platform\Contracts\ElasticSearchEngine\Mapping\Event\LocationIndexCreateEvent`
+- `Ibexa\Contracts\ElasticSearchEngine\Mapping\Event\ContentIndexCreateEvent`
+- `Ibexa\Contracts\ElasticSearchEngine\Mapping\Event\LocationIndexCreateEvent`
 
 These events are called when the index is created for the content and Location documents, respectively.
 
@@ -26,8 +26,8 @@ namespace App\EventSubscriber;
 
 use Ibexa\Contracts\Core\Search\Field;
 use Ibexa\Contracts\Core\Search\FieldType\StringField;
-use Ibexa\Platform\Contracts\ElasticSearchEngine\Mapping\Event\ContentIndexCreateEvent;
-use Ibexa\Platform\Contracts\ElasticSearchEngine\Mapping\Event\LocationIndexCreateEvent;
+use Ibexa\Contracts\ElasticSearchEngine\Mapping\Event\ContentIndexCreateEvent;
+use Ibexa\Contracts\ElasticSearchEngine\Mapping\Event\LocationIndexCreateEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final class CustomIndexDataSubscriber implements EventSubscriberInterface
@@ -74,7 +74,7 @@ services:
 ## Manipulating the query
 
 You can customize the search query before it is executed.
-To do it, subscribe to `Ibexa\Platform\Contracts\ElasticSearchEngine\Query\Event\QueryFilterEvent`.
+To do it, subscribe to `Ibexa\Contracts\ElasticSearchEngine\Query\Event\QueryFilterEvent`.
 
 The following example shows how to add an additional Search Criterion to all queries.
 
@@ -90,7 +90,7 @@ namespace App\EventSubscriber;
 
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\LogicalAnd;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\ObjectStateIdentifier;
-use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\Event\QueryFilterEvent;
+use Ibexa\Contracts\ElasticSearchEngine\Query\Event\QueryFilterEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final class CustomQueryFilterSubscriber implements EventSubscriberInterface
@@ -142,8 +142,8 @@ declare(strict_types=1);
 namespace App\Query\Criterion;
 
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\CriterionVisitor;
-use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\LanguageFilter;
+use Ibexa\Contracts\ElasticSearchEngine\Query\CriterionVisitor;
+use Ibexa\Contracts\ElasticSearchEngine\Query\LanguageFilter;
 
 final class CameraManufacturerVisitor implements CriterionVisitor
 {
@@ -230,8 +230,8 @@ namespace App\Query\SortClause;
 
 use Ibexa\Contracts\Core\Repository\Values\Content\Query;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
-use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\LanguageFilter;
-use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\SortClauseVisitor;
+use Ibexa\Contracts\ElasticSearchEngine\Query\LanguageFilter;
+use Ibexa\Contracts\ElasticSearchEngine\Query\SortClauseVisitor;
 
 final class ScoreVisitor implements SortClauseVisitor
 {
@@ -344,8 +344,8 @@ In the example below it is `RangeAggregationVisitor`:
 ``` yaml
 services:
     App\Query\Aggregation\Elasticsearch\PriorityAggregationVisitor:
-        class: Ibexa\Platform\ElasticSearchEngine\Query\AggregationVisitor\RangeAggregationVisitor
-        factory: ['@Ibexa\Platform\ElasticSearchEngine\Query\AggregationVisitor\Factory\SearchFieldAggregationVisitorFactory', 'createRangeAggregationVisitor']
+        class: Ibexa\ElasticSearchEngine\Query\AggregationVisitor\RangeAggregationVisitor
+        factory: ['@Ibexa\ElasticSearchEngine\Query\AggregationVisitor\Factory\SearchFieldAggregationVisitorFactory', 'createRangeAggregationVisitor']
         arguments:
             $aggregationClass: 'App\Query\Aggregation\PriorityRangeAggregation'
             $searchIndexFieldName: 'priority_i'
@@ -369,7 +369,7 @@ Tag the service with `ezplatform.search.elasticsearch.query.location.aggregation
 ``` yaml
 services:
     App\Query\Aggregation\Elasticsearch\PriorityAggregationResultExtractor:
-        class: Ibexa\Platform\ElasticSearchEngine\Query\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor
+        class: Ibexa\ElasticSearchEngine\Query\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor
         arguments:
             $aggregationClass: 'App\Query\Aggregation\PriorityRangeAggregation'
         tags:
@@ -378,19 +378,19 @@ services:
 
 If you are using a different type of aggregation than range, you can also use respective visitor and extractor classes:
 
-- `Ibexa\Platform\ElasticSearchEngine\Query\AggregationVisitor\RangeAggregationVisitor`
-- `Ibexa\Platform\ElasticSearchEngine\Query\AggregationVisitor\StatsAggregationVisitor`
-- `Ibexa\Platform\ElasticSearchEngine\Query\AggregationVisitor\TermAggregationVisitor`
+- `Ibexa\ElasticSearchEngine\Query\AggregationVisitor\RangeAggregationVisitor`
+- `Ibexa\ElasticSearchEngine\Query\AggregationVisitor\StatsAggregationVisitor`
+- `Ibexa\ElasticSearchEngine\Query\AggregationVisitor\TermAggregationVisitor`
 
-- `Ibexa\Platform\ElasticSearchEngine\Query\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor`
-- `Ibexa\Platform\ElasticSearchEngine\Query\ResultExtractor\AggregationResultExtractor\StatsAggregationResultExtractor`
-- `Ibexa\Platform\ElasticSearchEngine\Query\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor`
+- `Ibexa\ElasticSearchEngine\Query\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor`
+- `Ibexa\ElasticSearchEngine\Query\ResultExtractor\AggregationResultExtractor\StatsAggregationResultExtractor`
+- `Ibexa\ElasticSearchEngine\Query\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor`
 
 If you have a more complex use case, you need to create your own visitor and extractor.
 
 ### Custom aggregation visitor
 
-The aggregation visitor must implement `Ibexa\Platform\Contracts\ElasticSearchEngine\Query\AggregationVisitor`:
+The aggregation visitor must implement `Ibexa\Contracts\ElasticSearchEngine\Query\AggregationVisitor`:
 
 ``` php
 <?php
@@ -401,8 +401,8 @@ namespace App\Query\Aggregation\Elasticsearch;
 
 use App\Query\Aggregation\PriorityRangeAggregation;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
-use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\AggregationVisitor;
-use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\LanguageFilter;
+use Ibexa\Contracts\ElasticSearchEngine\Query\AggregationVisitor;
+use Ibexa\Contracts\ElasticSearchEngine\Query\LanguageFilter;
 
 final class PriorityAggregationVisitor implements AggregationVisitor
 {
@@ -457,7 +457,7 @@ The `visit()` method returns an array of results.
 
 ### Custom result extractor
 
-You also need to create a result extractor, implementing `Ibexa\Platform\Contracts\ElasticSearchEngine\Query\AggregationResultExtractor`,
+You also need to create a result extractor, implementing `Ibexa\Contracts\ElasticSearchEngine\Query\AggregationResultExtractor`,
 that transforms raw aggregation results from Elasticsearch into `AggregationResult` objects:
 
 ``` php
@@ -470,8 +470,8 @@ namespace App\Query\Aggregation\Elasticsearch;
 use App\Query\Aggregation\PriorityRangeAggregation;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
 use Ibexa\Contracts\Core\Repository\Values\Content\Search\AggregationResult;
-use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\AggregationResultExtractor;
-use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\LanguageFilter;
+use Ibexa\Contracts\ElasticSearchEngine\Query\AggregationResultExtractor;
+use Ibexa\Contracts\ElasticSearchEngine\Query\LanguageFilter;
 use stdClass;
 
 final class PriorityAggregationResultExtractor implements AggregationResultExtractor
@@ -582,8 +582,8 @@ declare(strict_types=1);
 namespace App\Query\FacetBuilder;
 
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder;
-use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\FacetBuilderVisitor;
-use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\LanguageFilter;
+use Ibexa\Contracts\ElasticSearchEngine\Query\FacetBuilderVisitor;
+use Ibexa\Contracts\ElasticSearchEngine\Query\LanguageFilter;
 
 /**
  * Example (simplified) visitor implementation for ContentTypeGroupFacetBuilder
@@ -618,7 +618,7 @@ namespace App\Query\FacetBuilder;
 use App\Query\Facet\ContentTypeGroupFacet;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder;
 use Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet;
-use Ibexa\Platform\Contracts\ElasticSearchEngine\Query\FacetResultExtractor;
+use Ibexa\Contracts\ElasticSearchEngine\Query\FacetResultExtractor;
 
 final class ContentTypeGroupFacetResultExtractor implements FacetResultExtractor
 {
