@@ -80,9 +80,9 @@ siso_core.default.info_email_after_user_activation: false
 
 | Path     | Description        |
 | -------- | ------------------ |
-| `EshopBundle/Resources/views/Forms/register_private.html.twig`  | Form for private customer registration |
-| `EshopBundle/Resources/views/Forms/register_business.html.twig` | Form for business customer registration  |
-| `EshopBundle/Resources/views/Forms/register_choice.html.twig`   | Overview page for registration, which offers buttons for the different registration types (and activation of existing customers) |
-| `EshopBundle/Resources/views/Forms/activate_business.html.twig` | Form for activating existing customers   |
-| `EshopBundle/Resources/views/Checkout/checkout_login.html.twig`   | Login form in checkout   |
-| `EshopBundle/Resources/views/Security/login.html.twig`   | Login form  |
+| `Eshop/Resources/views/Forms/register_private.html.twig`  | Form for private customer registration |
+| `Eshop/Resources/views/Forms/register_business.html.twig` | Form for business customer registration  |
+| `Eshop/Resources/views/Forms/register_choice.html.twig`   | Overview page for registration, which offers buttons for the different registration types (and activation of existing customers) |
+| `Eshop/Resources/views/Forms/activate_business.html.twig` | Form for activating existing customers   |
+| `Eshop/Resources/views/Checkout/checkout_login.html.twig`   | Login form in checkout   |
+| `Eshop/Resources/views/Security/login.html.twig`   | Login form  |

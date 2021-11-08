@@ -111,7 +111,7 @@ In the following example, `formTypeResolver` value is `private`.
 
 |Configuration key|Description|
 |--- |--- |
-|`modelClass`|Required. A fully-qualified class path to the form entity. This class must extend `Silversolutions\Bundle\EshopBundle\Entities\Forms\AbstractFormEntity`|
+|`modelClass`|Required. A fully-qualified class path to the form entity. This class must extend `Ibexa\Bundle\Commerce\Eshop\Entities\Forms\AbstractFormEntity`|
 |`typeClass`|Required if `typeService` is not defined. A fully-qualified class path to the form type. Using `typeService` gives more flexibility.|
 |`typeService` |Required if `typeClass` is not defined. ID of the form type service.|
 |`template`|Required. Template that renders the form.|

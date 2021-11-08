@@ -49,7 +49,7 @@ To display a list of recently viewed products, place the following code in a tem
 ```
 
 The controller is able to render a different template if required (a parameter template).
-`SilversolutionsEshopBundle:Catalog:slider.html.twig` is used by default. 
+`IbexaCommerceEshopBundle:Catalog:slider.html.twig` is used by default. 
 
 The caching strategy can be defined in the config file. The strategy is dynamic, so use `vary: cookie`.
 

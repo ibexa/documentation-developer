@@ -166,7 +166,7 @@ To create a new autosuggestion service, you need to implement the interface and 
 
 ## Autosuggestion templates
 
-Each autosuggestion section has its own template located in `EshopBundle/Resources/views/Search/autosuggest`. 
+Each autosuggestion section has its own template located in `Eshop/Resources/views/Search/autosuggest`. 
 
 All templates have access to the `resultLine` array, which has all information returned by Solr.
 You can use this information to adapt the template without overriding the services.

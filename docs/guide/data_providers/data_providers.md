@@ -57,9 +57,9 @@ Switching the data provider introduces the following changes to your project:
 #### Changes to `config/packages/ecommerce.yml`
 
 ``` yaml
-- { resource: '@SilversolutionsEshopBundle/Resources/config/config_data_provider_econtent.yml' }
+- { resource: '@IbexaCommerceEshopBundle/Resources/config/config_data_provider_econtent.yml' }
 # or 
-- { resource: '@SilversolutionsEshopBundle/Resources/config/config_data_provider_ez.yml' }
+- { resource: '@IbexaCommerceEshopBundle/Resources/config/config_data_provider_ez.yml' }
 ```
 
 #### Changes to the "Product catalog" Content item

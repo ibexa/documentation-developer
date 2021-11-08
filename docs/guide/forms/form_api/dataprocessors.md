@@ -183,7 +183,7 @@ ConfirmationMail_Fallback.txt.twig
 
 !!! note "Footer"
 
-    The default mail footer that is included into emails is located in `EshopBundle/Resources/views/Emails/mail_footer.html.twig`.
+    The default mail footer that is included into emails is located in `Eshop/Resources/views/Emails/mail_footer.html.twig`.
 
 ## SendContactEmailDataProcessor
 
