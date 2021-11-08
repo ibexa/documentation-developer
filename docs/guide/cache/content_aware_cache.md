@@ -366,20 +366,21 @@ If you are going to use Fastly in production, testing with Fastly in your develo
 cases do the job. But if you need to change the varnish configuration to make your site work, be aware that Varnish and Fastly uses different dialects, and
 that .vcl code for Varnish V6.x will likely not work as-is on Fastly.
 
-In this chapter we'll look into how to debug problems related to HTTP-cache. In order to that we must be able to look at
-the responses and headers [[= product_name =]] sends to the HTTP Cache, and not so much on what responses and headers
-the HTTP Cache sends the client (web-browser).
-That means that you must be able to send requests to your origin (webserver), requests that does *not* go through Varnish/Fastly.
-If you run nginx and Varnish on premise, you likely know what host and port number both Varnish and nginx runs on. If you
-are testing on a Fastly enabled environment on Ibexa Cloud provided by Platform.sh, you'll need to use the Platform.sh
-Dashboard in order to obtain the endpoint for nginx.
+This section describes to how to debug problems related to HTTP cache. 
+	In order to that, you must be able to look both at
+	responses and headers [[= product_name =]] sends to HTTP cache, and not so much at responses and headers
+	the HTTP cache sends to the client (web browser).
+	It means you must be able to send requests to your origin (web server) that do not go through Varnish or Fastly.
+	If you run Nginx and Varnish on premise, you should know what host and port number both Varnish and Nginx runs on. If you
+	perform tests on Fastly enabled environment on Ibexa Cloud provided by Platform.sh, you need to use the Platform.sh
+	Dashboard to obtain the endpoint for Nginx.
 
-In the example below we'll debug and figure out why a given frontpage is not cached properly by Fastly. We have learned
-that by running the following command *multiple* times:
+The following example shows how to debug and check why Fastly does not cache the front page properly. 
+If you run the command multiple times:
 
-```curl -IXGET https://www.staging.foobar.com.us-2.platformsh.site```
+`curl -IXGET https://www.staging.foobar.com.us-2.platformsh.site`
 
-And it always outputs
+it always outputs:
 
 ```
 HTTP/2 200
@@ -387,17 +388,17 @@ HTTP/2 200
 x-cache: MISS
 ```
 
-### Finding the nginx endpoint on Platform.sh
+### Find the Nginx endpoint on Platform.sh
 
-#### Finding the nginx endpoint for environments located on the grid
+#### Find the Nginx endpoint for environments located on the grid
 
-In order to find the nginx point you'll need to know in which region your project is located. You can usually find that
-using the Platform.sh dashboard: You need to select and find a valid route to
-a given environment by clicking on an element in the `URLs` dropdown for that environment. A route then may look like this:
+To find the Nginx point, first, you need to know in which region your project is located. To do that, go to the Platform.sh dashboard.
+To find a valid route, click an element in the **URLs** drop-down for the specified environment and select the route.
+A route may look like this:
 `https://www.staging.foobar.com.us-2.platformsh.site/`
 
-In this case the region is `us-2` and you can look up the [public IP list on Platform.sh documentation page](https://docs.platform.sh/development/public-ips.html)
-Typically, you may just add a `gw` to the hostname and use nslookup to look it up
+In this case the region is `us-2` and you can find the public IP list on [Platform.sh documentation page](https://docs.platform.sh/development/public-ips.html)
+Typically, you can add a `gw` to the hostname and use nslookup to find it.
 
 ```bash
     $ nslookup
@@ -406,20 +407,20 @@ Typically, you may just add a `gw` to the hostname and use nslookup to look it u
    Address:  1.2.3.4
 ```
 
-You may also use the [Platform.sh CLI command](https://docs.platform.sh/development/cli.html) to find [the endpoint](https://docs.platform.sh/domains/steps/dns.html?#where-should-the-cname-point-to) :
+You can also use the [Platform.sh CLI command](https://docs.platform.sh/development/cli.html) to find [the endpoint](https://docs.platform.sh/domains/steps/dns.html?#where-should-the-cname-point-to):
 
 ```bash
     $ platform environment:info edge_hostname
 ```
 
-#### Finding nginx endpoint on dedicated cloud
+#### Find Nginx endpoint on dedicated cloud
 
 If you have a dedicated 3-node cluster on Platform.sh, the procedure for getting the endpoint to environments that are 
-located on that cluster (`production` and sometimes also `staging`) is slightly different:
-In the `URLs` dropdown in the Platform.sh dashboard you need to find the route that has the format 
-`something.[clusterid].ent.platform.sh/`, for instance `myenvironment.asddfs2323.ent.platform.sh/`
+located on that cluster (`production` and sometimes also `staging`) is slightly different.
+In the **URLs** drop-down in the Platform.sh dashboard, find the route that has the format 
+`somecontent.[clusterid].ent.platform.sh/`, for example, `myenvironment.abcdfg2323.ent.platform.sh/`
 
-The endpoint will in that case be in the format `c.[clusterid].ent.platform.sh`, for instance `c.asddfs2323.ent.platform.sh/`
+The endpoint in case has the format `c.[clusterid].ent.platform.sh`, for example, `c.asddfs2323.ent.platform.sh/`
 Next, use nslookup to find the IP:
 
 ```bash
@@ -429,14 +430,14 @@ Next, use nslookup to find the IP:
    Address:  1.2.3.4
 ```
 
-### Fetching the User-Context-Hash
+### Fetch User Context Hash
 
-As explained in [User Context Hash caching](#user-context-hash-caching), the HTTP Cache indexes the cache based on the
-user-context-hash. Users with the same user-context-hash will share the same cache (as long as [[= product_name =]]
+As explained in [User Context Hash caching](guide/cache/context_aware_cache.md#user-context-hash-caching), the HTTP cache indexes the cache based on the
+user-context-hash. Users with the same user-context-hash here the same cache (as long as [[= product_name =]]
 responds with `Vary: X-User-Hash`).
 
-So in order to simulate the requests the HTTP-Cache sends to [[= product_name =]], we need that user-context-hash.
-That can be obtained using `curl`
+In order to simulate the requests the HTTP cache sends to [[= product_name =]], you need this user-context-hash.
+To obtain it, use `curl`.
 
 ```bash
     $ curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "accept: application/vnd.fos.user-context-hash" --header "x-fos-original-url: /" https://www.staging.foobar.com.us-2.platformsh.site/_fos_user_context_hash
