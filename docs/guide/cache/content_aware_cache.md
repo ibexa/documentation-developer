@@ -23,7 +23,7 @@ and updated in the background when someone requests them.
 Current content tags (and when the system purges on them):
 
 - Content: `c<content-id>` - Purged on all smaller or larger changes to content (including its metadata, Fields and Locations).
-- Content Version: `cv<content-id>` - Purged when any version of Content is changed (draft is created, removed etc)
+- Content Version: `cv<content-id>` - Purged when any version of Content is changed (for example, a draft is created or removed).
 - Content Type: `ct<content-type-id>` - Used when the Content Type changes, affecting content of its type.
 - Location: `l<location-id>` - Used for clearing all cache relevant for a given Location.
 - Parent Location: `pl<[parent-]location-id>` - Used for clearing all children of a Location (`pl<location-id>`), or all siblings (`pl<parent-location-id>`).
@@ -260,7 +260,7 @@ All event subscribers can be found in `ezplatform-http-cache/src/EventSubscriber
 
 #### Tags that are purged during a publish event.
 
-Below is an example of a Content structure. The tags that the content-view controller will tag each location with is
+Below is an example of a Content structure. The tags which the content view controller adds to each location are
 also listed
 
 ```
@@ -276,7 +276,8 @@ also listed
        ez-all c55 ct1 l22 pl2 p1 p2 p22
 ```
 
-In the event that a new version of `Child` is published, the following keys will be purged:
+In the event when a new version of `Child` is published, the following keys are purged:
+
 - `c55`, because Content `[Child]` was changed
 - `r55`, because cache for any object that has a relation to Content `[Child]` should be purged
 - `l22`, because Location `[Child]` has changed ( that would be location holding content-id=55)
@@ -285,13 +286,13 @@ In the event that a new version of `Child` is published, the following keys will
 - `l20`, because cache for parent of `[Child]` should be purged
 - `pl20`, because cache for siblings of `[Child]` should be purged
 
-In words, HTTP Cache for any location representing `[Child]`, any Content that relates to the Content `[Child]`, the 
+In summary, HTTP Cache for any location representing `[Child]`, any Content that relates to the Content `[Child]`, the 
 location for `[Child]`, any children of `[Child]`, any Location that relates to the Location `[Child]`, location for
 `[Parent1]`, any children on `[Parent1]`.
 Effectively, in this example HTTP cache for `[Parent1]` and `[Child]` will be cleared.
 
 
-#### Tags that are purged during a move event.
+#### Tags purged during a move event
 
 With the same Content structure as above, the `[Child]` location is moved below `[Parent2]`.
 
@@ -316,7 +317,7 @@ The following keys will be purged during the move:
 - `pl21`, because cache for all children of new parent (`[Parent2]`) should be purged
 - `p22`, because cache for any element below `[Child]` should be purged (because path has changed)
 
-In Word, HTTP Cache for `[Parent1]`, children of `[Parent1]` ( if any ), `[Parent2]`, children of `[Parent2]` ( if any ),
+In other words, HTTP Cache for `[Parent1]`, children of `[Parent1]` ( if any ), `[Parent2]`, children of `[Parent2]` ( if any ),
 `[Child]` and any subtree below `[Child]`.
 
 ### Custom purging from code
@@ -353,7 +354,7 @@ bin/console fos:httpcache:invalidate:tag ez-all
     Similarly to purging from code, the tags you purge on, are prefixed to match the currently configured SiteAccess. 
     When you use this command in combination with multi-repository setup, make sure to specify SiteAccess argument.
 
-## Testing and Debugging HTTP cache
+## Test and debug HTTP cache
 
 It is important to test your code in an environment which is as similar as your production environment as possible. That
 means that if only are testing locally using the default Symfony Reverse proxy when your are going to use Varnish or
