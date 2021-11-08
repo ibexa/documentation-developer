@@ -48,7 +48,8 @@ which HTTP Cache [[= product_name =]] is configured with:
 - Varnish: `xkey`
 - Fastly: `Surrogate-Key`
 
-Examples :
+Examples:
+
 - `X-Cache-Tags: ez-all,c52,ct42,l2,pl1,p1,p2,r56,r57`
 - `xkey: ez-all c52 ct42 l2 pl1 p1 p2 r56 r57`
 - `Surrogate-Key: ez-all c52 ct42 l2 pl1 p1 p2 r56 r57`
