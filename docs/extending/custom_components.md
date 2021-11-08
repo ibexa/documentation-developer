@@ -29,6 +29,7 @@ App\Component\MyNewComponent:
 - [`calendar-widget-before`](https://github.com/ibexa/calendar/blob/main/src/bundle/Resources/views/themes/admin/calendar/view.html.twig#L22)
 - [`login-form-before`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/account/login/index.html.twig#L7)
 - [`login-form-after`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/account/login/index.html.twig#L70)
+- [`global-search`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L129)
 
 ## Base component classes
 
