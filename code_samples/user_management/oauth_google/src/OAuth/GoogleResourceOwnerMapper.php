@@ -7,18 +7,18 @@ namespace App\OAuth;
 use Ibexa\Contracts\Core\Repository\LanguageResolver;
 use Ibexa\Contracts\Core\Repository\Repository;
 use Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType;
-use Ibexa\Platform\Contracts\OAuth2Client\Repository\OAuth2UserService;
+use Ibexa\Contracts\OAuth2Client\Repository\OAuth2UserService;
 use League\OAuth2\Client\Provider\GoogleUser;
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Ibexa\Platform\OAuth2Client\ResourceOwner\ResourceOwnerToExistingOrNewUserMapper;
+use Ibexa\OAuth2Client\ResourceOwner\ResourceOwnerToExistingOrNewUserMapper;
 
 final class GoogleResourceOwnerMapper extends ResourceOwnerToExistingOrNewUserMapper
 {
     private const PROVIDER_PREFIX = 'google:';
 
-    /** @var \Ibexa\Platform\Contracts\OAuth2Client\Repository\OAuth2UserService */
+    /** @var \Ibexa\Contracts\OAuth2Client\Repository\OAuth2UserService */
     private $userService;
 
     /** @var \Ibexa\Contracts\Core\Repository\LanguageResolver */

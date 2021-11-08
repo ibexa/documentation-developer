@@ -22,7 +22,7 @@ Enable OAuth2 authentication through Google for the `site` SiteAccess:
 
 ## Configure firewall
 
-Add the `Ibexa\Platform\Bundle\OAuth2Client\Security\Authenticator\OAuth2Authenticator` guard authenticator
+Add the `Ibexa\Bundle\OAuth2Client\Security\Authenticator\OAuth2Authenticator` guard authenticator
 to your firewall configuration in `config/packages/security.yaml`
 and ensure that the `ibexa.oauth2.connect` route is accessible by an anonymous user:
 
