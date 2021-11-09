@@ -76,6 +76,10 @@ However, you can use it to select the part of the image the view focuses on when
 
 The following example shows how to use an image contained in an Image Field as a focussed background.
 
+!!! note
+
+    This implementation is only an example and depends on the JavaScript framework you are using.
+
 First, in the main template, render the Image Field with a custom template:
 
 ``` html+twig
@@ -93,8 +97,8 @@ Then, create the custom Field template in `template/fields/image.html.twig`,
         {% set position_x = (field.value.additionalData.focalPointX / field.value.width) * 100 %}
         {% set position_y = (field.value.additionalData.focalPointY / field.value.height) * 100 %}
     {% else %}
-        {% set position_x = 0 %}
-        {% set position_y = 0 %}
+        {% set position_x = 50 %}
+        {% set position_y = 50 %}
     {% endif %}
 
     {% set imageAlias = ez_image_alias( field, versionInfo, parameters.alias|default( 'original' ) ) %}
