@@ -67,3 +67,46 @@ To use it, select the variation when rendering the image:
     }
 }) }}
 ```
+
+## Use focal point
+
+In the [image editor](../../image_editor.md) you can define a focal point for an image.
+The focal point doesn't have an instant effect when you use the default templates.
+However, you can use it to select the part of the image the view focuses on when the image is cropped.
+
+The following example shows how to use an image contained in an Image Field as a focussed background.
+
+First, in the main template, render the Image Field with a custom template:
+
+``` html+twig
+{{ ez_render_field(content, 'image', {
+    'template': 'fields/image.html.twig'
+}) }}
+```
+
+Then, create the custom Field template in `template/fields/image.html.twig`,
+[overriding the default `ezimage_field` template block](../render_content/render_content.md#field-templates):
+
+``` html+twig
+{% block ezimage_field %}
+    {% if field.value.additionalData.focalPointX is defined and field.value.additionalData.focalPointY is defined %}
+        {% set position_x = (field.value.additionalData.focalPointX / field.value.width) * 100 %}
+        {% set position_y = (field.value.additionalData.focalPointY / field.value.height) * 100 %}
+    {% else %}
+        {% set position_x = 0 %}
+        {% set position_y = 0 %}
+    {% endif %}
+
+    {% set imageAlias = ez_image_alias( field, versionInfo, parameters.alias|default( 'original' ) ) %}
+    {% set src = imageAlias ? asset( imageAlias.uri ) : "//:0" %}
+
+    <div style="background: url({{ src }});
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: {{ position_x }}% {{ position_y }}%;
+            width: 100vh; height: 20vh"></div>
+{% endblock %}
+```
+
+This template uses the focal point information contained in the image's additional data
+to position the background so that the focussed part of the image is displayed.
