@@ -474,6 +474,8 @@ nav:
             - 'Repository': 'guide/repository.md'
             - 'Request lifecycle': 'guide/request_lifecycle.md'
             - 'Databases': 'guide/databases.md'
+            - Data migration:
+                - 'Add data migration matcher': 'guide/data_migration/add_data_migration_matcher.md'
             - 'Data migration': 'guide/data_migration.md'
             - Event reference:
                 - 'Event reference': 'guide/repository/event_reference/event_reference.md'

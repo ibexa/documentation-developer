@@ -242,6 +242,8 @@ The following properties are available (per type):
     - `login`
     - `email`
 
+You can extend the list of available matchers by creating [a custom one]().
+
 ### value
 
 The optional `--value` option, together with `match-property`, filters the Repository content that the command exports.
