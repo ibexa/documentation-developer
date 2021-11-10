@@ -213,6 +213,7 @@ nav:
             - 'User-generated content': 'guide/user_generated_content.md'
         - Permissions:
             - 'Permissions': 'guide/permissions.md'
+            - 'Permission use cases': 'guide/permission_use_cases.md'
             - 'Limitations': 'guide/limitations.md'
             - 'Limitation reference': 'guide/limitation_reference.md'
             - 'Custom Policies': 'guide/custom_policies.md'

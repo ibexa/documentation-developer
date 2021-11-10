@@ -95,7 +95,8 @@ Model your content (Content Types, Sections, Locations etc.) in a way that can b
 That way system will be more secure and easier to manage.
 This approach also improves performance. Role assignments and Policies are taken into account during search/load queries.
 
-See [Permissions overview](permissions.md) for further information.
+See [Permissions overview](permissions.md) for further information
+and [Permission use cases](permission_use_cases.md) for details on how to customize access to different part of the Back Office.
 
 ## Languages
 

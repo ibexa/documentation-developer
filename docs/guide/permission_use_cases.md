@@ -2,7 +2,7 @@
 
 Here are a few examples of sets of Policies you can use to get some common permission configurations.
 
-## Enter back end interface
+## Enter Back Office
 
 To allow the User to enter the Back Office interface and view all content, you need to set the following Policies:
 
@@ -12,17 +12,19 @@ To allow the User to enter the Back Office interface and view all content, you n
 - `section/view`
 - `content/reverserelatedlist`
 
-These Policies will be necessary for all other cases below that require access to the content structure.
+These Policies are necessary for all other cases below that require access to the content structure.
 
 ## Create content without publishing [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 This option can be used together with [[= product_name_exp =]]'s content review options.
-Using the following Policies, the User is able to create content, but can't publish it; instead, they must send it for review to another User with proper permissions (for example, senior editor, proofreader, etc.).
+User who has these Policies can create content, but can't publish it.
+To publish, they must send the content for review to another User with proper permissions (for example, senior editor, proofreader, etc.).
 
 - `content/create`
 - `content/edit`
 
-Note that without [[= product_name_exp =]] this setup should not be used, as it will not allow the User to continue working with their content.
+Note that you shouldn't use this setup without [[= product_name_exp =]],
+as it does not allow the User to continue working with their content.
 
 ## Create and publish content
 
@@ -32,15 +34,22 @@ To create and publish content, the user must additionally have the following Pol
 - `content/edit`
 - `content/publish`
 
-This also lets the user copy and move content, as well as add new Locations to a Content item (but not remove them!).
+This also lets the user copy and move content, as well as add new Locations to a Content item (but not remove them).
 
-## Removing content
+## Remove content
 
 To send content to Trash, the User needs to have the `content/remove` Policy.
+If content has more than one language, the User must have access to all the languages.
+That is, the `content/remove` Policy must have either no Limitation, or a Limitation for all languages of the Content item.
 
 To remove an archived version of content, the User must have the `content/versionremove` Policy.
 
-Further manipulation of Trash requires the `content/restore` Policy to restore items from Trash, and `content/cleantrash` to completely delete all content from Trash.
+Further manipulation of Trash requires the `content/restore` Policy to restore items from Trash, and `content/cleantrash` to completely delete all content from the Trash.
+
+!!! caution
+
+    With the `content/cleantrash` Policy, the User can empty the Trash even if they do not have access to the trashed content,
+    e.g. because it belonged to a Section they do not have permissions for.
 
 ## Restrict editing to part of the tree
 
@@ -51,12 +60,12 @@ Three Limitations that could be used here are `Section` Limitation, `Location` L
 
 Let's assume you have two Folders under your Home: Blog and Articles.
 You can let a User create content for the blogs, but not in Articles by adding a `Section` Limitation the Blog Content item.
-This will allow the User to publish content anywhere under this Location in the structure.
+This allows the User to publish content anywhere under this Location in the structure.
 Section does not have to belong to the same Subtree of Location in the content structure, any Locations can be assigned to it.
 
 ### Location Limitation
 
-If you add a `Location` Limitation and point to the same Location, the User will be able to publish content directly under the selected Location, but not anywhere deeper in its Subtree of Location.
+If you add a `Location` Limitation and point to the same Location, the User is able to publish content directly under the selected Location, but not anywhere deeper in its Subtree of Location.
 
 ### Subtree of Location Limitation
 
@@ -75,7 +84,7 @@ Follow the example below to learn how to do that.
 To give the vegetarian editors access only to the **Vegetarian** dinner recipes section create a new Role e.g. *EditorVeg*.
 Next, add to it a `content/read` Policy with the `Subtree` Limitation for `Cookbook/Dinner recipes/Vegetarian`.
 Assign the Role to the vegetarian editors User Group.
-It will allow users from that group to access the **Vegetarian** container but not **Cookbook** and **Dinner recipes**.
+It allows users from that group to access the **Vegetarian** container but not **Cookbook** and **Dinner recipes**.
 
 To give users access to **Cookbook** and **Dinner recipes** containers you need to
 create a new Role e.g. *EditorVegAccess*.
@@ -87,9 +96,19 @@ The vegetarian editors should now see the following Content Tree:
 
 ![Limited subtree file structure](img/subtree_usability_notes_2.png)
 
-Note that when a Policy has more than one Limitation, all of them have to apply, or the Policy will not work.
+Note that when a Policy has more than one Limitation, all of them have to apply, or the Policy does not work.
 For example, a `Location` Limitation on Location `1/2` and `Subtree of Location` Limitation on `1/2/55` cannot work together, because no Location can satisfy both those requirements at the same time.
 If you want to combine more than one Limitation with the *or* relation, not *and*, you can split your Policy in two, each with one of these Limitations.
+
+## Manage Locations
+
+To add a new Location to a Content item, the Policies required for publishing content are enough.
+To allow the User to remove a Location, you need to grant them the following Policies:
+
+- `content/remove`
+- `content/manage_locations`
+
+Hiding and revealing Location requires one more Policy: `content/hide`.
 
 ## Editorial workflows [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
@@ -122,39 +141,14 @@ For example, you can set the Location Limitation on a **Pictures** Folder, and a
 which only allows Content items of type **Image**. This ensures that only files of type `image` can be uploaded,
 and only to the **Pictures** Folder.
 
-## Manage Locations
-
-To add a new Location to a Content item, the Policies required for publishing content are enough.
-To allow the User to remove a Location, you need to grant them the following Policies:
-
-- `content/remove`
-- `content/manage_locations`
-
-Hiding and revealing Location requires one more Policy: `content/hide`.
-
-## Removing content
-
-To send content to Trash, the User needs to have the `content/remove` Policy.
-If content has more than one language, the User must have access to all the languages.
-That is, the `content/remove` Policy must have either no Limitation, or a Limitation for all languages of the Content item.
-
-To remove an archived version of content, the User must have the `content/versionremove` Policy.
-
-Further manipulation of Trash requires the `content/restore` Policy to restore items from Trash, and `content/cleantrash` to completely delete all content from the Trash.
-
-!!! caution
-
-    With the `content/cleantrash` Policy, the User can empty the Trash even if they do not have access to the trashed content,
-    e.g. because it belonged to a Section they do not have permissions for.
-
-## Registering Users
+## Register Users
 
 To allow anonymous users to register through the `/register` route, you need to grant the `user/register` Policy to the Anonymous User Group.
 
 ## Admin
 
 To access the [administration panel](admin_panel.md) in the Back Office the User must have the `setup/administrate` Policy.
-This will allow the User to view the languages and Content Types.
+This allows the User to view the languages and Content Types.
 
 Additional Policies are needed for each section of the Admin.
 
@@ -191,4 +185,3 @@ Additional Policies are needed for each section of the Admin.
 - `content/view` to view the list of Users
 
 Users are treated like other content, so to create and modify them the User needs to have the same permissions as for managing other Content items.
-
