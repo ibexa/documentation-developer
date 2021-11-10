@@ -1,6 +1,6 @@
 ---
 target_version: '3.3'
-latest_tag: '3.3.10'
+latest_tag: '3.3.12'
 ---
 
 # Update to latest version of v3.3
