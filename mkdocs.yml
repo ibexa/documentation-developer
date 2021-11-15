@@ -150,6 +150,7 @@ nav:
             - 'Editorial workflow': 'guide/workflow.md'
         - Permissions:
             - 'Permissions': 'guide/permissions.md'
+            - 'Permission use cases': 'guide/permission_use_cases.md'
             - 'Limitations': 'guide/limitations.md'
             - 'Limitation reference': 'guide/limitation_reference.md'
             - 'User management': 'guide/user_management.md'
