@@ -10,7 +10,7 @@ services:
 
     App\Migrations\Matcher\SectionIdentifierNormalizer:
         tags:
-            - { name: 'ibexa.migrations.serializer.normalizer', priority: 10 }
+            - { name: 'ibexa.migrations.serializer.normalizer' }
             
     App\Migrations\Matcher\SectionIdentifierGenerator:
         tags:

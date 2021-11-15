@@ -8,7 +8,13 @@ The following example create a matcher for Section identifiers.
 
 ## Create normalizer
 
-To do this, first create a normalizer in `src/Migrations/Matcher/SectionIdentifierNormalizer.php`:
+To do this, first add a normalizer which handles the conversion between objects and the YAML format used for data migration.
+
+!!! tip "Normalizers"
+
+    To learn more about normalizers, refer to [Symfony documentation](symfony_doc/components/serializer.html).
+
+Create the normalizer in `src/Migrations/Matcher/SectionIdentifierNormalizer.php`:
 
 ``` php
 [[= include_file('code_samples/data_migration/src/Migrations/Matcher/SectionIdentifierNormalizer.php') =]]
@@ -20,9 +26,14 @@ Register the normalizer as a service:
 [[= include_file('code_samples/data_migration/config/custom_services.yaml', 10, 13) =]]
 ```
 
+!!! note "Normalizer order"
+
+    User-defined normalizers are always executed before the built-in ones.
+    However, you can additionally set the priority of your normalizers.
+
 ## Create generator
 
-Next, you need a generator that enables using the matcher with the `ibexa:migrations:generate` command.
+Additionally, if you want to export data using the `ibexa:migrations:generate` command, you need a generator.
 Create the generator in `src/Migrations/Matcher/SectionIdentifierGenerator.php`:
 
 ``` php
