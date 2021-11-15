@@ -12,7 +12,7 @@ To do this, first add a normalizer which handles the conversion between objects 
 
 !!! tip "Normalizers"
 
-    To learn more about normalizers, refer to [Symfony documentation](symfony_doc/components/serializer.html).
+    To learn more about normalizers, refer to [Symfony documentation]([[= symfony_doc =]]/components/serializer.html).
 
 Create the normalizer in `src/Migrations/Matcher/SectionIdentifierNormalizer.php`:
 
