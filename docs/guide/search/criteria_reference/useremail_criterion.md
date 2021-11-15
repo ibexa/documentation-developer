@@ -8,6 +8,10 @@ searches for content based on the email assigned to the User account.
 - `value` - string(s) representing the User email(s).
 - `operator` - operator constant (IN, EQ, LIKE).
 
+## Limitations
+
+Solr search engine and Elasticsearch support IN and EQ operators only.
+
 ## Example
 
 ``` php
