@@ -400,7 +400,7 @@ is evaluated.
 ### Usage notes
 
 For more information on how to restrict User's access to part of the Subtree 
-follow [the example in the Admin management section](admin_panel.md#restrict-editing-to-part-of-the-tree).
+follow [the example in the Admin management section](permission_use_cases.md#restrict-editing-to-part-of-the-tree).
 
 ## Version Lock Limitation
 
