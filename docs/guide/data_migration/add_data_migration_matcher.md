@@ -31,6 +31,12 @@ Register the normalizer as a service:
     User-defined normalizers are always executed before the built-in ones.
     However, you can additionally set the priority of your normalizers.
 
+    Check the priorities of all normalization services by using:
+
+    ``` bash
+    php bin/console debug:container --tag ibexa.migrations.serializer.normalizer
+    ```
+
 ## Create generator
 
 Additionally, if you want to export data using the `ibexa:migrations:generate` command, you need a generator.
