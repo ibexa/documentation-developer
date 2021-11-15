@@ -102,8 +102,10 @@ The vegetarian editors should now see the following Content Tree:
 ![Limited subtree file structure](img/subtree_usability_notes_2.png)
 
 When a Policy has more than one Limitation, all of them have to apply, or the Policy does not work.
-For example, a `Location` Limitation on Location `1/2` and `Subtree of Location` Limitation on `1/2/55` cannot work together, because no Location can satisfy both those requirements at the same time.
-If you want to combine more than one Limitation with the *or* relation, not *and*, you can split your Policy in two, each with one of these Limitations.
+For example, a `Location` Limitation on Location `1/2` and `Subtree of Location` Limitation on `1/2/55` cannot work together,
+because no Location can satisfy both those requirements at the same time.
+To combine more than one Limitation with the *or* relation, not *and*,
+you can split your Policy in two, each with one of these Limitations.
 
 ## Manage Locations
 
