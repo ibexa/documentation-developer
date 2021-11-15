@@ -1,10 +1,10 @@
 # Permission use cases
 
-Here are a few examples of sets of Policies you can use to get some common permission configurations.
+Here are a few examples of sets of Policies that you can use to get some common permission configurations.
 
 ## Enter Back Office
 
-To allow the User to enter the Back Office interface and view all content, you need to set the following Policies:
+To allow the User to enter the Back Office interface and view all content, set the following Policies:
 
 - `user/login`
 - `content/read`
@@ -16,19 +16,20 @@ These Policies are necessary for all other cases below that require access to th
 
 ## Create content without publishing [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-This option can be used together with [[= product_name_exp =]]'s content review options.
-User who has these Policies can create content, but can't publish it.
-To publish, they must send the content for review to another User with proper permissions (for example, senior editor, proofreader, etc.).
+You can use this option together with [[= product_name_exp =]]'s content review options.
+Users assigned with these Policies can create content, but can't publish it.
+To publish, they must send the content for review to another User with proper permissions 
+(for example, senior editor, proofreader, etc.).
 
 - `content/create`
 - `content/edit`
 
-Note that you shouldn't use this setup without [[= product_name_exp =]],
-as it does not allow the User to continue working with their content.
+Use this setup with [[= product_name_exp =]] or [[= product_name_com =]] only,
+as [[= product_name_content =]] does not allow the User to continue working with their content.
 
 ## Create and publish content
 
-To create and publish content, the user must additionally have the following Policies:
+To create and publish content, users must additionally have the following Policies:
 
 - `content/create`
 - `content/edit`
@@ -49,61 +50,65 @@ Further manipulation of Trash requires the `content/restore` Policy to restore i
 !!! caution
 
     With the `content/cleantrash` Policy, the User can empty the Trash even if they do not have access to the trashed content,
-    e.g. because it belonged to a Section they do not have permissions for.
+    for example, because it belonged to a Section that the User does not have permissions for.
 
 ## Restrict editing to part of the tree
 
-If you want to let the User create or edit content, but only in one part of the content tree, you need to use Limitations.
-Three Limitations that could be used here are `Section` Limitation, `Location` Limitation and `Subtree of Location` Limitation.
+If you want to let the User create or edit content, but only in one part of the content tree, use Limitations.
+Three Limitations that you could use here are `Section` Limitation, `Location` Limitation and `Subtree of Location` Limitation.
 
 ### Section Limitation
 
 Let's assume you have two Folders under your Home: Blog and Articles.
-You can let a User create content for the blogs, but not in Articles by adding a `Section` Limitation the Blog Content item.
+You can let a User create content for the blogs, but not in Articles, by adding a `Section` Limitation to 
+the Blog Content item.
 This allows the User to publish content anywhere under this Location in the structure.
 Section does not have to belong to the same Subtree of Location in the content structure, any Locations can be assigned to it.
 
 ### Location Limitation
 
-If you add a `Location` Limitation and point to the same Location, the User is able to publish content directly under the selected Location, but not anywhere deeper in its Subtree of Location.
+If you add a `Location` Limitation and point to the same Location, the User is able to publish content directly 
+under the selected Location, but not anywhere deeper in its Subtree of Location.
 
 ### Subtree of Location Limitation
 
-If you want to limit User's access to a subtree you need to use the `Subtree of Location` Limitation.
-To do so, you need to create two new Roles for a User Group:
+To limit the User's access to a subtree, use the `Subtree of Location` Limitation.
+You do it by creating two new Roles for a User Group:
  
  1. Role with a `Subtree` Limitation for the User
  1. Role with a `Location` Limitation for the Subtree
 
 Follow the example below to learn how to do that.
 
-**Cookbook**, **Dinner recipes** and **Dessert recipes** containers are not accessible in the frontend, so you need to edit access to them in the **Admin Panel**. 
+**Cookbook**, **Dinner recipes** and **Dessert recipes** containers are not accessible in the frontend. 
+Edit access to them in the **Admin Panel**. 
 
 ![Subtree file structure](img/subtree_usability_notes_1.png)
 
-To give the vegetarian editors access only to the **Vegetarian** dinner recipes section create a new Role e.g. *EditorVeg*.
+To give the vegetarian editors access only to the **Vegetarian** dinner recipes section,
+ create a new Role e.g. *EditorVeg*.
 Next, add to it a `content/read` Policy with the `Subtree` Limitation for `Cookbook/Dinner recipes/Vegetarian`.
 Assign the Role to the vegetarian editors User Group.
 It allows users from that group to access the **Vegetarian** container but not **Cookbook** and **Dinner recipes**.
 
-To give users access to **Cookbook** and **Dinner recipes** containers you need to
-create a new Role e.g. *EditorVegAccess*.
+To give users access to **Cookbook** and **Dinner recipes** containers, 
+create a new Role, for example, *EditorVegAccess*.
 Next, add to it a `content/read` Policy with the `Location` Limitations **Cookbook** and **Dinner recipes**.
 Assign the new Role to the vegetarian editors User Group as well.
-Only then the limitations are combined with `AND` resulting in an empty set.
+Only then the limitations are combined with `AND`, resulting in an empty set.
 
 The vegetarian editors should now see the following Content Tree:
 
 ![Limited subtree file structure](img/subtree_usability_notes_2.png)
 
-Note that when a Policy has more than one Limitation, all of them have to apply, or the Policy does not work.
+When a Policy has more than one Limitation, all of them have to apply, or the Policy does not work.
 For example, a `Location` Limitation on Location `1/2` and `Subtree of Location` Limitation on `1/2/55` cannot work together, because no Location can satisfy both those requirements at the same time.
 If you want to combine more than one Limitation with the *or* relation, not *and*, you can split your Policy in two, each with one of these Limitations.
 
 ## Manage Locations
 
 To add a new Location to a Content item, the Policies required for publishing content are enough.
-To allow the User to remove a Location, you need to grant them the following Policies:
+To allow the User to remove a Location, grant them the following Policies:
 
 - `content/remove`
 - `content/manage_locations`
@@ -136,18 +141,20 @@ To enable upload, you need you set the following permissions:
 
 You can control what Content items can be uploaded and where using Limitations on the `content/create` and `content/publish` Policies.
 
-A Location Limitation limits uploading to a specific Location in the tree. A Content Type Limitation controls the Content Types that are allowed.
+A Location Limitation limits the uploading to a specific Location in the tree. 
+A Content Type Limitation controls the Content Types that are allowed.
 For example, you can set the Location Limitation on a **Pictures** Folder, and add a Content Type Limitation
-which only allows Content items of type **Image**. This ensures that only files of type `image` can be uploaded,
+that only allows Content items of type **Image**. 
+This ensures that only files of type `image` can be uploaded,
 and only to the **Pictures** Folder.
 
 ## Register Users
 
-To allow anonymous users to register through the `/register` route, you need to grant the `user/register` Policy to the Anonymous User Group.
+To allow anonymous users to register through the `/register` route, grant the `user/register` Policy to the Anonymous User Group.
 
 ## Admin
 
-To access the [administration panel](admin_panel.md) in the Back Office the User must have the `setup/administrate` Policy.
+To access the [administration panel](admin_panel.md) in the Back Office, the User must have the `setup/administrate` Policy.
 This allows the User to view the languages and Content Types.
 
 Additional Policies are needed for each section of the Admin.
@@ -184,4 +191,4 @@ Additional Policies are needed for each section of the Admin.
 
 - `content/view` to view the list of Users
 
-Users are treated like other content, so to create and modify them the User needs to have the same permissions as for managing other Content items.
+Users are treated like other content, so to create and modify them, the User needs to have the same permissions as for managing other Content items.
