@@ -141,7 +141,8 @@ To enable upload, you need you set the following permissions:
 - `content/read`
 - `content/publish`
 
-You can control what Content items can be uploaded and where using Limitations on the `content/create` and `content/publish` Policies.
+You can control what Content items can be uploaded and where by using Limitations
+on the `content/create` and `content/publish` Policies.
 
 A Location Limitation limits the uploading to a specific Location in the tree. 
 A Content Type Limitation controls the Content Types that are allowed.
