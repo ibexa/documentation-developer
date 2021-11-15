@@ -96,7 +96,7 @@ If you need to use a custom locale, you can configure it in `ezplatform.yaml`, a
 ``` yaml
 ezplatform:
     # Locale conversion map between eZ Publish format (e.g. fre-FR) to POSIX (e.g. fr_FR).
-    # The key is the eZ Publish locale. Check locale.yaml in EzPublishCoreBundle to see natively supported locales.
+    # The key is the eZ Publish locale. Check locale.yaml in IbexaCore to see natively supported locales.
     locale_conversion:
         eng-DE: en_DE
 ```

@@ -2,7 +2,7 @@
 
 The content Repository uses [Roles and Policies](permissions.md) to give Users access to different functions of the system.
 
-Any bundle can expose available Policies via a `PolicyProvider` which can be added to EzPublishCoreBundle's [service container](../api/service_container.md) extension.
+Any bundle can expose available Policies via a `PolicyProvider` which can be added to IbexaCoreBundle's [service container](../api/service_container.md) extension.
 
 ## PolicyProvider
 
@@ -56,7 +56,7 @@ class MyPolicyProvider implements PolicyProviderInterface
 
 ## YamlPolicyProvider
 
-An abstract class based on YAML is provided: `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider`.
+An abstract class based on YAML is provided: `Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider`.
 It defines an abstract `getFiles()` method.
 
 Extend `YamlPolicyProvider` and implement `getFiles()` to return absolute paths to your YAML files.
@@ -92,7 +92,7 @@ A `PolicyProvider` may provide new functions to a module, and additional Limitat
 
 It is not possible to remove an existing module, function or limitation from a Policy.
 
-## Integrating the `PolicyProvider` into EzPublishCoreBundle
+## Integrating the `PolicyProvider` into IbexaCoreBundle
 
 For a `PolicyProvider` to be active, you have to register it in the class `src/Kernel.php`:
 

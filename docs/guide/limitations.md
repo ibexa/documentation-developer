@@ -24,7 +24,7 @@ Currently this covers [Subtree of Location](limitation_reference.md#subtree-of-l
 
 !!! tip
 
-    Core Policies with Limitations are defined in [`EzPublishCoreBundle/settings/policies.yaml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/policies.yml).
+    Core Policies with Limitations are defined in [`IbexaCoreBundle/settings/policies.yaml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/policies.yml).
 
 Each function in one of the five modules (content, section, state, user, workflow) can be assigned different Limitations.
 

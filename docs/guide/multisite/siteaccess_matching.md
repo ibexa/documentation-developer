@@ -28,7 +28,7 @@ If the matcher class does not start with a backslash (`\`), it is relative to `I
 You can specify [custom matchers](#custom-matchers) by using a fully qualified class name (e.g. `\My\SiteAccess\Matcher`)
 or a service identifier (e.g. `@my_matcher_service`).
 In the case of a fully qualified class name, the matching configuration is passed in the constructor.
-In the case of a service, it must implement `eZ\Bundle\EzPublishCoreBundle\SiteAccess\Matcher`.
+In the case of a service, it must implement `Ibexa\Bundle\Core\SiteAccess\Matcher`.
 The matching configuration is passed to `setMatchingConfiguration()`.
 
 ## Available matchers
