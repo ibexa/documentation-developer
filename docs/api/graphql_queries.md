@@ -43,6 +43,30 @@ Response:
 
 You can request any Fields of the Content item. In the example above, these are `title` and `author`.
 
+You can also query the generic `item` object. The `item` object references either a Content item or a Location.
+The query accepts `locationId`, `remoteId`, and `urlAlias` as arguments.
+
+
+```
+{
+  item (locationId: 2) {
+    _name
+  }
+}
+```
+
+Response:
+
+```
+{
+  "data": {
+    "item": {
+      "_name": "Ibexa Digital Experience Platform"
+    }
+  }
+}
+```
+
 ### Get a group of Content items
 
 To get a list of all Content items of a selected type, use the plural field, e.g. `articles`:
@@ -183,18 +207,50 @@ Response:
 
 ## Querying Locations
 
-!!! tip
-
-    To make use of enhanced Location handling, you can add the beta 3.0 version of [ezplatform-graphql](https://github.com/ezsystems/ezplatform-graphql/tree/3.0) to your project.
-
-    See [overview of the upcoming changes](https://github.com/ezsystems/ezplatform-graphql/pull/90).
-
-To query a Location and its children, use the repository schema:
+You can get the Location object from any Content item object by querying for `_location` or `_allLocations`.
+When you use `_location`, the API picks the Location to return based on the current SiteAccess, or returns the main one.
 
 ```
 {
-  _repository {
-    location(locationId: 2) {
+  content {
+    folder (contentId: 133) {
+      _allLocations {
+        id
+      }
+    }
+  }
+}
+```
+
+Response:
+
+```
+{
+  "data": {
+    "content": {
+      "folder": {
+        "_allLocations": [
+          {
+            "id": 132
+          },
+          {
+            "id": 133
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+## Getting children of a Location
+
+To get a Location's children, query the `children` property of an `item` or `content` object:
+
+```
+{
+  item (locationId: 2) {
+    _location{
       children {
         edges {
           node {
@@ -211,24 +267,21 @@ To query a Location and its children, use the repository schema:
   }
 }
 ```
-
-The query accepts `locationId`, `remoteId`, and `urlAlias` as arguments.
-
 Response:
 
 ```
 {
   "data": {
-    "_repository": {
-      "location": {
+    "item": {
+      "_location": {
         "children": {
           "edges": [
             {
               "node": {
                 "content": {
-                  "_name": "About us",
+                  "_name": "Ibexa Platform",
                   "_type": {
-                    "name": "About"
+                    "name": "Folder"
                   }
                 }
               }
@@ -236,9 +289,9 @@ Response:
             {
               "node": {
                 "content": {
-                  "_name": "Travel literature, How to get started",
+                  "_name": "Product Catalog",
                   "_type": {
-                    "name": "Article"
+                    "name": "Product catalog"
                   }
                 }
               }
@@ -248,26 +301,6 @@ Response:
       }
     }
   }
-}
-```
-
-You can also query the children of a Content item:
-
-```
-{
-  content {
-    folder(contentId: 1) {
-      name
-      _location {
-        children {
-          edges {
-            # ...
-          }
-        }
-      }
-    }
-  }
-}
 ```
 
 ## Filtering
