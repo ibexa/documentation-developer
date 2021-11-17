@@ -19,5 +19,6 @@ and provides statistical information for the values including:
 
 ``` php
 $query = new Query();
-$query->aggregations[] = new Aggregation\Field\IntegerRangeAggregation('integer', 'product', 'amount');
+$query->aggregations[] = new Aggregation\Field\IntegerStatsAggregation('integer', 'product', 'amount');
 ```
+Use provided getter to access properties values: `getSum()`, `getCount())`, `getMin()`, `getMax()`, `getAvg()`, `getName()`
