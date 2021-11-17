@@ -43,9 +43,9 @@ Response:
 
 You can request any Fields of the Content item. In the example above, these are `title` and `author`.
 
-You can also query the generic `item` object. The `item` object references either a Content item or a Location.
+You can also query the generic `item` object.
+The `item` object references a Content item, but you can also get its [Location information](#querying-locations).
 The query accepts `locationId`, `remoteId`, and `urlAlias` as arguments.
-
 
 ```
 {
@@ -208,14 +208,18 @@ Response:
 ## Querying Locations
 
 You can get the Location object from any Content item object by querying for `_location` or `_allLocations`.
-When you use `_location`, the API picks the Location to return based on the current SiteAccess, or returns the main one.
+When you use `_location`, the API returns:
+
+- the Location specified in the `locationId` or `urlAlias` argument
+- the Location based on the current SiteAccess
+- the main Location.
 
 ```
 {
   content {
     folder (contentId: 133) {
       _allLocations {
-        id
+        pathString
       }
     }
   }
@@ -231,10 +235,10 @@ Response:
       "folder": {
         "_allLocations": [
           {
-            "id": 132
+            "pathString": "/1/2/128/132/"
           },
           {
-            "id": 133
+            "pathString": "/1/2/133/"
           }
         ]
       }
@@ -245,7 +249,7 @@ Response:
 
 ## Getting children of a Location
 
-To get a Location's children, query the `children` property of an `item` or `content` object:
+To get a [Location's](#querying-locations) children, query the `children` property of an `item` or `content` object:
 
 ```
 {
