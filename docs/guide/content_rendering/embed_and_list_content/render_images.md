@@ -71,7 +71,7 @@ To use it, select the variation when rendering the image:
 ## Use focal point
 
 In the [image editor](../../image_editor.md) you can define a focal point for an image.
-The focal point doesn't have an instant effect when you use the default templates.
+The focal point does not have an instant effect when you use the default templates.
 However, you can use it to select the part of the image the view focuses on when the image is cropped.
 
 The following example shows how to use an image contained in an Image Field as a focussed background.
@@ -88,7 +88,7 @@ First, in the main template, render the Image Field with a custom template:
 }) }}
 ```
 
-Then, create the custom Field template in `template/fields/image.html.twig`,
+Then, create the custom Field template in `templates/fields/image.html.twig`,
 [overriding the default `ezimage_field` template block](../render_content/render_content.md#field-templates):
 
 ``` html+twig
