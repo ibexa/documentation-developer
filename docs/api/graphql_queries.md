@@ -74,7 +74,7 @@ Response:
 }
 ```
 
-When you don't specify a language, the response contains the most prioritized translation.
+When you do not specify a language, the response contains the most prioritized translation.
 
 ### Get a group of Content items
 
