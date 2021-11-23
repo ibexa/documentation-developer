@@ -43,15 +43,33 @@ If you have not done it before, add the relevant meta-repository as an `upstream
 
     It is good practice to make git commits after every step of the update procedure.
 
-### A. Merge composer.json
+### A. Merge project skeleton
 
-Merge the current skeleton into your project. For example, for Ibexa Content run:
+Merge the current skeleton into your project:
 
-``` bash
-git remote add content-skeleton https://github.com/ibexa/content-skeleton.git
-git fetch content-skeleton --tags
-git merge v[[= latest_tag =]] --allow-unrelated-histories
-```
+=== "Ibexa Content"
+
+    ``` bash
+    git remote add content-skeleton https://github.com/ibexa/content-skeleton.git
+    git fetch content-skeleton --tags
+    git merge v[[= latest_tag =]] --allow-unrelated-histories
+    ```
+
+=== "Ibexa Experience"
+
+    ``` bash
+    git remote add experience-skeleton https://github.com/ibexa/experience-skeleton.git
+    git fetch experience-skeleton --tags
+    git merge v[[= latest_tag =]] --allow-unrelated-histories
+    ```
+
+=== "Ibexa Commerce"
+
+    ``` bash
+    git remote add commerce-skeleton https://github.com/ibexa/commerce-skeleton.git
+    git fetch commerce-skeleton --tags
+    git merge v[[= latest_tag =]] --allow-unrelated-histories
+    ```
 
 This introduces changes from the relevant website skeleton and results in conflicts.
 
@@ -62,10 +80,16 @@ Resolve the conflicts in the following way:
 - If a package is only used as a dependency of an `ezsystems` package, remove it. You can check how the package is used with `composer why <packageName>`.
 - Keep the dependencies listed in the website skeleton.
 
+!!! tip
+
+    You can also approach resolving conflicts differently:
+    run `git checkout --theirs composer.json` to get a clean `composer.json` from the skeleton
+    and then manually add any necessary changes from your project.
+
 !!! caution
 
     It is impossible to update an Enterprise edition (`ezsystems/ezplatform-ee`)
-    to an [[= product_name_content =]] edition.
+    to an Ibexa Content edition.
 
 ### B. Update the app
 
