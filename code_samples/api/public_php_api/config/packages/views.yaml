@@ -1,0 +1,12 @@
+ezplatform:
+    system:
+        site:
+            content_view:
+                full:
+                    folder:
+                        controller: App\Controller\CustomController::showContentAction
+#                        controller: App\Controller\PaginationController::showContentAction
+#                        controller: App\Controller\CustomFilterController::showChildrenAction
+#                        template: custom_filter.html.twig
+                        match:
+                            Identifier\ContentType: [folder]
