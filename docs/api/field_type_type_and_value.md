@@ -100,9 +100,8 @@ When [REST API](rest_api_guide.md) is used, conversion needs to be done for Fiel
 
 ## Registration
 
-A Field Type needs to have an indexable class defined.
-If you are using Solr Bundle, each Field Type must be registered in `config/services.yml`:
-
+The Field Type must be registered in `config/services.yml`:
+ 
 ``` yaml
 services:
     Ibexa\FieldTypeMatrix\FieldType\Type:
@@ -111,19 +110,10 @@ services:
             - {name: ezplatform.field_type, alias: ezmatrix}
 ```
 
-Items that are not to be indexed should be registered with the `unindexed` class with the parameter `ezpublish.fieldType.indexable.unindexed.class`:
-
-```yaml
-services:
-    Ibexa\FieldTypeMatrix\FieldType\Type:
-        class: %ezpublish.fieldType.indexable.unindexed.class%
-        tags:
-            - {name: ezplatform.field_type, alias: ezmatrix}
-```
-
 #### `parent`
 
 As described in the [Symfony service container documentation]([[= symfony_doc =]]/components/dependency_injection/parentservices.html), the `parent` config key indicates that you want your service to inherit from the parent's dependencies, including constructor arguments and method calls. This helps avoiding repetition in your Field Type configuration and keeps consistency between all Field Types.
+If you need to inject other services into your Type class, skip using the `parent` config key.
 
 #### `tags`
 
@@ -139,6 +129,10 @@ This ensures that the initialization steps shared by all Field Types are execute
 !!! tip
 
     The configuration of built-in Field Types is located in [`core/src/lib/Resources/settings/fieldtypes.yml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/fieldtypes.yml).
+
+### Indexing
+
+To make the search engine aware of the data stored in a Field Type, register it as [indexable](field_type_search.md)
 
 ## Field Type settings
 
