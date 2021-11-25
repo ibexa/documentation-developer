@@ -3,7 +3,7 @@
 In addition to existing blocks which you can use in a Page, you can also create custom blocks.
 
 To do this, add block configuration in a YAML file, under the `ezplatform_page_fieldtype` key,
-for example in `config/packages/ezplatform_page_builder.yaml`.
+for example in `config/packages/ibexa_page_builder.yaml`.
 
 The following example shows how to create a block that showcases an event.
 

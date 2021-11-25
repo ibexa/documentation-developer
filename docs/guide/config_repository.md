@@ -180,7 +180,7 @@ user_data: User data
 ## Limit of archived Content item versions
 
 `default_version_archive_limit` controls the number of archived versions per Content item that are stored in the Repository.
-By default it is set to 5. This setting is configured in the following way (typically in `ezplatform.yaml`):
+By default it is set to 5. This setting is configured in the following way (typically in `ibexa.yaml`):
 
 ``` yaml
 ezplatform:

@@ -37,7 +37,7 @@ First, in `templates/embed/`, create a custom template `dam.html.twig`:
 
 The `770px` parameter in the template above is used to render the DAM image. It is the `unsplash` specific image variation and must be defined separately.
 
-Next, in `config/packages/ezplatform.yaml`, set the `dam.html.twig` template for the `embed` view type that is matched for the Content Type, which you created for DAM images. 
+Next, in `config/packages/ibexa.yaml`, set the `dam.html.twig` template for the `embed` view type that is matched for the Content Type, which you created for DAM images. 
 For more information about displaying content, see [Content rendering](../guide/content_rendering/render_content/render_content.md).
 
 ``` yaml
@@ -52,7 +52,7 @@ For more information about displaying content, see [Content rendering](../guide/
                Identifier\ContentType: <dam_image_content_type_identifier>
 ```
 
-In the `config/packages/ezplatform.yaml` add the following configuration:
+In the `config/packages/ibexa.yaml` add the following configuration:
 
 ``` yaml
 dam_unsplash:

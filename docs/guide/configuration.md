@@ -14,11 +14,11 @@ Configuration files are located in the `config` folder.
 Configuration is provided per package in the `config/packages` folder,
 and routes are defined per package in `config/routes`.
 
-`config/packages/ezplatform.yaml` contains basic configuration.
+`config/packages/ibexa.yaml` contains basic configuration.
 It stores, among others, [SiteAccess](multisite/multisite.md) information and content view config.
 
-Other configuration is provided in respective files, e.g. `config/packages/ezplatform_admin_ui.yaml`,
-`config/packages/ezplatform_http_cache.yaml`.
+Other configuration is provided in respective files, e.g. `config/packages/ibexa_admin_ui.yaml`,
+`config/packages/ibexa_http_cache.yaml`.
 
 Configuration can be made environment-specific using separate folders for each environment.
 These files contain additional settings and point to the general (not environment-specific) configuration that is applied in other cases.

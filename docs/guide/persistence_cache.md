@@ -68,7 +68,7 @@ You can select a different cache backend and configure its parameters in the rel
 #### Multi Repository setup
 
 You can [configure multisite to work with multiple Repositories](multisite/multisite_configuration.md#location-id).
-Then, in `ezplatform.yaml` you can specify which cache pool you want to use on a SiteAccess or SiteAccess group level.
+Then, in `ibexa.yaml` you can specify which cache pool you want to use on a SiteAccess or SiteAccess group level.
 
 The following example shows use in a SiteAccess group:
 
@@ -178,7 +178,7 @@ services:
               namespace: 'ez'
 ```
 
-See `config/packages/ezplatform.yaml` and `config/packages/cache_pool/cache.redis.yaml` for further details on `CACHE_POOL`, `CACHE_DSN` and `CACHE_NAMESPACE`.
+See `config/packages/ibexa.yaml` and `config/packages/cache_pool/cache.redis.yaml` for further details on `CACHE_POOL`, `CACHE_DSN` and `CACHE_NAMESPACE`.
 
 !!! caution "Clearing Redis cache"
 

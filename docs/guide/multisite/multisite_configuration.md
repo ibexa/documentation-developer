@@ -34,7 +34,7 @@ A SiteAccess can be part of several groups. SiteAccess configuration has always 
 
 #### `admin` SiteAccess
 
-The predefined `admin` SiteAccess in `admin_group` (configured in `config/packages/ezplatform_admin_ui.yaml`) serves the Back Office.
+The predefined `admin` SiteAccess in `admin_group` (configured in `config/packages/ibexa_admin_ui.yaml`) serves the Back Office.
 Do not remove this group.
 If you need a multisite setup with multiple Back Offices, add any additional administration SiteAccesses to `admin_group`.
 

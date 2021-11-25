@@ -91,7 +91,7 @@ If several translation SiteAccesses share the same language reference, **the fir
 
 #### Custom locale configuration
 
-If you need to use a custom locale, you can configure it in `ezplatform.yaml`, adding it to the *conversion map*:
+If you need to use a custom locale, you can configure it in `ibexa.yaml`, adding it to the *conversion map*:
 
 ``` yaml
 ezplatform:

@@ -80,7 +80,7 @@ See [shared sessions in the clustering guide](clustering.md#shared-sessions).
 To set up [[= product_name =]] using [Memcached](https://pecl.php.net/package/memcached) you need to:
 
 - [Configure the session save handler settings in `php.ini`](http://php.net/manual/en/memcached.sessions.php)
-- Set `%ezplatform.session.handler_id%` to `~` (null) in `config/packages/ezplatform.yaml`
+- Set `%ezplatform.session.handler_id%` to `~` (null) in `config/packages/ibexa.yaml`
 
 Alternatively if you need to configure Memcached servers dynamically:
 
@@ -105,7 +105,7 @@ session locking.
 To set up [[= product_name =]] using the [Redis](https://pecl.php.net/package/redis) you need to:
 
 - [Configure the session save handler settings in `php.ini`](https://github.com/phpredis/phpredis/#php-session-handler)
-- Set `%ezplatform.session.handler_id%` to `~` _(null)_ in `config/packages/ezplatform.yaml`
+- Set `%ezplatform.session.handler_id%` to `~` _(null)_ in `config/packages/ibexa.yaml`
 
 Alternatively if you have needs to configure Redis servers dynamically:
 

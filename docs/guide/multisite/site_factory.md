@@ -20,7 +20,7 @@ To enable or disable Site Factory, follow respectively:
 
 ## Enable Site Factory
 
-To enable Site Factory, set `ez_platform_site_factory.enabled` to `true` in `config/packages/ezplatform_site_factory.yaml`.
+To enable Site Factory, set `ez_platform_site_factory.enabled` to `true` in `config/packages/ibexa_site_factory.yaml`.
 
 ### Configure designs
 
@@ -30,7 +30,7 @@ The number of empty SiteAccess groups must be equal to the number of templates t
 In this example, you add two SiteAccess groups (`example_site_factory_group_1` and `example_site_factory_group_2`)
 that correspond to the two templates (`site1` and `site2`) that you add in the next step.
 
-Add the groups in `config/packages/ezplatform.yaml`:
+Add the groups in `config/packages/ibexa.yaml`:
 
 ``` yaml
 ezplatform:
@@ -78,7 +78,7 @@ ezplatform:
 
 ### Add site template configuration
 
-Add thumbnails and names for your site templates in `config/packages/ezplatform_site_factory.yaml`:
+Add thumbnails and names for your site templates in `config/packages/ibexa_site_factory.yaml`:
 
 ```yaml
 ez_platform_site_factory:
@@ -151,7 +151,7 @@ Your sites should be now visible under:
 ### Define site directory
 
 You can adjust the place where the directory of the new site is created (Location with ID 2 by default).
-To do it, go to `config/packages/ezplatform_site_factory.yaml`, and add the following parameter:
+To do it, go to `config/packages/ibexa_site_factory.yaml`, and add the following parameter:
 
 ``` yaml
 ezplatform:
@@ -189,9 +189,9 @@ Enabled Site Factory may cause following performance issues:
 You can disable Site Factory to boost ConfigResolver performance.
 Keep in mind that with disabled Site Factory you are unable to add new sites or use existing ones.
 
-1\. In `config/packages/ezplatform_site_factory.yaml` change `enabled` to `false`.
+1\. In `config/packages/ibexa_site_factory.yaml` change `enabled` to `false`.
 
-2\. In `config/packages/ezplatform.yaml` comment the `ezplatform.siteaccess.match: '@Ibexa\SiteFactory\SiteAccessMatcher': ~` if it is uncommented.
+2\. In `config/packages/ibexa.yaml` comment the `ezplatform.siteaccess.match: '@Ibexa\SiteFactory\SiteAccessMatcher': ~` if it is uncommented.
 
 3\. Remove separate connection to database in `config/packages/doctrine.yaml`.
 

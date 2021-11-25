@@ -5,7 +5,7 @@ You can customize the template used in the `/user/forgot-password` route.
 
 Follow the instructions to create and configure a "forgot password" form.
 
-Edit `config/packages/ezplatform.yaml` and add the following configuration:
+Edit `config/packages/ibexa.yaml` and add the following configuration:
 
 ```yaml
 ezplatform:

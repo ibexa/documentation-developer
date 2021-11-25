@@ -32,7 +32,7 @@ For example:
 - `www.mysite.com` for English site
 - `www.mysite.com/fr` for French site
 
-To achieve this you need to create a new SiteAccess in the `config/packages/ezplatform.yaml` file.
+To achieve this you need to create a new SiteAccess in the `config/packages/ibexa.yaml` file.
 Add the `fr` SiteAccess to list of all SiteAccesses and it to the common `site_group`.
 This group is used for sharing settings such as API keys, cache locations and so on.
 

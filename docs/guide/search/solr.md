@@ -256,7 +256,7 @@ ezplatform:
                 connection: default
 ```
 
-`%search_engine%` is a parameter that is configured in `config/packages/ezplatform.yaml`, and should be changed from its default value `legacy` to `solr` to activate Solr as the search engine.
+`%search_engine%` is a parameter that is configured in `config/packages/ibexa.yaml`, and should be changed from its default value `legacy` to `solr` to activate Solr as the search engine.
 
 ### Step 4: Clear prod cache
 
@@ -280,7 +280,7 @@ If you have not configured your setup correctly, some exceptions might happen on
 Here are the most common issues you may encounter:
 
 - Exception if Binary files in database have an invalid path prefix
-    - Make sure `var_dir` is configured properly in `ezplatform.yaml` configuration.
+    - Make sure `var_dir` is configured properly in `ibexa.yaml` configuration.
     - If your database is inconsistent in regards to file paths, try to update entries to be correct *(make sure to make a backup first)*.
 - Exception on unsupported Field Types
     - Make sure to implement all Field Types in your installation, or to configure missing ones as [NullType](../../api/field_types_reference/nullfield.md) if implementation is not needed.
@@ -311,7 +311,7 @@ Boosting currently happens when indexing, so if you change your configuration yo
 
 Boosting tells the search engine which parts of the content model have more importance when searching, and is an important part of tuning your search results relevance. Importance is defined using a numeric value, where `1.0` is default, values higher than that are more important, and values lower (down to `0.0`) are less important.
 
-Boosting is configured per connection that you configure to use for a given Repository, like in this `config/packages/ezplatform_solr.yaml` example:
+Boosting is configured per connection that you configure to use for a given Repository, like in this `config/packages/ibexa_solr.yaml` example:
 
 ``` yaml
 ez_search_engine_solr:
@@ -344,7 +344,7 @@ The configuration above will result in the following boosting (Content Type / Fi
     Unfortunately, this doesn't affect search performed in the administration interface.
 
     The following example presents boosting configuration for Folder's `name` and `description` fields.
-    First, in `ezplatform_solr.yaml` configure [custom fulltext fields.](https://github.com/Novactive/NovaeZSolrSearchExtraBundle/blob/master/doc/custom_fields.md)
+    First, in `ibexa_solr.yaml` configure [custom fulltext fields.](https://github.com/Novactive/NovaeZSolrSearchExtraBundle/blob/master/doc/custom_fields.md)
 
     ```yaml
     ez_solr_search_extra:

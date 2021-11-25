@@ -15,7 +15,7 @@ These are most common actions you may need to take in a new installation.
 To remove the welcome page and get a completely clean installation to start your project with,
 remove the following files and folders from your installation:
 
-- Delete the file `config/packages/ezplatform_welcome_page.yaml`
+- Delete the file `config/packages/ibexa_welcome_page.yaml`
 - Delete the `templates/themes/standard` folder
 - Delete the `assets/scss` folder
 - Delete all `translations/ibexa_platform_welcome_page.*` files
@@ -66,7 +66,7 @@ To display Content in the front page you need to define content views and templa
 
 Content views decide which templates and controllers are used to display content.
 
-1\. In `config/packages/ezplatform.yaml`, under `ezplatform.system`
+1\. In `config/packages/ibexa.yaml`, under `ezplatform.system`
 add the following block (pay attention to indentation: `site_group` should be one level below `system`):
 
 ``` yaml
@@ -112,7 +112,7 @@ You can use SiteAccesses to serve different versions of the website.
 
 SiteAccesses are used depending on matching rules. They are set up in YAML configuration under the `ezplatform.siteaccess.list` key.
 
-1\. In `config/packages/ezplatform.yaml` add a new SiteAccess called `de` for the German version of the website:
+1\. In `config/packages/ibexa.yaml` add a new SiteAccess called `de` for the German version of the website:
 
 ``` yaml
 ezplatform:
@@ -187,7 +187,7 @@ Each theme is stored in a separate folder and assigned to a SiteAccess.
 
 To create a new theme:
 
-1\. Add the following configuration at the bottom of `config/packages/ezplatform.yaml` (at the same level as `ezplatform`):
+1\. Add the following configuration at the bottom of `config/packages/ibexa.yaml` (at the same level as `ezplatform`):
 
 ``` yaml
 ezdesign:
