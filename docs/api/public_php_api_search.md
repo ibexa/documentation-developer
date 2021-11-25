@@ -27,28 +27,9 @@ For example, to search for all content of a selected Content Type, use one Crite
 The following command takes the Content Type identifier as an argument and lists all results:
 
 ``` php hl_lines="14 16"
-//...
-use eZ\Publish\API\Repository\SearchService;
-use eZ\Publish\API\Repository\Values\Content\LocationQuery;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-
-class FindContentCommand extends Command
-{
-    // ...
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
-        $contentTypeId = $input->getArgument('contentTypeId');
-
-        $query = new LocationQuery();
-        $query->filter = new Criterion\ContentTypeIdentifier($contentTypeId);
-
-        $result = $this->searchService->findContentInfo($query);
-        $output->writeln('Found ' . $result->totalCount . ' items');
-        foreach ($result->searchHits as $searchHit) {
-            $output->writeln($searchHit->valueObject->name);
-        }
-    }
-}
+// ...
+[[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 8, 14) =]]    // ...
+[[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 31, 47) =]]
 ```
 
 [`SearchService::findContentInfo`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php#L144) (line 16)
@@ -132,71 +113,19 @@ Filtering differs from search. It does not use the `SearchService` and is not ba
 For example, the following command lists all Content items under the specified parent Location
 and sorts them by name in descending order:
 
-``` php hl_lines="15 16 17 18"
+``` php hl_lines="16-19"
 // ...
-use eZ\Publish\API\Repository\ContentService;
-use eZ\Publish\API\Repository\Values\Filter\Filter;
-use eZ\Publish\API\Repository\Values\Content\Query;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
-
-class FilterCommand extends Command
-{
-    // ...
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
-        $parentLocationId = (int)$input->getArgument('parent-location-id');
-
-        $filter = new Filter();
-        $filter
-            ->withCriterion(new Criterion\ParentLocationId($parentLocationId))
-            ->withSortClause(new SortClause\ContentName(Query::SORT_DESC));
-
-        $result = $this->contentService->find($filter, []);
-
-        $output->writeln('Found ' . $result->getTotalCount() . ' items');
-
-        foreach ($result as $content) {
-            $output->writeln($content->getName());
-        }
-
-        return self::SUCCESS;
-    }
-}
+[[= include_file('code_samples/api/public_php_api/src/Command/FilterCommand.php', 8, 16) =]]
+// ...
+[[= include_file('code_samples/api/public_php_api/src/Command/FilterCommand.php', 32, 52) =]]
 ```
 
 The same Filter can be applied to find Locations instead of Content items, for example:
 
-``` php hl_lines="19"
+``` php hl_lines="20"
 // ...
-use eZ\Publish\API\Repository\LocationService;
-use eZ\Publish\API\Repository\Values\Filter\Filter;
-use eZ\Publish\API\Repository\Values\Content\Query;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
-
-class FilterCommand extends Command
-{
-    // ...
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
-        $parentLocationId = (int)$input->getArgument('parent-location-id');
-        $filter = new Filter();
-        $filter
-            ->withCriterion(new Criterion\ParentLocationId($parentLocationId))
-            ->withSortClause(new SortClause\ContentName(Query::SORT_DESC));
-
-        $result = $this->locationService->find($filter, []);
-
-        $output->writeln('Found ' . $result->totalCount . ' items');
-
-        foreach ($result as $location) {
-            $output->writeln($location->getContent()->getName());
-        }
-
-        return self::SUCCESS;
-    }
-}
+[[= include_file('code_samples/api/public_php_api/src/Command/FilterLocationCommand.php', 8, 16) =]]// ...
+[[= include_file('code_samples/api/public_php_api/src/Command/FilterLocationCommand.php', 32, 52) =]]
 ```
 
 Notice that the total number of items is retrieved differently for `ContentList` and `LocationList`.
@@ -252,31 +181,10 @@ $filter
 You can use the `SearchService` or Repository filtering in a controller, as long as you provide the required parameters.
 For example, in the code below, `locationId` is provided to list all children of a Location by using the `SearchService`.
 
-``` php hl_lines="20 21 22"
-//...
-use eZ\Publish\API\Repository\SearchService;
-use eZ\Publish\API\Repository\Values\Content\LocationQuery;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-
-class CustomController extends Controller
-{
-    //...
-    public function showContentAction($locationId)
-    {
-        $query = new LocationQuery();
-        $query->filter = new Criterion\ParentLocationId($locationId);
-
-        $results = $this->searchService->findContentInfo($query);
-        $items = [];
-        foreach ($results->searchHits as $searchHit) {
-            $items[] = $searchHit;
-        }
-
-        return $this->render('custom.html.twig', [
-            'items' => $items,
-        ]);
-    }
-}
+``` php hl_lines="21-23"
+// ...
+[[= include_file('code_samples/api/public_php_api/src/Controller/CustomController.php', 4, 11) =]]    // ...
+[[= include_file('code_samples/api/public_php_api/src/Controller/CustomController.php', 18, 34) =]]
 ```
 
 The rendering of results is then relegated to [templates](../guide/content_rendering/templates/templates.md) (lines 20-22).
@@ -285,30 +193,8 @@ When using Repository filtering, provide the results of `ContentService::find()`
 
 ``` php hl_lines="19"
 // ...
-use eZ\Publish\API\Repository\ContentService;
-use eZ\Publish\API\Repository\Values\Content\Query;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\ParentLocationId;
-use eZ\Publish\API\Repository\Values\Filter\Filter;
-use eZ\Publish\Core\MVC\Symfony\View\ContentView;
-
-class CustomController extends Controller
-{
-    // ...
-    public function showChildrenAction(ContentView $view): ContentView
-    {
-        $filter = new Filter();
-        $filter
-            ->withCriterion(new ParentLocationId($view->getLocation()->id))
-
-        $view->setParameters(
-            [
-                'items' => $this->contentService->find($filter),
-            ]
-        );
-
-        return $view;
-    }
-}
+[[= include_file('code_samples/api/public_php_api/src/Controller/CustomFilterController.php', 4, 12) =]]    // ...
+[[= include_file('code_samples/api/public_php_api/src/Controller/CustomFilterController.php', 19, 34) =]]
 ```
 
 ### Paginating search results
@@ -316,43 +202,16 @@ class CustomController extends Controller
 To paginate search or filtering results, it is recommended to use the [Pagerfanta library](https://github.com/whiteoctober/Pagerfanta) and [[[= product_name =]]'s adapters for it.](https://github.com/ezsystems/ezplatform-kernel/tree/v1.0.0/eZ/Publish/Core/Pagination/Pagerfanta)
 
 ``` php
-//...
-use eZ\Publish\Core\Pagination\Pagerfanta\ContentSearchAdapter;
-use Symfony\Component\HttpFoundation\Request;
-use Pagerfanta\Pagerfanta;
-
-class CustomController extends Controller
-{
-    //...
-    public function showContentAction(Request $request, $locationId)
-    {
-        // formulate a $query
-
-        $pager = new Pagerfanta(
-            new ContentSearchAdapter($query, $this->searchService)
-        );
-        $pager->setMaxPerPage(3);
-        $pager->setCurrentPage($request->get('page', 1));
-
-        return $this->render('custom.html.twig', [
-                'totalItemCount' => $pager->getNbResults(),
-                'pagerItems' => $pager,
-            ]
-        );
-    }
-}
+// ...
+[[= include_file('code_samples/api/public_php_api/src/Controller/PaginationController.php', 8, 14) =]]    // ...
+[[= include_file('code_samples/api/public_php_api/src/Controller/PaginationController.php', 21, 31) =]]
+[[= include_file('code_samples/api/public_php_api/src/Controller/PaginationController.php', 35, 42) =]]
 ```
 
 Pagination can then be rendered for example using the following template:
 
 ``` html+twig
-{% for item in pagerItems %}
-    <h2><a href={{ ez_path(item.valueObject) }}>{{ ez_content_name(item) }}</a></h2>
-{% endfor %}
-
-{% if pagerItems.haveToPaginate() %}
-    {{ pagerfanta( pagerItems, 'ez') }}
-{% endif %}
+[[= include_file('code_samples/api/public_php_api/templates/custom_pagination.html.twig') =]]
 ```
 
 For more information and examples, see [PagerFanta documentation.](https://github.com/whiteoctober/Pagerfanta/blob/master/README.md)
@@ -367,17 +226,7 @@ You can access the following additional search result data from PagerFanta:
 - Timeout flag
 
 ``` php
-use eZ\Publish\Core\Pagination\Pagerfanta\Pagerfanta;
-//...
-
-class CustomController extends Controller
-{
-    //...
-    public function showContentAction(Request $request, int $locationId): Response
-    {
-    // ...
-        $pager->getMaxScore();
-        $pager->getTime();
+[[= include_file('code_samples/api/public_php_api/src/Controller/PaginationController.php', 32, 34) =]]
 ```
 
 ``` html+twig
@@ -401,21 +250,9 @@ class CustomController extends Controller
 For more complex searches, you need to combine multiple Criteria.
 You can do it using logical operators: `LogicalAnd`, `LogicalOr`, and `LogicalNot`.
 
-``` php hl_lines="6 7 8 11"
-$query = new LocationQuery;
-$criterion1 = new Criterion\Subtree($this->locationService->loadLocation($locationId)->pathString);
-$criterion2 = new Criterion\ContentTypeId($contentTypeId);
-$criterion3 = new Criterion\FullText($text);
-
-$query->query = new Criterion\LogicalAnd(
-    [$criterion1, $criterion2, $criterion3]
-);
-
-$result = $this->searchService->findContentInfo($query);
-$output->writeln('Found ' . $result->totalCount . ' items');
-foreach ($result->searchHits as $searchHit) {
-    $output->writeln($searchHit->valueObject->name);
-}
+``` php
+[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 43, 49) =]][[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 52, 53) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 59, 64) =]]
 ```
 
 This example takes three parameters from a command — `$text`, `$contentTypeId`, and `$locationId`.
@@ -425,17 +262,11 @@ that belong to a specific subtree, have the chosen Content Type and contain the 
 This also shows that you can get the total number of search results using the `totalCount` property of search results (line 11).
 
 You can also nest different operators to construct more complex queries.
-The example below uses the `LogicalNot` operator to search for all children of the selected parent
-that do not belong to the provided Content Type:
+The example below uses the `LogicalNot` operator to search for all content containing a given phrase
+that does not belong to the provided Section:
 
 ``` php
-$query->filter = new Criterion\LogicalAnd([
-        new Criterion\ParentLocationId($locationId),
-        new Criterion\LogicalNot(
-            new Criterion\ContentTypeIdentifier($contentTypeId)
-        )
-    ]
-);
+[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 45, 46) =]][[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 48, 53) =]]
 ```
 
 ### Combining independent Criteria
@@ -469,10 +300,7 @@ For example, to order search results by their publicationg date, from oldest to 
 and then alphabetically by content name, add the following Sort Clauses to the query:
 
 ``` php
-$query->sortClauses = [
-    new SortClause\DatePublished(LocationQuery::SORT_ASC),
-    new SortClause\ContentName(LocationQuery::SORT_DESC),
-];
+[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 54, 58) =]]
 ```
 
 !!! tip
@@ -491,18 +319,7 @@ For a list of supported Criteria and Sort Clauses, see [Searching in trash refer
     Searching through the trashed Content items operates directly on the database, therefore you cannot use external search engines, such as Solr or Elasticsearch, and it is impossible to reindex the data.
 
 ``` php
-use eZ\Publish\API\Repository\Values\Content\Query;
-
-    // ...
-
-    $query = new Query();
-    // find trashed folders
-    $query->filter = new Query\Criterion\ContentTypeId([1]);
-    $results = $this->trashService->findTrashItems($query);
-    foreach ($results->items as $trashedLocation) {
-        /** @var \eZ\Publish\API\Repository\Values\Content\TrashItem[] $trashedLocation */
-        // ...
-    }
+[[= include_file('code_samples/api/public_php_api/src/Command/FindInTrashCommand.php', 34, 41) =]]
 ```
 
 !!! caution
@@ -521,7 +338,7 @@ With aggregations you can find the count of search results or other result infor
 To do this, you use of the query's `$aggregations` property:
 
 ``` php
-$query->aggregations[] = new ContentTypeTermAggregation('content_type');
+[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 34, 35) =]]
 ```
 
 The name of the aggregation must be unique in the given query.
@@ -529,15 +346,13 @@ The name of the aggregation must be unique in the given query.
 Access the results by using the `get()` method of the aggregation:
 
 ``` php
-$contentByType = $results->aggregations->get('content_type');
+[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 39, 40) =]]
 ```
 
 Aggregation results contain the name of the result and the count of found items:
 
 ``` php
-foreach ($contentByType as $contentType => $count) {
-    $output->writeln($contentType->getName() . ': ' . $count);
-}
+[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 45, 48) =]]
 ```
 
 With field aggregations you can group search results according to the value of a specific Field.
@@ -547,7 +362,7 @@ The following example creates an aggregation named `selection` that groups resul
 according to the value of the `topic` Field in the `article` Content Type:
 
 ``` php
-$query->aggregations[] = new SelectionTermAggregation('selection', 'article', 'topic');
+[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 35, 36) =]]
 ```
 
 With term aggregation you can define additional limits to the results.
@@ -555,8 +370,7 @@ The following example limits the number of terms returned to 5
 and only considers terms that have 10 or more results:
 
 ``` php
-$query->aggregations[0]->setLimit(5);
-$query->aggregations[0]->setMinCount(10);
+[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 42, 44) =]]
 ```
 
 To use a range aggregation, you must provide a `ranges` array containing a set of `Range` objects
