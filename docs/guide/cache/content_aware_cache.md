@@ -171,12 +171,12 @@ $tagHandler->addRelationTags([33, 44]);
 
 In PHP, FOSHttpCache exposes the `fos_http_cache.http.symfony_response_tagger` service which enables you to add tags to a response.
 
-The following example adds minimal tags for when ID 33 and 34 are rendered in ESI,
+The following example adds minimal tags when ID 33 and 34 are rendered in ESI,
 but parent response needs these tags to get refreshed if they are deleted:
 
 ``` php
 /** @var \FOS\HttpCacheBundle\Http\SymfonyResponseTagger $responseTagger */
-$responseTagger->addTags([ContentTagInterface::RELATION_PREFIX . '33', ContentTagInterface::RELATION_PREFIX . '44']);
+$responseTagger->addTags([ContentTagInterface::RELATION_PREFIX . '33', ContentTagInterface::RELATION_PREFIX . '34']);
 ```
 
 See [Tagging from code](https://foshttpcachebundle.readthedocs.io/en/2.8.0/features/tagging.html#tagging-and-invalidating-from-php-code) in FOSHttpCacheBundle doc.
