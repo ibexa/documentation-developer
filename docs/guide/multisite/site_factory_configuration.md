@@ -94,7 +94,7 @@ Role definitions can contain user/login Policies with Limitations that limit use
 To avoid the need to add the new SiteAccess to Limitations for all Roles,
 you can decide that the Roles you select are automatically updated when the site is created, updated or deleted.
 
-In `config/packages/ezplatform_site_factory.yaml`, add a list of Roles which should have access to the frontend
+In `config/packages/ibexa_site_factory.yaml`, add a list of Roles which should have access to the frontend
 when a site is created in Site Factory, for example:
 
 ``` yaml

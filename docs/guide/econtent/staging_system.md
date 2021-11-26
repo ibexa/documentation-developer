@@ -14,7 +14,7 @@ php bin/console ibexa:commerce:index-econtent --siteaccess=import
 ```
 
 Use a SiteAccess (default: `import`) for the indexing process.
-The import SiteAccess should cover all languages used in eContent (see `ezplatform.yaml`).
+The import SiteAccess should cover all languages used in eContent (see `ibexa.yaml`).
 By default, the table set for this SiteAccess is configured to use the temporary tables
 
 The import process does not stop the production system.

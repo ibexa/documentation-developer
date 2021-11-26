@@ -2,7 +2,7 @@
 
 ## Content view configuration
 
-You can configure cache globally for content views in `config/packages/ezplatform.yaml`:
+You can configure cache globally for content views in `config/packages/ibexa.yaml`:
 
 ``` yaml
 ezplatform:

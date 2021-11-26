@@ -13,7 +13,7 @@ You can modify the default settings to change the appearance or behavior of the 
 You can also expand the default set of parameters to create buttons that may be required by custom features
 that you add by extending the Image Editor, for example, to enable changes to the color palette of an image.
 
-To do this, modify the `config/packages/ezplatform.yaml` file, or create a separate 
+To do this, modify the `config/packages/ibexa.yaml` file, or create a separate 
 YAML file in the `config/packages` folder, and add a settings tree similar to 
 the following example.
 The settings tree can contain one or more action groups.

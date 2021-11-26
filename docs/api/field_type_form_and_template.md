@@ -158,7 +158,7 @@ You can for example use `simple_block_field`, `simple_inline_field` or `field_at
 
 !!! caution
 
-    To be able to reuse built-in blocks, your template must inherit from `@EzPublishCore/content_fields.html.twig`.
+    To be able to reuse built-in blocks, your template must inherit from `@IbexaCore/content_fields.html.twig`.
 
 ### Registering your template
 

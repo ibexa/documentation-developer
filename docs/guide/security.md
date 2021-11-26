@@ -79,7 +79,7 @@ Refer to the [Symfony cookbook on this topic]([[= symfony_doc =]]/security/remem
 If you want to use this feature, you must at least extend the login template in order to add the required checkbox:
 
 ``` html+twig
-{% extends "@EzPublishCore/Security/login.html.twig" %}
+{% extends "@IbexaCore/Security/login.html.twig" %}
 
 {% block login_fields %}
     {{ parent() }}

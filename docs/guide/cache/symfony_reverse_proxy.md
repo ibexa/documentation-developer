@@ -68,7 +68,7 @@ For more information about setting these variables, see [Examples for configurin
 ### Update YML configuration
 
 Next, you need to tell [[= product_name =]] to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client),
-and specify the URL that Varnish can be reached on (in `config/packages/ezplatform.yaml`):
+and specify the URL that Varnish can be reached on (in `config/packages/ibexa.yaml`):
 
 | Configuration | Parameter| Environment variable| Possible values|
 |---------|--------|--------|----------|
@@ -109,7 +109,7 @@ If your installation uses Varnish and you want users to be able to configure and
 you must enable sending Captcha data as a response to an Ajax request. 
 Otherwise, Varnish does not allow for the transfer of Captcha data to the form, and as a result, users see an empty image.
 
-To enable sending Captcha over Ajax, add the following configuration to `config/packages/ezplatform.yaml`:
+To enable sending Captcha over Ajax, add the following configuration to `config/packages/ibexa.yaml`:
 
 ``` yaml
 ezplatform:

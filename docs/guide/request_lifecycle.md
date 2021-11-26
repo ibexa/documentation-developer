@@ -238,7 +238,7 @@ The `HttpKernel` sends the last `kernel.terminate` event (`KernelEvents::TERMINA
 |  kernel.request         |  locale_listener                      |  _locale            |  en_GB        |
 |  kernel.controller      |  ezpublish.view_builder.content       |  view.content       |  Content      |
 |  kernel.controller      |  ezpublish.view_builder.content       |  view.location      |  Location     |
-|  kernel.controller      |  ezpublish.view.configurator          |  view.templateIdentifier   |  @EzPublishCore/default/content/full.html.twig  |
+|  kernel.controller      |  ezpublish.view.configurator          |  view.templateIdentifier   |  @IbexaCore/default/content/full.html.twig  |
 |  kernel.controller      |  ezpublish.view.configurator          |  view.controllerReference  |  null  |
 |  kernel.controller      |  ezpublish.view_controller_listener   |  view               |  ContentView  |
 |  kernel.controller      |  ezpublish.view_controller_listener   |  _controller        |  ez_content:viewAction  |

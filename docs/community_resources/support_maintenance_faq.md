@@ -32,7 +32,7 @@ The language of the Back Office is based on the browser language.
 In order to change it you should install the proper package for your language (see [language packages list](https://github.com/ezplatform-i18n)).
 Once you have language packages installed, you can switch the language of the Back Office in the User Settings menu.
 
-If you do not have a language defined in the browser, it will be selected based on the `parameters.locale_fallback` parameter located in `config/packages/ezplatform.yaml`.
+If you do not have a language defined in the browser, it will be selected based on the `parameters.locale_fallback` parameter located in `config/packages/ibexa.yaml`.
 
 To read more about language managing in [[= product_name =]], see the following doc pages:
 
@@ -100,7 +100,7 @@ moving as much as possible of your configuration to your own files can be a good
 
 All project-specific parameters should be kept in separate files.
 For example, configuration for Page Blocks could be placed in `config/packages/landing_page_blocks.yaml`.
-You can also place it in `config/landing_page_blocks.yaml`, which should be imported in `config/ezplatform.yaml`:
+You can also place it in `config/landing_page_blocks.yaml`, which should be imported in `config/ibexa.yaml`:
 
     ```yaml
     imports:

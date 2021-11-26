@@ -39,7 +39,7 @@ in the User Settings menu.
 
 Otherwise, the language will be selected based on the browser language.
 If you do not have a language defined in the browser, the language will be selected
-based on `parameters.locale_fallback` in `config/packages/ezplatform.yaml`.
+based on `parameters.locale_fallback` in `config/packages/ibexa.yaml`.
 
 ## Custom string translations
 

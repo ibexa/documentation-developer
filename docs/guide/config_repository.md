@@ -72,11 +72,11 @@ To inject your entities into the SiteAccess-aware entity manager, use the follow
 ezplatform:
     orm:
         entity_mappings:
-            EzPublishCoreBundle:
+            IbexaCoreBundle:
                 is_bundle: true
                 type: annotation
                 dir: Entity
-                prefix: eZ\Bundle\EzPublishCoreBundle\Entity
+                prefix: Ibexa\Bundle\Core\Entity
 ```
 
 Refer to [DoctrineBundle documentation](https://symfony.com/doc/3.4/reference/configuration/doctrine.html)
@@ -180,7 +180,7 @@ user_data: User data
 ## Limit of archived Content item versions
 
 `default_version_archive_limit` controls the number of archived versions per Content item that are stored in the Repository.
-By default it is set to 5. This setting is configured in the following way (typically in `ezplatform.yaml`):
+By default it is set to 5. This setting is configured in the following way (typically in `ibexa.yaml`):
 
 ``` yaml
 ezplatform:
@@ -316,7 +316,7 @@ final class AcmeFeatureBundle extends Bundle
     {
         // ...
 
-        /** @var Ibexa\Bundle\Core\DependencyInjection\EzPublishCoreExtension $kernel */
+        /** @var Ibexa\Bundle\Core\DependencyInjection\IbexaCoreExtension $kernel */
         $kernel = $container->getExtension('ezpublish');
         $kernel->addRepositoryConfigParser(new CustomRepositoryConfigParser());
     }

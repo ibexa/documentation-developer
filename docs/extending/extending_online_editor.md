@@ -17,7 +17,7 @@ For more information about extending the Back Office UI, see [Extend Back Office
 
 With custom tags, you can enhance the Online Editor with features that go beyond 
 the built-in ones.
-You configure custom tags in the `ezplatform.yaml` file, under the `ezrichtext` key.
+You configure custom tags in the `ibexa.yaml` file, under the `ezrichtext` key.
 
 Start preparing the tag by adding a configuration file to the `config` folder. 
 
@@ -302,7 +302,7 @@ in the Online Editor:
 !!! caution "Overriding embed templates"
 
     If you override the default templates for `embedinline`, `embed` or `embedimage` 
-    elements, for example, `@EzPublishCore/default/content/embed.html.twig`,
+    elements, for example, `@IbexaCore/default/content/embed.html.twig`,
     the data attributes and classes will not be rendered automatically.
 
     Instead, you can make use of the `data_attributes` and `class` properties 

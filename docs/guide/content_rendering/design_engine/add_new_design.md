@@ -8,7 +8,7 @@ and provide it with a distinct design.
 
 ## Configure a new SiteAccess
 
-First, in the SiteAccess configuration in `config/packages/ezplatform.yaml`,
+First, in the SiteAccess configuration in `config/packages/ibexa.yaml`,
 add the `campaign` SiteAccess to the list under `ezplatform.siteaccess`:
 
 ``` yaml
