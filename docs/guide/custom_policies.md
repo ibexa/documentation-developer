@@ -159,7 +159,7 @@ create a Twig template containing block definition which follows the naming conv
 Add it to the configuration under `ezplatform.system.<SCOPE>.limitation_value_templates`:
 
 ```yaml
-ezplatform:
+ibexa:
     system:
         default:
             limitation_value_templates:

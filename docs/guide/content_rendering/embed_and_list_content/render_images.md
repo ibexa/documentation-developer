@@ -47,7 +47,7 @@ The following example creates a custom variation that scales the image down to a
 and renders it in grayscale:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         site_group:
             image_variations:

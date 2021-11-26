@@ -15,7 +15,7 @@ ezdesign:
 To indicate when to use a design, configure it under `ezplatform.system.<scope>`:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         <scope>:
             design: my_design

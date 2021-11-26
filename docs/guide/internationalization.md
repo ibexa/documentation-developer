@@ -54,7 +54,7 @@ For details, see [Multi-language SiteAccesses](multisite/set_up_translation_site
 Configuration is not mandatory, but can help to distinguish which SiteAccesses can be considered translation SiteAccesses.
 
 ``` yaml
-ezplatform:
+ibexa:
     siteaccess:
         default_siteaccess: eng
         list:
@@ -94,7 +94,7 @@ If several translation SiteAccesses share the same language reference, **the fir
 If you need to use a custom locale, you can configure it in `ibexa.yaml`, adding it to the *conversion map*:
 
 ``` yaml
-ezplatform:
+ibexa:
     # Locale conversion map between eZ Publish format (e.g. fre-FR) to POSIX (e.g. fr_FR).
     # The key is the eZ Publish locale. Check locale.yaml in IbexaCore to see natively supported locales.
     locale_conversion:
@@ -110,7 +110,7 @@ There are some cases where your SiteAccesses share settings (Repository, content
 The solution is defining new groups:
 
 ``` yaml
-ezplatform:
+ibexa:
     siteaccess:
         default_siteaccess: eng
         list:

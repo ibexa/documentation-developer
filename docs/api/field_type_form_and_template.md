@@ -166,7 +166,7 @@ If you don't use the [design engine](../guide/content_rendering/design_engine/de
 you can register a template with the following configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         <siteaccess>:
             field_templates:
@@ -187,7 +187,7 @@ With eZ Design you can apply a template (e.g. `Resources/views/themes/admin/cont
 If you do not use eZ Design, apply the following configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     systems:
         admin_group:
             field_templates:

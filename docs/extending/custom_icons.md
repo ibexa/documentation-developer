@@ -9,7 +9,7 @@ To add custom icons for existing Content Types or custom Content Types in [[= pr
 To configure a custom icon for a Content Type, use the following configuration in `config/packages/ibexa.yaml`, for example:
 
 ```yaml
-ezplatform:
+ibexa:
     system:
         default:
             content_type:

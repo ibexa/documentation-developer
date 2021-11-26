@@ -247,7 +247,7 @@ Obviously, you should pass credentials for every configured and HTTP Basic secur
 The following is an example of configuring Solr search engine, where `connection` name is same as in the example above, and engine is set to `solr`:
 
 ``` yaml
-ezplatform:
+ibexa:
     repositories:
         default:
             storage: ~

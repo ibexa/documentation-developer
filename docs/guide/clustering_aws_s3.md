@@ -78,7 +78,7 @@ ez_io:
 In your [[= product_name =]] system settings, e.g. `config/packages/ibexa.yaml`, enable the binary data handler:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             io:

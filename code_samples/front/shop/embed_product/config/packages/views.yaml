@@ -11,7 +11,7 @@ ezdesign:
         transaction_theme:
             - '%kernel.project_dir%/vendor/ibexa/commerce-transaction/src/bundle/ShopFrontend/Resources/views/themes/standard/'
 
-ezplatform:
+ibexa:
     system:
         site:
             design: my_design

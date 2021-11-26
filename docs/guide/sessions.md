@@ -28,7 +28,7 @@ so you can also define session configuration per SiteAccess and SiteAccess group
 All site-related session configuration can be defined per SiteAccess and SiteAccess group:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         my_siteaccess:
             session:

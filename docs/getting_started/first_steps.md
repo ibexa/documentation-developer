@@ -115,7 +115,7 @@ SiteAccesses are used depending on matching rules. They are set up in YAML confi
 1\. In `config/packages/ibexa.yaml` add a new SiteAccess called `de` for the German version of the website:
 
 ``` yaml
-ezplatform:
+ibexa:
     # ...
     siteaccess:
         list: [site, de]

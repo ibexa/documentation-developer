@@ -19,7 +19,7 @@ Default pagination limits for different sections of the Back Office can be defin
 You can set the pagination limit for user settings with the following configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             pagination_user:
@@ -31,7 +31,7 @@ ezplatform:
 Default Location IDs for [Content structure, Media and Users](content_management.md#top-level-locations) in the menu are configured using the following settings:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             location_ids:
@@ -46,7 +46,7 @@ To define the timeout for hiding Back-Office notification bars, per notification
 use the following configuration (times are provided in milliseconds):
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         admin:
             notifications:
@@ -69,7 +69,7 @@ The default Location for files uploaded in this way is `/Media/Files/Form Upload
 You can change it with the following configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             form_builder:
@@ -86,7 +86,7 @@ This format is used throughout the Back Office.
 You can set the list of available formats with the following configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         <siteaccess>:
             user_preferences:
@@ -107,7 +107,7 @@ ezplatform:
 The default date and time format is set using:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         <siteaccess>:
             user_preferences:
@@ -152,7 +152,7 @@ With this configuration you can:
 - override Content Tree's root for specific Locations
 
 ```yaml
-ezplatform:
+ibexa:
     system:
         # any SiteAccess or SiteAccess group
         admin_group:
@@ -187,7 +187,7 @@ The Universal Discovery Widget (UDW) can be found in [Extending UDW.](../extendi
 You can configure icon sets to be used per SiteAccess:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         <siteaccess>:
             assets:
@@ -204,7 +204,7 @@ If you want to enable and use Commerce features in Content and Experience editio
 and set the following:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             commerce:

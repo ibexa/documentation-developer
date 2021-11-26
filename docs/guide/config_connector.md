@@ -5,7 +5,7 @@
 You can configure a connection with a Digital Asset Management (DAM) system.
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             content:
@@ -41,7 +41,7 @@ Next, in `config/packages/ibexa.yaml`, set the `dam.html.twig` template for the 
 For more information about displaying content, see [Content rendering](../guide/content_rendering/render_content/render_content.md).
 
 ``` yaml
- ezplatform:
+ ibexa:
    system:
      site:
        content_view:

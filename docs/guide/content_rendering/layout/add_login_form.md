@@ -8,7 +8,7 @@ First, make sure you have configured [login methods](../../user_management/user_
 If you only want to change a template, in the `config/packages/views.yaml` add the following configuration:
 
 ```yaml
-ezpublish:
+ibexa:
     system:
         my_siteaccess:
             user:

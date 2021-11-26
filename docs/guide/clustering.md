@@ -169,7 +169,7 @@ ez_io:
                 connection: doctrine.dbal.dfs_connection
 
 # set the application handlers
-ezplatform:
+ibexa:
     system:
         default:
             io:
@@ -192,7 +192,7 @@ If you decide to change this setting, make sure you also set `io.url_prefix` to 
 If you set the NFS adapter's directory to `/path/to/nfs/storage`, use this configuration so that the files can be served by Symfony:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             io:
@@ -204,7 +204,7 @@ If in the example above, this server listens on `http://static.example.com/`
 and uses `/path/to/nfs/storage` as the document root, configure `io.url_prefix` as follows:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             io:

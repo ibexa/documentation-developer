@@ -2,7 +2,7 @@ ezdesign:
     design_list:
         my_design: [my_theme]
 
-ezplatform:
+ibexa:
     system:
         site_group:
             design: my_design

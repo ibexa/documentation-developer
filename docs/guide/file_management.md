@@ -33,7 +33,7 @@ IO handlers can be configured using semantic configuration and are configurable 
 This is the default configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             io:
@@ -60,7 +60,7 @@ The 'default' Flysystem adapter's directory is based on your site settings, and 
 #### Configure the permissions of generated files
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             io:
@@ -179,7 +179,7 @@ By default, images and binary files that are referenced by the content will be s
 This is the default semantic configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             io:
@@ -196,7 +196,7 @@ by setting up a separate server that maps the `/path/to/ezplatform/public/var` d
 The configuration would be as follows:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             io:

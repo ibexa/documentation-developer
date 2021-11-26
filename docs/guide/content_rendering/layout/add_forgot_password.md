@@ -8,7 +8,7 @@ Follow the instructions to create and configure a "forgot password" form.
 Edit `config/packages/ibexa.yaml` and add the following configuration:
 
 ```yaml
-ezplatform:
+ibexa:
     system:
         <siteaccess>:
             user_forgot_password:
