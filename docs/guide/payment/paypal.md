@@ -2,11 +2,13 @@
 
 ## Installation and configuration
 
-PayPal Express Checkout payment requires the third-party [`JMSPaymentPaypalBundle`](http://jmspaymentpaypalbundle.readthedocs.io/en/stable/setup.html) library.
+PayPal Express Checkout payment requires the third-party `JMSPaymentPaypalBundle` library. 
+The library's fork is available at the following [location](https://github.com/ezsystems/JMSPaymentPaypalBundle/releases/tag/v2.0.0).
+Make sure that you are using the latest version v2.0.0.
 
 ``` bash
-php composer.phar require jms/payment-paypal-bundle
-php composer.phar update -- jms/payment-paypal-bundle
+php composer.phar require ezsystems/payment-paypal-bundle
+php composer.phar update -- ezsystems/payment-paypal-bundle
 ```
 
 See [How to get the API credentials](#how-to-get-the-api-credentials) to learn where you can find the values for the `JMSPaymentPaypalBundle` configuration in the PayPal merchant's administration.
