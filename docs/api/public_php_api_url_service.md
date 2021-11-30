@@ -14,26 +14,10 @@ in which you need to specify:
 - query limit. If value is `0`, search query will not return any search hits
 
 ```php
-use Ibexa\Contracts\Core\Repository\Values\URL\URLQuery;
-use Ibexa\Contracts\Core\Repository\Values\URL\Query\Criterion;
-use Ibexa\Contracts\Core\Repository\Values\URL\Query\SortClause; 
-
-# ...
-
-$urlQuery = new URLQuery();
-$urlQuery->filter = new Criterion\LogicalAnd(
-    [
-    new Criterion\SectionIdentifier(['standard']),
-    new Criterion\Validity(true),
-    ]
-);
-$urlQuery->sortClauses = [
-    new SortClause\URL(SortClause::SORT_DESC)
-];
-$urlQuery->offset = 0;
-$urlQuery->limit = 25;
-
-$results = $urlService->findUrls($urlQuery);
+// ...
+[[= include_file('code_samples/api/public_php_api/src/Command/FindUrlCommand.php', 9, 12) =]]
+// ...
+[[= include_file('code_samples/api/public_php_api/src/Command/FindUrlCommand.php', 43, 58) =]]
 ```
 
 ## URL criteria reference

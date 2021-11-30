@@ -109,8 +109,7 @@ In order to identify as a different user, you need to use the `UserService` toge
 (in the example `admin` is the login of the administrator user):
 
 ``` php
-$user = $userService->loadUserByLogin('admin');
-$permissionResolver->setCurrentUserReference($user);
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 50, 52) =]]
 ```
 
 !!! tip
