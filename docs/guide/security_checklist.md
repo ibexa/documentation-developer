@@ -120,7 +120,8 @@ Use the following checklist to ensure the Roles and Policies are secure:
 - Secure the database with a good password, keys, firewall, etc.
 
 ### Track dependencies
-- Run servers on a recent operating system, and install security patches for dependencies.
+
+- Run servers on a recent operating system and install security patches for dependencies.
 - Configure servers to alert you about security updates from vendors. Pay special attention to dependencies used by your project directly, or by PHP. The provider of the operating system usually has a service for this.
 - Enable [GitHub Dependabot](https://docs.github.com/en/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates), to receive notifications when a security fix is released in a Github-hosted dependency.
 - If you're not using Github for your project, it's still possible to create a dummy project on Github with the same dependencies as your real project, and enable Dependabot notifications for that.
