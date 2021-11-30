@@ -12,19 +12,13 @@ To load a Segment Group, use `SegmentationService::loadSegmentGroup()`.
 Get all Segments assigned to the group with `SegmentationService::loadSegmentsAssignedToGroup()`:
 
 ``` php
-$segmentGroup = $this->segmentationService->loadSegmentGroup(1);
-
-$segments = $this->segmentationService->loadSegmentsAssignedToGroup($segmentGroup);
-
-foreach ($segments as $segment) {
-    $output->writeln($segment->name);
-}
+[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 53, 60) =]]
 ```
 
 Similarly, you can load a Segment in a group by using `SegmentationService::loadSegmentGroup()`:
 
 ``` php
-$segment = $this->segmentationService->loadSegment(12);
+[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 61, 62) =]]
 ```
 
 ### Checking assignment
@@ -32,10 +26,7 @@ $segment = $this->segmentationService->loadSegment(12);
 You can check whether a User is assigned to a Segment with `SegmentationService::isUserAssignedToSegment()`:
 
 ``` php
-$user = $this->userService->loadUserByLogin('admin');
-$segment = $this->segmentationService->loadSegment(12);
-
-$isAssigned = $this->segmentationService->isUserAssignedToSegment($user, $segment);
+[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 65, 69) =]]
 ```
 
 ### Assigning Users
@@ -43,10 +34,7 @@ $isAssigned = $this->segmentationService->isUserAssignedToSegment($user, $segmen
 To assign a User to a Segment, use `SegmentationService::assignUserToSegment()`:
 
 ``` php
-$user = $this->userService->loadUserByLogin('admin');
-$segment = $this->segmentationService->loadSegment(12);
-
-$this->segmentationService->assignUserToSegment($user, $segment);
+[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 61, 64) =]]
 ```
 
 ### Creating Segments
@@ -57,26 +45,14 @@ To create a Segment Group, use `SegmentationService::createSegmentGroup()`
 and provide it with a `SegmentGroupCreateStruct`:
 
 ``` php
-$segmentGroupCreateStruct = new SegmentGroupCreateStruct([
-    'name' => 'Custom Group',
-    'identifier' => 'custom_group',
-    'createSegments' => []
-]);
-
-$newSegmentGroup = $this->segmentationService->createSegmentGroup($segmentGroupCreateStruct);
+[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 37, 44) =]]
 ```
 
 To create a Segment, use `SegmentationService::createSegment()`
 and provide it with a `SegmentCreateStruct`, which takes an existing group as one of the parameters:
 
 ``` php
-$segmentCreateStruct = new SegmentCreateStruct([
-    'name' => 'Segment 1',
-    'identifier' => 'segment_1',
-    'group' => $segmentGroup,
-]);
-
-$newSegment = $this->segmentationService->createSegment($segmentCreateStruct);
+[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 45, 52) =]]
 ```
 
 ### Updating Segments
