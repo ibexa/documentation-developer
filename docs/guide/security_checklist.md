@@ -125,4 +125,4 @@ Use the following checklist to ensure the Roles and Policies are secure:
 - Configure servers to alert you about security updates from vendors. Pay special attention to dependencies used by your project directly, or by PHP. The provider of the operating system usually has a service for this.
 - Enable [GitHub Dependabot](https://docs.github.com/en/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates), to receive notifications when a security fix is released in a Github-hosted dependency.
 - If you're not using Github for your project, you can create a dummy project on Github with the same dependencies as your real project, and enable Dependabot notifications for that.
-- Ensure you get notifications about security fixes in Javascript dependencies.
+- Ensure you get notifications about security fixes in JavaScript dependencies.
