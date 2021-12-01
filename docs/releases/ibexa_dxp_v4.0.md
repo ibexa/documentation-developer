@@ -46,10 +46,25 @@ See [Managing migrations](../api/public_php_api_managing_migrations.md) for more
 Alternative text for an Image field is now optional by default. 
 You can set it as required when adding the Image field to a Content Type.
 
+### Configure what elements are available in the Page Builder for the Content type
+
+You can now select which page blocks, page layout and what edit mode are available in the Editor mode for the Content type.
+For more information, see [Working with Page](https://doc.ibexa.co/projects/userguide/en/latest/site_organization/working_with_page/#configure-blocks-display).
+
 ### Purge all submissions of given form
 
 You can purge all submissions of a given form. 
 For more information, see [Forms](../guide/form_builder/forms.md#form-submission-purging).
+
+### Hidden eCommerce features
+
+Commerce tab and all its features are now disabled by default.
+For more information, see [Enable Commerce features](../guide/config_back_office.md/#enable-commerce-features).
+
+### Category exclusion 
+
+Personalization service has been enhanced with a feature which allows to exclude categories from the recommendation response.
+See [Exclusions](https://doc.ibexa.co/projects/userguide/en/master/personalization/filters/#exclusions)
 
 ## Deprecations
 
