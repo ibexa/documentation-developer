@@ -24,8 +24,8 @@ To connect your shop to ERP, configure the following [ERP settings](../shop_conf
 The following configuration enables the use of ERP:
 
 ``` yaml
-siso_local_order_management.default.send_order_to_erp: true
-siso_order_history.default.use_local_documents: false
+ibexa_commerce_local_order_management.default.send_order_to_erp: true
+ibexa_commerce_order_history.default.use_local_documents: false
 ```
 
 ### Checking ERP status

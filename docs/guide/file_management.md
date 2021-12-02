@@ -41,10 +41,10 @@ ibexa:
                 binarydata_handler: default
 ```
 
-Metadata and binary data handlers are configured under `ez_io`. Below is what the configuration looks like for the default handlers. It declares a metadata handler and a binary data handler, both labeled `default`. Both handlers are of type `flysystem`, and use the same Flysystem adapter, labeled `default` as well.
+Metadata and binary data handlers are configured under `ibexa_io`. Below is what the configuration looks like for the default handlers. It declares a metadata handler and a binary data handler, both labeled `default`. Both handlers are of type `flysystem`, and use the same Flysystem adapter, labeled `default` as well.
 
 ``` yaml
-ez_io:
+ibexa_io:
     metadata_handlers:
         default:
             flysystem:
@@ -126,12 +126,12 @@ If you want to enable indexing, you must have installed Oracle Java/Open JDK 8 o
 Next, in the `config/packages` folder create a `binary_files.yaml` file with the following configuration:
 
 ``` yaml
-ibexa_platform_commerce_field_types:
+ibexa_commerce_field_types:
     binary_file_indexing:
         enabled: true
 ```
 
-To check what types are indexed, see under the `siso_search.default.index_content` parameter in `src/Siso/Bundle/SearchBundle/Resources/config/search.yml`. This parameter can be overriden, so you use it to index only specific types per SiteAccess or to extend the indexing to other file types.
+To check what types are indexed, see under the `ibexa_commerce_search.default.index_content` parameter in `src/Siso/Bundle/SearchBundle/Resources/config/search.yml`. This parameter can be overriden, so you use it to index only specific types per SiteAccess or to extend the indexing to other file types.
 The following file types are indexed by default:
 
 ``` yaml

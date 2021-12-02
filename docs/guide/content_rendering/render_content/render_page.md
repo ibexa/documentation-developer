@@ -9,7 +9,7 @@ A Page Field is a layout composed of zones. Each zone can contain multiple block
 ### Configure layout
 
 The default, built-in Page layout has only one zone.
-You can create other layouts in configuration, under the `ezplatform_page_fieldtype.layouts` key.
+You can create other layouts in configuration, under the `ibexa_fieldtype_page.layouts` key.
 
 To create a new layout called "Right sidebar", use the following configuration:
 

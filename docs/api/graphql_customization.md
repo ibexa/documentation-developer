@@ -88,6 +88,6 @@ Use this setting to avoid conflicts with Field names that derive from a Content 
 
 ``` yaml
 parameters:
-    ezplatform_graphql.schema.content.field_name.override:
+    ibexa_graphql.schema.content.field_name.override:
         id: id_
 ```

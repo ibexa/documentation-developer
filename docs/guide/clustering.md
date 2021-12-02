@@ -158,7 +158,7 @@ oneup_flysystem:
                 service: ibexa.platform.io.nfs.adapter.site_access_aware
 
 # define the Ibexa handlers
-ez_io:
+ibexa_io:
     binarydata_handlers:
         nfs:
             flysystem:

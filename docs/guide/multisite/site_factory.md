@@ -59,7 +59,7 @@ ibexa:
 Next, add the configuration for `ezdesign` on the same level as `ezplatform`:
 
 ``` yaml
-ezdesign:
+ibexa_design_engine:
     design_list:
         example_1: [example_1_template]
         example_2: [example_2_template]

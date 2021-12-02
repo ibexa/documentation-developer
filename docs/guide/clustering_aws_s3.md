@@ -60,7 +60,7 @@ oneup_flysystem:
 In the same place, set up the binary data handler for the S3 adapter:
 
 ``` yaml
-ez_io:
+ibexa_io:
     binarydata_handlers:
         aws_s3:
             flysystem:

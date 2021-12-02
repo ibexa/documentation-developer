@@ -4,7 +4,7 @@ ibexa:
             fieldtypes:
                 ezrichtext:
                     custom_styles: [highlighted_block, highlighted_word]
-ezrichtext:
+ibexa_fieldtype_richtext:
     custom_styles:
         highlighted_word:
             template: '@ezdesign/field_type/ezrichtext/custom_style/highlighted_word.html.twig'

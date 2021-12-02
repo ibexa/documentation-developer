@@ -190,7 +190,7 @@ To create a new theme:
 1\. Add the following configuration at the bottom of `config/packages/ibexa.yaml` (at the same level as `ezplatform`):
 
 ``` yaml
-ezdesign:
+ibexa_design_engine:
     design_list:
         site_design: [site_design]
         de_design: [de_design]

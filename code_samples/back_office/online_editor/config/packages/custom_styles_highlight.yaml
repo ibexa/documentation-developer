@@ -4,7 +4,7 @@ ezpublish:
             fieldtypes:
                 ezrichtext:
                     custom_styles: [highlight]
-ezrichtext:
+ibexa_fieldtype_richtext:
     custom_styles:
         highlight:
             template: field_type/ezrichtext/custom_style/highlight.html.twig

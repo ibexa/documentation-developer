@@ -32,7 +32,7 @@ of the site, provide the credentials that correspond to each of the sites.
 The configuration can resemble the following example:
 
 ``` yaml
-ezrecommendation:
+ibexa_personalization_client:
     system:
         <site_access_name_1>:
             site_name: '<site_name_1>' # For example 'ENU store'

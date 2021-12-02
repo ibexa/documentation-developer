@@ -16,7 +16,7 @@ Autosuggestion has four different independent modules: product, category, conten
 ### Product
 
 ``` yaml
-siso_search.default.autosuggest_module_definitions:
+ibexa_commerce_search.default.autosuggest_module_definitions:
     product_autosuggest:
         search_limit: 5
         use_prefix_search: false
@@ -57,7 +57,7 @@ siso_search.default.autosuggest_module_definitions:
 ### Category
 
 ``` yaml
-siso_search.default.autosuggest_module_definitions:
+ibexa_commerce_search.default.autosuggest_module_definitions:
 category_autosuggest:
     search_limit: 5
     images: true
@@ -87,7 +87,7 @@ category_autosuggest:
 ### Content
 
 ``` yaml
-siso_search.default.autosuggest_module_definitions:
+ibexa_commerce_search.default.autosuggest_module_definitions:
 content_autosuggest:
     search_limit: 5
     images: true
@@ -116,7 +116,7 @@ content_autosuggest:
 ### Download
 
 ```
-siso_search.default.autosuggest_module_definitions:
+ibexa_commerce_search.default.autosuggest_module_definitions:
 download_autosuggest:
     search_limit: 5
     images: true

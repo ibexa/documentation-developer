@@ -1,4 +1,4 @@
-ezplatform_page_fieldtype:
+ibexa_fieldtype_page:
     blocks:
         my_block:
             name: My Block
