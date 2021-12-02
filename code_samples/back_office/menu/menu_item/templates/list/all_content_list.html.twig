@@ -4,70 +4,64 @@
 
 {%- block breadcrumbs -%}
     {% include '@ezdesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'breadcrumb.admin'|trans(domain='messages')|desc('Admin') },
         { value: 'url.list'|trans|desc('Content List') }
     ]} %}
 {%- endblock -%}
 
-{%- block page_title -%}
+{%- block header -%}
     {% include '@ezdesign/ui/page_title.html.twig' with {
         title: 'url.list'|trans|desc('Content List'),
-        icon_name: 'article'
     } %}
 {%- endblock -%}
 
 {%- block content -%}
-    <section class="container my-4">
-        <div class="my-4">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="contentTypeFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Content Type
-                </button>
-                <div class="dropdown-menu" aria-labelledby="contentTypeFilter">
-                    {% for group, types in contentTypes %}
-                    <h6 class="dropdown-header">{{ group }}</h6>
-                        {% for type in types %}
-                            <a class="dropdown-item" href="{{ path('all_content_list.list', { 'contentTypeIdentifier': type.identifier }) }}">{{ type.name }}</a>
-                        {% endfor %}
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-        <div class="ez-table-header">
-            <div class="ez-table-header__headline">{{ "Content List"|trans }}</div>
-        </div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>{{ 'Content name'|trans }}</th>
-                    <th>{{ 'Content Type'|trans }}</th>
-                    <th>{{ 'Modified'|trans }}</th>
-                    <th>{{ 'Published'|trans }}</th>
-                    <th>{{ 'Edit'|trans }}</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for article in articles %}
-                <tr>
-                    <td><a href={{ez_path(article)}}>{{ ez_content_name(article.contentInfo) }}</a></td>
-                    <td>{{ article.contentInfo.contentTypeId }}</td>
-                    <td>{{ article.contentInfo.modificationDate|ez_full_datetime }}</td>
-                    <td>{{ article.contentInfo.publishedDate|ez_full_datetime }}</td>
-                    <td>
-                        <button class="btn btn-icon mx-2 ez-btn--content-edit"
-                                title="{{ 'dashboard.table.all.content.edit'|trans|desc('Edit Content') }}"
-                                data-content-id="{{ article.contentInfo.id }}"
-                                data-version-no="{{ article.contentInfo.currentVersionNo }}"
-                                data-language-code="{{ article.contentInfo.mainLanguageCode }}">
-                            <svg class="ez-icon ez-icon-edit">
-                                <use xlink:href="{{ asset('bundles/ezplatformadminui/img/ez-icons.svg') }}#edit"></use>
-                            </svg>
-                        </button>
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-        {{ pagerfanta(articles, 'ez') }}
+    <section class="container ez-container">
+    {% set body_rows = [] %}
+    {% for article in articles.currentPageResults %}
+
+        {% set col_edit %}
+        <button class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--content-edit"
+                title="{{ 'dashboard.table.all.content.edit'|trans|desc('Edit Content') }}"
+                data-content-id="{{ article.contentInfo.id }}"
+                data-version-no="{{ article.contentInfo.currentVersionNo }}"
+                data-language-code="{{ article.contentInfo.mainLanguageCode }}">
+            <svg class="ibexa-icon ibexa-icon--small ibexa-icon--edit">
+                <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+            </svg>
+        </button>
+        {% endset %}
+
+        {% set body_rows = body_rows|merge([{
+            cols: [
+                { content: article.contentInfo.name },
+                { content: article.contentInfo.contentType.name },
+                { content: article.contentInfo.modificationDate|ez_full_datetime },
+                { content: article.contentInfo.publishedDate|ez_full_datetime },
+                { content: col_edit, raw: true },
+            ],
+        }]) %}
+    {% endfor %}
+
+    {% include '@ezdesign/ui/component/table/table.html.twig' with {
+            headline: 'Content List',
+            head_cols: [
+                { content: 'Content name'|trans },
+                { content: 'Content Type'|trans },
+                { content: 'Modified'|trans },
+                { content: 'Published'|trans },
+                { content: '' },
+            ],
+            class: 'ibexa-table',
+            body_rows
+    }
+    %}
+
+    {% if articles.haveToPaginate %}
+        {% include '@ezdesign/ui/pagination.html.twig' with {
+            'pager': articles
+        } %}
+    {% endif %}
     </section>
     {{ form_start(form_edit, {
         'action': path('ezplatform.content.edit'),

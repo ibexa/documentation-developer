@@ -5,14 +5,21 @@ namespace App\EventSubscriber;
 use Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent;
 use Ibexa\AdminUi\Menu\MainMenuBuilder;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Ibexa\AdminUi\Menu\MenuItemFactory;
 
 class MyMenuSubscriber implements EventSubscriberInterface
 {
+    private $menuItemFactory;
+
+    public function __construct(MenuItemFactory $menuItemFactory)
+    {
+        $this->menuItemFactory = $menuItemFactory;
+    }
+
     public static function getSubscribedEvents()
     {
         return [
             ConfigureMenuEvent::MAIN_MENU => ['onMainMenuConfigure', 0],
-            ConfigureMenuEvent::CONTENT_SIDEBAR_RIGHT => ['onContentSidebarConfigure', 0]
         ];
     }
 
@@ -20,7 +27,17 @@ class MyMenuSubscriber implements EventSubscriberInterface
     {
         $menu = $event->getMenu();
 
-        $menu[MainMenuBuilder::ITEM_CONTENT]->addChild(
+        $custom_menu_item = $menu[MainMenuBuilder::ITEM_CONTENT]->addChild(
+            'main__content__custom_menu',
+            [
+                'extras' => [
+                    'orderNumber' => 100,
+                ],
+            ],
+        );
+
+        $custom_menu_item->addChild(
+            $this->menuItemFactory->createItem(
             'all_content_list',
             [
                 'label' => 'Content List',
@@ -31,17 +48,12 @@ class MyMenuSubscriber implements EventSubscriberInterface
                 'linkAttributes' => [
                     'class' => 'custom-menu-item-link',
                 ],
-            ]
+            ])
         );
-    }
 
-    public function onContentSidebarConfigure (ConfigureMenuEvent $event)
-    {
-        $menu = $event->getMenu();
+        $menu->removeChild('main__bookmarks');
 
-        $menu->removeChild('content__sidebar_right__copy_subtree');
-
-        $menu->getChild('content__sidebar_right__create')
-             ->setExtra('icon_path', '/bundles/ibexaplatformicons/img/all-icons.svg#notice');
+        $menu->getChild('main__admin')
+             ->setExtra('icon_path', '/bundles/ibexaicons/img/all-icons.svg#notice');
     }
 }
