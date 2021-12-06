@@ -126,7 +126,7 @@ Use an `Ibexa\Contracts\Workflow\Event\TimelineEvents::COLLECT_ENTRIES` event to
 To provide custom templates for new event timeline entries, use the following configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             workflows_config:

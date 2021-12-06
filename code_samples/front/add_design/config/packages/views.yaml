@@ -1,8 +1,8 @@
-ezdesign:
+ibexa_design_engine:
     design_list:
         summersale: [summersale, standard]
 
-ezplatform:
+ibexa:
     system:
         site_group:
             content_view:

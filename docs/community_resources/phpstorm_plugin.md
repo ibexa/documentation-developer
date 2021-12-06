@@ -177,7 +177,7 @@ Besides configuration structure, for the following YAML keys addition suggestion
 - List of available SiteAccess matchers, for:
     - `ezplatform.siteaccess.match`
 - List of available block attribute types, for:
-    - `ezplatform_page_fieldtype.blocks.<block_name>.attributes.<attribute_name>.type`
+    - `ibexa_fieldtype_page.blocks.<block_name>.attributes.<attribute_name>.type`
 - List of available configuration scopes, for:
     - `ezplatform`
 - List of available siteaccess names, for:

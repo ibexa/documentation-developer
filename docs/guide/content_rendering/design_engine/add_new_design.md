@@ -12,7 +12,7 @@ First, in the SiteAccess configuration in `config/packages/ibexa.yaml`,
 add the `campaign` SiteAccess to the list under `ezplatform.siteaccess`:
 
 ``` yaml
-ezplatform:
+ibexa:
     siteaccess:
         list: [site, campaign]
         groups:

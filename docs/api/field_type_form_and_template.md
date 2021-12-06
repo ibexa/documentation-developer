@@ -135,7 +135,7 @@ By convention, your block must be named `<fieldTypeIdentifier>_field`.
 
     This template is also exposed as a part of Standard Design, so you can override it with the [design engine](../guide/content_rendering/design_engine/design_engine.md).
     To do so, place the template `themes/standard/content_fields.html.twig` in your `Resources/views`
-    (assuming `ez_platform_standard_design.override_kernel_templates` is set to true).
+    (assuming `ibexa_standard_design.override_kernel_templates` is set to true).
 
 ### Template variables
 
@@ -166,7 +166,7 @@ If you don't use the [design engine](../guide/content_rendering/design_engine/de
 you can register a template with the following configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         <siteaccess>:
             field_templates:
@@ -181,13 +181,13 @@ ezplatform:
 ### Back Office view template
 
 For templates for previewing the Field in the Back Office,
-using eZ Design is recommended with `ez_platform_standard_design.override_kernel_templates` set to `true`.
+using eZ Design is recommended with `ibexa_standard_design.override_kernel_templates` set to `true`.
 With eZ Design you can apply a template (e.g. `Resources/views/themes/admin/content_fields.html.twig`) without any extra configuration.
 
 If you do not use eZ Design, apply the following configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     systems:
         admin_group:
             field_templates:

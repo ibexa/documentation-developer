@@ -9,7 +9,7 @@ You can define several Repositories within a single application. However, you ca
 To use the default Repository connection, you do not need to specify its details:
 
 ``` yaml
-ezplatform:
+ibexa:
     repositories:
         # Defining Repository with alias "main"
         # Default storage engine is used, with default connection
@@ -30,7 +30,7 @@ If no Repository is specified for a SiteAccess or SiteAccess group,
 the first Repository defined under `ezplatform.repositories` will be used:
 
 ``` yaml
-ezplatform:
+ibexa:
     repositories:
         main: ~
     system:
@@ -69,7 +69,7 @@ To have this possibility, you need to use the SiteAccess-aware entity manager: `
 To inject your entities into the SiteAccess-aware entity manager, use the following configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     orm:
         entity_mappings:
             IbexaCoreBundle:
@@ -113,7 +113,7 @@ doctrine:
             another_connection_name:
                 # ...
 
-ezplatform:
+ibexa:
     repositories:
         first_repository: 
             storage: 
@@ -183,7 +183,7 @@ user_data: User data
 By default it is set to 5. This setting is configured in the following way (typically in `ibexa.yaml`):
 
 ``` yaml
-ezplatform:
+ibexa:
     repositories:
         default:
             options:
@@ -204,7 +204,7 @@ This limit is enforced on publishing a new version and only covers archived vers
 With `remove_archived_versions_on_publish` setting, you can control whether versions that exceed the limit are deleted when you publish a new version.
 
 ``` yaml
-ezplatform:
+ibexa:
     repositories:
         default:
             options:
@@ -239,7 +239,7 @@ For example, the following command removes archived versions as user `admin`, bu
 `ezplatform_default_settings.yaml` contains two settings that indicate which Content Types are treated like users and user groups:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             user_content_type_identifier: [user]
@@ -254,7 +254,7 @@ When viewing such Content in the Back Office you will be able to see e.g. the as
 You can change the default path for top-level Locations such as Content or Media in the Back Office, e.g.:
 
 ```yaml
-ezplatform:
+ibexa:
     system:
         <siteaccess>:
             subtree_paths:

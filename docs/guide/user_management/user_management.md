@@ -139,7 +139,7 @@ You can allow your users to create accounts by employing the `/register` route. 
 By default, new Users generated in this way are placed in the Guest accounts group. You can select a different default group in the following section of configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             user_registration:
@@ -153,7 +153,7 @@ You can also modify the following form templates:
 **Changing user password:**
 
 ``` yaml
-ezpublish:
+ibexa:
     system:
         <siteaccess>:
             user_change_password:
@@ -226,7 +226,7 @@ security:
         chain_provider:
             chain:
                 providers: [in_memory, ezpublish]
-        ezpublish:
+        ibexa:
             id: ezpublish.security.user_provider
         in_memory:
             memory:

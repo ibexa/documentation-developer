@@ -8,7 +8,7 @@ First, make sure you [enabled user registration](../../permissions.md#registerin
 Next, in the `config/packages/views.yaml` file add the following configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             user_registration:

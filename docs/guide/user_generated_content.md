@@ -57,7 +57,7 @@ You can use custom templates for the content editing forms.
 Define the templates in the following configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             content_edit:

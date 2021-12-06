@@ -1,4 +1,4 @@
-ezplatform:
+ibexa:
     system:
         admin_group:
             fieldtypes:
@@ -21,7 +21,7 @@ ezplatform:
                                     priority: 10
                     custom_tags: [linktag]
                     custom_tags: [acronym]
-ezrichtext:
+ibexa_fieldtype_richtext:
     custom_tags:
         ezfactbox:
             template: field_type/ezrichtext/custom_tag/ezfactbox.html.twig

@@ -1,18 +1,18 @@
-ezrichtext.custom_tags.ezfactbox.label: FactBox
-ezrichtext.custom_tags.ezfactbox.description: ''
-ezrichtext.custom_tags.ezfactbox.attributes.name.label: Name
-ezrichtext.custom_tags.ezfactbox.attributes.style.label: Style
-ezrichtext.custom_tags.ezfactbox.attributes.style.choices.light.label: Light style
-ezrichtext.custom_tags.ezfactbox.attributes.style.choices.dark.label: Dark style
+ibexa_fieldtype_richtext.custom_tags.ezfactbox.label: FactBox
+ibexa_fieldtype_richtext.custom_tags.ezfactbox.description: ''
+ibexa_fieldtype_richtext.custom_tags.ezfactbox.attributes.name.label: Name
+ibexa_fieldtype_richtext.custom_tags.ezfactbox.attributes.style.label: Style
+ibexa_fieldtype_richtext.custom_tags.ezfactbox.attributes.style.choices.light.label: Light style
+ibexa_fieldtype_richtext.custom_tags.ezfactbox.attributes.style.choices.dark.label: Dark style
 
-ezrichtext.custom_tags.linktag.label: 'Link Tag'
-ezrichtext.custom_tags.linktag.attributes.attrTitle.label: 'Title'
-ezrichtext.custom_tags.linktag.attributes.attrDesc.label: 'Description'
-ezrichtext.custom_tags.linktag.attributes.attrColor.label: 'Color'
-ezrichtext.custom_tags.linktag.attributes.attrUrl.label: 'URL'
+ibexa_fieldtype_richtext.custom_tags.linktag.label: 'Link Tag'
+ibexa_fieldtype_richtext.custom_tags.linktag.attributes.attrTitle.label: 'Title'
+ibexa_fieldtype_richtext.custom_tags.linktag.attributes.attrDesc.label: 'Description'
+ibexa_fieldtype_richtext.custom_tags.linktag.attributes.attrColor.label: 'Color'
+ibexa_fieldtype_richtext.custom_tags.linktag.attributes.attrUrl.label: 'URL'
 
-ezrichtext.custom_tags.acronym.label: 'Acronym'
-ezrichtext.custom_tags.acronym.attributes.meaning.label: 'Explanation'
+ibexa_fieldtype_richtext.custom_tags.acronym.label: 'Acronym'
+ibexa_fieldtype_richtext.custom_tags.acronym.attributes.meaning.label: 'Explanation'
 
-ezrichtext.custom_styles.highlighted_block.label: Highlighted block
-ezrichtext.custom_styles.highlighted_word.label: Highlighted word
+ibexa_fieldtype_richtext.custom_styles.highlighted_block.label: Highlighted block
+ibexa_fieldtype_richtext.custom_styles.highlighted_word.label: Highlighted word

@@ -17,7 +17,7 @@ For more information about extending the Back Office UI, see [Extend Back Office
 
 With custom tags, you can enhance the Online Editor with features that go beyond 
 the built-in ones.
-You configure custom tags in the `ibexa.yaml` file, under the `ezrichtext` key.
+You configure custom tags in the `ibexa.yaml` file, under the `ibexa_fieldtype_richtext` key.
 
 Start preparing the tag by adding a configuration file to the `config` folder. 
 
@@ -80,7 +80,7 @@ You can only use inline custom tags in the `text` toolbar.
     Newer configuration options, such as `is_inline`, only work with the configuration provided above.
     If your project uses [configuration from version prior to 2.4](../updating/from_1.x_2.x/update_db_to_2.5.md#changes-to-custom-tags),
     these options will not work.
-    You need to update your configuration to be placed under the `ezrichtext` key.
+    You need to update your configuration to be placed under the `ibexa_fieldtype_richtext` key.
 
 ### Use cases
 
@@ -166,7 +166,7 @@ Inline styles apply to the selected portion of text only, while block styles app
 
 Start creating a custom style by providing configuration:
 
-- a global list of custom styles, defined under the node `ezrichtext.custom_styles`,
+- a global list of custom styles, defined under the node `ibexa_fieldtype_richtext.custom_styles`,
 - a list of enabled custom styles for a given `admin` SiteAccess or `admin_group` SiteAccess group, located under the node `ezplatform.system.<scope>.fieldtypes.ezrichtext.custom_styles`
 
 A sample configuration could look as follows:
@@ -240,7 +240,7 @@ The `note_box.html.twig` template wraps the content of the selected text
 Add label for the new style by providing a translation in `translations/custom_tags.en.yaml`:
 
 ``` yaml
-ezrichtext.custom_styles.note_box.label: 'Note box'
+ibexa_fieldtype_richtext.custom_styles.note_box.label: 'Note box'
 ```
 
 ![Adding a Note box custom style](img/oe_custom_style_note_box_select.png)
@@ -276,7 +276,7 @@ The `highlight.html.twig` template wraps the content of the selected text
 Add label for the new style by providing a translation in `translations/custom_tags.en.yaml`:
 
 ``` yaml
-ezrichtext.custom_styles.highlight.label: 'Highlight'
+ibexa_fieldtype_richtext.custom_styles.highlight.label: 'Highlight'
 ```
 
 ![Adding a Highlight custom style](img/oe_custom_style_highlight_select.png)
@@ -337,7 +337,7 @@ Here, the resulting values are `data-ezattribute-custom-attribute="false"` and
 
 ### Custom CSS classes
 
-You configure custom CSS classes under the `fieldtypes.ezrichtext.classes` key.
+You configure custom CSS classes under the `fieldtypes.ibexa_fieldtype_richtext.classes` key.
 The configuration is SiteAccess-aware.
 
 You must provide the available `choices`.
@@ -437,7 +437,7 @@ example:
 
 ``` yaml
 # ...
-ezrichtext:
+ibexa_fieldtype_richtext:
     alloy_editor:
         extra_plugins: [plugin1, plugin2]
 ```

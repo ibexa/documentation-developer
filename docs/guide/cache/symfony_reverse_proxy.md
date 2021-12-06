@@ -84,7 +84,7 @@ instead of parameter or environment variable, as they only take single string va
 Example configuration for Varnish as reverse proxy, providing that [front controller has been configured](#configure-symfony-front-controller):
 
 ``` yaml
-ezplatform:
+ibexa:
     http_cache:
         purge_type: varnish
 
@@ -112,7 +112,7 @@ Otherwise, Varnish does not allow for the transfer of Captcha data to the form, 
 To enable sending Captcha over Ajax, add the following configuration to `config/packages/ibexa.yaml`:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             form_builder:
@@ -150,7 +150,7 @@ To learn how it works, see [Fastly documentation](https://docs.fastly.com/guides
 #### Configure Fastly in YML
 
 ``` yaml
-ezplatform:
+ibexa:
     http_cache:
         purge_type: fastly
 

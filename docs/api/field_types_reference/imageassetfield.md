@@ -62,7 +62,7 @@ ImageAsset Field Type allows configuring the following options:
 Example configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
        default:
             fieldtypes:
@@ -78,7 +78,7 @@ ezplatform:
 Internally the Image Asset Type is rendered via subrequest (similar to other relation types). Rendering customization is possible by configuring view type `asset_image`:
 
 ```php
-ezplatform:
+ibexa:
     system:
        default:           
             content_view:

@@ -60,7 +60,7 @@ oneup_flysystem:
 In the same place, set up the binary data handler for the S3 adapter:
 
 ``` yaml
-ez_io:
+ibexa_io:
     binarydata_handlers:
         aws_s3:
             flysystem:
@@ -78,7 +78,7 @@ ez_io:
 In your [[= product_name =]] system settings, e.g. `config/packages/ibexa.yaml`, enable the binary data handler:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             io:

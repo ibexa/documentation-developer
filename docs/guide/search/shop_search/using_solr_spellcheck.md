@@ -40,7 +40,7 @@ solr/bin/solr start
 Modify `SearchBundle/Resources/config/econtent_search.yml`:
 
 ``` yaml
-siso_search.default.solr_spellcheck: true
+ibexa_commerce_search.default.solr_spellcheck: true
 ```
 
 ### Step 3: Define search controller behavior

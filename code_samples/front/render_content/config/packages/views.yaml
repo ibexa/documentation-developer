@@ -1,8 +1,8 @@
-ezdesign:
+ibexa_design_engine:
     design_list:
         my_design: [my_theme]
 
-ezplatform:
+ibexa:
     system:
         site_group:
             pagelayout: '@ezdesign/pagelayout.html.twig'

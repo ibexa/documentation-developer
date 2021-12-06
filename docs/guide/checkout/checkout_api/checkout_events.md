@@ -29,7 +29,7 @@ You can allow making an order with invalid prices (for example for B2B), by sett
 
 ``` yaml
 parameters:
-    siso_checkout.default.invalid_prices_allowed: true
+    ibexa_commerce_checkout.default.invalid_prices_allowed: true
 ```
 
 ### MinOrderAmountListener
@@ -39,7 +39,7 @@ This is set in the configuration. You can also enable/disable the listener:
 
 ``` yaml
 parameters:
-    siso_checkout.default.min_order_amount_listener_active: true
+    ibexa_commerce_checkout.default.min_order_amount_listener_active: true
     siso_eshop.min_order_amount: 0.01
 ```
 
@@ -84,7 +84,7 @@ public function onPreFormCheckout(PreFormCheckoutEvent $event)
 
 ``` yaml
 parameters:
-    siso_checkout.default.tests.price_shipping_listener_active: false
+    ibexa_commerce_checkout.default.tests.price_shipping_listener_active: false
 ```
 
 ![](../../img/checkout_events_2.png "Shipping options coming form the PriceShippingListener")
@@ -109,5 +109,5 @@ It adds checkbox to force next step in every checkout form. User has to check th
 
 ``` yaml
 parameters:
-    siso_checkout.default.tests.valid_address_listener_active: false
+    ibexa_commerce_checkout.default.tests.valid_address_listener_active: false
 ```

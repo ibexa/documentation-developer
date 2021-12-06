@@ -1,6 +1,6 @@
 # Page blocks
 
-Page blocks are configured in YAML files, under the `ezplatform_page_fieldtype` key.
+Page blocks are configured in YAML files, under the `ibexa_fieldtype_page` key.
 
 !!! caution
 

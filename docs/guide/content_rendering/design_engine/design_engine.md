@@ -6,7 +6,7 @@ You can set up different designs per SiteAccess or SiteAccess group.
 Designs are configured under the `ezdesign.design_list` key:
 
 ``` yaml
-ezdesign:
+ibexa_design_engine:
     design_list:
         my_design: [theme1, theme2]
         another_design: [theme3]
@@ -15,7 +15,7 @@ ezdesign:
 To indicate when to use a design, configure it under `ezplatform.system.<scope>`:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         <scope>:
             design: my_design
@@ -49,7 +49,7 @@ or to [override built-in shop templates](../templates/overriding_shop_templates.
 To do it, set the `ezdesign.templates_theme_paths` parameter:
 
 ``` yaml
-ezdesign:
+ibexa_design_engine:
     design_list:
         my_design: [my_theme]
     templates_theme_paths:
@@ -63,7 +63,7 @@ This ensures that it is always possible to override a template at the applicatio
 You can also add a global override folder, by listing paths without assigning them to a theme:
 
 ``` yaml
-ezdesign:
+ibexa_design_engine:
     templates_override_paths:
         - '%kernel.project_dir%/src/<an_override_directory>'
 ```
@@ -76,7 +76,7 @@ In development environments, assets are resolved at runtime.
 You can change this behavior by setting `disable_assets_pre_resolution`:
 
 ``` yaml
-ezdesign:
+ibexa_design_engine:
     disable_assets_pre_resolution: true
 ```
 
@@ -89,7 +89,7 @@ Otherwise, PHPStorm does not recognize the `@ezdesign` Twig namespace.
 Configure it under `ezdesign.phpstorm`:
 
 ``` yaml
-ezdesign:
+ibexa_design_engine:
     phpstorm:
         twig_config_path: <path_to_your_project>
 ```
