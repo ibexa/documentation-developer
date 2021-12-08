@@ -31,6 +31,8 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 
 ## PHP
 
+- 8.1
+- 8.0
 - 7.4
 
 ### PHP packages
