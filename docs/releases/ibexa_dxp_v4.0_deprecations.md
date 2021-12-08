@@ -122,3 +122,6 @@ Built-in configuration files starting with `ezplatform` now use names with `ibex
 | `ezplatform_solr.yaml` | `ibexa_solr.yaml` |
 | `ezplatform_welcome_page.yaml` | `ibexa_welcome_page.yaml` |
 
+## Minor changes
+
+- `AbstractBuilder::createMenuItem` return type is now `ItemInterface` only.
