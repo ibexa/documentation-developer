@@ -170,34 +170,34 @@ Plugin provides autocompletion for Ibexa DXP configuration structure in YAML fil
 Besides configuration structure, for the following YAML keys addition suggestions are available:
 
 - List of available view matchers, for:
-    - `ezplatform.<scope>.content_view.<view_type>.<view_name>.match`
-    - `ezplatform.<scope>.content_create_view.<view_type>.<view_name>.match`
-    - `ezplatform.<scope>.content_edit_view.<view_type>.<view_name>.match`
-    - `ezplatform.<scope>.content_translate_view.<view_type>.<view_name>.match`
+    - `ibexa.<scope>.content_view.<view_type>.<view_name>.match`
+    - `ibexa.<scope>.content_create_view.<view_type>.<view_name>.match`
+    - `ibexa.<scope>.content_edit_view.<view_type>.<view_name>.match`
+    - `ibexa.<scope>.content_translate_view.<view_type>.<view_name>.match`
 - List of available SiteAccess matchers, for:
-    - `ezplatform.siteaccess.match`
+    - `ibexa.siteaccess.match`
 - List of available block attribute types, for:
     - `ibexa_fieldtype_page.blocks.<block_name>.attributes.<attribute_name>.type`
 - List of available configuration scopes, for:
-    - `ezplatform`
+    - `ibexa`
 - List of available siteaccess names, for:
-    - `ezplatform.siteaccess.default_siteaccess`
-    - `ezplatform.siteaccess.groups`
-    - `ezplatform.system.<scope>.translation_siteaccesses$`
+    - `ibexa.siteaccess.default_siteaccess`
+    - `ibexa.siteaccess.groups`
+    - `ibexa.system.<scope>.translation_siteaccesses$`
 - List of available design names, for:
     - `ibexadesign.design_list`
-    - `ezplatform.system.<scope>.design`
+    - `ibexa.system.<scope>.design`
 - List of available repositories, for:
-    - `ezplatform.system.<scope>.repository`
+    - `ibexa.system.<scope>.repository`
 - List of available search engines, for:
-    - `ezplatform.repositories.<repository>.search.engine`
+    - `ibexa.repositories.<repository>.search.engine`
 - List of available custom tags, for:
-    - `ezplatform.system.<scope>.fieldtypes.ezrichtext.custom_tags`
+    - `ibexa.system.<scope>.fieldtypes.ezrichtext.custom_tags`
 - List of available view types, for:
-    - `ezplatform.<scope>.content_view`
-    - `ezplatform.<scope>.content_create_view`
-    - `ezplatform.<scope>.content_edit_view`
-    - `ezplatform.<scope>.content_translate_view`
+    - `ibexa.<scope>.content_view`
+    - `ibexa.<scope>.content_create_view`
+    - `ibexa.<scope>.content_edit_view`
+    - `ibexa.<scope>.content_translate_view`
 
 ### Structure autocompletion in DBAL schema file
 

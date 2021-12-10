@@ -27,7 +27,7 @@ ibexa:
     As such, you can refer to [DoctrineBundle's documentation](https://github.com/doctrine/DoctrineBundle/blob/master/Resources/doc/configuration.rst#doctrine-dbal-configuration).
 
 If no Repository is specified for a SiteAccess or SiteAccess group,
-the first Repository defined under `ezplatform.repositories` will be used:
+the first Repository defined under `ibexa.repositories` will be used:
 
 ``` yaml
 ibexa:
@@ -236,7 +236,7 @@ For example, the following command removes archived versions as user `admin`, bu
 
 ## User identifiers
 
-`ezplatform_default_settings.yaml` contains two settings that indicate which Content Types are treated like users and user groups:
+`ibexa_default_settings.yaml` contains two settings that indicate which Content Types are treated like users and user groups:
 
 ``` yaml
 ibexa:

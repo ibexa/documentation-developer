@@ -81,7 +81,7 @@ ibexa:
 Add thumbnails and names for your site templates in `config/packages/ibexa_site_factory.yaml`:
 
 ```yaml
-ez_platform_site_factory:
+ibexa_site_factory:
     templates:
         site1:
             siteaccess_group: example_site_factory_group_1

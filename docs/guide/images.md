@@ -34,7 +34,7 @@ come across a problem with images not displaying.
 Run the following command to normalize image file names:
 
 ``` bash
-php bin/console ezplatform:images:normalize-path
+php bin/console ibexa:images:normalize-path
 ```
     
 ## Configure image variations
@@ -164,10 +164,10 @@ placeholders from:
 ### Semantic configuration
 
 Placeholder generation can be configured for each [`binary_handler`](file_management.md#handling-binary-files) under the 
-`ezplatform.image_placeholder` key:
+`ibexa.image_placeholder` key:
  
 ```yaml
-ezplatform:
+ibexa:
     # ...
     image_placeholder:
         <BINARY_HANDLER_NAME>:
@@ -265,7 +265,7 @@ that you want to be treated as images, for example:
 [[= include_file('code_samples/back_office/images/config/default_settings.yaml', 0, 2) =]]
 ```
 
-You can set the template that is used when rendering embedded images in the `ezplatform.default_view_templates.content.embed_image` container parameter:
+You can set the template that is used when rendering embedded images in the `ibexa.default_view_templates.content.embed_image` container parameter:
 
 ``` yaml
 [[= include_file('code_samples/back_office/images/config/default_settings.yaml', 0, 1) =]] [[= include_file('code_samples/back_office/images/config/default_settings.yaml', 2, 3) =]]

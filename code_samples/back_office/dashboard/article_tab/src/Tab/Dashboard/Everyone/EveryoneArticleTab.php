@@ -6,7 +6,7 @@ use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Core\Pagination\Pagerfanta\ContentSearchAdapter;
 use Ibexa\Contracts\AdminUi\Tab\AbstractTab;
 use Ibexa\Contracts\AdminUi\Tab\OrderedTabInterface;
-use Ibexa\Contracts\AdminUi\Tab\Dashboard\PagerContentToDataMapper;
+use Ibexa\AdminUi\Tab\Dashboard\PagerContentToDataMapper;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
 use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;

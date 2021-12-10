@@ -12,7 +12,7 @@ ibexa_design_engine:
         another_design: [theme3]
 ```
 
-To indicate when to use a design, configure it under `ezplatform.system.<scope>`:
+To indicate when to use a design, configure it under `ibexa.system.<scope>`:
 
 ``` yaml
 ibexa:
