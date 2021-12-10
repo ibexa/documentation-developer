@@ -53,7 +53,7 @@ by including a header and a footer section:
 [[= include_file('code_samples/front/add_design/templates/themes/standard/pagelayout.html.twig', 18, 28) =]]
 ```
 
-`@ezdesign` in the template paths points to a template relevant for the current design.
+`@ibexadesign` in the template paths points to a template relevant for the current design.
 In case of `site`, the template used for the header is `templates/themes/standard/parts/header.html.twig`.
 
 Create both the header and the footer template, for example:

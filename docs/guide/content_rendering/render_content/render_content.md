@@ -14,11 +14,11 @@ For example, to apply a custom template to all articles, use the following confi
 
 This configuration defines a `full` view for all Content items that fulfill the conditions in `match`.
 `match` indicates that all Content items with the Content Type `article` should use this configuration.
-The indicated `template` is `@ezdesign/full/article.html.twig`.
+The indicated `template` is `@ibexadesign/full/article.html.twig`.
 
 !!! tip "Designs"
 
-    This configuration uses the [design engine](../design_engine/design_engine.md), as indicated by the `@ezdesign` in the template path.
+    This configuration uses the [design engine](../design_engine/design_engine.md), as indicated by the `@ibexadesign` in the template path.
     In this example, the theme used by the design is `my_theme`.
     
     Using the design engine is recommended, but you can also set direct paths to templates, for example:

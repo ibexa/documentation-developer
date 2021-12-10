@@ -18,6 +18,6 @@ ibexa:
             content_view:
                 embed:
                     product_card:
-                        template: '@ezdesign/embed/product_card.html.twig'
+                        template: '@ibexadesign/embed/product_card.html.twig'
                         match:
                             Identifier\ContentType: 'ses_product'

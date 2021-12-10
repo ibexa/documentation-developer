@@ -27,7 +27,7 @@ and select the Query type under `params.query.query_type`:
 ``` yaml hl_lines="2 6"
 folder:
     controller: ez_query::contentQueryAction
-    template: '@ezdesign/full/folder.html.twig'
+    template: '@ibexadesign/full/folder.html.twig'
     params:
         query:
             query_type: 'Children'

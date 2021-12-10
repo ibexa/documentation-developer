@@ -3,7 +3,7 @@
 You can use multiple different designs (themes) in your installation.
 You can set up different designs per SiteAccess or SiteAccess group.
 
-Designs are configured under the `ezdesign.design_list` key:
+Designs are configured under the `ibexadesign.design_list` key:
 
 ``` yaml
 ibexa_design_engine:
@@ -46,7 +46,7 @@ You can add any Twig template folder to the theme configuration.
 You can use it if you want to define templates from third-party bundles as part of one of your themes,
 or to [override built-in shop templates](../templates/overriding_shop_templates.md).
 
-To do it, set the `ezdesign.templates_theme_paths` parameter:
+To do it, set the `ibexadesign.templates_theme_paths` parameter:
 
 ``` yaml
 ibexa_design_engine:
@@ -84,9 +84,9 @@ ibexa_design_engine:
 
 If you are using PHPStorm, and your PHPStorm project root doesn't match your Symfony project root,
 you must customize the path where the design engine stores its configuration file.
-Otherwise, PHPStorm does not recognize the `@ezdesign` Twig namespace.
+Otherwise, PHPStorm does not recognize the `@ibexadesign` Twig namespace.
 
-Configure it under `ezdesign.phpstorm`:
+Configure it under `ibexadesign.phpstorm`:
 
 ``` yaml
 ibexa_design_engine:

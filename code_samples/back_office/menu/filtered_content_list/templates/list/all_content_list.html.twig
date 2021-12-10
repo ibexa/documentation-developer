@@ -1,15 +1,15 @@
-{% extends '@ezdesign/ui/layout.html.twig' %}
+{% extends '@ibexadesign/ui/layout.html.twig' %}
 
 {% block title %}{{ 'Content List'|trans }}{% endblock %}
 
 {%- block breadcrumbs -%}
-    {% include '@ezdesign/ui/breadcrumbs.html.twig' with { items: [
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
         { value: 'url.list'|trans|desc('Content List') }
     ]} %}
 {%- endblock -%}
 
 {%- block page_title -%}
-    {% include '@ezdesign/ui/page_title.html.twig' with {
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
         title: 'url.list'|trans|desc('Content List'),
         icon_name: 'article'
     } %}

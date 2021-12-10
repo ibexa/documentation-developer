@@ -33,7 +33,7 @@ The Field is rendered with the default template, but you can optionally pass a d
 {{ ez_render_field(content, 'title') }}
 
 {{ ez_render_field(content, 'image', {
-    'template': '@ezdesign/fields/image.html.twig',
+    'template': '@ibexadesign/fields/image.html.twig',
     'attr': {class: 'thumbnail-image'},
     'parameters': {
         'alias': 'small'

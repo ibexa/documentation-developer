@@ -10,7 +10,7 @@ ibexa:
                 full:
                     latest:
                         controller: ez_query::locationQueryAction
-                        template: '@ezdesign/full/latest.html.twig'
+                        template: '@ibexadesign/full/latest.html.twig'
                         match:
                             Identifier\ContentType: "latest"
                         params:

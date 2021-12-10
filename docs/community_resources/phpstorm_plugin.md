@@ -185,7 +185,7 @@ Besides configuration structure, for the following YAML keys addition suggestion
     - `ezplatform.siteaccess.groups`
     - `ezplatform.system.<scope>.translation_siteaccesses$`
 - List of available design names, for:
-    - `ezdesign.design_list`
+    - `ibexadesign.design_list`
     - `ezplatform.system.<scope>.design`
 - List of available repositories, for:
     - `ezplatform.system.<scope>.repository`

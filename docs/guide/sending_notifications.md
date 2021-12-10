@@ -145,7 +145,7 @@ return $this->router->generate('ez_content_draft_edit', [
 You can add the template that is defined above in the `render()` method to one of your custom bundles:
 
 ```
-{% extends '@ezdesign/account/notifications/list_item.html.twig' %}
+{% extends '@ibexadesign/account/notifications/list_item.html.twig' %}
 
 {% trans_default_domain 'custom_notification' %}
 

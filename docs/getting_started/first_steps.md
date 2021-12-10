@@ -201,7 +201,7 @@ ibexa_design_engine:
 3\. Under `site`, add `design: site_design`
 
 4\. Go back to the `content_view` configuration for the blog post. Change the path to the template so that it points to the folder for the correct design:
-`template: '@ezdesign\full\blog_post.html.twig'`
+`template: '@ibexadesign\full\blog_post.html.twig'`
 
 This means that the app will look for the `blog_post.html.twig` file in a folder relevant for the SiteAccess: `de_design` for the `de` SiteAccess, or `site_design` for other SiteAccesses in `site_group`.
 

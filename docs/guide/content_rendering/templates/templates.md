@@ -21,7 +21,7 @@ For example, to extend the [general layout of the page](template_configuration.m
 in the child template place the content in a `content` block:
 
 ``` html+twig
-{% extends '@ezdesign/pagelayout.html.twig' %}
+{% extends '@ibexadesign/pagelayout.html.twig' %}
 
 {% block content %}
 {% endblock %}
