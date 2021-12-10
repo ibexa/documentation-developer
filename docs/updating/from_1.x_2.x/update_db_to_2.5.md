@@ -810,7 +810,7 @@ bin/console cache:pool:clear cache.redis
 This step is only required when updating an Enterprise installation from versions higher than v2.2 and lower than v2.5.3.
 In case of versions lower than 2.2, skip this step or ignore the information that indexes from a script below already exist.
 
-When updating to v2.5.3, you need to run the following script to add missing indexes:
+When updating to v2.5.3, you need to run the following SQL commands to add missing indexes:
 
 ``` bash
 CREATE INDEX ezpage_map_zones_pages_zone_id ON ezpage_map_zones_pages(zone_id);
@@ -850,7 +850,7 @@ ezplatform_support_tools:
 
 #### Updating to v2.5.18
 
-To update to v2.5.18, if you are using MySQL, additionally run the following update script:
+To update to v2.5.18, if you are using MySQL, additionally run the following update SQL command:
 
 ``` sql
 ALTER TABLE ezpage_attributes MODIFY value LONGTEXT;
