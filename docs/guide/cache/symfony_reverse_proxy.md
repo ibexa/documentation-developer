@@ -38,16 +38,15 @@ The configuration of [[= product_name =]] for using Varnish or Fastly requires a
 Before you configure Symfony to [work behind a load balancer or a reverse proxy](https://symfony.com/doc/5.1/deployment/proxies.html),
 make sure that [Symfony reverse proxy](#symfony-reverse-proxy) is enabled.
 
-To set environment variables for `TRUSTED_PROXIES` and `TRUSTED_HOSTS`, use [Symfony semantic configuration](https://symfony.com/doc/current/deployment/proxies.html#solution-settrustedproxies).
+Set the following environment variable:
+- `TRUSTED_PROXIES`: String with trusted IP, multiple proxies can be configured with a comma, for example, `TRUSTED_PROXIES="192.0.0.1,10.0.0.0/8"`
 
 Add the trusted proxies to your configuration file:
 
 ``` yaml
 framework:
-    trusted_proxies: '192.0.0.1,10.0.0.0/8'
+    trusted_proxies: '%env(TRUSTED_PROXIES)%'
 ```
-
-
 
 !!! caution "Careful when trusting dynamic IP using `REMOTE_ADDR` value or similar"
 
@@ -201,6 +200,7 @@ See below the most common configuration examples for the system, using environme
 Example for Varnish with the `.env` file:
 
 ``` bash
+TRUSTED_PROXIES="127.0.0.1"
 HTTPCACHE_PURGE_TYPE="varnish"
 HTTPCACHE_PURGE_SERVER="http://varnish:80"
 ```
@@ -208,6 +208,7 @@ HTTPCACHE_PURGE_SERVER="http://varnish:80"
 Example for Apache with `mod_env`:
 
 ```apacheconfig
+SetEnv TRUSTED_PROXIES "127.0.0.1"
 SetEnv HTTPCACHE_PURGE_TYPE varnish
 SetEnv HTTPCACHE_PURGE_SERVER "http://varnish:80"
 ```
@@ -215,6 +216,7 @@ SetEnv HTTPCACHE_PURGE_SERVER "http://varnish:80"
 Example for Nginx:
 
 ```nginx
+fastcgi_param TRUSTED_PROXIES "127.0.0.1";
 fastcgi_param HTTPCACHE_PURGE_TYPE varnish;
 fastcgi_param HTTPCACHE_PURGE_SERVER "http://varnish:80";
 ```
