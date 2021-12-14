@@ -154,7 +154,7 @@ You can add the template that is defined above in the `render()` method to one o
 {% block icon %}
     <span class="type__icon">
         <svg class="ez-icon ez-icon--review">
-            <use xlink:href="{{ asset('bundles/ezplatformadminui/img/ez-icons.svg') }}#notice"></use>
+            <use xlink:href="{{ asset('bundles/ibexaplatformicons/img/all-icons.svg') }}#notice"></use>
         </svg>
     </span>
 {% endblock %}

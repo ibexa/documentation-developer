@@ -14,9 +14,13 @@ add the `campaign` SiteAccess to the list under `ezplatform.siteaccess`:
 ``` yaml
 ibexa:
     siteaccess:
-        list: [site, campaign]
+        list: 
+            - import
+            - site
+            - admin
+            - campaign
         groups:
-            site_group: [site, campaign]
+            site_group: [import, site, campaign]
         default_siteaccess: site
 ```
 

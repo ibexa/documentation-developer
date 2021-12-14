@@ -107,7 +107,7 @@ You can override the pagination settings from Field definition
 by setting the `enablePagination`, `disablePagination` or `itemsPerPage` parameters when rendering the Content query Field:
 
 ``` html+twig
-{{ ez_render_field(content, 'query', {
+{{ ibexa_render_field(content, 'query', {
     location: location|default(null), 'parameters': {
         'enablePagination': true,
         'itemsPerPage': 8

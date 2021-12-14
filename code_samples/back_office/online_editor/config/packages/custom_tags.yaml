@@ -37,7 +37,7 @@ ibexa_fieldtype_richtext:
                     choices: [light, dark]
         linktag:
             template: '@ibexadesign/custom_tags/vcustom.html.twig'
-            icon: '/bundles/ezplatformadminui/img/ez-icons.svg#link'
+            icon: '/bundles/ibexaplatformicons/img/all-icons.svg#link'
             attributes:
                 attrTitle:
                     type: string
@@ -54,13 +54,13 @@ ibexa_fieldtype_richtext:
                     required: false
         badge:
             template: field_type/ezrichtext/custom_tag/badge.html.twig
-            icon: '/bundles/ezplatformadminui/img/ez-icons.svg#bookmark'
+            icon: '/bundles/ibexaplatformicons/img/all-icons.svg#bookmark'
             is_inline: true
             attributes:
                 # ...
         acronym:
             template: field_type/ezrichtext/custom_tag/acronym.html.twig
-            icon: '/bundles/ezplatformadminui/img/ez-icons.svg#information'
+            icon: '/bundles/ibexaplatformicons/img/all-icons.svg#information'
             is_inline: true
             attributes:
                 explanation:
