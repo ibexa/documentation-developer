@@ -38,7 +38,7 @@ The configuration of [[= product_name =]] for using Varnish or Fastly requires a
 Before you configure Symfony to [work behind a load balancer or a reverse proxy](https://symfony.com/doc/5.1/deployment/proxies.html),
 make sure that [Symfony reverse proxy](#symfony-reverse-proxy) is enabled.
 
-To configure trusted proxies, use [Symfony semantic configuration](https://symfony.com/doc/current/deployment/proxies.html#solution-settrustedproxies) under
+To configure trusted proxies, use [Symfony semantic configuration]([[= symfony_doc =]]/deployment/proxies.html#solution-settrustedproxies) under
 `framework.trusted_proxies`, for example:
 
 ``` yaml
