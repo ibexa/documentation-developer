@@ -19,12 +19,12 @@ Dot.defaultProps = {};
 
 export default Dot;
 
-window.eZ.addConfig(
+window.ibexa.addConfig(
     'imageEditor.actions.dot', // The ID ("dot") must match the one from the configuration yaml file
     {
         label: 'Dot',
         component: Dot,
-        icon: window.eZ.helpers.icon.getIconPath('radio-button'), // Path to an icon that will be displayed in the UI
+        icon: window.ibexa.helpers.icon.getIconPath('radio-button'), // Path to an icon that will be displayed in the UI
         identifier: IDENTIFIER, // The identifier must match the one from the configuration yaml file
     },
     true

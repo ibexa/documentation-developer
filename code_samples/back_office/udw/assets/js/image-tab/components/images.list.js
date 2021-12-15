@@ -58,7 +58,7 @@ const ImagesList = () => {
 
         return (
             <div {...attrs}>
-                <svg className="ez-icon">
+                <svg className="ibexa-icon">
                     <use xlinkHref="/bundles/ezplatformadminui/img/ez-icons.svg#caret-back"></use>
                 </svg>
             </div>
@@ -76,7 +76,7 @@ const ImagesList = () => {
 
         return (
             <div {...attrs}>
-                <svg className="ez-icon">
+                <svg className="ibexa-icon">
                     <use xlinkHref="/bundles/ezplatformadminui/img/ez-icons.svg#caret-next"></use>
                 </svg>
             </div>

@@ -17,8 +17,8 @@
 
 {%- block content -%}
     <section class="container my-4">
-        <div class="ez-table-header">
-            <div class="ez-table-header__headline">{{ "Content List"|trans }}</div>
+        <div class="ibexa-table-header">
+            <div class="ibexa-table-header__headline">{{ "Content List"|trans }}</div>
         </div>
         <table class="table">
             <thead>
@@ -38,12 +38,12 @@
                     <td>{{ article.contentInfo.modificationDate|ez_full_datetime }}</td>
                     <td>{{ article.contentInfo.publishedDate|ez_full_datetime }}</td>
                     <td>
-                        <button class="btn btn-icon mx-2 ez-btn--content-edit"
+                        <button class="btn btn-icon mx-2 ibexa-btn--content-edit"
                                 title="{{ 'dashboard.table.all.content.edit'|trans|desc('Edit Content') }}"
                                 data-content-id="{{ article.contentInfo.id }}"
                                 data-version-no="{{ article.contentInfo.currentVersionNo }}"
                                 data-language-code="{{ article.contentInfo.mainLanguageCode }}">
-                            <svg class="ez-icon ez-icon-edit">
+                            <svg class="ibexa-icon ibexa-icon-edit">
                                 <use xlink:href="{{ asset('bundles/ezplatformadminui/img/ez-icons.svg') }}#edit"></use>
                             </svg>
                         </button>
@@ -57,7 +57,7 @@
     {{ form_start(form_edit, {
         'action': path('ezplatform.content.edit'),
         'attr':
-        { 'class': 'ez-edit-content-form'}
+        { 'class': 'ibexa-edit-content-form'}
     }) }}
     {{ form_widget(form_edit.language, {'attr': {'hidden': 'hidden', 'class': 'language-input'}}) }}
     {{ form_end(form_edit) }}

@@ -13,7 +13,7 @@ It provides an interface to publish content based on dropped files while uploadi
 With JS only:
 
 ``` js
-React.createElement(eZ.modules.MultiFileUpload, {
+React.createElement(ibexa.modules.MultiFileUpload, {
     onAfterUpload: {Function},
     adminUiConfig: {
         multiFileUpload: {

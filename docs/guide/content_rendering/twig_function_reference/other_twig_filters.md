@@ -10,7 +10,7 @@
 |`set`|`string`|Identifier of the configured icon set. If empty, the default icon set is used.|
 
 ```html+twig
-<svg class="ez-icon ez-icon--medium ez-icon--light">
+<svg class="ibexa-icon ibexa-icon--medium ibexa-icon--light">
     <use xlink:href="{{ ez_icon_path('edit', 'my_icons') }}"></use>
 </svg>
 ```

@@ -36,23 +36,23 @@ To edit existing configuration entries, create a `Resources/encore/ez.config.man
 ``` js
 const path = require('path');
 
-module.exports = (eZConfig, eZConfigManager) => {
-	eZConfigManager.replace({
-	    eZConfig,
+module.exports = (IbexaConfig, IbexaConfigManager) => {
+	IbexaConfigManager.replace({
+	    IbexaConfig,
 	    entryName: '<entry-name>',
 	    itemToReplace: path.resolve(__dirname, '<path_to_old_file>'),
 	    newItem: path.resolve(__dirname, '<path_to_new_file>'),
 	});
-	eZConfigManager.remove({
-	    eZConfig,
+	IbexaConfigManager.remove({
+	    IbexaConfig,
 	    entryName: '<entry-name>',
 	    itemsToRemove: [
 	        path.resolve(__dirname, '<path_to_old_file>'),
 	        path.resolve(__dirname, '<path_to_old_file>'),
 	    ],
 	});
-	eZConfigManager.add({
-	    eZConfig,
+	IbexaConfigManager.add({
+	    IbexaConfig,
 	    entryName: '<entry-name>',
 	    newItems: [
 	        path.resolve(__dirname, '<path_to_new_file>'),
@@ -110,15 +110,15 @@ To overwrite the built-in assets, use the following configuration to replace, re
 in `webpack.config.js`:
 
 ``` js
-eZConfigManager.replace({
-    eZConfig,
+IbexaConfigManager.replace({
+    IbexaConfig,
     entryName: '<entry-name>',
     itemToReplace: path.resolve(__dirname, '<path_to_old_file>'),
     newItem: path.resolve(__dirname, '<path_to_new_file>'),
 });
 
-eZConfigManager.remove({
-    eZConfig,
+IbexaConfigManager.remove({
+    IbexaConfig,
     entryName: '<entry-name>',
     itemsToRemove: [
         path.resolve(__dirname, '<path_to_old_file>'),
@@ -126,8 +126,8 @@ eZConfigManager.remove({
     ],
 });
 
-eZConfigManager.add({
-    eZConfig,
+IbexaConfigManager.add({
+    IbexaConfig,
     entryName: '<entry-name>',
     newItems: [
         path.resolve(__dirname, '<path_to_new_file>'),

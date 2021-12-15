@@ -181,10 +181,10 @@ ibexa:
 ### Back Office view template
 
 For templates for previewing the Field in the Back Office,
-using eZ Design is recommended with `ibexa_standard_design.override_kernel_templates` set to `true`.
-With eZ Design you can apply a template (e.g. `Resources/views/themes/admin/content_fields.html.twig`) without any extra configuration.
+using the design engine is recommended with `ibexa_standard_design.override_kernel_templates` set to `true`.
+With the design engine you can apply a template (e.g. `Resources/views/themes/admin/content_fields.html.twig`) without any extra configuration.
 
-If you do not use eZ Design, apply the following configuration:
+If you do not use the design engine, apply the following configuration:
 
 ``` yaml
 ibexa:

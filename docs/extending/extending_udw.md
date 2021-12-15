@@ -23,7 +23,7 @@ const container = document.querySelector('#react-udw');
 const config = /* fetch the config somewhere */;
 //const config = JSON.parse(document.querySelector('.btn-udw-trigger).dataset.udwConfig);
 
-ReactDOM.render(React.createElement(eZ.modules.UniversalDiscovery, {
+ReactDOM.render(React.createElement(ibexa.modules.UniversalDiscovery, {
     onConfirm: {Function},
     onCancel: {Function},
     ...config

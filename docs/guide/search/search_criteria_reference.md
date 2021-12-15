@@ -13,7 +13,7 @@ Criteria can take some of the following arguments:
 Support and capabilities of individual Criteria can depend on the search engine.
 
 In the Legacy search engine, the field index/sort key column is limited to 255 characters by design.
-Due to this storage limitation, searching content using the eZ Country Field Type or Keyword when there are multiple values selected may not return all the expected results.
+Due to this storage limitation, searching content using the Country Field Type or Keyword when there are multiple values selected may not return all the expected results.
 
 ## Search Criteria
 

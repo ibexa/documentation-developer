@@ -167,7 +167,7 @@ Inline styles apply to the selected portion of text only, while block styles app
 Start creating a custom style by providing configuration:
 
 - a global list of custom styles, defined under the node `ibexa_fieldtype_richtext.custom_styles`,
-- a list of enabled custom styles for a given `admin` SiteAccess or `admin_group` SiteAccess group, located under the node `ezplatform.system.<scope>.fieldtypes.ezrichtext.custom_styles`
+- a list of enabled custom styles for a given `admin` SiteAccess or `admin_group` SiteAccess group, located under the node `ibexa.system.<scope>.fieldtypes.ezrichtext.custom_styles`
 
 A sample configuration could look as follows:
 
@@ -422,7 +422,7 @@ Finally, add the toolbar JavaScript class to the
 You can do it at the bottom of the toolbar config file:
 
 ```js
-eZ.addConfig('ezAlloyEditor.customSelections.ContentVariableEdit', ContentVariableEditConfig);
+ibexa.addConfig('ezAlloyEditor.customSelections.ContentVariableEdit', ContentVariableEditConfig);
 ```
 
 At this point, the `ContentVariableEditConfig` toolbar is injected and ready 

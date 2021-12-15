@@ -32,7 +32,7 @@ Page rendering takes place while editing or viewing.
 
 When rendering a Page, its zones are passed to the layout as a `zones` array with a `blocks` array each. You can access them using twig (e.g. `{{ zones[0].id }}` ).
 
-Each div that's a zone should have the `data-ez-zone-id` attribute with zone ID as a value for a zone container.
+Each div that's a zone should have the `data-ibexa-zone-id` attribute with zone ID as a value for a zone container.
 
 To render a block inside the layout, use the Twig `render_esi()` function to call `EzPlatformPageFieldTypeBundle:Block:render`.
 
@@ -61,13 +61,13 @@ As a whole a sample layout could look as follows:
 ``` html+twig
 <div>
     {# The required attribute for the displayed zone #}
-    <div data-ez-zone-id="{{ zones[0].id }}">
+    <div data-ibexa-zone-id="{{ zones[0].id }}">
         {# If a zone with [0] index contains any blocks #}
         {% if zones[0].blocks %}
             {# for each block #}
             {% for block in blocks %}
                 {# create a new layer with appropriate ID #}
-                <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
+                <div class="landing-page__block block_{{ block.type }}" data-ibexa-block-id="{{ block.id }}">
                     {# render the block by using the "EzPlatformPageFieldTypeBundle\Controller\BlockController::renderAction" controller #}
                     {# location.id is the ID of the Location of the current Content item, block.id is the ID of the current block #}
                     {{ render_esi(controller('EzPlatformPageFieldTypeBundle\Controller\BlockController::renderAction', {

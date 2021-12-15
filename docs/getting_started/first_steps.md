@@ -27,10 +27,10 @@ so that the end of the file looks like this:
 
 // uncomment the two lines below, if you added a new entry (by Encore.addEntry() or Encore.addStyleEntry() method) to your own Encore configuration for your project
 // const projectConfig = Encore.getWebpackConfig();
-// module.exports = [ eZConfig, ...customConfigs, projectConfig ];
+// module.exports = [ IbexaConfig, ...customConfigs, projectConfig ];
 
 // comment-out this line if you've uncommented the above lines
-module.exports = [ eZConfig, ...customConfigs ];
+module.exports = [ IbexaConfig, ...customConfigs ];
 ```
 
 ## Create a Content Type

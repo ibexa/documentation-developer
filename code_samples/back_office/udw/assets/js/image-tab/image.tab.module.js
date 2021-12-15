@@ -12,14 +12,14 @@ import React, { useContext } from 'react';
             </div>
         );
     };
-eZ.addConfig(
+ibexa.addConfig(
     'adminUiConfig.universalDiscoveryWidget.tabs',
     [
         {
             id: 'image',
             component: ImageTabModule,
             label: 'Image',
-            icon: '/bundles/ezplatformadminui/img/ez-icons.svg#image',
+            icon: '/bundles/ezplatformadminui/img/ibexa-icons.svg#image',
         },
     ],
     true

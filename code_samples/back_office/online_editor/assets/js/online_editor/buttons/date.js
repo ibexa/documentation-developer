@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import AlloyEditor from 'alloyeditor';
-import EzButton
-    from '../../../../vendor/ezsystems/ezplatform-richtext/src/bundle/Resources/public/js/OnlineEditor/buttons/base/ez-button.js';
+import IbexaButton
+    from '../../../../vendor/ezsystems/ezplatform-richtext/src/bundle/Resources/public/js/OnlineEditor/buttons/base/ibexa-button.js';
 
-export default class BtnDate extends EzButton {
+export default class BtnDate extends IbexaButton {
     static get key() {
         return 'date';
     }
@@ -17,11 +17,11 @@ export default class BtnDate extends EzButton {
 
         return (
             <button
-                className="ae-button ez-btn-ae ez-btn-ae--date"
+                className="ae-button ibexa-btn-ae ibexa-btn-ae--date"
                 onClick={this.insertDate.bind(this)}
                 tabIndex={this.props.tabIndex}
                 title={title}>
-                <svg className="ez-icon ez-btn-ae__icon">
+                <svg className="ibexa-icon ibexa-btn-ae__icon">
                     <use xlinkHref="/bundles/ezplatformadminui/img/ez-icons.svg#date" />
                 </svg>
             </button>
@@ -30,7 +30,7 @@ export default class BtnDate extends EzButton {
 }
 
 AlloyEditor.Buttons[BtnDate.key] = AlloyEditor.BtnDate = BtnDate;
-eZ.addConfig('ezAlloyEditor.BtnDate', BtnDate);
+ibexa.addConfig('ezAlloyEditor.BtnDate', BtnDate);
 
 BtnDate.propTypes = {
     command: PropTypes.string,

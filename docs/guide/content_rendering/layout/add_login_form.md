@@ -29,7 +29,7 @@ In `templates/themes/<theme_name>/login`, create an `expired_credentials.html.tw
 {% extends '@ezdesign/Security/base.html.twig' %}
 
 {%- block content -%}
-    <h2 class="ez-login__header">
+    <h2 class="ibexa-login__header">
         {{ 'authentication.credentials_expired'|trans|desc('Your password has expired') }}
     </h2>
     <p>
@@ -38,7 +38,7 @@ In `templates/themes/<theme_name>/login`, create an `expired_credentials.html.tw
         ) }}
     </p>
     <p>
-        <a href="{{ path('ezplatform.user.forgot_password') }}" class="btn btn-primary ez-btn ez-btn--login">
+        <a href="{{ path('ezplatform.user.forgot_password') }}" class="btn btn-primary ibexa-btn ibexa-btn--login">
             {{ 'authentication.credentials_expired.reset_password'|trans|desc('Reset password') }}
         </a>
     </p>
@@ -112,7 +112,7 @@ Remember to provide a template and point to it in the subscriber
 {% extends '@ezdesign/Security/base.html.twig' %}
 
 {%- block content -%}
-    <h2 class="ez-login__header">
+    <h2 class="ibexa-login__header">
         {{ 'authentication.credentials_expired'|trans|desc('Your password has expired') }}
     </h2>
     <p>
@@ -121,7 +121,7 @@ Remember to provide a template and point to it in the subscriber
         ) }}
     </p>
     <p>
-        <a href="{{ path('ezplatform.user.forgot_password') }}" class="btn btn-primary ez-btn ez-btn--login">
+        <a href="{{ path('ezplatform.user.forgot_password') }}" class="btn btn-primary ibexa-btn ibexa-btn--login">
             {{ 'authentication.credentials_expired.reset_password'|trans|desc('Reset password') }}
         </a>
     </p>

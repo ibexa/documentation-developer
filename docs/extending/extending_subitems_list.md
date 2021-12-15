@@ -16,7 +16,7 @@ With plain JS:
 const containerNode = document.querySelector('#sub-items-container');
 
     ReactDOM.render(
-        React.createElement(eZ.modules.SubItems, {
+        React.createElement(ibexa.modules.SubItems, {
             parentLocationId: { Number },
             restInfo: {
                 token: { String },
@@ -101,6 +101,6 @@ Optionally, Sub-items module can take a following list of props:
 
 To add a Sub-items list on a page that does not have the (right) action sidebar, you need to do one of the following things:
 
-- add a `<div>` element with the `.ez-extra-actions-container` selector
+- add a `<div>` element with the `.ibexa-extra-actions-container` selector
 - change the selector in the Sub-items settings by sending the `languageContainerSelector` prop
 which takes the selector for the element that renders the `languageSelector`.
