@@ -89,7 +89,7 @@ JavaScript event names with the `ez-` prefix have been modified with an `ibexa-`
 
 TODO
 
-## Twig functions and filter
+## Twig functions and filters
 
 The following Twig functions and filter have been renamed, including:
 
@@ -101,7 +101,110 @@ The following Twig functions and filter have been renamed, including:
 | `ez_field` | `ibexa_field` |
 | `ez_image_alias` | `ibexa_image_alias` |
 
-For a full list of changed Twig function and filter names, see TODO.
+??? "Full list of changed Twig function and filter names"
+
+    | Old name | New name |
+    | --- | --- |
+    | `calculate_shipping` | `ibexa_commerce_calculate_shipping` |
+    | `code_label` | `ibexa_commerce_code_label` |
+    | `date_format` | `ibexa_commerce_date_format` |
+    | `ez_content_field_identifier_first_filled_image` | `ibexa_content_field_identifier_first_filled_image` |
+    | `ez_content_field_identifier_image_asset` | `ibexa_content_field_identifier_image_asset` |
+    | `ez_content_name` | `ibexa_content_name` |
+    | `ez_content_type_icon` | `ibexa_content_type_icon` |
+    | `ez_data_attributes_serialize` | `ibexa_data_attributes_serialize` |
+    | `ez_datetime_diff` | `ibexa_datetime_diff` |
+    | `ez_field_description` | `ibexa_field_description` |
+    | `ez_field_is_empty` | `ibexa_field_is_empty` |
+    | `ez_field_name` | `ibexa_field_name` |
+    | `ez_field_value` | `ibexa_field_value` |
+    | `ez_field` | `ibexa_field` |
+    | `ez_file_size` | `ibexa_file_size` |
+    | `ez_full_date` | `ibexa_full_date` |
+    | `ez_full_datetime` | `ibexa_full_datetime` |
+    | `ez_full_time` | `ibexa_full_time` |
+    | `ez_http_cache_tag_location` | `ibexa_http_cache_tag_location` |
+    | `ez_http_tag_location` | `ibexa_http_cache_tag_location` |
+    | `ez_http_tag_relation_ids` | `ibexa_http_cache_tag_relation_ids` |
+    | `ez_http_tag_relation_location_ids` | `ibexa_http_cache_tag_relation_location_ids` |
+    | `ez_image_alias` | `ibexa_image_alias` |
+    | `ez_page_layout` | `ibexa_page_layout` |
+    | `ez_path_to_locations` | `ibexa_path_to_locations` |
+    | `ez_path` | `ibexa_path` |
+    | `ez_recommendation_enabled` | `ibexa_recommendation_enabled` |
+    | `ez_recommendation_track_user` | `ibexa_recommendation_track_user` |
+    | `ez_render_*_query_*` | `ibexa_render_*_query_` |
+    | `ez_render_*_query` | `ibexa_render_*_query` |
+    | `ez_render_comparison_result` | `ibexa_render_comparison_result `|
+    | `ez_render_content` | `ibexa_render_content` |
+    | `ez_render_field_definition_settings` | `ibexa_render_field_definition_settings` |
+    | `ez_render_field` | `ibexa_render_field` |
+    | `ez_render_limitation_value` | `ibexa_render_limitation_value` |
+    | `ez_render_location` | `ibexa_render_location` |
+    | `ez_render` | `ibexa_render` |
+    | `ez_richtext_to_html5_edit` | `ibexa_richtext_to_html5_edit` |
+    | `ez_richtext_to_html5` | `ibexa_richtext_to_html5` |
+    | `ez_richtext_youtube_extract_id` | `ibexa_richtext_youtube_extract_id` |
+    | `ez_route` | `ibexa_route` |
+    | `ez_short_date` | `ibexa_short_date` |
+    | `ez_short_datetime` | `ibexa_short_datetime` |
+    | `ez_short_time` | `ibexa_short_time` |
+    | `ez_url` | `ibexa_url` |
+    | `get_characteristics_b2b` | `ibexa_commerce_get_characteristics_b2b` |
+    | `get_relation_content` | `ibexa_commerce_get_relation_content` |
+    | `get_search_query` | `ibexa_commerce_get_search_query` |
+    | `get_shipping_free_value` | `ibexa_commerce_get_shipping_free_value` |
+    | `get_siteaccess_locale` | `ibexa_commerce_get_siteaccess_locale` |
+    | `get_stored_baskets` | `ibexa_commerce_get_stored_baskets` |
+    | `ibexa_commerce_render_stock` | `ibexa_commerce_render_stock` |
+    | `ibexa_platform_asset` | `ibexa_dam_asset` |
+    | `ibexa_platform_dam_image_transformation` | `ibexa_dam_image_transformation` |
+    | `is_shipping_free` | `ibexa_commerce_is_shipping_free` |
+    | `price_format` | `ibexa_commerce_price_format` |
+    | `ses_assets_by_group` | `ibexa_commerce_assets_by_group` |
+    | `ses_assets_image_list` | `ibexa_commerce_assets_image_list` |
+    | `ses_assets_main_image` | `ibexa_commerce_assets_by_group` |
+    | `ses_basket` | `ibexa_commerce_basket` |
+    | `ses_check_product_in_comparison` | `ibexa_commerce_check_product_in_comparison` |
+    | `ses_check_product_in_wish_list` | `ibexa_commerce_check_product_in_wish_list` |
+    | `ses_comparison_category` | `ibexa_commerce_comparison_category` |
+    | `ses_config_parameter` | `ibexa_commerce_config_parameter` |
+    | `ses_contains_basket_vouchers` | `ibexa_commerce_contains_basket_vouchers` |
+    | `ses_content_pagination` | `ibexa_commerce_content_pagination` |
+    | `ses_correct_url` | `ibexa_commerce_correct_url` |
+    | `ses_erp_to_default` | `ibexa_commerce_erp_to_default` |
+    | `ses_format_args` | `ibexa_commerce_format_args` |
+    | `ses_get_basket_vouchers` | `ibexa_commerce_get_basket_vouchers` |
+    | `ses_invoice_number` | `ibexa_commerce_invoice_number` |
+    | `ses_navigation` | `ibexa_commerce_navigation` |
+    | `ses_pagination` | `ibexa_commerce_pagination` |
+    | `ses_product` | `ibexa_commerce_product` |
+    | `ses_render_field` | `ibexa_commerce_render_field` |
+    | `ses_render_price` | `ibexa_commerce_render_price` |
+    | `ses_render_specification_matrix` | `ibexa_commerce_render_specification_matrix` |
+    | `ses_render_stock` | `ibexa_commerce_render_stock` |
+    | `ses_scope_request_active` | `ibexa_commerce_scope_request_active` |
+    | `ses_to_float` | `ibexa_commerce_to_float` |
+    | `ses_total_comparison` | `ibexa_commerce_total_comparison` |
+    | `ses_track_base` | `ibexa_commerce_track_base` |
+    | `ses_track_basket` | `ibexa_commerce_track_basket` |
+    | `ses_track_product` | `ibexa_commerce_track_product` |
+    | `ses_user_menu` | `ibexa_commerce_user_menu` |
+    | `ses_variant_product_by_sku` | `ibexa_commerce_variant_product_by_sku` |
+    | `ses_wish_list` | `ibexa_commerce_wish_list` |
+    | `sort_characteristic_codes` | `ibexa_commerce_sort_characteristic_codes` |
+    | `sort_characteristics` | `ibexa_commerce_sort_characteristics` |
+    | `st_image` | `ibexa_commerce_image` |
+    | `st_imageconverter` | `ibexa_commerce_imageconverter` |
+    | `st_resolve_template` | `ibexa_commerce_resolve_template` |
+    | `st_siteaccess_lang` | `ibexa_commerce_siteaccess_lang` |
+    | `st_siteaccess_path` | `ibexa_commerce_siteaccess_path` |
+    | `st_siteaccess_url` | `ibexa_commerce_siteaccess_url` |
+    | `st_tag` | `ibexa_commerce_tag` |
+    | `st_translate` | `ibexa_commerce_translate` |
+    | `truncate` | `ibexa_commerce_truncate` |
+    | `unserialize` | `ibexa_commerce_unserialize` |
+    | `youtube_video_id` | `ibexa_commerce_youtube_video_id` |
 
 ## Configuration file names
 
