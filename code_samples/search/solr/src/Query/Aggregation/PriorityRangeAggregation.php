@@ -9,5 +9,4 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\LocationAgg
 
 final class PriorityRangeAggregation extends AbstractRangeAggregation implements LocationAggregation
 {
-    ...
 }

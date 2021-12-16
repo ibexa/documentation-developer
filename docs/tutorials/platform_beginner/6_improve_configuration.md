@@ -25,8 +25,8 @@ Next, modify the templates to use these variations. Variation names are provided
 In `templates/line/rides.html.twig` add the `'alias': 'ride_list'` parameter in the following way, in lines 8-10:
 
 ``` html+twig
-{% if not ez_field_is_empty( content, 'photo' ) %}
-    {{ ez_render_field(content, 'photo', {
+{% if not ibexa_field_is_empty( content, 'photo' ) %}
+    {{ ibexa_render_field(content, 'photo', {
         'parameters': {
             'alias': 'ride_list'
         }

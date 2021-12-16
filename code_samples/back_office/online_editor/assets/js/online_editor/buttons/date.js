@@ -22,7 +22,7 @@ export default class BtnDate extends IbexaButton {
                 tabIndex={this.props.tabIndex}
                 title={title}>
                 <svg className="ibexa-icon ibexa-btn-ae__icon">
-                    <use xlinkHref="/bundles/ezplatformadminui/img/ez-icons.svg#date" />
+                    <use xlinkHref="/bundles/ibexaplatformicons/img/all-icons.svg#date" />
                 </svg>
             </button>
         );

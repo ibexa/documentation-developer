@@ -6,7 +6,7 @@ use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Core\Pagination\Pagerfanta\ContentSearchAdapter;
 use Ibexa\Contracts\AdminUi\Tab\AbstractTab;
 use Ibexa\Contracts\AdminUi\Tab\OrderedTabInterface;
-use Ibexa\Contracts\AdminUi\Tab\Dashboard\PagerContentToDataMapper;
+use Ibexa\AdminUi\Tab\Dashboard\PagerContentToDataMapper;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
 use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
@@ -67,7 +67,7 @@ class EveryoneArticleTab extends AbstractTab implements OrderedTabInterface
         $pager->setMaxPerPage($limit);
         $pager->setCurrentPage($page);
 
-        return $this->twig->render('@ezdesign/ui/dashboard/tab/all_content.html.twig', [
+        return $this->twig->render('@ibexadesign/ui/dashboard/tab/all_content.html.twig', [
             'data' => $this->pagerContentToDataMapper->map($pager),
         ]);
     }

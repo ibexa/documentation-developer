@@ -12,7 +12,7 @@ ibexa:
     system:
         my_siteaccess:
             user:
-                login_template: '@ezdesign/Security/login.html.twig'
+                login_template: '@ibexadesign/Security/login.html.twig'
 ```
 
 To add a link redirecting to the login form, in the page layout template, provide the following code:
@@ -26,7 +26,7 @@ Next, add the template defined in the event.
 In `templates/themes/<theme_name>/login`, create an `expired_credentials.html.twig` file:
 
 ```html+twig
-{% extends '@ezdesign/Security/base.html.twig' %}
+{% extends '@ibexadesign/Security/base.html.twig' %}
 
 {%- block content -%}
     <h2 class="ibexa-login__header">
@@ -109,7 +109,7 @@ Remember to provide a template and point to it in the subscriber
 (in this case, in `templates/login/expired_credentials.html.twig`):
 
 ```html+twig
-{% extends '@ezdesign/Security/base.html.twig' %}
+{% extends '@ibexadesign/Security/base.html.twig' %}
 
 {%- block content -%}
     <h2 class="ibexa-login__header">

@@ -6,7 +6,7 @@ use DateTime;
 use DateTimeInterface;
 use Ibexa\Contracts\Calendar\EventCollection;
 use Ibexa\Contracts\Calendar\EventSource\EventSourceInterface;
-use Ibexa\Contracts\Calendar\EventSource\InMemoryEventSource;
+use Ibexa\Calendar\EventSource\InMemoryEventSource;
 
 class EventSourceFactory
 {

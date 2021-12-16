@@ -59,7 +59,7 @@ const ImagesList = () => {
         return (
             <div {...attrs}>
                 <svg className="ibexa-icon">
-                    <use xlinkHref="/bundles/ezplatformadminui/img/ez-icons.svg#caret-back"></use>
+                    <use xlinkHref="/bundles/ibexaplatformicons/img/all-icons.svg#caret-back"></use>
                 </svg>
             </div>
         );
@@ -77,7 +77,7 @@ const ImagesList = () => {
         return (
             <div {...attrs}>
                 <svg className="ibexa-icon">
-                    <use xlinkHref="/bundles/ezplatformadminui/img/ez-icons.svg#caret-next"></use>
+                    <use xlinkHref="/bundles/ibexaplatformicons/img/all-icons.svg#caret-next"></use>
                 </svg>
             </div>
         );

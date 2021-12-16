@@ -8,7 +8,7 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Operator;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Operator\Specifications;
 
-final class CameraManufacturer extends Criterion
+final class CameraManufacturerCriterion extends Criterion
 {
     /**
      * @param string|string[] $value Manufacturer name(s) to be matched.

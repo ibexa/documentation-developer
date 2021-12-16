@@ -13,8 +13,8 @@ ibexa:
         default:
             user_registration:
                 templates:
-                    form: '@ezdesign/user/registration_form.html.twig'
-                    confirmation: '@ezdesign/user/registration_confirmation.html.twig'
+                    form: '@ibexadesign/user/registration_form.html.twig'
+                    confirmation: '@ibexadesign/user/registration_confirmation.html.twig'
 ```
 This defines which templates will be used for rendering the registration form and confirmation page.
 

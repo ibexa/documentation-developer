@@ -23,9 +23,9 @@ Next, modify the template to include the following changes:
 <td>
     {% if line.remoteDataMap.isPriceValid is defined and line.remoteDataMap.isPriceValid %}
         {% if showInclVat %}
-            {{ line.linePriceAmountGross|price_format(line.currency) }}
+            {{ line.linePriceAmountGross|ibexa_commerce_price_format(line.currency) }}
         {% else %}
-            {{ line.linePriceAmountNet|price_format(line.currency) }}
+            {{ line.linePriceAmountNet|ibexa_commerce_price_format(line.currency) }}
         {% endif %}
     {% endif %}
 </td>

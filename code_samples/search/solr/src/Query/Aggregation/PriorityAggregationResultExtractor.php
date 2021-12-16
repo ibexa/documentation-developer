@@ -9,7 +9,7 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range;
 use Ibexa\Contracts\Core\Repository\Values\Content\Search\AggregationResult;
 use Ibexa\Contracts\Core\Repository\Values\Content\Search\AggregationResult\RangeAggregationResult;
 use Ibexa\Contracts\Core\Repository\Values\Content\Search\AggregationResult\RangeAggregationResultEntry;
-use EzSystems\EzPlatformSolrSearchEngine\ResultExtractor\AggregationResultExtractor;
+use Ibexa\Contracts\Solr\ResultExtractor\AggregationResultExtractor;
 use stdClass;
 
 final class PriorityAggregationResultExtractor implements AggregationResultExtractor

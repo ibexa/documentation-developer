@@ -40,13 +40,13 @@ You can access the basket total value (net or gross) using `basket.totalsSum`:
 
 To get the catalog element from the basket line, use `line.catalogElement`.
 
-If a basket line does not provide product data (for example, the caching life time of a product has been exceeded), the product can be fetched with the `ses_product` function, by providing it with the product SKU obtained through `line.sku`.
+If a basket line does not provide product data (for example, the caching life time of a product has been exceeded), the product can be fetched with the `ibexa_commerce_product` function, by providing it with the product SKU obtained through `line.sku`.
 
 ``` html+twig
 {% if line.catalogElement|default is not empty %}
     {% set product = line.catalogElement %}
 {% else %}
-    {% set product = ses_product({'sku': line.sku, 'variantCode': line.variantCode }) %}
+    {% set product = ibexa_commerce_product({'sku': line.sku, 'variantCode': line.variantCode }) %}
 {% endif %}
 ```
 

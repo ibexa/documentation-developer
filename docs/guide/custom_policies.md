@@ -156,7 +156,7 @@ create a Twig template containing block definition which follows the naming conv
 {% endblock %}
 ```
 
-Add it to the configuration under `ezplatform.system.<SCOPE>.limitation_value_templates`:
+Add it to the configuration under `ibexa.system.<SCOPE>.limitation_value_templates`:
 
 ```yaml
 ibexa:

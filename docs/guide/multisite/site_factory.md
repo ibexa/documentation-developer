@@ -55,8 +55,8 @@ ibexa:
         '@Ibexa\SiteFactory\SiteAccessMatcher': ~
 ```
 
-`ezdesign` defines templates for your sites, so add them before continuing.
-Next, add the configuration for `ezdesign` on the same level as `ezplatform`:
+`ibexadesign` defines templates for your sites, so add them before continuing.
+Next, add the configuration for `ibexadesign` on the same level as `ezplatform`:
 
 ``` yaml
 ibexa_design_engine:
@@ -81,7 +81,7 @@ ibexa:
 Add thumbnails and names for your site templates in `config/packages/ibexa_site_factory.yaml`:
 
 ```yaml
-ez_platform_site_factory:
+ibexa_site_factory:
     templates:
         site1:
             siteaccess_group: example_site_factory_group_1

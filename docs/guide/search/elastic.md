@@ -107,7 +107,7 @@ You either connect to a [cluster of Elasticsearch nodes](#configure-a-cluster) o
 Define the connection settings under the `connections` key. First, set a name of the connection:
 
 ``` yaml
-ez_platform_elastic_search_engine:
+ibexa_elasticsearch:
     connections:
         <connection_name>:
 ```
@@ -123,7 +123,7 @@ and configure the [security settings](#configure-security).
     each repository, you must select the one that [[= product_name =]] should use with the following setting:
 
     ``` yaml
-    ez_platform_elastic_search_engine:
+    ibexa_elasticsearch:
         # ...
         default_connection: <connection_name>
     ```
@@ -152,7 +152,7 @@ Default values are `null`.
 List the addresses of cluster nodes under the `hosts` key:
 
 ``` yaml
-ez_platform_elastic_search_engine:
+ibexa_elasticsearch:
     connections:
         <connection_name>:
             hosts:
@@ -439,7 +439,7 @@ To define a field mapping template, you must provide a number of settings under 
 The structure of the template is as follows:
 
 ``` yaml
-ez_platform_elastic_search_engine:
+ibexa_elasticsearch:
     # ...
     index_templates:
         <index_template_name>:
@@ -472,7 +472,7 @@ Index names use the following pattern:
     You use patterns to identify index templates that contain settings specific for a given language:
 
   ``` yaml
-  ez_platform_elastic_search_engine:
+  ibexa_elasticsearch:
     # ...
     index_templates:
         default_en_us:
@@ -487,7 +487,7 @@ For more information and a list of available settings, see [Elasticsearch docume
     search, like a normalizer that changes a case of all phrases in the index:
 
   ``` yaml
-    ez_platform_elastic_search_engine:
+    ibexa_elasticsearch:
         # ...
             index_templates:
                 default:
@@ -518,7 +518,7 @@ For example, you can apply a mapping parameter, in this case, a normalizer, to a
 mapping under the `dynamic_templates` key:
 
 ``` yaml
-ez_platform_elastic_search_engine:
+ibexa_elasticsearch:
     # ...
     index_templates:
         default:
@@ -539,7 +539,7 @@ Boosting increases the relevance of hits, for example making keywords from the t
 Set the boosting factor under the `properties` key:
 
 ``` yaml
-ez_platform_elastic_search_engine:
+ibexa_elasticsearch:
     # ...
     index_templates:
         default:
@@ -554,7 +554,7 @@ ez_platform_elastic_search_engine:
 You can even copy contents of existing fields, process them and then paste into another field, which than can be queried:
 
 ``` yaml
-ez_platform_elastic_search_engine:
+ibexa_elasticsearch:
     # ...
     index_templates:
         default:

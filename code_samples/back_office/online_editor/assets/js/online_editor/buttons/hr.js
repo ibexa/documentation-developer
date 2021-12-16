@@ -23,7 +23,7 @@ export default class IbexaBtnHr extends IbexaButton {
                 tabIndex={this.props.tabIndex}
                 title={title}>
                 <svg className="ibexa-icon ibexa-btn-ae__icon">
-                    <use xlinkHref="/bundles/ezplatformadminui/img/ez-icons.svg#tag" />
+                    <use xlinkHref="/bundles/ibexaplatformicons/img/all-icons.svg#tag" />
                 </svg>
             </button>
     );

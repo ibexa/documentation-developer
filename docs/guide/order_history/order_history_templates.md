@@ -15,5 +15,5 @@
 
 |Twig filter|Description|Usage|
 |--- |--- |--- |
-|`ses_erp_to_default`|Converts the ERP date into the default date format.|`{{ 'Order at:'|st_translate }} {{ response.OrderReference.IssueDate.value|ses_erp_to_default }} {{ response.OrderReference.IssueDate.value|ses_erp_to_default }}`|
-|`ses_to_float`|Converts the given value to a valid float (also strings that use a comma instead of a dot).|`{{ 'VAT:'|st_translate }} {{ vat.TaxAmount.value|ses_to_float|price_format }}`|
+|`ibexa_commerce_erp_to_default`|Converts the ERP date into the default date format.|`{{ 'Order at:'|ibexa_commerce_translate }} {{ response.OrderReference.IssueDate.value|ibexa_commerce_erp_to_default }} {{ response.OrderReference.IssueDate.value|ibexa_commerce_erp_to_default }}`|
+|`ibexa_commerce_to_float`|Converts the given value to a valid float (also strings that use a comma instead of a dot).|`{{ 'VAT:'|ibexa_commerce_translate }} {{ vat.TaxAmount.value|ibexa_commerce_to_float|ibexa_commerce_price_format }}`|

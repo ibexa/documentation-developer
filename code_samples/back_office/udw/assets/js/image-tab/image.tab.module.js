@@ -19,7 +19,7 @@ ibexa.addConfig(
             id: 'image',
             component: ImageTabModule,
             label: 'Image',
-            icon: '/bundles/ezplatformadminui/img/ibexa-icons.svg#image',
+            icon: '/bundles/ibexaplatformicons/img/all-icons.svg#image',
         },
     ],
     true

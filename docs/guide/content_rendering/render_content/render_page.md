@@ -14,7 +14,7 @@ You can create other layouts in configuration, under the `ibexa_fieldtype_page.l
 To create a new layout called "Right sidebar", use the following configuration:
 
 ``` yaml
-[[= include_file('code_samples/front/render_page/config/packages/ezplatform_page_fieldtype.yaml', 0, 13) =]]
+[[= include_file('code_samples/front/render_page/config/packages/ibexa_page_fieldtype.yaml', 0, 13) =]]
 ```
 
 ### Add layout template
@@ -43,7 +43,7 @@ The editor chooses a template when creating a block in the Page Builder.
 You can add new block templates by using configuration, for example, for the Content List block:
 
 ``` yaml
-[[= include_file('code_samples/front/render_page/config/packages/ezplatform_page_fieldtype.yaml', 0, 1) =]][[= include_file('code_samples/front/render_page/config/packages/ezplatform_page_fieldtype.yaml', 13, 19) =]]
+[[= include_file('code_samples/front/render_page/config/packages/ibexa_page_fieldtype.yaml', 0, 1) =]][[= include_file('code_samples/front/render_page/config/packages/ibexa_page_fieldtype.yaml', 13, 19) =]]
 ```
 
 !!! tip
