@@ -1,15 +1,15 @@
-{% extends '@ezdesign/ui/layout.html.twig' %}
+{% extends '@ibexadesign/ui/layout.html.twig' %}
 
 {% block title %}{{ 'Content List'|trans }}{% endblock %}
 
 {%- block breadcrumbs -%}
-    {% include '@ezdesign/ui/breadcrumbs.html.twig' with { items: [
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
         { value: 'url.list'|trans|desc('Content List') }
     ]} %}
 {%- endblock -%}
 
 {%- block page_title -%}
-    {% include '@ezdesign/ui/page_title.html.twig' with {
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
         title: 'url.list'|trans|desc('Content List'),
         icon_name: 'article'
     } %}
@@ -32,10 +32,10 @@
             <tbody>
             {% for article in articles %}
                 <tr>
-                    <td><a href={{ez_path(article)}}>{{ ez_content_name(article.contentInfo) }}</a></td>
+                    <td><a href={{ibexa_path(article)}}>{{ ibexa_content_name(article.contentInfo) }}</a></td>
                     <td>{{ article.contentInfo.contentTypeId }}</td>
-                    <td>{{ article.contentInfo.modificationDate|ez_full_datetime }}</td>
-                    <td>{{ article.contentInfo.publishedDate|ez_full_datetime }}</td>
+                    <td>{{ article.contentInfo.modificationDate|ibexa_full_datetime }}</td>
+                    <td>{{ article.contentInfo.publishedDate|ibexa_full_datetime }}</td>
                 </tr>
             {% endfor %}
             </tbody>

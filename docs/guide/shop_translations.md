@@ -6,25 +6,25 @@ If it does not find any translations, the [standard Symfony translation service]
 
 ## Twig filter
 
-The translation service offers the Twig filter `st_translate`.
+The translation service offers the Twig filter `ibexa_commerce_translate`.
 
 The filter uses a code which identifies the text to be translated and an optional context.
 The context can be used to differentiate between different meanings, e.g. in the shop context `order` refers to purchasing,
 but in content management it can refer to sorting content.
 
 ``` html+twig
-{{ messageOrCode|st_translate }}
+{{ messageOrCode|ibexa_commerce_translate }}
 
-{{ messageOrCode|st_translate('context') }}
+{{ messageOrCode|ibexa_commerce_translate('context') }}
 ```
 
 When you use Symfony translation service instead of text modules, you can use a message with placeholders
 and define a different translation domain, in this example, `validators.de.xliff`.
 
 ``` html+twig
-<h2>{{ 'This is a test with %placeholder%'|st_translate('', { '%placeholder%':'My text' }, 'validators' ) }}</h2>
+<h2>{{ 'This is a test with %placeholder%'|ibexa_commerce_translate('', { '%placeholder%':'My text' }, 'validators' ) }}</h2>
 
-{{ 'error'|st_translate(null, {}, 'validators') }}
+{{ 'error'|ibexa_commerce_translate(null, {}, 'validators') }}
 ```
 
 ### Specifying translation language
@@ -37,7 +37,7 @@ The translation service can use the given SiteAccess to specify the language or 
 ``` html+twig
 {% set siteaccess = basket.dataMap.siteaccess is defined ? basket.dataMap.siteaccess : null %}
 
-{{ 'Thank you for using our shop.'|st_translate(null, {}, null, siteaccess) }}
+{{ 'Thank you for using our shop.'|ibexa_commerce_translate(null, {}, null, siteaccess) }}
 ```
 
 ### Pluralisation
@@ -80,10 +80,10 @@ To take advantage of this, use the `fieldIdentifier` parameter:
 
 ``` html+twig
 {# without context #}
-{{ 'my_profile_intro_text'|st_translate(null, {'fieldIdentifier' : 'my_field_identifier' }) }}
+{{ 'my_profile_intro_text'|ibexa_commerce_translate(null, {'fieldIdentifier' : 'my_field_identifier' }) }}
 
 {# with context #}
-{{ label_tooltip_description|st_translate ('createrma', {'fieldIdentifier' : 'header'}) }}
+{{ label_tooltip_description|ibexa_commerce_translate ('createrma', {'fieldIdentifier' : 'header'}) }}
 ```
 
 ## Configuration
@@ -119,6 +119,6 @@ Translations from Symfony are not cached.
 
 ### Cache purging
 
-When `st_translate()` is used in Twig templates, the cache is tagged with `content-<content-id>`.
+When `ibexa_commerce_translate()` is used in Twig templates, the cache is tagged with `content-<content-id>`.
 If a text module is updated, the system purges all HTTP cache blocks which are tagged with the given `content_id`
 as well as the Stash cache for this translation.

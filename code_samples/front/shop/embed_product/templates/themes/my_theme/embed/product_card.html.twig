@@ -1,7 +1,7 @@
 <div class="product-card">
-    <a href="{{ ez_path(location) }}">
+    <a href="{{ ibexa_path(location) }}">
         <div>
-            {{ ez_render_field(content, 'ses_image_main', {
+            {{ ibexa_render_field(content, 'ses_image_main', {
                 'parameters': {
                     'alias': 'small'
                 }
@@ -9,7 +9,7 @@
         </div>
         <div>
             <div>
-                <h3>{{ ez_render_field(content, 'ses_name') }}</h3>
+                <h3>{{ ibexa_render_field(content, 'ses_name') }}</h3>
             </div>
             <div>
                 {{ render(

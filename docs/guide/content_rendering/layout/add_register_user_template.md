@@ -13,8 +13,8 @@ ibexa:
         default:
             user_registration:
                 templates:
-                    form: '@ezdesign/user/registration_form.html.twig'
-                    confirmation: '@ezdesign/user/registration_confirmation.html.twig'
+                    form: '@ibexadesign/user/registration_form.html.twig'
+                    confirmation: '@ibexadesign/user/registration_confirmation.html.twig'
 ```
 This defines which templates will be used for rendering the registration form and confirmation page.
 
@@ -25,7 +25,7 @@ Example registration form:
 ``` html+twig
 {% extends no_layout is defined and no_layout == true ? view_base_layout : page_layout %}
 {% block content %}
-    <section class="ez-content-edit">
+    <section class="ibexa-content-edit">
         {{ form_start(form) }}
 
         {% for fieldForm in form.fieldsData %}

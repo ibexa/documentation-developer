@@ -1,15 +1,15 @@
-{% extends '@ezdesign/ui/layout.html.twig' %}
+{% extends '@ibexadesign/ui/layout.html.twig' %}
 
 {% block title %}{{ 'Content List'|trans }}{% endblock %}
 
 {%- block breadcrumbs -%}
-    {% include '@ezdesign/ui/breadcrumbs.html.twig' with { items: [
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
         { value: 'url.list'|trans|desc('Content List') }
     ]} %}
 {%- endblock -%}
 
 {%- block page_title -%}
-    {% include '@ezdesign/ui/page_title.html.twig' with {
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
         title: 'url.list'|trans|desc('Content List'),
         icon_name: 'article'
     } %}
@@ -48,10 +48,10 @@
             <tbody>
             {% for article in articles %}
                 <tr>
-                    <td><a href={{ez_path(article)}}>{{ ez_content_name(article.contentInfo) }}</a></td>
+                    <td><a href={{ibexa_path(article)}}>{{ ibexa_content_name(article.contentInfo) }}</a></td>
                     <td>{{ article.contentInfo.contentTypeId }}</td>
-                    <td>{{ article.contentInfo.modificationDate|ez_full_datetime }}</td>
-                    <td>{{ article.contentInfo.publishedDate|ez_full_datetime }}</td>
+                    <td>{{ article.contentInfo.modificationDate|ibexa_full_datetime }}</td>
+                    <td>{{ article.contentInfo.publishedDate|ibexa_full_datetime }}</td>
                     <td>
                         <button class="btn btn-icon mx-2 ez-btn--content-edit"
                                 title="{{ 'dashboard.table.all.content.edit'|trans|desc('Edit Content') }}"
@@ -59,7 +59,7 @@
                                 data-version-no="{{ article.contentInfo.currentVersionNo }}"
                                 data-language-code="{{ article.contentInfo.mainLanguageCode }}">
                             <svg class="ez-icon ez-icon-edit">
-                                <use xlink:href="{{ asset('bundles/ezplatformadminui/img/ez-icons.svg') }}#edit"></use>
+                                <use xlink:href="{{ asset('bundles/ibexaplatformicons/img/all-icons.svg') }}#edit"></use>
                             </svg>
                         </button>
                     </td>
@@ -76,7 +76,7 @@
     }) }}
     {{ form_widget(form_edit.language, {'attr': {'hidden': 'hidden', 'class': 'language-input'}}) }}
     {{ form_end(form_edit) }}
-    {% include '@ezdesign/content/modal/version_conflict.html.twig' %}
+    {% include '@ibexadesign/content/modal/version_conflict.html.twig' %}
 {%- endblock -%}
 
 {% block javascripts %}

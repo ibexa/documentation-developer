@@ -5,7 +5,7 @@ ibexa_fieldtype_page:
             name: Right sidebar
             description: Main section with sidebar on the right
             thumbnail: /assets/images/layouts/sidebar.png
-            template: '@ezdesign/layouts/sidebar.html.twig'
+            template: '@ibexadesign/layouts/sidebar.html.twig'
             zones:
                 first:
                     name: First zone
@@ -15,5 +15,5 @@ ibexa_fieldtype_page:
         contentlist:
             views:
                 custom:
-                    template: '@ezdesign/blocks/contentlist.html.twig'
+                    template: '@ibexadesign/blocks/contentlist.html.twig'
                     name: Custom content list

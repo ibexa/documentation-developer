@@ -22,7 +22,7 @@ export default class BtnDate extends EzButton {
                 tabIndex={this.props.tabIndex}
                 title={title}>
                 <svg className="ez-icon ez-btn-ae__icon">
-                    <use xlinkHref="/bundles/ezplatformadminui/img/ez-icons.svg#date" />
+                    <use xlinkHref="/bundles/ibexaplatformicons/img/all-icons.svg#date" />
                 </svg>
             </button>
         );

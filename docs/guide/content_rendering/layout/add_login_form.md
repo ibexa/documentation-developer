@@ -12,7 +12,7 @@ ibexa:
     system:
         my_siteaccess:
             user:
-                login_template: '@ezdesign/Security/login.html.twig'
+                login_template: '@ibexadesign/Security/login.html.twig'
 ```
 
 To add a link redirecting to the login form, in the page layout template, provide the following code:
@@ -26,10 +26,10 @@ Next, add the template defined in the event.
 In `templates/themes/<theme_name>/login`, create an `expired_credentials.html.twig` file:
 
 ```html+twig
-{% extends '@ezdesign/Security/base.html.twig' %}
+{% extends '@ibexadesign/Security/base.html.twig' %}
 
 {%- block content -%}
-    <h2 class="ez-login__header">
+    <h2 class="ibexa-login__header">
         {{ 'authentication.credentials_expired'|trans|desc('Your password has expired') }}
     </h2>
     <p>
@@ -38,7 +38,7 @@ In `templates/themes/<theme_name>/login`, create an `expired_credentials.html.tw
         ) }}
     </p>
     <p>
-        <a href="{{ path('ezplatform.user.forgot_password') }}" class="btn btn-primary ez-btn ez-btn--login">
+        <a href="{{ path('ezplatform.user.forgot_password') }}" class="btn btn-primary ibexa-btn ibexa-btn--login">
             {{ 'authentication.credentials_expired.reset_password'|trans|desc('Reset password') }}
         </a>
     </p>
@@ -109,10 +109,10 @@ Remember to provide a template and point to it in the subscriber
 (in this case, in `templates/login/expired_credentials.html.twig`):
 
 ```html+twig
-{% extends '@ezdesign/Security/base.html.twig' %}
+{% extends '@ibexadesign/Security/base.html.twig' %}
 
 {%- block content -%}
-    <h2 class="ez-login__header">
+    <h2 class="ibexa-login__header">
         {{ 'authentication.credentials_expired'|trans|desc('Your password has expired') }}
     </h2>
     <p>
@@ -121,7 +121,7 @@ Remember to provide a template and point to it in the subscriber
         ) }}
     </p>
     <p>
-        <a href="{{ path('ezplatform.user.forgot_password') }}" class="btn btn-primary ez-btn ez-btn--login">
+        <a href="{{ path('ezplatform.user.forgot_password') }}" class="btn btn-primary ibexa-btn ibexa-btn--login">
             {{ 'authentication.credentials_expired.reset_password'|trans|desc('Reset password') }}
         </a>
     </p>

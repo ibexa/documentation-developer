@@ -116,7 +116,7 @@ The `fieldType` key has to correspond to the name of your Field Type.
 
 ## Content view templates
 
-To render the Field in content view by using the [`ez_render_field()` Twig helper](../guide/content_rendering/twig_function_reference/field_twig_functions.md#ez_render_field),
+To render the Field in content view by using the [`ibexa_render_field()` Twig helper](../guide/content_rendering/twig_function_reference/field_twig_functions.md#ibexa_render_field),
 you need to define a template containing a block for the Field.
 
 ``` html+twig
@@ -147,8 +147,8 @@ The block can receive the following variables:
 | `contentInfo` | `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | The ContentInfo of the Content item the Field belongs to |
 | `versionInfo` | `Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo` | The VersionInfo of the Content item the Field belongs to |
 | `fieldSettings` | array | Settings of the Field (depends on the Field Type) |
-| `parameters` | hash | Options passed to `ez_render_field()` under the `'parameters'` key |
-| `attr` | hash | The attributes to add the generate the HTML markup, passed to ez_render_field()` under the `'attr'` key. <br> Contains at least a class entry, containing <fieldtypeidentifier>-field |
+| `parameters` | hash | Options passed to `ibexa_render_field()` under the `'parameters'` key |
+| `attr` | hash | The attributes to add the generate the HTML markup, passed to ibexa_render_field()` under the `'attr'` key. <br> Contains at least a class entry, containing <fieldtypeidentifier>-field |
 
 ### Reusing blocks
 

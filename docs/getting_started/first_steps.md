@@ -66,7 +66,7 @@ To display Content in the front page you need to define content views and templa
 
 Content views decide which templates and controllers are used to display content.
 
-1\. In `config/packages/ibexa.yaml`, under `ezplatform.system`
+1\. In `config/packages/ibexa.yaml`, under `ibexa.system`
 add the following block (pay attention to indentation: `site_group` should be one level below `system`):
 
 ``` yaml
@@ -84,8 +84,8 @@ Content view templates use the [Twig templating engine](https://twig.symfony.com
 2\. Create a template file `templates/full/blog_post.html.twig`:
 
 ``` html+twig
-<h1>{{ ez_render_field(content, 'title') }}</h1>
-<div>{{ ez_render_field(content, 'text') }}</div>
+<h1>{{ ibexa_render_field(content, 'title') }}</h1>
+<div>{{ ibexa_render_field(content, 'text') }}</div>
 ```
 
 !!! tip "More information"
@@ -110,7 +110,7 @@ For example, if the title of the Blog post is "First blog post", the address wil
 
 You can use SiteAccesses to serve different versions of the website.
 
-SiteAccesses are used depending on matching rules. They are set up in YAML configuration under the `ezplatform.siteaccess.list` key.
+SiteAccesses are used depending on matching rules. They are set up in YAML configuration under the `ibexa.siteaccess.list` key.
 
 1\. In `config/packages/ibexa.yaml` add a new SiteAccess called `de` for the German version of the website:
 
@@ -144,7 +144,7 @@ For now the new SiteAccess does not differ from the main site.
 
 One of the most common use cases for SiteAccesses is having different language versions of a site.
 
-1\. To set up the `de` SiteAccess to use a different language, add its configuration under `ezplatform.system`,
+1\. To set up the `de` SiteAccess to use a different language, add its configuration under `ibexa.system`,
 below `site.languages`:
 
 ``` yaml
@@ -187,7 +187,7 @@ Each theme is stored in a separate folder and assigned to a SiteAccess.
 
 To create a new theme:
 
-1\. Add the following configuration at the bottom of `config/packages/ibexa.yaml` (at the same level as `ezplatform`):
+1\. Add the following configuration at the bottom of `config/packages/ibexa.yaml` (at the same level as `ibexa`):
 
 ``` yaml
 ibexa_design_engine:
@@ -196,12 +196,12 @@ ibexa_design_engine:
         de_design: [de_design]
 ```
 
-2\. In configuration of the `de` SiteAccess (under `ezplatform.system.de`) add: `design: de_design`
+2\. In configuration of the `de` SiteAccess (under `ibexa.system.de`) add: `design: de_design`
 
 3\. Under `site`, add `design: site_design`
 
 4\. Go back to the `content_view` configuration for the blog post. Change the path to the template so that it points to the folder for the correct design:
-`template: '@ezdesign\full\blog_post.html.twig'`
+`template: '@ibexadesign\full\blog_post.html.twig'`
 
 This means that the app will look for the `blog_post.html.twig` file in a folder relevant for the SiteAccess: `de_design` for the `de` SiteAccess, or `site_design` for other SiteAccesses in `site_group`.
 

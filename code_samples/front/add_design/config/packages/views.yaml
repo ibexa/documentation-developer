@@ -8,7 +8,7 @@ ibexa:
             content_view:
                 full:
                     article:
-                        template: '@ezdesign/full/article.html.twig'
+                        template: '@ibexadesign/full/article.html.twig'
                         match:
                             Identifier\ContentType: [ article ]
         campaign:

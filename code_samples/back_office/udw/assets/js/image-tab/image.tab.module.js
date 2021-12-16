@@ -19,7 +19,7 @@ eZ.addConfig(
             id: 'image',
             component: ImageTabModule,
             label: 'Image',
-            icon: '/bundles/ezplatformadminui/img/ez-icons.svg#image',
+            icon: '/bundles/ibexaplatformicons/img/all-icons.svg#image',
         },
     ],
     true

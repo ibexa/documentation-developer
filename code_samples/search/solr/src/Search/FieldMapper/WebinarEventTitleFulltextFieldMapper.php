@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Search\Mapper;
+namespace App\Search\FieldMapper;
 
-use EzSystems\EzPlatformSolrSearchEngine\FieldMapper\ContentFieldMapper;
+use Ibexa\Contracts\Solr\FieldMapper\ContentFieldMapper;
 use Ibexa\Contracts\Core\Persistence\Content\Handler as ContentHandler;
 use Ibexa\Contracts\Core\Persistence\Content\Location\Handler as LocationHandler;
 use Ibexa\Contracts\Core\Persistence\Content;

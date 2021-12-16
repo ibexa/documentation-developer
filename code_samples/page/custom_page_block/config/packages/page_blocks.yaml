@@ -4,14 +4,14 @@ ibexa_fieldtype_page:
             name: Event Block
             category: Custom
             thumbnail: /bundles/ibexaplatformicons/img/all-icons.svg#date
-            configuration_template: '@ezdesign/blocks/event/config.html.twig'
+            configuration_template: '@ibexadesign/blocks/event/config.html.twig'
             views:
                 default:
-                    template: '@ezdesign/blocks/event/template.html.twig'
+                    template: '@ibexadesign/blocks/event/template.html.twig'
                     name: Default view
                     priority: -255
                 featured:
-                    template: '@ezdesign/blocks/event/featured_template.html.twig'
+                    template: '@ibexadesign/blocks/event/featured_template.html.twig'
                     name: Featured view
                     priority: 50
             attributes:

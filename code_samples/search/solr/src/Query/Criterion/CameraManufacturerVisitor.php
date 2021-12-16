@@ -11,7 +11,7 @@ final class CameraManufacturerVisitor extends CriterionVisitor
 {
     public function canVisit(Criterion $criterion)
     {
-        return $criterion instanceof CameraManufacturer;
+        return $criterion instanceof CameraManufacturerCriterion;
     }
     public function visit(Criterion $criterion, CriterionVisitor $subVisitor = null)
     {

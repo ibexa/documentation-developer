@@ -9,11 +9,11 @@
 
 ## Custom Twig functions
 
-### `ses_comparison_category`
+### `ibexa_commerce_comparison_category`
 
 Returns the comparison category for the catalog element.
 This function is a wrapper for `ComparisonServiceInterface::getComparisonCategory()`.
 
 ``` html+twig
-{{ ses_comparison_category(catalogElement) }}
+{{ ibexa_commerce_comparison_category(catalogElement) }}
 ```

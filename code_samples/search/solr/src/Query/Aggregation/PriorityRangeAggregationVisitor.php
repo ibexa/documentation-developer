@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Query\Aggregation;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
-use EzSystems\EzPlatformSolrSearchEngine\Query\AggregationVisitor;
+use Ibexa\Contracts\Solr\Query\AggregationVisitor;
 
 final class PriorityRangeAggregationVisitor implements AggregationVisitor
 {

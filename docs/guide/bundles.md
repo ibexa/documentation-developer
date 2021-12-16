@@ -40,7 +40,7 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |[ibexa/admin-ui](https://github.com/ibexa/admin-ui)|Back Office interface|
 |[ibexa/content-forms](https://github.com/ibexa/content-forms)|Form-based integration for the Symfony Forms into Content and User objects in kernel|
 |[ibexa/core-extensions](https://github.com/ibexa/core-extensions)|Core system functionalities|
-|[ibexa/cron](https://github.com/ibexa/cron)|Cron package for use with the `ezplatform:cron:run` command|
+|[ibexa/cron](https://github.com/ibexa/cron)|Cron package for use with the `ibexa:cron:run` command|
 |[ibexa/design-engine](https://github.com/ibexa/design-engine)|[Design fallback system](content_rendering/design_engine/design_engine.md)|
 |[ibexa/graphql](https://github.com/ibexa/graphql)|GraphQL server for [[= product_name =]]|
 |[ibexa/http-cache](https://github.com/ibexa/http-cache)|[HTTP cache handling](../guide/cache/http_cache.md), using multi tagging|
