@@ -163,7 +163,7 @@ The following Twig functions and filter have been renamed, including:
     | `price_format` | `ibexa_commerce_price_format` |
     | `ses_assets_by_group` | `ibexa_commerce_assets_by_group` |
     | `ses_assets_image_list` | `ibexa_commerce_assets_image_list` |
-    | `ses_assets_main_image` | `ibexa_commerce_assets_by_group` |
+    | `ses_assets_main_image` | `ibexa_commerce_assets_main_image` |
     | `ses_basket` | `ibexa_commerce_basket` |
     | `ses_check_product_in_comparison` | `ibexa_commerce_check_product_in_comparison` |
     | `ses_check_product_in_wish_list` | `ibexa_commerce_check_product_in_wish_list` |
