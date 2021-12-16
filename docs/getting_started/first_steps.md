@@ -84,8 +84,8 @@ Content view templates use the [Twig templating engine](https://twig.symfony.com
 2\. Create a template file `templates/full/blog_post.html.twig`:
 
 ``` html+twig
-<h1>{{ ez_render_field(content, 'title') }}</h1>
-<div>{{ ez_render_field(content, 'text') }}</div>
+<h1>{{ ibexa_render_field(content, 'title') }}</h1>
+<div>{{ ibexa_render_field(content, 'text') }}</div>
 ```
 
 !!! tip "More information"

@@ -1,17 +1,17 @@
 # Product rendering
 
 The `catalogElement` object represents the product in catalog templates.
-Use it with the `ses_render_field` Twig function to render product Fields:
+Use it with the `ibexa_commerce_render_field` Twig function to render product Fields:
 
 ``` html+twig
-{{ ses_render_field(catalogElement, 'name') }}
+{{ ibexa_commerce_render_field(catalogElement, 'name') }}
 ```
 
 ## Additional fields within the dataMap
 
 A `dataMap` of the catalog element provides additional fields within some properties.
 The `dataMap` provides an array of objects which implement the `FieldInterface`.
-The `ses_render_field()` function can automatically use either a property of the catalog element, or a property from the `dataMap`.
+The `ibexa_commerce_render_field()` function can automatically use either a property of the catalog element, or a property from the `dataMap`.
 
 If a property within the `dataMap` has the same name as another property of the `CatalogElement`,
 you can enforce using the property from the `dataMap` by using the `enforce_datamap` parameter.
@@ -20,10 +20,10 @@ For example: `catalogElement` has property `price` (which has a `PriceField` wit
 
 ``` html+twig
 {# "1.00" is output #}
-{{ ses_render_field(catalogElement, 'price') }}
+{{ ibexa_commerce_render_field(catalogElement, 'price') }}
  
 {# "2.00" is output #}
-{{ ses_render_field(catalogElement, 'price', {"enforce_datamap": true}) }}
+{{ ibexa_commerce_render_field(catalogElement, 'price', {"enforce_datamap": true}) }}
 ```
 
 ### Supported Field Types
@@ -43,16 +43,16 @@ To add more Field Types do the `dataMap`, you need to [extend the catalog factor
 
 ## Getting a product by SKU
 
-If you need to fetch a product in a template (e.g. in a basket), use the `ses_product` Twig function.
+If you need to fetch a product in a template (e.g. in a basket), use the `ibexa_commerce_product` Twig function.
 
 ``` html+twig
-{% set product = ses_product({'sku': 999}) %}
+{% set product = ibexa_commerce_product({'sku': 999}) %}
 Name: {{ product.name }}
 ```
 In case of products with variants, you also need to provide the variant code:
 
 ``` html+twig
-{% set product = ses_product({'sku': 999, 'variantCode': 9992 }) %}
+{% set product = ibexa_commerce_product({'sku': 999, 'variantCode': 9992 }) %}
 Name: {{ product.name }}
 ```
 

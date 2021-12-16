@@ -79,13 +79,13 @@ To read more about handling images and image variations, see the [Images documen
 
 ### Template Rendering
 
-When displayed using `ez_render_field`, an Image Field will output this type of HTML:
+When displayed using `ibexa_render_field`, an Image Field will output this type of HTML:
 
 ``` html+twig
 <img src="var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/image_medium.png" width="844" height="430" alt="Alternative text" />
 ```
 
-The template called by the [`ez_render_field()` Twig function](../../guide/content_rendering/twig_function_reference/field_twig_functions.md#ez_render_field) while rendering a Image Field accepts the following parameters:
+The template called by the [`ibexa_render_field()` Twig function](../../guide/content_rendering/twig_function_reference/field_twig_functions.md#ibexa_render_field) while rendering a Image Field accepts the following parameters:
 
 | Parameter | Type     | Default        | Description |
 |-----------|----------|----------------|-------------|
@@ -97,13 +97,13 @@ The template called by the [`ez_render_field()` Twig function](../../guide/cont
 Example: 
 
 ``` html+twig
-{{ ez_render_field( content, 'image', { 'parameters':{ 'alias': 'imagelarge', 'width': 400, 'height': 400 } } ) }}
+{{ ibexa_render_field( content, 'image', { 'parameters':{ 'alias': 'imagelarge', 'width': 400, 'height': 400 } } ) }}
 ```
 
-The raw Field can also be used if needed. Image variations for the Field's content can be obtained using the `ez_image_alias` Twig helper:
+The raw Field can also be used if needed. Image variations for the Field's content can be obtained using the `ibexa_image_alias` Twig helper:
 
 ``` html+twig
-{% set imageAlias = ez_image_alias( field, versionInfo, 'medium' ) %}
+{% set imageAlias = ibexa_image_alias( field, versionInfo, 'medium' ) %}
 ```
 
 The variation's properties can be used to generate the required output:

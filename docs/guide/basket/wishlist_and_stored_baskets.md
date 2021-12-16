@@ -48,10 +48,10 @@ const TYPE_WISH_LIST = 'wishList';
 
 ## Twig functions
 
-`get_stored_baskets()` returns stored baskets for the current user:
+`ibexa_commerce_get_stored_baskets()` returns stored baskets for the current user:
 
 ``` html+twig
-{% set storedBaskets = get_stored_baskets() %}
+{% set storedBaskets = ibexa_commerce_get_stored_baskets() %}
 {% if storedBaskets|default is not empty %}
     {% for storedBasket in storedBaskets %}
         {{ storedBasket.basketName }}

@@ -124,17 +124,17 @@ The plugin provides the following built-in live templates in Twig files:
 
 | Abbreviation | Comment |
 |---|---|
-| `ezcn` | `ez_content_name` |
-| `ezfd` | `ez_field_description` |
-| `ezfd?` | `ez_field_description` wrapped in an `ez_field_is_empty` check |
-| `ezfn` | `ez_field_name` |
-| `ezfn?` | `ez_field_name` wrapped in an `ez_field_is_empty` check |
-| `ezrc` | `ez_render_content` |
-| `ezrcq` | `ez_render_content_query` |
-| `ezrf` | `ez_render_field` |
-| `ezrf?` | `ez_render_field` wrapped in an `ez_field_is_empty` check |
-| `ezrl` | `ez_render_location` |
-| `ezrlq` | `ez_render_location_query` |
+| `ezcn` | `ibexa_content_name` |
+| `ezfd` | `ibexa_field_description` |
+| `ezfd?` | `ibexa_field_description` wrapped in an `ibexa_field_is_empty` check |
+| `ezfn` | `ibexa_field_name` |
+| `ezfn?` | `ibexa_field_name` wrapped in an `ibexa_field_is_empty` check |
+| `ezrc` | `ibexa_render_content` |
+| `ezrcq` | `ibexa_render_content_query` |
+| `ezrf` | `ibexa_render_field` |
+| `ezrf?` | `ibexa_render_field` wrapped in an `ibexa_field_is_empty` check |
+| `ezrl` | `ibexa_render_location` |
+| `ezrlq` | `ibexa_render_location_query` |
 
 and in PHP files:
 

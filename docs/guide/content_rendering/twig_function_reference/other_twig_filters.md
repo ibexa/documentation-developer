@@ -1,8 +1,8 @@
 # Other Twig filters
 
-### `ez_icon_path()`
+### `ibexa_icon_path()`
 
-`ez_icon_path()` generates a path to the selected icon from an icon set.
+`ibexa_icon_path()` generates a path to the selected icon from an icon set.
 
 |Argument|Type|Description|
 |------|------|------|
@@ -11,6 +11,6 @@
 
 ```html+twig
 <svg class="ez-icon ez-icon--medium ez-icon--light">
-    <use xlink:href="{{ ez_icon_path('edit', 'my_icons') }}"></use>
+    <use xlink:href="{{ ibexa_icon_path('edit', 'my_icons') }}"></use>
 </svg>
 ```

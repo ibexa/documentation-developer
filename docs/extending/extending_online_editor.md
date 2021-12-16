@@ -307,7 +307,7 @@ in the Online Editor:
 
     Instead, you can make use of the `data_attributes` and `class` properties 
     in your templates.
-    With the `ez_data_attributes_serialize` helper you can serialize the data 
+    With the `ibexa_data_attributes_serialize` helper you can serialize the data 
     attribute array.
 
 ### Custom data attributes

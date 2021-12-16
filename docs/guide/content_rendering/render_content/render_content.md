@@ -39,7 +39,7 @@ in this example, `templates/themes/my_theme/full`.
 ## Get content information
 
 To render general content information, such as content name,
-use the [`ez_content_name()`](../twig_function_reference/content_twig_functions.md#ez_content_name) Twig function.
+use the [`ibexa_content_name()`](../twig_function_reference/content_twig_functions.md#ibexa_content_name) Twig function.
 
 Content name is based on the [content name pattern](../../content_model.md#content-name-pattern) of the Content Type.
 
@@ -58,7 +58,7 @@ For example, to get the publication date of the current Content item, use:
 
 ## Render Fields
 
-You can render a single Field of a Content item by using the [`ez_render_field()`](../twig_function_reference/field_twig_functions.md#ez_render_field) Twig function.
+You can render a single Field of a Content item by using the [`ibexa_render_field()`](../twig_function_reference/field_twig_functions.md#ibexa_render_field) Twig function.
 It takes the Content item and the identifier of the Field as arguments:
 
 ``` html+twig
@@ -73,7 +73,7 @@ You can pass additional arguments to this function, for example, an HTML class:
 
 ### Field templates
 
-You can use a custom Field template by passing the template as an argument to [`ez_render_field()`](../twig_function_reference/field_twig_functions.md#ez_render_field):
+You can use a custom Field template by passing the template as an argument to [`ibexa_render_field()`](../twig_function_reference/field_twig_functions.md#ibexa_render_field):
 
 ``` html+twig
 [[= include_file('code_samples/front/render_content/templates/themes/my_theme/full/article.html.twig', 15, 18) =]]

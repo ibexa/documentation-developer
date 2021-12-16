@@ -26,10 +26,10 @@ The example below shows how to add images from [Unsplash](https://unsplash.com/)
 First, in `templates/embed/`, create a custom template `dam.html.twig`:
 
 ``` html+twig
-{% set dam_image = ez_field_value(content, 'image') %}
+{% set dam_image = ibexa_field_value(content, 'image') %}
 {% if dam_image.source is not null %}
-    {% set transformation = ibexa_platform_dam_image_transformation(dam_image.source, '770px') %}
-    {% set asset = ibexa_platform_asset(dam_image.destinationContentId, dam_image.source, transformation) %}
+    {% set transformation = ibexa_dam_image_transformation(dam_image.source, '770px') %}
+    {% set asset = ibexa_dam_asset(dam_image.destinationContentId, dam_image.source, transformation) %}
     {% set image_uri = asset.assetUri.path %}
     <img src="{{ image_uri }}">
 {% endif %}

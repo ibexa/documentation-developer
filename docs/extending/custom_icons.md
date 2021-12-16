@@ -25,12 +25,12 @@ Place the icon in `public/assets/images` and run `yarn encore <dev|prod>` after 
 
 ### Custom icons in Twig templates
 
-Content Type icons are accessible in Twig templates via the `ez_content_type_icon` function.
+Content Type icons are accessible in Twig templates via the `ibexa_content_type_icon` function.
 It requires Content Type identifier as an argument. The function returns the path to a Content Type icon.
 
 ```twig
 <svg class="ez-icon ez-icon-{{ content.contentType.identifier }}">
-    <use xlink:href="{{ ez_content_type_icon(content.contentType.identifier) }}"></use>
+    <use xlink:href="{{ ibexa_content_type_icon(content.contentType.identifier) }}"></use>
 </svg>
 ```
 

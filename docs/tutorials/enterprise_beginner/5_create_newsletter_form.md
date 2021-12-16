@@ -90,7 +90,7 @@ Create a `form_field.html.twig` file in `templates/fields/`:
         {% set form = formValue.createView() %}
         {% form_theme form 'bootstrap_4_layout.html.twig' %}
         {% apply spaceless %}
-            {% if not ez_field_is_empty(content, field) %}
+            {% if not ibexa_field_is_empty(content, field) %}
                 {{ form(form) }}
             {% endif %}
         {% endapply %}
