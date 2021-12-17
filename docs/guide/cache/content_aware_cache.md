@@ -482,7 +482,7 @@ holds the [cache tags](#understanding-cache-tags).
 
 ### Fetch the HTML response
 
-Now that we have the user-context-hash, we can ask origin for the actual resource we are after:
+Now you have the user-context-hash, and you can ask origin for the actual resource you are after:
 
 ```bash
     $ curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" https://www.staging.foobar.com.us-2.platformsh.site/
