@@ -432,7 +432,7 @@ Next, use nslookup to find the IP:
 
 ### Fetch User Context Hash
 
-As explained in [User Context Hash caching](guide/cache/context_aware_cache.md#user-context-hash-caching), the HTTP cache indexes the cache based on the
+As explained in [User Context Hash caching](context_aware_cache.md#user-context-hash-caching), the HTTP cache indexes the cache based on the
 user-context-hash. Users with the same user-context-hash here the same cache (as long as [[= product_name =]]
 responds with `Vary: X-User-Hash`).
 
