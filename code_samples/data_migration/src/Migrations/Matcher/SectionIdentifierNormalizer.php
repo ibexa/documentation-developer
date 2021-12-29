@@ -4,6 +4,7 @@ namespace App\Migrations\Matcher;
 
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
 use Ibexa\Platform\Bundle\Migration\Serializer\Normalizer\Criterion\AbstractCriterionNormalizer;
+use eZ\Publish\SPI\Repository\Values\Filter\FilteringCriterion;
 use Webmozart\Assert\Assert;
 
 class SectionIdentifierNormalizer extends AbstractCriterionNormalizer
@@ -17,7 +18,7 @@ class SectionIdentifierNormalizer extends AbstractCriterionNormalizer
      * @param array<mixed> $data
      * @param array<mixed> $context
      */
-    protected function createCriterion(array $data, string $type, ?string $format, array $context): Criterion
+    protected function createCriterion(array $data, string $type, ?string $format, array $context): FilteringCriterion
     {
         Assert::keyExists($data, 'value');
 

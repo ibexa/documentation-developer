@@ -10,6 +10,8 @@ The following example create a matcher for Section identifiers.
 
 To do this, first add a normalizer which handles the conversion between objects and the YAML format used for data migration.
 
+Matchers are instances of `FilteringCriterion`, so a custom normalizer needs to denormalize into an instance of `FilteringCriterion`.
+
 !!! tip "Normalizers"
 
     To learn more about normalizers, refer to [Symfony documentation]([[= symfony_doc =]]/components/serializer.html).

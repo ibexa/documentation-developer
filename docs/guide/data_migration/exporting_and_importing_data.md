@@ -102,7 +102,6 @@ php bin/console ibexa:migrations:generate --type=content_type --mode=update --ma
         translations:
             eng-GB:
                 name: Article
-                description: ''
     fields:
         -
             identifier: title
@@ -111,7 +110,6 @@ php bin/console ibexa:migrations:generate --type=content_type --mode=update --ma
             translations:
                 eng-GB:
                     name: Title
-                    description: ''
             required: true
             searchable: true
             infoCollector: false
@@ -124,7 +122,6 @@ php bin/console ibexa:migrations:generate --type=content_type --mode=update --ma
                     maxStringLength: 255
                     minStringLength: null
         # - ...
-    actions: {  }
 
 ```
 
