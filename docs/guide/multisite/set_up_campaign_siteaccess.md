@@ -7,11 +7,11 @@ The `campaign` site uses a different part of the content tree than the main site
 
 ## Configure SiteAccesses
 
-First, in the SiteAccess configuration in `config/packages/ezplatform.yaml`,
+First, in the SiteAccess configuration in `config/packages/ibexa.yaml`,
 add the `campaign` SiteAccess to the list under `ezplatform.siteaccess`:
 
 ``` yaml
-ezplatform:
+ibexa:
     siteaccess:
         list: [site, campaign]
         groups:
@@ -35,7 +35,7 @@ Next, with the following content structure, you need to separate the "Campaign" 
 To do it, set the root level for `campaign` to access the "Campaign" Location and its sub-items only:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         campaign:
             content:
@@ -53,7 +53,7 @@ Finally, reuse some content between sites, for example "Logos" from "Images/Medi
 You can allow the `campaign` site to access them, even though they are in a different part of the tree, via `excluded_uri_prefixes`:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         campaign:
             content:

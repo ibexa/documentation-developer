@@ -19,7 +19,7 @@ Before you can use the Personalization service, you must configure the client.
 For the recommendations to be calculated, apart from visitor events (CLICK, BUY, etc.), 
 the Personalization server must be fed with the list of item types that are tracked.
 
-You define item types to be tracked in the `config/packages/ezplatform.yaml` file.
+You define item types to be tracked in the `config/packages/ibexa.yaml` file.
 The content is then initially exported by a script.
 After this, it is synchronized with the Personalization service every time a change 
 occurs in the Back Office.
@@ -32,7 +32,7 @@ of the site, provide the credentials that correspond to each of the sites.
 The configuration can resemble the following example:
 
 ``` yaml
-ezrecommendation:
+ibexa_personalization_client:
     system:
         <site_access_name_1>:
             site_name: '<site_name_1>' # For example 'ENU store'
@@ -475,7 +475,7 @@ For example, to retrieve the `rss` variation of the image, use:
 ### Logging
 
 Most operations are logged by using the `ibexa-recommendation` [Monolog channel](http://symfony.com/doc/5.0/cookbook/logging/channels_handlers.html).
-To log everything about Personalization to `dev.recommendation.log`, add the following to the `ezplatform.yaml`:
+To log everything about Personalization to `dev.recommendation.log`, add the following to the `ibexa.yaml`:
 
 ``` yaml
 monolog:

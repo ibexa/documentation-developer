@@ -18,7 +18,7 @@ declare(strict_types=1);
 namespace App;
 
 use Ibexa\Contracts\Core\Repository\ContentService;
-use Ibexa\Contracts\ore\MVC\Symfony\SiteAccess\SiteAccessServiceInterface;
+use Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessServiceInterface;
 
 class MyService
 {

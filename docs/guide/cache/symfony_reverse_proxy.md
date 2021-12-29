@@ -38,14 +38,12 @@ The configuration of [[= product_name =]] for using Varnish or Fastly requires a
 Before you configure Symfony to [work behind a load balancer or a reverse proxy](https://symfony.com/doc/5.1/deployment/proxies.html),
 make sure that [Symfony reverse proxy](#symfony-reverse-proxy) is enabled.
 
-Set the following environment variable:
-- `TRUSTED_PROXIES`: String with trusted IP, multiple proxies can be configured with a comma, for example, `TRUSTED_PROXIES="192.0.0.1,10.0.0.0/8"`
-
-Add the trusted proxies to your configuration file:
+To configure trusted proxies, use [Symfony semantic configuration]([[= symfony_doc =]]/deployment/proxies.html#solution-settrustedproxies) under
+`framework.trusted_proxies`, for example:
 
 ``` yaml
 framework:
-    trusted_proxies: '%env(TRUSTED_PROXIES)%'
+    trusted_proxies: '192.0.0.1,10.0.0.0/8'
 ```
 
 !!! caution "Careful when trusting dynamic IP using `REMOTE_ADDR` value or similar"
@@ -68,7 +66,7 @@ For more information about setting these variables, see [Examples for configurin
 ### Update YML configuration
 
 Next, you need to tell [[= product_name =]] to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client),
-and specify the URL that Varnish can be reached on (in `config/packages/ezplatform.yaml`):
+and specify the URL that Varnish can be reached on (in `config/packages/ibexa.yaml`):
 
 | Configuration | Parameter| Environment variable| Possible values|
 |---------|--------|--------|----------|
@@ -84,7 +82,7 @@ instead of parameter or environment variable, as they only take single string va
 Example configuration for Varnish as reverse proxy, providing that [front controller has been configured](#configure-symfony-front-controller):
 
 ``` yaml
-ezplatform:
+ibexa:
     http_cache:
         purge_type: varnish
 
@@ -109,10 +107,10 @@ If your installation uses Varnish and you want users to be able to configure and
 you must enable sending Captcha data as a response to an Ajax request. 
 Otherwise, Varnish does not allow for the transfer of Captcha data to the form, and as a result, users see an empty image.
 
-To enable sending Captcha over Ajax, add the following configuration to `config/packages/ezplatform.yaml`:
+To enable sending Captcha over Ajax, add the following configuration to `config/packages/ibexa.yaml`:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             form_builder:
@@ -150,7 +148,7 @@ To learn how it works, see [Fastly documentation](https://docs.fastly.com/guides
 #### Configure Fastly in YML
 
 ``` yaml
-ezplatform:
+ibexa:
     http_cache:
         purge_type: fastly
 
@@ -200,7 +198,6 @@ See below the most common configuration examples for the system, using environme
 Example for Varnish with the `.env` file:
 
 ``` bash
-TRUSTED_PROXIES="127.0.0.1"
 HTTPCACHE_PURGE_TYPE="varnish"
 HTTPCACHE_PURGE_SERVER="http://varnish:80"
 ```
@@ -208,7 +205,6 @@ HTTPCACHE_PURGE_SERVER="http://varnish:80"
 Example for Apache with `mod_env`:
 
 ```apacheconfig
-SetEnv TRUSTED_PROXIES "127.0.0.1"
 SetEnv HTTPCACHE_PURGE_TYPE varnish
 SetEnv HTTPCACHE_PURGE_SERVER "http://varnish:80"
 ```
@@ -216,7 +212,6 @@ SetEnv HTTPCACHE_PURGE_SERVER "http://varnish:80"
 Example for Nginx:
 
 ```nginx
-fastcgi_param TRUSTED_PROXIES "127.0.0.1";
 fastcgi_param HTTPCACHE_PURGE_TYPE varnish;
 fastcgi_param HTTPCACHE_PURGE_SERVER "http://varnish:80";
 ```

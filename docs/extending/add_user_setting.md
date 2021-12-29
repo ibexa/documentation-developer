@@ -32,7 +32,7 @@ You can override a template used when editing the new setting:
 [[= include_file('code_samples/back_office/settings/config/packages/user_settings.yaml' )=]]
 ```
 
-The `templates/User/Setting/update_unit.html.twig` template must extend the `@ezdesign/account/settings/update.html.twig` template:
+The `templates/User/Setting/update_unit.html.twig` template must extend the `@ibexadesign/account/settings/update.html.twig` template:
 
 ``` html+twig
 [[= include_file('code_samples/back_office/settings/templates/User/Setting/update_unit.html.twig' )=]]

@@ -8,15 +8,19 @@ and provide it with a distinct design.
 
 ## Configure a new SiteAccess
 
-First, in the SiteAccess configuration in `config/packages/ezplatform.yaml`,
+First, in the SiteAccess configuration in `config/packages/ibexa.yaml`,
 add the `campaign` SiteAccess to the list under `ezplatform.siteaccess`:
 
 ``` yaml
-ezplatform:
+ibexa:
     siteaccess:
-        list: [site, campaign]
+        list: 
+            - import
+            - site
+            - admin
+            - campaign
         groups:
-            site_group: [site, campaign]
+            site_group: [import, site, campaign]
         default_siteaccess: site
 ```
 
@@ -53,7 +57,7 @@ by including a header and a footer section:
 [[= include_file('code_samples/front/add_design/templates/themes/standard/pagelayout.html.twig', 18, 28) =]]
 ```
 
-`@ezdesign` in the template paths points to a template relevant for the current design.
+`@ibexadesign` in the template paths points to a template relevant for the current design.
 In case of `site`, the template used for the header is `templates/themes/standard/parts/header.html.twig`.
 
 Create both the header and the footer template, for example:

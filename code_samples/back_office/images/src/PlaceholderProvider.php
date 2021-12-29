@@ -1,6 +1,6 @@
 <?php
 
-namespace eZ\Bundle\EzPublishCoreBundle\Imagine;
+namespace Ibexa\Bundle\Core\Imagine;
 
 use Ibexa\Core\FieldType\Image\Value as ImageValue;
 

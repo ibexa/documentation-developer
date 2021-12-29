@@ -31,7 +31,7 @@ class BreadcrumbController extends Controller
             $breadcrumbs[] = $searchHit;
         }
 
-        return $this->render('@ezdesign/parts/breadcrumbs.html.twig', [
+        return $this->render('@ibexadesign/parts/breadcrumbs.html.twig', [
                 'breadcrumbs' => $breadcrumbs,
             ]
         );

@@ -18,16 +18,16 @@
 
 |Twig function|Description|Usage|
 |--- |--- |--- |
-|`price_format`|Formats a price value|`{{ priceValue|price_format(currency, locale) }}`|
-|`ses_render_price`|Renders a PriceField from a catalog element|`{{ ses_render_price(catalogElement, minPrice, { 'outputPrice': {'cssClass': 'price price_med'} }) }}`|
+|`ibexa_commerce_price_format`|Formats a price value|`{{ priceValue|ibexa_commerce_price_format(currency, locale) }}`|
+|`ibexa_commerce_render_price`|Renders a PriceField from a catalog element|`{{ ibexa_commerce_render_price(catalogElement, minPrice, { 'outputPrice': {'cssClass': 'price price_med'} }) }}`|
 
 ## PriceField rendering
 
 The `customerPrice` of a catalog element is an instance of `PriceField`.
-Render it using the `ses_render_field()` Twig function:
+Render it using the `ibexa_commerce_render_field()` Twig function:
 
 ``` html+twig
-{{ ses_render_field(catalogElement, 'customerPrice') }}
+{{ ibexa_commerce_render_field(catalogElement, 'customerPrice') }}
 ```
 
 The following optional rendering parameters are available:
@@ -73,7 +73,7 @@ The CSS class `price_med` is added to the price `<p>` tag.
 A VAT label is shown below the price (`show: true`) with defined text `Excluding VAT` and CSS classes `price_info` and `smaller` added to the VAT `<p>` tag:
 
 ``` html+twig
-{{ ses_render_field(
+{{ ibexa_commerce_render_field(
     catalogElement,
     'customerPrice',
     {

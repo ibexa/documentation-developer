@@ -33,8 +33,8 @@ This way, [[= product_name =]] loads the plugin and button files when loading
 the Online Editor:
 
 ``` js
-eZConfigManager.add({
-    eZConfig,
+IbexaConfigManager.add({
+    IbexaConfig,
     entryName: 'ezplatform-richtext-onlineeditor-js',
     newItems: [
         path.resolve(__dirname, 'assets/js/online_editor/buttons/date.js'),

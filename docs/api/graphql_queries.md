@@ -67,6 +67,39 @@ Response:
 }
 ```
 
+#### Get language versions
+
+To get Fields of a Content item in a specific language, use the `language` argument.
+The language must be configured for the current SiteAccess.
+
+```
+{
+  content {
+    article(id: 57) {
+      title: title(language: eng_GB)
+      title_PL: title(language: pol_PL)
+    }
+  }
+}
+```
+
+Response:
+
+```
+{
+  "data": {
+    "content": {
+      "article": {
+        "title": "Most interesting cat breeds",
+        "title_PL": "Najciekawsze rasy kotów"
+      }
+    }
+  }
+}
+```
+
+When you do not specify a language, the response contains the most prioritized translation.
+
 ### Get a group of Content items
 
 To get a list of all Content items of a selected type, use the plural field, e.g. `articles`:

@@ -25,7 +25,7 @@ and renders them in order according to their Location priority.
 
 The Query Type has the name `Menu` (line 28).
 You can use it in the template to render the menu.
-Add the following [`ez_render_content_query` function](../twig_function_reference/content_twig_functions.md#ez_render_content_query) to the `pagelayout_html.twig` template:
+Add the following [`ibexa_render_content_query` function](../twig_function_reference/content_twig_functions.md#ibexa_render_content_query) to the `pagelayout_html.twig` template:
 
 ``` html+twig
 [[= include_file('code_samples/front/layouts/menu/templates/themes/my_theme/pagelayout.html.twig', 0, 7) =]]

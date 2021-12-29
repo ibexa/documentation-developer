@@ -39,7 +39,7 @@ You can disable this using the following configuration:
 
 ``` yaml
 parameters:
-    siso_search.default.cp_to_product_type: false
+    ibexa_commerce_search.default.cp_to_product_type: false
 ```
 
 Disabling this feature results in quicker indexing but product data is not indexed alongside Product Types.

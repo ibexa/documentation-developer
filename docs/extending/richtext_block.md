@@ -40,7 +40,7 @@ Line 2 is responsible for rendering the content from XML to HTML5:
 
 ``` html+twig hl_lines="2"
 <div class="block-richtext {{ block_class }}">
-            {{ document | ez_richtext_to_html5 }}
+            {{ document | ibexa_richtext_to_html5 }}
 </div>
 ```
 

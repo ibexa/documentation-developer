@@ -90,4 +90,4 @@ Register this subscriber as a service:
 Field definitions are accessible through:
 
 - `Ibexa\FormBuilder\Definition\FieldDefinitionFactory` in the back end
-- global variable `eZ.formBuilder.config.fieldsConfig` in the front end
+- global variable `ibexa.formBuilder.config.fieldsConfig` in the front end

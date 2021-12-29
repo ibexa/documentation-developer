@@ -23,5 +23,5 @@
 To define a route to a form, pass the `formTypeResolver` as a parameter:
 
 ``` html+twig
-<a href="{{ path('silversolutions_service', {'formTypeResolver': 'registration_private'}) }}">{{ 'msg.register_here'|st_translate }}</a>
+<a href="{{ path('silversolutions_service', {'formTypeResolver': 'registration_private'}) }}">{{ 'msg.register_here'|ibexa_commerce_translate }}</a>
 ```

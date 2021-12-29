@@ -94,7 +94,7 @@ The Solr Search Engine Bundle can be configured in many ways. The config further
 Out of the box in [[= product_name =]] the following is enabled for a simple setup:
 
 ``` yaml
-ez_search_engine_solr:
+ibexa_solr:
     endpoints:
         endpoint0:
             dsn: '%solr_dsn%'
@@ -113,7 +113,7 @@ The following example separates one language. The installation contains several 
 and one very different language that should receive proper language analysis for proper stemming and sorting behavior by Solr:
 
 ``` yaml
-ez_search_engine_solr:
+ibexa_solr:
     endpoints:
         endpoint0:
             dsn: '%solr_dsn%'
@@ -142,7 +142,7 @@ If full language analysis features are preferred, then each language can be conf
     Make sure to test this setup against a single-core setup, as it might perform worse than single-core if your project uses a lot of language fallbacks per SiteAccess, as queries will then be performed across several cores at once.
 
 ``` yaml
-ez_search_engine_solr:
+ibexa_solr:
     endpoints:
         endpoint0:
             dsn: '%solr_dsn%'
@@ -196,7 +196,7 @@ To use SolrCloud you need to specify data distribution strategy for connection v
 The example is based on multi-core setup so any specific language analysis options could be specified on the collection level.
 
 ``` yaml
-ez_search_engine_solr:
+ibexa_solr:
     endpoints:
         main:
             dsn: '%solr_dsn%'
@@ -231,7 +231,7 @@ Solr core can be secured with Basic HTTP Authorization. See more information her
 In the example below we configured Solr Bundle to work with secured Solr core.
 
 ``` yaml
-ez_search_engine_solr:
+ibexa_solr:
     endpoints:
         endpoint0:
             dsn: '%solr_dsn%'
@@ -247,7 +247,7 @@ Obviously, you should pass credentials for every configured and HTTP Basic secur
 The following is an example of configuring Solr search engine, where `connection` name is same as in the example above, and engine is set to `solr`:
 
 ``` yaml
-ezplatform:
+ibexa:
     repositories:
         default:
             storage: ~
@@ -256,7 +256,7 @@ ezplatform:
                 connection: default
 ```
 
-`%search_engine%` is a parameter that is configured in `config/packages/ezplatform.yaml`, and should be changed from its default value `legacy` to `solr` to activate Solr as the search engine.
+`%search_engine%` is a parameter that is configured in `config/packages/ibexa.yaml`, and should be changed from its default value `legacy` to `solr` to activate Solr as the search engine.
 
 ### Step 4: Clear prod cache
 
@@ -280,7 +280,7 @@ If you have not configured your setup correctly, some exceptions might happen on
 Here are the most common issues you may encounter:
 
 - Exception if Binary files in database have an invalid path prefix
-    - Make sure `var_dir` is configured properly in `ezplatform.yaml` configuration.
+    - Make sure `var_dir` is configured properly in `ibexa.yaml` configuration.
     - If your database is inconsistent in regards to file paths, try to update entries to be correct *(make sure to make a backup first)*.
 - Exception on unsupported Field Types
     - Make sure to implement all Field Types in your installation, or to configure missing ones as [NullType](../../api/field_types_reference/nullfield.md) if implementation is not needed.
@@ -311,10 +311,10 @@ Boosting currently happens when indexing, so if you change your configuration yo
 
 Boosting tells the search engine which parts of the content model have more importance when searching, and is an important part of tuning your search results relevance. Importance is defined using a numeric value, where `1.0` is default, values higher than that are more important, and values lower (down to `0.0`) are less important.
 
-Boosting is configured per connection that you configure to use for a given Repository, like in this `config/packages/ezplatform_solr.yaml` example:
+Boosting is configured per connection that you configure to use for a given Repository, like in this `config/packages/ibexa_solr.yaml` example:
 
 ``` yaml
-ez_search_engine_solr:
+ibexa_solr:
     connections:
         default:
             boost_factors:
@@ -344,7 +344,7 @@ The configuration above will result in the following boosting (Content Type / Fi
     Unfortunately, this doesn't affect search performed in the administration interface.
 
     The following example presents boosting configuration for Folder's `name` and `description` fields.
-    First, in `ezplatform_solr.yaml` configure [custom fulltext fields.](https://github.com/Novactive/NovaeZSolrSearchExtraBundle/blob/master/doc/custom_fields.md)
+    First, in `ibexa_solr.yaml` configure [custom fulltext fields.](https://github.com/Novactive/NovaeZSolrSearchExtraBundle/blob/master/doc/custom_fields.md)
 
     ```yaml
     ez_solr_search_extra:
@@ -418,7 +418,7 @@ Indexing is disabled by default.
 To set it up you need to define the maximum indexing depth using the following YAML configuration:
 
 ```yaml
-ez_search_engine_solr:
+ibexa_solr:
     # ...
     connections:
         default:

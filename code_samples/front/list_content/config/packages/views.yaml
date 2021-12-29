@@ -1,8 +1,8 @@
-ezdesign:
+ibexa_design_engine:
     design_list:
         my_design: [ my_theme ]
 
-ezplatform:
+ibexa:
     system:
         site_group:
             design: my_design
@@ -10,7 +10,7 @@ ezplatform:
                 full:
                     folder:
                         controller: ez_query::contentQueryAction
-                        template: '@ezdesign/full/folder.html.twig'
+                        template: '@ibexadesign/full/folder.html.twig'
                         params:
                             query:
                                 query_type: 'Children'
@@ -22,7 +22,7 @@ ezplatform:
                             Identifier\ContentType: folder
                 content_query_field:
                     blog:
-                        template: '@ezdesign/content_query/blog_posts.html.twig'
+                        template: '@ibexadesign/content_query/blog_posts.html.twig'
                         match:
                             Identifier\ContentType: blog
                             '@Ibexa\FieldTypeQuery\ContentView\FieldDefinitionIdentifierMatcher': query

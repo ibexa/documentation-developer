@@ -83,7 +83,7 @@ In the `templates` directory create a `field_type.html.twig` file:
 
 ### Template mapping
 
-Provide the template mapping in `config/packages/ezplatform.yaml`:
+Provide the template mapping in `config/packages/ibexa.yaml`:
 
 ```yaml
 [[= include_file('code_samples/field_types/generic_ft/config/packages/field_templates.yaml', 0, 5) =]]

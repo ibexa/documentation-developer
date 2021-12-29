@@ -70,7 +70,7 @@ Finally, create a template for the new comparison view in `templates/field_type_
 [[= include_file('code_samples/field_types/generic_ft/templates/field_type_comparison.html.twig') =]]
 ```
 
-Add configuration for this template in `config/packages/ezplatform.yaml`:
+Add configuration for this template in `config/packages/ibexa.yaml`:
 
 ```yaml
 [[= include_file('code_samples/field_types/generic_ft/config/packages/field_templates.yaml', 0, 3) =]][[= include_file('code_samples/field_types/generic_ft/config/packages/field_templates.yaml', 5, 7) =]]

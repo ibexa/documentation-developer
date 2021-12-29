@@ -20,7 +20,7 @@ The code does not perform any action yet, you add the action in the following st
 ## Add configuration
 
 Depending on whether you [modified the default settings](../guide/image_editor.md#configuration), and where you did it,
-in `config/packages` either modify the `ezplatform.yaml` file, or create an 
+in `config/packages` either modify the `ibexa.yaml` file, or create an 
 `image_editor.yaml` file by adding settings similar to the following example:
 
 ``` yaml
@@ -33,7 +33,7 @@ Once you create and configure the React component, you must add an entry to [the
 In the root directory of your project, modify the `webpack.config.js` file by adding the following code:
 
 ``` js
-[[= include_file('code_samples/back_office/image_editor/config/webpack.config.js', 39, 44) =]]
+[[= include_file('code_samples/back_office/image_editor/config/webpack.config.js', 41, 46) =]]
 ```
 At this point you should be able to see a new button in the Image Editor's UI.
 

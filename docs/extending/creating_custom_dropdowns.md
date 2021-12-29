@@ -8,21 +8,21 @@ Follow the steps below to learn how to integrate this component to fit it to you
 First prepare the component HTML code structure in the template inside the `content` section:
 
 ```html hl_lines="2 11 12"
-<div class="ez-custom-dropdown">
-    <select class="ez-custom-dropdown__select" hidden multiple>
+<div class="ibexa-custom-dropdown">
+    <select class="ibexa-custom-dropdown__select" hidden multiple>
         <option value="1">Option 1</option>
         <option value="2">Option 2</option>
         <option value="3">Option 3</option>
         <option value="4">Option 4</option>
     </select>
-    <div class="ez-custom-dropdown__wrapper">
-        <ul class="ez-custom-dropdown__selection-info"></ul>
-        <ul class="ez-custom-dropdown__items ez-custom-dropdown__items--hidden">
-            <li data-value="" class="ez-custom-dropdown__item" disabled>Select an option</li>
-            <li data-value="1" class="ez-custom-dropdown__item">Option 1</li>
-            <li data-value="2" class="ez-custom-dropdown__item">Option 2</li>
-            <li data-value="3" class="ez-custom-dropdown__item">Option 3</li>
-            <li data-value="4" class="ez-custom-dropdown__item">Option 4</li>
+    <div class="ibexa-custom-dropdown__wrapper">
+        <ul class="ibexa-custom-dropdown__selection-info"></ul>
+        <ul class="ibexa-custom-dropdown__items ibexa-custom-dropdown__items--hidden">
+            <li data-value="" class="ibexa-custom-dropdown__item" disabled>Select an option</li>
+            <li data-value="1" class="ibexa-custom-dropdown__item">Option 1</li>
+            <li data-value="2" class="ibexa-custom-dropdown__item">Option 2</li>
+            <li data-value="3" class="ibexa-custom-dropdown__item">Option 3</li>
+            <li data-value="4" class="ibexa-custom-dropdown__item">Option 4</li>
         </ul>
     </div>
 </div>
@@ -39,21 +39,21 @@ Input is hidden because a custom drop-down duplicates its functionality.
 
 ## Generate `<select>` input
 
-Next, generate a standard select input with the `ez-custom-dropdown__select` CSS class added to the `<select>` element.
+Next, generate a standard select input with the `ibexa-custom-dropdown__select` CSS class added to the `<select>` element.
 This element should contain at least one additional attribute: `hidden`. 
 If you want to allow users to pick multiple items from a list, add the `multiple` attribute to the same element.
 
 Example:
 
 ```html
-    <select class="ez-custom-dropdown__select" hidden multiple></select>
+    <select class="ibexa-custom-dropdown__select" hidden multiple></select>
 ```
 
 ![Drop-down multiple selection](img/dropdown_multiple_selection.jpg)
 
 ## Add attributes
 
-Next, look at the `data-value` attribute in the code (line 11 and 12) for duplicated options with the CSS class: `ez-custom-dropdown__item`.
+Next, look at the `data-value` attribute in the code (line 11 and 12) for duplicated options with the CSS class: `ibexa-custom-dropdown__item`.
 It stores a value of an option from a select input.
 
 You can provide placeholder text for your custom drop-down. To do so:
@@ -65,8 +65,8 @@ You can provide placeholder text for your custom drop-down. To do so:
 Example:  
  
 ```html
-<li data-value="" class="ez-custom-dropdown__item" disabled>Select an option</li>
-<li data-value="1" class="ez-custom-dropdown__item">Option 1</li>
+<li data-value="" class="ibexa-custom-dropdown__item" disabled>Select an option</li>
+<li data-value="1" class="ibexa-custom-dropdown__item">Option 1</li>
 ```
 
 ## Initialize
@@ -75,12 +75,12 @@ To initialize a custom drop-down, run the following JavaScript code:
 
 ```javascript
 (function (global, document) {
-const container = document.querySelector('.ez-custom-dropdown');
+const container = document.querySelector('.ibexa-custom-dropdown');
 
-const dropdown = new global.eZ.core.CustomDropdown({
+const dropdown = new global.ibexa.core.CustomDropdown({
     container: container,
-    sourceInput: container.querySelector('.ez-custom-dropdown__select'),
-    itemsContainer: container.querySelector('.ez-custom-dropdown__items'),
+    sourceInput: container.querySelector('.ibexa-custom-dropdown__select'),
+    itemsContainer: container.querySelector('.ibexa-custom-dropdown__items'),
     hasDefaultSelection: true
 });
 
@@ -104,5 +104,5 @@ In the code samples you can find 4 of 5 configuration options.
 Default template HTML code structure for missing `selectedItemTemplate` looks like this:
 
 ```html
-    <li class="ez-custom-dropdown__selected-item" data-value="{{value}}">{{label}}<span class="${CLASS_REMOVE_SELECTION}"></span></li>
+    <li class="ibexa-custom-dropdown__selected-item" data-value="{{value}}">{{label}}<span class="${CLASS_REMOVE_SELECTION}"></span></li>
 ```

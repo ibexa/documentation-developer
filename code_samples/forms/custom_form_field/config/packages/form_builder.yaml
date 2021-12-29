@@ -1,4 +1,4 @@
-ez_platform_form_builder:
+ibexa_form_builder:
     fields:
         country:
             name: Country

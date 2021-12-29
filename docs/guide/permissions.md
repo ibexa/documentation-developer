@@ -132,7 +132,7 @@ The more Role assignments and complex Policies you add for a given User, the mor
 You can limit access to specific routes per Policy:
 
 ``` yaml
-siso_quick_order:
+ibexa_commerce_quick_order:
     path: /quickorder
     defaults:
         _controller: siso_quick_order.quick_order_controller:quickOrderAction

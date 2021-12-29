@@ -14,7 +14,7 @@ To do this, disable sending the order to ERP:
 
 ``` yaml
 parameters:
-    siso_local_order_management.default.send_order_to_erp: false
+    ibexa_commerce_local_order_management.default.send_order_to_erp: false
 ```
 
 To avoid sending the order to ERP, the `LocalOrderRequiredException` exception is thrown that interrupts the default process (sending to ERP).
@@ -51,7 +51,7 @@ You must install the latest stable version of`wkhtmltopdf` on the server.
 You can configure the path where `wkhtmltopdf` is located in `LocalOrderManagementBundle/Resources/config/local_order_management.yml`:
 
 ``` yaml
-siso_local_order_management.default.wkhtmltopdf_server_path: '/usr/bin/wkhtmltopdf'
+ibexa_commerce_local_order_management.default.wkhtmltopdf_server_path: '/usr/bin/wkhtmltopdf'
 ```
 
 The PDF content (and the header and/or footer) is stored as HTML and removed directly after usage.
@@ -65,8 +65,8 @@ By default, the invoice PDF contains one header at the beginning and one footer 
 You can also configure the header and footer to be placed on each PDF page:
 
 ``` yaml
-siso_local_order_management.default.generate_footer_for_pdf: true
-siso_local_order_management.default.generate_header_for_pdf: true
+ibexa_commerce_local_order_management.default.generate_footer_for_pdf: true
+ibexa_commerce_local_order_management.default.generate_header_for_pdf: true
 ```
 
 In this case, the header and/or footer are generated using these separate templates:

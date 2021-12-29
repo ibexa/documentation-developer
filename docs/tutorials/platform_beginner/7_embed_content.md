@@ -69,7 +69,7 @@ Add the template for the line view of a Landmark by creating `templates/line/lan
 <section>
     <div class="col-xs-4 photos-box">
         <a href="#bikeModal{{ content.id }}" data-toggle="modal">
-            {{ ez_render_field( content, 'photo', { parameters: { 'alias': 'landmark_list', 'class': 'img-rounded'}}) }}
+            {{ ibexa_render_field( content, 'photo', { parameters: { 'alias': 'landmark_list', 'class': 'img-rounded'}}) }}
         </a>
     </div>
 
@@ -88,9 +88,9 @@ Add the template for the line view of a Landmark by creating `templates/line/lan
                         <div class="modal-body text-center">
                             <h2>{{ content.name }}</h2>
                             <hr class="featurette-divider">
-                            {{ ez_render_field( content, 'photo', { parameters: { 'alias': 'large'}, attr: { 'class': 'img-responsive img-rounded' }}) }}
-                            {{ ez_render_field( content, 'description', { attr: { 'class': 'padding-box text-justify' }}) }}
-                            {{ ez_render_field( content, 'location', { parameters: {'width': '100%', 'height': '250px', 'showMap': true, 'showInfo': false }}) }}
+                            {{ ibexa_render_field( content, 'photo', { parameters: { 'alias': 'large'}, attr: { 'class': 'img-responsive img-rounded' }}) }}
+                            {{ ibexa_render_field( content, 'description', { attr: { 'class': 'padding-box text-justify' }}) }}
+                            {{ ibexa_render_field( content, 'location', { parameters: {'width': '100%', 'height': '250px', 'showMap': true, 'showInfo': false }}) }}
                         </div>
                     </div>
                 </div>

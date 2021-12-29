@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import AlloyEditor from 'alloyeditor';
-import EzButton
-    from '../../../../vendor/ezsystems/ezplatform-richtext/src/bundle/Resources/public/js/OnlineEditor/buttons/base/ez-button.js';
+import IbexaButton
+    from '../../../../vendor/ezsystems/ezplatform-richtext/src/bundle/Resources/public/js/OnlineEditor/buttons/base/ibexa-button.js';
 
-export default class EzBtnHr extends EzButton {
+export default class IbexaBtnHr extends IbexaButton {
     static get key() {
         return 'hr';
     }
@@ -18,31 +18,31 @@ export default class EzBtnHr extends EzButton {
         const title = "Hr";
         return (
             <button
-                className="ae-button ez-btn-ae ez-btn-ae--date"
+                className="ae-button ibexa-btn-ae ibexa-btn-ae--date"
                 onClick={this.addHr.bind(this)}
                 tabIndex={this.props.tabIndex}
                 title={title}>
-                <svg className="ez-icon ez-btn-ae__icon">
-                    <use xlinkHref="/bundles/ezplatformadminui/img/ez-icons.svg#tag" />
+                <svg className="ibexa-icon ibexa-btn-ae__icon">
+                    <use xlinkHref="/bundles/ibexaplatformicons/img/all-icons.svg#tag" />
                 </svg>
             </button>
     );
     }
 }
 
-AlloyEditor.Buttons[EzBtnHr.key] = AlloyEditor.EzBtnHr = EzBtnHr;
+AlloyEditor.Buttons[IbexaBtnHr.key] = AlloyEditor.IbexaBtnHr = IbexaBtnHr;
 
-const eZ = (window.eZ = window.eZ || {});
+const ibexa = (window.ibexa = window.ibexa || {});
 
-eZ.ezAlloyEditor = eZ.ezAlloyEditor || {};
-eZ.ezAlloyEditor.ezBtnHr = EzBtnHr;
+ibexa.ezAlloyEditor = ibexa.ezAlloyEditor || {};
+ibexa.ezAlloyEditor.IbexaBtnHr = IbexaBtnHr;
 
-EzBtnHr.propTypes = {
+IbexaBtnHr.propTypes = {
     command: PropTypes.string,
     modifiesSelection: PropTypes.bool,
 };
 
-EzBtnHr.defaultProps = {
-    command: 'eZAddContent',
+IbexaBtnHr.defaultProps = {
+    command: 'ibexaAddContent',
     modifiesSelection: true,
 };

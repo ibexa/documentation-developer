@@ -162,7 +162,7 @@ Add this new template, `templates/full/landing_page.html.twig`:
 
 {% block content %}
     <div class="col-md-12">
-        {{ ez_render_field(content, 'page') }}
+        {{ ibexa_render_field(content, 'page') }}
     </div>
 {% endblock %}
 ```

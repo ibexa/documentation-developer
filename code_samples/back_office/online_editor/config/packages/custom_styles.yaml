@@ -1,14 +1,14 @@
-ezplatform:
+ibexa:
     system:
         admin_group:
             fieldtypes:
                 ezrichtext:
                     custom_styles: [highlighted_block, highlighted_word]
-ezrichtext:
+ibexa_fieldtype_richtext:
     custom_styles:
         highlighted_word:
-            template: '@ezdesign/field_type/ezrichtext/custom_style/highlighted_word.html.twig'
+            template: '@ibexadesign/field_type/ezrichtext/custom_style/highlighted_word.html.twig'
             inline: true
         highlighted_block:
-            template: '@ezdesign/field_type/ezrichtext/custom_style/highlighted_block.html.twig'
+            template: '@ibexadesign/field_type/ezrichtext/custom_style/highlighted_block.html.twig'
             inline: false

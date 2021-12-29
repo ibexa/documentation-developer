@@ -1,8 +1,8 @@
-ezdesign:
+ibexa_design_engine:
     design_list:
         my_design: [ my_theme ]
 
-ezplatform:
+ibexa:
     system:
         site_group:
             design: my_design
@@ -10,7 +10,7 @@ ezplatform:
                 full:
                     latest:
                         controller: ez_query::locationQueryAction
-                        template: '@ezdesign/full/latest.html.twig'
+                        template: '@ibexadesign/full/latest.html.twig'
                         match:
                             Identifier\ContentType: "latest"
                         params:

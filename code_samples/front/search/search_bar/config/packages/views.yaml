@@ -1,10 +1,10 @@
-ezplatform:
+ibexa:
     system:
         site:
             languages: [ eng-GB ]
-            page_layout: '@ezdesign/pagelayout.html.twig'
+            page_layout: '@ibexadesign/pagelayout.html.twig'
             search_view:
                 full:
                     default:
-                        template: "@ezdesign/full/search.html.twig"
+                        template: "@ibexadesign/full/search.html.twig"
                         match: [ ]

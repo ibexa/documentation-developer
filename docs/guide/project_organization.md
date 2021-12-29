@@ -41,10 +41,10 @@ See [Configuration](configuration.md) for more information.
 ### Importing configuration from a bundle
 
 If you are keeping some of your code in a bundle, dealing with core bundle semantic configuration can be tedious
-if you maintain it in the main `config/packages/ezplatform.yaml` configuration file.
+if you maintain it in the main `config/packages/ibexa.yaml` configuration file.
 
 You can import configuration from a bundle by following the Symfony tutorial [How to Import Configuration Files/Resources]([[= symfony_doc =]]/service_container/import.html).
 
 ## Versioning a project
 
-The recommended method is to version the whole `ezplatform` repository.
+The recommended method is to version the whole project repository.

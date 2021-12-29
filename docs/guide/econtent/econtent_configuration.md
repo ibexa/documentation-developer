@@ -7,7 +7,7 @@ The indexer for eContent needs to know which languages are used in your project 
 Adapt this setting according to your project needs:
 
 ``` yaml
-siso_search.default.index_econtent_languages:
+ibexa_commerce_search.default.index_econtent_languages:
     # eng-GB is the fallback language for ger-DE
     ger-DE: eng-GB
 ```

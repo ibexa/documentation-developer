@@ -6,7 +6,7 @@ By default, all SiteAccesses are matched using `URIElement: 1`.
 You can configure SiteAccess matchers under the `ezplatform.siteaccess.match` key:
 
 ``` yaml
-ezplatform:
+ibexa:
     siteaccess:
         list: [site, event]
         groups:
@@ -28,7 +28,7 @@ If the matcher class does not start with a backslash (`\`), it is relative to `I
 You can specify [custom matchers](#custom-matchers) by using a fully qualified class name (e.g. `\My\SiteAccess\Matcher`)
 or a service identifier (e.g. `@my_matcher_service`).
 In the case of a fully qualified class name, the matching configuration is passed in the constructor.
-In the case of a service, it must implement `eZ\Bundle\EzPublishCoreBundle\SiteAccess\Matcher`.
+In the case of a service, it must implement `Ibexa\Bundle\Core\SiteAccess\Matcher`.
 The matching configuration is passed to `setMatchingConfiguration()`.
 
 ## Available matchers
@@ -49,7 +49,7 @@ Maps a URI element to a SiteAccess.
 In configuration, provide the element number you want to match (starting from 1).
 
 ``` yaml
-ezplatform:
+ibexa:
     siteaccess:
         match:
             URIElement: 2
@@ -68,7 +68,7 @@ Matches URI using prefix and suffix sub-strings in the first URI segment.
 In configuration, provide the prefix and/or suffix (neither is required).
 
 ``` yaml
-ezplatform:
+ibexa:
     siteaccess:
         match:
             URIText:
@@ -85,7 +85,7 @@ Maps an element in the host name to a SiteAccess.
 In configuration, provide the element number you want to match (starting from 1).
 
 ``` yaml
-ezplatform:
+ibexa:
     siteaccess:
         match:
             HostElement: 2
@@ -100,7 +100,7 @@ Matches a SiteAccess in the host name, using pre and/or post sub-strings.
 In configuration, provide the prefix and/or suffix (none are required).
 
 ``` yaml
-ezplatform:
+ibexa:
     siteaccess:
         match:
             HostText:
@@ -117,7 +117,7 @@ Maps a host name to a SiteAccess.
 In configuration, provide a hash map of host/SiteAccess.
 
 ``` yaml
-ezplatform:
+ibexa:
     siteaccess:
         match:
             Map\Host:
@@ -139,7 +139,7 @@ Maps a URI to a SiteAccess.
 In configuration, provide a hash map of URI/SiteAccess.
 
 ```yaml
-ezplatform:
+ibexa:
     siteaccess:
         match:
             Map\URI:
@@ -156,7 +156,7 @@ Maps a port to a SiteAccess.
 In configuration, provide a hash map of Port/SiteAccess.
 
 ``` yaml
-ezplatform:
+ibexa:
     siteaccess:
         match:
             Map\Port:
@@ -172,7 +172,7 @@ Enables the use of [Site Factory](site_factory.md).
 Does not take any parameters in configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     siteaccess:
         match:
             '@Ibexa\SiteFactory\SiteAccessMatcher': ~
@@ -183,7 +183,7 @@ ezplatform:
 Beside the built-in matchers, you can also use your own services to match SiteAcceses:
 
 ``` yaml
-ezplatform:
+ibexa:
     siteaccess:
         list: [site]
         groups:
@@ -217,7 +217,7 @@ To get the result above, you need to combine `Map\Host` and `Map\Uri` using `Log
 When both the URI and host match, the SiteAccess configured with `match` is used.
 
 ``` yaml
-ezplatform:
+ibexa:
     siteaccess:
         match:
             Compound\LogicalAnd:

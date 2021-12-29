@@ -124,17 +124,17 @@ The plugin provides the following built-in live templates in Twig files:
 
 | Abbreviation | Comment |
 |---|---|
-| `ezcn` | `ez_content_name` |
-| `ezfd` | `ez_field_description` |
-| `ezfd?` | `ez_field_description` wrapped in an `ez_field_is_empty` check |
-| `ezfn` | `ez_field_name` |
-| `ezfn?` | `ez_field_name` wrapped in an `ez_field_is_empty` check |
-| `ezrc` | `ez_render_content` |
-| `ezrcq` | `ez_render_content_query` |
-| `ezrf` | `ez_render_field` |
-| `ezrf?` | `ez_render_field` wrapped in an `ez_field_is_empty` check |
-| `ezrl` | `ez_render_location` |
-| `ezrlq` | `ez_render_location_query` |
+| `ezcn` | `ibexa_content_name` |
+| `ezfd` | `ibexa_field_description` |
+| `ezfd?` | `ibexa_field_description` wrapped in an `ibexa_field_is_empty` check |
+| `ezfn` | `ibexa_field_name` |
+| `ezfn?` | `ibexa_field_name` wrapped in an `ibexa_field_is_empty` check |
+| `ezrc` | `ibexa_render_content` |
+| `ezrcq` | `ibexa_render_content_query` |
+| `ezrf` | `ibexa_render_field` |
+| `ezrf?` | `ibexa_render_field` wrapped in an `ibexa_field_is_empty` check |
+| `ezrl` | `ibexa_render_location` |
+| `ezrlq` | `ibexa_render_location_query` |
 
 and in PHP files:
 
@@ -170,34 +170,34 @@ Plugin provides autocompletion for Ibexa DXP configuration structure in YAML fil
 Besides configuration structure, for the following YAML keys addition suggestions are available:
 
 - List of available view matchers, for:
-    - `ezplatform.<scope>.content_view.<view_type>.<view_name>.match`
-    - `ezplatform.<scope>.content_create_view.<view_type>.<view_name>.match`
-    - `ezplatform.<scope>.content_edit_view.<view_type>.<view_name>.match`
-    - `ezplatform.<scope>.content_translate_view.<view_type>.<view_name>.match`
+    - `ibexa.<scope>.content_view.<view_type>.<view_name>.match`
+    - `ibexa.<scope>.content_create_view.<view_type>.<view_name>.match`
+    - `ibexa.<scope>.content_edit_view.<view_type>.<view_name>.match`
+    - `ibexa.<scope>.content_translate_view.<view_type>.<view_name>.match`
 - List of available SiteAccess matchers, for:
-    - `ezplatform.siteaccess.match`
+    - `ibexa.siteaccess.match`
 - List of available block attribute types, for:
-    - `ezplatform_page_fieldtype.blocks.<block_name>.attributes.<attribute_name>.type`
+    - `ibexa_fieldtype_page.blocks.<block_name>.attributes.<attribute_name>.type`
 - List of available configuration scopes, for:
-    - `ezplatform`
+    - `ibexa`
 - List of available siteaccess names, for:
-    - `ezplatform.siteaccess.default_siteaccess`
-    - `ezplatform.siteaccess.groups`
-    - `ezplatform.system.<scope>.translation_siteaccesses$`
+    - `ibexa.siteaccess.default_siteaccess`
+    - `ibexa.siteaccess.groups`
+    - `ibexa.system.<scope>.translation_siteaccesses$`
 - List of available design names, for:
-    - `ezdesign.design_list`
-    - `ezplatform.system.<scope>.design`
+    - `ibexadesign.design_list`
+    - `ibexa.system.<scope>.design`
 - List of available repositories, for:
-    - `ezplatform.system.<scope>.repository`
+    - `ibexa.system.<scope>.repository`
 - List of available search engines, for:
-    - `ezplatform.repositories.<repository>.search.engine`
+    - `ibexa.repositories.<repository>.search.engine`
 - List of available custom tags, for:
-    - `ezplatform.system.<scope>.fieldtypes.ezrichtext.custom_tags`
+    - `ibexa.system.<scope>.fieldtypes.ezrichtext.custom_tags`
 - List of available view types, for:
-    - `ezplatform.<scope>.content_view`
-    - `ezplatform.<scope>.content_create_view`
-    - `ezplatform.<scope>.content_edit_view`
-    - `ezplatform.<scope>.content_translate_view`
+    - `ibexa.<scope>.content_view`
+    - `ibexa.<scope>.content_create_view`
+    - `ibexa.<scope>.content_edit_view`
+    - `ibexa.<scope>.content_translate_view`
 
 ### Structure autocompletion in DBAL schema file
 

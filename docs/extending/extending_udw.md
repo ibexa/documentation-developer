@@ -23,7 +23,7 @@ const container = document.querySelector('#react-udw');
 const config = /* fetch the config somewhere */;
 //const config = JSON.parse(document.querySelector('.btn-udw-trigger).dataset.udwConfig);
 
-ReactDOM.render(React.createElement(eZ.modules.UniversalDiscovery, {
+ReactDOM.render(React.createElement(ibexa.modules.UniversalDiscovery, {
     onConfirm: {Function},
     onCancel: {Function},
     ...config
@@ -114,7 +114,7 @@ Depending on what additional parameters are provided, original or event-specific
 In the example below `my_custom_udw` is used as a base configuration element for the following steps:
 
 ```yaml
-ezplatform:
+ibexa:
     system:
         <siteaccess|siteaccess_group>:
             universal_discovery_widget_module:

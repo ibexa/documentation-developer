@@ -70,7 +70,7 @@ which are children of the webinar.
 The field mapper could then look like this:
 
 ```php
-[[= include_file('code_samples/search/solr/src/FieldMapper/WebinarEventTitleFulltextFieldMapper.php') =]]
+[[= include_file('code_samples/search/solr/src/Search/FieldMapper/WebinarEventTitleFulltextFieldMapper.php') =]]
 ```
 
 You index full text data only on the content document, therefore, you would register the service like this:

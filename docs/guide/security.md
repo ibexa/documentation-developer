@@ -59,7 +59,7 @@ The base template used is [`Security/login.html.twig`](https://github.com/ibexa/
 The layout used by default is `%ezpublish.content_view.viewbase_layout%` (empty layout) but can be configured together with the login template:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         my_siteaccess:
             user:
@@ -79,7 +79,7 @@ Refer to the [Symfony cookbook on this topic]([[= symfony_doc =]]/security/remem
 If you want to use this feature, you must at least extend the login template in order to add the required checkbox:
 
 ``` html+twig
-{% extends "@EzPublishCore/Security/login.html.twig" %}
+{% extends "@IbexaCore/Security/login.html.twig" %}
 
 {% block login_fields %}
     {{ parent() }}
@@ -130,7 +130,7 @@ security:
                 entry_point: lexik_jwt_authentication.jwt_token_authenticator
             stateless: true
 
-        ezplatform_graphql:
+        ibexa_graphql:
             request_matcher: Ibexa\GraphQL\Security\NonAdminGraphQLRequestMatcher
             user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
             anonymous: ~

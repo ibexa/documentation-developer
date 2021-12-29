@@ -3,7 +3,7 @@
 namespace App\Calendar\Holidays;
 
 use Ibexa\Contracts\Calendar\Event;
-use Ibexa\Contracts\Calendar\EventAction\EventActionCollection;
+use Ibexa\Calendar\EventAction\EventActionCollection;
 use Ibexa\Contracts\Calendar\EventType\EventTypeInterface;
 
 class EventType implements EventTypeInterface
