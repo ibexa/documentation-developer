@@ -13,7 +13,7 @@ First, prepare the HTML code structure and place it in a Twig template. See the 
 To initialize a drag and drop interface, add a JavaScript Code that comes with the template following the convention:
 
 ```javascript
-const draggable = new window.eZ.core.Draggable({
+const draggable = new window.ibexa.core.Draggable({
         itemsContainer: HTMLElement of .items-container,
         selectorItem: String,
         selectorPlaceholder: String,

@@ -12,7 +12,7 @@ import React, { useContext } from 'react';
             </div>
         );
     };
-eZ.addConfig(
+ibexa.addConfig(
     'adminUiConfig.universalDiscoveryWidget.tabs',
     [
         {

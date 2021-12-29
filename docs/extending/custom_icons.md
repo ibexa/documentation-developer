@@ -29,16 +29,16 @@ Content Type icons are accessible in Twig templates via the `ibexa_content_type_
 It requires Content Type identifier as an argument. The function returns the path to a Content Type icon.
 
 ```twig
-<svg class="ez-icon ez-icon-{{ content.contentType.identifier }}">
+<svg class="ibexa-icon ibexa-icon-{{ content.contentType.identifier }}">
     <use xlink:href="{{ ibexa_content_type_icon(content.contentType.identifier) }}"></use>
 </svg>
 ```
 
 ### Custom icons in JavaScript
 
-Content Types icons configuration is stored in a global object: `eZ.adminUiConfig.contentTypes`.
+Content Types icons configuration is stored in a global object: `ibexa.adminUiConfig.contentTypes`.
 
-You can easily retrieve the icon URL with the `getContentTypeIcon`  helper function that is set on the global `eZ.helpers.contentType` object.
+You can easily retrieve the icon URL with the `getContentTypeIcon`  helper function that is set on the global `ibexa.helpers.contentType` object.
 It takes Content Type identifier as an argument and returns one of the following items:
 
 - URL of a specified Content Type's icon
@@ -47,9 +47,9 @@ It takes Content Type identifier as an argument and returns one of the following
 Example with `getContentTypeIcon`:
 
 ```jsx
-const contentTypeIconUrl = eZ.helpers.contentType.getContentTypeIconUrl(contentTypeIdentifier);
+const contentTypeIconUrl = ibexa.helpers.contentType.getContentTypeIconUrl(contentTypeIdentifier);
 return (
-   <svg className="ez-icon">
+   <svg className="ibexa-icon">
        <use xlinkHref={contentTypeIconUrl} />
    </svg>
 )
