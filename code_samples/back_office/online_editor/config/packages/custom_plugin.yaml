@@ -1,4 +1,4 @@
-ezplatform:
+ibexa:
     system:
         admin_group:
             fieldtypes:
@@ -8,6 +8,6 @@ ezplatform:
                             buttons:
                                 date:
                                     priority: 0
-ezrichtext:
+ibexa_fieldtype_richtext:
     alloy_editor:
         extra_plugins: [date]

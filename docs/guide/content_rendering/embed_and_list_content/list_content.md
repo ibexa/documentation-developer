@@ -33,7 +33,7 @@ Then, place the following template in `templates/themes/<my_theme>/full/folder.h
 [[= include_file('code_samples/front/list_content/templates/themes/my_theme/full/folder.html.twig') =]]
 ```
 
-This template uses the [`ez_render()` Twig function](../twig_function_reference/content_twig_functions.md#ez_render)
+This template uses the [`ibexa_render()` Twig function](../twig_function_reference/content_twig_functions.md#ibexa_render)
 to render every child of the folder with the default template for the `line` view.
 
 ## List children in Content query Field

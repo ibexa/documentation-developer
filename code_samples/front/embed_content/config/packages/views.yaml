@@ -1,8 +1,8 @@
-ezdesign:
+ibexa_design_engine:
     design_list:
         my_design: [ my_theme ]
 
-ezplatform:
+ibexa:
     system:
         site_group:
             design: my_design
@@ -10,7 +10,7 @@ ezplatform:
                 full:
                     blog_post:
                         controller: ez_query::contentQueryAction
-                        template: '@ezdesign/full/blog_post.html.twig'
+                        template: '@ibexadesign/full/blog_post.html.twig'
                         params:
                             query:
                                 query_type: 'Siblings'
@@ -23,7 +23,7 @@ ezplatform:
                             Identifier\ContentType: blog_post
                     article:
                         controller: App\Controller\RelationController::showContentAction
-                        template: '@ezdesign/full/article.html.twig'
+                        template: '@ibexadesign/full/article.html.twig'
                         params:
                             accepted_content_types: [ 'article', 'test_target', 'test_source' ]
                         match:

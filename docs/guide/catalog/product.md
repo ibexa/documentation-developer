@@ -37,7 +37,7 @@ The built-in Product Content Type contains the following Fields:
 To create a custom Content Type that acts like a product, add its identifier to the following configuration:
 
 ``` yaml
-silversolutions_eshop:
+ibexa_commerce_eshop:
     product_content_type_identifiers:
         default:
             - my_custom_product_type

@@ -5,7 +5,7 @@
 To disable autosuggestions in quick orders, use the `auto_suggest_limit` setting:
 
 ``` yaml
-siso_search.default.search.auto_suggest_limit: 0
+ibexa_commerce_search.default.search.auto_suggest_limit: 0
 ```
 
 ## Variant delimiters
@@ -58,7 +58,7 @@ Autosuggest uses `SearchService` to fetch suggestions for products.
 The following configuration defines which fields are considered while searching:
 
 ``` yaml
-siso_search.default.search.auto_suggest_fields:
+ibexa_commerce_search.default.search.auto_suggest_fields:
     - ses_product_ses_sku_value_s
     - ses_product_ses_name_value_s
     - ses_variant_list_s

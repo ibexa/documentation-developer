@@ -17,8 +17,8 @@ Add the following code in the `webpack.config.js` file, under
 `// Put your config here`:
 
 ``` js
-eZConfigManager.add({
-    eZConfig,
+IbexaConfigManager.add({
+    IbexaConfig,
     entryName: 'ezplatform-richtext-onlineeditor-js',
     newItems: [
         path.resolve(__dirname, 'assets/js/online_editor/buttons/hr.js'),

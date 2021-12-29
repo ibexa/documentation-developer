@@ -5,7 +5,7 @@ You can configure the available SiteAccesses under the `ezplatform.siteaccess` k
 ## SiteAccess configuration
 
 ``` yaml
-ezplatform:
+ibexa:
     siteaccess:
         list: [site, event]
         groups:
@@ -21,7 +21,7 @@ ezplatform:
 `ezplatform.siteaccess.groups` defines which groups SiteAccesses belong to.
 
 ``` yaml
-ezplatform:
+ibexa:
     siteaccess:
         groups:
             site_group: [site]
@@ -51,7 +51,7 @@ and ideally also separate Varnish/Fastly configuration.
 The `default_siteaccess` setting identifies which SiteAccess is used by default when no other SiteAccess matches.
 
 ``` yaml
-ezplatform:
+ibexa:
     siteaccess:
         default_siteaccess: site
 ```
@@ -62,7 +62,7 @@ The `match` setting defines the rule or set of rules by which SiteAccesses are m
 See [SiteAccess matching](siteaccess_matching.md) for more information.
 
 ``` yaml
-ezplatform:
+ibexa:
     siteaccess:
         match:
             URIElement: 1
@@ -102,7 +102,7 @@ In short: if you want a match that always applies, regardless of SiteAccesses us
 To define a fallback, use `default`.
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         global:
             # If set, this value is used regardless of any other configuration
@@ -119,7 +119,7 @@ For example, the following configuration defines both the front template for art
 and the template used in the Back Office, unless you configure other templates for a specific SiteAccess or SiteAccess group:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             content_view:
@@ -135,7 +135,7 @@ ezplatform:
 To define which SiteAccesses are available in the submenu in Page Builder, use the following configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         admin:
             page_builder:
@@ -148,7 +148,7 @@ ezplatform:
 If you are using multiple domains, list all domains for an admin SiteAccess under `siteaccess_hosts`:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         admin:
             page_builder:
@@ -177,7 +177,7 @@ When you do it, only the selected Location and its descendants are reachable fro
 Configure this under `ezplatform.systems.<scope>.content.tree_root`, for example:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         <scope>:
             content:

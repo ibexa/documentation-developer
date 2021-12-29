@@ -1,14 +1,14 @@
-ezdesign:
+ibexa_design_engine:
     design_list:
         summersale: [summersale, standard]
 
-ezplatform:
+ibexa:
     system:
         site_group:
             content_view:
                 full:
                     article:
-                        template: '@ezdesign/full/article.html.twig'
+                        template: '@ibexadesign/full/article.html.twig'
                         match:
                             Identifier\ContentType: [ article ]
         campaign:

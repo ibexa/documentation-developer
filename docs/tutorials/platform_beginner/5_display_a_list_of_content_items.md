@@ -153,19 +153,19 @@ Because this template will be rendered inside a table, it starts with a `<tr>` t
             <strong>
                 {{ content.name }}
             </strong>
-            {% if not ez_field_is_empty( content, 'photo' ) %}
-                {{ ez_render_field(content, 'photo') }}
+            {% if not ibexa_field_is_empty( content, 'photo' ) %}
+                {{ ibexa_render_field(content, 'photo') }}
             {% endif %}
         </a>
     </td>
     <td>
-        {{ ez_render_field(content, 'starting_point', {'parameters': {'width': '100%', 'height': '100px', 'showMap': true, 'showInfo': true }}) }}
+        {{ ibexa_render_field(content, 'starting_point', {'parameters': {'width': '100%', 'height': '100px', 'showMap': true, 'showInfo': true }}) }}
     </td>
     <td>
-        {{ ez_render_field(content, 'ending_point', {'parameters': {'width': '100%', 'height': '100px', 'showMap': true, 'showInfo': true }}) }}
+        {{ ibexa_render_field(content, 'ending_point', {'parameters': {'width': '100%', 'height': '100px', 'showMap': true, 'showInfo': true }}) }}
     </td>
     <td>
-        <p>{{ ez_render_field( content, 'length' ) }} Km</p>
+        <p>{{ ibexa_render_field( content, 'length' ) }} Km</p>
     </td>
 </tr>
 ```

@@ -202,12 +202,12 @@ $response->headers->set('X-Location-Id', '123,212,42');
 
 ## Response tagging in templates
 
-1\. `ez_http_cache_tag_location()`
+1\. `ibexa_http_cache_tag_location()`
 
 For full content tagging when inline rendering, use the following:
 
 ``` html+twig
-{{ ez_http_cache_tag_location(location) }}
+{{ ibexa_http_cache_tag_location(location) }}
 ```
 
 2\. `ez_http_cache_tag_relation_ids()` or `ez_http_cache_tag_relation_location_ids()`

@@ -4,8 +4,8 @@ When you extend the Back Office, you can use base Twig templates for commonly us
 
 The available templates are:
 
-- `@ezdesign/ui/component/table/table.html.twig`
-- `@ezdesign/ui/component/tab/tabs.html.twig`
+- `@ibexadesign/ui/component/table/table.html.twig`
+- `@ibexadesign/ui/component/tab/tabs.html.twig`
 
 To use the components, [`embed`](https://twig.symfony.com/doc/3.x/tags/embed.html) them in templates.
 With `embed` you can override blocks that are defined inside the included template.
@@ -26,7 +26,7 @@ The table component supports the following variable:
 - `table_class` - additional CSS classes attached to the `<table>` tag
 
 ``` html+twig
-{% embed '@ezdesign/ui/component/table/table.html.twig' %}
+{% embed '@ibexadesign/ui/component/table/table.html.twig' %}
     {% block headline %}
         Headline
     {% endblock %}
@@ -82,20 +82,20 @@ The tab component supports the following variables:
 - `tab_content_attributes` - additional HTML attributes added to `.tab-content`
 
 ``` html+twig
-{% embed '@ezdesign/ui/component/tab/tabs.html.twig' with {
+{% embed '@ibexadesign/ui/component/tab/tabs.html.twig' with {
     tabs: [
         { id: 'first', label: 'First' },
         { id: 'second', label: 'Second' },
      ]
 } %}
     {% block tab_content %}
-        {% embed '@ezdesign/ui/component/tab/tab_pane.html.twig' with { id: 'first', active: true } %}
+        {% embed '@ibexadesign/ui/component/tab/tab_pane.html.twig' with { id: 'first', active: true } %}
             {% block content %}
                 First
             {% endblock %}
         {% endembed %}
 
-        {% embed '@ezdesign/ui/component/tab/tab_pane.html.twig' with { id: 'second' } %}
+        {% embed '@ibexadesign/ui/component/tab/tab_pane.html.twig' with { id: 'second' } %}
             {% block content %}
                 Second. <p>Some <b>Rich</b> HTML <a href="#">content</a></p>
             {% endblock %}
@@ -108,7 +108,7 @@ With tabs, you can use [`include`](https://twig.symfony.com/doc/3.x/tags/include
 when you pass tab content as a variable while rendering the template:
 
 ``` html+twig
-{% include '@ezdesign/ui/component/tab/tabs.html.twig' with {
+{% include '@ibexadesign/ui/component/tab/tabs.html.twig' with {
         tabs: [
           { id: 'first', label: 'First', content: 'First tab content' },
           { id: 'second', label: 'Second', content: 'Second tab content', active: true },

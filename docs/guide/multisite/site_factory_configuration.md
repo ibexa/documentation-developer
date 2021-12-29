@@ -12,7 +12,7 @@ This can be either a Location ID (for example, `62`), or a recommended remote Lo
 Add the configuration key to your template:
 
 ``` yaml hl_lines="7 12"
-ez_platform_site_factory:
+ibexa_site_factory:
     templates:
         site1:
             siteaccess_group: example_site_factory_group_1
@@ -46,7 +46,7 @@ To define a Site skeleton, add the `site_skeleton_id` or `site_skeleton_remote_i
 This can be either a Location ID (e.g. `5966`), or a remote Location ID (e.g. `3bed95afb1f8126f06a3c464e461e1ae66`).
 
 ``` yaml hl_lines="7 12"
-ez_platform_site_factory:
+ibexa_site_factory:
     templates:
         site1:
             siteaccess_group: example_site_factory_group_1
@@ -74,7 +74,7 @@ Then, review the detailed information of the newly created User Group skeleton,
 copy the Location ID or the Location remote ID, and add a configuration key to the site template definition:
 
 ``` yaml
-ez_platform_site_factory:
+ibexa_site_factory:
     templates:
         <site_name>:
             # ...
@@ -98,7 +98,7 @@ In `config/packages/ibexa_site_factory.yaml`, add a list of Roles which should h
 when a site is created in Site Factory, for example:
 
 ``` yaml
-ez_platform_site_factory:
+ibexa_site_factory:
     # ...
     enabled: true
     update_roles: [Anonymous, Administrator]

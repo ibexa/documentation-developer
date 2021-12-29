@@ -25,7 +25,7 @@ or in the header (`false`):
 
 ``` yaml
 parameters:
-    siso_voucher.default.send_vouchers_as_lines: true
+    ibexa_commerce_voucher.default.send_vouchers_as_lines: true
 ```
 
 ## VoucherManager

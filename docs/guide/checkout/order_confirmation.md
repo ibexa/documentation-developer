@@ -31,7 +31,7 @@ The behavior is configurable:
 
 #### `sales_email_mode`
 
-`siso_checkout.default.order_confirmation.sales_email_mode` can take the following values:
+`ibexa_commerce_checkout.default.order_confirmation.sales_email_mode` can take the following values:
 
 - `config` - the address is taken from the `sales_email_address` setting
 - `customer` - the address is taken from `salesContactEmail` in the `sesUser` part
@@ -40,7 +40,7 @@ If there is no address in the contact data, the configuration parameter below is
 
 #### `sales_email_address`
 
-`siso_checkout.default.order_confirmation.sales_email_address` can be set to a valid email address of the sales contact person.
+`ibexa_commerce_checkout.default.order_confirmation.sales_email_address` can be set to a valid email address of the sales contact person.
 If it's left empty, no sales contact confirmations are sent, except if `sales_email_mode` is set to `customer`
 and the respective profile data contains a valid address.
 
@@ -48,8 +48,8 @@ Sales contact information also receives a confirmation email for a [local order]
 if `is_sales_contact` is set to `true`, and with the following configuration:
 
 ``` yaml
-siso_checkout.default.order_confirmation.sales_email_mode: customer
-siso_checkout.default.order_confirmation.sales_email_address:
+ibexa_commerce_checkout.default.order_confirmation.sales_email_mode: customer
+ibexa_commerce_checkout.default.order_confirmation.sales_email_address:
 ```
 
 ### Shop owner

@@ -22,7 +22,7 @@ Each tab definition is an object containing the following properties:
 |id|string|Tab ID, for example, `image`.|
 |component|element|React component that represents the contents of a tab.|
 |label|string|Label text, for example, `Images`.|
-|icon|string|Path to the icon, for example, `/bundles/ezplatformadminui/img/ez-icons.svg#image`.|
+|icon|string|Path to the icon, for example, `/bundles/ibexaplatformicons/img/all-icons.svg#image`.|
 
 ```js
 [[= include_file('code_samples/back_office/udw/assets/js/image-tab/image.tab.module.js', 15,29) =]]
@@ -42,8 +42,8 @@ The module will govern the creation of the new tab.
 In `webpack.config.js`, add configuration for the new module:
 
 ```js
-eZConfigManager.add({
-    eZConfig,
+IbexaConfigManager.add({
+    IbexaConfig,
     entryName: 'ezplatform-admin-ui-udw-tabs-js',
     newItems: [path.resolve(__dirname, './assets/js/image-tab/image.tab.module.js')],
 });
@@ -102,8 +102,8 @@ Ensure that the new tab is styled by adding the following files to `assets/css/`
 Finally, add css in `webpack.config.js`:
 
 ```js
-eZConfigManager.add({
-    eZConfig,
+IbexaConfigManager.add({
+    IbexaConfig,
     entryName: 'ezplatform-admin-ui-layout-css',
     newItems: [path.resolve(__dirname, './assets/css/image.css'), path.resolve(__dirname, './assets/css/images.list.css')],
 });
@@ -115,8 +115,8 @@ eZConfigManager.add({
     const Encore = require('@symfony/webpack-encore');
     const path = require('path');
     const getEzConfig = require('./ez.webpack.config.js');
-    const eZConfigManager = require('./ez.webpack.config.manager.js');
-    const eZConfig = getEzConfig(Encore);
+    const IbexaConfigManager = require('./ez.webpack.config.manager.js');
+    const IbexaConfig = getIbexaConfig(Encore);
     const customConfigs = require('./ez.webpack.custom.configs.js');
     
     Encore.reset();
@@ -128,24 +128,24 @@ eZConfigManager.add({
     
     // Put your config here.
     
-    eZConfigManager.add({
-        eZConfig,
+    IbexaConfigManager.add({
+        IbexaConfig,
         entryName: 'ezplatform-admin-ui-udw-tabs-js',
         newItems: [path.resolve(__dirname, './assets/js/image-tab/image.tab.module.js')],
     });
     
-    eZConfigManager.add({
-        eZConfig,
+    IbexaConfigManager.add({
+        IbexaConfig,
         entryName: 'ezplatform-admin-ui-layout-css',
         newItems: [path.resolve(__dirname, './assets/css/image.css'), path.resolve(__dirname, './assets/css/images.list.css')],
     });
     
     // uncomment the two lines below, if you added a new entry (by Encore.addEntry() or Encore.addStyleEntry() method) to your own Encore configuration for your project
     // const projectConfig = Encore.getWebpackConfig();
-    // module.exports = [ eZConfig, ...customConfigs, projectConfig ];
+    // module.exports = [ IbexaConfig, ...customConfigs, projectConfig ];
     
     // comment-out this line if you've uncommented the above lines
-    module.exports = [ eZConfig, ...customConfigs ];
+    module.exports = [ IbexaConfig, ...customConfigs ];
     ```
 
 ## Check results

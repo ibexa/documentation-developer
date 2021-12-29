@@ -1,7 +1,7 @@
 services:
     App\Query\Aggregation\Solr\PriorityAggregationVisitor:
         class: EzSystems\EzPlatformSolrSearchEngine\Query\Common\AggregationVisitor\RangeAggregationVisitor
-        factory: ['@EzSystems\EzPlatformSolrSearchEngine\Query\Common\AggregationVisitor\Factory\ContentFieldAggregationVisitorFactory', 'createRangeAggregationVisitor']
+        factory: ['@Ibexa\Solr\Query\Common\AggregationVisitor\Factory\ContentFieldAggregationVisitorFactory', 'createRangeAggregationVisitor']
         arguments:
             $aggregationClass: 'App\Query\Aggregation\PriorityRangeAggregation'
             $searchIndexFieldName: 'priority_i'
@@ -10,7 +10,7 @@ services:
             - { name: ezplatform.search.solr.query.location.aggregation_visitor }
             
     App\Query\Aggregation\Solr\PriorityAggregationResultExtractor:
-        class: EzSystems\EzPlatformSolrSearchEngine\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor
+        class: Ibexa\Solr\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor
         arguments:
             $aggregationClass: 'App\Query\Aggregation\PriorityRangeAggregation'
         tags:

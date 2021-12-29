@@ -14,7 +14,7 @@ Image variation configuration is [SiteAccess](../multisite/multisite.md)-aware.
 Place it under the `image_variations` key per [scope](../multisite/multisite_configuration.md#scope):
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         <scope>:
             image_variations:

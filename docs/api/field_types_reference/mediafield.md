@@ -39,7 +39,7 @@ Note that both `Media` and `BinaryFile` Value and Type inherit from the `BinaryB
 |`fileName`|string|	The human-readable file name, as exposed to the outside. Used to name the file when sending it for download.|butterflies.mp4|
 |`fileSize`|int|File size, in bytes.|1077923|
 |`mimeType`|string|The file's MIME type.|video/mp4|
-|`uri`|string|The binary file's HTTP URI. If the URI doesn't include a host or protocol, it applies to the request domain. **The URI is not publicly readable, and must NOT be used to link to the file for download.** Use `ez_render_field` to generate a valid link to the download controller.|/var/ezdemo_site/storage/original/application/63cd472dd7819da7b75e8e2fee507c68.mp4|
+|`uri`|string|The binary file's HTTP URI. If the URI doesn't include a host or protocol, it applies to the request domain. **The URI is not publicly readable, and must NOT be used to link to the file for download.** Use `ibexa_render_field` to generate a valid link to the download controller.|/var/ezdemo_site/storage/original/application/63cd472dd7819da7b75e8e2fee507c68.mp4|
 |`hasController`|boolean|Whether the media has a controller when being displayed.|true|
 |`autoplay`|boolean|Whether the media should be automatically played.|true|
 |`loop`|boolean|Whether the media should be played in a loop.|false|

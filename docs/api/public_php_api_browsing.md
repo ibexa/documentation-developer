@@ -27,7 +27,7 @@ You can also use it to request other Content-related value objects from various 
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 60, 66) =]]
 ```
 
-`ContentInfo` is loaded from the [`ContentService`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php) (line 9).
+`ContentInfo` is loaded from the [`ContentService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php) (line 9).
 It provides you with basic content metadata such as modification and publication dates or main language code.
 
 !!! note "Retrieving content information in a controller"

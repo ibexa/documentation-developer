@@ -33,7 +33,7 @@ that correspond to the two templates (`site1` and `site2`) that you add in the n
 Add the groups in `config/packages/ibexa.yaml`:
 
 ``` yaml
-ezplatform:
+ibexa:
     siteaccess:
         list: [site]
         groups:
@@ -49,17 +49,17 @@ ezplatform:
 Uncomment the SiteAccess matcher (`Ibexa\SiteFactory\SiteAccessMatcher`):
 
 ``` yaml
-ezplatform:
+ibexa:
     siteaccess:
         match:
         '@Ibexa\SiteFactory\SiteAccessMatcher': ~
 ```
 
-`ezdesign` defines templates for your sites, so add them before continuing.
-Next, add the configuration for `ezdesign` on the same level as `ezplatform`:
+`ibexadesign` defines templates for your sites, so add them before continuing.
+Next, add the configuration for `ibexadesign` on the same level as `ezplatform`:
 
 ``` yaml
-ezdesign:
+ibexa_design_engine:
     design_list:
         example_1: [example_1_template]
         example_2: [example_2_template]
@@ -68,7 +68,7 @@ ezdesign:
 Finally, configure designs for empty SiteAccess groups:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         example_site_factory_group_1:
             design: example_1
@@ -81,7 +81,7 @@ ezplatform:
 Add thumbnails and names for your site templates in `config/packages/ibexa_site_factory.yaml`:
 
 ```yaml
-ez_platform_site_factory:
+ibexa_site_factory:
     templates:
         site1:
             siteaccess_group: example_site_factory_group_1
@@ -154,7 +154,7 @@ You can adjust the place where the directory of the new site is created (Locatio
 To do it, go to `config/packages/ibexa_site_factory.yaml`, and add the following parameter:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             site_factory:

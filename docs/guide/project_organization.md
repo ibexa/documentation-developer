@@ -47,4 +47,4 @@ You can import configuration from a bundle by following the Symfony tutorial [Ho
 
 ## Versioning a project
 
-The recommended method is to version the whole `ezplatform` repository.
+The recommended method is to version the whole project repository.

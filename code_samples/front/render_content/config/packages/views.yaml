@@ -1,30 +1,30 @@
-ezdesign:
+ibexa_design_engine:
     design_list:
         my_design: [my_theme]
 
-ezplatform:
+ibexa:
     system:
         site_group:
-            pagelayout: '@ezdesign/pagelayout.html.twig'
+            pagelayout: '@ibexadesign/pagelayout.html.twig'
             design: my_design
             content_view:
                 full:
                     article:
-                        template: '@ezdesign/full/article.html.twig'
+                        template: '@ibexadesign/full/article.html.twig'
                         match:
                             Identifier\ContentType: article
                     blog_post:
-                        template: '@ezdesign/full/blog_post.html.twig'
+                        template: '@ibexadesign/full/blog_post.html.twig'
                         controller: App\Controller\BlogController::showBlogPostAction
                         match:
                             Identifier\ContentType: [blog_post]
                     terms:
-                        template: '@ezdesign/full/terms_and_conditions.html.twig'
+                        template: '@ibexadesign/full/terms_and_conditions.html.twig'
                         match:
                             Id\Content: 144
                 line:
                     article:
-                        template: '@ezdesign/line/article.html.twig'
+                        template: '@ibexadesign/line/article.html.twig'
                         match:
                             Identifier\ContentType: [article]
                         params:

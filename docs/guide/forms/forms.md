@@ -88,17 +88,17 @@ In the following example, `formTypeResolver` value is `private`.
         modelClass: Ibexa\Bundle\Commerce\Eshop\Entities\Forms\RegisterPrivate
 #        typeClass: Ibexa\Bundle\Commerce\Eshop\Entities\Forms\Types\RegisterPrivateType
         typeService: silver_forms.register_private_type
-        template: '@@ezdesign\Forms\register_private.html.twig'
+        template: '@@ibexadesign\Forms\register_private.html.twig'
         invalidMessage: error_message_register # textmodule
         validMessage: success_register_private # textmodule
         #response:
             #valid:
                 #httpResponse: http://www.google.de
-                #template: '@@ezdesign/Forms/register_private_valid.html.twig'
+                #template: '@@ibexadesign/Forms/register_private_valid.html.twig'
                 #routeName: silversolutions_forms_user_choice
             #invalid:
                 #httpResponse: http://www.google.de
-                #template: '@@ezdesign/pagelayout.html.twig'
+                #template: '@@ibexadesign/pagelayout.html.twig'
                 #routeName: silversolutions_forms_user_choice
         dataProcessors:
             - ses.customer_profile_data.data_processor.create_customer_profile_data

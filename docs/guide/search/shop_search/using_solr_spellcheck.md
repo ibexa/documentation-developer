@@ -40,7 +40,7 @@ solr/bin/solr start
 Modify `SearchBundle/Resources/config/econtent_search.yml`:
 
 ``` yaml
-siso_search.default.solr_spellcheck: true
+ibexa_commerce_search.default.solr_spellcheck: true
 ```
 
 ### Step 3: Define search controller behavior
@@ -70,7 +70,7 @@ The following Twig template displays these results:
 
 ``` html+twig
 {% if spellcheckCollationResults is defined and spellcheckCollationResults > 0 %}
-  <br/>{{ 'msg.did_you_mean'|st_translate }}
+  <br/>{{ 'msg.did_you_mean'|ibexa_commerce_translate }}
   <a href="{{ path('siso_global_search') }}?query={{ spellcheckCollation }}">{{ spellcheckCollation }}
     (
     {% transchoice spellcheckCollationResults with {'%count%' : spellcheckCollationResults} %}
@@ -80,7 +80,7 @@ The following Twig template displays these results:
   </a>
 {% endif %}
 {% if spellcheckSuggestions is defined and spellcheckSuggestions|length > 0 %}
-  <ul>{{ 'msg.suggested_words'|st_translate}}:
+  <ul>{{ 'msg.suggested_words'|ibexa_commerce_translate}}:
     {% for word, frequency in spellcheckSuggestions %}
       <li><a href="{{ path('siso_global_search') }}?query={{ word }}">{{ word }}: {{ frequency }}</a></li>
     {% endfor %}

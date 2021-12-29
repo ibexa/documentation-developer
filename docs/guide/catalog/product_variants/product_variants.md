@@ -65,13 +65,13 @@ To render the price range for a product with variant, access the `catalogElement
 ``` html+twig
 {# render min price #}
 {% set minPrice = catalogElement.priceRange.minPrice %}
-{{ ses_render_price(catalogElement, minPrice,
+{{ ibexa_commerce_render_price(catalogElement, minPrice,
       {'outputPrice': {'cssClass': 'price price_med'}})
 }}
 
 {# render max price #}
 {% set maxPrice = catalogElement.priceRange.maxPrice %}
-{{ ses_render_price(catalogElement, maxPrice,
+{{ ibexa_commerce_render_price(catalogElement, maxPrice,
       {'outputPrice': {'cssClass': 'price price_med'}})
 }}
 ```
@@ -123,31 +123,31 @@ silver_eshop.default.sort_variant_codes:
         order: DESC
 ```
 
-Use the custom `sort_characteristics` and `sort_characteristic_codes` Twig filters
+Use the custom `ibexa_commerce_sort_characteristics` and `ibexa_commerce_sort_characteristic_codes` Twig filters
 to display sorted variant characteristics.
 
-### `sort_characteristics()`
+### `ibexa_commerce_sort_characteristics()`
 
-`sort_characteristics()` sorts characteristics for a catalog element type (like unit, color, weight etc.):
+`ibexa_commerce_sort_characteristics()` sorts characteristics for a catalog element type (like unit, color, weight etc.):
 
 ``` html+twig
-{% set sortedCharacterictics = catalogElement.variantCharacteristics.characteristics|sort_characteristics(catalogElement.type) %}
+{% set sortedCharacterictics = catalogElement.variantCharacteristics.characteristics|ibexa_commerce_sort_characteristics(catalogElement.type) %}
 ```
 
 If you want to change the order of characteristics manually (e.g. unit first and then color) you can pass the order in the template as well:
 
 ``` html+twig
 {% set order = ['2','1'] %}
-{% set sortedCharacterictics = catalogElement.variantCharacteristics.characteristics|sort_characteristics(catalogElement, order) %}
+{% set sortedCharacterictics = catalogElement.variantCharacteristics.characteristics|ibexa_commerce_sort_characteristics(catalogElement, order) %}
 ```
 
-### `sort_characteristic_codes()`
+### `ibexa_commerce_sort_characteristic_codes()`
 
-`sort_characteristic_codes()` sorts specific characteristic codes (for codes like green, red, blue etc.):
+`ibexa_commerce_sort_characteristic_codes()` sorts specific characteristic codes (for codes like green, red, blue etc.):
 
 ``` html+twig
 // variantIndex, e.g. 1
-{% set variantCharacteristic = variantCharacteristic|sort_characteristic_codes(variantIndex) %}
+{% set variantCharacteristic = variantCharacteristic|ibexa_commerce_sort_characteristic_codes(variantIndex) %}
 ```
 
 ## Variants from ERP

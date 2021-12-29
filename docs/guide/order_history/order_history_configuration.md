@@ -7,7 +7,7 @@ You can change a number of different parameters to configure the behavior of the
 To configure the number of documents displayed on one page, use the following setting:
 
 ``` yaml
-siso_order_history:
+ibexa_commerce_order_history:
     list:
         max_document_count_per_page: 30
 ```
@@ -16,7 +16,7 @@ To define document types that are available for selection, list them under the `
 The `default_document_type` setting decides which document type is displayed by default:
 
 ``` yaml
-siso_order_history:
+ibexa_commerce_order_history:
     document_types:
         - invoice
         - delivery_note
@@ -29,7 +29,7 @@ siso_order_history:
 You can configure the default time period for the displayed documents:
 
 ``` yaml
-siso_order_history:
+ibexa_commerce_order_history:
     date:
         start: 2 years
         end: 0 days
@@ -41,10 +41,10 @@ and the format in which dates are sent to ERP:
 
 ``` yaml
 parameters:
-    siso_order_history.default.date_format: 'd.m.Y'
+    ibexa_commerce_order_history.default.date_format: 'd.m.Y'
 
     # Date format that is used for communication with ERP
-    siso_order_history.default.erp_date_format: 'Ymd' 
+    ibexa_commerce_order_history.default.erp_date_format: 'Ymd' 
 ```
 
 ## Column configuration
@@ -53,7 +53,7 @@ To define columns that are displayed for each document type, list them under the
 The column identifier is the block name from `OrderHistory/Components/fields.html.twig`, without the suffix `_field`:
 
 ``` yaml
-siso_order_history:
+ibexa_commerce_order_history:
     default_list_fields:
         invoice:
             - ID_list
@@ -79,7 +79,7 @@ Allowed values are:
 - `false` - disables column sorting
 
 ``` yaml
-siso_order_history:
+ibexa_commerce_order_history:
     default_list_sort:
         invoice:
             - numeric-comma
@@ -104,7 +104,7 @@ siso_order_history:
 To define column sorting for the list view, use the `default_list_sort_column` setting:
 
 ``` yaml
-siso_order_history:
+ibexa_commerce_order_history:
     default_list_sort_column:
         invoice: [[1, 'desc']]
         delivery_note: [[1, 'desc']]

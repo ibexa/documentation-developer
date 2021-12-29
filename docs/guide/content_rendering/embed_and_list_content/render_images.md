@@ -1,15 +1,15 @@
 # Render images
 
-To render images contained in Image Asset or Image Fields, use the [`ez_render_field()`](../twig_function_reference/field_twig_functions.md#ez_render_field) Twig function.
+To render images contained in Image Asset or Image Fields, use the [`ibexa_render_field()`](../twig_function_reference/field_twig_functions.md#ibexa_render_field) Twig function.
 
 ``` html+twig
-{{ ez_render_field(content, 'image') }}
+{{ ibexa_render_field(content, 'image') }}
 ```
 
 You can pass the name of an [image variation](#configure-image-variation) as an argument, for example:
 
 ``` html+twig
-{{ ez_render_field(content, 'image', {
+{{ ibexa_render_field(content, 'image', {
     'parameters': {
         'alias': 'large'
     }
@@ -23,13 +23,13 @@ If a Content item contains more than one image, you may want to select the first
 This enables you to avoid a situation where, for example, the featured image in an article is missing,
 because the first image Field was left empty.
 
-The [`ez_content_field_identifier_first_filled_image()`](../twig_function_reference/image_twig_functions.md#ez_content_field_identifier_first_filled_image) Twig function
+The [`ibexa_content_field_identifier_first_filled_image()`](../twig_function_reference/image_twig_functions.md#ibexa_content_field_identifier_first_filled_image) Twig function
 returns the identifier of the first image Field that is not empty.
 
 ``` html+twig
-{% set firstImage = ez_content_field_identifier_first_filled_image(content) %}
+{% set firstImage = ibexa_content_field_identifier_first_filled_image(content) %}
 
-{{ ez_render_field(content, firstImage }}
+{{ ibexa_render_field(content, firstImage }}
 ```
 
 !!! caution
@@ -47,7 +47,7 @@ The following example creates a custom variation that scales the image down to a
 and renders it in grayscale:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         site_group:
             image_variations:
@@ -61,7 +61,7 @@ ezplatform:
 To use it, select the variation when rendering the image:
 
 ``` html+twig
-{{ ez_render_field(content, 'image', {
+{{ ibexa_render_field(content, 'image', {
     'parameters': {
         'alias': 'gray_thumb'
     }
@@ -83,7 +83,7 @@ The following example shows how to use an image contained in an Image Field as a
 First, in the main template, render the Image Field with a custom template:
 
 ``` html+twig
-{{ ez_render_field(content, 'image', {
+{{ ibexa_render_field(content, 'image', {
     'template': 'fields/image.html.twig'
 }) }}
 ```
@@ -101,7 +101,7 @@ Then, create the custom Field template in `templates/fields/image.html.twig`,
         {% set position_y = 50 %}
     {% endif %}
 
-    {% set imageAlias = ez_image_alias( field, versionInfo, parameters.alias|default( 'original' ) ) %}
+    {% set imageAlias = ibexa_image_alias( field, versionInfo, parameters.alias|default( 'original' ) ) %}
     {% set src = imageAlias ? asset( imageAlias.uri ) : "//:0" %}
 
     <div style="background: url({{ src }});

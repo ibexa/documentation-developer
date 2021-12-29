@@ -38,6 +38,6 @@ services:
     app.components.oauth2_login:
         parent: Ibexa\AdminUi\Component\TwigComponent
         arguments:
-            $template: '@@ezdesign/account/login/oauth2_login.html.twig'
+            $template: '@@ibexadesign/account/login/oauth2_login.html.twig'
         tags:
             - { name: ezplatform.admin_ui.component, group: login-form-after }

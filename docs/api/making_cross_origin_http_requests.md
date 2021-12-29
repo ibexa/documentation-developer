@@ -52,5 +52,5 @@ nelmio_cors:
 
 ### Granting CORS access to your own HTTP resources
 
-NelmioCorsBundle is perfectly safe to use for any non-eZ HTTP resource you would like to expose.
+NelmioCorsBundle is perfectly safe to use for any non-Ibexa HTTP resource you would like to expose.
 Follow the instructions in [NelmioCorsBundle's configuration chapter](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md#configuration).

@@ -84,7 +84,7 @@ To render it, extend the default template `IbexaCommerceEshopBundle:Catalog:part
 ``` html+twig
 {% if catalogElement.dataMap.tags is defined %}
     <p class="u-no-margin">
-        <strong>{{ 'Tags'|st_translate }}</strong>
+        <strong>{{ 'Tags'|ibexa_commerce_translate }}</strong>
         {% for tag in catalogElement.dataMap.tags.array %}
                 <span class="label">{{ tag }}
         {% endfor %}

@@ -26,8 +26,8 @@ namespace App\EventSubscriber;
 
 use Ibexa\Contracts\Core\Search\Field;
 use Ibexa\Contracts\Core\Search\FieldType\StringField;
-use Ibexa\Contracts\ElasticSearchEngine\Mapping\Event\ContentIndexCreateEvent;
-use Ibexa\Contracts\ElasticSearchEngine\Mapping\Event\LocationIndexCreateEvent;
+use Ibexa\Contracts\Elasticsearch\Mapping\Event\ContentIndexCreateEvent;
+use Ibexa\Contracts\Elasticsearch\Mapping\Event\LocationIndexCreateEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final class CustomIndexDataSubscriber implements EventSubscriberInterface
@@ -90,7 +90,7 @@ namespace App\EventSubscriber;
 
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\LogicalAnd;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\ObjectStateIdentifier;
-use Ibexa\Contracts\ElasticSearchEngine\Query\Event\QueryFilterEvent;
+use Ibexa\Contracts\ElasticSearch\Query\Event\QueryFilterEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final class CustomQueryFilterSubscriber implements EventSubscriberInterface
@@ -142,14 +142,14 @@ declare(strict_types=1);
 namespace App\Query\Criterion;
 
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-use Ibexa\Contracts\ElasticSearchEngine\Query\CriterionVisitor;
-use Ibexa\Contracts\ElasticSearchEngine\Query\LanguageFilter;
+use Ibexa\Contracts\ElasticSearch\Query\CriterionVisitor;
+use Ibexa\Contracts\ElasticSearch\Query\LanguageFilter;
 
 final class CameraManufacturerVisitor implements CriterionVisitor
 {
     public function supports(Criterion $criterion, LanguageFilter $languageFilter): bool
     {
-        return $criterion instanceof CameraManufacturer;
+        return $criterion instanceof CameraManufacturerCriterion;
     }
 
     public function visit(CriterionVisitor $dispatcher, Criterion $criterion, LanguageFilter $languageFilter): array
@@ -176,7 +176,7 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Operator;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Operator\Specifications;
 
-final class CameraManufacturer extends Criterion
+final class CameraManufacturerCriterion extends Criterion
 {
     /**
      * @param string|string[] $value One or more manufacturer names that must be matched.
@@ -230,8 +230,8 @@ namespace App\Query\SortClause;
 
 use Ibexa\Contracts\Core\Repository\Values\Content\Query;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
-use Ibexa\Contracts\ElasticSearchEngine\Query\LanguageFilter;
-use Ibexa\Contracts\ElasticSearchEngine\Query\SortClauseVisitor;
+use Ibexa\Contracts\ElasticSearch\Query\LanguageFilter;
+use Ibexa\Contracts\ElasticSearch\Query\SortClauseVisitor;
 
 final class ScoreVisitor implements SortClauseVisitor
 {
@@ -401,8 +401,8 @@ namespace App\Query\Aggregation\Elasticsearch;
 
 use App\Query\Aggregation\PriorityRangeAggregation;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
-use Ibexa\Contracts\ElasticSearchEngine\Query\AggregationVisitor;
-use Ibexa\Contracts\ElasticSearchEngine\Query\LanguageFilter;
+use Ibexa\Contracts\ElasticSearch\Query\AggregationVisitor;
+use Ibexa\Contracts\ElasticSearch\Query\LanguageFilter;
 
 final class PriorityAggregationVisitor implements AggregationVisitor
 {
@@ -470,8 +470,8 @@ namespace App\Query\Aggregation\Elasticsearch;
 use App\Query\Aggregation\PriorityRangeAggregation;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
 use Ibexa\Contracts\Core\Repository\Values\Content\Search\AggregationResult;
-use Ibexa\Contracts\ElasticSearchEngine\Query\AggregationResultExtractor;
-use Ibexa\Contracts\ElasticSearchEngine\Query\LanguageFilter;
+use Ibexa\Contracts\ElasticSearch\Query\AggregationResultExtractor;
+use Ibexa\Contracts\ElasticSearch\Query\LanguageFilter;
 use stdClass;
 
 final class PriorityAggregationResultExtractor implements AggregationResultExtractor

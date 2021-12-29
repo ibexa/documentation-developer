@@ -50,7 +50,7 @@ A listener can check if the product is still available, or discontinued.
 You can disable this setting in configuration:
 
 ``` yaml
-siso_basket.default.discontinued_products_listener_active: false
+ibexa_commerce_basket.default.discontinued_products_listener_active: false
 ```
 
 The listener checks if the current stock is greater than or equal to the quantity the customer wants to order.
@@ -62,7 +62,7 @@ in order to sell the remaining products, even if the remaining stock does not fi
 The listener reduces the quantity in the order to the number of products that are in stock. 
 
 ``` yaml
-siso_basket.default.discontinued_products_listener_consider_packaging_unit: true
+ibexa_commerce_basket.default.discontinued_products_listener_consider_packaging_unit: true
 ```
 
 ## Product quantity validation

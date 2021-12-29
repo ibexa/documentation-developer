@@ -1,8 +1,8 @@
 {% block content %}
-<h1>{{ ez_content_name(content) }}</h1>
+<h1>{{ ibexa_content_name(content) }}</h1>
 <ul>
     {% for item in items %}
-        {{ ez_render(item, {'viewType': 'embed'} ) }}
+        {{ ibexa_render(item, {'viewType': 'embed'} ) }}
     {% endfor %}
 </ul>
 {% endblock %}

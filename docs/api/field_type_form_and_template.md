@@ -116,7 +116,7 @@ The `fieldType` key has to correspond to the name of your Field Type.
 
 ## Content view templates
 
-To render the Field in content view by using the [`ez_render_field()` Twig helper](../guide/content_rendering/twig_function_reference/field_twig_functions.md#ez_render_field),
+To render the Field in content view by using the [`ibexa_render_field()` Twig helper](../guide/content_rendering/twig_function_reference/field_twig_functions.md#ibexa_render_field),
 you need to define a template containing a block for the Field.
 
 ``` html+twig
@@ -135,7 +135,7 @@ By convention, your block must be named `<fieldTypeIdentifier>_field`.
 
     This template is also exposed as a part of Standard Design, so you can override it with the [design engine](../guide/content_rendering/design_engine/design_engine.md).
     To do so, place the template `themes/standard/content_fields.html.twig` in your `Resources/views`
-    (assuming `ez_platform_standard_design.override_kernel_templates` is set to true).
+    (assuming `ibexa_standard_design.override_kernel_templates` is set to true).
 
 ### Template variables
 
@@ -147,8 +147,8 @@ The block can receive the following variables:
 | `contentInfo` | `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | The ContentInfo of the Content item the Field belongs to |
 | `versionInfo` | `Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo` | The VersionInfo of the Content item the Field belongs to |
 | `fieldSettings` | array | Settings of the Field (depends on the Field Type) |
-| `parameters` | hash | Options passed to `ez_render_field()` under the `'parameters'` key |
-| `attr` | hash | The attributes to add the generate the HTML markup, passed to ez_render_field()` under the `'attr'` key. <br> Contains at least a class entry, containing <fieldtypeidentifier>-field |
+| `parameters` | hash | Options passed to `ibexa_render_field()` under the `'parameters'` key |
+| `attr` | hash | The attributes to add the generate the HTML markup, passed to ibexa_render_field()` under the `'attr'` key. <br> Contains at least a class entry, containing <fieldtypeidentifier>-field |
 
 ### Reusing blocks
 
@@ -166,7 +166,7 @@ If you don't use the [design engine](../guide/content_rendering/design_engine/de
 you can register a template with the following configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         <siteaccess>:
             field_templates:
@@ -181,13 +181,13 @@ ezplatform:
 ### Back Office view template
 
 For templates for previewing the Field in the Back Office,
-using eZ Design is recommended with `ez_platform_standard_design.override_kernel_templates` set to `true`.
-With eZ Design you can apply a template (e.g. `Resources/views/themes/admin/content_fields.html.twig`) without any extra configuration.
+using the design engine is recommended with `ibexa_standard_design.override_kernel_templates` set to `true`.
+With the design engine you can apply a template (e.g. `Resources/views/themes/admin/content_fields.html.twig`) without any extra configuration.
 
-If you do not use eZ Design, apply the following configuration:
+If you do not use the design engine, apply the following configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     systems:
         admin_group:
             field_templates:

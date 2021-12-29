@@ -102,7 +102,7 @@ php bin/console ibexa:migrations:migrate --file=src/bundle/Resources/install/mig
 
 #### Database update
 
-Run the following scripts:
+Run the following SQL commands:
 
 === "MySQL"
 

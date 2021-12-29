@@ -37,7 +37,7 @@ To have the notification translated, provide the message strings in the translat
 To create a notification from the front end (in this example, of type `info`), use the following code:
 
 ``` js
-const eventInfo = new CustomEvent('ez-notify', {
+const eventInfo = new CustomEvent('ibexa-notify', {
     detail: {
         label: 'info',
         message: 'Notification text'
@@ -145,7 +145,7 @@ return $this->router->generate('ez_content_draft_edit', [
 You can add the template that is defined above in the `render()` method to one of your custom bundles:
 
 ```
-{% extends '@ezdesign/account/notifications/list_item.html.twig' %}
+{% extends '@ibexadesign/account/notifications/list_item.html.twig' %}
 
 {% trans_default_domain 'custom_notification' %}
 
@@ -153,8 +153,8 @@ You can add the template that is defined above in the `render()` method to one o
 
 {% block icon %}
     <span class="type__icon">
-        <svg class="ez-icon ez-icon--review">
-            <use xlink:href="{{ asset('bundles/ezplatformadminui/img/ez-icons.svg') }}#notice"></use>
+        <svg class="ibexa-icon ibexa-icon--review">
+            <use xlink:href="{{ asset('bundles/ibexaplatformicons/img/all-icons.svg') }}#notice"></use>
         </svg>
     </span>
 {% endblock %}

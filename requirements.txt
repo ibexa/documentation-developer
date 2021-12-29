@@ -1,7 +1,7 @@
-mkdocs>=1.2
-Pygments>=2.9
-pymdown-extensions>=8.2
-Markdown>=3.2.1
-mkdocs-material>=7.2.4
-mkdocs-macros-plugin>=0.5.12
-Jinja2>=2.10
+mkdocs==1.2.3
+Pygments==2.10.0
+pymdown-extensions==9.1
+Markdown==3.2.1
+mkdocs-material==7.3.6
+mkdocs-macros-plugin==0.6.0
+Jinja2==3.0.2
