@@ -10,7 +10,7 @@ Back Office menus are based on the [KnpMenuBundle](https://github.com/KnpLabs/Kn
 Menus are extensible using event subscribers, for example:
 
 ``` php
-[[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 0, 11) =]][[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 18, 37) =]]
+[[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 0, 29) =]]
     }
 }
 ```
@@ -69,7 +69,7 @@ To add an inactive menu section, do not add a route to its parameters.
 The following method adds a new menu section under **Content**, and under it, a new item with custom attributes:
 
 ``` php
-[[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 29, 52) =]]
+[[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 30, 43) =]]
 ```
 
 `label` is used for the new menu item in the interface.
@@ -124,7 +124,7 @@ You can use the `extras.icon` parameter to define an icon for a menu item.
 For example, the following code changes the default icon for the "Create" button in content view:
 
 ``` php
-[[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 55, 57) =]]
+[[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 46, 48) =]]
 ```
 
 ## Remove menu items
@@ -133,6 +133,6 @@ To remove a menu item, for example, to remove the **Copy subtree** item from the
 use the following event listener:
 
 ``` php
-[[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 53, 54) =]]
+[[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 44, 45) =]]
 ```
 

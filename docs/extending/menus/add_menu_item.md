@@ -10,15 +10,15 @@ and list all Content items there, with a shortcut button to edit them.
 
 First, create an event subscriber in `src/EventSubscriber/MyMenuSubscriber.php`:
 
-``` php hl_lines="22 30-31 39-41"
-[[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 0, 52) =]]
+``` php hl_lines="14 22-23 31-32"
+[[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 0, 43) =]]
     }
 }
 ```
 
 This subscriber subscribes to the `ConfigureMenuEvent::MAIN_MENU` event (see line 14).
-It creates a subitem with the identifier `main__content__custom_menu` (lines 30-31).
-Then, under this subitem, it creates, using `menuItemFactory`, an `all_content_list` menu item (lines 39-41).
+It creates a subitem with the identifier `main__content__custom_menu` (lines 22-23).
+Then, under this subitem, it creates an `all_content_list` menu item (lines 31-32).
 
 ## Add route
 

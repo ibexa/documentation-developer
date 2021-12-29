@@ -5,17 +5,9 @@ namespace App\EventSubscriber;
 use Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent;
 use Ibexa\AdminUi\Menu\MainMenuBuilder;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Ibexa\AdminUi\Menu\MenuItemFactory;
 
 class MyMenuSubscriber implements EventSubscriberInterface
 {
-    private $menuItemFactory;
-
-    public function __construct(MenuItemFactory $menuItemFactory)
-    {
-        $this->menuItemFactory = $menuItemFactory;
-    }
-
     public static function getSubscribedEvents()
     {
         return [
@@ -27,7 +19,7 @@ class MyMenuSubscriber implements EventSubscriberInterface
     {
         $menu = $event->getMenu();
 
-        $custom_menu_item = $menu[MainMenuBuilder::ITEM_CONTENT]->addChild(
+        $customMenuItem = $menu[MainMenuBuilder::ITEM_CONTENT]->addChild(
             'main__content__custom_menu',
             [
                 'extras' => [
@@ -36,8 +28,7 @@ class MyMenuSubscriber implements EventSubscriberInterface
             ],
         );
 
-        $custom_menu_item->addChild(
-            $this->menuItemFactory->createItem(
+        $customMenuItem->addChild(
             'all_content_list',
             [
                 'label' => 'Content List',
@@ -48,7 +39,7 @@ class MyMenuSubscriber implements EventSubscriberInterface
                 'linkAttributes' => [
                     'class' => 'custom-menu-item-link',
                 ],
-            ])
+            ]
         );
 
         $menu->removeChild('main__bookmarks');
