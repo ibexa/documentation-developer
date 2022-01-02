@@ -343,7 +343,7 @@ In the example below it is `RangeAggregationVisitor`:
 
 ``` yaml
 services:
-    App\Query\Aggregation\Elasticsearch\PriorityAggregationVisitor:
+    app.search.elasticsearch.query.aggregation_visitor.priority_range_aggregation:
         class: Ibexa\ElasticSearchEngine\Query\AggregationVisitor\RangeAggregationVisitor
         factory: ['@Ibexa\ElasticSearchEngine\Query\AggregationVisitor\Factory\SearchFieldAggregationVisitorFactory', 'createRangeAggregationVisitor']
         arguments:
@@ -368,7 +368,7 @@ Tag the service with `ezplatform.search.elasticsearch.query.location.aggregation
 
 ``` yaml
 services:
-    App\Query\Aggregation\Elasticsearch\PriorityAggregationResultExtractor:
+    app.search.elasticsearch.query.aggregation_result_extractor.priority_range_aggregation:
         class: Ibexa\ElasticSearchEngine\Query\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor
         arguments:
             $aggregationClass: 'App\Query\Aggregation\PriorityRangeAggregation'
