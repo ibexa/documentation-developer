@@ -310,7 +310,7 @@ final class PriorityRangeAggregation extends AbstractRangeAggregation implements
 }
 ```
 
-PriorityRangeAggregation` in the example above extends `AbstractRangeAggregation`.
+`PriorityRangeAggregation` in the example above extends `AbstractRangeAggregation`.
 The name indicates that it is going to aggregate the results according to the Location priority, using Range aggregation.
 
 An aggregation must implement the `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation` interface or inherit one of following abstract classes:
