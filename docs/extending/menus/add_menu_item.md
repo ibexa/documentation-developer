@@ -49,7 +49,7 @@ Finally, create the `templates/list/all_content_list.html.twig` file indicated i
 This template uses the [reusable table template](../reusable_back_office_templates.md#tables)
 to render a table that fits the style of the Back Office.
 
-You configure the columns of the table in the `head_cols` variable
+You can configure the columns of the table in the `head_cols` variable
 and the regular table rows in `body_rows`.
 In this case, `body_rows` contains information about the Content item provided by the controller,
 and an edit button.
