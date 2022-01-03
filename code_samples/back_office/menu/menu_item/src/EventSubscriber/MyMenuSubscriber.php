@@ -12,7 +12,6 @@ class MyMenuSubscriber implements EventSubscriberInterface
     {
         return [
             ConfigureMenuEvent::MAIN_MENU => ['onMainMenuConfigure', 0],
-            ConfigureMenuEvent::CONTENT_SIDEBAR_RIGHT => ['onContentSidebarConfigure', 0]
         ];
     }
 
@@ -20,7 +19,16 @@ class MyMenuSubscriber implements EventSubscriberInterface
     {
         $menu = $event->getMenu();
 
-        $menu[MainMenuBuilder::ITEM_CONTENT]->addChild(
+        $customMenuItem = $menu[MainMenuBuilder::ITEM_CONTENT]->addChild(
+            'main__content__custom_menu',
+            [
+                'extras' => [
+                    'orderNumber' => 100,
+                ],
+            ],
+        );
+
+        $customMenuItem->addChild(
             'all_content_list',
             [
                 'label' => 'Content List',
@@ -33,15 +41,10 @@ class MyMenuSubscriber implements EventSubscriberInterface
                 ],
             ]
         );
-    }
 
-    public function onContentSidebarConfigure (ConfigureMenuEvent $event)
-    {
-        $menu = $event->getMenu();
+        $menu->removeChild('main__bookmarks');
 
-        $menu->removeChild('content__sidebar_right__copy_subtree');
-
-        $menu->getChild('content__sidebar_right__create')
-             ->setExtra('icon_path', '/bundles/ibexaplatformicons/img/all-icons.svg#notice');
+        $menu->getChild('main__admin')
+             ->setExtra('icon_path', '/bundles/ibexaicons/img/all-icons.svg#notice');
     }
 }

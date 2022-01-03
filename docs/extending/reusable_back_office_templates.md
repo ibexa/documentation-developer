@@ -61,6 +61,10 @@ The table component supports the following variable:
 {% endembed %}
 ```
 
+!!! tip
+
+    For an example of using the table component, see [Add menu item](menus/add_menu_item.md).
+
 ## Tabs
 
 The tab component consists of the following block:
