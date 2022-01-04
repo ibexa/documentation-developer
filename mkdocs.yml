@@ -207,7 +207,7 @@ nav:
                 - 'Create custom Form field': 'guide/form_builder/create_custom_form_field.md'
                 - 'Customize email notifications': 'guide/form_builder/customize_email_notifications.md'
             - Tags:
-                - 'Tags': 'guide/taxonomy/tags.md'
+                - 'Tags': 'guide/taxonomy/taxonomy.md'
             - Workflow:
                 - 'Workflow': 'guide/workflow/workflow.md'
                 - 'Add custom workflow action': 'guide/workflow/add_custom_workflow_action.md'
