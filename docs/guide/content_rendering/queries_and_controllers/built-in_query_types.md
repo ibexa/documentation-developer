@@ -6,7 +6,7 @@ All built-in Query types take the following optional parameters:
 
 - `limit` - maximum number of results to return
 - `offset` - offset for search hits, used for paginating the results
-- `sort` - [sort order](#sorting-order)
+- `sort` - [sort order](#sort-order)
 - `filter` - additional query filters:
     - `content_type` - return only results of given Content Types
     - `visible_only` - return only visible results (default `true`)
@@ -33,7 +33,7 @@ params:
 
 To provide a sort order to the `sort` parameter, use names of the Sort Clauses.
 To find them, refer to [Sort Clause](../../search/sort_clause_reference.md)
-and te relevant Sort Clause class.
+and te relevant Sort Clause class. The sort identifier map list can be found [here](https://github.com/ezsystems/ezplatform-kernel/blob/1.3/eZ/Bundle/EzPublishCoreBundle/Resources/config/sort_spec.yml#L29)
 
 ## Children
 
