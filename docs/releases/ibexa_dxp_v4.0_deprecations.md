@@ -228,3 +228,5 @@ Built-in configuration files starting with `ezplatform` now use names with `ibex
 ## Minor changes
 
 - `AbstractBuilder::createMenuItem` return type is now `ItemInterface` only.
+- Meaningless properties added to the Doctrine schema now throw an exception.
+This is prevents indexes from being placed erroneously in the root table.
