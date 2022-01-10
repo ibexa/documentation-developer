@@ -230,3 +230,8 @@ Built-in configuration files starting with `ezplatform` now use names with `ibex
 - `AbstractBuilder::createMenuItem` return type is now `ItemInterface` only.
 - Meaningless properties added to the Doctrine schema now throw an exception.
 This is prevents indexes from being placed erroneously in the root table.
+- The following deprecated service tags have been dropped: `ezsystems.platformui.application_config_provider`,
+`ezpublish.content_view_provider`, `ezpublish.fieldType`, `ezpublish.fieldType.parameterProvider`,
+`ezpublish.fieldType.indexable`, `ezpublish.fieldType.externalStorageHandler`, `ezpublish.fieldType.externalStorageHandler.gateway`,
+`ezpublish.location_view_provider`, `ezpublish.query_type`, `ezpublish.searchEngineIndexer`,
+`ezpublish.searchEngine`, `ezpublish.storageEngine.legacy.converter`
