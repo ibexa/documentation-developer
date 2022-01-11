@@ -17,7 +17,7 @@ If you plan to import user metadata, contact support@ibexa.co to ensure that you
 
 Use the following request to fetch user attributes for the specified users:
 
-`GET: https://import.yoochoose.net/api/[customerid]/[source]/user/[userid[,userid[...]]]`
+`GET: https://https://import.perso.ibexa.co/api/[customerid]/[source]/user/[userid[,userid[...]]]`
 
 User data is returned as an [XML object](#metadata-object-format).
 Make sure that you use the **HTTP Content-Type=text/xml** header.
@@ -26,7 +26,7 @@ Make sure that you use the **HTTP Content-Type=text/xml** header.
 
 Use the following request to update the specified user's attribute set:
 
-`POST: https://import.yoochoose.net/api/[customerid]/[source]/user`
+`POST: https://https://import.perso.ibexa.co/api/[customerid]/[source]/user`
 
 ## Request parameters
 
@@ -54,7 +54,7 @@ for the same user/source pair.
 
 If you need to get all the available attributes for all sources, apply the `allSources` query string parameter, for example:
 
-`GET: https://import.yoochoose.net/api/00000/facebook/user/CUSTOMER_1234?allSources=true`
+`GET: https://https://import.perso.ibexa.co/api/00000/facebook/user/CUSTOMER_1234?allSources=true`
 
 When you do that, and the source returned is different from the source passed in the request (in this case, "facebook"), an additional attribute `source` is added to the [XML object](#metadata-object-format).
 

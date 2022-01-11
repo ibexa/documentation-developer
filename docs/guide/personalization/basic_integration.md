@@ -18,7 +18,7 @@ The simplest way of embedding the tracking URL is placing a one pixel image on e
 just like in the case of analytical tools or visitor counters.
 A code that includes an image may look like this:
 
-`<img href="https://event.yoochoose.net/ebl/00000/click/<user_ID>/<content_type_ID>/<content_ID>" width="1" height="1">`
+`<img href="https://https://event.perso.ibexa.co/ebl/00000/click/<user_ID>/<content_type_ID>/<content_ID>" width="1" height="1">`
 
 `<user_ID>` stands either for the user ID or session ID of the user who is currently 
 logged into your website (any URL-encoded string is allowed).
@@ -34,7 +34,7 @@ PHP:
 ``` php
 $mandator_id = '00000';
 $product_id = '123';
-$server = '//event.yoochoose.net';
+$server = '//https://event.perso.ibexa.co';
 $tracking = $server.'/ebl/'.$mandator_id.'/click/'.urlencode(session_id()).'/1/'.$product_id;
 echo "<img href='$tracking' width='1' height='1'>";
 ```
@@ -44,7 +44,7 @@ JavaScript:
 ``` js
 var mandator_id = '00000';
 var product_id = '123';
-var server = '//event.yoochoose.net';
+var server = '//https://event.perso.ibexa.co';
 var url = server + '/api/' + mandator_id + '/click/' + getSessionId() + '/1/' + product_id;
 var ycimg=new Image(1,1);
 ycimg.src=url;
@@ -53,7 +53,7 @@ ycimg.src=url;
 A similar tracking image can be placed on a confirmation page that ends the payment process.
 
 ``` php
-$server = '//event.yoochoose.net';
+$server = '//https://event.perso.ibexa.co';
 foreach ($just_bought_products as $product_id) {
    $tracking = $server.'/ebl/'.$mandator_id.'/buy/'.urlencode(session_id()).'/1/'.$product_id;
    echo "<img href='$tracking' width='1' height='1'>\n";
@@ -98,8 +98,8 @@ A response with two recommendations will resemble the following object:
          "itemType":1,
          "relevance":127,
          "links":{
-            "clickRecommended":"//event.yoochoose.net/api/00000/clickrecommended/user/1/555?scenario=landing_page&modelid=5768",
-            "rendered":"//event.yoochoose.net/api/00000/rendered/user/1/555?scenario=landing_page&modelid=5768"
+            "clickRecommended":"//https://event.perso.ibexa.co/api/00000/clickrecommended/user/1/555?scenario=landing_page&modelid=5768",
+            "rendered":"//https://event.perso.ibexa.co/api/00000/rendered/user/1/555?scenario=landing_page&modelid=5768"
          }
       },
       {
@@ -107,8 +107,8 @@ A response with two recommendations will resemble the following object:
          "itemType":1,
          "relevance":126,
          "links":{
-            "clickRecommended":"//event.yoochoose.net/api/00000/clickrecommended/user/1/444?scenario=landing_page&modelid=5768",
-            "rendered":"//event.yoochoose.net/api/00000/rendered/user/1/444?scenario=landing_page&modelid=5768"
+            "clickRecommended":"//https://event.perso.ibexa.co/api/00000/clickrecommended/user/1/444?scenario=landing_page&modelid=5768",
+            "rendered":"//https://event.perso.ibexa.co/api/00000/rendered/user/1/444?scenario=landing_page&modelid=5768"
          }
       }
    ]
