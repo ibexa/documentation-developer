@@ -1,6 +1,6 @@
 ---
 target_version: '2.5'
-latest_tag: '2.5.25'
+latest_tag: '2.5.27'
 ---
 
 # From 1.13 and 2.x
