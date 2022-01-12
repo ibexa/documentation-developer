@@ -1,6 +1,6 @@
 ---
 target_version: '2.5'
-latest_tag: '2.5.25'
+latest_tag: '2.5.27'
 ---
 
 # Update database to v2.5
