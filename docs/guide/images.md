@@ -34,7 +34,7 @@ come across a problem with images not displaying.
 Run the following command to normalize image file names:
 
 ``` bash
-php bin/console ezplatform:images:normalize-path
+php bin/console ibexa:images:normalize-paths
 ```
     
 ## Configure image variations
