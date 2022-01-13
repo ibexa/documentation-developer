@@ -241,7 +241,7 @@ The export process can take several minutes.
 
 There are three ways to check whether content was transferred and stored successfully in the Personalization server:
 
-##### REST request to the client's content store
+##### REST request to client's content store
 
 To get the data of an imported item you can request the following REST resource:
 
@@ -302,7 +302,7 @@ In the Back Office, go to **Personalization** > **Import** and review a list of 
 The Personalization server is automatically kept in sync with the content in [[= product_name =]].
 
 Every time an editor creates, updates or deletes content in the Back Office,
-a notification is sent to https://https://admin.perso.ibexa.co.
+a notification is sent to https://admin.perso.ibexa.co.
 The personalization service also notifies other components of the Personalization server
 and it eventually fetches the affected content and updates it internally.
 
