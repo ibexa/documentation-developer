@@ -80,7 +80,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 
 ## Asset manager
 
-- `Node.js` 12 or 14
+- `Node.js` 14
 - `yarn` 1.15.2 or higher
 
 ## Browser
