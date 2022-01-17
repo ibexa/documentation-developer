@@ -524,7 +524,7 @@ For content-based aggregations, use the `ezplatform.search.elasticsearch.query.c
 
 !!! caution "Deprecated"
 
-    Search Facets are deprecated since version v3.2. Use Custom Aggregation instead
+    Search Facets are deprecated since version v3.2. Use a custom [Aggregation](../../api/public_php_api_search.md#aggregation) instead.
 
 To create a custom search Facet for use with Elasticsearch, create a Facet class and a Facet builder.
 You also need to add a visitor and a result extractor.
