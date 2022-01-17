@@ -33,7 +33,7 @@ params:
 
 To provide a sort order to the `sort` parameter, use names of the Sort Clauses.
 To find them, refer to [Sort Clause](../../search/sort_clause_reference.md)
-and te relevant Sort Clause class. The sort identifier map list can be found [here](https://github.com/ezsystems/ezplatform-kernel/blob/1.3/eZ/Bundle/EzPublishCoreBundle/Resources/config/sort_spec.yml#L29)
+and the [relevant Sort Clause class](https://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/config/sort_spec.yml#L29)
 
 ## Children
 
