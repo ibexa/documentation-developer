@@ -20,6 +20,7 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Checkbox](field_types_reference/checkboxfield.md) | Stores a boolean value. | Yes | Yes |
 | [Content query](field_types_reference/contentqueryfield.md) | Maps an executable Repository query to a Field. | No | No |
 | [Country](field_types_reference/countryfield.md) | Stores country names as a string. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
+| [Customer group](field_types_reference/customergroupfield.md) | Stores customr group to whicha user belongs. )
 | [DateAndTime](field_types_reference/dateandtimefield.md) | Stores a full date including time information. | Yes | Yes |
 | [Date](field_types_reference/datefield.md) | Stores date information. | Yes | Yes  |
 | [EmailAddress](field_types_reference/emailaddressfield.md) | Validates and stores an email address. | Yes  | Yes  |
@@ -35,6 +36,7 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Media](field_types_reference/mediafield.md) | Validates and stores a media file. | No | Yes |
 | [Null](field_types_reference/nullfield.md) | Used as fallback for missing Field Types and for testing purposes. | N/A | N/A |
 | [Page](field_types_reference/pagefield.md) | Stores a Page with a layout consisting of multiple zones. | N/A | N/A |
+| [ProductSpecification](field_types_reference/productspecificationfield.md) | Stores specification information for a product. | TODO | TODO |
 | [Relation](field_types_reference/relationfield.md) | Validates and stores a relation to a Content item. | Yes, with both [`Field`](../guide/search/criteria_reference/field_criterion.md) and [`FieldRelation`](../guide/search/criteria_reference/fieldrelation_criterion.md) Criteria | Yes |
 | [RelationList](field_types_reference/relationlistfield.md) | Validates and stores a list of relations to Content items. | Yes, with [`FieldRelation` Criterion](../guide/search/criteria_reference/fieldrelation_criterion.md) | Yes |
 | [RichText](field_types_reference/richtextfield.md) | Validates and stores structured rich text in DocBook xml format, and exposes it in several formats. Available via [RichTextBundle](https://github.com/ibexa/richtext). | Yes[^1^](#1-note-on-legacy-search-engine)  | Yes |
