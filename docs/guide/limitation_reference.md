@@ -315,6 +315,24 @@ permission.
 A Limitation to specify the SiteAccesses for which the User can view or modify 
 the scenario configuration.
 
+## Product Type Limitation
+
+A Limitation to specify if the User has access to products belonging to a specific Product Type.
+
+|                 |                                                                      |
+|-----------------|----------------------------------------------------------------------|
+| Identifier      | ``                                                            |
+| Value Class     | `` |
+| Type Class      | ``                   |
+| Criterion used  | `` |
+| Role Limitation |                                                                   |
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+||||
+
 ## Section Limitation
 
 A Limitation to specify if the User has access to content within a specific 
