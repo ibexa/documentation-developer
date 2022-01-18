@@ -31,6 +31,7 @@ Due to this storage limitation, searching content using the Country Field Type o
 |[FullText](criteria_reference/fulltext_criterion.md)|Full text content of a Content item's Fields|Content and Location Search|
 |[IsFieldEmpty](criteria_reference/isfieldempty_criterion.md)|Whether a specified Field of a Content item is empty or not|Content and Location Search
 |[IsMainLocation](criteria_reference/ismainlocation_criterion.md)|Whether a Location is the main Location of a Content item|Location Search, Filtering|
+|[IsProductBased](criteria_reference/isproductbased_criterion.md)|Whether content represents a product|Content and Location Search; Filtering|
 |[IsUserBased](criteria_reference/isuserbased_criterion.md)|Whether content represents a User account|Content and Location Search; Filtering|
 |[IsUserEnabled](criteria_reference/isuserenabled_criterion.md)|Whether a User account is enabled|Content and Location Search; Filtering|
 |[LanguageCode](criteria_reference/languagecode_criterion.md)|Whether a Content item is translated into the selected language|Content and Location Search; Filtering|
@@ -43,6 +44,9 @@ Due to this storage limitation, searching content using the Country Field Type o
 |[ObjectStateIdentifier](criteria_reference/objectstateidentifier_criterion.md)|Object State Identifier|Content and Location Search; Filtering|
 |[ParentLocationId](criteria_reference/parentlocationid_criterion.md)|Location ID of a Content item's parent|Content and Location Search; Filtering|
 |[Priority](criteria_reference/priority_criterion.md)|Location priority|Location Search, Filtering|
+|[ProductCode](criteria_reference/productcode_criterion.md)|Product's code|Content and Location Search; Filtering|
+|[ProductName](criteria_reference/productname_criterion.md)|Product's name|Content and Location Search; Filtering|
+|[ProductType](criteria_reference/producttype_criterion.md)|Product type|Content and Location Search; Filtering|
 |[RemoteId](criteria_reference/remoteid_criterion.md)|Remote content ID|Content and Location Search; Filtering|
 |[SectionId](criteria_reference/sectionid_criterion.md)|ID of the Section content is assigned to|Content and Location Search; Filtering|
 |[SectionIdentifier](criteria_reference/sectionidentifier_criterion.md)|Identifier of the Section content is assigned to|Content and Location Search; Filtering|
