@@ -5,7 +5,7 @@ They can be useful for project templates. Migrations are able to store shared da
 or incrementally upgrade older projects to your new standard, if needed.
 They are a developer-friendly tool that allows you to share data without writing code.
 
-You can migrate your Repository data, that is Content items, as well as Content Types, languages, Object states, Sections, etc.,
+You can migrate your Repository data, that is Content items, as well as Content Types, languages, Object states, Sections, and so on,
 between installations by using the migration command.
 
 !!! tip "Public PHP API"

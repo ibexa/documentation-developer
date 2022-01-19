@@ -4,7 +4,7 @@
 
 In addition to the built-in matchers, you can create custom matchers for content.
 
-The following example create a matcher for Section identifiers.
+The following example creates a matcher for Section identifiers.
 
 ## Create normalizer
 
