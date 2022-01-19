@@ -508,7 +508,7 @@ For more information about mappings, see [Elasticsearch documentation](https://w
     When you create a custom index template, with settings for your own field and document
     types, make sure that it contains mappings for all searchable fields that are available in [[= product_name =]].
     For an example of default configuration with a list of searchable fields.
-    To see the default configuration, go to `vendor/ezsystems/ezplatform-elastic-search-engine/src/bundle/Resources/config/default-config.yaml` and open the `default-config.yaml` file.
+    To see the default configuration, go to `vendor/ezsystems/ezplatform-elastic-search-engine/src/bundle/Resources/config/` and open the `default-config.yaml` file.
 
 #### Fine-tuning the search results
 
