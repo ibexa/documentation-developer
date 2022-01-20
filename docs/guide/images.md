@@ -40,13 +40,13 @@ php bin/console ibexa:images:normalize-paths
 Next, clear the cache: 
 
 ```bash
-`php bin/console cache:clear` 
+php bin/console cache:clear
 ```
 
 and run the following:
 
 ```bash
-`php bin/console liip:imagine:cache:remove`
+php bin/console liip:imagine:cache:remove
 ```
 
 ## Configure image variations
