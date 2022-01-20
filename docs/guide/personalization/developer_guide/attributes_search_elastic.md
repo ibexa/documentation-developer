@@ -39,3 +39,7 @@ ibexa:
                         image: image
                         
 ```
+
+
+
+EventSubscriber `Ibexa\Personalization\Event\Subscriber\UniversalDiscovery\AllowedContentTypes` has been dropped because UDW is no longer used.
