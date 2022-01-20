@@ -36,7 +36,19 @@ Run the following command to normalize image file names:
 ``` bash
 php bin/console ibexa:images:normalize-paths
 ```
-    
+
+Next, clear the cache: 
+
+```bash
+php bin/console cache:clear
+```
+
+and run the following:
+
+```bash
+php bin/console liip:imagine:cache:remove
+```
+
 ## Configure image variations
 
 With image variations (image aliases) you can define and use different versions 
