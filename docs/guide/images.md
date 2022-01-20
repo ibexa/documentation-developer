@@ -82,6 +82,8 @@ ezsettings.default.image_variations:
             geometry/scaledownonly: [300, 300]
 ```
 
+## Configure image variations
+
 ### Post-Processors
 
 LiipImagineBundle supports [post-processors on image aliases](http://symfony.com/doc/2.x/bundles/LiipImagineBundle/post-processors.html). You can specify them in image variation configuration:
@@ -389,6 +391,18 @@ In that case, run the `ezplatform:images:normalize-path` command to normalize th
 
 ``` bash
 php bin/console ezplatform:images:normalize-path
+```
+
+Next, clear the cache: 
+
+```bash
+php bin/console cache:clear
+```
+
+and run the following:
+
+```bash
+php bin/console liip:imagine:cache:remove
 ```
 
 ## Reusing images
