@@ -123,9 +123,6 @@ The more Role assignments and complex Policies you add for a given User, the mor
 |`siso_customercenter`</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|`approve`|approve baskets in the customer center|
 ||`buy`|buy as the customer center user|
 ||`view`|access the customer center user management|
-|`siso_control_center`</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|`manage_erp_log`|access to ERP logs|
-||`manage_emails`|access Control center email archive|
-||`manage_jobs:`|access Control center e-commerce jobs|
 
 ## Permissions for routes
 

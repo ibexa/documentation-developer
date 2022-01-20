@@ -29,21 +29,3 @@ Boosting can be defined in the configuration.
 
 The search comes with an extension plugin system which enables indexing custom fields by Content Type.
 
-## Search statistics
-
-eCommerce cockpit displays the log of searches that are performed by the users.
-
-This includes search queries from the main search box.
-It also includes search queries from the secondary search box if no facets are selected
-and the search term is different from the previous search term.
-
-The following three tables are displayed:
-
-- **Top search terms** displays the most searched terms sorted by times searched.
-- **Last search terms** displays the last searches, ordered by date and time.
-- **Most searched terms with less hits** gets the most searched terms with less hits.
-
-![Search statistics table](../../img/search_statistics.png)
-
-Every search query is logged into the `ses_log_search` database table.
-This logic is generated in the `QuerySearchLogService` service.
