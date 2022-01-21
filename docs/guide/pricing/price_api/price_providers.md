@@ -6,7 +6,7 @@ the price provider throws a `PriceCalculationFailedException`, which passes the 
 
 Every price provider must return both `list_price` and `custom_price`.
 
-All price providers must use the `siso_price.price_provider` tag.
+All price providers must use the `ibexa.commerce.plugin.price.provider` tag.
 
 ## PriceProviderInterface
 

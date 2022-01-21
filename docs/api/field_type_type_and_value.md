@@ -107,7 +107,7 @@ services:
     Ibexa\FieldTypeMatrix\FieldType\Type:
         parent: Ibexa\Core\FieldType\FieldType
         tags:
-            - {name: ezplatform.field_type, alias: ezmatrix}
+            - {name: ibexa.field_type, alias: ezmatrix}
 ```
 
 #### `parent`
@@ -122,8 +122,8 @@ Like most API components, Field Types use the [Symfony service tag mechanism]([[
 A service can be assigned one or several tags, with specific parameters.
 When the [service container](../api/service_container.md) is compiled into a PHP file, 
 tags are read by `CompilerPass` implementations that add extra handling for tagged services.
-Each service tagged as `ezplatform.field_type` is added to a [registry](http://martinfowler.com/eaaCatalog/registry.html) using the `alias` key as its unique `fieldTypeIdentifier` e.g. `ezstring`.
-Each Field Type must also inherit from the abstract `ezplatform.field_type` service.
+Each service tagged as `ibexa.field_type` is added to a [registry](http://martinfowler.com/eaaCatalog/registry.html) using the `alias` key as its unique `fieldTypeIdentifier` e.g. `ezstring`.
+Each Field Type must also inherit from the abstract `ibexa.field_type` service.
 This ensures that the initialization steps shared by all Field Types are executed.
 
 !!! tip

@@ -37,7 +37,7 @@ It provides settings for the Field Type and an implementation of the `Ibexa\Core
 
     For more information about the Type class of a Field Type, see [Type class](../field_type_type_and_value.md#type-class).
 
-Next, register the Field Type as a service and tag it with `ezplatform.field_type`:
+Next, register the Field Type as a service and tag it with `ibexa.field_type`:
 
 ```yaml
 [[= include_file('code_samples/field_types/generic_ft/config/custom_services.yaml', 0, 5) =]]
@@ -64,7 +64,7 @@ and the required `use` statements to `src/FieldType/HelloWorld/Type.php`:
 
     For more information about the FormMappers see [Field Type form and template](../field_type_form_and_template.md).
 
-Next, add the `ezplatform.field_type.form_mapper.value` tag to the service definition:
+Next, add the `ibexa.admin_ui.field_type.form.mapper.value` tag to the service definition:
 
 ```yaml hl_lines="6"
 [[= include_file('code_samples/field_types/generic_ft/config/custom_services.yaml', 0, 6) =]]

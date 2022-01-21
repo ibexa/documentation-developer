@@ -62,13 +62,13 @@ Just like a Type, a Legacy Converter needs to be registered and tagged in the [s
 
 The registration of a `Converter` currently works through the `$config` parameter of [`Ibexa\Core\Persistence\Legacy\Handler`](https://github.com/ibexa/core/blob/main/src/lib/Persistence/Legacy/Handler.php).
 
-Those converters also need to be correctly exposed as services and tagged with `ezplatform.field_type.legacy_storage.converter`:
+Those converters also need to be correctly exposed as services and tagged with `ibexa.field_type.storage.legacy.converter`:
 
 ``` yaml
 services:
     Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\TextLine:
         tags:
-            - {name: ezplatform.field_type.legacy_storage.converter, alias: ezstring}
+            - {name: ibexa.field_type.storage.legacy.converter, alias: ezstring}
 ```
 
 The tag has the following attribute:
@@ -134,7 +134,7 @@ The registry mechanism is realized as a base class for `FieldStorage` implementa
 ### Registering external storage
 
 To use external storage, you need to define a service implementing the `Ibexa\Contracts\Core\FieldType\FieldStorage` interface
-and tag it as `ezplatform.field_type.external_storage_handler` to be recognized by the Repository.
+and tag it as `ibexa.field_type.storage.external.handler` to be recognized by the Repository.
 
 Here is an example for the `myfield` Field Type:
 
@@ -147,10 +147,10 @@ services:
 
     App\FieldType\MyField\Storage\MyFieldStorage: ~
         tags:
-            - {name: ezplatform.field_type.external_storage_handler, alias: myfield}
+            - {name: ibexa.field_type.storage.external.handler, alias: myfield}
 ```
 
-The configuration requires providing the `ezplatform.field_type.external_storage_handler` tag, with the `alias` attribute being the *fieldTypeIdentifier*. You also have to inject the gateway in `arguments`, [see below](#gateway-based-storage).
+The configuration requires providing the `ibexa.field_type.storage.external.handler` tag, with the `alias` attribute being the *fieldTypeIdentifier*. You also have to inject the gateway in `arguments`, [see below](#gateway-based-storage).
 
 External storage configuration for basic Field Types is located in [`ibexa/core/src/lib/Resources/settings/fieldtype_external_storages.yml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/fieldtype_external_storages.yml).
 

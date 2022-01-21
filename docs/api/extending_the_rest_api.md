@@ -131,7 +131,7 @@ Outputting this object in the response requires that you create `ValueObjectVisi
 
 `ValueObjectVisitor` takes a Value returned by the REST controller, whatever the class, and 
 transforms the Value into data that can be converted, either to JSON or XML format. 
-Visitors are registered as services, and tagged with `ezpublish_rest.output.value_object_visitor`. 
+Visitors are registered as services, and tagged with `ibexa.rest.output.value_object.visitorr`. 
 The tag attribute corresponds to a class, which this visitor applies to.
 
 In the `config/services.yaml` file, create a service for your `ValueObjectVisitor`.
@@ -141,7 +141,7 @@ services:
     App\Rest\ValueObjectVisitor\Hello:
         parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
         tags:
-            - { name: ezpublish_rest.output.value_object_visitor, type: App\Rest\Values\Hello }
+            - { name: ibexa.rest.output.value_object.visitor, type: App\Rest\Values\Hello }
 ```
 
 Then create your visitor. 
@@ -240,7 +240,7 @@ services:
     App\Rest\InputParser\Greetings:
         parent: Ibexa\Rest\Server\Common\Parser
         tags:
-            - { name: ezpublish_rest.input.parser, mediaType: application/vnd.my.Greetings }
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.my.Greetings }
 ```
 
 Then, implement the parser. 

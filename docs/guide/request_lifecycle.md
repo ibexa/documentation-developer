@@ -125,7 +125,7 @@ Now, when the `Request` knows its controller, the `HttpKernel` dispatches the `k
 
 When HttpKernel dispatches the `kernel.controller` event, the following things happen.
 
-Listening to `kernel.controller`, the `ViewControllerListener` (` Ibexa\Bundle\Core\EventListener\ViewControllerListener`) (priority 10) checks if the `_controller` request attribute is associated with a `ViewBuilder` (a service tagged `ibexa.view_builder`) in the `ViewBuilderRegistry` (`Ibexa\Core\MVC\Symfony\View\Builder\Registry\ControllerMatch`).
+Listening to `kernel.controller`, the `ViewControllerListener` (` Ibexa\Bundle\Core\EventListener\ViewControllerListener`) (priority 10) checks if the `_controller` request attribute is associated with a `ViewBuilder` (a service tagged `ibexa.view.builder`) in the `ViewBuilderRegistry` (`Ibexa\Core\MVC\Symfony\View\Builder\Registry\ControllerMatch`).
 The `ContentViewBuilder` (`Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuildercontent`) matches on controller starting with `ibexa_content:` (see `Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder::matches`).
 The `ContentViewBuilder` builds a `ContentView`.
 
@@ -136,7 +136,7 @@ First, the `ContentViewBuilder` loads the `Location` and the `Content`, and adds
     `content/read` and/or `content/view_embed` permissions are controlled during this `ContentView` building.
 
 Then, the `ContentViewBuilder` passes the `ContentView` to its `View\Configurator` (`Ibexa\Core\MVC\Symfony\View\Configurator\ViewProvider`).
-It's implemented by the `View\Configurator\ViewProvider` and its `View\Provider\Registry`. This registry receives the services tagged `ezpublish.view_provider` thanks to the `ViewProviderPass`.
+It's implemented by the `View\Configurator\ViewProvider` and its `View\Provider\Registry`. This registry receives the services tagged `ibexa.view.provider` thanks to the `ViewProviderPass`.
 Among the view providers, the services using the `Ibexa\Bundle\Core\View\Provider\Configured` have an implementation of the `MatcherFactoryInterface` (`ibexa.content_view.matcher_factory`).
 Through service decoration and class inheritance, the `ClassNameMatcherFactory` is responsible for the [view matching](content_rendering/templates/template_configuration.md#view-rules-and-matching).
 The `View\Configurator\ViewProvider` uses the matched view rule to add possible **`templateIdentifier`** and **`controllerReference`** to the `ContentView` object.
@@ -208,7 +208,7 @@ The `HttpKernel` sends the last `kernel.terminate` event (`KernelEvents::TERMINA
 * event=`kernel.controller`
     - 10:` Ibexa\Bundle\Core\EventListener\ViewControllerListener`
         - `Ibexa\Core\MVC\Symfony\View\Builder\Registry\ControllerMatch`
-            - tag=`ibexa.view_builder`
+            - tag=`ibexa.view.builder`
                 - `Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuildercontent`
                     - `Ibexa\Core\MVC\Symfony\View\Configurator\ViewProvider`
 * event=`kernel.controller_arguments`

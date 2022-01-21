@@ -3,7 +3,7 @@ services:
         arguments:
             $actions: [ ]
         tags:
-            - { name: ezplatform.calendar.event_type }
+            - { name: ibexa.calendar.event.type }
             
     App\Calendar\Holidays\EventSourceFactory:
         arguments:
@@ -13,4 +13,4 @@ services:
         class: Ibexa\Tests\Calendar\Calendar\EventSource
         factory: [ '@App\Calendar\Holidays\EventSourceFactory','createEventSource' ]
         tags:
-            - { name: ezplatform.calendar.event_source }
+            - { name: ibexa.calendar.event.source }

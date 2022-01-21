@@ -67,7 +67,7 @@ final class StaticStrategy implements ThumbnailStrategy
 }
 ```
 
-Next, add the strategy with the `ezplatform.spi.content.thumbnail_strategy` tag and `priority: 100` to `config/services.yaml`:
+Next, add the strategy with the `ibexa.repository.thumbnail.strategy.content` tag and `priority: 100` to `config/services.yaml`:
  
 ```yaml
 services:
@@ -75,7 +75,7 @@ services:
         arguments:
             $staticThumbnail: http://example.com/some_image.jpg
         tags:
-            - { name: ezplatform.spi.content.thumbnail_strategy, priority: 100 }
+            - { name: ibexa.repository.thumbnail.strategy.content, priority: 100 }
 ```
 
 Priority `100` will allow this strategy to be used first on a clean installation or before any other strategy with lower priority.
@@ -123,13 +123,13 @@ class FieldValueUrl implements FieldTypeBasedThumbnailStrategy
 }
 ```
 
-Next, add the strategy with the `ezplatform.spi.field.thumbnail_strategy` tag to `config/services.yaml`:
+Next, add the strategy with the `ibexa.repository.thumbnail.strategy.content` tag to `config/services.yaml`:
 
  ```yaml
  services:
      App\Thumbnails\FieldValueUrl:
          tags:
-             - { name: ezplatform.spi.field.thumbnail_strategy }
+             - { name: ibexa.repository.thumbnail.strategy.content }
  ```
  
 At this point you can go to the Back Office and check the results.

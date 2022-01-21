@@ -651,5 +651,5 @@ services:
 
     App\Query\FacetBuilder\ContentTypeGroupFacetResultExtractor:
         tags:
-            - { name: ezplatform.search.elasticsearch.query.facet_result_extractor }
+            - { name: ibexa.search.elasticsearch.query.facet_result.extractor }
 ```

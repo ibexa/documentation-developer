@@ -190,7 +190,7 @@ services:
             - '@app.rest.output.generator.json'
             - '@app.rest.output.value_object_visitor.dispatcher'
         tags:
-            - { name: ezpublish_rest.output.visitor, regexps: app.rest.output.visitor.json.regexps, priority: 200 }
+            - { name: ibexa.rest.output.visitor, regexps: app.rest.output.visitor.json.regexps, priority: 200 }
 
     app.rest.output.value_object_visitor.dispatcher:
         class: ExampleBundle\Rest\ValueObjectVisitorDispatcher

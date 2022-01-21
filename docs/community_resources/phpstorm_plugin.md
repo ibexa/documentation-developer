@@ -216,7 +216,7 @@ Suggested results take into account namespace argument, if its value can be reso
 
 Query type name suggestions are available in `Ibexa\Core\QueryType\QueryTypeRegistry::getQueryType` method calls.
 
-Suggestions are based on service definitions tagged as `ezplatform.query_type`.
+Suggestions are based on service definitions tagged as `ibexa.query_type`.
 
 ### Query type parameter autocompletion
 

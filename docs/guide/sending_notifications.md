@@ -187,5 +187,5 @@ services:
         
     App\Notification\MyRenderer:
         tags:
-            - { name: ezpublish.notification.renderer, alias: MyNotification:TypeName }
+            - { name: ibexa.notification.renderer, alias: MyNotification:TypeName }
 ```

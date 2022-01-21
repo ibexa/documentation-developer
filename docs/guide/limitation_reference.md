@@ -35,7 +35,7 @@ Out of the box FunctionList uses it in the following way:
         class: Ibexa\Core\Limitation\BlockingLimitationType
         arguments: ['FunctionList']
         tags:
-            - {name: ezpublish.limitationType, alias: FunctionList}
+            - {name: ibexa.permissions.limitation_type, alias: FunctionList}
 ```
 
 ## Content Type Group Limitation
