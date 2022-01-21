@@ -1,6 +1,6 @@
 # ERP logging [[% include 'snippets/commerce_badge.md' %]]
 
-All communication with the ERP (requests and responses) is recorded by the `siso_erp.logger`.
+All communication with the ERP (requests and responses) is recorded by the `ibexa.commerce.erp.logger`.
 It is a special service of the `Monolog/Logger` class.
 
 To learn more about logging in the shop, see [Logging](../logging/logging.md).

@@ -16,7 +16,7 @@ All price providers must use the `siso_price.price_provider` tag.
 
 ## ChainPriceService
 
-`ChainPriceService` (service ID: `siso_price.price_service.chain`) is the base entry point to the price engine. This service gets prices depending on the `contextId`.
+`ChainPriceService` (service ID: `Ibexa\Bundle\Commerce\Price\Service\ChainPriceService`) is the base entry point to the price engine. This service gets prices depending on the `contextId`.
 `contextId` is a parameter that indicates the context in which prices should be calculated, for example, basket, product list or product detail.
 
 `ChainPriceService` does not calculate the prices by itself. It calls price providers in a chain, based on the configuration.
@@ -32,8 +32,8 @@ Chain configuration example for the basket:
 
 ``` yaml
 siso_price.default.price_service_chain.basket:
-    - siso_price.price_provider.remote
-    - siso_price.price_provider.local 
+    - Ibexa\Bundle\Commerce\Price\Service\RemotePriceProvider
+    - Ibexa\Bundle\Commerce\Price\Service\LocalPriceProvider
 ```
 
 ### PriceServiceInterface

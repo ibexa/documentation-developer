@@ -27,7 +27,7 @@ $postingGroup = $deliveryAddresses[0]->SesExtension->value['CustomerPostingGroup
 To access data from the User Content item: 
 
 ``` php
-$customerProfileDataService = $this->get('ses.customer_profile_data.ez_erp');
+$customerProfileDataService = $this->get('Ibexa\Bundle\Commerce\Eshop\Services\CustomerProfileData\EzErpCustomerProfileDataService');
 $customerProfileData = $customerProfileDataService->getCustomerProfileData();
 
 $testfield = $customerProfileData->getDataMap()->getAttribute('ez_testfield');
@@ -38,6 +38,6 @@ Note that the field in `dataMap` is prefixed with `ez_`. (The Field in the User 
 ### Request a customer by number from the ERP
 
 ``` php
-$erpService = $this->getContainer()->get('silver_erp.facade');
+$erpService = $this->getContainer()->get('Ibexa\Bundle\Commerce\Eshop\Services\WebConnectorErpService');
 $selectCustomerResponse = $erpService->selectCustomer($no);
 ```

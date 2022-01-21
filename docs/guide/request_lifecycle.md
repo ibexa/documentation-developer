@@ -45,7 +45,7 @@ This schema is described below event by event.
     To view details of a service (including class, arguments and tags), run `php bin/console debug:container --show-arguments <service.name>`, for example:
     
     ```bash
-    php bin/console debug:container --show-arguments ezpublish.siteaccess_match_listener`
+    php bin/console debug:container --show-arguments ibexa.siteaccess_match_listener`
     ```
     
     To list all services with a specific tag, run `php bin/console debug:container --tag=<tag>`, for example:
@@ -62,19 +62,19 @@ Several listeners are called in decreasing priority.
 
 ### SiteAccess matching
 
-The [`FragmentListener`](https://github.com/symfony/http-kernel/blob/5.3/EventListener/FragmentListener.php) (priority 48) handles the request first, and then it passes to the `ezpublish.siteaccess_match_listener` service (priority 45).
+The [`FragmentListener`](https://github.com/symfony/http-kernel/blob/5.3/EventListener/FragmentListener.php) (priority 48) handles the request first, and then it passes to the `ibexa.siteaccess_match_listener` service (priority 45).
 This service can be either:
 
 - purely the `SiteAccessMatchListener` or
 - its `UserContextSiteAccessMatchSubscriber` decoration when HTTP cache is used.
 
-The `ezpublish.siteaccess_match_listener` service:
+The `ibexa.siteaccess_match_listener` service:
 
-- finds the current SiteAccess using the `SiteAccess\Router` (`ezpublish.siteaccess_router`) regarding the [SiteAccess Matching configurations](multisite/siteaccess_matching.md),
+- finds the current SiteAccess using the `SiteAccess\Router` (`Ibexa\Core\MVC\Symfony\SiteAccess\Router`) regarding the [SiteAccess Matching configurations](multisite/siteaccess_matching.md),
 - adds the current SiteAccess to the `Request` object's **`siteaccess`** attribute,
 - then dispatches the `ezpublish.siteaccess` event (`MVCEvents::SITEACCESS`).
 
-The `SiteAccessListener` (`ezpublish.siteaccess_listener`) subscribes to this `ezpublish.siteaccess` event with top priority (priority 255).
+The `SiteAccessListener` (`Ibexa\Bundle\Core\EventListener\SiteAccessListener`) subscribes to this `ezpublish.siteaccess` event with top priority (priority 255).
 The `SiteAccessListener` adds the **`semanticPathinfo`** attribute, the path without SiteAccess indications ([`URIElement`](multisite/siteaccess_matching.md#urielement), [`URIText`](multisite/siteaccess_matching.md#uritext),
 or [`Map\URI`](multisite/siteaccess_matching.md#mapuri) implementing the `URILexer` interface) to the request.
 
@@ -85,7 +85,7 @@ calls `Ibexa\Core\MVC\Symfony\Routing\ChainRouter::matchRequest` and adds its re
 
 #### `ChainRouter`
 
-The [`ChainRouter`](https://symfony.com/doc/current/cmf/components/routing/chain.html) is a Symfony Content Management Framework (CMF) component. [[= product_name =]] makes it a service named `ezpublish.chain_router`.
+The [`ChainRouter`](https://symfony.com/doc/current/cmf/components/routing/chain.html) is a Symfony Content Management Framework (CMF) component. [[= product_name =]] makes it a service named ` Ibexa\Core\MVC\Symfony\Routing\ChainRouter`.
 It has a collection of prioritized routers where to find one matching the request.
 The `ChainRouter` router collection is built by the `ChainRoutingPass`, collecting the services tagged `router`.
 The `DefaultRouter` is always added to the collection with top priority (priority 255).
@@ -104,9 +104,9 @@ If a wildcard matches, the request's `semanticPathinfo` is updated and the route
 
 ### `UrlAliasRouter`
 
-`UrlAliasRouter` (`ezpublish.urlalias_router`):
+`UrlAliasRouter` (`Ibexa\Bundle\Core\Routing\UrlAliasRouter`):
 This router uses the `UrlAliasService` to associate the `semanticPathinfo` to a Location.
-If it finds a Location, the request receives the attributes **`locationId`** and **`contentId`**, **`viewType`** is set to `full`, and the **`_controller`** is set to `ez_content:viewAction` for now.
+If it finds a Location, the request receives the attributes **`locationId`** and **`contentId`**, **`viewType`** is set to `full`, and the **`_controller`** is set to `ibexa_content:viewAction` for now.
 
 The `locale_listener` (priority 16) sets the request's **`_locale`** attribute.
 
@@ -125,8 +125,8 @@ Now, when the `Request` knows its controller, the `HttpKernel` dispatches the `k
 
 When HttpKernel dispatches the `kernel.controller` event, the following things happen.
 
-Listening to `kernel.controller`, the `ViewControllerListener` (`ezpublish.view_controller_listener`) (priority 10) checks if the `_controller` request attribute is associated with a `ViewBuilder` (a service tagged `ibexa.view_builder`) in the `ViewBuilderRegistry` (`ezpublish.view_builder.registry`).
-The `ContentViewBuilder` (`ezpublish.view_builder.content`) matches on controller starting with `ez_content:` (see `Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder::matches`).
+Listening to `kernel.controller`, the `ViewControllerListener` (` Ibexa\Bundle\Core\EventListener\ViewControllerListener`) (priority 10) checks if the `_controller` request attribute is associated with a `ViewBuilder` (a service tagged `ibexa.view_builder`) in the `ViewBuilderRegistry` (`Ibexa\Core\MVC\Symfony\View\Builder\Registry\ControllerMatch`).
+The `ContentViewBuilder` (`Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuildercontent`) matches on controller starting with `ibexa_content:` (see `Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder::matches`).
 The `ContentViewBuilder` builds a `ContentView`.
 
 First, the `ContentViewBuilder` loads the `Location` and the `Content`, and adds them to the `ContentView` object.
@@ -135,9 +135,9 @@ First, the `ContentViewBuilder` loads the `Location` and the `Content`, and adds
 
     `content/read` and/or `content/view_embed` permissions are controlled during this `ContentView` building.
 
-Then, the `ContentViewBuilder` passes the `ContentView` to its `View\Configurator` (`ezpublish.view.configurator`).
+Then, the `ContentViewBuilder` passes the `ContentView` to its `View\Configurator` (`Ibexa\Core\MVC\Symfony\View\Configurator\ViewProvider`).
 It's implemented by the `View\Configurator\ViewProvider` and its `View\Provider\Registry`. This registry receives the services tagged `ezpublish.view_provider` thanks to the `ViewProviderPass`.
-Among the view providers, the services using the `Ibexa\Bundle\Core\View\Provider\Configured` have an implementation of the `MatcherFactoryInterface` (`ezpublish.content_view.matcher_factory`).
+Among the view providers, the services using the `Ibexa\Bundle\Core\View\Provider\Configured` have an implementation of the `MatcherFactoryInterface` (`ibexa.content_view.matcher_factory`).
 Through service decoration and class inheritance, the `ClassNameMatcherFactory` is responsible for the [view matching](content_rendering/templates/template_configuration.md#view-rules-and-matching).
 The `View\Configurator\ViewProvider` uses the matched view rule to add possible **`templateIdentifier`** and **`controllerReference`** to the `ContentView` object.
 
@@ -155,7 +155,7 @@ The `HttpKernel` executes the controller with those arguments.
 As a reminder, the controller and its argument can be:
 
 - A controller set by the matched route and the request as its argument.
-- The default `ez_content:viewAction` controller and a `ContentView` as its argument.
+- The default `ibexa_content:viewAction` controller and a `ContentView` as its argument.
 - A [custom controller](content_rendering/queries_and_controllers/controllers.md) set by the matched view rule and a `View` or the request as its argument (most likely a `ContentView` but there is no restriction).
 
 !!! caution "Permission control"
@@ -167,7 +167,7 @@ As a reminder, the controller and its argument can be:
 
 If the controller returns something other than `Response`, the `HttpKernel` dispatches a `kernel.view` event (`KernelEvents::VIEW`).
 In the case of a URL Alias, the controller most likely returns a ContentView.
-The `ViewRendererListener` (`ezpublish.view.renderer_listener`) uses the `ContentView` and the `TemplateRenderer` (`ezpublish.view.template_renderer`) to get the content of the `Response` and attach this new `Response` to the event.
+The `ViewRendererListener` (`Ibexa\Bundle\Core\EventListener\ViewRendererListener`) uses the `ContentView` and the `TemplateRenderer` (` Ibexa\Core\MVC\Symfony\View\Renderer\TemplateRenderer`) to get the content of the `Response` and attach this new `Response` to the event.
 The `HttpKernel` retrieves the response attached to the event and continues.
 
 
@@ -175,7 +175,7 @@ The `HttpKernel` retrieves the response attached to the event and continues.
 
 The `HttpKernel` sends a `kernel.response` event (`KernelEvents::RESPONSE`). For example, if HTTP cache is used, response's headers may be enhanced.
 
-The `HttpKernel` sends a `kernel.finish_request` event (`KernelEvents::FINISH_REQUEST`). The `VerifyUserPoliciesRequestListener` (`siso_core.verify_user_policies_request_listener`) (priority 100) filters routes on its policy configuration.
+The `HttpKernel` sends a `kernel.finish_request` event (`KernelEvents::FINISH_REQUEST`). The `VerifyUserPoliciesRequestListener` (`Ibexa\Bundle\Commerce\Eshop\EventListener\VerifyUserPoliciesRequestListener`) (priority 100) filters routes on its policy configuration.
 
 !!! caution "Permission control"
  
@@ -185,7 +185,7 @@ Finally, the `HttpKernel` send the response.
 
 If an exception occurs during this chain of events, the `HttpKernel` sends a `kernel.exception` and tries to get a `Response` from its listeners.
 
-The `HttpKernel` sends the last `kernel.terminate` event (`KernelEvents::TERMINATE`). For example, the `BackgroundIndexingTerminateListener` (`ezpublish.search.background_indexer`) (priority 0) removes from the `SearchService` index possible content existing in the index but not in the database.
+The `HttpKernel` sends the last `kernel.terminate` event (`KernelEvents::TERMINATE`). For example, the `BackgroundIndexingTerminateListener` (`Ibexa\Bundle\Core\EventListener\BackgroundIndexingTerminateListener`) (priority 0) removes from the `SearchService` index possible content existing in the index but not in the database.
 
 
 ## Summary
@@ -193,57 +193,57 @@ The `HttpKernel` sends the last `kernel.terminate` event (`KernelEvents::TERMINA
 ### Summary of events and services
 
 * event=`kernel.request`
-    - 45:`ezpublish.siteaccess_match_listener`
-        - `ezpublish.siteaccess_router`
+    - 45:`ibexa.siteaccess_match_listener`
+        - `Ibexa\Core\MVC\Symfony\SiteAccess\Router`
         - event=`ezpublish.siteaccess`
-            - 255:`ezpublish.siteaccess_listener`
+            - 255:`Ibexa\Bundle\Core\EventListener\SiteAccessListener`
     - 32:`router_listener`
-        - `ezpublish.chain_router`
+        - `Ibexa\Core\MVC\Symfony\Routing\ChainRouter`
             - tag=`router`
                 - `router.default`
                 - `ezpublish.urlwildcard_router`
-                - `ezpublish.urlalias_router`
+                - `Ibexa\Bundle\Core\Routing\UrlAliasRouter`
     - 16:`locale_listener`
     - 13:`Ibexa\AdminUi\EventListener\RequestListener`
 * event=`kernel.controller`
-    - 10:`ezpublish.view_controller_listener`
-        - `ezpublish.view_builder.registry`
+    - 10:` Ibexa\Bundle\Core\EventListener\ViewControllerListener`
+        - `Ibexa\Core\MVC\Symfony\View\Builder\Registry\ControllerMatch`
             - tag=`ibexa.view_builder`
-                - `ezpublish.view_builder.content`
-                    - `ezpublish.view.configurator`
+                - `Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuildercontent`
+                    - `Ibexa\Core\MVC\Symfony\View\Configurator\ViewProvider`
 * event=`kernel.controller_arguments`
 * event=`kernel.view`
-    - 0:`ezpublish.view.renderer_listener`
-        - `ezpublish.view.template_renderer`
+    - 0:`Ibexa\Bundle\Core\EventListener\ViewRendererListener`
+        - `Ibexa\Core\MVC\Symfony\View\Renderer\TemplateRenderer`
 * event=`kernel.response`
 * event=`kernel.finish_request`
-    - 100:`siso_core.verify_user_policies_request_listener`
+    - 100:`Ibexa\Bundle\Commerce\Eshop\EventListener\VerifyUserPoliciesRequestListener`
 * event=`kernel.terminate`
-    - 0:`ezpublish.search.background_indexer`
+    - 0:`Ibexa\Bundle\Core\EventListener\BackgroundIndexingTerminateListener`
 
 ### Examples request attributes timeline
 
 |  Event                  |  Service                              |  Request attribute  |  Example      |
 | ----------------------- | ------------------------------------- | ------------------- | ------------- |
 |                         |  http_kernel                          |  pathInfo           |  /en/about    |
-|  kernel.request         |  ezpublish.siteaccess_match_listener  |  siteaccess         |  en           |
-|  ezpublish.siteaccess   |  ezpublish.siteaccess_listener        |  semanticPathinfo   |  /about       |
+|  kernel.request         |  ibexa.siteaccess_match_listener  |  siteaccess         |  en           |
+|  ezpublish.siteaccess   |  Ibexa\Bundle\Core\EventListener\SiteAccessListener        |  semanticPathinfo   |  /about       |
 |  kernel.request         |  router.default                       |  _route             |  N/A          |
 |  kernel.request         |  router.default                       |  _controller        |  N/A          |
-|  kernel.request         |  ezpublish.urlalias_router            |  _route             |  ez_urlalias  |
-|  kernel.request         |  ezpublish.urlalias_router            |  _controller        |  <strong>ez_content:</strong>viewAction
-|  kernel.request         |  ezpublish.urlalias_router            |  viewType           |  full         |
-|  kernel.request         |  ezpublish.urlalias_router            |  contentId          |  1            |
-|  kernel.request         |  ezpublish.urlalias_router            |  locationId         |  42           |
+|  kernel.request         |  Ibexa\Bundle\Core\Routing\UrlAliasRouter            |  _route             |  ez_urlalias  |
+|  kernel.request         |  Ibexa\Bundle\Core\Routing\UrlAliasRouter            |  _controller        |  <strong>ibexa_content:</strong>viewAction
+|  kernel.request         |  Ibexa\Bundle\Core\Routing\UrlAliasRouter            |  viewType           |  full         |
+|  kernel.request         |  Ibexa\Bundle\Core\Routing\UrlAliasRouter            |  contentId          |  1            |
+|  kernel.request         |  Ibexa\Bundle\Core\Routing\UrlAliasRouter            |  locationId         |  42           |
 |  kernel.request         |  locale_listener                      |  _locale            |  en_GB        |
-|  kernel.controller      |  ezpublish.view_builder.content       |  view.content       |  Content      |
-|  kernel.controller      |  ezpublish.view_builder.content       |  view.location      |  Location     |
-|  kernel.controller      |  ezpublish.view.configurator          |  view.templateIdentifier   |  @IbexaCore/default/content/full.html.twig  |
-|  kernel.controller      |  ezpublish.view.configurator          |  view.controllerReference  |  null  |
-|  kernel.controller      |  ezpublish.view_controller_listener   |  view               |  ContentView  |
-|  kernel.controller      |  ezpublish.view_controller_listener   |  _controller        |  ez_content:viewAction  |
+|  kernel.controller      |  Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuildercontent       |  view.content       |  Content      |
+|  kernel.controller      |  Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuildercontent       |  view.location      |  Location     |
+|  kernel.controller      |  Ibexa\Core\MVC\Symfony\View\Configurator\ViewProvider          |  view.templateIdentifier   |  @IbexaCore/default/content/full.html.twig  |
+|  kernel.controller      |  Ibexa\Core\MVC\Symfony\View\Configurator\ViewProvider          |  view.controllerReference  |  null  |
+|  kernel.controller      |  Ibexa\Bundle\Core\EventListener\ViewControllerListener   |  view               |  ContentView  |
+|  kernel.controller      |  Ibexa\Bundle\Core\EventListener\ViewControllerListener   |  _controller        |  ibexa_content:viewAction  |
 | (controller execution)  |  http_kernel                          |                     |  ContentView  |
-|  kernel.view            |  ezpublish.view.renderer_listener     |  response           |  Response     |
+|  kernel.view            |  Ibexa\Bundle\Core\EventListener\ViewRendererListener     |  response           |  Response     |
 
 
 ## End of HTTP response

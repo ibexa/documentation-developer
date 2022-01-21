@@ -24,7 +24,7 @@ In `templates/full/home_page.html.twig` replace the "Hello world" with a table t
             </thead>
             <tbody>
             {% for ride in rides.currentPageResults %}
-                {{ render( controller( 'ez_content::viewAction', { 'location': ride.valueObject, 'viewType': 'line' } )) }}
+                {{ render( controller( 'ibexa_content::viewAction', { 'location': ride.valueObject, 'viewType': 'line' } )) }}
             {% endfor %}
             </tbody>
         </table>
@@ -99,7 +99,7 @@ site:
         full:
             # existing keys, do not change them
             home_page:
-                controller: ez_query::pagingQueryAction
+                controller: ibexa_query::pagingQueryAction
                 template: full/home_page.html.twig
                 match:
                     Id\Location: 2
@@ -113,7 +113,7 @@ site:
 The `query_type` parameter in line 12 indicates which Query Type to use.
 You defined the name `Ride` in the Query Type file in the `getName` method.
 
-Using the `pagingQueryAction` of the built-in `ez_query` controller (line 6)
+Using the `pagingQueryAction` of the built-in `ibexa_query` controller (line 6)
 enables you to automatically get paginated results.
 You can set the limit of results per page in the `limit` parameter.
 

@@ -83,19 +83,19 @@ Change the alias for search services for every type (product, catalog, content).
 ``` xml
 # set up alias for product search 
 # for Repository data provider 
-<service id="siso_search..search_service.product" alias="siso_search.ezsolr_search_service">
+<service id="Ibexa\Bundle\Commerce\Search\Api\EshopProductSearchInterface" alias="siso_search.ezsolr_search_service">
 </service>
  
 # for eContent
-<service id="siso_search.search_service.product" alias="siso_search.econtentsolr_search_service">
+<service id="Ibexa\Bundle\Commerce\Search\Api\EshopProductSearchInterface" alias="siso_search.econtentsolr_search_service">
 </service>
 
 # set up alias for catalog search 
-<service id="siso_search.search_service.catalog" alias="siso_search.econtentsolr_search_service">
+<service id="Ibexa\Bundle\Commerce\Search\Api\EshopCatalogSearchInterface" alias="siso_search.econtentsolr_search_service">
 </service>
 
 # set up alias for content search 
-<service id="siso_search.search_service.content" alias="siso_search.ezsolr_search_service">
+<service id="Ibexa\Bundle\Commerce\Search\Api\EshopContentSearchInterface" alias="siso_search.ezsolr_search_service">
 </service>
 ```
 

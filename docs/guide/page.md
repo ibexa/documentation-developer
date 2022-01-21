@@ -25,7 +25,7 @@ The products are recorded by means of a JavaScript call. To use it on other page
 ``` html+twig
 {{ render_esi(
     controller(
-        'silver_eshop.catalog_controller:storeProductAsLastViewedAction',
+        'Ibexa\Bundle\Commerce\Eshop\Controller\CatalogController:storeProductAsLastViewedAction',
         {"sku": catalogElement.sku}
     )) }}
 ```

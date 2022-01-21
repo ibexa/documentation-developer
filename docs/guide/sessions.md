@@ -109,7 +109,7 @@ To set up [[= product_name =]] using the [Redis](https://pecl.php.net/package/re
 
 Alternatively if you have needs to configure Redis servers dynamically:
 
-- Set `%ezplatform.session.handler_id%` (or `SESSION_HANDLER_ID` env var) to `ezplatform.core.session.handler.native_redis`
+- Set `%ezplatform.session.handler_id%` (or `SESSION_HANDLER_ID` env var) to `Ibexa\Bundle\Core\Session\Handler\NativeSessionHandler`
 - Set `%ezplatform.session.save_path%` (or `SESSION_SAVE_PATH` env var) to [save_path config for Redis](https://github.com/phpredis/phpredis/#php-session-handler)
 
 !!! note "Ibexa Cloud"

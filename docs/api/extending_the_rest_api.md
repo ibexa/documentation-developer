@@ -17,7 +17,7 @@ To do so, you create:
 
 ### Controller
 
-To create a REST controller, you extend the `ezpublish_rest.controller.base` service, as well as the `Ibexa\Rest\Server\Controller` class.
+To create a REST controller, you extend the `Ibexa\Rest\Server\Controller` service, as well as the `Ibexa\Rest\Server\Controller` class.
 
 First, create a simple controller with a `sayHello()` method that takes a name as an argument.
 It can be, for example, `src/Rest/Controller/DefaultController.php`.
@@ -80,7 +80,7 @@ Modify the `config/services.yaml` file by adding the following code:
 ``` yaml
 services:
     App\Controller\Rest\DefaultController:
-        parent: ezpublish_rest.controller.base
+        parent: Ibexa\Rest\Server\Controller
         tags: ['controller.service_arguments']
 ```
 
@@ -139,7 +139,7 @@ In the `config/services.yaml` file, create a service for your `ValueObjectVisito
 ``` yaml
 services:
     App\Rest\ValueObjectVisitor\Hello:
-        parent: ezpublish_rest.output.value_object_visitor.base
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
         tags:
             - { name: ezpublish_rest.output.value_object_visitor, type: App\Rest\Values\Hello }
 ```
@@ -238,7 +238,7 @@ The `mediaType` attribute of the `ezpublish\_rest.input.parser` tag maps the Con
 ``` yaml
 services:
     App\Rest\InputParser\Greetings:
-        parent: ezpublish_rest.input.parser
+        parent: Ibexa\Rest\Server\Common\Parser
         tags:
             - { name: ezpublish_rest.input.parser, mediaType: application/vnd.my.Greetings }
 ```

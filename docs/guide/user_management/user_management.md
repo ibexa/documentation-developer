@@ -73,8 +73,8 @@ This rule is valid by default when password expiration is set.
 
 Two login methods are available: with User name or with email.
 
-Providers for these two methods are `ezpublish.security.user_provider.username`
-and `ezpublish.security.user_provider.email`, respectively.
+Providers for these two methods are `ibexa.security.user_provider.username`
+and `ibexa.security.user_provider.email`, respectively.
 
 You can configure which method is allowed in `packages/security.yaml`:
 
@@ -86,10 +86,10 @@ security:
                 providers: [ezplatform_username, ezplatform_email]
 
         ezplatform_username:
-            id: ezpublish.security.user_provider.username
+            id: ibexa.security.user_provider.username
 
         ezplatform_email:
-            id: ezpublish.security.user_provider.email
+            id: ibexa.security.user_provider.email
 
     firewalls:
         #...    
@@ -212,7 +212,7 @@ Note that the *API user* is mainly used for permission checks against the repo
 
 ### Customizing the User class
 
-It is possible to customize the user class used by extending `ezpublish.security.login_listener` service, which defaults to `Ibexa\Core\MVC\Symfony\Security\EventListener\SecurityListener`.
+It is possible to customize the user class used by extending `Ibexa\Core\MVC\Symfony\Security\EventListener\SecurityListener` service, which defaults to `Ibexa\Core\MVC\Symfony\Security\EventListener\SecurityListener`.
 
 You can override `getUser()` to return whatever User class you want, as long as it implements `Ibexa\Core\MVC\Symfony\Security\UserInterface`.
 
@@ -227,7 +227,7 @@ security:
             chain:
                 providers: [in_memory, ezpublish]
         ibexa:
-            id: ezpublish.security.user_provider
+            id: ibexa.security.user_provider
         in_memory:
             memory:
                 users:
@@ -245,7 +245,7 @@ In the `config/services.yaml` file:
 ``` yaml
 services:
     App\EventListener\InteractiveLoginListener:
-        arguments: ['@ezpublish.api.service.user']
+        arguments: ['@ibexa.api.service.user']
         tags:
             - { name: kernel.event_subscriber } 
 ```

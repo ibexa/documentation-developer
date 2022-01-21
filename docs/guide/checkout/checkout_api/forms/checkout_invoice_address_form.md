@@ -29,7 +29,7 @@ You set the parameters in the [configuration for checkout forms](configuration_f
 ## Form Type
 
 `Ibexa\Commerce\Checkout\Form\Type\CheckoutInvoiceAddressType`
-(service ID: `siso_checkout.form_entity.checkout_invoice_address_type`)
+(service ID: `Ibexa\Commerce\Checkout\Form\Type\CheckoutInvoiceAddressType`)
 implements the setup for this form.
 
 This class is defined as a service to take advantage of other services, such as `TransService`,

@@ -17,8 +17,8 @@ are sent to the ERP.
 
 ``` php
 // Get the necessary services
-$messageInq = $this->getContainer()->get('silver_erp.message_inquiry_service');
-$messageTrans = $this->getContainer()->get('silver_erp.message_transport');
+$messageInq = $this->getContainer()->get('Ibexa\Bundle\Commerce\Eshop\Services\MessageInquiryService');
+$messageTrans = $this->getContainer()->get(Ibexa\Bundle\Commerce\Eshop\Services\Transport\TsoWebConnectorMessageTransport');
 
 // Inquire the message object and prepare the request data
 $msg = $messageInq->inquireMessage(CreateDeliveryAddressFactoryListener::CREATEDELIVERYADDRESS);
@@ -56,8 +56,8 @@ In the ERP, the address code and party identification are required to fetch a de
 
 ``` php
 // Get the necessary services
-$messageInq = $this->getContainer()->get('silver_erp.message_inquiry_service');
-$messageTrans = $this->getContainer()->get('silver_erp.message_transport');
+$messageInq = $this->getContainer()->get(Ibexa\Bundle\Commerce\Eshop\Services\MessageInquiryService');
+$messageTrans = $this->getContainer()->get('Ibexa\Bundle\Commerce\Eshop\Services\Transport\TsoWebConnectorMessageTransport');
 
 // Inquire the message object and prepare the request data
 $msg = $messageInq->inquireMessage(ReadDeliveryAddressFactoryListener::READDELIVERYADDRESS);
@@ -83,8 +83,8 @@ The merged data must then be sent again in an update request with the new Key.
 
 ``` php
 // Get the necessary services
-$messageInq = $this->getContainer()->get('silver_erp.message_inquiry_service');
-$messageTrans = $this->getContainer()->get('silver_erp.message_transport');
+$messageInq = $this->getContainer()->get('Ibexa\Bundle\Commerce\Eshop\Services\MessageInquiryService');
+$messageTrans = $this->getContainer()->get('Ibexa\Bundle\Commerce\Eshop\Services\Transport\TsoWebConnectorMessageTransport');
 
 // Get the stored address data from the application's database
 $deliveryParty = $this->fetchDeliveryAddress('10000', 'TEST');
@@ -125,8 +125,8 @@ to get the new Key (and new data for a potential review of the changes).
 
 ``` php
 // Get the necessary services
-$messageInq = $this->getContainer()->get('silver_erp.message_inquiry_service');
-$messageTrans = $this->getContainer()->get('silver_erp.message_transport');
+$messageInq = $this->getContainer()->get('Ibexa\Bundle\Commerce\Eshop\Services\MessageInquiryService');
+$messageTrans = $this->getContainer()->get('Ibexa\Bundle\Commerce\Eshop\Services\Transport\TsoWebConnectorMessageTransport');
 
 // Fetch the last stored Key
 $lastKey = $this->getLastKey('10000', 'TEST');

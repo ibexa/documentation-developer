@@ -87,7 +87,7 @@ In the following example, `formTypeResolver` value is `private`.
     ses_forms.configs.private:
         modelClass: Ibexa\Bundle\Commerce\Eshop\Entities\Forms\RegisterPrivate
 #        typeClass: Ibexa\Bundle\Commerce\Eshop\Entities\Forms\Types\RegisterPrivateType
-        typeService: silver_forms.register_private_type
+        typeService: Ibexa\Bundle\Commerce\Eshop\Entities\Forms\Types\RegisterPrivateType
         template: '@@ibexadesign\Forms\register_private.html.twig'
         invalidMessage: error_message_register # textmodule
         validMessage: success_register_private # textmodule
@@ -101,12 +101,12 @@ In the following example, `formTypeResolver` value is `private`.
                 #template: '@@ibexadesign/pagelayout.html.twig'
                 #routeName: silversolutions_forms_user_choice
         dataProcessors:
-            - ses.customer_profile_data.data_processor.create_customer_profile_data
-            - siso_newsletter.newsletter.subscribe_newsletter_data_processor
-            - ses_forms.create_ez_user
-            - ses_forms.disable_ez_user
-            - ses_forms.create_registration_token_data_processor
-            - ses_forms.send_confirmation_data_processor
+            - Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\CreateCustomerProfileDataDataProcessor
+            - Ibexa\Bundle\Commerce\Newsletter\Service\DataProcessor\SubscribeNewsletterDataProcessor
+            - Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\EzCreateUserDataProcessor
+            - Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\EzUserDisableDataProcessor
+            - Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\CreateRegistrationTokenDataProcessor
+            - Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\SendConfirmationMailDataProcessor
 ```
 
 |Configuration key|Description|

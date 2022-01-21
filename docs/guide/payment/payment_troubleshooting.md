@@ -21,7 +21,7 @@ use Ibexa\Bundle\Commerce\Payment\Api\StandardPaymentService;
 /**
  * Service class override
  * <parameters>
- *     <parameter key="siso_payment.payment_service.class">App\Service\ExamplePaymentService</parameter>
+ *     <parameter key="Ibexa\Bundle\Commerce\Payment\Api\StandardPaymentService">App\Service\ExamplePaymentService</parameter>
  * </parameters>
  */
 class ExamplePaymentService extends StandardPaymentService

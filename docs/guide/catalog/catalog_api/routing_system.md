@@ -44,21 +44,21 @@ Route matching priority:
 The router is defined with the priority of 280, so you can still add your own chain router that is executed before it.
 
 ``` xml
-<parameter key="ses_routers.standard_router.class">Silversolutions\Bundle\EshopBundle\Routing\StandardRouter</parameter>
+<parameter key="Ibexa\Bundle\Commerce\Eshop\Routing\StandardRouter">Silversolutions\Bundle\EshopBundle\Routing\StandardRouter</parameter>
 
 <!-- routers -->
-<service id="ses_routers.standard_router" class="%ses_routers.standard_router.class%">
-    <argument type="service" id="ezpublish.api.service.location"/>
-    <argument type="service" id="ezpublish.api.service.url_alias"/>
-    <argument type="service" id="ezpublish.api.service.content"/>
-    <argument type="service" id="ezpublish.urlalias_generator"/>
+<service id="Ibexa\Bundle\Commerce\Eshop\Routing\StandardRouter" class="Ibexa\Bundle\Commerce\Eshop\Routing\StandardRouter">
+    <argument type="service" id="ibexa.api.service.location"/>
+    <argument type="service" id="ibexa.api.service.url_alias"/>
+    <argument type="service" id="ibexa.api.service.content"/>
+    <argument type="service" id="Ibexa\Core\MVC\Symfony\Routing\Generator\UrlAliasGenerator"/>
     <argument type="service" id="router.request_context" />
     <argument type="service" id="logger" />
     <call method="setConfigResolver">
-        <argument type="service" id="ezpublish.config.resolver.chain"/>
+        <argument type="service" id="ibexa.config.resolver.chain"/>
     </call>
     <call method="setServices">
-        <argument type="service" id="siso_core.catalog_helper" />
+        <argument type="service" id="Ibexa\Bundle\Commerce\Eshop\Service\CatalogHelper" />
     </call>
     <tag name="router" priority="280" />
 </service>

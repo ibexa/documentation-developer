@@ -1,6 +1,6 @@
 # Injecting SiteAccess
 
-The [service container](../../api/service_container.md) exposes the SiteAccess through the `@ezpublish.siteaccess_service` service, which fulfills the `Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessServiceInterface` contract.
+The [service container](../../api/service_container.md) exposes the SiteAccess through the `Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessService` service, which fulfills the `Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessServiceInterface` contract.
 This means you can inject it into any custom service constructor, type hinting that contract.
 You can get the current SiteAccess from that service by calling the `SiteAccessServiceInterface::getCurrent` method.
 	
@@ -9,7 +9,7 @@ For example, define a service which depends on the Repository's ContentService a
 ``` yaml
 services:
     App\MyService:
-        arguments: ['@ezpublish.siteaccess_service']
+        arguments: ['@Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessService']
 ```
 
 ``` php

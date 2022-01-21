@@ -28,7 +28,7 @@ It manages the form for choosing delivery address in checkout process.
 ## Form Type
 
 `Ibexa\Commerce\Checkout\Form\TypeCheckoutDeliveryAddressType`
-(service ID: `siso_checkout.form_entity.checkout_delivery_address_type`)
+(service ID: `Ibexa\Commerce\Checkout\Form\Type\CheckoutDeliveryAddressType`)
 implements the setup for this form.
 
 This class is defined as a service to take advantage of other services, such as `TransService`,

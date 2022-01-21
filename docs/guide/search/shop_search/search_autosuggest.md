@@ -159,7 +159,7 @@ All autosuggestion services implement the `SearchAutosuggestInterface` interface
 Their service definitions are, for example:
 
 ``` 
-search_service_id: siso_search.autosuggest_service.product
+search_service_id: ibexa.commerce.search.autosuggest_service.productt
 ```
 
 To create a new autosuggestion service, you need to implement the interface and define the service ID in autosuggestion configuration.

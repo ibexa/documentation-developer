@@ -218,7 +218,7 @@ Any `BinaryFile` returned by the public API is prefixed with the value of this 
 Default value: `$var_dir$/$storage_dir$`
 Example: `/var/site/storage`
 
-Used to configure the default URL decorator service (`ezpublish.core.io.default_url_decorator`), used by all binary data handlers to generate the URI of loaded files. It is always interpreted as an absolute URI, meaning that unless it contains a scheme (http://, ftp://), it will be prepended with a '/'.
+Used to configure the default URL decorator service (`ibexa.core.io.default_url_decorator`), used by all binary data handlers to generate the URI of loaded files. It is always interpreted as an absolute URI, meaning that unless it contains a scheme (http://, ftp://), it will be prepended with a '/'.
 
 This setting is SiteAccess-aware.
 
@@ -232,7 +232,7 @@ Two implementations are provided: `Prefix`, and `AbsolutePrefix`. They both add 
 
 Three UrlDecorator services are introduced:
 
-- `ezpublish.core.io.prefix_url_decorator` used by the binary data handlers to decorate all URIs sent out by the API. Uses `AbsolutePrefix`.
-- `ezpublish.core.io.image_fieldtype.legacy_url_decorator` used via the UrlRedecorator by various legacy elements (Converter, Storage Gateway, etc.) to generate its internal storage format for URIs. Uses a `Prefix`, not an `AbsolutePrefix`, meaning that no leading / is added.
+- `Ibexa\Core\IO\UrlDecorator\AbsolutePrefix` used by the binary data handlers to decorate all URIs sent out by the API. Uses `AbsolutePrefix`.
+- `Ibexa\Core\IO\UrlDecorator\Prefix` used via the UrlRedecorator by various legacy elements (Converter, Storage Gateway, etc.) to generate its internal storage format for URIs. Uses a `Prefix`, not an `AbsolutePrefix`, meaning that no leading / is added.
 
-In addition, a UrlRedecorator service, `ezpublish.core.io.image_fieldtype.legacy_url_redecorator`, uses both decorators above to convert URIs between what is used on the new stack, and what format legacy expects (relative urls from the ezpublish root).
+In addition, a UrlRedecorator service, `Ibexa\Core\IO\UrlDecorator\Prefix`, uses both decorators above to convert URIs between what is used on the new stack, and what format legacy expects (relative urls from the ezpublish root).

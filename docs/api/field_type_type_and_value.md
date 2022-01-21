@@ -105,7 +105,7 @@ The Field Type must be registered in `config/services.yml`:
 ``` yaml
 services:
     Ibexa\FieldTypeMatrix\FieldType\Type:
-        parent: ezpublish.fieldType
+        parent: Ibexa\Core\FieldType\FieldType
         tags:
             - {name: ezplatform.field_type, alias: ezmatrix}
 ```

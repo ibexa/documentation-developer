@@ -31,8 +31,8 @@ Out of the box FunctionList uses it in the following way:
 ``` yaml
     # FunctionList is an ezjscore limitation, it only applies to ezjscore policies not used by
     # API/platform stack, so configure to use Blocking Limitation to avoid LimitationNotFoundException
-    ezpublish.api.role.limitation_type.function_list:
-        class: '%ezpublish.api.role.limitation_type.blocking.class%'
+    ibexa.api.role.limitation_type.function_list:
+        class: Ibexa\Core\Limitation\BlockingLimitationType
         arguments: ['FunctionList']
         tags:
             - {name: ezpublish.limitationType, alias: FunctionList}
