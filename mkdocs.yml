@@ -476,7 +476,13 @@ nav:
             - 'Repository': 'guide/repository.md'
             - 'Request lifecycle': 'guide/request_lifecycle.md'
             - 'Databases': 'guide/databases.md'
-            - 'Data migration': 'guide/data_migration.md'
+            - Data migration:
+                - 'Data migration': 'guide/data_migration/data_migration.md'
+                - 'Exporting and importing data': 'guide/data_migration/exporting_and_importing_data.md'
+                - 'Migration management': 'guide/data_migration/migration_management.md'
+                - 'Data migration actions': 'guide/data_migration/data_migration_actions.md'
+                - 'Create data migration action': 'guide/data_migration/create_migration_action.md'
+                - 'Add data migration matcher': 'guide/data_migration/add_data_migration_matcher.md'
             - Event reference:
                 - 'Event reference': 'guide/repository/event_reference/event_reference.md'
                 - 'Content events': 'guide/repository/event_reference/content_events.md'
