@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Migrations\Action;
 
 use Ibexa\Platform\Contracts\Migration\Serializer\Denormalizer\AbstractActionDenormalizer;
-use Ibexa\Platform\Migration\ValueObject\Step\Action\ContentType\AssignContentTypeGroup;
 use Webmozart\Assert\Assert;
 
 final class AssignSectionDenormalizer extends AbstractActionDenormalizer
