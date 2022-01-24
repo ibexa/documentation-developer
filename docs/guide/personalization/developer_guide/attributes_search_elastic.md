@@ -1,6 +1,6 @@
 # Attributes search in Elasticsearch database
 
-If you use external data source, 
+If you use external data source, it is not possible to display external content in the Universal Discovery Widget as it is deprecated. Attributes search is used in scenario preview and editorials models instead.
 This works like an autocomplete feature however, values are dynamically taken from the Elasticsearch database.
 
 ## Configure attributes search
@@ -39,7 +39,5 @@ ibexa:
                         image: image
                         
 ```
-
-
 
 EventSubscriber `Ibexa\Personalization\Event\Subscriber\UniversalDiscovery\AllowedContentTypes` has been dropped because UDW is no longer used.

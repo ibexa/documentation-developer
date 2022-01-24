@@ -468,6 +468,7 @@ nav:
                 - 'Recommendation API': 'guide/personalization/developer_guide/recommendation_api.md'
                 - 'Content API': 'guide/personalization/developer_guide/content_api.md'
                 - 'User API': 'guide/personalization/developer_guide/user_api.md'
+                - 'Attributes search': 'guide/personalization/developer_guide/attributes_search_elastic.md'
             - Best practices:
                 - 'Tracking integration': 'guide/personalization/best_practices/tracking_integration.md'
                 - 'Recommendation integration': 'guide/personalization/best_practices/recommendation_integration.md'
