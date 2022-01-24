@@ -20,12 +20,30 @@ and provide it with a `CurrencyCreateStruct` with code, number of fractional dig
 
 ## Prices
 
+To manage prices, use `ProductPriceService`.
 
-ProductPriceService::findPricesForProductCode
-ProductPriceService::getPriceByProductAndCurrency
+To retrieve the price of a product in a specific currency, use `ProductPriceService::getPriceByProductAndCurrency`:
 
-ProductPriceService::createProductPrice
-ProductPriceService::updateProductPrice
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 61, 64) =]]
+```
 
+To get all prices (in different currencies) for a given product, use `ProductPriceService::findPricesByProductCode`:
 
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 76, 82) =]]
+```
+
+You can also use `ProductPriceService` to create a modify existing prices.
+For example, to create a new price for a giver currency, use `ProductPriceService::createProductPrice` and provide it with a `ProductPriceCreateStruct` object:
+
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 68, 74) =]]
+```
+
+!!! note
+
+    Prices operate using the [`Money`](https://github.com/moneyphp/money) library.
+    That is why all amounts are provided [in the smallest unit](https://www.moneyphp.org/en/stable/getting-started.html#instantiation).
+    For example, for euro `50000` refers to 50000 cents, equal to 50 euros.
 
