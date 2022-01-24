@@ -134,24 +134,21 @@ run the following command:
     === "[[= product_name_content =]]"
 
         ``` bash
-        composer create-project ibexa/content-skeleton:^3.3 --no-install
-        cd content-skeleton
+        composer create-project ibexa/content-skeleton:^3.3 --no-install .
         composer update
         ```
 
     === "[[= product_name_exp =]]"
 
         ``` bash
-        composer create-project ibexa/experience-skeleton:^3.3 --no-install
-        cd experience-skeleton
+        composer create-project ibexa/experience-skeleton:^3.3 --no-install .
         composer update
         ```
 
     === "[[= product_name_com =]]"
 
         ``` bash
-        composer create-project ibexa/commerce-skeleton:^3.3 --no-install
-        cd commerce-skeleton
+        composer create-project ibexa/commerce-skeleton:^3.3 --no-install .
         composer update
         ```
 
