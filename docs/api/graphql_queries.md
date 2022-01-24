@@ -280,6 +280,33 @@ Response:
 }
 ```
 
+To query the URL alias of a Content item, use `_url`.
+This returns the "best" URL alias for this Content item based on its main Location and the current SiteAccess:
+
+```
+{
+  content {
+    folder (contentId: 1) {
+      _url
+    }
+  }
+}
+```
+
+Response:
+
+```
+{
+  "data": {
+    "content": {
+      "folder": {
+        "_url": "/site/ez-platform"
+      }
+    }
+  }
+}
+```
+
 ## Getting children of a Location
 
 To get a [Location's](#querying-locations) children, query the `children` property of an `item` or `content` object:
