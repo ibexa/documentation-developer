@@ -26,7 +26,7 @@ security:
             pattern: ^/
             user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
             anonymous: ~
-            ezpublish_rest_session: ~
+            ibexa_rest_session: ~
             guard:
                 authenticators:
                     - 'Ibexa\Bundle\OAuth2Client\Security\Authenticator\OAuth2Authenticator'
