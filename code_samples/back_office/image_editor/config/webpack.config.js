@@ -2,10 +2,9 @@ const Encore = require('@symfony/webpack-encore');
 const path = require('path');
 const getEzConfig = require('./ez.webpack.config.js');
 const getIbexaConfig = require('./ibexa.webpack.config.js');
-const eZConfigManager = require('./ez.webpack.config.manager.js');
 const eZConfig = getEzConfig(Encore);
 const ibexaConfig = getIbexaConfig(Encore);
-const customConfigs = require('./ez.webpack.custom.configs.js');
+const customConfigs = require('./ibexa.webpack.custom.configs.js');
 
 Encore.reset();
 Encore

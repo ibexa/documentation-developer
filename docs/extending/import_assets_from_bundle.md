@@ -4,7 +4,7 @@
 
 ## Configuration from a bundle
 
-To import assets from a bundle, you must configure them in the bundle's `Resources/encore/ez.config.js` file:
+To import assets from a bundle, you must configure them in the bundle's `Resources/encore/ibexa.config.js` file:
 
 ``` js
 const path = require('path');
@@ -29,9 +29,9 @@ To import CSS files only, use:
     After you add new files, run `php bin/console cache:clear`.
 
     For a full example of importing asset configuration,
-    see [`ez.config.js`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/encore/ez.config.js)
+    see [`ibexa.config.js`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/encore/ibexa.config.js)
 
-To edit existing configuration entries, create a `Resources/encore/ez.config.manager.js` file:
+To edit existing configuration entries, create a `Resources/encore/ibexa.config.manager.js` file:
 
 ``` js
 const path = require('path');
@@ -72,7 +72,7 @@ module.exports = (IbexaConfig, IbexaConfigManager) => {
     After you add new files, run `php bin/console cache:clear`.
 
     For a full example of overriding configuration,
-    see [`ez.config.manager.js`](https://github.com/ibexa/matrix-fieldtype/blob/main/src/bundle/Resources/encore/ez.config.manager.js).
+    see [`ibexa.config.manager.js`](https://github.com/ibexa/matrix-fieldtype/blob/main/src/bundle/Resources/encore/ibexa.config.manager.js).
 
 To add a new configuration under your own namespace and with its own dependencies,
 add the `Resources/encore/ez.webpack.custom.config.js` file, for example:
