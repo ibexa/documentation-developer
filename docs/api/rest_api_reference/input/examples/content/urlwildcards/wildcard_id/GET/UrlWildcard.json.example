@@ -1,6 +1,6 @@
 {
     "UrlWildcard": {
-        "_media-type": "application/vnd.ez.api.UrlWildcard+json",
+        "_media-type": "application/vnd.ibexa.api.UrlWildcard+json",
         "_href": "/api/ezp/v2/content/urlwildcards/4",
         "_id": 4,
         "sourceUrl": "/api/ezp/v2/content/location/2",

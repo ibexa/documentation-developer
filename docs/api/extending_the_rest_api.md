@@ -216,7 +216,7 @@ To provide your controller with parameters, either in JSON or XML format, the pa
 an input parser so that the payload can be converted to an actual `ValueObject`.
 
 Each payload is dispatched to its input parser based on the request's `Content-Type` header. 
-For example, a request with a `Content-Type` of `application/vnd.ez.api.ContentCreate` is parsed 
+For example, a request with a `Content-Type` of `application/vnd.ibexa.api.ContentCreate` is parsed 
 by `Ibexa\Contracts\Rest\Input\Parser`. 
 This parser builds and returns `ContentCreateStruct` that can then be used to create content with the Public API.
 
@@ -333,6 +333,6 @@ The syntax is based on the Symfony's [expression language]([[= symfony_doc =]]/c
 
 The above configuration adds the following entry to the root resource:
 
-`<someresource media-type="application/vnd.ez.api.Content+xml" href="/api/ezp/v2/content/objects/2"/>`
+`<someresource media-type="application/vnd.ibexa.api.Content+xml" href="/api/ezp/v2/content/objects/2"/>`
 
-`<someresource media-type="application/vnd.ez.api.Content+xml" href="/api/ezp/v2/content/objects/2"/>
+`<someresource media-type="application/vnd.ibexa.api.Content+xml" href="/api/ezp/v2/content/objects/2"/>

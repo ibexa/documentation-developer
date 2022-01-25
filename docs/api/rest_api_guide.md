@@ -42,8 +42,8 @@ It uses HTTP methods ( **`GET`** , **`POST`** , **`PUT`** , **`DELETE`** , etc.)
 
 On top of methods, HTTP request headers will allow you to personalize the request's behavior. On every resource, you can use the Accept header to indicate which format you want to communicate in, JSON or XML. This header is also used to specify the response type you want the server to send when multiple ones are available.
 
--   `Accept: application/vnd.ez.api.Content+xml` to get **Content** (full data, fields included) as **XML**
--   `Accept: application/vnd.ez.api.ContentInfo+json` to get **ContentInfo** (metadata only) as **JSON**
+-   `Accept: application/vnd.ibexa.api.Content+xml` to get **Content** (full data, fields included) as **XML**
+-   `Accept: application/vnd.ibexa.api.ContentInfo+json` to get **ContentInfo** (metadata only) as **JSON**
 
 !!! note "More information"
 
@@ -113,7 +113,7 @@ request.onreadystatechange = function () {
         log.innerHTML = "HTTP response from " + resource + "\n\n" + request.getAllResponseHeaders() + "\n" + request.responseText;
     }
 };
-request.setRequestHeader('Accept', 'application/vnd.ez.api.ContentInfo+json');
+request.setRequestHeader('Accept', 'application/vnd.ibexa.api.ContentInfo+json');
 request.send();
 </script>
 ```

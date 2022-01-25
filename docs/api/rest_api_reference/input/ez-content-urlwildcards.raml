@@ -5,16 +5,16 @@ get:
         Accept:
             description: If set, the URL wildcard is returned in XML or JSON format.
             example: |
-                application/vnd.ez.api.UrlWildcardList+xml
-                application/vnd.ez.api.UrlWildcardList+json
+                application/vnd.ibexa.api.UrlWildcardList+xml
+                application/vnd.ibexa.api.UrlWildcardList+json
     responses:
         200:
             description: OK - returns a list of URL wildcards.
             body:
-                application/vnd.ez.api.UrlWildcardList+xml:
+                application/vnd.ibexa.api.UrlWildcardList+xml:
                     type: UrlWildcardList
                     example: !include examples/content/urlwildcards/GET/UrlWildcardList.xml.example
-                application/vnd.ez.api.UrlWildcardList+json:
+                application/vnd.ibexa.api.UrlWildcardList+json:
                     type: UrlWildcardList
                     example: !include examples/content/urlwildcards/GET/UrlWildcardList.json.example
         401:
@@ -26,28 +26,28 @@ post:
         Accept:
             description: If set, the new URL wildcard is returned in XML or JSON format.
             example: |
-                application/vnd.ez.api.UrlWildcard+xml
-                application/vnd.ez.api.UrlWildcard+json
+                application/vnd.ibexa.api.UrlWildcard+xml
+                application/vnd.ibexa.api.UrlWildcard+json
         Content-Type:
             description: The URL Wildcard input schema encoded in XML or JSON format.
             example: |
-                application/vnd.ez.api.UrlWildcardCreate+xml
-                application/vnd.ez.api.UrlWildcardCreate+json
+                application/vnd.ibexa.api.UrlWildcardCreate+xml
+                application/vnd.ibexa.api.UrlWildcardCreate+json
     body:
-        application/vnd.ez.api.UrlWildcardCreate.xml:
+        application/vnd.ibexa.api.UrlWildcardCreate.xml:
             type: UrlWildcardCreate
             example: !include examples/content/urlwildcards/POST/UrlWildcardCreate.xml.example
-        application/vnd.ez.api.UrlWildcardCreate.json:
+        application/vnd.ibexa.api.UrlWildcardCreate.json:
             type: UrlWildcardCreate
             example: !include examples/content/urlwildcards/POST/UrlWildcardCreate.json.example
     responses:
         201:
             description: URL wildcard created.
             body:
-                application/vnd.ez.api.UrlWildcard+xml:
+                application/vnd.ibexa.api.UrlWildcard+xml:
                     type: UrlWildcard
                     example: !include examples/content/urlwildcards/POST/UrlWildcard.xml.example
-                application/vnd.ez.api.UrlWildcard+json:
+                application/vnd.ibexa.api.UrlWildcard+json:
                     type: UrlWildcard
                     example: !include examples/content/urlwildcards/POST/UrlWildcard.json.example
         400:
@@ -64,16 +64,16 @@ post:
             Accept:
                 description: If set, the URL wildcard is returned in XML or JSON format.
                 example: |
-                    application/vnd.ez.api.UrlWildcard+xml
-                    application/vnd.ez.api.UrlWildcard+json
+                    application/vnd.ibexa.api.UrlWildcard+xml
+                    application/vnd.ibexa.api.UrlWildcard+json
         responses:
             200:
                 description: OK - returns the URL wildcard.
                 body:
-                    application/vnd.ez.api.UrlWildcard+xml:
+                    application/vnd.ibexa.api.UrlWildcard+xml:
                         type: UrlWildcard
                         example: !include examples/content/urlwildcards/wildcard_id/GET/UrlWildcard.xml.example
-                    application/vnd.ez.api.UrlWildcard+json:
+                    application/vnd.ibexa.api.UrlWildcard+json:
                         type: UrlWildcard
                         example: !include examples/content/urlwildcards/wildcard_id/GET/UrlWildcard.json.example
             401:

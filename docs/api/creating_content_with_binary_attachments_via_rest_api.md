@@ -79,7 +79,7 @@ curl_setopt_array($curl, [
     CURLOPT_HTTPHEADER => [
         "accept: application/json",
         "cache-control: no-cache",
-        "content-type: application/vnd.ez.api.ContentCreate+json",
+        "content-type: application/vnd.ibexa.api.ContentCreate+json",
     ],
 ]);
 

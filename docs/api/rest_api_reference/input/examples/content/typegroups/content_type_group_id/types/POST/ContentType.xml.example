@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentType media-type="application/vnd.ez.api.ContentType+xml" href="/api/ezp/v2/content/types/20/draft">
+<ContentType media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ezp/v2/content/types/20/draft">
     <id>20</id>
     <status>DRAFT</status>
     <identifier>newContentType</identifier>
@@ -11,10 +11,10 @@
     </descriptions>
     <creationDate>2019-02-26T09:39:58+01:00</creationDate>
     <modificationDate>2019-02-26T09:39:58+01:00</modificationDate>
-    <Creator media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
-    <Modifier media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
-    <Groups media-type="application/vnd.ez.api.ContentTypeGroupRefList+xml" href="/api/ezp/v2/content/types/20/groups"/>
-    <Draft media-type="application/vnd.ez.api.ContentType+xml" href="/api/ezp/v2/content/types/20/draft"/>
+    <Creator media-type="application/vnd.ibexa.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+    <Modifier media-type="application/vnd.ibexa.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+    <Groups media-type="application/vnd.ibexa.api.ContentTypeGroupRefList+xml" href="/api/ezp/v2/content/types/20/groups"/>
+    <Draft media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ezp/v2/content/types/20/draft"/>
     <remoteId>remoteId-qwert548</remoteId>
     <urlAliasSchema>&lt;title&gt;</urlAliasSchema>
     <nameSchema>&lt;title&gt;</nameSchema>
@@ -23,8 +23,8 @@
     <defaultAlwaysAvailable>true</defaultAlwaysAvailable>
     <defaultSortField>PATH</defaultSortField>
     <defaultSortOrder>ASC</defaultSortOrder>
-    <FieldDefinitions media-type="application/vnd.ez.api.FieldDefinitionList+xml" href="/api/ezp/v2/content/types/20/draft/fieldDefinitions">
-        <FieldDefinition media-type="application/vnd.ez.api.FieldDefinition+xml" href="/api/ezp/v2/content/types/20/draft/fieldDefinitions/223">
+    <FieldDefinitions media-type="application/vnd.ibexa.api.FieldDefinitionList+xml" href="/api/ezp/v2/content/types/20/draft/fieldDefinitions">
+        <FieldDefinition media-type="application/vnd.ibexa.api.FieldDefinition+xml" href="/api/ezp/v2/content/types/20/draft/fieldDefinitions/223">
             <id>223</id>
             <identifier>title</identifier>
             <fieldType>ezstring</fieldType>

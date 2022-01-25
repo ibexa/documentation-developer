@@ -26,15 +26,15 @@ displayName: Calendar
             Accept:
                 description: If set, the calendar event list is returned in XML or JSON format.
                 example:  |
-                    application/vnd.ez.api.ContentInfo+xml
-                    application/vnd.ez.api.ContentInfo+json
+                    application/vnd.ibexa.api.ContentInfo+xml
+                    application/vnd.ibexa.api.ContentInfo+json
         responses:
             200:
                 body:
-                    application/vnd.ez.api.ContentInfo+xml:
+                    application/vnd.ibexa.api.ContentInfo+xml:
                         type: ContentInfo
                         example: !include examples/calendar/event/GET/ContentInfo.xml.example
-                    application/vnd.ez.api.ContentInfo+json:
+                    application/vnd.ibexa.api.ContentInfo+json:
                         type: ContentInfo
                         example: !include examples/calendar/event/GET/ContentInfo.json.example
     /grouped-by-day:
@@ -64,15 +64,15 @@ displayName: Calendar
                 Accept:
                     description: If set, the calendar event list grouped by day is returned in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.ScheduledVersion+xml
-                        application/vnd.ez.api.ScheduledVersion+json
+                        application/vnd.ibexa.api.ScheduledVersion+xml
+                        application/vnd.ibexa.api.ScheduledVersion+json
             responses:
                 200:
                     body:
-                        application/vnd.ez.api.ContentInfo+xml:
+                        application/vnd.ibexa.api.ContentInfo+xml:
                             type: ContentInfo
                             example: !include examples/calendar/event/grouped-by-day/GET/ContentInfo.xml.example
-                        application/vnd.ez.api.ContentInfo+json:
+                        application/vnd.ibexa.api.ContentInfo+json:
                             type: ContentInfo
                             example: !include examples/calendar/event/grouped-by-day/GET/ContentInfo.json.example
     /{eventType}:
@@ -83,9 +83,9 @@ displayName: Calendar
                 Content-Type:
                     description:
                     example:  |
-                        application/vnd.ez.api.calendar.future_publication.UnscheduleAction+json
+                        application/vnd.ibexa.api.calendar.future_publication.UnscheduleAction+json
             body:
-                application/vnd.ez.api.UnscheduleActionInput+json:
+                application/vnd.ibexa.api.UnscheduleActionInput+json:
                     type: RoleAssignInput
                     example: !include examples/calendar/event/eventType/POST/UnscheduleActionInput.json.example
             responses:

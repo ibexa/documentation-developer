@@ -7,11 +7,11 @@ displayName: content/assets/images
             Accept:
                 description: If set, the value XML object with image asset metadata is returned.
                 example:  |
-                    application/vnd.ez.api.Asset+xml
+                    application/vnd.ibexa.api.Asset+xml
         responses:
             200:
                 body:
-                    application/vnd.ez.api.Asset+xml:
+                    application/vnd.ibexa.api.Asset+xml:
                         type: Asset
                         example: !include examples/content/assets/images/assetId/assetSource/GET/Asset.xml.example
             401:

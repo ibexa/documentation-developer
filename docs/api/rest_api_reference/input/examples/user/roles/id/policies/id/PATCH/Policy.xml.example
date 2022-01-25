@@ -1,4 +1,4 @@
-<Policy href="/user/roles/11/policies/55" media-type="application/vnd.ez.api.Policy+xml">
+<Policy href="/user/roles/11/policies/55" media-type="application/vnd.ibexa.api.Policy+xml">
   <id>55</id>
   <module>content</module>
   <function>create</function>

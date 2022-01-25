@@ -5,27 +5,27 @@ post:
         Accept:
             description: If set, the new Section is returned in XML or JSON format.
             example:  |
-                application/vnd.ez.api.Section+xml
-                application/vnd.ez.api.Section+json
+                application/vnd.ibexa.api.Section+xml
+                application/vnd.ibexa.api.Section+json
         Content-Type:
             description: The Section input schema encoded in XML or JSON format.
             example:  |
-                application/vnd.ez.api.SectionInput+json
-                application/vnd.ez.api.SectionInput+xml
+                application/vnd.ibexa.api.SectionInput+json
+                application/vnd.ibexa.api.SectionInput+xml
     body:
-        application/vnd.ez.api.SectionInput+xml:
+        application/vnd.ibexa.api.SectionInput+xml:
             type: SectionInput
             example: !include examples/content/sections/POST/SectionInput.xml.example
-        application/vnd.ez.api.SectionInput+json:
+        application/vnd.ibexa.api.SectionInput+json:
             type: SectionInput
             example: !include examples/content/sections/POST/SectionInput.json.example
     responses:
         201:
             body:
-                application/vnd.ez.api.Section+xml:
+                application/vnd.ibexa.api.Section+xml:
                     type: Section
                     example: !include examples/content/sections/POST/Section.xml.example
-                application/vnd.ez.api.Section+json:
+                application/vnd.ibexa.api.Section+json:
                     type: Section
                     example: !include examples/content/sections/POST/Section.json.example
 get:
@@ -38,17 +38,17 @@ get:
         Accept:
             description: If set, the Section list is returned in XML or JSON format.
             example:  |
-                application/vnd.ez.api.SectionList+xml
-                application/vnd.ez.api.SectionList+json
+                application/vnd.ibexa.api.SectionList+xml
+                application/vnd.ibexa.api.SectionList+json
         If-None-Match:
             description: ETag
     responses:
         200:
             body:
-                application/vnd.ez.api.SectionList+xml:
+                application/vnd.ibexa.api.SectionList+xml:
                     type: SectionList
                     example: !include examples/content/sections/GET/SectionList.xml.example
-                application/vnd.ez.api.SectionList+json:
+                application/vnd.ibexa.api.SectionList+json:
                     type: SectionList
                     example: !include examples/content/sections/GET/SectionList.json.example
         401:
@@ -61,17 +61,17 @@ get:
             Accept:
                 description: If set, the Section is returned in XML or JSON format.
                 example:  |
-                    application/vnd.ez.api.Section+xml
-                    application/vnd.ez.api.Section+json
+                    application/vnd.ibexa.api.Section+xml
+                    application/vnd.ibexa.api.Section+json
             If-None-match:
                 description: ETag
         responses:
             200:
                 body:
-                    application/vnd.ez.api.Section+xml:
+                    application/vnd.ibexa.api.Section+xml:
                         type: Section
                         example: !include examples/content/sections/section_id/GET/Section.xml.example
-                    application/vnd.ez.api.Section+json:
+                    application/vnd.ibexa.api.Section+json:
                         type: Section
                         example: !include examples/content/sections/section_id/GET/Section.json.example
             401:
@@ -85,30 +85,30 @@ get:
             Accept:
                 description: If set, the updated Section is returned in XML or JSON format.
                 example:  |
-                    application/vnd.ez.api.Section+xml
-                    application/vnd.ez.api.Section+json
+                    application/vnd.ibexa.api.Section+xml
+                    application/vnd.ibexa.api.Section+json
             Content-Type:
                 description: The Section input schema encoded in XML or JSON.
                 example:  |
-                    application/vnd.ez.api.SectionInput+xml
-                    application/vnd.ez.api.SectionInput+json
+                    application/vnd.ibexa.api.SectionInput+xml
+                    application/vnd.ibexa.api.SectionInput+json
             If-Match:
                 description: ETag
         body:
-            application/vnd.ez.api.SectionInput+xml:
+            application/vnd.ibexa.api.SectionInput+xml:
                 type: SectionInput
                 example: !include examples/content/sections/section_id/PATCH/SectionInput.xml.example
-            application/vnd.ez.api.SectionInput+json:
+            application/vnd.ibexa.api.SectionInput+json:
                 type: SectionInput
                 example: !include examples/content/sections/section_id/PATCH/SectionInput.json.example
         responses:
             200:
                 description: OK - Section updated.
                 body:
-                    application/vnd.ez.api.Section+xml:
+                    application/vnd.ibexa.api.Section+xml:
                         type: Section
                         example: !include examples/content/sections/section_id/PATCH/Section.xml.example
-                    application/vnd.ez.api.Section+json:
+                    application/vnd.ibexa.api.Section+json:
                         type: Section
                         example: !include examples/content/sections/section_id/PATCH/Section.json.example
             400:
@@ -127,8 +127,8 @@ get:
         #Accept:
         #description: If set, in the case of an error the error message is returned in XML or JSON format
         #example:  |
-        #application/vnd.ez.api.ErrorMessage+xml
-        #application/vnd.ez.api.ErrorMessage+json
+        #application/vnd.ibexa.api.ErrorMessage+xml
+        #application/vnd.ibexa.api.ErrorMessage+json
         responses:
             204:
                 description: No Content - given Section is deleted.

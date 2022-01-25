@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Version href="/content/objects/23/versions/4" media-type="application/vnd.ez.api.Version+xml">
+<Version href="/content/objects/23/versions/4" media-type="application/vnd.ibexa.api.Version+xml">
   <VersionInfo>
     <id>45</id>
     <versionNo>4</versionNo>
     <status>DRAFT</status>
     <modificationDate>2012-02-20T12:00:00</modificationDate>
-    <Creator href="/user/users/44" media-type="application/vnd.ez.api.User+xml" />
+    <Creator href="/user/users/44" media-type="application/vnd.ibexa.api.User+xml" />
     <creationDate>22012-02-20T12:00:00</creationDate>
     <initialLanguageCode>ger-DE</initialLanguageCode>
     <names>
       <value languageCode="ger-DE">Neuer Titel</value>
     </names>
-    <Content href="/content/objects/23" media-type="application/vnd.ez.api.ContentInfo+xml" />
+    <Content href="/content/objects/23" media-type="application/vnd.ibexa.api.ContentInfo+xml" />
   </VersionInfo>
   <Fields>
     <field>
@@ -37,11 +37,11 @@
     </field>
   </Fields>
   <Relations>
-    <Relation href="/content/object/32/versions/2/relations/43" media-type="application/vnd.ez.api.Relation+xml">
+    <Relation href="/content/object/32/versions/2/relations/43" media-type="application/vnd.ibexa.api.Relation+xml">
       <SourceContent href="/content/objects/23"
-        media-type="application/vnd.ez.api.ContentInfo+xml" />
+        media-type="application/vnd.ibexa.api.ContentInfo+xml" />
       <DestinationContent href="/content/objects/45"
-        media-type="application/vnd.ez.api.ContentInfo+xml" />
+        media-type="application/vnd.ibexa.api.ContentInfo+xml" />
       <RelationType>COMMON</RelationType>
     </Relation>
   </Relations>
