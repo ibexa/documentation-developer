@@ -323,7 +323,7 @@ ez_publish_rest:
             rest_root_resources:
                 someresource:
                     mediaType: Content
-                    href: 'router.generate("ezpublish_rest_loadContent", {"contentId": 2})'
+                    href: 'router.generate("ibexa.rest.load_content", {"contentId": 2})'
 ```
 
 The `router.generate` call dynamically renders a URI based on the name of the route and the optional parameters that are passed as the other arguments.

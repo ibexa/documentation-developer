@@ -23,7 +23,7 @@ class MenuBuilder
         $menu->addChild('Blog', ['route' => 'ez_urlalias', 'routeParameters' => [
             'locationId' => 67,
         ]]);
-        $menu->addChild('Search', ['route' => 'ezplatform.search']);
+        $menu->addChild('Search', ['route' => 'ibexa.search']);
 
         return $menu;
     }

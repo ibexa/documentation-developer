@@ -43,11 +43,11 @@ The `Ibexa\Bundle\Commerce\Eshop\Controller\DelegateCustomerController` controll
 The function adds two routes:
 
 ``` yaml
-silversolutions_delegate:
+ibexa.commerce.delegate:
     path: /delegate
     defaults: { _controller: Ibexa\Bundle\Commerce\Eshop\Controller\DelegateCustomerController:delegateAction }
 
-silversolutions_undelegate:
+ibexa.commerce.undelegate:
     path: /undelegate
     defaults: { _controller: Ibexa\Bundle\Commerce\Eshop\Controller\DelegateCustomerController:undelegateAction }
 ```

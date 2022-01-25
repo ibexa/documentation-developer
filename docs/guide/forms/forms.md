@@ -47,7 +47,7 @@ and its services (`preDataProcessor` and `dataProcessors`) and point to them in 
 which forms configuration should be used.
 
 ``` yaml
-silversolutions_service:
+ibexa.commerce.service:
     path:  /service/{formTypeResolver}
     defaults: { _controller: Ibexa\Bundle\Commerce\Eshop\Controller\FormsController::formsAction }
 ```
@@ -95,11 +95,11 @@ In the following example, `formTypeResolver` value is `private`.
             #valid:
                 #httpResponse: http://www.google.de
                 #template: '@@ibexadesign/Forms/register_private_valid.html.twig'
-                #routeName: silversolutions_forms_user_choice
+                #routeName: ibexa.commerce.forms.user_choice
             #invalid:
                 #httpResponse: http://www.google.de
                 #template: '@@ibexadesign/pagelayout.html.twig'
-                #routeName: silversolutions_forms_user_choice
+                #routeName: ibexa.commerce.forms.user_choice
         dataProcessors:
             - Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\CreateCustomerProfileDataDataProcessor
             - Ibexa\Bundle\Commerce\Newsletter\Service\DataProcessor\SubscribeNewsletterDataProcessor

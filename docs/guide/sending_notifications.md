@@ -124,7 +124,7 @@ class MyRenderer implements NotificationRenderer
     public function generateUrl(Notification $notification): ?string
     {
         if (array_key_exists('content_id', $notification->data)) {
-            return $this->router->generate('_ez_content_view', ['contentId' => $notification->data['content_id']]);
+            return $this->router->generate('ibexa.content.view', ['contentId' => $notification->data['content_id']]);
         }
 
         return null;

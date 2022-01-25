@@ -161,7 +161,7 @@ a Route Reference with the `ibexa_route` helper, passing `content` and `File` Fi
 Optional parameter `inLanguage` may be used to specify File content translation.
 
 ```twig
-  {% set routeReference = ibexa_route( 'ez_content_download', {'content': content, 'fieldIdentifier': 'file', 'inLanguage': content.prioritizedFieldLanguageCode  } ) %}
+  {% set routeReference = ibexa_route( 'ibexa.content.download', {'content': content, 'fieldIdentifier': 'file', 'inLanguage': content.prioritizedFieldLanguageCode  } ) %}
   <a href="{{ ibexa_path( routeReference ) }}">Download</a>
 ```
 
