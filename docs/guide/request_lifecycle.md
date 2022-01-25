@@ -85,7 +85,7 @@ calls `Ibexa\Core\MVC\Symfony\Routing\ChainRouter::matchRequest` and adds its re
 
 #### `ChainRouter`
 
-The [`ChainRouter`](https://symfony.com/doc/current/cmf/components/routing/chain.html) is a Symfony Content Management Framework (CMF) component. [[= product_name =]] makes it a service named ` Ibexa\Core\MVC\Symfony\Routing\ChainRouter`.
+The [`ChainRouter`](https://symfony.com/doc/current/cmf/components/routing/chain.html) is a Symfony Content Management Framework (CMF) component. [[= product_name =]] makes it a service named `Ibexa\Core\MVC\Symfony\Routing\ChainRouter`.
 It has a collection of prioritized routers where to find one matching the request.
 The `ChainRouter` router collection is built by the `ChainRoutingPass`, collecting the services tagged `router`.
 The `DefaultRouter` is always added to the collection with top priority (priority 255).
@@ -125,7 +125,7 @@ Now, when the `Request` knows its controller, the `HttpKernel` dispatches the `k
 
 When HttpKernel dispatches the `kernel.controller` event, the following things happen.
 
-Listening to `kernel.controller`, the `ViewControllerListener` (` Ibexa\Bundle\Core\EventListener\ViewControllerListener`) (priority 10) checks if the `_controller` request attribute is associated with a `ViewBuilder` (a service tagged `ibexa.view.builder`) in the `ViewBuilderRegistry` (`Ibexa\Core\MVC\Symfony\View\Builder\Registry\ControllerMatch`).
+Listening to `kernel.controller`, the `ViewControllerListener` (`Ibexa\Bundle\Core\EventListener\ViewControllerListener`) (priority 10) checks if the `_controller` request attribute is associated with a `ViewBuilder` (a service tagged `ibexa.view.builder`) in the `ViewBuilderRegistry` (`Ibexa\Core\MVC\Symfony\View\Builder\Registry\ControllerMatch`).
 The `ContentViewBuilder` (`Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuildercontent`) matches on controller starting with `ibexa_content:` (see `Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder::matches`).
 The `ContentViewBuilder` builds a `ContentView`.
 
@@ -167,7 +167,7 @@ As a reminder, the controller and its argument can be:
 
 If the controller returns something other than `Response`, the `HttpKernel` dispatches a `kernel.view` event (`KernelEvents::VIEW`).
 In the case of a URL Alias, the controller most likely returns a ContentView.
-The `ViewRendererListener` (`Ibexa\Bundle\Core\EventListener\ViewRendererListener`) uses the `ContentView` and the `TemplateRenderer` (` Ibexa\Core\MVC\Symfony\View\Renderer\TemplateRenderer`) to get the content of the `Response` and attach this new `Response` to the event.
+The `ViewRendererListener` (`Ibexa\Bundle\Core\EventListener\ViewRendererListener`) uses the `ContentView` and the `TemplateRenderer` (`Ibexa\Core\MVC\Symfony\View\Renderer\TemplateRenderer`) to get the content of the `Response` and attach this new `Response` to the event.
 The `HttpKernel` retrieves the response attached to the event and continues.
 
 
@@ -206,7 +206,7 @@ The `HttpKernel` sends the last `kernel.terminate` event (`KernelEvents::TERMINA
     - 16:`locale_listener`
     - 13:`Ibexa\AdminUi\EventListener\RequestListener`
 * event=`kernel.controller`
-    - 10:` Ibexa\Bundle\Core\EventListener\ViewControllerListener`
+    - 10:`Ibexa\Bundle\Core\EventListener\ViewControllerListener`
         - `Ibexa\Core\MVC\Symfony\View\Builder\Registry\ControllerMatch`
             - tag=`ibexa.view.builder`
                 - `Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuildercontent`

@@ -199,7 +199,7 @@ services:
 
     app.rest.output.value_object_visitor.version_info:
         class: ExampleBundle\Rest\ValueObjectVisitor\VersionInfo
-        parent:  Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
         arguments:
             - '@ibexa.api.repository'
         tags:

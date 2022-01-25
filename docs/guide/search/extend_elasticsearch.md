@@ -350,7 +350,7 @@ services:
             $aggregationClass: 'App\Query\Aggregation\PriorityRangeAggregation'
             $searchIndexFieldName: 'priority_i'
         tags:
-            - { name:  ibexa.elasticsearch.query.location.aggregation_visitor }
+            - { name: ibexa.elasticsearch.query.location.aggregation_visitor }
 ```
 
 The visitor is created by `SearchFieldAggregationVisitorFactory`.
@@ -359,12 +359,12 @@ You provide it with two arguments:
 - the aggregation class in `aggregationClass`
 - the field name in search index in `searchIndexFieldName`
 
-Tag the service with ` ibexa.elasticsearch.query.location.aggregation_visitor`.
+Tag the service with `ibexa.elasticsearch.query.location.aggregation_visitor`.
 
 For the result extractor, you can use the built-in `RangeAggregationResultExtractor`
 and provide it with the aggregation class in the `aggregationClass` parameter.
 
-Tag the service with ` ibexa.elasticsearch.query.location.aggregation_result_extractor`.
+Tag the service with `ibexa.elasticsearch.query.location.aggregation_result_extractor`.
 
 ``` yaml
 services:
@@ -373,7 +373,7 @@ services:
         arguments:
             $aggregationClass: 'App\Query\Aggregation\PriorityRangeAggregation'
         tags:
-            - { name:  ibexa.elasticsearch.query.location.aggregation_result_extractor }
+            - { name: ibexa.elasticsearch.query.location.aggregation_result_extractor }
 ```
 
 If you are using a different type of aggregation than range, you can also use respective visitor and extractor classes:
@@ -505,8 +505,8 @@ The `extract()` method converts the [raw data provided by the search engine](htt
 
 Finally, register both the aggregation visitor and the result extractor as services.
 
-Tag the aggregation visitor with ` ibexa.elasticsearch.query.location.aggregation_visitor`
-and the result extractor with ` ibexa.elasticsearch.query.location.aggregation_result_extractor`:
+Tag the aggregation visitor with `ibexa.elasticsearch.query.location.aggregation_visitor`
+and the result extractor with `ibexa.elasticsearch.query.location.aggregation_result_extractor`:
 
 ``` yaml
 services:
