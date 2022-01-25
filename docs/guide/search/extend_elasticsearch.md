@@ -343,7 +343,7 @@ In the example below it is `RangeAggregationVisitor`:
 
 ``` yaml
 services:
-    App\Query\Aggregation\Elasticsearch\PriorityAggregationVisitor:
+    app.search.elasticsearch.query.aggregation_visitor.priority_range_aggregation:
         class: Ibexa\ElasticSearchEngine\Query\AggregationVisitor\RangeAggregationVisitor
         factory: ['@Ibexa\ElasticSearchEngine\Query\AggregationVisitor\Factory\SearchFieldAggregationVisitorFactory', 'createRangeAggregationVisitor']
         arguments:
@@ -368,7 +368,7 @@ Tag the service with `ezplatform.search.elasticsearch.query.location.aggregation
 
 ``` yaml
 services:
-    App\Query\Aggregation\Elasticsearch\PriorityAggregationResultExtractor:
+    app.search.elasticsearch.query.aggregation_result_extractor.priority_range_aggregation:
         class: Ibexa\ElasticSearchEngine\Query\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor
         arguments:
             $aggregationClass: 'App\Query\Aggregation\PriorityRangeAggregation'
@@ -524,7 +524,7 @@ For content-based aggregations, use the `ezplatform.search.elasticsearch.query.c
 
 !!! caution "Deprecated"
 
-    Search Facets are deprecated since version v3.2.
+    Search Facets are deprecated since version v3.2. Use a custom [Aggregation](../../api/public_php_api_search.md#aggregation) instead.
 
 To create a custom search Facet for use with Elasticsearch, create a Facet class and a Facet builder.
 You also need to add a visitor and a result extractor.

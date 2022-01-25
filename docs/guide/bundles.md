@@ -76,7 +76,7 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |ibexa/recommendation-client|Client for connecting with the personalization engine|
 |ibexa/image-editor|[Image Editor](image_editor.md)|
 |ibexa/installer|Provides the `ibexa:install` command|
-|ibexa/migrations|[Migration of Repository data](data_migration.md)|
+|ibexa/migrations|[Migration of Repository data](data_migration/data_migration.md)|
 |ibexa/oauth2-client|Integration with [`knpuniversity/oauth2-client-bundle`](https://github.com/knpuniversity/oauth2-client-bundle)|
 
 ## Ibexa Experience packages
