@@ -55,7 +55,7 @@ If a basket line does not provide product data (for example, the caching life ti
 To create a button that adds the current product to the basket, use the following form:
 
 ``` html+twig
-<form method="post" action="{{ path('silversolutions_add_to_basket') }}">
+<form method="post" action="{{ path('ibexa.commerce.basket.add') }}">
     <div class="js-add-to-basket-parent">
         <input type="text" name="ses_basket[0][quantity]" class="tooltip" data-placement="e">
         <input type="hidden" name="ses_basket[0][sku]" value="{{ catalogElement.sku }}" >

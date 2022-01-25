@@ -3,7 +3,7 @@
 The controller method `BreadcrumbsController::renderBreadcrumbsAction()` uses the `BreadcrumbsAggregateGenerator` to render the breadcrumbs from the controller.
 
 `BreadcrumbsAggregateGenerator` collects all generators that generate breadcrumbs. 
-A compiler pass gets all services that are tagged with `siso_core.breadcrumbs_generator`.
+A compiler pass gets all services that are tagged with `ibexa.commerce.breadcrumbs.generator`.
 The aggregate generator loops through all collected generators to check which generator can render breadcrumbs.
 
 The first generator, in order of priority, that returns true from `canRenderBreadcrumbs()` is used to render the breadcrumbs.

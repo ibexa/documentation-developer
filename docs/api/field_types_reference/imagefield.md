@@ -156,7 +156,7 @@ Children of the `fieldValue` node will list the general properties of the Field'
 
 #### Getting an image variation
 
-The variation service, `ezpublish.fieldType.ezimage.variation_service`, can be used to generate/get variations for a Field. It expects a VersionInfo, the Image Field, and the variation name as a string (`large`, `medium`, etc.):
+The variation service, `ibexa.field_type.ezimage.variation_service`, can be used to generate/get variations for a Field. It expects a VersionInfo, the Image Field, and the variation name as a string (`large`, `medium`, etc.):
 
 ``` php
 $variation = $imageVariationHandler->getVariation(

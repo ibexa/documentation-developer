@@ -46,17 +46,17 @@ To handle plurals in translations, use [Symfony pluralization]([[= symfony_doc =
 
 ## Translation in PHP code
 
-In PHP code you can use the `silver_trans.translator` service to get translations:
+In PHP code you can use the `Ibexa\Bundle\Commerce\Translation\Services\TransService` service to get translations:
 
 ``` php
 $messageOrCode = 'This is either some message that should be translated or a code for a text module';
 $context = 'context';
 
 //Call the service
-$container->get('silver_trans.translator')->translate($messageOrCode);
+$container->get('Ibexa\Bundle\Commerce\Translation\Services\TransService')->translate($messageOrCode);
 
 //Use the optional context parameter
-$container->get('silver_trans.translator')->translate($messageOrCode, $context);
+$container->get('Ibexa\Bundle\Commerce\Translation\Services\TransService')->translate($messageOrCode, $context);
 ```
 
 ## Translations with text modules
@@ -105,7 +105,7 @@ You can enable/disable logging of missing translations in the configuration with
 All missing translations are logged in `var/logs/siso.translations.log`.
 
 ``` xml
-<service id="silver_trans.logging_handler.stream" class="%monolog.handler.stream.class%">
+<service id="ibexa.commerce.trans.logging_handler.stream" class="%monolog.handler.stream.class%">
     <argument type="string">%kernel.logs_dir%/siso.translations.log</argument>
 </service>
 ```

@@ -67,5 +67,5 @@ Example confirmation form:
 To add a link redirecting to the login form, in the page layout template, provide the following code:
 
 ```html+twig
-<a href="{{ path('ezplatform.user.register') }}">Register</a>
+<a href="{{ path('ibexa.user.register') }}">Register</a>
 ```

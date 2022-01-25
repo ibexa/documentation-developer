@@ -9,7 +9,7 @@ It must be tagged as a service in `config/services.yaml`:
 ``` yaml
 App\Component\MyNewComponent:
     tags:
-        - { name: ezplatform.admin_ui.component, group: content-edit-form-before }
+        - { name: ibexa.admin_ui.component, group: content-edit-form-before }
 ```
 
 `group` indicates where the widget is displayed. The available groups are:
@@ -53,7 +53,7 @@ appbundle.components.my_twig_component:
             first_param: first_value
             second_param: second_value
     tags:
-        - { name: ezplatform.admin_ui.component, group: dashboard-blocks }
+        - { name: ibexa.admin_ui.component, group: dashboard-blocks }
 ```
 
 This renders the `path/to/file.html.twig` template with `first_param` and `second_param` as parameters.
@@ -68,7 +68,7 @@ app.components.my_link_component:
     arguments:
         $href: 'http://address.of/file.css'
     tags:
-        - { name: ezplatform.admin_ui.component, group: stylesheet-head }
+        - { name: ibexa.admin_ui.component, group: stylesheet-head }
 ```
 
 ``` yaml
@@ -79,5 +79,5 @@ app.components.my_script_component:
     arguments:
         $src: 'http://address.of/file.js'
     tags:
-        - { name: ezplatform.admin_ui.component, group: script-body }
+        - { name: ibexa.admin_ui.component, group: script-body }
 ```

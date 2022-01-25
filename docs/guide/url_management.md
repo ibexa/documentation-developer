@@ -118,14 +118,14 @@ interface URLHandlerInterface
 }
 ```
 
-Then you must register the service with an `ezpublish.url_handler` tag, like in the following example:
+Then you must register the service with an `ibexa.url_checker.handler` tag, like in the following example:
 
 ```yaml
 app.url_checker.handler.custom:
     class: 'App\URLChecker\Handler\CustomHandler'
     ...
     tags:
-        - { name: ezpublish.url_handler, scheme: custom }
+        - { name: ibexa.url_checker.handler, scheme: custom }
 ```
 
 The `scheme` attribute is mandatory and has to correspond to the name of the protocol, for instance, `ftp`.

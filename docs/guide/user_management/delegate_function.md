@@ -43,13 +43,13 @@ The `Ibexa\Bundle\Commerce\Eshop\Controller\DelegateCustomerController` controll
 The function adds two routes:
 
 ``` yaml
-silversolutions_delegate:
+ibexa.commerce.delegate:
     path: /delegate
-    defaults: { _controller: silver_eshop.delegate_customer_controller:delegateAction }
+    defaults: { _controller: Ibexa\Bundle\Commerce\Eshop\Controller\DelegateCustomerController:delegateAction }
 
-silversolutions_undelegate:
+ibexa.commerce.undelegate:
     path: /undelegate
-    defaults: { _controller: silver_eshop.delegate_customer_controller:undelegateAction }
+    defaults: { _controller: Ibexa\Bundle\Commerce\Eshop\Controller\DelegateCustomerController:undelegateAction }
 ```
 
 Delegating is not always allowed, you can use the `DelegateCustomerController::isDelegateAllowed` method to check that.

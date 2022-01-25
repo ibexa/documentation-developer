@@ -4,7 +4,7 @@ services:
             $fieldIdentifier: country
             $formType: Symfony\Component\Form\Extension\Core\Type\CountryType
         tags:
-            - { name: ezplatform.form_builder.field_mapper }
+            - { name: ibexa.form_builder.field.mapper }
     App\EventSubscriber\FormFieldDefinitionSubscriber:
         public: true
         tags:

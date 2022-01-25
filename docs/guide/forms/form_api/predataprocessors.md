@@ -5,7 +5,7 @@ It pre-fills the form with data.
 
 ``` yaml
 ses_forms.configs.my_account:
-    preDataProcessor: ses.customer_profile_data.data_processor.pre_fill_my_account 
+    preDataProcessor: Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\PreFillMyAccountDataProcessor
 ```
 
 The following pre-data processors pre-fill the respective forms with data fetched from `CustomerProfileData`
@@ -13,11 +13,11 @@ with the help of [`EzErpCustomerProfileDataService`](../../customers/customer_ap
 
 |Processor|Pre-fills|Service ID|
 |---|---|---|
-|`PreFillBuyerDataProcessor`|Buyer form|`ses.customer_profile_data.data_processor.pre_fill_buyer`|
-|`PreFillContactDataProcessor`|Contact form|`ses.customer_profile_data.data_processor.pre_fill_contact`|
-|`PreFillMyAccountDataProcessor`|`MyAccount` form|`ses.customer_profile_data.data_processor.pre_fill_my_account`|
-|`PreFillDeliveryAddressDataProcessor`|Delivery address|`siso_core.data_processor.pre_fill_delivery_address`|
-|`PreFillInvoiceDataProcessor`|Invoice address|`ses.customer_profile_data.data_processor.pre_fill_invoice`|
+|`PreFillBuyerDataProcessor`|Buyer form|`Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\PreFillBuyerDataProcessor`|
+|`PreFillContactDataProcessor`|Contact form|`Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\PreFillContactDataProcessor`|
+|`PreFillMyAccountDataProcessor`|`MyAccount` form|`Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\PreFillMyAccountDataProcessor`|
+|`PreFillDeliveryAddressDataProcessor`|Delivery address|`Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\PreFillDeliveryAddressDataProcessor`|
+|`PreFillInvoiceDataProcessor`|Invoice address|`Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\PreFillInvoiceDataProcessor`|
 
 ### Configuration
 

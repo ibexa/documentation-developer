@@ -33,9 +33,9 @@ services:
 
     App\FieldType\Point2D\Type:
         tags:
-            - { name: ezplatform.field_type, alias: point2d }
-            - { name: ezplatform.field_type.form_mapper.value, fieldType: point2d }
-            - { name: ezplatform.field_type.form_mapper.definition, fieldType: point2d }
+            - { name: ibexa.field_type, alias: point2d }
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: point2d }
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: point2d }
             
     App\Serializer\Point2D\ValueNormalizer:
         tags:

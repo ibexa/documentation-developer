@@ -119,7 +119,7 @@ If the given content has several Locations, you can see several `l<location-id>`
 A `ReponseCacheConfigurator` configures an HTTP Response object, makes the response public, adds tags and sets the shared max age. 
 It is provided to `ReponseTaggers` that use it to add the tags to the response.
 
-The `ConfigurableResponseCacheConfigurator` (`ezplatform.view_cache.response_configurator`) follows the `view_cache` configuration and only enables cache if it is enabled in the configuration.
+The `ConfigurableResponseCacheConfigurator` (`Ibexa\HttpCache\ResponseConfigurator\ConfigurableResponseCacheConfigurator`) follows the `view_cache` configuration and only enables cache if it is enabled in the configuration.
 
 ### Delegator and Value taggers
 

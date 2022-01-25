@@ -50,7 +50,7 @@ custom_blog_index:
 
 ## Custom breadcrumb generator
 
-To create a custom breadcrumb generator you have to write a generator class and register it as a service tagged as `siso_core.breadcrumbs_generator`.
+To create a custom breadcrumb generator you have to write a generator class and register it as a service tagged as `ibexa.commerce.breadcrumbs.generator`.
 
 The generator must implement `BreadcrumbsGeneratorInterface` and its two methods.
 

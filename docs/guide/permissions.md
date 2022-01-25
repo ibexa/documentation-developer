@@ -135,7 +135,7 @@ You can limit access to specific routes per Policy:
 ibexa_commerce_quick_order:
     path: /quickorder
     defaults:
-        _controller: siso_quick_order.quick_order_controller:quickOrderAction
+        _controller: Ibexa\Bundle\Commerce\QuickOrder\Controller\QuickOrderController::quickOrderAction
         policy: siso_policy/quickorder
 ```
 

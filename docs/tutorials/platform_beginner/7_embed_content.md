@@ -181,7 +181,7 @@ Add the following lines at the end of `templates/full/ride.html.twig`, before th
                 <h4 class="underscore">{{ 'Landmarks'|trans }}</h4>
             </div>
             {% for landmark in landmarksList %}
-                {{ render( controller( "ez_content::viewAction", { 'content': landmark, 'viewType': 'line'} )) }}
+                {{ render( controller( "ibexa_content::viewAction", { 'content': landmark, 'viewType': 'line'} )) }}
             {% endfor %}
         </section>
     </div>

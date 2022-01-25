@@ -8,23 +8,23 @@ The Public API exposes Symfony services for all of its Repository services.
 
 | Service ID                             | Type                                             |
 |----------------------------------------|--------------------------------------------------|
-| `ezpublish.api.service.bookmark`       | `Ibexa\Contracts\Core\Repository\BookmarkService`      |
-| `ezpublish.api.service.content`        | `Ibexa\Contracts\Core\Repository\ContentService`       |
-| `ezpublish.api.service.content_type`   | `Ibexa\Contracts\Core\Repository\ContentTypeService`   |
-| `ezpublish.api.service.field_type`     | `Ibexa\Contracts\Core\Repository\FieldTypeService`     |
-| `ezpublish.api.service.language`       | `Ibexa\Contracts\Core\Repository\LanguageService`      |
-| `ezpublish.api.service.location`       | `Ibexa\Contracts\Core\Repository\LocationService`      |
-| `ezpublish.api.service.notification`   | `Ibexa\Contracts\Core\Repository\NotificationService`  |
-| `ezpublish.api.service.object_state`   | `Ibexa\Contracts\Core\Repository\ObjectStateService`   |
-| `ezpublish.api.service.role`           | `Ibexa\Contracts\Core\Repository\RoleService`          |
-| `ezpublish.api.service.search`         | `Ibexa\Contracts\Core\Repository\SearchService`        |
-| `ezpublish.api.service.section`        | `Ibexa\Contracts\Core\Repository\SectionService`       |
-| `ezpublish.api.service.trash`          | `Ibexa\Contracts\Core\Repository\TrashService`         |
-| `ezpublish.api.service.url`            | `Ibexa\Contracts\Core\Repository\URLService`           |
-| `ezpublish.api.service.url_alias`      | `Ibexa\Contracts\Core\Repository\URLAliasService`      |
-| `ezpublish.api.service.url_wildcard`   | `Ibexa\Contracts\Core\Repository\URLWildcardService`   |
-| `ezpublish.api.service.user`           | `Ibexa\Contracts\Core\Repository\UserService`          |
-| `ezpublish.api.service.user_preference`| `Ibexa\Contracts\Core\Repository\UserPreferenceService`|
+| `ibexa.api.service.bookmark`       | `Ibexa\Contracts\Core\Repository\BookmarkService`      |
+| `ibexa.api.service.content`        | `Ibexa\Contracts\Core\Repository\ContentService`       |
+| `ibexa.api.service.content_type`   | `Ibexa\Contracts\Core\Repository\ContentTypeService`   |
+| `ibexa.api.service.field_type`     | `Ibexa\Contracts\Core\Repository\FieldTypeService`     |
+| `ibexa.api.service.language`       | `Ibexa\Contracts\Core\Repository\LanguageService`      |
+| `ibexa.api.service.location`       | `Ibexa\Contracts\Core\Repository\LocationService`      |
+| `ibexa.api.service.notification`   | `Ibexa\Contracts\Core\Repository\NotificationService`  |
+| `ibexa.api.service.object_state`   | `Ibexa\Contracts\Core\Repository\ObjectStateService`   |
+| `ibexa.api.service.role`           | `Ibexa\Contracts\Core\Repository\RoleService`          |
+| `ibexa.api.service.search`         | `Ibexa\Contracts\Core\Repository\SearchService`        |
+| `ibexa.api.service.section`        | `Ibexa\Contracts\Core\Repository\SectionService`       |
+| `ibexa.api.service.trash`          | `Ibexa\Contracts\Core\Repository\TrashService`         |
+| `ibexa.api.service.url`            | `Ibexa\Contracts\Core\Repository\URLService`           |
+| `ibexa.api.service.url_alias`      | `Ibexa\Contracts\Core\Repository\URLAliasService`      |
+| `ibexa.api.service.url_wildcard`   | `Ibexa\Contracts\Core\Repository\URLWildcardService`   |
+| `ibexa.api.service.user`           | `Ibexa\Contracts\Core\Repository\UserService`          |
+| `ibexa.api.service.user_preference`| `Ibexa\Contracts\Core\Repository\UserPreferenceService`|
 
 ## API
 

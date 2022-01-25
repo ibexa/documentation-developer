@@ -24,16 +24,16 @@ The following example shows how an `example` Field Type could be configured as a
 ``` yaml
 # Null Fieldtype example configuration
 services:
-    ezpublish.fieldType.example:
+    ibexa.field_type.example:
         class: Ibexa\Core\FieldType\Null\Type
         autowire: true
         autoconfigure: false
         arguments: [example]
-        tags: [{name: ezplatform.field_type, alias: example}]
-    ezpublish.fieldType.example.converter:
+        tags: [{name: ibexa.field_type., alias: example}]
+    ibexa.field_type.example.converter:
         class: Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\NullConverter
-        tags: [{name: ezplatform.field_type.legacy_storage.converter, alias: example}]
-    ezpublish.fieldType.example.indexable:
-    class: '%ezpublish.fieldType.indexable.unindexed.class%'
-    tags: [{name: ezplatform.field_type.indexable, alias: example}]
+        tags: [{name: ibexa.field_type.legacy_storage.converter, alias: example}]
+    ibexa.field_type.example.indexable:
+    class: '%ibexa.field_type.indexable.unindexed.class%'
+    tags: [{name: ibexa.field_type.indexable, alias: example}]
 ```

@@ -17,13 +17,13 @@ class MenuBuilder
     {
         $menu = $this->factory->createItem('root');
 
-        $menu->addChild('Home', ['route' => 'ez_urlalias', 'routeParameters' => [
+        $menu->addChild('Home', ['route' => 'ibexa.url.alias', 'routeParameters' => [
             'locationId' => 2,
         ]]);
-        $menu->addChild('Blog', ['route' => 'ez_urlalias', 'routeParameters' => [
+        $menu->addChild('Blog', ['route' => 'ibexa.url.alias', 'routeParameters' => [
             'locationId' => 67,
         ]]);
-        $menu->addChild('Search', ['route' => 'ezplatform.search']);
+        $menu->addChild('Search', ['route' => 'ibexa.search']);
 
         return $menu;
     }

@@ -21,12 +21,12 @@ You can also write [custom Query types](custom_query_type.md) for the cases that
 
 ### Query type configuration
 
-To use a Query type, select the Query controller (`ez_query`) in the [content view configuration](../templates/template_configuration.md)
+To use a Query type, select the Query controller (`ibexa_query`) in the [content view configuration](../templates/template_configuration.md)
 and select the Query type under `params.query.query_type`:
 
 ``` yaml hl_lines="2 6"
 folder:
-    controller: ez_query::contentQueryAction
+    controller: ibexa_query::contentQueryAction
     template: '@ibexadesign/full/folder.html.twig'
     params:
         query:

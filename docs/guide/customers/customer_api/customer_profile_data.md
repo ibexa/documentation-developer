@@ -27,10 +27,10 @@ is located under `SesUser` and contains information about the contact.
 
 |Method|Route|Description|
 |--- |--- |--- |
-|`showDetailAction()`|`silversolutionsCustomerDetail`|Renders the profile detail page|
-|`addressBookAction()`|`silversolutions_address_book_list`|Renders the address book (a list with delivery addresses that come from ERP)|
-|`addressBookDeleteAction()`|`silversolutions_address_book_delete`|Removes the given delivery address from ERP and customer profile data|
-|`logoutAction()`|`silversolutionsCustomerLogout`|Unsets all profile data within the session, logs out the user and redirects to the previous page|
+|`showDetailAction()`|`ibexa.commerce.customer.detail`|Renders the profile detail page|
+|`addressBookAction()`|`ibexa.commerce.address.book.list`|Renders the address book (a list with delivery addresses that come from ERP)|
+|`addressBookDeleteAction()`|`ibexa.commerce.address.book.delete`|Removes the given delivery address from ERP and customer profile data|
+|`logoutAction()`|`ibexa.commerce.customer.logout`|Unsets all profile data within the session, logs out the user and redirects to the previous page|
 
 ### Profile detail page
 

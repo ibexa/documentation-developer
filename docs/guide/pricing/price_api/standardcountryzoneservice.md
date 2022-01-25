@@ -7,12 +7,12 @@ It is used for example to select template debitors in [`StandardTemplateDebitorS
 
 ## Configuration
 
-Service ID: `siso_core.country_zone.standard`
+Service ID: `Ibexa\Bundle\Commerce\Eshop\Service\StandardCountryZoneService`
 
 Default zone configuration:
 
 ``` yaml
-#values for the siso_core.country_zone.standard service
+#values for the Ibexa\Bundle\Commerce\Eshop\Service\StandardCountryZoneService service
 silver_eshop.zone_country:
     EU: ['AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'GB', 'HR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK']
 ```

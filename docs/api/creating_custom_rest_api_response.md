@@ -179,29 +179,29 @@ services:
     app.rest.output.generator.json:
         class: Ibexa\Rest\Output\Generator\Json
         arguments:
-            - '@ezpublish_rest.output.generator.json.field_type_hash_generator'
+            - '@Ibexa\Rest\Output\Generator\Json\FieldTypeHashGenerator'
             - '%app.rest.generator.json.vendor%'
         calls:
             - [ setFormatOutput, [ '%kernel.debug%' ] ]
 
     app.rest.output.visitor.json:
-        class: '%ezpublish_rest.output.visitor.class%'
+        class: '%ibexa.rest.output.visitor.class%'
         arguments:
             - '@app.rest.output.generator.json'
             - '@app.rest.output.value_object_visitor.dispatcher'
         tags:
-            - { name: ezpublish_rest.output.visitor, regexps: app.rest.output.visitor.json.regexps, priority: 200 }
+            - { name: ibexa.rest.output.visitor, regexps: app.rest.output.visitor.json.regexps, priority: 200 }
 
     app.rest.output.value_object_visitor.dispatcher:
         class: ExampleBundle\Rest\ValueObjectVisitorDispatcher
         arguments:
-            - '@ezpublish_rest.output.value_object_visitor.dispatcher'
+            - '@Ibexa\Contracts\Rest\Output\ValueObjectVisitorDispatcher'
 
     app.rest.output.value_object_visitor.version_info:
         class: ExampleBundle\Rest\ValueObjectVisitor\VersionInfo
-        parent: ezpublish_rest.output.value_object_visitor.base
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
         arguments:
-            - '@ezpublish.api.repository'
+            - '@ibexa.api.repository'
         tags:
             - { name: app.value_object_visitor, type: Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo }
 ```

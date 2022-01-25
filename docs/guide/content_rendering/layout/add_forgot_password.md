@@ -28,7 +28,7 @@ You can also modify [other user management templates](../../user_management/user
 To add a link redirecting to the reset password form, in the page layout template, provide the following code:
 
 ```html+twig
-<a href="{{ path('ezplatform.user.forgot_password') }}" tabindex="4">{{ 'authentication.forgot_password'|trans|desc('Forgot password?') }}</a>
+<a href="{{ path('ibexa.user.forgot_password') }}" tabindex="4">{{ 'authentication.forgot_password'|trans|desc('Forgot password?') }}</a>
 ```
 
 You can customize the layout of templates according to your needs.

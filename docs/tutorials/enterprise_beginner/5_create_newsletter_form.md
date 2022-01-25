@@ -45,7 +45,7 @@ Create a `newsletter.html.twig` file in `templates/blocks/form/`:
 <div class="row">
     <div class="block-form {{ block_class }}">
         {{ fos_httpcache_tag('relation-location-' ~ locationId) }}
-        {{ render(controller('ez_content::viewAction', {
+        {{ render(controller('ibexa_content::viewAction', {
             'locationId': locationId,
             'viewType': 'embed'
         })) }}

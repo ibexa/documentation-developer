@@ -24,7 +24,7 @@ A RouteReference contains a route with its parameters and can be modified after 
 Here, the route is based on the ID of the Location.
 
 ``` html+twig
-{% set routeReference = ibexa_route("ez_urlalias", { 'locationId': 2 }) %}
+{% set routeReference = ibexa_route("ibexa.url.alias", { 'locationId': 2 }) %}
 <p><a href="{{ ibexa_path(routeReference) }}">Route</a></p>
 ```
 
@@ -32,21 +32,21 @@ A route can also be based on the ID of the Content item.
 The resulting link points to the Content item's main Location.
 
 ``` html+twig
-{% set routeReference = ibexa_route("ez_urlalias", { 'contentId': 456 }) %}
+{% set routeReference = ibexa_route("ibexa.url.alias", { 'contentId': 456 }) %}
 <p><a href="{{ ibexa_path(routeReference) }}">Route</a></p>
 ```
 
 With `ibexa_route()` you can modify the route contained in RouteReference after creation, for example, by providing additional parameters:
 
 ``` html+twig
-{% set routeReference = ibexa_route("ez_urlalias", { 'locationId': 2 }) %}
+{% set routeReference = ibexa_route("ibexa.url.alias", { 'locationId': 2 }) %}
 {% do routeReference.set("param", "param-value") %}
 ```
 
-You can also use `ibexa_route()` to create links to predefined routes, such as the `ezplatform.search` route that leads to a search form page:
+You can also use `ibexa_route()` to create links to predefined routes, such as the `ibexa.search` route that leads to a search form page:
 
 ``` html+twig
-<a href="{{ ibexa_path(ibexa_route('ezplatform.search')) }}">Search</a>
+<a href="{{ ibexa_path(ibexa_route('ibexa.search')) }}">Search</a>
 ```
 
 ## File download links
@@ -79,52 +79,52 @@ The following built-in routes are available for the front of the website.
 
 |Route name|Path|Description|
 |---|---|---|
-| `ezplatform.user.user_register` | `/user/register` | User registration form |
-| `ezplatform.user.register_confirmation`</br>`ezplatform.user.user_register_confirmation` | `/register-confirm`</br>`/user/register-confirm` | Confirmation page after user registration |
+| `ibexa.user.user_register` | `/user/register` | User registration form |
+| `ibexa.user.register_confirmation`</br>`ibexa.user.user_register_confirmation` | `/register-confirm`</br>`/user/register-confirm` | Confirmation page after user registration |
 
 ### Login
 
 |Route name|Path|Description|
 |---|---|---|
 |`login` | `/login` | [Login form](layout/add_login_form.md) |
-|`logout`</br>`silversolutionsCustomerLogout` | `/logout`</br>`/profile/logout` | Logging out the current user |
+|`logout`</br>`ibexa.commerce.customer.logout` | `/logout`</br>`/profile/logout` | Logging out the current user |
 
 ### Profile
 
 |Route name|Path|Description|
 |---|---|---|
-| `silversolutionsCustomerDetail` | `/profile` | User profile |
-| `silversolutions_address_book_list` | `/profile/address_book` | User address book |
+| `ibexa.commerce.customer.detail` | `/profile` | User profile |
+| `ibexa.commerce.address.book.list` | `/profile/address_book` | User address book |
 
 ### Password
 
 |Route name|Path|Description|
 |---|---|---|
-| `ezplatform.user_profile.change_password`</br>`silversolutions_password_change` | `/user/change-password`</br>`/change_password` | Form for password change|
-| `ezplatform.user.forgot_password` | `/user/forgot-password` | [Form for password resetting](layout/add_forgot_password.md) |
-| `ezplatform.user.forgot_password.migration` | `/user/forgot-password/migration` | Form for resetting password after expiration|
-| `ezplatform.user.forgot_password.login` | `/user/forgot-password/login` | Form for resetting password based on login instead of email address |
-| `ezplatform.user.reset_password` | `/user/reset-password/{hashKey}` | Form for resetting password based on a generated link |
+| `ibexa.user_profile.change_password`</br>`ibexa.commerce.password_change` | `/user/change-password`</br>`/change_password` | Form for password change|
+| `ibexa.user.forgot_password` | `/user/forgot-password` | [Form for password resetting](layout/add_forgot_password.md) |
+| `ibexa.user.forgot_password.migration` | `/user/forgot-password/migration` | Form for resetting password after expiration|
+| `ibexa.user.forgot_password.login` | `/user/forgot-password/login` | Form for resetting password based on login instead of email address |
+| `ibexa.user.reset_password` | `/user/reset-password/{hashKey}` | Form for resetting password based on a generated link |
 
 ### Shop
 
 |Route name|Path|Description|
 |---|---|---|
-| `silversolutions_bestsellers` | `/bestsellers` | [Bestseller page](../bestsellers.md) |
-| `silversolutions_delegate` | `/delegate` | [Delegate function](../user_management/delegate_function.md) |
-| `silversolutions_undelegate` | `/undelegate` | [Undelegate function](../user_management/delegate_function.md) |
+| `ibexa.commerce.bestsellers` | `/bestsellers` | [Bestseller page](../bestsellers.md) |
+| `ibexa.commerce.delegate` | `/delegate` | [Delegate function](../user_management/delegate_function.md) |
+| `ibexa.commerce.undelegate` | `/undelegate` | [Undelegate function](../user_management/delegate_function.md) |
 
 ### Content
 
 |Route name|Path|Description|
 |---|---|---|
 | `ibexa_content_download` | `/content/download/{contentId}/{fieldIdentifier}/{filename}` | Downloading a binary file |
-| `ezplatform.content.create_no_draft` | `/content/create/nodraft/{contentTypeIdentifier}/{language}/{parentLocationId}` | [Creating a Content item without using a draft](../user_generated_content.md#creating-a-content-item-without-using-a-draft) |
-| `ezplatform.content.draft.edit` | `/content/edit/draft/{contentId}/{versionNo}/{language}/{locationId}` | [Editing a Content item](../user_generated_content.md#editing-a-content-item) |
-| `ezplatform.content.draft.create` | `/content/create/draft/{contentId}/{fromVersionNo}/{fromLanguage}` | [Creating a new draft](../user_generated_content.md#creating-a-new-draft) |
+| `ibexa.content.create_no_draft` | `/content/create/nodraft/{contentTypeIdentifier}/{language}/{parentLocationId}` | [Creating a Content item without using a draft](../user_generated_content.md#creating-a-content-item-without-using-a-draft) |
+| `ibexa.content.draft.edit` | `/content/edit/draft/{contentId}/{versionNo}/{language}/{locationId}` | [Editing a Content item](../user_generated_content.md#editing-a-content-item) |
+| `ibexa.content.draft.create` | `/content/create/draft/{contentId}/{fromVersionNo}/{fromLanguage}` | [Creating a new draft](../user_generated_content.md#creating-a-new-draft) |
 
 ### Search
 
 |Route name|Path|Description|
 |---|---|---|
-| `ezplatform.search` | `/search` | Search form |
+| `ibexa.search` | `/search` | Search form |
