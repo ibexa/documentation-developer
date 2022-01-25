@@ -24,7 +24,7 @@ A RouteReference contains a route with its parameters and can be modified after 
 Here, the route is based on the ID of the Location.
 
 ``` html+twig
-{% set routeReference = ibexa_route("ez_urlalias", { 'locationId': 2 }) %}
+{% set routeReference = ibexa_route("ibexa.url.alias", { 'locationId': 2 }) %}
 <p><a href="{{ ibexa_path(routeReference) }}">Route</a></p>
 ```
 
@@ -32,14 +32,14 @@ A route can also be based on the ID of the Content item.
 The resulting link points to the Content item's main Location.
 
 ``` html+twig
-{% set routeReference = ibexa_route("ez_urlalias", { 'contentId': 456 }) %}
+{% set routeReference = ibexa_route("ibexa.url.alias", { 'contentId': 456 }) %}
 <p><a href="{{ ibexa_path(routeReference) }}">Route</a></p>
 ```
 
 With `ibexa_route()` you can modify the route contained in RouteReference after creation, for example, by providing additional parameters:
 
 ``` html+twig
-{% set routeReference = ibexa_route("ez_urlalias", { 'locationId': 2 }) %}
+{% set routeReference = ibexa_route("ibexa.url.alias", { 'locationId': 2 }) %}
 {% do routeReference.set("param", "param-value") %}
 ```
 

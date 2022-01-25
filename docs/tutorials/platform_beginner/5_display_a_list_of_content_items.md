@@ -148,7 +148,7 @@ Because this template will be rendered inside a table, it starts with a `<tr>` t
 ``` html+twig
 <tr>
     <td>
-        <a href="{{ path( "ez_urlalias", { 'locationId': content.contentInfo.mainLocationId } ) }}"
+        <a href="{{ path( "ibexa.url.alias", { 'locationId': content.contentInfo.mainLocationId } ) }}"
            target="_self">
             <strong>
                 {{ content.name }}

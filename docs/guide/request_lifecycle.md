@@ -230,7 +230,7 @@ The `HttpKernel` sends the last `kernel.terminate` event (`KernelEvents::TERMINA
 |  ezpublish.siteaccess   |  Ibexa\Bundle\Core\EventListener\SiteAccessListener        |  semanticPathinfo   |  /about       |
 |  kernel.request         |  router.default                       |  _route             |  N/A          |
 |  kernel.request         |  router.default                       |  _controller        |  N/A          |
-|  kernel.request         |  Ibexa\Bundle\Core\Routing\UrlAliasRouter            |  _route             |  ez_urlalias  |
+|  kernel.request         |  Ibexa\Bundle\Core\Routing\UrlAliasRouter            |  _route             |  ibexa.url.alias  |
 |  kernel.request         |  Ibexa\Bundle\Core\Routing\UrlAliasRouter            |  _controller        |  <strong>ibexa_content:</strong>viewAction
 |  kernel.request         |  Ibexa\Bundle\Core\Routing\UrlAliasRouter            |  viewType           |  full         |
 |  kernel.request         |  Ibexa\Bundle\Core\Routing\UrlAliasRouter            |  contentId          |  1            |

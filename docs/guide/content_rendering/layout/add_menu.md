@@ -50,7 +50,7 @@ To use it, first create a `MenuBuilder.php` file in `src/Menu`:
 ```
 
 In the builder, you can define items that you want in the menu.
-For example, lines 20-22 add a specific Location by using the [`ez_urlalias`](../twig_function_reference/url_twig_functions.md#ez_urlalias) route.
+For example, lines 20-22 add a specific Location by using the [`ibexa.url.alias`](../twig_function_reference/url_twig_functions.md#ibexa.url.alias) route.
 Line 26 adds a defined system route that leads to the search form.
 
 Next, register the menu builder as a service:
