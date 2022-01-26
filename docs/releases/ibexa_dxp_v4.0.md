@@ -2,15 +2,24 @@
 
 **Version number**: v4.0
 
-**Release date**: September 27, 2021
+**Release date**: January 31, 2022
 
 **Release type**: [Fast Track](../community_resources/release_process.md#release-process)
 
 ## Notable changes
 
-### New Product Catalog
+### New product catalog
 
-Lorem ipsum
+New product enables easy management of products, stock and prices.
+
+Products are now organized into product types, each offering a specific set of attributes
+that you can use to provide information about a product.
+You can also set VAT rates per product type.
+
+#### Price management
+
+You can now configure prices with discounts per product and per customer group.
+Separate currencies enable you to set different price rules for different currencies.
 
 ### Separate recommendations for different websites
 
@@ -70,7 +79,11 @@ See [Exclusions](https://doc.ibexa.co/projects/userguide/en/master/personalizati
 
 ### Code cleanup results
 
-Lorem ipsum
+v4.0 sees significant code cleanup, including renaming of namespaces, services, REST API endpoints
+and many other internal names.
+
+Refer to [Ibexa DXP v4.0 deprecations and backwards compatibility breaks](ibexa_dxp-v4.0_deprecations)
+for full details of changes and how they influence your project.
 
 ## Full changelog
 
