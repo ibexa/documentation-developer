@@ -1,13 +1,13 @@
 {
   "ShippingAddressesResponse": {
-    "_media-type": "application\/vnd.ez.api.ShippingAddressesResponse+json",
+    "_media-type": "application\/vnd.ibexa.api.ShippingAddressesResponse+json",
     "Parties": [
       {
-        "_media-type": "application\/vnd.ez.api.Party+json",
+        "_media-type": "application\/vnd.ibexa.api.Party+json",
         "PartyIdentification": [],
         "PartyName": [],
         "PostalAddress": {
-          "_media-type": "application\/vnd.ez.api.PartyPostalAddress+json",
+          "_media-type": "application\/vnd.ibexa.api.PartyPostalAddress+json",
           "StreetName": null,
           "AdditionalStreetName": null,
           "BuildingNumber": null,
@@ -17,7 +17,7 @@
           "CountrySubentityCode": null,
           "AddressLine": [],
           "Country": {
-            "_media-type": "application\/vnd.ez.api.PartyPostalAddressCountry+json",
+            "_media-type": "application\/vnd.ibexa.api.PartyPostalAddressCountry+json",
             "IdentificationCode": null,
             "Name": null
           },
@@ -25,7 +25,7 @@
           "SesExtension": {}
         },
         "Contact": {
-          "_media-type": "application\/vnd.ez.api.Contact+json",
+          "_media-type": "application\/vnd.ibexa.api.Contact+json",
           "ID": null,
           "Name": null,
           "Telephone": null,
@@ -36,7 +36,7 @@
           "SesExtension": {}
         },
         "Person": {
-          "_media-type": "application\/vnd.ez.api.PartyPerson+json",
+          "_media-type": "application\/vnd.ibexa.api.PartyPerson+json",
           "FirstName": null,
           "FamilyName": null,
           "Title": null,

@@ -5,32 +5,32 @@ post:
         Accept:
             description: Content - If set, all information for the Content item including the embedded current version is returned in XML or JSON format. ContentInfo - If set, all information for the Content item (excluding the current version) is returned in XML or JSON format.
             example:  |
-                application/vnd.ez.api.Content+xml
-                application/vnd.ez.api.Content+json
-                application/vnd.ez.api.ContentInfo+xml
-                application/vnd.ez.api.ContentInfo+json
+                application/vnd.ibexa.api.Content+xml
+                application/vnd.ibexa.api.Content+json
+                application/vnd.ibexa.api.ContentInfo+xml
+                application/vnd.ibexa.api.ContentInfo+json
         Content-Type:
             description: The ContentCreate schema encoded in XML or JSON format.
             example:  |
-                application/vnd.ez.api.ContentCreate+xml
-                application/vnd.ez.api.ContentCreate+json
+                application/vnd.ibexa.api.ContentCreate+xml
+                application/vnd.ibexa.api.ContentCreate+json
     body:
-        application/vnd.ez.api.ContentCreate+xml:
+        application/vnd.ibexa.api.ContentCreate+xml:
             type: ContentCreate
             example: !include examples/content/objects/POST/ContentCreate.xml.example
-        application/vnd.ez.api.ContentCreate+json:
+        application/vnd.ibexa.api.ContentCreate+json:
             type: ContentCreate
             example: !include examples/content/objects/POST/ContentCreate.json.example
     responses:
         201:
             body:
-                application/vnd.ez.api.Content+xml:
+                application/vnd.ibexa.api.Content+xml:
                     type: Content
                     example: !include examples/content/objects/POST/Content.xml.example
-                application/vnd.ez.api.Content+json:
+                application/vnd.ibexa.api.Content+json:
                     type: Content
                     example: !include examples/content/objects/POST/Content.json.example
-                application/vnd.ez.api.ContentInfo+xml:
+                application/vnd.ibexa.api.ContentInfo+xml:
                     type: ContentInfo
                     example: !include examples/content/objects/POST/ContentInfo.xml.example
         400:
@@ -62,24 +62,24 @@ get:
             Accept:
                 description: Content -	If set, all information for the Content item including the embedded current version is returned in XML or JSON format. ContentInfo - If set, all information for the Content item (excluding the current version) is returned in XML or JSON format.
                 example:  |
-                    application/vnd.ez.api.Content+xml
-                    application/vnd.ez.api.Content+json
-                    application/vnd.ez.api.ContentInfo+xml
-                    application/vnd.ez.api.ContentInfo+json
+                    application/vnd.ibexa.api.Content+xml
+                    application/vnd.ibexa.api.Content+json
+                    application/vnd.ibexa.api.ContentInfo+xml
+                    application/vnd.ibexa.api.ContentInfo+json
             If-None-Match:
                 description: If the provided ETag matches the current ETag then a "304 Not Modified" is returned. The ETag changes if the meta data has changed, this happens also if there is a new published version.
                 example: ETag
         responses:
             200:
                 body:
-                    application/vnd.ez.api.Content+xml:
+                    application/vnd.ibexa.api.Content+xml:
                         type: Content
                         example: !include examples/content/objects/content_id/GET/Content.xml.example
-                    application/vnd.ez.api.Content+json:
+                    application/vnd.ibexa.api.Content+json:
                         type: Content
                         example: !include examples/content/objects/content_id/GET/Content.json.example
 
-                    application/vnd.ez.api.ContentInfo+xml:
+                    application/vnd.ibexa.api.ContentInfo+xml:
                         type: ContentInfo
                         example: !include examples/content/objects/content_id/GET/ContentInfo.xml.example
             401:
@@ -93,24 +93,24 @@ get:
             Accept:
                 description: If set, all information for the Content item (excluding the current version) is returned in XML or JSON format.
                 example:  |
-                    application/vnd.ez.api.ContentInfo+xml
-                    application/vnd.ez.api.ContentInfo+json
+                    application/vnd.ibexa.api.ContentInfo+xml
+                    application/vnd.ibexa.api.ContentInfo+json
             If-match:
                 description: Causes to patch only if the specified ETag is the current one. Otherwise a 412 is returned.
                 example: ETag
             Content-Type:
                 description: The ContentUpdate schema encoded in XML or JSON format.
                 example:  |
-                    application/vnd.ez.api.ContentUpdate+xml
-                    application/vnd.ez.api.ContentUpdate+json
+                    application/vnd.ibexa.api.ContentUpdate+xml
+                    application/vnd.ibexa.api.ContentUpdate+json
         body:
-            application/vnd.ez.api.ContentUpdate+xml:
+            application/vnd.ibexa.api.ContentUpdate+xml:
                 type: ContentInfo
                 example: !include examples/content/objects/content_id/PATCH/ContentUpdate.xml.example
         responses:
             200:
                 body:
-                    application/vnd.ez.api.ContentInfo+xml:
+                    application/vnd.ibexa.api.ContentInfo+xml:
                         type: ContentInfo
                         example: !include examples/content/objects/content_id/PATCH/ContentInfo.xml.example
             400:
@@ -168,10 +168,10 @@ get:
             responses:
                 200:
                     body:
-                        application/vnd.ez.api.Version+xml:
+                        application/vnd.ibexa.api.Version+xml:
                             type: Version
                             example: !include examples/content/objects/content_id/currentversion/GET/Version.xml.example
-                        application/vnd.ez.api.Version+json:
+                        application/vnd.ibexa.api.Version+json:
                             type: Version
                             example: !include examples/content/objects/content_id/currentversion/GET/Version.json.example
                 307:
@@ -185,16 +185,16 @@ get:
                 Accept:
                     description: If set, the updated version is returned in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.Version+xml
-                        application/vnd.ez.api.Version+json
+                        application/vnd.ibexa.api.Version+xml
+                        application/vnd.ibexa.api.Version+json
             responses:
                 201:
                     description: Created
                     body:
-                        application/vnd.ez.api.Version+xml:
+                        application/vnd.ibexa.api.Version+xml:
                             type: Version
                             example: !include examples/content/objects/content_id/currentversion/COPY/Version.xml.example
-                        application/vnd.ez.api.Version+json:
+                        application/vnd.ibexa.api.Version+json:
                             type: Version
                             example: !include examples/content/objects/content_id/currentversion/COPY/Version.json.example
                 401:
@@ -211,15 +211,15 @@ get:
                 Accept:
                     description: If set, the version list is returned in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.VersionList+xml
-                        application/vnd.ez.api.VersionList+json
+                        application/vnd.ibexa.api.VersionList+xml
+                        application/vnd.ibexa.api.VersionList+json
             responses:
                 200:
                     body:
-                        application/vnd.ez.api.VersionList+xml:
+                        application/vnd.ibexa.api.VersionList+xml:
                             type: VersionList
                             example: !include examples/content/objects/content_id/versions/GET/VersionList.xml.example
-                        application/vnd.ez.api.VersionList+json:
+                        application/vnd.ibexa.api.VersionList+json:
                             type: VersionList
                             example: !include examples/content/objects/content_id/versions/GET/VersionList.json.example
                 401:
@@ -245,15 +245,15 @@ get:
                     Accept:
                         description: If set, the version list is returned in XML or JSON format.
                         example:  |
-                            application/vnd.ez.api.Version+xml
-                            application/vnd.ez.api.Version+json
+                            application/vnd.ibexa.api.Version+xml
+                            application/vnd.ibexa.api.Version+json
                 responses:
                     200:
                         body:
-                            application/vnd.ez.api.Version+xml:
+                            application/vnd.ibexa.api.Version+xml:
                                 type: Version
                                 example: !include examples/content/objects/content_id/versions/version_no/GET/Version.xml.example
-                            application/vnd.ez.api.Version+json:
+                            application/vnd.ibexa.api.Version+json:
                                 type: Version
                                 example: !include examples/content/objects/content_id/versions/version_no/GET/Version.json.example
                     304:
@@ -273,23 +273,23 @@ get:
                     Accept:
                         description: If set, the updated version is returned in XML or JSON format.
                         example:  |
-                            application/vnd.ez.api.Version+xml
-                            application/vnd.ez.api.Version+json
+                            application/vnd.ibexa.api.Version+xml
+                            application/vnd.ibexa.api.Version+json
                     If-match:
                         description: Performs the patch only if the specified ETag is the current one.
                     Content-Type:
                         description: The VersionUpdate schema encoded in XML or JSON format.
                         example:  |
-                            application/vnd.ez.api.VersionUpdate+xml
-                            application/vnd.ez.api.VersionUpdate+json
+                            application/vnd.ibexa.api.VersionUpdate+xml
+                            application/vnd.ibexa.api.VersionUpdate+json
                 body:
-                    application/vnd.ez.api.VersionUpdate+xml:
+                    application/vnd.ibexa.api.VersionUpdate+xml:
                         type: VersionUpdate
                         example: !include examples/content/objects/content_id/versions/version_no/PATCH/VersionUpdate.xml.example
                 responses:
                     200:
                         body:
-                            application/vnd.ez.api.Version+xml:
+                            application/vnd.ibexa.api.Version+xml:
                                 type: Version
                                 example: !include examples/content/objects/content_id/versions/version_no/PATCH/Version.xml.example
                     400:
@@ -309,16 +309,16 @@ get:
                     Accept:
                         description: If set, the updated version is returned in XML or JSON format.
                         example:  |
-                            application/vnd.ez.api.Version+xml
-                            application/vnd.ez.api.Version+json
+                            application/vnd.ibexa.api.Version+xml
+                            application/vnd.ibexa.api.Version+json
                 responses:
                     201:
                         description: Created.
                         body:
-                            application/vnd.ez.api.Version+xml:
+                            application/vnd.ibexa.api.Version+xml:
                                 type: Version
                                 example: !include examples/content/objects/content_id/versions/version_no/COPY/Version.xml.example
-                            application/vnd.ez.api.Version+json:
+                            application/vnd.ibexa.api.Version+json:
                                 type: Version
                                 example: !include examples/content/objects/content_id/versions/version_no/COPY/Version.json.example
                     401:
@@ -381,15 +381,15 @@ get:
                         Accept:
                             description: If set, the Relation is returned in XML or JSON format.
                             example:  |
-                                application/vnd.ez.api.RelationList+xml
-                                application/vnd.ez.api.RelationList+json
+                                application/vnd.ibexa.api.RelationList+xml
+                                application/vnd.ibexa.api.RelationList+json
                     responses:
                         200:
                             body:
-                                application/vnd.ez.api.RelationList+xml:
+                                application/vnd.ibexa.api.RelationList+xml:
                                     type: RelationList
                                     example: !include examples/content/objects/content_id/versions/version_no/relations/GET/RelationList.xml.example
-                                application/vnd.ez.api.RelationList+json:
+                                application/vnd.ibexa.api.RelationList+json:
                                     type: RelationList
                                     example: !include examples/content/objects/content_id/versions/version_no/relations/GET/RelationList.json.example
                         401:
@@ -403,27 +403,27 @@ get:
                         Accept:
                             description: If set, the updated version is returned in XML or JSON format.
                             example:  |
-                                application/vnd.ez.api.Relation+xml
-                                application/vnd.ez.api.Relation+json
+                                application/vnd.ibexa.api.Relation+xml
+                                application/vnd.ibexa.api.Relation+json
                         Content-Type:
                             description: The RelationCreate schema encoded in XML or JSON format.
                             example:  |
-                                application/vnd.ez.api.RelationCreate+xml
-                                application/vnd.ez.api.RelationCreate+json
+                                application/vnd.ibexa.api.RelationCreate+xml
+                                application/vnd.ibexa.api.RelationCreate+json
                             body:
-                                application/vnd.ez.api.RelationCreate+xml:
+                                application/vnd.ibexa.api.RelationCreate+xml:
                                     type: Relation
                                     example: !include examples/content/objects/content_id/versions/version_no/relations/POST/RelationCreate.xml.example
-                                application/vnd.ez.api.RelationCreate+json:
+                                application/vnd.ibexa.api.RelationCreate+json:
                                     type: Relation
                                     example: !include examples/content/objects/content_id/versions/version_no/relations/POST/RelationCreate.json.example
                     responses:
                         201:
                             body:
-                                application/vnd.ez.api.Relation+xml:
+                                application/vnd.ibexa.api.Relation+xml:
                                     type: Relation
                                     example: !include examples/content/objects/content_id/versions/version_no/relations/POST/Relation.xml.example
-                                application/vnd.ez.api.Relation+json:
+                                application/vnd.ibexa.api.Relation+json:
                                     type: Relation
                                     example: !include examples/content/objects/content_id/versions/version_no/relations/POST/Relation.json.example
                                 
@@ -435,16 +435,16 @@ get:
                             Accept:
                                 description: If set, the Relation is returned in XML or JSON format.
                                 example:  |
-                                    application/vnd.ez.api.Relation+xml
-                                    application/vnd.ez.api.Relation+json
+                                    application/vnd.ibexa.api.Relation+xml
+                                    application/vnd.ibexa.api.Relation+json
                         responses:
                             200:
                                 description: OK - loads a Relation for the given Content item.
                             body:
-                                application/vnd.ez.api.Relation+xml:
+                                application/vnd.ibexa.api.Relation+xml:
                                     type: Relation
                                     example: !include examples/content/objects/content_id/versions/version_no/relations/relation_id/GET/Relation.xml.example
-                                application/vnd.ez.api.Relation+json:
+                                application/vnd.ibexa.api.Relation+json:
                                     type: Relation
                                     example: examples/content/objects/content_id/versions/version_no/relations/relation_id/GET/Relation.json.example
                             401:
@@ -482,27 +482,27 @@ get:
                 Accept:
                     description: If set, the new Location is returned in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.Location+xml
-                        application/vnd.ez.api.Location+json
+                        application/vnd.ibexa.api.Location+xml
+                        application/vnd.ibexa.api.Location+json
                 Content-Type:
                     description: The LocationCreate schema encoded in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.LocationCreate+json
-                        application/vnd.ez.api.LocationCreate+xml
+                        application/vnd.ibexa.api.LocationCreate+json
+                        application/vnd.ibexa.api.LocationCreate+xml
             body:
-                application/vnd.ez.api.LocationCreate+xml:
+                application/vnd.ibexa.api.LocationCreate+xml:
                     type: LocationCreate
                     example: !include examples/content/objects/content_id/locations/POST/LocationCreate.xml.example
-                application/vnd.ez.api.LocationCreate+json:
+                application/vnd.ibexa.api.LocationCreate+json:
                     type: LocationCreate
                     example: !include examples/content/objects/content_id/locations/POST/LocationCreate.json.example
             responses:
                 201:
                     body:
-                        application/vnd.ez.api.Location+xml:
+                        application/vnd.ibexa.api.Location+xml:
                             type: Location
                             example: !include examples/content/objects/content_id/locations/POST/Location.xml.example
-                        application/vnd.ez.api.Location+json:
+                        application/vnd.ibexa.api.Location+json:
                             type: Location
                             example: !include examples/content/objects/content_id/locations/POST/Location.json.example
                 400:
@@ -518,17 +518,17 @@ get:
                 Accept:
                     description: If set, the Location list is returned in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.LocationList+xml
-                        application/vnd.ez.api.LocationList+json
+                        application/vnd.ibexa.api.LocationList+xml
+                        application/vnd.ibexa.api.LocationList+json
                 If-None-Match:
                     description: ETag
             responses:
                 200:
                     body:
-                        application/vnd.ez.api.LocationList+xml:
+                        application/vnd.ibexa.api.LocationList+xml:
                             type: LocationList
                             example: !include examples/content/objects/content_id/locations/GET/LocationList.xml.example
-                        application/vnd.ez.api.LocationList+json:
+                        application/vnd.ibexa.api.LocationList+json:
                             type: LocationList
                             example: !include examples/content/objects/content_id/locations/GET/LocationList.json.example
                 401:
@@ -543,18 +543,18 @@ get:
                 Accept:
                     description: If set, the Object states are returned in XML or JSON format.
                     example: |
-                        application/vnd.ez.api.ContentObjectStates+xml
-                        application/vnd.ez.api.ContentObjectStates+json
+                        application/vnd.ibexa.api.ContentObjectStates+xml
+                        application/vnd.ibexa.api.ContentObjectStates+json
                 If-None-Match:
                     description: ETag
             responses:
                 200:
                     description: OK - returns the Object state.
                     body:
-                        application/vnd.ez.api.ContentObjectStates+xml:
+                        application/vnd.ibexa.api.ContentObjectStates+xml:
                             type: ContentObjectStates
                             example: !include examples/content/objects/content_id/objectstates/GET/ContentObjectStates.xml.example
-                        application/vnd.ez.api.ContentObjectStates+json:
+                        application/vnd.ibexa.api.ContentObjectStates+json:
                             type: ContentObjectStates
                             example: !include examples/content/objects/content_id/objectstates/GET/ContentObjectStates.json.example
                 404:
@@ -566,23 +566,23 @@ get:
                 Accept:
                     description: If set, the updated Object state is returned in XML or JSON format.
                     example: |
-                        application/vnd.ez.api.ObjectState+xml
-                        application/vnd.ez.api.ObjectState+json
+                        application/vnd.ibexa.api.ObjectState+xml
+                        application/vnd.ibexa.api.ObjectState+json
                 Content-Type:
                     description: The Content item Object states input schema encoded in XML or JSON format.
                     example: |
-                        application/vnd.ez.api.ObjectStateUpdate+xml
-                        application/vnd.ez.api.ObjectStateUpdate+json
+                        application/vnd.ibexa.api.ObjectStateUpdate+xml
+                        application/vnd.ibexa.api.ObjectStateUpdate+json
                 If-Match:
                     description: ETag
             body:
-                application/vnd.ez.api.ObjectState+xml:
+                application/vnd.ibexa.api.ObjectState+xml:
                     type: ObjectStateUpdate
             responses:
                 204:
                     description: OK - Object state updated.
                     body:
-                        application/vnd.ez.api.ObjectState+xml:
+                        application/vnd.ibexa.api.ObjectState+xml:
                             type: ObjectState
                 400:
                     description: Error - The input does not match the input schema definition.

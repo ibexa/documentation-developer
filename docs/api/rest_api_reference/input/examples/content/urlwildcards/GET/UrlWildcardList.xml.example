@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<UrlWildcardList media-type="application/vnd.ez.api.UrlWildcardList+xml" href="/api/ezp/v2/content/urlwildcards">
-    <UrlWildcard media-type="application/vnd.ez.api.UrlWildcard+xml" href="/api/ezp/v2/content/urlwildcards/1" id="1">
+<UrlWildcardList media-type="application/vnd.ibexa.api.UrlWildcardList+xml" href="/api/ezp/v2/content/urlwildcards">
+    <UrlWildcard media-type="application/vnd.ibexa.api.UrlWildcard+xml" href="/api/ezp/v2/content/urlwildcards/1" id="1">
         <sourceUrl>/api/ezp/v2/content/location/2</sourceUrl>
         <destinationUrl>/api/ezp/v2/content/location/59</destinationUrl>
         <forward>true</forward>

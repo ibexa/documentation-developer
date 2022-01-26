@@ -1,6 +1,6 @@
 {
     "ContentType": {
-        "_media-type": "application/vnd.ez.api.ContentType+json",
+        "_media-type": "application/vnd.ibexa.api.ContentType+json",
         "_href": "/api/ezp/v2/content/types/2",
         "id": 2,
         "status": "DEFINED",
@@ -24,19 +24,19 @@
         "creationDate": "2002-06-18T09:21:38+00:00",
         "modificationDate": "2021-06-28T11:31:22+00:00",
         "Creator": {
-            "_media-type": "application/vnd.ez.api.User+json",
+            "_media-type": "application/vnd.ibexa.api.User+json",
             "_href": "/api/ezp/v2/user/users/14"
         },
         "Modifier": {
-            "_media-type": "application/vnd.ez.api.User+json",
+            "_media-type": "application/vnd.ibexa.api.User+json",
             "_href": "/api/ezp/v2/user/users/14"
         },
         "Groups": {
-            "_media-type": "application/vnd.ez.api.ContentTypeGroupRefList+json",
+            "_media-type": "application/vnd.ibexa.api.ContentTypeGroupRefList+json",
             "_href": "/api/ezp/v2/content/types/2/groups"
         },
         "Draft": {
-            "_media-type": "application/vnd.ez.api.ContentType+json",
+            "_media-type": "application/vnd.ibexa.api.ContentType+json",
             "_href": "/api/ezp/v2/content/types/2/draft"
         },
         "remoteId": "c15b600eb9198b1924063b5a68758232",
@@ -48,11 +48,11 @@
         "defaultSortField": "PATH",
         "defaultSortOrder": "ASC",
         "FieldDefinitions": {
-            "_media-type": "application/vnd.ez.api.FieldDefinitionList+json",
+            "_media-type": "application/vnd.ibexa.api.FieldDefinitionList+json",
             "_href": "/api/ezp/v2/content/types/2/fieldDefinitions",
             "FieldDefinition": [
                 {
-                    "_media-type": "application/vnd.ez.api.FieldDefinition+json",
+                    "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
                     "_href": "/api/ezp/v2/content/types/2/fieldDefinitions/1",
                     "id": 1,
                     "identifier": "title",
@@ -89,7 +89,7 @@
                     }
                 },
                 {
-                    "_media-type": "application/vnd.ez.api.FieldDefinition+json",
+                    "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
                     "_href": "/api/ezp/v2/content/types/2/fieldDefinitions/152",
                     "id": 152,
                     "identifier": "short_title",
@@ -126,7 +126,7 @@
                     }
                 },
                 {
-                    "_media-type": "application/vnd.ez.api.FieldDefinition+json",
+                    "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
                     "_href": "/api/ezp/v2/content/types/2/fieldDefinitions/153",
                     "id": 153,
                     "identifier": "author",
@@ -160,7 +160,7 @@
                     "validatorConfiguration": []
                 },
                 {
-                    "_media-type": "application/vnd.ez.api.FieldDefinition+json",
+                    "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
                     "_href": "/api/ezp/v2/content/types/2/fieldDefinitions/120",
                     "id": 120,
                     "identifier": "intro",
@@ -195,7 +195,7 @@
                     "validatorConfiguration": []
                 },
                 {
-                    "_media-type": "application/vnd.ez.api.FieldDefinition+json",
+                    "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
                     "_href": "/api/ezp/v2/content/types/2/fieldDefinitions/121",
                     "id": 121,
                     "identifier": "body",
@@ -230,7 +230,7 @@
                     "validatorConfiguration": []
                 },
                 {
-                    "_media-type": "application/vnd.ez.api.FieldDefinition+json",
+                    "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
                     "_href": "/api/ezp/v2/content/types/2/fieldDefinitions/123",
                     "id": 123,
                     "identifier": "enable_comments",
@@ -262,7 +262,7 @@
                     "validatorConfiguration": []
                 },
                 {
-                    "_media-type": "application/vnd.ez.api.FieldDefinition+json",
+                    "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
                     "_href": "/api/ezp/v2/content/types/2/fieldDefinitions/195",
                     "id": 195,
                     "identifier": "image",

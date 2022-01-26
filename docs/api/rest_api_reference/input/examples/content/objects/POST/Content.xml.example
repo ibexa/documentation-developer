@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Content media-type="application/vnd.ez.api.Content+xml" href="/api/ezp/v2/content/objects/83" remoteId="a9c8f00b1dba880df7a5ed3e93fad421" id="83">
-    <ContentType media-type="application/vnd.ez.api.ContentType+xml" href="/api/ezp/v2/content/types/2"/>
+<Content media-type="application/vnd.ibexa.api.Content+xml" href="/api/ezp/v2/content/objects/83" remoteId="a9c8f00b1dba880df7a5ed3e93fad421" id="83">
+    <ContentType media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ezp/v2/content/types/2"/>
     <Name>draft article</Name>
-    <Versions media-type="application/vnd.ez.api.VersionList+xml" href="/api/ezp/v2/content/objects/83/versions"/>
-    <CurrentVersion media-type="application/vnd.ez.api.Version+xml" href="/api/ezp/v2/content/objects/83/currentversion">
-        <Version media-type="application/vnd.ez.api.Version+xml" href="/api/ezp/v2/content/objects/83/versions/1">
+    <Versions media-type="application/vnd.ibexa.api.VersionList+xml" href="/api/ezp/v2/content/objects/83/versions"/>
+    <CurrentVersion media-type="application/vnd.ibexa.api.Version+xml" href="/api/ezp/v2/content/objects/83/currentversion">
+        <Version media-type="application/vnd.ibexa.api.Version+xml" href="/api/ezp/v2/content/objects/83/versions/1">
             <VersionInfo>
                 <id>547</id>
                 <versionNo>1</versionNo>
                 <status>DRAFT</status>
                 <modificationDate>2019-02-19T15:55:37+01:00</modificationDate>
-                <Creator media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+                <Creator media-type="application/vnd.ibexa.api.User+xml" href="/api/ezp/v2/user/users/14"/>
                 <creationDate>2019-02-19T15:55:37+01:00</creationDate>
                 <initialLanguageCode>eng-GB</initialLanguageCode>
                 <languageCodes>eng-GB</languageCodes>
-                <VersionTranslationInfo media-type="application/vnd.ez.api.VersionTranslationInfo+xml">
+                <VersionTranslationInfo media-type="application/vnd.ibexa.api.VersionTranslationInfo+xml">
                     <Language>
                         <languageCode>eng-GB</languageCode>
                     </Language>
@@ -22,7 +22,7 @@
                 <names>
                     <value languageCode="eng-GB">draft article</value>
                 </names>
-                <Content media-type="application/vnd.ez.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/83"/>
+                <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/83"/>
             </VersionInfo>
             <Fields>
                 <field>
@@ -91,14 +91,14 @@
                     </fieldValue>
                 </field>
             </Fields>
-            <Relations media-type="application/vnd.ez.api.RelationList+xml" href="/api/ezp/v2/content/objects/83/versions/1/relations"/>
+            <Relations media-type="application/vnd.ibexa.api.RelationList+xml" href="/api/ezp/v2/content/objects/83/versions/1/relations"/>
         </Version>
     </CurrentVersion>
-    <Section media-type="application/vnd.ez.api.Section+xml" href="/api/ezp/v2/content/sections/1"/>
-    <Locations media-type="application/vnd.ez.api.LocationList+xml" href="/api/ezp/v2/content/objects/83/locations"/>
-    <Owner media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+    <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ezp/v2/content/sections/1"/>
+    <Locations media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ezp/v2/content/objects/83/locations"/>
+    <Owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ezp/v2/user/users/14"/>
     <mainLanguageCode>eng-GB</mainLanguageCode>
     <currentVersionNo>1</currentVersionNo>
     <alwaysAvailable>true</alwaysAvailable>
-    <ObjectStates media-type="application/vnd.ez.api.ContentObjectStates+xml" href="/api/ezp/v2/content/objects/83/objectstates"/>
+    <ObjectStates media-type="application/vnd.ibexa.api.ContentObjectStates+xml" href="/api/ezp/v2/content/objects/83/objectstates"/>
 </Content>

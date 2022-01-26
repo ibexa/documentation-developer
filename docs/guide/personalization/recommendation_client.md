@@ -100,7 +100,7 @@ To check whether the `content` endpoint is working as expected, perform the fol
 
 ```
 GET http://<yourdomain>/api/ezp/v2/ibexa_recommendation/v1/content/{contentId}
-Accept application/vnd.ez.api.Content+json
+Accept application/vnd.ibexa.api.Content+json
 Authorization Basic xxxxxxxx
 ```
 
@@ -108,7 +108,7 @@ Additionally, check whether the `contenttypes` endpoint is working with the fol
 
 ```
 GET http://<yourdomain>/api/ezp/v2/ibexa_recommendation/v1/contenttypes/38?page=1&page_size=10
-Accept application/vnd.ez.api.Content+json
+Accept application/vnd.ibexa.api.Content+json
 Authorization Basic xxxxxxxx
 ```
 
@@ -117,10 +117,10 @@ The `content` endpoint returns one item and the `contenttypes` endpoint returns 
 ``` json
 {
     "contentList": {
-        "_media-type": "application/vnd.ez.api.contentList+json",
+        "_media-type": "application/vnd.ibexa.api.contentList+json",
         "content": [
             {
-                "_media-type": "application/vnd.ez.api.content+json",
+                "_media-type": "application/vnd.ibexa.api.content+json",
                 "contentId": 72,
                 "contentTypeId": 38,
                 "identifier": "place",
@@ -130,11 +130,11 @@ The `content` endpoint returns one item and the `contenttypes` endpoint returns 
                 "uri": "/Places-Tastes/Places/Kochin-India",
                 "categoryPath": "/1/2/95/71/73/",
                 "mainLocation": {
-                    "_media-type": "application/vnd.ez.api.mainLocation+json",
+                    "_media-type": "application/vnd.ibexa.api.mainLocation+json",
                     "_href": "/api/ezp/v2/content/locations/1/2/95/71/73/"
                 },
                 "locations": {
-                    "_media-type": "application/vnd.ez.api.locations+json",
+                    "_media-type": "application/vnd.ibexa.api.locations+json",
                     "_href": "/api/ezp/v2/content/objects/72/locations"
                 },
                 "name": "Kochin, India",

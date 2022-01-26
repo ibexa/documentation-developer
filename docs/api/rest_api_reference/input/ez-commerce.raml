@@ -11,12 +11,12 @@ displayName: eCommerce API
         responses:
             200:
                 body:
-                    application/vnd.ez.api.BasketListResponse+json:
+                    application/vnd.ibexa.api.BasketListResponse+json:
                         type: BasketListResponse
                         example: !include examples/commerce/basket/headers/GET/BasketListResponse.json.example
             400:
                 body:
-                    application/vnd.ez.api.ValidationResponse:
+                    application/vnd.ibexa.api.ValidationResponse:
                         type: ValidationResponse
 
     /current:
@@ -26,11 +26,11 @@ displayName: eCommerce API
                 Returns a Basket instance for the current session. If there isn't one, a new one will be created.
             headers:
                 Accept:
-                    example: application/vnd.ez.api.Basket+json
+                    example: application/vnd.ibexa.api.Basket+json
             responses:
                 200:
                     body:
-                        application/vnd.ez.api.Basket+json:
+                        application/vnd.ibexa.api.Basket+json:
                             type: Basket
                             example: !include examples/commerce/basket/Basket.json.example
 
@@ -43,12 +43,12 @@ displayName: eCommerce API
                 responses:
                     200:
                         body:
-                            application/vnd.ez.api.Basket+json:
+                            application/vnd.ibexa.api.Basket+json:
                                 type: Basket
                                 example: !include examples/commerce/basket/Basket.json.example
                     400:
                         body:
-                            application/vnd.ez.api.ValidationResponse+json:
+                            application/vnd.ibexa.api.ValidationResponse+json:
                                 type: ValidationResponse
                                 example: !include examples/commerce/basket/current/copyfrom/_basket_id_/POST/ValidationResponse.json.example
 
@@ -65,18 +65,18 @@ displayName: eCommerce API
                 displayName: Update party information in the basket
                 description: Updates party (buyer, delivery, invoice) information in the basket.
                 body:
-                    application/vnd.ez.api.PartyInvoice+json:
+                    application/vnd.ibexa.api.PartyInvoice+json:
                         type: PartyTypeInput
                         example: !include examples/commerce/basket/current/party/invoice/PATCH/PartyInvoice.json.example
                 responses:
                     200:
                         body:
-                            application/vnd.ez.api.Basket+json:
+                            application/vnd.ibexa.api.Basket+json:
                                 type: Basket
                                 example: !include examples/commerce/basket/Basket.json.example
                     400:
                         body:
-                            application/vnd.ez.api.ValidationResponse+json:
+                            application/vnd.ibexa.api.ValidationResponse+json:
                                 type: ValidationResponse
 
         /shippingmethod:
@@ -84,18 +84,18 @@ displayName: eCommerce API
                 displayName: Update shipping information in current basket
                 description: Updates shipping information in the current basket.
                 body:
-                    application/vnd.ez.api.ShippingMethodData+json:
+                    application/vnd.ibexa.api.ShippingMethodData+json:
                         type: ShippingMethodData
                         example: !include examples/commerce/basket/current/shippingmethod/PATCH/ShippingMethodData.json.example
                 responses:
                     200:
                         body:
-                            application/vnd.ez.api.Basket+json:
+                            application/vnd.ibexa.api.Basket+json:
                                 type: Basket
                                 example: !include examples/commerce/basket/Basket.json.example
                     400:
                         body:
-                            application/vnd.ez.api.ValidationResponse+json:
+                            application/vnd.ibexa.api.ValidationResponse+json:
                                 type: ValidationResponse
 
         /paymentmethod:
@@ -103,18 +103,18 @@ displayName: eCommerce API
                 displayName: Update payment information in current basket
                 description: Updates payment information in the current basket.
                 body:
-                    application/vnd.ez.api.PaymentMethodData.json:
+                    application/vnd.ibexa.api.PaymentMethodData.json:
                         type: PaymentMethodData
                         example: !include examples/commerce/basket/current/paymentmethod/PATCH/PaymentMethodData.json.example
                 responses:
                     200:
                         body:
-                            application/vnd.ez.api.Basket+json:
+                            application/vnd.ibexa.api.Basket+json:
                                 type: Basket
                                 example: !include examples/commerce/basket/Basket.json.example
                     400:
                         body:
-                            application/vnd.ez.api.ValidationResponse+json:
+                            application/vnd.ibexa.api.ValidationResponse+json:
                                 type: ValidationResponse
 
         /voucher:
@@ -122,18 +122,18 @@ displayName: eCommerce API
                 displayName: Update and check voucher in current basket
                 description: Updates and checks voucher in current basket.
                 body:
-                    application/vnd.ez.api.VoucherData.json:
+                    application/vnd.ibexa.api.VoucherData.json:
                         type: VoucherData
                         example: !include examples/commerce/basket/current/voucher/PATCH/VoucherData.json.example
                 responses:
                     200:
                         body:
-                            application/vnd.ez.api.Basket+json:
+                            application/vnd.ibexa.api.Basket+json:
                                 type: Basket
                                 example: !include examples/commerce/basket/Basket.json.example
                     400:
                         body:
-                            application/vnd.ez.api.ValidationResponse+json:
+                            application/vnd.ibexa.api.ValidationResponse+json:
                                 type: ValidationResponse
 
         /line:
@@ -141,18 +141,18 @@ displayName: eCommerce API
                 displayName: Add products to current basket
                 description: Adds products to the current basket.
                 body:
-                    application/vnd.ez.api.BasketLineData+json:
+                    application/vnd.ibexa.api.BasketLineData+json:
                         type: BasketLineData
                         example: !include examples/commerce/basket/current/lines/POST/BasketLineData.json.example
                 responses:
                     200:
                         body:
-                            application/vnd.ez.api.Basket+json:
+                            application/vnd.ibexa.api.Basket+json:
                                 type: Basket
                                 example: !include examples/commerce/basket/Basket.json.example
                     400:
                         body:
-                            application/vnd.ez.api.ValidationResponse+json:
+                            application/vnd.ibexa.api.ValidationResponse+json:
                                 type: ValidationResponse
                                 example: !include examples/commerce/basket/current/lines/POST/ValidationResponse.json.example
 
@@ -163,7 +163,7 @@ displayName: eCommerce API
             responses:
                 200:
                     body:
-                        application/vnd.ez.api.Basket+json:
+                        application/vnd.ibexa.api.Basket+json:
                             type: Basket
                             example: !include examples/commerce/basket/_id_/GET/Basket.json.example
 
@@ -173,13 +173,13 @@ displayName: eCommerce API
                 description: |
                     Updates the name of the stored basket.
                 body:
-                    application/vnd.ez.api.BasketHeaderData+json:
+                    application/vnd.ibexa.api.BasketHeaderData+json:
                         type: BasketHeaderData
                         example: !include examples/commerce/basket/_id_/_mode_/POST/BasketHeaderData.json.example
                 responses:
                     200:
                         body:
-                            application/vnd.ez.api.Basket+json:
+                            application/vnd.ibexa.api.Basket+json:
                                 type: Basket
                                 example: !include examples/commerce/basket/Basket.json.example
 
@@ -189,13 +189,13 @@ displayName: eCommerce API
                 description: |
                     Updates the note of the stored basket.
                 body:
-                    application/vnd.ez.api.BasketHeaderData+json:
+                    application/vnd.ibexa.api.BasketHeaderData+json:
                         type: BasketHeaderData
                         example: !include examples/commerce/basket/_id_/_mode_/POST/BasketHeaderData.json.example
                 responses:
                     200:
                         body:
-                            application/vnd.ez.api.Basket+json:
+                            application/vnd.ibexa.api.Basket+json:
                                 type: Basket
                                 example: !include examples/commerce/basket/Basket.json.example
 
@@ -205,18 +205,18 @@ displayName: eCommerce API
                     displayName: Add products to stored basket
                     description: Adds products to the stored basket.
                     body:
-                        application/vnd.ez.api.BasketLineData+json:
+                        application/vnd.ibexa.api.BasketLineData+json:
                             type: BasketLineData
                             example: !include examples/commerce/basket/current/lines/POST/BasketLineData.json.example
                     responses:
                         200:
                             body:
-                                application/vnd.ez.api.Basket+json:
+                                application/vnd.ibexa.api.Basket+json:
                                     type: Basket
                                     example: !include examples/commerce/basket/Basket.json.example
                         400:
                             body:
-                                application/vnd.ez.api.ValidationResponse+json:
+                                application/vnd.ibexa.api.ValidationResponse+json:
                                     type: ValidationResponse
                                     example: !include examples/commerce/basket/current/lines/POST/ValidationResponse.json.example
 
@@ -226,12 +226,12 @@ displayName: eCommerce API
                     responses:
                         200:
                             body:
-                                application/vnd.ez.api.Basket+json:
+                                application/vnd.ibexa.api.Basket+json:
                                     type: Basket
                                     example: !include examples/commerce/basket/Basket.json.example
                         400:
                             body:
-                                application/vnd.ez.api.ValidationResponse+json:
+                                application/vnd.ibexa.api.ValidationResponse+json:
                                     type: ValidationResponse
                                     example: !include examples/commerce/basket/_id_/line/_line_id_/DELETE/ValidationResponse.json.example
 
@@ -242,12 +242,12 @@ displayName: eCommerce API
             responses:
                 200:
                     body:
-                        application/vnd.ez.api.Basket+json:
+                        application/vnd.ibexa.api.Basket+json:
                             type: Basket
                             example: !include examples/commerce/basket/Basket.json.example
                 400:
                     body:
-                        application/vnd.ez.api.ValidationResponse+json:
+                        application/vnd.ibexa.api.ValidationResponse+json:
                             type: ValidationResponse
                             example: !include examples/commerce/basket/POST/ValidationResponse.json.example
 
@@ -258,7 +258,7 @@ displayName: eCommerce API
             responses:
                 200:
                     body:
-                        application/vnd.ez.api.PaymentMethodDataResponse+json:
+                        application/vnd.ibexa.api.PaymentMethodDataResponse+json:
                             type: PaymentMethodDataResponse
                             example: !include examples/commerce/checkout/payment-methods/GET/PaymentMethodDataResponse.json.example
 
@@ -268,7 +268,7 @@ displayName: eCommerce API
             responses:
                 200:
                     body:
-                        application/vnd.ez.api.ShippingMethodDataResponse+json:
+                        application/vnd.ibexa.api.ShippingMethodDataResponse+json:
                             type: ShippingMethodDataResponse
                             example: !include examples/commerce/checkout/shipping-methods/GET/ShippingMethodDataResponse.json.example
 
