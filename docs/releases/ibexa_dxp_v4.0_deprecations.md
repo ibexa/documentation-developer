@@ -10,7 +10,7 @@ using the older naming should function without change.
 
 ## Namespaces
 
-Namespaces in the product which referred to "eZ Platform", "eZ Systems" or "eZ" now use the Ibexa name.
+Namespaces in the product which referred to old product names now use the Ibexa name.
 
 All namespace changes are listed in the `ibexa/compatibility-layer` repository.
 
@@ -74,6 +74,24 @@ Other package-specific configuration keys have also been updated.
 | `siso_tools` | `ibexa_commerce_tools` |
 | `siso_voucher` | `ibexa_commerce_voucher` |
 
+## Service names
+
+Service names which referred to old product names now use the Ibexa name.
+
+All service name changes are listed in the `ibexa/compatibility-layer` repository.
+
+Refer to [mapping reference](https://github.com/ibexa/compatibility-layer/blob/main/src/bundle/Resources/mappings/services-to-fqcn-map.php)
+for a full comparison of old and new names.
+
+## Service tags
+
+Service tag which referred to old product names now use the Ibexa name.
+
+All service tag changes are listed in the `ibexa/compatibility-layer` repository.
+
+Refer to [mapping reference](https://github.com/ibexa/compatibility-layer/blob/main/src/bundle/Resources/mappings/symfony-service-tag-name-map.php)
+for a full comparison of old and new service tags.
+
 ## CSS classes for Back Office
 
 CSS classes with the `ez-` prefix have been modified with an `ibexa-` prefix.
@@ -85,9 +103,11 @@ JavaScript event names with the `ez-` prefix have been modified with an `ibexa-`
 `ez-notify` > `ibexa-notify`
 `ez-content-tree-refresh` > `ibexa-content-tree-refresh`
 
-## REST endpoint prefix
+## REST API
 
-TODO
+REST API route prefix has changed from `/api/ezp/v2/` to `/api/ibexa/v2/`.
+
+REST API media types have changed from `application/vnd.ez.api.*` to `application/vnd.ibexa.api.*`.
 
 ## Twig functions and filters
 
