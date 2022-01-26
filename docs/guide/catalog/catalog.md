@@ -1,7 +1,7 @@
 # Product catalog
 
 The product catalog enables handling of products offered in the shop,
-including their specifications, product variants, and pricing.
+including their specifications and pricing.
 
 ## Products
 
@@ -35,19 +35,3 @@ An example of an attribute group can be dimensions (length, width, height).
 
 You can assign both whole attribute groups or individual attributes to a product type.
 
-## Product variants
-
-Product variants are different versions of a single product that differ in some attributes.
-
-Example products with variants can be: sofas in different colors or laptops with different hard drive sizes.
-
-When defining attributes for a product type, you can select which attributes can be the basis for creating product variants.
-
-For example, a sofa product type can have multiple attributes: length, width, height, and so on.
-It can also have another attribute that distinguishes variants: color.
-If you enable the attributes to be used for product variants, variants of the product can correspond to the different colors.
-
-A product type can have multiple attributes that create variants.
-In that case, you can create variants based on the combination of all the attributes.
-The product catalog can automatically generate variants based on all selected attributes.
-You can aso manually select which generated variants you want to disable.
