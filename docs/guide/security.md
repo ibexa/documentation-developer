@@ -96,7 +96,7 @@ See [Authenticating a user with multiple user provider](user_management/user_man
 
 ## JWT authentication
 
-To use [JWT authentication](https://jwt.io/) with eZ Platform, in the provided ` config/packages/lexik_jwt_authentication.yaml` file,
+To use [JWT authentication](https://jwt.io/) with Ibexa DXP, in the provided ` config/packages/lexik_jwt_authentication.yaml` file,
 modify the existing configuration by setting `authorization_header` to `enabled`:
 
 ``` yaml hl_lines="8"

@@ -59,7 +59,7 @@ Symfony can be configured to use custom handlers, or just fall back to what is 
 framework:
     session:
         # handler_id can be set to null (~) like default in Symfony, if it so will use default session handler from php.ini
-        # But in order to use %ezplatform.session.save_path%, default eZ Platform instead sets %ezplatform.session.handler_id% to:
+        # But in order to use %ezplatform.session.save_path%, default Ibexa DXP instead sets %ezplatform.session.handler_id% to:
         # - session.handler.native_file (default)
         # - ezplatform.core.session.handler.native_redis (recommended value for Cluster usage, using php-redis session handler )
         handler_id: '%ezplatform.session.handler_id%'
