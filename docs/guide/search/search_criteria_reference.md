@@ -24,11 +24,13 @@ Due to this storage limitation, searching content using the Country Field Type o
 |[ContentTypeGroupId](criteria_reference/contenttypegroupid_criterion.md)|ID of the Content item's Content Type group|Content and Location Search; Filtering|
 |[ContentTypeId](criteria_reference/contenttypeid_criterion.md)|ID of the Content item's Content Type|Content and Location Search; Filtering|
 |[ContentTypeIdentifier](criteria_reference/contenttypeidentifier_criterion.md)|Identifier of the Content item's Content Type|Content and Location Search; Filtering|
+|[CurrencyCodeCriterion](criteria_reference/currencycode_criterion.md)|Currency code|Content and Location Search; Filtering|
 |[DateMetadata](criteria_reference/datemetadata_criterion.md)|The date when content was created or last modified|Content and Location Search; Filtering|
 |[Depth](criteria_reference/depth_criterion.md)|Location depth in the Content tree|Location Search, Filtering|
 |[Field](criteria_reference/field_criterion.md)|Content of one of Content item's Fields|Content and Location Search|
 |[FieldRelation](criteria_reference/fieldrelation_criterion.md)|Content items the content in question has Relations to|Content and Location Search|
 |[FullText](criteria_reference/fulltext_criterion.md)|Full text content of a Content item's Fields|Content and Location Search|
+|[IsCurrencyEnabledCriterion](cirteria_reference/iscurrencyenabled_criterion.md)|Whethe a specificed currency is enabled in the system||
 |[IsFieldEmpty](criteria_reference/isfieldempty_criterion.md)|Whether a specified Field of a Content item is empty or not|Content and Location Search
 |[IsMainLocation](criteria_reference/ismainlocation_criterion.md)|Whether a Location is the main Location of a Content item|Location Search, Filtering|
 |[IsProductBased](criteria_reference/isproductbased_criterion.md)|Whether content represents a product|Content and Location Search; Filtering|
