@@ -127,6 +127,31 @@ run the following command:
     composer create-project ibexa/commerce-skeleton .
     ```
 
+??? note "Using PHP 8"
+
+    If you are using PHP 8, use a different set of commands:
+
+    === "[[= product_name_content =]]"
+
+        ``` bash
+        composer create-project ibexa/content-skeleton:^3.3 --no-install .
+        composer update
+        ```
+
+    === "[[= product_name_exp =]]"
+
+        ``` bash
+        composer create-project ibexa/experience-skeleton:^3.3 --no-install .
+        composer update
+        ```
+
+    === "[[= product_name_com =]]"
+
+        ``` bash
+        composer create-project ibexa/commerce-skeleton:^3.3 --no-install .
+        composer update
+        ```
+
 !!! tip "Authentication token"
 
     <a id="authentication-token"></a>If you added credentials to the `COMPOSER_AUTH` variable,
