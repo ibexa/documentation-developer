@@ -17,5 +17,5 @@ To use them in your shop, you need to first enable them in the Back Office.
 
 ## VAT
 
-You can [configure VAT rate globally](../catalog_catalog_configuration.md#vat-rates) (per SiteAccess),
+You can [configure VAT rate globally](../catalog/catalog_configuration.md#vat-rates) (per SiteAccess),
 or set it individually for each product.

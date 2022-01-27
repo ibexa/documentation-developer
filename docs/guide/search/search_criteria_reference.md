@@ -30,7 +30,7 @@ Due to this storage limitation, searching content using the Country Field Type o
 |[Field](criteria_reference/field_criterion.md)|Content of one of Content item's Fields|Content and Location Search|
 |[FieldRelation](criteria_reference/fieldrelation_criterion.md)|Content items the content in question has Relations to|Content and Location Search|
 |[FullText](criteria_reference/fulltext_criterion.md)|Full text content of a Content item's Fields|Content and Location Search|
-|[IsCurrencyEnabledCriterion](cirteria_reference/iscurrencyenabled_criterion.md)|Whethe a specificed currency is enabled in the system||
+|[IsCurrencyEnabled](criteria_reference/iscurrencyenabled_criterion.md)|Whethe a specificed currency is enabled in the system||
 |[IsFieldEmpty](criteria_reference/isfieldempty_criterion.md)|Whether a specified Field of a Content item is empty or not|Content and Location Search
 |[IsMainLocation](criteria_reference/ismainlocation_criterion.md)|Whether a Location is the main Location of a Content item|Location Search, Filtering|
 |[IsProductBased](criteria_reference/isproductbased_criterion.md)|Whether content represents a product|Content and Location Search; Filtering|

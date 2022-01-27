@@ -49,7 +49,6 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Time](field_types_reference/timefield.md) | Stores time information. | Yes | Yes |
 | [Url](field_types_reference/urlfield.md) | Stores a URL / address. | No | Yes |
 | [User](field_types_reference/userfield.md) | Validates and stores information about a user. | No | No |
-| [VariantType](field_types_reference/varianttype.md) | Stores variant data for products. | Yes | Yes |
 
 <a id="1-note-on-legacy-search-engine"></a>**^[1]^ Note on Legacy Search Engine**
 

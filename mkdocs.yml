@@ -109,7 +109,6 @@ nav:
                - 'Media Field Type': 'api/field_types_reference/mediafield.md'
                - 'Null Field Type': 'api/field_types_reference/nullfield.md'
                - 'Page Field Type': 'api/field_types_reference/pagefield.md'
-               - 'ProductSpecification Field Type': 'api/field_types_reference/productspecificationfield.md'
                - 'Relation Field Type': 'api/field_types_reference/relationfield.md'
                - 'RelationList Field Type': 'api/field_types_reference/relationlistfield.md'
                - 'RichText Field Type': 'api/field_types_reference/richtextfield.md'
@@ -123,7 +122,6 @@ nav:
                - 'Time Field Type': 'api/field_types_reference/timefield.md'
                - 'URL Field Type': 'api/field_types_reference/urlfield.md'
                - 'User Field Type': 'api/field_types_reference/userfield.md'
-               - 'VariantType': 'api/field_types_reference/varianttype.md'
                - 'XmlText Field Type': 'api/field_types_reference/xmltextfield.md'
         - GraphQL:
             - 'GraphQL': 'api/graphql.md'
