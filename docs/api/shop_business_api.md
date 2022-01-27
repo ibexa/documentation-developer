@@ -3,7 +3,7 @@
 Shop business API is the layer between the application entry points (like controllers or CLI commands) and the particular shop-related services.
 
 To access the Shop business API, you have to use the Business API invocation service.
-This service is the access point to the Business API and is defined by a service with the ID `ses_eshop.business_api.invocation`.
+This service is the access point to the Business API and is defined by a service with the ID `Ibexa\Bundle\Commerce\Eshop\Services\BusinessLayer\BusinessApi`.
 
 To call the operation service, use the `call()` method.
 
@@ -22,7 +22,7 @@ use Ibexa\Commerce\Checkout\Entities\BusinessLayer\OutputValueObjects\GetBasket 
 $input = new InputGetBasket(array('request' => $request));
 
 /** @var OutputGetBasket $output */
-$output = $this->get('ses_eshop.business_api.invocation')->call('basket.get_basket', $input);
+$output = $this->get('Ibexa\Bundle\Commerce\Eshop\Services\BusinessLayer\BusinessApi')->call('basket.get_basket', $input);
 ```
 
 ## Methods

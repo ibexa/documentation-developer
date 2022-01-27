@@ -4,7 +4,7 @@
         <div class="block-contentlist-items">
             {% for content in contentArray %}
                 <div class="block-contentlist-child">
-                    <h4><a href="{{ path('ez_urlalias', {'locationId': content.location.id}) }}">{{ ibexa_content_name(content.content) }}</a></h4>
+                    <h4><a href="{{ path('ibexa.url.alias', {'locationId': content.location.id}) }}">{{ ibexa_content_name(content.content) }}</a></h4>
                 </div>
             {% endfor %}
         </div>

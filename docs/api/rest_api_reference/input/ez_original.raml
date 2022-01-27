@@ -14,15 +14,15 @@ version: 2.5
                 description: If set, the list is return in XML or JSON format.
                 type: string
                 example:
-                  - application/vnd.ez.api.Root+xml
-                  - application/vnd.ez.api.Root+json
+                  - application/vnd.ibexa.api.Root+xml
+                  - application/vnd.ibexa.api.Root+json
         responses:
             200:
                 body:
-                    application/vnd.ez.api.Root+xml:
+                    application/vnd.ibexa.api.Root+xml:
                         type: Root
                         example: !include examples/GET/Root.xml.example
-                    application/vnd.ez.api.Root+json:
+                    application/vnd.ibexa.api.Root+json:
                         type: Root
                         example: !include examples/GET/Root.json.example
 
@@ -44,15 +44,15 @@ version: 2.5
             Accept:
                 description: If set, the list is returned in XML or JSON format.
                 example:
-                    - application/vnd.ez.api.BookmarkList+xml
-                    - application/vnd.ez.api.BookmarkList+json
+                    - application/vnd.ibexa.api.BookmarkList+xml
+                    - application/vnd.ibexa.api.BookmarkList+json
         responses:
             200:
                 body:
-                    application/vnd.ez.api.BookmarkList+xml:
+                    application/vnd.ibexa.api.BookmarkList+xml:
                         type: BookmarkList
                         example: !include examples/bookmark/GET/BookmarkList.xml.example
-                    application/vnd.ez.api.BookmarkList+json:
+                    application/vnd.ibexa.api.BookmarkList+json:
                         type: BookmarkList
                         example: !include examples/bookmark/GET/BookmarkList.json.example
             401:
@@ -101,26 +101,26 @@ version: 2.5
                 Accept:
                     description: Content - If set, all information for the Content item including the embedded current version is returned in XML or JSON format. ContentInfo - If set, all information for the Content item (excluding the current version) is returned in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.Content+xml
-                        application/vnd.ez.api.Content+json
-                        application/vnd.ez.api.ContentInfo+xml
-                        application/vnd.ez.api.ContentInfo+json
+                        application/vnd.ibexa.api.Content+xml
+                        application/vnd.ibexa.api.Content+json
+                        application/vnd.ibexa.api.ContentInfo+xml
+                        application/vnd.ibexa.api.ContentInfo+json
                 Content-Type:
                     description: The ContentCreate schema encoded in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.ContentCreate+xml
-                        application/vnd.ez.api.ContentCreate+json
+                        application/vnd.ibexa.api.ContentCreate+xml
+                        application/vnd.ibexa.api.ContentCreate+json
             body:
-                application/vnd.ez.api.ContentCreate+xml:
+                application/vnd.ibexa.api.ContentCreate+xml:
                     type: ContentCreate
                     example: !include examples/content/objects/POST/ContentCreate.xml.example
             responses:
                 201:
                     body:
-                        application/vnd.ez.api.Content+xml:
+                        application/vnd.ibexa.api.Content+xml:
                             type: Content
                             example: !include examples/content/objects/POST/Content.xml.example
-                        application/vnd.ez.api.ContentInfo+xml:
+                        application/vnd.ibexa.api.ContentInfo+xml:
                             type: ContentInfo
                             example: !include examples/content/objects/POST/ContentInfo.xml.example
                 400:
@@ -152,20 +152,20 @@ version: 2.5
                     Accept:
                         description: Content -	If set, all information for the Content item including the embedded current version is returned in XML or JSON format. ContentInfo - If set, all information for the Content item (excluding the current version) is returned in XML or JSON format.
                         example:  |
-                            application/vnd.ez.api.Content+xml
-                            application/vnd.ez.api.Content+json
-                            application/vnd.ez.api.ContentInfo+xml
-                            application/vnd.ez.api.ContentInfo+json
+                            application/vnd.ibexa.api.Content+xml
+                            application/vnd.ibexa.api.Content+json
+                            application/vnd.ibexa.api.ContentInfo+xml
+                            application/vnd.ibexa.api.ContentInfo+json
                     If-None-Match:
                         description: If the provided ETag matches the current ETag then a "304 Not Modified" is returned. The ETag changes if the meta data has changed, this happens also if there is a new published version.
                         example: ETag
                 responses:
                     200:
                         body:
-                            application/vnd.ez.api.Content+xml:
+                            application/vnd.ibexa.api.Content+xml:
                                 type: Content
                                 example: !include examples/content/objects/content_id/GET/Content.xml.example
-                            application/vnd.ez.api.ContentInfo+xml:
+                            application/vnd.ibexa.api.ContentInfo+xml:
                                 type: ContentInfo
                                 example: !include examples/content/objects/content_id/GET/ContentInfo.xml.example
                     401:
@@ -179,24 +179,24 @@ version: 2.5
                      Accept:
                         description: If set, all information for the Content item (excluding the current version) is returned in XML or JSON format.
                         example:  |
-                            application/vnd.ez.api.ContentInfo+xml
-                            application/vnd.ez.api.ContentInfo+json
+                            application/vnd.ibexa.api.ContentInfo+xml
+                            application/vnd.ibexa.api.ContentInfo+json
                      If-match:
                          description: Causes to patch only if the specified ETag is the current one. Otherwise a 412 is returned.
                          example: ETag
                      Content-Type:
                         description: The ContentUpdate schema encoded in XML or JSON format.
                         example:  |
-                            application/vnd.ez.api.ContentUpdate+xml
-                            application/vnd.ez.api.ContentUpdate+json
+                            application/vnd.ibexa.api.ContentUpdate+xml
+                            application/vnd.ibexa.api.ContentUpdate+json
                 body:
-                    application/vnd.ez.api.ContentUpdate+xml:
+                    application/vnd.ibexa.api.ContentUpdate+xml:
                         type: ContentInfo
                         example: !include examples/content/objects/content_id/PATCH/ContentUpdate.xml.example
                 responses:
                     200:
                         body:
-                            application/vnd.ez.api.ContentInfo+xml:
+                            application/vnd.ibexa.api.ContentInfo+xml:
                                 type: ContentInfo
                                 example: !include examples/content/objects/content_id/PATCH/ContentInfo.xml.example
                     400:
@@ -254,7 +254,7 @@ version: 2.5
                     responses:
                         200:
                             body:
-                                application/vnd.ez.api.Version+xml:
+                                application/vnd.ibexa.api.Version+xml:
                                     type: Version
                                     example: !include examples/content/objects/content_id/currentversion/GET/Version.xml.example
                         307:
@@ -268,13 +268,13 @@ version: 2.5
                       Accept:
                           description: If set, the updated version is returned in XML or JSON format.
                           example:  |
-                              application/vnd.ez.api.Version+xml
-                              application/vnd.ez.api.Version+json
+                              application/vnd.ibexa.api.Version+xml
+                              application/vnd.ibexa.api.Version+json
                     responses:
                         201:
                             description: Created
                             body:
-                                application/vnd.ez.api.Version+xml:
+                                application/vnd.ibexa.api.Version+xml:
                                     type: Version
                                     example: !include examples/content/objects/content_id/currentversion/COPY/Version.xml.example
                         401:
@@ -291,12 +291,12 @@ version: 2.5
                         Accept:
                             description: If set, the version list is returned in XML or JSON format.
                             example:  |
-                                application/vnd.ez.api.VersionList+xml
-                                application/vnd.ez.api.VersionList+json
+                                application/vnd.ibexa.api.VersionList+xml
+                                application/vnd.ibexa.api.VersionList+json
                     responses:
                         200:
                             body:
-                                application/vnd.ez.api.VersionList+xml:
+                                application/vnd.ibexa.api.VersionList+xml:
                                     type: VersionList
                                     example: !include examples/content/objects/content_id/versions/GET/VersionList.xml.example
                         401:
@@ -322,12 +322,12 @@ version: 2.5
                             Accept:
                                 description: If set, the version list is returned in XML or JSON format.
                                 example:  |
-                                    application/vnd.ez.api.Version+xml
-                                    application/vnd.ez.api.Version+json
+                                    application/vnd.ibexa.api.Version+xml
+                                    application/vnd.ibexa.api.Version+json
                         responses:
                             200:
                                 body:
-                                    application/vnd.ez.api.Version+xml:
+                                    application/vnd.ibexa.api.Version+xml:
                                         type: Version
                                         example: !include examples/content/objects/content_id/versions/version_no/GET/Version.xml.example
                             304:
@@ -347,23 +347,23 @@ version: 2.5
                             Accept:
                                 description: If set, the updated version is returned in XML or JSON format.
                                 example:  |
-                                    application/vnd.ez.api.Version+xml
-                                    application/vnd.ez.api.Version+json
+                                    application/vnd.ibexa.api.Version+xml
+                                    application/vnd.ibexa.api.Version+json
                             If-match:
                                 description: Performs the patch only if the specified ETag is the current one.
                             Content-Type:
                                 description: The VersionUpdate schema encoded in XML or JSON format.
                                 example:  |
-                                    application/vnd.ez.api.VersionUpdate+xml
-                                    application/vnd.ez.api.VersionUpdate+json
+                                    application/vnd.ibexa.api.VersionUpdate+xml
+                                    application/vnd.ibexa.api.VersionUpdate+json
                         body:
-                            application/vnd.ez.api.VersionUpdate+xml:
+                            application/vnd.ibexa.api.VersionUpdate+xml:
                                 type: VersionUpdate
                                 example: !include examples/content/objects/content_id/versions/version_no/PATCH/VersionUpdate.xml.example
                         responses:
                             200:
                                 body:
-                                    application/vnd.ez.api.Version+xml:
+                                    application/vnd.ibexa.api.Version+xml:
                                         type: Version
                                         example: !include examples/content/objects/content_id/versions/version_no/PATCH/Version.xml.example
                             400:
@@ -383,13 +383,13 @@ version: 2.5
                             Accept:
                                 description: If set, the updated version is returned in XML or JSON format.
                                 example:  |
-                                    application/vnd.ez.api.Version+xml
-                                    application/vnd.ez.api.Version+json
+                                    application/vnd.ibexa.api.Version+xml
+                                    application/vnd.ibexa.api.Version+json
                         responses:
                             201:
                                 description: Created.
                                 body:
-                                    application/vnd.ez.api.Version+xml:
+                                    application/vnd.ibexa.api.Version+xml:
                                         type: Version
                                         example: !include examples/content/objects/content_id/versions/version_no/COPY/Version.xml.example
                             401:
@@ -452,12 +452,12 @@ version: 2.5
                                 Accept:
                                     description: If set, the Relation is returned in XML or JSON format.
                                     example:  |
-                                        application/vnd.ez.api.RelationList+xml
-                                        application/vnd.ez.api.RelationList+json
+                                        application/vnd.ibexa.api.RelationList+xml
+                                        application/vnd.ibexa.api.RelationList+json
                             responses:
                                 200:
                                     body:
-                                        application/vnd.ez.api.RelationList+xml:
+                                        application/vnd.ibexa.api.RelationList+xml:
                                             type: RelationList
                                             example: !include examples/content/objects/content_id/versions/version_no/relations/GET/RelationList.xml.example
                                 401:
@@ -471,21 +471,21 @@ version: 2.5
                                 Accept:
                                     description: If set, the updated version is returned in XML or JSON format.
                                     example:  |
-                                        application/vnd.ez.api.Relation+xml
-                                        application/vnd.ez.api.Relation+json
+                                        application/vnd.ibexa.api.Relation+xml
+                                        application/vnd.ibexa.api.Relation+json
                                 Content-Type:
                                     description: The RelationCreate schema encoded in XML or JSON format.
                                     example:  |
-                                        application/vnd.ez.api.RelationCreate+xml
-                                        application/vnd.ez.api.RelationCreate+json
+                                        application/vnd.ibexa.api.RelationCreate+xml
+                                        application/vnd.ibexa.api.RelationCreate+json
                             body:
-                                application/vnd.ez.api.RelationCreate+xml:
+                                application/vnd.ibexa.api.RelationCreate+xml:
                                     type: Relation
                                     example: !include examples/content/objects/content_id/versions/version_no/relations/POST/RelationCreate.xml.example
                             responses:
                                 201:
                                     body:
-                                        application/vnd.ez.api.Relation+xml:
+                                        application/vnd.ibexa.api.Relation+xml:
                                             type: Relation
                                             example: !include examples/content/objects/content_id/versions/version_no/relations/POST/Relation.xml.example
                         /{relationId}:
@@ -496,13 +496,13 @@ version: 2.5
                                     Accept:
                                         description: If set, the Relation is returned in XML or JSON format.
                                         example:  |
-                                            application/vnd.ez.api.Relation+xml
-                                            application/vnd.ez.api.Relation+json
+                                            application/vnd.ibexa.api.Relation+xml
+                                            application/vnd.ibexa.api.Relation+json
                                 responses:
                                     200:
                                         description: OK - loads a Relation for the given Content item.
                                         body:
-                                            application/vnd.ez.api.Relation+xml:
+                                            application/vnd.ibexa.api.Relation+xml:
                                                 type: Relation
                                                 example: !include examples/content/objects/content_id/versions/version_no/relations/relation_id/GET/Relation.xml.example
                                     401:
@@ -540,21 +540,21 @@ version: 2.5
                             Accept:
                                 description: If set, the new Location is returned in XML or JSON format.
                                 example:  |
-                                    application/vnd.ez.api.Location+xml
-                                    application/vnd.ez.api.Location+json
+                                    application/vnd.ibexa.api.Location+xml
+                                    application/vnd.ibexa.api.Location+json
                             Content-Type:
                                 description: The LocationCreate schema encoded in XML or JSON format.
                                 example:  |
-                                    application/vnd.ez.api.LocationCreate+json
-                                    application/vnd.ez.api.LocationCreate+xml
+                                    application/vnd.ibexa.api.LocationCreate+json
+                                    application/vnd.ibexa.api.LocationCreate+xml
                         body:
-                            application/vnd.ez.api.LocationCreate+xml:
+                            application/vnd.ibexa.api.LocationCreate+xml:
                                 type: LocationCreate
                                 example: !include examples/content/objects/content_id/locations/POST/LocationCreate.xml.example
                         responses:
                             201:
                                 body:
-                                    application/vnd.ez.api.Location+xml:
+                                    application/vnd.ibexa.api.Location+xml:
                                         type: Location
                                         example: !include examples/content/objects/content_id/locations/POST/Location.xml.example
                             400:
@@ -570,14 +570,14 @@ version: 2.5
                             Accept:
                                 description: If set, the Location list is returned in XML or JSON format.
                                 example:  |
-                                    application/vnd.ez.api.LocationList+xml
-                                    application/vnd.ez.api.LocationList+json
+                                    application/vnd.ibexa.api.LocationList+xml
+                                    application/vnd.ibexa.api.LocationList+json
                             If-None-Match:
                                 description: ETag
                         responses:
                             200:
                                 body:
-                                    application/vnd.ez.api.LocationList+xml:
+                                    application/vnd.ibexa.api.LocationList+xml:
                                         type: LocationList
                                         example: !include examples/content/objects/content_id/locations/GET/LocationList.xml.example
                             401:
@@ -592,15 +592,15 @@ version: 2.5
                         Accept:
                             description: If set, the Object states are returned in XML or JSON format.
                             example: |
-                                application/vnd.ez.api.ContentObjectStates+xml
-                                application/vnd.ez.api.ContentObjectStates+json
+                                application/vnd.ibexa.api.ContentObjectStates+xml
+                                application/vnd.ibexa.api.ContentObjectStates+json
                         If-None-Match:
                             description: ETag
                     responses:
                         200:
                             description: OK - returns the Object state.
                             body:
-                                application/vnd.ez.api.ContentObjectStates+xml:
+                                application/vnd.ibexa.api.ContentObjectStates+xml:
                                     type: ContentObjectStates
                                     example: !include examples/content/objects/content_id/objectstates/GET/ContentObjectStates.xml.example
                         404:
@@ -612,23 +612,23 @@ version: 2.5
                         Accept:
                             description: If set, the updated Object state is returned in XML or JSON format.
                             example: |
-                                application/vnd.ez.api.ObjectState+xml
-                                application/vnd.ez.api.ObjectState+json
+                                application/vnd.ibexa.api.ObjectState+xml
+                                application/vnd.ibexa.api.ObjectState+json
                         Content-Type:
                             description: The Content item Object states input schema encoded in XML or JSON format.
                             example: |
-                                application/vnd.ez.api.ObjectStateUpdate+xml
-                                application/vnd.ez.api.ObjectStateUpdate+json
+                                application/vnd.ibexa.api.ObjectStateUpdate+xml
+                                application/vnd.ibexa.api.ObjectStateUpdate+json
                         If-Match:
                             description: ETag
                     body:
-                        application/vnd.ez.api.ObjectState+xml:
+                        application/vnd.ibexa.api.ObjectState+xml:
                             type: ObjectStateUpdate
                     responses:
                         204:
                             description: OK - Object state updated.
                             body:
-                                application/vnd.ez.api.ObjectState+xml:
+                                application/vnd.ibexa.api.ObjectState+xml:
                                     type: ObjectState
                         400:
                             description: Error - The input does not match the input schema definition.
@@ -646,18 +646,18 @@ version: 2.5
                 Accept:
                     description: If set, the Object state group list is returned in XML or JSON format.
                     example: |
-                        application/vnd.ez.api.ObjectStateGroupList+xml
-                        application/vnd.ez.api.ObjectStateGroupList+json
+                        application/vnd.ibexa.api.ObjectStateGroupList+xml
+                        application/vnd.ibexa.api.ObjectStateGroupList+json
                 If-None-Match:
                     description: ETag
             responses:
                 200:
                     description: OK - returns a list of Object state groups.
                     body:
-                        application/vnd.ez.api.ObjectStateGroupList+xml:
+                        application/vnd.ibexa.api.ObjectStateGroupList+xml:
                             type: ObjectStateGroupList
                             example: !include examples/content/objectstategroups/GET/ObjectStateGroupList.xml.example
-                        application/vnd.ez.api.ObjectStateGroupList+json:
+                        application/vnd.ibexa.api.ObjectStateGroupList+json:
                             type: ObjectStateGroupList
                             # example: !include examples/content/objectstategroups/GET/ObjectStateGroupList.json.example
                 401:
@@ -669,25 +669,25 @@ version: 2.5
                 Accept:
                     description: If set, the new Object state group is returned in XML or JSON format.
                     example: |
-                        application/vnd.ez.api.ObjectStateGroup+xml
-                        application/vnd.ez.api.ObjectStateGroup+json
+                        application/vnd.ibexa.api.ObjectStateGroup+xml
+                        application/vnd.ibexa.api.ObjectStateGroup+json
                 Content-Type:
                     description: The Object state group input schema encoded in XML or JSON format.
                     example: |
-                        application/vnd.ez.api.ObjectStateGroupCreate+json
-                        application/vnd.ez.api.ObjectStateGroupCreate+xml
+                        application/vnd.ibexa.api.ObjectStateGroupCreate+json
+                        application/vnd.ibexa.api.ObjectStateGroupCreate+xml
             body:
-                application/vnd.ez.api.ObjectStateGroupCreate+xml:
+                application/vnd.ibexa.api.ObjectStateGroupCreate+xml:
                     type: ObjectStateGroupCreate
                     #example: !include examples/content/objectstategroups/POST/ObjectStateGroupCreate.xml.example
-                application/vnd.ez.api.ObjectStateGroupCreate+json:
+                application/vnd.ibexa.api.ObjectStateGroupCreate+json:
                     type: ObjectStateGroupCreate
                     #example: !include examples/content/objectstategroups/POST/ObjectStateGroupCreate.json.example
             responses:
                 201:
                     description: Object state group created.
                     body:
-                        application/vnd.ez.api.ObjectStateGroup+xml:
+                        application/vnd.ibexa.api.ObjectStateGroup+xml:
                             type: ObjectStateGroup
                             example: !include examples/content/objectstategroups/POST/ObjectStateGroup.xml.example
                 400:
@@ -704,18 +704,18 @@ version: 2.5
                     Accept:
                         description: If set, the Object state group is returned in XML or JSON format.
                         example: |
-                            application/vnd.ez.api.ObjectStateGroup+xml
-                            application/vnd.ez.api.ObjectStateGroup+json
+                            application/vnd.ibexa.api.ObjectStateGroup+xml
+                            application/vnd.ibexa.api.ObjectStateGroup+json
                     If-None-Match:
                         description: ETag
                 responses:
                     200:
                         description: OK - returns the Object state group.
                         body:
-                            application/vnd.ez.api.ObjectStateGroup+xml:
+                            application/vnd.ibexa.api.ObjectStateGroup+xml:
                                 type: ObjectStateGroup
                                 example: !include examples/content/objectstategroups/object_state_group_id/GET/ObjectStateGroup.xml.example
-                            application/vnd.ez.api.ObjectStateGroup+json:
+                            application/vnd.ibexa.api.ObjectStateGroup+json:
                                 type: ObjectStateGroup
                                 # example: !include examples/content/objectstategroups/object_state_group_id/GET/ObjectStateGroup.xml.example
                     401:
@@ -729,24 +729,24 @@ version: 2.5
                     Accept:
                         description: If set, the updated Object state group is returned in XML or JSON format.
                         example: |
-                            application/vnd.ez.api.ObjectStateGroup+xml
-                            application/vnd.ez.api.ObjectStateGroup+json
+                            application/vnd.ibexa.api.ObjectStateGroup+xml
+                            application/vnd.ibexa.api.ObjectStateGroup+json
                     Content-Type:
                         description: The Object state group input schema encoded in XML or JSON format.
                         example: |
-                            application/vnd.ez.api.ObjectStateGroupUpdate+json
-                            application/vnd.ez.api.ObjectStateGroupUpdate+xml
+                            application/vnd.ibexa.api.ObjectStateGroupUpdate+json
+                            application/vnd.ibexa.api.ObjectStateGroupUpdate+xml
                     If-Match:
                         description: ETag
                 body:
-                    application/vnd.ez.api.ObjectStateGroupUpdate+xml:
+                    application/vnd.ibexa.api.ObjectStateGroupUpdate+xml:
                         type: ObjectStateGroupUpdate
                         example: !include examples/content/objectstategroups/object_state_group_id/PATCH/ObjectStateGroupUpdate.xml.example
                 responses:
                     200:
                         description: OK - Object stated group updated.
                         body:
-                            application/vnd.ez.api.ObjectStateGroup+xml:
+                            application/vnd.ibexa.api.ObjectStateGroup+xml:
                                 type: ObjectStateGroup
                                 example: !include examples/content/objectstategroups/object_state_group_id/PATCH/ObjectStateGroup.xml.example
                     400:
@@ -775,15 +775,15 @@ version: 2.5
                         Accept:
                             description: If set, the Object state list is returned in XML or JSON format.
                             example: |
-                                application/vnd.ez.api.ObjectStateList+xml
-                                application/vnd.ez.api.ObjectStateList+json
+                                application/vnd.ibexa.api.ObjectStateList+xml
+                                application/vnd.ibexa.api.ObjectStateList+json
                         If-None-Match:
                             description: ETag
                     responses:
                         200:
                             description: OK - returns a list of Object states.
                             body:
-                                application/vnd.ez.api.ObjectStateList+xml:
+                                application/vnd.ibexa.api.ObjectStateList+xml:
                                     type: ObjectStateList
                                     example: !include examples/content/objectstategroups/object_state_group_id/objectstates/GET/ObjectStateList.xml.example
                         401:
@@ -795,22 +795,22 @@ version: 2.5
                         Accept:
                             description: If set, the new Object state is returned in XML or JSON format.
                             example:
-                                application/vnd.ez.api.ObjectState+xml
-                                application/vnd.ez.api.ObjectState+json
+                                application/vnd.ibexa.api.ObjectState+xml
+                                application/vnd.ibexa.api.ObjectState+json
                         Content-Type:
                             description: The Object state input schema encoded in XML or JSON format.
                             example: |
-                                application/vnd.ez.api.ObjectStateCreate+json
-                                application/vnd.ez.api.ObjectStateCreate+xml
+                                application/vnd.ibexa.api.ObjectStateCreate+json
+                                application/vnd.ibexa.api.ObjectStateCreate+xml
                     body:
-                        application/vnd.ez.api.ObjectStateCreate+xml:
+                        application/vnd.ibexa.api.ObjectStateCreate+xml:
                             type: ObjectStateCreate
                             example: !include examples/content/objectstategroups/object_state_group_id/objectstates/POST/ObjectStateCreate.xml.example
                     responses:
                         201:
                             description: Object state created.
                             body:
-                                application/vnd.ez.api.ObjectState+xml:
+                                application/vnd.ibexa.api.ObjectState+xml:
                                     type: ObjectState
                                     example: !include examples/content/objectstategroups/object_state_group_id/objectstates/POST/ObjectState.xml.example
                         400:
@@ -827,15 +827,15 @@ version: 2.5
                             Accept:
                                 description: If set, the Object State is returned in XML or JSON format.
                                 example: |
-                                    application/vnd.ez.api.ObjectState+xml
-                                    application/vnd.ez.api.ObjectState+json
+                                    application/vnd.ibexa.api.ObjectState+xml
+                                    application/vnd.ibexa.api.ObjectState+json
                             If-None-Match:
                                 description: ETag
                         responses:
                             200:
                                 description: OK - returns the Object state.
                                 body:
-                                    application/vnd.ez.api.ObjectState+xml:
+                                    application/vnd.ibexa.api.ObjectState+xml:
                                         type: ObjectState
                                         example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/GET/ObjectState.xml.example
                             401:
@@ -849,24 +849,24 @@ version: 2.5
                             Accept:
                                 description: If set, the updated Object state is returned in XML or JSON format.
                                 example: |
-                                    application/vnd.ez.api.ObjectState+xml
-                                    application/vnd.ez.api.ObjectState+json
+                                    application/vnd.ibexa.api.ObjectState+xml
+                                    application/vnd.ibexa.api.ObjectState+json
                             Content-Type:
                                 description: The Object state input schema encoded in XML or JSON format.
                                 example: |
-                                    application/vnd.ez.api.ObjectStateUpdate+json
-                                    application/vnd.ez.api.ObjectStateUpdate+xml
+                                    application/vnd.ibexa.api.ObjectStateUpdate+json
+                                    application/vnd.ibexa.api.ObjectStateUpdate+xml
                             If-Match:
                                 description: ETag
                         body:
-                            application/vnd.ez.api.ObjectStateUpdate+xml:
+                            application/vnd.ibexa.api.ObjectStateUpdate+xml:
                                 type: ObjectStateUpdate
                                 example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/PATCH/ObjectStateUpdate.xml.example
                         responses:
                             200:
                                 description: OK - Object State updated
                                 body:
-                                    application/vnd.ez.api.ObjectState+xml:
+                                    application/vnd.ibexa.api.ObjectState+xml:
                                         type: ObjectState
                                         example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/PATCH/ObjectState.xml.example
                             400:
@@ -895,12 +895,12 @@ version: 2.5
                 Accept:
                     description: If set, the image is returned in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.ImageVariation+xml
-                        application/vnd.ez.api.ImageVariation+json
+                        application/vnd.ibexa.api.ImageVariation+xml
+                        application/vnd.ibexa.api.ImageVariation+json
             responses:
                 200:
                     body:
-                         application/vnd.ez.api.ImageVariation+xml:
+                         application/vnd.ibexa.api.ImageVariation+xml:
                             type: ContentImageVariation
                             example: !include examples/content/binary/images/image_id/variations/variation_identifier/GET/ImageVariation.xml.example
                 401:
@@ -923,7 +923,7 @@ version: 2.5
                     description: Temporary redirect to the main resource URL.
                 200:
                     body:
-                        application/vnd.ez.api.LocationList+xml:
+                        application/vnd.ibexa.api.LocationList+xml:
                             type: Location
                             example: !include examples/content/locations/GET/LocationList.xml.example
                 404:
@@ -936,14 +936,14 @@ version: 2.5
                     Accept:
                         description: If set, the new Location is returned in XML or JSON format.
                         example:  |
-                            application/vnd.ez.api.Location+xml
-                            application/vnd.ez.api.Location+json
+                            application/vnd.ibexa.api.Location+xml
+                            application/vnd.ibexa.api.Location+json
                     If-None-Match:
                         description: ETag
                 responses:
                     200:
                         body:
-                            application/vnd.ez.api.Location+xml:
+                            application/vnd.ibexa.api.Location+xml:
                                 type: Location
                                 example: !include examples/content/locations/path/GET/Location.xml.example
                     401:
@@ -1003,12 +1003,12 @@ version: 2.5
                         Accept:
                             description: If set, the new Location list is returned in XML or JSON format.
                             example:  |
-                                 application/vnd.ez.api.LocationList+xml
-                                 application/vnd.ez.api.LocationList+json
+                                 application/vnd.ibexa.api.LocationList+xml
+                                 application/vnd.ibexa.api.LocationList+json
                     responses:
                         200:
                             body:
-                                application/vnd.ez.api.LocationList+xml:
+                                application/vnd.ibexa.api.LocationList+xml:
                                     type: LocationList
                                     example: !include examples/content/locations/path/children/GET/LocationList.xml.example
                         401:
@@ -1027,13 +1027,13 @@ version: 2.5
                         Accept:
                             description: If set, the URL alias list contains only references and is returned in XML or JSON format.
                             example: |
-                                application/vnd.ez.api.UrlAliasRefList+xml
-                                application/vnd.ez.api.UrlAliasRefList+json
+                                application/vnd.ibexa.api.UrlAliasRefList+xml
+                                application/vnd.ibexa.api.UrlAliasRefList+json
                     responses:
                         200:
                             description: OK - returns the list of URL aliases.
                             body:
-                                application/vnd.ez.api.UrlAliasRefList+xml:
+                                application/vnd.ibexa.api.UrlAliasRefList+xml:
                                     type: UrlAliasRefList
                                     exammple: examples/content/locations/path/urlaliases/GET/UrlAliasRefList.xml.example
                         400:
@@ -1048,23 +1048,23 @@ version: 2.5
                     Accept:
                         description: If set, the Location is returned in XML or JSON format.
                         example:  |
-                            application/vnd.ez.api.Location+xml
-                            application/vnd.ez.api.Location+json
+                            application/vnd.ibexa.api.Location+xml
+                            application/vnd.ibexa.api.Location+json
                     Content-Type:
                         description: The LocationUpdate schema encoded in XML or JSON format.
                         example:  |
-                            application/vnd.ez.api.LocationUpdate+xml
-                            application/vnd.ez.api.LocationUpdate+json
+                            application/vnd.ibexa.api.LocationUpdate+xml
+                            application/vnd.ibexa.api.LocationUpdate+json
                     If-Match:
                         description: ETag
                 body:
-                    application/vnd.ez.api.LocationUpdate+xml:
+                    application/vnd.ibexa.api.LocationUpdate+xml:
                         type: LocationUpdateStruct
                         example: !include examples/content/locations/location_id/PATCH/LocationUpdate.xml.example
                 responses:
                     200:
                         body:
-                            application/vnd.ez.api.Location+xml:
+                            application/vnd.ibexa.api.Location+xml:
                                 type: Location
                                 example: !include examples/content/locations/location_id/PATCH/Location.xml.example
                     401:
@@ -1092,17 +1092,17 @@ version: 2.5
                 Accept:
                     description: The View in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.View+xml
-                        application/vnd.ez.api.View+json
-                        application/vnd.ez.api.View+xml; version=1.1
-                        application/vnd.ez.api.View+json; version=1.1
+                        application/vnd.ibexa.api.View+xml
+                        application/vnd.ibexa.api.View+json
+                        application/vnd.ibexa.api.View+xml; version=1.1
+                        application/vnd.ibexa.api.View+json; version=1.1
                 Content-Type:
                     description: The View input in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.ViewInput+xml
-                        application/vnd.ez.api.ViewInput+json
-                        application/vnd.ez.api.ViewInput+xml; version=1.1
-                        application/vnd.ez.api.ViewInput+json; version=1.1
+                        application/vnd.ibexa.api.ViewInput+xml
+                        application/vnd.ibexa.api.ViewInput+json
+                        application/vnd.ibexa.api.ViewInput+xml; version=1.1
+                        application/vnd.ibexa.api.ViewInput+json; version=1.1
             responses:
                 301:
                     description: Moved permanently.
@@ -1115,8 +1115,8 @@ version: 2.5
                 Accept:
                     description: The view link list in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.RefList+xml
-                        application/vnd.ez.api.RefList+json
+                        application/vnd.ibexa.api.RefList+xml
+                        application/vnd.ibexa.api.RefList+json
             responses:
                 200:
                     description: OK - list of View URIs.
@@ -1128,8 +1128,8 @@ version: 2.5
                     Accept:
                         description: The View results in XML or JSON format.
                         example:  |
-                            application/vnd.ez.api.View+xml
-                            application/vnd.ez.api.View+json
+                            application/vnd.ibexa.api.View+xml
+                            application/vnd.ibexa.api.View+json
                 responses:
                     200:
                         description: OK - returns the View.
@@ -1153,8 +1153,8 @@ version: 2.5
                         Accept:
                             description: The View excluding results in XML or JSON format.
                             example:  |
-                                application/vnd.ez.api.ViewResult+xml
-                                application/vnd.ez.api.ViewResult+json
+                                application/vnd.ibexa.api.ViewResult+xml
+                                application/vnd.ibexa.api.ViewResult+json
                     responses:
                         200:
                             description: OK - result of the View.
@@ -1168,21 +1168,21 @@ version: 2.5
                 Accept:
                     description: If set, the new Section is returned in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.Section+xml
-                        application/vnd.ez.api.Section+json
+                        application/vnd.ibexa.api.Section+xml
+                        application/vnd.ibexa.api.Section+json
                 Content-Type:
                     description: The Section input schema encoded in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.SectionInput+json
-                        application/vnd.ez.api.SectionInput+xml
+                        application/vnd.ibexa.api.SectionInput+json
+                        application/vnd.ibexa.api.SectionInput+xml
             body:
-                application/vnd.ez.api.SectionInput+xml:
+                application/vnd.ibexa.api.SectionInput+xml:
                     type: SectionInput
                     example: !include examples/content/sections/POST/SectionInput.xml.example
             responses:
                 201:
                     body:
-                        application/vnd.ez.api.Section+xml:
+                        application/vnd.ibexa.api.Section+xml:
                             type: Section
                             example: !include examples/content/sections/POST/Section.xml.example
         get:
@@ -1195,14 +1195,14 @@ version: 2.5
                 Accept:
                     description: If set, the Section list is returned in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.SectionList+xml
-                        application/vnd.ez.api.SectionList+json
+                        application/vnd.ibexa.api.SectionList+xml
+                        application/vnd.ibexa.api.SectionList+json
                 If-None-Match:
                     description: ETag
             responses:
                 200:
                     body:
-                        application/vnd.ez.api.SectionList+xml:
+                        application/vnd.ibexa.api.SectionList+xml:
                             type: SectionList
                             example: !include examples/content/sections/GET/SectionList.xml.example
                 401:
@@ -1215,14 +1215,14 @@ version: 2.5
                     Accept:
                         description: If set, the Section is returned in XML or JSON format.
                         example:  |
-                            application/vnd.ez.api.Section+xml
-                            application/vnd.ez.api.Section+json
+                            application/vnd.ibexa.api.Section+xml
+                            application/vnd.ibexa.api.Section+json
                     If-None-match:
                         description: ETag
                 responses:
                     200:
                         body:
-                            application/vnd.ez.api.Section+xml:
+                            application/vnd.ibexa.api.Section+xml:
                                 type: Section
                                 example: !include examples/content/sections/section_id/GET/Section.xml.example
                     401:
@@ -1236,24 +1236,24 @@ version: 2.5
                     Accept:
                         description: If set, the updated Section is returned in XML or JSON format.
                         example:  |
-                            application/vnd.ez.api.Section+xml
-                            application/vnd.ez.api.Section+json
+                            application/vnd.ibexa.api.Section+xml
+                            application/vnd.ibexa.api.Section+json
                     Content-Type:
                         description: The Section input schema encoded in XML or JSON.
                         example:  |
-                            application/vnd.ez.api.SectionInput+xml
-                            application/vnd.ez.api.SectionInput+json
+                            application/vnd.ibexa.api.SectionInput+xml
+                            application/vnd.ibexa.api.SectionInput+json
                     If-Match:
                         description: ETag
                 body:
-                    application/vnd.ez.api.SectionInput+xml:
+                    application/vnd.ibexa.api.SectionInput+xml:
                         type: SectionInput
                         example: !include examples/content/sections/section_id/PATCH/SectionInput.xml.example
                 responses:
                     200:
                         description: OK - Section updated.
                         body:
-                            application/vnd.ez.api.Section+xml:
+                            application/vnd.ibexa.api.Section+xml:
                                 type: Section
                                 example: !include examples/content/sections/section_id/PATCH/Section.xml.example
                     400:
@@ -1272,8 +1272,8 @@ version: 2.5
                     #Accept:
                         #description: If set, in the case of an error the error message is returned in XML or JSON format
                         #example:  |
-                            #application/vnd.ez.api.ErrorMessage+xml
-                            #application/vnd.ez.api.ErrorMessage+json
+                            #application/vnd.ibexa.api.ErrorMessage+xml
+                            #application/vnd.ibexa.api.ErrorMessage+json
                 responses:
                     204:
                         description: No Content - given Section is deleted.
@@ -1294,13 +1294,13 @@ version: 2.5
                 Accept:
                     description: If set, the Trash item list is returned in XML or JSON format.
                     example: |
-                        application/vnd.ez.api.Trash+xml
-                        application/vnd.ez.api.Trash+json
+                        application/vnd.ibexa.api.Trash+xml
+                        application/vnd.ibexa.api.Trash+json
             responses:
                 200:
                     description: OK - returns the list of items in the Trash.
                     body:
-                        application/vnd.ez.api.Trash+xml:
+                        application/vnd.ibexa.api.Trash+xml:
                             type: Trash
                             example: !include examples/content/trash/GET/Trash.xml.example
                 401:
@@ -1321,12 +1321,12 @@ version: 2.5
                     Accept:
                         description: If set, the item in Trash is returned in XML or JSON format.
                         example: |
-                            application/vnd.ez.api.TrashItem+xml
-                            application/vnd.ez.api.TrashItem+json
+                            application/vnd.ibexa.api.TrashItem+xml
+                            application/vnd.ibexa.api.TrashItem+json
                 responses:
                     200:
                         body:
-                            application/vnd.ez.api.TrashItem+xml:
+                            application/vnd.ibexa.api.TrashItem+xml:
                                 type: TrashItem
                                 example: examples/content/trash/trash_itemid/GET/TrashItem.xml.example
                     401:
@@ -1366,13 +1366,13 @@ version: 2.5
                 Accept:
                     description: If set, the URL alias list contains only references and is returned in XML or JSON format.
                     example: |
-                        application/vnd.ez.api.UrlAliasRefList+xml
-                        application/vnd.ez.api.UrlAliasRefList+json
+                        application/vnd.ibexa.api.UrlAliasRefList+xml
+                        application/vnd.ibexa.api.UrlAliasRefList+json
             responses:
                 200:
                     description: OK - returns the list of URL aliases.
                     body:
-                        application/vnd.ez.api.UrlAliasRefList+xml:
+                        application/vnd.ibexa.api.UrlAliasRefList+xml:
                             type: UrlAliasRefList
                             example: !include examples/content/urlaliases/GET/UrlAliasRefList.xml.example
                 401:
@@ -1384,22 +1384,22 @@ version: 2.5
                 Accept:
                     description: If set, the created URL alias is returned in XML or JSON format.
                     example: |
-                        application/vnd.ez.api.UrlAlias+xml
-                        application/vnd.ez.api.UrlAlias+json
+                        application/vnd.ibexa.api.UrlAlias+xml
+                        application/vnd.ibexa.api.UrlAlias+json
                 Content-Type:
                     description: The URL alias input schema encoded in XML or JSON format.
                     example: |
-                        application/vnd.ez.api.UrlAliasCreate+xml
-                        application/vnd.ez.api.UrlAliasCreate+json
+                        application/vnd.ibexa.api.UrlAliasCreate+xml
+                        application/vnd.ibexa.api.UrlAliasCreate+json
             body:
-                application/vnd.ez.api.UrlAliasCreate+xml:
+                application/vnd.ibexa.api.UrlAliasCreate+xml:
                     type: UrlAliasCreate
                     example: !include examples/content/urlaliases/POST/UrlAliasCreate.xml.example
             responses:
                 201:
                     description: URL alias created.
                     body:
-                        application/vnd.ez.api.UrlAlias+xml:
+                        application/vnd.ibexa.api.UrlAlias+xml:
                             type: UrlAlias
                             example: !include examples/content/urlaliases/POST/UrlAlias.xml.example
                 400:
@@ -1416,13 +1416,13 @@ version: 2.5
                     Accept:
                         description: If set, the URL alias is returned in XML or JSON format.
                         example: |
-                            application/vnd.ez.api.UrlAlias+xml
-                            application/vnd.ez.api.UrlAlias+json
+                            application/vnd.ibexa.api.UrlAlias+xml
+                            application/vnd.ibexa.api.UrlAlias+json
                 responses:
                     200:
                         description: OK - returns the URL alias.
                         body:
-                            application/vnd.ez.api.UrlAlias+xml:
+                            application/vnd.ibexa.api.UrlAlias+xml:
                                 type: UrlAlias
                                 example: !include examples/content/urlaliases/url_alias_id/GET/UrlAlias.xml.example
                     401:
@@ -1447,13 +1447,13 @@ version: 2.5
                 Accept:
                     description: If set, the URL wildcard is returned in XML or JSON format.
                     example: |
-                        application/vnd.ez.api.UrlWildcardList+xml
-                        application/vnd.ez.api.UrlWildcardList+json
+                        application/vnd.ibexa.api.UrlWildcardList+xml
+                        application/vnd.ibexa.api.UrlWildcardList+json
             responses:
                 200:
                     description: OK - returns a list of URL wildcards.
                     body:
-                        application/vnd.ez.api.UrlWildcardList+xml:
+                        application/vnd.ibexa.api.UrlWildcardList+xml:
                             type: UrlWildcardList
                             example: !include examples/content/urlwildcards/GET/UrlWildcardList.xml.example
                 401:
@@ -1465,22 +1465,22 @@ version: 2.5
                 Accept:
                     description: If set, the new URL wildcard is returned in XML or JSON format.
                     example: |
-                        application/vnd.ez.api.UrlWildcard+xml
-                        application/vnd.ez.api.UrlWildcard+json
+                        application/vnd.ibexa.api.UrlWildcard+xml
+                        application/vnd.ibexa.api.UrlWildcard+json
                 Content-Type:
                     description: The URL Wildcard input schema encoded in XML or JSON format.
                     example: |
-                        application/vnd.ez.api.UrlWildcardCreate+xml
-                        application/vnd.ez.api.UrlWildcardCreate+json
+                        application/vnd.ibexa.api.UrlWildcardCreate+xml
+                        application/vnd.ibexa.api.UrlWildcardCreate+json
             body:
-                application/vnd.ez.api.UrlWildcardCreate.xml:
+                application/vnd.ibexa.api.UrlWildcardCreate.xml:
                     type: UrlWildcardCreate
                     # example: !include examples/content/urlwildcards/POST/UrlWildcardCreate.xml.example
             responses:
                 201:
                     description: URL wildcard created.
                     body:
-                        application/vnd.ez.api.UrlWildcard+xml:
+                        application/vnd.ibexa.api.UrlWildcard+xml:
                             type: UrlWildcard
                             example: !include examples/content/urlwildcards/POST/UrlWildcard.xml.example
                 400:
@@ -1497,13 +1497,13 @@ version: 2.5
                     Accept:
                         description: If set, the URL wildcard is returned in XML or JSON format.
                         example: |
-                            application/vnd.ez.api.UrlWildcard+xml
-                            application/vnd.ez.api.UrlWildcard+json
+                            application/vnd.ibexa.api.UrlWildcard+xml
+                            application/vnd.ibexa.api.UrlWildcard+json
                 responses:
                     200:
                         description: OK - returns the URL wildcard.
                         body:
-                            application/vnd.ez.api.UrlWildcard+xml:
+                            application/vnd.ibexa.api.UrlWildcard+xml:
                                 type: UrlWildcard
                                 example: !include examples/content/urlwildcards/wildcard_id/GET/UrlWildcard.xml.example
                     401:
@@ -1533,13 +1533,13 @@ version: 2.5
                 Accept:
                     description: If set, the Content Type group list is returned in XML or JSON format.
                     example: |
-                        application/vnd.ez.api.ContentTypeGroupList+xml
-                        application/vnd.ez.api.ContentTypeGroupList+json
+                        application/vnd.ibexa.api.ContentTypeGroupList+xml
+                        application/vnd.ibexa.api.ContentTypeGroupList+json
             responses:
                 200:
                     description: OK - returns a list of Content Type groups.
                     body:
-                        application/vnd.ez.api.ContentTypeGroupList+xml:
+                        application/vnd.ibexa.api.ContentTypeGroupList+xml:
                             type: ContentTypeGroupList
                             example: !include examples/content/typegroups/GET/ContentTypeGroupList.xml.example
                 307:
@@ -1555,22 +1555,22 @@ version: 2.5
                 Accept:
                     description: If set, the new Content Type group is returned in XML or JSON format.
                     example: |
-                        application/vnd.ez.api.ContentTypeGroup+xml
-                        application/vnd.ez.api.ContentTypeGroup+json
+                        application/vnd.ibexa.api.ContentTypeGroup+xml
+                        application/vnd.ibexa.api.ContentTypeGroup+json
                 Content-Type:
                     description: The Content Type group input schema encoded in XML or JSON.
                     example: |
-                        application/vnd.ez.api.ContentTypeGroupInput+xml
-                        application/vnd.ez.api.ContentTypeGroupInput+json
+                        application/vnd.ibexa.api.ContentTypeGroupInput+xml
+                        application/vnd.ibexa.api.ContentTypeGroupInput+json
             body:
-                application/vnd.ez.api.ContentTypeGroupInput+xml:
+                application/vnd.ibexa.api.ContentTypeGroupInput+xml:
                     type: ContentTypeGroupInput
                     example: !include examples/content/typegroups/POST/ContentTypeGroupInput.xml.example
             responses:
                 201:
                     description: Content Type group created.
                     body:
-                        application/vnd.ez.api.ContentTypeGroup+xml:
+                        application/vnd.ibexa.api.ContentTypeGroup+xml:
                             type: ContentTypeGroup
                             example: !include examples/content/typegroups/POST/ContentTypeGroup.xml.example
                 400:
@@ -1587,15 +1587,15 @@ version: 2.5
                     Accept:
                         description: If set, the Content Type group is returned in XML or JSON format.
                         example: |
-                            application/vnd.ez.api.ContentTypeGroup+xml
-                            application/vnd.ez.api.ContentTypeGroup+json
+                            application/vnd.ibexa.api.ContentTypeGroup+xml
+                            application/vnd.ibexa.api.ContentTypeGroup+json
                     If-None-Match:
                         description: ETag
                 responses:
                     200:
                         description: OK - returns the Content Type group.
                         body:
-                            application/vnd.ez.api.ContentTypeGroup+xml:
+                            application/vnd.ibexa.api.ContentTypeGroup+xml:
                                 type: ContentTypeGroup
                                 example: !include examples/content/typegroups/content_type_group_id/GET/ContentTypeGroup.xml.example
                     401:
@@ -1609,24 +1609,24 @@ version: 2.5
                     Accept:
                         description: If set, the updated Content Type group is returned in XML or JSON format.
                         example: |
-                            application/vnd.ez.api.ContentTypeGroup+xml
-                            application/vnd.ez.api.ContentTypeGroup+json
+                            application/vnd.ibexa.api.ContentTypeGroup+xml
+                            application/vnd.ibexa.api.ContentTypeGroup+json
                     Content-Type:
                         description: The Content Type group input schema encoded in XML or JSON format.
                         example: |
-                            application/vnd.ez.api.ContentTypeGroupInput+xml
-                            application/vnd.ez.api.ContentTypeGroupInput+json
+                            application/vnd.ibexa.api.ContentTypeGroupInput+xml
+                            application/vnd.ibexa.api.ContentTypeGroupInput+json
                     If-Match:
                         description: ETag causes patching only if the specified ETag is the current one. Otherwise a 412 is returned.
                 body:
-                    application/vnd.ez.api.ContentTypeGroupInput+xml:
+                    application/vnd.ibexa.api.ContentTypeGroupInput+xml:
                         type: ContentTypeGroupInput
                         example: !include examples/content/typegroups/content_type_group_id/PATCH/ContentTypeGroupInput.xml.example
                 responses:
                     200:
                         description: Content Type group updated.
                         body:
-                            application/vnd.ez.api.ContentTypeGroup+xml:
+                            application/vnd.ibexa.api.ContentTypeGroup+xml:
                                 type: ContentTypeGroup
                                 example: !include examples/content/typegroups/content_type_group_id/PATCH/ContentTypeGroup.xml.example
                     400:
@@ -1657,18 +1657,18 @@ version: 2.5
                         Accept:
                             description: If set, the list of Content Type info objects or Content Types (including Field definitions) is returned in XML or JSON format.
                             example: |
-                                application/vnd.ez.api.ContentTypeInfoList+xml
-                                application/vnd.ez.api.ContentTypeInfoList+json
-                                application/vnd.ez.api.ContentTypeList+xml
-                                application/vnd.ez.api.ContentTypeList+json
+                                application/vnd.ibexa.api.ContentTypeInfoList+xml
+                                application/vnd.ibexa.api.ContentTypeInfoList+json
+                                application/vnd.ibexa.api.ContentTypeList+xml
+                                application/vnd.ibexa.api.ContentTypeList+json
                     responses:
                         200:
                             description: OK - returns a list on Content Types.
                             body:
-                                application/vnd.ez.api.ContentTypeInfoList+xml:
+                                application/vnd.ibexa.api.ContentTypeInfoList+xml:
                                     type: ContentTypeInfoList
                                     example: !include examples/content/typegroups/content_type_group_id/types/GET/ContentTypeInfoList.xml.example
-                                application/vnd.ez.api.ContentTypeList+xml:
+                                application/vnd.ibexa.api.ContentTypeList+xml:
                                     type: ContentTypeList
                                     example: !include examples/content/typegroups/content_type_group_id/types/GET/ContentTypeList.xml.example
                         401:
@@ -1684,22 +1684,22 @@ version: 2.5
                         Accept:
                             description: If set, the new Content Type or draft is returned in XML or JSON format.
                             example: |
-                                application/vnd.ez.api.ContentType+xml
-                                application/vnd.ez.api.ContentType+json
+                                application/vnd.ibexa.api.ContentType+xml
+                                application/vnd.ibexa.api.ContentType+json
                         Content-Type:
                             description: The Content Type Create schema encoded in XML or JSON format.
                             example: |
-                                application/vnd.ez.api.ContentTypeCreate+xml
-                                application/vnd.ez.api.ContentTypeCreate+json
+                                application/vnd.ibexa.api.ContentTypeCreate+xml
+                                application/vnd.ibexa.api.ContentTypeCreate+json
                     body:
-                        application/vnd.ez.api.ContentTypeCreate.xml:
+                        application/vnd.ibexa.api.ContentTypeCreate.xml:
                             type: ContentTypeCreate
                             example: !include examples/content/typegroups/content_type_group_id/types/POST/ContentTypeCreate.xml.example
                     responses:
                         201:
                             description: Content Type created.
                             body:
-                                application/vnd.ez.api.ContentType+xml:
+                                application/vnd.ibexa.api.ContentType+xml:
                                     type: ContentType
                                     example: !include examples/content/typegroups/content_type_group_id/types/POST/ContentType.xml.example
                         400:
@@ -1730,14 +1730,14 @@ version: 2.5
                 Accept:
                     description: If set, the list of Content Type info objects or Content Types (including Field definitions) is returned in XML or JSON format.
                     example: |
-                        application/vnd.ez.api.ContentTypeInfoList+xml
-                        application/vnd.ez.api.ContentTypeInfoList+json
-                        application/vnd.ez.api.ContentTypeList+xml
-                        application/vnd.ez.api.ContentTypeList+json
+                        application/vnd.ibexa.api.ContentTypeInfoList+xml
+                        application/vnd.ibexa.api.ContentTypeInfoList+json
+                        application/vnd.ibexa.api.ContentTypeList+xml
+                        application/vnd.ibexa.api.ContentTypeList+json
             responses:
                 200:
                     body:
-                        application/vnd.ez.api.ContentTypeInfoList+xml:
+                        application/vnd.ibexa.api.ContentTypeInfoList+xml:
                             type: ContentTypeInfoList
                             example: !include examples/content/types/GET/ContentTypeInfoList.xml.example
                     description: OK - returns a list of Content Types.
@@ -1751,14 +1751,14 @@ version: 2.5
                     Accept:
                         description: If set, the Content Type is returned in XML or JSON format.
                         example: |
-                            application/vnd.ez.api.ContentType+xml
-                            application/vnd.ez.api.ContentType+json
+                            application/vnd.ibexa.api.ContentType+xml
+                            application/vnd.ibexa.api.ContentType+json
                     If-None-Match:
                         description: ETag
                 responses:
                     200:
                         body:
-                            application/vnd.ez.api.ContentType+xml:
+                            application/vnd.ibexa.api.ContentType+xml:
                                 type: ContentType
                                 example: !include examples/content/types/content_type_id/GET/ContentType.xml.example
                         description: OK - returns the Content Type.
@@ -1781,22 +1781,22 @@ version: 2.5
                     Accept:
                         description: If set, the new Content Type draft is returned in XML or JSON format.
                         example: |
-                            application/vnd.ez.api.ContentTypeInfo+xml
-                            application/vnd.ez.api.ContentTypeInfo+json
+                            application/vnd.ibexa.api.ContentTypeInfo+xml
+                            application/vnd.ibexa.api.ContentTypeInfo+json
                     Content-Type:
                         description: The Content Type Update schema encoded in XML or JSON format.
                         example: |
-                            application/vnd.ez.api.ContentTypeUpdate+xml
-                            application/vnd.ez.api.ContentTypeUpdate+json
+                            application/vnd.ibexa.api.ContentTypeUpdate+xml
+                            application/vnd.ibexa.api.ContentTypeUpdate+json
                 body:
-                    application/vnd.ez.api.ContentTypeUpdate+xml:
+                    application/vnd.ibexa.api.ContentTypeUpdate+xml:
                         type: ContentTypeUpdate
                         example: !include examples/content/types/content_type_id/POST/ContentTypeUpdate.xml.example
                 responses:
                     201:
                         description: Draft created.
                         body:
-                            application/vnd.ez.api.ContentTypeInfo+xml:
+                            application/vnd.ibexa.api.ContentTypeInfo+xml:
                                 type: ContentTypeInfo
                                 example: !include examples/content/types/content_type_id/POST/ContentTypeInfo.xml.example
                     400:
@@ -1825,13 +1825,13 @@ version: 2.5
                         Accept:
                             description: If set, the Field definition is returned in XML or JSON format.
                             example: |
-                                application/vnd.ez.api.FieldDefinition+xml
-                                application/vnd.ez.api.FieldDefinition+json
+                                application/vnd.ibexa.api.FieldDefinition+xml
+                                application/vnd.ibexa.api.FieldDefinition+json
                     responses:
                         200:
                             description: OK - returns the Field definition.
                             body:
-                                application/vnd.ez.api.FieldDefinition+xml:
+                                application/vnd.ibexa.api.FieldDefinition+xml:
                                     type: FieldDefinition
                                     example: !include examples/content/types/content_type_id/field_definition_id/GET/FieldDefinition.xml.example
                         401:
@@ -1846,22 +1846,22 @@ version: 2.5
                         Accept:
                             description: If set, the new Content Type draft is returned in XML or JSON format.
                             example: |
-                                application/vnd.ez.api.ContentTypeInfo+xml
-                                application/vnd.ez.api.ContentTypeInfo+json
+                                application/vnd.ibexa.api.ContentTypeInfo+xml
+                                application/vnd.ibexa.api.ContentTypeInfo+json
                         Content-Type:
                             description: The Content Type update schema encoded in XML or JSON format.
                             example: |
-                                application/vnd.ez.api.ContentTypeUpdate+xml
-                                application/vnd.ez.api.ContentTypeUpdate+json
+                                application/vnd.ibexa.api.ContentTypeUpdate+xml
+                                application/vnd.ibexa.api.ContentTypeUpdate+json
                     body:
-                        application/vnd.ez.api.ContentTypeUpdate+xml:
+                        application/vnd.ibexa.api.ContentTypeUpdate+xml:
                             type: ContentTypeUpdate
                             example: !include examples/content/types/content_type_id/draft/PATCH/ContentTypeUpdate.xml.example
                     responses:
                         200:
                             description: Draft metadata updated.
                             body:
-                                application/vnd.ez.api.ContentTypeInfo+xml:
+                                application/vnd.ibexa.api.ContentTypeInfo+xml:
                                     type: ContentTypeInfo
                                     example: !include examples/content/types/content_type_id/draft/PATCH/ContentTypeInfo.xml.example
 
@@ -1879,7 +1879,7 @@ version: 2.5
                     responses:
                         200:
                             body:
-                                application/vnd.ez.api.ContentType+xml:
+                                application/vnd.ibexa.api.ContentType+xml:
                                     type: ContentType
                                     example: !include examples/content/types/content_type_id/draft/PUBLISH/ContentType.xml.example
                             description: Content Type draft published.
@@ -1907,22 +1907,22 @@ version: 2.5
                             Accept:
                                 description: If set, the new Field definition is returned in XML or JSON format.
                                 example: |
-                                    application/vnd.ez.api.FieldDefinition+xml
-                                    application/vnd.ez.api.FieldDefinition+json
+                                    application/vnd.ibexa.api.FieldDefinition+xml
+                                    application/vnd.ibexa.api.FieldDefinition+json
                             Content-Type:
                                 description: The Field Definition Create schema encoded in XML or JSON format.
                                 example: |
-                                    application/vnd.ez.api.FieldDefinitionCreate+xml
-                                    application/vnd.ez.api.FieldDefinitionCreate+json
+                                    application/vnd.ibexa.api.FieldDefinitionCreate+xml
+                                    application/vnd.ibexa.api.FieldDefinitionCreate+json
                         body:
-                            application/vnd.ez.api.FieldDefinitionCreate+xml:
+                            application/vnd.ibexa.api.FieldDefinitionCreate+xml:
                                 type: FieldDefinitionCreate
                                 example: !include examples/content/types/content_type_id/draft/field_definitions/POST/FieldDefinitionCreate.xml.example
                         responses:
                             201:
                                 description: Field definition created.
                                 body:
-                                    application/vnd.ez.api.FieldDefinition+xml:
+                                    application/vnd.ibexa.api.FieldDefinition+xml:
                                         type: FieldDefinition
                                         example: !include examples/content/types/content_type_id/draft/field_definitions/POST/FieldDefinition.xml.example
                             400:
@@ -1939,13 +1939,13 @@ version: 2.5
                                 Accept:
                                     description: If set, the Field definition is returned in XML or JSON format.
                                     example: |
-                                        application/vnd.ez.api.FieldDefinition+xml
-                                        application/vnd.ez.api.FieldDefinition+json
+                                        application/vnd.ibexa.api.FieldDefinition+xml
+                                        application/vnd.ibexa.api.FieldDefinition+json
                             responses:
                                 200:
                                     description: OK - returns the Field definition.
                                     body:
-                                        application/vnd.ez.api.FieldDefinition+xml:
+                                        application/vnd.ibexa.api.FieldDefinition+xml:
                                             type: FieldDefinition
                                             example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/GET/FieldDefinition.xml.example
                                 401:
@@ -1959,22 +1959,22 @@ version: 2.5
                                 Accept:
                                     description: If set, the updated Field definition is returned in XML or JSON format.
                                     example: |
-                                        application/vnd.ez.api.FieldDefinition+xml
-                                        application/vnd.ez.api.FieldDefinition+json
+                                        application/vnd.ibexa.api.FieldDefinition+xml
+                                        application/vnd.ibexa.api.FieldDefinition+json
                                 Content-Type:
                                     description: The Field definition update schema encoded in XML or JSON format.
                                     example: |
-                                        application/vnd.ez.api.FieldDefinitionUpdate+xml
-                                        application/vnd.ez.api.FieldDefinitionUpdate+json
+                                        application/vnd.ibexa.api.FieldDefinitionUpdate+xml
+                                        application/vnd.ibexa.api.FieldDefinitionUpdate+json
                             body:
-                                application/vnd.ez.api.FieldDefinitionUpdate+xml:
+                                application/vnd.ibexa.api.FieldDefinitionUpdate+xml:
                                     type: FieldDefinitionUpdate
                                     example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/PATCH/FieldDefinitionUpdate.xml.example
                             responses:
                                 200:
                                     description: OK - attributes updated.
                                     body:
-                                        application/vnd.ez.api.FieldDefinition+xml:
+                                        application/vnd.ibexa.api.FieldDefinition+xml:
                                             type: FieldDefinition
                                             example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/PATCH/FieldDefinition.xml.example
                                 400:
@@ -2001,12 +2001,12 @@ version: 2.5
                         Accept:
                             description: If set, the Content Type group list is returned in XML or JSON format.
                             example: |
-                                application/vnd.ez.api.ContentTypeGroupRefList+xml
-                                application/vnd.ez.api.ContentTypeGroupRefList+json
+                                application/vnd.ibexa.api.ContentTypeGroupRefList+xml
+                                application/vnd.ibexa.api.ContentTypeGroupRefList+json
                     responses:
                         200:
                             body:
-                                application/vnd.ez.api.ContentTypeGroupRefList+xml:
+                                application/vnd.ibexa.api.ContentTypeGroupRefList+xml:
                                     type: ContentTypeGroupRefList
                                     example: !include examples/content/types/content_type_id/groups/GET/ContentTypeGroupRefList.xml.example
                         401:
@@ -2024,12 +2024,12 @@ version: 2.5
                         Accept:
                             description: If set, the updated Content Type group list is returned in XML or JSON format.
                             example: |
-                                application/vnd.ez.api.ContentTypeGroupRefList+xml
-                                application/vnd.ez.api.ContentTypeGroupRefList+json
+                                application/vnd.ibexa.api.ContentTypeGroupRefList+xml
+                                application/vnd.ibexa.api.ContentTypeGroupRefList+json
                     responses:
                         200:
                             body:
-                                application/vnd.ez.api.ContentTypeGroupRefList+xml:
+                                application/vnd.ibexa.api.ContentTypeGroupRefList+xml:
                                     type: ContentTypeGroupRefList
                                     example: !include examples/content/types/content_type_id/groups/POST/ContentTypeGroupRefList.xml.example
                         400:
@@ -2046,12 +2046,12 @@ version: 2.5
                             Accept:
                                 description: If set, the updated Content Type group list is returned in XML or JSON format.
                                 example: |
-                                    application/vnd.ez.api.ContentTypeGroupRefList+xml
-                                    application/vnd.ez.api.ContentTypeGroupRefList+json
+                                    application/vnd.ibexa.api.ContentTypeGroupRefList+xml
+                                    application/vnd.ibexa.api.ContentTypeGroupRefList+json
                         responses:
                             200:
                                 body:
-                                    application/vnd.ez.api.ContentTypeGroup+xml:
+                                    application/vnd.ibexa.api.ContentTypeGroup+xml:
                                         type: ContentTypeGroup
                                         example: !include examples/content/types/content_type_id/groups/id/DELETE/ContentTypeGroup.xml.example
                             401:
@@ -2069,25 +2069,25 @@ version: 2.5
             Accept:
                 description: The view in XML or JSON format.
                 example:  |
-                    application/vnd.ez.api.View+xml
-                    application/vnd.ez.api.View+json
-                    application/vnd.ez.api.View+xml; version=1.1
-                    application/vnd.ez.api.View+json; version=1.1
+                    application/vnd.ibexa.api.View+xml
+                    application/vnd.ibexa.api.View+json
+                    application/vnd.ibexa.api.View+xml; version=1.1
+                    application/vnd.ibexa.api.View+json; version=1.1
             Content-Type:
                 description: The view input in XML or JSON format.
                 example:  |
-                    application/vnd.ez.api.ViewInput+xml
-                    application/vnd.ez.api.ViewInput+json
-                    application/vnd.ez.api.ViewInput+xml; version=1.1
-                    application/vnd.ez.api.ViewInput+json; version=1.1
+                    application/vnd.ibexa.api.ViewInput+xml
+                    application/vnd.ibexa.api.ViewInput+json
+                    application/vnd.ibexa.api.ViewInput+xml; version=1.1
+                    application/vnd.ibexa.api.ViewInput+json; version=1.1
         body:
-            application/vnd.ez.api.ViewInput+xml:
+            application/vnd.ibexa.api.ViewInput+xml:
                 type: ViewInput
                 example: !include examples/views/POST/ViewInput.xml.example
         responses:
             200:
                 body:
-                    application/vnd.ez.api.View+xml; version=1.1:
+                    application/vnd.ibexa.api.View+xml; version=1.1:
                         type: View
                         example: !include examples/views/POST/View.xml.v11.example
             400:
@@ -2109,14 +2109,14 @@ version: 2.5
                 Accept:
                     description: UserGroupList - If set, the User Group List is returned in XML or JSON format. UserGroupRefList - If set, the link list of User Group is returned in XML or JSON format.
                     example: |
-                        application/vnd.ez.api.UserGroupList+xml
-                        application/vnd.ez.api.UserGroupList+json
-                        application/vnd.ez.api.UserGroupRefList+xml
-                        application/vnd.ez.api.UserGroupRefList+json
+                        application/vnd.ibexa.api.UserGroupList+xml
+                        application/vnd.ibexa.api.UserGroupList+json
+                        application/vnd.ibexa.api.UserGroupRefList+xml
+                        application/vnd.ibexa.api.UserGroupRefList+json
             responses:
                 200:
                     body:
-                        application/vnd.ez.api.UserGroupList+xml:
+                        application/vnd.ibexa.api.UserGroupList+xml:
                             type: UserGroupList
                             example: !include examples/user/groups/GET/UserGroupList.xml.example
                 401:
@@ -2137,15 +2137,15 @@ version: 2.5
                     Accept:
                         description: If set, the new User Group is returned in XML or JSON format.
                         example: |
-                            application/vnd.ez.api.UserGroup+xml
-                            application/vnd.ez.api.UserGroup+json
+                            application/vnd.ibexa.api.UserGroup+xml
+                            application/vnd.ibexa.api.UserGroup+json
                     If-None-Match:
                         description: ETag
                 responses:
                     200:
                         description: OK - loads User Groups.
                         body:
-                            application/vnd.ez.api.UserGroup+xml:
+                            application/vnd.ibexa.api.UserGroup+xml:
                                 type: UserGroup
                                 example: !include examples/user/groups/path/GET/UserGroup.xml.example
                     401:
@@ -2159,25 +2159,25 @@ version: 2.5
                     Accept:
                         description: If set, the new User Group is returned in XML or JSON format.
                         example:  |
-                            application/vnd.ez.api.UserGroup+xml
-                            application/vnd.ez.api.UserGroup+json
+                            application/vnd.ibexa.api.UserGroup+xml
+                            application/vnd.ibexa.api.UserGroup+json
                     Content-Type:
                         description: The UserGroupUpdate schema encoded in XML or JSON format.
                         example:  |
-                            application/vnd.ez.api.UserGroupUpdate+json
-                            application/vnd.ez.api.UserGroupUpdate+xml
+                            application/vnd.ibexa.api.UserGroupUpdate+json
+                            application/vnd.ibexa.api.UserGroupUpdate+xml
                     If-Match:
                         description: Performs the PATCH only if the specified ETag is the current one. Otherwise a 412 is returned.
                         example: ETag
                 body:
-                    application/vnd.ez.api.UserGroupUpdate+xml:
+                    application/vnd.ibexa.api.UserGroupUpdate+xml:
                         type: UserGroupUpdate
                         example: !include examples/user/groups/path/PATCH/UserGroupUpdate.xml.example
                 responses:
                     200:
                        description: OK - updated User Group.
                        body:
-                           application/vnd.ez.api.UserGroup+xml:
+                           application/vnd.ibexa.api.UserGroup+xml:
                                type: UserGroup
                                example: !include examples/user/groups/path/PATCH/UserGroup.xml.example
                     400:
@@ -2219,21 +2219,21 @@ version: 2.5
                         Accept:
                             description: If set, the new User is returned in XML or JSON format.
                             example:  |
-                                application/vnd.ez.api.User+xml
-                                application/vnd.ez.api.User+json
+                                application/vnd.ibexa.api.User+xml
+                                application/vnd.ibexa.api.User+json
                         Content-Type:
                             description: The UserCreate schema encoded in XML or JSON format.
                             example:  |
-                                application/vnd.ez.api.UserCreate+json
-                                application/vnd.ez.api.UserCreate+xml
+                                application/vnd.ibexa.api.UserCreate+json
+                                application/vnd.ibexa.api.UserCreate+xml
                     body:
-                        application/vnd.ez.api.UserCreate+xml:
+                        application/vnd.ibexa.api.UserCreate+xml:
                             type: UserCreate
                             example: examples/user/groups/path/users/POST/UserCreate.xml.example
                     responses:
                         201:
                             body:
-                                application/vnd.ez.api.User+xml:
+                                application/vnd.ibexa.api.User+xml:
                                     type: User
                                     example: !include examples/user/groups/path/users/POST/User.xml.example
                         400:
@@ -2252,21 +2252,21 @@ version: 2.5
                         Accept:
                             description: If set, the new User Group is returned in XML or JSON format.
                             example:  |
-                                application/vnd.ez.api.UserGroup+xml
-                                application/vnd.ez.api.UserGroup+json
+                                application/vnd.ibexa.api.UserGroup+xml
+                                application/vnd.ibexa.api.UserGroup+json
                         Content-Type:
                             description: The UserGroupCreate schema encoded in XML or JSON format.
                             example:  |
-                                application/vnd.ez.api.UserGroupCreate+json
-                                application/vnd.ez.api.UserGroupCreate+xml
+                                application/vnd.ibexa.api.UserGroupCreate+json
+                                application/vnd.ibexa.api.UserGroupCreate+xml
                     body:
-                        application/vnd.ez.api.UserGroupCreate+xml:
+                        application/vnd.ibexa.api.UserGroupCreate+xml:
                             type: UserGroupCreate
                             example: !include examples/user/groups/path/subgroups/POST/UserGroupCreate.xml.example
                     responses:
                         201:
                             body:
-                                application/vnd.ez.api.UserGroup+xml:
+                                application/vnd.ibexa.api.UserGroup+xml:
                                     type: UserGroup
                                     example: !include examples/user/groups/path/subgroups/POST/UserGroup.xml.example
                         400:
@@ -2281,12 +2281,12 @@ version: 2.5
                         Accept:
                             description: If set, the Role assignment list is returned in XML or JSON format.
                             example: |
-                                application/vnd.ez.api.RoleAssignmentList+xml
-                                application/vnd.ez.api.RoleAssignmentList+json
+                                application/vnd.ibexa.api.RoleAssignmentList+xml
+                                application/vnd.ibexa.api.RoleAssignmentList+json
                     responses:
                         200:
                             body:
-                                application/vnd.ez.api.RoleAssignmentList+xml:
+                                application/vnd.ibexa.api.RoleAssignmentList+xml:
                                     type: RoleAssignmentList
                                     example: !include examples/user/groups/path/roles/GET/RoleAssignmentList.xml.example
                         400:
@@ -2298,21 +2298,21 @@ version: 2.5
                         Accept:
                             description: If set, the updated Role assignment list is returned in XML or JSON format.
                             example:  |
-                                application/vnd.ez.api.RoleAssignmentList+xml
-                                application/vnd.ez.api.RoleAssignmentList+json
+                                application/vnd.ibexa.api.RoleAssignmentList+xml
+                                application/vnd.ibexa.api.RoleAssignmentList+json
                         Content-Type:
                             description: The RoleAssignInput schema encoded in XML or JSON format.
                             example:  |
-                                application/vnd.ez.api.RoleAssignInput+json
-                                application/vnd.ez.api.RoleAssignInput+xml
+                                application/vnd.ibexa.api.RoleAssignInput+json
+                                application/vnd.ibexa.api.RoleAssignInput+xml
                     body:
-                        application/vnd.ez.api.RoleAssignInput+xml:
+                        application/vnd.ibexa.api.RoleAssignInput+xml:
                             type: RoleAssignInput
                             example: !include examples/user/groups/path/roles/POST/RoleAssignInput.xml.example
                     responses:
                         200:
                             body:
-                                application/vnd.ez.api.RoleAssignmentList+xml:
+                                application/vnd.ibexa.api.RoleAssignmentList+xml:
                                     type: RoleAssignmentList
                                     example: !include examples/user/groups/path/roles/POST/RoleAssignmentList.xml.example
                         400:
@@ -2327,13 +2327,13 @@ version: 2.5
                             Accept:
                                 description: If set, the Role assignment list is returned in XML or JSON format.
                                 example: |
-                                    application/vnd.ez.api.RoleAssignment+xml
-                                    application/vnd.ez.api.RoleAssignment+json
+                                    application/vnd.ibexa.api.RoleAssignment+xml
+                                    application/vnd.ibexa.api.RoleAssignment+json
                         responses:
                             200:
                                 description: OK - returns a Role assignment of the given User Group.
                                 body:
-                                    application/vnd.ez.api.RoleAssignment+xml:
+                                    application/vnd.ibexa.api.RoleAssignment+xml:
                                         type: RoleAssignment
                                         example: !include examples/user/groups/path/roles/role_id/GET/RoleAssignment.xml.example
                             401:
@@ -2345,12 +2345,12 @@ version: 2.5
                             Accept:
                                 description: If set, the updated Role assignment list is returned in XML or JSON format.
                                 example: |
-                                    application/vnd.ez.api.RoleAssignmentList+xml
-                                    application/vnd.ez.api.RoleAssignmentList+json
+                                    application/vnd.ibexa.api.RoleAssignmentList+xml
+                                    application/vnd.ibexa.api.RoleAssignmentList+json
                         responses:
                             200:
                                 body:
-                                    application/vnd.ez.api.RoleAssignmentList+xml:
+                                    application/vnd.ibexa.api.RoleAssignmentList+xml:
                                         type: RoleAssignmentList
                                         example: !include examples/user/groups/path/roles/role_id/DELETE/RoleAssignmentList.xml.example
                             401:
@@ -2368,15 +2368,15 @@ version: 2.5
                     Accept:
                       description: UserList - If set, the User list returned in XML or JSON format. UserRefList - If set, the link list of Users returned in XML or JSON format.
                       example: |
-                          application/vnd.ez.api.UserList+xml
-                          application/vnd.ez.api.UserList+json
-                          application/vnd.ez.api.UserRefList+xml
-                          application/vnd.ez.api.UserRefList+json
+                          application/vnd.ibexa.api.UserList+xml
+                          application/vnd.ibexa.api.UserList+json
+                          application/vnd.ibexa.api.UserRefList+xml
+                          application/vnd.ibexa.api.UserRefList+json
                 responses:
                     200:
                         description: OK - the Users of the Group with the given ID.
                         body:
-                            application/vnd.ez.api.UserRefList+xml:
+                            application/vnd.ibexa.api.UserRefList+xml:
                                 type: UserRefList
                                 example: !include examples/user/groups/id/users/GET/UserRefList.xml.example
                     401:
@@ -2396,15 +2396,15 @@ version: 2.5
                     Accept:
                         description: UserGroupList - If set, the User Group list is returned in XML or JSON format. UserGroupRefList - If set, the link list of User Groups is returned in XML or JSON format.
                         example: |
-                            application/vnd.ez.api.UserGroupList+xml
-                            application/vnd.ez.api.UserGroupList+json
-                            application/vnd.ez.api.UserGroupRefList+xml
-                            application/vnd.ez.api.UserGroupRefList+json
+                            application/vnd.ibexa.api.UserGroupList+xml
+                            application/vnd.ibexa.api.UserGroupList+json
+                            application/vnd.ibexa.api.UserGroupRefList+xml
+                            application/vnd.ibexa.api.UserGroupRefList+json
                 responses:
                     200:
                         description: OK - list of the subgroups.
                         body:
-                            application/vnd.ez.api.UserGroupRefList+xml:
+                            application/vnd.ibexa.api.UserGroupRefList+xml:
                                 type: UserGroupRefList
                                 example: !include examples/user/groups/id/subgroups/GET/UserGroupRefList.xml.example
                     401:
@@ -2428,18 +2428,18 @@ version: 2.5
                 Accept:
                     description: UserList - If set, the User list is returned in XML or JSON format. UserRefList - If set, the link list of Users is returned in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.UserList+xml
-                        application/vnd.ez.api.UserList+json
-                        application/vnd.ez.api.UserRefList+xml
-                        application/vnd.ez.api.UserRefList+json
+                        application/vnd.ibexa.api.UserList+xml
+                        application/vnd.ibexa.api.UserList+json
+                        application/vnd.ibexa.api.UserRefList+xml
+                        application/vnd.ibexa.api.UserRefList+json
             responses:
                 200:
                     description: OK - Loads Users either for a given remote ID or Role.
                     body:
-                        application/vnd.ez.api.UserRefList+xml:
+                        application/vnd.ibexa.api.UserRefList+xml:
                             type: UserRefList
                             example: !include examples/user/users/GET/UserRefList.xml.example
-                        application/vnd.ez.api.UserList+xml:
+                        application/vnd.ibexa.api.UserList+xml:
                             type: UserList
                             example: !include examples/user/users/GET/UserList.xml.example
                 404:
@@ -2469,15 +2469,15 @@ version: 2.5
                     Accept:
                       description: If set, the User is returned in XML or JSON format.
                       example:  |
-                            application/vnd.ez.api.User+xml
-                            application/vnd.ez.api.User+json
+                            application/vnd.ibexa.api.User+xml
+                            application/vnd.ibexa.api.User+json
                     If-None-Match:
                         description: ETag
                 responses:
                     200:
                         description: OK - the User with the given ID.
                         body:
-                            application/vnd.ez.api.User+xml:
+                            application/vnd.ibexa.api.User+xml:
                                 type: UserList
                                 example: !include examples/user/users/user_id/GET/User.xml.example
                     401:
@@ -2491,25 +2491,25 @@ version: 2.5
                     Accept:
                         description: If set, the updated User is returned in XML or JSON format.
                         example:  |
-                            application/vnd.ez.api.User+xml
-                            application/vnd.ez.api.User+json
+                            application/vnd.ibexa.api.User+xml
+                            application/vnd.ibexa.api.User+json
                     Content-Type:
                         description: The UserUpdate schema encoded in XML or JSON format.
                         example:  |
-                            application/vnd.ez.api.UserUpdate+json
-                            application/vnd.ez.api.UserUpdate+xml
+                            application/vnd.ibexa.api.UserUpdate+json
+                            application/vnd.ibexa.api.UserUpdate+xml
                     If-Match:
                         description: Performs a PATCH only if the specified ETag is the current one.
                         example: ETag
                 body:
-                    application/vnd.ez.api.UserUpdate+xml:
+                    application/vnd.ibexa.api.UserUpdate+xml:
                         type: UserUpdate
                         example: !include examples/user/users/user_id/PATCH/UserUpdate.xml.example
                 responses:
                     200:
                         description: OK - User updated.
                         body:
-                            application/vnd.ez.api.User+xml:
+                            application/vnd.ibexa.api.User+xml:
                                 type: User
                                 example: !include examples/user/users/user_id/PATCH/User.xml.example
                     400:
@@ -2547,12 +2547,12 @@ version: 2.5
                         Accept:
                             description: If set, the link list of User Groups is returned in XML or JSON format.
                             example:  |
-                                application/vnd.ez.api.UserGroupRefList+xml
-                                application/vnd.ez.api.UserGroupRefList+json
+                                application/vnd.ibexa.api.UserGroupRefList+xml
+                                application/vnd.ibexa.api.UserGroupRefList+json
                     responses:
                         200:
                             body:
-                                application/vnd.ez.api.UserGroupRefList:
+                                application/vnd.ibexa.api.UserGroupRefList:
                                     type: UserGroupRefList
                                     example: !include examples/user/users/user_id/groups/GET/UserGroupRefList.xml.example
                         401:
@@ -2569,12 +2569,12 @@ version: 2.5
                         Accept:
                             description: If set, the link list of User Groups is returned in XML or JSON format.
                             example:  |
-                                application/vnd.ez.api.UserGroupRefList+xml
-                                application/vnd.ez.api.UserGroupRefList+json
+                                application/vnd.ibexa.api.UserGroupRefList+xml
+                                application/vnd.ibexa.api.UserGroupRefList+json
                     responses:
                         200:
                             body:
-                                application/vnd.ez.api.UserGroupRefList:
+                                application/vnd.ibexa.api.UserGroupRefList:
                                     type: UserGroupRefList
                                     example: !include examples/user/users/user_id/groups/POST/UserGroupRefList.xml.example
                         401:
@@ -2591,12 +2591,12 @@ version: 2.5
                             Accept:
                                 description: If set, the link list of User Groups is returned in XML or JSON format.
                                 example: |
-                                    application/vnd.ez.api.UserGroupRefList+xml
-                                    application/vnd.ez.api.UserGroupRefList+json
+                                    application/vnd.ibexa.api.UserGroupRefList+xml
+                                    application/vnd.ibexa.api.UserGroupRefList+json
                         responses:
                             200:
                                 body:
-                                    application/vnd.ez.api.UserGroupRefList:
+                                    application/vnd.ibexa.api.UserGroupRefList:
                                         type: UserGroupRefList
                                         example: !include examples/user/users/user_id/groups/group_id/DELETE/UserGroupRefList.xml.example
                             401:
@@ -2613,12 +2613,12 @@ version: 2.5
                         Accept:
                             description: If set, the Role assignment list is returned in XML or JSON format.
                             example:  |
-                                application/vnd.ez.api.RoleAssignmentList+xml
-                                application/vnd.ez.api.RoleAssignmentList+json
+                                application/vnd.ibexa.api.RoleAssignmentList+xml
+                                application/vnd.ibexa.api.RoleAssignmentList+json
                     responses:
                         200:
                             body:
-                                application/vnd.ez.api.RoleAssignmentList+xml:
+                                application/vnd.ibexa.api.RoleAssignmentList+xml:
                                     type: RoleAssignmentList
                                     example: !include examples/user/users/user_id/roles/GET/RoleAssignmentList.xml.example
                         400:
@@ -2630,21 +2630,21 @@ version: 2.5
                         Accept:
                             description: If set, the updated Role assignment list is returned in XML or JSON format.
                             example:  |
-                                application/vnd.ez.api.RoleAssignmentList+xml
-                                application/vnd.ez.api.RoleAssignmentList+json
+                                application/vnd.ibexa.api.RoleAssignmentList+xml
+                                application/vnd.ibexa.api.RoleAssignmentList+json
                         Content-Type:
                             description: The RoleAssignInput schema encoded in XML or JSON format.
                             example:  |
-                                application/vnd.ez.api.RoleAssignInput+json
-                                application/vnd.ez.api.RoleAssignInput+xml
+                                application/vnd.ibexa.api.RoleAssignInput+json
+                                application/vnd.ibexa.api.RoleAssignInput+xml
                     body:
-                        application/vnd.ez.api.RoleAssignInput+xml:
+                        application/vnd.ibexa.api.RoleAssignInput+xml:
                             type: RoleAssignInput
                             example: !include examples/user/users/user_id/roles/POST/RoleAssignInput.xml.example
                     responses:
                         200:
                             body:
-                                application/vnd.ez.api.RoleAssignmentList+xml:
+                                application/vnd.ibexa.api.RoleAssignmentList+xml:
                                     type: RoleAssignmentList
                                     example: !include examples/user/users/user_id/roles/POST/RoleAssignmentList.xml.example
                         400:
@@ -2659,13 +2659,13 @@ version: 2.5
                             Accept:
                                 description: If set, the Role assignment list is returned in XML or JSON format.
                                 example:  |
-                                    application/vnd.ez.api.RoleAssignment+xml
-                                    application/vnd.ez.api.RoleAssignment+json
+                                    application/vnd.ibexa.api.RoleAssignment+xml
+                                    application/vnd.ibexa.api.RoleAssignment+json
                         responses:
                             200:
                                 description: OK - Role assignment to the given User Group.
                                 body:
-                                    application/vnd.ez.api.RoleAssignment+xml:
+                                    application/vnd.ibexa.api.RoleAssignment+xml:
                                         type: RoleAssignment
                                         example: !include examples/user/users/user_id/roles/role_id/GET/RoleAssignment.xml.example
                             401:
@@ -2677,12 +2677,12 @@ version: 2.5
                             Accept:
                                 description: If set, the updated Role assignment list is returned in XML or JSON format
                                 example:  |
-                                    application/vnd.ez.api.RoleAssignmentList+xml
-                                    application/vnd.ez.api.RoleAssignmentList+json
+                                    application/vnd.ibexa.api.RoleAssignmentList+xml
+                                    application/vnd.ibexa.api.RoleAssignmentList+json
                         responses:
                             200:
                                 body:
-                                    application/vnd.ez.api.RoleAssignmentList+xml:
+                                    application/vnd.ibexa.api.RoleAssignmentList+xml:
                                         type: RoleAssignmentList
                                         example: !include examples/user/users/user_id/roles/role_id/DELETE/RoleAssignmentList.xml.example
                             401:
@@ -2704,13 +2704,13 @@ version: 2.5
                 Accept:
                     description: If set, the user list returned in XML or JSON format
                     example:  |
-                        application/vnd.ez.api.RoleList+xml
-                        application/vnd.ez.api.RoleList+json
+                        application/vnd.ibexa.api.RoleList+xml
+                        application/vnd.ibexa.api.RoleList+json
             responses:
                 200:
                     description: OK - list of all Roles
                     body:
-                        application/vnd.ez.api.RoleList+xml:
+                        application/vnd.ibexa.api.RoleList+xml:
                             type: RoleList
                             example: !include examples/user/roles/GET/RoleList.xml.example
                 401:
@@ -2727,23 +2727,23 @@ version: 2.5
                 Accept:
                     description: If set, the new user is returned in XML or JSON format
                     example:  |
-                        application/vnd.ez.api.Role+xml
-                        application/vnd.ez.api.Role+json
-                        application/vnd.ez.api.RoleDraft+xml
-                        application/vnd.ez.api.RoleDraft+json
+                        application/vnd.ibexa.api.Role+xml
+                        application/vnd.ibexa.api.Role+json
+                        application/vnd.ibexa.api.RoleDraft+xml
+                        application/vnd.ibexa.api.RoleDraft+json
                 Content-Type:
                     description: The RoleInput schema encoded in XML or JSON
                     example:  |
-                        application/vnd.ez.api.RoleInput+json
-                        application/vnd.ez.api.RoleInput+xml
+                        application/vnd.ibexa.api.RoleInput+json
+                        application/vnd.ibexa.api.RoleInput+xml
             body:
-                 application/vnd.ez.api.RoleInput+xml:
+                 application/vnd.ibexa.api.RoleInput+xml:
                     type: RoleInput
                     example: examples/user/roles/POST/RoleInput.xml.example
             responses:
                 201:
                     body:
-                        application/vnd.ez.api.Role+xml:
+                        application/vnd.ibexa.api.Role+xml:
                             type: Role
                             example: !include examples/user/roles/POST/Role.xml.example
                 400:
@@ -2758,15 +2758,15 @@ version: 2.5
                     Accept:
                         description: If set, the user list returned in XML or JSON format
                         example:  |
-                            application/vnd.ez.api.Role+xml
-                            application/vnd.ez.api.Role+json
+                            application/vnd.ibexa.api.Role+xml
+                            application/vnd.ibexa.api.Role+json
                     If-None-Match:
                         description: ETag
                 responses:
                     200:
                         description: OK - Role for the given ID
                         body:
-                            application/vnd.ez.api.Role+xml:
+                            application/vnd.ibexa.api.Role+xml:
                                 type: Role
                                 example: !include examples/user/roles/id/GET/Role.xml.example
                     401:
@@ -2780,17 +2780,17 @@ version: 2.5
                     Accept:
                         description: If set, the new user is returned in XML or JSON format
                         example:  |
-                            application/vnd.ez.api.Role+xml
-                            application/vnd.ez.api.Role+json
+                            application/vnd.ibexa.api.Role+xml
+                            application/vnd.ibexa.api.Role+json
                     Content-Type:
                         description: The RoleInput schema encoded in XML or JSON
                         example:  |
-                            application/vnd.ez.api.RoleInput+json
-                            application/vnd.ez.api.RoleInput+xml
+                            application/vnd.ibexa.api.RoleInput+json
+                            application/vnd.ibexa.api.RoleInput+xml
                 responses:
                     201:
                         body:
-                            application/vnd.ez.api.RoleDraft+xml:
+                            application/vnd.ibexa.api.RoleDraft+xml:
                                 type: RoleDraft
                                 example: !include examples/user/roles/id/POST/RoleDraft.xml.example
                     401:
@@ -2802,24 +2802,24 @@ version: 2.5
                     Accept:
                         description: If set, the new user is returned in XML or JSON format
                         example:  |
-                            application/vnd.ez.api.Role+xml
-                            application/vnd.ez.api.Role+json
+                            application/vnd.ibexa.api.Role+xml
+                            application/vnd.ibexa.api.Role+json
                     Content-Type:
                         description: The RoleInput schema encoded in XML or JSON
                         example:  |
-                            application/vnd.ez.api.RoleInput+json
-                            application/vnd.ez.api.RoleInput+xml
+                            application/vnd.ibexa.api.RoleInput+json
+                            application/vnd.ibexa.api.RoleInput+xml
                     If-Match:
                         description: ETag Causes to patch only if the specified ETag is the current one. Otherwise a 412 is returned.
                 body:
-                    application/vnd.ez.api.RoleInput+xml:
+                    application/vnd.ibexa.api.RoleInput+xml:
                         type: RoleInput
                         example: !include examples/user/roles/id/PATCH/RoleInput.xml.example
                 responses:
                     200:
                         description: OK - Role updated
                         body:
-                            application/vnd.ez.api.Role+xml:
+                            application/vnd.ibexa.api.Role+xml:
                                 type: Role
                                 example: !include examples/user/roles/id/PATCH/Role.xml.example
                     400:
@@ -2844,15 +2844,15 @@ version: 2.5
                         Accept:
                             description: If set, the User list returned in XML or JSON format.
                             example:  |
-                                application/vnd.ez.api.Role+xml
-                                application/vnd.ez.api.Role+json
+                                application/vnd.ibexa.api.Role+xml
+                                application/vnd.ibexa.api.Role+json
                         If-None-Match:
                             description: ETag
                     responses:
                         200:
                             description: OK - Role draft by original Role ID.
                             body:
-                                application/vnd.ez.api.Role+xml:
+                                application/vnd.ibexa.api.Role+xml:
                                     type: Role
                                     example: !include examples/user/roles/id/draft/GET/Role.xml.example
                         401:
@@ -2866,24 +2866,24 @@ version: 2.5
                         Accept:
                             description: If set, the updated Role is returned in XML or JSON format.
                             example:  |
-                                application/vnd.ez.api.Role+xml
-                                application/vnd.ez.api.Role+json
+                                application/vnd.ibexa.api.Role+xml
+                                application/vnd.ibexa.api.Role+json
                         Content-Type:
                             description: The RoleInput schema encoded in XML or JSON format.
                             example:  |
-                                application/vnd.ez.api.RoleInput+json
-                                application/vnd.ez.api.RoleInput+xml
+                                application/vnd.ibexa.api.RoleInput+json
+                                application/vnd.ibexa.api.RoleInput+xml
                         If-Match:
                             description: Performs a PATCH only if the specified ETag is the current one. Otherwise a 412 is returned.
                     body:
-                        application/vnd.ez.api.RoleInput+xml:
+                        application/vnd.ibexa.api.RoleInput+xml:
                             type: RoleInput
                             example: !include examples/user/roles/id/draft/PATCH/RoleInput.xml.example
                     responses:
                         200:
                             description: OK - Role draft updated.
                             body:
-                                application/vnd.ez.api.Role+xml:
+                                application/vnd.ibexa.api.Role+xml:
                                     type: Role
                                     example: !include examples/user/roles/id/draft/PATCH/Role.xml.example
                         400:
@@ -2922,12 +2922,12 @@ version: 2.5
                         Accept:
                             description: If set, the Policy list is returned in XML or JSON format.
                             example:  |
-                                application/vnd.ez.api.PolicyList+xml
-                                application/vnd.ez.api.PolicyList+json
+                                application/vnd.ibexa.api.PolicyList+xml
+                                application/vnd.ibexa.api.PolicyList+json
                     responses:
                         200:
                             body:
-                                application/vnd.ez.api.PolicyList+xml:
+                                application/vnd.ibexa.api.PolicyList+xml:
                                     type: PolicyList
                                     example: !include examples/user/roles/id/policies/GET/PolicyList.xml.example
                         401:
@@ -2950,21 +2950,21 @@ version: 2.5
                         Accept:
                             description: If set, the updated Policy is returned in XML or JSON format.
                             example:  |
-                                application/vnd.ez.api.Policy+xml
-                                application/vnd.ez.api.Policy+json
+                                application/vnd.ibexa.api.Policy+xml
+                                application/vnd.ibexa.api.Policy+json
                         Content-Type:
                             description: If set, the updated Policy is returned in XML or JSON format.
                             example: |
-                                application/vnd.ez.api.PolicyCreate+xml
-                                application/vnd.ez.api.PolicyCreate+json
+                                application/vnd.ibexa.api.PolicyCreate+xml
+                                application/vnd.ibexa.api.PolicyCreate+json
                     body:
-                        application/vnd.ez.api.PolicyCreate+xml:
+                        application/vnd.ibexa.api.PolicyCreate+xml:
                             type: PolicyCreate
                             example: !include examples/user/roles/id/policies/POST/PolicyCreate.xml.example
                     responses:
                         201:
                             body:
-                                application/vnd.ez.api.Policy+xml:
+                                application/vnd.ibexa.api.Policy+xml:
                                     type: Policy
                                     example: !include examples/user/roles/id/policies/POST/Policy.xml.example
                         400:
@@ -2982,24 +2982,24 @@ version: 2.5
                             Accept:
                                 description: If set, the updated Policy is returned in XML or JSON format.
                                 example:  |
-                                    application/vnd.ez.api.Policy+xml
-                                    application/vnd.ez.api.Policy+json
+                                    application/vnd.ibexa.api.Policy+xml
+                                    application/vnd.ibexa.api.Policy+json
                             Content-Type:
                                 description: If set, the updated Policy is returned in XML or JSON format.
                                 example:  |
-                                    application/vnd.ez.api.PolicyUpdate+xml
-                                    application/vnd.ez.api.PolicyUpdate+json
+                                    application/vnd.ibexa.api.PolicyUpdate+xml
+                                    application/vnd.ibexa.api.PolicyUpdate+json
                             If-Match:
                                 description: Causes to patch only if the specified ETag is the current one. Otherwise a 412 is returned.
                                 example: ETag
                         body:
-                            application/vnd.ez.api.PolicyUpdate+xml:
+                            application/vnd.ibexa.api.PolicyUpdate+xml:
                                 type: PolicyUpdate
                                 example: !include examples/user/roles/id/policies/id/PATCH/PolicyUpdate.xml.example
                         responses:
                             200:
                                 body:
-                                    application/vnd.ez.api.Policy+xml:
+                                    application/vnd.ibexa.api.Policy+xml:
                                         type: Policy
                                         example: !include examples/user/roles/id/policies/id/PATCH/Policy.xml.example
                             400:
@@ -3017,14 +3017,14 @@ version: 2.5
                             Accept:
                                 description: If set, the Policy is returned in XML or JSON format.
                                 example:  |
-                                    application/vnd.ez.api.Policy+xml
-                                    application/vnd.ez.api.Policy+json
+                                    application/vnd.ibexa.api.Policy+xml
+                                    application/vnd.ibexa.api.Policy+json
                             If-None-Match:
                                 description: ETag
                         responses:
                             200:
                                 body:
-                                    application/vnd.ez.api.Policy+xml:
+                                    application/vnd.ibexa.api.Policy+xml:
                                         type: Policy
                                         example: !include examples/user/roles/id/policies/id/GET/Policy.xml.example
                             401:
@@ -3052,13 +3052,13 @@ version: 2.5
                 Accept:
                     description: If set, the Policy list is returned in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.PolicyList+xml
-                        application/vnd.ez.api.PolicyList+json
+                        application/vnd.ibexa.api.PolicyList+xml
+                        application/vnd.ibexa.api.PolicyList+json
             responses:
                 200:
                     description: OK - Policies which are applied to a given User.
                     body:
-                        application/vnd.ez.api.PolicyList+xml:
+                        application/vnd.ibexa.api.PolicyList+xml:
                             type: PolicyList
                             example: !include examples/user/policies/GET/PolicyList.xml.example
                 401:
@@ -3072,41 +3072,41 @@ version: 2.5
                 Accept:
                     description: If set, the session is returned in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.Session+xml
-                        application/vnd.ez.api.Session+json
+                        application/vnd.ibexa.api.Session+xml
+                        application/vnd.ibexa.api.Session+json
                 Content-Type:
                     description: The SessionInput schema encoded in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.SessionInput+xml
-                        application/vnd.ez.api.SessionInput+json
+                        application/vnd.ibexa.api.SessionInput+xml
+                        application/vnd.ibexa.api.SessionInput+json
                 Cookie:
                     description: Only needed for session's checking {sessionName}={sessionID}.
                 X-CSRF-Token:
                     description: Only needed for session's checking. The {csrfToken} needed on all unsafe http methods with session.
             body:
-                application/vnd.ez.api.SessionInput+xml:
+                application/vnd.ibexa.api.SessionInput+xml:
                     type: SessionInput
                     example: !include examples/user/sessions/POST/SessionInput.xml.example
-                application/vnd.ez.api.SessionInput+json:
+                application/vnd.ibexa.api.SessionInput+json:
                     type: SessionInput
                     example: !include examples/user/sessions/POST/SessionInput.json.example
             responses:
                 200:
                     description: Session already exists.
                     body:
-                        application/vnd.ez.api.Session+xml:
+                        application/vnd.ibexa.api.Session+xml:
                             type: Session
                             example: !include examples/user/sessions/POST/Session.xml.example
-                        application/vnd.ez.api.Session+json:
+                        application/vnd.ibexa.api.Session+json:
                             type: Session
                             example: !include examples/user/sessions/POST/Session.json.example
                 201:
                     description: Session is created.
                     body:
-                        application/vnd.ez.api.Session+xml:
+                        application/vnd.ibexa.api.Session+xml:
                             type: Session
                             example: !include examples/user/sessions/POST/Session.xml.example
-                        application/vnd.ez.api.Session+json:
+                        application/vnd.ibexa.api.Session+json:
                             type: Session
                             example: !include examples/user/sessions/POST/Session.json.example
                 400:
@@ -3141,10 +3141,10 @@ version: 2.5
                     responses:
                         200:
                             body:
-                                application/vnd.ez.api.Session+xml:
+                                application/vnd.ibexa.api.Session+xml:
                                     type: Session
                                     example: !include examples/user/sessions/session_id/refresh/POST/Session.xml.example
-                                application/vnd.ez.api.Session+json:
+                                application/vnd.ibexa.api.Session+json:
                                     type: Session
                                     example: !include examples/user/sessions/session_id/refresh/POST/Session.json.example
                         404:
@@ -3159,12 +3159,12 @@ version: 2.5
                 Accept:
                     description: If set, the country list is returned in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.CountriesLis+xml
-                        application/vnd.ez.api.CountriesLis+json
+                        application/vnd.ibexa.api.CountriesLis+xml
+                        application/vnd.ibexa.api.CountriesLis+json
             responses:
                 200:
                     body:
-                        application/vnd.ez.api.CountriesList+xml:
+                        application/vnd.ibexa.api.CountriesList+xml:
                             type: CountryList
                             example: !include examples/services/countries/GET/CountriesList.xml.example
 

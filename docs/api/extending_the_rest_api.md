@@ -17,7 +17,7 @@ To do so, you create:
 
 ### Controller
 
-To create a REST controller, you extend the `ezpublish_rest.controller.base` service, as well as the `Ibexa\Rest\Server\Controller` class.
+To create a REST controller, you extend the `Ibexa\Rest\Server\Controller` service, as well as the `Ibexa\Rest\Server\Controller` class.
 
 First, create a simple controller with a `sayHello()` method that takes a name as an argument.
 It can be, for example, `src/Rest/Controller/DefaultController.php`.
@@ -80,7 +80,7 @@ Modify the `config/services.yaml` file by adding the following code:
 ``` yaml
 services:
     App\Controller\Rest\DefaultController:
-        parent: ezpublish_rest.controller.base
+        parent: Ibexa\Rest\Server\Controller
         tags: ['controller.service_arguments']
 ```
 
@@ -131,7 +131,7 @@ Outputting this object in the response requires that you create `ValueObjectVisi
 
 `ValueObjectVisitor` takes a Value returned by the REST controller, whatever the class, and 
 transforms the Value into data that can be converted, either to JSON or XML format. 
-Visitors are registered as services, and tagged with `ezpublish_rest.output.value_object_visitor`. 
+Visitors are registered as services, and tagged with `ibexa.rest.output.value_object.visitorr`. 
 The tag attribute corresponds to a class, which this visitor applies to.
 
 In the `config/services.yaml` file, create a service for your `ValueObjectVisitor`.
@@ -139,9 +139,9 @@ In the `config/services.yaml` file, create a service for your `ValueObjectVisito
 ``` yaml
 services:
     App\Rest\ValueObjectVisitor\Hello:
-        parent: ezpublish_rest.output.value_object_visitor.base
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
         tags:
-            - { name: ezpublish_rest.output.value_object_visitor, type: App\Rest\Values\Hello }
+            - { name: ibexa.rest.output.value_object.visitor, type: App\Rest\Values\Hello }
 ```
 
 Then create your visitor. 
@@ -216,7 +216,7 @@ To provide your controller with parameters, either in JSON or XML format, the pa
 an input parser so that the payload can be converted to an actual `ValueObject`.
 
 Each payload is dispatched to its input parser based on the request's `Content-Type` header. 
-For example, a request with a `Content-Type` of `application/vnd.ez.api.ContentCreate` is parsed 
+For example, a request with a `Content-Type` of `application/vnd.ibexa.api.ContentCreate` is parsed 
 by `Ibexa\Contracts\Rest\Input\Parser`. 
 This parser builds and returns `ContentCreateStruct` that can then be used to create content with the Public API.
 
@@ -238,9 +238,9 @@ The `mediaType` attribute of the `ezpublish\_rest.input.parser` tag maps the Con
 ``` yaml
 services:
     App\Rest\InputParser\Greetings:
-        parent: ezpublish_rest.input.parser
+        parent: Ibexa\Rest\Server\Common\Parser
         tags:
-            - { name: ezpublish_rest.input.parser, mediaType: application/vnd.my.Greetings }
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.my.Greetings }
 ```
 
 Then, implement the parser. 
@@ -323,7 +323,7 @@ ez_publish_rest:
             rest_root_resources:
                 someresource:
                     mediaType: Content
-                    href: 'router.generate("ezpublish_rest_loadContent", {"contentId": 2})'
+                    href: 'router.generate("ibexa.rest.load_content", {"contentId": 2})'
 ```
 
 The `router.generate` call dynamically renders a URI based on the name of the route and the optional parameters that are passed as the other arguments.
@@ -333,6 +333,6 @@ The syntax is based on the Symfony's [expression language]([[= symfony_doc =]]/c
 
 The above configuration adds the following entry to the root resource:
 
-`<someresource media-type="application/vnd.ez.api.Content+xml" href="/api/ezp/v2/content/objects/2"/>`
+`<someresource media-type="application/vnd.ibexa.api.Content+xml" href="/api/ezp/v2/content/objects/2"/>`
 
-`<someresource media-type="application/vnd.ez.api.Content+xml" href="/api/ezp/v2/content/objects/2"/>
+`<someresource media-type="application/vnd.ibexa.api.Content+xml" href="/api/ezp/v2/content/objects/2"/>

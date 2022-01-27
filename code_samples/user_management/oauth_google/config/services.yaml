@@ -40,4 +40,4 @@ services:
         arguments:
             $template: '@@ibexadesign/account/login/oauth2_login.html.twig'
         tags:
-            - { name: ezplatform.admin_ui.component, group: login-form-after }
+            - { name: ibexa.admin_ui.component, group: login-form-after }

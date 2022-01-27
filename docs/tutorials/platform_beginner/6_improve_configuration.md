@@ -57,7 +57,7 @@ ezplatform:
             content_view:
                 full:
                     home_page:
-                        controller: ez_query::pagingQueryAction
+                        controller: ibexa_query::pagingQueryAction
                         template: full/home_page.html.twig
                         match:
                             Id\Location: 2

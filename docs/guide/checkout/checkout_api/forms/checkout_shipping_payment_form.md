@@ -20,7 +20,7 @@ You set the parameters in the [configuration for checkout forms](configuration_f
 ## Form Type
 
 `Ibexa\Commerce\Checkout\Form\Type\CheckoutShippingPaymentType`
-(service ID: `siso_checkout.form_entity.checkout_shipping_payment_type`)
+(service ID: `Ibexa\Commerce\Checkout\Form\Type\CheckoutShippingPaymentType`)
 implements the setup for this form.
 
 This class is defined as a service to take advantage from `TransService`.

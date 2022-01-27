@@ -12,11 +12,11 @@ This example uses the product search API to search products using `searchterm`:
      */
     private function getAllProducts($offset, $limit, $queryString, $locationId = 2)
     {
-        $searchService = $this->get('siso_search.search_service.product');
-        $searchGroup =  $this->container->get('ezpublish.config.resolver')->getParameter('groups.product_list', 'siso_search');
-        $searchContextService = $this->get('siso_search.search_context_service');
+        $searchService = $this->get('Ibexa\Bundle\Commerce\Search\Api\EshopProductSearchInterface');
+        $searchGroup =  $this->container->get('ibexa.config.resolver')->getParameter('groups.product_list', 'siso_search');
+        $searchContextService = $this->get('ibexa.commerce.search.search_context_service');
         $searchContext = $searchContextService->getContext();
-        $facetService = $this->get('siso_search.facet_service.simple_field');
+        $facetService = $this->get('Ibexa\Bundle\Commerce\Search\Service\SimpleProductFieldFacetService');
 
         $query = new EshopQuery();
         if ($queryString != '' ) {
@@ -38,7 +38,7 @@ This example uses the product search API to search products using `searchterm`:
         );
         if ($locationId > 2) {
             /** @var CatalogDataProviderService $catalogService */
-            $catalogService = $this->get('silver_catalog.data_provider_service');
+            $catalogService = $this->get('Ibexa\Bundle\Commerce\Eshop\Services\Catalog\CatalogDataProviderService');
             $catalogProvider = $catalogService->getDataProvider();
             $catalogElement = $catalogProvider->fetchElementByIdentifier($locationId);
             $query->addCondition(
@@ -79,6 +79,6 @@ $query->addCondition(
         array(SearchController::SEARCH_CONDITION_QUERY => $queryString)
     )
 );
-$searchService = $this->getContainer()->get('siso_search.search_service.product');
+$searchService = $this->getContainer()->get('Ibexa\Bundle\Commerce\Search\Api\EshopProductSearchInterface');
 $result = $searchService->searchProducts($query, new SearchContext());
 ```

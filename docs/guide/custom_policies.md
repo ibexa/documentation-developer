@@ -29,7 +29,7 @@ If no Limitation is provided, value can be `null` or an empty array.
 ]
 ```
 
-Limitations need to be implemented as *Limitation types* and declared as services identified with `ezpublish.limitationType` tag.
+Limitations need to be implemented as *Limitation types* and declared as services identified with `ibexa.permissions.limitation_type` tag.
 Name provided in the hash for each Limitation is the same value set in the `alias` attribute in the service tag.
 
 For example:
@@ -123,26 +123,26 @@ class Kernel extends BaseKernel
 
 To provide support for editing custom policies in the Back Office, you need to implement [`Ibexa\AdminUi\Limitation\LimitationFormMapperInterface`](https://github.com/ibexa/admin-ui/blob/main/src/lib/Limitation/LimitationFormMapperInterface.php).
 
-Next, register the service with the `ez.limitation.formMapper` tag and set the `limitationType` attribute to the Limitation type's identifier:
+Next, register the service with the `ibexa.admin_ui.limitation.mapper.form` tag and set the `limitationType` attribute to the Limitation type's identifier:
 
 ```yaml
 App\Security\Limitation\Mapper\CustomLimitationFormMapper:
     arguments:
         # ...
     tags:
-        - { name: 'ez.limitation.formMapper', limitationType: 'Custom' }
+        - { name: 'ibexa.admin_ui.limitation.mapper.form', limitationType: 'Custom' }
 ```
 
 If you want to provide human-readable names of the custom Limitation values, you need to implement [`Ibexa\AdminUi\Limitation\LimitationValueMapperInterface`](https://github.com/ibexa/admin-ui/blob/main/src/lib/Limitation/LimitationValueMapperInterface.php).
 
-Then register the service with the `ez.limitation.valueMapper` tag and set the `limitationType` attribute to Limitation type's identifier:
+Then register the service with the `ibexa.admin_ui.limitation.mapper.form` tag and set the `limitationType` attribute to Limitation type's identifier:
 
 ```yaml
 App\Security\Limitation\Mapper\CustomLimitationValueMapper:
     arguments:
         # ...
     tags:
-        - { name: 'ez.limitation.valueMapper', limitationType: 'Custom' }
+        - { name: 'ibexa.admin_ui.limitation.mapper.form', limitationType: 'Custom' }
 ```
 
 If you want to completely override the way of rendering custom Limitation values in the role view,

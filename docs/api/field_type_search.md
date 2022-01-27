@@ -32,13 +32,13 @@ This method gets name of the default Field to be used for sorting. As Field Type
 
 ## Register Indexable Implementations
 
-Implement `Ibexa\Contracts\Core\FieldType\Indexable` as an extra service and register this Service using the `ezplatform.field_type.indexable` tag. Example from [`indexable_fieldtypes.yaml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/indexable_fieldtypes.yml):
+Implement `Ibexa\Contracts\Core\FieldType\Indexable` as an extra service and register this Service using the `ibexa.field_type.indexable` tag. Example from [`indexable_fieldtypes.yaml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/indexable_fieldtypes.yml):
 
 ``` yaml
-ezpublish.fieldType.indexable.ezkeyword:
+Ibexa\Core\FieldType\Keyword\SearchField:
     class: Ibexa\Core\FieldType\Keyword\SearchField
     tags:
-        - {name: ezplatform.field_type.indexable, alias: ezkeyword}
+        - {name: ibexa.field_type.indexable, alias: ezkeyword}
 ```
 
 Note that `alias` should be the same as Field Type ID.

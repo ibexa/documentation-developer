@@ -211,8 +211,8 @@ To choose the search type, use either `content` or `location` in the tag when re
 services:
     App\Query\Criterion\CameraManufacturerVisitor:
         tags:
-            - { name: ezplatform.search.elasticsearch.query.content.criterion_visitor }
-            - { name: ezplatform.search.elasticsearch.query.location.criterion_visitor }
+            - { name: ibexa.elasticsearch.query.content.criterion_visitor }
+            - { name: ibexa.elasticsearch.query.location.criterion_visitor }
 ```
 
 ## Custom Sort Clause
@@ -285,8 +285,8 @@ To choose the search type, use either `content` or `location` in the tag when re
 services:
     App\Query\SortClause\ScoreVisitor:
         tags:
-            - { name: ezplatform.search.elasticsearch.query.content.sort_clause_visitor }
-            - { name: ezplatform.search.elasticsearch.query.location.sort_clause_visitor }
+            - { name: ibexa.elasticsearch.query.content.sort_clause_visitor }
+            - { name: ibexa.elasticsearch.query.location.sort_clause_visitor }
 ```
 
 ## Custom Aggregation
@@ -350,7 +350,7 @@ services:
             $aggregationClass: 'App\Query\Aggregation\PriorityRangeAggregation'
             $searchIndexFieldName: 'priority_i'
         tags:
-            - { name: ezplatform.search.elasticsearch.query.location.aggregation_visitor }
+            - { name: ibexa.elasticsearch.query.location.aggregation_visitor }
 ```
 
 The visitor is created by `SearchFieldAggregationVisitorFactory`.
@@ -359,12 +359,12 @@ You provide it with two arguments:
 - the aggregation class in `aggregationClass`
 - the field name in search index in `searchIndexFieldName`
 
-Tag the service with `ezplatform.search.elasticsearch.query.location.aggregation_visitor`.
+Tag the service with `ibexa.elasticsearch.query.location.aggregation_visitor`.
 
 For the result extractor, you can use the built-in `RangeAggregationResultExtractor`
 and provide it with the aggregation class in the `aggregationClass` parameter.
 
-Tag the service with `ezplatform.search.elasticsearch.query.location.aggregation_result_extractor`.
+Tag the service with `ibexa.elasticsearch.query.location.aggregation_result_extractor`.
 
 ``` yaml
 services:
@@ -373,7 +373,7 @@ services:
         arguments:
             $aggregationClass: 'App\Query\Aggregation\PriorityRangeAggregation'
         tags:
-            - { name: ezplatform.search.elasticsearch.query.location.aggregation_result_extractor }
+            - { name: ibexa.elasticsearch.query.location.aggregation_result_extractor }
 ```
 
 If you are using a different type of aggregation than range, you can also use respective visitor and extractor classes:
@@ -505,20 +505,20 @@ The `extract()` method converts the [raw data provided by the search engine](htt
 
 Finally, register both the aggregation visitor and the result extractor as services.
 
-Tag the aggregation visitor with `ezplatform.search.elasticsearch.query.location.aggregation_visitor`
-and the result extractor with `ezplatform.search.elasticsearch.query.location.aggregation_result_extractor`:
+Tag the aggregation visitor with `ibexa.elasticsearch.query.location.aggregation_visitor`
+and the result extractor with `ibexa.elasticsearch.query.location.aggregation_result_extractor`:
 
 ``` yaml
 services:
     App\Query\Aggregation\Elasticsearch\PriorityAggregationVisitor:
         tags:
-            - { name: 'ezplatform.search.elasticsearch.query.location.aggregation_visitor' }
+            - { name: ' ibexa.elasticsearch.query.location.aggregation_visitor' }
     App\Query\Aggregation\Elasticsearch\PriorityAggregationResultExtractor:
         tags:
-            - { name: 'ezplatform.search.elasticsearch.query.location.aggregation_result_extractor' }
+            - { name: ' ibexa.elasticsearch.query.location.aggregation_result_extractor' }
 ```
 
-For content-based aggregations, use the `ezplatform.search.elasticsearch.query.content.aggregation_visitor` and `ezplatform.search.elasticsearch.query.content.aggregation_result_extractor` tags respectively.
+For content-based aggregations, use the `ibexa.elasticsearch.query.content.aggregation_visitor.` and `ibexa.elasticsearch.query.content.aggregation_result_extractor` tags respectively.
 
 ## Custom Facet
 
@@ -646,10 +646,10 @@ Remember to register the facet classes as services:
 services:
     App\Query\FacetBuilder\ContentTypeGroupFacetBuilderVisitor:
         tags:
-            - { name: ezplatform.search.elasticsearch.query.content.facet_builder_visitor }
-            - { name: ezplatform.search.elasticsearch.query.location.facet_builder_visitor }
+            - { name: ibexa.elasticsearch.query.content.facet_builder_visitor }
+            - { name: ibexa.elasticsearch.query.location.facet_builder_visitor }
 
     App\Query\FacetBuilder\ContentTypeGroupFacetResultExtractor:
         tags:
-            - { name: ezplatform.search.elasticsearch.query.facet_result_extractor }
+            - { name: ibexa.search.elasticsearch.query.facet_result.extractor }
 ```

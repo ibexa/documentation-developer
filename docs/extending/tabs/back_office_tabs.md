@@ -28,7 +28,7 @@ A custom tab can extend one of the following classes:
     For a full example of creating a custom tab, see [Add dashboard tab](add_dashboard_tab.md).
 
 You need to register the tab as a service.
-Tag it with `ezplatform.tab` and indicate the group in which it should appear:
+Tag it with `ibexa.admin_ui.tab` and indicate the group in which it should appear:
 
 ``` yaml
 [[= include_file('code_samples/back_office/dashboard/article_tab/config/custom_services.yaml') =]]
@@ -70,9 +70,9 @@ services:
         arguments:
             $groupIdentifier: 'custom_group'
         tags:
-            - { name: ezplatform.admin_ui.component, group: 'dashboard-blocks' }
+            - { name: ibexa.admin_ui.component, group: 'dashboard-blocks' }
 ```
 
-Tag the group with `ezplatform.admin_ui.component`.
+Tag the group with `ibexa.admin_ui.component`.
 `group` indicates where the group is rendered.
 For a list of possible rendering places, see [Injecting custom components](../custom_components.md).

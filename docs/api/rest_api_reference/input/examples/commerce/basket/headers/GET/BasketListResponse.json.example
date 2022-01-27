@@ -1,9 +1,9 @@
 {
   "BasketListResponse": {
-    "_media-type": "application\/vnd.ez.api.BasketListResponse+json",
+    "_media-type": "application\/vnd.ibexa.api.BasketListResponse+json",
     "basketList": [
       {
-        "_media-type": "application\/vnd.ez.api.stdClass+json",
+        "_media-type": "application\/vnd.ibexa.api.stdClass+json",
         "basketId": 5,
         "state": "new",
         "type": "storedBasket",
@@ -11,29 +11,29 @@
         "userId": 14,
         "basketName": "test",
         "dateCreated": {
-          "_media-type": "application\/vnd.ez.api.DateTime+json"
+          "_media-type": "application\/vnd.ibexa.api.DateTime+json"
         },
         "dateLastModified": {
-          "_media-type": "application\/vnd.ez.api.DateTime+json"
+          "_media-type": "application\/vnd.ibexa.api.DateTime+json"
         },
         "totals": [
           {
-            "_media-type": "application\/vnd.ez.api.BasketTotals+json"
+            "_media-type": "application\/vnd.ibexa.api.BasketTotals+json"
           },
           {
-            "_media-type": "application\/vnd.ez.api.BasketTotals+json"
+            "_media-type": "application\/vnd.ibexa.api.BasketTotals+json"
           }
         ],
         "totalsSum": {
-          "_media-type": "application\/vnd.ez.api.BasketTotals+json"
+          "_media-type": "application\/vnd.ibexa.api.BasketTotals+json"
         },
         "dateLastPriceCalculation": {
-          "_media-type": "application\/vnd.ez.api.DateTime+json"
+          "_media-type": "application\/vnd.ibexa.api.DateTime+json"
         },
         "allProductsAvailable": true,
         "dataMap": {
           "dateLastCatalogUpdate": {
-            "_media-type": "application\/vnd.ez.api.DateTime+json",
+            "_media-type": "application\/vnd.ibexa.api.DateTime+json",
             "date": "2021-03-10 11:11:06.291444",
             "timezone_type": 3,
             "timezone": "UTC"

@@ -5,17 +5,17 @@ post:
         Accept:
             description: The View in XML or JSON format.
             example:  |
-                application/vnd.ez.api.View+xml
-                application/vnd.ez.api.View+json
-                application/vnd.ez.api.View+xml; version=1.1
-                application/vnd.ez.api.View+json; version=1.1
+                application/vnd.ibexa.api.View+xml
+                application/vnd.ibexa.api.View+json
+                application/vnd.ibexa.api.View+xml; version=1.1
+                application/vnd.ibexa.api.View+json; version=1.1
         Content-Type:
             description: The View input in XML or JSON format.
             example:  |
-                application/vnd.ez.api.ViewInput+xml
-                application/vnd.ez.api.ViewInput+json
-                application/vnd.ez.api.ViewInput+xml; version=1.1
-                application/vnd.ez.api.ViewInput+json; version=1.1
+                application/vnd.ibexa.api.ViewInput+xml
+                application/vnd.ibexa.api.ViewInput+json
+                application/vnd.ibexa.api.ViewInput+xml; version=1.1
+                application/vnd.ibexa.api.ViewInput+json; version=1.1
     responses:
         301:
             description: Moved permanently.
@@ -28,8 +28,8 @@ get:
         Accept:
             description: The view link list in XML or JSON format.
             example:  |
-                application/vnd.ez.api.RefList+xml
-                application/vnd.ez.api.RefList+json
+                application/vnd.ibexa.api.RefList+xml
+                application/vnd.ibexa.api.RefList+json
     responses:
         200:
             description: OK - list of View URIs.
@@ -41,8 +41,8 @@ get:
             Accept:
                 description: The View results in XML or JSON format.
                 example:  |
-                    application/vnd.ez.api.View+xml
-                    application/vnd.ez.api.View+json
+                    application/vnd.ibexa.api.View+xml
+                    application/vnd.ibexa.api.View+json
         responses:
             200:
                 description: OK - returns the View.
@@ -66,8 +66,8 @@ get:
                 Accept:
                     description: The View excluding results in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.ViewResult+xml
-                        application/vnd.ez.api.ViewResult+json
+                        application/vnd.ibexa.api.ViewResult+xml
+                        application/vnd.ibexa.api.ViewResult+json
             responses:
                 200:
                     description: OK - result of the View.

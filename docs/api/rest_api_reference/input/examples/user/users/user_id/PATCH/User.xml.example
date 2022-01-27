@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<User media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/79" id="79" remoteId="bcf0764b417f05af21852a1f03fb1f13">
-    <ContentType media-type="application/vnd.ez.api.ContentType+xml" href="/api/ezp/v2/content/types/4"/>
+<User media-type="application/vnd.ibexa.api.User+xml" href="/api/ezp/v2/user/users/79" id="79" remoteId="bcf0764b417f05af21852a1f03fb1f13">
+    <ContentType media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ezp/v2/content/types/4"/>
     <name>Jose Vargas</name>
-    <Versions media-type="application/vnd.ez.api.VersionList+xml" href="/api/ezp/v2/content/objects/79/versions"/>
-    <Section media-type="application/vnd.ez.api.Section+xml" href="/api/ezp/v2/content/sections/2"/>
-    <MainLocation media-type="application/vnd.ez.api.Location+xml" href="/api/ezp/v2/content/locations/1/5/12/79"/>
-    <Locations media-type="application/vnd.ez.api.LocationList+xml" href="/api/ezp/v2/content/objects/79/locations"/>
-    <Groups media-type="application/vnd.ez.api.UserGroupRefList+xml" href="/api/ezp/v2/user/users/79/groups"/>
-    <Owner media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/10"/>
+    <Versions media-type="application/vnd.ibexa.api.VersionList+xml" href="/api/ezp/v2/content/objects/79/versions"/>
+    <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ezp/v2/content/sections/2"/>
+    <MainLocation media-type="application/vnd.ibexa.api.Location+xml" href="/api/ezp/v2/content/locations/1/5/12/79"/>
+    <Locations media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ezp/v2/content/objects/79/locations"/>
+    <Groups media-type="application/vnd.ibexa.api.UserGroupRefList+xml" href="/api/ezp/v2/user/users/79/groups"/>
+    <Owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ezp/v2/user/users/10"/>
     <publishDate>2021-06-29T08:23:42+00:00</publishDate>
     <lastModificationDate>2021-07-29T11:45:07+00:00</lastModificationDate>
     <mainLanguageCode>eng-GB</mainLanguageCode>
     <alwaysAvailable>true</alwaysAvailable>
-    <Version media-type="application/vnd.ez.api.Version+xml" href="/api/ezp/v2/content/objects/79/versions/6">
+    <Version media-type="application/vnd.ibexa.api.Version+xml" href="/api/ezp/v2/content/objects/79/versions/6">
         <VersionInfo>
             <id>609</id>
             <versionNo>6</versionNo>
             <status>PUBLISHED</status>
             <modificationDate>2021-07-29T11:45:07+00:00</modificationDate>
-            <Creator media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+            <Creator media-type="application/vnd.ibexa.api.User+xml" href="/api/ezp/v2/user/users/14"/>
             <creationDate>2021-07-29T11:45:07+00:00</creationDate>
             <initialLanguageCode>eng-GB</initialLanguageCode>
             <languageCodes>eng-GB</languageCodes>
-            <VersionTranslationInfo media-type="application/vnd.ez.api.VersionTranslationInfo+xml">
+            <VersionTranslationInfo media-type="application/vnd.ibexa.api.VersionTranslationInfo+xml">
                 <Language>
                     <languageCode>eng-GB</languageCode>
                 </Language>
@@ -30,7 +30,7 @@
             <names>
                 <value languageCode="eng-GB">Jose Vargas</value>
             </names>
-            <Content media-type="application/vnd.ez.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/79"/>
+            <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/79"/>
         </VersionInfo>
         <Fields>
             <field>
@@ -78,8 +78,8 @@
                 <fieldValue/>
             </field>
         </Fields>
-        <Relations media-type="application/vnd.ez.api.RelationList+xml" href="/api/ezp/v2/content/objects/79/versions/6/relations"/>
-        <Thumbnail media-type="application/vnd.ez.api.Thumbnail+xml">
+        <Relations media-type="application/vnd.ibexa.api.RelationList+xml" href="/api/ezp/v2/content/objects/79/versions/6/relations"/>
+        <Thumbnail media-type="application/vnd.ibexa.api.Thumbnail+xml">
             <resource>/bundles/ezplatformadminui/img/ez-icons.svg#user</resource>
             <width></width>
             <height></height>
@@ -89,6 +89,6 @@
     <login>josevargas</login>
     <email>aa@bb.cc</email>
     <enabled>false</enabled>
-    <UserGroups media-type="application/vnd.ez.api.UserGroupList+xml" href="/api/ezp/v2/user/users/79/groups"/>
-    <Roles media-type="application/vnd.ez.api.RoleAssignmentList+xml" href="/api/ezp/v2/user/users/79/roles"/>
+    <UserGroups media-type="application/vnd.ibexa.api.UserGroupList+xml" href="/api/ezp/v2/user/users/79/groups"/>
+    <Roles media-type="application/vnd.ibexa.api.RoleAssignmentList+xml" href="/api/ezp/v2/user/users/79/roles"/>
 </User>

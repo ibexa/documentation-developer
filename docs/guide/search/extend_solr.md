@@ -49,19 +49,19 @@ Mappers can be used on the extension points by registering them with the [servic
 
 - All block documents
     - `ContentFieldMapper`
-    - `ezpublish.search.solr.field_mapper.block`
+    - `ibexa.solr.field_mapper.block`
 - All block documents per translation
     - `ContentTranslationFieldMapper`
-    - `ezpublish.search.solr.field_mapper.block_translation`
+    - `ibexa.solr.field_mapper.block_translation`
 - Content documents
     - `ContentFieldMapper`
-    - `ezpublish.search.solr.field_mapper.content`
+    - `ibexa.solr.field_mapper.content`
 - Content documents per translation
     - `ContentTranslationFieldMapper`
-    - `ezpublish.search.solr.field_mapper.content_translation`
+    - `ibexa.solr.field_mapper.content_translation`
 - Location documents
     - `LocationFieldMapper`
-    - `ezpublish.search.solr.field_mapper.location`
+    - `Ibexa\Solr\FieldMapper\LocationFieldMapper\Aggregate`
 
 The following example shows how you can index data from the parent Location content, 
 to make it available for full-text search on the child content.
@@ -199,12 +199,12 @@ You provide it with two arguments:
 - The aggregation class in `aggregationClass`
 - The field name in search index in `searchIndexFieldName`
 
-Tag the service with `ezplatform.search.solr.query.location.aggregation_visitor`.
+Tag the service with `ibexa.solr.query.location.aggregation_visitor`.
 
 For the result extractor, you can use the built-in `RangeAggregationResultExtractor`
 and provide it with the aggregation class in the `aggregationClass` parameter.
 
-Tag the service with `ezplatform.search.solr.query.location.aggregation_result_extractor`.
+Tag the service with `ibexa.solr.query.location.aggregation_result_extractor`.
 
 ``` yaml
 [[= include_file('code_samples/search/solr/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/search/solr/config/packages/services.yaml', 11, 17) =]]
@@ -248,11 +248,11 @@ The `extract()` method converts the [raw data provided by the search engine](htt
 
 Finally, register both the aggregation visitor and the result extractor as services.
 
-Tag the aggregation visitor with `ezplatform.search.solr.query.location.aggregation_visitor`
-and the result extractor with `ezplatform.search.solr.query.location.aggregation_result_extractor`:
+Tag the aggregation visitor with `ibexa.solr.query.location.aggregation_visitor`
+and the result extractor with `ibexa.solr.query.location.aggregation_result_extractor`:
 
 ``` yaml
 [[= include_file('code_samples/search/solr/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/search/solr/config/packages/services.yaml', 18, 24) =]]
 ```
 
-For content-based aggregations, use the `ezplatform.search.solr.query.content.aggregation_visitor` and `ezplatform.search.solr.query.content.aggregation_result_extractor` tags respectively.
+For content-based aggregations, use the `ibexa.solr.query.content.aggregation_visitor` and `ibexa.solr.query.content.aggregation_result_extractor` tags respectively.

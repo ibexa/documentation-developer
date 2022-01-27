@@ -15,7 +15,7 @@ First, add the following `LatestContentQueryType.php` file to `src/QueryType`:
 !!! tip
 
     When the custom Query type is in the `App` namespace, like in the example above, it is registered automatically as a service.
-    Otherwise, register it with the `ezplatform.query_type` service tag.
+    Otherwise, register it with the `ibexa.query_type` service tag.
 
 The name defined in `getName()` is the one you use to identify the Query type in content view configuration.
 

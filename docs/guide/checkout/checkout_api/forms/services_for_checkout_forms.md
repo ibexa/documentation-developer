@@ -39,7 +39,7 @@ You assign this service to the `CheckoutDeliveryAddress` form in the [configurat
 
 This service implements both [`CheckoutFormServiceInterface`](#checkoutformserviceinterface) and [`CheckoutAddressFormServiceInterface`](#checkoutaddressformserviceinterface).
 
-The service ID is `siso_checkout.checkout_form.delivery_address`.
+The service ID is `Ibexa\Commerce\Checkout\Service\DeliveryAddressCheckoutFormService`.
 
 ## InvoiceAddressCheckoutFormService
 
@@ -49,7 +49,7 @@ You assign this service to the `CheckoutInvoiceAddress` form in the [configurati
 
 This service implements both [`CheckoutFormServiceInterface`](#checkoutformserviceinterface) and [`CheckoutAddressFormServiceInterface`](#checkoutaddressformserviceinterface)
 
-The service ID is `siso_checkout.checkout_form.invoice_address`.
+The service ID is `Ibexa\Commerce\Checkout\Service\InvoiceAddressCheckoutFormService`.
 
 ## ShippingPaymentCheckoutFormService
 
@@ -58,7 +58,7 @@ You assign this service to the `CheckoutShippingPayment` form in the [configurat
 
 This service implements [`CheckoutFormServiceInterface`](#checkoutformserviceinterface).
 
-The service ID is `siso_checkout.checkout_form.shipping_payment`.
+The service ID is `Ibexa\Commerce\Checkout\Service\ShippingPaymentCheckoutFormService`.
 
 ## SummaryCheckoutFormService
 
@@ -67,7 +67,7 @@ You assign this service to the `CheckoutSummary` form in the [configuration](con
 
 This service implements [`CheckoutFormServiceInterface`](#checkoutformserviceinterface) and  [`CheckoutSummaryFormServiceInterface`](#checkoutsummaryformserviceinterface).
 
-The service ID is `siso_checkout.checkout_form.summary`.
+The service ID is `Ibexa\Commerce\Checkout\Service\SummaryCheckoutFormService`.
 
 ### Comment limit
 

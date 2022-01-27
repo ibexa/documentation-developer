@@ -13,10 +13,10 @@ get:
             description: Temporary redirect to the main resource URL.
         200:
             body:
-                application/vnd.ez.api.LocationList+xml:
+                application/vnd.ibexa.api.LocationList+xml:
                     type: Location
                     example: !include examples/content/locations/GET/LocationList.xml.example
-                application/vnd.ez.api.LocationList+json:
+                application/vnd.ibexa.api.LocationList+json:
                     type: Location
                     example: !include examples/content/locations/GET/LocationList.json.example
         404:
@@ -29,17 +29,17 @@ get:
             Accept:
                 description: If set, the new Location is returned in XML or JSON format.
                 example:  |
-                    application/vnd.ez.api.Location+xml
-                    application/vnd.ez.api.Location+json
+                    application/vnd.ibexa.api.Location+xml
+                    application/vnd.ibexa.api.Location+json
             If-None-Match:
                 description: ETag
         responses:
             200:
                 body:
-                    application/vnd.ez.api.Location+xml:
+                    application/vnd.ibexa.api.Location+xml:
                         type: Location
                         example: !include examples/content/locations/path/GET/Location.xml.example
-                    application/vnd.ez.api.Location+json:
+                    application/vnd.ibexa.api.Location+json:
                         type: Location
                         example: !include examples/content/locations/path/GET/Location.json.example
             401:
@@ -99,12 +99,12 @@ get:
                     Accept:
                         description: If set, the new Location list is returned in XML or JSON format.
                         example:  |
-                            application/vnd.ez.api.LocationList+xml
-                            application/vnd.ez.api.LocationList+json
+                            application/vnd.ibexa.api.LocationList+xml
+                            application/vnd.ibexa.api.LocationList+json
                 responses:
                     200:
                         body:
-                            application/vnd.ez.api.LocationList+xml:
+                            application/vnd.ibexa.api.LocationList+xml:
                                 type: LocationList
                                 example: !include examples/content/locations/path/children/GET/LocationList.xml.example
                     401:
@@ -123,13 +123,13 @@ get:
                     Accept:
                         description: If set, the URL alias list contains only references and is returned in XML or JSON format.
                         example: |
-                            application/vnd.ez.api.UrlAliasRefList+xml
-                            application/vnd.ez.api.UrlAliasRefList+json
+                            application/vnd.ibexa.api.UrlAliasRefList+xml
+                            application/vnd.ibexa.api.UrlAliasRefList+json
                 responses:
                     200:
                         description: OK - returns the list of URL aliases.
                         body:
-                            application/vnd.ez.api.UrlAliasRefList+xml:
+                            application/vnd.ibexa.api.UrlAliasRefList+xml:
                                 type: UrlAliasRefList
                                 exammple: examples/content/locations/path/urlaliases/GET/UrlAliasRefList.xml.example
                     400:
@@ -144,29 +144,29 @@ get:
                 Accept:
                     description: If set, the Location is returned in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.Location+xml
-                        application/vnd.ez.api.Location+json
+                        application/vnd.ibexa.api.Location+xml
+                        application/vnd.ibexa.api.Location+json
                 Content-Type:
                     description: The LocationUpdate schema encoded in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.LocationUpdate+xml
-                        application/vnd.ez.api.LocationUpdate+json
+                        application/vnd.ibexa.api.LocationUpdate+xml
+                        application/vnd.ibexa.api.LocationUpdate+json
                 If-Match:
                     description: ETag
             body:
-                application/vnd.ez.api.LocationUpdate+xml:
+                application/vnd.ibexa.api.LocationUpdate+xml:
                     type: LocationUpdateStruct
                     example: !include examples/content/locations/location_id/PATCH/LocationUpdate.xml.example
-                application/vnd.ez.api.LocationUpdate+json:
+                application/vnd.ibexa.api.LocationUpdate+json:
                     type: LocationUpdateStruct
                     example: !include examples/content/locations/location_id/PATCH/LocationUpdate.json.example
             responses:
                 200:
                     body:
-                        application/vnd.ez.api.Location+xml:
+                        application/vnd.ibexa.api.Location+xml:
                             type: Location
                             example: !include examples/content/locations/location_id/PATCH/Location.xml.example
-                        application/vnd.ez.api.Location+json:
+                        application/vnd.ibexa.api.Location+json:
                             type: Location
                             example: !include examples/content/locations/location_id/PATCH/Location.json.example
                 401:

@@ -141,9 +141,6 @@ The more Role assignments and complex Policies you add for a given User, the mor
 |`siso_customercenter`</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|`approve`|approve baskets in the customer center|
 ||`buy`|buy as the customer center user|
 ||`view`|access the customer center user management|
-|`siso_control_center`</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|`manage_erp_log`|access to ERP logs|
-||`manage_emails`|access Control center email archive|
-||`manage_jobs:`|access Control center e-commerce jobs|
 
 ## Permissions for routes
 
@@ -153,7 +150,7 @@ You can limit access to specific routes per Policy:
 ibexa_commerce_quick_order:
     path: /quickorder
     defaults:
-        _controller: siso_quick_order.quick_order_controller:quickOrderAction
+        _controller: Ibexa\Bundle\Commerce\QuickOrder\Controller\QuickOrderController::quickOrderAction
         policy: siso_policy/quickorder
 ```
 

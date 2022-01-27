@@ -10,7 +10,7 @@ There are two ways to query for a Content item:
 
 To render the Siblings of a Content item (other content under the same parent Location), use the [Siblings Query type](../queries_and_controllers/built-in_query_types.md#siblings).
 
-To do it, use the built-in `ez_query` controller's `contentQueryAction`:
+To do it, use the built-in `ibexa_query` controller's `contentQueryAction`:
 
 ``` yaml
 [[= include_file('code_samples/front/embed_content/config/packages/views.yaml', 8, 23) =]]

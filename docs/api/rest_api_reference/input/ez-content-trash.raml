@@ -10,16 +10,16 @@ get:
         Accept:
             description: If set, the Trash item list is returned in XML or JSON format.
             example: |
-                application/vnd.ez.api.Trash+xml
-                application/vnd.ez.api.Trash+json
+                application/vnd.ibexa.api.Trash+xml
+                application/vnd.ibexa.api.Trash+json
     responses:
         200:
             description: OK - returns the list of items in the Trash.
             body:
-                application/vnd.ez.api.Trash+xml:
+                application/vnd.ibexa.api.Trash+xml:
                     type: Trash
                     example: !include examples/content/trash/GET/Trash.xml.example
-                application/vnd.ez.api.Trash+json:
+                application/vnd.ibexa.api.Trash+json:
                     type: Trash
                     example: !include examples/content/trash/GET/Trash.json.example
         401:
@@ -40,15 +40,15 @@ delete:
             Accept:
                 description: If set, the item in Trash is returned in XML or JSON format.
                 example: |
-                    application/vnd.ez.api.TrashItem+xml
-                    application/vnd.ez.api.TrashItem+json
+                    application/vnd.ibexa.api.TrashItem+xml
+                    application/vnd.ibexa.api.TrashItem+json
         responses:
             200:
                 body:
-                    application/vnd.ez.api.TrashItem+xml:
+                    application/vnd.ibexa.api.TrashItem+xml:
                         type: TrashItem
                         example: !include examples/content/trash/trash_itemid/GET/TrashItem.xml.example
-                    application/vnd.ez.api.TrashItem+json:
+                    application/vnd.ibexa.api.TrashItem+json:
                         type: TrashItem
                         example: !include examples/content/trash/trash_itemid/GET/TrashItem.json.example
             401:

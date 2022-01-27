@@ -124,13 +124,13 @@ After you have implemented your Criterion / Sort Clause and its handler, you wil
 
 Available tags for Criterion handlers in Legacy Storage Engine are:
 
-- `ezpublish.search.legacy.gateway.criterion_handler.content`
-- `ezpublish.search.legacy.gateway.criterion_handler.location`
+- `ibexa.search.legacy.gateway.criterion_handler.content`
+- `ibexa.search.legacy.gateway.criterion_handler.location`
 
 Available tags for Sort Clause handlers in Legacy Storage Engine are:
 
-- `ezpublish.search.legacy.gateway.sort_clause_handler.content`
-- `ezpublish.search.legacy.gateway.sort_clause_handler.location`
+- `ibexa.search.legacy.gateway.sort_clause_handler.content`
+- `ibexa.search.legacy.gateway.sort_clause_handler.location`
 
 !!! note
 
@@ -140,8 +140,8 @@ Available tags for Sort Clause handlers in Legacy Storage Engine are:
 
     When you search in trash, use the following service tags:
 
-    - for Criterion handlers: `ezplatform.trash.search.legacy.gateway.criterion_handler`
-    - for Sort Clause handlers: `ezplatform.trash.search.legacy.gateway.sort_clause_handler`
+    - for Criterion handlers: `ibexa.core.trash.search.legacy.gateway.criterion_handler`
+    - for Sort Clause handlers: `ibexa.core.trash.search.legacy.gateway.sort_clause_handler`
 
     For more information about searching for Content items in Trash, see [Searching in trash](../../api/public_php_api_search.md#searching-in-trash).
 
@@ -152,19 +152,19 @@ Available tags for Sort Clause handlers in Legacy Storage Engine are:
 ``` yaml
 services:
     Ibexa\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler\ContentId:
-        arguments: ['@ezpublish.api.storage_engine.legacy.dbhandler']
+        arguments: ['@ibexa.api.storage_engine.legacy.dbhandler']
         tags:
-          - {name: ezpublish.search.legacy.gateway.criterion_handler.content}
-          - {name: ezpublish.search.legacy.gateway.criterion_handler.location}
+          - {name: ibexa.search.legacy.gateway.criterion_handler.content}
+          - {name: ibexa.search.legacy.gateway.criterion_handler.location}
 ```
 
 ##### Example of registering a Depth Sort Clause handler for Location Search
 
 ``` yaml
 Ibexa\Core\Search\Legacy\Content\Location\Gateway\SortClauseHandler\Location\Depth:
-    arguments: ['@ezpublish.api.storage_engine.legacy.dbhandler']
+    arguments: ['@ibexa.api.storage_engine.legacy.dbhandler']
     tags:
-        - {name: ezpublish.search.legacy.gateway.sort_clause_handler.location}
+        - {name: ibexa.search.legacy.gateway.sort_clause_handler.location}
 ```
 
 !!! note "See also"

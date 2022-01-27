@@ -54,7 +54,7 @@ Filesystem adapters, for example, are **not** intended to be used over a shared 
 
 **Cache service**
 
-The underlying cache system is exposed as an `ezpublish.cache_pool` service, and can be reused by any other service as described in the [Using Cache service](#using-cache-service) section.
+The underlying cache system is exposed as an `ibexa.cache_pool` service, and can be reused by any other service as described in the [Using Cache service](#using-cache-service) section.
 
 ### Configuration
 
@@ -306,7 +306,7 @@ In your Symfony services configuration you can simply define that you require th
     myApp.myService:
         class: '%myApp.myService.class%'
         arguments:
-            - '@ezpublish.cache_pool'
+            - '@ibexa.cache_pool'
 ```
 
 This service is an instance of `Symfony\Component\Cache\Adapter\TagAwareAdapterInterface`, which extends the `Psr\Cache\CacheItemPoolInterface` interface with tagging functionality.
@@ -319,7 +319,7 @@ Like any other service, you can also get the cache service with the [service con
 // Getting the cache service in PHP
 
 /** @var \Symfony\Component\Cache\Adapter\TagAwareAdapterInterface */
-$pool = $container->get('ezpublish.cache_pool');
+$pool = $container->get('ibexa.cache_pool');
 ```
 
 ### Using the cache service

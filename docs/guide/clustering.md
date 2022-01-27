@@ -64,7 +64,7 @@ It will use a database to manipulate metadata, making up for the potential incon
 
 You need to configure both metadata and binarydata handlers.
 
-[[= product_name =]] ships with a custom local adapter (`ibexa.platform.io.nfs.adapter.site_access_aware`), 
+[[= product_name =]] ships with a custom local adapter (`ibexa.io.nfs.adapter.site_access_aware`), 
 which decorates the Flysystem local adapter to enable support for SiteAccess-aware settings.
 If an NFS path relies on SiteAccess-aware dynamic parameters, you must use the custom local adapter 
 instead of the Flysystem local adapter.
@@ -155,7 +155,7 @@ oneup_flysystem:
     adapters:
         nfs_adapter:
             custom:
-                service: ibexa.platform.io.nfs.adapter.site_access_aware
+                service:  ibexa.io.nfs.adapter.site_access_aware
 
 # define the Ibexa handlers
 ibexa_io:

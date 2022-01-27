@@ -1,6 +1,6 @@
 {
   "Basket": {
-    "_media-type": "application\/vnd.ez.api.Basket+json",
+    "_media-type": "application\/vnd.ibexa.api.Basket+json",
     "basketId": 1,
     "originId": null,
     "erpOrderId": null,
@@ -17,18 +17,18 @@
     "buyerParty": null,
     "remark": null,
     "dateCreated": {
-      "_media-type": "application\/vnd.ez.api.DateTime+json",
+      "_media-type": "application\/vnd.ibexa.api.DateTime+json",
       "string": "2021-03-12 10:33:26"
     },
     "dateLastModified": {
-      "_media-type": "application\/vnd.ez.api.DateTime+json",
+      "_media-type": "application\/vnd.ibexa.api.DateTime+json",
       "string": "2021-03-12 10:35:22"
     },
     "shop": "MAIN",
     "requirePriceUpdate": false,
     "totals": {
       "lines": {
-        "_media-type": "application\/vnd.ez.api.BasketTotals+json",
+        "_media-type": "application\/vnd.ibexa.api.BasketTotals+json",
         "name": "lines",
         "totalNet": 0,
         "totalGross": 0,
@@ -39,7 +39,7 @@
         "currency": "EUR"
       },
       "additionalLines": {
-        "_media-type": "application\/vnd.ez.api.BasketTotals+json",
+        "_media-type": "application\/vnd.ibexa.api.BasketTotals+json",
         "name": "additionalLines",
         "totalNet": 0,
         "totalGross": 0,
@@ -49,7 +49,7 @@
       }
     },
     "totalsSum": {
-      "_media-type": "application\/vnd.ez.api.BasketTotals+json",
+      "_media-type": "application\/vnd.ibexa.api.BasketTotals+json",
       "name": "",
       "totalNet": 0,
       "totalGross": 0,
@@ -65,7 +65,7 @@
     "additionalLines": {},
     "lines": [
       {
-        "_media-type": "application\/vnd.ez.api.BasketLine+json",
+        "_media-type": "application\/vnd.ibexa.api.BasketLine+json",
         "basketLineId": 2,
         "lineNumber": 1,
         "sku": "test",
@@ -82,12 +82,12 @@
         "isIncVat": true,
         "currency": "EUR",
         "catalogElement": {
-          "_media-type": "application\/vnd.ez.api.OrderableProductNode+json",
+          "_media-type": "application\/vnd.ibexa.api.OrderableProductNode+json",
           "seoUrl": "\/product-catalog\/test",
           "permanentUrl": "\/Products\/test",
           "dataMap": {
             "discontinued": {
-              "_media-type": "application\/vnd.ez.api.BoolField+json",
+              "_media-type": "application\/vnd.ibexa.api.BoolField+json",
               "_exception": {
                 "Name": "EzSystems\\EzPlatformRest\\Output\\Exceptions\\NoVisitorFoundException",
                 "Message": "No visitor found for Silversolutions\\Bundle\\EshopBundle\\Content\\Fields\\BoolField, Silversolutions\\Bundle\\EshopBundle\\Content\\AbstractField, Silversolutions\\Bundle\\EshopBundle\\Content\\ValueObject."
@@ -103,9 +103,9 @@
           "type": "",
           "isOrderable": null,
           "price": {
-            "_media-type": "application\/vnd.ez.api.PriceField+json",
+            "_media-type": "application\/vnd.ibexa.api.PriceField+json",
             "price": {
-              "_media-type": "application\/vnd.ez.api.Price+json",
+              "_media-type": "application\/vnd.ibexa.api.Price+json",
               "price": 0,
               "priceInclVat": 0,
               "priceExclVat": 0,
@@ -122,21 +122,21 @@
           "customerPrice": null,
           "scaledPrices": null,
           "stock": {
-            "_media-type": "application\/vnd.ez.api.StockField+json",
+            "_media-type": "application\/vnd.ibexa.api.StockField+json",
             "_exception": {
               "Name": "EzSystems\\EzPlatformRest\\Output\\Exceptions\\NoVisitorFoundException",
               "Message": "No visitor found for Silversolutions\\Bundle\\EshopBundle\\Content\\Fields\\StockField, Silversolutions\\Bundle\\EshopBundle\\Content\\AbstractField, Silversolutions\\Bundle\\EshopBundle\\Content\\ValueObject."
             }
           },
           "shortDescription": {
-            "_media-type": "application\/vnd.ez.api.TextBlockField+json",
+            "_media-type": "application\/vnd.ibexa.api.TextBlockField+json",
             "_exception": {
               "Name": "EzSystems\\EzPlatformRest\\Output\\Exceptions\\NoVisitorFoundException",
               "Message": "No visitor found for Silversolutions\\Bundle\\EshopBundle\\Content\\Fields\\TextBlockField, Silversolutions\\Bundle\\EshopBundle\\Content\\AbstractField, Silversolutions\\Bundle\\EshopBundle\\Content\\ValueObject."
             }
           },
           "longDescription": {
-            "_media-type": "application\/vnd.ez.api.TextBlockField+json",
+            "_media-type": "application\/vnd.ibexa.api.TextBlockField+json",
             "_exception": {
               "Name": "EzSystems\\EzPlatformRest\\Output\\Exceptions\\NoVisitorFoundException",
               "Message": "No visitor found for Silversolutions\\Bundle\\EshopBundle\\Content\\Fields\\TextBlockField, Silversolutions\\Bundle\\EshopBundle\\Content\\AbstractField, Silversolutions\\Bundle\\EshopBundle\\Content\\ValueObject."
@@ -154,7 +154,7 @@
           "section": null,
           "text": "test",
           "image": {
-            "_media-type": "application\/vnd.ez.api.ImageField+json",
+            "_media-type": "application\/vnd.ibexa.api.ImageField+json",
             "_exception": {
               "Name": "EzSystems\\EzPlatformRest\\Output\\Exceptions\\NoVisitorFoundException",
               "Message": "No visitor found for Silversolutions\\Bundle\\EshopBundle\\Content\\Fields\\ImageField, Silversolutions\\Bundle\\EshopBundle\\Content\\AbstractField, Silversolutions\\Bundle\\EshopBundle\\Content\\ValueObject."
@@ -178,7 +178,7 @@
           },
           "stockSign": "",
           "stock": {
-            "_media-type": "application\/vnd.ez.api.StockField+json",
+            "_media-type": "application\/vnd.ibexa.api.StockField+json",
             "_exception": {
               "Name": "EzSystems\\EzPlatformRest\\Output\\Exceptions\\NoVisitorFoundException",
               "Message": "No visitor found for Silversolutions\\Bundle\\EshopBundle\\Content\\Fields\\StockField, Silversolutions\\Bundle\\EshopBundle\\Content\\AbstractField, Silversolutions\\Bundle\\EshopBundle\\Content\\ValueObject."
@@ -191,7 +191,7 @@
       }
     ],
     "dateLastPriceCalculation": {
-      "_media-type": "application\/vnd.ez.api.DateTime+json",
+      "_media-type": "application\/vnd.ibexa.api.DateTime+json",
       "string": "2021-03-12 10:35:22"
     },
     "shippingMethod": null,
@@ -204,7 +204,7 @@
       "pricesValid": true,
       "priceResponseSourceType": "ShopMaster",
       "dateLastCatalogUpdate": {
-        "_media-type": "application\/vnd.ez.api.DateTime+json",
+        "_media-type": "application\/vnd.ibexa.api.DateTime+json",
         "string": "2021-03-12 10:35:22"
       }
     }

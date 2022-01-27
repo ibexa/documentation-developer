@@ -3,6 +3,6 @@ services:
     App\Controller\SvgController:
         public: true
         arguments:
-            - '@ezpublish.api.service.content'
-            - '@ezpublish.fieldType.ezbinaryfile.io_service'
-            - '@ezpublish.translation_helper'
+            - '@ibexa.api.service.content'
+            - '@ibexa.field_type.ezbinaryfile.io_service'
+            - '@Ibexa\Core\Helper\TranslationHelper'

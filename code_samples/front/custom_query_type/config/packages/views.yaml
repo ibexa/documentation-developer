@@ -9,7 +9,7 @@ ibexa:
             content_view:
                 full:
                     latest:
-                        controller: ez_query::locationQueryAction
+                        controller: ibexa_query::locationQueryAction
                         template: '@ibexadesign/full/latest.html.twig'
                         match:
                             Identifier\ContentType: "latest"

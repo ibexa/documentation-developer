@@ -12,17 +12,17 @@ get:
         Accept:
             description: UserGroupList - If set, the User Group List is returned in XML or JSON format. UserGroupRefList - If set, the link list of User Group is returned in XML or JSON format.
             example: |
-                application/vnd.ez.api.UserGroupList+xml
-                application/vnd.ez.api.UserGroupList+json
-                application/vnd.ez.api.UserGroupRefList+xml
-                application/vnd.ez.api.UserGroupRefList+json
+                application/vnd.ibexa.api.UserGroupList+xml
+                application/vnd.ibexa.api.UserGroupList+json
+                application/vnd.ibexa.api.UserGroupRefList+xml
+                application/vnd.ibexa.api.UserGroupRefList+json
     responses:
         200:
             body:
-                application/vnd.ez.api.UserGroupList+xml:
+                application/vnd.ibexa.api.UserGroupList+xml:
                     type: UserGroupList
                     example: !include examples/user/groups/GET/UserGroupList.xml.example
-                application/vnd.ez.api.UserGroupList+json:
+                application/vnd.ibexa.api.UserGroupList+json:
                     type: UserGroupList
                     example: !include examples/user/groups/GET/UserGroupList.json.example
         401:
@@ -43,18 +43,18 @@ get:
             Accept:
                 description: If set, the new User Group is returned in XML or JSON format.
                 example: |
-                    application/vnd.ez.api.UserGroup+xml
-                    application/vnd.ez.api.UserGroup+json
+                    application/vnd.ibexa.api.UserGroup+xml
+                    application/vnd.ibexa.api.UserGroup+json
             If-None-Match:
                 description: ETag
         responses:
             200:
                 description: OK - loads User Groups.
                 body:
-                    application/vnd.ez.api.UserGroup+xml:
+                    application/vnd.ibexa.api.UserGroup+xml:
                         type: UserGroup
                         example: !include examples/user/groups/path/GET/UserGroup.xml.example
-                    application/vnd.ez.api.UserGroup+json:
+                    application/vnd.ibexa.api.UserGroup+json:
                         type: UserGroup
                         example: !include examples/user/groups/path/GET/UserGroup.json.example
             401:
@@ -68,31 +68,31 @@ get:
             Accept:
                 description: If set, the new User Group is returned in XML or JSON format.
                 example:  |
-                    application/vnd.ez.api.UserGroup+xml
-                    application/vnd.ez.api.UserGroup+json
+                    application/vnd.ibexa.api.UserGroup+xml
+                    application/vnd.ibexa.api.UserGroup+json
             Content-Type:
                 description: The UserGroupUpdate schema encoded in XML or JSON format.
                 example:  |
-                    application/vnd.ez.api.UserGroupUpdate+json
-                    application/vnd.ez.api.UserGroupUpdate+xml
+                    application/vnd.ibexa.api.UserGroupUpdate+json
+                    application/vnd.ibexa.api.UserGroupUpdate+xml
             If-Match:
                 description: Performs the PATCH only if the specified ETag is the current one. Otherwise a 412 is returned.
                 example: ETag
         body:
-            application/vnd.ez.api.UserGroupUpdate+xml:
+            application/vnd.ibexa.api.UserGroupUpdate+xml:
                 type: UserGroupUpdate
                 example: !include examples/user/groups/path/PATCH/UserGroupUpdate.xml.example
-            application/vnd.ez.api.UserGroupUpdate+json:
+            application/vnd.ibexa.api.UserGroupUpdate+json:
                 type: UserGroupUpdate
                 example: !include examples/user/groups/path/PATCH/UserGroupUpdate.json.example
         responses:
             200:
                 description: OK - updated User Group.
                 body:
-                    application/vnd.ez.api.UserGroup+xml:
+                    application/vnd.ibexa.api.UserGroup+xml:
                         type: UserGroup
                         example: !include examples/user/groups/path/PATCH/UserGroup.xml.example
-                    application/vnd.ez.api.UserGroup+json:
+                    application/vnd.ibexa.api.UserGroup+json:
                         type: UserGroup
                         example: !include examples/user/groups/path/PATCH/UserGroup.json.example
             400:
@@ -134,27 +134,27 @@ get:
                 Accept:
                     description: If set, the new User is returned in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.User+xml
-                        application/vnd.ez.api.User+json
+                        application/vnd.ibexa.api.User+xml
+                        application/vnd.ibexa.api.User+json
                 Content-Type:
                     description: The UserCreate schema encoded in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.UserCreate+json
-                        application/vnd.ez.api.UserCreate+xml
+                        application/vnd.ibexa.api.UserCreate+json
+                        application/vnd.ibexa.api.UserCreate+xml
             body:
-                application/vnd.ez.api.UserCreate+xml:
+                application/vnd.ibexa.api.UserCreate+xml:
                     type: UserCreate
                     example: !include examples/user/groups/path/users/POST/UserCreate.xml.example
-                application/vnd.ez.api.UserCreate+json:
+                application/vnd.ibexa.api.UserCreate+json:
                     type: UserCreate
                     example: !include examples/user/groups/path/users/POST/UserCreate.json.example
             responses:
                 201:
                     body:
-                        application/vnd.ez.api.User+xml:
+                        application/vnd.ibexa.api.User+xml:
                             type: User
                             example: !include examples/user/groups/path/users/POST/User.xml.example
-                        application/vnd.ez.api.User+json:
+                        application/vnd.ibexa.api.User+json:
                             type: User
                             example: !include examples/user/groups/path/users/POST/User.json.example
                 400:
@@ -173,27 +173,27 @@ get:
                 Accept:
                     description: If set, the new User Group is returned in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.UserGroup+xml
-                        application/vnd.ez.api.UserGroup+json
+                        application/vnd.ibexa.api.UserGroup+xml
+                        application/vnd.ibexa.api.UserGroup+json
                 Content-Type:
                     description: The UserGroupCreate schema encoded in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.UserGroupCreate+json
-                        application/vnd.ez.api.UserGroupCreate+xml
+                        application/vnd.ibexa.api.UserGroupCreate+json
+                        application/vnd.ibexa.api.UserGroupCreate+xml
             body:
-                application/vnd.ez.api.UserGroupCreate+xml:
+                application/vnd.ibexa.api.UserGroupCreate+xml:
                     type: UserGroupCreate
                     example: !include examples/user/groups/path/subgroups/POST/UserGroupCreate.xml.example
-                application/vnd.ez.api.UserGroupCreate+json:
+                application/vnd.ibexa.api.UserGroupCreate+json:
                     type: UserGroupCreate
                     example: !include examples/user/groups/path/subgroups/POST/UserGroupCreate.json.example
             responses:
                 201:
                     body:
-                        application/vnd.ez.api.UserGroup+xml:
+                        application/vnd.ibexa.api.UserGroup+xml:
                             type: UserGroup
                             example: !include examples/user/groups/path/subgroups/POST/UserGroup.xml.example
-                        application/vnd.ez.api.UserGroup+json:
+                        application/vnd.ibexa.api.UserGroup+json:
                             type: UserGroup
                             example: !include examples/user/groups/path/subgroups/POST/UserGroup.json.example
                 400:
@@ -208,15 +208,15 @@ get:
                 Accept:
                     description: If set, the Role assignment list is returned in XML or JSON format.
                     example: |
-                        application/vnd.ez.api.RoleAssignmentList+xml
-                        application/vnd.ez.api.RoleAssignmentList+json
+                        application/vnd.ibexa.api.RoleAssignmentList+xml
+                        application/vnd.ibexa.api.RoleAssignmentList+json
             responses:
                 200:
                     body:
-                        application/vnd.ez.api.RoleAssignmentList+xml:
+                        application/vnd.ibexa.api.RoleAssignmentList+xml:
                             type: RoleAssignmentList
                             example: !include examples/user/groups/path/roles/GET/RoleAssignmentList.xml.example
-                        #application/vnd.ez.api.RoleAssignmentList+json:
+                        #application/vnd.ibexa.api.RoleAssignmentList+json:
                             #type: RoleAssignmentList
                             #example: !include examples/user/groups/path/roles/GET/RoleAssignmentList.json.example
                 400:
@@ -228,27 +228,27 @@ get:
                 Accept:
                     description: If set, the updated Role assignment list is returned in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.RoleAssignmentList+xml
-                        application/vnd.ez.api.RoleAssignmentList+json
+                        application/vnd.ibexa.api.RoleAssignmentList+xml
+                        application/vnd.ibexa.api.RoleAssignmentList+json
                 Content-Type:
                     description: The RoleAssignInput schema encoded in XML or JSON format.
                     example:  |
-                        application/vnd.ez.api.RoleAssignInput+json
-                        application/vnd.ez.api.RoleAssignInput+xml
+                        application/vnd.ibexa.api.RoleAssignInput+json
+                        application/vnd.ibexa.api.RoleAssignInput+xml
             body:
-                application/vnd.ez.api.RoleAssignInput+xml:
+                application/vnd.ibexa.api.RoleAssignInput+xml:
                     type: RoleAssignInput
                     example: !include examples/user/groups/path/roles/POST/RoleAssignInput.xml.example
-                application/vnd.ez.api.RoleAssignInput+json:
+                application/vnd.ibexa.api.RoleAssignInput+json:
                     type: RoleAssignInput
                     example: !include examples/user/groups/path/roles/POST/RoleAssignInput.json.example
             responses:
                 200:
                     body:
-                        application/vnd.ez.api.RoleAssignmentList+xml:
+                        application/vnd.ibexa.api.RoleAssignmentList+xml:
                             type: RoleAssignmentList
                             example: !include examples/user/groups/path/roles/POST/RoleAssignmentList.xml.example
-                        application/vnd.ez.api.RoleAssignmentList+json:
+                        application/vnd.ibexa.api.RoleAssignmentList+json:
                             type: RoleAssignmentList
                             example: !include examples/user/groups/path/roles/POST/RoleAssignmentList.json.example
                 400:
@@ -263,16 +263,16 @@ get:
                     Accept:
                         description: If set, the Role assignment list is returned in XML or JSON format.
                         example: |
-                            application/vnd.ez.api.RoleAssignment+xml
-                            application/vnd.ez.api.RoleAssignment+json
+                            application/vnd.ibexa.api.RoleAssignment+xml
+                            application/vnd.ibexa.api.RoleAssignment+json
                 responses:
                     200:
                         description: OK - returns a Role assignment of the given User Group.
                         body:
-                            application/vnd.ez.api.RoleAssignment+xml:
+                            application/vnd.ibexa.api.RoleAssignment+xml:
                                 type: RoleAssignment
                                 example: !include examples/user/groups/path/roles/role_id/GET/RoleAssignment.xml.example
-                            application/vnd.ez.api.RoleAssignment+json:
+                            application/vnd.ibexa.api.RoleAssignment+json:
                                 type: RoleAssignment
                                 example: !include examples/user/groups/path/roles/role_id/GET/RoleAssignment.json.example
                             
@@ -285,15 +285,15 @@ get:
                     Accept:
                         description: If set, the updated Role assignment list is returned in XML or JSON format.
                         example: |
-                            application/vnd.ez.api.RoleAssignmentList+xml
-                            application/vnd.ez.api.RoleAssignmentList+json
+                            application/vnd.ibexa.api.RoleAssignmentList+xml
+                            application/vnd.ibexa.api.RoleAssignmentList+json
                 responses:
                     200:
                         body:
-                            application/vnd.ez.api.RoleAssignmentList+xml:
+                            application/vnd.ibexa.api.RoleAssignmentList+xml:
                                 type: RoleAssignmentList
                                 example: !include examples/user/groups/path/roles/role_id/DELETE/RoleAssignmentList.xml.example
-                            application/vnd.ez.api.RoleAssignmentList+json:
+                            application/vnd.ibexa.api.RoleAssignmentList+json:
                                 type: RoleAssignmentList
                                 example: !include examples/user/groups/path/roles/role_id/DELETE/RoleAssignmentList.json.example
                     401:
@@ -311,18 +311,18 @@ get:
             Accept:
                 description: UserList - If set, the User list returned in XML or JSON format. UserRefList - If set, the link list of Users returned in XML or JSON format.
                 example: |
-                    application/vnd.ez.api.UserList+xml
-                    application/vnd.ez.api.UserList+json
-                    application/vnd.ez.api.UserRefList+xml
-                    application/vnd.ez.api.UserRefList+json
+                    application/vnd.ibexa.api.UserList+xml
+                    application/vnd.ibexa.api.UserList+json
+                    application/vnd.ibexa.api.UserRefList+xml
+                    application/vnd.ibexa.api.UserRefList+json
         responses:
             200:
                 description: OK - the Users of the Group with the given ID.
                 body:
-                    application/vnd.ez.api.UserRefList+xml:
+                    application/vnd.ibexa.api.UserRefList+xml:
                         type: UserRefList
                         example: !include examples/user/groups/id/users/GET/UserRefList.xml.example
-                    application/vnd.ez.api.UserRefList+json:
+                    application/vnd.ibexa.api.UserRefList+json:
                         type: UserRefList
                         example: !include examples/user/groups/id/users/GET/UserRefList.json.example
             401:
@@ -342,18 +342,18 @@ get:
             Accept:
                 description: UserGroupList - If set, the User Group list is returned in XML or JSON format. UserGroupRefList - If set, the link list of User Groups is returned in XML or JSON format.
                 example: |
-                    application/vnd.ez.api.UserGroupList+xml
-                    application/vnd.ez.api.UserGroupList+json
-                    application/vnd.ez.api.UserGroupRefList+xml
-                    application/vnd.ez.api.UserGroupRefList+json
+                    application/vnd.ibexa.api.UserGroupList+xml
+                    application/vnd.ibexa.api.UserGroupList+json
+                    application/vnd.ibexa.api.UserGroupRefList+xml
+                    application/vnd.ibexa.api.UserGroupRefList+json
         responses:
             200:
                 description: OK - list of the subgroups.
                 body:
-                    application/vnd.ez.api.UserGroupRefList+xml:
+                    application/vnd.ibexa.api.UserGroupRefList+xml:
                         type: UserGroupRefList
                         example: !include examples/user/groups/id/subgroups/GET/UserGroupRefList.xml.example
-                    application/vnd.ez.api.UserGroupRefList+json:
+                    application/vnd.ibexa.api.UserGroupRefList+json:
                         type: UserGroupRefList
                         example: !include examples/user/groups/id/subgroups/GET/UserGroupRefList.json.example
             401:

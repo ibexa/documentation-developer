@@ -5,41 +5,41 @@ post:
         Accept:
             description: If set, the session is returned in XML or JSON format.
             example:  |
-                application/vnd.ez.api.Session+xml
-                application/vnd.ez.api.Session+json
+                application/vnd.ibexa.api.Session+xml
+                application/vnd.ibexa.api.Session+json
         Content-Type:
             description: The SessionInput schema encoded in XML or JSON format.
             example:  |
-                application/vnd.ez.api.SessionInput+xml
-                application/vnd.ez.api.SessionInput+json
+                application/vnd.ibexa.api.SessionInput+xml
+                application/vnd.ibexa.api.SessionInput+json
         Cookie:
             description: Only needed for session's checking {sessionName}={sessionID}.
         X-CSRF-Token:
             description: Only needed for session's checking. The {csrfToken} needed on all unsafe http methods with session.
     body:
-        application/vnd.ez.api.SessionInput+xml:
+        application/vnd.ibexa.api.SessionInput+xml:
             type: SessionInput
             example: !include examples/user/sessions/POST/SessionInput.xml.example
-        application/vnd.ez.api.SessionInput+json:
+        application/vnd.ibexa.api.SessionInput+json:
             type: SessionInput
             example: !include examples/user/sessions/POST/SessionInput.json.example
     responses:
         200:
             description: Session already exists.
             body:
-                application/vnd.ez.api.Session+xml:
+                application/vnd.ibexa.api.Session+xml:
                     type: Session
                     example: !include examples/user/sessions/POST/Session.xml.example
-                application/vnd.ez.api.Session+json:
+                application/vnd.ibexa.api.Session+json:
                     type: Session
                     example: !include examples/user/sessions/POST/Session.json.example
         201:
             description: Session is created.
             body:
-                application/vnd.ez.api.Session+xml:
+                application/vnd.ibexa.api.Session+xml:
                     type: Session
                     example: !include examples/user/sessions/POST/Session.xml.example
-                application/vnd.ez.api.Session+json:
+                application/vnd.ibexa.api.Session+json:
                     type: Session
                     example: !include examples/user/sessions/POST/Session.json.example
         400:
@@ -74,10 +74,10 @@ post:
             responses:
                 200:
                     body:
-                        application/vnd.ez.api.Session+xml:
+                        application/vnd.ibexa.api.Session+xml:
                             type: Session
                             example: !include examples/user/sessions/session_id/refresh/POST/Session.xml.example
-                        application/vnd.ez.api.Session+json:
+                        application/vnd.ibexa.api.Session+json:
                             type: Session
                             example: !include examples/user/sessions/session_id/refresh/POST/Session.json.example
                 404:
