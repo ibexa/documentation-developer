@@ -87,19 +87,18 @@
         <div class="col-lg-8 mb-5 latest-release">
             <h5>
                 The latest release
-                <span class="pill">v3.3</span>
+                <span class="pill">v4.0</span>
             </h5>
             <div class="row mt-3">
-                <div class="col-lg-5">The <a href="releases/ibexa_dxp_v3.3/">latest version of Ibexa DXP is v3.3</a>. It is a Long Term Support release, and it was released on January 18, 2021.
+                <div class="col-lg-5">The <a href="releases/ibexa_dxp_v3.3/">latest version of Ibexa DXP is v4.0</a>. It is a Fast Track release, and it was released on January 31, 2022.
                 </div>
                 <div class="col-sm-7 features">
                     <ul>
-                        <li><a href="releases/ibexa_dxp_v3.3/#new-personalization-ui">New Personalization UI</a></li>
-                        <li><a href="releases/ibexa_dxp_v3.3/#symfony-flex">Symfony Flex</a></li>
-                        <li><a href="releases/ibexa_dxp_v3.3/#image-editor">Image Editor</a></li>
-                        <li><a href="releases/ibexa_dxp_v3.3/#migration-bundle">Migration bundle</a></li>
-                        <li><a href="releases/ibexa_dxp_v3.3/#extended-search-api-capabilities">Search API improvements</a></li>
-                        <li><a href="releases/ibexa_dxp_v3.3/#query-field-location-handling">Query Field Location handling</a></li>
+                        <li><a href="releases/ibexa_dxp_v3.3">New Back Office UI</a></li>
+                        <li><a href="releases/ibexa_dxp_v3.3/#ew-product-catalog">New product catalog</a></li>
+                        <li><a href="releases/ibexa_dxp_v3.3/#taxonomy">Taxonomy</a></li>
+                        <li><a href="releases/ibexa_dxp_v3.3/#migration-api">Data migration PHP API</a></li>
+                        <li><a href="releases/ibexa_dxp_v3.3/#separate-recommendations-for-different-websites">Multi-site recommendations</a></li>
                     </ul>
                 </div>
             </div>
