@@ -78,10 +78,10 @@
                 </svg>
             </h5>
                 <ul>
-                    <li><a href="guide/content_rendering/twig_function_reference/twig_functions_reference/">Twig functions</a></li>
-                    <li><a href="guide/http_cache/">HTTP cache</a></li>
-                    <li><a href="guide/search/solr/">Solr search engine</a></li>
                     <li><a href="guide/images/">Images</a></li>
+                    <li><a href="guide/content_rendering/twig_function_reference/twig_functions_reference/">Twig functions</a></li>
+                    <li><a href="guide/search/search_criteria_reference">Search criteria reference</a></li>
+                    <li><a href="guide/search/solr/">Solr search engine</a></li>
                 </ul>
         </div>
         <div class="col-lg-8 mb-5 latest-release">
@@ -90,15 +90,15 @@
                 <span class="pill">v4.0</span>
             </h5>
             <div class="row mt-3">
-                <div class="col-lg-5">The <a href="releases/ibexa_dxp_v3.3/">latest version of Ibexa DXP is v4.0</a>. It is a Fast Track release, and it was released on January 31, 2022.
+                <div class="col-lg-5">The <a href="releases/ibexa_dxp_v4.0/">latest version of Ibexa DXP is v4.0</a>. It is a Fast Track release, and it was released on January 31, 2022.
                 </div>
                 <div class="col-sm-7 features">
                     <ul>
-                        <li><a href="releases/ibexa_dxp_v3.3">New Back Office UI</a></li>
-                        <li><a href="releases/ibexa_dxp_v3.3/#ew-product-catalog">New product catalog</a></li>
-                        <li><a href="releases/ibexa_dxp_v3.3/#taxonomy">Taxonomy</a></li>
-                        <li><a href="releases/ibexa_dxp_v3.3/#migration-api">Data migration PHP API</a></li>
-                        <li><a href="releases/ibexa_dxp_v3.3/#separate-recommendations-for-different-websites">Multi-site recommendations</a></li>
+                        <li><a href="releases/ibexa_dxp_v4.0">New Back Office UI</a></li>
+                        <li><a href="releases/ibexa_dxp_v4.0/#new-product-catalog">New product catalog</a></li>
+                        <li><a href="releases/ibexa_dxp_v4.0/#taxonomy">Taxonomy</a></li>
+                        <li><a href="releases/ibexa_dxp_v4.0/#migration-api">Data migration PHP API</a></li>
+                        <li><a href="releases/ibexa_dxp_v4.0/#separate-recommendations-for-different-websites">Multi-site recommendations</a></li>
                     </ul>
                 </div>
             </div>
