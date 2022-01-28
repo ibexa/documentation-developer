@@ -12,10 +12,10 @@ You can also set different prices for specific products or product variants for 
 
 ## Currency
 
-[[= product_name =]] ships with a list of available currencies, you can also add custom currencies.
-To use them in your shop, you need to first enable them in the Back Office.
+[[= product_name =]] ships with a list of available currencies, and you can also add custom currencies.
+To use currencies in your shop, you need to first enable them in the Back Office.
 
 ## VAT
 
 You can [configure VAT rate globally](../catalog/catalog_configuration.md#vat-rates) (per SiteAccess),
-or set it individually for each product.
+or set it individually for each product type and product.

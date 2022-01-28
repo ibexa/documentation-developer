@@ -1,8 +1,7 @@
 # Customer groups
 
-You can assign users to different custom groups to enable custom pricing.
-This allows you to give specific prices or price discounts (global, per product or product variant)
-to specific groups of users.
+You can assign users to different custom groups to enable [custom pricing](../pricing/price_engine.md).
+This enables you to give specific prices or price discounts (global or per product) to specific groups of users.
 
 For example, you can offer a 10% discount for all products in the catalog to users who belong to the Resellers customer group.
 

@@ -69,12 +69,3 @@ or `SegmentationService::removeSegmentGroup()`, respectively:
 ``` php
 $this->segmentationService->removeSegmentGroup($group);
 ```
-
-
-
-
-CustomerGroupService::findCustomerGroups
-CustomerGroupService::findCustomerGroup
-
-CustomerGroupService::createCustomerGroup
-CustomerGroupService::updateCustomerGroup

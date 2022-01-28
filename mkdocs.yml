@@ -94,6 +94,7 @@ nav:
                - 'Checkbox Field Type': 'api/field_types_reference/checkboxfield.md'
                - 'Content query Field Type': 'api/field_types_reference/contentqueryfield.md'
                - 'Country Field Type': 'api/field_types_reference/countryfield.md'
+               - 'CustomerGroup Field Type': 'api/field_types_reference/customergroupfield.md'
                - 'DateAndTime Field Type': 'api/field_types_reference/dateandtimefield.md'
                - 'Date Field Type': 'api/field_types_reference/datefield.md'
                - 'EmailAddress Field Type': 'api/field_types_reference/emailaddressfield.md'
@@ -220,6 +221,7 @@ nav:
             - 'Custom Policies': 'guide/custom_policies.md'
         - User management:
             - 'User management': 'guide/user_management/user_management.md'
+            - 'Customer groups': 'guide/user_management/customer_groups.md'
             - 'Login and registration': 'guide/user_management/login_and_registration.md'
             - 'OAuth authentication': 'guide/user_management/oauth.md'
             - 'Adding login through external service': 'guide/user_management/login_via_external_service.md'
@@ -281,7 +283,8 @@ nav:
                 - 'Voucher templates': 'guide/vouchers/voucher_templates.md'
         - Shop elements:
             - Catalog:
-                - 'Catalog ': 'guide/catalog/catalog.md'
+                - 'Catalog': 'guide/catalog/catalog.md'
+                - 'Catalog configuration': 'guide/catalog/catalog_configuration.md'
             - Product comparison:
                 - 'Product comparison ': 'guide/product_comparison/product_comparison.md'
                 - 'Product comparison API': 'guide/product_comparison/product_comparison_api.md'
@@ -344,6 +347,7 @@ nav:
                 - 'Priority': 'guide/search/criteria_reference/priority_criterion.md'            
                 - 'ProductCode': 'guide/search/criteria_reference/productcode_criterion.md'
                 - 'ProductName': 'guide/search/criteria_reference/productname_criterion.md'
+                - 'ProductType': 'guide/search/criteria_reference/producttype_criterion.md'
                 - 'RemoteId': 'guide/search/criteria_reference/remoteid_criterion.md'
                 - 'SectionId': 'guide/search/criteria_reference/sectionid_criterion.md'
                 - 'SectionIdentifier': 'guide/search/criteria_reference/sectionidentifier_criterion.md'

@@ -9,7 +9,7 @@ or `LocalProductServiceInterface` to modify products.
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 62, 65) =]]
 ```
 
-You can find multiple products with `productService::findProducts()`
+You can find multiple products with `productService::findProducts()`.
 Provide the method with optional filter, query or Sort Clauses.
 
 ``` php
@@ -57,7 +57,7 @@ You can also get a list of product types with `ProductTypeServiceInterface::getP
 ## Product availability
 
 Product availability is an object which defines whether a product is available, and if so, in what stock.
-To manage it, use `ProductAvailabilityServiceInterface`
+To manage it, use `ProductAvailabilityServiceInterface`.
 
 To check whether a product is available (with or without stock defined), use `ProductAvailabilityServiceInterface::hasAvailability`.
 
