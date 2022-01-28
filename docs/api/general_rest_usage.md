@@ -159,7 +159,7 @@ Resources that accept a reference to another resource expect reference to be giv
 For example, the URI requesting a list of users assigned to the role with ID 1 is:
 
 ```
-GET /api/ezp/v2/user/users?roleId=/api/ezp/v2/user/roles/1
+GET /api/ibexa/v2/user/users?roleId=/api/ibexa/v2/user/roles/1
 ```
 
 ## Custom HTTP verbs
@@ -290,7 +290,7 @@ Session-based is the default authentication method as it is needed for UI.
     ``` yaml
     security:
         access_control:
-            - { path: '^/api/ezp/v2/content/types', roles: ROLE_USER }
+            - { path: '^/api/ibexa/v2/content/types', roles: ROLE_USER }
     ```
 
 ### Session-based authentication
@@ -388,7 +388,7 @@ To enable HTTP basic authentication, edit `config/packages/security.yaml`, and a
 
 ``` yaml
 ezpublish_rest:
-    pattern: ^/api/ezp/v2
+    pattern: ^/api/ibexa/v2
     stateless: true
     ezpublish_http_basic:
         realm: eZ Publish REST API
@@ -464,7 +464,7 @@ To send a GET request to the REST API countries list, provide the Content Type h
 **Countries list request**
 
 ```
-Resource: /api/ezp/v2/services/countries
+Resource: /api/ibexa/v2/services/countries
 Method: GET
 Content-Type: application/vnd.ibexa.api.CountriesList+xml
 ```
@@ -474,7 +474,7 @@ Content-Type: application/vnd.ibexa.api.CountriesList+xml
 **Countries list request**
 
 ```
-GET /api/ezp/v2/services/countries
+GET /api/ibexa/v2/services/countries
 Host: example.com
 Accept: application/vnd.ibexa.api.CountriesList+xml
 ```

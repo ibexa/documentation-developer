@@ -1,11 +1,11 @@
 {
     "UserGroupRefList": {
         "_media-type": "application/vnd.ibexa.api.UserGroupRefList+json",
-        "_href": "/api/ezp/v2/user/groups/13/subgroups",
+        "_href": "/api/ibexa/v2/user/groups/13/subgroups",
         "UserGroup": [
             {
                 "_media-type": "application/vnd.ibexa.api.UserGroup+json",
-                "_href": "/api/ezp/v2/user/groups/1/5/13/112"
+                "_href": "/api/ibexa/v2/user/groups/1/5/13/112"
             }
         ]
     }

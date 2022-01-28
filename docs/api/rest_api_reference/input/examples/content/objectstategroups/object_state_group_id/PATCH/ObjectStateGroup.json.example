@@ -1,14 +1,14 @@
 {
     "ObjectStateGroup": {
         "_media-type": "application/vnd.ibexa.api.ObjectStateGroup+json",
-        "_href": "/api/ezp/v2/content/objectstategroups/7",
+        "_href": "/api/ibexa/v2/content/objectstategroups/7",
         "id": 7,
         "identifier": "custom-states",
         "defaultLanguageCode": "eng-GB",
         "languageCodes": "eng-GB",
         "ObjectStates": {
             "_media-type": "application/vnd.ibexa.api.ObjectStateList+json",
-            "_href": "/api/ezp/v2/content/objectstategroups/7/objectstates"
+            "_href": "/api/ibexa/v2/content/objectstategroups/7/objectstates"
         },
         "names": {
             "value": [

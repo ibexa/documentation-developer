@@ -1,12 +1,12 @@
 {
     "VersionList": {
         "_media-type": "application/vnd.ibexa.api.VersionList+json",
-        "_href": "/api/ezp/v2/content/objects/61/versions",
+        "_href": "/api/ibexa/v2/content/objects/61/versions",
         "VersionItem": [
             {
                 "Version": {
                     "_media-type": "application/vnd.ibexa.api.Version+json",
-                    "_href": "/api/ezp/v2/content/objects/61/versions/1"
+                    "_href": "/api/ibexa/v2/content/objects/61/versions/1"
                 },
                 "VersionInfo": {
                     "id": 521,
@@ -15,7 +15,7 @@
                     "modificationDate": "2021-06-28T11:33:49+00:00",
                     "Creator": {
                         "_media-type": "application/vnd.ibexa.api.User+json",
-                        "_href": "/api/ezp/v2/user/users/14"
+                        "_href": "/api/ibexa/v2/user/users/14"
                     },
                     "creationDate": "2021-06-28T11:33:31+00:00",
                     "initialLanguageCode": "eng-GB",
@@ -38,14 +38,14 @@
                     },
                     "Content": {
                         "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
-                        "_href": "/api/ezp/v2/content/objects/61"
+                        "_href": "/api/ibexa/v2/content/objects/61"
                     }
                 }
             },
             {
                 "Version": {
                     "_media-type": "application/vnd.ibexa.api.Version+json",
-                    "_href": "/api/ezp/v2/content/objects/61/versions/2"
+                    "_href": "/api/ibexa/v2/content/objects/61/versions/2"
                 },
                 "VersionInfo": {
                     "id": 580,
@@ -54,7 +54,7 @@
                     "modificationDate": "2021-07-26T08:10:02+00:00",
                     "Creator": {
                         "_media-type": "application/vnd.ibexa.api.User+json",
-                        "_href": "/api/ezp/v2/user/users/14"
+                        "_href": "/api/ibexa/v2/user/users/14"
                     },
                     "creationDate": "2021-07-26T08:10:02+00:00",
                     "initialLanguageCode": "eng-GB",
@@ -77,14 +77,14 @@
                     },
                     "Content": {
                         "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
-                        "_href": "/api/ezp/v2/content/objects/61"
+                        "_href": "/api/ibexa/v2/content/objects/61"
                     }
                 }
             },
             {
                 "Version": {
                     "_media-type": "application/vnd.ibexa.api.Version+json",
-                    "_href": "/api/ezp/v2/content/objects/61/versions/3"
+                    "_href": "/api/ibexa/v2/content/objects/61/versions/3"
                 },
                 "VersionInfo": {
                     "id": 581,
@@ -93,7 +93,7 @@
                     "modificationDate": "2021-07-26T08:16:50+00:00",
                     "Creator": {
                         "_media-type": "application/vnd.ibexa.api.User+json",
-                        "_href": "/api/ezp/v2/user/users/14"
+                        "_href": "/api/ibexa/v2/user/users/14"
                     },
                     "creationDate": "2021-07-26T08:16:50+00:00",
                     "initialLanguageCode": "eng-GB",
@@ -116,7 +116,7 @@
                     },
                     "Content": {
                         "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
-                        "_href": "/api/ezp/v2/content/objects/61"
+                        "_href": "/api/ibexa/v2/content/objects/61"
                     }
                 }
             }

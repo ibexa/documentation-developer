@@ -130,10 +130,10 @@ Image Fields within REST are exposed by the `application/vnd.ibexa.api.Content`Â
         <value key="uri">/var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/kidding.png</value>
         <value key="variations">
             <value key="articleimage">
-                <value key="href">/api/ezp/v2/content/binary/images/240-1480/variations/articleimage</value>
+                <value key="href">/api/ibexa/v2/content/binary/images/240-1480/variations/articleimage</value>
             </value>
             <value key="articlethumbnail">
-                <value key="href">/api/ezp/v2/content/binary/images/240-1480/variations/articlethumbnail</value>
+                <value key="href">/api/ibexa/v2/content/binary/images/240-1480/variations/articlethumbnail</value>
             </value>
         </value>
     </fieldValue>
@@ -143,7 +143,7 @@ Image Fields within REST are exposed by the `application/vnd.ibexa.api.Content`Â
 Children of the `fieldValue` node will list the general properties of the Field's original image (`fileSize`, `fileName`, `inputUri`, etc.), as well as variations. For each variation, a URI is provided. Requested through REST, this resource will generate the variation if it doesn't exist yet, and list the variation details:
 
 ``` xml
-<ContentImageVariation media-type="application/vnd.ibexa.api.ContentImageVariation+xml" href="/api/ezp/v2/content/binary/images/240-1480/variations/tiny">
+<ContentImageVariation media-type="application/vnd.ibexa.api.ContentImageVariation+xml" href="/api/ibexa/v2/content/binary/images/240-1480/variations/tiny">
   <uri>/var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/kidding_tiny.png</uri>
   <contentType>image/png</contentType>
   <width>30</width>

@@ -1,7 +1,7 @@
 {
     "UserGroupUpdate":{
         "Section": {
-            "_href": "/api/ezp/v2/content/sections/2"
+            "_href": "/api/ibexa/v2/content/sections/2"
         }
     }
 }
