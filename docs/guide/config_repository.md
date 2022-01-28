@@ -9,7 +9,7 @@ You can define several Repositories within a single application. However, you ca
 To use the default Repository connection, you do not need to specify its details:
 
 ``` yaml
-ezplatform:
+ibexa:
     repositories:
         # Defining Repository with alias "main"
         # Default storage engine is used, with default connection
@@ -27,10 +27,10 @@ ezplatform:
     As such, you can refer to [DoctrineBundle's documentation](https://github.com/doctrine/DoctrineBundle/blob/master/Resources/doc/configuration.rst#doctrine-dbal-configuration).
 
 If no Repository is specified for a SiteAccess or SiteAccess group,
-the first Repository defined under `ezplatform.repositories` will be used:
+the first Repository defined under `ibexa.repositories` will be used:
 
 ``` yaml
-ezplatform:
+ibexa:
     repositories:
         main: ~
     system:
@@ -39,6 +39,53 @@ ezplatform:
         site_group:
             # ...
 ```
+
+#### Multisite URI matching with multi-Repository setup
+
+You can use only one Repository (database) per domain.
+This does not prohibit using [different Repositories](persistence_cache.md#multi-repository-setup) on different subdomains.
+However, when using URI matching for multisite setup, all SiteAccesses sharing domain also need to share Repository.
+For example:
+
+- `ibexa.co` domain can use `ibexa_repo`
+- `doc.ibexa.co` domain can use `doc_repo`
+
+But the following configuration would be invalid:
+
+- `ibexa.co` domain can use `ibexa_repo`
+- `ibexa.co/doc` **cannot** use `doc_repo`, as it is under the same domain.
+
+Invalid configuration causes problems for different parts of the system,
+for example back-end UI, REST interface and other non-SiteAccess-aware Symfony routes
+such as `/_fos_user_context_hash` used by [HTTP cache](cache/http_cache.md).
+
+### Entity manager
+
+If you use the [Doctrine entity manager](https://www.doctrine-project.org/projects/doctrine-orm/en/2.10/tutorials/getting-started.html#obtaining-the-entitymanager),
+you are unable to connect different SiteAccesses to different databases.
+
+To have this possibility, you need to use the SiteAccess-aware entity manager: `ibexa.doctrine.orm.entity_manager`.
+
+To inject your entities into the SiteAccess-aware entity manager, use the following configuration:
+
+``` yaml
+ibexa:
+    orm:
+        entity_mappings:
+            IbexaCoreBundle:
+                is_bundle: true
+                type: annotation
+                dir: Entity
+                prefix: Ibexa\Bundle\Core\Entity
+```
+
+Refer to [DoctrineBundle documentation](https://symfony.com/doc/3.4/reference/configuration/doctrine.html)
+for more information.
+
+!!! note
+
+    In contrast with DoctrineBundle, when using the SiteAccess-aware entity manager you need to explicitly set all options:
+    `dir` (it still accepts relative path in case of bundles), `prefix`, `type`, and `is_bundle`.
 
 ### Defining custom connection
 
@@ -66,7 +113,7 @@ doctrine:
             another_connection_name:
                 # ...
 
-ezplatform:
+ibexa:
     repositories:
         first_repository: 
             storage: 
@@ -133,10 +180,10 @@ user_data: User data
 ## Limit of archived Content item versions
 
 `default_version_archive_limit` controls the number of archived versions per Content item that are stored in the Repository.
-By default it is set to 5. This setting is configured in the following way (typically in `ezplatform.yaml`):
+By default it is set to 5. This setting is configured in the following way (typically in `ibexa.yaml`):
 
 ``` yaml
-ezplatform:
+ibexa:
     repositories:
         default:
             options:
@@ -151,6 +198,24 @@ This limit is enforced on publishing a new version and only covers archived vers
     In Legacy storage engine you will see performance degradation if you store too many versions.
     The default value of 5 is the recommended value, but the less content you have overall,
     the more you can increase this to, for instance, 25 or even 50.
+
+### Removing versions on publication
+
+With `remove_archived_versions_on_publish` setting, you can control whether versions that exceed the limit are deleted when you publish a new version.
+
+``` yaml
+ibexa:
+    repositories:
+        default:
+            options:
+                remove_archived_versions_on_publish: true
+```
+
+`remove_archived_versions_on_publish` is set to `true` by default.
+Set it to `false` if you have multiple older versions of content and need to avoid performance drops when publishing.
+
+When you set the value to `false`, run [`ibexa:content:cleanup-versions`](#removing-old-versions) periodically
+to make sure that Content item versions that exceed the limit are removed.
 
 ### Removing old versions
 
@@ -171,10 +236,10 @@ For example, the following command removes archived versions as user `admin`, bu
 
 ## User identifiers
 
-`ezplatform_default_settings.yaml` contains two settings that indicate which Content Types are treated like users and user groups:
+`ibexa_default_settings.yaml` contains two settings that indicate which Content Types are treated like users and user groups:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             user_content_type_identifier: [user]
@@ -189,7 +254,7 @@ When viewing such Content in the Back Office you will be able to see e.g. the as
 You can change the default path for top-level Locations such as Content or Media in the Back Office, e.g.:
 
 ```yaml
-ezplatform:
+ibexa:
     system:
         <siteaccess>:
             subtree_paths:
@@ -206,4 +271,60 @@ depending on the complexity of the Content Scheduler blocks:
 ``` yaml
 parameters:
     ezplatform.fieldtype.ezlandingpage.block.schedule.snapshots.amount: 10
+```
+
+## Repository-aware configuration
+
+In your custom development, you can create Repository-aware configuration settings.
+
+This enables you to use different settings for different Repositories.
+
+!!! tip "SiteAccess-aware configuration"
+
+    If you need to use different settings per SiteAccess, not per Repository,
+    see [SiteAccess-aware configuration](multisite/siteaccess_aware_configuration.md).
+
+To do this, create a parser that implements `Ibexa\Bundle\Core\DependencyInjection\Configuration\RepositoryConfigParserInterface`:
+
+``` php
+use Ibexa\Bundle\Core\DependencyInjection\Configuration\RepositoryConfigParserInterface;
+use Symfony\Component\Config\Definition\Builder\NodeBuilder;
+
+final class CustomRepositoryConfigParser implements RepositoryConfigParserInterface
+{
+    public function addSemanticConfig(NodeBuilder $nodeBuilder): void
+    {
+        $nodeBuilder
+            ->arrayNode('acme')
+                ->children()
+                    ->scalarNode('my_setting')
+                        ->isRequired()
+                        ->defaultValue(120)
+                    ->end()
+                ->end()
+            ->end();
+    }
+}
+```
+
+You need to register this configuration extension in the following way:
+
+``` php
+final class AcmeFeatureBundle extends Bundle
+{
+    public function build(ContainerBuilder $container): void
+    {
+        // ...
+
+        /** @var Ibexa\Bundle\Core\DependencyInjection\IbexaCoreExtension $kernel */
+        $kernel = $container->getExtension('ezpublish');
+        $kernel->addRepositoryConfigParser(new CustomRepositoryConfigParser());
+    }
+}
+```
+
+To access the configuration settings, use the `Ibexa\Bundle\Core\ApiLoader\RepositoryConfigurationProvider::getRepositoryConfig` method:
+
+``` php
+$acmeConfig = $repositoryConfigProvider->getRepositoryConfig()['acme'];
 ```

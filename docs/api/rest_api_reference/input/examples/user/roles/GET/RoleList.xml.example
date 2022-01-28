@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RoleList media-type="application/vnd.ibexa.api.RoleList+xml" href="/api/ibexa/v2/user/roles">
+    <Role media-type="application/vnd.ibexa.api.Role+xml" href="/api/ibexa/v2/user/roles/1">
+        <identifier>Anonymous</identifier>
+        <Policies media-type="application/vnd.ibexa.api.PolicyList+xml" href="/api/ibexa/v2/user/roles/1/policies"/>
+    </Role>
+    <Role media-type="application/vnd.ibexa.api.Role+xml" href="/api/ibexa/v2/user/roles/2">
+        <identifier>Administrator</identifier>
+        <Policies media-type="application/vnd.ibexa.api.PolicyList+xml" href="/api/ibexa/v2/user/roles/2/policies"/>
+    </Role>
+    <Role media-type="application/vnd.ibexa.api.Role+xml" href="/api/ibexa/v2/user/roles/3">
+        <identifier>Editor</identifier>
+        <Policies media-type="application/vnd.ibexa.api.PolicyList+xml" href="/api/ibexa/v2/user/roles/3/policies"/>
+    </Role>
+    <Role media-type="application/vnd.ibexa.api.Role+xml" href="/api/ibexa/v2/user/roles/4">
+        <identifier>Member</identifier>
+        <Policies media-type="application/vnd.ibexa.api.PolicyList+xml" href="/api/ibexa/v2/user/roles/4/policies"/>
+    </Role>
+    <Role media-type="application/vnd.ibexa.api.Role+xml" href="/api/ibexa/v2/user/roles/10">
+        <identifier>NewRole</identifier>
+        <Policies media-type="application/vnd.ibexa.api.PolicyList+xml" href="/api/ibexa/v2/user/roles/10/policies"/>
+    </Role>
+    <Role media-type="application/vnd.ibexa.api.Role+xml" href="/api/ibexa/v2/user/roles/14">
+        <identifier>NewRole5</identifier>
+        <Policies media-type="application/vnd.ibexa.api.PolicyList+xml" href="/api/ibexa/v2/user/roles/14/policies"/>
+    </Role>
+    <Role media-type="application/vnd.ibexa.api.Role+xml" href="/api/ibexa/v2/user/roles/15">
+        <identifier>NewRole7</identifier>
+        <Policies media-type="application/vnd.ibexa.api.PolicyList+xml" href="/api/ibexa/v2/user/roles/15/policies"/>
+    </Role>
+</RoleList>

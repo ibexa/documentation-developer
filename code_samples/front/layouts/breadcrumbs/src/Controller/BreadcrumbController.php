@@ -2,11 +2,11 @@
 
 namespace App\Controller;
 
-use eZ\Bundle\EzPublishCoreBundle\Controller;
-use eZ\Publish\API\Repository\LocationService;
-use eZ\Publish\API\Repository\SearchService;
-use eZ\Publish\API\Repository\Values\Content\LocationQuery;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
+use Ibexa\Bundle\Core\Controller;
+use Ibexa\Contracts\Core\Repository\LocationService;
+use Ibexa\Contracts\Core\Repository\SearchService;
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 
 class BreadcrumbController extends Controller
 {
@@ -31,7 +31,7 @@ class BreadcrumbController extends Controller
             $breadcrumbs[] = $searchHit;
         }
 
-        return $this->render('@ezdesign/parts/breadcrumbs.html.twig', [
+        return $this->render('@ibexadesign/parts/breadcrumbs.html.twig', [
                 'breadcrumbs' => $breadcrumbs,
             ]
         );

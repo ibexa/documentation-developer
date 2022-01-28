@@ -1,0 +1,48 @@
+{
+  "ContentCreate": {
+    "ContentType": {
+      "_href": "/api/ibexa/v2/content/types/2"
+      },
+    "mainLanguageCode": "eng-GB",
+    "LocationCreate": {
+      "ParentLocation": {
+        "_href": "/api/ibexa/v2/content/locations/1/2"
+       },
+      "priority": "0",
+      "hidden": "false",
+      "sortField": "PATH",
+      "sortOrder": "ASC"
+    },
+    "Section": {
+      "_href": "/api/ibexa/v2/content/sections/1"
+    },
+    "alwaysAvailable": "true",
+    "fields": {
+      "field": [
+        {
+          "fieldDefinitionIdentifier": "title",
+          "languageCode": "eng-GB",
+          "fieldTypeIdentifier": "ezstring",
+          "fieldValue": "draft article"
+        },
+        {
+          "fieldDefinitionIdentifier": "intro",
+          "languageCode": "eng-GB",
+          "fieldTypeIdentifier": "ezrichtext",
+          "fieldValue": 
+           {
+                "xml": "<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5/edit\"><p>draft draft</p></section>"
+            }
+        },
+        {
+          "fieldDefinitionIdentifier": "body",
+          "languageCode": "eng-GB",
+          "fieldTypeIdentifier": "ezrichtext",
+          "fieldValue": {
+                "xml": "<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5/edit\"><p>draft draft draft </p></section>"
+            }
+        }
+      ]
+    }
+  }
+}

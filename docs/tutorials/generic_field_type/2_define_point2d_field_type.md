@@ -17,7 +17,7 @@ Add a `getFieldTypeIdentifier()` method to it. The new method will return the st
 
 ## Add a new service definition
 
-Next, add the `ezplatform.field_type` tag to `config/services.yaml`:
+Next, add the `ibexa.field_type` tag to `config/services.yaml`:
 
 ```yaml
 services:

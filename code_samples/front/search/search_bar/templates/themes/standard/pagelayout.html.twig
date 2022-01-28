@@ -4,12 +4,12 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('bundles/ezplatformadminui/img/favicon.ico') }}" />
     <meta charset="utf-8">
     {% if content is defined and title is not defined %}
-        {% set title = ez_content_name( content ) %}
+        {% set title = ibexa_content_name( content ) %}
     {% endif %}
     <title>{{ title|default( 'Home' ) }}</title>
     <meta name="generator" content="Ibexa DXP"/>
     {% if content is defined and content.contentInfo.mainLocationId %}
-        <link rel="canonical" href="{{ ez_path(content) }}" />
+        <link rel="canonical" href="{{ ibexa_path(content) }}" />
     {% endif %}
 
     {% block stylesheets %}
@@ -17,7 +17,7 @@
     {% endblock %}
 </head>
 <body>
-{% include '@ezdesign/parts/search_bar.html.twig' %}
+{% include '@ibexadesign/parts/search_bar.html.twig' %}
 {% block content %}
 {% endblock %}
 

@@ -7,7 +7,7 @@ To customize the template for a product, first, you need to [override the existi
 ```
 
 The built-in templates that are responsible for rendering a product are stored in
-`vendor/ezsystems/ezcommerce-shop-ui/src/bundle/Resources/views/themes/standard/Catalog`.
+`vendor/ibexa/commerce-shop-ui/src/bundle/Resources/views/themes/standard/Catalog`.
 You can override any partial template in the folder.
 
 For example, to modify the general layout of the product page, create a 

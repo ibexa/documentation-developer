@@ -2,7 +2,7 @@
 
 ## API
 
-- [REST API](https://doc.ezplatform.com/rest-api-reference)
+- [REST API](api/rest_api_reference/rest_api_reference.html)
 - [Public PHP API](api/public_php_api.md)
 - [Field Types](api/field_type_reference.md)
 - [GraphQL](api/graphql_queries.md)
@@ -12,7 +12,7 @@
 - [Twig functions](guide/content_rendering/twig_function_reference/twig_functions_reference.md)
 - [Template variables](guide/content_rendering/templates/templates.md#template-variables)
 - [Image variation filters](guide/images.md#available-filters)
-- [SiteAccess matchers](guide/siteaccess_matching.md#available-matchers)
+- [SiteAccess matchers](guide/multisite/siteaccess_matching.md#available-matchers)
 - [View matcher reference](guide/content_rendering/templates/view_matcher_reference.md)
 
 ## Permissions

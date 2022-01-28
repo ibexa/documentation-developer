@@ -3,15 +3,15 @@
 Fields, or a custom Field Type, might contain or maintain data relevant for user searches.
 To make the search engine aware of the data in your Field Type you need to implement an additional interface and register the implementation.
 
-The `eZ\Publish\SPI\FieldType\Indexable` interface defines the methods below which are required if the Field Type provides data relevant to search engines.
+The `Ibexa\Contracts\Core\FieldType\Indexable` interface defines the methods below which are required if the Field Type provides data relevant to search engines.
 
 ### `getIndexData(Field $field, FieldDefinition $fieldDefinition)`
 
-This method returns the actual index data for the provided `eZ\Publish\SPI\Persistence\Content\Field`. The index data consists of an array of `eZ\Publish\SPI\Persistence\Content\Search\Field` instances. They are described below in further detail.
+This method returns the actual index data for the provided `Ibexa\Contracts\Core\Persistence\Content\Field`. The index data consists of an array of `Ibexa\Contracts\Core\Search\Field` instances. They are described below in further detail.
 
 ### `getIndexDefinition()`
 
-To be able to query data properly an indexable Field Type also is required to return search specification. You must return an associative array of `eZ\Publish\SPI\Search\FieldType` instances from this method, which could look like:
+To be able to query data properly an indexable Field Type also is required to return search specification. You must return an associative array of `Ibexa\Contracts\Core\Search\FieldType` instances from this method, which could look like:
 
 ```
 [
@@ -32,13 +32,13 @@ This method gets name of the default Field to be used for sorting. As Field Type
 
 ## Register Indexable Implementations
 
-Implement `eZ\Publish\SPI\FieldType\Indexable` as an extra service and register this Service using the `ezplatform.field_type.indexable` tag. Example from [`indexable_fieldtypes.yaml`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/settings/indexable_fieldtypes.yml):
+Implement `Ibexa\Contracts\Core\FieldType\Indexable` as an extra service and register this Service using the `ibexa.field_type.indexable` tag. Example from [`indexable_fieldtypes.yaml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/indexable_fieldtypes.yml):
 
 ``` yaml
-ezpublish.fieldType.indexable.ezkeyword:
-    class: eZ\Publish\Core\FieldType\Keyword\SearchField
+Ibexa\Core\FieldType\Keyword\SearchField:
+    class: Ibexa\Core\FieldType\Keyword\SearchField
     tags:
-        - {name: ezplatform.field_type.indexable, alias: ezkeyword}
+        - {name: ibexa.field_type.indexable, alias: ezkeyword}
 ```
 
 Note that `alias` should be the same as Field Type ID.
@@ -51,13 +51,13 @@ The search Field values returned by the `getIndexData` method are simple value o
 |--------|-----------|
 |`$name`|The name of the field|
 |`$value`|The value of the field|
-|`$type`|An `eZ\Publish\SPI\Persistence\Content\Search\FieldType` instance, describing the type information of the Field.|
+|`$type`|An `Ibexa\Contracts\Core\Search\FieldType` instance, describing the type information of the Field.|
 
 ## Search Field Types
 
 There are many available search Field Types which are handled by search backend configuration. When using them, there is no need to adapt, for example, the Solr configuration in any way. You can always use custom Field Types, but these might require re-configuration of the search backend. For Solr this would mean adapting the `schema.xml` file.
 
-The default available search Field Types that can be found in the `eZ\Publish\SPI\Search\FieldType` namespace are:
+The default available search Field Types that can be found in the `Ibexa\Contracts\Core\Search\FieldType` namespace are:
 
 |Field Type|Description|
 |--------|-----------|

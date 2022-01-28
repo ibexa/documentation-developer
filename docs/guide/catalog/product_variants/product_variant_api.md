@@ -52,6 +52,6 @@ Each possible characteristic value also has a code and a label, for example `grn
 
 |Method|Usage|Parameters|Return|Twig method|
 |--- |--- |--- |--- |--- |
-|`sortCharacteristicCodes`|Sorts the characteristic codes|`array $characteristicCodes`</br>``$characteristicIndex`|`array()`|`sort_characteristic_codes()`|
-|`sortCharacteristics`|Sorts characteristics|`array $characteristics`</br>`$type`</br>`$order`|`array()`|`sort_characteristics()`|
+|`sortCharacteristicCodes`|Sorts the characteristic codes|`array $characteristicCodes`</br>``$characteristicIndex`|`array()`|`ibexa_commerce_sort_characteristic_codes()`|
+|`sortCharacteristics`|Sorts characteristics|`array $characteristics`</br>`$type`</br>`$order`|`array()`|`ibexa_commerce_sort_characteristics()`|
 |`getCharacteristicsForB2B`|Gets information for B2B variant table|`VariantProductNode $catalogElement`</br>`array $order`|`array()`||

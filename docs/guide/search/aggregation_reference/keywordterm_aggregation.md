@@ -1,6 +1,6 @@
 # KeywordTermAggregation
 
-The Field-based [KeywordTermAggregation](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Query/Aggregation/Field/KeywordTermAggregation.php) aggregates search results by the value of the Keyword Field.
+The Field-based [KeywordTermAggregation](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Aggregation/Field/KeywordTermAggregation.php) aggregates search results by the value of the Keyword Field.
 
 ## Arguments
 

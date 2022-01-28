@@ -1,0 +1,71 @@
+{
+    "RoleList": {
+        "_media-type": "application/vnd.ibexa.api.RoleList+json",
+        "_href": "/api/ibexa/v2/user/roles",
+        "Role": [
+            {
+                "_media-type": "application/vnd.ibexa.api.Role+json",
+                "_href": "/api/ibexa/v2/user/roles/1",
+                "identifier": "Anonymous",
+                "Policies": {
+                    "_media-type": "application/vnd.ibexa.api.PolicyList+json",
+                    "_href": "/api/ibexa/v2/user/roles/1/policies"
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Role+json",
+                "_href": "/api/ibexa/v2/user/roles/2",
+                "identifier": "Administrator",
+                "Policies": {
+                    "_media-type": "application/vnd.ibexa.api.PolicyList+json",
+                    "_href": "/api/ibexa/v2/user/roles/2/policies"
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Role+json",
+                "_href": "/api/ibexa/v2/user/roles/3",
+                "identifier": "Editor",
+                "Policies": {
+                    "_media-type": "application/vnd.ibexa.api.PolicyList+json",
+                    "_href": "/api/ibexa/v2/user/roles/3/policies"
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Role+json",
+                "_href": "/api/ibexa/v2/user/roles/4",
+                "identifier": "Member",
+                "Policies": {
+                    "_media-type": "application/vnd.ibexa.api.PolicyList+json",
+                    "_href": "/api/ibexa/v2/user/roles/4/policies"
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Role+json",
+                "_href": "/api/ibexa/v2/user/roles/10",
+                "identifier": "NewRole",
+                "Policies": {
+                    "_media-type": "application/vnd.ibexa.api.PolicyList+json",
+                    "_href": "/api/ibexa/v2/user/roles/10/policies"
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Role+json",
+                "_href": "/api/ibexa/v2/user/roles/14",
+                "identifier": "NewRole5",
+                "Policies": {
+                    "_media-type": "application/vnd.ibexa.api.PolicyList+json",
+                    "_href": "/api/ibexa/v2/user/roles/14/policies"
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Role+json",
+                "_href": "/api/ibexa/v2/user/roles/15",
+                "identifier": "NewRole7",
+                "Policies": {
+                    "_media-type": "application/vnd.ibexa.api.PolicyList+json",
+                    "_href": "/api/ibexa/v2/user/roles/15/policies"
+                }
+            }
+        ]
+    }
+}

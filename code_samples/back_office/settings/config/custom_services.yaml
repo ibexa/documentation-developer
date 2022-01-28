@@ -1,0 +1,9 @@
+services:
+    App\Setting\Unit:
+        tags:
+            - { name: ibexa.user.setting.value, identifier: unit, group: my_group, priority: 50 }
+            - { name: ibexa.user.setting.mapper.form, identifier: unit }
+
+    App\Setting\Group\MyGroup:
+        tags:
+            - { name: ibexa.user.setting.group, identifier: my_group, priority: 30 }

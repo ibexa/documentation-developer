@@ -16,7 +16,7 @@ The ERP system can set two attributes:
 - `SesExtension->HasToPayVat` 
 - `SesExtension->DisplayPriceInclVat`
 
-The default mapping is defined in `Silversolutions/Bundle/EshopBundle/Resources/mapping/wc3-nav/xsl/response.select_customer.xsl`.
+The default mapping is defined in `Eshop/Resources/mapping/wc3-nav/xsl/response.select_customer.xsl`.
 
 ## VAT settings from the User Content item
 

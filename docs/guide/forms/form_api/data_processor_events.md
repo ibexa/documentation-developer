@@ -18,7 +18,7 @@ The suffix is the ID of the `DataProcessor` service. An example for the service 
 To listen to one of these events, define a service and tag it in configuration:
 
 ``` xml
-<service id="ses_data_processor.pre_execute.create_ez_user_handler" class="%ses_data_processor.pre_execute.create_ez_user_handler.class%">
+<service id="Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\Events\EzCreateUserEventHandler" class="%Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\Events\EzCreateUserEventHandler.class%">
       <tag name="kernel.event_listener" event="ses_pre_execute_ses_forms.create_ez_user" method="preExecute" />
       <tag name="kernel.event_listener" event="ses_post_execute_ses_forms.create_ez_user" method="postExecute" />
 </service>
@@ -27,9 +27,9 @@ To listen to one of these events, define a service and tag it in configuration:
 In the implemented class you can access and manipulate the normalized `FormEntity`:
 
 ``` php
-use Silversolutions\Bundle\EshopBundle\Entities\Forms\Normalize\Entity;
-use Silversolutions\Bundle\EshopBundle\Event\DataProcessor\PreDataProcessorExecuteEvent;
-use Silversolutions\Bundle\EshopBundle\Event\DataProcessor\PostDataProcessorExecuteEvent;
+use Ibexa\Bundle\Commerce\Eshop\Entities\Forms\Normalize\Entity;
+use Ibexa\Bundle\Commerce\Eshop\Event\DataProcessor\PreDataProcessorExecuteEvent;
+use Ibexa\Bundle\Commerce\Eshop\Event\DataProcessor\PostDataProcessorExecuteEvent;
 
 class EzCreateUserEventHandler
 {

@@ -2,7 +2,7 @@
 
 The content Repository uses [Roles and Policies](permissions.md) to give Users access to different functions of the system.
 
-Any bundle can expose available Policies via a `PolicyProvider` which can be added to EzPublishCoreBundle's [service container](service_container.md) extension.
+Any bundle can expose available Policies via a `PolicyProvider` which can be added to IbexaCoreBundle's [service container](../api/service_container.md) extension.
 
 ## PolicyProvider
 
@@ -29,7 +29,7 @@ If no Limitation is provided, value can be `null` or an empty array.
 ]
 ```
 
-Limitations need to be implemented as *Limitation types* and declared as services identified with `ezpublish.limitationType` tag.
+Limitations need to be implemented as *Limitation types* and declared as services identified with `ibexa.permissions.limitation_type` tag.
 Name provided in the hash for each Limitation is the same value set in the `alias` attribute in the service tag.
 
 For example:
@@ -37,8 +37,8 @@ For example:
 ``` php
 namespace App\Security;
 
-use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\ConfigBuilderInterface;
-use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Security\PolicyProvider\PolicyProviderInterface;
+use Ibexa\Bundle\Core\DependencyInjection\Configuration\ConfigBuilderInterface;
+use Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\PolicyProviderInterface;
 
 class MyPolicyProvider implements PolicyProviderInterface
 {
@@ -56,7 +56,7 @@ class MyPolicyProvider implements PolicyProviderInterface
 
 ## YamlPolicyProvider
 
-An abstract class based on YAML is provided: `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider`.
+An abstract class based on YAML is provided: `Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider`.
 It defines an abstract `getFiles()` method.
 
 Extend `YamlPolicyProvider` and implement `getFiles()` to return absolute paths to your YAML files.
@@ -64,7 +64,7 @@ Extend `YamlPolicyProvider` and implement `getFiles()` to return absolute paths 
 ``` php
 namespace App\Security;
 
-use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider;
+use Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider;
 
 class MyPolicyProvider extends YamlPolicyProvider
 {
@@ -92,7 +92,7 @@ A `PolicyProvider` may provide new functions to a module, and additional Limitat
 
 It is not possible to remove an existing module, function or limitation from a Policy.
 
-## Integrating the `PolicyProvider` into EzPublishCoreBundle
+## Integrating the `PolicyProvider` into IbexaCoreBundle
 
 For a `PolicyProvider` to be active, you have to register it in the class `src/Kernel.php`:
 
@@ -121,28 +121,28 @@ class Kernel extends BaseKernel
 
 ## Integrating custom Limitation types with the UI
 
-To provide support for editing custom policies in the Back Office, you need to implement [`EzSystems\EzPlatformAdminUi\Limitation\LimitationFormMapperInterface`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Limitation/LimitationFormMapperInterface.php).
+To provide support for editing custom policies in the Back Office, you need to implement [`Ibexa\AdminUi\Limitation\LimitationFormMapperInterface`](https://github.com/ibexa/admin-ui/blob/main/src/lib/Limitation/LimitationFormMapperInterface.php).
 
-Next, register the service with the `ez.limitation.formMapper` tag and set the `limitationType` attribute to the Limitation type's identifier:
+Next, register the service with the `ibexa.admin_ui.limitation.mapper.form` tag and set the `limitationType` attribute to the Limitation type's identifier:
 
 ```yaml
 App\Security\Limitation\Mapper\CustomLimitationFormMapper:
     arguments:
         # ...
     tags:
-        - { name: 'ez.limitation.formMapper', limitationType: 'Custom' }
+        - { name: 'ibexa.admin_ui.limitation.mapper.form', limitationType: 'Custom' }
 ```
 
-If you want to provide human-readable names of the custom Limitation values, you need to implement [`EzSystems\EzPlatformAdminUi\Limitation\LimitationValueMapperInterface`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Limitation/LimitationValueMapperInterface.php).
+If you want to provide human-readable names of the custom Limitation values, you need to implement [`Ibexa\AdminUi\Limitation\LimitationValueMapperInterface`](https://github.com/ibexa/admin-ui/blob/main/src/lib/Limitation/LimitationValueMapperInterface.php).
 
-Then register the service with the `ez.limitation.valueMapper` tag and set the `limitationType` attribute to Limitation type's identifier:
+Then register the service with the `ibexa.admin_ui.limitation.mapper.form` tag and set the `limitationType` attribute to Limitation type's identifier:
 
 ```yaml
 App\Security\Limitation\Mapper\CustomLimitationValueMapper:
     arguments:
         # ...
     tags:
-        - { name: 'ez.limitation.valueMapper', limitationType: 'Custom' }
+        - { name: 'ibexa.admin_ui.limitation.mapper.form', limitationType: 'Custom' }
 ```
 
 If you want to completely override the way of rendering custom Limitation values in the role view,
@@ -156,10 +156,10 @@ create a Twig template containing block definition which follows the naming conv
 {% endblock %}
 ```
 
-Add it to the configuration under `ezplatform.system.<SCOPE>.limitation_value_templates`:
+Add it to the configuration under `ibexa.system.<SCOPE>.limitation_value_templates`:
 
 ```yaml
-ezplatform:
+ibexa:
     system:
         default:
             limitation_value_templates:
@@ -169,7 +169,7 @@ ezplatform:
 
 !!! note
 
-    If you skip this part, Limitation values will be rendered using an [`ez_limitation_value_fallback`](https://github.com/ezsystems/repository-forms/blob/master/bundle/Resources/views/limitation_values.html.twig#L1-L6) block as comma-separated list.
+    If you skip this part, Limitation values will be rendered using an [`ez_limitation_value_fallback`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig#L1-L6) block as comma-separated list.
 
 You can also provide translation of the Limitation type identifier by adding an entry to the translation file under the `ezrepoforms_policies` domain.
 The key must follow the naming convention: `policy.limitation.identifier.<LIMITATION TYPE>`.

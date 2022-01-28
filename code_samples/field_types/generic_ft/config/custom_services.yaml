@@ -1,0 +1,14 @@
+services:
+    App\FieldType\HelloWorld\Type:
+        public: true
+        tags:
+            - { name: ibexa.field_type, alias: hello_world }
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: hello_world }
+
+    App\FieldType\HelloWorld\Comparison\Comparable:
+        tags:
+            - { name: ibexa.field_type.comparable, alias: hello_world }
+
+    App\FieldType\HelloWorld\Comparison\HelloWorldComparisonEngine:
+        tags:
+            - { name: ibexa.field_type.comparable.engine, supported_type: App\FieldType\HelloWorld\Comparison\Value }

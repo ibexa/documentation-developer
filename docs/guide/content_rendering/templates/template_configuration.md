@@ -12,8 +12,8 @@ The following example configuration defines template usage for several cases:
 
 The content view configuration must be placed under `ezplatform.system.<scope>`.
 
-Scope defines the [SiteAccesses](../../siteaccess.md) for which the configuration is valid.
-It may be a SiteAccess, a SiteAccess group, or one of the [generic configuration scopes](../../siteaccess.md#scope).
+Scope defines the [SiteAccesses](../../multisite/multisite.md) for which the configuration is valid.
+It may be a SiteAccess, a SiteAccess group, or one of the [generic configuration scopes](../../multisite/multisite_configuration.md#scope).
 
 ## Page layout
 
@@ -45,11 +45,21 @@ The default, built-in views are:
 The built-in views have built-in default templates.
 You can define any other custom views. For each custom view, you must define a custom template.
 
+!!! tip "Direct path to previewing view types"
+
+    You can preview content in a specific view type by using a direct path to the built-in view controller:
+
+    `<yourdomain>/view/content/<contentId>/<viewType>/true/<locationId>`
+
+    For example:
+
+    `<yourdomain>/view/content/55/embed/true/57`
+
 ## View rules and matching
 
 Each rule must have a name unique per view type.
 For each rule you must define the matching conditions.
-The `match` key can contain one or more [view matchers](view_matcher_reference.md).
+The `match` key can contain one or more [view matchers](view_matcher_reference.md), including [custom ones](custom_view_matcher.md).
 
 ``` yaml
 [[= include_file('code_samples/front/render_content/config/packages/views.yaml', 15, 20) =]]

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Query\SortClause;
 
-use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
-use EzSystems\EzPlatformSolrSearchEngine\Query\SortClauseVisitor;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+use Ibexa\Contracts\Solr\Query\SortClauseVisitor;
 
-class Score extends SortClauseVisitor
+class ScoreVisitor extends SortClauseVisitor
 {
     public function canVisit(SortClause $sortClause): bool
     {

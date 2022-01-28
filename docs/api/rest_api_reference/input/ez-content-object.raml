@@ -1,0 +1,594 @@
+post:
+    displayName: Create Content item
+    description: Creates a draft assigned to the authenticated user. If a different user ID is given in the input, the draft is assigned to the given user but this action requires special permissions for the authenticated user (this is useful for content staging where the transfer process does not have to authenticate with the user who created the Content item in the source server). The user needs to publish the Content item if it should be visible.
+    headers:
+        Accept:
+            description: Content - If set, all information for the Content item including the embedded current version is returned in XML or JSON format. ContentInfo - If set, all information for the Content item (excluding the current version) is returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.Content+xml
+                application/vnd.ibexa.api.Content+json
+                application/vnd.ibexa.api.ContentInfo+xml
+                application/vnd.ibexa.api.ContentInfo+json
+        Content-Type:
+            description: The ContentCreate schema encoded in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.ContentCreate+xml
+                application/vnd.ibexa.api.ContentCreate+json
+    body:
+        application/vnd.ibexa.api.ContentCreate+xml:
+            type: ContentCreate
+            example: !include examples/content/objects/POST/ContentCreate.xml.example
+        application/vnd.ibexa.api.ContentCreate+json:
+            type: ContentCreate
+            example: !include examples/content/objects/POST/ContentCreate.json.example
+    responses:
+        201:
+            body:
+                application/vnd.ibexa.api.Content+xml:
+                    type: Content
+                    example: !include examples/content/objects/POST/Content.xml.example
+                application/vnd.ibexa.api.Content+json:
+                    type: Content
+                    example: !include examples/content/objects/POST/Content.json.example
+                application/vnd.ibexa.api.ContentInfo+xml:
+                    type: ContentInfo
+                    example: !include examples/content/objects/POST/ContentInfo.xml.example
+        400:
+            description: Error - the input does not match the input schema definition or the validation on a field fails.
+        401:
+            description: Error - the user is not authorized to create this Object in this Location.
+        404:
+            description: Error - the parent Location specified in the request body does not exist.
+get:
+    displayName: Load content by remote ID
+    description: Loads Content item for a given remote ID.
+    queryParameters:
+        remoteId:
+            description: The remote ID of the Content item. If present, the Content item with the given remote ID is returned.
+    responses:
+        307:
+            description: Temporary redirect.
+        404:
+            description: Error - the content with the given remote ID does not exist.
+/{contentId}:
+    get:
+        displayName: Load content
+        description: Loads the Content item for the given ID. Depending on the Accept header the current version is embedded (i.e. the current published version or if it does not exist, the draft of the authenticated user).
+        queryParameters:
+             languages:
+                description: Restricts the output of translatable fields to the given languages. Comma separated list.
+                type: string
+        headers:
+            Accept:
+                description: Content -	If set, all information for the Content item including the embedded current version is returned in XML or JSON format. ContentInfo - If set, all information for the Content item (excluding the current version) is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.Content+xml
+                    application/vnd.ibexa.api.Content+json
+                    application/vnd.ibexa.api.ContentInfo+xml
+                    application/vnd.ibexa.api.ContentInfo+json
+            If-None-Match:
+                description: If the provided ETag matches the current ETag then a "304 Not Modified" is returned. The ETag changes if the meta data has changed, this happens also if there is a new published version.
+                example: ETag
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.Content+xml:
+                        type: Content
+                        example: !include examples/content/objects/content_id/GET/Content.xml.example
+                    application/vnd.ibexa.api.Content+json:
+                        type: Content
+                        example: !include examples/content/objects/content_id/GET/Content.json.example
+
+                    application/vnd.ibexa.api.ContentInfo+xml:
+                        type: ContentInfo
+                        example: !include examples/content/objects/content_id/GET/ContentInfo.xml.example
+            401:
+                description: Error - the user is not authorized to read this object. This could also happen if there is no published version yet and another user owns a draft of this Content item.
+            404:
+                description: Error - the ID is not found.
+    patch:
+        displayName: Update content
+        description: This method updates the content metadata which is independent from a version. PATCH or POST with header X-HTTP-Method-Override PATCH.
+        headers:
+            Accept:
+                description: If set, all information for the Content item (excluding the current version) is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.ContentInfo+xml
+                    application/vnd.ibexa.api.ContentInfo+json
+            If-match:
+                description: Causes to patch only if the specified ETag is the current one. Otherwise a 412 is returned.
+                example: ETag
+            Content-Type:
+                description: The ContentUpdate schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.ContentUpdate+xml
+                    application/vnd.ibexa.api.ContentUpdate+json
+        body:
+            application/vnd.ibexa.api.ContentUpdate+xml:
+                type: ContentInfo
+                example: !include examples/content/objects/content_id/PATCH/ContentUpdate.xml.example
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.ContentInfo+xml:
+                        type: ContentInfo
+                        example: !include examples/content/objects/content_id/PATCH/ContentInfo.xml.example
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to update this object.
+            404:
+                description: Error - the content ID does not exist.
+            412:
+                description: Error - the current ETag does not match with the one provided in the If-Match header.
+            415:
+                description: Error - the media-type is not one of those specified in headers.
+    delete:
+        displayName: Delete Content
+        description: Deletes Content item. If Content item has multiple Locations, all of them will be deleted via delete a subtree.
+        responses:
+            204:
+                description: The Content item is deleted.
+            404:
+                description: Error - Content item was not found.
+            401:
+                description: Error - the user is not authorized to delete this Content item.
+    copy:
+        displayName: Copy content
+        description: Creates new Content item as a copy, under the given parent Location given in the destination header. COPY or POST with header X-HTTP-Method-Override COPY.
+        headers:
+            destination:
+                description: A Location resource to which the Content item should be copied.
+        responses:
+            201:
+                description: Copy created.
+            401:
+                description: Error - the user is not authorized to copy this Content item to the given Location.
+            404:
+                description: Error - the source or destination resource does not exist.
+    /translations/{languageCode}:
+        delete:
+            displayName: Delete translation (permanently)
+            description: Permanently deletes a translation from all versions of a Content item.
+            responses:
+                204:
+                    description: No Content
+                401:
+                    description: Error - the user is not authorized to delete Content item (content/remove policy).
+                404:
+                    description: Error - the Content item was not found.
+                406:
+                    description: Error - the given translation does not exist for the Content item.
+                409:
+                    description: Error - the specified translation is the only one any version has or is the main translation.
+    /currentversion:
+        get:
+            displayName: Get current version
+            description: Redirects to the current version of the Content item.
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.Version+xml:
+                            type: Version
+                            example: !include examples/content/objects/content_id/currentversion/GET/Version.xml.example
+                        application/vnd.ibexa.api.Version+json:
+                            type: Version
+                            example: !include examples/content/objects/content_id/currentversion/GET/Version.json.example
+                307:
+                    description: Temporary redirect.
+                404:
+                    description: Error - the resource does not exist.
+        copy:
+            displayName: Create a draft from current version
+            description: The system creates a new draft as a copy of the current version. COPY or POST with header X-HTTP-Method-Override COPY.
+            headers:
+                Accept:
+                    description: If set, the updated version is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.Version+xml
+                        application/vnd.ibexa.api.Version+json
+            responses:
+                201:
+                    description: Created
+                    body:
+                        application/vnd.ibexa.api.Version+xml:
+                            type: Version
+                            example: !include examples/content/objects/content_id/currentversion/COPY/Version.xml.example
+                        application/vnd.ibexa.api.Version+json:
+                            type: Version
+                            example: !include examples/content/objects/content_id/currentversion/COPY/Version.json.example
+                401:
+                    description: Error - the user is not authorized to update this Content item.
+                403:
+                    description: Error - the current version is already a draft.
+                404:
+                    description: Error - the Content item was not found.
+    /versions:
+        get:
+            displayName: List versions
+            description: Returns a list of all versions of the Content item. This method does not include fields and relations in the version elements of the response.
+            headers:
+                Accept:
+                    description: If set, the version list is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.VersionList+xml
+                        application/vnd.ibexa.api.VersionList+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.VersionList+xml:
+                            type: VersionList
+                            example: !include examples/content/objects/content_id/versions/GET/VersionList.xml.example
+                        application/vnd.ibexa.api.VersionList+json:
+                            type: VersionList
+                            example: !include examples/content/objects/content_id/versions/GET/VersionList.json.example
+                401:
+                    description: Error - the user has no permission to read the versions.
+        /{versionNo}:
+            get:
+                displayName: Load version
+                description: Loads a specific version of a Content item. This method returns Fields and relations.
+                queryParameters:
+                    fields:
+                        description: Fields which should be returned in the response. Comma separated list.
+                        type: string
+                    responseGroups:
+                        description: Alternative comma separated lists of predefined Field groups.
+                        type: string
+                    languages:
+                        description: Restricts the output of translatable Fields to the given languages. Comma separated list.
+                        type: string
+                headers:
+                    If-None-Match:
+                        description: Only return the version if the given ETag is the not current one, otherwise a 304 is returned.
+                        example: ETag
+                    Accept:
+                        description: If set, the version list is returned in XML or JSON format.
+                        example:  |
+                            application/vnd.ibexa.api.Version+xml
+                            application/vnd.ibexa.api.Version+json
+                responses:
+                    200:
+                        body:
+                            application/vnd.ibexa.api.Version+xml:
+                                type: Version
+                                example: !include examples/content/objects/content_id/versions/version_no/GET/Version.xml.example
+                            application/vnd.ibexa.api.Version+json:
+                                type: Version
+                                example: !include examples/content/objects/content_id/versions/version_no/GET/Version.json.example
+                    304:
+                        description: Error - the ETag does not match the current one.
+                    401:
+                        description: Error - the user is not authorized to read this Content item.
+                    404:
+                        description: Error - the ID or version is not found.
+            patch:
+                displayName: Update version
+                description: A specific draft is updated. PATCH or POST with header X-HTTP-Method-Override PATCH.
+                queryParameters:
+                    languages:
+                        description: Restricts the output of translatable Fields to the given languages. Comma separated list.
+                        type: string
+                headers:
+                    Accept:
+                        description: If set, the updated version is returned in XML or JSON format.
+                        example:  |
+                            application/vnd.ibexa.api.Version+xml
+                            application/vnd.ibexa.api.Version+json
+                    If-match:
+                        description: Performs the patch only if the specified ETag is the current one.
+                    Content-Type:
+                        description: The VersionUpdate schema encoded in XML or JSON format.
+                        example:  |
+                            application/vnd.ibexa.api.VersionUpdate+xml
+                            application/vnd.ibexa.api.VersionUpdate+json
+                body:
+                    application/vnd.ibexa.api.VersionUpdate+xml:
+                        type: VersionUpdate
+                        example: !include examples/content/objects/content_id/versions/version_no/PATCH/VersionUpdate.xml.example
+                responses:
+                    200:
+                        body:
+                            application/vnd.ibexa.api.Version+xml:
+                                type: Version
+                                example: !include examples/content/objects/content_id/versions/version_no/PATCH/Version.xml.example
+                    400:
+                        description: Error - the input does not match the input schema definition.
+                    401:
+                        description: Error - the user is not authorized to update this version.
+                    403:
+                        description: Error - the version is not allowed to change - i.e. version is not a DRAFT.
+                    404:
+                        description: Error - the content ID or version ID does not exist.
+                    412:
+                        description: Error - the current ETag does not match with the one provided in the If-Match header.
+            copy:
+                displayName: Create a draft from a version
+                description: The system creates a new draft as a copy of the given version. COPY or POST with header X-HTTP-Method-Override COPY.
+                headers:
+                    Accept:
+                        description: If set, the updated version is returned in XML or JSON format.
+                        example:  |
+                            application/vnd.ibexa.api.Version+xml
+                            application/vnd.ibexa.api.Version+json
+                responses:
+                    201:
+                        description: Created.
+                        body:
+                            application/vnd.ibexa.api.Version+xml:
+                                type: Version
+                                example: !include examples/content/objects/content_id/versions/version_no/COPY/Version.xml.example
+                            application/vnd.ibexa.api.Version+json:
+                                type: Version
+                                example: !include examples/content/objects/content_id/versions/version_no/COPY/Version.json.example
+                    401:
+                        description: Error - the user is not authorized to update this Content item.
+                    404:
+                        description: Error - the Content item was not found.
+            delete:
+                displayName: Delete content version
+                description: Deletes the content version.
+                responses:
+                    204:
+                        description: No Content - the version is deleted.
+                    404:
+                        description: Error - the Content item or version were not found.
+                    401:
+                        description: Error - the user is not authorized to delete this version.
+                    403:
+                        description: Error - the version is in published state.
+            publish:
+                displayName: Publish a content version
+                description: Publishes the content version. PUBLISH or POST with header X-HTTP-Method-Override PUBLISH
+                responses:
+                    204:
+                        description: No Content - the content version is published.
+                    401:
+                        description: Error - the user is not authorized to publish this version.
+                    403:
+                        description: Error - the version is not a draft.
+                    404:
+                        description: Error - the Content item or version were not found.
+            /translations/{languageCode}:
+                delete:
+                    displayName: Delete translation from version draft
+                    description: Removes a translation from a version draft.
+                    responses:
+                        204:
+                            description: No Content - removes a translation from a version draft.
+                        401:
+                            description: Error - the user is not authorized to delete this translation.
+                        403:
+                            description: Error - the version is not in draft state.
+                        404:
+                            description: Error - the Content item or version number were not found.
+                        406:
+                            description: Error - the given translation does not exist for the version.
+                        409:
+                            description: Error - the specified translation is the only one the version has or is the main translation.
+            /relations:
+                get:
+                    displayName: Load Relations of Content item version
+                    description: Loads the Relations of the given version.
+                    queryParameters:
+                        offset:
+                            description: The offset of the result set.
+                            type: integer
+                        limit:
+                            description: The number of bookmarks returned.
+                            type: integer
+                    headers:
+                        Accept:
+                            description: If set, the Relation is returned in XML or JSON format.
+                            example:  |
+                                application/vnd.ibexa.api.RelationList+xml
+                                application/vnd.ibexa.api.RelationList+json
+                    responses:
+                        200:
+                            body:
+                                application/vnd.ibexa.api.RelationList+xml:
+                                    type: RelationList
+                                    example: !include examples/content/objects/content_id/versions/version_no/relations/GET/RelationList.xml.example
+                                application/vnd.ibexa.api.RelationList+json:
+                                    type: RelationList
+                                    example: !include examples/content/objects/content_id/versions/version_no/relations/GET/RelationList.json.example
+                        401:
+                            description: Error - the user is not authorized to read this Content item.
+                        404:
+                            description: Error - the Content item was not found.
+                post:
+                    displayName: Create new Relation
+                    description: Creates a new Relation of type COMMON for the given draft.
+                    headers:
+                        Accept:
+                            description: If set, the updated version is returned in XML or JSON format.
+                            example:  |
+                                application/vnd.ibexa.api.Relation+xml
+                                application/vnd.ibexa.api.Relation+json
+                        Content-Type:
+                            description: The RelationCreate schema encoded in XML or JSON format.
+                            example:  |
+                                application/vnd.ibexa.api.RelationCreate+xml
+                                application/vnd.ibexa.api.RelationCreate+json
+                            body:
+                                application/vnd.ibexa.api.RelationCreate+xml:
+                                    type: Relation
+                                    example: !include examples/content/objects/content_id/versions/version_no/relations/POST/RelationCreate.xml.example
+                                application/vnd.ibexa.api.RelationCreate+json:
+                                    type: Relation
+                                    example: !include examples/content/objects/content_id/versions/version_no/relations/POST/RelationCreate.json.example
+                    responses:
+                        201:
+                            body:
+                                application/vnd.ibexa.api.Relation+xml:
+                                    type: Relation
+                                    example: !include examples/content/objects/content_id/versions/version_no/relations/POST/Relation.xml.example
+                                application/vnd.ibexa.api.Relation+json:
+                                    type: Relation
+                                    example: !include examples/content/objects/content_id/versions/version_no/relations/POST/Relation.json.example
+                                
+                /{relationId}:
+                    get:
+                        displayName: Load Relation
+                        description: Loads a Relation for the given Content item.
+                        headers:
+                            Accept:
+                                description: If set, the Relation is returned in XML or JSON format.
+                                example:  |
+                                    application/vnd.ibexa.api.Relation+xml
+                                    application/vnd.ibexa.api.Relation+json
+                        responses:
+                            200:
+                                description: OK - loads a Relation for the given Content item.
+                            body:
+                                application/vnd.ibexa.api.Relation+xml:
+                                    type: Relation
+                                    example: !include examples/content/objects/content_id/versions/version_no/relations/relation_id/GET/Relation.xml.example
+                                application/vnd.ibexa.api.Relation+json:
+                                    type: Relation
+                                    example: examples/content/objects/content_id/versions/version_no/relations/relation_id/GET/Relation.json.example
+                            401:
+                                description: Error - the user is not authorized to read this Content item.
+                            404:
+                                description: Error - the Content item with the given ID or the Relation does not exist.
+                    delete:
+                        displayName: Delete Relation
+                        description: Deletes a Relation of the given draft.
+                        responses:
+                            204:
+                                description: No Content - deleted a Relation of the given draft.
+                            401:
+                                description: Error - the user is not authorized to delete this Relation.
+                            403:
+                                description: Error - the Relation is not of type COMMON or the given version is not a draft.
+                            404:
+                                description: Error - Content item  or the Relation were not found in the given version.
+    /relations:
+        get:
+            displayName: Load Relations of Content item
+            description: Redirects to the Relations of the current version.
+            responses:
+                307:
+                    description: Temporary redirect.
+                401:
+                    description: Error - the user is not authorized to read this Content item.
+                404:
+                    description: Error - the Content item was not found.
+    /locations:
+        post:
+            displayName: Create new Location for Content item
+            description: Creates a new Location for the given Content item.
+            headers:
+                Accept:
+                    description: If set, the new Location is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.Location+xml
+                        application/vnd.ibexa.api.Location+json
+                Content-Type:
+                    description: The LocationCreate schema encoded in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.LocationCreate+json
+                        application/vnd.ibexa.api.LocationCreate+xml
+            body:
+                application/vnd.ibexa.api.LocationCreate+xml:
+                    type: LocationCreate
+                    example: !include examples/content/objects/content_id/locations/POST/LocationCreate.xml.example
+                application/vnd.ibexa.api.LocationCreate+json:
+                    type: LocationCreate
+                    example: !include examples/content/objects/content_id/locations/POST/LocationCreate.json.example
+            responses:
+                201:
+                    body:
+                        application/vnd.ibexa.api.Location+xml:
+                            type: Location
+                            example: !include examples/content/objects/content_id/locations/POST/Location.xml.example
+                        application/vnd.ibexa.api.Location+json:
+                            type: Location
+                            example: !include examples/content/objects/content_id/locations/POST/Location.json.example
+                400:
+                    description: Error - the input does not match the input schema definition.
+                401:
+                    description: Error - the user is not authorized to create this Location.
+                403:
+                    description: Error - a Location under the given parent ID already exists.
+        get:
+            displayName: Get Locations for Content item
+            description: Loads all Locations for the given Content item.
+            headers:
+                Accept:
+                    description: If set, the Location list is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.LocationList+xml
+                        application/vnd.ibexa.api.LocationList+json
+                If-None-Match:
+                    description: ETag
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.LocationList+xml:
+                            type: LocationList
+                            example: !include examples/content/objects/content_id/locations/GET/LocationList.xml.example
+                        application/vnd.ibexa.api.LocationList+json:
+                            type: LocationList
+                            example: !include examples/content/objects/content_id/locations/GET/LocationList.json.example
+                401:
+                    description: Error - the user is not authorized to read this Content item.
+                404:
+                    description: Error - the Content item with the given ID does not exist.
+    /objectstates:
+        get:
+            displayName: Get Object states of Content item
+            description: Returns the Object states of a Content item
+            headers:
+                Accept:
+                    description: If set, the Object states are returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.ContentObjectStates+xml
+                        application/vnd.ibexa.api.ContentObjectStates+json
+                If-None-Match:
+                    description: ETag
+            responses:
+                200:
+                    description: OK - returns the Object state.
+                    body:
+                        application/vnd.ibexa.api.ContentObjectStates+xml:
+                            type: ContentObjectStates
+                            example: !include examples/content/objects/content_id/objectstates/GET/ContentObjectStates.xml.example
+                        application/vnd.ibexa.api.ContentObjectStates+json:
+                            type: ContentObjectStates
+                            example: !include examples/content/objects/content_id/objectstates/GET/ContentObjectStates.json.example
+                404:
+                    description: Error - The Content item does not exist.
+        patch:
+            displayName: Set Object states of Content item
+            description: Updates Object states of a Content item. An Object state in the input overrides the state of the Object state group. PATCH or POST with header X-HTTP-Method-Override PATCH.
+            headers:
+                Accept:
+                    description: If set, the updated Object state is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.ObjectState+xml
+                        application/vnd.ibexa.api.ObjectState+json
+                Content-Type:
+                    description: The Content item Object states input schema encoded in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.ObjectStateUpdate+xml
+                        application/vnd.ibexa.api.ObjectStateUpdate+json
+                If-Match:
+                    description: ETag
+            body:
+                application/vnd.ibexa.api.ObjectState+xml:
+                    type: ObjectStateUpdate
+            responses:
+                204:
+                    description: OK - Object state updated.
+                    body:
+                        application/vnd.ibexa.api.ObjectState+xml:
+                            type: ObjectState
+                400:
+                    description: Error - The input does not match the input schema definition.
+                401:
+                    description: Error - The user is not authorized to set an Object state.
+                403:
+                    description: Error - The input contains multiple Object states of the same Object state group.
+                412:
+                    description: Error - The current ETag does not match the one provided in the If-Match header.

@@ -38,13 +38,13 @@ nelmio_cors:
 
 #### Changing configuration of NelmioCorsBundle for [[= product_name =]] REST
 
-The default configuration of NelmioCorsBundle for [[= product_name =]] REST paths is set in the [nelmio_cors.yaml](https://github.com/ezsystems/ezplatform-rest/blob/master/src/bundle/Resources/config/nelmio_cors.yml) file.
+The default configuration of NelmioCorsBundle for [[= product_name =]] REST paths is set in the [nelmio_cors.yaml](https://github.com/ibexa/rest/blob/main/src/bundle/Resources/config/nelmio_cors.yml) file.
 To adapt these settings to your own needs you have to overwrite them in the `nelmio_cors.yaml` file under the same configuration path, for instance:
 
 ```yaml
 nelmio_cors:
     paths:
-        '^/api/ezp/v2/':
+        '^/api/ibexa/v2/':
             max_age: 3600
             allow_credentials: false
             allow_origin: ['http://ez.no']
@@ -52,5 +52,5 @@ nelmio_cors:
 
 ### Granting CORS access to your own HTTP resources
 
-NelmioCorsBundle is perfectly safe to use for any non-eZ HTTP resource you would like to expose.
+NelmioCorsBundle is perfectly safe to use for any non-Ibexa HTTP resource you would like to expose.
 Follow the instructions in [NelmioCorsBundle's configuration chapter](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md#configuration).

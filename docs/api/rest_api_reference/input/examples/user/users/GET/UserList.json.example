@@ -1,0 +1,155 @@
+{
+    "UserList": {
+        "_media-type": "application/vnd.ibexa.api.UserList+json",
+        "_href": "/api/ibexa/v2/user/users",
+        "User": [
+            {
+                "_media-type": "application/vnd.ibexa.api.User+json",
+                "_href": "/api/ibexa/v2/user/users/14",
+                "_id": 14,
+                "_remoteId": "1bb4fe25487f05527efa8bfd394cecc7",
+                "ContentType": {
+                    "_media-type": "application/vnd.ibexa.api.ContentType+json",
+                    "_href": "/api/ibexa/v2/content/types/4"
+                },
+                "name": "Administrator User",
+                "Versions": {
+                    "_media-type": "application/vnd.ibexa.api.VersionList+json",
+                    "_href": "/api/ibexa/v2/content/objects/14/versions"
+                },
+                "Section": {
+                    "_media-type": "application/vnd.ibexa.api.Section+json",
+                    "_href": "/api/ibexa/v2/content/sections/2"
+                },
+                "MainLocation": {
+                    "_media-type": "application/vnd.ibexa.api.Location+json",
+                    "_href": "/api/ibexa/v2/content/locations/1/5/13/15"
+                },
+                "Locations": {
+                    "_media-type": "application/vnd.ibexa.api.LocationList+json",
+                    "_href": "/api/ibexa/v2/content/objects/14/locations"
+                },
+                "Groups": {
+                    "_media-type": "application/vnd.ibexa.api.UserGroupRefList+json",
+                    "_href": "/api/ibexa/v2/user/users/14/groups"
+                },
+                "Owner": {
+                    "_media-type": "application/vnd.ibexa.api.User+json",
+                    "_href": "/api/ibexa/v2/user/users/14"
+                },
+                "publishDate": "2002-10-06T16:13:50+00:00",
+                "lastModificationDate": "2011-03-25T14:07:04+00:00",
+                "mainLanguageCode": "eng-GB",
+                "alwaysAvailable": true,
+                "Version": {
+                    "_media-type": "application/vnd.ibexa.api.Version+json",
+                    "_href": "/api/ibexa/v2/content/objects/14/versions/3",
+                    "VersionInfo": {
+                        "id": 499,
+                        "versionNo": 3,
+                        "status": "PUBLISHED",
+                        "modificationDate": "2011-03-25T14:07:04+00:00",
+                        "Creator": {
+                            "_media-type": "application/vnd.ibexa.api.User+json",
+                            "_href": "/api/ibexa/v2/user/users/14"
+                        },
+                        "creationDate": "2011-03-25T14:03:03+00:00",
+                        "initialLanguageCode": "eng-GB",
+                        "languageCodes": "eng-GB",
+                        "VersionTranslationInfo": {
+                            "_media-type": "application/vnd.ibexa.api.VersionTranslationInfo+json",
+                            "Language": [
+                                {
+                                    "languageCode": "eng-GB"
+                                }
+                            ]
+                        },
+                        "names": {
+                            "value": [
+                                {
+                                    "_languageCode": "eng-GB",
+                                    "#text": "Administrator User"
+                                }
+                            ]
+                        },
+                        "Content": {
+                            "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+                            "_href": "/api/ibexa/v2/content/objects/14"
+                        }
+                    },
+                    "Fields": {
+                        "field": [
+                            {
+                                "id": 28,
+                                "fieldDefinitionIdentifier": "first_name",
+                                "languageCode": "eng-GB",
+                                "fieldTypeIdentifier": "ezstring",
+                                "fieldValue": "Administrator"
+                            },
+                            {
+                                "id": 29,
+                                "fieldDefinitionIdentifier": "last_name",
+                                "languageCode": "eng-GB",
+                                "fieldTypeIdentifier": "ezstring",
+                                "fieldValue": "User"
+                            },
+                            {
+                                "id": 30,
+                                "fieldDefinitionIdentifier": "user_account",
+                                "languageCode": "eng-GB",
+                                "fieldTypeIdentifier": "ezuser",
+                                "fieldValue": {
+                                    "hasStoredLogin": true,
+                                    "contentId": 14,
+                                    "login": "admin",
+                                    "email": "admin@link.invalid",
+                                    "passwordUpdatedAt": null,
+                                    "enabled": true,
+                                    "maxLogin": 10,
+                                    "plainPassword": null
+                                }
+                            },
+                            {
+                                "id": 178,
+                                "fieldDefinitionIdentifier": "signature",
+                                "languageCode": "eng-GB",
+                                "fieldTypeIdentifier": "eztext",
+                                "fieldValue": null
+                            },
+                            {
+                                "id": 180,
+                                "fieldDefinitionIdentifier": "image",
+                                "languageCode": "eng-GB",
+                                "fieldTypeIdentifier": "ezimage",
+                                "fieldValue": null
+                            }
+                        ]
+                    },
+                    "Relations": {
+                        "_media-type": "application/vnd.ibexa.api.RelationList+json",
+                        "_href": "/api/ibexa/v2/content/objects/14/versions/3/relations",
+                        "Relation": []
+                    },
+                    "Thumbnail": {
+                        "_media-type": "application/vnd.ibexa.api.Thumbnail+json",
+                        "resource": "/bundles/ezplatformadminui/img/ez-icons.svg#user",
+                        "width": null,
+                        "height": null,
+                        "mimeType": "image/svg+xml"
+                    }
+                },
+                "login": "admin",
+                "email": "admin@link.invalid",
+                "enabled": true,
+                "UserGroups": {
+                    "_media-type": "application/vnd.ibexa.api.UserGroupList+json",
+                    "_href": "/api/ibexa/v2/user/users/14/groups"
+                },
+                "Roles": {
+                    "_media-type": "application/vnd.ibexa.api.RoleAssignmentList+json",
+                    "_href": "/api/ibexa/v2/user/users/14/roles"
+                }
+            }
+        ]
+    }
+}

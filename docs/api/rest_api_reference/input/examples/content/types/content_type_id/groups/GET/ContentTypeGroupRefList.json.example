@@ -1,0 +1,12 @@
+{
+    "ContentTypeGroupRefList": {
+        "_media-type": "application/vnd.ibexa.api.ContentTypeGroupRefList+json",
+        "_href": "/api/ibexa/v2/content/typegroups/2/types",
+        "ContentTypeGroupRef": [
+            {
+                "_media-type": "application/vnd.ibexa.api.ContentTypeGroup+json",
+                "_href": "/api/ibexa/v2/content/typegroups/1"
+            }
+        ]
+    }
+}

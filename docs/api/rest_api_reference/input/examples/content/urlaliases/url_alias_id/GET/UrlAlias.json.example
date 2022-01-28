@@ -1,0 +1,15 @@
+{
+    "UrlAlias": {
+        "_media-type": "application/vnd.ibexa.api.UrlAlias+json",
+        "_href": "/api/ibexa/v2/content/urlaliases/0-2cecdff5f90b8595d76b68c417b09f36",
+        "_id": "0-2cecdff5f90b8595d76b68c417b09f36",
+        "_type": "RESOURCE",
+        "resource": "content/view/full",
+        "path": "/example-global",
+        "languageCodes": "eng-GB",
+        "alwaysAvailable": true,
+        "isHistory": false,
+        "forward": true,
+        "custom": true
+    }
+}

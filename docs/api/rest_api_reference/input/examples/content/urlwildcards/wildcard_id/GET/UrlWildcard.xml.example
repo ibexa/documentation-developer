@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UrlWildcard media-type="application/vnd.ibexa.api.UrlWildcard+xml" href="/api/ibexa/v2/content/urlwildcards/4" id="4">
+    <sourceUrl>/api/ibexa/v2/content/location/2</sourceUrl>
+    <destinationUrl>/api/ibexa/v2/content/location/59</destinationUrl>
+    <forward>true</forward>
+</UrlWildcard>

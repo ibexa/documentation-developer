@@ -1,0 +1,9 @@
+{
+    "Policy": {
+        "_media-type": "application/vnd.ibexa.api.Policy+json",
+        "_href": "/api/ibexa/v2/user/roles/1/policies/352",
+        "id": 352,
+        "module": "user",
+        "function": "register"
+    }
+}

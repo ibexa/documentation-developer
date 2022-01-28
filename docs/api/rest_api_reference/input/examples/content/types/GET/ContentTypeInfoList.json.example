@@ -1,0 +1,733 @@
+{
+    "ContentTypeList": {
+        "_media-type": "application/vnd.ibexa.api.ContentTypeList+json",
+        "_href": "/api/ibexa/v2/content/typegroups/1/types",
+        "ContentType": [
+            {
+                "_media-type": "application/vnd.ibexa.api.ContentType+json",
+                "_href": "/api/ibexa/v2/content/types/2",
+                "id": 2,
+                "status": "DEFINED",
+                "identifier": "article",
+                "names": {
+                    "value": [
+                        {
+                            "_languageCode": "eng-GB",
+                            "#text": "Article"
+                        }
+                    ]
+                },
+                "descriptions": {
+                    "value": []
+                },
+                "creationDate": "2002-06-18T09:21:38+00:00",
+                "modificationDate": "2004-04-20T09:56:29+00:00",
+                "Creator": {
+                    "_media-type": "application/vnd.ibexa.api.User+json",
+                    "_href": "/api/ibexa/v2/user/users/14"
+                },
+                "Modifier": {
+                    "_media-type": "application/vnd.ibexa.api.User+json",
+                    "_href": "/api/ibexa/v2/user/users/14"
+                },
+                "Groups": {
+                    "_media-type": "application/vnd.ibexa.api.ContentTypeGroupRefList+json",
+                    "_href": "/api/ibexa/v2/content/types/2/groups"
+                },
+                "Draft": {
+                    "_media-type": "application/vnd.ibexa.api.ContentType+json",
+                    "_href": "/api/ibexa/v2/content/types/2/draft"
+                },
+                "remoteId": "c15b600eb9198b1924063b5a68758232",
+                "urlAliasSchema": null,
+                "nameSchema": "<short_title|title>",
+                "isContainer": true,
+                "mainLanguageCode": "eng-GB",
+                "defaultAlwaysAvailable": false,
+                "defaultSortField": "PATH",
+                "defaultSortOrder": "ASC",
+                "FieldDefinitions": {
+                    "_media-type": "application/vnd.ibexa.api.FieldDefinitionList+json",
+                    "_href": "/api/ibexa/v2/content/types/2/fieldDefinitions",
+                    "FieldDefinition": [
+                        {
+                            "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
+                            "_href": "/api/ibexa/v2/content/types/2/fieldDefinitions/1",
+                            "id": 1,
+                            "identifier": "title",
+                            "fieldType": "ezstring",
+                            "fieldGroup": "",
+                            "position": 1,
+                            "isTranslatable": true,
+                            "isRequired": true,
+                            "isInfoCollector": false,
+                            "defaultValue": "New article",
+                            "isSearchable": true,
+                            "names": {
+                                "value": [
+                                    {
+                                        "_languageCode": "eng-GB",
+                                        "#text": "Title"
+                                    }
+                                ]
+                            },
+                            "descriptions": {
+                                "value": []
+                            },
+                            "fieldSettings": [],
+                            "validatorConfiguration": {
+                                "StringLengthValidator": {
+                                    "maxStringLength": 255,
+                                    "minStringLength": null
+                                }
+                            }
+                        },
+                        {
+                            "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
+                            "_href": "/api/ibexa/v2/content/types/2/fieldDefinitions/152",
+                            "id": 152,
+                            "identifier": "short_title",
+                            "fieldType": "ezstring",
+                            "fieldGroup": "",
+                            "position": 2,
+                            "isTranslatable": true,
+                            "isRequired": false,
+                            "isInfoCollector": false,
+                            "defaultValue": null,
+                            "isSearchable": true,
+                            "names": {
+                                "value": [
+                                    {
+                                        "_languageCode": "eng-GB",
+                                        "#text": "Short title"
+                                    }
+                                ]
+                            },
+                            "descriptions": {
+                                "value": []
+                            },
+                            "fieldSettings": [],
+                            "validatorConfiguration": {
+                                "StringLengthValidator": {
+                                    "maxStringLength": 255,
+                                    "minStringLength": null
+                                }
+                            }
+                        },
+                        {
+                            "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
+                            "_href": "/api/ibexa/v2/content/types/2/fieldDefinitions/153",
+                            "id": 153,
+                            "identifier": "author",
+                            "fieldType": "ezauthor",
+                            "fieldGroup": "",
+                            "position": 3,
+                            "isTranslatable": true,
+                            "isRequired": false,
+                            "isInfoCollector": false,
+                            "defaultValue": [],
+                            "isSearchable": false,
+                            "names": {
+                                "value": [
+                                    {
+                                        "_languageCode": "eng-GB",
+                                        "#text": "Author"
+                                    }
+                                ]
+                            },
+                            "descriptions": {
+                                "value": []
+                            },
+                            "fieldSettings": {
+                                "defaultAuthor": 1
+                            },
+                            "validatorConfiguration": []
+                        },
+                        {
+                            "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
+                            "_href": "/api/ibexa/v2/content/types/2/fieldDefinitions/120",
+                            "id": 120,
+                            "identifier": "intro",
+                            "fieldType": "ezrichtext",
+                            "fieldGroup": "",
+                            "position": 4,
+                            "isTranslatable": true,
+                            "isRequired": true,
+                            "isInfoCollector": false,
+                            "defaultValue": {
+                                "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n",
+                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5/edit\"/>\n"
+                            },
+                            "isSearchable": true,
+                            "names": {
+                                "value": [
+                                    {
+                                        "_languageCode": "eng-GB",
+                                        "#text": "Intro"
+                                    }
+                                ]
+                            },
+                            "descriptions": {
+                                "value": []
+                            },
+                            "fieldSettings": [],
+                            "validatorConfiguration": []
+                        },
+                        {
+                            "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
+                            "_href": "/api/ibexa/v2/content/types/2/fieldDefinitions/121",
+                            "id": 121,
+                            "identifier": "body",
+                            "fieldType": "ezrichtext",
+                            "fieldGroup": "",
+                            "position": 5,
+                            "isTranslatable": true,
+                            "isRequired": false,
+                            "isInfoCollector": false,
+                            "defaultValue": {
+                                "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n",
+                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5/edit\"/>\n"
+                            },
+                            "isSearchable": true,
+                            "names": {
+                                "value": [
+                                    {
+                                        "_languageCode": "eng-GB",
+                                        "#text": "Body"
+                                    }
+                                ]
+                            },
+                            "descriptions": {
+                                "value": []
+                            },
+                            "fieldSettings": [],
+                            "validatorConfiguration": []
+                        },
+                        {
+                            "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
+                            "_href": "/api/ibexa/v2/content/types/2/fieldDefinitions/123",
+                            "id": 123,
+                            "identifier": "enable_comments",
+                            "fieldType": "ezboolean",
+                            "fieldGroup": "",
+                            "position": 6,
+                            "isTranslatable": false,
+                            "isRequired": false,
+                            "isInfoCollector": false,
+                            "defaultValue": false,
+                            "isSearchable": false,
+                            "names": {
+                                "value": [
+                                    {
+                                        "_languageCode": "eng-GB",
+                                        "#text": "Enable comments"
+                                    }
+                                ]
+                            },
+                            "descriptions": {
+                                "value": []
+                            },
+                            "fieldSettings": [],
+                            "validatorConfiguration": []
+                        },
+                        {
+                            "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
+                            "_href": "/api/ibexa/v2/content/types/2/fieldDefinitions/154",
+                            "id": 154,
+                            "identifier": "image",
+                            "fieldType": "ezobjectrelation",
+                            "fieldGroup": "",
+                            "position": 7,
+                            "isTranslatable": true,
+                            "isRequired": false,
+                            "isInfoCollector": false,
+                            "defaultValue": {
+                                "destinationContentId": null
+                            },
+                            "isSearchable": true,
+                            "names": {
+                                "value": [
+                                    {
+                                        "_languageCode": "eng-GB",
+                                        "#text": "Image"
+                                    }
+                                ]
+                            },
+                            "descriptions": {
+                                "value": []
+                            },
+                            "fieldSettings": {
+                                "selectionMethod": "SELECTION_BROWSE",
+                                "selectionRoot": "",
+                                "selectionContentTypes": []
+                            },
+                            "validatorConfiguration": []
+                        }
+                    ]
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ContentType+json",
+                "_href": "/api/ibexa/v2/content/types/1",
+                "id": 1,
+                "status": "DEFINED",
+                "identifier": "folder",
+                "names": {
+                    "value": [
+                        {
+                            "_languageCode": "eng-GB",
+                            "#text": "Folder"
+                        }
+                    ]
+                },
+                "descriptions": {
+                    "value": []
+                },
+                "creationDate": "2002-06-18T09:21:38+00:00",
+                "modificationDate": "2015-11-29T21:14:32+00:00",
+                "Creator": {
+                    "_media-type": "application/vnd.ibexa.api.User+json",
+                    "_href": "/api/ibexa/v2/user/users/14"
+                },
+                "Modifier": {
+                    "_media-type": "application/vnd.ibexa.api.User+json",
+                    "_href": "/api/ibexa/v2/user/users/14"
+                },
+                "Groups": {
+                    "_media-type": "application/vnd.ibexa.api.ContentTypeGroupRefList+json",
+                    "_href": "/api/ibexa/v2/content/types/1/groups"
+                },
+                "Draft": {
+                    "_media-type": "application/vnd.ibexa.api.ContentType+json",
+                    "_href": "/api/ibexa/v2/content/types/1/draft"
+                },
+                "remoteId": "a3d405b81be900468eb153d774f4f0d2",
+                "urlAliasSchema": null,
+                "nameSchema": "<short_name|name>",
+                "isContainer": true,
+                "mainLanguageCode": "eng-GB",
+                "defaultAlwaysAvailable": true,
+                "defaultSortField": "PATH",
+                "defaultSortOrder": "ASC",
+                "FieldDefinitions": {
+                    "_media-type": "application/vnd.ibexa.api.FieldDefinitionList+json",
+                    "_href": "/api/ibexa/v2/content/types/1/fieldDefinitions",
+                    "FieldDefinition": [
+                        {
+                            "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
+                            "_href": "/api/ibexa/v2/content/types/1/fieldDefinitions/4",
+                            "id": 4,
+                            "identifier": "name",
+                            "fieldType": "ezstring",
+                            "fieldGroup": "",
+                            "position": 1,
+                            "isTranslatable": true,
+                            "isRequired": true,
+                            "isInfoCollector": false,
+                            "defaultValue": "Folder",
+                            "isSearchable": true,
+                            "names": {
+                                "value": [
+                                    {
+                                        "_languageCode": "eng-GB",
+                                        "#text": "Name"
+                                    }
+                                ]
+                            },
+                            "descriptions": {
+                                "value": []
+                            },
+                            "fieldSettings": [],
+                            "validatorConfiguration": {
+                                "StringLengthValidator": {
+                                    "maxStringLength": 255,
+                                    "minStringLength": null
+                                }
+                            }
+                        },
+                        {
+                            "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
+                            "_href": "/api/ibexa/v2/content/types/1/fieldDefinitions/155",
+                            "id": 155,
+                            "identifier": "short_name",
+                            "fieldType": "ezstring",
+                            "fieldGroup": "",
+                            "position": 2,
+                            "isTranslatable": true,
+                            "isRequired": false,
+                            "isInfoCollector": false,
+                            "defaultValue": null,
+                            "isSearchable": true,
+                            "names": {
+                                "value": [
+                                    {
+                                        "_languageCode": "eng-GB",
+                                        "#text": "Short name"
+                                    }
+                                ]
+                            },
+                            "descriptions": {
+                                "value": []
+                            },
+                            "fieldSettings": [],
+                            "validatorConfiguration": {
+                                "StringLengthValidator": {
+                                    "maxStringLength": 100,
+                                    "minStringLength": null
+                                }
+                            }
+                        },
+                        {
+                            "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
+                            "_href": "/api/ibexa/v2/content/types/1/fieldDefinitions/119",
+                            "id": 119,
+                            "identifier": "short_description",
+                            "fieldType": "ezrichtext",
+                            "fieldGroup": "",
+                            "position": 3,
+                            "isTranslatable": true,
+                            "isRequired": false,
+                            "isInfoCollector": false,
+                            "defaultValue": {
+                                "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n",
+                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5/edit\"/>\n"
+                            },
+                            "isSearchable": true,
+                            "names": {
+                                "value": [
+                                    {
+                                        "_languageCode": "eng-GB",
+                                        "#text": "Short description"
+                                    }
+                                ]
+                            },
+                            "descriptions": {
+                                "value": []
+                            },
+                            "fieldSettings": [],
+                            "validatorConfiguration": []
+                        },
+                        {
+                            "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
+                            "_href": "/api/ibexa/v2/content/types/1/fieldDefinitions/156",
+                            "id": 156,
+                            "identifier": "description",
+                            "fieldType": "ezrichtext",
+                            "fieldGroup": "",
+                            "position": 4,
+                            "isTranslatable": true,
+                            "isRequired": false,
+                            "isInfoCollector": false,
+                            "defaultValue": {
+                                "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n",
+                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5/edit\"/>\n"
+                            },
+                            "isSearchable": true,
+                            "names": {
+                                "value": [
+                                    {
+                                        "_languageCode": "eng-GB",
+                                        "#text": "Description"
+                                    }
+                                ]
+                            },
+                            "descriptions": {
+                                "value": []
+                            },
+                            "fieldSettings": [],
+                            "validatorConfiguration": []
+                        }
+                    ]
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ContentType+json",
+                "_href": "/api/ibexa/v2/content/types/43",
+                "id": 43,
+                "status": "DEFINED",
+                "identifier": "form",
+                "names": {
+                    "value": [
+                        {
+                            "_languageCode": "eng-GB",
+                            "#text": "Form"
+                        }
+                    ]
+                },
+                "descriptions": {
+                    "value": []
+                },
+                "creationDate": "2018-09-17T06:46:13+00:00",
+                "modificationDate": "2018-09-17T06:47:14+00:00",
+                "Creator": {
+                    "_media-type": "application/vnd.ibexa.api.User+json",
+                    "_href": "/api/ibexa/v2/user/users/14"
+                },
+                "Modifier": {
+                    "_media-type": "application/vnd.ibexa.api.User+json",
+                    "_href": "/api/ibexa/v2/user/users/14"
+                },
+                "Groups": {
+                    "_media-type": "application/vnd.ibexa.api.ContentTypeGroupRefList+json",
+                    "_href": "/api/ibexa/v2/content/types/43/groups"
+                },
+                "Draft": {
+                    "_media-type": "application/vnd.ibexa.api.ContentType+json",
+                    "_href": "/api/ibexa/v2/content/types/43/draft"
+                },
+                "remoteId": "6f7f21df775a33c1e4bbc76b48c38476",
+                "urlAliasSchema": "",
+                "nameSchema": "<title>",
+                "isContainer": false,
+                "mainLanguageCode": "eng-GB",
+                "defaultAlwaysAvailable": true,
+                "defaultSortField": "PUBLISHED",
+                "defaultSortOrder": "DESC",
+                "FieldDefinitions": {
+                    "_media-type": "application/vnd.ibexa.api.FieldDefinitionList+json",
+                    "_href": "/api/ibexa/v2/content/types/43/fieldDefinitions",
+                    "FieldDefinition": [
+                        {
+                            "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
+                            "_href": "/api/ibexa/v2/content/types/43/fieldDefinitions/188",
+                            "id": 188,
+                            "identifier": "title",
+                            "fieldType": "ezstring",
+                            "fieldGroup": "content",
+                            "position": 1,
+                            "isTranslatable": true,
+                            "isRequired": true,
+                            "isInfoCollector": false,
+                            "defaultValue": null,
+                            "isSearchable": true,
+                            "names": {
+                                "value": [
+                                    {
+                                        "_languageCode": "eng-GB",
+                                        "#text": "Title"
+                                    }
+                                ]
+                            },
+                            "descriptions": {
+                                "value": []
+                            },
+                            "fieldSettings": [],
+                            "validatorConfiguration": {
+                                "StringLengthValidator": {
+                                    "maxStringLength": null,
+                                    "minStringLength": null
+                                }
+                            }
+                        },
+                        {
+                            "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
+                            "_href": "/api/ibexa/v2/content/types/43/fieldDefinitions/189",
+                            "id": 189,
+                            "identifier": "form",
+                            "fieldType": "ezform",
+                            "fieldGroup": "content",
+                            "position": 2,
+                            "isTranslatable": true,
+                            "isRequired": false,
+                            "isInfoCollector": false,
+                            "defaultValue": {
+                                "fields": [],
+                                "content_id": null,
+                                "content_field_id": null,
+                                "language_code": null
+                            },
+                            "isSearchable": false,
+                            "names": {
+                                "value": [
+                                    {
+                                        "_languageCode": "eng-GB",
+                                        "#text": "Form"
+                                    }
+                                ]
+                            },
+                            "descriptions": {
+                                "value": []
+                            },
+                            "fieldSettings": [],
+                            "validatorConfiguration": []
+                        }
+                    ]
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ContentType+json",
+                "_href": "/api/ibexa/v2/content/types/42",
+                "id": 42,
+                "status": "DEFINED",
+                "identifier": "landing_page",
+                "names": {
+                    "value": [
+                        {
+                            "_languageCode": "eng-GB",
+                            "#text": "Landing page"
+                        }
+                    ]
+                },
+                "descriptions": {
+                    "value": [
+                        {
+                            "_languageCode": "eng-GB",
+                            "#text": ""
+                        }
+                    ]
+                },
+                "creationDate": "2015-07-03T12:00:26+00:00",
+                "modificationDate": "2015-07-03T12:00:26+00:00",
+                "Creator": {
+                    "_media-type": "application/vnd.ibexa.api.User+json",
+                    "_href": "/api/ibexa/v2/user/users/14"
+                },
+                "Modifier": {
+                    "_media-type": "application/vnd.ibexa.api.User+json",
+                    "_href": "/api/ibexa/v2/user/users/14"
+                },
+                "Groups": {
+                    "_media-type": "application/vnd.ibexa.api.ContentTypeGroupRefList+json",
+                    "_href": "/api/ibexa/v2/content/types/42/groups"
+                },
+                "Draft": {
+                    "_media-type": "application/vnd.ibexa.api.ContentType+json",
+                    "_href": "/api/ibexa/v2/content/types/42/draft"
+                },
+                "remoteId": "60c03e9758465eb69d56b3afb6adf18e",
+                "urlAliasSchema": "",
+                "nameSchema": "<name>",
+                "isContainer": true,
+                "mainLanguageCode": "eng-GB",
+                "defaultAlwaysAvailable": true,
+                "defaultSortField": "PUBLISHED",
+                "defaultSortOrder": "DESC",
+                "FieldDefinitions": {
+                    "_media-type": "application/vnd.ibexa.api.FieldDefinitionList+json",
+                    "_href": "/api/ibexa/v2/content/types/42/fieldDefinitions",
+                    "FieldDefinition": [
+                        {
+                            "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
+                            "_href": "/api/ibexa/v2/content/types/42/fieldDefinitions/185",
+                            "id": 185,
+                            "identifier": "name",
+                            "fieldType": "ezstring",
+                            "fieldGroup": "content",
+                            "position": 10,
+                            "isTranslatable": true,
+                            "isRequired": true,
+                            "isInfoCollector": false,
+                            "defaultValue": null,
+                            "isSearchable": true,
+                            "names": {
+                                "value": [
+                                    {
+                                        "_languageCode": "eng-GB",
+                                        "#text": "Title"
+                                    }
+                                ]
+                            },
+                            "descriptions": {
+                                "value": [
+                                    {
+                                        "_languageCode": "eng-GB",
+                                        "#text": "Title"
+                                    }
+                                ]
+                            },
+                            "fieldSettings": [],
+                            "validatorConfiguration": {
+                                "StringLengthValidator": {
+                                    "maxStringLength": null,
+                                    "minStringLength": null
+                                }
+                            }
+                        },
+                        {
+                            "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
+                            "_href": "/api/ibexa/v2/content/types/42/fieldDefinitions/186",
+                            "id": 186,
+                            "identifier": "description",
+                            "fieldType": "ezstring",
+                            "fieldGroup": "content",
+                            "position": 20,
+                            "isTranslatable": true,
+                            "isRequired": true,
+                            "isInfoCollector": false,
+                            "defaultValue": null,
+                            "isSearchable": true,
+                            "names": {
+                                "value": [
+                                    {
+                                        "_languageCode": "eng-GB",
+                                        "#text": "Description"
+                                    }
+                                ]
+                            },
+                            "descriptions": {
+                                "value": [
+                                    {
+                                        "_languageCode": "eng-GB",
+                                        "#text": "Landing page description"
+                                    }
+                                ]
+                            },
+                            "fieldSettings": [],
+                            "validatorConfiguration": {
+                                "StringLengthValidator": {
+                                    "maxStringLength": null,
+                                    "minStringLength": null
+                                }
+                            }
+                        },
+                        {
+                            "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
+                            "_href": "/api/ibexa/v2/content/types/42/fieldDefinitions/187",
+                            "id": 187,
+                            "identifier": "page",
+                            "fieldType": "ezlandingpage",
+                            "fieldGroup": "content",
+                            "position": 30,
+                            "isTranslatable": true,
+                            "isRequired": false,
+                            "isInfoCollector": false,
+                            "defaultValue": {
+                                "layout": "default",
+                                "zones": [
+                                    {
+                                        "id": "default_id",
+                                        "name": "default",
+                                        "blocks": []
+                                    }
+                                ]
+                            },
+                            "isSearchable": false,
+                            "names": {
+                                "value": [
+                                    {
+                                        "_languageCode": "eng-GB",
+                                        "#text": "Landing page"
+                                    }
+                                ]
+                            },
+                            "descriptions": {
+                                "value": [
+                                    {
+                                        "_languageCode": "eng-GB",
+                                        "#text": "Landing page"
+                                    }
+                                ]
+                            },
+                            "fieldSettings": {
+                                "availableBlocks": null,
+                                "availableLayouts": null,
+                                "editorMode": "page_view_mode"
+                            },
+                            "validatorConfiguration": []
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

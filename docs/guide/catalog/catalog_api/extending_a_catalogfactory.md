@@ -46,7 +46,7 @@ class CustomCatalogFactory extends Ez5CatalogFactory
                     : ucfirst(strtolower($identifiers[$i]));
             }
 
-            if ($ezField instanceof \eZ\Publish\Core\FieldType\Keyword\Value) {
+            if ($ezField instanceof \Ibexa\Core\FieldType\Keyword\Value) {
                 $catalogElement->addFieldToDataMap('tags',
                     $this->extractKeywords($ezField)
                 );
@@ -55,7 +55,7 @@ class CustomCatalogFactory extends Ez5CatalogFactory
         return $catalogElement;
     }
 
-    protected function extractKeywords (\eZ\Publish\Core\FieldType\Keyword\Value $keywordField) {
+    protected function extractKeywords (\Ibexa\Core\FieldType\Keyword\Value $keywordField) {
 
         $keywordFields = array();
         $keywordData = $keywordField->values;
@@ -79,12 +79,12 @@ parameters:
 ## Step 2: Extend the template and display the keywords
 
 The new field `tags` is available in the `dataMap` of the `CatalogElement`.
-To render it, extend the default template `SilversolutionsEshopBundle:Catalog:parts/productData.html.twig`:
+To render it, extend the default template `IbexaCommerceEshopBundle:Catalog:parts/productData.html.twig`:
 
 ``` html+twig
 {% if catalogElement.dataMap.tags is defined %}
     <p class="u-no-margin">
-        <strong>{{ 'Tags'|st_translate }}</strong>
+        <strong>{{ 'Tags'|ibexa_commerce_translate }}</strong>
         {% for tag in catalogElement.dataMap.tags.array %}
                 <span class="label">{{ tag }}
         {% endfor %}

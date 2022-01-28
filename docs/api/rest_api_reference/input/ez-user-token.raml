@@ -1,0 +1,35 @@
+/jwt:
+    post:
+        displayName: Create JWT token
+        description: Creates JWT authentication token.
+        headers:
+            Accept:
+                description: If set, the token is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.JWT+xml
+                    application/vnd.ibexa.api.JWT+json
+            Content-Type:
+                description: The SessionInput schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.JWTInput+xml
+                    application/vnd.ibexa.api.JWTInput+json
+        body:
+            application/vnd.ibexa.api.JWTInput+xml:
+                type: JWTInput
+                example: !include examples/user/token/jwt/POST/JWTInput.xml.example
+            application/vnd.ibexa.api.JWTInput+json:
+                type: JWTInput
+                example: !include examples/user/token/jwt/POST/JWTInput.json.example
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.JWT+xml:
+                        type: JWT
+                        example: !include examples/user/token/jwt/POST/JWT.xml.example
+                    application/vnd.ibexa.api.JWT+json:
+                        type: JWT
+                        example: !include examples/user/token/jwt/POST/JWT.json.example
+            401:
+                description: Error - Unauthorized
+            
+    

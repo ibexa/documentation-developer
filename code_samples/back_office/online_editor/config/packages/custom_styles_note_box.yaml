@@ -1,0 +1,10 @@
+ibexa:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    custom_styles: [note_box]
+ibexa_fieldtype_richtext:
+    custom_styles:
+        note_box:
+            template: field_type/ezrichtext/custom_style/note_box.html.twig

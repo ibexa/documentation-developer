@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectStateGroup media-type="application/vnd.ibexa.api.ObjectStateGroup+xml" href="/api/ibexa/v2/content/objectstategroups/5">
+    <id>5</id>
+    <identifier>custom-states</identifier>
+    <defaultLanguageCode>eng-GB</defaultLanguageCode>
+    <languageCodes>eng-GB</languageCodes>
+    <ObjectStates media-type="application/vnd.ibexa.api.ObjectStateList+xml" href="/api/ibexa/v2/content/objectstategroups/5/objectstates"/>
+    <names>
+        <value languageCode="eng-GB">Custom State</value>
+    </names>
+    <descriptions>
+        <value languageCode="eng-GB">Custom Object state</value>
+    </descriptions>
+</ObjectStateGroup>

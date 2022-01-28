@@ -19,35 +19,36 @@ img.src = "https://event.yoochoose.net/ebl/00000/click/johndoe/1/100?categorypat
 </script>
 ```
 
-The drawback of this option is that such calls can be blocked by ad blockers or do-not-track plugins on the client side.
+The drawback of this option is that such calls can be blocked by ad blockers 
+or do-not-track plugins on the client side.
 
 ## Server-side tracking
 
 Another option is to call the tracker from the server. 
 The most important drawback is that the event request increases the general request time. 
-If the network is overloaded or the recommendation engine is not available, 
+If the network is overloaded or the Personalization server is not available, 
 the number of requests could grow and lead to a stalled and finally crashing HTTP service. 
 There are several techniques that can help you avoid it.
 
-### Tracking at the bottom
+### Track at the bottom
 
 You can place the code at the very end of the generating script 
 and flush the output buffer to the client just before sending the events. 
 The connection to the browser might remain open for the time of processing, 
 but it will be transparent for the end user.
 
-### Tracking asynchronously
+### Track asynchronously
 
-If the website is implemented in a language that supports multithreading, non-blocking I/O or 
-messaging infrastructure, you can start the event request just after the browser request is received 
-instead of waiting for this process to finish.
+If the website is implemented in a language that supports multithreading, non-blocking 
+I/O or messaging infrastructure, you can start the event request just after 
+the browser request is received instead of waiting for this process to finish.
 
 ## Client-side tracking
 
-### JSONP
+### Use JSONP
 
-Another solution is to provide a proxy on the server side, which will forward script requests to 
-the recommendation engine. 
+Another solution is to provide a proxy on the server side, which will forward 
+script requests to the Personalization server. 
 In this model, the requests are triggered from the client, when the page is already 
 loaded and rendered. 
 It is impossible to request the recommendation controller server directly from JavaScript 
@@ -55,10 +56,10 @@ It is impossible to request the recommendation controller server directly from J
 cross-domain restriction in most browsers. 
 One possible work around this limitation is [JSONP](https://en.wikipedia.org/wiki/JSONP).
 
-### Using a server proxy
+### Use a server proxy
 
 Another option is to tunnel the JavaScript request through the proxy on the same server. 
-The server only forwards requests to the recommendation engine. 
+The server only forwards requests to the Personalization server. 
 It can be a simple implemented Apache proxy module, an independent daemon 
 (for example, "netcat"), or a PHP script.
 
@@ -78,11 +79,12 @@ An overview of pros and cons for every technique:
 
     An Ibexa-recommended solution is to use pixel tracking for non-complex events,
     or where every page is generated on the server side without any caching logic.
-    For hints about preloading image URLs with JavaScript elements (`var img = new Image(); img.src="uri"`)
+    For hints about preloading image URLs with JavaScript elements 
+    (`var img = new Image(); img.src="uri"`)
     or without them (`&lt;img src="uri"... /&gt;`), see [How to Preload Images](https://www.mediacollege.com/internet/javascript/image/preload.html).
 
-    If you plan to implement caching mechanisms and more complex events, such as, for example, 
-    consume (depending on the viewing time of the page), basket (which is usually an in-page event)
-    or custom in-page events that take place on the client side,
+    If you plan to implement caching mechanisms and more complex events like 
+    consume (depending on the viewing time of the page), basket (which is usually 
+    an in-page event) or custom in-page events that take place on the client side, 
     a JavaScript implementation is strongly encouraged.
-    For a sample script and instructions, see [Tracking with yct.js](../developer_guide/tracking_with_yct.md).
+    For a sample script and instructions, see [Track with yct.js](../developer_guide/tracking_with_yct.md).

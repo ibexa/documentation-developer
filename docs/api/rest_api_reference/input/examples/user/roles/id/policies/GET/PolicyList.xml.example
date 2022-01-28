@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PolicyList media-type="application/vnd.ibexa.api.PolicyList+xml" href="/api/ibexa/v2/user/roles/1/policies">
+    <Policy media-type="application/vnd.ibexa.api.Policy+xml" href="/api/ibexa/v2/user/roles/1/policies/349">
+        <id>349</id>
+        <module>content</module>
+        <function>read</function>
+        <limitations>
+            <limitation identifier="Section">
+                <values>
+                    <ref media-type="application/vnd.ibexa.api.ref+xml" href="1"/>
+                    <ref media-type="application/vnd.ibexa.api.ref+xml" href="3"/>
+                    <ref media-type="application/vnd.ibexa.api.ref+xml" href="6"/>
+                </values>
+            </limitation>
+        </limitations>
+    </Policy>
+    <Policy media-type="application/vnd.ibexa.api.Policy+xml" href="/api/ibexa/v2/user/roles/1/policies/350">
+        <id>350</id>
+        <module>user</module>
+        <function>login</function>
+        <limitations>
+            <limitation identifier="SiteAccess">
+                <values>
+                    <ref media-type="application/vnd.ibexa.api.ref+xml" href="2282622326"/>
+                    <ref media-type="application/vnd.ibexa.api.ref+xml" href="1766001124"/>
+                </values>
+            </limitation>
+        </limitations>
+    </Policy>
+    <Policy media-type="application/vnd.ibexa.api.Policy+xml" href="/api/ibexa/v2/user/roles/1/policies/351">
+        <id>351</id>
+        <module>content</module>
+        <function>view_embed</function>
+        <limitations>
+            <limitation identifier="Class">
+                <values>
+                    <ref media-type="application/vnd.ibexa.api.ref+xml" href="5"/>
+                    <ref media-type="application/vnd.ibexa.api.ref+xml" href="12"/>
+                </values>
+            </limitation>
+        </limitations>
+    </Policy>
+    <Policy media-type="application/vnd.ibexa.api.Policy+xml" href="/api/ibexa/v2/user/roles/1/policies/352">
+        <id>352</id>
+        <module>user</module>
+        <function>register</function>
+    </Policy>
+    <Policy media-type="application/vnd.ibexa.api.Policy+xml" href="/api/ibexa/v2/user/roles/1/policies/353">
+        <id>353</id>
+        <module>user</module>
+        <function>password</function>
+    </Policy>
+</PolicyList>

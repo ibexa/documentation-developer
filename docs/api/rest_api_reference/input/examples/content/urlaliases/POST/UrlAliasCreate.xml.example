@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UrlAliasCreate type="LOCATION">
+  <location href='/api/ibexa/v2/content/locations/1/2/59' />
+  <path>example-global</path>
+  <languageCode>eng-GB</languageCode>
+  <alwaysAvailable>true</alwaysAvailable>
+  <forward>true</forward>
+</UrlAliasCreate>

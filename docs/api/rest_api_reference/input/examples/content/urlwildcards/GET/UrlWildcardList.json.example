@@ -1,0 +1,16 @@
+{
+    "UrlWildcardList": {
+        "_media-type": "application/vnd.ibexa.api.UrlWildcardList+json",
+        "_href": "/api/ibexa/v2/content/urlwildcards",
+        "UrlWildcard": [
+            {
+                "_media-type": "application/vnd.ibexa.api.UrlWildcard+json",
+                "_href": "/api/ibexa/v2/content/urlwildcards/1",
+                "_id": 1,
+                "sourceUrl": "/api/ibexa/v2/content/location/2",
+                "destinationUrl": "/api/ibexa/v2/content/location/59",
+                "forward": true
+            }
+        ]
+    }
+}

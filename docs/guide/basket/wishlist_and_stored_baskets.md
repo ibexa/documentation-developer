@@ -40,18 +40,18 @@ const TYPE_WISH_LIST = 'wishList';
 
 |Path|Description|
 |--- |--- |
-|`src/Siso/Bundle/ShopFrontendBundle/Resources/views/themes/standard/Basket/stored_baskets_list.html.twig`|List of all stored baskets.|
-|`ShopFrontendBundle/Resources/views/themes/standard/Basket/show_stored_basket.html.twig`|Entry page for both wishlists and stored baskets. Based on the basket type, it loads one of the templates listed below.|
-|`ShopFrontendBundle/Resources/views/themes/standard/Basket/show_stored_basket_part.html.twig`|Partial page responsible for rendering a stored basket page.|
-|`ShopFrontendBundle:Basket:show_wishlist_part.html.twig`|Partial page responsible for rendering the wishlist.|
-|`EshopBundle:Basket:messages.html.twig`|Template with success/error/notice messages for baskets.|
+|`Eshop/Resources/views/Basket/stored_baskets_list.html.twig`|List of all stored baskets.|
+|`Eshop/Resources/views/Basket/show_stored_basket.html.twig`|Entry page for both wishlists and stored baskets. Based on the basket type, it loads one of the templates listed below.|
+|`Eshop/Resources/views/Basket/show_stored_basket_part.html.twig`|Partial page responsible for rendering a stored basket page.|
+|`Eshop/Resources/views/Basket/show_wishlist_part.html.twig`|Partial page responsible for rendering the wishlist.|
+|`Eshop/Resources/views/Basket/messages.html.twig`|Template with success/error/notice messages for baskets.|
 
 ## Twig functions
 
-`get_stored_baskets()` returns stored baskets for the current user:
+`ibexa_commerce_get_stored_baskets()` returns stored baskets for the current user:
 
 ``` html+twig
-{% set storedBaskets = get_stored_baskets() %}
+{% set storedBaskets = ibexa_commerce_get_stored_baskets() %}
 {% if storedBaskets|default is not empty %}
     {% for storedBasket in storedBaskets %}
         {{ storedBasket.basketName }}

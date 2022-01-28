@@ -1,0 +1,66 @@
+{
+    "ObjectStateList": {
+        "_media-type": "application/vnd.ibexa.api.ObjectStateList+json",
+        "_href": "/api/ibexa/v2/content/objectstategroups/2/objectstates",
+        "ObjectState": [
+            {
+                "_media-type": "application/vnd.ibexa.api.ObjectState+json",
+                "_href": "/api/ibexa/v2/content/objectstategroups/2/objectstates/1",
+                "id": 1,
+                "identifier": "not_locked",
+                "priority": 0,
+                "ObjectStateGroup": {
+                    "_media-type": "application/vnd.ibexa.api.ObjectStateGroup+json",
+                    "_href": "/api/ibexa/v2/content/objectstategroups/2"
+                },
+                "defaultLanguageCode": "eng-GB",
+                "languageCodes": "eng-GB",
+                "names": {
+                    "value": [
+                        {
+                            "_languageCode": "eng-GB",
+                            "#text": "Not locked"
+                        }
+                    ]
+                },
+                "descriptions": {
+                    "value": [
+                        {
+                            "_languageCode": "eng-GB",
+                            "#text": ""
+                        }
+                    ]
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ObjectState+json",
+                "_href": "/api/ibexa/v2/content/objectstategroups/2/objectstates/2",
+                "id": 2,
+                "identifier": "locked",
+                "priority": 1,
+                "ObjectStateGroup": {
+                    "_media-type": "application/vnd.ibexa.api.ObjectStateGroup+json",
+                    "_href": "/api/ibexa/v2/content/objectstategroups/2"
+                },
+                "defaultLanguageCode": "eng-GB",
+                "languageCodes": "eng-GB",
+                "names": {
+                    "value": [
+                        {
+                            "_languageCode": "eng-GB",
+                            "#text": "Locked"
+                        }
+                    ]
+                },
+                "descriptions": {
+                    "value": [
+                        {
+                            "_languageCode": "eng-GB",
+                            "#text": ""
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

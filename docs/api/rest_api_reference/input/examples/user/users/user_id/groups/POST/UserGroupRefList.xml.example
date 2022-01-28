@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UserGroupRefList media-type="application/vnd.ibexa.api.UserGroupRefList+xml" href="/api/ibexa/v2/user/users/115/groups">
+    <UserGroup media-type="application/vnd.ibexa.api.UserGroup+xml" href="/api/ibexa/v2/user/groups/1/5/12">
+        <unassign href="/api/ibexa/v2/user/users/79/groups/12" method="DELETE"/>
+    </UserGroup>
+    <UserGroup media-type="application/vnd.ibexa.api.UserGroup+xml" href="/api/ibexa/v2/user/groups/1/5/13">
+        <unassign href="/api/ibexa/v2/user/users/115/groups/13" method="DELETE"/>
+    </UserGroup>
+</UserGroupRefList>

@@ -49,10 +49,10 @@ Concrete implementations of the `CatalogElement` class require you to extend `va
 
 ``` php
 /** @var $catalogService \Silversolutions\Bundle\EshopBundle\Services\Catalog\CatalogDataProviderService */
-$catalogService = $this->get('silver_catalog.data_provider_service');
+$catalogService = $this->get('Ibexa\Bundle\Commerce\Eshop\Services\Catalog\CatalogDataProviderService');
 try {
     /** @var EzHelperService $ezHelper */
-    $ezHelper = $this->get('silver_tools.ez_helper');
+    $ezHelper = $this->get('Ibexa\Bundle\Commerce\ShopTools\Services\EzHelperService');
     /** @var $catalogElement \Silversolutions\Bundle\EshopBundle\Catalog\CatalogElement */
     $catalogElement = $catalogService->getDataProvider()->fetchElementByIdentifier(
         200,
@@ -60,7 +60,7 @@ try {
     );
  } catch (\Exception $e) {
     return $this->render(
-        'SilversolutionsEshopBundle:Catalog:exception.html.twig',
+        'IbexaCommerceEshopBundle:Catalog:exception.html.twig',
         array(
             'exception' => $e
         ),

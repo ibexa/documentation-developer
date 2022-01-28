@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Query\Aggregation;
 
-use eZ\Publish\API\Repository\Values\Content\Query\Aggregation;
-use eZ\Publish\API\Repository\Values\Content\Query\Aggregation\Range;
-use eZ\Publish\API\Repository\Values\Content\Search\AggregationResult;
-use eZ\Publish\API\Repository\Values\Content\Search\AggregationResult\RangeAggregationResult;
-use eZ\Publish\API\Repository\Values\Content\Search\AggregationResult\RangeAggregationResultEntry;
-use EzSystems\EzPlatformSolrSearchEngine\ResultExtractor\AggregationResultExtractor;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range;
+use Ibexa\Contracts\Core\Repository\Values\Content\Search\AggregationResult;
+use Ibexa\Contracts\Core\Repository\Values\Content\Search\AggregationResult\RangeAggregationResult;
+use Ibexa\Contracts\Core\Repository\Values\Content\Search\AggregationResult\RangeAggregationResultEntry;
+use Ibexa\Contracts\Solr\ResultExtractor\AggregationResultExtractor;
 use stdClass;
 
 final class PriorityAggregationResultExtractor implements AggregationResultExtractor

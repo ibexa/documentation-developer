@@ -1,4 +1,4 @@
-{% extends '@ezdesign/pagelayout_front.html.twig' %}
+{% extends '@ibexadesign/pagelayout_front.html.twig' %}
 
 {% block all_content %}
     <div class="ezcommerce-product">
@@ -10,7 +10,7 @@
                     <div>{{ 'product.sku'|trans({'%sku%': catalogElement.sku})|desc('SKU: %sku%') }}</div>
                 {% endif %}
 
-                <img src="/{{ st_imageconverter(ses_assets_main_image(catalogElement), 'thumb_medium') }}">
+                <img src="/{{ ibexa_commerce_imageconverter(ibexa_commerce_assets_main_image(catalogElement), 'thumb_medium') }}">
 
                 {% if catalogElement.shortDescription %}
                     <div>{{ catalogElement.shortDescription|raw }}</div>

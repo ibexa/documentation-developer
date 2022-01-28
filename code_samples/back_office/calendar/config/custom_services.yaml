@@ -1,0 +1,16 @@
+services:
+    App\Calendar\Holidays\EventType:
+        arguments:
+            $actions: [ ]
+        tags:
+            - { name: ibexa.calendar.event.type }
+            
+    App\Calendar\Holidays\EventSourceFactory:
+        arguments:
+            $eventType: '@App\Calendar\Holidays\EventType'
+
+    App\Calendar\Holidays\EventSource:
+        class: Ibexa\Tests\Calendar\Calendar\EventSource
+        factory: [ '@App\Calendar\Holidays\EventSourceFactory','createEventSource' ]
+        tags:
+            - { name: ibexa.calendar.event.source }

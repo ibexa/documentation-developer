@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BookmarkList media-type="application/vnd.ibexa.api.BookmarkList+xml">
+    <count>3</count>
+    <Bookmark media-type="application/vnd.ibexa.api.Bookmark+xml" _href="/api/ibexa/v2/bookmark/65">
+        <Location media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1/2/57/65">
+            <id>65</id>
+            <priority>0</priority>
+            <hidden>false</hidden>
+            <invisible>false</invisible>
+            <explicitlyHidden>false</explicitlyHidden>
+            <ParentLocation media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1/2/57"/>
+            <pathString>/1/2/57/65/</pathString>
+            <depth>3</depth>
+            <childCount>0</childCount>
+            <remoteId>aa538e305aea472eb221ce23d1cc4b50</remoteId>
+            <Children media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ibexa/v2/content/locations/1/2/57/65/children"/>
+            <Content media-type="application/vnd.ibexa.api.Content+xml" href="/api/ibexa/v2/content/objects/63"/>
+            <sortField>PATH</sortField>
+            <sortOrder>ASC</sortOrder>
+            <UrlAliases media-type="application/vnd.ibexa.api.UrlAliasRefList+xml" href="/api/ibexa/v2/content/locations/1/2/57/65/urlaliases"/>
+            <ContentInfo media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/63">
+                <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/63" remoteId="211e99934c8fef5900e4813b96ec5c87" id="63">
+                    <ContentType media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ibexa/v2/content/types/2"/>
+                    <Name>Art3</Name>
+                    <TranslatedName>Art3</TranslatedName>
+                    <Versions media-type="application/vnd.ibexa.api.VersionList+xml" href="/api/ibexa/v2/content/objects/63/versions"/>
+                    <CurrentVersion media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/63/currentversion"/>
+                    <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ibexa/v2/content/sections/1"/>
+                    <Locations media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ibexa/v2/content/objects/63/locations"/>
+                    <Owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+                    <lastModificationDate>2021-06-28T11:34:17+00:00</lastModificationDate>
+                    <publishedDate>2021-06-28T11:34:17+00:00</publishedDate>
+                    <mainLanguageCode>eng-GB</mainLanguageCode>
+                    <currentVersionNo>1</currentVersionNo>
+                    <alwaysAvailable>false</alwaysAvailable>
+                    <isHidden>false</isHidden>
+                    <status>PUBLISHED</status>
+                    <ObjectStates media-type="application/vnd.ibexa.api.ContentObjectStates+xml" href="/api/ibexa/v2/content/objects/63/objectstates"/>
+                </Content>
+            </ContentInfo>
+        </Location>
+    </Bookmark>
+    <Bookmark media-type="application/vnd.ibexa.api.Bookmark+xml" _href="/api/ibexa/v2/bookmark/68">
+        <Location media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1/2/58/68">
+            <id>68</id>
+            <priority>0</priority>
+            <hidden>false</hidden>
+            <invisible>false</invisible>
+            <explicitlyHidden>false</explicitlyHidden>
+            <ParentLocation media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1/2/58"/>
+            <pathString>/1/2/58/68/</pathString>
+            <depth>3</depth>
+            <childCount>0</childCount>
+            <remoteId>b8cc4627dbc3ca693c85b6b06a8f7492</remoteId>
+            <Children media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ibexa/v2/content/locations/1/2/58/68/children"/>
+            <Content media-type="application/vnd.ibexa.api.Content+xml" href="/api/ibexa/v2/content/objects/67"/>
+            <sortField>PUBLISHED</sortField>
+            <sortOrder>DESC</sortOrder>
+            <UrlAliases media-type="application/vnd.ibexa.api.UrlAliasRefList+xml" href="/api/ibexa/v2/content/locations/1/2/58/68/urlaliases"/>
+            <ContentInfo media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/67">
+                <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/67" remoteId="180adb876af5755d65c1a362fcd619c8" id="67">
+                    <ContentType media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ibexa/v2/content/types/45"/>
+                    <Name>Tip1</Name>
+                    <TranslatedName>Tip1</TranslatedName>
+                    <Versions media-type="application/vnd.ibexa.api.VersionList+xml" href="/api/ibexa/v2/content/objects/67/versions"/>
+                    <CurrentVersion media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/67/currentversion"/>
+                    <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ibexa/v2/content/sections/1"/>
+                    <Locations media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ibexa/v2/content/objects/67/locations"/>
+                    <Owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+                    <lastModificationDate>2021-06-28T11:36:21+00:00</lastModificationDate>
+                    <publishedDate>2021-06-28T11:36:21+00:00</publishedDate>
+                    <mainLanguageCode>eng-GB</mainLanguageCode>
+                    <currentVersionNo>1</currentVersionNo>
+                    <alwaysAvailable>true</alwaysAvailable>
+                    <isHidden>false</isHidden>
+                    <status>PUBLISHED</status>
+                    <ObjectStates media-type="application/vnd.ibexa.api.ContentObjectStates+xml" href="/api/ibexa/v2/content/objects/67/objectstates"/>
+                </Content>
+            </ContentInfo>
+        </Location>
+    </Bookmark>
+    <Bookmark media-type="application/vnd.ibexa.api.Bookmark+xml" _href="/api/ibexa/v2/bookmark/59">
+        <Location media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1/2/59">
+            <id>59</id>
+            <priority>0</priority>
+            <hidden>false</hidden>
+            <invisible>false</invisible>
+            <explicitlyHidden>false</explicitlyHidden>
+            <ParentLocation media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1/2"/>
+            <pathString>/1/2/59/</pathString>
+            <depth>2</depth>
+            <childCount>3</childCount>
+            <remoteId>fd949fc2eed1fff847d73021ff1a6ea9</remoteId>
+            <Children media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ibexa/v2/content/locations/1/2/59/children"/>
+            <Content media-type="application/vnd.ibexa.api.Content+xml" href="/api/ibexa/v2/content/objects/58"/>
+            <sortField>PATH</sortField>
+            <sortOrder>ASC</sortOrder>
+            <UrlAliases media-type="application/vnd.ibexa.api.UrlAliasRefList+xml" href="/api/ibexa/v2/content/locations/1/2/59/urlaliases"/>
+            <ContentInfo media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/58">
+                <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/58" remoteId="00b513aae54036a16e00fb3365c4b5f3" id="58">
+                    <ContentType media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ibexa/v2/content/types/1"/>
+                    <Name>Dog Breed Catalog</Name>
+                    <TranslatedName>Dog Breed Catalog</TranslatedName>
+                    <Versions media-type="application/vnd.ibexa.api.VersionList+xml" href="/api/ibexa/v2/content/objects/58/versions"/>
+                    <CurrentVersion media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/58/currentversion"/>
+                    <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ibexa/v2/content/sections/1"/>
+                    <Locations media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ibexa/v2/content/objects/58/locations"/>
+                    <Owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+                    <lastModificationDate>2021-06-28T11:23:10+00:00</lastModificationDate>
+                    <publishedDate>2021-06-28T11:23:10+00:00</publishedDate>
+                    <mainLanguageCode>eng-GB</mainLanguageCode>
+                    <currentVersionNo>1</currentVersionNo>
+                    <alwaysAvailable>true</alwaysAvailable>
+                    <isHidden>false</isHidden>
+                    <status>PUBLISHED</status>
+                    <ObjectStates media-type="application/vnd.ibexa.api.ContentObjectStates+xml" href="/api/ibexa/v2/content/objects/58/objectstates"/>
+                </Content>
+            </ContentInfo>
+        </Location>
+    </Bookmark>
+</BookmarkList>

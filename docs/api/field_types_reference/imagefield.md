@@ -12,14 +12,14 @@ A **variation service** handles the conversion of the original image into diffe
 
 ### Value object
 
-The `value` property of an Image Field returns an `\eZ\Publish\Core\FieldType\Image\Value` object with the following properties:
+The `value` property of an Image Field returns an `Ibexa\Core\FieldType\Image\Value` object with the following properties:
 
 ##### Properties
 
 |Property|Type|Example|Description|
 |------|------|------|------|
 |`id`|string|`0/8/4/1/1480-1-eng-GB/image.png`|The image's unique identifier. Usually the path, or a part of the path. To get the full path, use the `uri` property.|
-|`alternativeText`|string|`Picture of an apple.`|The alternative text, as entered in the Field's properties.|
+|`alternativeText`|string|`Picture of an apple.`|The alternative text, as entered in the Field's properties. This property is optional. It is recommended that you require the alternative text for an image when you add the Image Field to a Content Type, by selecting the "Alternative text is required" checkbox.|
 |`fileName`|string|`image.png`|The original image's filename, without the path.|
 |`fileSize`|int|`37931`|The original image's size, in bytes.|
 |`uri`|string|`var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/image.png`|The original image's URI.|
@@ -40,7 +40,7 @@ This Field Type does not support settings.
 
 ### Image Variations
 
-Using the variation Service, variations of the original image can be obtained. They are `\eZ\Publish\SPI\Variation\Values\ImageVariation` objects with the following properties:
+Using the variation Service, variations of the original image can be obtained. They are `Ibexa\Contracts\Core\Variation\Values\ImageVariation` objects with the following properties:
 
 | Property       | Type     | Example  | Description|
 |----------------|----------|----------|------------|
@@ -79,13 +79,13 @@ To read more about handling images and image variations, see the [Images documen
 
 ### Template Rendering
 
-When displayed using `ez_render_field`, an Image Field will output this type of HTML:
+When displayed using `ibexa_render_field`, an Image Field will output this type of HTML:
 
 ``` html+twig
 <img src="var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/image_medium.png" width="844" height="430" alt="Alternative text" />
 ```
 
-The template called by the [`ez_render_field()` Twig function](../../guide/content_rendering/twig_function_reference/field_twig_functions.md#ez_render_field) while rendering a Image Field accepts the following parameters:
+The template called by the [`ibexa_render_field()` Twig function](../../guide/content_rendering/twig_function_reference/field_twig_functions.md#ibexa_render_field) while rendering a Image Field accepts the following parameters:
 
 | Parameter | Type     | Default        | Description |
 |-----------|----------|----------------|-------------|
@@ -97,13 +97,13 @@ The template called by the [`ez_render_field()` Twig function](../../guide/cont
 Example: 
 
 ``` html+twig
-{{ ez_render_field( content, 'image', { 'parameters':{ 'alias': 'imagelarge', 'width': 400, 'height': 400 } } ) }}
+{{ ibexa_render_field( content, 'image', { 'parameters':{ 'alias': 'imagelarge', 'width': 400, 'height': 400 } } ) }}
 ```
 
-The raw Field can also be used if needed. Image variations for the Field's content can be obtained using the `ez_image_alias` Twig helper:
+The raw Field can also be used if needed. Image variations for the Field's content can be obtained using the `ibexa_image_alias` Twig helper:
 
 ``` html+twig
-{% set imageAlias = ez_image_alias( field, versionInfo, 'medium' ) %}
+{% set imageAlias = ibexa_image_alias( field, versionInfo, 'medium' ) %}
 ```
 
 The variation's properties can be used to generate the required output:
@@ -114,7 +114,7 @@ The variation's properties can be used to generate the required output:
 
 ### With the REST API
 
-Image Fields within REST are exposed by the `application/vnd.ez.api.Content` media-type. An Image Field will look like this:
+Image Fields within REST are exposed by the `application/vnd.ibexa.api.Content` media-type. An Image Field will look like this:
 
 ``` xml
 <field>
@@ -130,10 +130,10 @@ Image Fields within REST are exposed by the `application/vnd.ez.api.Content` me
         <value key="uri">/var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/kidding.png</value>
         <value key="variations">
             <value key="articleimage">
-                <value key="href">/api/ezp/v2/content/binary/images/240-1480/variations/articleimage</value>
+                <value key="href">/api/ibexa/v2/content/binary/images/240-1480/variations/articleimage</value>
             </value>
             <value key="articlethumbnail">
-                <value key="href">/api/ezp/v2/content/binary/images/240-1480/variations/articlethumbnail</value>
+                <value key="href">/api/ibexa/v2/content/binary/images/240-1480/variations/articlethumbnail</value>
             </value>
         </value>
     </fieldValue>
@@ -143,7 +143,7 @@ Image Fields within REST are exposed by the `application/vnd.ez.api.Content` me
 Children of the `fieldValue` node will list the general properties of the Field's original image (`fileSize`, `fileName`, `inputUri`, etc.), as well as variations. For each variation, a URI is provided. Requested through REST, this resource will generate the variation if it doesn't exist yet, and list the variation details:
 
 ``` xml
-<ContentImageVariation media-type="application/vnd.ez.api.ContentImageVariation+xml" href="/api/ezp/v2/content/binary/images/240-1480/variations/tiny">
+<ContentImageVariation media-type="application/vnd.ibexa.api.ContentImageVariation+xml" href="/api/ibexa/v2/content/binary/images/240-1480/variations/tiny">
   <uri>/var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/kidding_tiny.png</uri>
   <contentType>image/png</contentType>
   <width>30</width>
@@ -156,7 +156,7 @@ Children of the `fieldValue` node will list the general properties of the Field'
 
 #### Getting an image variation
 
-The variation service, `ezpublish.fieldType.ezimage.variation_service`, can be used to generate/get variations for a Field. It expects a VersionInfo, the Image Field, and the variation name as a string (`large`, `medium`, etc.):
+The variation service, `ibexa.field_type.ezimage.variation_service`, can be used to generate/get variations for a Field. It expects a VersionInfo, the Image Field, and the variation name as a string (`large`, `medium`, etc.):
 
 ``` php
 $variation = $imageVariationHandler->getVariation(
@@ -189,7 +189,7 @@ $createStruct = $contentService->newContentCreateStruct(
     'eng-GB'
 );
 
-$imageField = \eZ\Publish\Core\FieldType\Image\Value::fromString( '/tmp/image.png' );
+$imageField = \Ibexa\Core\FieldType\Image\Value::fromString( '/tmp/image.png' );
 $imageField->alternativeText = 'My alternative text';
 $createStruct->setField( 'image', $imageField );
 ```
@@ -197,7 +197,7 @@ $createStruct->setField( 'image', $imageField );
 You can also provide a hash of `Image\Value` properties, either to `setField()`, or to the constructor:
 
 ``` php
-$imageValue = new \eZ\Publish\Core\FieldType\Image\Value(
+$imageValue = new \Ibexa\Core\FieldType\Image\Value(
     [
         'id' => '/tmp/image.png',
         'fileSize' => 37931,

@@ -41,8 +41,8 @@ Exposing the dev mode exposes things like `phpinfo`, environment variables and s
 
     For more information about securing Symfony-based systems, see:
     
-    - [Authentication and authorisation](https://symfony.com/doc/current/security.html), and [more on this subject](https://symfony.com/doc/current/security.html#learn-more)
-    - Symfony's [secrets management system](https://symfony.com/doc/current/configuration/secrets.html)
+    - [Authentication and authorisation]([[= symfony_doc =]]/security.html), and [more on this subject]([[= symfony_doc =]]/security.html#learn-more)
+    - Symfony's [secrets management system]([[= symfony_doc =]]/configuration/secrets.html)
 
 ## [[= product_name =]]
 
@@ -84,12 +84,11 @@ See [Security advisory: EZSA-2020-002.](https://developers.ibexa.co/security-adv
 ### Block the execution of scripts in the `var` directory
 
 Make sure the web server blocks the execution of PHP files and other scripts in the `var` directory.
-See [vhost.template.](https://github.com/ezsystems/ezplatform/blob/master/doc/apache2/vhost.template#L80)
+See [vhost.template.](https://github.com/ezsystems/developer-documentation/tree/master/code_samples/install/vhost_template/vhost.template#L80)
 
 ### Use secure password hashing
 
-Use the most secure supported password hashing method.
-This is currently `bcrypt`, see [Increased password hash length](../updating/5_update_1.13.md#increased-password-hash-length).
+Use the most secure supported password hashing method. This is currently `bcrypt`.
 
 ### Restrict access to the back end
 
@@ -100,7 +99,7 @@ If possible, make the back end unavailable on the open internet.
 If you are using MySQL/MariaDB, use the UTF8MB4 database character set and related collation.
 The older UTF8 can lead to truncation with 4-byte characters, like some emoji, which may have unpredictable side effects.
 
-See [Change from UTF8 to UTF8MB4](../updating/5_update_2.2.md#change-from-utf8-to-utf8mb4).
+See [Change from UTF8 to UTF8MB4](../updating/from_1.x_2.x/update_db_to_2.5.md#change-from-utf8-to-utf8mb4).
 
 ### Use secure Roles and Policies
 
@@ -119,6 +118,12 @@ Use the following checklist to ensure the Roles and Policies are secure:
 - Avoid exposing servers on the open internet when not strictly required.
 - Ensure any servers, services, ports and virtual hosts that were opened for testing purposes are locked down before going live.
 - Secure the database with a good password, keys, firewall, etc.
-- Run the server on a recent operating system and dependencies with security patches installed.
-- Configure the server to alert you about security updates from vendors.
-Pay special attention to dependencies used by your project directly, or by PHP.
+
+### Track dependencies
+
+- Run servers on a recent operating system and install security patches for dependencies.
+- Configure servers to alert you about security updates from vendors. Pay special attention to dependencies used by your project directly, or by PHP. The provider of the operating system usually has a service for this.
+- Enable [GitHub Dependabot](https://docs.github.com/en/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)
+to receive notifications when a security fix is released in a Github-hosted dependency.
+- If you're not using Github for your project, you can create a dummy project on Github with the same dependencies as your real project, and enable Dependabot notifications for that.
+- Ensure you get notifications about security fixes in JavaScript dependencies.

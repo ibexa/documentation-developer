@@ -8,7 +8,7 @@ The shop only stores local data for orders, so only the `order` document type is
 You can enable the use of local documents with the `use_local_documents` configuration parameter:
 
 ``` yaml
-siso_order_history.default.use_local_documents: false
+ibexa_commerce_order_history.default.use_local_documents: false
 ```
 
 ## Invoices for local orders
@@ -24,10 +24,10 @@ In the header of the order history details page, there is a link to the invoice 
 To show the invoice link in a new column of the table, use the following configuration:
 
 ``` yaml
-siso_order_history.default.default_list_fields:
+ibexa_commerce_order_history.default.default_list_fields:
     order:  
         # ...
         - SesExtension_Invoice
 ```
 
-The `EshopBundle/Resources/views/Invoice/show.html.twig` template renders the invoice view and the invoice PDF.
+The `Eshop/Resources/views/Invoice/show.html.twig` template renders the invoice view and the invoice PDF.

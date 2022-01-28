@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace App\Query\Criterion;
 
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use EzSystems\EzPlatformSolrSearchEngine\Query\CriterionVisitor;
 
 final class CameraManufacturerVisitor extends CriterionVisitor
 {
     public function canVisit(Criterion $criterion)
     {
-        return $criterion instanceof CameraManufacturer;
+        return $criterion instanceof CameraManufacturerCriterion;
     }
     public function visit(Criterion $criterion, CriterionVisitor $subVisitor = null)
     {

@@ -23,11 +23,11 @@ Create a Twig template `templates/full/ride.html.twig` with the following code:
             <div class="row">
                 <div class="col-xs-6">
                     <h4 class="underscore">{{ 'Starting point'|trans }}</h4>
-                    {{ ez_render_field(content, 'starting_point', {'parameters': { 'width': '100%', height: '200px', 'showMap': true, 'showInfo': false }}) }}
+                    {{ ibexa_render_field(content, 'starting_point', {'parameters': { 'width': '100%', height: '200px', 'showMap': true, 'showInfo': false }}) }}
                 </div>
                 <div class="col-xs-6">
                     <h4 class="underscore">{{ 'Ending point'|trans }}</h4>
-                    {{ ez_render_field(content, 'ending_point', {'parameters': { 'width': '100%', height: '200px', 'showMap': true, 'showInfo': false }}) }}
+                    {{ ibexa_render_field(content, 'ending_point', {'parameters': { 'width': '100%', height: '200px', 'showMap': true, 'showInfo': false }}) }}
                 </div>
             </div>
         </div>
@@ -37,12 +37,12 @@ Create a Twig template `templates/full/ride.html.twig` with the following code:
             <div class="col-xs-12 padding-box">
                 <div class="col-xs-2">
                     <div class="box-ride">
-                        <p class="special-number">{{ ez_render_field( content, 'length') }} km</p>
+                        <p class="special-number">{{ ibexa_render_field( content, 'length') }} km</p>
                     </div>
                 </div>
                 <div class="col-xs-8">
                     <h4 class="underscore">{{ 'Description'|trans }}</h4>
-                    {{ ez_render_field( content, 'description') }}
+                    {{ ibexa_render_field( content, 'description') }}
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 # StandardTemplateDebitorService
 
-`StandardTemplateDebitorService` (service ID: `siso_core.template_debitor.standard`)
+`StandardTemplateDebitorService` (service ID: `Ibexa\Bundle\Commerce\Eshop\Service\StandardTemplateDebitorService`)
 can be used when the customer doesn't have a customer or contact number yet,
 but the number is necessary when communicating data to ERP.
 An example is price calculation, when prices are calculated using ERP.

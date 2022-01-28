@@ -1,0 +1,10 @@
+{
+    "RoleAssignment": {
+        "_media-type": "application/vnd.ibexa.api.RoleAssignment+json",
+        "_href": "/api/ibexa/v2/user/groups/1/11/12/roles/1",
+        "Role": {
+            "_media-type": "application/vnd.ibexa.api.Role+json",
+            "_href": "/api/ibexa/v2/user/roles/1"
+        }
+    }
+}

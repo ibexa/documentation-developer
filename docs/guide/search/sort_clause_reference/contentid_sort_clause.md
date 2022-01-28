@@ -1,6 +1,6 @@
 # ContentId Sort Clause
 
-The [`ContentId` Sort Clause](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Query/SortClause/ContentId.php)
+The [`ContentId` Sort Clause](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/SortClause/ContentId.php)
 sorts search results by the Content items' IDs.
 
 ## Arguments

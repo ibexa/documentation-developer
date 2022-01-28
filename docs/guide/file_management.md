@@ -2,10 +2,10 @@
 
 ## Accessing binary files
 
-To access binary files from the PHP API, use the `eZ\Publish\Core\IO\IOServiceInterface::loadBinaryFile()` method:
+To access binary files from the PHP API, use the `Ibexa\Core\IO\IOServiceInterface::loadBinaryFile()` method:
 
 ```php
-use eZ\Publish\Core\IO\IOServiceInterface;
+use Ibexa\Core\IO\IOServiceInterface;
 
 class FileController
 {
@@ -26,14 +26,14 @@ class FileController
 
 The IO API is organized around two types of handlers, both used by the IOService:
 
-- `eZ\Publish\IO\IOMetadataHandler`: Stores and reads metadata (validity, size, etc.)
-- `eZ\Publish\IO\IOBinarydataHandler`: Stores and reads the actual binary data
+- `Ibexa\Core\IO\IOMetadataHandler`: Stores and reads metadata (validity, size, etc.)
+- `Ibexa\Core\IO\IOBinarydataHandler`: Stores and reads the actual binary data
 
 IO handlers can be configured using semantic configuration and are configurable per SiteAccess.
 This is the default configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             io:
@@ -41,10 +41,10 @@ ezplatform:
                 binarydata_handler: default
 ```
 
-Metadata and binary data handlers are configured under `ez_io`. Below is what the configuration looks like for the default handlers. It declares a metadata handler and a binary data handler, both labeled `default`. Both handlers are of type `flysystem`, and use the same Flysystem adapter, labeled `default` as well.
+Metadata and binary data handlers are configured under `ibexa_io`. Below is what the configuration looks like for the default handlers. It declares a metadata handler and a binary data handler, both labeled `default`. Both handlers are of type `flysystem`, and use the same Flysystem adapter, labeled `default` as well.
 
 ``` yaml
-ez_io:
+ibexa_io:
     metadata_handlers:
         default:
             flysystem:
@@ -60,7 +60,7 @@ The 'default' Flysystem adapter's directory is based on your site settings, and 
 #### Configure the permissions of generated files
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             io:
@@ -126,12 +126,12 @@ If you want to enable indexing, you must have installed Oracle Java/Open JDK 8 o
 Next, in the `config/packages` folder create a `binary_files.yaml` file with the following configuration:
 
 ``` yaml
-ibexa_platform_commerce_field_types:
+ibexa_commerce_field_types:
     binary_file_indexing:
         enabled: true
 ```
 
-To check what types are indexed, see under the `siso_search.default.index_content` parameter in `src/Siso/Bundle/SearchBundle/Resources/config/search.yml`. This parameter can be overriden, so you use it to index only specific types per SiteAccess or to extend the indexing to other file types.
+To check what types are indexed, see under the `ibexa_commerce_search.default.index_content` parameter in `src/Siso/Bundle/SearchBundle/Resources/config/search.yml`. This parameter can be overriden, so you use it to index only specific types per SiteAccess or to extend the indexing to other file types.
 The following file types are indexed by default:
 
 ``` yaml
@@ -152,17 +152,17 @@ It also accepts optional query parameters:
 - `version`: the version number that the file must be downloaded for. Requires the `versionread` permission. If not specified, the published version is used.
 - `inLanguage`: The language the file should be downloaded in. If not specified, the most prioritized language for the SiteAccess will be used.
 
-The [ez\_render\_field](content_rendering/twig_function_reference/field_twig_functions.md#ez_render_field) Twig helper will by default generate a working link.
+The [ez\_render\_field](content_rendering/twig_function_reference/field_twig_functions.md#ibexa_render_field) Twig helper will by default generate a working link.
 
 ### Download link generation
 
 To generate a direct download link for the `File` Field Type you have to create
-a Route Reference with the `ez_route` helper, passing `content` and `File` Field identifier as parameters.
+a Route Reference with the `ibexa_route` helper, passing `content` and `File` Field identifier as parameters.
 Optional parameter `inLanguage` may be used to specify File content translation.
 
 ```twig
-  {% set routeReference = ez_route( 'ez_content_download', {'content': content, 'fieldIdentifier': 'file', 'inLanguage': content.prioritizedFieldLanguageCode  } ) %}
-  <a href="{{ ez_path( routeReference ) }}">Download</a>
+  {% set routeReference = ibexa_route( 'ibexa.content.download', {'content': content, 'fieldIdentifier': 'file', 'inLanguage': content.prioritizedFieldLanguageCode  } ) %}
+  <a href="{{ ibexa_path( routeReference ) }}">Download</a>
 ```
 
 ### REST API: `uri` property
@@ -179,7 +179,7 @@ By default, images and binary files that are referenced by the content will be s
 This is the default semantic configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             io:
@@ -196,7 +196,7 @@ by setting up a separate server that maps the `/path/to/ezplatform/public/var` d
 The configuration would be as follows:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             io:
@@ -218,7 +218,7 @@ Any `BinaryFile` returned by the public API is prefixed with the value of this 
 Default value: `$var_dir$/$storage_dir$`
 Example: `/var/site/storage`
 
-Used to configure the default URL decorator service (`ezpublish.core.io.default_url_decorator`), used by all binary data handlers to generate the URI of loaded files. It is always interpreted as an absolute URI, meaning that unless it contains a scheme (http://, ftp://), it will be prepended with a '/'.
+Used to configure the default URL decorator service (`ibexa.core.io.default_url_decorator`), used by all binary data handlers to generate the URI of loaded files. It is always interpreted as an absolute URI, meaning that unless it contains a scheme (http://, ftp://), it will be prepended with a '/'.
 
 This setting is SiteAccess-aware.
 
@@ -232,7 +232,7 @@ Two implementations are provided: `Prefix`, and `AbsolutePrefix`. They both add 
 
 Three UrlDecorator services are introduced:
 
-- `ezpublish.core.io.prefix_url_decorator` used by the binary data handlers to decorate all URIs sent out by the API. Uses `AbsolutePrefix`.
-- `ezpublish.core.io.image_fieldtype.legacy_url_decorator` used via the UrlRedecorator by various legacy elements (Converter, Storage Gateway, etc.) to generate its internal storage format for URIs. Uses a `Prefix`, not an `AbsolutePrefix`, meaning that no leading / is added.
+- `Ibexa\Core\IO\UrlDecorator\AbsolutePrefix` used by the binary data handlers to decorate all URIs sent out by the API. Uses `AbsolutePrefix`.
+- `Ibexa\Core\IO\UrlDecorator\Prefix` used via the UrlRedecorator by various legacy elements (Converter, Storage Gateway, etc.) to generate its internal storage format for URIs. Uses a `Prefix`, not an `AbsolutePrefix`, meaning that no leading / is added.
 
-In addition, a UrlRedecorator service, `ezpublish.core.io.image_fieldtype.legacy_url_redecorator`, uses both decorators above to convert URIs between what is used on the new stack, and what format legacy expects (relative urls from the ezpublish root).
+In addition, a UrlRedecorator service, `Ibexa\Core\IO\UrlDecorator\Prefix`, uses both decorators above to convert URIs between what is used on the new stack, and what format legacy expects (relative urls from the ezpublish root).

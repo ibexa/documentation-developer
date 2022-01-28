@@ -1,6 +1,6 @@
 # SectionIdentifier Sort Clause
 
-The [`SectionIdentifier` Sort Clause](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Query/SortClause/SectionIdentifier.php)
+The [`SectionIdentifier` Sort Clause](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/SortClause/SectionIdentifier.php)
 sorts search results by the Section IDs of the Content items.
 
 ## Arguments

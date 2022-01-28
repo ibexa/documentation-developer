@@ -1,0 +1,51 @@
+{
+    "ContentTypeInfo": {
+        "_media-type": "application/vnd.ibexa.api.ContentTypeInfo+json",
+        "_href": "/api/ibexa/v2/content/types/2/draft",
+        "id": 2,
+        "status": "DRAFT",
+        "identifier": "article",
+        "names": {
+            "value": [
+                {
+                    "_languageCode": "eng-GB",
+                    "#text": "Updated Content Type name"
+                }
+            ]
+        },
+        "descriptions": {
+            "value": [
+                {
+                    "_languageCode": "eng-GB",
+                    "#text": "This is an updated Content Type description"
+                }
+            ]
+        },
+        "creationDate": "2002-06-18T09:21:38+00:00",
+        "modificationDate": "2021-08-11T11:58:24+00:00",
+        "Creator": {
+            "_media-type": "application/vnd.ibexa.api.User+json",
+            "_href": "/api/ibexa/v2/user/users/14"
+        },
+        "Modifier": {
+            "_media-type": "application/vnd.ibexa.api.User+json",
+            "_href": "/api/ibexa/v2/user/users/14"
+        },
+        "Groups": {
+            "_media-type": "application/vnd.ibexa.api.ContentTypeGroupRefList+json",
+            "_href": "/api/ibexa/v2/content/types/2/groups"
+        },
+        "Draft": {
+            "_media-type": "application/vnd.ibexa.api.ContentType+json",
+            "_href": "/api/ibexa/v2/content/types/2/draft"
+        },
+        "remoteId": "c15b600eb9198b1924063b5a68758232",
+        "urlAliasSchema": null,
+        "nameSchema": "<short_title|title>",
+        "isContainer": true,
+        "mainLanguageCode": "eng-GB",
+        "defaultAlwaysAvailable": true,
+        "defaultSortField": "PATH",
+        "defaultSortOrder": "ASC"
+    }
+}

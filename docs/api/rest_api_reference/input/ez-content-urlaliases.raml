@@ -1,0 +1,92 @@
+get:
+    displayName: List global URL aliases
+    description: Returns the list of global URL aliases.
+    headers:
+        Accept:
+            description: If set, the URL alias list contains only references and is returned in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.UrlAliasRefList+xml
+                application/vnd.ibexa.api.UrlAliasRefList+json
+    responses:
+        200:
+            description: OK - returns the list of URL aliases.
+            body:
+                application/vnd.ibexa.api.UrlAliasRefList+xml:
+                    type: UrlAliasRefList
+                    example: !include examples/content/urlaliases/GET/UrlAliasRefList.xml.example
+                application/vnd.ibexa.api.UrlAliasRefList+json:
+                    type: UrlAliasRefList
+                    example: !include examples/content/urlaliases/GET/UrlAliasRefList.json.example
+        401:
+            description: Error - The user has no permission to read URL aliases.
+post:
+    displayName: Create URL alias
+    description: Creates a URL alias.
+    headers:
+        Accept:
+            description: If set, the created URL alias is returned in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.UrlAlias+xml
+                application/vnd.ibexa.api.UrlAlias+json
+        Content-Type:
+            description: The URL alias input schema encoded in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.UrlAliasCreate+xml
+                application/vnd.ibexa.api.UrlAliasCreate+json
+    body:
+        application/vnd.ibexa.api.UrlAliasCreate+xml:
+            type: UrlAliasCreate
+            example: !include examples/content/urlaliases/POST/UrlAliasCreate.xml.example
+        application/vnd.ibexa.api.UrlAliasCreate+json:
+            type: UrlAliasCreate
+            example: !include examples/content/urlaliases/POST/UrlAliasCreate.json.example
+    responses:
+        201:
+            description: URL alias created.
+            body:
+                application/vnd.ibexa.api.UrlAlias+xml:
+                    type: UrlAlias
+                    example: !include examples/content/urlaliases/POST/UrlAlias.xml.example
+                application/vnd.ibexa.api.UrlAlias+json:
+                    type: UrlAlias
+                    example: !include examples/content/urlaliases/POST/UrlAlias.json.example
+        400:
+            description: Error - The input does not match the input schema definition.
+        401:
+            description: Error - The user is not authorized to create a URL alias.
+        403:
+            description: Error - A URL alias with the same identifier already exists.
+/{urlAliasId}:
+    get:
+        displayName: Get URL alias
+        description: Returns the URL alias with the given ID.
+        headers:
+            Accept:
+                description: If set, the URL alias is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.UrlAlias+xml
+                    application/vnd.ibexa.api.UrlAlias+json
+        responses:
+            200:
+                description: OK - returns the URL alias.
+                body:
+                    application/vnd.ibexa.api.UrlAlias+xml:
+                        type: UrlAlias
+                        example: !include examples/content/urlaliases/url_alias_id/GET/UrlAlias.xml.example
+                    application/vnd.ibexa.api.UrlAlias+json:
+                        type: UrlAlias
+                        example: !include examples/content/urlaliases/url_alias_id/GET/UrlAlias.json.example
+            401:
+                description: Error - The user is not authorized to read URL aliases.
+            404:
+                description: Error - The URL alias does not exist.
+    delete:
+        displayName: Delete URL alias
+        description: Deletes the provided URL alias.
+        responses:
+            204:
+                description: No Content - URL alias deleted.
+            401:
+                description: Error - The user is not authorized to delete a URL alias.
+            404:
+                description: Error - The URL alias does not exist.

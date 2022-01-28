@@ -1,0 +1,194 @@
+{
+    "Version": {
+        "_media-type": "application/vnd.ibexa.api.Version+json",
+        "_href": "/api/ibexa/v2/content/objects/59/versions/1",
+        "VersionInfo": {
+            "id": 519,
+            "versionNo": 1,
+            "status": "PUBLISHED",
+            "modificationDate": "2021-06-28T11:33:01+00:00",
+            "Creator": {
+                "_media-type": "application/vnd.ibexa.api.User+json",
+                "_href": "/api/ibexa/v2/user/users/14"
+            },
+            "creationDate": "2021-06-28T11:32:39+00:00",
+            "initialLanguageCode": "eng-GB",
+            "languageCodes": "eng-GB",
+            "VersionTranslationInfo": {
+                "_media-type": "application/vnd.ibexa.api.VersionTranslationInfo+json",
+                "Language": [
+                    {
+                        "languageCode": "eng-GB"
+                    }
+                ]
+            },
+            "names": {
+                "value": [
+                    {
+                        "_languageCode": "eng-GB",
+                        "#text": "Art1"
+                    }
+                ]
+            },
+            "Content": {
+                "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+                "_href": "/api/ibexa/v2/content/objects/59"
+            }
+        },
+        "Fields": {
+            "field": [
+                {
+                    "id": 269,
+                    "fieldDefinitionIdentifier": "title",
+                    "languageCode": "eng-GB",
+                    "fieldTypeIdentifier": "ezstring",
+                    "fieldValue": "Art1"
+                },
+                {
+                    "id": 270,
+                    "fieldDefinitionIdentifier": "short_title",
+                    "languageCode": "eng-GB",
+                    "fieldTypeIdentifier": "ezstring",
+                    "fieldValue": null
+                },
+                {
+                    "id": 271,
+                    "fieldDefinitionIdentifier": "author",
+                    "languageCode": "eng-GB",
+                    "fieldTypeIdentifier": "ezauthor",
+                    "fieldValue": [
+                        {
+                            "id": "1",
+                            "name": "Administrator User",
+                            "email": "admin@link.invalid"
+                        }
+                    ]
+                },
+                {
+                    "id": 272,
+                    "fieldDefinitionIdentifier": "intro",
+                    "languageCode": "eng-GB",
+                    "fieldTypeIdentifier": "ezrichtext",
+                    "fieldValue": {
+                        "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:ezxhtml=\"http://ez.no/xmlns/ezpublish/docbook/xhtml\" xmlns:ezcustom=\"http://ez.no/xmlns/ezpublish/docbook/custom\" version=\"5.0-variant ezpublish-1.0\"><para>aaaaa</para></section>\n",
+                        "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5/edit\"><p>aaaaa</p></section>\n"
+                    }
+                },
+                {
+                    "id": 273,
+                    "fieldDefinitionIdentifier": "body",
+                    "languageCode": "eng-GB",
+                    "fieldTypeIdentifier": "ezrichtext",
+                    "fieldValue": {
+                        "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n",
+                        "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5/edit\"/>\n"
+                    }
+                },
+                {
+                    "id": 274,
+                    "fieldDefinitionIdentifier": "enable_comments",
+                    "languageCode": "eng-GB",
+                    "fieldTypeIdentifier": "ezboolean",
+                    "fieldValue": false
+                },
+                {
+                    "id": 275,
+                    "fieldDefinitionIdentifier": "image",
+                    "languageCode": "eng-GB",
+                    "fieldTypeIdentifier": "ezimageasset",
+                    "fieldValue": {
+                        "destinationContentId": "60",
+                        "alternativeText": null,
+                        "source": null,
+                        "variations": {
+                            "article_full": {
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/article_full"
+                            },
+                            "content_list": {
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/content_list"
+                            },
+                            "dog_breed_full": {
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/dog_breed_full"
+                            },
+                            "ezplatform_admin_ui_profile_picture_user_menu": {
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/ezplatform_admin_ui_profile_picture_user_menu"
+                            },
+                            "featured_article": {
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/featured_article"
+                            },
+                            "fourth_width_2_3": {
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/fourth_width_2_3"
+                            },
+                            "fourth_width_3_2": {
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/fourth_width_3_2"
+                            },
+                            "full_width_2_3": {
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/full_width_2_3"
+                            },
+                            "full_width_3_2": {
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/full_width_3_2"
+                            },
+                            "gallery": {
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/gallery"
+                            },
+                            "half_width_2_3": {
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/half_width_2_3"
+                            },
+                            "half_width_3_2": {
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/half_width_3_2"
+                            },
+                            "large": {
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/large"
+                            },
+                            "medium": {
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/medium"
+                            },
+                            "reference": {
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/reference"
+                            },
+                            "small": {
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/small"
+                            },
+                            "third_width_2_3": {
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/third_width_2_3"
+                            },
+                            "third_width_3_2": {
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/third_width_3_2"
+                            },
+                            "tiny": {
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/tiny"
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "Relations": {
+            "_media-type": "application/vnd.ibexa.api.RelationList+json",
+            "_href": "/api/ibexa/v2/content/objects/59/versions/1/relations",
+            "Relation": [
+                {
+                    "_media-type": "application/vnd.ibexa.api.Relation+json",
+                    "_href": "/api/ibexa/v2/content/objects/59/versions/1/relations/1",
+                    "SourceContent": {
+                        "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+                        "_href": "/api/ibexa/v2/content/objects/59"
+                    },
+                    "DestinationContent": {
+                        "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+                        "_href": "/api/ibexa/v2/content/objects/60"
+                    },
+                    "SourceFieldDefinitionIdentifier": "image",
+                    "RelationType": "ASSET"
+                }
+            ]
+        },
+        "Thumbnail": {
+            "_media-type": "application/vnd.ibexa.api.Thumbnail+json",
+            "resource": "/bundles/ezplatformadminui/img/ez-icons.svg#article",
+            "width": null,
+            "height": null,
+            "mimeType": "image/svg+xml"
+        }
+    }
+}

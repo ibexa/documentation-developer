@@ -1,0 +1,155 @@
+{
+    "UserList": {
+        "_media-type": "application/vnd.ibexa.api.UserList+json",
+        "_href": "/api/ibexa/v2/user/users",
+        "User": [
+            {
+                "_media-type": "application/vnd.ibexa.api.User+json",
+                "_href": "/api/ibexa/v2/user/users/79",
+                "_id": 79,
+                "_remoteId": "bcf0764b417f05af21852a1f03fb1f13",
+                "ContentType": {
+                    "_media-type": "application/vnd.ibexa.api.ContentType+json",
+                    "_href": "/api/ibexa/v2/content/types/4"
+                },
+                "name": "Jose Vargas",
+                "Versions": {
+                    "_media-type": "application/vnd.ibexa.api.VersionList+json",
+                    "_href": "/api/ibexa/v2/content/objects/79/versions"
+                },
+                "Section": {
+                    "_media-type": "application/vnd.ibexa.api.Section+json",
+                    "_href": "/api/ibexa/v2/content/sections/2"
+                },
+                "MainLocation": {
+                    "_media-type": "application/vnd.ibexa.api.Location+json",
+                    "_href": "/api/ibexa/v2/content/locations/1/5/12/79"
+                },
+                "Locations": {
+                    "_media-type": "application/vnd.ibexa.api.LocationList+json",
+                    "_href": "/api/ibexa/v2/content/objects/79/locations"
+                },
+                "Groups": {
+                    "_media-type": "application/vnd.ibexa.api.UserGroupRefList+json",
+                    "_href": "/api/ibexa/v2/user/users/79/groups"
+                },
+                "Owner": {
+                    "_media-type": "application/vnd.ibexa.api.User+json",
+                    "_href": "/api/ibexa/v2/user/users/10"
+                },
+                "publishDate": "2021-06-29T08:23:42+00:00",
+                "lastModificationDate": "2021-06-29T08:23:42+00:00",
+                "mainLanguageCode": "eng-GB",
+                "alwaysAvailable": true,
+                "Version": {
+                    "_media-type": "application/vnd.ibexa.api.Version+json",
+                    "_href": "/api/ibexa/v2/content/objects/79/versions/1",
+                    "VersionInfo": {
+                        "id": 547,
+                        "versionNo": 1,
+                        "status": "PUBLISHED",
+                        "modificationDate": "2021-06-29T08:23:42+00:00",
+                        "Creator": {
+                            "_media-type": "application/vnd.ibexa.api.User+json",
+                            "_href": "/api/ibexa/v2/user/users/10"
+                        },
+                        "creationDate": "2021-06-29T08:23:42+00:00",
+                        "initialLanguageCode": "eng-GB",
+                        "languageCodes": "eng-GB",
+                        "VersionTranslationInfo": {
+                            "_media-type": "application/vnd.ibexa.api.VersionTranslationInfo+json",
+                            "Language": [
+                                {
+                                    "languageCode": "eng-GB"
+                                }
+                            ]
+                        },
+                        "names": {
+                            "value": [
+                                {
+                                    "_languageCode": "eng-GB",
+                                    "#text": "Jose Vargas"
+                                }
+                            ]
+                        },
+                        "Content": {
+                            "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+                            "_href": "/api/ibexa/v2/content/objects/79"
+                        }
+                    },
+                    "Fields": {
+                        "field": [
+                            {
+                                "id": 342,
+                                "fieldDefinitionIdentifier": "first_name",
+                                "languageCode": "eng-GB",
+                                "fieldTypeIdentifier": "ezstring",
+                                "fieldValue": "Jose"
+                            },
+                            {
+                                "id": 343,
+                                "fieldDefinitionIdentifier": "last_name",
+                                "languageCode": "eng-GB",
+                                "fieldTypeIdentifier": "ezstring",
+                                "fieldValue": "Vargas"
+                            },
+                            {
+                                "id": 344,
+                                "fieldDefinitionIdentifier": "user_account",
+                                "languageCode": "eng-GB",
+                                "fieldTypeIdentifier": "ezuser",
+                                "fieldValue": {
+                                    "hasStoredLogin": true,
+                                    "contentId": 79,
+                                    "login": "josevargas",
+                                    "email": "aa@bb.cc",
+                                    "passwordUpdatedAt": 1624955022,
+                                    "enabled": true,
+                                    "maxLogin": 0,
+                                    "plainPassword": null
+                                }
+                            },
+                            {
+                                "id": 345,
+                                "fieldDefinitionIdentifier": "signature",
+                                "languageCode": "eng-GB",
+                                "fieldTypeIdentifier": "eztext",
+                                "fieldValue": null
+                            },
+                            {
+                                "id": 346,
+                                "fieldDefinitionIdentifier": "image",
+                                "languageCode": "eng-GB",
+                                "fieldTypeIdentifier": "ezimage",
+                                "fieldValue": null
+                            }
+                        ]
+                    },
+                    "Relations": {
+                        "_media-type": "application/vnd.ibexa.api.RelationList+json",
+                        "_href": "/api/ibexa/v2/content/objects/79/versions/1/relations",
+                        "Relation": []
+                    },
+                    "Thumbnail": {
+                        "_media-type": "application/vnd.ibexa.api.Thumbnail+json",
+                        "resource": "/bundles/ezplatformadminui/img/ez-icons.svg#user",
+                        "width": null,
+                        "height": null,
+                        "mimeType": "image/svg+xml"
+                    }
+                },
+                "login": "josevargas",
+                "email": "aa@bb.cc",
+                "enabled": true,
+                "UserGroups": {
+                    "_media-type": "application/vnd.ibexa.api.UserGroupList+json",
+                    "_href": "/api/ibexa/v2/user/users/79/groups"
+                },
+                "Roles": {
+                    "_media-type": "application/vnd.ibexa.api.RoleAssignmentList+json",
+                    "_href": "/api/ibexa/v2/user/users/79/roles"
+                }
+            }
+        ]
+    }
+}

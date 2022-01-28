@@ -5,17 +5,17 @@
 `product_groups` defines the groups that are used for the product search.
 
 ``` yaml
-siso_search.default.product_groups: ['product', 'product_list']
+ibexa_commerce_search.default.product_groups: ['product', 'product_list']
 ```
 
 ### Product listing
 
-`siso_search.default.groups.product_list` configures results in product listing:
+`ibexa_commerce_search.default.groups.product_list` configures results in product listing:
 
 ![](../../img/search_product_list.png)
 
 ``` yaml
-siso_search.default.groups.product_list:
+ibexa_commerce_search.default.groups.product_list:
     product_list:
         types:
             - ses_product
@@ -33,7 +33,7 @@ Search results page displays results divided into tabs.
 The following example defines three tabs: Product, Content and Files:
 
 ``` yaml
-siso_search.default.groups.search:
+ibexa_commerce_search.default.groups.search:
     product:
         types:
             - ses_product
@@ -71,7 +71,7 @@ Inside each tab there are additional definitions:
 If multiple sections are defined, products or content must be assigned to either of them (OR operator).
 - `visibility` - enables searching for content that is or isn't visible
 
-Tab label are defined in the translation file `EshopBundle/Resources/translations/messages.en.php` using the key value as ID, for example:
+Tab label are defined in the translation file `Eshop/Resources/translations/messages.en.php` using the key value as ID, for example:
 
 ``` php
 'special|search' => 'Special',
@@ -82,7 +82,7 @@ Tab label are defined in the translation file `EshopBundle/Resources/translation
 `search.preferred` defines which group is preferred for search as a default choice.
 
 ``` yaml
-siso_search.default.groups.search.preferred: product
+ibexa_commerce_search.default.groups.search.preferred: product
 ```
 
 ## Main Location
@@ -90,18 +90,18 @@ siso_search.default.groups.search.preferred: product
 `main_location_only` defines whether search returns main nodes only.
 
 ``` yaml
-siso_search.default.query.main_location_only: true
+ibexa_commerce_search.default.query.main_location_only: true
 ```
 
 ## Pagination limit
 
 Depending on chosen design layout, you can configure a pagination limit and default limit:
 
-- `siso_search.default.limits` - define the list of all available limit options per design
-- `siso_search.default.limits.preferred` - defines elements per page and populates page size drop down
+- `ibexa_commerce_search.default.limits` - define the list of all available limit options per design
+- `ibexa_commerce_search.default.limits.preferred` - defines elements per page and populates page size drop down
 
 ``` yaml
-siso_search.default.limits:
+ibexa_commerce_search.default.limits:
     left:
         3: 3
         6: 6
@@ -120,10 +120,10 @@ siso_search.default.limits:
 
 ### Preferred limit
 
-`siso_search.default.limits.preferred` defines the default limit per design position for the search.
+`ibexa_commerce_search.default.limits.preferred` defines the default limit per design position for the search.
 
 ``` yaml
-siso_search.default.limits.preferred:
+ibexa_commerce_search.default.limits.preferred:
     left: 6
     center: 8
 ```
@@ -133,7 +133,7 @@ siso_search.default.limits.preferred:
 `sort` parameters define the sorting options for each particular group.
 
 ``` yaml
-siso_search.default.sort:
+ibexa_commerce_search.default.sort:
     product_list:
         - score
         - name|asc
@@ -165,7 +165,7 @@ siso_search.default.sort:
 `sort.preferred` defines default sorting per group.
 
 ``` yaml
-siso_search.default.sort.preferred:
+ibexa_commerce_search.default.sort.preferred:
     product_list: score
     product: score
     content: score
@@ -192,7 +192,7 @@ The configured Field name values are Field identifiers of their respective Conte
 Fields added by an indexer plugin cannot be boosted.
 
 ``` yaml
-siso_search.default.field_boosts:
+ibexa_commerce_search.default.field_boosts:
     product:
         ses_name: 50
         ses_sku: 100
@@ -212,7 +212,7 @@ Boosts in eContent activate the `qf` parameter which overrides the default field
 If you specify boosting Fields in eContent, the shop only searches in these Fields.
 
 ``` yaml
-siso_search.default.field_boosts:
+ibexa_commerce_search.default.field_boosts:
     product:
         text: 1
         ses_product_ses_sku_value_s: 100
@@ -230,8 +230,8 @@ siso_search.default.field_boosts:
 User input in quick order searches these defined Solr fields.
 
 ``` yaml
-siso_search.default.search.auto_suggest_limit: 10
-siso_search.default.search.auto_suggest_fields:
+ibexa_commerce_search.default.search.auto_suggest_limit: 10
+ibexa_commerce_search.default.search.auto_suggest_fields:
     - ses_product_ses_sku_value_s
     - ses_product_ses_name_value_s
     - ses_variant_list_s
@@ -246,7 +246,7 @@ siso_search.default.search.auto_suggest_fields:
 
 ``` yaml
 #optional configuration for indexing the specification fields
-siso_search.default.search_mapping_specification:
+ibexa_commerce_search.default.search_mapping_specification:
     manufacturer:
         alias: ['Manufacturer', 'Hersteller', 'Peak']
         type: string
@@ -272,7 +272,7 @@ The indexer then creates a Solr field with multiple elements that will look like
 Because category names are not indexed, they are stored in a Stash cache.
 
 ``` yaml
-siso_search.default.category_cache:
+ibexa_commerce_search.default.category_cache:
     rootNodeId: 62
     maxProductCategoryDepth: 99
     productCategoryLimit: 999
@@ -291,7 +291,7 @@ siso_search.default.category_cache:
 If you use eContent as catalog data provider, you can configure how Solr special characters are evaluated.
 
 ``` yaml
-siso_search.default.solr_special_characters: escape
+ibexa_commerce_search.default.solr_special_characters: escape
 ```
 
 Possible values:
@@ -308,13 +308,13 @@ Solr special characters are: `+ - && || ! ( ) { } [ ] ^ " ~ * ? : \`
 To enable it, set `use_filtered_images` to `true`:
 
 ``` yaml
-siso_search.default.use_filtered_images: true
+ibexa_commerce_search.default.use_filtered_images: true
 ```
 
 `image_filter_resolution` specifies in how the images are modified by the `imageConverter`:
 
 ``` yaml
-siso_search.default.image_filter_resolution: thumb_small
+ibexa_commerce_search.default.image_filter_resolution: thumb_small
 ```
 
 ## eContent section filter
@@ -336,7 +336,7 @@ When using eContent, you can configure Solr cores per SiteAccess:
 
 ``` yaml
 parameters:
-    siso_search.<siteaccess>.core: siso_econtent_back
+    ibexa_commerce_search.<siteaccess>.core: siso_econtent_back
 ```
 
 The example above uses the back core. This can be useful if an import uses temporary tables in eContent.
@@ -350,7 +350,7 @@ To use the default core (usually `siso_econtent`, which is the eContent live cor
 
 ``` yaml
 parameters:
-    siso_search.default.core: ~
+    ibexa_commerce_search.default.core: ~
 ```
 
 Use default core (usually siso_econtent = econtent live core)

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldDefinition media-type="application/vnd.ibexa.api.FieldDefinition+xml" href="/api/ibexa/v2/content/types/2/fieldDefinitions/195">
+    <id>195</id>
+    <identifier>image</identifier>
+    <fieldType>ezimageasset</fieldType>
+    <fieldGroup>content</fieldGroup>
+    <position>7</position>
+    <isTranslatable>false</isTranslatable>
+    <isRequired>false</isRequired>
+    <isInfoCollector>false</isInfoCollector>
+    <defaultValue>
+        <value key="destinationContentId"/>
+        <value key="alternativeText"/>
+        <value key="source"/>
+    </defaultValue>
+    <isSearchable>false</isSearchable>
+    <names>
+        <value languageCode="eng-GB">Image</value>
+    </names>
+    <descriptions>
+        <value languageCode="eng-GB"></value>
+    </descriptions>
+    <fieldSettings/>
+    <validatorConfiguration/>
+</FieldDefinition>

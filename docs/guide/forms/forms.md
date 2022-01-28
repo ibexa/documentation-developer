@@ -8,8 +8,6 @@ One-page forms have several common criteria:
 - After submitting some processes are executed in the backend.
 - After server response the user sees a confirmation page with a success or error message.
 
-[[= product_name =]] uses [Symfony forms](http://symfony.com/doc/3.4/forms.html) as part of the solution.
-
 You can pre-fill the form with default values when it is loaded for the first time.
 The process that pre-fills the form is called a [pre-data processor](form_api/predataprocessors.md).
 
@@ -30,6 +28,12 @@ Usually a confirmation page is displayed, but you can choose one of the followin
     - another route from the shop
     - external URL
 
+[[= product_name =]] uses [Symfony forms]([[= symfony_doc =]]//forms.html) as part of the solution.
+
+!!! note "Form Builder"
+
+    For information about forms that you can create with Form Builder, see [Forms](../form_builder/forms.md)
+
 ## Creating a form
 
 To create a form you must define and implement the form component parts (form entity, form type, template)
@@ -43,9 +47,9 @@ and its services (`preDataProcessor` and `dataProcessors`) and point to them in 
 which forms configuration should be used.
 
 ``` yaml
-silversolutions_service:
+ibexa.commerce.service:
     path:  /service/{formTypeResolver}
-    defaults: { _controller: Silversolutions\Bundle\EshopBundle\Controller\FormsController::formsAction }
+    defaults: { _controller: Ibexa\Bundle\Commerce\Eshop\Controller\FormsController::formsAction }
 ```
 
 When you call the URL `/service/registration_private` the `FormsController::formsAction` method
@@ -60,7 +64,7 @@ The parameter `formTypeResolver` must still be part of the URL.
 ``` yaml
 test_project_forms:
     path:  /shop_functions/{formTypeResolver}
-    defaults: { _controller: Silversolutions\Bundle\EshopBundle\Controller\FormsController::formsAction }
+    defaults: { _controller: Ibexa\Bundle\Commerce\Eshop\Controller\FormsController::formsAction }
 ```
 
 Then, when you call `/shop_functions/registration_private`, the `FormsController::formsAction` is used.
@@ -77,39 +81,37 @@ ses_forms.configs.{formTypeResolver}
 
 You can define the whole form behavior using configuration.
 
-In the following example, `formTypeResolver` value is `registration_private`.
+In the following example, `formTypeResolver` value is `private`.
 
 ``` yaml
-parameters:
-    ses_forms.configs.registration_private:
-        modelClass: Silversolutions\Bundle\EshopBundle\Entities\Forms\RegisterPrivate
-        # either typeClass or typeService has to be defined
-        typeClass: Silversolutions\Bundle\EshopBundle\Entities\Forms\Types\RegisterPrivateType
-        typeService: silver_forms.register_private_type
-        template: SilversolutionsEshopBundle:Forms:register_private.html.twig
-        invalidMessage: error_message_register
-        validMessage: success_register_private 
-        policy: siso_policy/forms_profile_edit
-        response:
-            valid:
-               template: SilversolutionsEshopBundle:Forms:register_private_valid.html.twig 
-                httpResponse: 'http://www.google.de'
-                routeName: 'silversolutions_forms_user_choice'
-            invalid:         
-                template: SilversolutionsEshopBundle:Forms:register_private_valid.html.twig
-                httpResponse: 'http://www.google.de'
-                routeName: 'silversolutions_forms_user_choice'
-        preDataProcessor: ses_forms.fill_private_form
-        dataProcessors:            
-            - ses_forms.create_ez_user
-            - ses_forms.disable_ez_user
-            - ses_forms.create_registration_token_data_processor
-            - ses_forms.send_confirmation_data_processor
+    ses_forms.configs.private:
+        modelClass: Ibexa\Bundle\Commerce\Eshop\Entities\Forms\RegisterPrivate
+#        typeClass: Ibexa\Bundle\Commerce\Eshop\Entities\Forms\Types\RegisterPrivateType
+        typeService: Ibexa\Bundle\Commerce\Eshop\Entities\Forms\Types\RegisterPrivateType
+        template: '@@ibexadesign\Forms\register_private.html.twig'
+        invalidMessage: error_message_register # textmodule
+        validMessage: success_register_private # textmodule
+        #response:
+            #valid:
+                #httpResponse: http://www.google.de
+                #template: '@@ibexadesign/Forms/register_private_valid.html.twig'
+                #routeName: ibexa.commerce.forms.user_choice
+            #invalid:
+                #httpResponse: http://www.google.de
+                #template: '@@ibexadesign/pagelayout.html.twig'
+                #routeName: ibexa.commerce.forms.user_choice
+        dataProcessors:
+            - Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\CreateCustomerProfileDataDataProcessor
+            - Ibexa\Bundle\Commerce\Newsletter\Service\DataProcessor\SubscribeNewsletterDataProcessor
+            - Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\EzCreateUserDataProcessor
+            - Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\EzUserDisableDataProcessor
+            - Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\CreateRegistrationTokenDataProcessor
+            - Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\SendConfirmationMailDataProcessor
 ```
 
 |Configuration key|Description|
 |--- |--- |
-|`modelClass`|Required. A fully-qualified class path to the form entity. This class must extend `Silversolutions\Bundle\EshopBundle\Entities\Forms\AbstractFormEntity`|
+|`modelClass`|Required. A fully-qualified class path to the form entity. This class must extend `Ibexa\Bundle\Commerce\Eshop\Entities\Forms\AbstractFormEntity`|
 |`typeClass`|Required if `typeService` is not defined. A fully-qualified class path to the form type. Using `typeService` gives more flexibility.|
 |`typeService` |Required if `typeClass` is not defined. ID of the form type service.|
 |`template`|Required. Template that renders the form.|

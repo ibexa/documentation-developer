@@ -1,0 +1,38 @@
+{
+    "FieldDefinition": {
+        "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
+        "_href": "/api/ibexa/v2/content/types/2/fieldDefinitions/195",
+        "id": 195,
+        "identifier": "image",
+        "fieldType": "ezimageasset",
+        "fieldGroup": "content",
+        "position": 7,
+        "isTranslatable": false,
+        "isRequired": false,
+        "isInfoCollector": false,
+        "defaultValue": {
+            "destinationContentId": null,
+            "alternativeText": null,
+            "source": null
+        },
+        "isSearchable": false,
+        "names": {
+            "value": [
+                {
+                    "_languageCode": "eng-GB",
+                    "#text": "Image"
+                }
+            ]
+        },
+        "descriptions": {
+            "value": [
+                {
+                    "_languageCode": "eng-GB",
+                    "#text": null
+                }
+            ]
+        },
+        "fieldSettings": [],
+        "validatorConfiguration": []
+    }
+}

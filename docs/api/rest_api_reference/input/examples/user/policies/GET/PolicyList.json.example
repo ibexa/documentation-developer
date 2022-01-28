@@ -1,0 +1,104 @@
+{
+    "PolicyList": {
+        "_media-type": "application/vnd.ibexa.api.PolicyList+json",
+        "_href": "/api/ibexa/v2/user/policies",
+        "Policy": [
+            {
+                "_media-type": "application/vnd.ibexa.api.Policy+json",
+                "_href": "/api/ibexa/v2/user/roles/1/policies/349",
+                "id": 349,
+                "module": "content",
+                "function": "read",
+                "limitations": {
+                    "limitation": [
+                        {
+                            "_identifier": "Section",
+                            "values": {
+                                "ref": [
+                                    {
+                                        "_media-type": "application/vnd.ibexa.api.ref+json",
+                                        "_href": "1"
+                                    },
+                                    {
+                                        "_media-type": "application/vnd.ibexa.api.ref+json",
+                                        "_href": "3"
+                                    },
+                                    {
+                                        "_media-type": "application/vnd.ibexa.api.ref+json",
+                                        "_href": "6"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Policy+json",
+                "_href": "/api/ibexa/v2/user/roles/1/policies/350",
+                "id": 350,
+                "module": "user",
+                "function": "login",
+                "limitations": {
+                    "limitation": [
+                        {
+                            "_identifier": "SiteAccess",
+                            "values": {
+                                "ref": [
+                                    {
+                                        "_media-type": "application/vnd.ibexa.api.ref+json",
+                                        "_href": "2282622326"
+                                    },
+                                    {
+                                        "_media-type": "application/vnd.ibexa.api.ref+json",
+                                        "_href": "1766001124"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Policy+json",
+                "_href": "/api/ibexa/v2/user/roles/1/policies/351",
+                "id": 351,
+                "module": "content",
+                "function": "view_embed",
+                "limitations": {
+                    "limitation": [
+                        {
+                            "_identifier": "Class",
+                            "values": {
+                                "ref": [
+                                    {
+                                        "_media-type": "application/vnd.ibexa.api.ref+json",
+                                        "_href": "5"
+                                    },
+                                    {
+                                        "_media-type": "application/vnd.ibexa.api.ref+json",
+                                        "_href": "12"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Policy+json",
+                "_href": "/api/ibexa/v2/user/roles/1/policies/352",
+                "id": 352,
+                "module": "user",
+                "function": "register"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Policy+json",
+                "_href": "/api/ibexa/v2/user/roles/1/policies/353",
+                "id": 353,
+                "module": "user",
+                "function": "password"
+            }
+        ]
+    }
+}

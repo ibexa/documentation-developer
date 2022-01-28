@@ -11,40 +11,13 @@ To change password, the user must have the `user/password` permission.
 When the user requests a reset of a forgotten password, an email is sent to them with a token.
 It allows them to create a new password.
 
-The template for this email is located in `templates/Security/mail/forgot_user_password.html.twig` in `ezsystems/ezplatform-user`.
+For information about how to create and configure the template, see [Add forgot password option](../content_rendering/layout/add_forgot_password.md)
+
+The template for this email is located in `Resources/views/forgot_password/mail/forgot_user_password.html.twig` in `ibexa/user`.
 You can [customize it according to your needs](#customize-login-form).
 
 The validity of the password recovery token can be set using the `ezplatform.system.<siteaccess>.security.token_interval_spec` parameter.
-By default it is set to `PT1H` (one hour).
-
-### Add forget password option
-
-You can add a "forgot password" option to the site front to allow users of a specific SiteAccess, both admin or front, request a password change by customizing the template used in `/user/forgot-password`. 
-
-Edit `config/packages/ezplatform.yaml`. The templates are defined with the following configuration:
-
-```yaml
-ezplatform:
-    system:
-        <siteaccess>:
-            user_forgot_password:
-                templates:
-                    form: <path_to_template>
-                    mail: <path_to_template>
-```
-
-Under the `templates` key, provide the path to templates responsible for rendering the forgot password form (`form`) and email (`mail`), which is sent to users after they request a password change.
-
-The [default templates](https://github.com/ezsystems/ezplatform-user/tree/master/src/bundle/Resources/views) for forgot password form and email are located in `ezplatform-user/src/bundle/Resources/views`.
-The [templates](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/account/forgot_password/) specific for the Back Office are in `ezplatform-admin-ui/src/bundle/Resources/views/themes/admin/account`.
-
-You can also modify [other user management templates](#other-user-management-templates).
-
-To add link redirecting to the reset password form, in the template, provide the following code:
-
-```html+twig
-<a href="{{ path('ezplatform.user.forgot_password') }}" tabindex="4">{{ 'authentication.forgot_password'|trans|desc('Forgot password?') }}</a>
-```
+By default, it is set to `PT1H` (one hour).
 
 ## Password rules
 
@@ -100,8 +73,8 @@ This rule is valid by default when password expiration is set.
 
 Two login methods are available: with User name or with email.
 
-Providers for these two methods are `ezpublish.security.user_provider.username`
-and `ezpublish.security.user_provider.email`, respectively.
+Providers for these two methods are `ibexa.security.user_provider.username`
+and `ibexa.security.user_provider.email`, respectively.
 
 You can configure which method is allowed in `packages/security.yaml`:
 
@@ -113,10 +86,10 @@ security:
                 providers: [ezplatform_username, ezplatform_email]
 
         ezplatform_username:
-            id: ezpublish.security.user_provider.username
+            id: ibexa.security.user_provider.username
 
         ezplatform_email:
-            id: ezpublish.security.user_provider.email
+            id: ibexa.security.user_provider.email
 
     firewalls:
         #...    
@@ -166,165 +139,11 @@ You can allow your users to create accounts by employing the `/register` route. 
 By default, new Users generated in this way are placed in the Guest accounts group. You can select a different default group in the following section of configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             user_registration:
                 group_id: <userGroupContentId>
-```
-
-### Registration form templates
-
-You can use custom templates for the registration form and registration confirmation page.
-
-The templates are defined with the following configuration:
-
-``` yaml
-ezplatform:
-    system:
-        default:
-            user_registration:
-                templates:
-                    form: user/registration_form.html.twig
-                    confirmation: user/registration_confirmation.html.twig
-```
-
-With this configuration you place the templates in `templates/user/registration_form.html.twig` and `templates/user/registration_confirmation.html.twig`.
-
-Example registration form:
-
-``` html+twig
-{% extends no_layout is defined and no_layout == true ? view_base_layout : page_layout %}
-{% block content %}
-    <section class="ez-content-edit">
-        {{ form_start(form) }}
-
-        {% for fieldForm in form.fieldsData %}
-            {% set fieldIdentifier = fieldForm.vars.data.fieldDefinition.identifier %}
-            <div class="col-md-6">
-                {{ form_widget(fieldForm.value, {
-                    'contentData': form.vars.data
-                }) }}
-            </div>
-            {%- do fieldForm.setRendered() -%}
-        {% endfor %}
-
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                {{ form_widget(form.register, {'attr': {
-                    'class': 'btn btn-block btn-primary'
-                }}) }}
-            </div>
-        </div>
-
-        {{ form_end(form) }}
-    </section>
-{% endblock %}
-```
-
-Example confirmation form:
-
-``` html+twig
-{% extends no_layout is defined and no_layout == true ? view_base_layout : page_layout %}
-{% block content %}
-    <h1>Your account has been created</h1>
-    <p class="user-register-confirmation-message">
-        Thank you for registering an account. You can now <a href="{{ path('login') }}">login</a>.
-    </p>
-{% endblock %}
-```
-
-### Customize login form
-
-You can use a custom template for example to display information about password expiration
-or to customize [other user management templates](#other-user-management-templates).
-
-If you need only to change a template, you can use the following configuration:
-
-```yaml
-ezpublish:
-    system:
-        my_siteaccess:
-            user:
-                login_template: '@ezdesign/Security/login.html.twig'
-```
-
-In case of more advanced template customization, you can use a subscriber,
-for example in `src/EventSubscriber/LoginFormViewSubscriber.php`:
-
-``` php hl_lines="23 35 40 42"
-<?php
-
-declare(strict_types=1);
-
-namespace App\EventSubscriber;
-
-use eZ\Publish\Core\MVC\Symfony\Event\PreContentViewEvent;
-use eZ\Publish\Core\MVC\Symfony\MVCEvents;
-use eZ\Publish\Core\MVC\Symfony\View\LoginFormView;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Security\Core\Exception\CredentialsExpiredException;
-
-final class LoginFormViewSubscriber implements EventSubscriberInterface
-{
-    /**
-     * Returns an array of events this subscriber wants to listen to.
-     *
-     * @return string[]
-     */
-    public static function getSubscribedEvents(): array
-    {
-        return [
-            MVCEvents::PRE_CONTENT_VIEW => 'onPreContentView',
-        ];
-    }
-    
-    public function onPreContentView(PreContentViewEvent $event): void
-    {
-        $view = $event->getContentView();
-        
-        if (!($view instanceof LoginFormView)) {
-            return ;
-        }
-        
-        $view->addParameters([
-            'foo' => 'foo',
-            'bar' => 'bar'
-        ]);
-        
-        if ($view->getLastAuthenticationException() instanceof CredentialsExpiredException) {
-            // View with instruction to unlock account
-            $view->setTemplateIdentifier('login/expired_credentials.html.twig');
-        }
-    }
-}
-```
-
-In the provided example, in line 23, the `PRE_CONTENT_VIEW` event is used.
-You can also pass additional parameters to the view (line 35).
-In this case, at the instance of exception (line 40), the subscriber displays the `expired_credentials.html.twig` template (line 42).
-
-Remember to provide a template and point to it in the subscriber
-(in this case, in `templates/login/expired_credentials.html.twig`):
-
-```html+twig
-{% extends '@ezdesign/Security/base.html.twig' %}
-
-{%- block content -%}
-    <h2 class="ez-login__header">
-        {{ 'authentication.credentials_expired'|trans|desc('Your password has expired') }}
-    </h2>
-    <p>
-        {{ 'authentication.credentials_expired.message'|trans|desc(
-            'For security reasons, your password has expired and needs to be changed. An email has been sent to you with instructions.'
-        ) }}
-    </p>
-    <p>
-        <a href="{{ path('ezplatform.user.forgot_password') }}" class="btn btn-primary ez-btn ez-btn--login">
-            {{ 'authentication.credentials_expired.reset_password'|trans|desc('Reset password') }}
-        </a>
-    </p>
-{%- endblock -%}
 ```
 
 ### Other user management templates
@@ -334,7 +153,7 @@ You can also modify the following form templates:
 **Changing user password:**
 
 ``` yaml
-ezpublish:
+ibexa:
     system:
         <siteaccess>:
             user_change_password:
@@ -368,7 +187,7 @@ ezsettings.<siteaccess>.user_settings.templates.update
 
 ## Authenticating user with multiple user providers
 
-Symfony provides native support for [multiple user providers](https://symfony.com/doc/5.0/security/multiple_user_providers.html).
+Symfony provides native support for [multiple user providers]([[= symfony_doc =]]/security/multiple_user_providers.html).
 This makes it easy to integrate any kind of login handlers, including SSO and existing third party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](http://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
 
 However, to be able to use *external* user providers with [[= product_name =]], a valid Platform user needs to be injected into the Repository.
@@ -377,7 +196,7 @@ This is mainly for the kernel to be able to manage content-related permissions (
 Depending on your context, you will either want to create a Platform User, return an existing User, or even always use a generic User.
 
 Whenever an *external* user is matched (i.e. one that does not come from Platform repository, like coming from LDAP), [[= product_name =]] kernel initiates an `MVCEvents::INTERACTIVE_LOGIN` event.
-Every service listening to this event receives an `eZ\Publish\Core\MVC\Symfony\Event\InteractiveLoginEvent` object which contains the original security token (that holds the matched user) and the request.
+Every service listening to this event receives an `Ibexa\Core\MVC\Symfony\Event\InteractiveLoginEvent` object which contains the original security token (that holds the matched user) and the request.
 
 Then, it is up to the listener to retrieve a Platform User from the Repository and to assign it back to the event object.
 This user will be injected into the repository and used for the rest of the request.
@@ -393,9 +212,9 @@ Note that the *API user* is mainly used for permission checks against the repo
 
 ### Customizing the User class
 
-It is possible to customize the user class used by extending `ezpublish.security.login_listener` service, which defaults to `eZ\Publish\Core\MVC\Symfony\Security\EventListener\SecurityListener`.
+It is possible to customize the user class used by extending `Ibexa\Core\MVC\Symfony\Security\EventListener\SecurityListener` service, which defaults to `Ibexa\Core\MVC\Symfony\Security\EventListener\SecurityListener`.
 
-You can override `getUser()` to return whatever User class you want, as long as it implements `eZ\Publish\Core\MVC\Symfony\Security\UserInterface`.
+You can override `getUser()` to return whatever User class you want, as long as it implements `Ibexa\Core\MVC\Symfony\Security\UserInterface`.
 
 The following is an example of using the in-memory user provider:
 
@@ -407,8 +226,8 @@ security:
         chain_provider:
             chain:
                 providers: [in_memory, ezpublish]
-        ezpublish:
-            id: ezpublish.security.user_provider
+        ibexa:
+            id: ibexa.security.user_provider
         in_memory:
             memory:
                 users:
@@ -426,7 +245,7 @@ In the `config/services.yaml` file:
 ``` yaml
 services:
     App\EventListener\InteractiveLoginListener:
-        arguments: ['@ezpublish.api.service.user']
+        arguments: ['@ibexa.api.service.user']
         tags:
             - { name: kernel.event_subscriber } 
 ```
@@ -438,15 +257,15 @@ Do not mix `MVCEvents::INTERACTIVE_LOGIN` event (specific to [[= product_name =]
 
 namespace App\EventListener;
 
-use eZ\Publish\API\Repository\UserService;
-use eZ\Publish\Core\MVC\Symfony\Event\InteractiveLoginEvent;
-use eZ\Publish\Core\MVC\Symfony\MVCEvents;
+use Ibexa\Contracts\Core\Repository\UserService;
+use eIbexa\Core\MVC\Symfony\Event\InteractiveLoginEvent;
+use Ibexa\Core\MVC\Symfony\MVCEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class InteractiveLoginListener implements EventSubscriberInterface
 {
     /**
-     * @var \eZ\Publish\API\Repository\UserService
+     * @var \Ibexa\Contracts\Core\Repository\UserService
      */
     private $userService;
 

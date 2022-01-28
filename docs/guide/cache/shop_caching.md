@@ -7,14 +7,14 @@ Dynamic parts of the shop, such as basket preview or prices, are displayed using
 
 |Controller|Purpose|Cache settings|
 |--- |--- |--- |
-|`SilversolutionsEshopBundle:CustomerProfileData:showHeaderLogin`|Displays information about the logged-in user in the top part of the page|Purged after login/logout and delegation process|
-|`IbexaPlatformCommerceCheckoutBundle:Basket:showBasketPreview`|Displays a short version of the basket in the top part of the page|Purged when basket changes</br>Tags: `siso_basket_<basketid>`</br>`siso_user_<userid>`|
-|`SilversolutionsEshopBundle:PageLayout:getFooter`|Footer information shared among all pages|Caching strategy `service_menu`|
-|`SilversolutionsEshopBundle:Bestsellers:getBestsellersEsi`</br>`SilversolutionsEshopBundle:Bestsellers:getCategoryBestsellers`|Bestseller box for catalog pages|Caching strategy `product_list`|
-|`SilversolutionsEshopBundle:ProductType:productList`|Product type list page|Caching strategy `product_type_children`|
-|`IbexaPlatformCommerceCheckoutBundle:Basket:showStoredBasketPreview`|Displays a badge with the number of products in stored comparison or the number of stored baskets|Caching strategy `basket_preview`</br>Purged when basket changes</br>Tags: `siso_basket_<basketid>`|
-|`SilversolutionsEshopBundle:Navigation:showMenu`|Left menu|Tag: `siso_menu`|
-|`SilversolutionsEshopBundle:Navigation:showMenu`|Main menu|Tag: `siso_menu`|
+|`Eshop:CustomerProfileData:showHeaderLogin`|Displays information about the logged-in user in the top part of the page|Purged after login/logout and delegation process|
+|`IbexaCommerceCheckoutBundle :Basket:showBasketPreview`|Displays a short version of the basket in the top part of the page|Purged when basket changes</br>Tags: `siso_basket_<basketid>`</br>`siso_user_<userid>`|
+|`Eshop:PageLayout:getFooter`|Footer information shared among all pages|Caching strategy `service_menu`|
+|`Eshop:Bestsellers:getBestsellersEsi`</br>`Eshop:Bestsellers:getCategoryBestsellers`|Bestseller box for catalog pages|Caching strategy `product_list`|
+|`Eshop:ProductType:productList`|Product type list page|Caching strategy `product_type_children`|
+|`IbexaCommerceCheckoutBundle :Basket:showStoredBasketPreview`|Displays a badge with the number of products in stored comparison or the number of stored baskets|Caching strategy `basket_preview`</br>Purged when basket changes</br>Tags: `siso_basket_<basketid>`|
+|`Eshop:Navigation:showMenu`|Left menu|Tag: `siso_menu`|
+|`Eshop:Navigation:showMenu`|Main menu|Tag: `siso_menu`|
 
 All cache blocks are described in the `silver_eshop.default.http_cache` parameter in `parameters.yml`:
 

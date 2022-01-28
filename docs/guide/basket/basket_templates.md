@@ -8,8 +8,8 @@
 |`basket/widget.html.twig`|Basket preview in the upper right corner of the shop screen|
 |`basket/row.html.twig`|Single row of basket preview|
 |`basket/basket_summary.html.twig`|Basket summary|
-|`SilversolutionsEshopBundle:Basket:stored_basket_preview_wish_list.html.twig`|Wishlist row with a number of products in the "My Shop" menu|
-|`SilversolutionsEshopBundle:Basket:stored_basket_preview_comparison.html.twig`|Comparison row with a number of products in the "My Shop" menu|
+|`Eshop:Basket:stored_basket_preview_wish_list.html.twig`|Wishlist row with a number of products in the "My Shop" menu|
+|`Eshop:Basket:stored_basket_preview_comparison.html.twig`|Comparison row with a number of products in the "My Shop" menu|
 
 ## Display the content of a basket
 
@@ -40,13 +40,13 @@ You can access the basket total value (net or gross) using `basket.totalsSum`:
 
 To get the catalog element from the basket line, use `line.catalogElement`.
 
-If a basket line does not provide product data (for example, the caching life time of a product has been exceeded), the product can be fetched with the `ses_product` function, by providing it with the product SKU obtained through `line.sku`.
+If a basket line does not provide product data (for example, the caching life time of a product has been exceeded), the product can be fetched with the `ibexa_commerce_product` function, by providing it with the product SKU obtained through `line.sku`.
 
 ``` html+twig
 {% if line.catalogElement|default is not empty %}
     {% set product = line.catalogElement %}
 {% else %}
-    {% set product = ses_product({'sku': line.sku, 'variantCode': line.variantCode }) %}
+    {% set product = ibexa_commerce_product({'sku': line.sku, 'variantCode': line.variantCode }) %}
 {% endif %}
 ```
 
@@ -55,7 +55,7 @@ If a basket line does not provide product data (for example, the caching life ti
 To create a button that adds the current product to the basket, use the following form:
 
 ``` html+twig
-<form method="post" action="{{ path('silversolutions_add_to_basket') }}">
+<form method="post" action="{{ path('ibexa.commerce.basket.add') }}">
     <div class="js-add-to-basket-parent">
         <input type="text" name="ses_basket[0][quantity]" class="tooltip" data-placement="e">
         <input type="hidden" name="ses_basket[0][sku]" value="{{ catalogElement.sku }}" >

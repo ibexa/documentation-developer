@@ -1,0 +1,92 @@
+{
+    "ObjectStateGroupList": {
+        "_media-type": "application/vnd.ibexa.api.ObjectStateGroupList+json",
+        "_href": "/api/ibexa/v2/content/objectstategroups",
+        "ObjectStateGroup": [
+            {
+                "_media-type": "application/vnd.ibexa.api.ObjectStateGroup+json",
+                "_href": "/api/ibexa/v2/content/objectstategroups/2",
+                "id": 2,
+                "identifier": "ez_lock",
+                "defaultLanguageCode": "eng-GB",
+                "languageCodes": "eng-GB",
+                "ObjectStates": {
+                    "_media-type": "application/vnd.ibexa.api.ObjectStateList+json",
+                    "_href": "/api/ibexa/v2/content/objectstategroups/2/objectstates"
+                },
+                "names": {
+                    "value": [
+                        {
+                            "_languageCode": "eng-GB",
+                            "#text": "Lock"
+                        }
+                    ]
+                },
+                "descriptions": {
+                    "value": [
+                        {
+                            "_languageCode": "eng-GB",
+                            "#text": ""
+                        }
+                    ]
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ObjectStateGroup+json",
+                "_href": "/api/ibexa/v2/content/objectstategroups/3",
+                "id": 3,
+                "identifier": "accessibility",
+                "defaultLanguageCode": "eng-GB",
+                "languageCodes": "eng-GB",
+                "ObjectStates": {
+                    "_media-type": "application/vnd.ibexa.api.ObjectStateList+json",
+                    "_href": "/api/ibexa/v2/content/objectstategroups/3/objectstates"
+                },
+                "names": {
+                    "value": [
+                        {
+                            "_languageCode": "eng-GB",
+                            "#text": "Accessibility"
+                        }
+                    ]
+                },
+                "descriptions": {
+                    "value": [
+                        {
+                            "_languageCode": "eng-GB",
+                            "#text": ""
+                        }
+                    ]
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ObjectStateGroup+json",
+                "_href": "/api/ibexa/v2/content/objectstategroups/6",
+                "id": 6,
+                "identifier": "custom-states",
+                "defaultLanguageCode": "eng-GB",
+                "languageCodes": "eng-GB",
+                "ObjectStates": {
+                    "_media-type": "application/vnd.ibexa.api.ObjectStateList+json",
+                    "_href": "/api/ibexa/v2/content/objectstategroups/6/objectstates"
+                },
+                "names": {
+                    "value": [
+                        {
+                            "_languageCode": "eng-GB",
+                            "#text": "Custom State"
+                        }
+                    ]
+                },
+                "descriptions": {
+                    "value": [
+                        {
+                            "_languageCode": "eng-GB",
+                            "#text": "Custom Object state"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

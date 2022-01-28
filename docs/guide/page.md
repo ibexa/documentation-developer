@@ -12,9 +12,9 @@
 
 |Block|Template|Subtemplates|
 |--- |--- |--- |
-|Last viewed items|`IbexaPlatformCommercePageBuilderBundle:blocks:product_last_viewed_slider.html.twig`|Uses the `SilversolutionsEshopBundle:EzFlow:showLastViewedProducts` subcontroller and `SilversolutionsEshopBundle:Catalog:last_viewed_slider.html.twig` template|
-|Bestsellers|`IbexaPlatformCommercePageBuilderBundle:blocks:bestseller.html.twig`|Uses the `SilversolutionsEshopBundle:Bestsellers:getBestsellers` subcontroller and the `SilversolutionsEshopBundle:Bestsellers:bestsellers_box.html.twig` template|
-|Product slider|`IbexaPlatformCommercePageBuilderBundle:blocks:product_slider.html.twig`|Uses the `SilversolutionsEshopBundle:EzFlow:getSkuListByString` subcontroller and the `SisoEzStudioBundle:blocks:product_slider_tabs.html.twig` template|
+|Last viewed items|`IbexaPlatformCommercePageBuilderBundle:blocks:product_last_viewed_slider.html.twig`|Uses the `Ibexa\Bundle\Commerce\Eshop\Controller\EzFlowController:showLastViewedProducts` subcontroller and `Ibexa\Bundle\Commerce\Eshop\Controller\CatalogController:last_viewed_slider.html.twig` template|
+|Bestsellers|`IbexaPlatformCommercePageBuilderBundle:blocks:bestseller.html.twig`|Uses the `Ibexa\Bundle\Commerce\Eshop\Controller\BestsellersController:getBestsellers` subcontroller and the `Ibexa\Bundle\Commerce\Eshop\Controller\BestsellersController:bestsellers_box.html.twig` template|
+|Product slider|`IbexaPlatformCommercePageBuilderBundle:blocks:product_slider.html.twig`|Uses the `Ibexa\Bundle\Commerce\Eshop\Controller\EzFlowController:getSkuListByString` subcontroller|
 
 ## Page API
 
@@ -25,7 +25,7 @@ The products are recorded by means of a JavaScript call. To use it on other page
 ``` html+twig
 {{ render_esi(
     controller(
-        'silver_eshop.catalog_controller:storeProductAsLastViewedAction',
+        'Ibexa\Bundle\Commerce\Eshop\Controller\CatalogController:storeProductAsLastViewedAction',
         {"sku": catalogElement.sku}
     )) }}
 ```
@@ -43,13 +43,13 @@ To display a list of recently viewed products, place the following code in a tem
 ``` html+twig
 {{ render_esi(
     controller(
-        'Silversolutions\\Bundle\\EshopBundle\\Controller\\EzFlowController::showLastViewedProductsAction',
+        'Ibexa\\Bundle\\Commerce\\Eshop\\Controller\\EzFlowController::showLastViewedProductsAction',
         { }
     )) }}
 ```
 
 The controller is able to render a different template if required (a parameter template).
-`SilversolutionsEshopBundle:Catalog:slider.html.twig` is used by default. 
+`IbexaCommerceEshopBundle:Catalog:slider.html.twig` is used by default. 
 
 The caching strategy can be defined in the config file. The strategy is dynamic, so use `vary: cookie`.
 

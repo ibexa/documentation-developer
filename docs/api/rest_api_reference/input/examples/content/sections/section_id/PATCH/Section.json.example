@@ -1,0 +1,9 @@
+{
+    "Section": {
+        "_media-type": "application/vnd.ibexa.api.Section+json",
+        "_href": "/api/ibexa/v2/content/sections/7",
+        "sectionId": 7,
+        "identifier": "template",
+        "name": "Template"
+    }
+}

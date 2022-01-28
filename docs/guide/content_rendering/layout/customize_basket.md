@@ -3,7 +3,7 @@
 To customize the look of the basket, you override the default template.
 
 For example, to add a new column to the basket table that contains the VAT rate,
-copy the existing `vendor/ezsystems/ezcommerce-checkout/src/bundle/Resources/views/themes/standard/Basket/page.html.twig` to `templates/themes/<theme_name>/Basket/page.html.twig`.
+copy the existing `vendor/ibexa/commerce-checkout/src/bundle/Resources/views/themes/standard/Basket/page.html.twig` to `templates/themes/<theme_name>/Basket/page.html.twig`.
 
 Next, modify the template to include the following changes:
 
@@ -23,9 +23,9 @@ Next, modify the template to include the following changes:
 <td>
     {% if line.remoteDataMap.isPriceValid is defined and line.remoteDataMap.isPriceValid %}
         {% if showInclVat %}
-            {{ line.linePriceAmountGross|price_format(line.currency) }}
+            {{ line.linePriceAmountGross|ibexa_commerce_price_format(line.currency) }}
         {% else %}
-            {{ line.linePriceAmountNet|price_format(line.currency) }}
+            {{ line.linePriceAmountNet|ibexa_commerce_price_format(line.currency) }}
         {% endif %}
     {% endif %}
 </td>

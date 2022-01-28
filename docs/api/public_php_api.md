@@ -21,30 +21,30 @@ Those services are obtained using `get[ServiceName]()` methods: `getContentServi
 
 The full list of available services covers:
 
-- [ContentService](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php)
-- [ContentTypeService](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentTypeService.php)
-- [FieldTypeService](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/FieldTypeService.php)
-- [LanguageService](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LanguageService.php)
-- [LocationService](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php)
-- [NotificationService](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/NotificationService.php)
-- [ObjectStateService](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ObjectStateService.php)
-- [RoleService](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/RoleService.php)
-- [SearchService](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SearchService.php)
-- [SectionService](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/SectionService.php)
-- [TranslationService](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/TranslationService.php)
-- [TrashService](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/TrashService.php)
-- [URLAliasService](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/URLAliasService.php)
-- [URLService](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/URLService.php)
-- [URLWildcardService](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/URLWildcardService.php)
-- [UserPreferenceService](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/UserPreferenceService.php)
-- [UserService](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/UserService.php)
+- [ContentService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php)
+- [ContentTypeService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentTypeService.php)
+- [FieldTypeService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/FieldTypeService.php)
+- [LanguageService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LanguageService.php)
+- [LocationService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php)
+- [NotificationService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/NotificationService.php)
+- [ObjectStateService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ObjectStateService.php)
+- [RoleService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/RoleService.php)
+- [SearchService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SearchService.php)
+- [SectionService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SectionService.php)
+- [TranslationService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/TranslationService.php)
+- [TrashService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/TrashService.php)
+- [URLAliasService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/URLAliasService.php)
+- [URLService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/URLService.php)
+- [URLWildcardService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/URLWildcardService.php)
+- [UserPreferenceService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/UserPreferenceService.php)
+- [UserService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/UserService.php)
 
 ## Value objects
 
-The services provide interaction with read-only value objects from the `eZ\Publish\API\Repository\Values` namespace.
+The services provide interaction with read-only value objects from the `Ibexa\Contracts\Core\Repository\Values` namespace.
 Those objects are divided into sub-namespaces, such as `Content`, `User` or `ObjectState`.
 Each sub-namespace contains a set of value objects,
-such as [`Content\Content`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Content.php) or [`User\Role`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/User/Role.php).
+such as [`Content\Content`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Content.php) or [`User\Role`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/User/Role.php).
 
 Value objects come with their own properties, such as `$content->id` or `$location->hidden`,
 as well as with methods that provide access to more related information,
@@ -58,8 +58,8 @@ To create and modify Repository values you need to use structs, such as `getCont
 ### Value info objects
 
 Some complex value objects have an `Info` counterpart,
-for example [`ContentInfo`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentInfo.php)
-for [`Content`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Content.php)
+for example [`ContentInfo`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php)
+for [`Content`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Content.php)
 These objects provide you with lower-level information.
 For instance, `ContentInfo` contains `currentVersionNo` or `remoteId`,
 while `Content` enables you to retrieve Fields, Content Type, or previous versions.
@@ -90,7 +90,7 @@ You can use this method to perform an action that the current User does not have
 For example, to [hide a Location](public_php_api_managing_content.md#hiding-and-revealing-locations), use:
 
 ``` php
-use eZ\Publish\API\Repository\Repository;
+use Ibexa\Contracts\Core\Repository\Repository;
 
 //...
 
@@ -109,13 +109,12 @@ In order to identify as a different user, you need to use the `UserService` toge
 (in the example `admin` is the login of the administrator user):
 
 ``` php
-$user = $userService->loadUserByLogin('admin');
-$permissionResolver->setCurrentUserReference($user);
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 50, 52) =]]
 ```
 
 !!! tip
 
-    `eZ\Publish\API\Repository\PermissionService` can be injected to have a Service which provides both `PermissionResolver` and `PermissionCriterionResolver`. It supports auto-wiring.    
+    `Ibexa\Contracts\Core\Repository\PermissionService` can be injected to have a Service which provides both `PermissionResolver` and `PermissionCriterionResolver`. It supports auto-wiring.    
 
 This is not required in template functions or controller code,
 as the HTTP layer takes care of identifying the user, and automatically sets it in the repository.
@@ -142,9 +141,9 @@ Both cases should be covered with error messages:
 ``` php
 try {
     // ...
-    } catch (\eZ\Publish\API\Repository\Exceptions\NotFoundException $e) {
+    } catch (\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException $e) {
         $output->writeln("<error>No content with id $contentId found</error>");
-    } catch (\eZ\Publish\API\Repository\Exceptions\UnauthorizedException $e) {
+    } catch (\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException $e) {
         $output->writeln("<error>Permission denied on content with id $contentId</error>");
     }
 ```

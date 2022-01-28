@@ -22,7 +22,7 @@ yarn encore <environment>
 # OR php bin/console ibexa:encore:compile
 ```
 
-**The new language must then be added to the [SiteAccess](siteaccess.md) configuration**. Once this is done, any user with proper permissions can create Content item versions in these languages in the user interface.
+**The new language must then be added to the [SiteAccess](multisite/multisite.md) configuration**. Once this is done, any user with proper permissions can create Content item versions in these languages in the user interface.
 
 ### Translatable and untranslatable Fields
 
@@ -47,14 +47,14 @@ you can [use SiteAccesses](#using-siteaccesses-for-handling-translations).
 Depending on the URI used to access the website, a different site will open, with a language set in configuration settings.
 All Content items will then be displayed in this language.
 
-For details, see [Multi-language SiteAccesses](multi_language_siteaccesses.md).
+For details, see [Multi-language SiteAccesses](multisite/set_up_translation_siteaccess.md).
 
 ### Explicit translation SiteAccesses
 
 Configuration is not mandatory, but can help to distinguish which SiteAccesses can be considered translation SiteAccesses.
 
 ``` yaml
-ezplatform:
+ibexa:
     siteaccess:
         default_siteaccess: eng
         list:
@@ -91,17 +91,17 @@ If several translation SiteAccesses share the same language reference, **the fir
 
 #### Custom locale configuration
 
-If you need to use a custom locale, you can configure it in `ezplatform.yaml`, adding it to the *conversion map*:
+If you need to use a custom locale, you can configure it in `ibexa.yaml`, adding it to the *conversion map*:
 
 ``` yaml
-ezplatform:
+ibexa:
     # Locale conversion map between eZ Publish format (e.g. fre-FR) to POSIX (e.g. fr_FR).
-    # The key is the eZ Publish locale. Check locale.yaml in EzPublishCoreBundle to see natively supported locales.
+    # The key is the eZ Publish locale. Check locale.yaml in IbexaCore to see natively supported locales.
     locale_conversion:
         eng-DE: en_DE
 ```
 
-A locale *conversion map* example [can be found in the `core` bundle, on `locale.yaml`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Bundle/EzPublishCoreBundle/Resources/config/locale.yml).
+A locale *conversion map* example [can be found in `ibexa/core`, in `locale.yaml`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/config/locale.yml).
 
 ### More complex translation setup
 
@@ -110,7 +110,7 @@ There are some cases where your SiteAccesses share settings (Repository, content
 The solution is defining new groups:
 
 ``` yaml
-ezplatform:
+ibexa:
     siteaccess:
         default_siteaccess: eng
         list:
@@ -168,7 +168,7 @@ ezplatform:
 If the `translation_siteaccesses` setting is not provided, implicit *related SiteAccesses* will be used instead. SiteAccesses are considered *related* if they share:
 
 - The same Repository
-- The same root `location_id` (see [Multisite](multisite.md))
+- The same root `location_id` (see [Multisite](multisite/multisite.md))
 
 ### Fallback languages and missing translations
 

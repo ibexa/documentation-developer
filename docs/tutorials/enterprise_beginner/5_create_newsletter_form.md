@@ -45,7 +45,7 @@ Create a `newsletter.html.twig` file in `templates/blocks/form/`:
 <div class="row">
     <div class="block-form {{ block_class }}">
         {{ fos_httpcache_tag('relation-location-' ~ locationId) }}
-        {{ render(controller('ez_content::viewAction', {
+        {{ render(controller('ibexa_content::viewAction', {
             'locationId': locationId,
             'viewType': 'embed'
         })) }}
@@ -90,7 +90,7 @@ Create a `form_field.html.twig` file in `templates/fields/`:
         {% set form = formValue.createView() %}
         {% form_theme form 'bootstrap_4_layout.html.twig' %}
         {% apply spaceless %}
-            {% if not ez_field_is_empty(content, field) %}
+            {% if not ibexa_field_is_empty(content, field) %}
                 {{ form(form) }}
             {% endif %}
         {% endapply %}
@@ -110,7 +110,7 @@ Clear the cache by running `bin/console cache:clear` and refresh the Page to see
 
 ### Configure the Form field
 
-Before applying the final styling of the block, you need to configure the [CAPTCHA field](../../extending/extending_form_builder.md#captcha-field).
+Before applying the final styling of the block, you need to configure the [CAPTCHA field](../../guide/form_builder/forms.md#captcha-field).
 In `config/packages`, add a `gregwar_captcha.yaml` file with the following configuration:
 
 ``` yaml

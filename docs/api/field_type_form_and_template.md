@@ -6,8 +6,8 @@ The FormMapper maps Field definitions into Symfony forms, allowing Field editing
 
 It can implement two interfaces:
 
-- `EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface` to provide editing support
-- `EzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface` to provide Field Type definition editing support,
+- `Ibexa\Contracts\ContentForms\FieldType\FieldValueFormMapperInterface` to provide editing support
+- `Ibexa\AdminUi\FieldType\FieldDefinitionFormMapperInterface` to provide Field Type definition editing support,
 when you require non-standard settings
 
 ### FieldValueFormMapperInterface
@@ -20,8 +20,8 @@ The `FieldValueFormMapperInterface::mapFieldValueForm` method accepts two argume
 You have to add your form type to the content editing form. The example shows how `ezboolean` injects the form:
 
 ``` php
-use EzSystems\EzPlatformContentForms\Data\Content\FieldData;
-use EzSystems\RepositoryForms\Form\Type\FieldType\CheckboxFieldType;
+use Ibexa\Contracts\ContentForms\Data\Content\FieldData;
+use Ibexa\ContentForms\Form\Type\FieldType\CheckboxFieldType;
 use Symfony\Component\Form\FormInterface;
 
 public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data)
@@ -52,16 +52,16 @@ Your type has to be called `value`.
 In the example above, `CheckboxFieldType::class` is used, but you can use standard Symfony form type instead.
 
 It's good practice to encapsulate Fields with custom types as it allows easier templating.
-Type has to be compatible with your Field Type's `eZ\Publish\Core\FieldType\Value` implementation.
-You can use a [`DataTransformer`](https://symfony.com/doc/5.0/form/data_transformers.html) to achieve that or just assure correct property and form field names.
+Type has to be compatible with your Field Type's `Ibexa\Core\FieldType` implementation.
+You can use a [`DataTransformer`]([[= symfony_doc =]]/form/data_transformers.html) to achieve that or just assure correct property and form field names.
 
 ### FieldDefinitionFormMapperInterface
 
 Providing definition editing support is almost identical to creating content editing support. The only difference are field names:
 
 ``` php
-use EzSystems\RepositoryForms\Data\FieldDefinitionData;
-use EzSystems\RepositoryForms\Form\Type\FieldType\CountryFieldType;
+use Ibexa\AdminUi\Form\Data\FieldDefinitionData;
+use Ibexa\ContentForms\Form\Type\FieldType\CountryFieldType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormInterface;
 
@@ -94,7 +94,7 @@ public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, Field
 }
 ```
 
-Use names corresponding to the keys used in Field Type's `eZ\Publish\SPI\FieldType\FieldType::$settingsSchema` implementation.
+Use names corresponding to the keys used in Field Type's `Ibexa\Core\FieldType\FieldType::$settingsSchema` implementation.
 The special `defaultValue` key allows you to specify a field for setting the default value assigned during content editing.
 
 ### Registering the service
@@ -104,19 +104,19 @@ The FormMapper must be registered as a service:
 ``` yaml
 App\FieldType\Mapper\CustomFieldTypeMapper:
     tags:
-        - { name: ezplatform.field_type.form_mapper.definition, fieldType: custom }
-        - { name: ezplatform.field_type.form_mapper.value, fieldType: custom }
+        - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: custom }
+        - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: custom }
 ```
 
 Tag the mapper according to the support you need to provide:
 
-- Add the `ezplatform.field_type.form_mapper.value` tag when providing content editing support (`FieldValueFormMapperInterface` interface).
-- Add the `ezplatform.field_type.form_mapper.definition` tag when providing Field Type definition editing support (`FieldDefinitionFormMapperInterface` interface).
+- Add the `ibexa.admin_ui.field_type.form.mapper.value` tag when providing content editing support (`FieldValueFormMapperInterface` interface).
+- Add the `ibexa.admin_ui.field_type.form.mapper.definition` tag when providing Field Type definition editing support (`FieldDefinitionFormMapperInterface` interface).
 The `fieldType` key has to correspond to the name of your Field Type.
 
 ## Content view templates
 
-To render the Field in content view by using the [`ez_render_field()` Twig helper](../guide/content_rendering/twig_function_reference/field_twig_functions.md#ez_render_field),
+To render the Field in content view by using the [`ibexa_render_field()` Twig helper](../guide/content_rendering/twig_function_reference/field_twig_functions.md#ibexa_render_field),
 you need to define a template containing a block for the Field.
 
 ``` html+twig
@@ -131,11 +131,11 @@ By convention, your block must be named `<fieldTypeIdentifier>_field`.
 !!! tip
 
     Template blocks for built-in Field Types are available in
-    [`EzPublishCoreBundle/Resources/views/content_fields.html.twig`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig).
+    [`Core/Resources/views/content_fields.html.twig`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/views/content_fields.html.twig).
 
     This template is also exposed as a part of Standard Design, so you can override it with the [design engine](../guide/content_rendering/design_engine/design_engine.md).
     To do so, place the template `themes/standard/content_fields.html.twig` in your `Resources/views`
-    (assuming `ez_platform_standard_design.override_kernel_templates` is set to true).
+    (assuming `ibexa_standard_design.override_kernel_templates` is set to true).
 
 ### Template variables
 
@@ -143,22 +143,22 @@ The block can receive the following variables:
 
 | Name | Type | Description |
 |------|------|-------------|
-| `field` | `eZ\Publish\API\Repository\Values\Content\Field` | The field to display |
-| `contentInfo` | `eZ\Publish\API\Repository\Values\Content\ContentInfo` | The ContentInfo of the Content item the Field belongs to |
-| `versionInfo` | `eZ\Publish\API\Repository\Values\Content\VersionInfo` | The VersionInfo of the Content item the Field belongs to |
+| `field` | `Ibexa\Contracts\Core\Repository\Values\Content\Field` | The field to display |
+| `contentInfo` | `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | The ContentInfo of the Content item the Field belongs to |
+| `versionInfo` | `Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo` | The VersionInfo of the Content item the Field belongs to |
 | `fieldSettings` | array | Settings of the Field (depends on the Field Type) |
-| `parameters` | hash | Options passed to `ez_render_field()` under the `'parameters'` key |
-| `attr` | hash | The attributes to add the generate the HTML markup, passed to ez_render_field()` under the `'attr'` key. <br> Contains at least a class entry, containing <fieldtypeidentifier>-field |
+| `parameters` | hash | Options passed to `ibexa_render_field()` under the `'parameters'` key |
+| `attr` | hash | The attributes to add the generate the HTML markup, passed to ibexa_render_field()` under the `'attr'` key. <br> Contains at least a class entry, containing <fieldtypeidentifier>-field |
 
 ### Reusing blocks
 
 For easier Field Type template development you can take advantage of all defined blocks by using the [`block()` function](http://twig.sensiolabs.org/doc/functions/block.html).
 
-You can for example use `simple_block_field`, `simple_inline_field` or `field_attributes` blocks provided in [`content_fields.html.twig`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Bundle/EzPublishCoreBundle/Resources/views/content_fields.html.twig#L477).
+You can for example use `simple_block_field`, `simple_inline_field` or `field_attributes` blocks provided in [`content_fields.html.twig`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/views/content_fields.html.twig#L486).
 
 !!! caution
 
-    To be able to reuse built-in blocks, your template must inherit from `@EzPublishCore/content_fields.html.twig`.
+    To be able to reuse built-in blocks, your template must inherit from `@IbexaCore/content_fields.html.twig`.
 
 ### Registering your template
 
@@ -166,7 +166,7 @@ If you don't use the [design engine](../guide/content_rendering/design_engine/de
 you can register a template with the following configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         <siteaccess>:
             field_templates:
@@ -181,13 +181,13 @@ ezplatform:
 ### Back Office view template
 
 For templates for previewing the Field in the Back Office,
-using eZ Design is recommended with `ez_platform_standard_design.override_kernel_templates` set to `true`.
-With eZ Design you can apply a template (e.g. `Resources/views/themes/admin/content_fields.html.twig`) without any extra configuration.
+using the design engine is recommended with `ibexa_standard_design.override_kernel_templates` set to `true`.
+With the design engine you can apply a template (e.g. `Resources/views/themes/admin/content_fields.html.twig`) without any extra configuration.
 
-If you do not use eZ Design, apply the following configuration:
+If you do not use the design engine, apply the following configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     systems:
         admin_group:
             field_templates:
@@ -217,4 +217,4 @@ All built-in Field Types are implemented with this approach. In that case overri
 
 !!! tip
 
-    For more information on creating and overriding form type templates, see [Symfony documentation](https://symfony.com/doc/5.0/form/create_custom_field_type.html#creating-the-form-type-template).
+    For more information on creating and overriding form type templates, see [Symfony documentation]([[= symfony_doc =]]/form/create_custom_field_type.html#creating-the-form-type-template).

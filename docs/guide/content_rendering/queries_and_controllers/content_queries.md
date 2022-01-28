@@ -21,13 +21,13 @@ You can also write [custom Query types](custom_query_type.md) for the cases that
 
 ### Query type configuration
 
-To use a Query type, select the Query controller (`ez_query`) in the [content view configuration](../templates/template_configuration.md)
+To use a Query type, select the Query controller (`ibexa_query`) in the [content view configuration](../templates/template_configuration.md)
 and select the Query type under `params.query.query_type`:
 
 ``` yaml hl_lines="2 6"
 folder:
-    controller: ez_query::contentQueryAction
-    template: '@ezdesign/full/folder.html.twig'
+    controller: ibexa_query::contentQueryAction
+    template: '@ibexadesign/full/folder.html.twig'
     params:
         query:
             query_type: 'Children'
@@ -107,7 +107,7 @@ You can override the pagination settings from Field definition
 by setting the `enablePagination`, `disablePagination` or `itemsPerPage` parameters when rendering the Content query Field:
 
 ``` html+twig
-{{ ez_render_field(content, 'query', {
+{{ ibexa_render_field(content, 'query', {
     location: location|default(null), 'parameters': {
         'enablePagination': true,
         'itemsPerPage': 8
@@ -147,7 +147,7 @@ To render a Content query Field, in the content view configuration, use the `con
 ```
 
 The identifier of the Content query Field must be matched by
-using the `'@EzSystems\EzPlatformQueryFieldType\eZ\ContentView\FieldDefinitionIdentifierMatcher'` matcher.
+using the `'@Ibexa\FieldTypeQuery\ContentView\FieldDefinitionIdentifierMatcher'` matcher.
 
 Query results are provided to the template in the `items` variable.
 See [List content](../embed_and_list_content/list_content.md#content-query-field) for an example of using the Content query Field.

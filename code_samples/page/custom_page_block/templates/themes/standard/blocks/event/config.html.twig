@@ -1,0 +1,18 @@
+{% extends '@EzPlatformPageBuilder/page_builder/block/config.html.twig' %}
+
+{% block basic_tab_content %}
+    <div class="ibexa-block-config__fields">
+        {{ form_row(form.name) }}
+        {% if attributes_per_category['default'] is defined %}
+            <ol>
+                {% for identifier in attributes_per_category['default'] %}
+                    {% block config_entry %}
+                        <li>
+                            {{ form_row(form.attributes[identifier]) }}
+                        </li>
+                    {% endblock %}
+                {% endfor %}
+            </ol>
+        {% endif %}
+    </div>
+{% endblock %}

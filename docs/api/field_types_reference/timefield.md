@@ -71,7 +71,7 @@ The Field definition of this Field Type can be configured with several options:
 
 ``` php
 // Time Field Type example settings
-use eZ\Publish\Core\FieldType\Time\Type;
+use Ibexa\Core\FieldType\Time\Type;
 
 $settings = [
     "defaultType" => DateAndTime::DEFAULT_EMPTY
@@ -80,7 +80,7 @@ $settings = [
 
 ## Template rendering
 
-The template called by [the `ez_render_field()` Twig function](../../guide/content_rendering/twig_function_reference/field_twig_functions.md#ez_render_field) while rendering a Date Field has access to the following parameters:
+The template called by [the `ibexa_render_field()` Twig function](../../guide/content_rendering/twig_function_reference/field_twig_functions.md#ibexa_render_field) while rendering a Date Field has access to the following parameters:
 
 | Parameter | Type     | Default | Description|
 |-----------|----------|---------|------------|
@@ -89,5 +89,5 @@ The template called by [the `ez_render_field()` Twig function](../../guide/co
 Example:
 
 ``` php
-{{ ez_render_field(content, 'time') }}
+{{ ibexa_render_field(content, 'time') }}
 ```

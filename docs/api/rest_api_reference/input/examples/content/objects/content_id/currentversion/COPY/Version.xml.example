@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Version media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/61/versions/2">
+    <VersionInfo>
+        <id>580</id>
+        <versionNo>2</versionNo>
+        <status>DRAFT</status>
+        <modificationDate>2021-07-26T08:10:02+00:00</modificationDate>
+        <Creator media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+        <creationDate>2021-07-26T08:10:02+00:00</creationDate>
+        <initialLanguageCode>eng-GB</initialLanguageCode>
+        <languageCodes>eng-GB</languageCodes>
+        <VersionTranslationInfo media-type="application/vnd.ibexa.api.VersionTranslationInfo+xml">
+            <Language>
+                <languageCode>eng-GB</languageCode>
+            </Language>
+        </VersionTranslationInfo>
+        <names>
+            <value languageCode="eng-GB">Art1</value>
+        </names>
+        <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/61"/>
+    </VersionInfo>
+    <Fields>
+        <field>
+            <id>279</id>
+            <fieldDefinitionIdentifier>title</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+            <fieldValue>Art1</fieldValue>
+        </field>
+        <field>
+            <id>280</id>
+            <fieldDefinitionIdentifier>short_title</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+            <fieldValue/>
+        </field>
+        <field>
+            <id>281</id>
+            <fieldDefinitionIdentifier>author</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezauthor</fieldTypeIdentifier>
+            <fieldValue>
+                <value>
+                    <value key="id">1</value>
+                    <value key="name">Administrator User</value>
+                    <value key="email">admin@link.invalid</value>
+                </value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>282</id>
+            <fieldDefinitionIdentifier>intro</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezrichtext</fieldTypeIdentifier>
+            <fieldValue>
+                <value key="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:ezxhtml=&quot;http://ez.no/xmlns/ezpublish/docbook/xhtml&quot; xmlns:ezcustom=&quot;http://ez.no/xmlns/ezpublish/docbook/custom&quot; version=&quot;5.0-variant ezpublish-1.0&quot;&gt;&lt;para&gt;aaaaa&lt;/para&gt;&lt;/section&gt;
+</value>
+                <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;&gt;&lt;p&gt;aaaaa&lt;/p&gt;&lt;/section&gt;
+</value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>283</id>
+            <fieldDefinitionIdentifier>body</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezrichtext</fieldTypeIdentifier>
+            <fieldValue>
+                <value key="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;5.0-variant ezpublish-1.0&quot;/&gt;
+</value>
+                <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
+</value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>284</id>
+            <fieldDefinitionIdentifier>enable_comments</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+            <fieldValue>false</fieldValue>
+        </field>
+        <field>
+            <id>285</id>
+            <fieldDefinitionIdentifier>image</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezimageasset</fieldTypeIdentifier>
+            <fieldValue>
+                <value key="destinationContentId">62</value>
+                <value key="alternativeText"/>
+                <value key="source"/>
+                <value key="variations">
+                    <value key="article_full">
+                        <value key="href">/api/ibexa/v2/content/binary/images/62-288-1/variations/article_full</value>
+                    </value>
+                    <value key="content_list">
+                        <value key="href">/api/ibexa/v2/content/binary/images/62-288-1/variations/content_list</value>
+                    </value>
+                    <value key="dog_breed_full">
+                        <value key="href">/api/ibexa/v2/content/binary/images/62-288-1/variations/dog_breed_full</value>
+                    </value>
+                    <value key="ezplatform_admin_ui_profile_picture_user_menu">
+                        <value key="href">/api/ibexa/v2/content/binary/images/62-288-1/variations/ezplatform_admin_ui_profile_picture_user_menu</value>
+                    </value>
+                    <value key="featured_article">
+                        <value key="href">/api/ibexa/v2/content/binary/images/62-288-1/variations/featured_article</value>
+                    </value>
+                    <value key="fourth_width_2_3">
+                        <value key="href">/api/ibexa/v2/content/binary/images/62-288-1/variations/fourth_width_2_3</value>
+                    </value>
+                    <value key="fourth_width_3_2">
+                        <value key="href">/api/ibexa/v2/content/binary/images/62-288-1/variations/fourth_width_3_2</value>
+                    </value>
+                    <value key="full_width_2_3">
+                        <value key="href">/api/ibexa/v2/content/binary/images/62-288-1/variations/full_width_2_3</value>
+                    </value>
+                    <value key="full_width_3_2">
+                        <value key="href">/api/ibexa/v2/content/binary/images/62-288-1/variations/full_width_3_2</value>
+                    </value>
+                    <value key="gallery">
+                        <value key="href">/api/ibexa/v2/content/binary/images/62-288-1/variations/gallery</value>
+                    </value>
+                    <value key="half_width_2_3">
+                        <value key="href">/api/ibexa/v2/content/binary/images/62-288-1/variations/half_width_2_3</value>
+                    </value>
+                    <value key="half_width_3_2">
+                        <value key="href">/api/ibexa/v2/content/binary/images/62-288-1/variations/half_width_3_2</value>
+                    </value>
+                    <value key="large">
+                        <value key="href">/api/ibexa/v2/content/binary/images/62-288-1/variations/large</value>
+                    </value>
+                    <value key="medium">
+                        <value key="href">/api/ibexa/v2/content/binary/images/62-288-1/variations/medium</value>
+                    </value>
+                    <value key="reference">
+                        <value key="href">/api/ibexa/v2/content/binary/images/62-288-1/variations/reference</value>
+                    </value>
+                    <value key="small">
+                        <value key="href">/api/ibexa/v2/content/binary/images/62-288-1/variations/small</value>
+                    </value>
+                    <value key="third_width_2_3">
+                        <value key="href">/api/ibexa/v2/content/binary/images/62-288-1/variations/third_width_2_3</value>
+                    </value>
+                    <value key="third_width_3_2">
+                        <value key="href">/api/ibexa/v2/content/binary/images/62-288-1/variations/third_width_3_2</value>
+                    </value>
+                    <value key="tiny">
+                        <value key="href">/api/ibexa/v2/content/binary/images/62-288-1/variations/tiny</value>
+                    </value>
+                </value>
+            </fieldValue>
+        </field>
+    </Fields>
+    <Relations media-type="application/vnd.ibexa.api.RelationList+xml" href="/api/ibexa/v2/content/objects/61/versions/2/relations">
+        <Relation media-type="application/vnd.ibexa.api.Relation+xml" href="/api/ibexa/v2/content/objects/61/versions/2/relations/16">
+            <SourceContent media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/61"/>
+            <DestinationContent media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/62"/>
+            <SourceFieldDefinitionIdentifier>image</SourceFieldDefinitionIdentifier>
+            <RelationType>ASSET</RelationType>
+        </Relation>
+    </Relations>
+    <Thumbnail media-type="application/vnd.ibexa.api.Thumbnail+xml">
+        <resource>/bundles/ezplatformadminui/img/ez-icons.svg#article</resource>
+        <width></width>
+        <height></height>
+        <mimeType>image/svg+xml</mimeType>
+    </Thumbnail>
+</Version>

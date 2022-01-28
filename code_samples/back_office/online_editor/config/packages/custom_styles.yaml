@@ -1,0 +1,14 @@
+ibexa:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    custom_styles: [highlighted_block, highlighted_word]
+ibexa_fieldtype_richtext:
+    custom_styles:
+        highlighted_word:
+            template: '@ibexadesign/field_type/ezrichtext/custom_style/highlighted_word.html.twig'
+            inline: true
+        highlighted_block:
+            template: '@ibexadesign/field_type/ezrichtext/custom_style/highlighted_block.html.twig'
+            inline: false

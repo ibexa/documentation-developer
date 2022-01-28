@@ -80,7 +80,7 @@ The Field definition of this Field Type can be configured with a single option:
 |------|------|------|------|
 |`defaultType`|`mixed`|`Type::DEFAULT_EMPTY`|One of the `DEFAULT_*` constants, used by the administration interface for setting the default Field value. See below for more details.|
 
-Following `defaultType` default value options are available as constants in the `eZ\Publish\Core\FieldType\Date\Type` class:
+Following `defaultType` default value options are available as constants in the `Ibexa\Core\FieldType\Date\Type` class:
 
 |Constant|Description|
 |------|------|
@@ -90,7 +90,7 @@ Following `defaultType` default value options are available as constants in th
 ``` php
 // Date Field Type example settings
 
-use eZ\Publish\Core\FieldType\Date\Type;
+use Ibexa\Core\FieldType\Date\Type;
 
 $settings = [
     "defaultType" => Type::DEFAULT_EMPTY
@@ -99,7 +99,7 @@ $settings = [
 
 ## Template rendering
 
-The template called by [the `ez_render_field()` Twig function](../../guide/content_rendering/twig_function_reference/field_twig_functions.md#ez_render_field) while rendering a Date Field has access to the following parameters:
+The template called by [the `ibexa_render_field()` Twig function](../../guide/content_rendering/twig_function_reference/field_twig_functions.md#ibexa_render_field) while rendering a Date Field has access to the following parameters:
 
 | Parameter | Type     |Description|
 |-----------|----------|------------|
@@ -108,5 +108,5 @@ The template called by [the `ez_render_field()` Twig function](../../guide/co
 Example:
 
 ``` html+twig
-{{ ez_render_field(content, 'date') }}
+{{ ibexa_render_field(content, 'date') }}
 ```

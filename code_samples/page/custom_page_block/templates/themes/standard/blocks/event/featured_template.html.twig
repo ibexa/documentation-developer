@@ -1,0 +1,6 @@
+<h1>{{ name }}</h1>
+<p>{{ category }}</p>
+{{ render(controller('ibexa_content::viewAction', {
+    'contentId': event,
+    'viewType': 'embed'
+})) }}

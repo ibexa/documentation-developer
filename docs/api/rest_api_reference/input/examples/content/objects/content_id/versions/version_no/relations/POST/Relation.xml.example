@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Relation media-type="application/vnd.ibexa.api.Relation+xml" href="/api/ibexa/v2/content/objects/59/versions/2/relations/40">
+    <SourceContent media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/59"/>
+    <DestinationContent media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/59"/>
+    <RelationType>COMMON</RelationType>
+</Relation>

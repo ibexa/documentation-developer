@@ -56,10 +56,6 @@ We aim to follow the [latest](http://trac.tools.ietf.org/wg/httpbis/trac/wiki#HT
     - May be placed on a different (sub)domain then the front end website to avoid session stealing across front and backend.
 - **Fully support being placed behind a reverse proxy like [Varnish](https://www.varnish-cache.org/)**
 
-## REST
-
-For now see the living [REST v2 specification](https://doc.ezplatform.com/rest-api-reference) in our git repository for further details.
-
 ## UI
 
 [[= product_name =]] is often used as a web content management software, so we always strive to use the HTML/CSS/EcmaScript specifications correctly, and keep new releases up to date on new revisions of those. We furthermore always try to make sure our software gracefully degrades making sure it is useful even on older or less capable web clients (browsers), the industry terms for this approach are:
@@ -105,7 +101,7 @@ $user = $userService->loadUser( $userId );
 if ( !$repository->canUser( 'content', 'read', $user ) )
 {
     // Generates message: User does not have access to 'content' 'read' with id '10'
-    throw new \eZ\Publish\Core\Base\Exceptions\UnauthorizedException( 'content', 'read', [ 'id' => $userId ] );
+    throw new \Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException\UnauthorizedException( 'content', 'read', [ 'id' => $userId ] );
 }
 ```
 

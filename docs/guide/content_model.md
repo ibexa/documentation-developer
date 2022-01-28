@@ -20,7 +20,7 @@ The Fields can cover data ranging from single variables and text lines to media 
 
 #### Content information
 
-General information about a Content item is stored in a [`ContentInfo`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) object.
+General information about a Content item is stored in a [`ContentInfo`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php) object.
 `ContentInfo` does not include Fields. It contains following information:
 
 **`id`** - the unique ID of the Content object. These numbers are not recycled, so if an item is deleted, its ID will not be reused when a new one is created.
@@ -197,7 +197,7 @@ A new version is created every time a Content item is edited. The previous publi
 Only one version can be published at the same time.
 When you publish a new version, the previous published version changes its status to Archived.
 
-The number of preserved archived versions is set in `ezplatform.repositories.default.options.default_version_archive_limit`.
+The number of preserved archived versions is set in `ibexa.repositories.default.options.default_version_archive_limit`.
 By default it is set to 5.
 
 A new version is also created when a new [language](internationalization.md) is added to the Content item.

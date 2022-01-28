@@ -1,0 +1,153 @@
+{
+    "Content": {
+        "_media-type": "application/vnd.ibexa.api.Content+json",
+        "_href": "/api/ibexa/v2/content/objects/57",
+        "_remoteId": "055e5ed41cba5e8ec81d8846a4d1c673",
+        "_id": 57,
+        "ContentType": {
+            "_media-type": "application/vnd.ibexa.api.ContentType+json",
+            "_href": "/api/ibexa/v2/content/types/2"
+        },
+        "Name": "draft article",
+        "TranslatedName": "draft article",
+        "Versions": {
+            "_media-type": "application/vnd.ibexa.api.VersionList+json",
+            "_href": "/api/ibexa/v2/content/objects/57/versions"
+        },
+        "CurrentVersion": {
+            "_media-type": "application/vnd.ibexa.api.Version+json",
+            "_href": "/api/ibexa/v2/content/objects/57/currentversion",
+            "Version": {
+                "_media-type": "application/vnd.ibexa.api.Version+json",
+                "_href": "/api/ibexa/v2/content/objects/57/versions/1",
+                "VersionInfo": {
+                    "id": 517,
+                    "versionNo": 1,
+                    "status": "DRAFT",
+                    "modificationDate": "2021-08-11T08:59:50+00:00",
+                    "Creator": {
+                        "_media-type": "application/vnd.ibexa.api.User+json",
+                        "_href": "/api/ibexa/v2/user/users/14"
+                    },
+                    "creationDate": "2021-08-11T08:59:50+00:00",
+                    "initialLanguageCode": "eng-GB",
+                    "languageCodes": "eng-GB",
+                    "VersionTranslationInfo": {
+                        "_media-type": "application/vnd.ibexa.api.VersionTranslationInfo+json",
+                        "Language": [
+                            {
+                                "languageCode": "eng-GB"
+                            }
+                        ]
+                    },
+                    "names": {
+                        "value": [
+                            {
+                                "_languageCode": "eng-GB",
+                                "#text": "draft article"
+                            }
+                        ]
+                    },
+                    "Content": {
+                        "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+                        "_href": "/api/ibexa/v2/content/objects/57"
+                    }
+                },
+                "Fields": {
+                    "field": [
+                        {
+                            "id": 264,
+                            "fieldDefinitionIdentifier": "title",
+                            "languageCode": "eng-GB",
+                            "fieldTypeIdentifier": "ezstring",
+                            "fieldValue": "draft article"
+                        },
+                        {
+                            "id": 265,
+                            "fieldDefinitionIdentifier": "short_title",
+                            "languageCode": "eng-GB",
+                            "fieldTypeIdentifier": "ezstring",
+                            "fieldValue": null
+                        },
+                        {
+                            "id": 266,
+                            "fieldDefinitionIdentifier": "author",
+                            "languageCode": "eng-GB",
+                            "fieldTypeIdentifier": "ezauthor",
+                            "fieldValue": []
+                        },
+                        {
+                            "id": 267,
+                            "fieldDefinitionIdentifier": "intro",
+                            "languageCode": "eng-GB",
+                            "fieldTypeIdentifier": "ezrichtext",
+                            "fieldValue": {
+                                "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:ezxhtml=\"http://ez.no/xmlns/ezpublish/docbook/xhtml\" xmlns:ezcustom=\"http://ez.no/xmlns/ezpublish/docbook/custom\" version=\"5.0-variant ezpublish-1.0\"><para>draft draft</para></section>\n",
+                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5/edit\"><p>draft draft</p></section>\n"
+                            }
+                        },
+                        {
+                            "id": 268,
+                            "fieldDefinitionIdentifier": "body",
+                            "languageCode": "eng-GB",
+                            "fieldTypeIdentifier": "ezrichtext",
+                            "fieldValue": {
+                                "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:ezxhtml=\"http://ez.no/xmlns/ezpublish/docbook/xhtml\" xmlns:ezcustom=\"http://ez.no/xmlns/ezpublish/docbook/custom\" version=\"5.0-variant ezpublish-1.0\"><para>draft draft draft </para></section>\n",
+                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5/edit\"><p>draft draft draft </p></section>\n"
+                            }
+                        },
+                        {
+                            "id": 269,
+                            "fieldDefinitionIdentifier": "enable_comments",
+                            "languageCode": "eng-GB",
+                            "fieldTypeIdentifier": "ezboolean",
+                            "fieldValue": false
+                        },
+                        {
+                            "id": 270,
+                            "fieldDefinitionIdentifier": "image",
+                            "languageCode": "eng-GB",
+                            "fieldTypeIdentifier": "ezobjectrelation",
+                            "fieldValue": {
+                                "destinationContentId": null
+                            }
+                        }
+                    ]
+                },
+                "Relations": {
+                    "_media-type": "application/vnd.ibexa.api.RelationList+json",
+                    "_href": "/api/ibexa/v2/content/objects/57/versions/1/relations",
+                    "Relation": []
+                },
+                "Thumbnail": {
+                    "_media-type": "application/vnd.ibexa.api.Thumbnail+json",
+                    "resource": "/bundles/ezplatformadminui/img/ez-icons.svg#article",
+                    "width": null,
+                    "height": null,
+                    "mimeType": "image/svg+xml"
+                }
+            }
+        },
+        "Section": {
+            "_media-type": "application/vnd.ibexa.api.Section+json",
+            "_href": "/api/ibexa/v2/content/sections/1"
+        },
+        "Locations": {
+            "_media-type": "application/vnd.ibexa.api.LocationList+json",
+            "_href": "/api/ibexa/v2/content/objects/57/locations"
+        },
+        "Owner": {
+            "_media-type": "application/vnd.ibexa.api.User+json",
+            "_href": "/api/ibexa/v2/user/users/14"
+        },
+        "mainLanguageCode": "eng-GB",
+        "currentVersionNo": 1,
+        "alwaysAvailable": true,
+        "isHidden": false,
+        "status": "DRAFT",
+        "ObjectStates": {
+            "_media-type": "application/vnd.ibexa.api.ContentObjectStates+json",
+            "_href": "/api/ibexa/v2/content/objects/57/objectstates"
+        }
+    }
+}

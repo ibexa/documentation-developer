@@ -1,11 +1,11 @@
 # Image Twig functions
 
-- [`ez_image_alias`](#ez_image_alias) returns the selected variation of an image Field.
-- [`ez_content_field_identifier_first_filled_image`](#ez_content_field_identifier_first_filled_image) returns the identifier of the first image Field in a Content item that is not empty.
+- [`ibexa_image_alias`](#ibexa_image_alias) returns the selected variation of an image Field.
+- [`ibexa_content_field_identifier_first_filled_image`](#ibexa_content_field_identifier_first_filled_image) returns the identifier of the first image Field in a Content item that is not empty.
 
 ## Image rendering
 
-To render images, use the [`ez_render_field()`](field_twig_functions.md#ez_render_field) Twig function
+To render images, use the [`ibexa_render_field()`](field_twig_functions.md#ibexa_render_field) Twig function
 with the variation name passed as an argument, for example:
 
 ``` html+twig
@@ -14,29 +14,29 @@ with the variation name passed as an argument, for example:
 
 ## Image information
 
-### `ez_image_alias()`
+### `ibexa_image_alias()`
 
-`ez_image_alias()` returns the selected variation of an image Field.
+`ibexa_image_alias()` returns the selected variation of an image Field.
 
 | Argument | Type | Description |
 |-----|-----|-----|
-| `field` | `eZ\Publish\API\Repository\Values\Content\Field` | The image Field. |
-| `versionInfo` | `eZ\Publish\API\Repository\Values\Content\VersionInfo` | The VersionInfo that the Field belongs to. |
+| `field` | `Ibexa\Contracts\Core\Repository\Values\Content\Field` | The image Field. |
+| `versionInfo` | `Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo` | The VersionInfo that the Field belongs to. |
 | `variantName` | `string` | Name of the image variation to be used. To display the original image variation, use `original` as the variation name. |
 
 ``` html+twig
-{% set thumbnail = ez_image_alias(imageField, content.versionInfo, 'small') %}
+{% set thumbnail = ibexa_image_alias(imageField, content.versionInfo, 'small') %}
 ```
 
 !!! tip
 
     You can access the name of a variation from the variation object with `variation.name`.
     You can, for example, use it as parameter in the
-    [`ez_render_field()`](field_twig_functions.md#ez_render_field) Twig function.
+    [`ibexa_render_field()`](field_twig_functions.md#ibexa_render_field) Twig function.
 
-### `ez_content_field_identifier_first_filled_image()`
+### `ibexa_content_field_identifier_first_filled_image()`
 
-`ez_content_field_identifier_first_filled_image()` returns the identifier of the first image field that is not empty.
+`ibexa_content_field_identifier_first_filled_image()` returns the identifier of the first image field that is not empty.
 
 !!! caution
 
@@ -45,18 +45,18 @@ with the variation name passed as an argument, for example:
 
 | Argument | Type | Description |
 | ------ |----- | ----- |
-| `content` | `eZ\Publish\API\Repository\Values\Content\Content` | Content item to display the image for. |
+| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content` | Content item to display the image for. |
 
 ``` html+twig
-{% set firstImage = ez_content_field_identifier_first_filled_image(content) %}
+{% set firstImage = ibexa_content_field_identifier_first_filled_image(content) %}
 ```
 
 #### Examples
 
-You can use `ez_content_field_identifier_first_filled_image()`
+You can use `ibexa_content_field_identifier_first_filled_image()`
 to find and render the first existing image in an article:
 
 ``` html+twig
-{% set firstImage = ez_content_field_identifier_first_filled_image(content) %}
-{{ ez_render_field(content, firstImage) }}
+{% set firstImage = ibexa_content_field_identifier_first_filled_image(content) %}
+{{ ibexa_render_field(content, firstImage) }}
 ```

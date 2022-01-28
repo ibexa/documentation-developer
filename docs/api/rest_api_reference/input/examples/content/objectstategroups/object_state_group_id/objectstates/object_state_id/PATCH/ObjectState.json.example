@@ -1,0 +1,31 @@
+{
+    "ObjectState": {
+        "_media-type": "application/vnd.ibexa.api.ObjectState+json",
+        "_href": "/api/ibexa/v2/content/objectstategroups/6/objectstates/9",
+        "id": 9,
+        "identifier": "closed",
+        "priority": 1,
+        "ObjectStateGroup": {
+            "_media-type": "application/vnd.ibexa.api.ObjectStateGroup+json",
+            "_href": "/api/ibexa/v2/content/objectstategroups/6"
+        },
+        "defaultLanguageCode": "eng-GB",
+        "languageCodes": "eng-GB",
+        "names": {
+            "value": [
+                {
+                    "_languageCode": "eng-GB",
+                    "#text": "New Object State name"
+                }
+            ]
+        },
+        "descriptions": {
+            "value": [
+                {
+                    "_languageCode": "eng-GB",
+                    "#text": ""
+                }
+            ]
+        }
+    }
+}

@@ -24,13 +24,13 @@ This release of eZ Platform introduces the following new features:
 
     You can now create multiple content structures that can be used as Site skeletons for the new sites.
 
-    For more information about Site skeleton, see [Configure Site skeleton](https://doc.ibexa.co/en/latest/guide/site_factory/#configure-site-skeleton).
+    For more information about Site skeleton, see [Configure Site skeleton](https://doc.ibexa.co/en/latest/guide/multisite/site_factory_configuration/#site-skeletons).
 
     #### Defining parent Location
 
     You can now define the parent Location for every new site in the template configuration.
 
-    For more information about defining parent Location, see [Configure parent Location](https://doc.ibexa.co/en/latest/guide/site_factory/#configure-parent-location).
+    For more information about defining parent Location, see [Configure parent Location](https://doc.ibexa.co/en/latest/guide/multisite/site_factory_configuration/#parent-location).
     
     ### Elasticsearch
     
@@ -59,7 +59,7 @@ This release of eZ Platform introduces the following new features:
     - Matrix
     - Media
     
-    For overview of additional Fields, see [User documentation on Comparing versions.](https://doc.ibexa.co/projects/userguide/en/latest/publishing/publishing/#comparing-versions)
+    For overview of additional Fields, see [User documentation on Comparing versions.]([[= user_doc =]]/publishing/publishing/#comparing-versions)
     
 ### URL management UI
 

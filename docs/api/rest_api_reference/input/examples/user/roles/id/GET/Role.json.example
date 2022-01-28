@@ -1,0 +1,11 @@
+{
+    "Role": {
+        "_media-type": "application/vnd.ibexa.api.Role+json",
+        "_href": "/api/ibexa/v2/user/roles/21",
+        "identifier": "NewRole",
+        "Policies": {
+            "_media-type": "application/vnd.ibexa.api.PolicyList+json",
+            "_href": "/api/ibexa/v2/user/roles/21/policies"
+        }
+    }
+}

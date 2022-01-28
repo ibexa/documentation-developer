@@ -169,7 +169,7 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
 </html>
 ```
 
-Note that in the highlighted lines (12 and 89) the template takes advantage of [Symfony Webpack Encore](https://symfony.com/doc/5.0/frontend.html#webpack-encore).
+Note that in the highlighted lines (12 and 89) the template takes advantage of [Symfony Webpack Encore]([[= symfony_doc =]]/frontend.html#webpack-encore).
 This tutorial will lead you through configuring Webpack, but first you need assets.
 
 ### Adding assets
@@ -187,7 +187,7 @@ Before proceeding, ensure that the structure of the added files looks like this:
 
 ### Configuring Webpack
 
-In [[= product_name =]], you can add assets by using [Symfony Webpack Encore](https://symfony.com/doc/5.0/frontend.html#webpack-encore)
+In [[= product_name =]], you can add assets by using [Symfony Webpack Encore]([[= symfony_doc =]]/frontend.html#webpack-encore)
 — an integration of Webpack that enables you to build bundles of CSS stylesheets and JS scripts and add them to the project.
 For more details, see [importing assets from a bundle](../../guide/project_organization.md#importing-assets-from-a-bundle).
 

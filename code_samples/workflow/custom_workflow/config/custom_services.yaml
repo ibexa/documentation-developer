@@ -1,0 +1,7 @@
+services:
+    App\EventListener\LegalTransitionListener:
+        tags:
+            - { name: ibexa.workflow.action.listener }
+    App\EventListener\ApprovedTransitionListener:
+        tags:
+            - { name: ibexa.workflow.action.listener }

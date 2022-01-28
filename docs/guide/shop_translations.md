@@ -2,29 +2,29 @@
 
 You can use special translation Content items called "text modules" to create translations of the interface.
 The translation service first checks if a Content item with a specific identifier exists and then returns the text attribute of this object.
-If it does not find any translations, the [standard Symfony translation service](http://symfony.com/doc/3.4/book/translation.html) is used.
+If it does not find any translations, the [standard Symfony translation service]([[= symfony_doc =]]/book/translation.html) is used.
 
 ## Twig filter
 
-The translation service offers the Twig filter `st_translate`.
+The translation service offers the Twig filter `ibexa_commerce_translate`.
 
 The filter uses a code which identifies the text to be translated and an optional context.
 The context can be used to differentiate between different meanings, e.g. in the shop context `order` refers to purchasing,
 but in content management it can refer to sorting content.
 
 ``` html+twig
-{{ messageOrCode|st_translate }}
+{{ messageOrCode|ibexa_commerce_translate }}
 
-{{ messageOrCode|st_translate('context') }}
+{{ messageOrCode|ibexa_commerce_translate('context') }}
 ```
 
 When you use Symfony translation service instead of text modules, you can use a message with placeholders
 and define a different translation domain, in this example, `validators.de.xliff`.
 
 ``` html+twig
-<h2>{{ 'This is a test with %placeholder%'|st_translate('', { '%placeholder%':'My text' }, 'validators' ) }}</h2>
+<h2>{{ 'This is a test with %placeholder%'|ibexa_commerce_translate('', { '%placeholder%':'My text' }, 'validators' ) }}</h2>
 
-{{ 'error'|st_translate(null, {}, 'validators') }}
+{{ 'error'|ibexa_commerce_translate(null, {}, 'validators') }}
 ```
 
 ### Specifying translation language
@@ -37,26 +37,26 @@ The translation service can use the given SiteAccess to specify the language or 
 ``` html+twig
 {% set siteaccess = basket.dataMap.siteaccess is defined ? basket.dataMap.siteaccess : null %}
 
-{{ 'Thank you for using our shop.'|st_translate(null, {}, null, siteaccess) }}
+{{ 'Thank you for using our shop.'|ibexa_commerce_translate(null, {}, null, siteaccess) }}
 ```
 
 ### Pluralisation
 
-To handle plurals in translations, use [Symfony pluralization](https://symfony.com/doc/3.4/translation.html#pluralization).
+To handle plurals in translations, use [Symfony pluralization]([[= symfony_doc =]]/translation.html#pluralization).
 
 ## Translation in PHP code
 
-In PHP code you can use the `silver_trans.translator` service to get translations:
+In PHP code you can use the `Ibexa\Bundle\Commerce\Translation\Services\TransService` service to get translations:
 
 ``` php
 $messageOrCode = 'This is either some message that should be translated or a code for a text module';
 $context = 'context';
 
 //Call the service
-$container->get('silver_trans.translator')->translate($messageOrCode);
+$container->get('Ibexa\Bundle\Commerce\Translation\Services\TransService')->translate($messageOrCode);
 
 //Use the optional context parameter
-$container->get('silver_trans.translator')->translate($messageOrCode, $context);
+$container->get('Ibexa\Bundle\Commerce\Translation\Services\TransService')->translate($messageOrCode, $context);
 ```
 
 ## Translations with text modules
@@ -80,10 +80,10 @@ To take advantage of this, use the `fieldIdentifier` parameter:
 
 ``` html+twig
 {# without context #}
-{{ 'my_profile_intro_text'|st_translate(null, {'fieldIdentifier' : 'my_field_identifier' }) }}
+{{ 'my_profile_intro_text'|ibexa_commerce_translate(null, {'fieldIdentifier' : 'my_field_identifier' }) }}
 
 {# with context #}
-{{ label_tooltip_description|st_translate ('createrma', {'fieldIdentifier' : 'header'}) }}
+{{ label_tooltip_description|ibexa_commerce_translate ('createrma', {'fieldIdentifier' : 'header'}) }}
 ```
 
 ## Configuration
@@ -105,7 +105,7 @@ You can enable/disable logging of missing translations in the configuration with
 All missing translations are logged in `var/logs/siso.translations.log`.
 
 ``` xml
-<service id="silver_trans.logging_handler.stream" class="%monolog.handler.stream.class%">
+<service id="ibexa.commerce.trans.logging_handler.stream" class="%monolog.handler.stream.class%">
     <argument type="string">%kernel.logs_dir%/siso.translations.log</argument>
 </service>
 ```
@@ -119,6 +119,6 @@ Translations from Symfony are not cached.
 
 ### Cache purging
 
-When `st_translate()` is used in Twig templates, the cache is tagged with `content-<content-id>`.
+When `ibexa_commerce_translate()` is used in Twig templates, the cache is tagged with `content-<content-id>`.
 If a text module is updated, the system purges all HTTP cache blocks which are tagged with the given `content_id`
 as well as the Stash cache for this translation.

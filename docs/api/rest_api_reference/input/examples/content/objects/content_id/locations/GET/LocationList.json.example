@@ -1,0 +1,12 @@
+{
+    "LocationList": {
+        "_media-type": "application/vnd.ibexa.api.LocationList+json",
+        "_href": "/api/ibexa/v2/content/objects/63/locations",
+        "Location": [
+            {
+                "_media-type": "application/vnd.ibexa.api.Location+json",
+                "_href": "/api/ibexa/v2/content/locations/1/2/57/65"
+            }
+        ]
+    }
+}

@@ -1,0 +1,7 @@
+services:
+    App\Tab\Dashboard\Everyone\EveryoneArticleTab:
+        autowire: true
+        autoconfigure: true
+        public: false
+        tags:
+            - { name: ibexa.admin_ui.tab, group: dashboard-everyone }

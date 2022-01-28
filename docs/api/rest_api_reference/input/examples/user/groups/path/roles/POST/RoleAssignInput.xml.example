@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RoleAssignInput>
+  <Role href="/api/ibexa/v2/user/roles/10" media-type="application/vnd.ibexa.api.RoleAssignInput+xml"/>
+  <limitation identifier="Section">
+      <values>
+          <ref href="/api/ibexa/v2/content/sections/1" media-type="application/vnd.ibexa.api.Section+xml" />
+          <ref href="/api/ibexa/v2/content/sections/4" media-type="application/vnd.ibexa.api.Section+xml" />
+      </values>
+  </limitation>
+</RoleAssignInput>

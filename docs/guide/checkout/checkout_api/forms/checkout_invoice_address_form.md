@@ -2,7 +2,7 @@
 
 ## Model class
 
-`CheckoutInvoiceAddress` (`Ibexa\Platform\Commerce\Checkout\Form\CheckoutInvoiceAddress`)
+`CheckoutInvoiceAddress` (`Ibexa\Commerce\Checkout\Form\CheckoutInvoiceAddress`)
 extends `AbstractFormEntity` and implements `CheckoutAddressInterface`.
 
 ## Fields
@@ -28,8 +28,8 @@ You set the parameters in the [configuration for checkout forms](configuration_f
 
 ## Form Type
 
-`Ibexa\Platform\Commerce\Checkout\Form\Type\CheckoutInvoiceAddressType`
-(service ID: `siso_checkout.form_entity.checkout_invoice_address_type`)
+`Ibexa\Commerce\Checkout\Form\Type\CheckoutInvoiceAddressType`
+(service ID: `Ibexa\Commerce\Checkout\Form\Type\CheckoutInvoiceAddressType`)
 implements the setup for this form.
 
 This class is defined as a service to take advantage of other services, such as `TransService`,
@@ -44,8 +44,8 @@ and to be able to read configuration settings.
 
 |                              |        |
 | ---------------------------- | -------|
-| Main template                | `EshopBundle/Resources/views/Checkout/checkout_invoice_address.html.twig` |
-| Sidebar template for invoice | `EshopBundle/Resources/views/Checkout/sidebar_invoice_address.html.twig`  |
+| Main template                | `Eshop/Resources/views/Checkout/checkout_invoice_address.html.twig` |
+| Sidebar template for invoice | `Eshop/Resources/views/Checkout/sidebar_invoice_address.html.twig`  |
 
 ### Exceptions in validation process for invoice
 

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<User media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/79" id="79" remoteId="bcf0764b417f05af21852a1f03fb1f13">
+    <ContentType media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ibexa/v2/content/types/4"/>
+    <name>Jose Vargas</name>
+    <Versions media-type="application/vnd.ibexa.api.VersionList+xml" href="/api/ibexa/v2/content/objects/79/versions"/>
+    <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ibexa/v2/content/sections/2"/>
+    <MainLocation media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1/5/12/79"/>
+    <Locations media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ibexa/v2/content/objects/79/locations"/>
+    <Groups media-type="application/vnd.ibexa.api.UserGroupRefList+xml" href="/api/ibexa/v2/user/users/79/groups"/>
+    <Owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/10"/>
+    <publishDate>2021-06-29T08:23:42+00:00</publishDate>
+    <lastModificationDate>2021-07-29T11:45:07+00:00</lastModificationDate>
+    <mainLanguageCode>eng-GB</mainLanguageCode>
+    <alwaysAvailable>true</alwaysAvailable>
+    <Version media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/79/versions/6">
+        <VersionInfo>
+            <id>609</id>
+            <versionNo>6</versionNo>
+            <status>PUBLISHED</status>
+            <modificationDate>2021-07-29T11:45:07+00:00</modificationDate>
+            <Creator media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+            <creationDate>2021-07-29T11:45:07+00:00</creationDate>
+            <initialLanguageCode>eng-GB</initialLanguageCode>
+            <languageCodes>eng-GB</languageCodes>
+            <VersionTranslationInfo media-type="application/vnd.ibexa.api.VersionTranslationInfo+xml">
+                <Language>
+                    <languageCode>eng-GB</languageCode>
+                </Language>
+            </VersionTranslationInfo>
+            <names>
+                <value languageCode="eng-GB">Jose Vargas</value>
+            </names>
+            <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/79"/>
+        </VersionInfo>
+        <Fields>
+            <field>
+                <id>342</id>
+                <fieldDefinitionIdentifier>first_name</fieldDefinitionIdentifier>
+                <languageCode>eng-GB</languageCode>
+                <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+                <fieldValue>Jose</fieldValue>
+            </field>
+            <field>
+                <id>343</id>
+                <fieldDefinitionIdentifier>last_name</fieldDefinitionIdentifier>
+                <languageCode>eng-GB</languageCode>
+                <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+                <fieldValue>Vargas</fieldValue>
+            </field>
+            <field>
+                <id>344</id>
+                <fieldDefinitionIdentifier>user_account</fieldDefinitionIdentifier>
+                <languageCode>eng-GB</languageCode>
+                <fieldTypeIdentifier>ezuser</fieldTypeIdentifier>
+                <fieldValue>
+                    <value key="hasStoredLogin">true</value>
+                    <value key="contentId">79</value>
+                    <value key="login">josevargas</value>
+                    <value key="email">aa@bb.cc</value>
+                    <value key="passwordUpdatedAt"/>
+                    <value key="enabled">false</value>
+                    <value key="maxLogin">0</value>
+                    <value key="plainPassword"/>
+                </fieldValue>
+            </field>
+            <field>
+                <id>345</id>
+                <fieldDefinitionIdentifier>signature</fieldDefinitionIdentifier>
+                <languageCode>eng-GB</languageCode>
+                <fieldTypeIdentifier>eztext</fieldTypeIdentifier>
+                <fieldValue/>
+            </field>
+            <field>
+                <id>346</id>
+                <fieldDefinitionIdentifier>image</fieldDefinitionIdentifier>
+                <languageCode>eng-GB</languageCode>
+                <fieldTypeIdentifier>ezimage</fieldTypeIdentifier>
+                <fieldValue/>
+            </field>
+        </Fields>
+        <Relations media-type="application/vnd.ibexa.api.RelationList+xml" href="/api/ibexa/v2/content/objects/79/versions/6/relations"/>
+        <Thumbnail media-type="application/vnd.ibexa.api.Thumbnail+xml">
+            <resource>/bundles/ezplatformadminui/img/ez-icons.svg#user</resource>
+            <width></width>
+            <height></height>
+            <mimeType>image/svg+xml</mimeType>
+        </Thumbnail>
+    </Version>
+    <login>josevargas</login>
+    <email>aa@bb.cc</email>
+    <enabled>false</enabled>
+    <UserGroups media-type="application/vnd.ibexa.api.UserGroupList+xml" href="/api/ibexa/v2/user/users/79/groups"/>
+    <Roles media-type="application/vnd.ibexa.api.RoleAssignmentList+xml" href="/api/ibexa/v2/user/users/79/roles"/>
+</User>

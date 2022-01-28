@@ -1,0 +1,12 @@
+{
+    "UrlAliasRefList": {
+        "_media-type": "application/vnd.ibexa.api.UrlAliasRefList+json",
+        "_href": "/api/ibexa/v2/content/urlaliases",
+        "UrlAlias": [
+            {
+                "_media-type": "application/vnd.ibexa.api.UrlAlias+json",
+                "_href": "/api/ibexa/v2/content/urlaliases/0-2cecdff5f90b8595d76b68c417b09f36"
+            }
+        ]
+    }
+}

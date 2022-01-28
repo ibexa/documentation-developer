@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UserGroupRefList media-type="application/vnd.ibexa.api.UserGroupRefList+xml" href="/api/ibexa/v2/user/groups/13/subgroups">
+    <UserGroup media-type="application/vnd.ibexa.api.UserGroup+xml" href="/api/ibexa/v2/user/groups/1/5/13/112"/>
+</UserGroupRefList>

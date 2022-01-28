@@ -54,10 +54,10 @@ rm ezp_cron.txt
 
 ### Configuration
 
-The configuration of external URLs validation is SiteAccess-aware and is stored in the `config/packages/ezplatform.yaml` file, under the `ezplatform.system.<SITEACCESS>.url_checker` key, for example:
+The configuration of external URLs validation is SiteAccess-aware and is stored in the `config/packages/ibexa.yaml` file, under the `ezplatform.system.<SITEACCESS>.url_checker` key, for example:
 
 ```yaml
-ezplatform:
+ibexa:
     system:
         default:
             url_checker:
@@ -96,39 +96,36 @@ For more information about ezPlatform configuration, see [Configuration](configu
 ### Custom protocol support
 
 You can extend the external URL address validation with a custom protocol.
-To do this, you must provide a service that implements the `\eZ\Bundle\EzPublishCoreBundle\URLChecker\URLHandlerInterface` interface:
+To do this, you must provide a service that implements the `Ibexa\Bundle\Core\URLChecker\URLHandlerInterface` interface:
 
 ```php
 <?php
 
-namespace eZ\Bundle\EzPublishCoreBundle\URLChecker;
+/**
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
+ * @license For full copyright and license information view LICENSE file distributed with this source code.
+ */
+namespace Ibexa\Bundle\Core\URLChecker;
 
 interface URLHandlerInterface
 {
     /**
      * Validates given list of URLs.
      *
-     * @param \eZ\Publish\API\Repository\Values\URL\URL[] $urls
+     * @param \Ibexa\Contracts\Core\Repository\Values\URL\URL[] $urls
      */
     public function validate(array $urls);
-
-    /**
-     * Set handler options.
-     *
-     * @param array|null $options
-     */
-    public function setOptions(array $options = null);
 }
 ```
 
-Then you must register the service with an `ezpublish.url_handler` tag, like in the following example:
+Then you must register the service with an `ibexa.url_checker.handler` tag, like in the following example:
 
 ```yaml
 app.url_checker.handler.custom:
     class: 'App\URLChecker\Handler\CustomHandler'
     ...
     tags:
-        - { name: ezpublish.url_handler, scheme: custom }
+        - { name: ibexa.url_checker.handler, scheme: custom }
 ```
 
 The `scheme` attribute is mandatory and has to correspond to the name of the protocol, for instance, `ftp`.
@@ -158,10 +155,10 @@ the prefix path that results from the configured content root is prepended to th
 ### URL alias pattern configuration
 
 You can configure how [[= product_name =]] generates URL aliases.
-The configuration is stored in the `config/packages/ezplatform.yaml` file, under the `ezplatform.url_alias.slug_converter` key, for example:
+The configuration is stored in the `config/packages/ibexa.yaml` file, under the `ezplatform.url_alias.slug_converter` key, for example:
 
 ``` yaml
-ezplatform:
+ibexa:
     url_alias:
         slug_converter:
             transformation: example_group
@@ -183,7 +180,7 @@ ezplatform:
 | `separator`             | Decides what separator is used. There are three types of separator available: dash, underscore and space. |
 | `transformation_groups` | Contains the available patterns for URL generation.                                                       |
 
-A transformation group consists of an array of commands (see [all available commands](https://github.com/ezsystems/ezplatform-kernel/tree/v1.0.0/eZ/Publish/Core/Persistence/Tests/TransformationProcessor/_fixtures/transformations)) and a [`cleanupMethod`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/Persistence/Legacy/Content/UrlAlias/SlugConverter.php#L288).
+A transformation group consists of an array of commands (see [all available commands](https://github.com/ibexa/core/tree/main/tests/lib/Persistence/TransformationProcessor/_fixtures/transformations)) and a [`cleanupText`](https://github.com/ibexa/core/blob/main/src/lib/Persistence/Legacy/Content/UrlAlias/SlugConverter.php#L286).
 
 You can make use of pre-defined transformation groups.
 You can also add your own, with your own set of commands.
@@ -229,10 +226,10 @@ In this case, accessing `<yourdomain>/pictures/home/photo/` loads `<yourdomain>/
 
 You can configure URL wildcards either in the Back Office, or with the Public API.
 
-Before you configure URL wildcards, you must enable the feature in configuration in the `config/packages/ezplatform.yaml` file:
+Before you configure URL wildcards, you must enable the feature in configuration in the `config/packages/ibexa.yaml` file:
 
 ``` yaml
-ezplatform:
+ibexa:
     url_wildcards:
         enabled: true
 ```

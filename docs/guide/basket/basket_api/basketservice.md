@@ -1,6 +1,6 @@
 # BasketService [[% include 'snippets/commerce_badge.md' %]]
 
-The ID of the service is `silver_basket.basket_service`.
+The ID of the service is `Ibexa\Commerce\Checkout\Service\BasketService`.
 
 Service methods:
 

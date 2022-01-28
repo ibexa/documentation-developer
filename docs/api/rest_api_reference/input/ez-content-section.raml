@@ -1,0 +1,138 @@
+post:
+    displayName: Create new Section
+    description: Creates a new Section.
+    headers:
+        Accept:
+            description: If set, the new Section is returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.Section+xml
+                application/vnd.ibexa.api.Section+json
+        Content-Type:
+            description: The Section input schema encoded in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.SectionInput+json
+                application/vnd.ibexa.api.SectionInput+xml
+    body:
+        application/vnd.ibexa.api.SectionInput+xml:
+            type: SectionInput
+            example: !include examples/content/sections/POST/SectionInput.xml.example
+        application/vnd.ibexa.api.SectionInput+json:
+            type: SectionInput
+            example: !include examples/content/sections/POST/SectionInput.json.example
+    responses:
+        201:
+            body:
+                application/vnd.ibexa.api.Section+xml:
+                    type: Section
+                    example: !include examples/content/sections/POST/Section.xml.example
+                application/vnd.ibexa.api.Section+json:
+                    type: Section
+                    example: !include examples/content/sections/POST/Section.json.example
+get:
+    displayName: Get Sections
+    description: Returns a list of all Sections.
+    queryParameters:
+        identifer:
+            description: Only the Section with the given identifier is returned.
+    headers:
+        Accept:
+            description: If set, the Section list is returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.SectionList+xml
+                application/vnd.ibexa.api.SectionList+json
+        If-None-Match:
+            description: ETag
+    responses:
+        200:
+            body:
+                application/vnd.ibexa.api.SectionList+xml:
+                    type: SectionList
+                    example: !include examples/content/sections/GET/SectionList.xml.example
+                application/vnd.ibexa.api.SectionList+json:
+                    type: SectionList
+                    example: !include examples/content/sections/GET/SectionList.json.example
+        401:
+            description: Error - The user has no permission to read the Section.
+/{sectionId}:
+    get:
+        displayName: Get Section
+        description: Returns the Section by given Section ID.
+        headers:
+            Accept:
+                description: If set, the Section is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.Section+xml
+                    application/vnd.ibexa.api.Section+json
+            If-None-match:
+                description: ETag
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.Section+xml:
+                        type: Section
+                        example: !include examples/content/sections/section_id/GET/Section.xml.example
+                    application/vnd.ibexa.api.Section+json:
+                        type: Section
+                        example: !include examples/content/sections/section_id/GET/Section.json.example
+            401:
+                description: Error - The user is not authorized to read this Section.
+            404:
+                description: Error - The Section does not exist.
+    patch:
+        displayName: Update a Section
+        description: Updates a Section. PATCH or POST with header X-HTTP-Method-Override PATCH.
+        headers:
+            Accept:
+                description: If set, the updated Section is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.Section+xml
+                    application/vnd.ibexa.api.Section+json
+            Content-Type:
+                description: The Section input schema encoded in XML or JSON.
+                example:  |
+                    application/vnd.ibexa.api.SectionInput+xml
+                    application/vnd.ibexa.api.SectionInput+json
+            If-Match:
+                description: ETag
+        body:
+            application/vnd.ibexa.api.SectionInput+xml:
+                type: SectionInput
+                example: !include examples/content/sections/section_id/PATCH/SectionInput.xml.example
+            application/vnd.ibexa.api.SectionInput+json:
+                type: SectionInput
+                example: !include examples/content/sections/section_id/PATCH/SectionInput.json.example
+        responses:
+            200:
+                description: OK - Section updated.
+                body:
+                    application/vnd.ibexa.api.Section+xml:
+                        type: Section
+                        example: !include examples/content/sections/section_id/PATCH/Section.xml.example
+                    application/vnd.ibexa.api.Section+json:
+                        type: Section
+                        example: !include examples/content/sections/section_id/PATCH/Section.json.example
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to create this Section.
+            403:
+                description: Error - a Section with the given identifier already exists.
+            412:
+                description: Error - the current ETag does not match with the one provided in the If-Match header.
+    delete:
+        displayName: Delete Section
+        description: The given Section is deleted.
+          #headers: TODO
+          # a little obvious?
+        #Accept:
+        #description: If set, in the case of an error the error message is returned in XML or JSON format
+        #example:  |
+        #application/vnd.ibexa.api.ErrorMessage+xml
+        #application/vnd.ibexa.api.ErrorMessage+json
+        responses:
+            204:
+                description: No Content - given Section is deleted.
+            401:
+                description: Error - the user is not authorized to delete this Section.
+            404:
+                description: Error - the Section does not exist.

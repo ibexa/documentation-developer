@@ -5,7 +5,7 @@
     Installation for production is only supported on Linux.
 
     To install [[= product_name =]] for development on macOS or Windows,
-    see [Installation on macOS or Windows](install-on-mac-os-and-windows.md).
+    see the [installation guide for macOS and Windows](install-on-mac-os-and-windows.md).
 
 ## Prepare the work environment
 
@@ -175,12 +175,12 @@ or
 
 `DATABASE_URL=postgresql://user:password@host:port/database_name`.
 
-Choose a [secret](http://symfony.com/doc/5.0/reference/configuration/framework.html#secret)
+Choose a [secret]([[= symfony_doc =]]/reference/configuration/framework.html#secret)
 and provide it in the `APP_SECRET` parameter in `.env`.
 It should be a random string, made up of at least 32 characters, numbers, and symbols.
-This is used by Symfony when generating [CSRF tokens](https://symfony.com/doc/5.0/security/csrf.html),
-[encrypting cookies](http://symfony.com/doc/5.0/cookbook/security/remember_me.html),
-and for creating signed URIs when using [ESI (Edge Side Includes)](https://symfony.com/doc/5.0/http_cache/esi.html).
+This is used by Symfony when generating [CSRF tokens]([[= symfony_doc =]]/security/csrf.html),
+[encrypting cookies]([[= symfony_doc =]]/cookbook/security/remember_me.html),
+and for creating signed URIs when using [ESI (Edge Side Includes)]([[= symfony_doc =]]/http_cache/esi.html).
 
 !!! caution
 
@@ -196,7 +196,7 @@ and for creating signed URIs when using [ESI (Edge Side Includes)](https://symfo
     The same goes for other secrets, like database password, Varnish invalidate token, JWT passphrase, etc.
     
     After changing the app secret, make sure that you clear the application cache and log out all the users.
-    For more information, see [Symfony documentation](https://symfony.com/doc/5.0/reference/configuration/framework.html#secret).   
+    For more information, see [Symfony documentation]([[= symfony_doc =]]/reference/configuration/framework.html#secret).   
 
     It is recommended to store the database credentials in your `.env.local` file and not commit it to the Version Control System.
 
@@ -293,12 +293,15 @@ Future files and directories created by these two users will need to inherit tho
     To do so, follow the instructions on [setting up a virtual host below](#set-up-virtual-host).
 
 To set up permissions for production, it is recommended to use an ACL (Access Control List).
-See [Setting up or Fixing File Permissions](http://symfony.com/doc/5.0/setup/file_permissions.html) in Symfony documentation
+See [Setting up or Fixing File Permissions]([[= symfony_doc =]]/setup/file_permissions.html) in Symfony documentation
 for information on how to do it on different systems.
 
 ### Set up a virtual host
 
 Prepare a [virtual host configuration](https://httpd.apache.org/docs/2.4/vhosts/) for your site.
+
+You can copy [the example vhost file](https://github.com/ezsystems/developer-documentation/tree/master/code_samples/install/vhost_template/vhost.template)
+to `/etc/apache2/sites-available` as a `.conf` file and modify it to fit your project.
 
 Specify `/<your installation directory>/public` as the `DocumentRoot` and `Directory`.
 Uncomment the line that starts with `#if [SYMFONY_ENV]` and set the value to `prod` or `dev`,

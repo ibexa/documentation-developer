@@ -1,0 +1,19 @@
+ibexa_design_engine:
+    design_list:
+        summersale: [summersale, standard]
+
+ibexa:
+    system:
+        site_group:
+            content_view:
+                full:
+                    article:
+                        template: '@ibexadesign/full/article.html.twig'
+                        match:
+                            Identifier\ContentType: [ article ]
+        campaign:
+            languages: [eng-GB]
+            design: summersale        
+        site:
+            languages: [eng-GB]
+            design: standard

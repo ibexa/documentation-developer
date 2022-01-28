@@ -25,16 +25,16 @@ or in the header (`false`):
 
 ``` yaml
 parameters:
-    siso_voucher.default.send_vouchers_as_lines: true
+    ibexa_commerce_voucher.default.send_vouchers_as_lines: true
 ```
 
 ## VoucherManager
 
-The `Siso/Bundle/VoucherBundle/Service/VoucherManager` service manages general voucher processes, like redeeming or removing the voucher.
+The `Ibexa\Bundle\Commerce\Voucher\Service\VoucherManager` service manages general voucher processes, like redeeming or removing the voucher.
 
 ``` php
 //get the voucher manager
-$voucherManager = $this->get('siso_voucher.voucher_manager'); 
+$voucherManager = $this->get('Ibexa\Bundle\Commerce\Voucher\Service\VoucherManager'); 
 
 //redeem the voucher
 $voucherManager->redeemVoucherNumber($basket, $voucherNumber);

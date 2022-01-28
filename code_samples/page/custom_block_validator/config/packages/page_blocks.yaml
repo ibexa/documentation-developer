@@ -1,0 +1,20 @@
+ibexa_fieldtype_page:
+    block_validators:
+        alpha_only: 'App\Validator\AlphaOnly'
+    blocks:
+        my_block:
+            name: My Block
+            category: default
+            thumbnail: /bundles/ibexaplatformicons/img/all-icons.svg#edit
+            views:
+                default:
+                    name: Default block layout
+                    template: my_block.html.twig
+                    priority: -255
+            attributes:
+                my_text_attribute:
+                    type: text
+                    name: My text attribute
+                    validators:
+                        alpha_only:
+                            message: The field can only contain letters or numbers.

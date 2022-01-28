@@ -19,6 +19,10 @@ You can use the following matchers to [match content views](template_configurati
 | [`Depth`](#depth) | Depth of the Location. The depth of a top level Location is 1. |
 | [`UrlAlias`](#urlalias) | Virtual URL of the Location. |
 
+!!! tip
+
+    You can also create [custom view matchers](custom_view_matcher.md).
+
 ## Id\Content
 
 Matches the ID number of a Content item.

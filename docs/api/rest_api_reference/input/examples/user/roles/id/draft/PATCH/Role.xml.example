@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role media-type="application/vnd.ibexa.api.Role+xml" href="/api/ibexa/v2/user/roles/9">
+    <identifier>UpdatedIdentifier</identifier>
+    <Policies media-type="application/vnd.ibexa.api.PolicyList+xml" href="/api/ibexa/v2/user/roles/9/policies"/>
+</Role>

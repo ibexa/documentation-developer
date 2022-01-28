@@ -1,0 +1,11 @@
+{
+    "Role": {
+        "_media-type": "application/vnd.ibexa.api.Role+json",
+        "_href": "/api/ibexa/v2/user/roles/6",
+        "identifier": "Editor",
+        "Policies": {
+            "_media-type": "application/vnd.ibexa.api.PolicyList+json",
+            "_href": "/api/ibexa/v2/user/roles/6/policies"
+        }
+    }
+}

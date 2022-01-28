@@ -1,17 +1,17 @@
 # URL Sort Clause
 
-The [`SortClause\Url` Sort Clause](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/URL/Query/SortClause/URL.php)
+The [`SortClause\Url` Sort Clause](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/URL/Query/SortClause/URL.php)
 sorts search results by the URLs.
 
 ## Arguments
 
-- `sortDirection` - the direction of the sorting, either `\eZ\Publish\API\Repository\Values\URL\Query\SortClause::SORT_ASC` (default) or `\eZ\Publish\API\Repository\Values\URL\Query\SortClause::SORT_DESC`
+- `sortDirection` - the direction of the sorting, either `\Ibexa\Contracts\Core\Repository\Values\URL\Query\SortClause::SORT_ASC` (default) or `\Ibexa\Contracts\Core\Repository\Values\URL\Query\SortClause::SORT_DESC`
 
 ## Example
 
 ``` php
-use eZ\Publish\API\Repository\Values\URL\URLQuery;
-use eZ\Publish\API\Repository\Values\URL\Query\SortClause;
+use Ibexa\Contracts\Core\Repository\Values\URL\URLQuery;
+use Ibexa\Contracts\Core\Repository\Values\URL\Query\SortClause;
 
 // ...
 

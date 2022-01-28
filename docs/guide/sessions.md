@@ -11,7 +11,7 @@ It is further enhanced in [[= product_name =]] with support for SiteAccess-awar
 ## Configuration
 
 Symfony offers the possibility to change many session options at application level
-(i.e. in Symfony [`framework` configuration](https://symfony.com/doc/5.0/reference/configuration/framework.html#session)).
+(for example, in Symfony [`framework` configuration]([[= symfony_doc =]]/reference/configuration/framework.html#session)).
 These options include:
 
 - `cookie_domain`
@@ -28,7 +28,7 @@ so you can also define session configuration per SiteAccess and SiteAccess group
 All site-related session configuration can be defined per SiteAccess and SiteAccess group:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         my_siteaccess:
             session:
@@ -59,7 +59,7 @@ Symfony can be configured to use custom handlers, or just fall back to what is 
 framework:
     session:
         # handler_id can be set to null (~) like default in Symfony, if it so will use default session handler from php.ini
-        # But in order to use %ezplatform.session.save_path%, default eZ Platform instead sets %ezplatform.session.handler_id% to:
+        # But in order to use %ezplatform.session.save_path%, default Ibexa DXP instead sets %ezplatform.session.handler_id% to:
         # - session.handler.native_file (default)
         # - ezplatform.core.session.handler.native_redis (recommended value for Cluster usage, using php-redis session handler )
         handler_id: '%ezplatform.session.handler_id%'
@@ -80,7 +80,7 @@ See [shared sessions in the clustering guide](clustering.md#shared-sessions).
 To set up [[= product_name =]] using [Memcached](https://pecl.php.net/package/memcached) you need to:
 
 - [Configure the session save handler settings in `php.ini`](http://php.net/manual/en/memcached.sessions.php)
-- Set `%ezplatform.session.handler_id%` to `~` (null) in `config/packages/ezplatform.yaml`
+- Set `%ezplatform.session.handler_id%` to `~` (null) in `config/packages/ibexa.yaml`
 
 Alternatively if you need to configure Memcached servers dynamically:
 
@@ -88,7 +88,7 @@ Alternatively if you need to configure Memcached servers dynamically:
 
 ```yaml
     app.session.handler.native_memcached:
-        class: eZ\Bundle\EzPublishCoreBundle\Session\Handler\NativeSessionHandler
+        class: Ibexa\Bundle\Core\Session\Handler\NativeSessionHandler
         arguments:
          - '%session.save_path%'
          - memcached
@@ -105,11 +105,11 @@ session locking.
 To set up [[= product_name =]] using the [Redis](https://pecl.php.net/package/redis) you need to:
 
 - [Configure the session save handler settings in `php.ini`](https://github.com/phpredis/phpredis/#php-session-handler)
-- Set `%ezplatform.session.handler_id%` to `~` _(null)_ in `config/packages/ezplatform.yaml`
+- Set `%ezplatform.session.handler_id%` to `~` _(null)_ in `config/packages/ibexa.yaml`
 
 Alternatively if you have needs to configure Redis servers dynamically:
 
-- Set `%ezplatform.session.handler_id%` (or `SESSION_HANDLER_ID` env var) to `ezplatform.core.session.handler.native_redis`
+- Set `%ezplatform.session.handler_id%` (or `SESSION_HANDLER_ID` env var) to `Ibexa\Bundle\Core\Session\Handler\NativeSessionHandler`
 - Set `%ezplatform.session.save_path%` (or `SESSION_SAVE_PATH` env var) to [save_path config for Redis](https://github.com/phpredis/phpredis/#php-session-handler)
 
 !!! note "Ibexa Cloud"
@@ -133,7 +133,7 @@ If you want to make sure sessions survive Redis or server restarts, consider usi
 For setups where database is preferred for storing sessions, you may use Symfony's PdoSessionHandler,
 although it is not currently recommended from performance perspective.
 
-Below is a configuration example for [[= product_name =]]. Refer to the [Symfony Cookbook](http://symfony.com/doc/5.0/doctrine/pdo_session_storage.html) for full documentation.
+Below is a configuration example for [[= product_name =]]. Refer to the [Symfony Cookbook]([[= symfony_doc =]]/doctrine/pdo_session_storage.html) for full documentation.
 
 ``` yaml
 framework:

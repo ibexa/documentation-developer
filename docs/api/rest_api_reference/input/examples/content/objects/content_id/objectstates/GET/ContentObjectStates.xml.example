@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentObjectStates media-type="application/vnd.ibexa.api.ContentObjectStates+xml">
+    <ObjectState media-type="application/vnd.ibexa.api.ObjectState+xml" href="/api/ibexa/v2/content/objectstategroups/2/objectstates/1"/>
+    <ObjectState media-type="application/vnd.ibexa.api.ObjectState+xml" href="/api/ibexa/v2/content/objectstategroups/3/objectstates/3"/>
+    <ObjectState media-type="application/vnd.ibexa.api.ObjectState+xml" href="/api/ibexa/v2/content/objectstategroups/7/objectstates/7"/>
+    <ObjectState media-type="application/vnd.ibexa.api.ObjectState+xml" href="/api/ibexa/v2/content/objectstategroups/8/objectstates/8"/>
+</ContentObjectStates>

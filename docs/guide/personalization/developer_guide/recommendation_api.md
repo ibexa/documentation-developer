@@ -1,16 +1,19 @@
 # Recommendation API
 
-Recommendations are retrieved from the recommendation engine with RESTful requests that rely on the HTTP GET method. 
-The result can a list of item IDs that can then be used to call the underlying CMS or shop system 
-and postload the necessary information for the rendering process.
+Recommendations are retrieved from the Personalization server with RESTful requests 
+that rely on the HTTP GET method. 
+The result can a list of item IDs that can then be used to call the underlying 
+CMS or shop system and postload the necessary information for the rendering process.
 
-For more information about Personalization, see [Introduction](../personalization.md), [Basic integration](../basic_integration.md) and [Best practices](../best_practices/recommendation_integration.md).
+For more information about Personalization, see [Introduction](../personalization.md), 
+[Basic integration](../basic_integration.md) and [Best practices](../best_practices/recommendation_integration.md).
 
 !!! note "Authentication"
 
-    For fetching recommendations, authentication is disabled by default, and it must be disabled when 
-    you use [JSONP](https://en.wikipedia.org/wiki/JSONP) for response handling. 
-    If authentication is enabled for recommendation requests and you want to change this, contact support@ibexa.co.
+    For fetching recommendations, authentication is disabled by default, and 
+    it must be disabled when you use [JSONP](https://en.wikipedia.org/wiki/JSONP) for response handling. 
+    If authentication is enabled for recommendation requests and you want to change 
+    this, contact support@ibexa.co.
 
 ## GET requests
 
@@ -24,62 +27,70 @@ For the request to return recommendations, you must provide the following parame
 
 |Parameter|Description|Value|
 |---|---|---|
-|`customerid`|Your customer ID, as defined when [enabling Personalization](../enabling_personalization.md#configuring-customer-credentials) (for example, "00000").|alphanumeric|
+|`customerid`|A customer ID (for example "00000"), as defined when [enabling Personalization](../enabling_personalization.md#set-up-customer-credentials). Can be used to identify a website in installations that [hosts multiple SiteAccesses]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting).|alphanumeric|
 |`userid`|An ID of the tracked user in the website (for example, an internal customer code, a session code or a cookie for anonymous users.|alphanumeric|
 |`scenarioid`|An ID of the scenario used for providing recommendations, as defined in the Back Office.|alphanumeric|
 |`extension`|A format of the response (either JSON or JSONP).|`json` or `jsonp`|
 
 !!! caution "Parameter encoding limitations"
 
-    All parameters must be URL-encoded (see RFC 3986) and cannot contain a backslash (`%5C`) character.
+    All parameters must be URL-encoded (see RFC 3986) and cannot contain a backslash 
+    (`%5C`) character.
 
 ### Customizing the recommendation request
 
 You can customize the recommendation request by using additional query string parameters. 
-For example, you can send the following request to the recommendation engine: 
+For example, you can send the following request to the Personalization server: 
 
 `GET https://reco.yoochoose.net/api/v2/00000/john.doe/landing_page.json ?contextitems=123&categorypath=%2FCamera%2FCompact&attribute=title&attribute=deeplink,description&numrecs=8`
 
 The request fetches 8 recommendations for user ID `john.doe`, who is viewing item 123 
 and the category `/Camera/Compact`, based on the scenario with the identifier `landing_page`. 
-The recommendation response uses the JSON format and should include values of `title`, `deeplink` and `description` attributes.
+The recommendation response uses the JSON format and should include values of 
+`title`, `deeplink` and `description` attributes.
 
 You can use the following parameters to customize a request:
 
 |Parameter|Example|Description|Value|
 |---|---|---|---|
 |`numrecs`|20|Defines a number of recommendations to be delivered. The lower this value, the shorter the response time. The default value is 10. |1 to 50|
-|`contextitems`|10,13,14 or "CLICKED"|A comma-separated list of items that the user is viewing on the web page. The list is required by [context-based recommendations](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models). All items must be of the same type. The type is defined in the scenario configuration. If history code is used ("CLICKED","CONSUMED", "OWNS", "RATED" or "BASKET"), context items are pulled from the user profile (for example, the most recent clicks or purchases). This parameter is optional. |1 to 2147483647 (or alphanumeric if enabled)|
+|`contextitems`|10,13,14 or "CLICKED"|A comma-separated list of items that the user is viewing on the web page. The list is required by [context-based recommendations]([[= user_doc =]]/personalization/recommendation_models). All items must be of the same type. The type is defined in the scenario configuration. If history code is used ("CLICKED","CONSUMED", "OWNS", "RATED" or "BASKET"), context items are pulled from the user profile (for example, the most recent clicks or purchases). This parameter is optional. |1 to 2147483647 (or alphanumeric if enabled)|
 |`outputtypeid`|1|Required for scenarios that are defined with multiple output item types, otherwise optional. By default it is the first/lowest output type enabled in the scenario config.|numeric|
 |`jsonpCallback`|"myCallback"|Function or method name (used for JSONP request only). It can be a function ("callme"), or a method ("obj.callme"). The default value is "jsonpCallback".|legal JavaScript function call|
 |`attribute`|"title" or "description"|If you apply this parameter, the engine tries to fetch the value of the attribute. For example, `&attribute=title` means fetching the title for the item that is delivered in the response, if available. The fetch works if content import has been successful. You can pass multiple attributes: `&attribute=title&attribute=description` or `&attribute=title,description`. Use this to pull "pure" client-based recommendations without requesting local customer data.|string|
 |`categorypath`|`/Women/Shirts`|Category path for fetching recommendations. The format is the same as the category path used in event tracking. Add this parameter multiple times to get recommendations from multiple categories. The order of recommendations from different categories is defined by the calculated relevance. The default value is `%2F`, which stands for an entire website.|string[/string]* |
-|`usecontextcategorypath`| |Used in conjunction with `categorypath`. If set to true, the category path of given context item(s) is resolved by the recommendation engine from the internal store and used as base category path. If more than one category is returned, all categories are used for providing recommendations. Setting this parameter to true increases the response time. If possible, use the `categorypath` parameter to provide the category to the recommender engine during the request. The default value is false.|boolean|
+|`usecontextcategorypath`| |Used in conjunction with `categorypath`. If set to true, the category path of given context item(s) is resolved by the Personalization server from the internal store and used as base category path. If more than one category is returned, all categories are used for providing recommendations. Setting this parameter to true increases the response time. If possible, use the `categorypath` parameter to provide the category to the recommender engine during the request. The default value is false.|boolean|
 |`recommendCategory`| |Used in conjunction with `categorypath`. If set to true, the neighboring category linked with the recommended items is delivered in the response as an additional field `category`. Helps find a suitable template for articles from several categories.<br/>For example, take an article about American football. The article is categorized as `Sport/Football` and `America/USA`. Depending on the category, the webpage displays a football field or an American flag in the background. If the article is recommended and clicked in the `Sport/Cricket` category, it must open with the "field" template. If clicked in the `America/Canada` category, it must open with the "flag" template. The category is returned only if the article is located in several categories and the "closer" category is found. The default value is false.|boolean|
 
 ##### Submodel parameters
 
-If your recommendation model uses submodels to group content items/products based on an attribute, you can pass the following parameters to request recommendations for a specific group. 
-For more information, see [Submodels](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#submodels).
+If your recommendation model uses submodels to group content items/products based 
+on an attribute, you can pass the following parameters to request recommendations 
+for a specific group. 
+For more information, see [Submodels]([[= user_doc =]]/personalization/recommendation_models/#submodels).
 
 |Parameter|Example|Description|Value|
 |---|---|---|---|
 |attribute key|`&color=red`|Applicable if a submodel with the same name and value is configured.|string|
-|`userattribute`|gender|If defined, the recommendation engine tries to find the attribute value for the current user and, if found, "prefers" recommendations that are typically followed by users with the same value of the attribute. The default value is null.|string, csv list|
+|`userattribute`|gender|If defined, the Personalization server tries to find the attribute value for the current user and, if found, "prefers" recommendations that are typically followed by users with the same value of the attribute. The default value is null.|string, csv list|
 
-## Response handling
+## Handle responses
 
-The recommendation request returns information about the currently used context items and an array of recommendation objects in JSON or JSONP format. 
+The recommendation request returns information about the currently used context 
+items and an array of recommendation objects in JSON or JSONP format. 
 The result can be integrated into any webpage on the client side by using script code. 
-To track user actions like "clickrecommended" and "rendered", use the links delivered in the response.
+To track user actions like "clickrecommended" and "rendered", use the links 
+delivered in the response.
 For more information, see inline comments below.
 
 !!! note "Previewing recommendations"
 
-    You can preview the actual responses that come from the recommendation engine and how they are rendered in the user interface.
-    For more information, see [Scenarios](https://doc.ibexa.co/projects/userguide/en/latest/personalization/scenarios/#previewing-scenario-results).
+    You can preview the actual responses that come from the Personalization server 
+    and how they are rendered in the user interface.
+    For more information, see [Previewing scenario results]([[= user_doc =]]/personalization/previewing_scenario).
     
-For more information about integrating recommendations in the web page, see [Best practices](../best_practices/recommendation_integration.md).
+For more information about integrating recommendations in the web page, 
+see [Best practices](../best_practices/recommendation_integration.md).
 
 ### Response object format
 
@@ -218,13 +229,18 @@ Error messages can change, do not use them for automated processing.
 
 !!! note "Rendering data"
 
-    If data import with the [Content API](content_api.md) was successful, you can also fetch data used for rendering (for example "title", "description" or "deeplink") from the recommendation response.
+    If data import with the [Content API](content_api.md) was successful, you 
+    can also fetch data used for rendering (for example "title", "description" 
+    or "deeplink") from the recommendation response.
 
-## Recommendation caching
+## Cache recommendations
 
-In most cases the recommendation engine's response can be cached. 
-Depending on the recommendation model and context, it can drastically reduce the number of recommendation requests. 
-The recommendation service supports the following HTTP headers to enable cache control on the client side (all date values must follow the "HTTP-date" format as defined by [RFC 2616](https://tools.ietf.org/html/rfc2616)):
+In most cases the Personalization server's response can be cached. 
+Depending on the recommendation model and context, it can drastically reduce 
+the number of recommendation requests. 
+The recommendation service supports the following HTTP headers to enable cache 
+control on the client side (all date values must follow the "HTTP-date" format 
+as defined by [RFC 2616](https://tools.ietf.org/html/rfc2616)):
 
 |Scope|Header|Description|Example|
 |---|---|---|---|
@@ -232,17 +248,21 @@ The recommendation service supports the following HTTP headers to enable cache c
 |Response|`Last-Modified`|The last modification date of the recommendations.|`Last-Modified: Tue, 15 Nov 2013 12:45:26 GMT`|
 |Response|`Expires`|Gives the date/time after which the response is outdated|`Expires: Thu, 01 Dec 2013 16:00:00 GMT`|
 
-The last modification timestamp indicates a change that could influence the recommendation response. 
-It depends on an updated recommendation calculation, an update of an item or certain scenario configuration changes. 
+The last modification timestamp indicates a change that could influence the 
+recommendation response. 
+It depends on an updated recommendation calculation, an update of an item or 
+certain scenario configuration changes. 
 
-The expiration timestamp is a best-effort prediction based on the model configuration and provided context. 
-The shortest expiration period is 5 minutes from the request time, the longest is 24 hours. 
+The expiration timestamp is a best-effort prediction based on the model configuration 
+and provided context. 
+The shortest expiration period is 5 minutes from the request time, the longest 
+is 24 hours. 
 
 In most cases you do not have to calculate the expiration time manually. 
 Instead, make sure that the `Expires` header is used in the configuration 
 of your caching system and not a static value out of your configuration.
 
-To learn how recommendation engine calculates the `Expires` header that is provided 
+To learn how Personalization server calculates the `Expires` header that is provided 
 to your caching system, see the following table with caching strategy examples:
 
 | Model | Context | Expiration time | Description |

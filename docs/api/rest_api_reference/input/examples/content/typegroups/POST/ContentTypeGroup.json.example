@@ -1,0 +1,22 @@
+{
+    "ContentTypeGroup": {
+        "_media-type": "application/vnd.ibexa.api.ContentTypeGroup+json",
+        "_href": "/api/ibexa/v2/content/typegroups/6",
+        "id": 6,
+        "identifier": "newContentTypeGroup",
+        "created": "2021-08-11T09:44:18+00:00",
+        "modified": "2021-08-11T09:44:18+00:00",
+        "Creator": {
+            "_media-type": "application/vnd.ibexa.api.User+json",
+            "_href": "/api/ibexa/v2/user/users/14"
+        },
+        "Modifier": {
+            "_media-type": "application/vnd.ibexa.api.User+json",
+            "_href": "/api/ibexa/v2/user/users/14"
+        },
+        "ContentTypes": {
+            "_media-type": "application/vnd.ibexa.api.ContentTypeInfoList+json",
+            "_href": "/api/ibexa/v2/content/typegroups/6/types"
+        }
+    }
+}

@@ -4,8 +4,8 @@
 
 | Path  | Description     |
 | ----- | --------------- |
-| `Silversolutions/Bundle/EshopBundle/Resources/views/pagelayout.html.twig` | Defines the `breadcrumb` block, which calls the sub-controller for the breadcrumb generation. |
-| `Silversolutions/Bundle/EshopBundle/Resources/views/Breadcrumbs/breadcrumb_list.html.twig` | Used by all WhiteOctober-based breadcrumb generators to render the generated breadcrumbs elements. |
+| `Eshop/Resources/views/pagelayout.html.twig` | Defines the `breadcrumb` block, which calls the sub-controller for the breadcrumb generation. |
+| `Eshop/Resources/views/Breadcrumbs/breadcrumb_list.html.twig` | Used by all WhiteOctober-based breadcrumb generators to render the generated breadcrumbs elements. |
 
 !!! note "No breadcrumbs displayed"
 
@@ -26,7 +26,7 @@ It is used in `breadcrumb_list.html.twig` to determine the number of generated b
 The `translationParameters` property of a breadcrumb contains additional data,
 which includes `type` of the breadcrumb. The type depends on the generator used:
 
-- `CatalogBreadcrumbsGenerator` - `ez_content`
+- `CatalogBreadcrumbsGenerator` - `ibexa_content`
 - `EzContentBreadcrumbsGenerator` - `catalog`
 - `RoutesBreadcrumbsGenerator` - `route`
 

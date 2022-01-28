@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectStateGroupList media-type="application/vnd.ibexa.api.ObjectStateGroupList+xml" href="/api/ibexa/v2/content/objectstategroups">
+    <ObjectStateGroup media-type="application/vnd.ibexa.api.ObjectStateGroup+xml" href="/api/ibexa/v2/content/objectstategroups/2">
+        <id>2</id>
+        <identifier>ez_lock</identifier>
+        <defaultLanguageCode>eng-GB</defaultLanguageCode>
+        <languageCodes>eng-GB</languageCodes>
+        <ObjectStates media-type="application/vnd.ibexa.api.ObjectStateList+xml" href="/api/ibexa/v2/content/objectstategroups/2/objectstates"/>
+        <names>
+            <value languageCode="eng-GB">Lock</value>
+        </names>
+        <descriptions>
+            <value languageCode="eng-GB"></value>
+        </descriptions>
+    </ObjectStateGroup>
+    <ObjectStateGroup media-type="application/vnd.ibexa.api.ObjectStateGroup+xml" href="/api/ibexa/v2/content/objectstategroups/3">
+        <id>3</id>
+        <identifier>accessibility</identifier>
+        <defaultLanguageCode>eng-GB</defaultLanguageCode>
+        <languageCodes>eng-GB</languageCodes>
+        <ObjectStates media-type="application/vnd.ibexa.api.ObjectStateList+xml" href="/api/ibexa/v2/content/objectstategroups/3/objectstates"/>
+        <names>
+            <value languageCode="eng-GB">Accessibility</value>
+        </names>
+        <descriptions>
+            <value languageCode="eng-GB"></value>
+        </descriptions>
+    </ObjectStateGroup>
+    <ObjectStateGroup media-type="application/vnd.ibexa.api.ObjectStateGroup+xml" href="/api/ibexa/v2/content/objectstategroups/6">
+        <id>6</id>
+        <identifier>custom-states</identifier>
+        <defaultLanguageCode>eng-GB</defaultLanguageCode>
+        <languageCodes>eng-GB</languageCodes>
+        <ObjectStates media-type="application/vnd.ibexa.api.ObjectStateList+xml" href="/api/ibexa/v2/content/objectstategroups/6/objectstates"/>
+        <names>
+            <value languageCode="eng-GB">Custom State</value>
+        </names>
+        <descriptions>
+            <value languageCode="eng-GB">Custom Object state</value>
+        </descriptions>
+    </ObjectStateGroup>
+</ObjectStateGroupList>

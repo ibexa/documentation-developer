@@ -1,6 +1,6 @@
 # Pattern Criterion
 
-The [`Pattern` URL Criterion](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/URL/Query/Criterion/SectionId.php)
+The [`Pattern` URL Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/URL/Query/Criterion/SectionId.php)
 matches URLs that contain the provided pattern.
 
 ## Arguments

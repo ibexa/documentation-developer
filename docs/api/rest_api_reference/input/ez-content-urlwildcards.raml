@@ -1,0 +1,92 @@
+get:
+    displayName: List URL wildcards
+    description: Returns a list of URL wildcards.
+    headers:
+        Accept:
+            description: If set, the URL wildcard is returned in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.UrlWildcardList+xml
+                application/vnd.ibexa.api.UrlWildcardList+json
+    responses:
+        200:
+            description: OK - returns a list of URL wildcards.
+            body:
+                application/vnd.ibexa.api.UrlWildcardList+xml:
+                    type: UrlWildcardList
+                    example: !include examples/content/urlwildcards/GET/UrlWildcardList.xml.example
+                application/vnd.ibexa.api.UrlWildcardList+json:
+                    type: UrlWildcardList
+                    example: !include examples/content/urlwildcards/GET/UrlWildcardList.json.example
+        401:
+            description: Error - The user has no permission to read URL wildcards.
+post:
+    displayName: Create URL wildcard
+    description: Creates a new URL wildcard.
+    headers:
+        Accept:
+            description: If set, the new URL wildcard is returned in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.UrlWildcard+xml
+                application/vnd.ibexa.api.UrlWildcard+json
+        Content-Type:
+            description: The URL Wildcard input schema encoded in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.UrlWildcardCreate+xml
+                application/vnd.ibexa.api.UrlWildcardCreate+json
+    body:
+        application/vnd.ibexa.api.UrlWildcardCreate.xml:
+            type: UrlWildcardCreate
+            example: !include examples/content/urlwildcards/POST/UrlWildcardCreate.xml.example
+        application/vnd.ibexa.api.UrlWildcardCreate.json:
+            type: UrlWildcardCreate
+            example: !include examples/content/urlwildcards/POST/UrlWildcardCreate.json.example
+    responses:
+        201:
+            description: URL wildcard created.
+            body:
+                application/vnd.ibexa.api.UrlWildcard+xml:
+                    type: UrlWildcard
+                    example: !include examples/content/urlwildcards/POST/UrlWildcard.xml.example
+                application/vnd.ibexa.api.UrlWildcard+json:
+                    type: UrlWildcard
+                    example: !include examples/content/urlwildcards/POST/UrlWildcard.json.example
+        400:
+            description: Error - The input does not match the input schema definition.
+        401:
+            description: Error - The user is not authorized to create a URL wildcard.
+        403:
+            description: Error - A URL wildcard with the same identifier already exists.
+/{wildcardId}:
+    get:
+        displayName: Get URL wildcard
+        description: Returns the URL wildcard with the given ID.
+        headers:
+            Accept:
+                description: If set, the URL wildcard is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.UrlWildcard+xml
+                    application/vnd.ibexa.api.UrlWildcard+json
+        responses:
+            200:
+                description: OK - returns the URL wildcard.
+                body:
+                    application/vnd.ibexa.api.UrlWildcard+xml:
+                        type: UrlWildcard
+                        example: !include examples/content/urlwildcards/wildcard_id/GET/UrlWildcard.xml.example
+                    application/vnd.ibexa.api.UrlWildcard+json:
+                        type: UrlWildcard
+                        example: !include examples/content/urlwildcards/wildcard_id/GET/UrlWildcard.json.example
+            401:
+                description: Error - The user is not authorized to read URL wildcards.
+            404:
+                description: Error - The URL wildcard does not exist.
+    delete:
+        displayName: Delete URL wildcard
+        description: Deletes the given URL wildcard.
+        responses:
+            204:
+                description: No Content - URL wildcard deleted.
+            401:
+                description: Error - The user is not authorized to delete a URL wildcard.
+            404:
+                description: Error - The URL wildcard does not exist.

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RoleAssignment media-type="application/vnd.ibexa.api.RoleAssignment+xml" href="/api/ibexa/v2/user/groups/1/11/12/roles/1">
+    <Role media-type="application/vnd.ibexa.api.Role+xml" href="/api/ibexa/v2/user/roles/1"/>
+</RoleAssignment>

@@ -1,0 +1,15 @@
+{
+    "Relation": {
+        "_media-type": "application/vnd.ibexa.api.Relation+json",
+        "_href": "/api/ibexa/v2/content/objects/59/versions/2/relations/38",
+        "SourceContent": {
+            "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+            "_href": "/api/ibexa/v2/content/objects/59"
+        },
+        "DestinationContent": {
+            "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+            "_href": "/api/ibexa/v2/content/objects/59"
+        },
+        "RelationType": "COMMON"
+    }
+}

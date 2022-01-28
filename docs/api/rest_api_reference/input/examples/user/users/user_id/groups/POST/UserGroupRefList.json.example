@@ -1,0 +1,24 @@
+{
+    "UserGroupRefList": {
+        "_media-type": "application/vnd.ibexa.api.UserGroupRefList+json",
+        "_href": "/api/ibexa/v2/user/users/115/groups",
+        "UserGroup": [
+            {
+                "_media-type": "application/vnd.ibexa.api.UserGroup+json",
+                "_href": "/api/ibexa/v2/user/groups/1/5/12",
+                "unassign": {
+                    "_href": "/api/ibexa/v2/user/users/115/groups/12",
+                    "_method": "DELETE"
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.UserGroup+json",
+                "_href": "/api/ibexa/v2/user/groups/1/5/13",
+                "unassign": {
+                    "_href": "/api/ibexa/v2/user/users/115/groups/13",
+                    "_method": "DELETE"
+                }
+            }
+        ]
+    }
+}

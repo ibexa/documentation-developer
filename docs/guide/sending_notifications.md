@@ -37,7 +37,7 @@ To have the notification translated, provide the message strings in the translat
 To create a notification from the front end (in this example, of type `info`), use the following code:
 
 ``` js
-const eventInfo = new CustomEvent('ez-notify', {
+const eventInfo = new CustomEvent('ibexa-notify', {
     detail: {
         label: 'info',
         message: 'Notification text'
@@ -51,15 +51,15 @@ Dispatch the event with `document.body.dispatchEvent(eventInfo);`.
 
 You can send your own custom notifications to the user which will be displayed in the user menu.
 
-To create a new notification you must use the `createNotification(eZ\Publish\API\Repository\Values\Notification\CreateStruct $createStruct)` method from `\eZ\Publish\API\Repository\NotificationService`.
+To create a new notification you must use the `createNotification(Ibexa\Contracts\Core\Repository\Values\Notification\CreateStruct $createStruct)` method from `Ibexa\Contracts\Core\Repository\NotificationService`.
 
 Example:
 
 ```php
 <?php
 
-use eZ\Publish\API\Repository\NotificationService;
-use eZ\Publish\API\Repository\Values\Notification\CreateStruct;
+use Ibexa\Contracts\Core\Repository\NotificationService;
+use Ibexa\Contracts\Core\Repository\Values\Notification\CreateStruct;
 
 //..
 /** @var NotificationService */
@@ -100,8 +100,8 @@ declare(strict_types=1);
 
 namespace App\Notification;
 
-use eZ\Publish\API\Repository\Values\Notification\Notification;
-use eZ\Publish\Core\Notification\Renderer\NotificationRenderer;
+use Ibexa\Contracts\Core\Repository\Values\Notification\Notification;
+use Ibexa\Core\Notification\Renderer\NotificationRenderer;
 use Symfony\Component\Routing\RouterInterface;
 use Twig\Environment;
 
@@ -124,7 +124,7 @@ class MyRenderer implements NotificationRenderer
     public function generateUrl(Notification $notification): ?string
     {
         if (array_key_exists('content_id', $notification->data)) {
-            return $this->router->generate('_ez_content_view', ['contentId' => $notification->data['content_id']]);
+            return $this->router->generate('ibexa.content.view', ['contentId' => $notification->data['content_id']]);
         }
 
         return null;
@@ -145,7 +145,7 @@ return $this->router->generate('ez_content_draft_edit', [
 You can add the template that is defined above in the `render()` method to one of your custom bundles:
 
 ```
-{% extends '@ezdesign/account/notifications/list_item.html.twig' %}
+{% extends '@ibexadesign/account/notifications/list_item.html.twig' %}
 
 {% trans_default_domain 'custom_notification' %}
 
@@ -153,8 +153,8 @@ You can add the template that is defined above in the `render()` method to one o
 
 {% block icon %}
     <span class="type__icon">
-        <svg class="ez-icon ez-icon--review">
-            <use xlink:href="{{ asset('bundles/ezplatformadminui/img/ez-icons.svg') }}#notice"></use>
+        <svg class="ibexa-icon ibexa-icon--review">
+            <use xlink:href="{{ asset('bundles/ibexaplatformicons/img/all-icons.svg') }}#notice"></use>
         </svg>
     </span>
 {% endblock %}
@@ -187,5 +187,5 @@ services:
         
     App\Notification\MyRenderer:
         tags:
-            - { name: ezpublish.notification.renderer, alias: MyNotification:TypeName }
+            - { name: ibexa.notification.renderer, alias: MyNotification:TypeName }
 ```

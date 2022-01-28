@@ -16,7 +16,7 @@ siso_core.default.user_group_location.private: 388
 The shop checks the age of the customer data that is stored in the session.
 If it is too old (past timeout), the shop fetches the data from the ERP again.
 
-You configure the default timeout (in seconds) in `EshopBundle/Resources/config/default_values.yml`:
+You configure the default timeout (in seconds) in `Eshop/Resources/config/default_values.yml`:
 
 ``` yaml
 silver_customer.config.default_values.remote_validation_timeout: 600

@@ -25,7 +25,7 @@ and renders them in order according to their Location priority.
 
 The Query Type has the name `Menu` (line 28).
 You can use it in the template to render the menu.
-Add the following [`ez_render_content_query` function](../twig_function_reference/content_twig_functions.md#ez_render_content_query) to the `pagelayout_html.twig` template:
+Add the following [`ibexa_render_content_query` function](../twig_function_reference/content_twig_functions.md#ibexa_render_content_query) to the `pagelayout_html.twig` template:
 
 ``` html+twig
 [[= include_file('code_samples/front/layouts/menu/templates/themes/my_theme/pagelayout.html.twig', 0, 7) =]]
@@ -50,7 +50,7 @@ To use it, first create a `MenuBuilder.php` file in `src/Menu`:
 ```
 
 In the builder, you can define items that you want in the menu.
-For example, lines 20-22 add a specific Location by using the [`ez_urlalias`](../twig_function_reference/url_twig_functions.md#ez_urlalias) route.
+For example, lines 20-22 add a specific Location by using the [`ibexa.url.alias`](../twig_function_reference/url_twig_functions.md#ibexa.url.alias) route.
 Line 26 adds a defined system route that leads to the search form.
 
 Next, register the menu builder as a service:

@@ -25,7 +25,7 @@ Persistence cache aims at caching most `SPI\Persistence` calls used in common p
 
 Notes:
 
-- [Cache tagging](https://symfony.com/doc/5.0/components/cache/cache_invalidation.html#using-cache-tags) is used in
+- [Cache tagging]([[= symfony_doc =]]/components/cache/cache_invalidation.html#using-cache-tags) is used in
   order to allow clearing cache by alternative indexes.
   For instance tree operations or changes to Content Types are
   examples of operations that also need to invalidate content cache by tags.
@@ -38,14 +38,14 @@ which has info on cache use in two places:
 - Symfony Cache tab: for Symfony Cache itself, the tab shows cache lookups to cache backends
 - eZ Platform tab: shows calls made to database back end, and if they are cached or not
 
-To see where and how to contribute additional caches, refer to the [source code](https://github.com/ezsystems/ezplatform-kernel/tree/v1.0.0/eZ/Publish/Core/Persistence/Cache).
+To see where and how to contribute additional caches, refer to the [source code](https://github.com/ibexa/core/blob/main/src/lib/Persistence/Cache/Readme.md).
 
 ## Persistence cache configuration
 
 !!! note
 
     Current implementation uses Symfony cache. It technically supports the following cache backends:
-    [APCu, Array, Chain, Doctrine, Filesystem, Memcached, PDO & Doctrine DBAL, Php Array, Proxy, Redis](https://symfony.com/doc/5.0/components/cache/cache_pools.html#creating-cache-pools).
+    [APCu, Array, Chain, Doctrine, Filesystem, Memcached, PDO & Doctrine DBAL, Php Array, Proxy, Redis]([[= symfony_doc =]]/components/cache/cache_pools.html#creating-cache-pools).
     [[= product_name =]] officially supports only using Filesystem for single server and Redis or Memcached for clustered setups.
 
 Use of Memcached or Redis as shared cache back end is a requirement for use in clustering setup.
@@ -54,31 +54,31 @@ Filesystem adapters, for example, are **not** intended to be used over a shared 
 
 **Cache service**
 
-The underlying cache system is exposed as an `ezpublish.cache_pool` service, and can be reused by any other service as described in the [Using Cache service](#using-cache-service) section.
+The underlying cache system is exposed as an `ibexa.cache_pool` service, and can be reused by any other service as described in the [Using Cache service](#using-cache-service) section.
 
 ### Configuration
 
 By default, configuration uses the `cache.tagaware.filesystem` service to store cache files.
-The service is defined in `app/config/cache_pool/cache.tagaware.filesystem.yml`
-to use [FilesystemTagAwareAdapter](https://github.com/ezsystems/ezplatform/blob/master/config/packages/cache_pool/cache.tagaware.filesystem.yaml#L8).
-This service is loaded through `app/config/env/generic.php`.
+The service is defined in `bin/config/cache_pool/cache.tagaware.filesystem.yml`
+to use [FilesystemTagAwareAdapter](https://github.com/ibexa/recipes/blob/master/ibexa/oss/4.0.x-dev/config/packages/cache_pool/cache.tagaware.filesystem.yaml#L8).
+This service is loaded through `bin/config/env/generic.php`.
 
 You can select a different cache backend and configure its parameters in the relevant file in the `cache_pool` folder.
 
 #### Multi Repository setup
 
-You can [configure multisite to work with multiple Repositories](multisite.md#multisite-with-multiple-repositories).
-Then, in `ezplatform.yaml` you can specify which cache pool you want to use on a SiteAccess or SiteAccess group level.
+You can [configure multisite to work with multiple Repositories](multisite/multisite_configuration.md#location-id).
+Then, in `ibexa.yaml` you can specify which cache pool you want to use on a SiteAccess or SiteAccess group level.
 
 The following example shows use in a SiteAccess group:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         # "site_group" refers to the group configured in site access
         site_group:
             # cache_pool is set to '%env(CACHE_POOL)%'
-            # env(CACHE_POOL) is set to 'cache.tagaware.filesystem' (a Symfony service) by default, for more examples see app/config/cache_pool/*
+            # env(CACHE_POOL) is set to 'cache.tagaware.filesystem' (a Symfony service) by default, for more examples see bin/config/cache_pool/*
             cache_service_name: '%cache_pool%'
 ```
 
@@ -128,7 +128,7 @@ parameters:
 [Redis](http://redis.io/), an in-memory data structure store, is one of the supported cache solutions for clustering.
 Redis is used via [Redis pecl extension](https://pecl.php.net/package/redis).
 
-See [Redis Cache Adapter in Symfony documentation](https://symfony.com/doc/5.0/components/cache/adapters/redis_adapter.html#configure-the-connection)
+See [Redis Cache Adapter in Symfony documentation]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection)
 for information on how to connect to Redis.
 
 #### Supported Adapters
@@ -159,9 +159,9 @@ Out of the box in `config/packages/cache_pool/cache.redis.yaml` you'll find a de
 
 !!! note "Ibexa Cloud"
 
-    For Ibexa Cloud/Platform.sh: This is automatically configured in `app/config/env/platformsh.php` if you have enabled Redis as `rediscache` Platform.sh service.
+    For Ibexa Cloud/Platform.sh: This is automatically configured in `bin/config/env/platformsh.php` if you have enabled Redis as `rediscache` Platform.sh service.
 
-For anything else, you can enable it with environment variables detected automatically by `app/config/env/generic.php`.
+For anything else, you can enable it with environment variables detected automatically by `bin/config/env/generic.php`.
 For instance, if you set the following environment variables `export CACHE_POOL="cache.redis" CACHE_DSN="secret@example.com:1234/13"`, it will result in config like this:
 
 ``` yaml
@@ -174,11 +174,11 @@ services:
             - name: cache.pool
               clearer: cache.app_clearer
               provider: 'redis://secret@example.com:1234/13'
-              # Default CACHE_NAMESPACE value, see app/config/cache_pool/cache.redis.yaml for usage with e.g. multi repo.
+              # Default CACHE_NAMESPACE value, see bin/config/cache_pool/cache.redis.yaml for usage with e.g. multi repo.
               namespace: 'ez'
 ```
 
-See `config/packages/ezplatform.yaml` and `config/packages/cache_pool/cache.redis.yaml` for further details on `CACHE_POOL`, `CACHE_DSN` and `CACHE_NAMESPACE`.
+See `config/packages/ibexa.yaml` and `config/packages/cache_pool/cache.redis.yaml` for further details on `CACHE_POOL`, `CACHE_DSN` and `CACHE_NAMESPACE`.
 
 !!! caution "Clearing Redis cache"
 
@@ -198,7 +198,7 @@ With that in mind, the following configurations of Redis are possible:
     - Provides high availability by providing one or several slaves (ideally 2 slaves or more, e.g. minimum 3 servers), and handle failover
     - [Slaves are asynchronously replicated](https://redis.io/topics/sentinel#fundamental-things-to-know-about-sentinel-before-deploying), so they can't be used for reads
     - Typically used with a load balancer (e.g. HAproxy with occasional calls to Redis Sentinel API) in the front in order to only speak to elected master
-    - As of v3 you can also configure this [directly on the connection string](https://symfony.com/doc/current/components/cache/adapters/redis_adapter.html#configure-the-connection), **if** you use `Predis` instead of `php-redis` 
+    - As of v3 you can also configure this [directly on the connection string]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection), **if** you use `Predis` instead of `php-redis` 
 
 Several cloud providers have managed services that are easier to set up, handle replication and scalability for you, and might perform better. Notable services include:
 
@@ -217,7 +217,7 @@ Several cloud providers have managed services that are easier to set up, handle 
 
 [Memcached, a distributed caching solution](http://memcached.org/) is a cache solution that is supported for clustering use, as an alternative to Redis.
 
-See [Memcached Cache Adapter in Symfony documentation](https://symfony.com/doc/5.0/components/cache/adapters/memcached_adapter.html#configure-the-connection)
+See [Memcached Cache Adapter in Symfony documentation]([[= symfony_doc =]]/components/cache/adapters/memcached_adapter.html#configure-the-connection)
 for information on how to configure Memcached.
 
 
@@ -250,7 +250,7 @@ services:
             - name: cache.pool
               clearer: cache.app_clearer
               provider: 'memcached://user:pass@localhost?weight=33'
-              # Default CACHE_NAMESPACE value, see app/config/cache_pool/cache.redis.yaml for usage with e.g. multi repo.
+              # Default CACHE_NAMESPACE value, see bin/config/cache_pool/cache.redis.yaml for usage with e.g. multi repo.
               namespace: 'ez'
 ```
 
@@ -306,20 +306,20 @@ In your Symfony services configuration you can simply define that you require th
     myApp.myService:
         class: '%myApp.myService.class%'
         arguments:
-            - '@ezpublish.cache_pool'
+            - '@ibexa.cache_pool'
 ```
 
 This service is an instance of `Symfony\Component\Cache\Adapter\TagAwareAdapterInterface`, which extends the `Psr\Cache\CacheItemPoolInterface` interface with tagging functionality.
 
 ##### With service container
 
-Like any other service, you can also get the cache service with the [service container](service_container.md) like so:
+Like any other service, you can also get the cache service with the [service container](../api/service_container.md) like so:
 
 ``` php
 // Getting the cache service in PHP
 
 /** @var \Symfony\Component\Cache\Adapter\TagAwareAdapterInterface */
-$pool = $container->get('ezpublish.cache_pool');
+$pool = $container->get('ibexa.cache_pool');
 ```
 
 ### Using the cache service
@@ -341,7 +341,7 @@ $pool->save($cacheItem);
 return $myObject;
 ```
 
-For more info on usage, see [Symfony Cache's documentation](https://symfony.com/doc/5.0/components/cache.html).
+For more info on usage, see [Symfony Cache's documentation]([[= symfony_doc =]]/components/cache.html).
 
 ### Clearing Persistence cache
 
@@ -351,7 +351,7 @@ Persistence cache prefixes it's cache using "ez-". Clearing persistence cache ca
 // To clear all cache (not recommended without a good reason)
 $pool->clear();
 
-// To clear a specific cache item (check source for more examples in eZ\Publish\Core\Persistence\Cache\*)
+// To clear a specific cache item (check source for more examples in Ibexa\Core\Persistence\Cache\*)
 $pool->deleteItems(["ez-content-info-$contentId"]);
 
 // Symfony cache is tag-based, so you can clear all cache related to a Content item like this:

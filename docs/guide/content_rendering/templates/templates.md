@@ -21,7 +21,7 @@ For example, to extend the [general layout of the page](template_configuration.m
 in the child template place the content in a `content` block:
 
 ``` html+twig
-{% extends '@ezdesign/pagelayout.html.twig' %}
+{% extends '@ibexadesign/pagelayout.html.twig' %}
 
 {% block content %}
 {% endblock %}
@@ -47,20 +47,20 @@ Main variables include:
 |------|------|
 |`content`|Content item, containing all Fields and version information (VersionInfo). |
 |`location`|Location object. Contains meta information on the Content (ContentInfo). |
-|`ezplatform.siteaccess`| Current [SiteAccess](../../siteaccess.md). |
-|`ezplatform.rootLocation`| Root Location object. |
-|`ezplatform.requestedUriString`| Requested URI string. |
-|`ezplatform.systemUriString`| System URI string. System URI is the URI for internal content controller. If the current route is not a URL alias, then the current PathInfo is returned. |
-|`ezplatform.viewParameters`| View parameters as a hash. |
-|`ezplatform.viewParametersString`| View parameters as a string. |
-|`ezplatform.translationSiteAccess`| Translation SiteAccess for a given language (null if the SiteAccess cannot be found). |
-|`ezplatform.availableLanguages`| List of available languages. |
-|`ezplatform.configResolver`| [Config resolver](../../config_dynamic.md#configresolver). |
+|`ibexa.siteaccess`| Current [SiteAccess](../../multisite/multisite.md). |
+|`ibexa.rootLocation`| Root Location object. |
+|`ibexa.requestedUriString`| Requested URI string. |
+|`ibexa.systemUriString`| System URI string. System URI is the URI for internal content controller. If the current route is not a URL alias, then the current PathInfo is returned. |
+|`ibexa.viewParameters`| View parameters as a hash. |
+|`ibexa.viewParametersString`| View parameters as a string. |
+|`ibexa.translationSiteAccess`| Translation SiteAccess for a given language (null if the SiteAccess cannot be found). |
+|`ibexa.availableLanguages`| List of available languages. |
+|`ibexa.configResolver`| [Config resolver](../../config_dynamic.md#configresolver). |
 
 ### Custom template variables
 
 You can create custom Twig variables for use in templates.
-Set the variables per SiteAccess or SiteAccess group ([scope](../../siteaccess.md#scope)), or per content view.
+Set the variables per SiteAccess or SiteAccess group ([scope](../../multisite/multisite_configuration.md#scope)), or per content view.
 
 To configure a custom template variable per scope, use the `twig_variables` key:
 
@@ -92,7 +92,7 @@ twig_variables:
 {{ custom_variable.nested_variable }}
 ```
 
-You can use [Symfony Expression language](https://symfony.com/doc/current/components/expression_language.html)
+You can use [Symfony Expression language]([[= symfony_doc =]]/components/expression_language.html)
 to access other values, for example:
 
 ``` yaml

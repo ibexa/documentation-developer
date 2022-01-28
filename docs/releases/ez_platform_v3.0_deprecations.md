@@ -16,7 +16,7 @@ as well as [Symfony upgrade guides for 4.0](https://github.com/symfony/symfony/b
 and [for 5.0](https://github.com/symfony/symfony/blob/master/UPGRADE-5.0.md)
 to learn about all changes it entails.
 
-See [v3.0 project update](../updating/4_upgrade_the_code.md) for the steps you need to take to update your project to Symfony 5.
+See [v3.0 project update](../updating/from_2.5/adapt_code_to_v3.md) for the steps you need to take to update your project to Symfony 5.
 See also [full requirements for installing eZ Platform](https://doc.ibexa.co/en/latest/getting_started/requirements).
 
 ### Template configuration
@@ -299,7 +299,7 @@ You now need to [make use of the `TabsComponent`](https://doc.ibexa.co/en/latest
 Content Type editing, including Action Dispatchers, Form Processors, Types and Data classes related to Content Types/Limitations,
 has been moved to `ezplatform-admin-ui` from `repository-forms`.
 
-### Code cleanup in Admin UI
+### Code cleanup in Back Office
 
 The following deprecated items have been removed:
 
@@ -855,7 +855,7 @@ Configuration providers exposing the following JavaScript variables have been dr
 
 - `eZ.adminUiConfig.alloyEditor` replaced by `eZ.richText.alloyEditor`
 - `eZ.adminUiConfig.richTextCustomTags` replaced by `eZ.richText.customTags`
-- `eZ.adminUiConfig.richTextCustomStyles` replaced by `eZ.richtext.customStyles`
+- `eZ.adminUiConfig.richTextCustomStyles` replaced by `eZ.richText.customStyles`
 
 The following Webpack Encore entries have been changed:
 

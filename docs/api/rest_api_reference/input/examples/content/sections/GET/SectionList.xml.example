@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SectionList media-type="application/vnd.ibexa.api.SectionList+xml" href="/api/ibexa/v2/content/sections">
+    <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ibexa/v2/content/sections/1">
+        <sectionId>1</sectionId>
+        <identifier>standard</identifier>
+        <name>Standard</name>
+    </Section>
+    <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ibexa/v2/content/sections/2">
+        <sectionId>2</sectionId>
+        <identifier>users</identifier>
+        <name>Users</name>
+    </Section>
+    <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ibexa/v2/content/sections/3">
+        <sectionId>3</sectionId>
+        <identifier>media</identifier>
+        <name>Media</name>
+    </Section>
+    <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ibexa/v2/content/sections/6">
+        <sectionId>6</sectionId>
+        <identifier>form</identifier>
+        <name>Form</name>
+    </Section>
+    <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ibexa/v2/content/sections/7">
+        <sectionId>7</sectionId>
+        <identifier>template</identifier>
+        <name>Template</name>
+    </Section>
+    <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ibexa/v2/content/sections/8">
+        <sectionId>8</sectionId>
+        <identifier>restricted</identifier>
+        <name>Restricted</name>
+    </Section>
+</SectionList>

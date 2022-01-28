@@ -7,7 +7,7 @@ This Field represents and handles a table of rows and columns of data.
 | `Matrix` | `ezmatrix`    | `array`        |
 
 The Matrix Field Type is available via the Matrix Bundle
-provided by the [ezplatform-matrix-fieldtype](https://github.com/ezsystems/ezplatform-matrix-fieldtype) package.
+provided by the [ibexa/matrix-fieldtype](https://github.com/ibexa/matrix-fieldtype) package.
 
 ## PHP API Field Type
 
@@ -15,7 +15,7 @@ provided by the [ezplatform-matrix-fieldtype](https://github.com/ezsystems/ezpla
 
 |Type|Description|Example|
 |------|------|------|
-|`array`|array of `EzSystems\EzPlatformMatrixFieldtype\FieldType\Value\Row` objects which contain column data|see below|
+|`array`|array of `Ibexa\FieldTypeMatrix\FieldType\Value\Row` objects which contain column data|see below|
 
 Example of input:
 
@@ -29,7 +29,7 @@ new FieldType\Value([
 
 ### Value Object
 
-`EzSystems\EzPlatformMatrixFieldtype\FieldType\Value` offers the following properties:
+`Ibexa\FieldTypeMatrix\FieldType\Value` offers the following properties:
 
 |Property|Type|Description|
 |------|------|------|

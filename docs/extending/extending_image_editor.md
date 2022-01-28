@@ -1,7 +1,7 @@
-# Extending Image Editor
+# Extend Image Editor
 
 With the Image Editor, users can do basic image modifications.
-You can [modify the Image Editor's default appearance or behavior](../guide/image_editor.md).
+You can configure the Image Editor's [default appearance or behavior](../guide/image_editor.md).
 You can also extend it by adding custom features.
 
 The following example shows how to extend the Image Editor
@@ -20,11 +20,11 @@ The code does not perform any action yet, you add the action in the following st
 ## Add configuration
 
 Depending on whether you [modified the default settings](../guide/image_editor.md#configuration), and where you did it,
-in `config/packages` either modify the `ezplatform.yaml` file, or create the `image_editor.yaml`
-by adding settings similar to the following example:
+in `config/packages` either modify the `ibexa.yaml` file, or create an 
+`image_editor.yaml` file by adding settings similar to the following example:
 
 ``` yaml
-[[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml') =]]
+[[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 0, 9) =]][[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 36, 39) =]]
 ```
 
 ## Add entry to the Webpack configuration
@@ -33,7 +33,7 @@ Once you create and configure the React component, you must add an entry to [the
 In the root directory of your project, modify the `webpack.config.js` file by adding the following code:
 
 ``` js
-[[= include_file('code_samples/back_office/image_editor/config/webpack.config.js', 39, 44) =]]
+[[= include_file('code_samples/back_office/image_editor/config/webpack.config.js', 41, 46) =]]
 ```
 At this point you should be able to see a new button in the Image Editor's UI.
 

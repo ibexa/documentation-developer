@@ -2,13 +2,7 @@
 
 ## Login
 
-In [[= product_name =]], users can log in not only with their user name or email, but also with the customer number.
-
-To enable logging in with customer number, use the `enable_customer_number_login` configuration parameter:
-
-``` yaml
-siso_core.default.enable_customer_number_login: true
-```
+In [[= product_name =]], users can log in with their user name or email.
 
 ## Registration
 
@@ -86,9 +80,9 @@ siso_core.default.info_email_after_user_activation: false
 
 | Path     | Description        |
 | -------- | ------------------ |
-| `Silversolutions/Bundle/EshopBundle/Resources/views/Forms/register_private.html.twig`  | Form for private customer registration |
-| `Silversolutions/Bundle/EshopBundle/Resources/views/Forms/register_business.html.twig` | Form for business customer registration  |
-| `Silversolutions/Bundle/EshopBundle/Resources/views/Forms/register_choice.html.twig`   | Overview page for registration, which offers buttons for the different registration types (and activation of existing customers) |
-| `Silversolutions/Bundle/EshopBundle/Resources/views/Forms/activate_business.html.twig` | Form for activating existing customers   |
-| `Silversolutions/Bundle/EshopBundle/Resources/views/Checkout/checkout_login.html.twig`   | Login form in checkout   |
-| `Silversolutions/Bundle/EshopBundle/Resources/views/Security/login.html.twig`   | Login form  |
+| `Eshop/Resources/views/Forms/register_private.html.twig`  | Form for private customer registration |
+| `Eshop/Resources/views/Forms/register_business.html.twig` | Form for business customer registration  |
+| `Eshop/Resources/views/Forms/register_choice.html.twig`   | Overview page for registration, which offers buttons for the different registration types (and activation of existing customers) |
+| `Eshop/Resources/views/Forms/activate_business.html.twig` | Form for activating existing customers   |
+| `Eshop/Resources/views/Checkout/checkout_login.html.twig`   | Login form in checkout   |
+| `Eshop/Resources/views/Security/login.html.twig`   | Login form  |

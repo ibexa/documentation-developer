@@ -1,0 +1,7 @@
+{% for item in pagerItems %}
+    <h2><a href={{ ibexa_path(item) }}>{{ ibexa_content_name(item) }}</a></h2>
+{% endfor %}
+
+{% if pagerItems.haveToPaginate() %}
+    {{ pagerfanta( pagerItems, 'ez') }}
+{% endif %}

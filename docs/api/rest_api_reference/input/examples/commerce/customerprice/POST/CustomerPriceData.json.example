@@ -1,0 +1,8 @@
+{
+  "PriceResponse": {
+    "_media-type": "application\/vnd.ibexa.api.PriceResponse+json",
+    "priceResponse": {
+      "_media-type": "application\/vnd.ibexa.api.priceResponse+json"
+    }
+  }
+}

@@ -4,7 +4,7 @@ The [[= product_name =]] REST API comes with a framework that makes it easy to e
 
 ## Requirements
 
-REST routes must use the [[= product_name =]] REST API prefix, `/api/ezp/v2`. 
+REST routes must use the [[= product_name =]] REST API prefix, `/api/ibexa/v2`. 
 You create new resources below this prefix.
 
 To do so, you create:
@@ -17,7 +17,7 @@ To do so, you create:
 
 ### Controller
 
-To create a REST controller, you extend the `ezpublish_rest.controller.base` service, as well as the `EzSystems\EzPlatformRest\Server\Controller` class.
+To create a REST controller, you extend the `Ibexa\Rest\Server\Controller` service, as well as the `Ibexa\Rest\Server\Controller` class.
 
 First, create a simple controller with a `sayHello()` method that takes a name as an argument.
 It can be, for example, `src/Rest/Controller/DefaultController.php`.
@@ -25,7 +25,7 @@ It can be, for example, `src/Rest/Controller/DefaultController.php`.
 ``` php
 namespace App\Rest\Controller;
 
-use EzSystems\EzPlatformRest\Server\Controller as BaseController;
+use Ibexa\Rest\Server\Controller as BaseController;
 
 class DefaultController extends BaseController
 {
@@ -50,7 +50,7 @@ my_rest_routes:
 When you have a distinct file for the REST routes, you can apply the prefix to all the routes from this file, without affecting other routes.
 
 Next, you create the REST route. 
-In the `config/routes_rest.yaml` file, define the route's [controller as a service](http://symfony.com/doc/5.0/cookbook/controller/service.html) because your controller was defined as such.
+In the `config/routes_rest.yaml` file, define the route's [controller as a service]([[= symfony_doc =]]/cookbook/controller/service.html) because your controller was defined as such.
 
 ``` yaml
 my_rest_hello_world:
@@ -60,6 +60,19 @@ my_rest_hello_world:
     methods: [GET]
 ```
 
+To configure whether the endpoint uses CSRF validation, add the `csrf_protection` setting to the route:
+
+``` yaml
+my_rest_hello_world:
+    path: '/my_rest_bundle/hello/{name}'
+    defaults:
+        _controller: App\Rest\Controller\DefaultController::sayHello
+        csrf_protection: false
+    methods: [GET]
+```
+
+CSRF protection is enabled by default for all POST, PUT, and DELETE requests.
+
 Due to [EZP-23016 - Custom REST API routes (v2) are not accessible from the legacy backend](https://jira.ez.no/browse/EZP-23016), 
 custom REST routes must be prefixed with `ezpublish_rest_`, or they are not recognized.
 Modify the `config/services.yaml` file by adding the following code:
@@ -67,7 +80,7 @@ Modify the `config/services.yaml` file by adding the following code:
 ``` yaml
 services:
     App\Controller\Rest\DefaultController:
-        parent: ezpublish_rest.controller.base
+        parent: Ibexa\Rest\Server\Controller
         tags: ['controller.service_arguments']
 ```
 
@@ -100,7 +113,7 @@ An instance of this class is returned from the `sayHello()` controller method in
 ``` php
 namespace App\Controller\Rest;
 
-use EzSystems\EzPlatformRest\Server\Controller as BaseController;
+use Ibexa\Rest\Server\Controller as BaseController;
 use App\Rest\Values\Hello as HelloValue;
 
 class DefaultController extends BaseController
@@ -118,7 +131,7 @@ Outputting this object in the response requires that you create `ValueObjectVisi
 
 `ValueObjectVisitor` takes a Value returned by the REST controller, whatever the class, and 
 transforms the Value into data that can be converted, either to JSON or XML format. 
-Visitors are registered as services, and tagged with `ezpublish_rest.output.value_object_visitor`. 
+Visitors are registered as services, and tagged with `ibexa.rest.output.value_object.visitorr`. 
 The tag attribute corresponds to a class, which this visitor applies to.
 
 In the `config/services.yaml` file, create a service for your `ValueObjectVisitor`.
@@ -126,13 +139,13 @@ In the `config/services.yaml` file, create a service for your `ValueObjectVisito
 ``` yaml
 services:
     App\Rest\ValueObjectVisitor\Hello:
-        parent: ezpublish_rest.output.value_object_visitor.base
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
         tags:
-            - { name: ezpublish_rest.output.value_object_visitor, type: App\Rest\Values\Hello }
+            - { name: ibexa.rest.output.value_object.visitor, type: App\Rest\Values\Hello }
 ```
 
 Then create your visitor. 
-It must extend the  `EzSystems\EzPlatformRest\Output\ValueObjectVisitor` abstract class, and implement 
+It must extend the  `Ibexa\Contracts\Rest\Output\ValueObjectVisitor` abstract class, and implement 
 the `visit()` method.
 The visitor receives the following arguments:
 
@@ -147,9 +160,9 @@ In the `src/Rest/ValueObjectVisitor/Hello.php` file, add the following code:
 ``` php
 namespace App\Rest\ValueObjectVisitor;
 
-use EzSystems\EzPlatformRest\Output\ValueObjectVisitor;
-use EzSystems\EzPlatformRest\Output\Generator;
-use EzSystems\EzPlatformRest\Output\Visitor;
+use Ibexa\Contracts\Rest\Output\ValueObjectVisitor;
+use Ibexa\Contracts\Rest\Output\Generator;
+use Ibexa\Contracts\Rest\Output\Visitor;
 
 class Hello extends ValueObjectVisitor
 {
@@ -174,7 +187,7 @@ For the response to be cached, return an instance of `CachedValue`, with the val
 You can also pass the Location ID as the second argument, so that the response is tagged with it:
 
 ``` php
-use EzSystems\EzPlatformRest\Server\Values\CachedValue;
+use Ibexa\Rest\Server\Values\CachedValue;
 //...
     public function sayHello(string $name)
     {
@@ -203,8 +216,8 @@ To provide your controller with parameters, either in JSON or XML format, the pa
 an input parser so that the payload can be converted to an actual `ValueObject`.
 
 Each payload is dispatched to its input parser based on the request's `Content-Type` header. 
-For example, a request with a `Content-Type` of `application/vnd.ez.api.ContentCreate` is parsed 
-by `EzSystems\EzPlatformRest\Server\Input\Parser`. 
+For example, a request with a `Content-Type` of `application/vnd.ibexa.api.ContentCreate` is parsed 
+by `Ibexa\Contracts\Rest\Input\Parser`. 
 This parser builds and returns `ContentCreateStruct` that can then be used to create content with the Public API.
 
 Input parsers are provided with a pre-parsed version of the input payload, as an associative array.
@@ -225,13 +238,13 @@ The `mediaType` attribute of the `ezpublish\_rest.input.parser` tag maps the Con
 ``` yaml
 services:
     App\Rest\InputParser\Greetings:
-        parent: ezpublish_rest.input.parser
+        parent: Ibexa\Rest\Server\Common\Parser
         tags:
-            - { name: ezpublish_rest.input.parser, mediaType: application/vnd.my.Greetings }
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.my.Greetings }
 ```
 
 Then, implement the parser. 
-It must extend `EzSystems\EzPlatformRest\Server\Input\Parser`, and implement the `parse()` method. 
+It must extend `Ibexa\Contracts\Rest\Input\Parser`, and implement the `parse()` method. 
 As an argument, the `parse()` method accepts the `$data` array with input payload, and an instance 
 of `ParsingDispatcher` that can be used to forward the parsing of embedded content.
 
@@ -241,10 +254,10 @@ Add the following code to the `src/Rest/InputParser/Greetings.php` file.
 ``` php
 namespace App\Rest\InputParser;
 
-use EzSystems\EzPlatformRest\Input\BaseParser;
-use EzSystems\EzPlatformRest\Input\ParsingDispatcher;
+use Ibexa\Rest\Input\BaseParser;
+use Ibexa\Rest\Input\ParsingDispatcher;
 use App\Rest\Value\Hello;
-use EzSystems\EzPlatformRest\Exceptions;
+use Ibexa\Rest\Server\Exceptions;
 
 class Greetings extends BaseParser
 {
@@ -263,7 +276,7 @@ class Greetings extends BaseParser
 Modify the existing `DefaultController` by adding a method to handle the new POST request:
 
 ``` php
-use EzSystems\EzPlatformRest\Message;
+use Ibexa\Rest\Message;
 //...
     public function sayHelloUsingPost()
     {
@@ -293,9 +306,9 @@ my_rest_hello_world_using_post:
 
 !!! note
 
-    POST requests are unable to access the Repository without performing user authentication. For more information, see [REST API Authentication](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta5/doc/specifications/rest/REST-API-V2.rst#authentication).
+    POST requests are unable to access the Repository without performing user authentication. For more information, see [REST API Authentication](rest_api_authentication.md).
 
-For more examples, examine the built-in `InputParsers` in `eZ/Publish/Core/REST/Server/Input/Parser`.
+For more examples, examine the built-in `InputParsers` in `Ibexa\Rest\Server\Input\Parser`.
 
 ## Registering resources in the REST root
 
@@ -310,14 +323,16 @@ ez_publish_rest:
             rest_root_resources:
                 someresource:
                     mediaType: Content
-                    href: 'router.generate("ezpublish_rest_loadContent", {"contentId": 2})'
+                    href: 'router.generate("ibexa.rest.load_content", {"contentId": 2})'
 ```
 
 The `router.generate` call dynamically renders a URI based on the name of the route and the optional parameters that are passed as the other arguments.
 In the above code sample, `contentId` is the additional parameter.
 
-The syntax is based on the Symfony's [expression language](http://symfony.com/doc/5.0/components/expression_language/index.html), an extensible component that allows limited/readable scripting to be used outside of the code context.
+The syntax is based on the Symfony's [expression language]([[= symfony_doc =]]/components/expression_language/index.html), an extensible component that allows limited/readable scripting to be used outside of the code context.
 
 The above configuration adds the following entry to the root resource:
 
-`<someresource media-type="application/vnd.ez.api.Content+xml" href="/api/ezp/v2/content/objects/2"/>
+`<someresource media-type="application/vnd.ibexa.api.Content+xml" href="/api/ibexa/v2/content/objects/2"/>`
+
+`<someresource media-type="application/vnd.ibexa.api.Content+xml" href="/api/ibexa/v2/content/objects/2"/>

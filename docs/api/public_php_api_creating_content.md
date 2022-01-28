@@ -9,72 +9,32 @@
 
 Value objects such as Content items are read-only, so to create or modify them you need to use structs.
 
-[`ContentService::newContentCreateStruct`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L526)
-returns a new [`ContentCreateStruct`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentCreateStruct.php) object.
+[`ContentService::newContentCreateStruct`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L533)
+returns a new [`ContentCreateStruct`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentCreateStruct.php) object.
 
-``` php hl_lines="17 18 21"
-//...
-use eZ\Publish\API\Repository\ContentService;
-use eZ\Publish\API\Repository\ContentTypeService;
-use eZ\Publish\API\Repository\LocationService;
-
-class CreateContentCommand extends Command
-{
-    //...
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
-        $parentLocationId = $input->getArgument('parentLocationId');
-        $contentTypeIdentifier = $input->getArgument('contentType');
-        $title = $input->getArgument('title');
-
-        try {
-            $contentType = $this->contentTypeService->loadContentTypeByIdentifier($contentTypeIdentifier);
-            $contentCreateStruct = $this->contentService->newContentCreateStruct($contentType, 'eng-GB');
-            $contentCreateStruct->setField('title', $title);
-            $locationCreateStruct = $this->locationService->newLocationCreateStruct($parentLocationId);
-
-            $draft = $this->contentService->createContent($contentCreateStruct, [$locationCreateStruct]);
-
-            $output->writeln("Created a draft of " . $contentType->getName() . " with name " . $draft->getName());
-
-        } catch //..
-    }
-}
+``` php hl_lines="2-3 5"
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 57, 66) =]]
 ```
 
-This command creates a draft using [`ContentService::createContent`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L206) (line 21).
+This command creates a draft using [`ContentService::createContent`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L210) (line 21).
 This method must receive a `ContentCreateStruct` and an array of Location structs.
 
-`ContentCreateStruct` (which extends `ContentStruct`) is created through [`ContentService::newContentCreateStruct`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L526) (line 17),
+`ContentCreateStruct` (which extends `ContentStruct`) is created through [`ContentService::newContentCreateStruct`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L533) (line 17),
 which receives the Content Type and the primary language for the Content item.
 For information about translating a Content item into other languages, see [Translating content](#translating-content).
 
-[`ContentStruct::setField`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentStruct.php#L32) (line 18) enables you to define the Field values.
+[`ContentStruct::setField`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentStruct.php#L32) (line 18) enables you to define the Field values.
 When the Field accepts a simple value, you can provide it directly, as in the example above.
 For some Field Types, for example [images](#creating-an-image), you need to provide an instance of a Value type.
 
 ### Creating an image
 
-Image Field Type requires an instance of its Value type, which you must provide to the [`ContentStruct::setField`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentStruct.php#L32) method.
+Image Field Type requires an instance of its Value type, which you must provide to the [`ContentStruct::setField`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentStruct.php#L32) method.
 Therefore, when creating a Content item of the Image type (or any other Content Type with an `image` Field Type),
 the `ContentCreateStruct` is slightly more complex than in the previous example:
 
 ``` php
-$file = '/path/to/image.png';
-$name = 'Image name';
-
-$contentType = $this->contentTypeService->loadContentTypeByIdentifier('image');
-$contentCreateStruct = $this->contentService->newContentCreateStruct($contentType, 'eng-GB');
-$contentCreateStruct->setField('name', $name);
-$imageValue = new \eZ\Publish\Core\FieldType\Image\Value(
-    array(
-        'path' => $file,
-        'fileSize' => filesize($file),
-        'fileName' => basename($file),
-        'alternativeText' => $name
-    )
-);
-$contentCreateStruct->setField('image', $imageValue);
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateImageCommand.php', 56, 67) =]]
 ```
 
 Value of the Image Field Type contains the path to the image file, as well as other basic information
@@ -82,44 +42,34 @@ based on the input file.
 
 ### Creating content with RichText
 
-The RichText Field accepts values in [[= product_name =]]'s variant of the [Docbook](https://github.com/docbook/wiki/wiki) format.
-You can see more information about this format in [Field Types reference](field_types_reference/richtextfield.md#example-of-the-field-types-internal-format).
-
+The RichText Field accepts values in a custom flavor of [Docbook](https://github.com/docbook/wiki/wiki) format.
 For example, to add a simple RichText paragraph, provide the following as input:
 
 ``` xml
 <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ezxhtml="http://ez.no/xmlns/ezpublish/docbook/xhtml" xmlns:ezcustom="http://ez.no/xmlns/ezpublish/docbook/custom" version="5.0-variant ezpublish-1.0"><para>Description of your Content item.</para></section>
 ```
 
+To learn more about the format and how it represents different elements of rich text, see
+[RichText Field Type reference](field_types_reference/richtextfield.md#custom-docbook-format).
+
 ## Publishing a draft
 
-[`ContentService::createContent`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L206) creates a Content item with only one draft version.
-To publish it, use [`ContentService::publishVersion`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L336).
-This method must get the [`VersionInfo`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/VersionInfo.php) object of a draft version.
+[`ContentService::createContent`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L210) creates a Content item with only one draft version.
+To publish it, use [`ContentService::publishVersion`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L343).
+This method must get the [`VersionInfo`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/VersionInfo.php) object of a draft version.
 
 ``` php
-$content = $this->contentService->publishVersion($draft->versionInfo);
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 68, 69) =]]
 ```
 
 ## Updating content
 
-To update an existing Content item, you need to prepare a [`ContentUpdateStruct`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentUpdateStruct.php)
-and pass it to [`ContentService::updateContent`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L314)
-This method works on a draft, so to publish your changes you need to use [`ContentService::publishVersion`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L336) as well:
+To update an existing Content item, you need to prepare a [`ContentUpdateStruct`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentUpdateStruct.php)
+and pass it to [`ContentService::updateContent`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L320)
+This method works on a draft, so to publish your changes you need to use [`ContentService::publishVersion`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L343) as well:
 
 ``` php
-try {
-    $contentDraft = $this->contentService->createContentDraft($contentInfo);
-    $newName = 'New content name';
-
-    $contentUpdateStruct = $this->contentService->newContentUpdateStruct();
-    $contentUpdateStruct->initialLanguageCode = 'eng-GB';
-    $contentUpdateStruct->setField('name', $newName);
-
-    $contentDraft = $this->contentService->updateContent($contentDraft->versionInfo, $contentUpdateStruct);
-    $this->contentService->publishVersion($contentDraft->versionInfo);
-
-} catch //...
+[[= include_file('code_samples/api/public_php_api/src/Command/UpdateContentCommand.php', 47, 55) =]]
 ```
 
 ## Translating content
@@ -129,34 +79,20 @@ Content [translations](../guide/internationalization.md#language-versions) are c
 To translate a Content item to a new language, you need to update it and provide a new `initialLanguageCode`:
 
 ``` php
-$contentDraft = $this->contentService->createContentDraft($contentInfo);
-$newLanguage = 'ger-DE';
-$translatedName = 'Name in German';
-
-$contentUpdateStruct = $this->contentService->newContentUpdateStruct();
-$contentUpdateStruct->initialLanguageCode = $newLanguage;
-$contentUpdateStruct->setField('name', $translatedName);
-
-$contentDraft = $this->contentService->updateContent($contentDraft->versionInfo, $contentUpdateStruct);
-$this->contentService->publishVersion($contentDraft->versionInfo);
+[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 53, 58) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 63, 65) =]]
 ```
 
 You can also update content in multiple languages at once using the `setField` method's third argument.
 Only one language can still be set as a version's initial language:
 
 ``` php
-$anotherLanguagee = 'fre-FR';
-$newNameInAnotherLanguage = "Name in French";
-
-$contentUpdateStruct = $this->contentService->newContentUpdateStruct();
-$contentUpdateStruct->initialLanguageCode = $newLanguage;
-$contentUpdateStruct->setField('name', $newName);
-$contentUpdateStruct->setField('name', $newNameInAnotherLanguage, $anotherLanguage);
+[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 60, 61) =]]
 ```
 
 ### Deleting a translation
 
-You can delete a single translation from a Content item's version using [`ContentService::deleteTranslationFromDraft`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L492)
+You can delete a single translation from a Content item's version using [`ContentService::deleteTranslationFromDraft`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L499)
 The method must be provided with a `VersionInfo` object and the code of the language to delete:
 
 ``` php

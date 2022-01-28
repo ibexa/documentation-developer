@@ -1,6 +1,6 @@
 # UserEmail Criterion
 
-The [`UserEmail` Search Criterion](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/Query/Criterion/UserEmail.php)
+The [`UserEmail` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/UserEmail.php)
 searches for content based on the email assigned to the User account.
 
 ## Arguments
@@ -10,7 +10,7 @@ searches for content based on the email assigned to the User account.
 
 ## Limitations
 
-The `UserEmail` Criterion is not available in Elastic search engine.
+Solr search engine and Elasticsearch support IN and EQ operators only.
 
 ## Example
 

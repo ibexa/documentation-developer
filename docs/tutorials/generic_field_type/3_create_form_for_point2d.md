@@ -40,7 +40,7 @@ It will allow your form to work on this object.
 
 ## Add a new tag
 
-Next, add the `ezplatform.field_type.form_mapper.value` tag to `config/services.yaml`:
+Next, add the `ibexa.admin_ui.field_type.form.mapper.value` tag to `config/services.yaml`:
 
 ```yaml hl_lines="4"
 [[= include_file('code_samples/field_types/2dpoint_ft/config/services.yaml', 33, 37) =]]

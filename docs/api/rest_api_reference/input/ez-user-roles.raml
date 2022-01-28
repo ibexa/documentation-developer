@@ -1,0 +1,389 @@
+get:
+    displayName: Load Roles
+    description: Returns a list of all Roles.
+    queryParameters:
+        identifier:
+            description: Restricts the result to a list containing the Role with the given identifier. If the Role is not found an empty list is returned.
+        offset:
+            description: The offset of the result set.
+            type: integer
+        limit:
+            description: Only limit items will be returned started by offset.
+            type: integer
+    headers:
+        Accept:
+            description: If set, the user list returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.RoleList+xml
+                application/vnd.ibexa.api.RoleList+json
+    responses:
+        200:
+            description: OK - list of all Roles.
+            body:
+                application/vnd.ibexa.api.RoleList+xml:
+                    type: RoleList
+                    example: !include examples/user/roles/GET/RoleList.xml.example
+                application/vnd.ibexa.api.RoleList+json:
+                    type: RoleList
+                    example: !include examples/user/roles/GET/RoleList.json.example
+        401:
+            description: Error - the user has no permission to read Roles.
+post:
+    displayName: Create Role or Role draft
+    description: Creates a new Role or Role draft.
+    queryParameters:
+        publish:
+            type: boolean
+            description: If true the Role is published after creation.
+            default: true
+    headers:
+        Accept:
+            description: If set, the new user is returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.Role+xml
+                application/vnd.ibexa.api.Role+json
+                application/vnd.ibexa.api.RoleDraft+xml
+                application/vnd.ibexa.api.RoleDraft+json
+        Content-Type:
+            description: The RoleInput schema encoded in XML or JSON.
+            example:  |
+                application/vnd.ibexa.api.RoleInput+json
+                application/vnd.ibexa.api.RoleInput+xml
+            body:
+                application/vnd.ibexa.api.RoleInput+xml:
+                    type: RoleInput
+                    example: !include examples/user/roles/POST/RoleInput.xml.example
+                application/vnd.ibexa.api.RoleInput+json:
+                    type: RoleInput
+                    example: !include examples/user/roles/POST/RoleInput.json.example
+    responses:
+        201:
+            body:
+                application/vnd.ibexa.api.Role+xml:
+                    type: Role
+                    example: !include examples/user/roles/POST/Role.xml.example
+                application/vnd.ibexa.api.Role+json:
+                    type: Role
+                    example: !include examples/user/roles/POST/Role.json.example
+        400:
+            description: Error - the input does not match the input schema definition.
+        401:
+            description: Error - the user is not authorized to create a Role or a Role draft.
+/{id}:
+    get:
+        displayName: Load Role
+        description: Loads a Role for the given ID.
+        headers:
+            Accept:
+                description: If set, the user list returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.Role+xml
+                    application/vnd.ibexa.api.Role+json
+            If-None-Match:
+                description: ETag
+        responses:
+            200:
+                description: OK - Role for the given ID.
+                body:
+                    application/vnd.ibexa.api.Role+xml:
+                        type: Role
+                        example: !include examples/user/roles/id/GET/Role.xml.example
+                    application/vnd.ibexa.api.Role+json:
+                        type: Role
+                        example: !include examples/user/roles/id/GET/Role.json.example
+            401:
+                description: Error - the user has no permission to read Roles.
+            404:
+                description: Error - the Role does not exist.
+    post:
+        displayName: Create Role Draft
+        description: Creates a new Role draft from an existing Role.
+        headers:
+            Accept:
+                description: If set, the new user is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.Role+xml
+                    application/vnd.ibexa.api.Role+json
+            Content-Type:
+                description: The RoleInput schema encoded in XML or JSON.
+                example:  |
+                    application/vnd.ibexa.api.RoleInput+json
+                    application/vnd.ibexa.api.RoleInput+xml
+        responses:
+            201:
+                body:
+                    application/vnd.ibexa.api.RoleDraft+xml:
+                        type: RoleDraft
+                        example: !include examples/user/roles/id/POST/RoleDraft.xml.example
+                    application/vnd.ibexa.api.RoleDraft+json:
+                        type: RoleDraft
+                        example: !include examples/user/roles/id/POST/RoleDraft.json.example
+            401:
+                description: Error - the user is not authorized to create a Role or a Role draft
+    patch:
+        displayName: Update Role
+        description: Updates a Role. PATCH or POST with header X-HTTP-Method-Override PATCH
+        headers:
+            Accept:
+                description: If set, the new user is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.Role+xml
+                    application/vnd.ibexa.api.Role+json
+            Content-Type:
+                description: The RoleInput schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.RoleInput+json
+                    application/vnd.ibexa.api.RoleInput+xml
+            If-Match:
+                description: ETag Causes to patch only if the specified ETag is the current one. Otherwise a 412 is returned.
+        body:
+            application/vnd.ibexa.api.RoleInput+xml:
+                type: RoleInput
+                example: !include examples/user/roles/id/PATCH/RoleInput.xml.example
+            application/vnd.ibexa.api.RoleInput+json:
+                type: RoleInput
+                example: !include examples/user/roles/id/PATCH/RoleInput.json.example
+        responses:
+            200:
+                description: OK - Role updated
+                body:
+                    application/vnd.ibexa.api.Role+xml:
+                        type: Role
+                        example: !include examples/user/roles/id/PATCH/Role.xml.example
+                    application/vnd.ibexa.api.Role+json:
+                        type: Role
+                        example: !include examples/user/roles/id/PATCH/Role.json.example
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to update the Role.
+            412:
+                description: Error - the current ETag does not match with the provided one in the If-Match header.
+    delete:
+        displayName: Delete Role
+        description: The given Role and all assignments to Users or User Groups are deleted.
+        responses:
+            204:
+                description: No Content.
+            401:
+                description: Error - the User is not authorized to delete this Role.
+    /draft:
+        get:
+            displayName: Load Role draft
+            description: Loads a Role draft by original Role ID.
+            headers:
+                Accept:
+                    description: If set, the User list returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.Role+xml
+                        application/vnd.ibexa.api.Role+json
+                If-None-Match:
+                    description: ETag
+            responses:
+                200:
+                    description: OK - Role draft by original Role ID.
+                    body:
+                        application/vnd.ibexa.api.Role+xml:
+                            type: Role
+                            example: !include examples/user/roles/id/draft/GET/Role.xml.example
+                        application/vnd.ibexa.api.Role+json:
+                            type: Role
+                            example: !include examples/user/roles/id/draft/GET/Role.json.example    
+                401:
+                    description: Error - the user has no permission to read Roles.
+                404:
+                    description: Error - there is no draft or Role with the given ID.
+        patch:
+            displayName: Update Role draft
+            description: Updates a Role draft. PATCH or POST with header X-HTTP-Method-Override PATCH.
+            headers:
+                Accept:
+                    description: If set, the updated Role is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.Role+xml
+                        application/vnd.ibexa.api.Role+json
+                Content-Type:
+                    description: The RoleInput schema encoded in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.RoleInput+json
+                        application/vnd.ibexa.api.RoleInput+xml
+                If-Match:
+                    description: Performs a PATCH only if the specified ETag is the current one. Otherwise a 412 is returned.
+            body:
+                application/vnd.ibexa.api.RoleInput+xml:
+                    type: RoleInput
+                    example: !include examples/user/roles/id/draft/PATCH/RoleInput.xml.example
+                application/vnd.ibexa.api.RoleInput+json:
+                    type: RoleInput
+                    example: !include examples/user/roles/id/draft/PATCH/RoleInput.json.example
+            responses:
+                200:
+                    description: OK - Role draft updated.
+                    body:
+                        application/vnd.ibexa.api.Role+xml:
+                            type: Role
+                            example: !include examples/user/roles/id/draft/PATCH/Role.xml.example
+                        application/vnd.ibexa.api.Role+json:
+                            type: Role
+                            example: !include examples/user/roles/id/draft/PATCH/Role.json.example
+                400:
+                    description: Error - the input does not match the input schema definition.
+                401:
+                    description: Error - the user is not authorized to update the Role.
+                404:
+                    description: Error - there is no draft or Role with the given ID.
+                412:
+                    description: Error - the current ETag does not match with the one provided in the If-Match header.
+        publish:
+            displayName: Publish Role draft
+            description: Publishes a Role draft. PUBLISH or POST with header X-HTTP-Method-Override PUBLISH.
+            responses:
+                204:
+                    description: No Content.
+                401:
+                    description: Error - the user is not authorized to publish this Content Type draft.
+                403:
+                    description: Error - the Content Type draft is not complete e.g. there is no Field definition provided.
+                404:
+                    description: Error - there is no draft or Role with the given ID.
+        delete:
+            displayName: Delete Role draft
+            description: The given Role draft is deleted.
+            responses:
+                204:
+                    description: No Content.
+                401:
+                    description: Error - the user is not authorized to delete this Role.
+    /policies:
+        get:
+            displayName: Load Policies
+            description: Loads Policies for the given Role.
+            headers:
+                Accept:
+                    description: If set, the Policy list is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.PolicyList+xml
+                        application/vnd.ibexa.api.PolicyList+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.PolicyList+xml:
+                            type: PolicyList
+                            example: !include examples/user/roles/id/policies/GET/PolicyList.xml.example
+                        application/vnd.ibexa.api.PolicyList+json:
+                            type: PolicyList
+                            example: !include examples/user/roles/id/policies/GET/PolicyList.json.example
+                401:
+                    description: Error - the user has no permission to read Roles.
+                404:
+                    description: Error - the Role does not exist.
+        delete:
+            displayName: Delete Policies
+            description: All Policies of the given Role are deleted.
+            responses:
+                204:
+                    description: No Content - all Policies of the given Role are deleted.
+                401:
+                    description: Error - the user is not authorized to delete this Content Type.
+        post:
+            # Currently does not work
+            displayName: Create Policy
+            description: Creates a Policy
+            headers:
+                Accept:
+                    description: If set, the updated Policy is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.Policy+xml
+                        application/vnd.ibexa.api.Policy+json
+                Content-Type:
+                    description: If set, the updated Policy is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.PolicyCreate+xml
+                        application/vnd.ibexa.api.PolicyCreate+json
+            body:
+                application/vnd.ibexa.api.PolicyCreate+xml:
+                    type: PolicyCreate
+                    example: !include examples/user/roles/id/policies/POST/PolicyCreate.xml.example
+            responses:
+                201:
+                    body:
+                        application/vnd.ibexa.api.Policy+xml:
+                            type: Policy
+                            example: !include examples/user/roles/id/policies/POST/Policy.xml.example
+                400:
+                    description: Error - the input does not match the input schema definition or validation of limitation in PolicyCreate fails.
+                401:
+                    description: Error - the user is not authorized to create the Policy.
+                404:
+                    description: Error - the Role does not exist.
+        /{id}:
+            patch:
+                # Currently does not work
+                displayName: Update Policy
+                description: Updates a Policy. PATCH or POST with header X-HTTP-Method-Override PATCH.
+                headers:
+                    Accept:
+                        description: If set, the updated Policy is returned in XML or JSON format.
+                        example:  |
+                            application/vnd.ibexa.api.Policy+xml
+                            application/vnd.ibexa.api.Policy+json
+                    Content-Type:
+                        description: If set, the updated Policy is returned in XML or JSON format.
+                        example:  |
+                            application/vnd.ibexa.api.PolicyUpdate+xml
+                            application/vnd.ibexa.api.PolicyUpdate+json
+                    If-Match:
+                        description: Causes to patch only if the specified ETag is the current one. Otherwise a 412 is returned.
+                        example: ETag
+                body:
+                    application/vnd.ibexa.api.PolicyUpdate+xml:
+                        type: PolicyUpdate
+                        example: !include examples/user/roles/id/policies/id/PATCH/PolicyUpdate.xml.example
+                responses:
+                    200:
+                        body:
+                            application/vnd.ibexa.api.Policy+xml:
+                                type: Policy
+                                example: !include examples/user/roles/id/policies/id/PATCH/Policy.xml.example
+                    400:
+                        description: Error - the input does not match the input schema definition or validation of limitation in PolicyUpdate fails.
+                    401:
+                        description: Error - the user is not authorized to update the Policy.
+                    404:
+                        description: Error - the Role does not exist.
+                    412:
+                        description: Error - the current ETag does not match with the one provided in the If-Match header.
+            get:
+                displayName: Load Policy
+                description: Loads a Policy for the given module and function.
+                headers:
+                    Accept:
+                        description: If set, the Policy is returned in XML or JSON format.
+                        example:  |
+                            application/vnd.ibexa.api.Policy+xml
+                            application/vnd.ibexa.api.Policy+json
+                    If-None-Match:
+                        description: ETag
+                responses:
+                    200:
+                        body:
+                            application/vnd.ibexa.api.Policy+xml:
+                                type: Policy
+                                example: !include examples/user/roles/id/policies/id/GET/Policy.xml.example
+                            application/vnd.ibexa.api.Policy+json:
+                                type: Policy
+                                example: !include examples/user/roles/id/policies/id/GET/Policy.json.example
+                    401:
+                        description: Error - the user has no permission to read Roles.
+                    404:
+                        description: Error - the Role or Policy does not exist.
+            delete:
+                displayName: Delete Policy
+                description: Deletes given Policy.
+                responses:
+                    204:
+                        description: No Content - the given Policy is deleted.
+                    401:
+                        description: Error - the user is not authorized to delete this Content Type.
+                    404:
+                        description: Error - the Role or Policy does not exist.

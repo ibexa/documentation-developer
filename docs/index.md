@@ -3,6 +3,28 @@
         <h1>Ibexa developer documentation</h1>
     </div>
     <div class="row mt-5 pb-4">
+        <div class="col-12">
+            <div class="announcement" role="alert">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                    <span class="d-flex align-items-center">
+                        <svg class="tile-icon" width="32" height="32" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+                            <g transform="matrix(5.833333333333333,0,0,5.833333333333333,0,0)"><path d="M17.436,10.852a1.7,1.7,0,1,1,2.4-2.4,1.752,1.752,0,0,1,.391.59.441.441,0,0,0,.314.267A.422.422,0,0,0,20.93,9.2l1.325-1.325a.858.858,0,0,0-.012-1.213l-1.39-1.389a1.661,1.661,0,0,0,.765-.436,1.733,1.733,0,0,0-2.451-2.45,1.659,1.659,0,0,0-.435.764l-1.39-1.389a.858.858,0,0,0-1.213-.013L14.9,2.975a.417.417,0,0,0-.119.345.442.442,0,0,0,.193.317,1.745,1.745,0,0,1,.269.221,1.7,1.7,0,1,1-2.4,2.4,1.752,1.752,0,0,1-.221-.27A.438.438,0,0,0,12.3,5.8a.422.422,0,0,0-.345.12l-1.23,1.23a.859.859,0,0,0,.013,1.213l4.9,4.9a.857.857,0,0,0,1.212.013l1.325-1.325a.421.421,0,0,0,.113-.39.439.439,0,0,0-.267-.314A1.774,1.774,0,0,1,17.436,10.852Z" fill="none" stroke="var(--ibexa-jazzberry)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M1.484 13.5L1.484 22.5" fill="none" stroke="var(--ibexa-jazzberry)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M1.484,21h16.5a3,3,0,0,0-3-3h-3.75a3,3,0,0,0-3-3H1.484" fill="none" stroke="var(--ibexa-jazzberry)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M7.484 18L11.234 18" fill="none" stroke="var(--ibexa-jazzberry)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></g>
+                        </svg>
+                        Ibexa DXP plugin for PhpStorm is now available!
+                    </span>
+                    <span class="d-flex flex-column flex-xs-row flex-sm-row flex-md-row justify-content-between align-items-center ml-md-4">
+                        <a href="https://www.ibexa.co/blog/save-time-with-ibexa-dxp-s-latest-ide-plugin" class="btn btn-sm btn-announcement-outline mr-4 ml-4 ml-md-0 mb-3 mb-sm-0" target="_blank">
+                            Read blog post
+                        </a>
+                        <a href="https://plugins.jetbrains.com/plugin/17239-ibexa-dxp" class="btn btn-sm btn-announcement" target="_blank">
+                            Get it from marketplace
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-lg px-2 px-lg-4">
             <div class="tile">
                 <div class="row">
@@ -39,7 +61,6 @@
                                 <li><a href="tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform/">Beginner tutorial</a></li>
                                 <li><a href="tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world/">DXP beginner</a></li>
                                 <li><a href="tutorials/generic_field_type/creating_a_point2d_field_type/">Generic Field Type</a></li>
-                                <li><a href="tutorials/extending_admin_ui/extending_admin_ui/">Extending Admin UI</a></li>
                             </ul>
                         </div>
                     </div>

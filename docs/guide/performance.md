@@ -25,7 +25,7 @@ In production setups:
 
 - Always use reverse proxy, and if possible use Varnish.
     - Compared to the built-in Symfony Proxy in PHP Varnish is much faster and is able to queue up requests for the same fresh/invalidated resource.
-    - With [ezplatform-http-cache](https://github.com/ezsystems/ezplatform-http-cache) support for xkey and grace Varnish provides more stable performance in read/write scenarios.
+    - With [ibexa/http-cache](https://github.com/ibexa/http-cache) support for xkey and grace Varnish provides more stable performance in read/write scenarios.
 - Set up [[= product_name =]] in [cluster mode](clustering.md) if you need to handle bigger spikes of traffic than a single server can manage.
     - See [recommendation for Memcached/Redis](#memcachedredis) and [Search](#search) below.
 
@@ -132,6 +132,6 @@ The things you will need to do:
     2. *If not defined, it is the master process which will execute the processes until nothing is left to process.*
 
 2. Change the command so that the master process takes care of forking child processes in slices.
-    1. For execution in-order, [you may look to our platform installer code](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Bundle/PlatformInstallerBundle/src/Command/InstallPlatformCommand.php#L220)
+    1. For execution in-order, [you may look to our platform installer code](https://github.com/ibexa/core/blob/main/src/bundle/RepositoryInstaller/Command/InstallPlatformCommand.php#L220)
     used to fork out Solr indexing after installation to avoid cache issues.
-    2. For parallel execution of the slices, [see Symfony doc for further instruction](http://symfony.com/doc/5.0/components/process.html#process-signals).
+    2. For parallel execution of the slices, [see Symfony doc for further instruction]([[= symfony_doc =]]/components/process.html#process-signals).

@@ -22,6 +22,6 @@ and then the indexer can be executed again with a swap parameter to swap the cor
 
 |||
 |--- |--- |
-|`siso_search.default.index_econtent_languages`|Specifies the languages to index.|
-|`siso_search.default.solr_spellcheck`|Enables or disables the Solr spellchecker (the "Did you mean?" functionality).|
-|`siso_search.default.index_facet_fields`|Solr string fields are lowercased, therefore this configuration is used to specify an additional Solr `_id` field.</br>ID fields are not lowercased, which results in facets that can preserve their original case.</br>Field names must be specified without the `_s` suffix.|
+|`ibexa_commerce_search.default.index_econtent_languages`|Specifies the languages to index.|
+|`ibexa_commerce_search.default.solr_spellcheck`|Enables or disables the Solr spellchecker (the "Did you mean?" functionality).|
+|`ibexa_commerce_search.default.index_facet_fields`|Solr string fields are lowercased, therefore this configuration is used to specify an additional Solr `_id` field.</br>ID fields are not lowercased, which results in facets that can preserve their original case.</br>Field names must be specified without the `_s` suffix.|

@@ -76,7 +76,7 @@ If any of these validations fail, a `ValidationError` is thrown, specifying the
 ``` php
 // Selection Field Type example settings
 
-use eZ\Publish\Core\FieldType\Selection\Type;
+use Ibexa\Core\FieldType\Selection\Type;
 
 $settings = [
     "isMultiple" => true,

@@ -10,10 +10,10 @@ Limitations consist of two parts:
 - `LimitationType`
 
 Certain Limitations also serve as Role Limitations, which means they can be used to limit the rights of a Role assignment.
-Currently this covers [Subtree of Location](limitation_reference.md#subtree-of-location-limitation) and [Section](limitation_reference.md#section-limitation) Limitations.
+Currently this covers [Subtree of Location](limitation_reference.md#subtree-of-location-limitation), [Section](limitation_reference.md#section-limitation) and [Personalization access](limitation_reference.md#personalization-access-limitation) Limitations.
 
 `Limitation` represents the value, while `LimitationType` deals with the business logic surrounding how it actually works and is enforced.
-`LimitationTypes` have two modes of operation in regards to permission logic (see [`eZ\Publish\SPI\Limitation\Type`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/SPI/Limitation/Type.php) interface for more info):
+`LimitationTypes` have two modes of operation in regards to permission logic (see [`Ibexa\Contracts\Core\Limitation`](https://github.com/ibexa/core/blob/main/src/contracts/Limitation/Type.php) interface for more info):
 
 | Method | Use |
 |--------|-----|
@@ -24,7 +24,7 @@ Currently this covers [Subtree of Location](limitation_reference.md#subtree-of-l
 
 !!! tip
 
-    Core Policies with Limitations are defined in [`EzPublishCoreBundle/settings/policies.yaml`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/settings/policies.yml).
+    Core Policies with Limitations are defined in [`IbexaCoreBundle/settings/policies.yaml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/policies.yml).
 
 Each function in one of the five modules (content, section, state, user, workflow) can be assigned different Limitations.
 
@@ -78,6 +78,7 @@ Beyond that the following Limitations are available:
 - [State](limitation_reference.md#state-limitation)
 - [Workflow Stage](limitation_reference.md#workflow-stage-limitation)
 - [Field Group](limitation_reference.md#field-group-limitation)
+- [Version Lock](limitation_reference.md#version-lock-limitation)
 
 `content/publish`:
 
@@ -134,6 +135,14 @@ Beyond that the following Limitations are available:
 - [Subtree of Location](limitation_reference.md#subtree-of-location-limitation)
 - [State](limitation_reference.md#state-limitation)
 
+`content/unlock`:
+
+- [Owner](limitation_reference.md#owner-limitation)
+- [Content Type Group](limitation_reference.md#content-type-group-limitation)
+- [Subtree of Location](limitation_reference.md#subtree-of-location-limitation)
+- [Language](limitation_reference.md#language-limitation)
+- [Version Lock](limitation_reference.md#version-lock-limitation)
+
 #### Section
 
 `section/assign`:
@@ -167,6 +176,16 @@ Beyond that the following Limitations are available:
 `workflow/change_stage`:
 
 - [Workflow Transition](limitation_reference.md#workflow-transition-limitation)
+
+#### Personalization
+
+`personalization/view`:
+
+- [Personalization access](limitation_reference.md#personalization-access-limitation)
+
+`personalization/edit`:
+
+- [Personalization access](limitation_reference.md#personalization-access-limitation)
 
 #### Segment
 

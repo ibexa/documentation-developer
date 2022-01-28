@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UserGroup media-type="application/vnd.ibexa.api.UserGroup+xml" href="/api/ibexa/v2/user/groups/1/5/79" id="85" remoteId="remoteId-qwert098">
+    <ContentType media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ibexa/v2/content/types/3"/>
+    <name>UserGroup2</name>
+    <Versions media-type="application/vnd.ibexa.api.VersionList+xml" href="/api/ibexa/v2/content/objects/85/versions"/>
+    <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ibexa/v2/content/sections/2"/>
+    <MainLocation media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1/5/79"/>
+    <Locations media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ibexa/v2/content/objects/85/locations"/>
+    <Owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+    <publishDate>2021-08-09T09:03:35+00:00</publishDate>
+    <lastModificationDate>2021-08-09T09:03:35+00:00</lastModificationDate>
+    <mainLanguageCode>eng-GB</mainLanguageCode>
+    <alwaysAvailable>true</alwaysAvailable>
+    <Version media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/85/versions/1">
+        <VersionInfo>
+            <id>576</id>
+            <versionNo>1</versionNo>
+            <status>PUBLISHED</status>
+            <modificationDate>2021-08-09T09:03:35+00:00</modificationDate>
+            <Creator media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+            <creationDate>2021-08-09T09:03:35+00:00</creationDate>
+            <initialLanguageCode>eng-GB</initialLanguageCode>
+            <languageCodes>eng-GB</languageCodes>
+            <VersionTranslationInfo media-type="application/vnd.ibexa.api.VersionTranslationInfo+xml">
+                <Language>
+                    <languageCode>eng-GB</languageCode>
+                </Language>
+            </VersionTranslationInfo>
+            <names>
+                <value languageCode="eng-GB">UserGroup2</value>
+            </names>
+            <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/85"/>
+        </VersionInfo>
+        <Fields>
+            <field>
+                <id>380</id>
+                <fieldDefinitionIdentifier>name</fieldDefinitionIdentifier>
+                <languageCode>eng-GB</languageCode>
+                <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+                <fieldValue>UserGroup2</fieldValue>
+            </field>
+            <field>
+                <id>381</id>
+                <fieldDefinitionIdentifier>description</fieldDefinitionIdentifier>
+                <languageCode>eng-GB</languageCode>
+                <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+                <fieldValue>This is the description of the user group</fieldValue>
+            </field>
+        </Fields>
+        <Relations media-type="application/vnd.ibexa.api.RelationList+xml" href="/api/ibexa/v2/content/objects/85/versions/1/relations"/>
+        <Thumbnail media-type="application/vnd.ibexa.api.Thumbnail+xml">
+            <resource>/bundles/ezplatformadminui/img/ez-icons.svg#user_group</resource>
+            <width></width>
+            <height></height>
+            <mimeType>image/svg+xml</mimeType>
+        </Thumbnail>
+    </Version>
+    <ParentUserGroup media-type="application/vnd.ibexa.api.UserGroup+xml" href="/api/ibexa/v2/user/groups/1/5"/>
+    <Subgroups media-type="application/vnd.ibexa.api.UserGroupList+xml" href="/api/ibexa/v2/user/groups/1/5/79/subgroups"/>
+    <Users media-type="application/vnd.ibexa.api.UserList+xml" href="/api/ibexa/v2/user/groups/1/5/79/users"/>
+    <Roles media-type="application/vnd.ibexa.api.RoleAssignmentList+xml" href="/api/ibexa/v2/user/groups/1/5/79/roles"/>
+</UserGroup>

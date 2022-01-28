@@ -1,0 +1,24 @@
+{
+    "RoleAssignmentList": {
+        "_media-type": "application/vnd.ibexa.api.RoleAssignmentList+json",
+        "_href": "/api/ibexa/v2/user/users/57/roles",
+        "RoleAssignment": [
+            {
+                "_media-type": "application/vnd.ibexa.api.RoleAssignment+json",
+                "_href": "/api/ibexa/v2/user/users/57/roles/1",
+                "Role": {
+                    "_media-type": "application/vnd.ibexa.api.Role+json",
+                    "_href": "/api/ibexa/v2/user/roles/1"
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.RoleAssignment+json",
+                "_href": "/api/ibexa/v2/user/users/57/roles/2",
+                "Role": {
+                    "_media-type": "application/vnd.ibexa.api.Role+json",
+                    "_href": "/api/ibexa/v2/user/roles/2"
+                }
+            }
+        ]
+    }
+}

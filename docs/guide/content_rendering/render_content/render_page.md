@@ -9,22 +9,22 @@ A Page Field is a layout composed of zones. Each zone can contain multiple block
 ### Configure layout
 
 The default, built-in Page layout has only one zone.
-You can create other layouts in configuration, under the `ezplatform_page_fieldtype.layouts` key.
+You can create other layouts in configuration, under the `ibexa_fieldtype_page.layouts` key.
 
 To create a new layout called "Right sidebar", use the following configuration:
 
 ``` yaml
-[[= include_file('code_samples/front/render_page/config/packages/ezplatform_page_fieldtype.yaml', 0, 13) =]]
+[[= include_file('code_samples/front/render_page/config/packages/ibexa_page_fieldtype.yaml', 0, 13) =]]
 ```
 
 ### Add layout template
 
 A layout template renders all the zones of the layout.
 
-Each zone must have a `data-ez-zone-id` attribute with the number of the zone.
+Each zone must have a `data-ibexa-zone-id` attribute with the number of the zone.
 
 The best way to display blocks in the zone is to iterate over a blocks array and render the blocks in a loop.
-Each block must have the `landing-page__block block_{{ block.type }}` classes and the `data-ez-block-id="{{ block.id }}` attribute.
+Each block must have the `landing-page__block block_{{ block.type }}` classes and the `data-ibexa-block-id="{{ block.id }}` attribute.
 
 To render the "Right sidebar" layout, add the following template to `templates/themes/my_theme/layouts/sidebar.html.twig`:
 
@@ -43,12 +43,12 @@ The editor chooses a template when creating a block in the Page Builder.
 You can add new block templates by using configuration, for example, for the Content List block:
 
 ``` yaml
-[[= include_file('code_samples/front/render_page/config/packages/ezplatform_page_fieldtype.yaml', 0, 1) =]][[= include_file('code_samples/front/render_page/config/packages/ezplatform_page_fieldtype.yaml', 13, 19) =]]
+[[= include_file('code_samples/front/render_page/config/packages/ibexa_page_fieldtype.yaml', 0, 1) =]][[= include_file('code_samples/front/render_page/config/packages/ibexa_page_fieldtype.yaml', 13, 19) =]]
 ```
 
 !!! tip
 
-    Use the same configuration to provide a template for [custom blocks](../../../extending/extending_page.md) you create.
+    Use the same configuration to provide a template for [custom blocks](../../page/create_custom_page_block.md) you create.
 
 ### Block template
 
@@ -63,14 +63,14 @@ Create the block template file in the provided path, for example, `templates/the
 To override the default block template, create a new template.
 Place it in a path that mirrors the original default template from the bundle folder.
 For example:
-`templates/bundles/EzPlatformPageFieldTypeBundle/blocks/contentlist.html.twig`.
+`templates/bundles/IbexaFieldTypePageBundle/blocks/contentlist.html.twig`.
 
 !!! tip
 
     To use a different file structure when overriding default templates,
     add an import statement to the template.
 
-    For example, in `templates/bundles/EzPlatformPageFieldTypeBundle/blocks/contentlist.html.twig`:
+    For example, in `templates/bundles/IbexaFieldTypePageBundle/blocks/contentlist.html.twig`:
 
     ``` html+twig
     {% import 'templates/blocks/contentlist/new_default.html.twig'}

@@ -1,0 +1,10 @@
+{
+  "PaymentMethodDataResponse": {
+    "_media-type": "application\/vnd.ibexa.api.PaymentMethodDataResponse+json",
+    "paymentMethods": {
+      "paypal": "paypal",
+      "invoice": "invoice"
+    },
+    "defaultMethod": "invoice"
+  }
+}

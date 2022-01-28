@@ -4,24 +4,24 @@ declare(strict_types=1);
 
 namespace App\OAuth;
 
-use eZ\Publish\API\Repository\LanguageResolver;
-use eZ\Publish\API\Repository\Repository;
-use eZ\Publish\API\Repository\Values\ContentType\ContentType;
-use Ibexa\Platform\OAuth2Client\Repository\OAuth2UserService;
+use Ibexa\Contracts\Core\Repository\LanguageResolver;
+use Ibexa\Contracts\Core\Repository\Repository;
+use Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType;
+use Ibexa\Contracts\OAuth2Client\Repository\OAuth2UserService;
 use League\OAuth2\Client\Provider\GoogleUser;
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Ibexa\Platform\OAuth2Client\ResourceOwner\ResourceOwnerToExistingOrNewUserMapper;
+use Ibexa\OAuth2Client\ResourceOwner\ResourceOwnerToExistingOrNewUserMapper;
 
 final class GoogleResourceOwnerMapper extends ResourceOwnerToExistingOrNewUserMapper
 {
     private const PROVIDER_PREFIX = 'google:';
 
-    /** @var \Ibexa\Platform\OAuth2Client\Repository\OAuth2UserService */
+    /** @var \Ibexa\Contracts\OAuth2Client\Repository\OAuth2UserService */
     private $userService;
 
-    /** @var \eZ\Publish\API\Repository\LanguageResolver */
+    /** @var \Ibexa\Contracts\Core\Repository\LanguageResolver */
     private $languageResolver;
 
     /** @var string|null */

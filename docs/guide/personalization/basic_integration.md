@@ -9,7 +9,7 @@ event tracking and embedding recommendation results into the website.
     Examples below use '00000' as a customer ID for creating requests.
     In a real-life scenario, use the customer ID that you receive from Ibexa.
 
-## Tracking events
+## Track events
 
 The service primarily relies on event tracking. 
 For the events to be registered, every Content item or product page must call 
@@ -60,9 +60,9 @@ foreach ($just_bought_products as $product_id) {
 }
 ```
 
-## Embedding recommendations
+## Embed recommendations
 
-As soon as the recommendation engine collects enough events, it can generate recommendations.
+As soon as the Personalization server collects enough events, it can generate recommendations.
 The more tracking data is available, the more accurate the recommendations.
 Recommendations can be fetched with the following calls, and the response is returned in JSON format.
 
@@ -151,6 +151,6 @@ You can configure integration at a more advanced level to track more events,
 use additional parameters, apply custom scenario configurations, apply filters, 
 and enable additional features.
 
-For more information about available functionalities, see the [User Documentation](https://doc.ibexa.co/projects/userguide/en/latest/personalization/personalization).
+For more information about available functionalities, see the [User Documentation]([[= user_doc =]]/personalization/personalization).
 
 For more information about integrating the Personalization service, see [Developer guide](developer_guide/tracking_api.md) and [Best practices](best_practices/tracking_integration.md).

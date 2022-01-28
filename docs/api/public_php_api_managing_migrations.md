@@ -1,6 +1,6 @@
 # Managing migrations
 
-You can use the PHP API to manage and run [data migrations](../guide/data_migration.md).
+You can use the PHP API to manage and run [data migrations](../guide/data_migration/data_migration.md).
 
 ## Getting migration information
 

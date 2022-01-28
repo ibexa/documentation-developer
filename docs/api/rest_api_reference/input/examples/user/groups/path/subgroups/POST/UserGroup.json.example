@@ -1,0 +1,120 @@
+{
+    "UserGroup": {
+        "_media-type": "application/vnd.ibexa.api.UserGroup+json",
+        "_href": "/api/ibexa/v2/user/groups/1/5/81",
+        "_id": 87,
+        "_remoteId": "remoteId-qwert098",
+        "ContentType": {
+            "_media-type": "application/vnd.ibexa.api.ContentType+json",
+            "_href": "/api/ibexa/v2/content/types/3"
+        },
+        "name": "UserGroup2",
+        "Versions": {
+            "_media-type": "application/vnd.ibexa.api.VersionList+json",
+            "_href": "/api/ibexa/v2/content/objects/87/versions"
+        },
+        "Section": {
+            "_media-type": "application/vnd.ibexa.api.Section+json",
+            "_href": "/api/ibexa/v2/content/sections/2"
+        },
+        "MainLocation": {
+            "_media-type": "application/vnd.ibexa.api.Location+json",
+            "_href": "/api/ibexa/v2/content/locations/1/5/81"
+        },
+        "Locations": {
+            "_media-type": "application/vnd.ibexa.api.LocationList+json",
+            "_href": "/api/ibexa/v2/content/objects/87/locations"
+        },
+        "Owner": {
+            "_media-type": "application/vnd.ibexa.api.User+json",
+            "_href": "/api/ibexa/v2/user/users/14"
+        },
+        "publishDate": "2021-08-09T09:06:49+00:00",
+        "lastModificationDate": "2021-08-09T09:06:49+00:00",
+        "mainLanguageCode": "eng-GB",
+        "alwaysAvailable": true,
+        "Version": {
+            "_media-type": "application/vnd.ibexa.api.Version+json",
+            "_href": "/api/ibexa/v2/content/objects/87/versions/1",
+            "VersionInfo": {
+                "id": 578,
+                "versionNo": 1,
+                "status": "PUBLISHED",
+                "modificationDate": "2021-08-09T09:06:49+00:00",
+                "Creator": {
+                    "_media-type": "application/vnd.ibexa.api.User+json",
+                    "_href": "/api/ibexa/v2/user/users/14"
+                },
+                "creationDate": "2021-08-09T09:06:49+00:00",
+                "initialLanguageCode": "eng-GB",
+                "languageCodes": "eng-GB",
+                "VersionTranslationInfo": {
+                    "_media-type": "application/vnd.ibexa.api.VersionTranslationInfo+json",
+                    "Language": [
+                        {
+                            "languageCode": "eng-GB"
+                        }
+                    ]
+                },
+                "names": {
+                    "value": [
+                        {
+                            "_languageCode": "eng-GB",
+                            "#text": "UserGroup2"
+                        }
+                    ]
+                },
+                "Content": {
+                    "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+                    "_href": "/api/ibexa/v2/content/objects/87"
+                }
+            },
+            "Fields": {
+                "field": [
+                    {
+                        "id": 384,
+                        "fieldDefinitionIdentifier": "name",
+                        "languageCode": "eng-GB",
+                        "fieldTypeIdentifier": "ezstring",
+                        "fieldValue": "UserGroup2"
+                    },
+                    {
+                        "id": 385,
+                        "fieldDefinitionIdentifier": "description",
+                        "languageCode": "eng-GB",
+                        "fieldTypeIdentifier": "ezstring",
+                        "fieldValue": "This is the description of the user group"
+                    }
+                ]
+            },
+            "Relations": {
+                "_media-type": "application/vnd.ibexa.api.RelationList+json",
+                "_href": "/api/ibexa/v2/content/objects/87/versions/1/relations",
+                "Relation": []
+            },
+            "Thumbnail": {
+                "_media-type": "application/vnd.ibexa.api.Thumbnail+json",
+                "resource": "/bundles/ezplatformadminui/img/ez-icons.svg#user_group",
+                "width": null,
+                "height": null,
+                "mimeType": "image/svg+xml"
+            }
+        },
+        "ParentUserGroup": {
+            "_media-type": "application/vnd.ibexa.api.UserGroup+json",
+            "_href": "/api/ibexa/v2/user/groups/1/5"
+        },
+        "Subgroups": {
+            "_media-type": "application/vnd.ibexa.api.UserGroupList+json",
+            "_href": "/api/ibexa/v2/user/groups/1/5/81/subgroups"
+        },
+        "Users": {
+            "_media-type": "application/vnd.ibexa.api.UserList+json",
+            "_href": "/api/ibexa/v2/user/groups/1/5/81/users"
+        },
+        "Roles": {
+            "_media-type": "application/vnd.ibexa.api.RoleAssignmentList+json",
+            "_href": "/api/ibexa/v2/user/groups/1/5/81/roles"
+        }
+    }
+}

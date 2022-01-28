@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ibexa/v2/content/sections/5">
+    <sectionId>10</sectionId>
+    <identifier>design</identifier>
+    <name>Design</name>
+</Section>

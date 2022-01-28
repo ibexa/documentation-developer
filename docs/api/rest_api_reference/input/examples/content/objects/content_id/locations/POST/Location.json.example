@@ -1,0 +1,80 @@
+{
+    "Location": {
+        "_media-type": "application/vnd.ibexa.api.Location+json",
+        "_href": "/api/ibexa/v2/content/locations/1/2/59/114",
+        "id": 114,
+        "priority": 0,
+        "hidden": false,
+        "invisible": false,
+        "explicitlyHidden": false,
+        "ParentLocation": {
+            "_media-type": "application/vnd.ibexa.api.Location+json",
+            "_href": "/api/ibexa/v2/content/locations/1/2/59"
+        },
+        "pathString": "/1/2/59/114/",
+        "depth": 3,
+        "childCount": 0,
+        "remoteId": "47a1e4ee082fb64e93a822dcfe3a5614",
+        "Children": {
+            "_media-type": "application/vnd.ibexa.api.LocationList+json",
+            "_href": "/api/ibexa/v2/content/locations/1/2/59/114/children"
+        },
+        "Content": {
+            "_media-type": "application/vnd.ibexa.api.Content+json",
+            "_href": "/api/ibexa/v2/content/objects/59"
+        },
+        "sortField": "PATH",
+        "sortOrder": "ASC",
+        "UrlAliases": {
+            "_media-type": "application/vnd.ibexa.api.UrlAliasRefList+json",
+            "_href": "/api/ibexa/v2/content/locations/1/2/59/114/urlaliases"
+        },
+        "ContentInfo": {
+            "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+            "_href": "/api/ibexa/v2/content/objects/59",
+            "Content": {
+                "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+                "_href": "/api/ibexa/v2/content/objects/59",
+                "_remoteId": "0fe1b1543f886b0becd4d9b2c7c517d0",
+                "_id": 59,
+                "ContentType": {
+                    "_media-type": "application/vnd.ibexa.api.ContentType+json",
+                    "_href": "/api/ibexa/v2/content/types/2"
+                },
+                "Name": "Art1",
+                "TranslatedName": "Art1",
+                "Versions": {
+                    "_media-type": "application/vnd.ibexa.api.VersionList+json",
+                    "_href": "/api/ibexa/v2/content/objects/59/versions"
+                },
+                "CurrentVersion": {
+                    "_media-type": "application/vnd.ibexa.api.Version+json",
+                    "_href": "/api/ibexa/v2/content/objects/59/currentversion"
+                },
+                "Section": {
+                    "_media-type": "application/vnd.ibexa.api.Section+json",
+                    "_href": "/api/ibexa/v2/content/sections/1"
+                },
+                "Locations": {
+                    "_media-type": "application/vnd.ibexa.api.LocationList+json",
+                    "_href": "/api/ibexa/v2/content/objects/59/locations"
+                },
+                "Owner": {
+                    "_media-type": "application/vnd.ibexa.api.User+json",
+                    "_href": "/api/ibexa/v2/user/users/14"
+                },
+                "lastModificationDate": "2021-06-28T11:33:01+00:00",
+                "publishedDate": "2021-06-28T11:33:01+00:00",
+                "mainLanguageCode": "eng-GB",
+                "currentVersionNo": 1,
+                "alwaysAvailable": false,
+                "isHidden": false,
+                "status": "PUBLISHED",
+                "ObjectStates": {
+                    "_media-type": "application/vnd.ibexa.api.ContentObjectStates+json",
+                    "_href": "/api/ibexa/v2/content/objects/59/objectstates"
+                }
+            }
+        }
+    }
+}

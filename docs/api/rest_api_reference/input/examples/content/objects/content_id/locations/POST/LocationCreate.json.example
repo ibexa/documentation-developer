@@ -1,0 +1,12 @@
+{
+    "LocationCreate": {
+        "ParentLocation": {
+            "_href": "/api/ibexa/v2/content/locations/1/59"
+        },
+     "priority": "0",
+            "hidden": false,
+            "sortField": "PATH",
+            "sortOrder": "ASC"
+       
+    }
+}

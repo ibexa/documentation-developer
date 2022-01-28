@@ -1,0 +1,24 @@
+get:
+    displayName: List Policies for User
+    description: Search all Policies which are applied to a given User.
+    queryParameters:
+        userId:
+            description: The User ID.
+    headers:
+        Accept:
+            description: If set, the Policy list is returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.PolicyList+xml
+                application/vnd.ibexa.api.PolicyList+json
+    responses:
+        200:
+            description: OK - Policies which are applied to a given User.
+            body:
+                application/vnd.ibexa.api.PolicyList+xml:
+                    type: PolicyList
+                    example: !include examples/user/policies/GET/PolicyList.xml.example
+                application/vnd.ibexa.api.PolicyList+json:
+                    type: PolicyList
+                    example: !include examples/user/policies/GET/PolicyList.json.example
+        401:
+            description: Error - the user has no permission to read Roles.

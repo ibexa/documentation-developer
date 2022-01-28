@@ -57,9 +57,9 @@ Switching the data provider introduces the following changes to your project:
 #### Changes to `config/packages/ecommerce.yml`
 
 ``` yaml
-- { resource: '@SilversolutionsEshopBundle/Resources/config/config_data_provider_econtent.yml' }
+- { resource: '@IbexaCommerceEshopBundle/Resources/config/config_data_provider_econtent.yml' }
 # or 
-- { resource: '@SilversolutionsEshopBundle/Resources/config/config_data_provider_ez.yml' }
+- { resource: '@IbexaCommerceEshopBundle/Resources/config/config_data_provider_ez.yml' }
 ```
 
 #### Changes to the "Product catalog" Content item
@@ -83,19 +83,19 @@ Change the alias for search services for every type (product, catalog, content).
 ``` xml
 # set up alias for product search 
 # for Repository data provider 
-<service id="siso_search.search_service.product" alias="siso_search.ezsolr_search_service">
+<service id="Ibexa\Bundle\Commerce\Search\Api\EshopProductSearchInterface" alias="siso_search.ezsolr_search_service">
 </service>
  
 # for eContent
-<service id="siso_search.search_service.product" alias="siso_search.econtentsolr_search_service">
+<service id="Ibexa\Bundle\Commerce\Search\Api\EshopProductSearchInterface" alias="siso_search.econtentsolr_search_service">
 </service>
 
 # set up alias for catalog search 
-<service id="siso_search.search_service.catalog" alias="siso_search.econtentsolr_search_service">
+<service id="Ibexa\Bundle\Commerce\Search\Api\EshopCatalogSearchInterface" alias="siso_search.econtentsolr_search_service">
 </service>
 
 # set up alias for content search 
-<service id="siso_search.search_service.content" alias="siso_search.ezsolr_search_service">
+<service id="Ibexa\Bundle\Commerce\Search\Api\EshopContentSearchInterface" alias="siso_search.ezsolr_search_service">
 </service>
 ```
 
@@ -111,7 +111,7 @@ Check the complete configuration from the vendor as well:
 The path for products in eContent is `/2/` and for Repository it is `/1/2`.
 
 ``` yaml
-siso_search.default.groups.search:
+ibexa_commerce_search.default.groups.search:
     product:
         types:
             - ses_product

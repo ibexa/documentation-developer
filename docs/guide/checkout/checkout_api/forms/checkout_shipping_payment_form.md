@@ -2,7 +2,7 @@
 
 ## Model Class
 
-`CheckoutShippingPayment` (`Ibexa\Platform\Commerce\Checkout\Form\CheckoutShippingPayment`)
+`CheckoutShippingPayment` (`Ibexa\Commerce\Checkout\Form\CheckoutShippingPayment`)
 extends `AbstractFormEntity` and implements `CheckoutAddressInterface`.
 
 ## Fields
@@ -19,8 +19,8 @@ You set the parameters in the [configuration for checkout forms](configuration_f
 
 ## Form Type
 
-`Ibexa\Platform\Commerce\Checkout\Form\Type\CheckoutShippingPaymentType`
-(service ID: `siso_checkout.form_entity.checkout_shipping_payment_type`)
+`Ibexa\Commerce\Checkout\Form\Type\CheckoutShippingPaymentType`
+(service ID: `Ibexa\Commerce\Checkout\Form\Type\CheckoutShippingPaymentType`)
 implements the setup for this form.
 
 This class is defined as a service to take advantage from `TransService`.
@@ -34,4 +34,4 @@ This class is defined as a service to take advantage from `TransService`.
 
 |               |           |
 | ------------- | --------- |
-| Main template | `EshopBundle/Resources/views/Checkout/checkout_shipping_payment.html.twig` |
+| Main template | `Eshop/Resources/views/Checkout/checkout_shipping_payment.html.twig` |

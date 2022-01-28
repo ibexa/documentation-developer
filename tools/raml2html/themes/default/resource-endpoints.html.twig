@@ -1,0 +1,26 @@
+{% if (resource.methods or (resource.description and resource.parentUrl)) %}
+    {% set sectionId = resource.displayName|replace({' ': '-'})|lower %}
+    <div class="sticky px-3">
+        <div class="sticky__body border-bottom border-top py-1 ">
+            <h4 id="{{ sectionId }}" class="heading text-gray">{{ resource.uri }}</h4>
+            <ul class="list-unstyled d-inline-flex mb-0">
+                {% for method in resource.methods %}
+                    <li class="{{ loop.index > 1 ? 'px-3' : 'pr-3' }} ">
+                        {% set methodNameId = method_name_id(method.displayName) %}
+                        <a href="#{{ rootElemId ~ '-' ~ methodNameId }}">
+                           <span class="pl-0 new badge badge--{{ method.type|lower }}" data-badge-caption="{{ method.type }}">
+                                {{ method.type }}
+                           </span>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% for method in resource.methods %}
+        {% include theme ~ "/resource.html.twig" %}
+    {% endfor %}
+{% endif %}
+{% for resource in resource.resources %}
+    {% include theme ~ "/resource-endpoints.html.twig" %}
+{% endfor %}

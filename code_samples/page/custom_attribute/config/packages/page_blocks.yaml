@@ -1,0 +1,15 @@
+ibexa_fieldtype_page:
+    blocks:
+        my_block:
+            name: MyBlock
+            category: default
+            thumbnail: /bundles/ibexaplatformicons/img/all-icons.svg#edit
+            views:
+                default: 
+                    name: Default block layout
+                    template: my_block.html.twig
+                    priority: -255
+            attributes:
+                my_string_attribute:
+                    type: my_string
+                    name: MyString

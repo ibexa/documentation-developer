@@ -15,7 +15,7 @@ is up to you and your performance needs.
 
 The minimal requirements are:
 
-- [Shared HTTP cache (using Varnish)](http_cache.md#using-varnish)
+- [Shared HTTP cache (using Varnish)](cache/http_cache.md#using-varnish)
 - [Shared persistence cache](#shared-persistence-cache) and [sessions](#shared-sessions) (using Redis or Memcached)
 - Shared database (using MySQL/MariaDB)
 - [Shared binary files](#shared-binary-files) (using NFS, or S3)
@@ -64,7 +64,7 @@ It will use a database to manipulate metadata, making up for the potential incon
 
 You need to configure both metadata and binarydata handlers.
 
-[[= product_name =]] ships with a custom local adapter (`ibexa.platform.io.nfs.adapter.site_access_aware`), 
+[[= product_name =]] ships with a custom local adapter (`ibexa.io.nfs.adapter.site_access_aware`), 
 which decorates the Flysystem local adapter to enable support for SiteAccess-aware settings.
 If an NFS path relies on SiteAccess-aware dynamic parameters, you must use the custom local adapter 
 instead of the Flysystem local adapter.
@@ -155,10 +155,10 @@ oneup_flysystem:
     adapters:
         nfs_adapter:
             custom:
-                service: ibexa.platform.io.nfs.adapter.site_access_aware
+                service:  ibexa.io.nfs.adapter.site_access_aware
 
 # define the Ibexa handlers
-ez_io:
+ibexa_io:
     binarydata_handlers:
         nfs:
             flysystem:
@@ -169,7 +169,7 @@ ez_io:
                 connection: doctrine.dbal.dfs_connection
 
 # set the application handlers
-ezplatform:
+ibexa:
     system:
         default:
             io:
@@ -192,7 +192,7 @@ If you decide to change this setting, make sure you also set `io.url_prefix` to 
 If you set the NFS adapter's directory to `/path/to/nfs/storage`, use this configuration so that the files can be served by Symfony:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             io:
@@ -204,7 +204,7 @@ If in the example above, this server listens on `http://static.example.com/`
 and uses `/path/to/nfs/storage` as the document root, configure `io.url_prefix` as follows:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             io:

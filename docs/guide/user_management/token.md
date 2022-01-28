@@ -17,14 +17,14 @@ A token contains:
 - a service and method that are called if a customer uses the link with the token
 
 ``` php
-use Silversolutions\Bundle\ToolsBundle\Entity\Token;
-use Silversolutions\Bundle\ToolsBundle\Services\TokenService;
+use Ibexa\Bundle\Commerce\ShopTools\Entity\Token;
+use Ibexa\Bundle\Commerce\ShopTools\Services\TokenService;
 
 $newsletterTokenData = new NewsletterTokenData();
 $newsletterTokenData->setParams($newsletterParams);
 $newsletterTokenData->setCustomerProfileData($customerProfileData);
 $actionServiceMethod = 'subscribeNewsletter';
-$actionService = 'siso_newsletter.newsletter.newsletter_service';
+$actionService = 'Ibexa\Bundle\Commerce\Newsletter\Service\NoNewsletterService';
 /** @var Token $token */
 $token = $this->tokenService->createToken(
     $currentUser->id,
@@ -70,7 +70,7 @@ Each token has the following attributes that are processed by the token-specific
 
 ``` php
 /** @var TokenServiceMethodProcessorService $tokenServiceMethodProcessor */
-$tokenServiceMethodProcessor = $this->get('silver_eshop.token_service_method_processor');
+$tokenServiceMethodProcessor = $this->get('Ibexa\Bundle\Commerce\Eshop\Services\Token\TokenServiceMethodProcessorService');
 //trigger the logic for this token with the service
 $response = $tokenServiceMethodProcessor->$callableMethod(
        $tokenEntity,
@@ -79,11 +79,11 @@ $response = $tokenServiceMethodProcessor->$callableMethod(
 );
 ```
 
-The `silver_eshop.token_service_method_processor` service implements the custom logic for each token and returns a response.
+The `Ibexa\Bundle\Commerce\Eshop\Services\Token\TokenServiceMethodProcessorService` service implements the custom logic for each token and returns a response.
 
 ## TokenService
 
-Service ID: `silver_tools.token_service`
+Service ID: `Ibexa\Bundle\Commerce\ShopTools\Services\TokenService`
 
 ### Service methods
 

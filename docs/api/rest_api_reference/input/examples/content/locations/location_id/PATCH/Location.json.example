@@ -1,0 +1,80 @@
+{
+    "Location": {
+        "_media-type": "application/vnd.ibexa.api.Location+json",
+        "_href": "/api/ibexa/v2/content/locations/1/2/59",
+        "id": 59,
+        "priority": 3,
+        "hidden": true,
+        "invisible": true,
+        "explicitlyHidden": true,
+        "ParentLocation": {
+            "_media-type": "application/vnd.ibexa.api.Location+json",
+            "_href": "/api/ibexa/v2/content/locations/1/2"
+        },
+        "pathString": "/1/2/59/",
+        "depth": 2,
+        "childCount": 5,
+        "remoteId": "remoteId-qwert999",
+        "Children": {
+            "_media-type": "application/vnd.ibexa.api.LocationList+json",
+            "_href": "/api/ibexa/v2/content/locations/1/2/59/children"
+        },
+        "Content": {
+            "_media-type": "application/vnd.ibexa.api.Content+json",
+            "_href": "/api/ibexa/v2/content/objects/58"
+        },
+        "sortField": "NAME",
+        "sortOrder": "DESC",
+        "UrlAliases": {
+            "_media-type": "application/vnd.ibexa.api.UrlAliasRefList+json",
+            "_href": "/api/ibexa/v2/content/locations/1/2/59/urlaliases"
+        },
+        "ContentInfo": {
+            "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+            "_href": "/api/ibexa/v2/content/objects/58",
+            "Content": {
+                "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+                "_href": "/api/ibexa/v2/content/objects/58",
+                "_remoteId": "00b513aae54036a16e00fb3365c4b5f3",
+                "_id": 58,
+                "ContentType": {
+                    "_media-type": "application/vnd.ibexa.api.ContentType+json",
+                    "_href": "/api/ibexa/v2/content/types/1"
+                },
+                "Name": "Dog Breed Catalog",
+                "TranslatedName": "Dog Breed Catalog",
+                "Versions": {
+                    "_media-type": "application/vnd.ibexa.api.VersionList+json",
+                    "_href": "/api/ibexa/v2/content/objects/58/versions"
+                },
+                "CurrentVersion": {
+                    "_media-type": "application/vnd.ibexa.api.Version+json",
+                    "_href": "/api/ibexa/v2/content/objects/58/currentversion"
+                },
+                "Section": {
+                    "_media-type": "application/vnd.ibexa.api.Section+json",
+                    "_href": "/api/ibexa/v2/content/sections/1"
+                },
+                "Locations": {
+                    "_media-type": "application/vnd.ibexa.api.LocationList+json",
+                    "_href": "/api/ibexa/v2/content/objects/58/locations"
+                },
+                "Owner": {
+                    "_media-type": "application/vnd.ibexa.api.User+json",
+                    "_href": "/api/ibexa/v2/user/users/14"
+                },
+                "lastModificationDate": "2021-06-28T11:23:10+00:00",
+                "publishedDate": "2021-06-28T11:23:10+00:00",
+                "mainLanguageCode": "eng-GB",
+                "currentVersionNo": 1,
+                "alwaysAvailable": true,
+                "isHidden": false,
+                "status": "PUBLISHED",
+                "ObjectStates": {
+                    "_media-type": "application/vnd.ibexa.api.ContentObjectStates+json",
+                    "_href": "/api/ibexa/v2/content/objects/58/objectstates"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,136 @@
+{
+    "Content": {
+        "_media-type": "application/vnd.ibexa.api.Content+json",
+        "_href": "/api/ibexa/v2/content/objects/54",
+        "_remoteId": "9e863fbb0fb835ce050032b4f00de61d",
+        "_id": 54,
+        "ContentType": {
+            "_media-type": "application/vnd.ibexa.api.ContentType+json",
+            "_href": "/api/ibexa/v2/content/types/1"
+        },
+        "Name": "Forms",
+        "TranslatedName": "Forms",
+        "Versions": {
+            "_media-type": "application/vnd.ibexa.api.VersionList+json",
+            "_href": "/api/ibexa/v2/content/objects/54/versions"
+        },
+        "CurrentVersion": {
+            "_media-type": "application/vnd.ibexa.api.Version+json",
+            "_href": "/api/ibexa/v2/content/objects/54/currentversion",
+            "Version": {
+                "_media-type": "application/vnd.ibexa.api.Version+json",
+                "_href": "/api/ibexa/v2/content/objects/54/versions/1",
+                "VersionInfo": {
+                    "id": 514,
+                    "versionNo": 1,
+                    "status": "PUBLISHED",
+                    "modificationDate": "2018-09-17T06:48:13+00:00",
+                    "Creator": {
+                        "_media-type": "application/vnd.ibexa.api.User+json",
+                        "_href": "/api/ibexa/v2/user/users/14"
+                    },
+                    "creationDate": "2018-09-17T06:48:13+00:00",
+                    "initialLanguageCode": "eng-GB",
+                    "languageCodes": "eng-GB",
+                    "VersionTranslationInfo": {
+                        "_media-type": "application/vnd.ibexa.api.VersionTranslationInfo+json",
+                        "Language": [
+                            {
+                                "languageCode": "eng-GB"
+                            }
+                        ]
+                    },
+                    "names": {
+                        "value": [
+                            {
+                                "_languageCode": "eng-GB",
+                                "#text": "Forms"
+                            }
+                        ]
+                    },
+                    "Content": {
+                        "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+                        "_href": "/api/ibexa/v2/content/objects/54"
+                    }
+                },
+                "Fields": {
+                    "field": [
+                        {
+                            "id": 249,
+                            "fieldDefinitionIdentifier": "name",
+                            "languageCode": "eng-GB",
+                            "fieldTypeIdentifier": "ezstring",
+                            "fieldValue": "Forms"
+                        },
+                        {
+                            "id": 250,
+                            "fieldDefinitionIdentifier": "short_name",
+                            "languageCode": "eng-GB",
+                            "fieldTypeIdentifier": "ezstring",
+                            "fieldValue": null
+                        },
+                        {
+                            "id": 251,
+                            "fieldDefinitionIdentifier": "short_description",
+                            "languageCode": "eng-GB",
+                            "fieldTypeIdentifier": "ezrichtext",
+                            "fieldValue": {
+                                "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n",
+                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5/edit\"/>\n"
+                            }
+                        },
+                        {
+                            "id": 252,
+                            "fieldDefinitionIdentifier": "description",
+                            "languageCode": "eng-GB",
+                            "fieldTypeIdentifier": "ezrichtext",
+                            "fieldValue": {
+                                "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n",
+                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5/edit\"/>\n"
+                            }
+                        }
+                    ]
+                },
+                "Relations": {
+                    "_media-type": "application/vnd.ibexa.api.RelationList+json",
+                    "_href": "/api/ibexa/v2/content/objects/54/versions/1/relations",
+                    "Relation": []
+                },
+                "Thumbnail": {
+                    "_media-type": "application/vnd.ibexa.api.Thumbnail+json",
+                    "resource": "/bundles/ezplatformadminui/img/ez-icons.svg#folder",
+                    "width": null,
+                    "height": null,
+                    "mimeType": "image/svg+xml"
+                }
+            }
+        },
+        "Section": {
+            "_media-type": "application/vnd.ibexa.api.Section+json",
+            "_href": "/api/ibexa/v2/content/sections/6"
+        },
+        "MainLocation": {
+            "_media-type": "application/vnd.ibexa.api.Location+json",
+            "_href": "/api/ibexa/v2/content/locations/1/55"
+        },
+        "Locations": {
+            "_media-type": "application/vnd.ibexa.api.LocationList+json",
+            "_href": "/api/ibexa/v2/content/objects/54/locations"
+        },
+        "Owner": {
+            "_media-type": "application/vnd.ibexa.api.User+json",
+            "_href": "/api/ibexa/v2/user/users/14"
+        },
+        "lastModificationDate": "2018-09-17T06:48:13+00:00",
+        "publishedDate": "2018-09-17T06:48:13+00:00",
+        "mainLanguageCode": "eng-GB",
+        "currentVersionNo": 1,
+        "alwaysAvailable": false,
+        "isHidden": false,
+        "status": "PUBLISHED",
+        "ObjectStates": {
+            "_media-type": "application/vnd.ibexa.api.ContentObjectStates+json",
+            "_href": "/api/ibexa/v2/content/objects/54/objectstates"
+        }
+    }
+}

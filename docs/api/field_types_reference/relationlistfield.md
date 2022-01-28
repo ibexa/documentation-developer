@@ -14,14 +14,14 @@ This Field Type makes it possible to store and retrieve values of a relation to 
 |------|------|------|
 |`int|string`|ID of the related Content item|`42`|
 |`array`|An array of related Content IDs|`[ 24, 42 ]`|
-|`eZ\Publish\API\Repository\Values\Content\ContentInfo`|ContentInfo instance of the related Content|n/a|
-|`eZ\Publish\Core\FieldType\RelationList\Value`|RelationList Field Type Value Object|See below.|
+|`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`|ContentInfo instance of the related Content|n/a|
+|`Ibexa\Core\FieldType\RelationList\Value`|RelationList Field Type Value Object|See below.|
 
 ### Value Object
 
 ##### Properties
 
-`eZ\Publish\Core\FieldType\RelationList\Value` contains the following properties:
+`Ibexa\Core\FieldType\RelationList\Value` contains the following properties:
 
 |Property|Type|Description|Example|
 |------|------|------|------|
@@ -57,7 +57,7 @@ $relationListValue = new RelationList\Value(
 
 This Field Type validates if:
 
-- the `selectionMethod` specified is `\eZ\Publish\Core\FieldType\RelationList\Type::SELECTION_BROWSE` or `\eZ\Publish\Core\FieldType\RelationList\Type::SELECTION_DROPDOWN`. A validation error is thrown if the value does not match.
+- the `selectionMethod` specified is `\Ibexa\Core\FieldType\RelationList\Type::SELECTION_BROWSE` or `\Ibexa\Core\FieldType\RelationList\Type::SELECTION_DROPDOWN`. A validation error is thrown if the value does not match.
 - the `selectionDefaultLocation` specified is `null`, `string` or `integer`. If the type validation fails a validation error is thrown.
 - the value specified in `selectionContentTypes` is an `array`. If not, a validation error in given.
 - the number of Content items selected in the Field is not greater than the `selectionLimit`.
@@ -92,7 +92,7 @@ Following selection methods are available:
 ``` php
 // Example of using settings and validators configuration in PHP
 
-use eZ\Publish\Core\FieldType\RelationList\Type;
+use Ibexa\Core\FieldType\RelationList\Type;
 
 $fieldSettings = [
     "selectionMethod" => Type::SELECTION_BROWSE,

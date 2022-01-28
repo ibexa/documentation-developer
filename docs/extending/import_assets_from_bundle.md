@@ -1,10 +1,10 @@
 # Import assets from a bundle
 
-[[= product_name =]] uses [Webpack Encore](https://symfony.com/doc/5.0/frontend.html#webpack-encore) for asset management.
+[[= product_name =]] uses [Webpack Encore]([[= symfony_doc =]]/frontend.html#webpack-encore) for asset management.
 
 ## Configuration from a bundle
 
-To import assets from a bundle, you must configure them in the bundle's `Resources/encore/ez.config.js` file:
+To import assets from a bundle, you must configure them in the bundle's `Resources/encore/ibexa.config.js` file:
 
 ``` js
 const path = require('path');
@@ -29,30 +29,30 @@ To import CSS files only, use:
     After you add new files, run `php bin/console cache:clear`.
 
     For a full example of importing asset configuration,
-    see [`ez.config.js`](https://github.com/ezsystems/ezplatform-admin-ui/blob/v2.0.2/src/bundle/Resources/encore/ez.config.js)
+    see [`ibexa.config.js`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/encore/ibexa.config.js)
 
-To edit existing configuration entries, create a `Resources/encore/ez.config.manager.js` file:
+To edit existing configuration entries, create a `Resources/encore/ibexa.config.manager.js` file:
 
 ``` js
 const path = require('path');
 
-module.exports = (eZConfig, eZConfigManager) => {
-	eZConfigManager.replace({
-	    eZConfig,
+module.exports = (IbexaConfig, IbexaConfigManager) => {
+	IbexaConfigManager.replace({
+	    IbexaConfig,
 	    entryName: '<entry-name>',
 	    itemToReplace: path.resolve(__dirname, '<path_to_old_file>'),
 	    newItem: path.resolve(__dirname, '<path_to_new_file>'),
 	});
-	eZConfigManager.remove({
-	    eZConfig,
+	IbexaConfigManager.remove({
+	    IbexaConfig,
 	    entryName: '<entry-name>',
 	    itemsToRemove: [
 	        path.resolve(__dirname, '<path_to_old_file>'),
 	        path.resolve(__dirname, '<path_to_old_file>'),
 	    ],
 	});
-	eZConfigManager.add({
-	    eZConfig,
+	IbexaConfigManager.add({
+	    IbexaConfig,
 	    entryName: '<entry-name>',
 	    newItems: [
 	        path.resolve(__dirname, '<path_to_new_file>'),
@@ -72,7 +72,7 @@ module.exports = (eZConfig, eZConfigManager) => {
     After you add new files, run `php bin/console cache:clear`.
 
     For a full example of overriding configuration,
-    see [`ez.config.manager.js`](https://github.com/ezsystems/ezplatform-matrix-fieldtype/blob/v2.0.0/src/bundle/Resources/encore/ez.config.manager.js).
+    see [`ibexa.config.manager.js`](https://github.com/ibexa/matrix-fieldtype/blob/main/src/bundle/Resources/encore/ibexa.config.manager.js).
 
 To add a new configuration under your own namespace and with its own dependencies,
 add the `Resources/encore/ez.webpack.custom.config.js` file, for example:
@@ -104,21 +104,21 @@ add the `Resources/encore/ez.webpack.custom.config.js` file, for example:
 ## Configuration from main project files
 
 If you prefer to include the asset configuration in the main project files,
-add it in [`webpack.config.js`](https://github.com/ezsystems/ezplatform/blob/v3.0.3/webpack.config.js#L15).
+add it in [`webpack.config.js`](https://github.com/ibexa/recipes/blob/master/ibexa/oss/4.0.x-dev/encore/webpack.config.js#L31).
 
 To overwrite the built-in assets, use the following configuration to replace, remove or add asset files
 in `webpack.config.js`:
 
 ``` js
-eZConfigManager.replace({
-    eZConfig,
+IbexaConfigManager.replace({
+    IbexaConfig,
     entryName: '<entry-name>',
     itemToReplace: path.resolve(__dirname, '<path_to_old_file>'),
     newItem: path.resolve(__dirname, '<path_to_new_file>'),
 });
 
-eZConfigManager.remove({
-    eZConfig,
+IbexaConfigManager.remove({
+    IbexaConfig,
     entryName: '<entry-name>',
     itemsToRemove: [
         path.resolve(__dirname, '<path_to_old_file>'),
@@ -126,8 +126,8 @@ eZConfigManager.remove({
     ],
 });
 
-eZConfigManager.add({
-    eZConfig,
+IbexaConfigManager.add({
+    IbexaConfig,
     entryName: '<entry-name>',
     newItems: [
         path.resolve(__dirname, '<path_to_new_file>'),

@@ -18,16 +18,16 @@ First, create an override template for the Content List block: `templates/blocks
             {% for content in contentArray %}
                 <div class="content-list-item">
                     <div class="content-list-item-image">
-                        {{ ez_render_field(content.content, 'photo', {
+                        {{ ibexa_render_field(content.content, 'photo', {
                             'parameters': {
                                 'alias': 'content_list'
                              }
                         }) }}
                     </div>
-                    <h4><a href="{{ ez_path(content.location) }}">{{ ez_content_name(content.content) }}</a></h4>
-                    {% if not ez_field_is_empty(content.content, 'short_description') %}
+                    <h4><a href="{{ ibexa_path(content.location) }}">{{ ibexa_content_name(content.content) }}</a></h4>
+                    {% if not ibexa_field_is_empty(content.content, 'short_description') %}
                         <div class="attribute-short-description">
-                            {{ ez_render_field(content.content, 'short_description') }}
+                            {{ ibexa_render_field(content.content, 'short_description') }}
                         </div>
                     {% endif %}
                 </div>
@@ -135,7 +135,7 @@ Create the new file `templates/blocks/schedule/featured.html.twig`:
                 {% for idx in 0..2 %}
                     <div class="col-md-4 featured-article-container">
                         {% if items[idx] is defined %}
-                        {{ render(controller('ez_content::viewAction', {
+                        {{ render(controller('ibexa_content::viewAction', {
                             'locationId': items[idx].id,
                             'viewType': 'featured'
                             })) }}
@@ -166,9 +166,9 @@ featured:
 Now create a `templates/featured/article.html.twig` file:
 
 ``` html+twig
-{% set imageAlias = ez_image_alias(content.getField('image'), content.versionInfo, 'featured_article') %}
+{% set imageAlias = ibexa_image_alias(content.getField('image'), content.versionInfo, 'featured_article') %}
 <div class="featured-article" style="background-image: url('{{ imageAlias.uri }}');">
-    <h4><a class="featured-article-link" href="{{ ez_path(content) }}">{{ ez_content_name(content) }}</a></h4>
+    <h4><a class="featured-article-link" href="{{ ibexa_path(content) }}">{{ ibexa_content_name(content) }}</a></h4>
 </div>
 ```
 

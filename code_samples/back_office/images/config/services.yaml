@@ -1,0 +1,8 @@
+services:
+    # ...
+    App\Controller\SvgController:
+        public: true
+        arguments:
+            - '@ibexa.api.service.content'
+            - '@ibexa.field_type.ezbinaryfile.io_service'
+            - '@Ibexa\Core\Helper\TranslationHelper'

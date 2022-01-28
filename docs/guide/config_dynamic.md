@@ -46,7 +46,7 @@ $myParamSettingAdmin = $configResolver->getParameter( 'my_param', 'myapp', 'admi
 
 !!! tip
 
-    To learn more about scopes, see [SiteAccess documentation](siteaccess.md#scope).
+    To learn more about scopes, see [SiteAccess documentation](multisite/multisite_configuration.md#scope).
 
 Both `getParameter()` and `hasParameter()` can take three arguments:
 
@@ -57,19 +57,19 @@ Both `getParameter()` and `hasParameter()` can take three arguments:
 ## Inject the ConfigResolver in your services
 
 You can use the ConfigResolver in your own services whenever needed.
-To do this, inject the `ezpublish.config.resolver` service:
+To do this, inject the `ibexa.config.resolver` service:
 
 ``` yaml
 services:
     App\Service:
-        arguments: ['@ezpublish.config.resolver']
+        arguments: ['@ibexa.config.resolver']
 ```
 
-You can also use the [autowire feature](https://symfony.com/doc/current/service_container/autowiring.html), by type hinting against ConfigResolverInterface.
+You can also use the [autowire feature]([[= symfony_doc =]]/service_container/autowiring.html), by type hinting against ConfigResolverInterface.
 
 !!! tip
 
-    For more information about dependency injection, see [Service container](service_container.md).
+    For more information about dependency injection, see [Service container](../api/service_container.md).
 
 !!! note
 
@@ -79,12 +79,12 @@ You can also use the [autowire feature](https://symfony.com/doc/current/service_
 ``` php
 namespace App;
 
-use eZ\Publish\Core\MVC\ConfigResolverInterface;
+use Ibexa\Core\MVC\ConfigResolverInterface;
  
 class Service
 {
     /**
-     * @var \eZ\Publish\Core\MVC\ConfigResolverInterface
+     * @var \Ibexa\Core\MVC\ConfigResolverInterface
      */
     private $configResolver;
  

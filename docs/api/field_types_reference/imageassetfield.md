@@ -8,8 +8,8 @@ Example array:
 
 |Type|Description|Example|
 |------|------|------|
-|`eZ\Publish\Core\FieldType\ImageAsset\Value`|ImageAsset Field Type value object.|See below.|
-|`eZ\Publish\API\Repository\Values\Content\ContentInfo`|ContentInfo instance of the Asset Content item. |n/a|
+|`Ibexa\Core\FieldType\ImageAsset\Value`|ImageAsset Field Type value object.|See below.|
+|`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`|ContentInfo instance of the Asset Content item. |n/a|
 |`string`| ID of the Asset Content item. |`"150"`|
 |`integer`| ID of the Asset Content item. | `150`|
 
@@ -62,7 +62,7 @@ ImageAsset Field Type allows configuring the following options:
 Example configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
        default:
             fieldtypes:
@@ -78,7 +78,7 @@ ezplatform:
 Internally the Image Asset Type is rendered via subrequest (similar to other relation types). Rendering customization is possible by configuring view type `asset_image`:
 
 ```php
-ezplatform:
+ibexa:
     system:
        default:           
             content_view:
@@ -90,4 +90,4 @@ ezplatform:
 
 ## Generating image variation from the Image Asset
 
-Thanks to the `eZ\Bundle\EzPublishCoreBundle\Imagine\ImageAsset\AliasGenerator` decorator you can work with `\eZ\Publish\SPI\Variation\VariationHandler` in the same way as with [Image Field Type](imagefield.md).
+Thanks to the `Ibexa\Bundle\Core\Imagine\ImageAsset` decorator you can work with `Ibexa\Contracts\Core\Variation` in the same way as with [Image Field Type](imagefield.md).

@@ -1,0 +1,66 @@
+ibexa:
+    system:
+        default:
+            workflows:
+                custom_workflow:
+                    name: Custom Workflow
+                    matchers:
+                        content_type: [article, folder]
+                        content_status: [draft]
+                    stages:
+                        draft:
+                            label: Draft
+                            color: '#f15a10'
+                        legal:
+                            label: Legal
+                            color: '#5a10f1'
+                            actions:
+                                notify_reviewer: ~
+                        done:
+                            label: Done
+                            color: '#301203'
+                            last_stage: true
+                    initial_stage: draft
+                    transitions:
+                        to_legal:
+                            from: [draft]
+                            to: [legal]
+                            label: To legal
+                            color: '#8888ba'
+                            icon: '/bundles/ibexaplatformicons/img/all-icons.svg#notice'
+                            reviewers:
+                                required: true
+                            actions:
+                                legal_transition_action:
+                                    data:
+                                        message: "Sent to the legal department"
+                            validate: true
+                        back_to_draft:
+                            reverse: to_legal
+                            label: Back to draft
+                            color: '#cb8888'
+                            icon: '/bundles/ibexaplatformicons/img/all-icons.svg#back'
+                        approved_by_legal:
+                            from: [legal]
+                            to: [done]
+                            label: Approved by legal
+                            color: '#88ad88'
+                            icon: '/bundles/ibexaplatformicons/img/all-icons.svg#checkbox'
+                            actions:
+                                publish: ~
+                                approved_transition_action:
+                                    condition:
+                                        - result.legal_transition_action == true
+                        done:
+                            from: [draft]
+                            to: [done]
+                            label: Done
+                            color: '#88ad88'
+                            icon: '/bundles/ibexaplatformicons/img/all-icons.svg#checkbox'
+                            actions:
+                                publish: ~
+                            validate: true
+                quick_review:
+                    name: Quick Review
+                    matchers:
+                        content_type: []

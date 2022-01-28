@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RoleAssignmentList media-type="application/vnd.ibexa.api.RoleAssignmentList+xml" href="/api/ibexa/v2/user/users/115/roles">
+    <RoleAssignment media-type="application/vnd.ibexa.api.RoleAssignment+xml" href="/api/ibexa/v2/user/users/115/roles/2">
+        <limitation identifier="Section">
+            <values>
+                <ref media-type="application/vnd.ibexa.api.ref+xml" href="1"/>
+            </values>
+        </limitation>
+        <Role media-type="application/vnd.ibexa.api.Role+xml" href="/api/ibexa/v2/user/roles/2"/>
+    </RoleAssignment>
+    <RoleAssignment media-type="application/vnd.ibexa.api.RoleAssignment+xml" href="/api/ibexa/v2/user/users/115/roles/2">
+        <limitation identifier="Section">
+            <values>
+                <ref media-type="application/vnd.ibexa.api.ref+xml" href="2"/>
+            </values>
+        </limitation>
+        <Role media-type="application/vnd.ibexa.api.Role+xml" href="/api/ibexa/v2/user/roles/2"/>
+    </RoleAssignment>
+</RoleAssignmentList>

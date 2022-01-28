@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VersionList media-type="application/vnd.ibexa.api.VersionList+xml" href="/api/ibexa/v2/content/objects/61/versions">
+    <VersionItem>
+        <Version media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/61/versions/1"/>
+        <VersionInfo>
+            <id>521</id>
+            <versionNo>1</versionNo>
+            <status>PUBLISHED</status>
+            <modificationDate>2021-06-28T11:33:49+00:00</modificationDate>
+            <Creator media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+            <creationDate>2021-06-28T11:33:31+00:00</creationDate>
+            <initialLanguageCode>eng-GB</initialLanguageCode>
+            <languageCodes>eng-GB</languageCodes>
+            <VersionTranslationInfo media-type="application/vnd.ibexa.api.VersionTranslationInfo+xml">
+                <Language>
+                    <languageCode>eng-GB</languageCode>
+                </Language>
+            </VersionTranslationInfo>
+            <names>
+                <value languageCode="eng-GB">Art1</value>
+            </names>
+            <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/61"/>
+        </VersionInfo>
+    </VersionItem>
+    <VersionItem>
+        <Version media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/61/versions/2"/>
+        <VersionInfo>
+            <id>580</id>
+            <versionNo>2</versionNo>
+            <status>DRAFT</status>
+            <modificationDate>2021-07-26T08:10:02+00:00</modificationDate>
+            <Creator media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+            <creationDate>2021-07-26T08:10:02+00:00</creationDate>
+            <initialLanguageCode>eng-GB</initialLanguageCode>
+            <languageCodes>eng-GB</languageCodes>
+            <VersionTranslationInfo media-type="application/vnd.ibexa.api.VersionTranslationInfo+xml">
+                <Language>
+                    <languageCode>eng-GB</languageCode>
+                </Language>
+            </VersionTranslationInfo>
+            <names>
+                <value languageCode="eng-GB">Art1</value>
+            </names>
+            <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/61"/>
+        </VersionInfo>
+    </VersionItem>
+    <VersionItem>
+        <Version media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/61/versions/3"/>
+        <VersionInfo>
+            <id>581</id>
+            <versionNo>3</versionNo>
+            <status>DRAFT</status>
+            <modificationDate>2021-07-26T08:16:50+00:00</modificationDate>
+            <Creator media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+            <creationDate>2021-07-26T08:16:50+00:00</creationDate>
+            <initialLanguageCode>eng-GB</initialLanguageCode>
+            <languageCodes>eng-GB</languageCodes>
+            <VersionTranslationInfo media-type="application/vnd.ibexa.api.VersionTranslationInfo+xml">
+                <Language>
+                    <languageCode>eng-GB</languageCode>
+                </Language>
+            </VersionTranslationInfo>
+            <names>
+                <value languageCode="eng-GB">Art1</value>
+            </names>
+            <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/61"/>
+        </VersionInfo>
+    </VersionItem>
+</VersionList>

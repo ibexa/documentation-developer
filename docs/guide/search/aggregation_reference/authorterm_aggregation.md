@@ -1,6 +1,6 @@
 # AuthorTermAggregation
 
-The Field-based [AuthorTermAggregation](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Query/Aggregation/Field/AuthorTermAggregation.php) aggregates search results by the value of the Author Field.
+The Field-based [AuthorTermAggregation](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Aggregation/Field/AuthorTermAggregation.php) aggregates search results by the value of the Author Field.
 
 ## Arguments
 

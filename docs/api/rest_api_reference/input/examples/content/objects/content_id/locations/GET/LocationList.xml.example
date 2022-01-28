@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LocationList media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ibexa/v2/content/objects/63/locations">
+    <Location media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1/2/57/65"/>
+</LocationList>

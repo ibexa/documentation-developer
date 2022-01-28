@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentTypeGroupRefList media-type="application/vnd.ibexa.api.ContentTypeGroupRefList+xml" href="/api/ibexa/v2/content/typegroups/2/types">
+    <ContentTypeGroupRef media-type="application/vnd.ibexa.api.ContentTypeGroup+xml" href="/api/ibexa/v2/content/typegroups/1"/>
+</ContentTypeGroupRefList>

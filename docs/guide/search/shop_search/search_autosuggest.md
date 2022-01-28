@@ -16,7 +16,7 @@ Autosuggestion has four different independent modules: product, category, conten
 ### Product
 
 ``` yaml
-siso_search.default.autosuggest_module_definitions:
+ibexa_commerce_search.default.autosuggest_module_definitions:
     product_autosuggest:
         search_limit: 5
         use_prefix_search: false
@@ -57,7 +57,7 @@ siso_search.default.autosuggest_module_definitions:
 ### Category
 
 ``` yaml
-siso_search.default.autosuggest_module_definitions:
+ibexa_commerce_search.default.autosuggest_module_definitions:
 category_autosuggest:
     search_limit: 5
     images: true
@@ -87,7 +87,7 @@ category_autosuggest:
 ### Content
 
 ``` yaml
-siso_search.default.autosuggest_module_definitions:
+ibexa_commerce_search.default.autosuggest_module_definitions:
 content_autosuggest:
     search_limit: 5
     images: true
@@ -116,7 +116,7 @@ content_autosuggest:
 ### Download
 
 ```
-siso_search.default.autosuggest_module_definitions:
+ibexa_commerce_search.default.autosuggest_module_definitions:
 download_autosuggest:
     search_limit: 5
     images: true
@@ -159,14 +159,14 @@ All autosuggestion services implement the `SearchAutosuggestInterface` interface
 Their service definitions are, for example:
 
 ``` 
-search_service_id: siso_search.autosuggest_service.product
+search_service_id: ibexa.commerce.search.autosuggest_service.productt
 ```
 
 To create a new autosuggestion service, you need to implement the interface and define the service ID in autosuggestion configuration.
 
 ## Autosuggestion templates
 
-Each autosuggestion section has its own template located in `EshopBundle/Resources/views/Search/autosuggest`. 
+Each autosuggestion section has its own template located in `Eshop/Resources/views/Search/autosuggest`. 
 
 All templates have access to the `resultLine` array, which has all information returned by Solr.
 You can use this information to adapt the template without overriding the services.

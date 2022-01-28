@@ -9,10 +9,10 @@ When reporting a problem to Customer Support the most important information is t
 The best way to specify it is to provide the list of currently installed packages by running:
 
 ``` bash
-composer show ezsystems/*
+composer show ibexa/*
 ```
 
-Besides that, all the configuration from the `app/config` directory may be helpful.
+Besides that, all the configuration from the `config` directory may be helpful.
 
 You should also list the steps to reproduce the issue,
 or at least provide a clear description of the circumstances under which the problem occurred.
@@ -32,12 +32,12 @@ The language of the Back Office is based on the browser language.
 In order to change it you should install the proper package for your language (see [language packages list](https://github.com/ezplatform-i18n)).
 Once you have language packages installed, you can switch the language of the Back Office in the User Settings menu.
 
-If you do not have a language defined in the browser, it will be selected based on the `parameters.locale_fallback` parameter located in `config/packages/ezplatform.yaml`.
+If you do not have a language defined in the browser, it will be selected based on the `parameters.locale_fallback` parameter located in `config/packages/ibexa.yaml`.
 
 To read more about language managing in [[= product_name =]], see the following doc pages:
 
-- [Back Office languages](../guide/internationalization/#back-office-languages)
-- [Multi-language SiteAccesses and corresponding translations](../guide/multi_language_siteaccesses.md)
+- [Back Office languages](../guide/back_office_translations.md)
+- [Multi-language SiteAccesses and corresponding translations](../guide/multisite/set_up_translation_siteaccess.md)
 
 #### How can I apply patches to the installation?
 
@@ -100,7 +100,7 @@ moving as much as possible of your configuration to your own files can be a good
 
 All project-specific parameters should be kept in separate files.
 For example, configuration for Page Blocks could be placed in `config/packages/landing_page_blocks.yaml`.
-You can also place it in `config/landing_page_blocks.yaml`, which should be imported in `config/ezplatform.yaml`:
+You can also place it in `config/landing_page_blocks.yaml`, which should be imported in `config/ibexa.yaml`:
 
     ```yaml
     imports:

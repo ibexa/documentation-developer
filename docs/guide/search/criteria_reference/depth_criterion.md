@@ -1,6 +1,6 @@
 # Depth Criterion
 
-The [`Location\Depth` Search Criterion](https://github.com/ezsystems/ezplatform-kernel/tree/v1.0.0/eZ/Publish/API/Repository/Values/Content/Query/Criterion/Location)
+The [`Location\Depth` Search Criterion](https://github.com/ibexa/core/tree/main/src/contracts/Repository/Values/Content/Query/Criterion/Location)
 searches for Locations based on their depth in the Content tree.
 
 This Criterion is available only for Location Search.

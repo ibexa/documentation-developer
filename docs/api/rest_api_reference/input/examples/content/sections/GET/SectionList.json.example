@@ -1,0 +1,50 @@
+{
+    "SectionList": {
+        "_media-type": "application/vnd.ibexa.api.SectionList+json",
+        "_href": "/api/ibexa/v2/content/sections",
+        "Section": [
+            {
+                "_media-type": "application/vnd.ibexa.api.Section+json",
+                "_href": "/api/ibexa/v2/content/sections/1",
+                "sectionId": 1,
+                "identifier": "standard",
+                "name": "Standard"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Section+json",
+                "_href": "/api/ibexa/v2/content/sections/2",
+                "sectionId": 2,
+                "identifier": "users",
+                "name": "Users"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Section+json",
+                "_href": "/api/ibexa/v2/content/sections/3",
+                "sectionId": 3,
+                "identifier": "media",
+                "name": "Media"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Section+json",
+                "_href": "/api/ibexa/v2/content/sections/6",
+                "sectionId": 6,
+                "identifier": "form",
+                "name": "Form"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Section+json",
+                "_href": "/api/ibexa/v2/content/sections/7",
+                "sectionId": 7,
+                "identifier": "template",
+                "name": "Template"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Section+json",
+                "_href": "/api/ibexa/v2/content/sections/8",
+                "sectionId": 8,
+                "identifier": "restricted",
+                "name": "Restricted"
+            }
+        ]
+    }
+}

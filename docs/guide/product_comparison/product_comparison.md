@@ -44,7 +44,7 @@ There is an icon in the top left corner to show/hide the attributes.
 If `collapse_attributes` is set to true, hiding/showing attributes with the same value is enabled.
 
 ``` yaml
-siso_comparison.default.collapse_attributes: true
+ibexa_commerce_comparison.default.collapse_attributes: true
 ```
 
 ###### Collapsing all group for product attributes
@@ -54,7 +54,7 @@ The `collapse_groups` parameter defines if groups with all identical values shou
 This applies to a situation where all rows inside a group are identical.
 
 ``` yaml
-siso_comparison.default.collapse_groups: true
+ibexa_commerce_comparison.default.collapse_groups: true
 ```
 
 ### Sorting
@@ -81,7 +81,7 @@ You can configure which system provides the prices and stock information for com
 By default the ERP is requested. If it is not available, the local price provider responds. 
 
 ``` yaml
-siso_price.default.price_service_chain.comparison:
-    - siso_price.price_provider.remote
-    - siso_price.price_provider.local
+ibexa_commerce_price.default.price_service_chain.comparison:
+    - ibexa_commerce_price.price_provider.remote
+    - ibexa_commerce_price.price_provider.local
 ```

@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-use eZ\Publish\API\Repository\ContentService;
-use eZ\Publish\API\Repository\LocationService;
-use eZ\Publish\Core\MVC\Symfony\View\View;
+use Ibexa\Contracts\Core\Repository\ContentService;
+use Ibexa\Contracts\Core\Repository\LocationService;
+use Ibexa\Core\MVC\Symfony\View\View;
 
 class RelationController
 {

@@ -2,7 +2,7 @@
     <div>
         <div>
             <section>
-                {% include '@ezdesign/parts/search_form.html.twig' with { form: form } %}
+                {% include '@ibexadesign/parts/search_form.html.twig' with { form: form } %}
 
                 {% if results is defined %}
                     <div>
@@ -24,7 +24,7 @@
                         <ul>
                             {% for row in results %}
                                 <li>
-                                    <a href="{{ path('_ez_content_view', {
+                                    <a href="{{ path('ibexa.content.view', {
                                         'contentId': row.contentId,
                                         'languageCode': row.translation_language_code,
                                     }) }}">{{ row.name }}</a>
