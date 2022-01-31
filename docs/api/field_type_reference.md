@@ -20,7 +20,7 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Checkbox](field_types_reference/checkboxfield.md) | Stores a boolean value. | Yes | Yes |
 | [Content query](field_types_reference/contentqueryfield.md) | Maps an executable Repository query to a Field. | No | No |
 | [Country](field_types_reference/countryfield.md) | Stores country names as a string. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
-| [Customer group](field_types_reference/customergroupfield.md) | Stores customr group to whicha user belongs. )
+| [Customer group](field_types_reference/customergroupfield.md) | Stores customer group to which a user belongs.
 | [DateAndTime](field_types_reference/dateandtimefield.md) | Stores a full date including time information. | Yes | Yes |
 | [Date](field_types_reference/datefield.md) | Stores date information. | Yes | Yes  |
 | [EmailAddress](field_types_reference/emailaddressfield.md) | Validates and stores an email address. | Yes  | Yes  |

@@ -12,7 +12,7 @@ In that case the shop uses VatService to get the `vatPercent` by the `vatCode`.
 If they are not set, it uses the numbers set in the Buyer Party.
 
 If neither customer nor contact number are set, and template debitor is enabled in the configuration,
-StandardTemplateDebitorService determines the customer and/or contact number to use.
+`StandardTemplateDebitorService` determines the customer and/or contact number to use.
 
 ``` yaml
 siso_core.default.use_template_debitor_customer_number: true

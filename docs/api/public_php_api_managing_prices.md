@@ -34,8 +34,8 @@ To get all prices (in different currencies) for a given product, use `ProductPri
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 76, 82) =]]
 ```
 
-You can also use `ProductPriceService` to create a modify existing prices.
-For example, to create a new price for a giver currency, use `ProductPriceService::createProductPrice` and provide it with a `ProductPriceCreateStruct` object:
+You can also use `ProductPriceService` to create or modify existing prices.
+For example, to create a new price for a given currency, use `ProductPriceService::createProductPrice` and provide it with a `ProductPriceCreateStruct` object:
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 68, 74) =]]
