@@ -80,7 +80,9 @@ $(document).ready(function() {
         .addClass('external');
 
     docsearch({
-        apiKey: 'bfb5bd7cad971d31ef8be599174334f3',
+        container: '#docsearch',
+        appId: '2DNYOU6YJZ',
+        apiKey: '21ce3e522455e18e7ee16cf7d66edb4b',
         indexName: 'ezplatform',
         inputSelector: '#search_input',
         algoliaOptions: {
