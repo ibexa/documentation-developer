@@ -57,14 +57,14 @@ final class ProductPriceCommand extends Command
         $productCode = $input->getArgument('productCode');
         $product = $this->productService->getProduct($productCode);
         $currencyCode = $input->getArgument('currencyCode');
-        $currency = $this->currencyService->findCurrencyByCode($currencyCode);
+        $currency = $this->currencyService->getCurrencyByCode($currencyCode);
 
         $productPrice = $this->productPriceService->getPriceByProductAndCurrency($product, $currency);
 
         $output->writeln("Price for ". $product->getName() . " in " . $currencyCode . " is " . $productPrice);
 
         $newCurrencyCode = $input->getArgument('newCurrencyCode');
-        $newCurrency = $this->currencyService->findCurrencyByCode($newCurrencyCode);
+        $newCurrency = $this->currencyService->getCurrencyByCode($newCurrencyCode);
 
         $money = new Money\Money(50000, new Money\Currency($newCurrencyCode));
         $priceCreateStruct = new ProductPriceCreateStruct($product, $newCurrency, $money, null);

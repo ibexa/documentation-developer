@@ -48,7 +48,7 @@ final class CurrencyCommand extends Command
         $currencyCode = $input->getArgument('currencyCode');
         $newCurrencyCode = $input->getArgument('newCurrencyCode');
 
-        $currency = $this->currencyService->findCurrencyByCode($currencyCode);
+        $currency = $this->currencyService->getCurrencyByCode($currencyCode);
         $output->writeln('Currency ID: ' . $currency->getId());
 
         $currencies = $this->currencyService->findCurrencies();
@@ -56,14 +56,12 @@ final class CurrencyCommand extends Command
         foreach ($currencies as $currency) {
             $output->writeln('Currency ' . $currency->getId() . ' with code ' . $currency->getCode());
         }
-        
-        $id = $this->currencyService->findCurrencyByCode($currencyCode)->getId();
 
-        $currencyUpdateStruct = new CurrencyUpdateStruct($id);
+        $currencyUpdateStruct = new CurrencyUpdateStruct();
         $currencyUpdateStruct->setCode('MOD');
-        $currencyUpdateStruct->setSubunits(2);
+        $currencyUpdateStruct->setSubunits(4);
 
-        $this->currencyService->updateCurrency($currencyUpdateStruct);
+        $this->currencyService->updateCurrency($currency, $currencyUpdateStruct);
 
         $currencyCreateStruct = new CurrencyCreateStruct($newCurrencyCode, 2, true);
 

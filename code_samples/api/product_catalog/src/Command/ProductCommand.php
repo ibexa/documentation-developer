@@ -104,7 +104,8 @@ final class ProductCommand extends Command
 
             $availability = $this->productAvailabilityService->getAvailability($product);
 
-            $productAvailabilityUpdateStruct = new ProductAvailabilityUpdateStruct($product, true, 80);
+            $productAvailabilityUpdateStruct = new ProductAvailabilityUpdateStruct($product, true);
+            $productAvailabilityUpdateStruct->setStock(80);
 
             $this->productAvailabilityService->updateProductAvailability($productAvailabilityUpdateStruct);
 

@@ -35,7 +35,7 @@ You also need to set (at least) the code for the product and the required Field 
 To delete a product, use `LocalProductService::deleteProduct()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 114, 115) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 115, 116) =]]
 ```
 
 ## Product types
@@ -48,7 +48,7 @@ Get a product type object by using `ProductTypeServiceInterface::getProductType`
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 43, 44) =]]
 ```
 
-You can also get a list of product types with `ProductTypeServiceInterface::getProductTypeList`:
+You can also get a list of product types with `ProductTypeServiceInterface::findProductTypes`:
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 47, 52) =]]
@@ -71,7 +71,7 @@ You can then use `ProductAvailabilityServiceInterface::getStock` to get the stoc
 To change availability for a product, use `updateProductAvailability()` with a `ProductAvailabilityUpdateStruct`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 106, 109) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 106, 110) =]]
 ```
 
 ## Attributes
