@@ -79,12 +79,12 @@ You can also use the [autowire feature]([[= symfony_doc =]]/service_container/au
 ``` php
 namespace App;
 
-use Ibexa\Core\MVC\ConfigResolverInterface;
+use Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface;
  
 class Service
 {
     /**
-     * @var \Ibexa\Core\MVC\ConfigResolverInterface
+     * @var \Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface
      */
     private $configResolver;
  
