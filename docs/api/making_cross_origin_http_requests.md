@@ -44,7 +44,7 @@ To adapt these settings to your own needs you have to overwrite them in the `nel
 ```yaml
 nelmio_cors:
     paths:
-        '^/api/ezp/v2/':
+        '^/api/ibexa/v2/':
             max_age: 3600
             allow_credentials: false
             allow_origin: ['http://ez.no']

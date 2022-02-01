@@ -4,4 +4,4 @@ services:
         autoconfigure: true
         public: false
         tags:
-            - { name: ezplatform.tab, group: dashboard-everyone }
+            - { name: ibexa.admin_ui.tab, group: dashboard-everyone }

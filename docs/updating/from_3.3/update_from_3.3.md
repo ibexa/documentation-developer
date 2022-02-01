@@ -1,5 +1,5 @@
 ---
-latest_tag: '3.3.12'
+latest_tag: '3.3.14'
 ---
 
 # Update from v3.3.x to v3.3.latest

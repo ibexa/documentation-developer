@@ -1,6 +1,6 @@
 {
   "Basket": {
-    "_media-type": "application\/vnd.ez.api.Basket+json",
+    "_media-type": "application\/vnd.ibexa.api.Basket+json",
     "basketId": 7,
     "originId": null,
     "erpOrderId": null,
@@ -17,11 +17,11 @@
     "buyerParty": null,
     "remark": null,
     "dateCreated": {
-      "_media-type": "application\/vnd.ez.api.DateTime+json",
+      "_media-type": "application\/vnd.ibexa.api.DateTime+json",
       "string": "2021-03-12 07:40:00"
     },
     "dateLastModified": {
-      "_media-type": "application\/vnd.ez.api.DateTime+json",
+      "_media-type": "application\/vnd.ibexa.api.DateTime+json",
       "string": "2021-03-12 07:40:00"
     },
     "shop": null,
@@ -42,7 +42,7 @@
     "allProductsAvailable": true,
     "dataMap": {
       "dateLastCatalogUpdate": {
-        "_media-type": "application\/vnd.ez.api.DateTime+json",
+        "_media-type": "application\/vnd.ibexa.api.DateTime+json",
         "string": "2021-03-12 07:40:00"
       }
     }

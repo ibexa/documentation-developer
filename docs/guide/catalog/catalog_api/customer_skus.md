@@ -8,7 +8,7 @@ They are taken into account in search and quick order management.
 
 ## CustomerSkuService
 
-Customer SKUs are handled by means of the `Silversolutions\Bundle\EshopBundle\Service\CustomerSkuService` (ID: `siso_core.customer_sku_service`).
+Customer SKUs are handled by means of the `Silversolutions\Bundle\EshopBundle\Service\CustomerSkuService` (ID: `Ibexa\Bundle\Commerce\Eshop\Entity\CustomerSkuRepository`).
 
 `CustomerSkuService` is used to fetch the `sku` or `customer_sku`. For that purpose the following methods are available:
 

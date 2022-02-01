@@ -1,7 +1,7 @@
 {
     "FieldDefinition": {
-        "_media-type": "application/vnd.ez.api.FieldDefinition+json",
-        "_href": "/api/ezp/v2/content/types/2/fieldDefinitions/195",
+        "_media-type": "application/vnd.ibexa.api.FieldDefinition+json",
+        "_href": "/api/ibexa/v2/content/types/2/fieldDefinitions/195",
         "id": 195,
         "identifier": "image",
         "fieldType": "ezimageasset",

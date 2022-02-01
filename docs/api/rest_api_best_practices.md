@@ -13,7 +13,7 @@ Example:
 ```
 GET / HTTP/1.1
 Host: api.example.com
-Accept: application/vnd.ez.api.Root+json
+Accept: application/vnd.ibexa.api.Root+json
 X-Siteaccess: admin
 ```
 
@@ -21,8 +21,8 @@ X-Siteaccess: admin
 
 The methods on resources provide multiple media types in their responses.
 A media type can be selected in the `Accept` header.
-Each XML media type has a unique name, e.g. `application/vnd.ez.api.User+xml`.
-The returned XML response conforms with the complex type definition with a name, e.g. `vnd.ez.api.User` in the `user.xsd` XML schema definition file (see `User_`).
+Each XML media type has a unique name, e.g. `application/vnd.ibexa.api.User+xml`.
+The returned XML response conforms with the complex type definition with a name, e.g. `vnd.ibexa.api.User` in the `user.xsd` XML schema definition file (see `User_`).
 
 To derive the implicit schema of the JSON from the XML schema a uniform transformation from XML to JSON is performed as shown below.
 
@@ -63,7 +63,7 @@ It is possible to make e.g. a new schema for mobile devices for retrieving an ar
 <xsd:schema version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
   xmlns="http://ez.no/API/Values" targetNamespace="http://ez.no/API/Values">
   <xsd:include schemaLocation="CommonDefinitions.xsd" />
-  <xsd:complexType name="vnd.ez.api.MobileContent">
+  <xsd:complexType name="vnd.ibexa.api.MobileContent">
     <xsd:complexContent>
       <xsd:extension base="ref">
         <xsd:all>
@@ -73,7 +73,7 @@ It is possible to make e.g. a new schema for mobile devices for retrieving an ar
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="MobileContent" type="vnd.ez.api.MobileContent"/>
+  <xsd:element name="MobileContent" type="vnd.ibexa.api.MobileContent"/>
 </xsd:schema>
 ```
 
@@ -81,14 +81,14 @@ So that:
 
 ```
 GET /content/objects/23 HTTP/1.1
-Accept: application/vnd.ez.api.MobileContent+xml
+Accept: application/vnd.ibexa.api.MobileContent+xml
 ```
 
 Returns:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<MobileContent href="/content/objects/23" media-type="application/vnd.ez.api.MobileContent+xml">
+<MobileContent href="/content/objects/23" media-type="application/vnd.ibexa.api.MobileContent+xml">
   <Title>Title</Title>
   <Summary>This is a summary</Summary>
 </MobileContent>
@@ -106,7 +106,7 @@ The URIs should be used directly as identifiers on the client side and the clien
 ### URIs prefix
 
 In [REST reference](rest_api_reference/rest_api_reference.html), for the sake of readability, there are no prefixes used in the URIs.
-In practice, the `/api/ezp/v2` prefixes are all REST hrefs.
+In practice, the `/api/ibexa/v2` prefixes are all REST hrefs.
 
 Remember that the URIs to REST resources should never be generated manually, but obtained from earlier REST calls.
 

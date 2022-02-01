@@ -59,7 +59,7 @@ Symfony can be configured to use custom handlers, or just fall back to what is 
 framework:
     session:
         # handler_id can be set to null (~) like default in Symfony, if it so will use default session handler from php.ini
-        # But in order to use %ezplatform.session.save_path%, default eZ Platform instead sets %ezplatform.session.handler_id% to:
+        # But in order to use %ezplatform.session.save_path%, default Ibexa DXP instead sets %ezplatform.session.handler_id% to:
         # - session.handler.native_file (default)
         # - ezplatform.core.session.handler.native_redis (recommended value for Cluster usage, using php-redis session handler )
         handler_id: '%ezplatform.session.handler_id%'
@@ -109,7 +109,7 @@ To set up [[= product_name =]] using the [Redis](https://pecl.php.net/package/re
 
 Alternatively if you have needs to configure Redis servers dynamically:
 
-- Set `%ezplatform.session.handler_id%` (or `SESSION_HANDLER_ID` env var) to `ezplatform.core.session.handler.native_redis`
+- Set `%ezplatform.session.handler_id%` (or `SESSION_HANDLER_ID` env var) to `Ibexa\Bundle\Core\Session\Handler\NativeSessionHandler`
 - Set `%ezplatform.session.save_path%` (or `SESSION_SAVE_PATH` env var) to [save_path config for Redis](https://github.com/phpredis/phpredis/#php-session-handler)
 
 !!! note "Ibexa Cloud"

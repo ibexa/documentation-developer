@@ -6,18 +6,18 @@ get:
         Accept:
             description: If set, the Object state group list is returned in XML or JSON format.
             example: |
-                application/vnd.ez.api.ObjectStateGroupList+xml
-                application/vnd.ez.api.ObjectStateGroupList+json
+                application/vnd.ibexa.api.ObjectStateGroupList+xml
+                application/vnd.ibexa.api.ObjectStateGroupList+json
         If-None-Match:
             description: ETag
     responses:
         200:
             description: OK - returns a list of Object state groups.
             body:
-                application/vnd.ez.api.ObjectStateGroupList+xml:
+                application/vnd.ibexa.api.ObjectStateGroupList+xml:
                     type: ObjectStateGroupList
                     example: !include examples/content/objectstategroups/GET/ObjectStateGroupList.xml.example
-                application/vnd.ez.api.ObjectStateGroupList+json:
+                application/vnd.ibexa.api.ObjectStateGroupList+json:
                     type: ObjectStateGroupList
                     example: !include examples/content/objectstategroups/GET/ObjectStateGroupList.json.example
         401:
@@ -29,28 +29,28 @@ post:
         Accept:
             description: If set, the new Object state group is returned in XML or JSON format.
             example: |
-                application/vnd.ez.api.ObjectStateGroup+xml
-                application/vnd.ez.api.ObjectStateGroup+json
+                application/vnd.ibexa.api.ObjectStateGroup+xml
+                application/vnd.ibexa.api.ObjectStateGroup+json
         Content-Type:
             description: The Object state group input schema encoded in XML or JSON format.
             example: |
-                application/vnd.ez.api.ObjectStateGroupCreate+json
-                application/vnd.ez.api.ObjectStateGroupCreate+xml
+                application/vnd.ibexa.api.ObjectStateGroupCreate+json
+                application/vnd.ibexa.api.ObjectStateGroupCreate+xml
     body:
-        application/vnd.ez.api.ObjectStateGroupCreate+xml:
+        application/vnd.ibexa.api.ObjectStateGroupCreate+xml:
             type: ObjectStateGroupCreate
             example: !include examples/content/objectstategroups/POST/ObjectStateGroupCreate.xml.example
-        application/vnd.ez.api.ObjectStateGroupCreate+json:
+        application/vnd.ibexa.api.ObjectStateGroupCreate+json:
             type: ObjectStateGroupCreate
             example: !include examples/content/objectstategroups/POST/ObjectStateGroupCreate.json.example
     responses:
         201:
             description: Object state group created.
             body:
-                application/vnd.ez.api.ObjectStateGroup+xml:
+                application/vnd.ibexa.api.ObjectStateGroup+xml:
                     type: ObjectStateGroup
                     example: !include examples/content/objectstategroups/POST/ObjectStateGroup.xml.example
-                application/vnd.ez.api.ObjectStateGroup+json:
+                application/vnd.ibexa.api.ObjectStateGroup+json:
                     type: ObjectStateGroup
                     example: !include examples/content/objectstategroups/POST/ObjectStateGroup.json.example
         400:
@@ -67,18 +67,18 @@ post:
             Accept:
                 description: If set, the Object state group is returned in XML or JSON format.
                 example: |
-                    application/vnd.ez.api.ObjectStateGroup+xml
-                    application/vnd.ez.api.ObjectStateGroup+json
+                    application/vnd.ibexa.api.ObjectStateGroup+xml
+                    application/vnd.ibexa.api.ObjectStateGroup+json
             If-None-Match:
                 description: ETag
         responses:
             200:
                 description: OK - returns the Object state group.
                 body:
-                    application/vnd.ez.api.ObjectStateGroup+xml:
+                    application/vnd.ibexa.api.ObjectStateGroup+xml:
                         type: ObjectStateGroup
                         example: !include examples/content/objectstategroups/object_state_group_id/GET/ObjectStateGroup.xml.example
-                    application/vnd.ez.api.ObjectStateGroup+json:
+                    application/vnd.ibexa.api.ObjectStateGroup+json:
                         type: ObjectStateGroup
                         example: !include examples/content/objectstategroups/object_state_group_id/GET/ObjectStateGroup.json.example
             401:
@@ -92,30 +92,30 @@ post:
             Accept:
                 description: If set, the updated Object state group is returned in XML or JSON format.
                 example: |
-                    application/vnd.ez.api.ObjectStateGroup+xml
-                    application/vnd.ez.api.ObjectStateGroup+json
+                    application/vnd.ibexa.api.ObjectStateGroup+xml
+                    application/vnd.ibexa.api.ObjectStateGroup+json
             Content-Type:
                 description: The Object state group input schema encoded in XML or JSON format.
                 example: |
-                    application/vnd.ez.api.ObjectStateGroupUpdate+json
-                    application/vnd.ez.api.ObjectStateGroupUpdate+xml
+                    application/vnd.ibexa.api.ObjectStateGroupUpdate+json
+                    application/vnd.ibexa.api.ObjectStateGroupUpdate+xml
             If-Match:
                 description: ETag
                 body:
-                    application/vnd.ez.api.ObjectStateGroupUpdate+xml:
+                    application/vnd.ibexa.api.ObjectStateGroupUpdate+xml:
                         type: ObjectStateGroupUpdate
                         example: !include examples/content/objectstategroups/object_state_group_id/PATCH/ObjectStateGroupUpdate.xml.example
-                    application/vnd.ez.api.ObjectStateGroupUpdate+json:
+                    application/vnd.ibexa.api.ObjectStateGroupUpdate+json:
                         type: ObjectStateGroupUpdate
                         example: !include examples/content/objectstategroups/object_state_group_id/PATCH/ObjectStateGroupUpdate.json.example
         responses:
             200:
                 description: OK - Object stated group updated.
                 body:
-                    application/vnd.ez.api.ObjectStateGroup+xml:
+                    application/vnd.ibexa.api.ObjectStateGroup+xml:
                         type: ObjectStateGroup
                         example: !include examples/content/objectstategroups/object_state_group_id/PATCH/ObjectStateGroup.xml.example
-                    application/vnd.ez.api.ObjectStateGroup+json:
+                    application/vnd.ibexa.api.ObjectStateGroup+json:
                         type: ObjectStateGroup
                         example: !include examples/content/objectstategroups/object_state_group_id/PATCH/ObjectStateGroup.json.example
             400:
@@ -144,18 +144,18 @@ post:
             Accept:
                 description: If set, the Object state list is returned in XML or JSON format.
                 example: |
-                    application/vnd.ez.api.ObjectStateList+xml
-                    application/vnd.ez.api.ObjectStateList+json
+                    application/vnd.ibexa.api.ObjectStateList+xml
+                    application/vnd.ibexa.api.ObjectStateList+json
             If-None-Match:
                 description: ETag
         responses:
             200:
                 description: OK - returns a list of Object states.
                 body:
-                    application/vnd.ez.api.ObjectStateList+xml:
+                    application/vnd.ibexa.api.ObjectStateList+xml:
                         type: ObjectStateList
                         example: !include examples/content/objectstategroups/object_state_group_id/objectstates/GET/ObjectStateList.xml.example
-                    application/vnd.ez.api.ObjectStateList+json:
+                    application/vnd.ibexa.api.ObjectStateList+json:
                         type: ObjectStateList
                         example: !include examples/content/objectstategroups/object_state_group_id/objectstates/GET/ObjectStateList.json.example
             401:
@@ -167,28 +167,28 @@ post:
             Accept:
                 description: If set, the new Object state is returned in XML or JSON format.
                 example:
-                    application/vnd.ez.api.ObjectState+xml
-                    application/vnd.ez.api.ObjectState+json
+                    application/vnd.ibexa.api.ObjectState+xml
+                    application/vnd.ibexa.api.ObjectState+json
             Content-Type:
                 description: The Object state input schema encoded in XML or JSON format.
                 example: |
-                    application/vnd.ez.api.ObjectStateCreate+json
-                    application/vnd.ez.api.ObjectStateCreate+xml
+                    application/vnd.ibexa.api.ObjectStateCreate+json
+                    application/vnd.ibexa.api.ObjectStateCreate+xml
         body:
-            application/vnd.ez.api.ObjectStateCreate+xml:
+            application/vnd.ibexa.api.ObjectStateCreate+xml:
                 type: ObjectStateCreate
                 example: !include examples/content/objectstategroups/object_state_group_id/objectstates/POST/ObjectStateCreate.xml.example
-            application/vnd.ez.api.ObjectStateCreate+json:
+            application/vnd.ibexa.api.ObjectStateCreate+json:
                 type: ObjectStateCreate
                 example: !include examples/content/objectstategroups/object_state_group_id/objectstates/POST/ObjectStateCreate.json.example
         responses:
             201:
                 description: Object state created.
                 body:
-                    application/vnd.ez.api.ObjectState+xml:
+                    application/vnd.ibexa.api.ObjectState+xml:
                         type: ObjectState
                         example: !include examples/content/objectstategroups/object_state_group_id/objectstates/POST/ObjectState.xml.example
-                    application/vnd.ez.api.ObjectState+json:
+                    application/vnd.ibexa.api.ObjectState+json:
                         type: ObjectState
                         example: !include examples/content/objectstategroups/object_state_group_id/objectstates/POST/ObjectState.json.example
             400:
@@ -205,18 +205,18 @@ post:
                 Accept:
                     description: If set, the Object State is returned in XML or JSON format.
                     example: |
-                        application/vnd.ez.api.ObjectState+xml
-                        application/vnd.ez.api.ObjectState+json
+                        application/vnd.ibexa.api.ObjectState+xml
+                        application/vnd.ibexa.api.ObjectState+json
                 If-None-Match:
                     description: ETag
             responses:
                 200:
                     description: OK - returns the Object state.
                     body:
-                        application/vnd.ez.api.ObjectState+xml:
+                        application/vnd.ibexa.api.ObjectState+xml:
                             type: ObjectState
                             example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/GET/ObjectState.xml.example
-                        application/vnd.ez.api.ObjectState+json:
+                        application/vnd.ibexa.api.ObjectState+json:
                             type: ObjectState
                             example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/GET/ObjectState.json.example
                 401:
@@ -230,30 +230,30 @@ post:
                 Accept:
                     description: If set, the updated Object state is returned in XML or JSON format.
                     example: |
-                        application/vnd.ez.api.ObjectState+xml
-                        application/vnd.ez.api.ObjectState+json
+                        application/vnd.ibexa.api.ObjectState+xml
+                        application/vnd.ibexa.api.ObjectState+json
                 Content-Type:
                     description: The Object state input schema encoded in XML or JSON format.
                     example: |
-                        application/vnd.ez.api.ObjectStateUpdate+json
-                        application/vnd.ez.api.ObjectStateUpdate+xml
+                        application/vnd.ibexa.api.ObjectStateUpdate+json
+                        application/vnd.ibexa.api.ObjectStateUpdate+xml
                 If-Match:
                     description: ETag
             body:
-                application/vnd.ez.api.ObjectStateUpdate+xml:
+                application/vnd.ibexa.api.ObjectStateUpdate+xml:
                     type: ObjectStateUpdate
                     example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/PATCH/ObjectStateUpdate.xml.example
-                application/vnd.ez.api.ObjectStateUpdate+json:
+                application/vnd.ibexa.api.ObjectStateUpdate+json:
                     type: ObjectStateUpdate
                     example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/PATCH/ObjectStateUpdate.json.example
             responses:
                 200:
                     description: OK - Object State updated
                     body:
-                        application/vnd.ez.api.ObjectState+xml:
+                        application/vnd.ibexa.api.ObjectState+xml:
                             type: ObjectState
                             example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/PATCH/ObjectState.xml.example
-                        application/vnd.ez.api.ObjectState+json:
+                        application/vnd.ibexa.api.ObjectState+json:
                             type: ObjectState
                             example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/PATCH/ObjectState.json.example
                 400:

@@ -57,12 +57,12 @@ Both `getParameter()` and `hasParameter()` can take three arguments:
 ## Inject the ConfigResolver in your services
 
 You can use the ConfigResolver in your own services whenever needed.
-To do this, inject the `ezpublish.config.resolver` service:
+To do this, inject the `ibexa.config.resolver` service:
 
 ``` yaml
 services:
     App\Service:
-        arguments: ['@ezpublish.config.resolver']
+        arguments: ['@ibexa.config.resolver']
 ```
 
 You can also use the [autowire feature]([[= symfony_doc =]]/service_container/autowiring.html), by type hinting against ConfigResolverInterface.

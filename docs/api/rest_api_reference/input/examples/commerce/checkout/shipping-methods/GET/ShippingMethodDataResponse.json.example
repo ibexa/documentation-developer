@@ -1,6 +1,6 @@
 {
   "ShippingMethodDataResponse": {
-    "_media-type": "application\/vnd.ez.api.ShippingMethodDataResponse+json",
+    "_media-type": "application\/vnd.ibexa.api.ShippingMethodDataResponse+json",
     "shippingMethods": {
       "standard": "standard",
       "expressDel": "express_delivery"

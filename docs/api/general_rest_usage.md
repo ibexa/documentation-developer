@@ -21,7 +21,7 @@ On top of that, cache request headers can be added, like `If-None-Match`, but th
 
 ```
 GET /content/objects/23 HTTP/1.1
-Accept: application/vnd.ez.api.ContentInfo+xml
+Accept: application/vnd.ibexa.api.ContentInfo+xml
 ```
 
 #### Response headers
@@ -36,8 +36,8 @@ The API response contains:
 
 ```
 HTTP/1.1 200 OK
-Accept-Patch: application/vnd.ez.api.ContentUpdate+xml;charset=utf8
-Content-Type: application/vnd.ez.api.ContentInfo+xml
+Accept-Patch: application/vnd.ibexa.api.ContentUpdate+xml;charset=utf8
+Content-Type: application/vnd.ibexa.api.ContentInfo+xml
 ```
 
 ###### HTTP code
@@ -52,14 +52,14 @@ The [REST reference](rest_api_reference/rest_api_reference.html) provide the lis
 
 As long as a response contains an actual HTTP body, the Content Type header will be used to specify which Content Type is contained in the response. In that case:
 
-- ContentInfo: `Content-Type: application/vnd.ez.api.ContentInfo`
-- ContentInfo in XML format: `Content-Type: application/vnd.ez.api.ContentInfo+xml`
+- ContentInfo: `Content-Type: application/vnd.ibexa.api.ContentInfo`
+- ContentInfo in XML format: `Content-Type: application/vnd.ibexa.api.ContentInfo+xml`
 
 ###### Accept-Patch header
 
 It tells you that the received content can be modified by patching it with a [ContentUpdateStruct](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentUpdateStruct.php) in XML format:
 
- `Accept-Patch: application/vnd.ez.api.ContentUpdate+xml;charset=utf8`
+ `Accept-Patch: application/vnd.ibexa.api.ContentUpdate+xml;charset=utf8`
 
 JSON would also work, with the proper format.
 
@@ -90,16 +90,16 @@ Load ContentInfo response body, expand source:
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Content href="/content/objects/23" id="23"
-  media-type="application/vnd.ez.api.Content+xml" remoteId="qwert123">
-  <ContentType href="/content/types/10" media-type="application/vnd.ez.api.ContentType+xml" />
+  media-type="application/vnd.ibexa.api.Content+xml" remoteId="qwert123">
+  <ContentType href="/content/types/10" media-type="application/vnd.ibexa.api.ContentType+xml" />
   <Name>This is a title</Name>
-  <Versions href="/content/objects/23/versions" media-type="application/vnd.ez.api.VersionList+xml" />
+  <Versions href="/content/objects/23/versions" media-type="application/vnd.ibexa.api.VersionList+xml" />
   <CurrentVersion href="/content/objects/23/currentversion"
-    media-type="application/vnd.ez.api.Version+xml"/>
-  <Section href="/content/sections/4" media-type="application/vnd.ez.api.Section+xml" />
-  <MainLocation href="/content/locations/1/4/65" media-type="application/vnd.ez.api.Location+xml" />
-  <Locations href="/content/objects/23/locations" media-type="application/vnd.ez.api.LocationList+xml" />
-  <Owner href="/user/users/14" media-type="application/vnd.ez.api.User+xml" />
+    media-type="application/vnd.ibexa.api.Version+xml"/>
+  <Section href="/content/sections/4" media-type="application/vnd.ibexa.api.Section+xml" />
+  <MainLocation href="/content/locations/1/4/65" media-type="application/vnd.ibexa.api.Location+xml" />
+  <Locations href="/content/objects/23/locations" media-type="application/vnd.ibexa.api.LocationList+xml" />
+  <Owner href="/user/users/14" media-type="application/vnd.ibexa.api.User+xml" />
   <lastModificationDate>2012-02-12T12:30:00</lastModificationDate>
   <publishedDate>2012-02-12T15:30:00</publishedDate>
   <mainLanguageCode>eng-US</mainLanguageCode>
@@ -123,7 +123,7 @@ Value objects like [ContentInfo](https://github.com/ibexa/core/blob/main/src/con
 - foreign field(s) references (e.g. sectionId, mainLocationId)
 
 Local fields will be represented in XML / JSON format with a plain type (integer, string), while foreign key references will be represented as a link to another resource.
-This resource will be identified with its URI (`/content/objects/23/locations`) and the media-type that should be requested when calling that resource (`media-type="application/vnd.ez.api.LocationList+xml"`).
+This resource will be identified with its URI (`/content/objects/23/locations`) and the media-type that should be requested when calling that resource (`media-type="application/vnd.ibexa.api.LocationList+xml"`).
 Depending on how much data you need, you may choose to crawl those relations or to ignore them.
 
 ##### XSD files
@@ -150,7 +150,7 @@ The example request below would return the first 5 relations for version 3 of th
 
 ```
 GET /content/objects/59/versions/3/relations&limit=5 HTTP/1.1
-Accept: application/vnd.ez.api.RelationList+xml
+Accept: application/vnd.ibexa.api.RelationList+xml
 ```
 
 ### Working with value objects IDs
@@ -159,7 +159,7 @@ Resources that accept a reference to another resource expect reference to be giv
 For example, the URI requesting a list of users assigned to the role with ID 1 is:
 
 ```
-GET /api/ezp/v2/user/users?roleId=/api/ezp/v2/user/roles/1
+GET /api/ibexa/v2/user/users?roleId=/api/ibexa/v2/user/roles/1
 ```
 
 ## Custom HTTP verbs
@@ -266,7 +266,7 @@ In order to specify a SiteAccess when talking to the REST API, a custom `X-Sitea
 ```
 GET / HTTP/1.1
 Host: api.example.com
-Accept: application/vnd.ez.api.Root+json
+Accept: application/vnd.ibexa.api.Root+json
 X-Siteaccess: ezdemo_site_admin
 ```
 
@@ -290,7 +290,7 @@ Session-based is the default authentication method as it is needed for UI.
     ``` yaml
     security:
         access_control:
-            - { path: '^/api/ezp/v2/content/types', roles: ROLE_USER }
+            - { path: '^/api/ibexa/v2/content/types', roles: ROLE_USER }
     ```
 
 ### Session-based authentication
@@ -310,8 +310,8 @@ For logging out, use the **`DELETE`** request on the same resource.
 ```
 POST /user/sessions HTTP/1.1
 Host: www.example.net
-Accept: application/vnd.ez.api.Session+xml
-Content-Type: application/vnd.ez.api.SessionInput+xml
+Accept: application/vnd.ibexa.api.Session+xml
+Content-Type: application/vnd.ibexa.api.SessionInput+xml
 ```
 
 ```xml
@@ -326,16 +326,16 @@ Content-Type: application/vnd.ez.api.SessionInput+xml
 HTTP/1.1 201 Created
 Location: /user/sessions/go327ij2cirpo59pb6rrv2a4el2
 Set-Cookie: eZSSID=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
-Content-Type: application/vnd.ez.api.Session+xml
+Content-Type: application/vnd.ibexa.api.Session+xml
 ```
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<Session href="/user/sessions/sessionID" media-type="application/vnd.ez.api.Session+xml">
+<Session href="/user/sessions/sessionID" media-type="application/vnd.ibexa.api.Session+xml">
   <name>eZSSID</name>
   <identifier>go327ij2cirpo59pb6rrv2a4el2</identifier>
   <csrfToken>23lkneri34ijajedfw39orj3j93</csrfToken>
-  <User href="/user/users/14" media-type="vnd.ez.api.User+xml"/>
+  <User href="/user/users/14" media-type="vnd.ibexa.api.User+xml"/>
 </Session>
 ```
 
@@ -344,8 +344,8 @@ Content-Type: application/vnd.ez.api.Session+xml
 ```
 POST /user/sessions HTTP/1.1
 Host: www.example.net
-Accept: application/vnd.ez.api.Session+xml
-Content-Type: application/vnd.ez.api.SessionInput+xml
+Accept: application/vnd.ibexa.api.Session+xml
+Content-Type: application/vnd.ibexa.api.SessionInput+xml
 Cookie: eZSSID=go327ij2cirpo59pb6rrv2a4el2
 X-CSRF-Token: 23lkneri34ijajedfw39orj3j93
 ```
@@ -360,16 +360,16 @@ X-CSRF-Token: 23lkneri34ijajedfw39orj3j93
 
 ```
 HTTP/1.1 200 OK
-Content-Type: application/vnd.ez.api.Session+xml
+Content-Type: application/vnd.ibexa.api.Session+xml
 ```
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<Session href="user/sessions/go327ij2cirpo59pb6rrv2a4el2/refresh" media-type="application/vnd.ez.api.Session+xml">
+<Session href="user/sessions/go327ij2cirpo59pb6rrv2a4el2/refresh" media-type="application/vnd.ibexa.api.Session+xml">
   <name>eZSSID</name>
   <identifier>go327ij2cirpo59pb6rrv2a4el2</identifier>
   <csrfToken>23lkneri34ijajedfw39orj3j93</csrfToken>
-  <User href="/user/users/14" media-type="vnd.ez.api.User+xml"/>
+  <User href="/user/users/14" media-type="vnd.ibexa.api.User+xml"/>
 </Session>
 ```
 
@@ -388,7 +388,7 @@ To enable HTTP basic authentication, edit `config/packages/security.yaml`, and a
 
 ``` yaml
 ezpublish_rest:
-    pattern: ^/api/ezp/v2
+    pattern: ^/api/ibexa/v2
     stateless: true
     ezpublish_http_basic:
         realm: eZ Publish REST API
@@ -404,7 +404,7 @@ Most HTTP client libraries as well as REST libraries support this method.
 ```
 GET / HTTP/1.1
 Host: api.example.com
-Accept: application/vnd.ez.api.Root+json
+Accept: application/vnd.ibexa.api.Root+json
 Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
 ```
 
@@ -416,8 +416,8 @@ you can get the JWT token through the following request:
 ```
 POST /user/token/jwt HTTP/1.1
 Host: <yourdomain>
-Accept: application/vnd.ez.api.JWT+xml
-Content-Type: application/vnd.ez.api.JWTInput+xml
+Accept: application/vnd.ibexa.api.JWT+xml
+Content-Type: application/vnd.ibexa.api.JWTInput+xml
 ```
 
 Provide the user name and password in the request body:
@@ -459,14 +459,14 @@ Countries list is a REST service that gives access to an [ISO-3166](http://en.wi
 
 ### Obtaining list of countries
 
-To send a GET request to the REST API countries list, provide the Content Type header: `application/vnd.ez.api.CountriesList+xml`.
+To send a GET request to the REST API countries list, provide the Content Type header: `application/vnd.ibexa.api.CountriesList+xml`.
 
 **Countries list request**
 
 ```
-Resource: /api/ezp/v2/services/countries
+Resource: /api/ibexa/v2/services/countries
 Method: GET
-Content-Type: application/vnd.ez.api.CountriesList+xml
+Content-Type: application/vnd.ibexa.api.CountriesList+xml
 ```
 
 #### Usage example
@@ -474,16 +474,16 @@ Content-Type: application/vnd.ez.api.CountriesList+xml
 **Countries list request**
 
 ```
-GET /api/ezp/v2/services/countries
+GET /api/ibexa/v2/services/countries
 Host: example.com
-Accept: application/vnd.ez.api.CountriesList+xml
+Accept: application/vnd.ibexa.api.CountriesList+xml
 ```
 
 **Countries list response headers**
 
 ```
 HTTP/1.1 200
-Content-Type: application/vnd.ez.api.CountriesList+xml
+Content-Type: application/vnd.ibexa.api.CountriesList+xml
 ```
 
 The HTTP response is a `200 OK` header and XML formatted country list with names and codes according to the ISO-3166 standard body. 

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Version media-type="application/vnd.ez.api.Version+xml" href="/api/ezp/v2/content/objects/67/versions/5">
+<Version media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/67/versions/5">
     <VersionInfo>
         <id>1114</id>
         <versionNo>5</versionNo>
         <status>PUBLISHED</status>
         <modificationDate>2019-03-16T11:19:51+01:00</modificationDate>
-        <Creator media-type="application/vnd.ez.api.User+xml" href="/api/ezp/v2/user/users/14"/>
+        <Creator media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
         <creationDate>2019-03-16T11:18:45+01:00</creationDate>
         <initialLanguageCode>eng-GB</initialLanguageCode>
         <languageCodes>eng-GB,fre-FR,ger-DE,nor-NO</languageCodes>
-        <VersionTranslationInfo media-type="application/vnd.ez.api.VersionTranslationInfo+xml">
+        <VersionTranslationInfo media-type="application/vnd.ibexa.api.VersionTranslationInfo+xml">
             <Language>
                 <languageCode>eng-GB</languageCode>
             </Language>
@@ -29,7 +29,7 @@
             <value languageCode="ger-DE">Spanische Meeresfrüchte Paella</value>
             <value languageCode="nor-NO">Spansk sjømat paella</value>
         </names>
-        <Content media-type="application/vnd.ez.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/67"/>
+        <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/67"/>
     </VersionInfo>
     <Fields>
         <field>
@@ -270,52 +270,52 @@
                 <value key="height">686</value>
                 <value key="variations">
                     <value key="article_full_width">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/article_full_width</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1045-5/variations/article_full_width</value>
                     </value>
                     <value key="card_view">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/card_view</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1045-5/variations/card_view</value>
                     </value>
                     <value key="embed-header">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/embed-header</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1045-5/variations/embed-header</value>
                     </value>
                     <value key="ezplatform_admin_ui_profile_picture_user_menu">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/ezplatform_admin_ui_profile_picture_user_menu</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1045-5/variations/ezplatform_admin_ui_profile_picture_user_menu</value>
                     </value>
                     <value key="gallery">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/gallery</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1045-5/variations/gallery</value>
                     </value>
                     <value key="large">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/large</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1045-5/variations/large</value>
                     </value>
                     <value key="medium">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/medium</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1045-5/variations/medium</value>
                     </value>
                     <value key="place">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/place</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1045-5/variations/place</value>
                     </value>
                     <value key="product_card">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/product_card</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1045-5/variations/product_card</value>
                     </value>
                     <value key="product_large">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/product_large</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1045-5/variations/product_large</value>
                     </value>
                     <value key="reference">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/reference</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1045-5/variations/reference</value>
                     </value>
                     <value key="search_result_item">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/search_result_item</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1045-5/variations/search_result_item</value>
                     </value>
                     <value key="search_result_item_large">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/search_result_item_large</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1045-5/variations/search_result_item_large</value>
                     </value>
                     <value key="small">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/small</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1045-5/variations/small</value>
                     </value>
                     <value key="social_network_image">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/social_network_image</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1045-5/variations/social_network_image</value>
                     </value>
                     <value key="tiny">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1045-5/variations/tiny</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1045-5/variations/tiny</value>
                     </value>
                 </value>
             </fieldValue>
@@ -338,52 +338,52 @@
                 <value key="height">686</value>
                 <value key="variations">
                     <value key="article_full_width">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/article_full_width</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1060-5/variations/article_full_width</value>
                     </value>
                     <value key="card_view">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/card_view</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1060-5/variations/card_view</value>
                     </value>
                     <value key="embed-header">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/embed-header</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1060-5/variations/embed-header</value>
                     </value>
                     <value key="ezplatform_admin_ui_profile_picture_user_menu">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/ezplatform_admin_ui_profile_picture_user_menu</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1060-5/variations/ezplatform_admin_ui_profile_picture_user_menu</value>
                     </value>
                     <value key="gallery">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/gallery</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1060-5/variations/gallery</value>
                     </value>
                     <value key="large">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/large</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1060-5/variations/large</value>
                     </value>
                     <value key="medium">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/medium</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1060-5/variations/medium</value>
                     </value>
                     <value key="place">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/place</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1060-5/variations/place</value>
                     </value>
                     <value key="product_card">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/product_card</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1060-5/variations/product_card</value>
                     </value>
                     <value key="product_large">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/product_large</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1060-5/variations/product_large</value>
                     </value>
                     <value key="reference">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/reference</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1060-5/variations/reference</value>
                     </value>
                     <value key="search_result_item">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/search_result_item</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1060-5/variations/search_result_item</value>
                     </value>
                     <value key="search_result_item_large">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/search_result_item_large</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1060-5/variations/search_result_item_large</value>
                     </value>
                     <value key="small">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/small</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1060-5/variations/small</value>
                     </value>
                     <value key="social_network_image">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/social_network_image</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1060-5/variations/social_network_image</value>
                     </value>
                     <value key="tiny">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1060-5/variations/tiny</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1060-5/variations/tiny</value>
                     </value>
                 </value>
             </fieldValue>
@@ -406,52 +406,52 @@
                 <value key="height">686</value>
                 <value key="variations">
                     <value key="article_full_width">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/article_full_width</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1075-5/variations/article_full_width</value>
                     </value>
                     <value key="card_view">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/card_view</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1075-5/variations/card_view</value>
                     </value>
                     <value key="embed-header">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/embed-header</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1075-5/variations/embed-header</value>
                     </value>
                     <value key="ezplatform_admin_ui_profile_picture_user_menu">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/ezplatform_admin_ui_profile_picture_user_menu</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1075-5/variations/ezplatform_admin_ui_profile_picture_user_menu</value>
                     </value>
                     <value key="gallery">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/gallery</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1075-5/variations/gallery</value>
                     </value>
                     <value key="large">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/large</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1075-5/variations/large</value>
                     </value>
                     <value key="medium">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/medium</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1075-5/variations/medium</value>
                     </value>
                     <value key="place">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/place</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1075-5/variations/place</value>
                     </value>
                     <value key="product_card">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/product_card</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1075-5/variations/product_card</value>
                     </value>
                     <value key="product_large">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/product_large</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1075-5/variations/product_large</value>
                     </value>
                     <value key="reference">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/reference</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1075-5/variations/reference</value>
                     </value>
                     <value key="search_result_item">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/search_result_item</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1075-5/variations/search_result_item</value>
                     </value>
                     <value key="search_result_item_large">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/search_result_item_large</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1075-5/variations/search_result_item_large</value>
                     </value>
                     <value key="small">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/small</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1075-5/variations/small</value>
                     </value>
                     <value key="social_network_image">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/social_network_image</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1075-5/variations/social_network_image</value>
                     </value>
                     <value key="tiny">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1075-5/variations/tiny</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1075-5/variations/tiny</value>
                     </value>
                 </value>
             </fieldValue>
@@ -474,52 +474,52 @@
                 <value key="height">686</value>
                 <value key="variations">
                     <value key="article_full_width">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/article_full_width</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1090-5/variations/article_full_width</value>
                     </value>
                     <value key="card_view">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/card_view</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1090-5/variations/card_view</value>
                     </value>
                     <value key="embed-header">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/embed-header</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1090-5/variations/embed-header</value>
                     </value>
                     <value key="ezplatform_admin_ui_profile_picture_user_menu">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/ezplatform_admin_ui_profile_picture_user_menu</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1090-5/variations/ezplatform_admin_ui_profile_picture_user_menu</value>
                     </value>
                     <value key="gallery">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/gallery</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1090-5/variations/gallery</value>
                     </value>
                     <value key="large">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/large</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1090-5/variations/large</value>
                     </value>
                     <value key="medium">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/medium</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1090-5/variations/medium</value>
                     </value>
                     <value key="place">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/place</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1090-5/variations/place</value>
                     </value>
                     <value key="product_card">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/product_card</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1090-5/variations/product_card</value>
                     </value>
                     <value key="product_large">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/product_large</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1090-5/variations/product_large</value>
                     </value>
                     <value key="reference">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/reference</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1090-5/variations/reference</value>
                     </value>
                     <value key="search_result_item">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/search_result_item</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1090-5/variations/search_result_item</value>
                     </value>
                     <value key="search_result_item_large">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/search_result_item_large</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1090-5/variations/search_result_item_large</value>
                     </value>
                     <value key="small">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/small</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1090-5/variations/small</value>
                     </value>
                     <value key="social_network_image">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/social_network_image</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1090-5/variations/social_network_image</value>
                     </value>
                     <value key="tiny">
-                        <value key="href">/api/ezp/v2/content/binary/images/67-1090-5/variations/tiny</value>
+                        <value key="href">/api/ibexa/v2/content/binary/images/67-1090-5/variations/tiny</value>
                     </value>
                 </value>
             </fieldValue>
@@ -1198,15 +1198,15 @@
             <fieldValue/>
         </field>
     </Fields>
-    <Relations media-type="application/vnd.ez.api.RelationList+xml" href="/api/ezp/v2/content/objects/67/versions/5/relations">
-        <Relation media-type="application/vnd.ez.api.Relation+xml" href="/api/ezp/v2/content/objects/67/versions/5/relations/1316">
-            <SourceContent media-type="application/vnd.ez.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/67"/>
-            <DestinationContent media-type="application/vnd.ez.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/196"/>
+    <Relations media-type="application/vnd.ibexa.api.RelationList+xml" href="/api/ibexa/v2/content/objects/67/versions/5/relations">
+        <Relation media-type="application/vnd.ibexa.api.Relation+xml" href="/api/ibexa/v2/content/objects/67/versions/5/relations/1316">
+            <SourceContent media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/67"/>
+            <DestinationContent media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/196"/>
             <RelationType>EMBED</RelationType>
         </Relation>
-        <Relation media-type="application/vnd.ez.api.Relation+xml" href="/api/ezp/v2/content/objects/67/versions/5/relations/1317">
-            <SourceContent media-type="application/vnd.ez.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/67"/>
-            <DestinationContent media-type="application/vnd.ez.api.ContentInfo+xml" href="/api/ezp/v2/content/objects/70"/>
+        <Relation media-type="application/vnd.ibexa.api.Relation+xml" href="/api/ibexa/v2/content/objects/67/versions/5/relations/1317">
+            <SourceContent media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/67"/>
+            <DestinationContent media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/70"/>
             <RelationType>EMBED</RelationType>
         </Relation>
     </Relations>

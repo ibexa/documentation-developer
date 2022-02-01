@@ -1,6 +1,6 @@
 {
   "CountrySelectionResponse": {
-    "_media-type": "application\/vnd.ez.api.CountrySelectionResponse+json",
+    "_media-type": "application\/vnd.ibexa.api.CountrySelectionResponse+json",
     "countryOptions": {
       "DZ": "Algeria",
       "AU": "Australia",

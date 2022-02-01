@@ -15,7 +15,7 @@ The following interfaces represent the entry point for search:
 ### SearchContext
 
 The current controller implementation for the eshop search uses a service call to instantiate the `SearchContext`: `\Siso\Bundle\SearchBundle\Service\SearchContextService`.
-It has the service ID: `siso_search.search_context_service.default`.
+It has the service ID: `Ibexa\Bundle\Commerce\Search\Service\SearchContextService`.
 To change the default implementation, override this service.
 
 The search context defines context information for the query which is not contained in the search clauses.

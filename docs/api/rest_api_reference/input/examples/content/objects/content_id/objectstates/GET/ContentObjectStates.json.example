@@ -1,22 +1,22 @@
 {
     "ContentObjectStates": {
-        "_media-type": "application/vnd.ez.api.ContentObjectStates+json",
+        "_media-type": "application/vnd.ibexa.api.ContentObjectStates+json",
         "ObjectState": [
             {
-                "_media-type": "application/vnd.ez.api.ObjectState+json",
-                "_href": "/api/ezp/v2/content/objectstategroups/2/objectstates/1"
+                "_media-type": "application/vnd.ibexa.api.ObjectState+json",
+                "_href": "/api/ibexa/v2/content/objectstategroups/2/objectstates/1"
             },
             {
-                "_media-type": "application/vnd.ez.api.ObjectState+json",
-                "_href": "/api/ezp/v2/content/objectstategroups/3/objectstates/3"
+                "_media-type": "application/vnd.ibexa.api.ObjectState+json",
+                "_href": "/api/ibexa/v2/content/objectstategroups/3/objectstates/3"
             },
             {
-                "_media-type": "application/vnd.ez.api.ObjectState+json",
-                "_href": "/api/ezp/v2/content/objectstategroups/7/objectstates/7"
+                "_media-type": "application/vnd.ibexa.api.ObjectState+json",
+                "_href": "/api/ibexa/v2/content/objectstategroups/7/objectstates/7"
             },
             {
-                "_media-type": "application/vnd.ez.api.ObjectState+json",
-                "_href": "/api/ezp/v2/content/objectstategroups/8/objectstates/8"
+                "_media-type": "application/vnd.ibexa.api.ObjectState+json",
+                "_href": "/api/ibexa/v2/content/objectstategroups/8/objectstates/8"
             }
         ]
     }

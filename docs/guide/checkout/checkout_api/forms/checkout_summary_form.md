@@ -18,7 +18,7 @@ See [configuration for checkout forms](configuration_for_checkout_forms.md).
 ## Form Type
 
 `Ibexa\Commerce\Checkout\Form\CheckoutSummaryType`
-(service ID: `siso_checkout.form_entity.checkout_summary_type`)
+(service ID: `Ibexa\Commerce\Checkout\Form\Type\CheckoutSummaryType`)
 implements the setup for this form.
 
 This class is defined as a service to take advantage of other services, such as `TransService`,

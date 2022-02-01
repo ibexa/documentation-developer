@@ -34,7 +34,7 @@ The `Ibexa\Bundle\Commerce\Voucher\Service\VoucherManager` service manages gener
 
 ``` php
 //get the voucher manager
-$voucherManager = $this->get('siso_voucher.voucher_manager'); 
+$voucherManager = $this->get('Ibexa\Bundle\Commerce\Voucher\Service\VoucherManager'); 
 
 //redeem the voucher
 $voucherManager->redeemVoucherNumber($basket, $voucherNumber);

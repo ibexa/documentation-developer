@@ -1,12 +1,12 @@
 {
   "ContentCreate": {
     "ContentType": {
-      "_href": "/api/ezp/v2/content/types/2"
+      "_href": "/api/ibexa/v2/content/types/2"
       },
     "mainLanguageCode": "eng-GB",
     "LocationCreate": {
       "ParentLocation": {
-        "_href": "/api/ezp/v2/content/locations/1/2"
+        "_href": "/api/ibexa/v2/content/locations/1/2"
        },
       "priority": "0",
       "hidden": "false",
@@ -14,7 +14,7 @@
       "sortOrder": "ASC"
     },
     "Section": {
-      "_href": "/api/ezp/v2/content/sections/1"
+      "_href": "/api/ibexa/v2/content/sections/1"
     },
     "alwaysAvailable": "true",
     "fields": {

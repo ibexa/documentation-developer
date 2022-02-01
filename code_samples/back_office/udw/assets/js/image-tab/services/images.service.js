@@ -19,11 +19,11 @@ export const getImages = ({ token, siteaccess, contentId }, callback) => {
             },
         },
     });
-    const request = new Request('/api/ezp/v2/views', {
+    const request = new Request('/api/ibexa/v2/views', {
         method: 'POST',
         headers: {
-            Accept: 'application/vnd.ez.api.View+json; version=1.1',
-            'Content-Type': 'application/vnd.ez.api.ViewInput+json; version=1.1',
+            Accept: 'application/vnd.ibexa.api.View+json; version=1.1',
+            'Content-Type': 'application/vnd.ibexa.api.ViewInput+json; version=1.1',
             'X-Siteaccess': siteaccess,
             'X-CSRF-Token': token,
         },
@@ -50,11 +50,11 @@ export const loadImageContent = ({ token, siteaccess, contentId }, callback) => 
             },
         },
     });
-    const request = new Request('/api/ezp/v2/views', {
+    const request = new Request('/api/ibexa/v2/views', {
         method: 'POST',
         headers: {
-            Accept: 'application/vnd.ez.api.View+json; version=1.1',
-            'Content-Type': 'application/vnd.ez.api.ViewInput+json; version=1.1',
+            Accept: 'application/vnd.ibexa.api.View+json; version=1.1',
+            'Content-Type': 'application/vnd.ibexa.api.ViewInput+json; version=1.1',
             'X-Siteaccess': siteaccess,
             'X-CSRF-Token': token,
         },

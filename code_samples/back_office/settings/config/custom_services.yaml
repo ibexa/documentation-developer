@@ -1,8 +1,8 @@
 services:
     App\Setting\Unit:
         tags:
-            - { name: ezplatform.admin_ui.user_setting.value, identifier: unit, group: my_group, priority: 50 }
-            - { name: ezplatform.admin_ui.user_setting.form_mapper, identifier: unit }
+            - { name: ibexa.user.setting.value, identifier: unit, group: my_group, priority: 50 }
+            - { name: ibexa.user.setting.mapper.form, identifier: unit }
 
     App\Setting\Group\MyGroup:
         tags:

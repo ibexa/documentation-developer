@@ -1,59 +1,59 @@
 {
     "User": {
-        "_media-type": "application/vnd.ez.api.User+json",
-        "_href": "/api/ezp/v2/user/users/57",
+        "_media-type": "application/vnd.ibexa.api.User+json",
+        "_href": "/api/ibexa/v2/user/users/57",
         "_id": 57,
         "_remoteId": "remoteId-qwert426",
         "ContentType": {
-            "_media-type": "application/vnd.ez.api.ContentType+json",
-            "_href": "/api/ezp/v2/content/types/4"
+            "_media-type": "application/vnd.ibexa.api.ContentType+json",
+            "_href": "/api/ibexa/v2/content/types/4"
         },
         "name": "Yura Rajzer",
         "Versions": {
-            "_media-type": "application/vnd.ez.api.VersionList+json",
-            "_href": "/api/ezp/v2/content/objects/57/versions"
+            "_media-type": "application/vnd.ibexa.api.VersionList+json",
+            "_href": "/api/ibexa/v2/content/objects/57/versions"
         },
         "Section": {
-            "_media-type": "application/vnd.ez.api.Section+json",
-            "_href": "/api/ezp/v2/content/sections/2"
+            "_media-type": "application/vnd.ibexa.api.Section+json",
+            "_href": "/api/ibexa/v2/content/sections/2"
         },
         "MainLocation": {
-            "_media-type": "application/vnd.ez.api.Location+json",
-            "_href": "/api/ezp/v2/content/locations/1/5/13/58"
+            "_media-type": "application/vnd.ibexa.api.Location+json",
+            "_href": "/api/ibexa/v2/content/locations/1/5/13/58"
         },
         "Locations": {
-            "_media-type": "application/vnd.ez.api.LocationList+json",
-            "_href": "/api/ezp/v2/content/objects/57/locations"
+            "_media-type": "application/vnd.ibexa.api.LocationList+json",
+            "_href": "/api/ibexa/v2/content/objects/57/locations"
         },
         "Groups": {
-            "_media-type": "application/vnd.ez.api.UserGroupRefList+json",
-            "_href": "/api/ezp/v2/user/users/57/groups"
+            "_media-type": "application/vnd.ibexa.api.UserGroupRefList+json",
+            "_href": "/api/ibexa/v2/user/users/57/groups"
         },
         "Owner": {
-            "_media-type": "application/vnd.ez.api.User+json",
-            "_href": "/api/ezp/v2/user/users/14"
+            "_media-type": "application/vnd.ibexa.api.User+json",
+            "_href": "/api/ibexa/v2/user/users/14"
         },
         "publishDate": "2021-08-11T13:52:13+00:00",
         "lastModificationDate": "2021-08-11T13:52:13+00:00",
         "mainLanguageCode": "eng-GB",
         "alwaysAvailable": true,
         "Version": {
-            "_media-type": "application/vnd.ez.api.Version+json",
-            "_href": "/api/ezp/v2/content/objects/57/versions/1",
+            "_media-type": "application/vnd.ibexa.api.Version+json",
+            "_href": "/api/ibexa/v2/content/objects/57/versions/1",
             "VersionInfo": {
                 "id": 517,
                 "versionNo": 1,
                 "status": "PUBLISHED",
                 "modificationDate": "2021-08-11T13:52:13+00:00",
                 "Creator": {
-                    "_media-type": "application/vnd.ez.api.User+json",
-                    "_href": "/api/ezp/v2/user/users/14"
+                    "_media-type": "application/vnd.ibexa.api.User+json",
+                    "_href": "/api/ibexa/v2/user/users/14"
                 },
                 "creationDate": "2021-08-11T13:52:13+00:00",
                 "initialLanguageCode": "eng-GB",
                 "languageCodes": "eng-GB",
                 "VersionTranslationInfo": {
-                    "_media-type": "application/vnd.ez.api.VersionTranslationInfo+json",
+                    "_media-type": "application/vnd.ibexa.api.VersionTranslationInfo+json",
                     "Language": [
                         {
                             "languageCode": "eng-GB"
@@ -69,8 +69,8 @@
                     ]
                 },
                 "Content": {
-                    "_media-type": "application/vnd.ez.api.ContentInfo+json",
-                    "_href": "/api/ezp/v2/content/objects/57"
+                    "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+                    "_href": "/api/ibexa/v2/content/objects/57"
                 }
             },
             "Fields": {
@@ -122,12 +122,12 @@
                 ]
             },
             "Relations": {
-                "_media-type": "application/vnd.ez.api.RelationList+json",
-                "_href": "/api/ezp/v2/content/objects/57/versions/1/relations",
+                "_media-type": "application/vnd.ibexa.api.RelationList+json",
+                "_href": "/api/ibexa/v2/content/objects/57/versions/1/relations",
                 "Relation": []
             },
             "Thumbnail": {
-                "_media-type": "application/vnd.ez.api.Thumbnail+json",
+                "_media-type": "application/vnd.ibexa.api.Thumbnail+json",
                 "resource": "/bundles/ezplatformadminui/img/ez-icons.svg#user",
                 "width": null,
                 "height": null,
@@ -138,12 +138,12 @@
         "email": "yurarajzer@example.net",
         "enabled": true,
         "UserGroups": {
-            "_media-type": "application/vnd.ez.api.UserGroupList+json",
-            "_href": "/api/ezp/v2/user/users/57/groups"
+            "_media-type": "application/vnd.ibexa.api.UserGroupList+json",
+            "_href": "/api/ibexa/v2/user/users/57/groups"
         },
         "Roles": {
-            "_media-type": "application/vnd.ez.api.RoleAssignmentList+json",
-            "_href": "/api/ezp/v2/user/users/57/roles"
+            "_media-type": "application/vnd.ibexa.api.RoleAssignmentList+json",
+            "_href": "/api/ibexa/v2/user/users/57/roles"
         }
     }
 }

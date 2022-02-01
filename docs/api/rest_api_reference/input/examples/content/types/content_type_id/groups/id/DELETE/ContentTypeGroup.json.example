@@ -1,21 +1,21 @@
 {
     "ContentTypeGroupRefList": {
-        "_media-type": "application/vnd.ez.api.ContentTypeGroupRefList+json",
-        "_href": "/api/ezp/v2/content/typegroups/2/types",
+        "_media-type": "application/vnd.ibexa.api.ContentTypeGroupRefList+json",
+        "_href": "/api/ibexa/v2/content/typegroups/2/types",
         "ContentTypeGroupRef": [
             {
-                "_media-type": "application/vnd.ez.api.ContentTypeGroup+json",
-                "_href": "/api/ezp/v2/content/typegroups/1",
+                "_media-type": "application/vnd.ibexa.api.ContentTypeGroup+json",
+                "_href": "/api/ibexa/v2/content/typegroups/1",
                 "unlink": {
-                    "_href": "/api/ezp/v2/content/types/2/groups/1",
+                    "_href": "/api/ibexa/v2/content/types/2/groups/1",
                     "_method": "DELETE"
                 }
             },
             {
-                "_media-type": "application/vnd.ez.api.ContentTypeGroup+json",
-                "_href": "/api/ezp/v2/content/typegroups/2",
+                "_media-type": "application/vnd.ibexa.api.ContentTypeGroup+json",
+                "_href": "/api/ibexa/v2/content/typegroups/2",
                 "unlink": {
-                    "_href": "/api/ezp/v2/content/types/2/groups/2",
+                    "_href": "/api/ibexa/v2/content/types/2/groups/2",
                     "_method": "DELETE"
                 }
             }

@@ -1,7 +1,7 @@
 {
     "RelationCreate": {
         "Destination": {
-            "_href": "/api/ezp/v2/content/objects/59"
+            "_href": "/api/ibexa/v2/content/objects/59"
         }
     }
 }

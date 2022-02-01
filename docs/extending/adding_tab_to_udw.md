@@ -115,7 +115,7 @@ IbexaConfigManager.add({
     const Encore = require('@symfony/webpack-encore');
     const path = require('path');
     const getEzConfig = require('./ez.webpack.config.js');
-    const IbexaConfigManager = require('./ez.webpack.config.manager.js');
+    const IbexaConfigManager = require('./ibexa.webpack.config.manager.js');
     const IbexaConfig = getIbexaConfig(Encore);
     const customConfigs = require('./ez.webpack.custom.configs.js');
     

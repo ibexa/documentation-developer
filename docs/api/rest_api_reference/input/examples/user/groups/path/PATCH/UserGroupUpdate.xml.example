@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <UserGroupUpdate>
-	<Section href="/api/ezp/v2/content/sections/2" />
+	<Section href="/api/ibexa/v2/content/sections/2" />
 </UserGroupUpdate>

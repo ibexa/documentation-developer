@@ -1,21 +1,21 @@
 {
     "Version": {
-        "_media-type": "application/vnd.ez.api.Version+json",
-        "_href": "/api/ezp/v2/content/objects/59/versions/1",
+        "_media-type": "application/vnd.ibexa.api.Version+json",
+        "_href": "/api/ibexa/v2/content/objects/59/versions/1",
         "VersionInfo": {
             "id": 519,
             "versionNo": 1,
             "status": "PUBLISHED",
             "modificationDate": "2021-06-28T11:33:01+00:00",
             "Creator": {
-                "_media-type": "application/vnd.ez.api.User+json",
-                "_href": "/api/ezp/v2/user/users/14"
+                "_media-type": "application/vnd.ibexa.api.User+json",
+                "_href": "/api/ibexa/v2/user/users/14"
             },
             "creationDate": "2021-06-28T11:32:39+00:00",
             "initialLanguageCode": "eng-GB",
             "languageCodes": "eng-GB",
             "VersionTranslationInfo": {
-                "_media-type": "application/vnd.ez.api.VersionTranslationInfo+json",
+                "_media-type": "application/vnd.ibexa.api.VersionTranslationInfo+json",
                 "Language": [
                     {
                         "languageCode": "eng-GB"
@@ -31,8 +31,8 @@
                 ]
             },
             "Content": {
-                "_media-type": "application/vnd.ez.api.ContentInfo+json",
-                "_href": "/api/ezp/v2/content/objects/59"
+                "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+                "_href": "/api/ibexa/v2/content/objects/59"
             }
         },
         "Fields": {
@@ -102,61 +102,61 @@
                         "source": null,
                         "variations": {
                             "article_full": {
-                                "href": "/api/ezp/v2/content/binary/images/60-278-1/variations/article_full"
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/article_full"
                             },
                             "content_list": {
-                                "href": "/api/ezp/v2/content/binary/images/60-278-1/variations/content_list"
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/content_list"
                             },
                             "dog_breed_full": {
-                                "href": "/api/ezp/v2/content/binary/images/60-278-1/variations/dog_breed_full"
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/dog_breed_full"
                             },
                             "ezplatform_admin_ui_profile_picture_user_menu": {
-                                "href": "/api/ezp/v2/content/binary/images/60-278-1/variations/ezplatform_admin_ui_profile_picture_user_menu"
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/ezplatform_admin_ui_profile_picture_user_menu"
                             },
                             "featured_article": {
-                                "href": "/api/ezp/v2/content/binary/images/60-278-1/variations/featured_article"
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/featured_article"
                             },
                             "fourth_width_2_3": {
-                                "href": "/api/ezp/v2/content/binary/images/60-278-1/variations/fourth_width_2_3"
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/fourth_width_2_3"
                             },
                             "fourth_width_3_2": {
-                                "href": "/api/ezp/v2/content/binary/images/60-278-1/variations/fourth_width_3_2"
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/fourth_width_3_2"
                             },
                             "full_width_2_3": {
-                                "href": "/api/ezp/v2/content/binary/images/60-278-1/variations/full_width_2_3"
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/full_width_2_3"
                             },
                             "full_width_3_2": {
-                                "href": "/api/ezp/v2/content/binary/images/60-278-1/variations/full_width_3_2"
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/full_width_3_2"
                             },
                             "gallery": {
-                                "href": "/api/ezp/v2/content/binary/images/60-278-1/variations/gallery"
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/gallery"
                             },
                             "half_width_2_3": {
-                                "href": "/api/ezp/v2/content/binary/images/60-278-1/variations/half_width_2_3"
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/half_width_2_3"
                             },
                             "half_width_3_2": {
-                                "href": "/api/ezp/v2/content/binary/images/60-278-1/variations/half_width_3_2"
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/half_width_3_2"
                             },
                             "large": {
-                                "href": "/api/ezp/v2/content/binary/images/60-278-1/variations/large"
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/large"
                             },
                             "medium": {
-                                "href": "/api/ezp/v2/content/binary/images/60-278-1/variations/medium"
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/medium"
                             },
                             "reference": {
-                                "href": "/api/ezp/v2/content/binary/images/60-278-1/variations/reference"
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/reference"
                             },
                             "small": {
-                                "href": "/api/ezp/v2/content/binary/images/60-278-1/variations/small"
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/small"
                             },
                             "third_width_2_3": {
-                                "href": "/api/ezp/v2/content/binary/images/60-278-1/variations/third_width_2_3"
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/third_width_2_3"
                             },
                             "third_width_3_2": {
-                                "href": "/api/ezp/v2/content/binary/images/60-278-1/variations/third_width_3_2"
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/third_width_3_2"
                             },
                             "tiny": {
-                                "href": "/api/ezp/v2/content/binary/images/60-278-1/variations/tiny"
+                                "href": "/api/ibexa/v2/content/binary/images/60-278-1/variations/tiny"
                             }
                         }
                     }
@@ -164,19 +164,19 @@
             ]
         },
         "Relations": {
-            "_media-type": "application/vnd.ez.api.RelationList+json",
-            "_href": "/api/ezp/v2/content/objects/59/versions/1/relations",
+            "_media-type": "application/vnd.ibexa.api.RelationList+json",
+            "_href": "/api/ibexa/v2/content/objects/59/versions/1/relations",
             "Relation": [
                 {
-                    "_media-type": "application/vnd.ez.api.Relation+json",
-                    "_href": "/api/ezp/v2/content/objects/59/versions/1/relations/1",
+                    "_media-type": "application/vnd.ibexa.api.Relation+json",
+                    "_href": "/api/ibexa/v2/content/objects/59/versions/1/relations/1",
                     "SourceContent": {
-                        "_media-type": "application/vnd.ez.api.ContentInfo+json",
-                        "_href": "/api/ezp/v2/content/objects/59"
+                        "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+                        "_href": "/api/ibexa/v2/content/objects/59"
                     },
                     "DestinationContent": {
-                        "_media-type": "application/vnd.ez.api.ContentInfo+json",
-                        "_href": "/api/ezp/v2/content/objects/60"
+                        "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+                        "_href": "/api/ibexa/v2/content/objects/60"
                     },
                     "SourceFieldDefinitionIdentifier": "image",
                     "RelationType": "ASSET"
@@ -184,7 +184,7 @@
             ]
         },
         "Thumbnail": {
-            "_media-type": "application/vnd.ez.api.Thumbnail+json",
+            "_media-type": "application/vnd.ibexa.api.Thumbnail+json",
             "resource": "/bundles/ezplatformadminui/img/ez-icons.svg#article",
             "width": null,
             "height": null,

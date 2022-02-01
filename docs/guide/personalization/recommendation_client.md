@@ -99,16 +99,16 @@ Use the `Accept` header; you may need to add an `Authorization` header if authen
 To check whether the `content` endpoint is working as expected, perform the following request:
 
 ```
-GET http://<yourdomain>/api/ezp/v2/ibexa_recommendation/v1/content/{contentId}
-Accept application/vnd.ez.api.Content+json
+GET http://<yourdomain>/api/ibexa/v2/ibexa_recommendation/v1/content/{contentId}
+Accept application/vnd.ibexa.api.Content+json
 Authorization Basic xxxxxxxx
 ```
 
 Additionally, check whether the `contenttypes` endpoint is working with the following request:
 
 ```
-GET http://<yourdomain>/api/ezp/v2/ibexa_recommendation/v1/contenttypes/38?page=1&page_size=10
-Accept application/vnd.ez.api.Content+json
+GET http://<yourdomain>/api/ibexa/v2/ibexa_recommendation/v1/contenttypes/38?page=1&page_size=10
+Accept application/vnd.ibexa.api.Content+json
 Authorization Basic xxxxxxxx
 ```
 
@@ -117,10 +117,10 @@ The `content` endpoint returns one item and the `contenttypes` endpoint returns 
 ``` json
 {
     "contentList": {
-        "_media-type": "application/vnd.ez.api.contentList+json",
+        "_media-type": "application/vnd.ibexa.api.contentList+json",
         "content": [
             {
-                "_media-type": "application/vnd.ez.api.content+json",
+                "_media-type": "application/vnd.ibexa.api.content+json",
                 "contentId": 72,
                 "contentTypeId": 38,
                 "identifier": "place",
@@ -130,12 +130,12 @@ The `content` endpoint returns one item and the `contenttypes` endpoint returns 
                 "uri": "/Places-Tastes/Places/Kochin-India",
                 "categoryPath": "/1/2/95/71/73/",
                 "mainLocation": {
-                    "_media-type": "application/vnd.ez.api.mainLocation+json",
-                    "_href": "/api/ezp/v2/content/locations/1/2/95/71/73/"
+                    "_media-type": "application/vnd.ibexa.api.mainLocation+json",
+                    "_href": "/api/ibexa/v2/content/locations/1/2/95/71/73/"
                 },
                 "locations": {
-                    "_media-type": "application/vnd.ez.api.locations+json",
-                    "_href": "/api/ezp/v2/content/objects/72/locations"
+                    "_media-type": "application/vnd.ibexa.api.locations+json",
+                    "_href": "/api/ibexa/v2/content/objects/72/locations"
                 },
                 "name": "Kochin, India",
                 "intro": "<![CDATA[<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5\"><p>We got the major port city on the south west coast of India.</p></section>\n]]>",
@@ -468,7 +468,7 @@ To access a specific image variation through API, add the `image` parameter to 
 request URL with the name of the variation as its value.
 For example, to retrieve the `rss` variation of the image, use:
 
-`/api/ezp/v2/ibexa_recommendation/v1/contenttypes/16?lang=eng-GB&fields=title,description,image,intro,name&page=1&page_size=20&image=rss`
+`/api/ibexa/v2/ibexa_recommendation/v1/contenttypes/16?lang=eng-GB&fields=title,description,image,intro,name&page=1&page_size=20&image=rss`
 
 ## Troubleshooting
 

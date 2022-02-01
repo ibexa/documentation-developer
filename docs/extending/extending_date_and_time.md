@@ -2,12 +2,12 @@
 
 You can format date and time by using the following services:
 
-- `@ezplatform.user.settings.short_datetime_format.formatter`
-- `@ezplatform.user.settings.short_datet_format.formatter`
-- `@ezplatform.user.settings.short_time_format.formatter`
-- `@ezplatform.user.settings.full_datetime_format.formatter`
-- `@ezplatform.user.settings.full_date_format.formatter`
-- `@ezplatform.user.settings.full_time_format.formatter`
+- `@ibexa.user.settings.short_datetime_format.formatter`
+- `@ibexa.user.settings.short_datet_format.formatter`
+- `@ibexa.user.settings.short_time_format.formatter`
+- `@ibexa.user.settings.full_datetime_format.formatter`
+- `@ibexa.user.settings.full_date_format.formatter`
+- `@ibexa.user.settings.full_time_format.formatter`
 
 To use them, create an `src\Service\MyService.php` file containing:
 
@@ -51,5 +51,5 @@ Then, add the following to `config/services.yaml`:
 services:    
     App\Service\MyService:
         arguments:
-            $shortDateTimeFormatter: '@ezplatform.user.settings.short_datetime_format.formatter'
+            $shortDateTimeFormatter: '@ibexa.user.settings.short_datetime_format.formatter'
 ```

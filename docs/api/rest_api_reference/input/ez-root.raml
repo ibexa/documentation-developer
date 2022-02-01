@@ -7,14 +7,14 @@ get:
             description: If set, the list is return in XML or JSON format.
             type: string
             example: |
-                application/vnd.ez.api.Root+xml
-                application/vnd.ez.api.Root+json
+                application/vnd.ibexa.api.Root+xml
+                application/vnd.ibexa.api.Root+json
     responses:
         200:
             body:
-                application/vnd.ez.api.Root+xml:
+                application/vnd.ibexa.api.Root+xml:
                     type: Root
                     example: !include examples/GET/Root.xml.example
-                application/vnd.ez.api.Root+json:
+                application/vnd.ibexa.api.Root+json:
                     type: Root
                     example: !include examples/GET/Root.json.example

@@ -1,13 +1,13 @@
 {
     "ObjectState": {
-        "_media-type": "application/vnd.ez.api.ObjectState+json",
-        "_href": "/api/ezp/v2/content/objectstategroups/7/objectstates/7",
+        "_media-type": "application/vnd.ibexa.api.ObjectState+json",
+        "_href": "/api/ibexa/v2/content/objectstategroups/7/objectstates/7",
         "id": 7,
         "identifier": "new-state",
         "priority": 0,
         "ObjectStateGroup": {
-            "_media-type": "application/vnd.ez.api.ObjectStateGroup+json",
-            "_href": "/api/ezp/v2/content/objectstategroups/7"
+            "_media-type": "application/vnd.ibexa.api.ObjectStateGroup+json",
+            "_href": "/api/ibexa/v2/content/objectstategroups/7"
         },
         "defaultLanguageCode": "eng-GB",
         "languageCodes": "eng-GB",

@@ -26,7 +26,7 @@ It is used in `breadcrumb_list.html.twig` to determine the number of generated b
 The `translationParameters` property of a breadcrumb contains additional data,
 which includes `type` of the breadcrumb. The type depends on the generator used:
 
-- `CatalogBreadcrumbsGenerator` - `ez_content`
+- `CatalogBreadcrumbsGenerator` - `ibexa_content`
 - `EzContentBreadcrumbsGenerator` - `catalog`
 - `RoutesBreadcrumbsGenerator` - `route`
 

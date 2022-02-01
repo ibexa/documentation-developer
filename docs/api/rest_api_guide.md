@@ -13,7 +13,7 @@ REST API resources and endpoints.
 
 ## Accessing the REST API
 
-The REST API is available at the URI `/api/ezp/v2` . HTTPS is available as long as your server is properly configured. Refer to the [Getting started with the REST API](#getting-started-with-the-rest-api) section below to start using the API.
+The REST API is available at the URI `/api/ibexa/v2` . HTTPS is available as long as your server is properly configured. Refer to the [Getting started with the REST API](#getting-started-with-the-rest-api) section below to start using the API.
 
 ## Basics
 
@@ -42,8 +42,8 @@ It uses HTTP methods ( **`GET`** , **`POST`** , **`PUT`** , **`DELETE`** , etc.)
 
 On top of methods, HTTP request headers will allow you to personalize the request's behavior. On every resource, you can use the Accept header to indicate which format you want to communicate in, JSON or XML. This header is also used to specify the response type you want the server to send when multiple ones are available.
 
--   `Accept: application/vnd.ez.api.Content+xml` to get **Content** (full data, fields included) as **XML**
--   `Accept: application/vnd.ez.api.ContentInfo+json` to get **ContentInfo** (metadata only) as **JSON**
+-   `Accept: application/vnd.ibexa.api.Content+xml` to get **Content** (full data, fields included) as **XML**
+-   `Accept: application/vnd.ibexa.api.ContentInfo+json` to get **ContentInfo** (metadata only) as **JSON**
 
 !!! note "More information"
 
@@ -59,11 +59,11 @@ Responses returned by the API will also use custom headers to indicate informati
 
 ### Installation
 
-No special preparations are necessary to use the REST API. As long as your [[= product_name =]] is correctly configured, the REST API is available on your site using the URI `/api/ezp/v2/`. If you have installed [[= product_name =]] in a subfolder, prepend the path with this subfolder: `http://example.com/sub/folder/ezpublish/api/ezp/v2/`.
+No special preparations are necessary to use the REST API. As long as your [[= product_name =]] is correctly configured, the REST API is available on your site using the URI `/api/ibexa/v2/`. If you have installed [[= product_name =]] in a subfolder, prepend the path with this subfolder: `http://example.com/sub/folder/ezpublish/api/ibexa/v2/`.
 
 !!! note
 
-    Please note that the `/api/ezp/v2` prefix will be used in all REST hrefs, but not in URIs.
+    Please note that the `/api/ibexa/v2` prefix will be used in all REST hrefs, but not in URIs.
 
 ### Configuration
 
@@ -81,14 +81,14 @@ security:
     firewalls:
         # ...
         ezpublish_rest:
-            pattern: ^/api/ezp/v2
+            pattern: ^/api/ibexa/v2
             ezpublish_http_basic:
                 realm: eZ Platform REST API
 ```
 
 ### Testing the API
 
-A standard web browser is not sufficient to fully test the API. You can, however, try opening the root resource with it, using the session authentication: `http://example.com/api/ezp/v2/`. Depending on how your browser understands XML, it will either download the XML file, or open it in the browser.
+A standard web browser is not sufficient to fully test the API. You can, however, try opening the root resource with it, using the session authentication: `http://example.com/api/ibexa/v2/`. Depending on how your browser understands XML, it will either download the XML file, or open it in the browser.
 
 To test further, you can use browser extensions, like [Advanced REST client for Chrome](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo) or [RESTClient for Firefox](https://addons.mozilla.org/firefox/addon/restclient/), or dedicated tools. For command line users, [HTTPie](https://github.com/jkbr/httpie) is a good tool.
 
@@ -101,7 +101,7 @@ One of the main reasons for this API is to help implement JavaScript / AJAX inte
 ```javascript
 <pre id="rest-output"></pre>
 <script>
-var resource = '/api/ezp/v2/content/objects/59',
+var resource = '/api/ibexa/v2/content/objects/59',
     log = document.getElementById('rest-output'),
     request = new XMLHttpRequest();
 
@@ -113,7 +113,7 @@ request.onreadystatechange = function () {
         log.innerHTML = "HTTP response from " + resource + "\n\n" + request.getAllResponseHeaders() + "\n" + request.responseText;
     }
 };
-request.setRequestHeader('Accept', 'application/vnd.ez.api.ContentInfo+json');
+request.setRequestHeader('Accept', 'application/vnd.ibexa.api.ContentInfo+json');
 request.send();
 </script>
 ```

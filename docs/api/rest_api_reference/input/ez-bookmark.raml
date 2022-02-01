@@ -15,15 +15,15 @@ get:
         Accept:
             description: If set, the list is returned in XML or JSON format.
             example: |
-                application/vnd.ez.api.BookmarkList+xml
-                application/vnd.ez.api.BookmarkList+json
+                application/vnd.ibexa.api.BookmarkList+xml
+                application/vnd.ibexa.api.BookmarkList+json
     responses:
         200:
             body:
-                application/vnd.ez.api.BookmarkList+xml:
+                application/vnd.ibexa.api.BookmarkList+xml:
                     type: BookmarkList
                     example: !include examples/bookmark/GET/BookmarkList.xml.example
-                application/vnd.ez.api.BookmarkList+json:
+                application/vnd.ibexa.api.BookmarkList+json:
                     type: BookmarkList
                     example: !include examples/bookmark/GET/BookmarkList.json.example
         401:

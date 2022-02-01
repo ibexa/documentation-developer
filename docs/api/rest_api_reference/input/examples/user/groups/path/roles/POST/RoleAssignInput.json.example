@@ -1,8 +1,8 @@
 {
   "RoleAssignInput": {
     "Role": {
-      "_href": "/api/ezp/v2/user/roles/2",
-      "media-type": "application/vnd.ez.api.RoleAssignInput+json",
+      "_href": "/api/ibexa/v2/user/roles/2",
+      "media-type": "application/vnd.ibexa.api.RoleAssignInput+json",
       "self-closing": "true"
     },
     "Limitation": {
@@ -10,13 +10,13 @@
       "values": {
         "ref": [
           {
-            "_href": "/api/ezp/v2/content/sections/1",
-            "media-type": "application/vnd.ez.api.Section+json",
+            "_href": "/api/ibexa/v2/content/sections/1",
+            "media-type": "application/vnd.ibexa.api.Section+json",
             "self-closing": "true"
           },
           {
-            "_href": "/api/ezp/v2/content/sections/4",
-            "media-type": "application/vnd.ez.api.Section+json",
+            "_href": "/api/ibexa/v2/content/sections/4",
+            "media-type": "application/vnd.ibexa.api.Section+json",
             "self-closing": "true"
           }
         ]

@@ -1,8 +1,8 @@
 {
   "PriceResponse": {
-    "_media-type": "application\/vnd.ez.api.PriceResponse+json",
+    "_media-type": "application\/vnd.ibexa.api.PriceResponse+json",
     "priceResponse": {
-      "_media-type": "application\/vnd.ez.api.priceResponse+json"
+      "_media-type": "application\/vnd.ibexa.api.priceResponse+json"
     }
   }
 }

@@ -9,7 +9,7 @@ ibexa:
             content_view:
                 full:
                     folder:
-                        controller: ez_query::pagingQueryAction
+                        controller: ibexa_query::pagingQueryAction
                         template: '@ibexadesign/full/folder.html.twig'
                         params:
                             query:

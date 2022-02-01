@@ -1,15 +1,15 @@
 {
     "UserRefList": {
-        "_media-type": "application/vnd.ez.api.UserRefList+json",
-        "_href": "/api/ezp/v2/user/groups/13/users",
+        "_media-type": "application/vnd.ibexa.api.UserRefList+json",
+        "_href": "/api/ibexa/v2/user/groups/13/users",
         "User": [
             {
-                "_media-type": "application/vnd.ez.api.User+json",
-                "_href": "/api/ezp/v2/user/users/113"
+                "_media-type": "application/vnd.ibexa.api.User+json",
+                "_href": "/api/ibexa/v2/user/users/113"
             },
             {
-                "_media-type": "application/vnd.ez.api.User+json",
-                "_href": "/api/ezp/v2/user/users/14"
+                "_media-type": "application/vnd.ibexa.api.User+json",
+                "_href": "/api/ibexa/v2/user/users/14"
             }
         ]
     }

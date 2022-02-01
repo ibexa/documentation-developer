@@ -36,4 +36,4 @@ The following configuration uses a special template to render articles owned by 
 !!! note
 
     If you use a matcher that is a service instead of a simple class,
-    tag the service with `ezplatform.view.matcher`.
+    tag the service with `ibexa.view.matcher`.
