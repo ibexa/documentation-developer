@@ -4,25 +4,24 @@
 in the Content box of a Page, by using the Online Editor.
 
 You can extend the Online Editor by adding custom tags and styles, defining custom 
-data attributes, re-arranging existing buttons, grouping buttons into custom toolbars, 
-and creating [custom buttons](online_editor_button.md) and 
-[custom plugins](online_editor_plugin.md).
+data attributes, re-arranging existing buttons, grouping buttons into custom toolbar, 
+and creating [custom buttons](https://ckeditor.com/docs/ckeditor4/latest/guide/widget_sdk_tutorial_1.html#widget-toolbar-button) and [custom plugins](https://ckeditor.com/docs/ckeditor4/latest/guide/dev_plugins.html).
 
-Online Editor is based on the Alloy Editor.
-Refer to [Alloy Editor documentation](https://alloyeditor.com/docs/develop/) to learn 
+Online Editor is based on the CKEditor5.
+Refer to [CKEditor5 documentation](https://ckeditor.com/docs/ckeditor5/latest/index.html) to learn 
 how you can extend the Online Editor with even more elements.
-For more information about extending the Back Office UI, see [Extend Back Office](extending_back_office.md).
+For more information about extending the Back Office, see [Extend Back Office](extending_back_office.md).
 
 ## Configure custom tags
 
 With custom tags, you can enhance the Online Editor with features that go beyond 
 the built-in ones.
-You configure custom tags in the `ibexa.yaml` file, under the `ibexa_fieldtype_richtext` key.
+You configure custom tags in the `ibexa.yaml` file, under the `ezrichtext` key.
 
 Start preparing the tag by adding a configuration file to the `config` folder. 
 
 ```yaml
-[[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 0, 21) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 23, 37) =]]
+[[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 0, 11) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 14, 27) =]]
 ```
 
 Custom tags can have as many attributes as needed.
@@ -32,7 +31,7 @@ The latter requires that you provide a list of choices in the `choices` key.
 
 You must provide your own files for the Twig template and the icon.
 Place the `ezfactbox.html.twig` template in the 
-`templates/field_type/ezrichtext/custom_tag` directory:
+`templates/field_type/ezrichtext/custom_tags` directory:
 
 ```html+twig
 [[= include_file('code_samples/back_office/online_editor/templates/ezfactbox.html.twig') =]]
@@ -66,7 +65,7 @@ In the Online Editor, click **Add**, and from the list of available tags select 
 You can also place Custom tags inline with the following configuration:
 
 ``` yaml hl_lines="6"
-[[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 23, 25) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 54, 60) =]]
+[[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 13, 15) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 44, 50) =]]
 ```
 
 `is_inline` is an optional key.
@@ -80,7 +79,7 @@ You can only use inline custom tags in the `text` toolbar.
     Newer configuration options, such as `is_inline`, only work with the configuration provided above.
     If your project uses [configuration from version prior to 2.4](../updating/from_1.x_2.x/update_db_to_2.5.md#changes-to-custom-tags),
     these options will not work.
-    You need to update your configuration to be placed under the `ibexa_fieldtype_richtext` key.
+    You need to update your configuration to be placed under the `ezrichtext` key.
 
 ### Use cases
 
@@ -91,8 +90,8 @@ It is useful when migrating from eZ Publish to [[= product_name =]].
 
 The configuration in `app/config/custom_tags.yaml` is:
 
-```yaml hl_lines="23 24"
-[[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 0, 5) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 21, 22) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 23, 25) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 37, 54) =]]
+```yaml hl_lines="22 23"
+[[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 0, 5) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 11, 12) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 13, 15) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 27, 44) =]]
 ```
 
 Provide your own files for the Twig template and the icon.
@@ -126,10 +125,10 @@ In the Online Editor, click **Add**, and from the list of available tags select 
 
 #### Acronym
 
-You can create an inline custom tag that will display a hovering tooltip with an explanation of an acronym.
+You can create an inline custom tag that displays a hovering tooltip with an explanation of an acronym.
 
 ``` yaml
-[[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 0, 5) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 22, 25) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 60, 67) =]]
+[[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 0, 5) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 13, 15) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 51, 57) =]]
 ```
 
 The `explanation` attribute contains the meaning of the acronym that will be provided
@@ -160,13 +159,9 @@ The styles are available in the text toolbar when a section of text is selected.
 There are two kinds of custom styles: block and inline.
 Inline styles apply to the selected portion of text only, while block styles apply to the whole paragraph.
 
-!!! note
-
-    The feature depends on [Alloy Editor styles](https://alloyeditor.com/docs/features/styles.html).
-
 Start creating a custom style by providing configuration:
 
-- a global list of custom styles, defined under the node `ibexa_fieldtype_richtext.custom_styles`,
+- a global list of custom styles, defined under the node `ezrichtext.custom_styles`,
 - a list of enabled custom styles for a given `admin` SiteAccess or `admin_group` SiteAccess group, located under the node `ibexa.system.<scope>.fieldtypes.ezrichtext.custom_styles`
 
 A sample configuration could look as follows:
@@ -192,19 +187,19 @@ It is recommended that you use the [design engine](../guide/content_rendering/de
 
 The template files for the front end could look as follows:
 
-- `templates/themes/standard/field_type/ezrichtext/custom_style/highlighted_word.html.twig`:
+- `templates/themes/standard/field_type/ezrichtext/custom_styles/highlighted_word.html.twig`:
 
 ``` html+twig
 <span {% if id is defined %}id="{{ id }}"{% endif %} class="ezstyle-{{ name }}">{% apply spaceless %}{{ content|raw }}{% endapply %}</span>
 ```
 
-- `templates/themes/standard/field_type/ezrichtext/custom_style/highlighted_block.html.twig`:
+- `templates/themes/standard/field_type/ezrichtext/custom_styles/highlighted_block.html.twig`:
 
 ``` html+twig
 <div {% if id is defined %}id="{{ id }}"{% endif %} class="{% if align is defined %}align-{{ align }}{% endif %} ezstyle-{{ name }}">{% apply spaceless %}{{ content|raw }}{% endapply %}</div>
 ```
 
-Templates for Content View in the Back Office would be `templates/themes/admin/field_type/ezrichtext/custom_style/highlighted_word.html.twig` and `templates/themes/admin/field_type/ezrichtext/custom_style/highlighted_block.html.twig` respectively (assuming that the Back Office SiteAccess uses the default `admin` theme).
+Templates for Content View in the Back Office would be `templates/themes/admin/field_type/ezrichtext/custom_styles/highlighted_word.html.twig` and `templates/themes/admin/field_type/ezrichtext/custom_styles/highlighted_block.html.twig` respectively (assuming that the Back Office SiteAccess uses the default `admin` theme).
 
 ### Use cases
 
@@ -240,7 +235,7 @@ The `note_box.html.twig` template wraps the content of the selected text
 Add label for the new style by providing a translation in `translations/custom_tags.en.yaml`:
 
 ``` yaml
-ibexa_fieldtype_richtext.custom_styles.note_box.label: 'Note box'
+ezrichtext.custom_styles.note_box.label: 'Note box'
 ```
 
 ![Adding a Note box custom style](img/oe_custom_style_note_box_select.png)
@@ -276,7 +271,7 @@ The `highlight.html.twig` template wraps the content of the selected text
 Add label for the new style by providing a translation in `translations/custom_tags.en.yaml`:
 
 ``` yaml
-ibexa_fieldtype_richtext.custom_styles.highlight.label: 'Highlight'
+ezrichtext.custom_styles.highlight.label: 'Highlight'
 ```
 
 ![Adding a Highlight custom style](img/oe_custom_style_highlight_select.png)
@@ -312,7 +307,7 @@ in the Online Editor:
 
 ### Custom data attributes
 
-You configure custom data attributes under the `fieldtypes.ezrichtext.attributes` key.
+You configure custom data attributes under the `fieldtypes.ibexa_fieldtype_richtext.attributes` key.
 The configuration is SiteAccess-aware.
 
 A custom data attribute can belong to one of the following types: `choice`, 
@@ -337,7 +332,7 @@ Here, the resulting values are `data-ezattribute-custom-attribute="false"` and
 
 ### Custom CSS classes
 
-You configure custom CSS classes under the `fieldtypes.ibexa_fieldtype_richtext.classes` key.
+You configure custom CSS classes under the `fieldtypes.ezrichtext.classes` key.
 The configuration is SiteAccess-aware.
 
 You must provide the available `choices`.
@@ -393,68 +388,18 @@ You can modify the order and visibility of buttons that are available in the
 Online Editor toolbar through configuration:
 
 ``` yaml
-[[= include_file('code_samples/back_office/online_editor/config/packages/custom_buttons.yaml', 0, 12) =]]
+[[= include_file('code_samples/back_office/online_editor/config/packages/custom_buttons.yaml') =]]
 ```
 
 For each button you can set `priority`, which defines the order of buttons in 
-the toolbar, and `visible`, which can turn off the button when set to `false`.
+the toolbar.
 
 For a full list of standard buttons, see the RichText module's [configuration file](https://github.com/ibexa/richtext/blob/main/src/bundle/Resources/config/prepend/ezpublish.yaml)
 
-!!! tip
-
-    You can also add your own buttons to the Online Editor.
-    For more information, see [Create Online Editor button](online_editor_button.md).
-
-## Create custom toolbars
-
-You can extend the Online Editor by creating custom toolbars.
-
-To do this, you must first create a config object.
-For more information, see [Alloy Editor documentation](https://alloyeditor.com/docs/develop/create_toolbars.html).
-
-Then, add the toolbar config to the `ezplatform-admin-ui-alloyeditor-js` entry 
-with Webpack Encore.
-
-Finally, add the toolbar JavaScript class to the 
-`ezAlloyEditor.customSelections.<TOOLBAR_NAME>` config object.
-
-You can do it at the bottom of the toolbar config file:
-
-```js
-ibexa.addConfig('ezAlloyEditor.customSelections.ContentVariableEdit', ContentVariableEditConfig);
-```
-
-At this point, the `ContentVariableEditConfig` toolbar is injected and ready 
-to be used.
-
 ## Add CKEditor plugins
 
-You can download an existing CKEditor plugin and make it part of the Online Editor.
+CKEditor plugin now should be added in the `window` object with the whole JS:
 
-To do this, modify the configuration file by adding keys similar to the following 
-example:
+`window.ibexa.richText.CKEditor.extraPlugins`
 
-``` yaml
-# ...
-ibexa_fieldtype_richtext:
-    alloy_editor:
-        extra_plugins: [plugin1, plugin2]
-```
-
-The name of a plugin must be the same as the one that is passed to the 
-`CKEDITOR.plugins.add` method in the [plugin's source code](https://ckeditor.com/docs/ckeditor4/latest/guide/plugin_sdk_sample.html#plugin-source-code).
-
-!!! caution "Supported changes to xhtml5"
-
-    When a plugin changes the RichText input (in xhtml5 edit DocBook format), the 
-    changes must be [supported by the RichText Field Type](../api/field_types_reference/richtextfield.md#input-formats).
-    For example, if the plugin adds a class to some element, you must ensure that this 
-    class is stored when saving or publishing content.
-    Otherwise, it could result in either XML validation error or could be omitted 
-    by the RichText processor.
-
-!!! tip
-
-    You can also add your own plugins to the Online Editor.
-    For more information, see [Creating Online Editor plugin](online_editor_plugin.md).
+For more information, see [CKEditor plugins documentation](https://ckeditor.com/docs/ckeditor4/latest/guide/plugin_sdk_intro.html).

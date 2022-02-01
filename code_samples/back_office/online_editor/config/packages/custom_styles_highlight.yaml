@@ -1,11 +1,11 @@
-ezpublish:
+ibexa:
     system:
         admin_group:
             fieldtypes:
                 ezrichtext:
                     custom_styles: [highlight]
-ibexa_fieldtype_richtext:
+ibexa_fieldtype_richtexttext:
     custom_styles:
         highlight:
-            template: field_type/ezrichtext/custom_style/highlight.html.twig
-            inline: true
+            template: field_type/ezrichtext/custom_styles/highlight.html.twig
+            is_inline: true
