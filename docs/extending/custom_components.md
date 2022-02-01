@@ -44,7 +44,7 @@ In this case, all you have to do is add a service definition (with proper parame
 
 ``` yaml
 appbundle.components.my_twig_component:
-    parent: EzSystems\EzPlatformAdminUi\Component\TwigComponent
+    parent: Ibexa\AdminUi\Component\TwigComponent
     autowire: true
     autoconfigure: false
     arguments:
@@ -62,7 +62,7 @@ With `LinkComponent` and `ScriptComponent` you provide `$href` and `$src` as arg
 
 ``` yaml
 app.components.my_link_component:
-    parent: EzSystems\EzPlatformAdminUi\Component\LinkComponent
+    parent: Ibexa\AdminUi\Component\LinkComponent
     autowire: true
     autoconfigure: false
     arguments:
@@ -73,7 +73,7 @@ app.components.my_link_component:
 
 ``` yaml
 app.components.my_script_component:
-    parent: EzSystems\EzPlatformAdminUi\Component\ScriptComponent
+    parent: Ibexa\AdminUi\Component\ScriptComponent
     autowire: true
     autoconfigure: false
     arguments:

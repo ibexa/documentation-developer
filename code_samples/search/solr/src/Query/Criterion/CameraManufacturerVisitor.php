@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Query\Criterion;
 
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-use EzSystems\EzPlatformSolrSearchEngine\Query\CriterionVisitor;
+use Ibexa\Contracts\Solr\Query\CriterionVisitor;
 
 final class CameraManufacturerVisitor extends CriterionVisitor
 {

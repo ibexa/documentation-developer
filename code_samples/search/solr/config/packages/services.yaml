@@ -1,6 +1,6 @@
 services:
     App\Query\Aggregation\Solr\PriorityAggregationVisitor:
-        class: EzSystems\EzPlatformSolrSearchEngine\Query\Common\AggregationVisitor\RangeAggregationVisitor
+        class: Ibexa\Solr\Query\Common\AggregationVisitor\RangeAggregationVisitor
         factory: ['@Ibexa\Solr\Query\Common\AggregationVisitor\Factory\ContentFieldAggregationVisitorFactory', 'createRangeAggregationVisitor']
         arguments:
             $aggregationClass: 'App\Query\Aggregation\PriorityRangeAggregation'

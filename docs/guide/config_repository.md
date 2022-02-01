@@ -317,7 +317,7 @@ final class AcmeFeatureBundle extends Bundle
         // ...
 
         /** @var Ibexa\Bundle\Core\DependencyInjection\IbexaCoreExtension $kernel */
-        $kernel = $container->getExtension('ezpublish');
+        $kernel = $container->getExtension('ibexa');
         $kernel->addRepositoryConfigParser(new CustomRepositoryConfigParser());
     }
 }

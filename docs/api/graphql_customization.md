@@ -42,7 +42,7 @@ Query:
         fields:
             myCustomField: {}
             myOtherCustomField: {}
-            ezplatform:
+            ibexa:
                 type: Domain
 ```
 

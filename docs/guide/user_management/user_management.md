@@ -16,7 +16,7 @@ For information about how to create and configure the template, see [Add forgot 
 The template for this email is located in `Resources/views/forgot_password/mail/forgot_user_password.html.twig` in `ibexa/user`.
 You can [customize it according to your needs](#customize-login-form).
 
-The validity of the password recovery token can be set using the `ezplatform.system.<siteaccess>.security.token_interval_spec` parameter.
+The validity of the password recovery token can be set using the `ibexa.system.<siteaccess>.security.token_interval_spec` parameter.
 By default, it is set to `PT1H` (one hour).
 
 ## Password rules
@@ -81,21 +81,21 @@ You can configure which method is allowed in `packages/security.yaml`:
 ``` yaml
 security:
     providers:
-        ezplatform:
+        ibexa:
             chain:
-                providers: [ezplatform_username, ezplatform_email]
+                providers: [ibexa_username, ibexa_email]
 
-        ezplatform_username:
+        ibexa_username:
             id: ibexa.security.user_provider.username
 
-        ezplatform_email:
+       ibexa_email:
             id: ibexa.security.user_provider.email
 
     firewalls:
         #...    
-        ezpublish_front:
+        ibexa_front:
             # ...
-            provider: ezplatform
+            provider: ibexa
 ```
 
 You can customize per User Field whether the email address used as a login method must be unique or not.
@@ -222,10 +222,10 @@ The following is an example of using the in-memory user provider:
 # config/packages/security.yaml
 security:
     providers:
-        # Chaining in_memory and ezpublish user providers
+        # Chaining in_memory and ibexa user providers
         chain_provider:
             chain:
-                providers: [in_memory, ezpublish]
+                providers: [in_memory, ibexa]
         ibexa:
             id: ibexa.security.user_provider
         in_memory:

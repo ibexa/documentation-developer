@@ -26,7 +26,7 @@ Copy the necessary configuration files. In the example below from the root of yo
 # Make sure to replace the /opt/solr/ path with where you have placed Solr
 cd /opt/solr
 mkdir -p server/ez/template
-cp -R <ezplatform-solr-search-engine>/lib/Resources/config/solr/* server/ez/template
+cp -R <solr>/lib/Resources/config/solr/* server/ez/template
 cp server/solr/configsets/_default/conf/{solrconfig.xml,stopwords.txt,synonyms.txt} server/ez/template
 cp server/solr/solr.xml server/ez
 

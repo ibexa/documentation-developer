@@ -3,7 +3,7 @@
 security:
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
-        ezplatform:
+        ibexa:
             id: ibexa.security.user_provider
     #!        in_memory:
     #!            memory: ~
@@ -14,7 +14,7 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        ezpublish_forgot_password:
+        ibexa_forgot_password:
             pattern: /user/(forgot-password|reset-password)
             security: false
 
@@ -22,7 +22,7 @@ security:
             pattern: /oauth2/connect/*
             security: false
 
-        ezpublish_front:
+        ibexa_front:
             pattern: ^/
             user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
             anonymous: ~
