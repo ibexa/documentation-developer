@@ -164,25 +164,25 @@ ibexa:
 **Password recovery forms:**
 
 ``` yaml
-ezsettings.<siteaccess>.user_forgot_password.templates.form
-ezsettings.<siteaccess>.user_forgot_password_success.templates.form
-ezsettings.<siteaccess>.user_forgot_password_login.templates.form
-ezsettings.<siteaccess>.user_forgot_password.templates.mail
+ibexa.site_access.config.<siteaccess>.user_forgot_password.templates.form
+ibexa.site_access.config.<siteaccess>.user_forgot_password_success.templates.form
+ibexa.site_access.config.<siteaccess>.user_forgot_password_login.templates.form
+ibexa.site_access.config.<siteaccess>.user_forgot_password.templates.mail
 ```
 
 **Resetting password:**
 
 ``` yaml
-ezsettings.<siteaccess>.user_reset_password.templates.form
-ezsettings.<siteaccess>.user_reset_password.templates.invalid_link
-ezsettings.<siteaccess>.user_reset_password.templates.success
+ibexa.site_access.config.<siteaccess>.user_reset_password.templates.form
+ibexa.site_access.config.<siteaccess>.user_reset_password.templates.invalid_link
+ibexa.site_access.config.<siteaccess>.user_reset_password.templates.success
 ```
 
 **User settings:**
 
 ``` yaml
-ezsettings.<siteaccess>.user_settings.templates.list
-ezsettings.<siteaccess>.user_settings.templates.update
+ibexa.site_access.config.<siteaccess>.user_settings.templates.list
+ibexa.site_access.config.<siteaccess>.user_settings.templates.update
 ```
 
 ## Authenticating user with multiple user providers

@@ -31,7 +31,7 @@ If none of the price providers return prices, an exception is thrown and empty p
 Chain configuration example for the basket:
 
 ``` yaml
-siso_price.default.price_service_chain.basket:
+ibexa.commerce.site_access.config.price.default.price_service_chain.basket:
     - Ibexa\Bundle\Commerce\Price\Service\RemotePriceProvider
     - Ibexa\Bundle\Commerce\Price\Service\LocalPriceProvider
 ```

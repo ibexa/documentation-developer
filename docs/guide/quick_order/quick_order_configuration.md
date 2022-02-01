@@ -16,14 +16,14 @@ You can configure delimiters used between the SKU and variant code in the quick 
 
 ``` yaml
 parameters:
-    siso_quickorder.default.sku_variant_code_delimiter: '::'
+    ibexa.commerce.site_access.config.quick_order.default.sku_variant_code_delimiter: '::'
 ```
 
 `autosuggest_delimiters` defines the delimiters that the customer can use when typing into the quick order form field:
 
 ``` yaml
 parameters:
-    siso_quickorder.default.autosuggest_delimiters: [' ', '/', '-', '::']
+    ibexa.commerce.site_access.config.quick_order.default.autosuggest_delimiters: [' ', '/', '-', '::']
 ```
 
 !!! caution
@@ -36,7 +36,7 @@ The values in CSV files can by separated by a configurable delimiter:
 
 ``` yaml
 parameters:
-    siso_quickorder.default.csv_delimiters: [';', ',']
+    ibexa.commerce.site_access.config.quick_order.default.csv_delimiters: [';', ',']
 ```
 
 ## CSV data order
@@ -45,7 +45,7 @@ You can configure the order in which data can be provided in CSV format in the f
 
 ``` yaml
 parameters:
-    siso_quickorder.default.csv_data:
+    ibexa.commerce.site_access.config.quick_order.default.csv_data:
         - sku
         - variantCode
         - quantity

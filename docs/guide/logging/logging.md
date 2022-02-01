@@ -15,7 +15,7 @@ By default, [[= product_name =]] does not log User IDs.
 You can change this behavior by modifying the following setting:
 
 ``` yaml
-siso_core.default.gdpr.store_user_id_in_logs: false
+ibexa.commerce.site_access.config.core.default.gdpr.store_user_id_in_logs: false
 ```
 
 If the email text contains a password that should not be logged in the DB, you have to specify this password as a template parameter.

@@ -13,8 +13,8 @@ You can enable this additional line and set its length in the Back Office, the *
 You can also enable it in `config/packages/ezcommerce/ecommerce_parameters.yaml`:
 
 ``` yaml
-ses_basket.default.additional_text_for_basket_line: true
-ses_basket.default.additional_text_for_basket_line_input_limit: 25
+ibexa.commerce.site_access.config.basket.default.additional_text_for_basket_line: true
+ibexa.commerce.site_access.config.basket.default.additional_text_for_basket_line_input_limit: 25
 ```
 
 ## Basket storage time
@@ -27,7 +27,7 @@ A basket for an anonymous user is stored for 120 hours by default.
 You can configure a different value:
 
 ``` yaml
-ses_basket.default.validHours: 120
+ibexa.commerce.site_access.config.basket.default.validHours: 120
 ```
 
 You can use the `ibexa:commerce:clear-baskets` command to delete anonymous expired baskets:
@@ -70,8 +70,8 @@ ibexa_commerce_basket.default.discontinued_products_listener_consider_packaging_
 You can configure the minimum and maximum quantity that can be ordered per basket line:
 
 ``` yaml
-silver_basket.basketline_quantity_max: 1000000
-silver_basket.basketline_quantity_min: 1
+ibexa.commerce.basket.basketline_quantity_max: 1000000
+ibexa.commerce.basket.basketline_quantity_min: 1
 ```
 
 If the quantity is more than the maximum or less than the minimum, it is set to either max or min.
@@ -83,5 +83,5 @@ A basket can be shared if a user logs in from a different browser (default), or 
 If you do not want the basket to be shared between different sessions, change the following setting to `true`:
 
 ``` yaml
-ses_basket.default.basketBySessionOnly: true
+ibexa.commerce.site_access.config.basket.default.basketBySessionOnly: true
 ```

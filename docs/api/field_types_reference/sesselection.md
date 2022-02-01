@@ -9,7 +9,7 @@ This way, you can set up SiteAccess-specific selection Field Types.
 The Field Type must be configured per attribute:
 
 ``` yaml
-siso_core.default.sesselection.news_type:
+ibexa.commerce.site_access.config.core.default.sesselection.news_type:
     default: general
     translation_context: news
     options:

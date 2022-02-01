@@ -211,7 +211,7 @@ ibexa:
 
 ### Internals
 
-Any `BinaryFile` returned by the public API is prefixed with the value of this setting, internally stored as `ezsettings.scope.io.url_prefix`.
+Any `BinaryFile` returned by the public API is prefixed with the value of this setting, internally stored as `ibexa.site_access.config.scope.io.url_prefix`.
 
 #### `io.url_prefix` dynamic service container setting
 

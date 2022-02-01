@@ -16,5 +16,5 @@ The first match wins.
 
 ``` yaml
 parameters:
-    siso_core.default.breadcrumb_content_label_fields: ['name', 'title']
+    ibexa.commerce.site_access.config.core.default.breadcrumb_content_label_fields: ['name', 'title']
 ```

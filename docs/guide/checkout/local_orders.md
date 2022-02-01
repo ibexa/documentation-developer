@@ -28,7 +28,7 @@ Additionally, the system sends a copy of the confirmation email to the owner of 
 You define shop owner details as a parameter in the configuration.
 
 ``` yaml
-siso_core.default.ses_swiftmailer:
+ibexa.commerce.site_access.config.core.default.ses_swiftmailer:
     mailSender: noreply@silversolutions.de
     mailReceiver: noreply@silversolutions.de
     # ...

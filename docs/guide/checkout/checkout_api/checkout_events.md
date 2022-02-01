@@ -4,16 +4,16 @@ The following events are dispatched during the checkout process:
 
 | Event                                  | Dispatched                                                                   |
 | -------------------------------------- | ----------------------------------------------------------------------------- |
-| [`siso_checkout.pre_checkout`](#pre-checkout-event) | Before user enters the checkout process         |
-| [`siso_checkout.pre_form_checkout`](#pre-form-checkout-event) | Before form preparation in the checkout process |
-| [`siso_checkout.post_form_checkout`](#post-form-checkout-event) | After form preparation in the checkout process  |
+| [`sibexa.commerce.site_access.config.checkout.pre_checkout`](#pre-checkout-event) | Before user enters the checkout process         |
+| [`sibexa.commerce.site_access.config.checkout.pre_form_checkout`](#pre-form-checkout-event) | Before form preparation in the checkout process |
+| [`ibexa.commerce.site_access.config.checkout.post_form_checkout`](#post-form-checkout-event) | After form preparation in the checkout process  |
 | `silver_eshop.response_message` | After an event has been placed, without ERP connection |
 | `silver_eshop.exception_message`| After an event has been placed, with ERP connection |
 
 ## Pre-checkout event
 
 Before the user enters the checkout process,
-the shop throws the `siso_checkout.pre_checkout` event to enable checking the basket.
+the shop throws the `ibexa.commerce.site_access.config.checkout.pre_checkout` event to enable checking the basket.
 You can use it, for example, to check for invalid items in the basket.
 
 If the event listener needs to interrupt the checkout process,
@@ -22,7 +22,7 @@ It then redirects the user back to the basket and displays the error message.
 
 ### ValidBasketListener
 
-`ValidBasketListener` (service ID: `siso_checkout.empty_basket_listener`) checks if the basket is empty and the prices are valid.
+`ValidBasketListener` (service ID: `ibexa.commerce.site_access.config.checkout.empty_basket_listener`) checks if the basket is empty and the prices are valid.
 
 If the prices are invalid, the customer cannot make an order.
 You can allow making an order with invalid prices (for example for B2B), by setting `invalid_prices_allowed` to `true`:
@@ -34,18 +34,18 @@ parameters:
 
 ### MinOrderAmountListener
 
-`MinOrderAmountListener` (service ID: `siso_checkout.min_order_amount_listener`) checks if the minimum order amount was reached.
+`MinOrderAmountListener` (service ID: `ibexa.commerce.site_access.config.checkout.min_order_amount_listener`) checks if the minimum order amount was reached.
 This is set in the configuration. You can also enable/disable the listener:
 
 ``` yaml
 parameters:
     ibexa_commerce_checkout.default.min_order_amount_listener_active: true
-    siso_eshop.min_order_amount: 0.01
+    ibexa.commerce.eshop.min_order_amount: 0.01
 ```
 
 ## Pre-form-checkout event
 
-Before the form is rendered in the checkout, the shop throws the `siso_checkout.pre_form_checkout` event to enable modifying the form.
+Before the form is rendered in the checkout, the shop throws the `ibexa.commerce.site_access.config.checkout.pre_form_checkout` event to enable modifying the form.
 You can, for example, modify payment or shipping options.
 
 ### Change the shipping or payment options
@@ -80,7 +80,7 @@ public function onPreFormCheckout(PreFormCheckoutEvent $event)
 
 ### PriceShippingListener
 
-`PriceShippingListener` (service ID `siso_checkout.tests.price_shipping_listener`) adds information about prices to shipping options:
+`PriceShippingListener` (service ID `ibexa.commerce.site_access.config.checkout.tests.price_shipping_listener`) adds information about prices to shipping options:
 
 ``` yaml
 parameters:
@@ -91,7 +91,7 @@ parameters:
 
 ## Post-form-checkout event
 
-After a form is submitted in the checkout, the shop throws the `siso_checkout.post_form_checkout` event
+After a form is submitted in the checkout, the shop throws the `ibexa.commerce.site_access.config.checkout.post_form_checkout` event
 to enable you to modify the submitted values and check them.
 You can use it, for example, to validate the address.
 For this to work, every checkout form must implement the `CheckoutFormInterface`.
@@ -105,7 +105,7 @@ It adds checkbox to force next step in every checkout form. User has to check th
 
 ### ValidAddressListener
 
-`ValidAddressListener` (service ID `siso_checkout.tests.valid_address_listener`) checks if address is valid. 
+`ValidAddressListener` (service ID `ibexa.commerce.site_access.config.checkout.tests.valid_address_listener`) checks if address is valid. 
 
 ``` yaml
 parameters:

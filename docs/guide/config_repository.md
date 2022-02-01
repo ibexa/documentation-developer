@@ -270,7 +270,7 @@ depending on the complexity of the Content Scheduler blocks:
 
 ``` yaml
 parameters:
-    ezplatform.fieldtype.ezlandingpage.block.schedule.snapshots.amount: 10
+    ibexa.field_type.page.block.schedule.snapshots.amount: 10
 ```
 
 ## Repository-aware configuration

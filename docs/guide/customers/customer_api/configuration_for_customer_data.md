@@ -7,8 +7,8 @@ You can configure those groups by using `user_group_location.business` and `user
 in `config/ecommerce_parameters.yml`:
 
 ``` yaml
-siso_core.default.user_group_location.business: 385
-siso_core.default.user_group_location.private: 388
+ibexa.commerce.site_access.config.core.default.user_group_location.business: 385
+ibexa.commerce.site_access.config.core.default.user_group_location.private: 388
 ```
 
 ## Timeout for ERP updates
@@ -19,7 +19,7 @@ If it is too old (past timeout), the shop fetches the data from the ERP again.
 You configure the default timeout (in seconds) in `Eshop/Resources/config/default_values.yml`:
 
 ``` yaml
-silver_customer.config.default_values.remote_validation_timeout: 600
+ibexa.commerce.customer.config.default_values.remote_validation_timeout: 600
 ```
 
 ## Default handling for VAT
@@ -31,9 +31,9 @@ You can override the setting per customer if required (e.g. if the ERP provides 
 In some cases, the customer does not have to pay VAT at all (for example, for shopping abroad).
 
 ``` yaml
-ses.customer_profile_data.isPriceInclVat: true
+ibexa.commerce.customer_profile_data.isPriceInclVat: true
 # if set to false, VAT is set to 0.0
-ses.customer_profile_data.setHasToPayVat: true
+ibexa.commerce.customer_profile_data.setHasToPayVat: true
 ```
 
 ## Contact data
@@ -47,7 +47,7 @@ You can configure when customer contact data is fetched:
 - `disabled`: disable selecting contact before/after requesting customer data
 
 ``` yaml
-silver_customer.config.default_values.select_contact_mode: "onPostEvent"
+ibexa.commerce.customer.config.default_values.select_contact_mode: "onPostEvent"
 ```
 
 ## User edit interface configuration for backend
@@ -57,6 +57,6 @@ The additional fields are stored in `ses_extension` of the address.
 If the configured `ses_extension` field does not exist, it is created.
 
 ``` yaml
-siso_core.default.additional_buyer_ses_extension_form_fields: ['custom_field']
-siso_core.default.additional_delivery_ses_extension_form_fields: ['custom_field_2']
+ibexa.commerce.site_access.config.core.default.additional_buyer_ses_extension_form_fields: ['custom_field']
+ibexa.commerce.site_access.config.core.default.additional_delivery_ses_extension_form_fields: ['custom_field_2']
 ```

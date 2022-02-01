@@ -12,8 +12,8 @@ In order to work with the ConfigResolver, your dynamic settings must have the fo
 ``` yaml
 parameters:
     # Internal configuration
-    ezsettings.default.content.default_ttl: 60
-    ezsettings.site_group.content.default_ttl: 3600
+    ibexa.site_access.config.default.content.default_ttl: 60
+    ibexa.site_access.config.site_group.content.default_ttl: 3600
  
     # Here "myapp" is the namespace, followed by the SiteAccess name as the parameter scope
     # Parameter "my_param" will have a different value in site_group and admin_group
@@ -29,10 +29,10 @@ Inside a controller, in `site_group` SiteAccess, you can use the parameters in t
 ``` php
 $configResolver = $this->getConfigResolver();
  
-// ezsettings is the default namespace, so no need to specify it
-// The following will resolve ezsettings.<siteaccessName>.content.default_ttl
+// ibexa.site_access.config is the default namespace, so no need to specify it
+// The following will resolve ibexa.site_access.config.<siteaccessName>.content.default_ttl
 // In the case of site_group, it will return 3600.
-// Otherwise it will return the value for ezsettings.default.content.default_ttl (60)
+// Otherwise it will return the value for ibexa.site_access.config.default.content.default_ttl (60)
 $locationViewSetting = $configResolver->getParameter( 'content.default_ttl' );
 
 // For you own namespace, you need to specify it, here as "myapp"
@@ -51,7 +51,7 @@ $myParamSettingAdmin = $configResolver->getParameter( 'my_param', 'myapp', 'admi
 Both `getParameter()` and `hasParameter()` can take three arguments:
 
 1. `$paramName` - the name of the parameter
-2. `$namespace` - your application namespace, `myapp` in the previous example. If null, the default namespace will be used, which is `ezsettings` by default.
+2. `$namespace` - your application namespace, `myapp` in the previous example. If null, the default namespace will be used, which is `ibexa.site_access.config` by default.
 3. `$scope` - a SiteAccess name. If null, the current SiteAccess will be used.
 
 ## Inject the ConfigResolver in your services
