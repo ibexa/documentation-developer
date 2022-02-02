@@ -1,4 +1,4 @@
-ezpublish:
+ibexa:
     system:
         admin_group:
             fieldtypes:
@@ -7,5 +7,5 @@ ezpublish:
 ibexa_fieldtype_richtext:
     custom_styles:
         highlight:
-            template: field_type/ezrichtext/custom_style/highlight.html.twig
-            inline: true
+            template: field_type/ezrichtext/custom_styles/highlight.html.twig
+            is_inline: true
