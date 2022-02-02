@@ -4,7 +4,7 @@ ibexa:
             fieldtypes:
                 ezrichtext:
                     custom_styles: [highlight]
-ibexa_fieldtype_richtexttext:
+ibexa_fieldtype_richtext:
     custom_styles:
         highlight:
             template: field_type/ezrichtext/custom_styles/highlight.html.twig

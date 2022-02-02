@@ -398,7 +398,7 @@ For a full list of standard buttons, see the RichText module's [configuration fi
 
 ## Add CKEditor plugins
 
-CKEditor plugin now should be added to the `extraPlugins` array under the 
+Custom CKEditor plugin should be added to the `extraPlugins` array under the 
 `window.ibexa.richText.CKEditor.extraPlugins` key.
 
 For more information, see [CKEditor plugins documentation](https://ckeditor.com/docs/ckeditor4/latest/guide/plugin_sdk_intro.html).
