@@ -3,14 +3,19 @@ ibexa:
         admin_group:
             fieldtypes:
                 ezrichtext:
-                    toolbars:
-                        heading:
+                    custom_tags: [ezyoutube, eztwitter, ezfacebook]
+                    toolbar:
+                        group1:
+                            priority: 60
                             buttons:
-                                ezanchor:
-                                    priority: 100
-                                ezembedinline:
-                                    visible: false
-                        ezadd:
+                                ibexaMoveUp:
+                                    priority: 30
+                                ibexaMoveDown:
+                                    priority: 20
+                                heading:
+                                    priority: 10
+                        group2:
+                            priority: 50
                             buttons:
-                                hr:
-                                    priority: 50
+                                alignment:
+                                    priority: 10
