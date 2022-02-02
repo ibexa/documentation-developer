@@ -15,9 +15,9 @@ In the root folder of your project, edit either the `.env` or `.env.local` file
 by adding the following lines with your customer ID and license key: 
 
 ```
-RECOMMENDATION_CUSTOMER_ID=12345
-RECOMMENDATION_LICENSE_KEY=67890-1234-5678-90123-4567
-RECOMMENDATION_HOST_URI=https://server_uri
+PERSONALIZATION_CUSTOMER_ID=12345
+PERSONALIZATION_LICENSE_KEY=67890-1234-5678-90123-4567
+PERSONALIZATION_HOST_URI=https://server_uri
 ```
 
 !!! note "Configuring user credentials for different customers"
@@ -28,9 +28,9 @@ RECOMMENDATION_HOST_URI=https://server_uri
     
     ```
     # Main credentials - ENU store
-    RECOMMENDATION_CUSTOMER_ID=12345
-    RECOMMENDATION_LICENSE_KEY=67890-1234-5678-90123-4567
-    RECOMMENDATION_HOST_URI=https://server_uri
+    PERSONALIZATION_CUSTOMER_ID=12345
+    PERSONALIZATION_LICENSE_KEY=67890-1234-5678-90123-4567
+    PERSONALIZATION_HOST_URI=https://server_uri
 
     # Additional credentials - FRA store 
     FRA_CUSTOMER_ID=54321
