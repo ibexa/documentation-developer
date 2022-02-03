@@ -321,17 +321,17 @@ A Limitation to specify if the User has access to products belonging to a specif
 
 |                 |                                                                      |
 |-----------------|----------------------------------------------------------------------|
-| Identifier      | ``                                                            |
-| Value Class     | `` |
-| Type Class      | ``                   |
-| Criterion used  | `` |
-| Role Limitation |                                                                   |
+| Identifier      | `ProductType`                                                            |
+| Value Class     | `Ibexa\ProductCatalog\Security\Limitation\Values\ProductTypeLimitation` |
+| Type Class      | `Ibexa\ProductCatalog\Security\Limitation\ProductTypeLimitationType` |
+| Criterion used  | `Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\ContentTypeIdentifier` |
+| Role Limitation | no                                                                 |
 
 ### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
-||||
+|`<ContentType_id>`|`<ContentType_name>`|All valid Content Type IDs can be set as value(s)|
 
 ## Section Limitation
 
