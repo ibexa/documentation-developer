@@ -50,7 +50,7 @@ A custom attribute requires attribute type class, a mapper and a template.
 
 First, create the attribute type class.
 
-It can extend one of the types available in `ezplatform-page-fieldtype/src/lib/Form/Type/BlockAttribute/`.
+It can extend one of the types available in `fieldtype-page/src/lib/Form/Type/BlockAttribute/`.
 You can also use one of the [built-in Symfony types]([[= symfony_doc =]]/reference/forms/types.html),
 for example `AbstractType` for any custom type or `IntegerType` for numeric types.
 

@@ -111,8 +111,8 @@ class Kernel extends BaseKernel
     {
         // ...
         
-        // Retrieve "ezpublish" container extension
-        $eZExtension = $container->getExtension('ezpublish');
+        // Retrieve "ibexa" container extension
+        $eZExtension = $container->getExtension('ibexa');
         // Add the policy provider
         $eZExtension->addPolicyProvider(new MyPolicyProvider());
     }

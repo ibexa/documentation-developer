@@ -3,7 +3,7 @@
 To be usable, every SiteAccess must be matched by one of configured matchers.
 By default, all SiteAccesses are matched using `URIElement: 1`.
 
-You can configure SiteAccess matchers under the `ezplatform.siteaccess.match` key:
+You can configure SiteAccess matchers under the `ibexa.siteaccess.match` key:
 
 ``` yaml
 ibexa:
@@ -18,7 +18,7 @@ ibexa:
                 campaign: event
 ```
 
-`ezplatform.siteaccess.match` can contain multiple matchers.
+`ibexa.siteaccess.match` can contain multiple matchers.
 
 The first matcher succeeding always wins, so be careful when using catch-all matchers like `URIElement`.
 
@@ -193,7 +193,7 @@ ibexa:
             '@App\Matcher\MySiteaccessMatcher': ~
 ```
 
-The service must be tagged with `ezplatform.siteaccess.matcher`
+The service must be tagged with `ibexa.siteaccess.matcher`
 and must implement `Ibexa\Bundle\Core\SiteAccess\Matcher`
 (and `Ibexa\Core\MVC\Symfony\SiteAccess\VersatileMatcher` if you want to use compound logical matchers).
 
@@ -263,10 +263,10 @@ You can define this environment variable directly in web server configuration:
 <!--Apache VirtualHost example-->
 # This configuration assumes that mod_env is activated
 <VirtualHost *:80>
-    DocumentRoot "/path/to/ezpublish5/web/folder"
+    DocumentRoot "/path/to/ibexa/web/folder"
     ServerName example.com
     ServerAlias www.example.com
-    SetEnv EZPUBLISH_SITEACCESS ezdemo_site
+    SetEnv EZPUBLISH_SITEACCESS demo_site
 </VirtualHost>
 ```
 

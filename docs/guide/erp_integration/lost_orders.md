@@ -20,8 +20,8 @@ The administrator's email address can be defined in the following configuration:
 
 ``` yaml
 parameters:
-    siso_core.default.ses_swiftmailer:
-        lostOrderEmailReceiver: %ses_eshop.lostorder_email%
+    ibexa.commerce.site_access.config.core.default.ses_swiftmailer:
+        lostOrderEmailReceiver: %ibexa.commerce.eshop.lostorder_email%
 ```
 
 Templates are located in the following files:
@@ -45,5 +45,5 @@ php bin/console ibexa:commerce:process-lost-orders [id]
 
     ``` yaml
     parameters:
-        siso_core.default.host: localhost
+        ibexa.commerce.site_access.config.core.default.host: localhost
     ```

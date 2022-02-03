@@ -39,7 +39,7 @@ In order to customize the searchable data for products, you can write plug-ins f
 ### ProductDocumentMapperPlugin
 
 The `ProductDocumentMapperPlugin` plugin generates a special field for the price range based on product unit price.
-It is a service which is injected into the main indexer execution based on the `ezpublish.search.solr.document_mapper_plugin` tag.
+It is a service which is injected into the main indexer execution based on the `ibexa.solr.document_mapper.document_mapper_plugin` tag.
 
 This service implements `EzSystems\EzPlatformSolrSearchEngine\DocumentMapperPluginInterface`.
 

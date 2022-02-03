@@ -4,7 +4,7 @@ Data processors are executed after a form is submitted. You can use any number o
 The configuration lists data processors that are executed in sequence, for example:
 
 ``` yaml
-ses_forms.configs.business_activation:
+ibexa.commerce.site_access.config.forms.configs.business_activation:
     dataProcessors:
         - Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\ValidateBusinessActivationDataProcessor
         - Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\CreateCustomerProfileDataDataProcessor
@@ -30,7 +30,7 @@ You can set the customer type in configuration:
 
 ``` yaml
 parameters:
-    ses_forms_values:
+    ibexa.commerce.forms.values:
         customerType:
             private: private
             business: business
@@ -45,7 +45,7 @@ Service ID: `Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\CreateRegi
 The parameters for the `createToken()` method are taken from the configuration:
 
 ``` yaml
-ses_registration:
+ibexa.commerce.registration:
     #time in seconds how long the token is valid
     registration_token_valid_until: 7200
     registration_token_action_service: Ibexa\Bundle\Commerce\Eshop\Services\EnableEzUserService
@@ -124,12 +124,12 @@ The cancellation email receiver and the cancellation subject can be set in confi
 ``` yaml
 parameters:
     #recipient of the cancellation email
-    siso_core.default.ses_swiftmailer:
+    ibexa.commerce.site_access.config.core.default.ses_swiftmailer:
         ...
         cancellationMailReceiver: contact@silversolutions.de
 
     #cancellation email subject
-    siso_core.cancellation.subject: common.cancellation_email_subject
+    ibexa.commerce.site_access.config.core.cancellation.subject: common.cancellation_email_subject
 ```
 
 Service ID: `Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\SendCancellationEmailDataProcessor`
@@ -152,7 +152,7 @@ Service ID: `Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\SendConfir
 The mail sender and receiver can be set in configuration:
 
 ``` yaml
-siso_core.default.ses_swiftmailer:
+ibexa.commerce.site_access.config.core.default.ses_swiftmailer:
     mailSender: noreply@mydomain.de       
     mailReceiver: admin@mydomain.de #used as an admin email address
 ```
@@ -194,7 +194,7 @@ By default the email is sent to the `contactMailReceiver` who is set in configur
 
 ``` yaml
 parameters:
-    siso_core.default.ses_swiftmailer:
+    ibexa.commerce.site_access.config.core.default.ses_swiftmailer:
           mailSender: noreply@silversolutions.de
           mailReceiver: azh@silversolutions.de
           contactMailReceiver: azh@silversolutions.de
@@ -215,12 +215,12 @@ The RMA mail receiver is the same one as the cancellation email receiver.
 ``` yaml
 parameters:
     #recipient of the cancellation email
-    siso_core.default.ses_swiftmailer:
+    ibexa.commerce.site_access.config.core.default.ses_swiftmailer:
         ...
         cancellationMailReceiver: contact@silversolutions.de
 
     #RMA email subject
-    siso_core.default.rma_subject: "common.rma_email_subject"
+    ibexa.commerce.site_access.config.core.default.rma_subject: "common.rma_email_subject"
 ```
 
 Service ID: `Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\SendRmaEmailDataProcessor`

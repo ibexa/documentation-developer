@@ -44,7 +44,7 @@ In `webpack.config.js`, add configuration for the new module:
 ```js
 IbexaConfigManager.add({
     IbexaConfig,
-    entryName: 'ezplatform-admin-ui-udw-tabs-js',
+    entryName: 'ibexa-admin-ui-udw-tabs-js',
     newItems: [path.resolve(__dirname, './assets/js/image-tab/image.tab.module.js')],
 });
 ```
@@ -104,7 +104,7 @@ Finally, add css in `webpack.config.js`:
 ```js
 IbexaConfigManager.add({
     IbexaConfig,
-    entryName: 'ezplatform-admin-ui-layout-css',
+    entryName: 'ibexa-admin-ui-layout-css',
     newItems: [path.resolve(__dirname, './assets/css/image.css'), path.resolve(__dirname, './assets/css/images.list.css')],
 });
 ```
@@ -130,13 +130,13 @@ IbexaConfigManager.add({
     
     IbexaConfigManager.add({
         IbexaConfig,
-        entryName: 'ezplatform-admin-ui-udw-tabs-js',
+        entryName: 'ibexa-admin-ui-udw-tabs-js',
         newItems: [path.resolve(__dirname, './assets/js/image-tab/image.tab.module.js')],
     });
     
     IbexaConfigManager.add({
         IbexaConfig,
-        entryName: 'ezplatform-admin-ui-layout-css',
+        entryName: 'ibexa-admin-ui-layout-css',
         newItems: [path.resolve(__dirname, './assets/css/image.css'), path.resolve(__dirname, './assets/css/images.list.css')],
     });
     

@@ -1,6 +1,6 @@
 # Multisite configuration
 
-You can configure the available SiteAccesses under the `ezplatform.siteaccess` key.
+You can configure the available SiteAccesses under the `ibexa.siteaccess` key.
 
 ## SiteAccess configuration
 
@@ -18,7 +18,7 @@ ibexa:
 
 ### SiteAccess groups
 
-`ezplatform.siteaccess.groups` defines which groups SiteAccesses belong to.
+`ibexa.siteaccess.groups` defines which groups SiteAccesses belong to.
 
 ``` yaml
 ibexa:
@@ -76,7 +76,7 @@ with a human-readable name of the website, for example `Company site` or `Summer
 You can also translate SiteAccess names. Displayed names depend on the current Back Office language.
 
 To define translations or SiteAccess names, place them in YAML file with correct language code,
-for example `translations/ezplatform_siteaccess.en.yaml`:
+for example `translations/ibexa_siteaccess.en.yaml`:
 
 ``` yaml
 en: Company site
@@ -174,7 +174,7 @@ This may cause unexpected errors. Instead, switch between SiteAccesses using the
 You can restrict SiteAccesses to different parts of the content tree.
 When you do it, only the selected Location and its descendants are reachable from this SiteAccess.
 
-Configure this under `ezplatform.systems.<scope>.content.tree_root`, for example:
+Configure this under `ibexa.systems.<scope>.content.tree_root`, for example:
 
 ``` yaml
 ibexa:
