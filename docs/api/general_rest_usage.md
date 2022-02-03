@@ -43,7 +43,7 @@ Content-Type: application/vnd.ibexa.api.ContentInfo+xml
 ###### HTTP code
 
 The API responded here with a standard `200 OK` HTTP response code, which is the expected response code for a typical GET request.
-Some GET requests, like [getting a Content item's current version,](https://ezsystems.github.io/ezplatform-rest-reference/#managing-content-get-current-version) may return a `301 Moved permanently` or `307 Temporary redirect` code.
+Some GET requests, like [getting a Content item's current version,](rest_api_reference/rest_api_reference.html#managing-content-get-current-version) may return a `301 Moved permanently` or `307 Temporary redirect` code.
 
 Errors are indicated with HTTP error codes, e.g. `404 Not Found` or `500 Internal Server Error`.
 The [REST reference](rest_api_reference/rest_api_reference.html) provide the list of every HTTP response code you can expect from implemented resources.
@@ -71,7 +71,7 @@ REST will use the `Accept-Patch` header to indicate how to **modify** the return
 
 Depending on the resource, request and response headers will vary.
 
-For instance [creating Content](https://ezsystems.github.io/ezplatform-rest-reference/#managing-content-create-content-type) and [getting a Content item's current version](https://ezsystems.github.io/ezplatform-rest-reference/#managing-content-get-current-version)
+For instance [creating Content](rest_api_reference/rest_api_reference.html#managing-content-create-content-type) and [getting a Content item's current version](rest_api_reference/rest_api_reference.html#managing-content-get-current-version)
 will both send a **Location header** to provide you with the requested resource's ID.
 
 Those particular headers generally match a specific list of HTTP response codes.
@@ -81,7 +81,7 @@ Location is sent by `201 Created`, `301 Moved permanently`, `307 Temporary redir
 
 This request header is the request counterpart of the Location response header.
 It is used for a COPY or MOVE operation on a resource to indicate where the resource should be moved to by using the ID of the destination.
-An example of such a request is [copying a Content item](https://ezsystems.github.io/ezplatform-rest-reference/#managing-content-copy-content).
+An example of such a request is [copying a Content item](rest_api_reference/rest_api_reference.html#managing-content-copy-content).
 
 #### Response body
 
@@ -159,7 +159,7 @@ Resources that accept a reference to another resource expect reference to be giv
 For example, the URI requesting a list of users assigned to the role with ID 1 is:
 
 ```
-GET /api/ezp/v2/user/users?roleId=/api/ezp/v2/user/roles/1
+GET /api/ibexa/v2/user/users?roleId=/api/ibexa/v2/user/roles/1
 ```
 
 ## Custom HTTP verbs
@@ -290,7 +290,7 @@ Session-based is the default authentication method as it is needed for UI.
     ``` yaml
     security:
         access_control:
-            - { path: '^/api/ezp/v2/content/types', roles: ROLE_USER }
+            - { path: '^/api/ibexa/v2/content/types', roles: ROLE_USER }
     ```
 
 ### Session-based authentication
@@ -388,7 +388,7 @@ To enable HTTP basic authentication, edit `config/packages/security.yaml`, and a
 
 ``` yaml
 ezpublish_rest:
-    pattern: ^/api/ezp/v2
+    pattern: ^/api/ibexa/v2
     stateless: true
     ezpublish_http_basic:
         realm: eZ Publish REST API
@@ -464,7 +464,7 @@ To send a GET request to the REST API countries list, provide the Content Type h
 **Countries list request**
 
 ```
-Resource: /api/ezp/v2/services/countries
+Resource: /api/ibexa/v2/services/countries
 Method: GET
 Content-Type: application/vnd.ibexa.api.CountriesList+xml
 ```
@@ -474,7 +474,7 @@ Content-Type: application/vnd.ibexa.api.CountriesList+xml
 **Countries list request**
 
 ```
-GET /api/ezp/v2/services/countries
+GET /api/ibexa/v2/services/countries
 Host: example.com
 Accept: application/vnd.ibexa.api.CountriesList+xml
 ```

@@ -222,8 +222,6 @@ This is a lazy property. It will trigger loading of content when first used.
 In case of bulk of Locations coming from Search or Location Service,
 the Content will also be loaded in bulk for the whole Location result set.
 
-To learn more about this functionality see [Lazy object properties.](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta5/doc/specifications/api/lazy_properties.md)
-
 ## Comparing content versions
 
 You can compare two versions of a Content item using the `VersionComparisonService`.

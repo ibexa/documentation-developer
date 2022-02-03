@@ -60,7 +60,7 @@ You can find the specific dates of service life for each release on our [support
 
 ## Roadmap
 
-[Our roadmap](https://ezplatform.com/product-feedback) is updated continuously following our iterative development methodology (our own adaptation and combination of Scrum and Kanban).
+[Our roadmap](https://portal.productboard.com/ibexa) is updated continuously following our iterative development methodology (our own adaptation and combination of Scrum and Kanban).
 Our agile boards offer a clear view of the ongoing and upcoming development and are open to the public.
 Progress is based on the prioritized stories from a living backlog into phases of specification and design, development and documentation, and QA.
 The final phase of development includes a dedicated period of Certification and Quality Assurance,

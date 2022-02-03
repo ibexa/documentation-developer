@@ -51,12 +51,12 @@ get:
         description: Moves Location to a different parent. The destination can also be '/content/trash' where the Location is put into the trash. (NOTE - Be aware that the user might lose access to the item after it has been moved, for example when read access is limited by a subtree). MOVE or POST with header X-HTTP-Method-Override MOVE.
         headers:
             Destination:
-                description: A parent Location resource to which the Location is moved e.g. '/api/ezp/v2/content/locations/1/63'.
+                description: A parent Location resource to which the Location is moved e.g. '/api/ibexa/v2/content/locations/1/63'.
         responses:
             201:
-                description: Created. If destination is '/api/ezp/v2/content/trash' and content only has one Location (NOTE - Like on normal subtree moves, be aware that the user might lose access to the item after it has been moved to Trash.)
+                description: Created. If destination is '/api/ibexa/v2/content/trash' and content only has one Location (NOTE - Like on normal subtree moves, be aware that the user might lose access to the item after it has been moved to Trash.)
             204:
-                description: No Content. If destination is '/api/ezp/v2/content/trash' and content still has other Locations (no trash item is created).
+                description: No Content. If destination is '/api/ibexa/v2/content/trash' and content still has other Locations (no trash item is created).
             401:
                 description: Error - the user is not authorized to move this Location.
             404:
@@ -66,7 +66,7 @@ get:
         description: Copies the subtree to a different parent. COPY or POST with header X-HTTP-Method-Override COPY.
         headers:
             Destination:
-                description: A parent Location resource to which the Location is moved e.g. '/api/ezp/v2/content/locations/1/63'.
+                description: A parent Location resource to which the Location is moved e.g. '/api/ibexa/v2/content/locations/1/63'.
         responses:
             201:
                 description: Created. Copied the subtree to a different parent.
@@ -178,7 +178,7 @@ get:
             description: Swaps the Location of a Content item with the given Location of another Content item. SWAP or POST with header X-HTTP-Method-Override SWAP.
             headers:
                 Destination:
-                    description: A parent Location resource to which the Location is moved e.g. '/api/ezp/v2/content/locations/1/63'.
+                    description: A parent Location resource to which the Location is moved e.g. '/api/ibexa/v2/content/locations/1/63'.
             responses:
                 204:
                     description: No Content. Swapped the Location of a Content item with the given Location of another Content item.

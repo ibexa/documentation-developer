@@ -54,7 +54,7 @@ class VersionInfo extends BaseVersionInfo
 ## Overriding response type
 
 Next, make sure that your new implementation of serialization applies only to the selected objects. In order to do that, you need to
-decorate `Ibexa\Contracts\Rest\Output\ValueObjectVisitorDispatcher` from `ezplatform-kernel`.
+decorate `Ibexa\Contracts\Rest\Output\ValueObjectVisitorDispatcher` from `ibexa/core`.
 
 ```php
 <?php

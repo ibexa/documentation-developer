@@ -4,7 +4,7 @@ This page shows how to create content via the REST API on the example of uploadi
 
 ## Creating a draft
 
-A draft is created with a POST request to `/api/ezp/v2/content/objects`.
+A draft is created with a POST request to `/api/ibexa/v2/content/objects`.
 Its body should contain all of the required data in the structured format (see [Creating content: data property](field_type_reference.md#creating-content-data-property)).
 As for the response, it's possible to use either JSON or XML in input.
 The following examples use JSON (and assume [HTTP Basic Auth](general_rest_usage.md#http-basic-authentication) is enabled).
@@ -27,20 +27,20 @@ $data = [
     'ContentCreate' => [
         'ContentType' => [
             // "Image" content type
-            '_href' => "/api/ezp/v2/content/types/5",
+            '_href' => "/api/ibexa/v2/content/types/5",
         ],
         'mainLanguageCode' => 'eng-GB',
         'LocationCreate' => [
             'ParentLocation' => [
                 // Destination location ("Media" root location in this case)
-                '_href' => "/api/ezp/v2/content/locations/1/43",
+                '_href' => "/api/ibexa/v2/content/locations/1/43",
             ],
             'sortField' => 'PATH',
             'sortOrder' => 'ASC',
         ],
         'Section' => [
             // "Media" section
-            '_href' => "/api/ezp/v2/content/sections/3",
+            '_href' => "/api/ibexa/v2/content/sections/3",
         ],
         'fields' => [
             'field' => [
@@ -67,7 +67,7 @@ $data = [
 $curl = curl_init();
 
 curl_setopt_array($curl, [
-    CURLOPT_URL => "$base_url/api/ezp/v2/content/objects",
+    CURLOPT_URL => "$base_url/api/ibexa/v2/content/objects",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => "",
     CURLOPT_MAXREDIRS => 10,
@@ -117,7 +117,7 @@ $id = $argv[1];
 $curl = curl_init();
 
 curl_setopt_array($curl, [
-   CURLOPT_URL => "$base_url/api/ezp/v2/content/objects/$id/versions/1",
+   CURLOPT_URL => "$base_url/api/ibexa/v2/content/objects/$id/versions/1",
    CURLOPT_RETURNTRANSFER => true,
    CURLOPT_ENCODING => "",
    CURLOPT_MAXREDIRS => 10,

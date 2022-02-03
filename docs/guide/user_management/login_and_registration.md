@@ -19,14 +19,14 @@ A double opt-in process checks the email address, and then creates and activates
 You can decide that emails with the activation link are not sent to the customer, but to a different email address.
 
 ``` yaml
-siso_core.default.user_activation_receiver: supervisor@example.com
+ibexa.commerce.site_access.config.core.default.user_activation_receiver: supervisor@example.com
 ```
 
 The email message contains the name of the user and a link to the user in the Back Office.
 To generate a correct link to the Back Office, configure `related_admin_site_access`:
 
 ``` yaml
-siso_core.default.related_admin_site_access: 'admin'
+ibexa.commerce.site_access.config.core.default.related_admin_site_access: 'admin'
 ```
 
 To adapt the success message of the private registration, modify the text module with the identifier `success_register_private`.
@@ -49,16 +49,16 @@ The shop checks this data by sending a request to the ERP. There are two options
 You can specify the default Location ID for Users per SiteAccess:
 
 ``` yaml
-siso_core.default.user_group_location: 106
-siso_core.default.user_group_location.business: 106
-siso_core.default.user_group_location.private: 106
-siso_core.default.user_group_location.editor: 14
+ibexa.commerce.site_access.config.core.default.user_group_location: 106
+ibexa.commerce.site_access.config.core.default.user_group_location.business: 106
+ibexa.commerce.site_access.config.core.default.user_group_location.private: 106
+ibexa.commerce.site_access.config.core.default.user_group_location.editor: 14
 ```
 
 `redirect_homepage` configures the default list of URLs from which the user is redirected after login.
 
 ``` yaml
-siso_core.default.redirect_homepage:
+ibexa.commerce.site_access.config.core.default.redirect_homepage:
     - /login
     - /register
     - /registration
@@ -73,7 +73,7 @@ When the `info_email_after_user_activation` parameter is set to true,
 the customer receives an email when the account is enabled using the activation link.
 
 ``` yaml
-siso_core.default.info_email_after_user_activation: false
+ibexa.commerce.site_access.config.core.default.info_email_after_user_activation: false
 ```
 
 ## Template list

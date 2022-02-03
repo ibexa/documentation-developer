@@ -16,7 +16,7 @@ To use Symfony authentication with [[= product_name =]], use the following confi
 ``` yaml
 security:
     firewalls:
-        ezpublish_front:
+        ibexa_front:
             pattern: ^/
             user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
             anonymous: ~
@@ -30,7 +30,7 @@ And in `config/routes.yaml`:
 ``` yaml
 login:
     path: /login
-    defaults: { _controller: ezpublish.security.controller:loginAction }
+    defaults: { _controller: Ibexa\Core\MVC\Symfony\Controller\SecurityController::loginAction }
 login_check:
     path: /login_check
 logout:
@@ -56,7 +56,7 @@ A `SecurityController` is used to manage all security-related actions and is thu
 
 The base template used is [`Security/login.html.twig`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/views/Security/login.html.twig).
 
-The layout used by default is `%ezpublish.content_view.viewbase_layout%` (empty layout) but can be configured together with the login template:
+The layout used by default is `%ibexa.content_view.viewbase_layout%` (empty layout) but can be configured together with the login template:
 
 ``` yaml
 ibexa:
@@ -120,7 +120,7 @@ It is already provided in `config/packages/security.yaml`, you only need to unco
 ``` yaml
 security:
     firewalls:
-        ezplatform_rest:
+        ibexa_rest:
             request_matcher: Ibexa\AdminUi\REST\Security\NonAdminRESTRequestMatcher
             user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
             anonymous: ~

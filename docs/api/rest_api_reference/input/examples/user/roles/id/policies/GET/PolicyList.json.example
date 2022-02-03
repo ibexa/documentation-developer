@@ -1,11 +1,11 @@
 {
     "PolicyList": {
         "_media-type": "application/vnd.ibexa.api.PolicyList+json",
-        "_href": "/api/ezp/v2/user/roles/1/policies",
+        "_href": "/api/ibexa/v2/user/roles/1/policies",
         "Policy": [
             {
                 "_media-type": "application/vnd.ibexa.api.Policy+json",
-                "_href": "/api/ezp/v2/user/roles/1/policies/349",
+                "_href": "/api/ibexa/v2/user/roles/1/policies/349",
                 "id": 349,
                 "module": "content",
                 "function": "read",
@@ -35,7 +35,7 @@
             },
             {
                 "_media-type": "application/vnd.ibexa.api.Policy+json",
-                "_href": "/api/ezp/v2/user/roles/1/policies/350",
+                "_href": "/api/ibexa/v2/user/roles/1/policies/350",
                 "id": 350,
                 "module": "user",
                 "function": "login",
@@ -61,7 +61,7 @@
             },
             {
                 "_media-type": "application/vnd.ibexa.api.Policy+json",
-                "_href": "/api/ezp/v2/user/roles/1/policies/351",
+                "_href": "/api/ibexa/v2/user/roles/1/policies/351",
                 "id": 351,
                 "module": "content",
                 "function": "view_embed",
@@ -87,14 +87,14 @@
             },
             {
                 "_media-type": "application/vnd.ibexa.api.Policy+json",
-                "_href": "/api/ezp/v2/user/roles/1/policies/352",
+                "_href": "/api/ibexa/v2/user/roles/1/policies/352",
                 "id": 352,
                 "module": "user",
                 "function": "register"
             },
             {
                 "_media-type": "application/vnd.ibexa.api.Policy+json",
-                "_href": "/api/ezp/v2/user/roles/1/policies/353",
+                "_href": "/api/ibexa/v2/user/roles/1/policies/353",
                 "id": 353,
                 "module": "user",
                 "function": "password"

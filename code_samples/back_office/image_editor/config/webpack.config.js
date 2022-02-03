@@ -40,7 +40,7 @@ Encore.addEntry('app', './assets/app.js');
 // Image Editor Dot Action 
 ibexaConfigManager.add({ 
     ibexaConfig, 
-    entryName: 'ezplatform-admin-ui-layout-js', 
+    entryName: 'ibexa-admin-ui-layout-js', 
     newItems: [ path.resolve(__dirname, './assets/random_dot/random-dot.js'), ], 
 });
 

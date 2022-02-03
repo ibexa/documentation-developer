@@ -7,4 +7,4 @@ ibexa:
 ibexa_fieldtype_richtext:
     custom_styles:
         note_box:
-            template: field_type/ezrichtext/custom_style/note_box.html.twig
+            template: field_type/ezrichtext/custom_styles/note_box.html.twig

@@ -4,28 +4,18 @@ ibexa:
             fieldtypes:
                 ezrichtext:
                     custom_tags: [ezfactbox]
-                    toolbars:
-                        ezadd:
+                    toolbar:
+                        custom_tags_group:
                             buttons:
                                 ezfactbox:
                                     priority: 5
-                        ezfactbox:
-                            buttons:
-                                ezmoveup:
-                                    priority: 40
-                                ezmovedown:
-                                    priority: 30
-                                ezcustomtagedit:
-                                    priority: 20
-                                ezblockremove:
-                                    priority: 10
                     custom_tags: [linktag]
                     custom_tags: [acronym]
 ibexa_fieldtype_richtext:
     custom_tags:
         ezfactbox:
-            template: field_type/ezrichtext/custom_tag/ezfactbox.html.twig
-            icon: '/assets/field_type/ezrichtext/custom_tag/icon/factbox.svg#factbox'
+            template: field_type/ibexa_fieldtype_richtext/custom_tags/ezfactbox.html.twig
+            icon: '/assets/field_type/ibexa_fieldtype_richtext/custom_tags/icon/factbox.svg#factbox'
             attributes:
                 name:
                     type: string
@@ -53,13 +43,13 @@ ibexa_fieldtype_richtext:
                     type: link
                     required: false
         badge:
-            template: field_type/ezrichtext/custom_tag/badge.html.twig
+            template: field_type/ibexa_fieldtype_richtext/custom_tags/badge.html.twig
             icon: '/bundles/ibexaplatformicons/img/all-icons.svg#bookmark'
             is_inline: true
             attributes:
                 # ...
         acronym:
-            template: field_type/ezrichtext/custom_tag/acronym.html.twig
+            template: field_type/ibexa_fieldtype_richtext/custom_tags/acronym.html.twig
             icon: '/bundles/ibexaplatformicons/img/all-icons.svg#information'
             is_inline: true
             attributes:

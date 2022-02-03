@@ -69,7 +69,7 @@ The following regex allows all combinations of 0-9, `+`, `-` and `/`, if minimum
 You can define the minimum and maximum length for the validator:
 
 ``` yaml
-ses_phone_validator:
+ibexa.commerce.phone_validator:
     min: 9
     max: 15
 ```

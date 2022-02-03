@@ -22,21 +22,21 @@
       <searchHit score="1.0" index="installid1234567890">
         <hightlight/>
         <value>
-          <Location media-type="application/vnd.ibexa.api.Location+xml" href="/api/ezp/v2/content/locations/1/2">
+          <Location media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1/2">
             <id>2</id>
             <priority>0</priority>
             <hidden>false</hidden>
             <invisible>false</invisible>
-            <ParentLocation media-type="application/vnd.ibexa.api.Location+xml" href="/api/ezp/v2/content/locations/1"/>
+            <ParentLocation media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1"/>
             <pathString>/1/2/</pathString>
             <depth>1</depth>
             <childCount>8</childCount>
             <remoteId>f3e90596361e31d496d4026eb624c983</remoteId>
-            <Children media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ezp/v2/content/locations/1/2/children"/>
-            <Content media-type="application/vnd.ibexa.api.Content+xml" href="/api/ezp/v2/content/objects/57"/>
+            <Children media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ibexa/v2/content/locations/1/2/children"/>
+            <Content media-type="application/vnd.ibexa.api.Content+xml" href="/api/ibexa/v2/content/objects/57"/>
             <sortField>PRIORITY</sortField>
             <sortOrder>ASC</sortOrder>
-            <UrlAliases media-type="application/vnd.ibexa.api.UrlAliasRefList+xml" href="/api/ezp/v2/content/locations/1/2/urlaliases"/>
+            <UrlAliases media-type="application/vnd.ibexa.api.UrlAliasRefList+xml" href="/api/ibexa/v2/content/locations/1/2/urlaliases"/>
           </Location>
 
         </value>

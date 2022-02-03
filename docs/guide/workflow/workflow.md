@@ -131,7 +131,7 @@ ibexa:
         default:
             workflows_config:
                 timeline_entry_templates:
-                    - { template: '@IbexaWorkflow/ezplatform_workflow/timeline/entries.html.twig', priority: 10 }
+                    - { template: '@IbexaWorkflow/ibexa_workflow/timeline/entries.html.twig', priority: 10 }
 ```
 
 The template has to provide a block named `ez_workflow_timeline_entry_{ENTRY_IDENTIFIER}`.

@@ -1,25 +1,25 @@
 {
     "Content": {
         "_media-type": "application/vnd.ibexa.api.Content+json",
-        "_href": "/api/ezp/v2/content/objects/57",
+        "_href": "/api/ibexa/v2/content/objects/57",
         "_remoteId": "055e5ed41cba5e8ec81d8846a4d1c673",
         "_id": 57,
         "ContentType": {
             "_media-type": "application/vnd.ibexa.api.ContentType+json",
-            "_href": "/api/ezp/v2/content/types/2"
+            "_href": "/api/ibexa/v2/content/types/2"
         },
         "Name": "draft article",
         "TranslatedName": "draft article",
         "Versions": {
             "_media-type": "application/vnd.ibexa.api.VersionList+json",
-            "_href": "/api/ezp/v2/content/objects/57/versions"
+            "_href": "/api/ibexa/v2/content/objects/57/versions"
         },
         "CurrentVersion": {
             "_media-type": "application/vnd.ibexa.api.Version+json",
-            "_href": "/api/ezp/v2/content/objects/57/currentversion",
+            "_href": "/api/ibexa/v2/content/objects/57/currentversion",
             "Version": {
                 "_media-type": "application/vnd.ibexa.api.Version+json",
-                "_href": "/api/ezp/v2/content/objects/57/versions/1",
+                "_href": "/api/ibexa/v2/content/objects/57/versions/1",
                 "VersionInfo": {
                     "id": 517,
                     "versionNo": 1,
@@ -27,7 +27,7 @@
                     "modificationDate": "2021-08-11T08:59:50+00:00",
                     "Creator": {
                         "_media-type": "application/vnd.ibexa.api.User+json",
-                        "_href": "/api/ezp/v2/user/users/14"
+                        "_href": "/api/ibexa/v2/user/users/14"
                     },
                     "creationDate": "2021-08-11T08:59:50+00:00",
                     "initialLanguageCode": "eng-GB",
@@ -50,7 +50,7 @@
                     },
                     "Content": {
                         "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
-                        "_href": "/api/ezp/v2/content/objects/57"
+                        "_href": "/api/ibexa/v2/content/objects/57"
                     }
                 },
                 "Fields": {
@@ -116,7 +116,7 @@
                 },
                 "Relations": {
                     "_media-type": "application/vnd.ibexa.api.RelationList+json",
-                    "_href": "/api/ezp/v2/content/objects/57/versions/1/relations",
+                    "_href": "/api/ibexa/v2/content/objects/57/versions/1/relations",
                     "Relation": []
                 },
                 "Thumbnail": {
@@ -130,15 +130,15 @@
         },
         "Section": {
             "_media-type": "application/vnd.ibexa.api.Section+json",
-            "_href": "/api/ezp/v2/content/sections/1"
+            "_href": "/api/ibexa/v2/content/sections/1"
         },
         "Locations": {
             "_media-type": "application/vnd.ibexa.api.LocationList+json",
-            "_href": "/api/ezp/v2/content/objects/57/locations"
+            "_href": "/api/ibexa/v2/content/objects/57/locations"
         },
         "Owner": {
             "_media-type": "application/vnd.ibexa.api.User+json",
-            "_href": "/api/ezp/v2/user/users/14"
+            "_href": "/api/ibexa/v2/user/users/14"
         },
         "mainLanguageCode": "eng-GB",
         "currentVersionNo": 1,
@@ -147,7 +147,7 @@
         "status": "DRAFT",
         "ObjectStates": {
             "_media-type": "application/vnd.ibexa.api.ContentObjectStates+json",
-            "_href": "/api/ezp/v2/content/objects/57/objectstates"
+            "_href": "/api/ibexa/v2/content/objects/57/objectstates"
         }
     }
 }

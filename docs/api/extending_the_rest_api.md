@@ -4,7 +4,7 @@ The [[= product_name =]] REST API comes with a framework that makes it easy to e
 
 ## Requirements
 
-REST routes must use the [[= product_name =]] REST API prefix, `/api/ezp/v2`. 
+REST routes must use the [[= product_name =]] REST API prefix, `/api/ibexa/v2`. 
 You create new resources below this prefix.
 
 To do so, you create:
@@ -44,7 +44,7 @@ To ensure that they do, in the `config/routes.yaml` file, import your routing fi
 ``` yaml
 my_rest_routes:
     resource: routes_rest.yaml
-    prefix: '%ezpublish_rest.path_prefix%'
+    prefix: '%ibexa.rest.path_prefix%'
 ```
 
 When you have a distinct file for the REST routes, you can apply the prefix to all the routes from this file, without affecting other routes.
@@ -333,6 +333,6 @@ The syntax is based on the Symfony's [expression language]([[= symfony_doc =]]/c
 
 The above configuration adds the following entry to the root resource:
 
-`<someresource media-type="application/vnd.ibexa.api.Content+xml" href="/api/ezp/v2/content/objects/2"/>`
+`<someresource media-type="application/vnd.ibexa.api.Content+xml" href="/api/ibexa/v2/content/objects/2"/>`
 
-`<someresource media-type="application/vnd.ibexa.api.Content+xml" href="/api/ezp/v2/content/objects/2"/>
+`<someresource media-type="application/vnd.ibexa.api.Content+xml" href="/api/ibexa/v2/content/objects/2"/>

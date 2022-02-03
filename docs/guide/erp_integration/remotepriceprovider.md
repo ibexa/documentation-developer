@@ -15,8 +15,8 @@ If neither customer nor contact number are set, and template debitor is enabled 
 `StandardTemplateDebitorService` determines the customer and/or contact number to use.
 
 ``` yaml
-siso_core.default.use_template_debitor_customer_number: true
-siso_core.default.use_template_debitor_contact_number: true
+ibexa.commerce.site_access.config.core.default.use_template_debitor_customer_number: true
+ibexa.commerce.site_access.config.core.default.use_template_debitor_contact_number: true
 ```
 
 !!! note

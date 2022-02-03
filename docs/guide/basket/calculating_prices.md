@@ -10,7 +10,7 @@ The price engine is also triggered when the basket is fetched from the database 
 The time is set in the configuration in minutes:
 
 ``` yaml
-ses_basket.default.recalculatePricesAfter: 60
+ibexa.commerce.site_access.config.basket.default.recalculatePricesAfter: 60
 ```
 
 By default, the attributes from the `ProductNode` entity are used. 

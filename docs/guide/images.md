@@ -227,7 +227,7 @@ a custom extension that lets you display and download files in your templates.
 First, enable adding SVG files to content by removing them from the blacklist 
 of allowed MIME types.
 
-To do it, comment out the relevant line under `ezsettings.default.io.file_storage.file_type_blacklist`
+To do it, comment out the relevant line under `ibexa.site_access.config.default.io.file_storage.file_type_blacklist`
 in `Core/Resources/config/default_settings.yml`.
 
 Then, add a download route to the `config/routes.yaml` file:
@@ -269,7 +269,7 @@ by using a dedicated template.
 
 You can determine Content Types that will be treated as images and rendered.
 You do this in `ibexa/core/bundle/Core/Resources/config/default_settings.yml`. 
-By default, the `ezplatform.content_view.image_embed_content_types_identifiers` 
+By default, the `ibexa.content_view.image_embed_content_types_identifiers` 
 parameter is set to cover the Image Content Type, but you can add other types 
 that you want to be treated as images, for example:
 

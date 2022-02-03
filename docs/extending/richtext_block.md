@@ -7,13 +7,13 @@ and register the subscriber as a service.
 
 Follow the procedure below to create a RichText Page block.
 
-First, provide the block configuration in `config/packages/ezplatform_page_fieldtype.yaml`. 
+First, provide the block configuration in `config/packages/ibexa_page_fieldtype.yaml`. 
 The following code defines a new block, its view and configuration 
 templates.
 It also sets the attribute type to `richtext` (line 15):
 
 ``` yaml hl_lines="3 15"
-[[= include_file('code_samples/back_office/online_editor/config/packages/ezplatform_page_fieldtype.yaml') =]]
+[[= include_file('code_samples/back_office/online_editor/config/packages/ibexa_page_fieldtype.yaml') =]]
 ```
 !!! note
 
@@ -23,7 +23,7 @@ Then, create a subscriber that converts a string of data into XML code.
 Create a `src/Event/Subscriber/RichTextBlockSubscriber.php` file.
 
 In line 32, `my_block` is the same name of the block that you defined in line 3 
-of the `ezplatform_page_fieldtype.yaml` file above.
+of the `ibexa_page_fieldtype.yaml` file above.
 Line 32 also implements the `PreRender` method.
 Lines 41-51 handle the conversion of content into an XML string:
 
@@ -47,7 +47,7 @@ Line 2 is responsible for rendering the content from XML to HTML5:
 Then, create a separate `templates/blocks/my_block/config.html.twig` template:
 
 ``` html+twig
-{% extends '@EzPlatformPageBuilder/page_builder/block/config.html.twig' %}
+{% extends '@IbexaPageBuilderBundle/page_builder/block/config.html.twig' %}
 
 {% block meta %}
     {{ parent() }}

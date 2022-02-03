@@ -4,7 +4,7 @@
         "groups": [
             {
                 "_media-type": "application/vnd.ibexa.api.EventGroup+json",
-                "_currentPage": "/api/ezp/v2/calendar/event?start=1597104000&end=1597190400&count=10",
+                "_currentPage": "/api/ibexa/v2/calendar/event?start=1597104000&end=1597190400&count=10",
                 "DateRange": {
                     "_media-type": "application/vnd.ibexa.api.DateRange+json",
                     "startDate": "1597104000",
@@ -15,7 +15,7 @@
             },
             {
                 "_media-type": "application/vnd.ibexa.api.EventGroup+json",
-                "_currentPage": "/api/ezp/v2/calendar/event?start=1597190400&end=1597276800&count=10",
+                "_currentPage": "/api/ibexa/v2/calendar/event?start=1597190400&end=1597276800&count=10",
                 "DateRange": {
                     "_media-type": "application/vnd.ibexa.api.DateRange+json",
                     "startDate": "1597190400",
@@ -26,7 +26,7 @@
             },
             {
                 "_media-type": "application/vnd.ibexa.api.EventGroup+json",
-                "_currentPage": "/api/ezp/v2/calendar/event?start=1597276800&end=1597363200&count=10",
+                "_currentPage": "/api/ibexa/v2/calendar/event?start=1597276800&end=1597363200&count=10",
                 "DateRange": {
                     "_media-type": "application/vnd.ibexa.api.DateRange+json",
                     "startDate": "1597276800",
@@ -37,7 +37,7 @@
             },
             {
                 "_media-type": "application/vnd.ibexa.api.EventGroup+json",
-                "_currentPage": "/api/ezp/v2/calendar/event?start=1597363200&end=1597449600&count=10",
+                "_currentPage": "/api/ibexa/v2/calendar/event?start=1597363200&end=1597449600&count=10",
                 "DateRange": {
                     "_media-type": "application/vnd.ibexa.api.DateRange+json",
                     "startDate": "1597363200",
@@ -48,7 +48,7 @@
             },
             {
                 "_media-type": "application/vnd.ibexa.api.EventGroup+json",
-                "_currentPage": "/api/ezp/v2/calendar/event?start=1597449600&end=1597536000&count=10",
+                "_currentPage": "/api/ibexa/v2/calendar/event?start=1597449600&end=1597536000&count=10",
                 "DateRange": {
                     "_media-type": "application/vnd.ibexa.api.DateRange+json",
                     "startDate": "1597449600",
@@ -59,7 +59,7 @@
             },
             {
                 "_media-type": "application/vnd.ibexa.api.EventGroup+json",
-                "_currentPage": "/api/ezp/v2/calendar/event?start=1597536000&end=1597622400&count=10",
+                "_currentPage": "/api/ibexa/v2/calendar/event?start=1597536000&end=1597622400&count=10",
                 "DateRange": {
                     "_media-type": "application/vnd.ibexa.api.DateRange+json",
                     "startDate": "1597536000",
@@ -70,7 +70,7 @@
             },
             {
                 "_media-type": "application/vnd.ibexa.api.EventGroup+json",
-                "_currentPage": "/api/ezp/v2/calendar/event?start=1597622400&end=1597708800&count=10",
+                "_currentPage": "/api/ibexa/v2/calendar/event?start=1597622400&end=1597708800&count=10",
                 "DateRange": {
                     "_media-type": "application/vnd.ibexa.api.DateRange+json",
                     "startDate": "1597622400",
@@ -81,7 +81,7 @@
             },
             {
                 "_media-type": "application/vnd.ibexa.api.EventGroup+json",
-                "_currentPage": "/api/ezp/v2/calendar/event?start=1597708800&end=1597795200&count=10",
+                "_currentPage": "/api/ibexa/v2/calendar/event?start=1597708800&end=1597795200&count=10",
                 "DateRange": {
                     "_media-type": "application/vnd.ibexa.api.DateRange+json",
                     "startDate": "1597708800",
@@ -92,7 +92,7 @@
             },
             {
                 "_media-type": "application/vnd.ibexa.api.EventGroup+json",
-                "_currentPage": "/api/ezp/v2/calendar/event?start=1597795200&end=1597881600&count=10",
+                "_currentPage": "/api/ibexa/v2/calendar/event?start=1597795200&end=1597881600&count=10",
                 "DateRange": {
                     "_media-type": "application/vnd.ibexa.api.DateRange+json",
                     "startDate": "1597795200",
@@ -103,7 +103,7 @@
             },
             {
                 "_media-type": "application/vnd.ibexa.api.EventGroup+json",
-                "_currentPage": "/api/ezp/v2/calendar/event?start=1597881600&end=1597968000&count=10",
+                "_currentPage": "/api/ibexa/v2/calendar/event?start=1597881600&end=1597968000&count=10",
                 "DateRange": {
                     "_media-type": "application/vnd.ibexa.api.DateRange+json",
                     "startDate": "1597881600",
@@ -114,7 +114,7 @@
             },
             {
                 "_media-type": "application/vnd.ibexa.api.EventGroup+json",
-                "_currentPage": "/api/ezp/v2/calendar/event?start=1597968000&end=1598054400&count=10",
+                "_currentPage": "/api/ibexa/v2/calendar/event?start=1597968000&end=1598054400&count=10",
                 "DateRange": {
                     "_media-type": "application/vnd.ibexa.api.DateRange+json",
                     "startDate": "1597968000",
@@ -125,7 +125,7 @@
             },
             {
                 "_media-type": "application/vnd.ibexa.api.EventGroup+json",
-                "_currentPage": "/api/ezp/v2/calendar/event?start=1598054400&end=1598140800&count=10",
+                "_currentPage": "/api/ibexa/v2/calendar/event?start=1598054400&end=1598140800&count=10",
                 "DateRange": {
                     "_media-type": "application/vnd.ibexa.api.DateRange+json",
                     "startDate": "1598054400",
@@ -136,7 +136,7 @@
             },
             {
                 "_media-type": "application/vnd.ibexa.api.EventGroup+json",
-                "_currentPage": "/api/ezp/v2/calendar/event?start=1598140800&end=1598227200&count=10",
+                "_currentPage": "/api/ibexa/v2/calendar/event?start=1598140800&end=1598227200&count=10",
                 "DateRange": {
                     "_media-type": "application/vnd.ibexa.api.DateRange+json",
                     "startDate": "1598140800",
@@ -147,7 +147,7 @@
             },
             {
                 "_media-type": "application/vnd.ibexa.api.EventGroup+json",
-                "_currentPage": "/api/ezp/v2/calendar/event?start=1598227200&end=1598313600&count=10",
+                "_currentPage": "/api/ibexa/v2/calendar/event?start=1598227200&end=1598313600&count=10",
                 "DateRange": {
                     "_media-type": "application/vnd.ibexa.api.DateRange+json",
                     "startDate": "1598227200",
@@ -158,7 +158,7 @@
             },
             {
                 "_media-type": "application/vnd.ibexa.api.EventGroup+json",
-                "_currentPage": "/api/ezp/v2/calendar/event?start=1598313600&end=1598400000&count=10",
+                "_currentPage": "/api/ibexa/v2/calendar/event?start=1598313600&end=1598400000&count=10",
                 "DateRange": {
                     "_media-type": "application/vnd.ibexa.api.DateRange+json",
                     "startDate": "1598313600",
@@ -169,7 +169,7 @@
             },
             {
                 "_media-type": "application/vnd.ibexa.api.EventGroup+json",
-                "_currentPage": "/api/ezp/v2/calendar/event?start=1598400000&end=1598486400&count=10",
+                "_currentPage": "/api/ibexa/v2/calendar/event?start=1598400000&end=1598486400&count=10",
                 "DateRange": {
                     "_media-type": "application/vnd.ibexa.api.DateRange+json",
                     "startDate": "1598400000",
@@ -180,7 +180,7 @@
             },
             {
                 "_media-type": "application/vnd.ibexa.api.EventGroup+json",
-                "_currentPage": "/api/ezp/v2/calendar/event?start=1598486400&end=1598572800&count=10",
+                "_currentPage": "/api/ibexa/v2/calendar/event?start=1598486400&end=1598572800&count=10",
                 "DateRange": {
                     "_media-type": "application/vnd.ibexa.api.DateRange+json",
                     "startDate": "1598486400",
@@ -191,7 +191,7 @@
             },
             {
                 "_media-type": "application/vnd.ibexa.api.EventGroup+json",
-                "_currentPage": "/api/ezp/v2/calendar/event?start=1598572800&end=1598659200&count=10",
+                "_currentPage": "/api/ibexa/v2/calendar/event?start=1598572800&end=1598659200&count=10",
                 "DateRange": {
                     "_media-type": "application/vnd.ibexa.api.DateRange+json",
                     "startDate": "1598572800",
@@ -202,7 +202,7 @@
             },
             {
                 "_media-type": "application/vnd.ibexa.api.EventGroup+json",
-                "_currentPage": "/api/ezp/v2/calendar/event?start=1598659200&end=1598745600&count=10",
+                "_currentPage": "/api/ibexa/v2/calendar/event?start=1598659200&end=1598745600&count=10",
                 "DateRange": {
                     "_media-type": "application/vnd.ibexa.api.DateRange+json",
                     "startDate": "1598659200",

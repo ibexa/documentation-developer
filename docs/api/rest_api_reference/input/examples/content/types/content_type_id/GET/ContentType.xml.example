@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentType media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ezp/v2/content/types/2">
+<ContentType media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ibexa/v2/content/types/2">
     <id>2</id>
     <status>DEFINED</status>
     <identifier>article</identifier>
@@ -9,10 +9,10 @@
     <descriptions/>
     <creationDate>2002-06-18T11:21:38+02:00</creationDate>
     <modificationDate>2004-04-20T11:56:29+02:00</modificationDate>
-    <Creator media-type="application/vnd.ibexa.api.User+xml" href="/api/ezp/v2/user/users/14"/>
-    <Modifier media-type="application/vnd.ibexa.api.User+xml" href="/api/ezp/v2/user/users/14"/>
-    <Groups media-type="application/vnd.ibexa.api.ContentTypeGroupRefList+xml" href="/api/ezp/v2/content/types/2/groups"/>
-    <Draft media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ezp/v2/content/types/2/draft"/>
+    <Creator media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+    <Modifier media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+    <Groups media-type="application/vnd.ibexa.api.ContentTypeGroupRefList+xml" href="/api/ibexa/v2/content/types/2/groups"/>
+    <Draft media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ibexa/v2/content/types/2/draft"/>
     <remoteId>c15b600eb9198b1924063b5a68758232</remoteId>
     <urlAliasSchema></urlAliasSchema>
     <nameSchema>&lt;short_title|title&gt;</nameSchema>
@@ -21,8 +21,8 @@
     <defaultAlwaysAvailable>false</defaultAlwaysAvailable>
     <defaultSortField>PATH</defaultSortField>
     <defaultSortOrder>ASC</defaultSortOrder>
-    <FieldDefinitions media-type="application/vnd.ibexa.api.FieldDefinitionList+xml" href="/api/ezp/v2/content/types/2/fieldDefinitions">
-        <FieldDefinition media-type="application/vnd.ibexa.api.FieldDefinition+xml" href="/api/ezp/v2/content/types/2/fieldDefinitions/1">
+    <FieldDefinitions media-type="application/vnd.ibexa.api.FieldDefinitionList+xml" href="/api/ibexa/v2/content/types/2/fieldDefinitions">
+        <FieldDefinition media-type="application/vnd.ibexa.api.FieldDefinition+xml" href="/api/ibexa/v2/content/types/2/fieldDefinitions/1">
             <id>1</id>
             <identifier>title</identifier>
             <fieldType>ezstring</fieldType>
@@ -44,7 +44,7 @@
                     <value key="minStringLength"/></value>
             </validatorConfiguration>
         </FieldDefinition>
-        <FieldDefinition media-type="application/vnd.ibexa.api.FieldDefinition+xml" href="/api/ezp/v2/content/types/2/fieldDefinitions/152">
+        <FieldDefinition media-type="application/vnd.ibexa.api.FieldDefinition+xml" href="/api/ibexa/v2/content/types/2/fieldDefinitions/152">
             <id>152</id>
             <identifier>short_title</identifier>
             <fieldType>ezstring</fieldType>
@@ -66,7 +66,7 @@
                     <value key="minStringLength"/></value>
             </validatorConfiguration>
         </FieldDefinition>
-        <FieldDefinition media-type="application/vnd.ibexa.api.FieldDefinition+xml" href="/api/ezp/v2/content/types/2/fieldDefinitions/153">
+        <FieldDefinition media-type="application/vnd.ibexa.api.FieldDefinition+xml" href="/api/ibexa/v2/content/types/2/fieldDefinitions/153">
             <id>153</id>
             <identifier>author</identifier>
             <fieldType>ezauthor</fieldType>
@@ -86,7 +86,7 @@
             </fieldSettings>
             <validatorConfiguration/>
         </FieldDefinition>
-        <FieldDefinition media-type="application/vnd.ibexa.api.FieldDefinition+xml" href="/api/ezp/v2/content/types/2/fieldDefinitions/120">
+        <FieldDefinition media-type="application/vnd.ibexa.api.FieldDefinition+xml" href="/api/ibexa/v2/content/types/2/fieldDefinitions/120">
             <id>120</id>
             <identifier>intro</identifier>
             <fieldType>ezrichtext</fieldType>
@@ -111,7 +111,7 @@
             <fieldSettings/>
             <validatorConfiguration/>
         </FieldDefinition>
-        <FieldDefinition media-type="application/vnd.ibexa.api.FieldDefinition+xml" href="/api/ezp/v2/content/types/2/fieldDefinitions/121">
+        <FieldDefinition media-type="application/vnd.ibexa.api.FieldDefinition+xml" href="/api/ibexa/v2/content/types/2/fieldDefinitions/121">
             <id>121</id>
             <identifier>body</identifier>
             <fieldType>ezrichtext</fieldType>
@@ -136,7 +136,7 @@
             <fieldSettings/>
             <validatorConfiguration/>
         </FieldDefinition>
-        <FieldDefinition media-type="application/vnd.ibexa.api.FieldDefinition+xml" href="/api/ezp/v2/content/types/2/fieldDefinitions/123">
+        <FieldDefinition media-type="application/vnd.ibexa.api.FieldDefinition+xml" href="/api/ibexa/v2/content/types/2/fieldDefinitions/123">
             <id>123</id>
             <identifier>enable_comments</identifier>
             <fieldType>ezboolean</fieldType>
@@ -154,7 +154,7 @@
             <fieldSettings/>
             <validatorConfiguration/>
         </FieldDefinition>
-        <FieldDefinition media-type="application/vnd.ibexa.api.FieldDefinition+xml" href="/api/ezp/v2/content/types/2/fieldDefinitions/154">
+        <FieldDefinition media-type="application/vnd.ibexa.api.FieldDefinition+xml" href="/api/ibexa/v2/content/types/2/fieldDefinitions/154">
             <id>154</id>
             <identifier>image</identifier>
             <fieldType>ezobjectrelation</fieldType>
