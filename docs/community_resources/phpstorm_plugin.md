@@ -207,7 +207,7 @@ To enable autocompletion, you must place the file in the `config` directory and 
 
 ### Dynamic settings autocompletion
 
-Parameter names suggestions are available in `Ibexa\Core\MVC\ConfigResolverInterface::{hasParameter,getParameter}` method calls.
+Parameter names suggestions are available in `Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface::{hasParameter,getParameter}` method calls.
 
 Suggested results take into account namespace argument, if its value can be resolved without running interpreter
 (for example, string literal or const reference).

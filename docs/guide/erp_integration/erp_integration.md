@@ -38,7 +38,7 @@ When ERP is offline, requests are immediately handled as an error.
 The following parameter sets the ERP offline time for 60 seconds before another request is sent. 
 
 ``` yaml
-siso_erp.erp_semaphore.max_lock_time: 60
+ibexa.commerce.site_access.config.erp.erp_semaphore.max_lock_time: 60
 ```
 
 ### Configuration for webservice-based ERPs
@@ -48,7 +48,7 @@ you can define the endpoint to the webservice per message.
 The parameter `webservice_url` can be set to the URL of the responsible webservice.  
 
 ``` yaml
-siso_erp.default.message_settings.createsalesorder:
+ibexa.commerce.site_access.config.erp.default.message_settings.createsalesorder:
     message_class: "Ibexa\\Bundle\\Commerce\\Eshop\\Entities\\Messages\\CreateSalesOrderMessage"
     response_document_class: "\\Ibexa\\Bundle\\Commerce\\Eshop\\Entities\\Messages\\Document\\OrderResponse"
     webservice_operation: "CreateSalesOrder"

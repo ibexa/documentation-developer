@@ -18,11 +18,11 @@ module.exports = (Encore) => {
 
 Use `<entry-name>` to refer to this configuration entry from Twig templates:
 
-`{{ encore_entry_script_tags('<entry-name>', null, 'ezplatform') }}`
+`{{ encore_entry_script_tags('<entry-name>', null, 'ibexa') }}`
 
 To import CSS files only, use:
 
-`{{ encore_entry_link_tags('<entry-name>', null, 'ezplatform') }}`
+`{{ encore_entry_link_tags('<entry-name>', null, 'ibexa') }}`
 
 !!! tip
 

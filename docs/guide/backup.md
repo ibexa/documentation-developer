@@ -9,7 +9,7 @@ You should always make sure that your solution is properly backed up. The follow
 1\. Navigate into the [[= product_name =]] directory:
  
 ```
-cd /path/to/ezplatform
+cd /path/to/ibexa
 ```
  
 2\. Clear all caches:
@@ -32,7 +32,7 @@ pg_dump -c --if-exists <database_name> > db_backup.sql
 4\. In parent directory create a tar archive of the files (including the DB dump) using the "tar" command:
 
 ```
-tar cfz backup_of_ezplatform.tar.gz ezplatform
+tar cfz backup_of_ibexa.tar.gz ibexa
 ```
 
-At this point, the file `backup_of_ezplatform.tar.gz` should contain a backup of DB and files.
+At this point, the file `backup_of_ibexa.tar.gz` should contain a backup of DB and files.

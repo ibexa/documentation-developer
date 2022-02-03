@@ -2,11 +2,11 @@
 
 namespace App\Controller;
 
-use eZ\Publish\API\Repository\ContentService;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion\ParentLocationId;
-use eZ\Publish\API\Repository\Values\Filter\Filter;
-use eZ\Publish\Core\MVC\Symfony\View\ContentView;
-use eZ\Bundle\EzPublishCoreBundle\Controller;
+use Ibexa\Contracts\Core\Repository\ContentService;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\ParentLocationId;
+use Ibexa\Contracts\Core\Repository\Values\Filter\Filter;
+use Ibexa\Core\MVC\Symfony\View\ContentView;
+use Ibexa\Bundle\Core\Controller;
 
 class CustomFilterController extends Controller
 {

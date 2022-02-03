@@ -43,7 +43,7 @@ Content-Type: application/vnd.ibexa.api.ContentInfo+xml
 ###### HTTP code
 
 The API responded here with a standard `200 OK` HTTP response code, which is the expected response code for a typical GET request.
-Some GET requests, like [getting a Content item's current version,](https://ezsystems.github.io/ezplatform-rest-reference/#managing-content-get-current-version) may return a `301 Moved permanently` or `307 Temporary redirect` code.
+Some GET requests, like [getting a Content item's current version,](rest_api_reference/rest_api_reference.html#managing-content-get-current-version) may return a `301 Moved permanently` or `307 Temporary redirect` code.
 
 Errors are indicated with HTTP error codes, e.g. `404 Not Found` or `500 Internal Server Error`.
 The [REST reference](rest_api_reference/rest_api_reference.html) provide the list of every HTTP response code you can expect from implemented resources.
@@ -71,7 +71,7 @@ REST will use the `Accept-Patch` header to indicate how to **modify** the return
 
 Depending on the resource, request and response headers will vary.
 
-For instance [creating Content](https://ezsystems.github.io/ezplatform-rest-reference/#managing-content-create-content-type) and [getting a Content item's current version](https://ezsystems.github.io/ezplatform-rest-reference/#managing-content-get-current-version)
+For instance [creating Content](rest_api_reference/rest_api_reference.html#managing-content-create-content-type) and [getting a Content item's current version](rest_api_reference/rest_api_reference.html#managing-content-get-current-version)
 will both send a **Location header** to provide you with the requested resource's ID.
 
 Those particular headers generally match a specific list of HTTP response codes.
@@ -81,7 +81,7 @@ Location is sent by `201 Created`, `301 Moved permanently`, `307 Temporary redir
 
 This request header is the request counterpart of the Location response header.
 It is used for a COPY or MOVE operation on a resource to indicate where the resource should be moved to by using the ID of the destination.
-An example of such a request is [copying a Content item](https://ezsystems.github.io/ezplatform-rest-reference/#managing-content-copy-content).
+An example of such a request is [copying a Content item](rest_api_reference/rest_api_reference.html#managing-content-copy-content).
 
 #### Response body
 

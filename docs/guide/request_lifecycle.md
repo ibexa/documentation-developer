@@ -72,9 +72,9 @@ The `ibexa.siteaccess_match_listener` service:
 
 - finds the current SiteAccess using the `SiteAccess\Router` (`Ibexa\Core\MVC\Symfony\SiteAccess\Router`) regarding the [SiteAccess Matching configurations](multisite/siteaccess_matching.md),
 - adds the current SiteAccess to the `Request` object's **`siteaccess`** attribute,
-- then dispatches the `ezpublish.siteaccess` event (`MVCEvents::SITEACCESS`).
+- then dispatches the `Ibexa\Core\MVC\Symfony\SiteAccess` event (`MVCEvents::SITEACCESS`).
 
-The `SiteAccessListener` (`Ibexa\Bundle\Core\EventListener\SiteAccessListener`) subscribes to this `ezpublish.siteaccess` event with top priority (priority 255).
+The `SiteAccessListener` (`Ibexa\Bundle\Core\EventListener\SiteAccessListener`) subscribes to this `Ibexa\Core\MVC\Symfony\SiteAccess` event with top priority (priority 255).
 The `SiteAccessListener` adds the **`semanticPathinfo`** attribute, the path without SiteAccess indications ([`URIElement`](multisite/siteaccess_matching.md#urielement), [`URIText`](multisite/siteaccess_matching.md#uritext),
 or [`Map\URI`](multisite/siteaccess_matching.md#mapuri) implementing the `URILexer` interface) to the request.
 
@@ -195,7 +195,7 @@ The `HttpKernel` sends the last `kernel.terminate` event (`KernelEvents::TERMINA
 * event=`kernel.request`
     - 45:`ibexa.siteaccess_match_listener`
         - `Ibexa\Core\MVC\Symfony\SiteAccess\Router`
-        - event=`ezpublish.siteaccess`
+        - event=`Ibexa\Core\MVC\Symfony\SiteAccess`
             - 255:`Ibexa\Bundle\Core\EventListener\SiteAccessListener`
     - 32:`router_listener`
         - `Ibexa\Core\MVC\Symfony\Routing\ChainRouter`
@@ -227,7 +227,7 @@ The `HttpKernel` sends the last `kernel.terminate` event (`KernelEvents::TERMINA
 | ----------------------- | ------------------------------------- | ------------------- | ------------- |
 |                         |  http_kernel                          |  pathInfo           |  /en/about    |
 |  kernel.request         |  ibexa.siteaccess_match_listener  |  siteaccess         |  en           |
-|  ezpublish.siteaccess   |  Ibexa\Bundle\Core\EventListener\SiteAccessListener        |  semanticPathinfo   |  /about       |
+|  Ibexa\Core\MVC\Symfony\SiteAccess   |  Ibexa\Bundle\Core\EventListener\SiteAccessListener        |  semanticPathinfo   |  /about       |
 |  kernel.request         |  router.default                       |  _route             |  N/A          |
 |  kernel.request         |  router.default                       |  _controller        |  N/A          |
 |  kernel.request         |  Ibexa\Bundle\Core\Routing\UrlAliasRouter            |  _route             |  ibexa.url.alias  |

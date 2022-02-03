@@ -10,7 +10,7 @@ Ibexa uses a regular git workflow, so if you are familiar with the concept, the 
 [[= product_name =]] is divided into meta-repositories.
 The core of our system is [`ibexa/core`](https://github.com/ibexa/core)
 containing an advanced Content Model and aiming to provide additional features for the MVC layer (Symfony).
-On the other hand, e.g. `ezplatform-admin-ui` is strictly dedicated to the Admin Panel purposes.
+On the other hand, e.g. `admin-ui` is strictly dedicated to the Admin Panel purposes.
 If you want to learn more about our code structure, take a look at [our organization page on GitHub](https://github.com/ibexa)
 or the list of [core bundles](../guide/bundles.md#core-packages).
 
@@ -18,7 +18,7 @@ After finishing your work, fork repository which you want to contribute to.
 Now you need to determine which version of the package your changes should target.
 If you plan to fix something in your current project, check `composer.json` for the version of the package and pick proper branch.
 
-For example: you added a `try { } catch () {}` statement fixing an annoying error in `ezplatform-admin-ui`
+For example: you added a `try { } catch () {}` statement fixing an annoying error in `admin-ui`
 and you are using version 2.5. You should aim for branch `1.5` then, as version `1.5.0` is used.
 
 Now you can follow the same procedure as in [Contributing through git](documentation.md#contributing-through-git).

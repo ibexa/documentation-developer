@@ -55,7 +55,7 @@ ibexa_io:
                 adapter: default
 ```
 
-The 'default' Flysystem adapter's directory is based on your site settings, and will automatically be set to `%webroot_dir%/$var_dir$/$storage_dir$` (for example: `/path/to/ezplatform/public/var/site/storage`).
+The 'default' Flysystem adapter's directory is based on your site settings, and will automatically be set to `%webroot_dir%/$var_dir$/$storage_dir$` (for example: `/path/to/ibexa/public/var/site/storage`).
 
 #### Configure the permissions of generated files
 
@@ -192,7 +192,7 @@ ibexa:
 
 One common use case is to use an optimized nginx to serve images in an optimized way. The example image
 above could be made available as `http://static.example.com/var/site/storage/images/3/6/4/6/6463-1-eng-GB/kidding.png`
-by setting up a separate server that maps the `/path/to/ezplatform/public/var` directory.
+by setting up a separate server that maps the `/path/to/ibexa/public/var` directory.
 The configuration would be as follows:
 
 ``` yaml
@@ -205,13 +205,13 @@ ibexa:
 
 !!! caution
 
-    For security reasons, do not map `/path/to/ezplatform/public/` as
+    For security reasons, do not map `/path/to/ibexa/public/` as
     Document Root of the static server.
-    Map the `/var/` directory directly to `/path/to/ezplatform/public/var` instead.
+    Map the `/var/` directory directly to `/path/to/ibexa/public/var` instead.
 
 ### Internals
 
-Any `BinaryFile` returned by the public API is prefixed with the value of this setting, internally stored as `ezsettings.scope.io.url_prefix`.
+Any `BinaryFile` returned by the public API is prefixed with the value of this setting, internally stored as `ibexa.site_access.config.scope.io.url_prefix`.
 
 #### `io.url_prefix` dynamic service container setting
 

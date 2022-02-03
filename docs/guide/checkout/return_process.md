@@ -14,10 +14,10 @@ The text modules that are used to render the footer can be configured per SiteAc
 
 ``` yaml
 parameters:
-    siso_core.default.identifier_footer_block_address: footer_block_address
-    siso_core.default.identifier_footer_block_company: footer_block_company
-    siso_core.default.identifier_footer_block_service: footer_block_service
-    siso_core.default.identifier_footer_block_ordering: footer_block_ordering
+    ibexa.commerce.site_access.config.core.default.identifier_footer_block_address: footer_block_address
+    ibexa.commerce.site_access.config.core.default.identifier_footer_block_company: footer_block_company
+    ibexa.commerce.site_access.config.core.default.identifier_footer_block_service: footer_block_service
+    ibexa.commerce.site_access.config.core.default.identifier_footer_block_ordering: footer_block_ordering
 ```
 
 ## Online cancellation form

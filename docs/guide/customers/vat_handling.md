@@ -34,6 +34,6 @@ If you disable **Display VAT**, the prices in the shop will be displayed without
 The same settings are available in configuration:
 
 ``` yaml
-ses.customer_profile_data.isPriceInclVat: true
-ses.customer_profile_data.setHasToPayVat: true
+ibexa.commerce.customer_profile_data.isPriceInclVat: true
+ibexa.commerce.customer_profile_data.setHasToPayVat: true
 ```

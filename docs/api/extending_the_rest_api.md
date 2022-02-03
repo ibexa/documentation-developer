@@ -44,7 +44,7 @@ To ensure that they do, in the `config/routes.yaml` file, import your routing fi
 ``` yaml
 my_rest_routes:
     resource: routes_rest.yaml
-    prefix: '%ezpublish_rest.path_prefix%'
+    prefix: '%ibexa.rest.path_prefix%'
 ```
 
 When you have a distinct file for the REST routes, you can apply the prefix to all the routes from this file, without affecting other routes.

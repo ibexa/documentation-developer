@@ -10,7 +10,7 @@ This awareness is accomplished by means of cache tagging. All supported reverse 
 
 ## Understanding cache tags
 
-Understanding tags is the key to making the most of `ezplatform-http-cache`.
+Understanding tags is the key to making the most ofIbexa's HTTP cache.
 
 Tags form a secondary set of keys assigned to every cache item, on top of the "primary key" which is the URI.
 Like an index in a database, a tag is typically used for anything relevant that represents the given cache item.
@@ -84,9 +84,9 @@ these cases as described above.
 ```yaml
 parameters:
     # Warning, setting this means you risk losing tag information, risking stale cache. Here set below 8k:
-    ezplatform.http_cache.tags.header_max_length: 7900
+    ibexa.http_cache.tags.header_max_length: 7900
     # In order to reduce risk of stale cache issues, you should set a lower TTL here then globally (here set as 2h)
-    ezplatform.http_cache.tags.header_reduced_ttl: 7200
+    ibexa.http_cache.tags.header_reduced_ttl: 7200
 ```
 
 ## Response tagging done with content view
@@ -103,7 +103,7 @@ If the given content has several Locations, you can see several `l<location-id>`
 
 !!! note "How response tagging for ContentView is done internally"
 
-    In `ezplatform-http-cache` there is a dedicated response listener `HttpCacheResponseSubscriber` that checks if:
+    In `ibexa/http-cache` there is a dedicated response listener `HttpCacheResponseSubscriber` that checks if:
     
     - the response has attribute `view`
     - the view implements `Ibexa\Core\MVC\Symfony\View\CachableView`
@@ -128,7 +128,7 @@ The `ConfigurableResponseCacheConfigurator` (`Ibexa\HttpCache\ResponseConfigurat
 
 ## The DispatcherTagger
 
-Accepts any value and passes it on to every tagger registered with the service tag `ezplatform.http_response_tagger`.
+Accepts any value and passes it on to every tagger registered with the service tag `ibexa.cache.http.response.tagger`.
 
 ## Response tagging in controllers
 
@@ -238,7 +238,7 @@ See [Tagging from Twig Templates](https://foshttpcachebundle.readthedocs.io/en/l
 
 ### Default purge tagging
 
-`ezplatform-http-cache` uses Repository API event subscribers to listen to events emitted on Repository operations,
+`ibexa/http-cache` uses Repository API event subscribers to listen to events emitted on Repository operations,
 and depending on the operation triggers expiry on a specific tag or set of tags.
 
 For example on the move Location event the following tags are purged:
@@ -258,7 +258,7 @@ For example on the move Location event the following tags are purged:
 ];
 ```
 
-All event subscribers can be found in `ezplatform-http-cache/src/EventSubscriber/CachePurge`.
+All event subscribers can be found in `http-cache/src/lib/EventSubscriber/CachePurge`.
 
 ### Custom purging from code
 

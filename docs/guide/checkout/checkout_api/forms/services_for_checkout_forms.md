@@ -77,7 +77,7 @@ By default, the comment box does not have a limit, but you can set a limit in co
 
 ``` yaml
 parameters:
-    siso_checkout.default.checkout_form_summary_max_length: 30
+    ibexa.commerce.site_access.config.checkout.default.checkout_form_summary_max_length: 30
 ```
 
 The mapping of the request order should be modified to unlimit the number of characters

@@ -56,7 +56,7 @@ ibexa:
 ```
 
 `ibexadesign` defines templates for your sites, so add them before continuing.
-Next, add the configuration for `ibexadesign` on the same level as `ezplatform`:
+Next, add the configuration for `ibexadesign` on the same level as `ibexa`:
 
 ``` yaml
 ibexa_design_engine:
@@ -191,7 +191,7 @@ Keep in mind that with disabled Site Factory you are unable to add new sites or 
 
 1\. In `config/packages/ibexa_site_factory.yaml` change `enabled` to `false`.
 
-2\. In `config/packages/ibexa.yaml` comment the `ezplatform.siteaccess.match: '@Ibexa\SiteFactory\SiteAccessMatcher': ~` if it is uncommented.
+2\. In `config/packages/ibexa.yaml` comment the `ibexa.siteaccess.match: '@Ibexa\SiteFactory\SiteAccessMatcher': ~` if it is uncommented.
 
 3\. Remove separate connection to database in `config/packages/doctrine.yaml`.
 

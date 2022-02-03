@@ -10,7 +10,7 @@ The name of the event is put together dynamically by a prefix and a suffix.
 - `ses_pre_execute_` - the event before the execution 
 - `ses_post_execute_` - the event after the execution
 
-The suffix is the ID of the `DataProcessor` service. An example for the service `ses_forms.create_ez_user` is:
+The suffix is the ID of the `DataProcessor` service. An example for the service `ibexa.commerce.site_access.config.forms.create_ez_user` is:
 
 - `ses_pre_execute_ses_forms.create_ez_user`
 - `ses_post_execute_ses_forms.create_ez_user`
