@@ -74,7 +74,7 @@ Then, when you call `/shop_functions/registration_private`, the `FormsController
 The configuration parameter must follow this syntax:
 
 ``` yaml
-ses_forms.configs.{formTypeResolver}
+ibexa.commerce.site_access.config.forms.configs.{formTypeResolver}
 ```
 
 `formTypeResolver` identifies the form and has a special function.
@@ -84,7 +84,7 @@ You can define the whole form behavior using configuration.
 In the following example, `formTypeResolver` value is `private`.
 
 ``` yaml
-    ses_forms.configs.private:
+    ibexa.commerce.site_access.config.forms.configs.private:
         modelClass: Ibexa\Bundle\Commerce\Eshop\Entities\Forms\RegisterPrivate
 #        typeClass: Ibexa\Bundle\Commerce\Eshop\Entities\Forms\Types\RegisterPrivateType
         typeService: Ibexa\Bundle\Commerce\Eshop\Entities\Forms\Types\RegisterPrivateType

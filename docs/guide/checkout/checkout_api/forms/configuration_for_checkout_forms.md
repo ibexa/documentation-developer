@@ -29,12 +29,12 @@ The choices for the delivery address depend on the user status.
     For example:
 
     ``` yaml
-    ses_forms.checkout_values:
+    ibexa.commerce.site_access.config.forms.checkout_values:
         deliveryAddressStatusCustomerNr:
             sameAsInvoice: use_invoice_as_delivery
             new: new_delivery existing:
             existing_delivery
 
-    ses_forms.checkout_preferred_choices:
+    ibexa.commerce.site_access.config.forms.checkout_preferred_choices:
         preferred_delivery_address_status_customer_nr: sameAsInvoice
     ```

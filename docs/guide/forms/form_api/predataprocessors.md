@@ -4,7 +4,7 @@ A pre-data processor is executed before a form is submitted. You can use one pre
 It pre-fills the form with data.
 
 ``` yaml
-ses_forms.configs.my_account:
+ibexa.commerce.site_access.config.forms.configs.my_account:
     preDataProcessor: Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\PreFillMyAccountDataProcessor
 ```
 
@@ -24,5 +24,5 @@ with the help of [`EzErpCustomerProfileDataService`](../../customers/customer_ap
 The `use_single_name_field` setting defines whether the first name and surname from the form are stored in one or two separate fields:
 
 ``` yaml
-ses_forms.default.use_single_name_field: true/false
+ibexa.commerce.site_access.config.forms.default.use_single_name_field: true/false
 ```

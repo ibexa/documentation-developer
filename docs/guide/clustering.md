@@ -130,7 +130,7 @@ This example uses Doctrine connection named `dfs`:
 
 ``` yaml
 parameters:
-    ibexa.platform.io.nfs.adapter.config:
+    ibexa.io.nfs.adapter.config:
         root: '%dfs_nfs_path%'
         path: '$var_dir$/$storage_dir$/'
         writeFlags: ~

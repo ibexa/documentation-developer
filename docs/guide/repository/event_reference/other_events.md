@@ -59,5 +59,5 @@ The following events are dispatched when changing the user settings available in
 |`FieldAttributeDefinitionEvent`|`FieldDefinitionFactory::getAttributesDefinitions`|`FieldAttributeDefinitionBuilder $definitionBuilder`</br>`array $configuration`|
 |`FieldDefinitionEvent`|`FieldDefinitionFactory::getFieldDefinition`|`FieldDefinitionBuilder $definitionBuilder`</br>`array $configuration`|
 |`FieldValidatorDefinitionEvent`|`FieldDefinitionFactory::getValidatorsDefinitions`|`FieldDefinitionBuilder $definitionBuilder`</br>`array $configuration`|
-|`FormActionEvent`|`HandleFormSubmission::handleFormSubmission`|`ContentView $contentView`</br>`EzPlatformFormBuilder\FieldType\Model\Form  $form`</br>`string $action`</br>`mixed  $data`|
-|`FormSubmitEvent`|`HandleFormSubmission::handleFormSubmission`|`ContentView $contentView`</br>`EzPlatformFormBuilder\FieldType\Model\Form $form`</br>`array $data`|
+|`FormActionEvent`|`HandleFormSubmission::handleFormSubmission`|`ContentView $contentView`</br>`Ibexa\Contracts\FormBuilder\FieldType\Model\Form  $form`</br>`string $action`</br>`mixed  $data`|
+|`FormSubmitEvent`|`HandleFormSubmission::handleFormSubmission`|`ContentView $contentView`</br>`Ibexa\Contracts\FormBuilder\FieldType\Model\Form $form`</br>`array $data`|

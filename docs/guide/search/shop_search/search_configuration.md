@@ -321,8 +321,8 @@ ibexa_commerce_search.default.image_filter_resolution: thumb_small
 
 ``` yaml
 parameters:
-    silver_econtent.default.section_filter: enabled
-    silver_econtent.default.catalog_filter_default_catalogcode:
+    sibexa.commerce.site_access.config.econtent.default.section_filter: enabled
+    ibexa.commerce.site_access.config.econtent.default.catalog_filter_default_catalogcode:
         - ALL
         - NORMAL
 ```

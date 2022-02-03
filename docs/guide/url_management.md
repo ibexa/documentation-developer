@@ -36,7 +36,7 @@ To enable automatic URL validation, set up cron to run the `ibexa:check-urls` co
 For example, to check links every week, add the following script:
 
 ```
-echo '0 0 * * 0 cd [path-to-ezplatform]; php bin/console ibexa:check-urls --quiet --env=prod' > ezp_cron.txt
+echo '0 0 * * 0 cd [path-to-ibexa]; php bin/console ibexa:check-urls --quiet --env=prod' > ezp_cron.txt
 ```
 
 Next, append the new cron to user's crontab without destroying existing crons.
@@ -54,7 +54,7 @@ rm ezp_cron.txt
 
 ### Configuration
 
-The configuration of external URLs validation is SiteAccess-aware and is stored in the `config/packages/ibexa.yaml` file, under the `ezplatform.system.<SITEACCESS>.url_checker` key, for example:
+The configuration of external URLs validation is SiteAccess-aware and is stored in the `config/packages/ibexa.yaml` file, under the `ibexa.system.<SITEACCESS>.url_checker` key, for example:
 
 ```yaml
 ibexa:
@@ -91,7 +91,7 @@ For details, see the tables below.
 |--------------------|---------------------------------------------------------------------|---------------|
 | enabled            | Enables link validation.                                            | true          |
 
-For more information about ezPlatform configuration, see [Configuration](configuration.md).
+For more information about Ibexa configuration, see [Configuration](configuration.md).
 
 ### Custom protocol support
 
@@ -138,7 +138,7 @@ For each URL alias definition the history of changes is preserved, so that users
 !!! note
 
     Make sure that you correctly define languages used by the site in the configuration 
-    (under the `ezplatform.system.<scope>.languages` key). 
+    (under the `ibexa.system.<scope>.languages` key). 
     Otherwise, redirections for the renamed Content with translations in multiple
     languages may fail to work properly.
 
@@ -155,7 +155,7 @@ the prefix path that results from the configured content root is prepended to th
 ### URL alias pattern configuration
 
 You can configure how [[= product_name =]] generates URL aliases.
-The configuration is stored in the `config/packages/ibexa.yaml` file, under the `ezplatform.url_alias.slug_converter` key, for example:
+The configuration is stored in the `config/packages/ibexa.yaml` file, under the `ibexa.url_alias.slug_converter` key, for example:
 
 ``` yaml
 ibexa:

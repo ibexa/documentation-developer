@@ -12,11 +12,11 @@ ibexa_commerce_search.default.index_econtent_languages:
     ger-DE: eng-GB
 ```
 
-`silver_econtent.<scope>.languages` defines the languages used for eContent per SiteAccess.
+`sibexa.commerce.site_access.config.econtent.<scope>.languages` defines the languages used for eContent per SiteAccess.
 Other languages present in the database are ignored.
 
 ``` yaml
-silver_econtent.ger.languages: [ ger-DE, eng-GB ]
+ibexa.commerce.site_access.config.econtent.ger.languages: [ ger-DE, eng-GB ]
 ```
 
 The second language specified is the fallback language.

@@ -62,7 +62,7 @@ SEARCH_ENGINE=elasticsearch
 
 [[= product_name =]] comes pre-configured to work with an Elasticsearch cluster that uses default settings, and you can use this initial setup for testing purposes.
 However, to effectively search through actual data, you must provide specific settings.
-All configuration is made in the `/config/packages/ezplatform_elastic_search_engine.yaml` file.
+All configuration is made in the `/config/packages/ibexa_elasticsearch.yaml` file.
 
 !!! note
 
@@ -459,7 +459,7 @@ Index names use the following pattern:
     `<repository>_<document_type>_<language_code>_<content_type_id>`
 
     By default, repository name is set to `default`, however, in the context of an [[= product_name =]] instance,
-    there can be [several repositories with different names](https://doc.ezplatform.com/en/latest/guide/config_repository/#defining-custom-connection).
+    there can be [several repositories with different names](../config_repository.md#defining-custom-connection).
     Document type can be either `content` or `location`.
     In a language code, hyphens are replaced with underscores, and all characters must be lowercase.
     An index name can therefore look like this:
@@ -508,7 +508,7 @@ For more information about mappings, see [Elasticsearch documentation](https://w
     When you create a custom index template, with settings for your own field and document
     types, make sure that it contains mappings for all searchable fields that are available in [[= product_name =]].
     For an example of default configuration with a list of searchable fields.
-    To see the default configuration, go to `vendor/ezsystems/ezplatform-elastic-search-engine/src/bundle/Resources/config/` and open the `default-config.yaml` file.
+    To see the default configuration, go to `vendor/ibexa/elasticsearch/src/bundle/Resources/config/` and open the `default-config.yaml` file.
 
 #### Fine-tuning the search results
 

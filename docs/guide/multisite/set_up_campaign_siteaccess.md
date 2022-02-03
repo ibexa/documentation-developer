@@ -8,7 +8,7 @@ The `campaign` site uses a different part of the content tree than the main site
 ## Configure SiteAccesses
 
 First, in the SiteAccess configuration in `config/packages/ibexa.yaml`,
-add the `campaign` SiteAccess to the list under `ezplatform.siteaccess`:
+add the `campaign` SiteAccess to the list under `ibexa.siteaccess`:
 
 ``` yaml
 ibexa:

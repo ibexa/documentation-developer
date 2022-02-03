@@ -70,11 +70,11 @@ and specify the URL that Varnish can be reached on (in `config/packages/ibexa.ya
 
 | Configuration | Parameter| Environment variable| Possible values|
 |---------|--------|--------|----------|
-| `ezplatform.http_cache.purge_type` | `purge_type` | `HTTPCACHE_PURGE_TYPE` | local, varnish, fastly |
-| `ezplatform.system.<scope>.http_cache.purge_servers` | `purge_server` | `HTTPCACHE_PURGE_SERVER` | Array of URLs to proxies when using Varnish or Fastly (`https://api.fastly.com`). |
-| `ezplatform.system.<scope>.http_cache.varnish_invalidate_token` | `varnish_invalidate_token` | `HTTPCACHE_VARNISH_INVALIDATE_TOKEN` | (Optional) For token-based authentication. |
-| `ezplatform.system.<scope>.http_cache.fastly.service_id` | `fastly_service_id` | `FASTLY_SERVICE_ID` | Service ID to authenticate with Fastly. |
-| `ezplatform.system.<scope>.http_cache.fastly.key` | `fastly_key` | `FASTLY_KEY` | Service key/token to authenticate with Fastly. |
+| `ibexa.http_cache.purge_type` | `purge_type` | `HTTPCACHE_PURGE_TYPE` | local, varnish, fastly |
+| `ibexa.system.<scope>.http_cache.purge_servers` | `purge_server` | `HTTPCACHE_PURGE_SERVER` | Array of URLs to proxies when using Varnish or Fastly (`https://api.fastly.com`). |
+| `ibexa.system.<scope>.http_cache.varnish_invalidate_token` | `varnish_invalidate_token` | `HTTPCACHE_VARNISH_INVALIDATE_TOKEN` | (Optional) For token-based authentication. |
+| `ibexa.system.<scope>.http_cache.fastly.service_id` | `fastly_service_id` | `FASTLY_SERVICE_ID` | Service ID to authenticate with Fastly. |
+| `ibexa.system.<scope>.http_cache.fastly.key` | `fastly_key` | `FASTLY_KEY` | Service key/token to authenticate with Fastly. |
 
 If you need to set multiple purge servers, configure them in the YAML configuration, 
 instead of parameter or environment variable, as they only take single string value.
@@ -127,7 +127,7 @@ you must make the following changes to the custom block template file:
 - include the JavaScript file:
 
 ``` js
-{{ encore_entry_script_tags('ezplatform-form-builder-ajax-captcha-js', null, 'ezplatform') }}
+{{ encore_entry_script_tags('ibexa-form-builder-ajax-captcha-js', null, 'ibexa') }}
 ```
 
 - add a data attribute with a `fieldId` value:

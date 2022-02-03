@@ -10,7 +10,7 @@ Bestsellers can be displayed on Landing Pages, category pages and a bestseller p
 To enable bestsellers, set the following parameter to true:
 
 ``` yaml
-siso_core.default.enable_bestsellers: true
+ibexa.commerce.site_access.config.core.default.enable_bestsellers: true
 ```
 
 The following settings are available in the eCommerce->Configuration Settings->Miscellaneous section in the Back Office:

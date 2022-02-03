@@ -70,8 +70,8 @@ And a new Country Form field:
 
 Field or field attribute definition can be modified by subscribing to one of the following events:
 
-- `ezplatform.form_builder.field.<FIELD_ID>`
-- `ezplatform.form_builder.field.<FIELD_ID>.<ATTRIBUTE_ID>`
+- `ibexa.form_builder.field.<FIELD_ID>`
+- `ibexa.form_builder.field.<FIELD_ID>.<ATTRIBUTE_ID>`
 
 The following example adds a `custom` string attribute to `single_line` field definition.
 
