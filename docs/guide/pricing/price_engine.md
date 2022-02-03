@@ -1,22 +1,21 @@
 # Price engine
 
-The price engine is responsible for calculating prices in the shop.
+The price engine is responsible for calculating prices for products in the [catalog](../catalog/catalog.md).
 
-It can, for example, calculate prices based on imported product information
-and the business logic of an ERP system. 
+## Custom pricing
 
-It can combine the ERP logic and a local price provider to get the best compromise between real-time data and shop performance.
-In addition, it offers fallbacks for when ERP is not available. 
+You can set up different prices depending on [customer groups](../user_management/customer_groups.md).
 
-## Price providers
+Each customer group can have a default price discount that applies to all products.
 
-The entry point for the price engine is [`ChainPriceService`](price_api/price_providers.md#chainpriceservice),
-which determines a chain of price providers that are responsible for calculating the prices. 
+You can also set different prices for specific products or product variants for different customer groups.
 
-In addition to prices, `ChainPriceService` can retrieve stock information,
-since the ERP systems usually provide this information in the price request. 
+## Currency
 
-|Provider|Logic|
-|--- |--- |
-|Shop price provider|Offers currency and customer group support|
-|Remote price engine|Gets prices from the ERP|
+[[= product_name =]] ships with a list of available currencies, and you can also add custom currencies.
+To use currencies in your shop, you need to first enable them in the Back Office.
+
+## VAT
+
+You can [configure VAT rate globally](../catalog/catalog_configuration.md#vat-rates) (per SiteAccess),
+or set it individually for each product type and product.

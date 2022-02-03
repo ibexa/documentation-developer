@@ -101,6 +101,24 @@ The more Role assignments and complex Policies you add for a given User, the mor
 || `create` |create Segment Groups|
 || `update` |update Segment Groups|
 || `remove` |remove Segment Groups|
+| `product` | `create` |create a product|
+|| `view` |view products|
+|| `edit` |edit a product|
+|| `delete` |delete a product|
+| `product_type` | `create` |create a product type|
+|| `view` |view product types|
+|| `edit` |edit a product type|
+|| `delete` |delete a product type|
+| `attribute_group` | `create` |create an attribute group|
+|| `view` |view attribute groups|
+|| `edit` |edit an attribute group|
+|| `delete` |delete an attribute group|
+| `commerce` | `currency` |manage currencies|
+| `commerce` | `region` |manage regions|
+| `customer_group` | `create` |create a customer group|
+|| `view` |view customer groups|
+|| `edit` |edit a customer group|
+|| `delete` |delete a customer group|
 |`siso_policy`</br>[[% include 'snippets/commerce_badge.md' %]]|`checkout`|access the checkout process|
 ||`edit_invoice`|edit invoice address|
 ||`edit_delivery`|edit delivery address|

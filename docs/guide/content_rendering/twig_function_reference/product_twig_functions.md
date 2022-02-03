@@ -81,27 +81,10 @@ You can also get the product objects by using the following Twig functions:
 
 `ibexa_commerce_product()` returns the product object identified by the passed arguments.
 
-Returns [OrderableProductNode](../../catalog/catalog_api/productnode.md) for products without variants,
-or [OrderableVariantNode](../../catalog/product_variants/product_variant_api.md#orderablevariantnode)
-for products with variants.
-
 | Argument | Type | Description |
 |-----|-----|-----|
 |`params`|`array`|Array of parameters of the product to return.|
 
 ``` html+twig
 {% set product = ibexa_commerce_product({'sku': 1234 }) %}
-{% set product_with_variants = ibexa_commerce_product({'sku': 1234, 'variantCode': '1234bb' }) }}
-```
-
-### `ibexa_commerce_variant_product_by_sku()`
-
-`ibexa_commerce_variant_product_by_sku()` returns the [VariantProductNode](../../catalog/product_variants/product_variant_api.md#variantproductnode) for a product based on its SKU.
-
-| Argument | Type | Description |
-|-----|-----|-----|
-|`sky`|`string`|SKU of the product.|
-
-``` html+twig
-{% set product = ibexa_commerce_variant_product_by_sku(1234) }}
 ```

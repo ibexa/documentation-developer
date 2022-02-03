@@ -26,6 +26,15 @@ ibexa:
                 user_settings_limit: 6
 ```
 
+You can configure the following settings to manage the pagination limits for the product catalog:
+
+``` yaml
+ezsettings.default.product_catalog.pagination.attribute_groups_limit: 25
+ezsettings.default.product_catalog.pagination.customer_groups_limit: 25
+ezsettings.default.product_catalog.pagination.products_limit: 25
+ezsettings.default.product_catalog.pagination.product_types_limit: 25
+```
+
 ## Default Locations
 
 Default Location IDs for [Content structure, Media and Users](content_management.md#top-level-locations) in the menu are configured using the following settings:

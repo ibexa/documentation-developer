@@ -20,6 +20,7 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Checkbox](field_types_reference/checkboxfield.md) | Stores a boolean value. | Yes | Yes |
 | [Content query](field_types_reference/contentqueryfield.md) | Maps an executable Repository query to a Field. | No | No |
 | [Country](field_types_reference/countryfield.md) | Stores country names as a string. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
+| [Customer group](field_types_reference/customergroupfield.md) | Stores customer group to which a user belongs.
 | [DateAndTime](field_types_reference/dateandtimefield.md) | Stores a full date including time information. | Yes | Yes |
 | [Date](field_types_reference/datefield.md) | Stores date information. | Yes | Yes  |
 | [EmailAddress](field_types_reference/emailaddressfield.md) | Validates and stores an email address. | Yes  | Yes  |
@@ -48,7 +49,6 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Time](field_types_reference/timefield.md) | Stores time information. | Yes | Yes |
 | [Url](field_types_reference/urlfield.md) | Stores a URL / address. | No | Yes |
 | [User](field_types_reference/userfield.md) | Validates and stores information about a user. | No | No |
-| [VariantType](field_types_reference/varianttype.md) | Stores variant data for products. | Yes | Yes |
 
 <a id="1-note-on-legacy-search-engine"></a>**^[1]^ Note on Legacy Search Engine**
 

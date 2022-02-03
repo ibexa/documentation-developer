@@ -201,3 +201,9 @@ The number of preserved archived versions is set in `ibexa.repositories.default.
 By default it is set to 5.
 
 A new version is also created when a new [language](internationalization.md) is added to the Content item.
+
+## Products
+
+Products are a special type of content that holds products you can manage in the commerce section of the system.
+
+See [Product catalog](catalog/catalog.md) for more information.
