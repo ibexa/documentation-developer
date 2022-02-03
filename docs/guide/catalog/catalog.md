@@ -1,15 +1,37 @@
-# Catalog
+# Product catalog
 
-Products in the catalog can be stored in the content model,
-or in optimized eContent storage, which is able to store up to two million products  
+The product catalog enables handling of products offered in the shop,
+including their specifications and pricing.
 
-A storage engine is responsible for handling products. It consists of:
+## Products
 
-- a catalog data provider which manages the access to the product data itself (e.g. access method using database queries)
-- a catalog factory which is responsible for building `CatalogNodes` and `ProductNodes`
+Products are a special type of content that contains typical content Fields
+as well as additional product information.
 
-## Product catalog objects
+Each product belongs to a product type (similar to how a Content item belongs to a Content Type).
 
-- A [`catalogElement`](catalog_api/catalog_element.md) represents a product group/category. It has a name, a code and a place in the catalog tree. It also can have additional Fields.
-- A [`productType`](catalog_api/producttype.md) represents a collection of similar products that differ only in some characteristics. It is used to show a list of products in a tabular way. Every product can be added to the basket directly from this overview page.
-- A [`productNode`](catalog_api/productnode.md) inherits from the `catalogElement` and offers additional attributes such as SKU, images, price and other attributes.
+## Product types
+
+Product types represent categories that a product can belong to.
+A product type can be, for example, a sofa or a keyboard.
+
+Product types, like Content Types, define the global properties of products and Fields a product consists of.
+A product type also defines the attributes that all products of this type can have.
+
+## Product attributes
+
+Product attributes provide different information about a product.
+Typical product attribute examples are: length, weight, color, format, and so on.
+
+The following attribute types are available:
+
+- Checkbox
+- Float
+- Integer
+- Selection
+
+Product attributes are collected in groups.
+An example of an attribute group can be dimensions (length, width, height).
+
+You can assign both whole attribute groups or individual attributes to a product type.
+

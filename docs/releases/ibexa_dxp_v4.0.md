@@ -2,7 +2,7 @@
 
 **Version number**: v4.0
 
-**Release date**: January 31, 2022
+**Release date**: February 4, 2022
 
 **Release type**: [Fast Track](../community_resources/release_process.md#release-process)
 
@@ -10,16 +10,20 @@
 
 ### New product catalog
 
-New product enables easy management of products, stock and prices.
+New product catalog enables easy management of products, stock and prices.
 
 Products are now organized into product types, each offering a specific set of attributes
 that you can use to provide information about a product.
 You can also set VAT rates per product type.
 
+![Product catalog](img/4.0_catalog.png)
+
 #### Price management
 
 You can now configure prices with discounts per product and per customer group.
 Separate currencies enable you to set different price rules for different currencies.
+
+![Price management](img/4.0_product_price.png "Managing prices in the new product catalog")
 
 ### Separate recommendations for different websites
 
@@ -41,7 +45,7 @@ For more information, see the [developer](../guide/workflow/workflow.md#draft-lo
 
 ### Enhanced GraphQL location handling
 
-Lorem ipsum
+GraphQL now enables better querying of Locations and URLs.
 
 ### Migration API
 

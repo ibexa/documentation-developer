@@ -191,6 +191,26 @@ Beyond that the following Limitations are available:
 
 - [Segment Group](limitation_reference.md#segment-group-limitation)
 
+#### Product
+
+`product/create`:
+
+- [Product Type](limitation_reference.md#product-type-limitation)
+- [Language](limitation_reference.md#language-limitation)
+
+`product/view`:
+
+- [Product Type](limitation_reference.md#product-type-limitation)
+
+`product/edit`:
+
+- [Product Type](limitation_reference.md#product-type-limitation)
+- [Language](limitation_reference.md#language-limitation)
+
+`product/delete`:
+
+- [Product Type](limitation_reference.md#product-type-limitation)
+
 ## Limitation reference
 
 See [Limitation reference](limitation_reference.md) for detailed information about individual Limitations.
