@@ -36,6 +36,10 @@ Separate currencies enable you to set different price rules for different curren
 
 ![Price management](img/4.0_product_price.png "Managing prices in the new product catalog")
 
+### Taxonomy management
+
+
+
 ### Separate recommendations for different websites
 
 Personalization service has been enhanced to allow returning separate recommendations 
@@ -54,6 +58,12 @@ so that only an assigned person can edit it, and no other user can take it over.
 
 For more information, see the [Draft locking](../guide/workflow/workflow.md#draft-locking)
 and the relevant [user documentation](https://doc.ibexa.co/projects/userguide/en/master/publishing/editorial_workflow/#draft-lock-release).
+
+### Online Editor is now based on CKEditor
+
+You can now edit content of RichText Fields using CKEditor and extend its functionality with many elements.
+
+For more information, see [Extend Online Editor](../extending/extending_online_editor.md).
 
 ### Enhanced GraphQL location handling
 
@@ -85,6 +95,10 @@ For more information, see [Forms](../guide/form_builder/forms.md#form-submission
 
 Commerce tab and all its features are now disabled by default.
 For more information, see [Enable Commerce features](../guide/config_back_office.md#enable-commerce-features).
+
+### External datasource handling
+
+Pesronalization has been given an option to fetch content feed from external sources.
 
 ### Category exclusion 
 
