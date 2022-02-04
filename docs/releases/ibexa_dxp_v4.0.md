@@ -38,7 +38,8 @@ Separate currencies enable you to set different price rules for different curren
 
 ### Taxonomy management
 
-
+You can now organize content adding tags and create taxonomy categories to make it easy for your 
+site users to browse and to deliver content appropriate for them.
 
 ### Separate recommendations for different websites
 
@@ -47,7 +48,7 @@ for different websites.
 This way you can eliminate irrelevant recommendations when you set up stores that 
 operate on different markets or under different brands.
 
-For more information, see [Support for multiple websites](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#hosting-multiple-websites).
+For more information, see [Support for multiple websites](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#multiple-website-hosting).
 
 ## Other changes
 
