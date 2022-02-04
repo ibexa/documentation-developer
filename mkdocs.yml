@@ -582,7 +582,9 @@ nav:
                 - '9. Other code updates': 'updating/from_2.5/update_code/9_update_other.md'
             - 'Update to v3.3': 'updating/from_2.5/to_3.3.md'
             - 'Update to latest v3.3': 'updating/from_2.5/to_3.3.latest.md'
-        - 'Update from v3.3': 'updating/from_3.3/update_from_3.3.md'
+        - Update from v3.3:
+            - 'Update to v3.3.latest': 'updating/from_3.3/update_from_3.3.md'
+            - 'Update to v4.0': 'updating/from_3.3/to_4.0.md'
         - Migrating to Ibexa DXP:
             - 'Migrating from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
             - 'Migrating from eZ Publish': 'migrating/migrating_from_ez_publish.md'
