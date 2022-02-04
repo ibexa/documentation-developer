@@ -25,6 +25,30 @@ which have been [renamed in this release](../../releases/ibexa_dxp_v4.0_deprecat
 
 Look through the old YAML files and move your custom configuration to the relevant new files.
 
+## Prepare new database tables
+
+For every database connection you have configured, perform the following steps:
+
+1. Run `php bin/console doctrine:schema:update --dump-sql --em=ibexa_{connection}`
+2. Check the queries and verify that they are safe and will not damage the data.
+3. Run `php bin/console doctrine:schema:update --dump-sql --em=ibexa_{connection} --force`
+
+Next, run the following commands to import necessary data migration scripts:
+
+``` bash
+php bin/console ibexa:migrations:import vendor/ibexa/taxonomy/src/bundle/Resources/install/migrations/content_types.yaml --name=000_taxonomy_content_types.yml
+php bin/console ibexa:migrations:import vendor/ibexa/taxonomy/src/bundle/Resources/install/migrations/sections.yaml --name=001_taxonomy_sections.yml
+php bin/console ibexa:migrations:import vendor/ibexa/taxonomy/src/bundle/Resources/install/migrations/content.yaml --name=002_taxonomy_content.yml
+php bin/console ibexa:migrations:import vendor/ibexa/taxonomy/src/bundle/Resources/install/migrations/permissions.yaml --name=003_taxonomy_permissions.yml
+```
+
+Run `php bin/console ibexa:migrations:migrate -v --dry-run` to ensure that all migrations are ready to be performed.
+If the dry run is successful, run:
+
+``` bash
+php bin/console ibexa:migrations:migrate
+```
+
 ## Update your custom code
 
 ### Add compatibility layer package
