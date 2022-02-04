@@ -25,8 +25,8 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 
 ## DBMS
 
-- MariaDB 10.3, 10.4 (optionally 10.2 - deprecated)
-- MySQL 8.0 (optionally 5.7 - deprecated)
+- MariaDB 10.3, 10.4
+- MySQL 8.0
 - PostgreSQL 10+
 
 ## PHP
