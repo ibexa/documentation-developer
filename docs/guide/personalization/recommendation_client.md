@@ -36,7 +36,12 @@ ibexa:
     system:
         <site_access_name_1>:
             personalization:
-                host_uri: <host_uri>
+                site_name: '<site_name>'
+                host_uri: '%env(PERSONALIZATION_HOST_URI)%'
+                authentication:
+                    customer_id: '%env(PERSONALIZATION_CUSTOMER_ID)%'
+                    license_key: '%env(PERSONALIZATION_LICENSE_KEY)%'
+                included_item_types: [ <item_type_1_identifier>, ...<item_type_n_identifier> ]
                 output_type_attributes:
                     <item_1_id>:
                         title: <item_1_title>
@@ -46,19 +51,19 @@ ibexa:
                         title: <item_n_title>
                         description: <item_n_description>
                         image: <item_n_image>
-                site_name: '<site_name>'
-                included_item_types: [ <item_type_1_identifier>, ...<item_type_n_identifier> ]
-                export:
-                    authentication:
-                        method: '<method_name>'
-                        login: '<login>'
-                        password: <password>
-                authentication:
-                    customer_id: <customer_id>
-                    license_key: <license_key>
         <site_access_name_2>:
             personalization:
-                host_uri: <host_uri>
+                site_name: '<site_name>'
+                host_uri: '%env(FRA_HOST_URI)%'
+                authentication:
+                    customer_id: '%env(FRA_CUSTOMER_ID)%'
+                    license_key: '%env(FRA_LICENSE_KEY)%'
+                export:
+                    authentication:
+                        method: 'user'
+                        login: '%env(FRA_CUSTOM_EXPORT_PASSWORD)%'
+                        password: <password>
+                included_item_types: [ <item_type_1_identifier>, ...<item_type_n_identifier> ]
                 output_type_attributes:
                     <item_1_id>:
                         title: <item_1_title>
@@ -68,16 +73,6 @@ ibexa:
                         title: <item_n_title>
                         description: <item_n_description>
                         image: <item_n_image>
-                site_name: '<site_name>'
-                included_item_types: [ <item_type_1_identifier>, ...<item_type_n_identifier> ]
-                export:
-                    authentication:
-                        method: '<method_name>'
-                        login: '<login>'
-                        password: <password>
-                authentication:
-                    customer_id: <customer_id>
-                    license_key: <license_key>
 ```
 
 !!! note "Authentication"
