@@ -81,7 +81,7 @@
                         <ul>
                             <li><a href="guide/content_rendering/render_content/render_content/">Content rendering</a></li>
                             <li><a href="guide/search/search/">Search</a></li>
-                            <li><a href="releases/ibexa_dxp_v3.3/">Releases</a></li>
+                            <li><a href="releases/ibexa_dxp_v4.0/">Releases</a></li>
                             <li><a href="api/public_php_api/">API</a></li>
                         </ul>
                     </div>
@@ -115,9 +115,9 @@
                 </div>
                 <div class="col-sm-7 features">
                     <ul>
-                        <li><a href="releases/ibexa_dxp_v4.0">New Back Office UI</a></li>
+                        <li><a href="releases/ibexa_dxp_v4.0/#redesigned-user-interface">New Back Office UI</a></li>
                         <li><a href="releases/ibexa_dxp_v4.0/#new-product-catalog">New product catalog</a></li>
-                        <li><a href="releases/ibexa_dxp_v4.0/#taxonomy">Taxonomy</a></li>
+                        <li><a href="releases/ibexa_dxp_v4.0/#taxonomy-management">Taxonomy</a></li>
                         <li><a href="releases/ibexa_dxp_v4.0/#migration-api">Data migration PHP API</a></li>
                         <li><a href="releases/ibexa_dxp_v4.0/#separate-recommendations-for-different-websites">Multi-site recommendations</a></li>
                     </ul>
