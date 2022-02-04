@@ -8,6 +8,17 @@
 
 ## Notable changes
 
+### Redesigned user interface
+
+The the Back Office has undergone a complete redesign, including revised look and feel,
+simplified navigation and more streamlined workflows.
+
+![New UI](img/4.0_new_ui.png)
+
+!!! tip
+
+    Read more about the rationale and process for the redesign on [Ibexa blog](https://www.ibexa.co/blog/ibexa-dxp-v4.0-preview-redesigned-user-interface-elevates-the-user-experience).
+
 ### New product catalog
 
 New product catalog enables easy management of products, stock and prices.
@@ -41,7 +52,8 @@ For more information, see [Support for multiple websites](https://doc.ibexa.co/p
 You can now configure and use the locking feature to lock a draft of a Content item, 
 so that only an assigned person can edit it, and no other user can take it over. 
 
-For more information, see the [developer](../guide/workflow/workflow.md#draft-locking) and the [user](https://doc.ibexa.co/projects/userguide/en/master/publishing/editorial_workflow/#draft-locking) documentation.
+For more information, see the [Draft locking](../guide/workflow/workflow.md#draft-locking)
+and the relevant [user documentation](https://doc.ibexa.co/projects/userguide/en/master/publishing/editorial_workflow/#draft-lock-release).
 
 ### Enhanced GraphQL location handling
 
@@ -49,7 +61,7 @@ GraphQL now enables better querying of Locations and URLs.
 
 ### Migration API
 
-You can now manage [data migrations](../guide/data_migration.md) by using the PHP API,
+You can now manage [data migrations](../guide/data_migration/data_migration.md) by using the PHP API,
 including getting migration information and running individual migration files.
 
 See [Managing migrations](../api/public_php_api_managing_migrations.md) for more information.
@@ -72,12 +84,12 @@ For more information, see [Forms](../guide/form_builder/forms.md#form-submission
 ### Hidden eCommerce features
 
 Commerce tab and all its features are now disabled by default.
-For more information, see [Enable Commerce features](../guide/config_back_office.md/#enable-commerce-features).
+For more information, see [Enable Commerce features](../guide/config_back_office.md#enable-commerce-features).
 
 ### Category exclusion 
 
 Personalization service has been enhanced with a feature which allows to exclude categories from the recommendation response.
-See [Exclusions](https://doc.ibexa.co/projects/userguide/en/master/personalization/filters/#exclusions)
+See [Exclusions](https://doc.ibexa.co/projects/userguide/en/master/personalization/filters/#exclusions).
 
 ## Deprecations
 
@@ -90,8 +102,6 @@ Refer to [Ibexa DXP v4.0 deprecations and backwards compatibility breaks](ibexa_
 for full details of changes and how they influence your project.
 
 ## Full changelog
-
-See [list of changes in Symfony 5.3.](https://symfony.com/blog/symfony-5-3-3-released)
 
 | Ibexa Content  | Ibexa Experience  | Ibexa Commerce |
 |--------------|------------|------------|
