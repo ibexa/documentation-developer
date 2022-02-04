@@ -2,7 +2,7 @@
     <div class="row">
         <h1>Ibexa developer documentation</h1>
     </div>
-    <div class="row mt-5 pb-4">
+    <div class="row">
         <div class="col-lg px-2 px-lg-4">
             <div class="tile">
                 <div class="row">
@@ -60,7 +60,7 @@
                         <ul>
                             <li><a href="guide/content_rendering/">Content rendering</a></li>
                             <li><a href="guide/search/search/">Search</a></li>
-                            <li><a href="releases/ibexa_dxp_v3.3/">Releases</a></li>
+                            <li><a href="releases/ibexa_dxp_v4.0/">Releases</a></li>
                             <li><a href="api/public_php_api/">API</a></li>
                         </ul>
                     </div>
@@ -78,28 +78,27 @@
                 </svg>
             </h5>
                 <ul>
-                    <li><a href="guide/content_rendering/twig_function_reference/twig_functions_reference/">Twig functions</a></li>
-                    <li><a href="guide/cache/http_cache/">HTTP cache</a></li>
-                    <li><a href="guide/search/solr/">Solr search engine</a></li>
                     <li><a href="guide/images/">Images</a></li>
+                    <li><a href="guide/content_rendering/twig_function_reference/twig_functions_reference/">Twig functions</a></li>
+                    <li><a href="guide/search/search_criteria_reference">Search criteria reference</a></li>
+                    <li><a href="guide/search/solr/">Solr search engine</a></li>
                 </ul>
         </div>
         <div class="col-lg-8 mb-5 latest-release">
             <h5>
                 The latest release
-                <span class="pill">v3.3</span>
+                <span class="pill">v4.0</span>
             </h5>
             <div class="row mt-3">
-                <div class="col-lg-5">The <a href="releases/ibexa_dxp_v3.3/">latest version of Ibexa DXP is v3.3</a>. It is a Long Term Support release, and it was released on January 18, 2021.
+                <div class="col-lg-5">The <a href="releases/ibexa_dxp_v4.0/">latest version of Ibexa DXP is v4.0</a>. It is a Fast Track release, and it was released on January 31, 2022.
                 </div>
                 <div class="col-sm-7 features">
                     <ul>
-                        <li><a href="releases/ibexa_dxp_v3.3/#new-personalization-ui">New Personalization UI</a></li>
-                        <li><a href="releases/ibexa_dxp_v3.3/#symfony-flex">Symfony Flex</a></li>
-                        <li><a href="releases/ibexa_dxp_v3.3/#image-editor">Image Editor</a></li>
-                        <li><a href="releases/ibexa_dxp_v3.3/#migration-bundle">Migration bundle</a></li>
-                        <li><a href="releases/ibexa_dxp_v3.3/#extended-search-api-capabilities">Search API improvements</a></li>
-                        <li><a href="releases/ibexa_dxp_v3.3/#query-field-location-handling">Query Field Location handling</a></li>
+                        <li><a href="releases/ibexa_dxp_v4.0/#redesigned-user-interface">New Back Office UI</a></li>
+                        <li><a href="releases/ibexa_dxp_v4.0/#new-product-catalog">New product catalog</a></li>
+                        <li><a href="releases/ibexa_dxp_v4.0/#taxonomy-management">Taxonomy</a></li>
+                        <li><a href="releases/ibexa_dxp_v4.0/#migration-api">Data migration PHP API</a></li>
+                        <li><a href="releases/ibexa_dxp_v4.0/#separate-recommendations-for-different-websites">Multi-site recommendations</a></li>
                     </ul>
                 </div>
             </div>
