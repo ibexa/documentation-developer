@@ -45,11 +45,9 @@ ibexa:
                 output_type_attributes:
                     <item_1_id>:
                         title: <item_1_title>
-                        description: <item_1_description>
                         image: <item_1_image>
                     <item_n_id>:
                         title: <item_n_title>
-                        description: <item_n_description>
                         image: <item_n_image>
         <site_access_name_2>:
             personalization:
@@ -61,17 +59,15 @@ ibexa:
                 export:
                     authentication:
                         method: 'user'
-                        login: '%env(FRA_CUSTOM_EXPORT_PASSWORD)%'
-                        password: <password>
+                        login: '%env(FRA_CUSTOM_EXPORT_LOGIN)%'
+                        password: '%env(FRA_CUSTOM_EXPORT_PASSWORD)%'
                 included_item_types: [ <item_type_1_identifier>, ...<item_type_n_identifier> ]
                 output_type_attributes:
                     <item_1_id>:
                         title: <item_1_title>
-                        description: <item_1_description>
                         image: <item_1_image>
                     <item_n_id>:
                         title: <item_n_title>
-                        description: <item_n_description>
                         image: <item_n_image>
 ```
 
