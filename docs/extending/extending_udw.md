@@ -42,10 +42,6 @@ const config = /* fetch the config somewhere */;
 <UniversalDiscoveryModule {...props} {...config} />
 ```
 
-## Add new tabs to UDW
-
-The Universal Discovery Widget enables you to add new tabs to the module. To learn how to add new tabs, see [Creating a UDW tab tutorial](adding_tab_to_udw.md).
-
 ## Configuration
 
 You can configure UDW in the [`universal_discovery_widget.yaml`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/config/universal_discovery_widget.yaml) file.

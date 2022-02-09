@@ -529,7 +529,6 @@ nav:
         - 'Customize calendar': 'extending/customize_calendar.md'
         - Browser:
             - 'Browser': 'extending/extending_udw.md'
-            - 'Add browser tab': 'extending/adding_tab_to_udw.md'
         - 'Multi-file upload': 'extending/extending_multifile_upload.md'
         - 'Sub-items list': 'extending/extending_subitems_list.md'
     - Resources and community:
