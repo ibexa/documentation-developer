@@ -27,9 +27,8 @@ In this step you'll create the first Content Type, Ride.
 
 Go to the admin interface (`<yourdomain>/admin`) and log in with the default username: `admin` and the default password: `publish`. 
 
-Go to **Admin** in the top bar and choose **Content Types** in the sub menu:
+Go to **Content** in the left side menu and choose **Content Types**.
 
-![Navigation hub](img/bike_tutorial_nav_hub.png)
 
 You will see a list of **Content Type Groups**. They are used to group Content Types in a logical way.
 
