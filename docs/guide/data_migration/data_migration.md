@@ -22,4 +22,4 @@ between installations by using the migration command.
 
 ### Example of using migration
 
-You can find an example of using migrations with actions in the folder **vendor/ibexa/migrations/tests/bundle/Command/MigrateCommand/migrate-command-fixtures**
+You can find examples of using migrations with actions in the folder **vendor/ibexa/migrations/tests/bundle/Command/MigrateCommand/migrate-command-fixtures**
