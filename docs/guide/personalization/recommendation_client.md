@@ -32,28 +32,43 @@ of the site, provide the credentials that correspond to each of the sites.
 The configuration can resemble the following example:
 
 ``` yaml
-ibexa_personalization_client:
+ibexa:
     system:
         <site_access_name_1>:
-            site_name: '<site_name_1>' # For example 'ENU store'
-            host_uri: '%env(RECOMMENDATION_HOST_URI)%'
-            authentication:
-                customer_id: '%env(RECOMMENDATION_CUSTOMER_ID)%'
-                license_key: '%env(RECOMMENDATION_LICENSE_KEY)%'
-            included_item_types: [product, article]
-
-        <site_access_name_2>:
-            site_name: '<site_name_2>' # For example 'FRA store'
-            host_uri: '%env(FRA_HOST_URI)%'
-            authentication:
-                customer_id: '%env(FRA_CUSTOMER_ID)%'
-                license_key: '%env(FRA_LICENSE_KEY)%'
-            export:
+            personalization:
+                site_name: '<site_name>'
+                host_uri: '%env(PERSONALIZATION_HOST_URI)%'
                 authentication:
-                    method: 'user'
-                    login: '%env(FRA_CUSTOM_EXPORT_LOGIN)%'
-                    password: '%env(FRA_CUSTOM_EXPORT_PASSWORD)%'
-                included_item_types: [product, article]
+                    customer_id: '%env(PERSONALIZATION_CUSTOMER_ID)%'
+                    license_key: '%env(PERSONALIZATION_LICENSE_KEY)%'
+                included_item_types: [ <item_type_1_identifier>, ...<item_type_n_identifier> ]
+                output_type_attributes:
+                    <item_1_id>:
+                        title: <item_1_title>
+                        image: <item_1_image>
+                    <item_n_id>:
+                        title: <item_n_title>
+                        image: <item_n_image>
+        <site_access_name_2>:
+            personalization:
+                site_name: '<site_name>'
+                host_uri: '%env(FRA_HOST_URI)%'
+                authentication:
+                    customer_id: '%env(FRA_CUSTOMER_ID)%'
+                    license_key: '%env(FRA_LICENSE_KEY)%'
+                export:
+                    authentication:
+                        method: 'user'
+                        login: '%env(FRA_CUSTOM_EXPORT_LOGIN)%'
+                        password: '%env(FRA_CUSTOM_EXPORT_PASSWORD)%'
+                included_item_types: [ <item_type_1_identifier>, ...<item_type_n_identifier> ]
+                output_type_attributes:
+                    <item_1_id>:
+                        title: <item_1_title>
+                        image: <item_1_image>
+                    <item_n_id>:
+                        title: <item_n_title>
+                        image: <item_n_image>
 ```
 
 !!! note "Authentication"
