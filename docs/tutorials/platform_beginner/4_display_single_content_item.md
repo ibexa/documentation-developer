@@ -69,7 +69,7 @@ This template reuses `main_layout.html.twig` and again places the template in a 
 
 Now you need to indicate when this template should be used.
 
-Go back to `config/packages/ezplatform.yaml` and add the following configuration (under the existing `content_view` and `full` keys:):
+Go back to `config/packages/ibexa.yaml` and add the following configuration (under the existing `content_view` and `full` keys:):
 
 ``` yaml
 site:
