@@ -1,0 +1,22 @@
+ibexa:
+    system:
+        default:
+            image_variations:
+                dog_breed_full:
+                    reference: null
+                    filters:
+                        - {name: geometry/scalewidthdownonly, params: [500]}
+                article_full:
+                    reference: null
+                    filters:
+                        - {name: geometry/scalewidthdownonly, params: [1140]}
+                        - {name: geometry/crop, params: [1140, 300, 0, 100]}
+                content_list:
+                    reference: null
+                    filters:
+                        - { name: geometry/scaleheightdownonly, params: [ 81 ] }
+                        - { name: geometry/crop, params: [ 80, 80, 0, 0 ] }
+                featured_article:
+                    reference: null
+                    filters:
+                        - { name: geometry/scaleheightdownonly, params: [ 200 ] }

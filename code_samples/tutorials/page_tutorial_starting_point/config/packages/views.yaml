@@ -1,0 +1,32 @@
+ibexa:
+    system:
+        site:
+            page_layout: pagelayout.html.twig
+            user:
+                layout: pagelayout.html.twig
+
+            content_view:
+                full:
+                    dog_breed:
+                        template: full/dog_breed.html.twig
+                        match:
+                            Identifier\ContentType: dog_breed
+                    tip:
+                        template: full/tip.html.twig
+                        match:
+                            Identifier\ContentType: tip
+                    article:
+                        template: full/article.html.twig
+                        match:
+                            Identifier\ContentType: article
+                    folder:
+                        controller: ibexa_query:locationQueryAction
+                        template: full/folder.html.twig
+                        match:
+                            Identifier\ContentType: folder
+                        params:
+                            query:
+                                query_type: Children
+                                parameters:
+                                    content: "@=content"
+                                assign_results_to: items

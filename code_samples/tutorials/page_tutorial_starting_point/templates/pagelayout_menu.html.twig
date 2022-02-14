@@ -1,0 +1,5 @@
+{% if menuItems is defined and menuItems is not empty %}
+    {% for item in menuItems %}
+        <li><a href="{{ ibexa_path(item.valueObject) }}">{{ ibexa_content_name(item.valueObject.contentInfo) }}</a></li>
+    {% endfor %}
+{% endif %}

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="{{ app.request.locale|replace({'_': '-'}) }}">
+<head>
+    <link rel="icon" type="image/x-icon" href="{{ asset('bundles/ibexaadminui/img/favicon.ico') }}" />
+    <meta charset="utf-8">
+    {% if content is defined and title is not defined %}
+        {% set title = ibexa_content_name( content ) %}
+    {% endif %}
+    <title>{{ title|default( 'Home' ) }}</title>
+    <meta name="generator" content="Ibexa DXP"/>
+    {% if content is defined and content.contentInfo.mainLocationId %}
+        <link rel="canonical" href="{{ ibexa_path(content) }}" />
+    {% endif %}
+
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+</body>
+</html>

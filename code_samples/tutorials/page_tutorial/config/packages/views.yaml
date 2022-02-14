@@ -1,0 +1,44 @@
+ibexa:
+    system:
+        site:
+            page_layout: pagelayout.html.twig
+            user:
+                layout: pagelayout.html.twig
+
+            field_templates:
+                - { template: fields/form_field.html.twig, priority: 30 }
+
+            content_view:
+                full:
+                    dog_breed:
+                        template: full/dog_breed.html.twig
+                        match:
+                            Identifier\ContentType: dog_breed
+                    tip:
+                        template: full/tip.html.twig
+                        match:
+                            Identifier\ContentType: tip
+                    article:
+                        template: full/article.html.twig
+                        match:
+                            Identifier\ContentType: article
+                    folder:
+                        controller: ibexa_query:locationQueryAction
+                        template: full/folder.html.twig
+                        match:
+                            Identifier\ContentType: folder
+                        params:
+                            query:
+                                query_type: Children
+                                parameters:
+                                    content: "@=content"
+                                assign_results_to: items
+                    landing_page:
+                        template: full/landing_page.html.twig
+                        match:
+                            Identifier\ContentType: landing_page
+                featured:
+                    article:
+                        template: featured/article.html.twig
+                        match:
+                            Identifier\ContentType: article

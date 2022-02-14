@@ -1,0 +1,23 @@
+{% extends 'pagelayout.html.twig' %}
+
+{% block content %}
+  <h2 class="heading">{{ ibexa_content_name(content) }}</h2>
+  <div class="col-md-12">
+    <div class="attribute-image">
+      {{ ibexa_render_field(content, 'image', {
+        'parameters': {
+          'alias': 'article_full',
+          'class': 'img-responsive'
+        }
+      }) }}
+    </div>
+  </div>
+  <div class="col-md-10 col-md-offset-1">
+    <div class="lead article-lead">
+      {{ ibexa_render_field(content, 'intro') }}
+    </div>
+    <div class="article-body">
+      {{ ibexa_render_field(content, 'body') }}
+    </div>
+  </div>
+{% endblock %}
