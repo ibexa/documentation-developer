@@ -59,9 +59,12 @@ In contrast with Kaliop migrations, actions provide you with ability to perform 
 the migration functionality. 
 See [creating your own Actions](create_migration_action.md).
 
-## Examples of how to use actions
+## Action usage examples
 
-### Actions for Content
+You can find examples of using migrations with actions in your project's
+`vendor/ibexa/migrations/tests/bundle/Command/MigrateCommand/migrate-command-fixtures` folder.
+
+### Content
 
 mode: Create
 ``` yaml
@@ -78,7 +81,7 @@ mode: Update
         - { action: assign_section, identifier: 'media' }
 ```
 
-### Actions for Content Type
+### Content Types
 
 mode: Create
 ``` yaml
@@ -95,7 +98,7 @@ mode: Update
         - { action: remove_drafts, value: null }
 ```
 
-### Actions for Role
+### Roles
 
 mode: Create and Update
 ``` yaml
@@ -117,7 +120,7 @@ mode: Create and Update
             login: foo
 ```
 
-### Actions for User
+### Users
 
 mode: Create and Update
 ``` yaml
@@ -137,7 +140,7 @@ mode: Create and Update
                     - 1
 ```
 
-### Actions for User Group
+### User Groups
 
 mode: Create and Update
 ``` yaml
