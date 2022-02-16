@@ -234,3 +234,14 @@ Run the following scripts:
     ``` sql
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.8-to-3.3.9.sql
     ```
+
+### 3.3.15
+
+Adapt your `composer.json` file according to [`manifest.json`](https://github.com/ibexa/recipes/blob/master/ibexa/commerce/3.3.x-dev/manifest.json#L167-L168), by adding the following lines:
+
+``` json hl_lines="2-3"
+"yarn install": "script",
+"ibexa:encore:compile --config-name app": "symfony-cmd",
+"bazinga:js-translation:dump %PUBLIC_DIR%/assets --merge-domains": "symfony-cmd",
+"ibexa:encore:compile": "symfony-cmd"
+```
