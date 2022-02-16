@@ -134,13 +134,22 @@ Update your configuration, if it applies.
 
 ## Finish update
 
+Adapt your `composer.json` file according to [`manifest.json`](https://github.com/ibexa/recipes/blob/master/ibexa/commerce/4.0.x-dev/manifest.json#L170-L171), by adding the following lines:
+
+``` json hl_lines="2-3"
+"yarn install": "script",
+"ibexa:encore:compile --config-name app": "symfony-cmd",
+"bazinga:js-translation:dump %PUBLIC_DIR%/assets --merge-domains": "symfony-cmd",
+"ibexa:encore:compile": "symfony-cmd"
+```
+
 Then, finish the update process:
 
 ``` bash
 composer run post-install-cmd
 ```
 
-Finnaly, generate the new GraphQl schema:
+Finally, generate the new GraphQl schema:
 
 ``` bash
 php bin/console ibexa:graphql:generate-schema
