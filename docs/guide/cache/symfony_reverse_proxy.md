@@ -63,6 +63,14 @@ framework:
     Make sure that **all** traffic always comes from the trusted proxy/load balancer,
     and that there is no other way to configure it.
 
+When using Fastly, you need to set ```trusted_proxies``` according to the [IP ranges used by fastly](https://docs.fastly.com/en/guides/accessing-fastlys-ip-ranges).
+
+!!! tip
+
+    There is no need for setting ```trusted_proxies``` when using Fastly on Platform.sh. The Platform.sh router will
+    automatically change the source IP of requests comming from Fastly, replacing the source IP with the actuall client
+    IP and remove any X-FORWARD-... header in the request before it reaches Ibexa DXP.
+
 For more information about setting these variables, see [Examples for configuring eZ Platform](#examples-for-configuring-ibexa-dxp).
 
 ### Update YML configuration
