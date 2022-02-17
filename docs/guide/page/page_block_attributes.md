@@ -78,7 +78,7 @@ my_application.block.attribute.my_string:
     arguments:
         $formTypeClass: App\Block\Attribute\MyStringAttributeType
     tags:
-        - { name: ibexa.page_builder.attribute_form_type_mapper, alias: my_string }
+        - { name: ibexa.page_builder.form_type_attribute.mapper, alias: my_string }
 ```
 
 #### Custom mapper
@@ -95,7 +95,7 @@ Then, add a new service definition for your mapper to `config/services.yaml`:
 ``` yaml
 App\Block\Attribute\MyStringAttributeMapper:
         tags:
-            - { name: ibexa.page_builder.attribute_form_type_mapper, alias: my_string }
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: my_string }
 ```
 
 ### Edit templates

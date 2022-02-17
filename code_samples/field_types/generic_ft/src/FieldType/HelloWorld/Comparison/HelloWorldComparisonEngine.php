@@ -6,12 +6,12 @@ namespace App\FieldType\HelloWorld\Comparison;
 
 use Ibexa\Contracts\VersionComparison\FieldType\FieldTypeComparisonValue;
 use Ibexa\Contracts\VersionComparison\Engine\FieldTypeComparisonEngine;
-use Ibexa\VersionComparison\ComparisonValue\StringComparisonEngine;
+use Ibexa\VersionComparison\Engine\Value\StringComparisonEngine;
 use Ibexa\Contracts\VersionComparison\Result\ComparisonResult;
 
 final class HelloWorldComparisonEngine implements FieldTypeComparisonEngine
 {
-    /** @var \Ibexa\VersionComparison\ComparisonValue\StringComparisonEngine */
+    /** @var \Ibexa\VersionComparison\Engine\Value\StringComparisonEngine */
     private $stringValueComparisonEngine;
 
     public function __construct(StringComparisonEngine $stringValueComparisonEngine)
@@ -20,8 +20,8 @@ final class HelloWorldComparisonEngine implements FieldTypeComparisonEngine
     }
 
     /**
-     * @param \Ibexa\Contracts\VersionComparison\FieldType\TextLine\Value $comparisonDataA
-     * @param \Ibexa\Contracts\VersionComparison\FieldType\TextLine\Value $comparisonDataB
+     * @param \Ibexa\VersionComparison\FieldType\TextLine\Value $comparisonDataA
+     * @param \Ibexa\VersionComparison\FieldType\TextLine\Value $comparisonDataB
      */
     public function compareFieldsTypeValues(FieldTypeComparisonValue $comparisonDataA, FieldTypeComparisonValue $comparisonDataB): ComparisonResult
     {

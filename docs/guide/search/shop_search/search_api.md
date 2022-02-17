@@ -4,17 +4,17 @@
 
 The following interfaces represent the entry point for search:
 
-- `Siso\Bundle\SearchBundle\Api\EshopContentSearchInterface`
-- `Siso\Bundle\SearchBundle\Api\EshopCatalogSearchInterface`
-- `Siso\Bundle\SearchBundle\Api\EshopProductSearchInterface`
+- `Ibexa\Bundle\Commerce\Search\Api\EshopContentSearchInterface`
+- `Ibexa\Bundle\Commerce\Search\Api\EshopCatalogSearchInterface`
+- `Ibexa\Bundle\Commerce\Search\Api\EshopProductSearchInterface`
 
 ### EshopQuery
 
-`Siso\Bundle\SearchBundle\Api\EshopQuery` is the value object class for all search query parameters.
+`Ibexa\Bundle\Commerce\Search\Api\EshopQuery` is the value object class for all search query parameters.
 
 ### SearchContext
 
-The current controller implementation for the eshop search uses a service call to instantiate the `SearchContext`: `\Siso\Bundle\SearchBundle\Service\SearchContextService`.
+The current controller implementation for the eshop search uses a service call to instantiate the `SearchContext`: `Ibexa\Bundle\Commerce\Search\Service\SearchContextService`.
 It has the service ID: `Ibexa\Bundle\Commerce\Search\Service\SearchContextService`.
 To change the default implementation, override this service.
 

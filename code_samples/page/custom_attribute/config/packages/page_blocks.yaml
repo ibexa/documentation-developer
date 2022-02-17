@@ -3,7 +3,7 @@ ibexa_fieldtype_page:
         my_block:
             name: MyBlock
             category: default
-            thumbnail: /bundles/ibexaplatformicons/img/all-icons.svg#edit
+            thumbnail: /bundles/ibexaicons/img/all-icons.svg#edit
             views:
                 default: 
                     name: Default block layout
