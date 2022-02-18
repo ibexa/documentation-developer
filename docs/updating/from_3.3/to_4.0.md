@@ -13,6 +13,13 @@ See [a list of all changed namespaces, configuration key, service names, and oth
 
 An additional compatibility layer makes the process of updating your code easier.
 
+!!! note "Symfony 5.4"
+
+    If you are using Symfony 5.3, you need to update your installation to Symfony 5.4.
+    To do this, update your composer.json to refer to `5.4.*` instead or `5.3.*`.
+
+    Refer to the relevant website skeleton for an example: [content](https://github.com/ibexa/content-skeleton/blob/v4.0.1/composer.json), [experience](https://github.com/ibexa/experience-skeleton/blob/v4.0.1/composer.json), [commerce](https://github.com/ibexa/commerce-skeleton/blob/v4.0.1/composer.json).
+
 ## Update the app to v4.0
 
 
