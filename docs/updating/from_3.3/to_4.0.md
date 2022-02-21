@@ -9,23 +9,79 @@ This update procedure applies if you are using v3.3.
 Go through the following steps to update to v4.0.
 
 Besides updating the application and database, you need to account for changes related to code refactoring and numerous namespace changes.
-See [a list of all changed namespaces, configuration key, service names, and other changes](../../releases/ibexa_dxp_v4.0_deprecations.md#configuration-files-names).
+See [a list of all changed namespaces, configuration key, service names, and other changes](../../releases/ibexa_dxp_v4.0_deprecations.md).
 
 An additional compatibility layer makes the process of updating your code easier.
 
+!!! note "Symfony 5.4"
+
+    If you are using Symfony 5.3, you need to update your installation to Symfony 5.4.
+    To do this, update your composer.json to refer to `5.4.*` instead or `5.3.*`.
+
+    Refer to the relevant website skeleton for an example: [content](https://github.com/ibexa/content-skeleton/blob/v4.0.1/composer.json), [experience](https://github.com/ibexa/experience-skeleton/blob/v4.0.1/composer.json), [commerce](https://github.com/ibexa/commerce-skeleton/blob/v4.0.1/composer.json).
+
 ## Update the app to v4.0
 
-``` bash
-composer require ibexa/content:4.0.0 --with-all-dependencies --no-scripts
-composer recipes:install ibexa/content --force -v
-```
+
+=== "Ibexa Content"
+
+    ``` bash
+    composer require ibexa/content:4.0.2 --with-all-dependencies --no-scripts
+    composer recipes:install ibexa/content --force -v
+    ```
+
+=== "Ibexa Experience"
+
+    ``` bash
+    composer require ibexa/experience:4.0.2 --with-all-dependencies --no-scripts
+    composer recipes:install ibexa/experience --force -v
+    ```
+
+=== "Ibexa Commerce"
+
+    ``` bash
+    composer require ibexa/commerce:4.0.2 --with-all-dependencies --no-scripts
+    composer recipes:install ibexa/commerce --force -v
+    ```
 
 The `recipes:install` command installs new YAML configuration files,
-which have been [renamed in this release](../../releases/ibexa_dxp_v4.0_deprecations.md#configuration-files-names).
+which have been [renamed in this release](../../releases/ibexa_dxp_v4.0_deprecations.md#configuration-file-names).
 
 Look through the old YAML files and move your custom configuration to the relevant new files.
 
-## Prepare new database tables
+In `bundles.php`, remove all entries starting with `eZ`, `EzSystems`, `Ibexa\Platform`, `Silversolutions` and `Siso`.
+Leave only third-party entires and entries added by the `recipes:install` command, starting with `Ibexa\Bundle`.
+
+## Add compatibility layer package
+
+You can use the provided compatibility layer to speed up adaptation of your custom code to the new namespaces.
+
+Add the compatibility layer package using Composer:
+
+``` bash
+composer require ibexa/compatibility-layer
+composer recipes:install ibexa/compatibility-layer --force
+```
+
+Next, clear the cache:
+
+``` bash
+php bin/console cache:clear
+```
+
+## Update the database
+
+Apply the following database update script:
+
+``` bash
+mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.latest-to-4.0.0.sql
+```
+
+``` bash
+psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.latest-to-4.0.0.sql
+```
+
+### Prepare new database tables
 
 For every database connection you have configured, perform the following steps:
 
@@ -40,6 +96,8 @@ php bin/console ibexa:migrations:import vendor/ibexa/taxonomy/src/bundle/Resourc
 php bin/console ibexa:migrations:import vendor/ibexa/taxonomy/src/bundle/Resources/install/migrations/sections.yaml --name=001_taxonomy_sections.yml
 php bin/console ibexa:migrations:import vendor/ibexa/taxonomy/src/bundle/Resources/install/migrations/content.yaml --name=002_taxonomy_content.yml
 php bin/console ibexa:migrations:import vendor/ibexa/taxonomy/src/bundle/Resources/install/migrations/permissions.yaml --name=003_taxonomy_permissions.yml
+php bin/console ibexa:migrations:import vendor/ibexa/product-catalog/src/bundle/Resources/migrations/product_catalog.yaml --name=001_product_catalog.yaml
+php bin/console ibexa:migrations:import vendor/ibexa/product-catalog/src/bundle/Resources/migrations/currencies.yaml --name=001_currencies.yaml
 ```
 
 Run `php bin/console ibexa:migrations:migrate -v --dry-run` to ensure that all migrations are ready to be performed.
@@ -50,17 +108,6 @@ php bin/console ibexa:migrations:migrate
 ```
 
 ## Update your custom code
-
-### Add compatibility layer package
-
-You can use the provided compatibility layer to speed up adaptation of your custom code to the new namespaces.
-
-Add the compatibility layer package using Composer:
-
-``` bash
-composer require ibexa/compatibility-bundle
-composer recipes:install ibexa/compatibility-layer --force
-```
 
 ### Online editor
 
@@ -92,22 +139,25 @@ ibexa:
 In Personalization, the `included_content_types` configuration key has changed to `included_item_types`.
 Update your configuration, if it applies.
 
-## Update the database
-
-Apply the following database update script:
-
-``` bash
-mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.latest-to-4.0.0.sql
-```
-
-``` bash
-psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.latest-to-4.0.0.sql
-```
-
 ## Finish update
+
+Adapt your `composer.json` file according to [`manifest.json`](https://github.com/ibexa/recipes/blob/master/ibexa/commerce/4.0.x-dev/manifest.json#L170-L171), by adding the following lines:
+
+``` json hl_lines="2-3"
+"yarn install": "script",
+"ibexa:encore:compile --config-name app": "symfony-cmd",
+"bazinga:js-translation:dump %PUBLIC_DIR%/assets --merge-domains": "symfony-cmd",
+"ibexa:encore:compile": "symfony-cmd"
+```
 
 Then, finish the update process:
 
 ``` bash
 composer run post-install-cmd
+```
+
+Finally, generate the new GraphQl schema:
+
+``` bash
+php bin/console ibexa:graphql:generate-schema
 ```
