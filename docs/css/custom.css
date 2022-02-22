@@ -22,7 +22,7 @@
     
     --codeblock: rgb(89,96,103);
     --inline-code: rgb(242,242,245);
-    --table-header: rgb(243,243,246);
+    --table-header: var(--codeblock);
     --code-highlight: #D9E9FF;
     
     --link: rgb(0,71,206);
@@ -348,11 +348,8 @@ ul li li li {
 }
 
 .md-typeset table:not([class]) th {
+    color: var(--ibexa-snow);
     background-color: var(--table-header);
-}
-
-.md-typeset table:not([class]) td {
-    border-top-color: var(--table-header);
 }
 
 .md-nav__link[data-md-state=blur] {
