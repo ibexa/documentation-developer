@@ -259,6 +259,5 @@ Corresponding form: `Ibexa\Bundle\Commerce\Eshop\Form\Customer\MyAccount`
 ## ValidateBusinessActivationDataProcessor
 
 `ValidateBusinessActivationDataProcessor` checks if the submitted invoice and customer number are valid.
-This resolves communication with ERP.
 
 Service ID: `Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\ValidateBusinessActivationDataProcessor`

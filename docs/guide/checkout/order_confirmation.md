@@ -2,12 +2,9 @@
 
 After finishing the checkout (in case of an electronic payment transaction after redirection from the payment provider) the user is redirected to the confirmation page.
 
-If the customer has a customer number, customer data is fetched from the ERP again.
-
 ## Confirmation email
 
-The `Ibexa\Platform\Commerce\Checkout\Event\Listener\OrderConfirmationListener` event listener sends the order confirmation
-as soon as the ERP accepts the order.
+The `Ibexa\Platform\Commerce\Checkout\Event\Listener\OrderConfirmationListener` event listener sends the order confirmation.
 
 Both the customer and a sales contact (if configured) should receive confirmation emails.
 The confirmation is sent using `MailHelperService`.  
@@ -44,7 +41,7 @@ If there is no address in the contact data, the configuration parameter below is
 If it's left empty, no sales contact confirmations are sent, except if `sales_email_mode` is set to `customer`
 and the respective profile data contains a valid address.
 
-Sales contact information also receives a confirmation email for a [local order](local_orders.md)
+Sales contact information also receives a confirmation email for a local order
 if `is_sales_contact` is set to `true`, and with the following configuration:
 
 ``` yaml
@@ -54,7 +51,7 @@ ibexa_commerce_checkout.default.order_confirmation.sales_email_address:
 
 ### Shop owner
 
-Owner of the shop also receives a receives a confirmation email for a [local order](local_orders.md)
+Owner of the shop also receives a receives a confirmation email for a local order
 if `is_shop_owner` is set to `true`.
 
 This email contains a special message and subject.

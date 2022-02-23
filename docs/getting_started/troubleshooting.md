@@ -68,21 +68,6 @@ configure the following variables in your Platform.sh environment:
 - `HTTPCACHE_USERNAME`
 - `HTTPCACHE_PASSWORD`
 
-## Configuration required to communicate with ERP
-
-To communicate with ERP, make sure that:
-
-- You have the correct web connector URL configured: `webconnector_url: ''`
-- You have created the symlinks for the mapping
-
-``` bash
-cd app/Resources
-ln -s ../../vendor/silversolutions/silver.e-shop/src/Silversolutions/Bundle/EshopBundle/Resources/xslbase
-ln -s ../../src/<Company>/Bundle/ProjectBundle/Resources/xsl
-```
-
-- Make sure that you have the correct version of `vendor/moyarada`.
-
 ## Images in shop are not converted.
 
 Make sure that you have set up correct rights for the image folder:
