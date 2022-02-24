@@ -4,7 +4,7 @@
 | -------- | ----------------- |
 | `Catalog/Subrequests/product.html.twig` | Renders the price on product detail page. Defines the parameters for price rendering and includes the `product_price.html.twig` template.|
 | `Catalog/listProductNode.html.twig` | Renders the price on product list page. Defines the parameters for price rendering and includes the `product_price.html.twig` template.|
-| `Catalog/Subrequests/product_price.html.twig` | Displays a label with the price type (e.g. list price) and the price source (e.g. ERP). Includes `PriceField.html.twig` to render the price.
+| `Catalog/Subrequests/product_price.html.twig` | Displays a label with the price type (e.g. list price) and the price source. Includes `PriceField.html.twig` to render the price.
 | `Fieldtypes/PriceField.html.twig` | Renders the given price from a catalog element. |
 
 ## Custom Twig functions

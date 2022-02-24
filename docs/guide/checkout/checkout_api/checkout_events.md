@@ -7,8 +7,7 @@ The following events are dispatched during the checkout process:
 | [`sibexa.commerce.site_access.config.checkout.pre_checkout`](#pre-checkout-event) | Before user enters the checkout process         |
 | [`sibexa.commerce.site_access.config.checkout.pre_form_checkout`](#pre-form-checkout-event) | Before form preparation in the checkout process |
 | [`ibexa.commerce.site_access.config.checkout.post_form_checkout`](#post-form-checkout-event) | After form preparation in the checkout process  |
-| `silver_eshop.response_message` | After an event has been placed, without ERP connection |
-| `silver_eshop.exception_message`| After an event has been placed, with ERP connection |
+| `silver_eshop.response_message` | After an event has been placed |
 
 ## Pre-checkout event
 

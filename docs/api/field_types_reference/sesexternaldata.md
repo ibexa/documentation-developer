@@ -6,7 +6,7 @@ The data is stored in the `ses_externaldata` table with the following structure:
 |Field|Type|Description|
 |--- |--- |--- |
 |`sku`|char(40)|Unique ID of the Product category (CatalogElement).|
-|`identifier`|char(40)|ID of the Field. Consists of a constant prefix (`ses`) and lowercase letters from the ERP fields.</br>Example: `VENDOR_NO  --> ses_vendor_no`.|
+|`identifier`|char(40)|ID of the Field.|
 |`language_code`|char(8)|Language code, for example, `ger-DE`.|
 |`ses_field_type`|char(20)|The data type used for this data.|
 |`content`|longtext|Serialized data in string format.|

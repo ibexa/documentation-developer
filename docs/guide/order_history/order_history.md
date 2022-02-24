@@ -15,10 +15,6 @@ and through the `/orderhistory` route.
 
 To access order history, the User must have the `siso_policy/orderhistory_view` Policy.
 
-Depending on whether your system is connected to ERP, order history displays documents from ERP,
-or [local documents](order_history_local_orders.md).
-
-
 ![](../img/orderhistory.png)
 
 Each document has a detail page, where you can see the detailed information, such as the buyer, delivery address, ordered items, status, delivery and payment information:
@@ -26,3 +22,22 @@ Each document has a detail page, where you can see the detailed information, suc
 ![](../img/orderhistory_detail.png)
 
 If a product is still available in the shop, you can add it to the basket again. 
+
+## Invoices
+
+In the header of the order history details page, there is a link to the invoice page:
+
+![](../img/orderhistory_invoice.png)
+
+### Order history list
+
+To show the invoice link in a new column of the table, use the following configuration:
+
+``` yaml
+ibexa_commerce_order_history.default.default_list_fields:
+    order:  
+        # ...
+        - SesExtension_Invoice
+```
+
+The `Eshop/Resources/views/Invoice/show.html.twig` template renders the invoice view and the invoice PDF.

@@ -1,10 +1,6 @@
 # Customer templates
 
-The global `ses.profile` Twig variable contains the main information about the current user,
-their addresses and data from the ERP.
-
-If the user has a customer number, customer information is automatically fetched from the ERP.
-The data is stored in the session and is provided by the variable `ses.profile`.
+The global `ses.profile` Twig variable contains the main information about the current user and their addresses.
 
 `Eshop/Resources/views/details.html.twig` is the standard template for displaying customer data.
 

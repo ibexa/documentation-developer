@@ -3,7 +3,7 @@
 The basket recalculates the prices after each change of its content.
 The request to the [price engine](../pricing/price_engine.md) is sent when the basket is stored.
 This avoids the price engine being triggered several times (for example, if more than one product has been updated or added).
-The prices provided by the price engine (and ERP) are stored in the basket for each line.
+The prices provided by the price engine are stored in the basket for each line.
 
 The price engine is also triggered when the basket is fetched from the database and the last price calculation is older than the provided time.
 
@@ -20,11 +20,6 @@ The price engine sets the following fields:
 |--- |--- |
 |`LinePriceAmount`|The customer price for the given quantity|
 |`IsIncVat`|Whether `LinePriceAmount` includes VAT or not|
-|`Price`|Price for one piece. This price may be calculated if the ERP doesn't provide a price for one piece|
+|`Price`|Price for one piece.|
 |`Vat`|VAT in %|
-|`Currency`|The currency provided by the ERP/price engine|
-
-The price engine sets stock information as well because the ERP often provides information about the availability in a price request as well:
-
-- `remoteDataMap['stockNumeric']` - number of items on stock
-- `remoteDataMap['onStock']` - boolean
+|`Currency`|The currency provided by the price engine|

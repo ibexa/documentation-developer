@@ -11,23 +11,12 @@ ibexa.commerce.site_access.config.core.default.user_group_location.business: 385
 ibexa.commerce.site_access.config.core.default.user_group_location.private: 388
 ```
 
-## Timeout for ERP updates
-
-The shop checks the age of the customer data that is stored in the session.
-If it is too old (past timeout), the shop fetches the data from the ERP again.
-
-You configure the default timeout (in seconds) in `Eshop/Resources/config/default_values.yml`:
-
-``` yaml
-ibexa.commerce.customer.config.default_values.remote_validation_timeout: 600
-```
-
 ## Default handling for VAT
 
 You can define VAT handling rules in configuration.
 If `isPriceInclVat` is set to `true`, the customer always sees prices including VAT.
 For B2B shops, the handling can be changed.
-You can override the setting per customer if required (e.g. if the ERP provides this information per customer).
+You can override the setting per customer if required.
 In some cases, the customer does not have to pay VAT at all (for example, for shopping abroad).
 
 ``` yaml

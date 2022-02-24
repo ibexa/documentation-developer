@@ -111,8 +111,6 @@ The following built-in routes are available for the front of the website.
 |Route name|Path|Description|
 |---|---|---|
 | `ibexa.commerce.bestsellers` | `/bestsellers` | [Bestseller page](../bestsellers.md) |
-| `ibexa.commerce.delegate` | `/delegate` | [Delegate function](../user_management/delegate_function.md) |
-| `ibexa.commerce.undelegate` | `/undelegate` | [Undelegate function](../user_management/delegate_function.md) |
 
 ### Content
 

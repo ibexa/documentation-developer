@@ -49,12 +49,3 @@ You set the parameters in the [configuration for checkout forms](configuration_f
 | ---------------------------- | ------ |
 | Main template                | `Eshop/Resources/views/Checkout/checkout_delivery_address.html.twig` |
 | Sidebar template for invoice | `Eshop/Resources/views/Checkout/sidebar_delivery_address.html.twig`  |
-
-## Exceptions in validation process for delivery
-
-In some cases you need to suppress the form validation, for example:
-
-- If the user has a customer number and uses invoice as delivery.
-- If the user has a customer number and uses an address from a list.
-
-In these cases the data comes from the ERP and the user cannot change it.
