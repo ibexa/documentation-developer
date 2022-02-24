@@ -5,15 +5,15 @@ which allows you to create, move or copy Content items.
 
 ## How to use UDW?
 
-UDW requires that you provide configuration by using the `ez_udw_config` Twig helper. This configuration must be spread to the props of the component itself.
+UDW requires that you provide configuration by using the `ibexa_udw_config` Twig helper. This configuration must be spread to the props of the component itself.
 
 ```html+twig
-<button data-udw-config="{{ ez_udw_config('single') }}">
+<button data-udw-config="{{ ibexa_udw_config('single') }}">
     Open My UDW
 </button>
 ```
 
-`single` configuration is one of the default configuration provided. You can also do your [own configuration](#adding-new-configuration).
+`single` configuration is one of the default configuration provided. You can also do your [own configuration](#add-new-configuration).
 
 With plain JS:
 
@@ -121,13 +121,13 @@ ibexa:
 
 ### Add new configuration to button
 
-In the `ez_udw_config` Twig helper, define a specific part of YAML configuration that will be used to render the **Content Browser**.
+In the `ibexa_udw_config` Twig helper, define a specific part of YAML configuration that will be used to render the **Content Browser**.
 You can find Twig helper in your button template.
 In the example below, a key is pointing to `my_custom_udw` configuration and has additional parameter `johndoe`.
 
 ```html+twig
 <button class="btn btn-primary open-my-custom-udw" data-udw-config="{{
-    ez_udw_config('my_custom_udw', {
+    ibexa_udw_config('my_custom_udw', {
 	    'some_contextual_parameter': 'johndoe'
 	}
 ) }}">
