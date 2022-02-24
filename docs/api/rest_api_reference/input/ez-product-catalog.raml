@@ -1,0 +1,165 @@
+displayName: Product catalog
+
+
+
+    /product/catalog/currencies:
+        /line:
+            get:
+                displayName: List of currencies
+                description: Returns a list of all currencies.
+            post:
+                displayName: Create currency
+                description: Creates a new currency.
+                headers:
+                Accept:
+                    description: If set, the new currency is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.CurrencyCreate+xml
+                        application/vnd.ibexa.api.CurrencyCreate+json
+                Content-Type:
+                    description: The CurrencyCreate schema encoded in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.CurrencyCreate+json
+                        application/vnd.ibexa.api.UserCreate+xml
+            body:
+                application/vnd.ibexa.api.CurrencyCreate+json:
+                    type: CurrencyCreate
+                    example: !include examples/product/currencies//POST/CurrencyCreate.json.example
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.User+xml:
+                            type: User
+                            example: !include examples/user/groups/path/users/POST/User.xml.example
+                        application/vnd.ibexa.api.User+json:
+                            type: User
+                            example: !include examples/user/groups/path/users/POST/User.json.example
+                400:
+                    description: Error - the input does not match the input schema definition.
+                401:
+                    description: Error - the user is not authorized to create this User.
+                403:
+                    description: Error - a User with the same login already exists.
+                404:
+                    description: Error - the Group with the given ID does not exist.
+        /product/catalog/currencies/{id}:
+            get:
+                displayName: Load currency
+                description: Loads the currency for the given ID.
+                headers:
+                    Accept:
+                        description: If set, the Role assignment list is returned in XML or JSON format.
+                        example:  |
+                            application/vnd.ibexa.api.CurrencyList+json
+                responses:
+                200:
+                description:
+                body:
+                    application/vnd.ibexa.api.CurrencyList+json:
+                        type: CurrencyList
+                        example: !include examples/user/users/user_id/GET/User.json.example
+            401:
+                description: Error - the user has no permission to read Users.
+            404:
+                description: Error - the User does not exist.
+            patch:
+                displayName: Update currency
+                description: Updates a currency. PATCH or POST with header X-HTTP-Method-Override PATCH.
+                headers:
+                Accept:
+                    description: If set, the new currency setting is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.UserGroup+xml
+                        application/vnd.ibexa.api.CurrencyUpdate+json
+                Content-Type:
+                    description: The UserGroupUpdate schema encoded in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.UserGroupUpdate+json
+                        application/vnd.ibexa.api.CurrencyUpdate+json
+                If-Match:
+                    description: Performs the PATCH only if the specified ETag is the current one. Otherwise a 412 is returned.
+                    example: ETag
+            body:
+                application/vnd.ibexa.api.UserGroupUpdate+xml:
+                    type: UserGroupUpdate
+                    example: !include examples/user/groups/path/PATCH/UserGroupUpdate.xml.example
+                application/vnd.ibexa.api.UserGroupUpdate+json:
+                    type: UserGroupUpdate
+                    example: !include examples/user/groups/path/PATCH/UserGroupUpdate.json.example
+            responses:
+                200:
+                    description: OK - updated User Group.
+                    body:
+                        application/vnd.ibexa.api.UserGroup+xml:
+                            type: UserGroup
+                            example: !include examples/user/groups/path/PATCH/UserGroup.xml.example
+                        application/vnd.ibexa.api.UserGroup+json:
+                            type: UserGroup
+                            example: !include examples/user/groups/path/PATCH/UserGroup.json.example
+                400:
+                    description: Error - the input does not match the input schema definition.
+                401:
+                    description: Error - the user is not authorized to update the User Group.
+                412:
+                    description: Error -	if the current ETag does not match with the one provided in the If-Match header.
+            delete:
+                displayName: Delete currency
+                description: The given currency is removed.
+                responses:
+                    204:
+                        description: No Content.
+                    401:
+                        description: Error - the user is not authorized to delete this currency.
+                    404:
+                        description: Error - the currency does not exist.
+        /product/catalog/regions:
+            get:
+                displayName: List of Regions
+                description: Returns a list of all Regions.
+                headers:
+            Accept:
+                description: If set, Regions are returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.User+xml
+                    application/vnd.ibexa.api.User+json
+
+                responses:
+            200:
+                description: OK - the User with the given ID.
+                body:
+                    application/vnd.ibexa.api.User+xml:
+                        type: UserList
+                        example: !include examples/user/users/user_id/GET/User.xml.example
+                    application/vnd.ibexa.api.User+json:
+                        type: UserList
+                        example: !include examples/user/users/user_id/GET/User.json.example
+            401:
+                description: Error - the user has no permission to read Users.
+            404:
+                description: Error - the User does not exist.
+        /product/catalog/regions/{identifier}:
+            get:
+            displayName: Load Region
+                description: Returns a list of all Regions.
+                headers:
+            Accept:
+                description: If set, Regions are returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.User+xml
+                    application/vnd.ibexa.api.User+json
+
+                responses:
+            200:
+                description: OK - the User with the given ID.
+                body:
+                    application/vnd.ibexa.api.User+xml:
+                        type: UserList
+                        example: !include examples/user/users/user_id/GET/User.xml.example
+                    application/vnd.ibexa.api.User+json:
+                        type: UserList
+                        example: !include examples/user/users/user_id/GET/User.json.example
+            401:
+                description: Error - the user has no permission to read Users.
+            404:
+                description: Error - the User does not exist.
+

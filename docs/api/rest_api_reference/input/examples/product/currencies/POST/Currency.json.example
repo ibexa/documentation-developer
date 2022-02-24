@@ -1,0 +1,7 @@
+{
+    "CurrencyCreate": {
+        "code": "test",
+        "subunits": 2,
+        "enabled": true
+    }
+}

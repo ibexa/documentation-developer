@@ -1,0 +1,8 @@
+{
+    "AttributeGroup": {
+        "_media-type": "application/vnd.ibexa.api.AttributeGroup+json",
+        "name": "Colors Group",
+        "identifier": "ag_colors",
+        "position": 0
+    }
+}

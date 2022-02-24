@@ -1,0 +1,9 @@
+{
+    "Currency": {
+        "_media-type": "application/vnd.ibexa.api.Currency+json",
+        "id": 180,
+        "code": "test",
+        "subunits": 2,
+        "enabled": true
+    }
+}
