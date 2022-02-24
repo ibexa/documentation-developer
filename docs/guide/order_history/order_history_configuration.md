@@ -36,15 +36,11 @@ ibexa_commerce_order_history:
         max_start: 4 years
 ```
 
-You can configure the date format that is used in the shop
-and the format in which dates are sent to ERP:
+You can configure the date format that is used in the shop:
 
 ``` yaml
 parameters:
     ibexa_commerce_order_history.default.date_format: 'd.m.Y'
-
-    # Date format that is used for communication with ERP
-    ibexa_commerce_order_history.default.erp_date_format: 'Ymd' 
 ```
 
 ## Column configuration

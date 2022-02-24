@@ -36,10 +36,9 @@ To adapt the success message of the private registration, modify the text module
 A business customer has two options to register:
 
 1. Apply for a new account - fill the business form and apply for an account via the `/registration/choice` route.
-The shop owner checks the provided data and creates a customer record in the ERP system.
 
 1. Activate an account - a business customer who already has a customer number can register using a customer number and an invoice number.
-The shop checks this data by sending a request to the ERP. There are two options:
+The shop checks this data. There are two options:
 
     - activate a business account - the customer is created using their customer number and can immediately see their special discounts in the shop.
     - create the main contact in Customer Center - if Customer Center is enabled, the company is created in the shop, and the account is created as the main contact.  

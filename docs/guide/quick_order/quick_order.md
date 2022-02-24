@@ -11,8 +11,6 @@ If a customer stores items in the quick order, they can see the real prices and 
 
 ![](../img/quickorder_3.png)
 
-If the ERP system is offline, customers see list prices and an error message. There is also no information about product availability.
-
 ## Storage time
 
 A quick order is stored for the duration of the session for anonymous users,
