@@ -24,12 +24,15 @@ ibexa_product_catalog:
         default:
             type: local
             options:
+                ibexa_product_catalog_root: 12
                 product_type_group_identifier: 'product'
 ```
 
 The `local` type is the built-in type of catalog based on the Repository.
 
-Under `options.product_type_group_identifier` you can define the identifier of the group used for storing products.
+Under `options.product_type_group_identifier` you can define the identifier of the Content Type group used for storing products.
+
+`root_location_remote_id` indicates the ID of the Location where products are stored.
 
 ## VAT rates
 
