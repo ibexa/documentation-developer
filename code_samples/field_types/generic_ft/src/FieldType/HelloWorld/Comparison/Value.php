@@ -8,6 +8,6 @@ use Ibexa\Contracts\VersionComparison\FieldType\FieldTypeComparisonValue;
 
 class Value extends FieldTypeComparisonValue
 {
-    /** @var \Ibexa\Contracts\VersionComparison\FieldType\StringComparisonValue */
+    /** @var \Ibexa\VersionComparison\ComparisonValue\StringComparisonValue */
     public $name;
 }

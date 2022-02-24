@@ -39,26 +39,27 @@ Create `StaticStrategy.php` in `src/Strategy`.
 
 ```php
 <?php
-​
+
 declare(strict_types=1);
-​
+
 namespace App\Strategy;
-​
+
 use Ibexa\Contracts\Core\Repository\Values\Content\Thumbnail;
+use Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo;
 use Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType;
 use Ibexa\Contracts\Core\Repository\Strategy\ContentThumbnail\ThumbnailStrategy;
-​
+
 final class StaticStrategy implements ThumbnailStrategy
 {
     /** @var string */
     private $staticThumbnail;
-​
+
     public function __construct(string $staticThumbnail)
     {
         $this->staticThumbnail = $staticThumbnail;
     }
-​
-    public function getThumbnail(ContentType $contentType, array $fields): Thumbnail
+
+    public function getThumbnail(ContentType $contentType, array $fields, ?VersionInfo $versionInfo = null): ?Thumbnail
     {
         return new Thumbnail([
             'resource' => $this->staticThumbnail,
@@ -94,27 +95,28 @@ Any Field Type can generate a thumbnail, e.g.:
 First, create a strategy that will add support for `eztext` as the thumbnail.
 It will enable you to add a thumbnail URL in the text field.
 
-Add `FieldValueUrl.php` in `eZ/Thumbnails`.
+Add `FieldValueUrl.php` in `src/Thumbnails`.
 
 ```php
 <?php
-​
+
 declare(strict_types=1);
-​
+
 namespace App\Thumbnails;
-​
+
 use Ibexa\Contracts\Core\Repository\Values\Content\Field;
 use Ibexa\Contracts\Core\Repository\Values\Content\Thumbnail;
 use Ibexa\Contracts\Core\Repository\Strategy\ContentThumbnail\Field\FieldTypeBasedThumbnailStrategy;
-​
+use Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo;
+
 class FieldValueUrl implements FieldTypeBasedThumbnailStrategy
 {
-	public function getFieldTypeIdentifier(): string
-	{
-		return 'eztext';
-	}
-	
-    public function getThumbnail(Field $field): ?Thumbnail
+    public function getFieldTypeIdentifier(): string
+    {
+        return 'eztext';
+    }
+
+    public function getThumbnail(Field $field, ?VersionInfo $versionInfo = null): ?Thumbnail
     {
         return new Thumbnail([
             'resource' => $field->value,
@@ -123,13 +125,12 @@ class FieldValueUrl implements FieldTypeBasedThumbnailStrategy
 }
 ```
 
-Next, add the strategy with the `ibexa.repository.thumbnail.strategy.content` tag to `config/services.yaml`:
+Next, add the strategy with the `ibexa.repository.thumbnail.strategy.field` tag to `config/services.yaml`:
 
- ```yaml
- services:
-     App\Thumbnails\FieldValueUrl:
-         tags:
-             - { name: ibexa.repository.thumbnail.strategy.content }
- ```
+```yaml
+    App\Thumbnails\FieldValueUrl:
+        tags:
+            - { name: ibexa.repository.thumbnail.strategy.field, priority: 100 }
+```
  
 At this point you can go to the Back Office and check the results.

@@ -3,7 +3,7 @@ ibexa_fieldtype_page:
         event:
             name: Event Block
             category: Custom
-            thumbnail: /bundles/ibexaplatformicons/img/all-icons.svg#date
+            thumbnail: /bundles/ibexaicons/img/all-icons.svg#date
             configuration_template: '@ibexadesign/blocks/event/config.html.twig'
             views:
                 default:
