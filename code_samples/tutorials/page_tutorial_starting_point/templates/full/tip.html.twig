@@ -1,0 +1,14 @@
+{% extends 'pagelayout.html.twig' %}
+
+{% block content %}
+  <div class="col-md-6 col-md-offset-3">
+    <div class="tip-full">
+      <h2 class="heading tip-heading-full">{{ ibexa_content_name(content) }}</h2>
+      {{ ibexa_render_field( content, 'body', {
+        'attr': {
+          'class': 'tip-text-full'
+        }
+      }) }}
+    </div>
+  </div>
+{% endblock %}

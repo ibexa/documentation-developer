@@ -1,0 +1,47 @@
+ibexa_fieldtype_page:
+    layouts:
+        sidebar:
+            identifier: sidebar
+            name: Right sidebar
+            description: Main section with sidebar on the right
+            thumbnail: /assets/images/layouts/sidebar.png
+            template: layouts/sidebar.html.twig
+            zones:
+                first:
+                    name: First zone
+                second:
+                    name: Second zone
+    blocks:
+        contentlist:
+            views:
+                default:
+                    template: blocks/contentlist/default.html.twig
+                    name: Content List
+        schedule:
+            views:
+                featured:
+                    template: blocks/schedule/featured.html.twig
+                    name: Featured Schedule Block
+        random:
+            name: Random block
+            thumbnail: /assets/images/blocks/random_block.svg#random
+            views:
+                random:
+                    template: blocks/random/default.html.twig
+                    name: Random Content Block View
+            attributes:
+                parent:
+                    type: embed
+                    name: Parent
+                    validators:
+                        not_blank:
+                            message: You must provide value
+                        regexp:
+                            options:
+                                pattern: '/[0-9]+/'
+                            message: Choose a Content item
+        form:
+            views:
+                default:
+                    template: blocks/form/newsletter.html.twig
+                    name: Newsletter Form View

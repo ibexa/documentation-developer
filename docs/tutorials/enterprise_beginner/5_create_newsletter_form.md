@@ -1,14 +1,11 @@
 # Step 5 — Create a newsletter form [[% include 'snippets/experience_badge.md' %]]
 
-!!! tip
-    You can find all files used and modified in this step on [GitHub.](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/tree/v3-master)
-
 The final step of this tutorial assists you in adding to the home page a Form block for signing up to a newsletter.
 
 ### Add a Form block
 
 Start with creating a Form Content item.
-In the **Forms** panel, click **Create** and select **Form**.
+In the left menu select **Forms**, click **Create content** and select **Form**.
 Provide the title, for example, "Sign up for Newsletter" and click **Build form**.
 
 In the Form Builder, add and configure (using the **Basic** and **Validation** tabs) the following form fields:
@@ -26,7 +23,7 @@ The configuration should look like this:
 
 ![Adding Fields to Newsletter Form](img/enterprise_tut_form_creation.png "Adding Fields to Newsletter Form")
 
-When you add all the fields, go to the previous menu and click **Publish**.
+When you add all the fields, save the form and click **Publish**.
 Now you can edit the Front Page and add a Form block below the Random block.
 Edit the block and select the form you created. Click **Submit**.
 
@@ -42,31 +39,16 @@ First, add a new template for the Form block to align it with the Random block d
 Create a `newsletter.html.twig` file in `templates/blocks/form/`:
 
 ``` html+twig hl_lines="1"
-<div class="row">
-    <div class="block-form {{ block_class }}">
-        {{ fos_httpcache_tag('relation-location-' ~ locationId) }}
-        {{ render(controller('ibexa_content::viewAction', {
-            'locationId': locationId,
-            'viewType': 'embed'
-        })) }}
-        <style type="text/css">{{ block_style|raw }}</style>
-    </div>
-</div>
+[[= include_file('code_samples/tutorials/page_tutorial/templates/blocks/form/newsletter.html.twig') =]]
 ```
 
 This template extends the default block layout by adding an additional class (line 1) that shares CSS styling with the Random block.
 
-Append the new template to the block by adding it to `config/packages/ezplatform_page_fieldtype.yaml`.
+Append the new template to the block by adding it to `config/packages/ibexa_fieldtype_page.yaml`.
 Add the following configuration under the `blocks` key at the same level as other block names, e.g. `random`:
 
-``` yaml hl_lines="3"
-blocks:
-#...
-    form:
-        views:
-            newsletter:
-                template: blocks/form/newsletter.html.twig
-                name: Newsletter Form View
+``` yaml hl_lines="1"
+[[= include_file('code_samples/tutorials/page_tutorial/config/packages/ibexa_fieldtype_page.yaml', 42, 47) =]]
 ```
 
 Now you have to apply the template to the block.
@@ -84,26 +66,14 @@ This results in alternating the position and design of the Form fields.
 Create a `form_field.html.twig` file in `templates/fields/`:
 
 ``` html+twig
-{% block ezform_field %}
-    {% set formValue = field.value.getForm() %}
-    {% if formValue %}
-        {% set form = formValue.createView() %}
-        {% form_theme form 'bootstrap_4_layout.html.twig' %}
-        {% apply spaceless %}
-            {% if not ibexa_field_is_empty(content, field) %}
-                {{ form(form) }}
-            {% endif %}
-        {% endapply %}
-    {% endif %}
-{% endblock %}
+[[= include_file('code_samples/tutorials/page_tutorial/templates/fields/form_field.html.twig') =]]
 ```
 
 Next, assign the template to the Page.
 In `config/packages/views.yaml`, at the same level as `pagelayout`, add:
 
 ``` yaml
-field_templates:
-    - { template: fields/form_field.html.twig, priority: 30 }
+[[= include_file('code_samples/tutorials/page_tutorial/config/packages/views.yaml', 7, 9) =]]
 ```
 
 Clear the cache by running `bin/console cache:clear` and refresh the Page to see the results.
@@ -114,14 +84,9 @@ Before applying the final styling of the block, you need to configure the [CAPTC
 In `config/packages`, add a `gregwar_captcha.yaml` file with the following configuration:
 
 ``` yaml
-gregwar_captcha:
-    as_url: true
-    width: 150
-    invalid_message: Please, enter again.
-    reload: true
-    length: 4
+[[= include_file('code_samples/tutorials/page_tutorial/config/packages/gregwar_captcha.yaml') =]]
 ```
-The configuration resizes the CAPTCHA image (line 3), changes the error message (line 4), enables the user to reload the code (line 5), and shortens the authentication code (line 6).
+The configuration resizes the CAPTCHA image (line 2), changes the error message (line 3), and shortens the authentication code (line 4).
 
 ### Add stylesheet
 
@@ -129,54 +94,7 @@ The remaining step in configuring the block is adding CSS styling.
 Add the following code to `assets/css/style.css`:
 
 ``` css
-/* Newsletter Form block */
-.block-form {
-    border: 1px solid #8b7f7b;
-    border-radius: 5px;
-    padding: 0 25px 25px 25px;
-    margin-top: 15px;
-}
-
-.block-form .ezstring-field {
-    display: inline-block;
-    font-variant: small-caps;
-    font-size: 1.2em;
-    width: 100%;
-    text-align: right;
-    padding-top: 20px;
-}
-
-.block-form .col-form-label {
-    display: none;
-}
-
-.block-form .form-group {
-    font-variant: small-caps;
-    font-size: 1em;
-    margin-top: 12px;
-}
-
-.captcha_image {
-    padding-left: 10px;
-    padding-bottom: 10px;
-}
-
-.captcha_reload {
-    font-variant: all-small-caps;
-    padding-left: 5px;
-}
-
-.btn-primary {
-    background-color: rgb(103,85,80);
-    border-color: rgb(103,85,80);
-    margin-top: 15px;
-    margin-bottom: -20px;
-}
-
-.block-form h3 {
-    font-variant: all-small-caps;
-    text-align: center;
-}
+[[= include_file('code_samples/tutorials/page_tutorial/assets/css/style.css', 229, 277) =]]
 ```
 Reinstall the assets and clear the cache by running the following commands:
 
@@ -193,9 +111,9 @@ Refresh the Page and enter a couple of mock submissions.
 ### Manage the submissions
 
 You can view all submissions in the Back Office.
-Go to **Forms** panel. From the Content Tree, select the Form and click the **Submissions** tab.
-There, after selecting submission(s), click **Download** or **Delete**.
-To see details about a submission, click **View**.
+Go to **Forms** page. From the Content tree, select the Form and click the **Submissions** tab.
+There, after selecting submission(s), click **Download submissions** or **Delete submission**.
+To see details about a submission, click the view icon.
 
 ![Collect Form Submissions](img/enterprise_tut_form_collect_sub.png "Collect Form Submissions")
 

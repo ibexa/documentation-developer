@@ -1,0 +1,16 @@
+{% extends 'pagelayout.html.twig' %}
+
+{% block content %}
+  <div class="col-md-8 col-md-offset-2">
+    <h2 class="heading">{{ ibexa_content_name(content) }}</h2>
+    <div class="folder-table">
+      {% for item in items.searchHits %}
+        <div class="folder-entry">
+          <a class="folder-entry-link" href="{{ path('ibexa.url.alias', {
+            'contentId': item.valueObject.contentInfo.id
+          }) }}">{{ ibexa_content_name(item.valueObject.contentInfo) }}</a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
