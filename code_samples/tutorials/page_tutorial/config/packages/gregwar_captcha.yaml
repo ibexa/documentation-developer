@@ -1,0 +1,4 @@
+gregwar_captcha:
+    width: 150
+    invalid_message: Please, enter again.
+    length: 4

@@ -41,7 +41,7 @@ At this point, it does not matter where they are stored. You want to focus on wh
 [[= include_file('code_samples/field_types/2dpoint_ft/steps/step_1/Value.php', 9, 13) =]]
 ```
 
-A Value class must also implement the `eZ\Publish\SPI\FieldType\Value` interface.
+A Value class must also implement the `Ibexa\Contracts\Core\FieldType\Value` interface.
 To match the `FieldType\Value` interface, you need to implement `__toString()` method.
 You also need to add getters and setters for `x` and `y` properties.
 This class will represent the point 2D.

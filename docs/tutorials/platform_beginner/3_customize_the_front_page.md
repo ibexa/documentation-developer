@@ -3,11 +3,11 @@
 In this step you will create the global layout of your site, and display content using custom templates.
 
 First, go to the root of the site (`<yourdomain>`). You should now see the home page of the clean install, without any kind of layout.
-You will customize this step by instructing Platform to use a custom template to render this Content item.
+You will customize this step by instructing the platform to use a custom template to render this Content item.
 
 ## Content rendering configuration
 
-To use a custom template when rendering the root content, create a `content_view` configuration block for `ezplatform`.
+To use a custom template when rendering the root content, create a `content_view` configuration block for `ibexa`.
 
 !!! note
 
@@ -15,11 +15,11 @@ To use a custom template when rendering the root content, create a `content_view
     The code blocks shown here include the full structure of the YAML file to help you learn where to place new blocks.
     Be careful not to duplicate existing keys, because YAML does not allow it.
 
-Edit `config/packages/ezplatform.yaml`.
+Edit `config/packages/ibexa.yaml`.
 Add the following block under `site` while paying attention to indentation - `content_view` should be one level below `site`:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         site:
             content_view:
@@ -42,7 +42,7 @@ This tells [[= product_name =]] to use the `template` when rendering content wit
     To clear the cache:
 
     ``` bash
-    $ php bin/console cache:clear
+    php bin/console cache:clear
     ```
 
 ## Create template and layout
@@ -65,7 +65,7 @@ Refresh the page and you will see a simple, unstyled version of the message.
 
 !!! note
 
-    If you still see the welcome page, go to `config/packages/` and make sure you deleted the `ezplatform_welcome_page.yaml` file.
+    If you still see the welcome page, go to `config/packages/` and make sure you deleted the `ibexa_welcome_page.yaml` file.
 
 ### Add the site's main layout
 
@@ -86,7 +86,7 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
 
     <title>Ibexa DXP Beginner Tutorial</title>
 
-    <script src="{{ asset('bundles/ezplatformadminuiassets/vendors/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('bundles/ibexaadminuiassets/vendors/jquery/dist/jquery.min.js') }}"></script>
 
     {{ encore_entry_link_tags('tutorial') }}
 

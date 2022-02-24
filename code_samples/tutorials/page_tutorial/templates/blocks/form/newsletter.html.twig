@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="block-form {{ block_class }}">
+        {{ ibexa_http_cache_tag_relation_location_ids(locationId) }}
+        {{ render(controller('ibexa_content:viewAction', {
+            'contentId': contentId,
+            'locationId': locationId,
+            'viewType': 'embed'
+        })) }}
+        <style type="text/css">{{ block_style|raw }}</style>
+    </div>
+</div>

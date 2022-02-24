@@ -27,12 +27,12 @@ In this step you'll create the first Content Type, Ride.
 
 Go to the admin interface (`<yourdomain>/admin`) and log in with the default username: `admin` and the default password: `publish`. 
 
-Go to **Content** in the left side menu and choose **Content Types**.
+Go to the left side menu and choose **Content Types**.
 
 
-You will see a list of **Content Type Groups**. They are used to group Content Types in a logical way.
+You will see a list of **Content Type groups**. They are used to group Content Types in a logical way.
 
-Select **Content** and then click the plus icon. 
+Select **Content** and then click the **Add new** button. 
 
 ![Create a content type button](img/bike_tutorial_create_content_type.png)
 
@@ -52,7 +52,7 @@ Then create all Fields with the following information: 
 | Map location | Ending point     | `ending_point`   | yes       | yes        | no           |
 | Integer      | Length           | `length`         | yes       | yes        | no           |
 
-Confirm the creation of the Content Type by selecting Save.
+Confirm the creation of the Content Type by selecting **Create**.
 
 ## Create Rides
 
@@ -68,11 +68,11 @@ Confirm the creation of the Content Type by selecting Save.
     
     You can learn how to work with Pages in [another tutorial](../enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md).
 
-Go back to the Content structure page by selecting **Content** in the top bar. 
-Then browse the Content tree and create a Folder named *All Rides* using the **Create** button in the Action bar on the right of the screen. 
+Go back to the content by selecting **Content structure** in the left menu. 
+Then browse the Content tree and create a Folder named *All Rides* using the **Create content** button on the top right of the screen. 
 Publish the Folder.
 
-While in the folder, create a few of Rides using the **Create** button, add photos and publish them.
+While in the folder, create a few of Rides using the **Create content** button, add photos and publish them.
 
 ![Ready for Step 3](img/bike_tutorial_all_rides_admin.png)
 

@@ -10,7 +10,7 @@ Now you will create a variation to specify how you want the images to look in de
 Create a new `config/packages/image_variations.yaml` file containing:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             image_variations:
@@ -45,13 +45,13 @@ Clear cache and refresh the front page. Photos should now have a regular size an
 In a larger site there are many elements that need configuration. To keep it more organized, you can split parts of configuration into separate files.
 
 As an example, you can separate all content view configuration into its own file. Create a `config/packages/views.yaml` file. 
-Copy everything under `content_view` from `config/packages/ezplatform.yaml` and move it to the new file.
-Remove the corresponding code from `ezplatform.yaml`. 
+Copy everything under `content_view` from `config/packages/ibexa.yaml` and move it to the new file.
+Remove the corresponding code from `ibexa.yaml`. 
 
 The `views.yaml` file should look like this:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         site:
             content_view:
