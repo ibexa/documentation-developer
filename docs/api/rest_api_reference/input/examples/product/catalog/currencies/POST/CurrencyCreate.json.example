@@ -1,0 +1,7 @@
+{
+    "CurrencyCreate": {
+        "code": "cur", //required
+        "subunits": 1, //required
+        "enabled": true //required
+    }
+}

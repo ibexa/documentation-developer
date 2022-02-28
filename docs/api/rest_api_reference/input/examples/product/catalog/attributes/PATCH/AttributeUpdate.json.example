@@ -1,0 +1,15 @@
+{
+    "AttributeGroupUpdate": {
+        "identifier": "attr_group_test2",
+        "names": {
+            "eng-GB": "Attribute Group"
+        },
+        "descriptions": {
+            "eng-GB": "description"
+        },
+        "position": 0, 
+        "options": { 
+            "foo": "bar"
+        }
+    }
+}

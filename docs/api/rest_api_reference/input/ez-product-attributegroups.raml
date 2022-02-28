@@ -1,0 +1,110 @@
+post:
+    displayName: Create Attribute Group
+    description: Creates a new Attribute Group.
+    headers:
+        Accept:
+            description: If set, the new Attribute Group is returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.AttributeGroupCreate+json
+        Content-Type:
+            description: The UserCreate schema encoded in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.AttributeGroupCreate+json
+        body:
+            application/vnd.ibexa.api.UserCreate+json:
+                type: UserCreate
+                example: !include examples/product/catalog/attribute_groups/POST/AttributeGroupCreate.json.example
+    responses:
+        201:
+            body:
+                application/vnd.ibexa.api.User+json:
+                    type: User
+                    example: !include examples/product/catalog/attribute_groups/POST/AttributeGroup.json.example
+        400:
+            description: Error - the input does not match the input schema definition.
+        401:
+            description: Error - the user is not authorized to create this User.
+        403:
+            description: Error - a User with the same login already exists.
+        404:
+            description: Error - the Group with the given ID does not exist.
+/{id}:
+    patch:
+        displayName: Update Attribute Group
+        description: Updates Attribute Group.
+        headers:
+            Accept:
+                description: If set, the updated Attribute Group is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.AttributeGroupUpdate+json
+            Content-Type:
+                description: If set, the updated Attribute Group is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.AttributeGroupUpdate+json
+            body:
+                application/vnd.ibexa.api.AttributeGroup+json:
+                    type: UserCreate
+                    example: !include examples/product/catalog/attribute_groups/PATCH/AttributeGroupUpdate.json.example
+        responses:
+            201:
+                body:
+                    application/vnd.ibexa.api.User+json:
+                        type: User
+                            xample: !include examples/product/catalog/attribute_groups/PATCH/AttributeGroup.json.example
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to create this User.
+            403:
+                description: Error - a User with the same login already exists.
+            404:
+                description: Error - the Group with the given ID does not exist.
+delete:
+    displayName: Delete Attribute Group
+    description: The given Attribute Group is deleted.
+    responses:
+        204:
+            description: No content - the given Attribute Group is deleted.
+        401:
+            description: Error - the user is not authorized to delete this Content Type.
+/translation/{id}/{languageCode}:
+    delete:
+        displayName: Delete Translation
+        description: Deletes given Translation from Attribute Group.
+        headers:
+            Accept:
+                description: If set, the updated Role assignment list is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.RoleAssignmentList+xml
+                    application/vnd.ibexa.api.RoleAssignmentList+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.RoleAssignmentList+xml:
+                            type: RoleAssignmentList
+                            example: !include examples/user/groups/path/roles/role_id/DELETE/RoleAssignmentList.xml.example
+                        application/vnd.ibexa.api.RoleAssignmentList+json:
+                            type: RoleAssignmentList
+                            example: !include examples/user/groups/path/roles/role_id/DELETE/RoleAssignmentList.json.example
+                401:
+                    description: Error - the user is not authorized to delete this Role assignment.
+get:
+    displayName: Load Attribute Groups
+    description: Returns a list of Attribute Groups.
+    headers:
+        Accept:
+            description: AttributeGorupListGet - If set, the User Group List is returned in XML or JSON format. UserGroupRefList - If set, the link list of User Group is returned in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.AttributeGroupListGet+json
+        Content-Type:
+            description: The UserCreate schema encoded in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.AttributeGroupListGet+json
+    responses:
+        200:
+            body:
+                application/vnd.ibexa.api.UserGroupList+json:
+                    type: AttributeGroupList
+                    example: !!include examples/product/catalog/attribute_groups/GET/AttributeGroupList.json.example
+        401:
+            description: Error - the user has no permission to read User Groups.

@@ -1,0 +1,100 @@
+post:
+    displayName: Create currency
+    description: Creates a new currency.
+    headers:
+        Accept:
+            description: If set, the new Currency is returned in JSON format.
+            example: |
+                application/vnd.ibexa.api.CurrencyCreate+json
+        Content-Type:
+            description: The UserGroupCreate schema encoded in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.CurrencyCreate+json
+    responses:
+        200:
+            body:
+                application/vnd.ibexa.api.Currency+json:
+                    type: User
+                    example: !include examples/product/catalog/currencies/POST/Currency.json.example
+        400:
+            description: 
+        401:
+            description: 
+        403:
+            description: 
+        404:
+            description: 
+patch:
+    displayName: Update Currency
+    description: Updates a Currency.
+    headers:
+        Accept:
+            description: If set, the updated Currency is returned in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.CurrencyUpdate+json
+        Content-Type:
+            description: The CurrencyUpdate schema encoded in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.CurrencyUpdate+json
+    responses:
+        200:
+            body:
+                application/vnd.ibexa.api.Currency+json:
+                    type: OK - Currency updated.
+                    example: !include examples/user/groups/path/users/POST/User.json.example
+        400:
+            description: Error - the input does not match the input schema definition.
+        401:
+            description: Error - the user is not authorized to create this User.
+        403:
+            description: Error - a User with the same login already exists.
+        404:
+            description: Error - the Group with the given ID does not exist.
+delete:
+    displayName: Delete Currency
+    description: The given Currency is removed.
+    headers:
+    responses:
+        200:
+            description: No content - the given Currency is deleted.
+        401:
+            description: Error - 
+get:
+    displayName: Load Currencies
+    description: Loads the list of Currencies.
+    headers:
+        Accept:
+            description: CurrencyList - If set, the Currency list returned in XML or JSON format. UserRefList - If set, the link list of Users returned in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.Currencies+json
+    responses:
+        200:
+            description: OK - loads Currencies.
+            body:
+                application/vnd.ibexa.api.Currencies+json:
+                    type: Currencies
+                    example: !include examples/product/catalog/currencies/GET/Currencies.json.example
+        401:
+            description: Error - the user has no permission to read Currencies.
+        404:
+            description: Error - the Currency does not exist.
+/{id}:
+    get:
+        displayName: Load Currencies
+        description: Loads the list of Currencies.
+        headers:
+            Accept:
+                description: CurrencyList - If set, the Currency list returned in XML or JSON format. UserRefList - If set, the link list of Users returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.Currencies+json
+        responses:
+            200:
+                description: OK - loads Currencies.
+                body:
+                    application/vnd.ibexa.api.Currencies+json:
+                        type: Currencies
+                    example: !include examples/product/catalog/currencies_id/GET/CurrencyList.json.example
+            401:
+                description: Error - the user has no permission to read Currencies.
+            404:
+                description: Error - the Currency does not exist.
