@@ -1,0 +1,88 @@
+post:
+    displayName: Create Product
+    description: Creates a new Product.
+    headers:
+        Accept:
+            description: If set, the new Product is returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.ProductCreate+json
+        Content-Type:
+            description: The Product schema encoded in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.ProductCreate+json
+        body:
+            application/vnd.ibexa.api.ProductCreate+json:
+                type: ProductCreate
+                example: !include examples/product/catalog/product/id/POST/ProductCreate.json.example
+    responses:
+        201:
+            body:
+                application/vnd.ibexa.api.User+json:
+                    type: User
+                    example: !include examples/product/catalog/products/id/POST/ProductCreate.json.example
+        400:
+            description: Error - the input does not match the input schema definition.
+        401:
+            description: Error - the user is not authorized to create this User.
+        403:
+            description: Error - a User with the same login already exists.
+        404:
+            description: Error - the Group with the given ID does not exist.
+patch:
+    displayName: Update Attribute Group
+    description: Updates Attribute Group.
+    headers:
+        Accept:
+            description: If set, the updated Attribute Group is returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.AttributeGroupUpdate+json
+        Content-Type:
+            description: If set, the updated Attribute Group is returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.AttributeGroupUpdate+json
+        body:
+            application/vnd.ibexa.api.AttributeGroup+json:
+                type: UserCreate
+                example: !include examples/product/catalog/attribute_groups/PATCH/AttributeGroupUpdate.json.example
+    responses:
+        201:
+            body:
+                application/vnd.ibexa.api.User+json:
+                    type: User
+                    example: !include examples/product/catalog/attribute_groups/PATCH/AttributeGroup.json.example
+         400:
+            description: Error - the input does not match the input schema definition.
+        401:
+            description: Error - the user is not authorized to create this User.
+        403:
+            description: Error - a User with the same login already exists.
+        404:
+            description: Error - the Group with the given ID does not exist.
+/{id}:
+    delete:
+    displayName: Delete Product
+    description: Deletes the given Product.
+    responses:
+        204:
+            description: No content - the given Product is deleted.
+        401:
+            description: Error - the user is not authorized to delete this Content Type.
+get:
+    displayName: Load Products List
+    description: Returns a list of Products.
+    headers:
+        Accept:
+            description: ProducttGet+json - If set, the given Product is returned in XML or JSON format.
+                application/vnd.ibexa.api.ProductGet+json
+        Content-Type:
+            description: The Product schema encoded in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.ProductGet+json
+    responses:
+        200:
+            body:
+                application/vnd.ibexa.api.Product+json:
+                    type: ProductList
+                    example: !!include examples/product/catalog/products/id/GET/Product.json.example
+        401:
+            description: Error - the user has no permission to read Product.

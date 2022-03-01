@@ -1,0 +1,75 @@
+post:
+    displayName: Create Product Type
+    description: Creates a new Product Type.
+    headers:
+        Accept:
+            description: If set, the new Prpoduct Type is returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.ProductTypeCreate+json
+        Content-Type:
+            description: The CustomerGroupCreate schema encoded in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.ProductTypeCreate+json
+        body:
+            application/vnd.ibexa.api.CustomerGroupCreate+json
+                type: CustomerGroupCreate
+                example: !include examples/product/catalog/attribute_groups/POST/AttributeGroupCreate.json.example
+    responses:
+        201:
+            body:
+                application/vnd.ibexa.api.User+json:
+                    type: User
+                    example: !include examples/product/catalog/attribute_groups/POST/AttributeGroup.json.example
+        400:
+            description: Error - the input does not match the input schema definition.
+        401:
+            description: Error - the user is not authorized to create this User.
+        403:
+            description: Error - a User with the same login already exists.
+        404:
+            description: Error - the Group with the given ID does not exist.
+get:
+    displayName: Load Product Types
+    description: Returns a list of Product Types.
+    headers:
+        Accept:
+            description: ProductTypeListGet - If set, the Product Type List is returned in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.ProductTypeListGet+json
+        Content-Type:
+            description: The UserCreate schema encoded in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.ProductTypeListGet+json
+    body:
+        application/vnd.ibexa.api.CustomerGroupCreate+json
+            type: ProductTypeListGet
+            example: !include examples/product/catalog/product_types/GET/ProductTypeListGet.json.example
+    responses:
+        200:
+            body:
+                application/vnd.ibexa.api.ProductTypeList+json:
+                    type: ProductTypeList
+                    example: !include examples/product/catalog/product_types/GET/ProductTypeList.json.example
+        401:
+            description: Error - the user has no permission to read User Groups.
+/{id}:
+    get:
+    displayName: Load Product Types
+    description: Returns a list of given Product Type.
+    headers:
+        Accept:
+            description: ProductTypeListGet - If set, the Product Type List is returned in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.ProductTypeListGet+json
+        Content-Type:
+            description: The UserCreate schema encoded in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.ProductTypeListGet+json
+    responses:
+        200:
+            body:
+                application/vnd.ibexa.api.ProductType+json:
+                    type: ProductType
+                    example: !include examples/product/catalog/product_types/id/GET/ProductType.json.example
+        401:
+            description: Error - the user has no permission to read User Groups.

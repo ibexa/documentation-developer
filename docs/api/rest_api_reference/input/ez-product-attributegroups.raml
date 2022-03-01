@@ -93,7 +93,7 @@ get:
     description: Returns a list of Attribute Groups.
     headers:
         Accept:
-            description: AttributeGorupListGet - If set, the User Group List is returned in XML or JSON format. UserGroupRefList - If set, the link list of User Group is returned in XML or JSON format.
+            description: AttributeGroupListGet - If set, the User Group List is returned in XML or JSON format. UserGroupRefList - If set, the link list of User Group is returned in XML or JSON format.
             example: |
                 application/vnd.ibexa.api.AttributeGroupListGet+json
         Content-Type:
@@ -108,3 +108,24 @@ get:
                     example: !!include examples/product/catalog/attribute_groups/GET/AttributeGroupList.json.example
         401:
             description: Error - the user has no permission to read User Groups.
+/{id}:
+    get:
+        displayName: Load Attribute Group
+        description: Returns a list of given Attribute Group.
+        headers:
+            Accept:
+                description: AttributeGrouptGet - If set, the User Group List is returned in XML or JSON format. UserGroupRefList - If set, the link list of User Group is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.AttributeGroupGet+json
+            Content-Type:
+                description: The UserCreate schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.AttributeGroupGet+json
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.UserGroupList+json:
+                        type: AttributeGroupList
+                        example: !!include examples/product/catalog/attribute_groups/attribute_groups_id/GET/AttributeGroup.json.example
+            401:
+                description: Error - the user has no permission to read User Groups.

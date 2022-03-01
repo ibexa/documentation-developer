@@ -1,0 +1,129 @@
+post:
+    displayName: Create Attribute
+    description: Creates a new Attribute.
+    headers:
+        Accept:
+            description: If set, the new Attribute is returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.AttributeCreate+json
+        Content-Type:
+            description: The Attribute schema encoded in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.AttributeCreate+json
+        body:
+            application/vnd.ibexa.api.UserCreate+json:
+                type: AttributeCreate
+                example: !include examples/product/catalog/attributes/POST/AttributeCreate.json.example
+    responses:
+        201:
+            body:
+                application/vnd.ibexa.api.Attribute+json:
+                    type: Attribute
+                    example: !include examples/product/catalog/attributes/POST/Attribute.json.example
+        400:
+            description: Error - the input does not match the input schema definition.
+        401:
+            description: Error - the user is not authorized to create this User.
+        403:
+            description: Error - a User with the same login already exists.
+        404:
+            description: Error - the Group with the given ID does not exist.
+/{id}:    
+    patch:
+    displayName: Update Attribute
+    description: Updates Attribute.
+    headers:
+        Accept:
+            description: If set, the updated Attribute is returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.AttributeUpdate+json
+        Content-Type:
+            description: If set, the updated Attribute Group is returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.AttributeUpdate+json
+        body:
+            application/vnd.ibexa.api.AttributeUpdate+json:
+                type: UserCreate
+                example: !include examples/product/catalog/attributes/id/PATCH/AttributeUpdate.json.example
+        responses:
+            201:
+                body:
+                    application/vnd.ibexa.api.Attribute+json:
+                        type: User
+                        example: !include examples/product/catalog/attributes/id/PATCH/Attribute.json.example
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to create this User.
+            403:
+                description: Error - a User with the same login already exists.
+            404:
+                description: Error - the Group with the given ID does not exist.
+/{id}:    
+    delete:
+    displayName: Delete Attribute
+    description: The given Attribute is removed from the Attribute Group.
+        responses:
+            200:
+                description: No Content.
+            401:
+                description: Error - the user is not authorized to delete this Attribute.
+/translation/{languageCode}:
+    delete:
+        displayName: Delete Atrribute Translation
+        description: The given Attribute is removed from the Attribute Group.
+        responses:
+            200:
+                description: No Content.
+            401:
+                description: Error - the user is not authorized to delete this Translation.
+get:
+    displayName: Load Attributes
+    description: Loads list of all Attributes.
+    headers:
+        Accept:
+            description: AttributeList - If set, the Attributes List is returned in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.AttributeListGet+json
+        Content-Type:
+            description: The AttributeList schema encoded in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.AttributeListGet+json
+     body:
+        application/vnd.ibexa.api.AttributeListGet+json
+            type: AttributeListGet
+            example: !include examples/product/catalog/attributes/GET/AttributeListGet.json.example
+    responses:
+        200:
+            body:
+                application/vnd.ibexa.api.UserGroupList+json:
+                    type: AttributeList
+                    example: !include examples/product/catalog/attributes/GET/AttributeList.json.example
+        401:
+            description: Error - the user has no permission to read User Groups.
+/{id}:
+    get:
+        displayName: Load Attributes
+        description: Loads given Attribute.
+        headers:
+            Accept:
+                description: AttributeGet - If set, the given Attribute is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.AttributeGet+json
+            Content-Type:
+                description: The Attribute schema encoded in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.AttributeGet+json
+        body:
+            application/vnd.ibexa.api.AttributeGet+json
+                type: AttributeListGet
+                example: !include examples/product/catalog/attributes/id/GET/AttributeGet.json.example
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.Attribute+json:
+                        type: Attribute
+                        example: !include examples/product/catalog/attributes/id/GET/Attributet.json.example
+            401:
+                description: Error - the user has no permission to read User Groups.
+
