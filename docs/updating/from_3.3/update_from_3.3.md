@@ -237,6 +237,13 @@ Run the following scripts:
 
 ### 3.3.15
 
+!!! note "Symfony 5.4"
+
+    If you are using Symfony 5.3, you need to update your installation to Symfony 5.4.
+    To do this, update your composer.json to refer to `5.4.*` instead or `5.3.*`.
+
+    Refer to the relevant website skeleton for an example: [content](https://github.com/ibexa/content-skeleton/blob/v3.3.15/composer.json), [experience](https://github.com/ibexa/experience-skeleton/blob/v3.3.15/composer.json), [commerce](https://github.com/ibexa/commerce-skeleton/blob/v3.3.15/composer.json).
+
 Adapt your `composer.json` file according to [`manifest.json`](https://github.com/ibexa/recipes/blob/master/ibexa/commerce/3.3.x-dev/manifest.json#L167-L168), by adding the following lines:
 
 ``` json hl_lines="2-3"
