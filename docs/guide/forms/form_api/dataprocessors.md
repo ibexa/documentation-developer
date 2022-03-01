@@ -73,7 +73,7 @@ The data processor sets the following fields in the User Content item:
 The prefix can be defined in the configuration key `data_processor_ez_user_login_prefix`.
 
 ``` xml
-<service id="Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\Events\EzCreateUserEventHandler" class="%Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\Events\EzCreateUserEventHandler.class%">
+<service id="Ibexa\Bundle\Commerce\Eshop\Services\Forms\DataProcessor\Events\EzCreateUserEventHandler">
             <argument type="service" id="ibexa.config.resolver" />
             <tag name="kernel.event_listener" event="ses_pre_execute_ses_forms.create_ez_user" method="preExecute" />
 </service>

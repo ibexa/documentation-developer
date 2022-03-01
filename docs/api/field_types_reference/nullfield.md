@@ -26,14 +26,12 @@ The following example shows how an `example` Field Type could be configured as a
 services:
     ibexa.field_type.example:
         class: Ibexa\Core\FieldType\Null\Type
-        autowire: true
-        autoconfigure: false
         arguments: [example]
-        tags: [{name: ibexa.field_type., alias: example}]
+        tags: [{name: ibexa.field_type, alias: example}]
     ibexa.field_type.example.converter:
         class: Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\NullConverter
         tags: [{name: ibexa.field_type.legacy_storage.converter, alias: example}]
     ibexa.field_type.example.indexable:
-    class: '%ibexa.field_type.indexable.unindexed.class%'
-    tags: [{name: ibexa.field_type.indexable, alias: example}]
+        class: Ibexa\Core\FieldType\Unindexed
+        tags: [{name: ibexa.field_type.indexable, alias: example}]
 ```

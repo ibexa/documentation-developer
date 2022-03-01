@@ -303,8 +303,7 @@ In your Symfony services configuration you can simply define that you require th
 
 ``` yaml
 # yml configuration
-    myApp.myService:
-        class: '%myApp.myService.class%'
+    App\MyService:
         arguments:
             - '@ibexa.cache_pool'
 ```
