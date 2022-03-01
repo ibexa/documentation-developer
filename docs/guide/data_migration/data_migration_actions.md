@@ -54,15 +54,13 @@ The following migration actions are available out of the box:
 - `assign_role_to_user_group` (Role Create / Update)
 - `assign_user_to_role` (User Create / Update)
 - `assign_user_group_to_role` (User Group Create / Update)
+- `unassign_role_user_group` (User Group Update)
 
 In contrast with Kaliop migrations, actions provide you with ability to perform additional operations and extend
 the migration functionality. 
 See [creating your own Actions](create_migration_action.md).
 
 ## Action usage examples
-
-You can find examples of using migrations with actions in your project's
-`vendor/ibexa/migrations/tests/bundle/Command/MigrateCommand/migrate-command-fixtures` folder.
 
 ### Content
 
@@ -159,3 +157,17 @@ mode: Create and Update
                 values:
                     - 1
 ```
+**Note**
+
+In action `assign_user_group_to_role` limitation type Section can only use section id
+
+mode: Update
+``` yaml
+    actions:
+        -
+            action: unassign_role_user_group
+            id: 1
+```
+**Note**
+
+In action `unassign_role_user_group` id is role assignment ID from table `ezuser_role`
