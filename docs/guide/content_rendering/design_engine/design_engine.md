@@ -79,17 +79,3 @@ You can change this behavior by setting `disable_assets_pre_resolution`:
 ibexa_design_engine:
     disable_assets_pre_resolution: true
 ```
-
-### PHPStorm support
-
-If you are using PHPStorm, and your PHPStorm project root doesn't match your Symfony project root,
-you must customize the path where the design engine stores its configuration file.
-Otherwise, PHPStorm does not recognize the `@ibexadesign` Twig namespace.
-
-Configure it under `ibexadesign.phpstorm`:
-
-``` yaml
-ibexa_design_engine:
-    phpstorm:
-        twig_config_path: <path_to_your_project>
-```
