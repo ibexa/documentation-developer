@@ -302,7 +302,7 @@ and it eventually fetches the affected content and updates it internally.
 To display recommendations on your site, you must include the asset in the template using the following code:
 
 ``` html+twig
-{{ encore_entry_script_tags('ezrecommendation-client-js', null, 'ibexa') }}
+{{ encore_entry_script_tags('ibexa-personalization-client-js', null, 'ibexa') }}
 ```
 
 This file is responsible for sending notifications to the [Recommendation API](developer_guide/recommendation_api.md) after the user clicks on a tracking element.
