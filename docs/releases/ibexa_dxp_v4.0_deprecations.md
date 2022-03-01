@@ -255,3 +255,4 @@ This is prevents indexes from being placed erroneously in the root table.
 `ezpublish.fieldType.indexable`, `ezpublish.fieldType.externalStorageHandler`, `ezpublish.fieldType.externalStorageHandler.gateway`,
 `ezpublish.location_view_provider`, `ezpublish.query_type`, `ezpublish.searchEngineIndexer`,
 `ezpublish.searchEngine`, `ezpublish.storageEngine.legacy.converter`
+- `Ibexa\Contracts\Core\MVC\EventSubscriber\onConfigScopeChange::onConfigScopeChange` now takes `ScopeChangeEvent $event` instead of `SiteAccess $siteAccess` as argument.
