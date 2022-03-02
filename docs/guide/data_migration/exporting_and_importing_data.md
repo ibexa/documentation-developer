@@ -270,7 +270,7 @@ The following examples show what data you can import using data migrations.
 
 ### Product catalog
 
-Create an attribute group with a attribute:
+Create an attribute group with an attribute:
 
 ``` yaml
 -   type: attribute_group
