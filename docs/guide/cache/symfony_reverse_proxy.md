@@ -63,7 +63,7 @@ framework:
     Make sure that **all** traffic always comes from the trusted proxy/load balancer,
     and that there is no other way to configure it.
 
-When using Fastly, you need to set ```trusted_proxies``` according to the [IP ranges used by fastly](https://docs.fastly.com/en/guides/accessing-fastlys-ip-ranges).
+When using Fastly, you need to set `trusted_proxies` according to the [IP ranges used by Fastly](https://docs.fastly.com/en/guides/accessing-fastlys-ip-ranges).
 
 !!! tip
 
