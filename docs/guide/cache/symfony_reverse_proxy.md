@@ -67,9 +67,9 @@ When using Fastly, you need to set `trusted_proxies` according to the [IP ranges
 
 !!! tip
 
-    There is no need for setting ```trusted_proxies``` when using Fastly on Platform.sh. The Platform.sh router will
-    automatically change the source IP of requests comming from Fastly, replacing the source IP with the actuall client
-    IP and remove any X-FORWARD-... header in the request before it reaches Ibexa DXP.
+    You don't have to set `trusted_proxies` when using Fastly on Platform.sh.
+    The Platform.sh router automatically changes the source IP of requests coming from Fastly,
+    replacing the source IP with the actual client IP and removing any `X-FORWARD-...` header in the request before it reaches Ibexa DXP.
 
 For more information about setting these variables, see [Examples for configuring eZ Platform](#examples-for-configuring-ibexa-dxp).
 
