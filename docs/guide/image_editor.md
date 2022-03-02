@@ -7,6 +7,11 @@ For more information, see the [user documentation]([[= user_doc =]]/editing_imag
 
     The Image Editor does not support images that come from a Digital Asset Management (DAM) system.
 
+!!! note
+
+    If you intend to modify images in formats other than JPEG in image editor,
+    consider [adding a library to optimize them](images.md#image-optimization).
+
 ## Configuration
 
 You can modify the default settings to change the appearance or behavior of the Image Editor.
