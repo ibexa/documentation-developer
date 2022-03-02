@@ -176,6 +176,10 @@ The following combinations of types are modes are available:
 |`object_state`|&#10004;|||
 |`section`|&#10004;|&#10004;||
 |`location`||&#10004;||
+|`attribute_group`|&#10004;||
+|`attribute`|&#10004;||
+|`customer_group`|&#10004;||
+|`currency`|&#10004;||
 
 ### match-property
 
@@ -258,6 +262,49 @@ By default the admin account is used, unless specifically overridden by this opt
 
 ``` bash
 php bin/console ibexa:migrations:generate --type=content --mode=create --user-context=jessica_andaya
+```
+
+## Migration file content
+
+The following examples show what data you can import using data migrations.
+
+### Product catalog
+
+Create an attribute group with an attribute:
+
+``` yaml
+-   type: attribute_group
+    mode: create
+    identifier: hat
+    names:
+        eng-GB: Hat
+-   type: attribute
+    mode: create
+    identifier: size
+    attribute_type_identifier: integer
+    attribute_group_identifier: hat
+    names:
+        eng-GB: Size
+```
+
+Create a customer group with a defined global price discount:
+
+``` yaml
+-   type: customer_group
+    mode: create
+    identifier: contractors
+    names:
+        eng-GB: Contractors
+    global_price_rate: -20.0
+```
+
+Create a currency:
+
+``` yaml
+-   type: currency
+    mode: create
+    code: TST
+    subunits: 3
 ```
 
 ## Executing migrations
