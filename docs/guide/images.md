@@ -259,6 +259,28 @@ Now you can load SVG files in your templates by using generated links and a newl
 [[= include_file('code_samples/back_office/images/templates/svg_helper.html.twig') =]]
 ```
 
+## Image optimization
+
+JPEG images are optimized using the ImageMagic library, which is available out of the box.
+
+If you use other formats, such a PNG, SVG, GIF or WEBP, and you use the Image Editor,
+to prevent images increasing in size when you modify them in the editor,
+you need to install additional image handling libraries.
+
+|Image format|Library|
+|---|---|
+|JPEG|JpegOptim|
+|PNG|Either Optipng or Pngquant 2|
+|SVG|SVGO 1|
+|GIF|Gifsicle|
+|WEBP|cwebp|
+
+Install these libraries using your package manager, for example:
+
+``` bash
+sudo apt-get install optipng
+```
+
 ## Embed images in Rich Text
 
 The [RichText](../api/field_types_reference/richtextfield.md) field allows you to embed other 
