@@ -1,0 +1,12 @@
+{
+    "ProductUpdate": {
+        "ContentUpdate": {
+        },
+        "code": "ggg123",
+        "attributes": [
+            {
+                "attr1": "attr1"
+            }
+        ]
+    }
+}

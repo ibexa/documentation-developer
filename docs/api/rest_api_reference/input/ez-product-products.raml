@@ -23,33 +23,33 @@ post:
         400:
             description: Error - the input does not match the input schema definition.
         401:
-            description: Error - the user is not authorized to create this User.
+            description: Error - the user is not authorized to update this Product.
         403:
-            description: Error - a User with the same login already exists.
+            description: Error - a Prodcut with the same name already exists.
         404:
-            description: Error - the Group with the given ID does not exist.
+            description: Error - the Product with the given ID does not exist.
 patch:
-    displayName: Update Attribute Group
-    description: Updates Attribute Group.
+    displayName: Update Product
+    description: Updates Product.
     headers:
         Accept:
-            description: If set, the updated Attribute Group is returned in XML or JSON format.
+            description: If set, the updated Product is returned in XML or JSON format.
             example:  |
-                application/vnd.ibexa.api.AttributeGroupUpdate+json
+                application/vnd.ibexa.api.ProductUpdate+json
         Content-Type:
-            description: If set, the updated Attribute Group is returned in XML or JSON format.
+            description: If set, the updated Product is returned in XML or JSON format.
             example:  |
-                application/vnd.ibexa.api.AttributeGroupUpdate+json
+                application/vnd.ibexa.api.ProductUpdate+json
     body:
-        application/vnd.ibexa.api.AttributeGroup+json:
-            type: AttributeGroup
-            #example: !include examples/product/catalog/attribute_groups/PATCH/AttributeGroupUpdate.json.example
+        application/vnd.ibexa.api.ProductUpdate+json:
+            type: ProductUpdate
+            example: !include examples/product/catalog/product/id/PATCH/ProductUpdate.json.example
     responses:
         201:
             body:
-                application/vnd.ibexa.api.AttributeGroup+json:
-                    type: AttributeGroupUpdate
-                    #example: !include examples/product/catalog/attribute_groups/PATCH/AttributeGroup.json.example
+                application/vnd.ibexa.api.Product+json:
+                    type: ProductUpdate
+                    example: !include examples/product/catalog/product/id/PATCH/Product.json.example
         400:
             description: Error - the input does not match the input schema definition.
         401:
@@ -57,7 +57,7 @@ patch:
         403:
             description: Error - a User with the same login already exists.
         404:
-            description: Error - the Group with the given ID does not exist.
+            description: Error - the Product with the given ID does not exist.
 /{id}:
     delete:
         displayName: Delete Product
@@ -66,7 +66,7 @@ patch:
             204:
                 description: No content - the given Product is deleted.
             401:
-                description: Error - the user is not authorized to delete this Content Type.
+                description: Error - the user is not authorized to delete this Product.
 get:
     displayName: Load Products List
     description: Returns a list of Products.

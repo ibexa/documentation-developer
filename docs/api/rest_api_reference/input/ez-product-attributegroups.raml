@@ -46,13 +46,13 @@ post:
         responses:
             201:
                 body:
-                    application/vnd.ibexa.api.User+json:
+                    application/vnd.ibexa.api.AttributeGroup+json:
                         type: AttributeGroup
                         example: !include examples/product/catalog/attribute_groups/attribute_groups_id/PATCH/AttributeGroup.json.example
             400:
                 description: Error - the input does not match the input schema definition.
             401:
-                description: Error - the user is not authorized to create this User.
+                description: Error - the user is not authorized to create this AttributeGroup.
             403:
                 description: Error - an Attribute Group with the same login already exists.
             404:
@@ -79,7 +79,7 @@ get:
     description: Returns a list of Attribute Groups.
     headers:
         Accept:
-            description: AttributeGroupListGet - If set, the User Group List is returned in XML or JSON format.
+            description: AttributeGroupListGet - If set, the Attribue Group List is returned in XML or JSON format.
             example: |
                 application/vnd.ibexa.api.AttributeGroupListGet+json
         Content-Type:
@@ -100,17 +100,17 @@ get:
         description: Returns a list of given Attribute Group.
         headers:
             Accept:
-                description: AttributeGrouptGet - If set, the User Group List is returned in XML or JSON format.
+                description: AttributeGrouptGet - If set, the Attribute Group List is returned in XML or JSON format.
                 example: |
                     application/vnd.ibexa.api.AttributeGroupGet+json
             Content-Type:
-                description: The UserCreate schema encoded in XML or JSON format.
+                description: The AttributeGroup schema encoded in XML or JSON format.
                 example:  |
                     application/vnd.ibexa.api.AttributeGroupGet+json
         responses:
             200:
                 body:
-                    application/vnd.ibexa.api.UserGroupList+json:
+                    application/vnd.ibexa.api.AttributeGroupList+json:
                         type: AttributeGroupList
                         example: !include examples/product/catalog/attribute_groups/attribute_groups_id/GET/AttributeGroup.json.example
             401:

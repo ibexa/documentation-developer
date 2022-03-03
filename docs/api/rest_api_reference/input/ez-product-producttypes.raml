@@ -19,15 +19,15 @@ post:
             body:
                 application/vnd.ibexa.api.ProductType+json:
                     type: ProductType
-                    #example: !include examples/product/catalog/attribute_groups/POST/AttributeGroup.json.example
+                    example: !include examples/product/catalog/product_types/POST/ProductType.json.example
         400:
             description: Error - the input does not match the input schema definition.
         401:
-            description: Error - the user is not authorized to create this User.
+            description: Error - the user is not authorized to create this Product Type.
         403:
-            description: Error - a User with the same login already exists.
+            description: Error - a Product Type with the same name already exists.
         404:
-            description: Error - the Group with the given ID does not exist.
+            description: Error - the Product Type with the given ID does not exist.
 get:
     displayName: Load Product Types
     description: Returns a list of Product Types.
@@ -62,7 +62,7 @@ get:
                 example: |
                     application/vnd.ibexa.api.ProductTypeListGet+json
             Content-Type:
-                description: The UserCreate schema encoded in XML or JSON format.
+                description: The ProductTypeList schema encoded in XML or JSON format.
                 example:  |
                     application/vnd.ibexa.api.ProductTypeListGet+json
         responses:
