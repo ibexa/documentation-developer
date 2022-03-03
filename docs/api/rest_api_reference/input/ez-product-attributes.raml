@@ -28,35 +28,35 @@ post:
             description: Error - an Attribute with the same name already exists.
 /{id}:    
     patch:
-    displayName: Update Attribute
-    description: Updates Attribute.
-    headers:
-        Accept:
-            description: If set, the updated Attribute is returned in XML or JSON format.
-            example:  |
-                application/vnd.ibexa.api.AttributeUpdate+json
-        Content-Type:
-            description: If set, the updated Attribute Group is returned in XML or JSON format.
-            example:  |
-                application/vnd.ibexa.api.AttributeUpdate+json
-    body:
-        application/vnd.ibexa.api.AttributeUpdate+json:
-            type: AttributeUpdate
-            example: !include examples/product/catalog/attributes/id/PATCH/AttributeUpdate.json.example
-    responses:
-        201:
-            body:
-                application/vnd.ibexa.api.Attribute+json:
-                    type: User
-                    example: !include examples/product/catalog/attributes/id/PATCH/Attribute.json.example
-        400:
-            description: Error - the input does not match the input schema definition.
-        401:
-            description: Error - the user is not authorized to create this Attribute.
-        403:
-            description: Error - an Attribute with the same name already exists.
-        404:
-            description: Error - the Attribute with the given ID does not exist.
+        displayName: Update Attribute
+        description: Updates Attribute.
+        headers:
+            Accept:
+                description: If set, the updated Attribute is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.AttributeUpdate+json
+            Content-Type:
+                description: If set, the updated Attribute Group is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.AttributeUpdate+json
+        body:
+            application/vnd.ibexa.api.AttributeUpdate+json:
+                type: AttributeUpdate
+                example: !include examples/product/catalog/attributes/id/PATCH/AttributeUpdate.json.example
+        responses:
+            201:
+                body:
+                    application/vnd.ibexa.api.Attribute+json:
+                        type: User
+                        example: !include examples/product/catalog/attributes/id/PATCH/Attribute.json.example
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to create this Attribute.
+            403:
+                description: Error - an Attribute with the same name already exists.
+            404:
+                description: Error - the Attribute with the given ID does not exist.
     delete:
         displayName: Delete Attribute
         description: The given Attribute is removed from the Attribute Group.
@@ -87,7 +87,7 @@ get:
             example: |
                 application/vnd.ibexa.api.AttributeListGet+json
     body:
-        application/vnd.ibexa.api.AttributeListGet+json
+        application/vnd.ibexa.api.AttributeListGet+json:
             type: AttributeList
             example: !include examples/product/catalog/attributes/GET/AttributeListGet.json.example
     responses:
@@ -98,7 +98,7 @@ get:
                     example: !include examples/product/catalog/attributes/GET/AttributeList.json.example
         401:
             description: Error - the user has no permission to read User Groups.
-    /id:
+    /{id}:
         displayName: Load Attributes
         description: Loads given Attribute.
         headers:

@@ -11,7 +11,7 @@ post:
             example:  |
                 application/vnd.ibexa.api.ProductTypeCreate+json
     body:
-        application/vnd.ibexa.api.ProductTypeCreate+json
+        application/vnd.ibexa.api.ProductTypeCreate+json:
             type: ProductTypeCreate
             example: !include examples/product/catalog/product_types/POST/ProductTypeCreate.json.example
     responses:
@@ -41,7 +41,7 @@ get:
             example:  |
                 application/vnd.ibexa.api.ProductTypeListGet+json
     body:
-        application/vnd.ibexa.api.ProductTypeListGet+json
+        application/vnd.ibexa.api.ProductTypeListGet+json:
             type: ProductTypeList
             example: !include examples/product/catalog/product_types/GET/ProductTypeListGet.json.example
     responses:
@@ -54,22 +54,22 @@ get:
             description: Error - the user has no permission to read Product Type.
 /{id}:
     get:
-    displayName: Load Product Types
-    description: Returns a list of given Product Types.
-    headers:
-        Accept:
-            description: ProductTypeListGet - If set, the Product Type List is returned in XML or JSON format.
-            example: |
-                application/vnd.ibexa.api.ProductTypeListGet+json
-        Content-Type:
-            description: The UserCreate schema encoded in XML or JSON format.
-            example:  |
-                application/vnd.ibexa.api.ProductTypeListGet+json
-    responses:
-        200:
-            body:
-                application/vnd.ibexa.api.ProductType+json:
-                    type: ProductType
-                    example: !include examples/product/catalog/product_types/id/GET/ProductType.json.example
-        401:
-            description: Error - the user has no permission to read Product Type.
+        displayName: Load Product Types
+        description: Returns a list of given Product Types.
+        headers:
+            Accept:
+                description: ProductTypeListGet - If set, the Product Type List is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.ProductTypeListGet+json
+            Content-Type:
+                description: The UserCreate schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.ProductTypeListGet+json
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.ProductType+json:
+                        type: ProductType
+                        example: !include examples/product/catalog/product_types/id/GET/ProductType.json.example
+            401:
+                description: Error - the user has no permission to read Product Type.

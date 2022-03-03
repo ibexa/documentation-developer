@@ -60,13 +60,13 @@ patch:
             description: Error - the Group with the given ID does not exist.
 /{id}:
     delete:
-    displayName: Delete Product
-    description: Deletes the given Product.
-    responses:
-        204:
-            description: No content - the given Product is deleted.
-        401:
-            description: Error - the user is not authorized to delete this Content Type.
+        displayName: Delete Product
+        description: Deletes the given Product.
+        responses:
+            204:
+                description: No content - the given Product is deleted.
+            401:
+                description: Error - the user is not authorized to delete this Content Type.
 get:
     displayName: Load Products List
     description: Returns a list of Products.
