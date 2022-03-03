@@ -10,21 +10,19 @@ post:
             description: The CustomerGroupCreate schema encoded in XML or JSON format.
             example:  |
                 application/vnd.ibexa.api.CustomerGroupCreate+json
-        body:
-            application/vnd.ibexa.api.CustomerGroupCreate+json
-                type: CustomerGroupCreate
-                example: !include examples/product/catalog/attribute_groups/POST/AttributeGroupCreate.json.example
+    body:
+        application/vnd.ibexa.api.CustomerGroupCreate+json
+            type: CustomerGroupCreate
+            example: !include examples/product/catalog/customer_groups/POST/CustomerGroupCreate.json.example
     responses:
         201:
             body:
-                application/vnd.ibexa.api.User+json:
-                    type: User
-                    example: !include examples/product/catalog/attribute_groups/POST/AttributeGroup.json.example
+                application/vnd.ibexa.api.CustomerGroup+json:
+                    type: CustomerGroup
+                    #example: !include examples/product/catalog/customer_groups/POST/CustomerGroup.json.example
         400:
             description: Error - the input does not match the input schema definition.
         401:
-            description: Error - the user is not authorized to create this User.
+            description: Error - the user is not authorized to create this Customer Group.
         403:
-            description: Error - a User with the same login already exists.
-        404:
-            description: Error - the Group with the given ID does not exist.
+            description: Error - a Customer Group with the same name already exists.

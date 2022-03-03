@@ -10,16 +10,16 @@ post:
             description: The Product schema encoded in XML or JSON format.
             example:  |
                 application/vnd.ibexa.api.ProductCreate+json
-        body:
-            application/vnd.ibexa.api.ProductCreate+json:
-                type: ProductCreate
-                example: !include examples/product/catalog/product/id/POST/ProductCreate.json.example
+    body:
+        application/vnd.ibexa.api.ProductCreate+json:
+            type: ProductCreate
+            example: !include examples/product/catalog/product/POST/ProductCreate.json.example
     responses:
         201:
             body:
-                application/vnd.ibexa.api.User+json:
-                    type: User
-                    example: !include examples/product/catalog/products/id/POST/ProductCreate.json.example
+                application/vnd.ibexa.api.ProductC+json:
+                    type: Product
+                    example: !include examples/product/catalog/product/POST/ProductCreate.json.example
         400:
             description: Error - the input does not match the input schema definition.
         401:
@@ -40,17 +40,17 @@ patch:
             description: If set, the updated Attribute Group is returned in XML or JSON format.
             example:  |
                 application/vnd.ibexa.api.AttributeGroupUpdate+json
-        body:
-            application/vnd.ibexa.api.AttributeGroup+json:
-                type: UserCreate
-                example: !include examples/product/catalog/attribute_groups/PATCH/AttributeGroupUpdate.json.example
+    body:
+        application/vnd.ibexa.api.AttributeGroup+json:
+            type: AttributeGroup
+            #example: !include examples/product/catalog/attribute_groups/PATCH/AttributeGroupUpdate.json.example
     responses:
         201:
             body:
-                application/vnd.ibexa.api.User+json:
-                    type: User
-                    example: !include examples/product/catalog/attribute_groups/PATCH/AttributeGroup.json.example
-         400:
+                application/vnd.ibexa.api.AttributeGroup+json:
+                    type: AttributeGroupUpdate
+                    #example: !include examples/product/catalog/attribute_groups/PATCH/AttributeGroup.json.example
+        400:
             description: Error - the input does not match the input schema definition.
         401:
             description: Error - the user is not authorized to create this User.
@@ -83,6 +83,6 @@ get:
             body:
                 application/vnd.ibexa.api.Product+json:
                     type: ProductList
-                    example: !!include examples/product/catalog/products/id/GET/Product.json.example
+                    example: !include examples/product/catalog/product/id/GET/Product.json.example
         401:
             description: Error - the user has no permission to read Product.

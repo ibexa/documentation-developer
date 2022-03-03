@@ -7,15 +7,15 @@ post:
             example: |
                 application/vnd.ibexa.api.CurrencyCreate+json
         Content-Type:
-            description: The UserGroupCreate schema encoded in XML or JSON format.
+            description: The Currency schema encoded in XML or JSON format.
             example: |
                 application/vnd.ibexa.api.CurrencyCreate+json
     responses:
         200:
             body:
                 application/vnd.ibexa.api.Currency+json:
-                    type: User
-                    example: !include examples/product/catalog/currencies/POST/Currency.json.example
+                    type: CurrencyCreate
+                    example: !include examples/product/catalog/currency/POST/Currency.json.example
         400:
             description: 
         401:
@@ -40,16 +40,16 @@ patch:
         200:
             body:
                 application/vnd.ibexa.api.Currency+json:
-                    type: OK - Currency updated.
-                    example: !include examples/user/groups/path/users/POST/User.json.example
+                    type: CurrencyUpdate
+                    example: !include examples/product/catalog/currency/currency_id/PATCH/Currency.json.example
         400:
             description: Error - the input does not match the input schema definition.
         401:
             description: Error - the user is not authorized to create this User.
         403:
-            description: Error - a User with the same login already exists.
+            description: Error - a Currency with the same ID already exists.
         404:
-            description: Error - the Group with the given ID does not exist.
+            description: Error - the Currency with the given ID does not exist.
 delete:
     displayName: Delete Currency
     description: The given Currency is removed.
@@ -58,13 +58,13 @@ delete:
         200:
             description: No content - the given Currency is deleted.
         401:
-            description: Error - 
+            description: Error - the user is not authorized to create this User.
 get:
     displayName: Load Currencies
     description: Loads the list of Currencies.
     headers:
         Accept:
-            description: CurrencyList - If set, the Currency list returned in XML or JSON format. UserRefList - If set, the link list of Users returned in XML or JSON format.
+            description: CurrencyList - If set, the Currency list returned in XML or JSON format.
             example: |
                 application/vnd.ibexa.api.Currencies+json
     responses:
@@ -72,8 +72,8 @@ get:
             description: OK - loads Currencies.
             body:
                 application/vnd.ibexa.api.Currencies+json:
-                    type: Currencies
-                    example: !include examples/product/catalog/currencies/GET/Currencies.json.example
+                    type: Currency
+                    example: !include examples/product/catalog/currency/GET/Currencies.json.example
         401:
             description: Error - the user has no permission to read Currencies.
         404:
@@ -84,7 +84,7 @@ get:
         description: Loads the list of Currencies.
         headers:
             Accept:
-                description: CurrencyList - If set, the Currency list returned in XML or JSON format. UserRefList - If set, the link list of Users returned in XML or JSON format.
+                description: CurrencyList - If set, the Currency list returned in XML or JSON format.
                 example: |
                     application/vnd.ibexa.api.Currencies+json
         responses:
@@ -92,8 +92,8 @@ get:
                 description: OK - loads Currencies.
                 body:
                     application/vnd.ibexa.api.Currencies+json:
-                        type: Currencies
-                    example: !include examples/product/catalog/currencies_id/GET/CurrencyList.json.example
+                    type: Currency
+                    example: !include examples/product/catalog/currency/currency_id/GET/CurrencyList.json.example
             401:
                 description: Error - the user has no permission to read Currencies.
             404:

@@ -3,7 +3,7 @@ get:
     description: Loads the list of Regions.
     headers:
         Accept:
-            description: RegionList - If set, the Regions list returned in XML or JSON format. UserRefList - If set, the link list of Regions returned in XML or JSON format.
+            description: RegionList - If set, the Regions list returned in XML or JSON format.
             example: |
                 application/vnd.ibexa.api.RegionGetList+json
     responses:
@@ -11,9 +11,9 @@ get:
             description: OK - loads Regions.
             body:
                 application/vnd.ibexa.api.RegionListGet+json:
-                    type: Currencies
+                    type: RegionList
                     example: !include examples/product/catalog/regions/GET/RegionList.json.example
         401:
-            description: Error - the user has no permission to read Currencies.
+            description: Error - the user has no permission to read Regions.
         404:
-            description: Error - the Currency does not exist.
+            description: Error - the Region does not exist.
