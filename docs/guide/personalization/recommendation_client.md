@@ -98,7 +98,7 @@ Place the following code snippet in the `<head>` section of your header template
 
 ``` html+twig
 {% if content is defined %}
-    {{ ibexa_recommendation_track_user(content.id) }}
+    {{ ibexa_recommendation_track_user(content) }}
 {% endif %}
 ```
 
