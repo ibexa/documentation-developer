@@ -148,3 +148,17 @@ For example:
     You don't need to save references if they are used in the same migration file.
     References are stored in memory during migration, whether they are used or not.
 
+## Available references types
+
+- `content`
+    - content_id
+    - location_id
+    - path
+- `content_type`
+    - content_type_id
+- `language`
+    - language_id
+- `role`
+    - role_id
+- `user_group`
+    - user_group_id
