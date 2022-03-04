@@ -22,5 +22,5 @@ between installations by using the migration command.
 
 ## Examples of using migration
 
-You can find examples of using migrations in your project's
-`vendor/ibexa/migrations/tests/bundle/Command/MigrateCommand/migrate-command-fixtures` folder.
+You can find examples of using migrations in [Migration file content](exporting_and_importing_data.md#migration-file-content),
+and in your project's `vendor/ibexa/migrations/tests/bundle/Command/MigrateCommand/migrate-command-fixtures` folder.
