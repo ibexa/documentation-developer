@@ -159,7 +159,7 @@ mode: Create and Update
 ```
 !!! note
 
-In the `assign_user_group_to_role` action, Limitation type Section can only use Section ID:
+    In the `assign_user_group_to_role` action, Limitation type Section can only use Section ID:
 
 mode: Update
 ``` yaml
@@ -171,4 +171,4 @@ mode: Update
 
 !!! note
 
-In the `unassign_role_user_group` action, the ID is Role assignment ID from the `ezuser_role` table.
+    In the `unassign_role_user_group` action, the ID is Role assignment ID from the `ezuser_role` table.
