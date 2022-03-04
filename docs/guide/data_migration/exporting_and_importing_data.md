@@ -220,8 +220,11 @@ The following properties are available (per type):
     - `section_id`
     - `section_identifier`
 - `user`
-    - `login`
-    - `email`
+  - `login`
+  - `email`
+- `user_group`
+  - `id`
+  - `remoteId`
 
 You can extend the list of available matchers by creating [a custom one](add_data_migration_matcher.md).
 
