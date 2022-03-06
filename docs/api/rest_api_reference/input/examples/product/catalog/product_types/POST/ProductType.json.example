@@ -1,0 +1,24 @@
+{
+    "ProductType": {
+        "_media-type": "application/vnd.ibexa.api.ProductType+json",
+        "identifier": "test_pt321",
+        "name": "New Product Type",
+        "AttributeAssignmentList": [
+            {
+                "_media-type": "application/vnd.ibexa.api.AttributeAssignment+json",
+                "is_required": false,
+                "is_discriminator": true,
+                "Attribute": {
+                    "_media-type": "application/vnd.ibexa.api.Attribute+json",
+                    "identifier": "testAttr",
+                    "name": "testAttr",
+                    "description": "",
+                    "type": "Checkbox",
+                    "group": "Test Attribute group",
+                    "position": 0,
+                    "options": ""
+                }
+            }
+        ]
+    }
+}
