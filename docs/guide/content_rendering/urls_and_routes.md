@@ -112,6 +112,13 @@ The following built-in routes are available for the front of the website.
 |---|---|---|
 | `ibexa.commerce.bestsellers` | `/bestsellers` | [Bestseller page](../bestsellers.md) |
 
+| Route          | Controller     | Description |
+| -------------- | -------------- | ----------- |
+| `/basket/show`   | `showAction()`   | Shows a basket with all basket lines |
+| `/basket/add`    | `addAction()`    | Adds a product (product list) to the basket |
+| `/basket/update` | `updateAction()` | Changes attributes (for example, quantity) of a basket line in the basket |
+| `/basket/delete` | `deleteAction()` | Removes a basket line from the basket by the given basket line ID |
+
 ### Content
 
 |Route name|Path|Description|

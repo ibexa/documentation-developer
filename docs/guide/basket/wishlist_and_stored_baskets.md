@@ -20,32 +20,6 @@ twig:
         stored_baskets_active: false
 ```
 
-## Basket type
-
-Wishlists and stored baskets are baskets with a special type `wishlist` or `storedBasket`. 
-
-No events are thrown when adding products to a wishlist or a stored basket.
-However, there is no data validation in the background.
-Data validation, such as for the minimum order amount or for mixing of downloads with normal products,
-is done when adding those items into the shopping basket.
-
-One template is used for both wishlists and stored baskets. The attributes that are shown can be handled through the basket type:
-
-``` php
-const TYPE_STORED_BASKET = 'storedBasket';
-const TYPE_WISH_LIST = 'wishList';
-```
-
-## Template list
-
-|Path|Description|
-|--- |--- |
-|`Eshop/Resources/views/Basket/stored_baskets_list.html.twig`|List of all stored baskets.|
-|`Eshop/Resources/views/Basket/show_stored_basket.html.twig`|Entry page for both wishlists and stored baskets. Based on the basket type, it loads one of the templates listed below.|
-|`Eshop/Resources/views/Basket/show_stored_basket_part.html.twig`|Partial page responsible for rendering a stored basket page.|
-|`Eshop/Resources/views/Basket/show_wishlist_part.html.twig`|Partial page responsible for rendering the wishlist.|
-|`Eshop/Resources/views/Basket/messages.html.twig`|Template with success/error/notice messages for baskets.|
-
 ## Twig functions
 
 `ibexa_commerce_get_stored_baskets()` returns stored baskets for the current user:

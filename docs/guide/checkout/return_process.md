@@ -23,12 +23,12 @@ parameters:
 ## Online cancellation form
 
 After a user submits the online cancellation form,
-an email is sent to the admin using [SendCancellationEmailDataProcessor](../forms/form_api/dataprocessors.md#sendcancellationemaildataprocessor).
+an email is sent to the admin using `SendCancellationEmailDataProcessor`.
 
 ## Product return form
 
 After a user submits the Product return form,
-an email is sent to the admin using [SendRmaEmailDataProcessor](../forms/form_api/dataprocessors.md#sendrmaemaildataprocessor).
+an email is sent to the admin using `SendRmaEmailDataProcessor`.
 
 The email recipient has to generate a delivery note with a return number and send it to the customer.
 The customer then can return their goods together with return number.
