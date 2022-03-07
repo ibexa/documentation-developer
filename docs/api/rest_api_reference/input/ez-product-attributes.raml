@@ -1,5 +1,5 @@
 post:
-    displayName: Create Attribute
+    displayName: Create attribute
     description: Creates a new Attribute.
     headers:
         Accept:
@@ -67,8 +67,8 @@ post:
                 description: Error - the user is not authorized to delete this Attribute.
 /translation/{languageCode}:
     delete:
-        displayName: Delete Atrribute Translation
-        description: The given Attribute is removed from the Attribute Group.
+        displayName: Delete attribute translation
+        description: The given translation is removed from the attribute.
         responses:
             200:
                 description: No Content.
@@ -121,5 +121,5 @@ get:
                         type: Attribute
                         example: !include examples/product/catalog/attributes/id/GET/Attribute.json.example
             401:
-                description: Error - the user has no permission to read Attribute.
+                description: Error - the user has no permission to read the attribute.
 

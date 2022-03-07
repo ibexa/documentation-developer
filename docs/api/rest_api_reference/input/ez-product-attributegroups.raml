@@ -1,9 +1,9 @@
 post:
-    displayName: Create Attribute Group
-    description: Creates a new Attribute Group.
+    displayName: Create attribute group
+    description: Creates a new attribute group.
     headers:
         Accept:
-            description: If set, the new Attribute Group is returned in XML or JSON format.
+            description: If set, the new attribute group is returned in XML or JSON format.
             example:  |
                 application/vnd.ibexa.api.AttributeGroupCreate+json
         Content-Type:
@@ -23,13 +23,13 @@ post:
         400:
             description: Error - the input does not match the input schema definition.
         401:
-            description: Error - the user is not authorized to create this Attribute Group.
+            description: Error - the user is not authorized to create this attribute group.
         403:
-            description: Error - an Attribute Group.
+            description: Error - an attribute group.
 /{id}:
     patch:
-        displayName: Update Attribute Group
-        description: Updates Attribute Group.
+        displayName: Update attribute group
+        description: Updates an attribute group.
         headers:
             Accept:
                 description: If set, the updated Attribute Group is returned in XML or JSON format.
@@ -52,23 +52,23 @@ post:
             400:
                 description: Error - the input does not match the input schema definition.
             401:
-                description: Error - the user is not authorized to create this AttributeGroup.
+                description: Error - the user is not authorized to create this attribute group.
             403:
                 description: Error - an Attribute Group with the same login already exists.
             404:
                 description: Error - the Group with the given ID does not exist.
 delete:
     displayName: Delete Attribute Group
-    description: The given Attribute Group is deleted.
+    description: Deletes an attribute group.
     responses:
         204:
             description: No content - the given Attribute Group is deleted.
         401:
-            description: Error - the user is not authorized to delete this Content Type.
+            description: Error - the user is not authorized to delete this attribute group.
 /translation/{id}/{languageCode}:
     delete:
-        displayName: Delete Translation
-        description: Deletes given Translation from Attribute Group.
+        displayName: Delete translation
+        description: Deletes given translation from attribute group.
         responses:
             200:
                 description: No content - the given Attribute Group Translation is deleted.
@@ -79,7 +79,7 @@ get:
     description: Returns a list of Attribute Groups.
     headers:
         Accept:
-            description: AttributeGroupListGet - If set, the Attribue Group List is returned in XML or JSON format.
+            description: AttributeGroupListGet - If set, the attribute group list is returned in XML or JSON format.
             example: |
                 application/vnd.ibexa.api.AttributeGroupListGet+json
         Content-Type:

@@ -1,5 +1,5 @@
 post:
-    displayName: Create Product
+    displayName: Create product
     description: Creates a new Product.
     headers:
         Accept:
@@ -53,9 +53,9 @@ patch:
         400:
             description: Error - the input does not match the input schema definition.
         401:
-            description: Error - the user is not authorized to create this User.
+            description: Error - the user is not authorized to create this product.
         403:
-            description: Error - a User with the same login already exists.
+            description: Error - a product with the same ID already exists.
         404:
             description: Error - the Product with the given ID does not exist.
 /{id}:
