@@ -358,7 +358,7 @@ bin/console fos:httpcache:invalidate:tag ez-all
 
 It is important to test your code in an environment which is as similar as your production environment as possible. That
 means that if only are testing locally using the default Symfony Reverse proxy when your are going to use Varnish or
-Fastly in production, you are likely edning up some (bad) surprises. Due to the symfony reverse proxy's lack of support for ESIs, it behaves
+Fastly in production, you are likely ending up some (bad) surprises. Due to the symfony reverse proxy's lack of support for ESIs, it behaves
 quite different from Varnish and Fastly in some aspects.
 If you are going to use Varnish in production, make sure you also test your code with Varnish.
 If you are going to use Fastly in production, testing with Fastly in your developer install is likely not feasible
