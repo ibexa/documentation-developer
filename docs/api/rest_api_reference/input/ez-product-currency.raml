@@ -1,9 +1,9 @@
 post:
     displayName: Create currency
-    description: Creates a new Currency.
+    description: Creates a new currency.
     headers:
         Accept:
-            description: If set, the new Currency is returned in JSON format.
+            description: If set, the new currency is returned in JSON format.
             example:  |
                 application/vnd.ibexa.api.CurrencyCreate+json
         Content-Type:
@@ -23,15 +23,15 @@ post:
         400:
             description: Error - the input does not match the input schema definition.
         401:
-            description: Error - the user is not authorized to create this Currency.
+            description: Error - the user is not authorized to create this currency.
         406:
-            description: Error - a Curency with this code already exists.
+            description: Error - a curency with this code already exists.
 patch:
-    displayName: Update Currency
-    description: Updates a Currency.
+    displayName: Update currency
+    description: Updates a currency.
     headers:
         Accept:
-            description: If set, the updated Currency is returned in XML or JSON format.
+            description: If set, the updated currency is returned in XML or JSON format.
             example:  |
                 application/vnd.ibexa.api.CurrencyUpdate+json
         Content-Type:
@@ -49,23 +49,23 @@ patch:
         401:
             description: Error - the user is not authorized to create this User.
         403:
-            description: Error - a Currency with the same ID already exists.
+            description: Error - a currency with the same ID already exists.
         404:
-            description: Error - the Currency with the given ID does not exist.
+            description: Error - the currency with the given ID does not exist.
 delete:
-    displayName: Delete Currency
-    description: The given Currency is removed.
+    displayName: Delete currency
+    description: Deletes the given currency.
     responses:
         200:
-            description: No content - the given Currency is deleted.
+            description: No content - the given currency is deleted.
         401:
-            description: Error - the user is not authorized to delete this Currency.
+            description: Error - the user is not authorized to delete this currency.
 get:
-    displayName: Load Currencies
-    description: Loads the list of Currencies.
+    displayName: Load currencies
+    description: Loads the list of currencies.
     headers:
         Accept:
-            description: CurrencyList - If set, the Currency list returned in XML or JSON format.
+            description: CurrencyList - If set, the currency list returned in XML or JSON format.
             example:  |
                 application/vnd.ibexa.api.Currencies+json
         Content-Type:
@@ -74,32 +74,32 @@ get:
                 application/vnd.ibexa.api.Currencies+json
     responses:
         200:
-            description: OK - loads Currencies.
+            description: OK - loads currencies.
             body:
                 application/vnd.ibexa.api.Currencies+json:
                     type: Currency
                     example: !include examples/product/catalog/currency/GET/Currencies.json.example
         401:
-            description: Error - the user has no permission to read Currencies.
+            description: Error - the user has no permission to read currencies.
         404:
-            description: Error - the Currency does not exist.
+            description: Error - the currency does not exist.
 /{id}:
     get:
-        displayName: Load Currencies
-        description: Loads the list of Currencies.
+        displayName: Load currencies
+        description: Loads the list of currencies.
         headers:
             Accept:
-                description: CurrencyList - If set, the Currency list returned in XML or JSON format.
+                description: CurrencyList - If set, the currency list returned in XML or JSON format.
                 example:  |
                     application/vnd.ibexa.api.Currencies+json
         responses:
             200:
-                description: OK - loads Currencies.
+                description: OK - loads currencies.
                 body:
                     application/vnd.ibexa.api.Currencies+json:
                         type: Currency
                         example: !include examples/product/catalog/currency/currency_id/GET/CurrencyList.json.example
             401:
-                description: Error - the user has no permission to read Currencies.
+                description: Error - the user has no permission to read currencies.
             404:
-                description: Error - the Currency does not exist.
+                description: Error - the currency does not exist.

@@ -1,13 +1,13 @@
 post:
     displayName: Create product
-    description: Creates a new Product.
+    description: Creates a new oroduct.
     headers:
         Accept:
-            description: If set, the new Product is returned in XML or JSON format.
+            description: If set, the new product is returned in XML or JSON format.
             example:  |
                 application/vnd.ibexa.api.ProductCreate+json
         Content-Type:
-            description: The Product schema encoded in XML or JSON format.
+            description: The product schema encoded in XML or JSON format.
             example:  |
                 application/vnd.ibexa.api.ProductCreate+json
     body:
@@ -23,21 +23,21 @@ post:
         400:
             description: Error - the input does not match the input schema definition.
         401:
-            description: Error - the user is not authorized to update this Product.
+            description: Error - the user is not authorized to update this product.
         403:
-            description: Error - a Prodcut with the same name already exists.
+            description: Error - a product with the same name already exists.
         404:
-            description: Error - the Product with the given ID does not exist.
+            description: Error - the product with the given ID does not exist.
 patch:
-    displayName: Update Product
-    description: Updates Product.
+    displayName: Update product
+    description: Updates product.
     headers:
         Accept:
-            description: If set, the updated Product is returned in XML or JSON format.
+            description: If set, the updated product is returned in XML or JSON format.
             example:  |
                 application/vnd.ibexa.api.ProductUpdate+json
         Content-Type:
-            description: If set, the updated Product is returned in XML or JSON format.
+            description: If set, the updated product is returned in XML or JSON format.
             example:  |
                 application/vnd.ibexa.api.ProductUpdate+json
     body:
@@ -57,25 +57,25 @@ patch:
         403:
             description: Error - a product with the same ID already exists.
         404:
-            description: Error - the Product with the given ID does not exist.
+            description: Error - the product with the given ID does not exist.
 /{id}:
     delete:
-        displayName: Delete Product
-        description: Deletes the given Product.
+        displayName: Delete product
+        description: Deletes the given product.
         responses:
             204:
-                description: No content - the given Product is deleted.
+                description: No content - the given product is deleted.
             401:
-                description: Error - the user is not authorized to delete this Product.
+                description: Error - the user is not authorized to delete this product.
 get:
-    displayName: Load Products List
-    description: Returns a list of Products.
+    displayName: Load products list
+    description: Returns a list of products.
     headers:
         Accept:
-            description: If set, the given Product is returned in XML or JSON format.
+            description: If set, the given product is returned in XML or JSON format.
                 application/vnd.ibexa.api.ProductGet+json
         Content-Type:
-            description: The Product schema encoded in XML or JSON format.
+            description: The product schema encoded in XML or JSON format.
             example:  |
                 application/vnd.ibexa.api.ProductGet+json
     responses:
@@ -85,4 +85,4 @@ get:
                     type: ProductList
                     example: !include examples/product/catalog/product/id/GET/Product.json.example
         401:
-            description: Error - the user has no permission to read Product.
+            description: Error - the user has no permission to read product.

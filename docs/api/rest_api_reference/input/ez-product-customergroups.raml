@@ -1,9 +1,9 @@
 post:
     displayName: Create customer group
-    description: Creates a new Customer Group.
+    description: Creates a new customer group.
     headers:
         Accept:
-            description: If set, the new Customer Group is returned in XML or JSON format.
+            description: If set, the new customer group is returned in XML or JSON format.
             example:  |
                 application/vnd.ibexa.api.CustomerGroupCreate+json
         Content-Type:
@@ -25,4 +25,4 @@ post:
         401:
             description: Error - the user is not authorized to create this Customer Group.
         403:
-            description: Error - a Customer Group with the same name already exists.
+            description: Error - a customer group with the same name already exists.

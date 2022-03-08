@@ -1,8 +1,8 @@
 displayName: Taxonomy
 /{taxonomyName}/entry-assignments/assign-to-content:
     post:
-        displayName: Assign Entry
-        description: Assigns Taxonomy Entry to a Content item.
+        displayName: Assign entry
+        description: Assigns taxonomy entry to a Content item.
         headers:
             Accept:
                 example:  |
@@ -16,15 +16,15 @@ displayName: Taxonomy
                 example: !include examples/taxonomy/POST/TaxonomyEntryAssignToContent.json.example
         responses:
             201:
-                description: No content.
+                description: No Content.
             400:
                 description: Error - the input does not match the input schema definition.
             401:
                 description: Error - the user is not authorized to assign this Entry.
 /{taxonomyName}/entry-assignments/unassign-from-content:
     post:
-        displayName: Unassign Entry
-        description: Unassigns Taxonomy Entry from a Content item.
+        displayName: Unassign entry
+        description: Unassigns taxonomy entry from a Content item.
         headers:
             Accept:
                 example:  |
@@ -38,8 +38,8 @@ displayName: Taxonomy
                 example: !include examples/taxonomy/POST/TaxonomyEntryUnassignFromContent.json.example
         responses:
             201:
-                description: No content.
+                description: No Content.
             400:
                 description: Error - the input does not match the input schema definition.
             401:
-                description: Error - the user is not authorized to unassign this Entry.
+                description: Error - the user is not authorized to unassign this entry.

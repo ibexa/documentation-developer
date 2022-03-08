@@ -32,11 +32,11 @@ post:
         description: Updates an attribute group.
         headers:
             Accept:
-                description: If set, the updated Attribute Group is returned in XML or JSON format.
+                description: If set, the updated attribute group is returned in XML or JSON format.
                 example:  |
                     application/vnd.ibexa.api.AttributeGroupUpdate+json
             Content-Type:
-                description: If set, the updated Attribute Group is returned in XML or JSON format.
+                description: If set, the updated attribute group is returned in XML or JSON format.
                 example:  |
                     application/vnd.ibexa.api.AttributeGroupUpdate+json
         body:
@@ -54,15 +54,15 @@ post:
             401:
                 description: Error - the user is not authorized to create this attribute group.
             403:
-                description: Error - an Attribute Group with the same login already exists.
+                description: Error - an attribute group with the same login already exists.
             404:
-                description: Error - the Group with the given ID does not exist.
+                description: Error - the group with the given ID does not exist.
 delete:
-    displayName: Delete Attribute Group
+    displayName: Delete attribute group
     description: Deletes an attribute group.
     responses:
         204:
-            description: No content - the given Attribute Group is deleted.
+            description: No content - the given attribute group is deleted.
         401:
             description: Error - the user is not authorized to delete this attribute group.
 /translation/{id}/{languageCode}:
@@ -71,9 +71,9 @@ delete:
         description: Deletes given translation from attribute group.
         responses:
             200:
-                description: No content - the given Attribute Group Translation is deleted.
+                description: No content - the given attribute group translation is deleted.
             401:
-                description: Error - the user is not authorized to delete this Attribute Group Translation assignment.
+                description: Error - the user is not authorized to delete this attribute group translation assignment.
 get:
     displayName: Load Attribute Groups
     description: Returns a list of Attribute Groups.
@@ -93,14 +93,14 @@ get:
                     type: AttributeGroupList
                     example: !include examples/product/catalog/attribute_groups/GET/AttributeGroupList.json.example
         401:
-            description: Error - the user has no permission to read Attribute Groups.
+            description: Error - the user has no permission to read attribute groups.
 
     /id:
-        displayName: Load Attribute Group
-        description: Returns a list of given Attribute Group.
+        displayName: Load attribute group
+        description: Returns a list of given attribute group.
         headers:
             Accept:
-                description: AttributeGrouptGet - If set, the Attribute Group List is returned in XML or JSON format.
+                description: AttributeGrouptGet - If set, the attribute group List is returned in XML or JSON format.
                 example: |
                     application/vnd.ibexa.api.AttributeGroupGet+json
             Content-Type:
@@ -114,4 +114,4 @@ get:
                         type: AttributeGroupList
                         example: !include examples/product/catalog/attribute_groups/attribute_groups_id/GET/AttributeGroup.json.example
             401:
-                description: Error - the user has no permission to read Attribute Groups.
+                description: Error - the user has no permission to read attribute groups.
