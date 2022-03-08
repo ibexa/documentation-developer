@@ -8,7 +8,7 @@ After the installation, by default Tags are available with the following configu
 `config/packages/ibexa_taxonomy.yaml` and associated Content Type `tag`.
 
 ``` yaml
-[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 1, 8 )=]]
+[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 1, 9 )=]]
 ```
 
 ## Configuration keys
@@ -16,16 +16,16 @@ After the installation, by default Tags are available with the following configu
 * `ibexa_taxonomies` - section responsible for taxonomy, you can use any alphanumeric identifier
 * `ibexa_taxonomies.tags.parent_location_remote_id` - Remote ID for location where new Content items representing tags are created
 * `ibexa_taxonomies.tags.content_type` - Content Type identifier which stands for the taxonomy
-* `ibexa_taxonomies.tags.field_mappings` - Field types map of a Content Type which taxonomy receives information about the tag from. Two fields are available: `identifier` and `parent`.
-The identifiers correspond to field names defined in the Content Type.
+* `ibexa_taxonomies.tags.field_mappings` - Field types map of a Content Type which taxonomy receives information about the tag from. Three fields are available: `identifier`, `parent` and `name`.
+The identifiers correspond to field names defined in the Content Type. The `name` field is used to generate automatically an identifier.
 
 ## Customize taxonony structure
 
 You can create other taxonomy than predefined in the system, for example a Content category.
 To do it, first, create a new Content Type with `content_category` identifier and include the following field types:
 
-- `category_identifier` of `ezstring` type
-- `parent` of `ibexa_taxonomy_entry` type
+* `category_identifier` of `ezstring` type
+* `parent` of `ibexa_taxonomy_entry` type
 
 Next, in the `config/packages/ibexa_taxonomy.yaml` add the following configuration:
 
