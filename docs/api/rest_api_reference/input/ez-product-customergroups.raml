@@ -1,0 +1,28 @@
+post:
+    displayName: Create customer group
+    description: Creates a new customer group.
+    headers:
+        Accept:
+            description: If set, the new customer group is returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.CustomerGroupCreate+json
+        Content-Type:
+            description: The CustomerGroupCreate schema encoded in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.CustomerGroupCreate+json
+    body:
+        application/vnd.ibexa.api.CustomerGroupCreate+json:
+            type: CustomerGroupCreate
+            example: !include examples/product/catalog/customer_groups/POST/CustomerGroupCreate.json.example
+    responses:
+        201:
+            body:
+                application/vnd.ibexa.api.CustomerGroup+json:
+                    type: CustomerGroup
+                    example: !include examples/product/catalog/customer_groups/POST/CustomerGroup.json.example
+        400:
+            description: Error - the input does not match the input schema definition.
+        401:
+            description: Error - the user is not authorized to create this Customer Group.
+        403:
+            description: Error - a customer group with the same name already exists.

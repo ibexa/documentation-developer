@@ -1,0 +1,45 @@
+displayName: Taxonomy
+/{taxonomyName}/entry-assignments/assign-to-content:
+    post:
+        displayName: Assign entry
+        description: Assigns taxonomy entry to a Content item.
+        headers:
+            Accept:
+                example:  |
+                    application/vnd.ibexa.api.TaxonomyEntryAssignToContent+json
+            Content-Type:
+                example:  |
+                    application/vnd.ibexa.api.TaxonomyEntryAssignToContent+json
+        body:
+            application/vnd.ibexa.api.TaxonomyEntryAssignToContent+json:
+                type: TaxonomyEntryAssignToContent
+                example: !include examples/taxonomy/POST/TaxonomyEntryAssignToContent.json.example
+        responses:
+            201:
+                description: No Content.
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to assign this Entry.
+/{taxonomyName}/entry-assignments/unassign-from-content:
+    post:
+        displayName: Unassign entry
+        description: Unassigns taxonomy entry from a Content item.
+        headers:
+            Accept:
+                example:  |
+                    aapplication/vnd.ibexa.api.TaxonomyEntryUnassignFromContent+json
+            Content-Type:
+                example:  |
+                    application/vnd.ibexa.api.TaxonomyEntryUnassignFromContent+json
+        body:
+            application/vnd.ibexa.api.TaxonomyEntryAssignToContent+json:
+                type: TaxonomyEntryUnassignFromContent
+                example: !include examples/taxonomy/POST/TaxonomyEntryUnassignFromContent.json.example
+        responses:
+            201:
+                description: No Content.
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to unassign this entry.

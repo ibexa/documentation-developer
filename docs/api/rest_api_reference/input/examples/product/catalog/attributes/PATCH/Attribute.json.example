@@ -1,0 +1,12 @@
+{
+    "Attribute": {
+        "_media-type": "application/vnd.ibexa.api.Attribute+json",
+        "identifier": "attr_group_test2",
+        "name": "Attribute Group",
+        "description": "description",
+        "type": "Checkbox",
+        "group": "Attribute Group Test",
+        "position": 0,
+        "options": "bar"
+    }
+}

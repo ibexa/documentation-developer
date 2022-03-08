@@ -1,0 +1,11 @@
+ {
+    "CustomerGroup": {
+        "_media-type": "application/vnd.ibexa.api.CustomerGroup+json",
+        "id": 5,
+        "name": "test-en",
+        "identifier": "test",
+        "description": "test-desc-en",
+        "users": [],
+        "global_price_rate": "1.00"
+    }
+}

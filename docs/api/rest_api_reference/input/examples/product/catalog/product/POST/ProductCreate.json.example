@@ -1,0 +1,41 @@
+{
+    "ProductCreate": {
+        "ContentCreate": {
+            "ContentType": {
+                "_href": "/api/ibexa/v2/content/types/51",
+                "FieldDefinitions": {
+                    "_media-type": "application/vnd.ibexa.api.FieldDefinitionList+json",
+                    "_href": "/api/ibexa/v2/content/types/260/fieldDefinitions",
+                    "FieldDefinition": []
+                }
+            },
+            "LocationCreate": {
+                "ParentLocation": {
+                    "_href": "/api/ibexa/v2/content/locations/1/2"
+                },
+                "priority": "0",
+                "hidden": "false",
+                "sortField": "PATH",
+                "sortOrder": "ASC"
+            },
+            "alwaysAvailable": "true",
+            "fields": {
+                "field": [
+                    {
+                        "fieldDefinitionIdentifier": "name",
+                        "languageCode": "eng-GB",
+                        "fieldTypeIdentifier": "ezstring",
+                        "fieldValue": "new PT"
+                    }
+                ]
+            },
+            "mainLanguageCode": "eng-GB"
+        },
+        "code": "ggg",
+        "attributes": [
+            {
+                "attr1": "fffffff"
+            }
+        ]
+    }
+}

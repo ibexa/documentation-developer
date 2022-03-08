@@ -1,0 +1,11 @@
+{
+    "ProductUpdate": {
+        "ContentUpdate": {
+        },
+        "code": "bbbb",
+        "attributes": {
+            "nnnn": "nnnn",
+            "testAttr": "testAttr"
+        }
+    }
+}
