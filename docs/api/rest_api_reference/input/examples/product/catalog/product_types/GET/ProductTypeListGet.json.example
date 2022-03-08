@@ -1,0 +1,7 @@
+{
+    "ProductTypeListGet": {
+        "name_prefix": "s",
+        "offset": 0,
+        "limit": 10
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "ProductType": {
+        "_media-type": "application/vnd.ibexa.api.ProductType+json",
+        "identifier": "d_rope",
+        "name": "Dynamic ropes",
+        "AttributeAssignmentList": []
+    }
+}

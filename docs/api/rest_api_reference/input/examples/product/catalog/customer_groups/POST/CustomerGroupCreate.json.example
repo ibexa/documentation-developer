@@ -1,0 +1,12 @@
+{
+    "CustomerGroupCreate": {
+        "identifier": "customer_group",
+        "names": {
+            "eng-GB": "Customer Group"
+        },
+    "descriptions:": {
+            "eng-GB": "Customer Group description"
+        },
+        "global_price_rate": "1"
+    }
+}

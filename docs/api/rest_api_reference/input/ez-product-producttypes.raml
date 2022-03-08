@@ -1,0 +1,75 @@
+post:
+    displayName: Create product type
+    description: Creates a new product type.
+    headers:
+        Accept:
+            description: If set, the new product type is returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.ProductTypeCreate+json
+        Content-Type:
+            description: The ProductType schema encoded in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.ProductTypeCreate+json
+    body:
+        application/vnd.ibexa.api.ProductTypeCreate+json:
+            type: ProductTypeCreate
+            example: !include examples/product/catalog/product_types/POST/ProductTypeCreate.json.example
+    responses:
+        201:
+            body:
+                application/vnd.ibexa.api.ProductType+json:
+                    type: ProductType
+                    example: !include examples/product/catalog/product_types/POST/ProductType.json.example
+        400:
+            description: Error - the input does not match the input schema definition.
+        401:
+            description: Error - the user is not authorized to create this product type.
+        403:
+            description: Error - a product type with the same name already exists.
+        404:
+            description: Error - the product type with the given ID does not exist.
+get:
+    displayName: Load product types
+    description: Returns a list of product types.
+    headers:
+        Accept:
+            description: ProductTypeListGet - If set, the product type list is returned in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.ProductTypeListGet+json
+        Content-Type:
+            description: The ProductTypeList schema encoded in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.ProductTypeListGet+json
+    body:
+        application/vnd.ibexa.api.ProductTypeListGet+json:
+            type: ProductTypeList
+            example: !include examples/product/catalog/product_types/GET/ProductTypeListGet.json.example
+    responses:
+        200:
+            body:
+                application/vnd.ibexa.api.ProductTypeList+json:
+                    type: ProductTypeList
+                    example: !include examples/product/catalog/product_types/GET/ProductTypeList.json.example
+        401:
+            description: Error - the user has no permission to read product type.
+/{id}:
+    get:
+        displayName: Load product types
+        description: Returns a list of given product types.
+        headers:
+            Accept:
+                description: ProductTypeListGet - If set, the product type list is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.ProductTypeListGet+json
+            Content-Type:
+                description: The ProductTypeList schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.ProductTypeListGet+json
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.ProductType+json:
+                        type: ProductType
+                        example: !include examples/product/catalog/product_types/id/GET/ProductType.json.example
+            401:
+                description: Error - the user has no permission to read product type.

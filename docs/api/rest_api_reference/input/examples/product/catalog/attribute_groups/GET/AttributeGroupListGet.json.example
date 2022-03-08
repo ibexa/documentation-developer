@@ -1,0 +1,7 @@
+{
+    "AttributeGroupListGet": {
+        "prefix": "s", //optional
+        "offset": 0, //optional
+        "limit": 10 //optional
+    }
+}
