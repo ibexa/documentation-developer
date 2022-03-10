@@ -4,11 +4,6 @@
 
 Comparison is a [basket](../basket/basket.md) with a special type `comparison`. 
 
-No events are thrown when adding products to a comparison, so adding to comparison is quicker than adding items to a basket.
-However, there is no data validation in the background.
-Data validation, such as for the minimum order amount or for mixing of downloads with normal products,
-is done when adding those items into the shopping basket.
-
 ## Additional attributes
 
 New attributes are added to `comparison` baskets to handle the necessary additional data for the comparison list.

@@ -2,10 +2,6 @@
 
 You can build forms consisting of different fields in the Form Builder.
 
-!!! note "Forms in the shop"
-
-    For information about forms that you can use in your shop, see [Forms](../forms/forms.md)
-
 ## Existing Form fields
 
 ### Captcha field
