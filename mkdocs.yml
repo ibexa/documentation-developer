@@ -165,7 +165,9 @@ nav:
                 - 'URL Twig functions': 'guide/content_rendering/twig_function_reference/url_twig_functions.md'
                 - 'Date Twig filters': 'guide/content_rendering/twig_function_reference/date_twig_filters.md'
                 - 'Other Twig filters': 'guide/content_rendering/twig_function_reference/other_twig_filters.md'
-            - 'URLs and routes': 'guide/content_rendering/urls_and_routes.md'
+            - URLs and routes:
+                - 'URLs and routes': 'guide/content_rendering/urls_and_routes.md'
+                - 'Custom breadcrumbs': 'guide/content_rendering/custom_breadcrumbs.md'
             - Design engine:
                 - 'Design engine': 'guide/content_rendering/design_engine/design_engine.md'
                 - 'Add new design': 'guide/content_rendering/design_engine/add_new_design.md'
@@ -226,79 +228,36 @@ nav:
             - 'Token': 'guide/user_management/token.md'
             - Customers:
                 - 'Customers': 'guide/customers/customers.md'
-                - 'Customer templates': 'guide/customers/customer_templates.md'
                 - 'VAT handling': 'guide/customers/vat_handling.md'
                 - 'Customer API': 'guide/customers/customer_api/customer_api.md'
                 - 'Customer profile data': 'guide/customers/customer_api/customer_profile_data.md'
                 - 'Configuration for customer data': 'guide/customers/customer_api/configuration_for_customer_data.md'
-        - Shop process:
-            - Basket:
-                - 'Basket': 'guide/basket/basket.md'
-                - 'Basket configuration': 'guide/basket/basket_configuration.md'
-                - 'Basket templates': 'guide/basket/basket_templates.md'
-                - 'Calculating prices': 'guide/basket/calculating_prices.md'
-                - 'Basket data model': 'guide/basket/basket_api/basket_data_model.md'
-                - 'BasketService': 'guide/basket/basket_api/basketservice.md'
-                - 'Basket Events': 'guide/basket/basket_api/basket_events.md'
-                - 'Basket routing': 'guide/basket/basket_api/basket_routing.md'
+        - Product catalog:
+            - 'Catalog': 'guide/catalog/catalog.md'
+            - 'Catalog configuration': 'guide/catalog/catalog_configuration.md'
+            - 'Pricing': 'guide/pricing/price_engine.md'
+            - Product comparison:
+                - 'Product comparison ': 'guide/product_comparison/product_comparison.md'
+                - 'Product comparison API': 'guide/product_comparison/product_comparison_api.md'
+            - 'Bestsellers': 'guide/bestsellers.md'
+        - Purchasing:
+            - 'Basket': 'guide/basket/basket.md'
             - 'Wishlist and stored baskets': 'guide/basket/wishlist_and_stored_baskets.md'
             - Checkout:
                 - 'Checkout': 'guide/checkout/checkout.md'
-                - 'Checkout templates': 'guide/checkout/checkout_templates.md'
                 - 'Order confirmation': 'guide/checkout/order_confirmation.md'
                 - 'Return process': 'guide/checkout/return_process.md'
-                - 'Checkout controllers': 'guide/checkout/checkout_api/checkout_controllers.md'
-                - 'Checkout events': 'guide/checkout/checkout_api/checkout_events.md'
-                - 'Configuration for checkout forms': 'guide/checkout/checkout_api/forms/configuration_for_checkout_forms.md'
-                - 'Services for checkout forms': 'guide/checkout/checkout_api/forms/services_for_checkout_forms.md'
-                - 'Invoice address form': 'guide/checkout/checkout_api/forms/checkout_invoice_address_form.md'
-                - 'Delivery address form': 'guide/checkout/checkout_api/forms/checkout_delivery_address_form.md'
-                - 'Shipping payment form': 'guide/checkout/checkout_api/forms/checkout_shipping_payment_form.md'
-                - 'Summary form': 'guide/checkout/checkout_api/forms/checkout_summary_form.md'
-                - 'Order summary': 'guide/checkout/checkout_api/forms/order_summary.md'
             - Payment:
                 - 'Payment': 'guide/payment/payment.md'
                 - 'Payment API': 'guide/payment/payment_api.md'
                 - 'Payment troubleshooting': 'guide/payment/payment_troubleshooting.md'
                 - 'Paypal': 'guide/payment/paypal.md'
-            - Pricing:
-                - 'Price engine': 'guide/pricing/price_engine.md'
-                - 'Price templates': 'guide/pricing/price_templates.md'
             - Quick order:
                 - 'Quick order': 'guide/quick_order/quick_order.md'
                 - 'Quick order configuration': 'guide/quick_order/quick_order_configuration.md'
-                - 'Quick order templates': 'guide/quick_order/quick_order_templates.md'
             - Order history:
                 - 'Order history': 'guide/order_history/order_history.md'
                 - 'Order history configuration': 'guide/order_history/order_history_configuration.md'
-                - 'Order history templates': 'guide/order_history/order_history_templates.md'
-        - Shop elements:
-            - Catalog:
-                - 'Catalog': 'guide/catalog/catalog.md'
-                - 'Catalog configuration': 'guide/catalog/catalog_configuration.md'
-            - Product comparison:
-                - 'Product comparison ': 'guide/product_comparison/product_comparison.md'
-                - 'Product comparison API': 'guide/product_comparison/product_comparison_api.md'
-                - 'Product comparison templates': 'guide/product_comparison/product_comparison_templates.md'
-            - Navigation:
-                - 'Navigation': 'guide/navigation/navigation.md'
-                - 'Navigation configuration': 'guide/navigation/navigation_configuration.md'
-                - 'Navigation templates': 'guide/navigation/navigation_templates.md'
-            - 'Bestsellers': 'guide/bestsellers.md'
-            - Breadcrumbs:
-                - 'Breadcrumbs': 'guide/breadcrumbs/breadcrumbs.md'
-                - 'Breadcrumb templates': 'guide/breadcrumbs/breadcrumbs_templates.md'
-                - 'Breadcrumb API': 'guide/breadcrumbs/breadcrumbs_api.md'
-                - 'Custom breadcrumbs': 'guide/breadcrumbs/custom_breadcrumbs.md'
-            - 'Pages in the shop': 'guide/page.md'
-            - Forms:
-                - 'Forms': 'guide/forms/forms.md'
-                - 'Form API': 'guide/forms/form_api/form_api.md'
-                - 'Data processors': 'guide/forms/form_api/dataprocessors.md'
-                - 'Pre-data processors': 'guide/forms/form_api/predataprocessors.md'
-                - 'Data processor events': 'guide/forms/form_api/data_processor_events.md'
-                - 'Form templates': 'guide/forms/form_templates.md'
-                - 'Using reCAPTCHA': 'guide/forms/using_recaptcha.md'
         - Search:
             - 'Search': 'guide/search/search.md'
             - 'Search Criteria reference': 'guide/search/search_criteria_reference.md'
@@ -406,7 +365,6 @@ nav:
             - 'Other search engines': 'guide/search/search_engines.md'
             - Shop search:
                 - 'Shop search': 'guide/search/shop_search/shop_search.md'
-                - 'Search templates': 'guide/search/shop_search/search_templates.md'
                 - 'Search configuration': 'guide/search/shop_search/search_configuration.md'
                 - 'Search API': 'guide/search/shop_search/search_api.md'
                 - 'Product search': 'guide/search/shop_search/searching_for_products.md'
@@ -466,6 +424,7 @@ nav:
                 - 'User events': 'guide/repository/event_reference/user_events.md'
                 - 'Page events': 'guide/repository/event_reference/page_events.md'
                 - 'Site events': 'guide/repository/event_reference/site_events.md'
+                - 'Shop events': 'guide/repository/event_reference/shop_events.md'
                 - 'URL events': 'guide/repository/event_reference/url_events.md'
                 - 'Trash events': 'guide/repository/event_reference/trash_events.md'
                 - 'Other events': 'guide/repository/event_reference/other_events.md'

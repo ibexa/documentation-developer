@@ -17,9 +17,12 @@ A basket can be of one of the following types:
 
 A standard basket (type `basket`) can have different states during the checkout process. After the order is sent, the basket is assigned the state `ordered`.
 
+Data validation, such as for the minimum order amount, only happens when adding products to the shopping basket,
+not to wishlist, stored basket or comparison.
+
 ## Basket structure
 
-Apart from the identifying information, the [basket data model](basket_api/basket_data_model.md) contains the following elements:
+Apart from the identifying information, the basket data model contains the following elements:
 
 - additional fields (`dataMap` Field)
 - basket lines with information for each row of the basket

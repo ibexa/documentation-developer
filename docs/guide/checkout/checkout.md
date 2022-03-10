@@ -4,11 +4,6 @@
 
 ![](../img/checkout_1.png)
 
-All the steps are validated when an Ajax call is sent.
-
-[CheckoutController](checkout_api/checkout_controllers.md#checkoutcontroller) and [AjaxCheckoutController](checkout_api/checkout_controllers.md#ajaxcheckoutcontroller)
-are responsible for the checkout logic.
-
 ## Email templates
 
 Local order [confirmation emails](order_confirmation.md) are based on the standard order confirmation email templates:
