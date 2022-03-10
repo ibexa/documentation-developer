@@ -43,6 +43,15 @@ silversolutions_eshop:
             - my_custom_product_type
 ```
 
+The custom Content Type must mirror the structure of the built-in `ses_product` Content Type,
+including having Fields with the same identifiers,
+but you can add other Fields to it.
+
+!!! tip
+
+    To ensure all the Fields are set up correctly, you can copy the built-in Product Content Type
+    and add your custom Field to the copy.
+
 Additionally, to enable buying the product in the shop,
 add the following parameter for your custom Content Type's identifier:
 
