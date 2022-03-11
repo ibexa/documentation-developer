@@ -310,6 +310,41 @@ Create a currency:
     subunits: 3
 ```
 
+### Criteria
+
+When using `update` or `delete` modes, you can use criteria to identify the objects to operate on.
+
+``` yaml
+type: currency
+mode: update
+criteria:
+    type: field_value
+    field: code
+    value: EUR
+    operator: '=' # default
+code: EEE
+subunits: 3
+enabled: false
+```
+
+Available operators are: `=`, `IN`, `CONTAINS`, `STARTS_WITH` and `ENDS_WITH`.
+
+You can combine criteria by using logical criteria `and` and `or`:
+
+``` yaml
+type: or
+criteria:
+    -   type: field_value
+        field: code
+        value: EUR
+    -   type: field_value
+        field: code
+        value: X
+        operator: STARTS_WITH
+```
+
+Criteria can be nested.
+
 ## Executing migrations
 
 To import Repository data from YAML files, run the `ibexa:migrations:migrate` command.
