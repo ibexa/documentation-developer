@@ -35,4 +35,4 @@ Next, in the `config/packages/ibexa_taxonomy.yaml` add the following configurati
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml')=]]
 ```
 
-For more information about available functionalities of tags, see [User Documentation]([[= user_doc =]]/taxonomy).
+For more information about available functionalities of tags, see [User Documentation]([[= user_doc =]]/taxonomy/taxonomy).
