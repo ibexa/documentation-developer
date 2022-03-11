@@ -346,15 +346,13 @@ You can combine criteria by using logical criteria `and` and `or`:
 ``` yaml
 type: or
 criteria:
-    -   type: or
-        criteria:
-            -   type: field_value
-                field: code
-                value: EUR
-            -   type: field_value
-                field: code
-                value: X
-                operator: STARTS_WITH
+    -   type: field_value
+        field: code
+        value: EUR
+    -   type: field_value
+        field: code
+        value: X
+        operator: STARTS_WITH
 ```
 
 Criteria can be nested.
