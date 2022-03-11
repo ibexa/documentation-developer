@@ -327,20 +327,34 @@ subunits: 3
 enabled: false
 ```
 
-Available operators are: `=`, `IN`, `CONTAINS`, `STARTS_WITH` and `ENDS_WITH`.
+Available operators are:
+
+- `=`
+- `<>`
+- `<`
+- `<=`
+- `>`
+- `>=`
+- `IN`
+- `NIN`
+- `CONTAINS`
+- `STARTS_WITH`
+- `ENDS_WITH`.
 
 You can combine criteria by using logical criteria `and` and `or`:
 
 ``` yaml
 type: or
 criteria:
-    -   type: field_value
-        field: code
-        value: EUR
-    -   type: field_value
-        field: code
-        value: X
-        operator: STARTS_WITH
+    -   type: or
+        criteria:
+            -   type: field_value
+                field: code
+                value: EUR
+            -   type: field_value
+                field: code
+                value: X
+                operator: STARTS_WITH
 ```
 
 Criteria can be nested.
