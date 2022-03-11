@@ -178,8 +178,8 @@ The following combinations of types are modes are available:
 |`location`||&#10004;||
 |`attribute_group`|&#10004;||
 |`attribute`|&#10004;||
-|`customer_group`|&#10004;||
-|`currency`|&#10004;||
+|`customer_group`|&#10004;|&#10004;|&#10004;|
+|`currency`|&#10004;|&#10004;|&#10004;|
 
 ### match-property
 
