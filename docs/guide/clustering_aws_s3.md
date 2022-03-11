@@ -30,7 +30,7 @@ The secret key cannot be retrieved again after the key has been created, so don'
     
 ## Set up eZ Platform for AWS S3
 
-In your eZ Platform root directory, run `php composer.phar require league/flysystem-aws-s3-v3`.
+In your eZ Platform root directory, run `php composer.phar require league/flysystem-aws-s3-v3:^1.0`.
 In your eZ Platform configuration, e.g. `app/config/config.yml`, set up the AWS S3 client:
 
 ``` yaml
