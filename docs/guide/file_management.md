@@ -139,6 +139,8 @@ The following file types are indexed by default:
 - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 ```
 
+The default path to the Tika jar is specified with the `apache_tika_path` parameter in `config/packages/ezcommerce/ecommerce_parameters.yaml`
+
 ## Binary and Media download
 
 Unlike image files, files stored in BinaryFile or Media Fields may be restricted to certain User Roles. As such, they are not publicly downloadable from disk, and are instead served by Symfony, using a custom route that runs the necessary checks. This route is automatically generated as the `url` property for those Field values.
