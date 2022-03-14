@@ -250,12 +250,12 @@ You can access the following additional search result data from PagerFanta:
 |[`LocationFilteringAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/LocationFilteringAdapter.php)|Applies a Location filter and returns a `LocationList` object.|
 |`AttributeDefinitionListAdapter`| Makes a search for product attributes and returns an `AttributeDefinitionListInterface` object. |
 |`AttributeGroupListAdapter`| Makes a search for product attribute groups and returns an `AttributeGroupListInterface` object. |
-|`CurrencyListAdapter`| Makes a search for currencies and returns a list of currencies. |
+|`CurrencyListAdapter`| Makes a search for currencies and returns a `CurrencyListInterface` object.
 |`CustomPricesAdapter`| Makes a search for custom prices and returns a `CustomPrice` object. |
-|`CustomerGroupListAdapter`| Makes a search for customer groups and returns an `CustomerGroupListInterface` object. |
-|`ProductListAdapter`| Makes a search for products and returns an `ProductListInterface` object. |
-|`ProductTypeListAdapter`| Makes a search for product types and returns an `ProductTypeListInterface` object. |
-|`RegionListAdapter`| Makes a search for regions and returns a list of regions. |
+|`CustomerGroupListAdapter`| Makes a search for customer groups and returns a `CustomerGroupListInterface` object. |
+|`ProductListAdapter`| Makes a search for products and returns a `ProductListInterface` object. |
+|`ProductTypeListAdapter`| Makes a search for product types and returns a `ProductTypeListInterface` object. |
+|`RegionListAdapter`| Makes a search for regions and returns a `RegionListInterface` object. |
 
 ## Complex search
 
