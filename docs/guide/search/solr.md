@@ -1,6 +1,6 @@
 # Solr search engine
 
-[ibexa/solr-search-engine](https://github.com/ibexa/solr-search-engine) aims to be a transparent drop-in replacement for the SQL-based Legacy search engine powering [[= product_name =]] Search API by default. When you enable Solr and re-index your content, all your existing Search queries using `SearchService` will be powered by Solr automatically. This allows you to scale up your [[= product_name =]] installation and be able to continue development locally against SQL engine, and have a test infrastructure, Staging and Prod powered by Solr. This removes considerable load from your database. See [further information on the architecture of [[= product_name =]]](../architecture.md).
+[ibexa/solr](https://github.com/ibexa/solr) aims to be a transparent drop-in replacement for the SQL-based Legacy search engine powering [[= product_name =]] Search API by default. When you enable Solr and re-index your content, all your existing Search queries using `SearchService` will be powered by Solr automatically. This allows you to scale up your [[= product_name =]] installation and be able to continue development locally against SQL engine, and have a test infrastructure, Staging and Prod powered by Solr. This removes considerable load from your database. See [further information on the architecture of [[= product_name =]]](../architecture.md).
 
 ## How to set up Solr search engine
 
@@ -26,7 +26,7 @@ Copy the necessary configuration files. In the example below from the root of yo
 # Make sure to replace the /opt/solr/ path with where you have placed Solr
 cd /opt/solr
 mkdir -p server/ez/template
-cp -R <solr>/lib/Resources/config/solr/* server/ez/template
+cp -R <solr>/src/lib/Resources/config/solr/* server/ez/template
 cp server/solr/configsets/_default/conf/{solrconfig.xml,stopwords.txt,synonyms.txt} server/ez/template
 cp server/solr/solr.xml server/ez
 
