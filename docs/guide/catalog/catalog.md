@@ -39,10 +39,12 @@ You can assign both whole attribute groups or individual attributes to a product
 
 Product availability defines whether a product is available in the catalog.
 
-!!! note
-
-    A product having availability does not automatically mean that it is in stock a possible to be ordered.
-    A product can be available, but have zero stock.
-
 When a product is available, it can have numerical stock defined.
 The stock can also be set to infinite (for example, in case of digital products).
+
+!!! note
+
+    Availability does not automatically mean that a product can be ordered.
+    A product can be available, but have zero stock.
+
+    A product can only be ordered when it either has positive stock, or stock set to infinite.
