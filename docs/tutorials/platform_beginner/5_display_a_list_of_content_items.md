@@ -31,7 +31,7 @@ In `templates/full/home_page.html.twig` replace the "Hello world" with a table t
         {% if rides.haveToPaginate() %}
             <div class="col-xs-12 text-center">
                 <div class="pagerfanta pagination">
-                    {{ pagerfanta( rides, 'ez', {'routeName': location } ) }}
+                    {{ pagerfanta(rides, 'ibexa') }}
                 </div>
             </div>
         {% endif %}
@@ -55,9 +55,9 @@ Create a `RideQueryType.php` file in `src/QueryType`:
 
 namespace App\QueryType;
 
-use eZ\Publish\API\Repository\Values\Content\LocationQuery;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\Core\QueryType\QueryType;
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Ibexa\Core\QueryType\QueryType;
 
 class RideQueryType implements QueryType
 {
@@ -90,7 +90,7 @@ Now you need to indicate that this Query Type will be used in your configuration
 
 ## Add Query Type to configuration
 
-Edit `config/packages/ezplatform.yaml`.
+Edit `config/packages/ibexa.yaml`.
 In the view configuration for the home page indicate that this view will use the Query Type:
 
 ``` yaml hl_lines="6 10 11 12 13 14 15"
@@ -127,7 +127,7 @@ Let's do this now with the `line` view for Rides.
 
 ## Create a line template for Rides
 
-Add a rule for the `ride` template in your `config/packages/ezplatform.yaml` file.
+Add a rule for the `ride` template in your `config/packages/ibexa.yaml` file.
 `line` should be at the same level as `full`.
 
 ``` yaml

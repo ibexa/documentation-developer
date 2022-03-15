@@ -1,105 +1,214 @@
 # Shop configuration
 
-To change configuration settings for the shop, go to **eCommerce** > **Configuration settings**.
+## Basket [[% include 'snippets/commerce_badge.md' %]]
 
-For some of the settings, you can configure them differently for different SiteAccesses.
+### Additional data in the basket line
 
-!!! note
+Each basket item can contain an additional line of data.
 
-    Make sure you have Commerce enabled. For more information, see [Enable Commerce features](../guide/config_back_office.md#enable-commerce-features).
+![](img/basket_additional_data_1.png)
 
-![](img/shop_configuration_settings.png)
+You can enable this line in `config/packages/ezcommerce/ecommerce_parameters.yaml`:
+
+``` yaml
+ibexa.commerce.site_access.config.basket.default.additional_text_for_basket_line: true
+ibexa.commerce.site_access.config.basket.default.additional_text_for_basket_line_input_limit: 25
+```
+
+### Basket storage time
+
+The time for which a basket is stored depends on whether the basket belongs to an anonymous user or a logged-in user.
+
+A basket for a logged-in customer is stored forever.
+
+A basket for an anonymous user is stored for 120 hours by default.
+You can configure a different value:
+
+``` yaml
+ibexa.commerce.site_access.config.basket.default.validHours: 120
+```
+
+You can use the `ibexa:commerce:clear-baskets` command to delete anonymous expired baskets:
+
+``` bash
+php bin/console ibexa:commerce:clear-baskets <validHours>
+```
+
+It deletes all anonymous baskets from the database that are older than `validHours`.
+
+For example:
+
+``` bash
+php bin/console ibexa:commerce:clear-baskets 720
+```
+
+### Discontinued products
+
+A listener can check if the product is still available, or discontinued.
+You can disable this setting in configuration:
+
+``` yaml
+ibexa_commerce_basket.default.discontinued_products_listener_active: false
+```
+
+The listener checks if the current stock is greater than or equal to the quantity the customer wants to order.
+In this case the order is allowed.
+
+The optional setting `discontinued_products_listener_consider_packaging_unit` enables ignoring the packaging unit
+in order to sell the remaining products, even if the remaining stock does not fit the packing unit rule
+(for example, the packing unit is 10 pieces but 9 are left in stock).
+The listener reduces the quantity in the order to the number of products that are in stock. 
+
+``` yaml
+ibexa_commerce_basket.default.discontinued_products_listener_consider_packaging_unit: true
+```
+
+### Product quantity validation
+
+You can configure the minimum and maximum quantity that can be ordered per basket line:
+
+``` yaml
+ibexa.commerce.basket.basketline_quantity_max: 1000000
+ibexa.commerce.basket.basketline_quantity_min: 1
+```
+
+If the quantity is more than the maximum or less than the minimum, it is set to either max or min.
+
+### Shared baskets
+
+A basket can be shared if a user logs in from a different browser (default), or it can be bound to the session.
+
+If you do not want the basket to be shared between different sessions, change the following setting to `true`:
+
+``` yaml
+ibexa.commerce.site_access.config.basket.default.basketBySessionOnly: true
+```
+
+## Checkout [[% include 'snippets/commerce_badge.md' %]]
+
+### Comment limit
+
+In the summary, there is a comment field that the user can fill in.
+
+By default, the comment box does not have a limit, but you can set a limit in configuration:
+
+``` yaml
+parameters:
+    ibexa.commerce.site_access.config.checkout.default.checkout_form_summary_max_length: 30
+```
+
+The mapping of the request order should be modified to unlimit the number of characters
+in `Eshop/Resources/mapping/wc3-nav/xsl/include/request.order.xsl`.
+
+## Navigation
+
+The `navigation_ez_location_root` parameter is the entry root Location point for the whole navigation in the Back Office.
+This value is usually set to `2`, the Location of the content structure.
+
+``` yaml
+parameters:
+    ibexa.commerce.site_access.config.core.default.navigation_ez_location_root: 2
+    ibexa.commerce.site_access.config.core.default.navigation_ez_depth: 3
+    ibexa.commerce.site_access.config.core.default.navigation_sort_order: 'asc'
+```
+
+The `navigation_ez_depth` parameter is responsible for the main navigation depth.
+Content from the Back Office is fetched only up to this depth.
+This does not include the product catalog, which has its own depth specified.
+
+Use `navigation_sort_order` to set the order of sorting by priority.
+
+### Fetching content
+
+To define which Content Types should be included in the navigation, set the `types` parameter:
+
+``` yaml
+ibexa.commerce.site_access.config.core.default.navigation.catalog:
+    types: ["st_module", "folder", "article", "landing_page", "ses_productcatalog", "blog"]
+    sections: [1, 2]
+    enable_priority_zero: true
+```
+
+To fetch content from different Sections, provide the Section IDs in configuration.
+
+If you want to fetch all Content Types, even those with priority 0, use the `enable_priority_zero` parameter.
+By default this is set to `false`.
+
+### Navigation labels
+
+To use a different field as the navigation node label, change the `label_fields` parameter.
+The parameter takes Field Type identifier for `ibexa.commerce.site_access.config.core.default.navigation.content`
+and Solr field name for `ibexa.commerce.site_access.config.core.default.navigation.catalog`.
+
+The field has to exist in Solr indexed data.
+
+``` yaml
+ibexa.commerce.site_access.config.core.default.navigation.catalog:
+    label_fields: ['name_s']
+```
+
+You can define the name used for navigation in configuration. The `label_fields` parameter contains a list of attribute names (Solr names) that are used as the name in the menu. 
+The first available attribute is used. 
 
 !!! caution
 
-    Settings made in the Back Office always override the configuration in YAML files.
+    The standard attribute `name_s` does not always contain the correct translation. 
+    When `name_s` is used in `label_fields`, navigation may not be translated.
+    To resolve this, configure the ID of the attribute directly e.g. `ses_category_ses_name_value_s`.
 
-## Catalog
+#### Additional navigation node information
 
-|Name|Description|
-|--- |--- |
-|Layout product category page|Layout for the product category page.</br>`category` - Show category boxes only.</br>`product_list` - Show products only.</br>`both` - Show both categories and products.|
-|Last viewed product limit|The maximum number of last viewed products to store (per user).|
-|Product description character limit|Number of characters from the Subtitle Field that are visible as description in the list views and search results.|
+You can also add additional information about the navigation node with `additional_fields`.
+The fields have to exist in Solr indexed data.
 
-## Price
+``` yaml
+ibexa.commerce.site_access.config.core.default.navigation.catalog:
+    additional_fields: ['ses_category_ses_code_value_s', 'ses_category_ses_name_value_s']
+```
 
-|Name|Description|
-|--- |--- |
-|Automatic currency conversion|When enabled, calculates the price using the configured conversion rate if no price is set up for the current currency.|
-|Currency conversion rate|The conversion rate between currencies.|
-|Default currency|Used as a fallback when SiteAccess-specific currency is not set.|
-|Base currency|Base currency of the shop, used for the Fields "Product unit price" and "Fallback shipping price". The base currency is used for the automatic currency conversion.|
-|Price providers|Price engines used for generating price and stock information in different parts of the shop. This configuration works as a chain, so if the first engine fails, the second one is used (for example, if ERP is not available).|
+##### Displaying images instead of labels in navigation
 
-## Advanced catalog features 
+You can use an additional field to display an image from the content model instead of the node label:
 
-|Name|Description|
-|--- |--- |
-|User interface for ordering variants|User interface used for ordering variants on the product detail page. `B2B` is optimized for ordering more than one product at once. `B2C` enables ordering a single product only, but is more user friendly.
+``` yaml
+parameters:   
+    ibexa.commerce.site_access.config.core.default.navigation.content:
+        ...
+        additional_fields: ['name', 'short_description', 'show_children', 'image']
+```
 
-## ERP
+You need to adapt the template to render the image instead of the label, for example:
 
-[ERP integration](erp_integration/erp_integration.md) requires a Web.Connector license or another webservice interface between ERP and the shop.
+``` html+twig
+{% block label %}
 
-|Name|Description|
-|--- |--- |
-|Default Country for Template Debitor|Country used as a default.|
-|Login with Customer Number|When enabled, the login process includes a field for providing the customer number.|
-|Use a template debitor number for this shop|When enabled, a template debitor customer number is used if a customer does not have a customer number from the ERP. Template debitor customer numbers can be defined for each country.|
-|Use a template contact number for this shop|When enabled, a template contact number is used if a customer does not have a customer and contact number from the ERP. Template contact numbers can be defined for each country.|
-|Price requests without customer number|When enabled, a price request is sent to the ERP without the customer number. A template debitor is used to calculate prices.|
-|Recalculate prices using the ERP after (seconds)|How long information from the ERP is cached to reduce the traffic towards the ERP. Use a "1 hour" syntax.|
-|Variants handling in the ERP|Handling of variant products. Use:</br>SKU_ONLY if the ERP system uses different SKUs per variant. </br>SKU_AND_VARIANT if the ERP system uses a combination of SKU and variant code for variants.|
-|URL of the Web-Connector|The URL that points to the Web.Connector installed by the ERP system. Use an HTTPS connection and make sure that the shop can access this IP and port only.|
-|User name (configured per Web-Connector)|User name for communication with the Web.Connector service.|
-|Password (configured per Web-Connector)|Password for communication with the Web.Connector service.|
-|SOAP Web-Service timeout in seconds|Timeout (web service) for communication with the Web.Connector in seconds.|
-|Timeout towards the ERP-System in seconds|Timeout (ERP) for communication with the Web.Connector in seconds.|
+  {% if(item.getExtra('image')) %}
+    <img src="{{ item.getExtra('image') }}"/>
+  {% else %}
+    {{ item.label|raw }}
+  {% endif %}
 
-## Fallback configuration for price engine
+{% endblock %}
+```
 
-This fallback configuration is used if no shipping costs are set in price and stock management.
+## Other
 
-|Name|Description|
-|--- |--- |
-|Fallback costs for shipping|Shipping cost used when the free shipping limit is not reached.|
-|Fallback VAT Code for shipping costs|VAT code for shipping.|
+### Last viewed products
 
-## Basket
+You can set the limit of products displayed in the Last viewed product block in:
 
-|Name|Description|
-|--- |--- |
-|Duration of storing anonymous baskets|How long anonymous baskets are stored (in hours).|
-|Update product data after this time|How long  product data is cached in the basket. Use a "1 hour" syntax.|
+``` yaml
+parameters:
+    ibexa.commerce.site_access.config.eshop.default.last_viewed_products_in_session_limit: 12
+```
 
-## Stored basket
+### Breadcrumbs
 
-|Name|Description|
-|--- |--- |
-|Display stock as a column|When enabled, stock information is displayed in a separate column, otherwise, it is displayed inline (inside the product name column).|
-|Description character limit|Number of characters from the Subtitle Field that are visible as description.|
+You can configure the Fields that are used as labels for breadcrumb nodes.
+The first match wins.
 
-## Wishlist
+``` yaml
+parameters:
+    ibexa.commerce.site_access.config.core.default.breadcrumb_content_label_fields: ['name', 'title']
+```
 
-|Name|Description|
-|--- |--- |
-|Description character limit|Number of characters from the Subtitle Field that are visible as description.|
-
-## Miscellaneous
-
-|Name|Description|
-|--- |--- |
-|Number of bestsellers displayed on bestseller page|The limit of bestselling items displayed on the bestseller page.|
-|Number of bestsellers displayed on catalog pages|The limit of bestselling items displayed on catalog pages.|
-|Number of bestsellers displayed in a slider|The limit of bestselling items displayed in a slider.|
-|Bestseller threshold|How often a product has to be bought to count as a bestseller.|
-
-## Checkout
-
-|Name|Description|
-|--- |--- |
-|Payment method PayPal|Enables PayPal in checkout.|
-|Payment method "invoice"|Enables invoice in checkout.|
-|Shipping method "standard"|Enables the standard shipping method in checkout.|
-|Shipping method "express"|Enables the express shipping method in checkout.|

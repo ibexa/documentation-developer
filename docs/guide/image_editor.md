@@ -7,6 +7,11 @@ For more information, see the [user documentation]([[= user_doc =]]/editing_imag
 
     The Image Editor does not support images that come from a Digital Asset Management (DAM) system.
 
+!!! note
+
+    If you intend to modify images in formats other than JPEG in image editor,
+    consider [adding a library to optimize them](images.md#image-optimization).
+
 ## Configuration
 
 You can modify the default settings to change the appearance or behavior of the Image Editor.
@@ -48,5 +53,19 @@ that you add by extending the Image Editor.
 To modify the value of additional information programmatically, you can set a value of the `Image` field by using the PHP API, for example:
 
 ``` php
-[[= include_file('code_samples/back_office/image_editor/src/AdditionalInformation.php', 2, 17) =]]
+new FieldValue([
+     'data' => [
+         'width' => '100',
+         'height' => '200',
+         'alternativeText' => 'test',
+         'mime' => 'image/png',
+         'id' => 1,
+         'fileName' => 'image.png',
+         'additionalData' => [
+             'focalPointX' => 50,
+             'focalPointY' => 100,
+             'author' => 'John Smith',
+         ],
+     ],
+ ]),
 ```

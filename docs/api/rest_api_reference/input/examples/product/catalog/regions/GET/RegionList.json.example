@@ -1,0 +1,27 @@
+{
+    "RegionList": {
+        "_media-type": "application/vnd.ibexa.api.RegionList+json",
+        "Region": [
+            {
+                "_media-type": "application/vnd.ibexa.api.Region+json",
+                "identifier": "france"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Region+json",
+                "identifier": "__REGION_2__"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Region+json",
+                "identifier": "__REGION_1__"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Region+json",
+                "identifier": "foo"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Region+json",
+                "identifier": "bar"
+            }
+        ]
+    }
+}

@@ -11,8 +11,6 @@ If a customer stores items in the quick order, they can see the real prices and 
 
 ![](../img/quickorder_3.png)
 
-If the ERP system is offline, customers see list prices and an error message. There is also no information about product availability.
-
 ## Storage time
 
 A quick order is stored for the duration of the session for anonymous users,
@@ -52,7 +50,7 @@ To provide SKU, variant code and quantity:
 SE0101,VAR-BLK,3
 ```
 
-You can set a different order of data and add [additional text](../basket/basket_configuration.md#additional-data-in-the-basket-line)
+You can set a different order of data and add [additional text](../shop_configuration.md#additional-data-in-the-basket-line)
 in [configuration](quick_order_configuration.md#csv-data-order).
 
 The following MIME types are supported:

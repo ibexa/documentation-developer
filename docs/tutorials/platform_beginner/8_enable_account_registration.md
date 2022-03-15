@@ -4,7 +4,7 @@ In this step you will enable other users to create accounts on your site, access
 
 ## Enable registration
 
-From **Admin**, go to the **Roles** management screen and click on the **Anonymous** Role.
+From **Admin** (gear icon) in the left menu, go to the **Roles** management screen and click on the **Anonymous** Role.
 
 ![Available Roles](img/step_8_role_mgmt_screen.png)
 
@@ -19,7 +19,7 @@ Then go to `<yourdomain>/register`. The registration form is unstyled, so you ne
 In the `config/packages/views.yaml` file add a `user_registration` key under `site`, at the same level as `content_view`:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         site:
             # existing content_view keys
@@ -175,7 +175,7 @@ When the administrator accepts a new User, they can move them to this new group.
 
 ### Create a User Group
 
-In Admin go to the **Users** screen, activate the *Create* button create a User Group named `Go Bike Members`.
+In Admin go to the **Users** screen, click the **Create content** button and create a User Group named `Go Bike Members`.
 
 ### Create a Folder for contributed Rides
 

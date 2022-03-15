@@ -17,4 +17,10 @@ between installations by using the migration command.
     If you are migrating your data either with [`kaliop-uk/ezmigrationbundle`](https://github.com/kaliop-uk/ezmigrationbundle) or [`ezsystems/ezmigrationbundle`](https://github.com/ezsystems/EzMigrationBundle), do not install the [`tanoconsulting/ezmigrationbundle2`](https://github.com/tanoconsulting/ezmigrationbundle2) package, or your application will stop working due to multiple duplicated classes.
     
     As of v3.3.3, the `ezmigrationbundle` package has been removed to mitigate this issue. 
-    It is recommended that you use the default `ibexa/migrations` package to migrate your data.    
+    It is recommended that you use the default `ibexa/migrations` package to migrate your data. 
+
+
+## Examples of using migration
+
+You can find examples of using migrations in [Migration file content](exporting_and_importing_data.md#migration-file-content),
+and in your project's `vendor/ibexa/migrations/tests/bundle/Command/MigrateCommand/migrate-command-fixtures` folder.

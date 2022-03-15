@@ -78,8 +78,6 @@ There is no background process which removes all non-existent products from all 
 
 You can configure which system provides the prices and stock information for comparisons.
 
-By default the ERP is requested. If it is not available, the local price provider responds. 
-
 ``` yaml
 ibexa_commerce_price.default.price_service_chain.comparison:
     - ibexa_commerce_price.price_provider.remote

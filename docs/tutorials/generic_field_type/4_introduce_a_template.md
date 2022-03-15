@@ -4,7 +4,7 @@
 
 In order to display data from the Field Type, you need to create and register a template for it.
 Each Field Type template receives a set of variables that can be used to achieve the desired goal.
-In this case the most important variable is the `field`, an instance of `eZ\Publish\API\Repository\Values\Content\Field`.
+In this case the most important variable is the `field`, an instance of `Ibexa\Contracts\Core\Repository\Values\Content\Field`.
 In addition to its own metadata (`id`, `fieldDefIdentifier`, etc.), it exposes the Field Value through the `value` property.
 
 Remember that Field Type templates can be overridden in order to tweak what is displayed and how.

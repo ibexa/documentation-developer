@@ -22,7 +22,7 @@
     
     --codeblock: rgb(89,96,103);
     --inline-code: rgb(242,242,245);
-    --table-header: rgb(89,96,103);
+    --table-header: var(--codeblock);
     --code-highlight: #D9E9FF;
     
     --link: rgb(0,71,206);
@@ -34,9 +34,58 @@
 }
 
 @font-face {
-    font-family: "Noto Sans";
-    src: url("../fonts/Noto_Sans/NotoSans-Regular.ttf") format("truetype");
-    font-weight: normal;
+    font-family: 'Noto Sans';
+    src: url('../fonts/Noto_Sans/NotoSans-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noto Sans';
+    src: url('../fonts/Noto_Sans/NotoSans-SemiBold.ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noto Sans';
+    src: url('../fonts/Noto_Sans/NotoSans-Bold.ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noto Sans';
+    src: url('../fonts/Noto_Sans/NotoSans-Italic.ttf');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Noto Sans';
+    src: url('../fonts/Noto_Sans/NotoSans-SemiBoldItalic.ttf');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Noto Sans';
+    src: url('../fonts/Noto_Sans/NotoSans-BoldItalic.ttf');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Work Sans';
+    src: url('../fonts/Noto_Sans/WorkSans-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Work Sans';
+    src: url('../fonts/Noto_Sans/WorkSans-SemiBold.ttf');
+    font-weight: 600;
     font-style: normal;
 }
 
@@ -348,6 +397,7 @@ ul li li li {
 }
 
 .md-typeset table:not([class]) th {
+    color: var(--ibexa-snow);
     background-color: var(--table-header);
 }
 

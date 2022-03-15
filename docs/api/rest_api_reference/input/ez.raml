@@ -39,4 +39,18 @@ version: v3.3.2
 
 /commerce: !include ez-commerce.raml
 
+/product:
+    displayName: Product catalog
+    /currency: !include ez-product-currency.raml
+    /regions: !include ez-product-regions.raml
+    /attributegroups: !include ez-product-attributegroups.raml
+    /attributes: !include ez-product-attributes.raml
+    /customergroups: !include ez-product-customergroups.raml
+    /producttypes: !include ez-product-producttypes.raml
+    /products: !include ez-product-products.raml
+
+/taxonomy: !include ez-taxonomy.raml
+
 types: !include ez-types.raml
+
+

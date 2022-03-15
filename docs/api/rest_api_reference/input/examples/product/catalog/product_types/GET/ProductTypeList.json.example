@@ -1,0 +1,13 @@
+{
+    "ProductTypeList": {
+        "_media-type": "application/vnd.ibexa.api.ProductTypeList+json",
+        "ProductType": [
+            {
+                "_media-type": "application/vnd.ibexa.api.ProductType+json",
+                "identifier": "s_rope",
+                "name": "Static ropes",
+                "AttributeAssignmentList": []
+            }
+        ]
+    }
+}

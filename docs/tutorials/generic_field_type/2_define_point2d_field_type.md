@@ -3,7 +3,7 @@
 ## The Type class
 
 The Type contains logic of the Field Type: validating data, transforming from various formats, describing the validators, etc.
-In this example Point 2D Field Type will extend the `eZ\Publish\SPI\FieldType\Generic\Type` class.
+In this example Point 2D Field Type will extend the `Ibexa\Contracts\Core\FieldType\Generic\Type` class.
 For more information about the Type class of a Field Type, see [Type class](../../api/field_type_type_and_value.md#type-class).
 
 ## Field Type identifier

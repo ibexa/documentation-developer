@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha|Roboto|Open+Sans">
+
+    {{  encore_entry_link_tags('tutorial') }}
+
+    {% if content is defined %}
+        {% set title = ez_content_name(content) %}
+    {% endif %}
+    <title>{{ title|default('Home'|trans) }} - {{ "It's a Dog's World!"|trans }}</title>
+</head>
+<body>
+<div>
+    <div class="jumbotron">
+        <div class="page-header-container container">
+            <div class="page-header">{{ "It's a Dog's World"|trans }}</div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row navbar navbar-default navbar-fixed-top" id="main-navbar">
+        <div class="collapse navbar-collapse">
+            <div class="container">
+                <ul class="nav navbar-nav">
+                    {{ ibexa_render_content_query({
+                        'query': {
+                            'query_type': 'Menu',
+                            'assign_results_to': 'menuItems'
+                        },
+                        'template': 'pagelayout_menu.html.twig',
+                    }) }}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row main">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+
+<footer class="text-muted text-center">
+    <div>
+        <small>{{ 'This is a work of fiction. Any resemblance to actual dogs or ibexes, or actual events is purely coincidental'|trans }}</small>
+    </div>
+</footer>
+</body>
+</html>

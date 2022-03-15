@@ -1,0 +1,159 @@
+{% extends '@ibexadesign/pagelayout.html.twig' %}
+
+{% trans_default_domain 'ibexa_welcome_page' %}
+
+{% block stylesheets %}
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    {{ encore_entry_link_tags('welcome_page') }}
+{% endblock %}
+
+{% block content %}
+    <header>
+        <div class="container-fluid container--wide">
+            <div class="row">
+                <div class="col-12">
+                    <div class="py-4">
+                        <img src="{{ asset('bundles/ibexaadminui/img/ibexa-logo.svg') }}" alt="Ibexa" class="logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid header__container">
+            <div class="container h-100 text-center text-white d-flex flex-column align-items-center justify-content-center">
+                <h1>
+                    {{ 'ibexa_platform_welcome_page.welcome_to'|trans|desc('Welcome to') }}<br>
+                    {{ ibexa_render_field(content, 'name') }}
+                    {{ constant('Ibexa\\Contracts\\Core\\Ibexa::VERSION') }}
+                </h1>
+                <div class="pt-5">
+                    <strong>{{ ibexa_render_field(content, 'description') }}</strong>
+                    <p class="mb-0">{{ 'ibexa_platform_welcome_page.navigate_to'|trans({'%target%': project_dir})|desc('Navigate to: %target%') }}</p>
+
+                    {% set admin_url = url('ibexa.dashboard', { 'siteaccess': 'admin' }) %}
+                    <p class="mb-0">
+                        {{ 'ibexa_platform_welcome_page.create_new_content_at'|trans({'%target%': '<a href="' ~ admin_url ~ '" class="text-white"><u>' ~ admin_url ~ '</u></a>' })
+                        |desc('Create new content at %target%')|raw }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="page pb-4">
+        <div class="container-fluid background-grey pb-3">
+            <div class="row py-3">
+                <div class="col-12 py-3">
+                    <div class="container text-center description">
+                        {{ ibexa_render_field(content, 'page') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid container--wide mt-5 references px-5">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="d-flex flex-row justify-content-center">
+                        <div class="mr-3">
+                            <img src="{{ asset('build/images/file-text-info-icon.svg') }}" alt="File text info icon">
+                        </div>
+                        <div>
+                            <h2 class="mb-3">{{ 'ibexa_platform_welcome_page.documentation'|trans|desc('Documentation') }}</h2>
+                            <ul class="list-unstyled references-list">
+                                <li class="references-list-item">
+                                    <a href="https://ibexa.co/documentation-center" class="references-list-item__link" target="_blank">
+                                        {{ 'ibexa_platform_welcome_page.documentation_center'|trans|desc('Documentation center') }}
+                                    </a>
+                                </li>
+                                <li class="references-list-item">
+                                    <a href="https://doc.ibexa.co/projects/userguide" class="references-list-item__link" target="_blank">
+                                        {{ 'ibexa_platform_welcome_page.user_documentation'|trans|desc('User documentation') }}
+                                    </a>
+                                </li>
+                                <li class="references-list-item">
+                                    <a href="https://doc.ibexa.co" class="references-list-item__link" target="_blank">
+                                        {{ 'ibexa_platform_welcome_page.developer_documentation'|trans|desc('Developer documentation') }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
+                    <div class="d-flex flex-row justify-content-center">
+                        <div class="mr-3">
+                            <img src="{{ asset('build/images/folder-icon.svg') }}" alt="Folder icon">
+                        </div>
+                        <div>
+                            <h2 class="mb-3">{{ 'ibexa_platform_welcome_page.tutorials_and_resources'|trans|desc('Tutorials and resources') }}</h2>
+                            <ul class="list-unstyled references-list">
+                                <li class="references-list-item">
+                                    <a href="https://doc.ibexa.co/en/latest/getting_started/first_steps" class="references-list-item__link" target="_blank">
+                                        {{ 'ibexa_platform_welcome_page.getting_started'|trans|desc('Getting started') }}
+                                    </a>
+                                </li>
+                                <li class="references-list-item">
+                                    <a href="https://doc.ibexa.co/en/latest/tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform" class="references-list-item__link" target="_blank">
+                                        {{ 'ibexa_platform_welcome_page.tutorials'|trans|desc('Tutorials') }}
+                                    </a>
+                                </li>
+                                <li class="references-list-item">
+                                    <a href="http://doc.ibexa.co/rest-api-reference" class="references-list-item__link" target="_blank">
+                                        {{ 'ibexa_platform_welcome_page.rest_api_reference'|trans|desc('REST API reference') }}
+                                    </a>
+                                </li>
+                                <li class="references-list-item">
+                                    <a href="https://doc.ibexa.co/en/latest/api/public_php_api" class="references-list-item__link" target="_blank">
+                                        {{ 'ibexa_platform_welcome_page.public_php_api'|trans|desc('Public PHP API') }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://doc.ibexa.co/en/latest/api/graphql" class="references-list-item__link" target="_blank">GraphQL</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-lg-0 mt-5">
+                    <div class="d-flex flex-row justify-content-center mr-auto">
+                        <div class="mr-3">
+                            <img src="{{ asset('build/images/conversation-chat-icon.svg') }}" alt="Conversation chat icon">
+                        </div>
+                        <div>
+                            <h2 class="mb-3">{{ 'ibexa_platform_welcome_page.forums_and_community'|trans|desc('Forums and community') }}</h2>
+                            <ul class="list-unstyled references-list">
+                                <li class="references-list-item">
+                                    <a href="https://discuss.ibexa.co" class="references-list-item__link" target="_blank">
+                                        {{ 'ibexa_platform_welcome_page.discussion_forum'|trans|desc('Discussion forum') }}
+                                    </a>
+                                </li>
+                                <li class="references-list-item">
+                                    <a href="https://ez-community-on-slack.herokuapp.com/" class="references-list-item__link" target="_blank">
+                                        {{ 'ibexa_platform_welcome_page.community_slack_channel'|trans|desc('Community Slack channel') }}
+                                    </a>
+                                </li>
+                                <li class="references-list-item">
+                                    <a href="https://ibexa.co/blog" class="references-list-item__link" target="_blank">
+                                        {{ 'ibexa_platform_welcome_page.ibexa_blog'|trans|desc('Ibexa blog') }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer pb-3">
+        <div class="container-fluid container--wide">
+        <span class="copyright">
+        {{ 'ibexa_platform_welcome_page.copyright'|trans({
+            '%ibexa_link_open%': '<a href="http://ibexa.co" target="_blank">',
+            '%ibexa_link_close%': '</a>',
+            '%current_year%': "now"|date("Y")
+        }) |desc('Ibexa Digital Experience Platform © %current_year% %ibexa_link_open%Ibexa%ibexa_link_close% and others')|raw }}
+        </span>
+        </div>
+    </footer>
+{% endblock %}

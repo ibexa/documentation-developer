@@ -9,7 +9,7 @@ You can add as many or as little related resources as you like.
 
 Now you need to create the second Content Type needed in the site, Landmark.
 
-Go to **Admin** &gt; **Content Types**, and in the **Content** group, create the Landmark Content Type.
+Go to **Content Types**, and in the **Content** group, create the Landmark Content Type.
 
 A Landmark is an interesting place that Rides go through. Each Ride may be related to multiple Landmarks.
 
@@ -25,7 +25,7 @@ Then create all Fields with the following information: 
 | Image Asset  | Photo            | `photo`          | yes       | no         | no           |
 | Map location | Location         | `location`       | yes       | yes        | no           |
 
-Confirm the creation of the Content Type by selecting **Save**.
+Confirm the creation of the Content Type by selecting **Create**.
 
 Create a *Landmarks* Folder and add some Landmarks to it.
 Note that you will need pictures (for the Photo Field) to represent them.
@@ -51,7 +51,7 @@ Now you need to create the line view for Landmarks.
 Declare a new override rule in `config/packages/views.yaml`:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         site:
             content_view:
@@ -123,9 +123,9 @@ Create a `src/Controller/RideController.php` file:
 
 namespace App\Controller;
 
-use eZ\Bundle\EzPublishCoreBundle\Controller;
-use eZ\Publish\Core\MVC\Symfony\View\ContentView;
-use eZ\Publish\API\Repository\ContentService;
+use Ibexa\Bundle\Core\Controller;
+use Ibexa\Core\MVC\Symfony\View\ContentView;
+use Ibexa\Contracts\Core\Repository\ContentService;
 
 class RideController extends Controller
 {
@@ -156,7 +156,7 @@ class RideController extends Controller
 Update `config/packages/views.yaml` to mention the `RideController.php` by adding a line with the `controller` key to the view config:
 
 ``` yaml hl_lines="8"
-ezplatform:
+ibexa:
     system:
         site:
             content_view:
