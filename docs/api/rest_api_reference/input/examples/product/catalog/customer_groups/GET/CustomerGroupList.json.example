@@ -1,0 +1,25 @@
+{
+    "CustomerGroupList": {
+        "_media-type": "application/vnd.ibexa.api.CustomerGroupList+json",
+        "CustomerGroup": [
+            {
+                "_media-type": "application/vnd.ibexa.api.CustomerGroup+json",
+                "id": 1,
+                "name": "Resellers",
+                "identifier": "resellers",
+                "description": "",
+                "users": [],
+                "global_price_rate": "0.00"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.CustomerGroup+json",
+                "id": 2,
+                "name": "Contractors",
+                "identifier": "contractors",
+                "description": "",
+                "users": [],
+                "global_price_rate": "-20.00"
+            }
+        ]
+    }
+}

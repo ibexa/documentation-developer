@@ -1,0 +1,29 @@
+{
+    "ProductTypeUpdate": {
+        "ContentTypeUpdateStruct": {
+            "names": {
+                "value": [
+                    {
+                        "_languageCode": "eng-GB",
+                        "#text": "pt_1_updated"
+                    }
+                ]
+            },
+            "descriptions": {
+                "value": [
+                    {
+                        "_languageCode": "eng-GB",
+                        "#text": "updated"
+                    }
+                ]
+            }
+        },
+        "assigned_attributes": [
+            {
+                "identifier": "size",
+                "is_required": false,
+                "is_discriminator": true
+            }
+        ]
+    }
+}
