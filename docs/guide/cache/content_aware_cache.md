@@ -50,9 +50,9 @@ which HTTP Cache [[= product_name =]] is configured with:
 
 Examples:
 
-- `X-Cache-Tags: ez-all,c52,ct42,l2,pl1,p1,p2,r56,r57`
-- `xkey: ez-all c52 ct42 l2 pl1 p1 p2 r56 r57`
-- `Surrogate-Key: ez-all c52 ct42 l2 pl1 p1 p2 r56 r57`
+- `X-Cache-Tags: ibx-all,c52,ct42,l2,pl1,p1,p2,r56,r57`
+- `xkey: ibx-all c52 ct42 l2 pl1 p1 p2 r56 r57`
+- `Surrogate-Key: ibx-all c52 ct42 l2 pl1 p1 p2 r56 r57`
 
 ### Troubleshooting - Cache header too long errors
 
@@ -110,7 +110,7 @@ For content views response tagging is done automatically, and cache system outpu
 ```
 HTTP/1.1 200 OK
 Cache-Control: public, max-age=86400
-xkey: ez-all c1 ct1 l2 pl1 p1 p2
+xkey: ibx-all c1 ct1 l2 pl1 p1 p2
 ```
 
 If the given content has several Locations, you can see several `l<location-id>` and `p<location-id>` tags in the response.
@@ -265,15 +265,15 @@ also listed
 
 ```
    - [Home] (content-id=52, location-id=2)
-     ez-all c52 ct42 l2 pl1 p1 p2
+     ibx-all c52 ct42 l2 pl1 p1 p2
      |
      - [Parent1](content-id=53, location-id=20)
-       ez-all c53 ct1 l20 pl2 p1 p2 p20
+       ibx-all c53 ct1 l20 pl2 p1 p2 p20
        |
        - [Child](content-id=55, location-id=22)
-         ez-all c55 ct1 l22 pl20 p1 p2 p20 p22
+         ibx-all c55 ct1 l22 pl20 p1 p2 p20 p22
      - [Parent2](content-id=54, location-id=21)
-       ez-all c55 ct1 l22 pl2 p1 p2 p22
+       ibx-all c55 ct1 l22 pl2 p1 p2 p22
 ```
 
 In the event when a new version of `Child` is published, the following keys are purged:
@@ -299,15 +299,15 @@ With the same Content structure as above, the `[Child]` location is moved below 
 The new structure will then be:
 ```
    - [Home] (content-id=52, location-id=2)
-     ez-all c52 ct42 l2 pl1 p1 p2
+     ibx-all c52 ct42 l2 pl1 p1 p2
      |
      - [Parent1](content-id=53, location-id=20)
-       ez-all c53 ct1 l20 pl2 p1 p2 p20
+       ibx-all c53 ct1 l20 pl2 p1 p2 p20
      - [Parent2](content-id=54, location-id=21)
-       ez-all c55 ct1 l22 pl2 p1 p2 p22
+       ibx-all c55 ct1 l22 pl2 p1 p2 p22
        |
        - [Child](content-id=55, location-id=22)
-         ez-all c55 ct1 l22 pl21 p1 p2 p21 p22
+         ibx-all c55 ct1 l22 pl21 p1 p2 p21 p22
 ```
 
 The following keys will be purged during the move:
@@ -346,7 +346,7 @@ bin/console fos:httpcache:invalidate:tag l44 c33
 Example for purging by all cache:
 
 ```bash
-bin/console fos:httpcache:invalidate:tag ez-all
+bin/console fos:httpcache:invalidate:tag ibx-all
 ```
 
 !!! tip "Purge is done on the current Repository"
@@ -474,7 +474,7 @@ The output for this command should look similar to this:
     Vary: cookie
     Vary: authorization
     X-Cache-Debug: 1
-    Surrogate-Key: ez-user-context-hash ez-all fos_http_cache_hashlookup-
+    Surrogate-Key: ibx-user-context-hash ibx-all fos_http_cache_hashlookup-
 ```
 
 The header `X-User-Context-Hash` is the one of the interest here, but you may also note the `Surrogate-Key` which
@@ -501,7 +501,7 @@ X-Cache-Debug: 1
 Vary: X-User-Context-Hash
 Vary: X-Editorial-Mode
 Surrogate-Control: content="ESI/1.0"
-Surrogate-Key: ez-all c52 ct42 l2 pl1 p1 p2 r56 r57
+Surrogate-Key: ibx-all c52 ct42 l2 pl1 p1 p2 r56 r57
 ```
 
 The `Cache-Control` header tells the HTTP cache to store the result in the cache for 1 day (86400 seconds)
@@ -554,7 +554,7 @@ Vary: Origin
 Vary: X-User-Context-Hash
 Vary: X-Editorial-Mode
 X-Cache-Debug: 1
-Surrogate-Key: ez-all c52 l2
+Surrogate-Key: ibx-all c52 l2
 ```
 
 The headers here look correct and do not indicate that this ESI will not be cached by the HTTP cache
@@ -583,10 +583,10 @@ Vary: Origin
 Vary: X-User-Context-Hash
 Vary: X-Editorial-Mode
 X-Cache-Debug: 1
-Surrogate-Key: ez-all
+Surrogate-Key: ibx-all
 ```
 
-The `Cache-Control` and `Vary` headers look correct. The request is handled by a custom controller and the `Surrogate-Key` only contains the default `ez-all` value. 
+The `Cache-Control` and `Vary` headers look correct. The request is handled by a custom controller and the `Surrogate-Key` only contains the default `ibx-all` value. 
 This is not a problem as long as the controller
 does not return values from any Content in the [[= product_name =]] Repository. If it does, the controller should also add
 the corresponding IDs to such objects in that header.
