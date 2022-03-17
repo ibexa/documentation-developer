@@ -309,7 +309,10 @@ Response:
 
 ## Getting children of a Location
 
-To get a [Location's](#querying-locations) children, query the `children` property of an `item` or `content` object:
+To get a [Location's](#querying-locations) children,
+it is recommended to use the [Query Field](../guide/content_rendering/queries_and_controllers/content_queries.md#content-query-field).
+
+Alternatively, you can query the `children` property of an `item` or `content` object:
 
 ```
 {
