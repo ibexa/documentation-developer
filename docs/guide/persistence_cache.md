@@ -351,8 +351,8 @@ Persistence cache prefixes it's cache using "ibx-". Clearing persistence cache c
 $pool->clear();
 
 // To clear a specific cache item (check source for more examples in Ibexa\Core\Persistence\Cache\*)
-$pool->deleteItems(["ibx-content-info-$contentId"]);
+$pool->deleteItems(["ibx-ci-$contentId"]);
 
 // Symfony cache is tag-based, so you can clear all cache related to a Content item like this:
-$pool->invalidateTags(["content-$contentId"]);
+$pool->invalidateTags(["c-$contentId"]);
 ```
