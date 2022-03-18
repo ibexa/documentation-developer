@@ -344,15 +344,15 @@ For more info on usage, see [Symfony Cache's documentation]([[= symfony_doc =]]/
 
 ### Clearing Persistence cache
 
-Persistence cache prefixes it's cache using "ez-". Clearing persistence cache can thus be done in the following ways:
+Persistence cache prefixes it's cache using "ibx-". Clearing persistence cache can thus be done in the following ways:
 
 ``` php
 // To clear all cache (not recommended without a good reason)
 $pool->clear();
 
 // To clear a specific cache item (check source for more examples in Ibexa\Core\Persistence\Cache\*)
-$pool->deleteItems(["ez-content-info-$contentId"]);
+$pool->deleteItems(["ibx-ci-$contentId"]);
 
 // Symfony cache is tag-based, so you can clear all cache related to a Content item like this:
-$pool->invalidateTags(["content-$contentId"]);
+$pool->invalidateTags(["c-$contentId"]);
 ```
