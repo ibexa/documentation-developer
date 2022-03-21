@@ -1,0 +1,9 @@
+{
+    "AttributeGroupUpdate": {
+        "identifier": "ag_colors",
+        "names": {
+            "eng-GB": "Colors Group"
+        },
+        "position": 0
+    }
+}

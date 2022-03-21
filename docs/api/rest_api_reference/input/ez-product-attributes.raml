@@ -27,9 +27,42 @@ post:
         403:
             description: Error - an attribute with the same name already exists.
 /{id}:    
+    get:
+        displayName: Load attributes
+        description: Loads given attribute.
+        headers:
+            Accept:
+                description: AttributeGet - If set, the given attribute is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.AttributeGet+json
+            Content-Type:
+                description: The attribute schema encoded in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.AttributeGet+json
+        body:
+            application/vnd.ibexa.api.AttributeGet+json
+                type: AttributeList
+                example: !include examples/product/catalog/attributes/id/GET/AttributeGet.json.example
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.Attribute+json:
+                        type: Attribute
+                        example: !include examples/product/catalog/attributes/id/GET/Attribute.json.example
+            401:
+                description: Error - the user has no permission to read the attribute.
+    delete:
+        displayName: Delete attribute
+        description: The given attribute is removed from the attribute group.
+        responses:
+            200:
+                description: No Content.
+            401:
+                description: Error - the user is not authorized to delete this attribute.
+/{id}/{group_id}: 
     patch:
         displayName: Update attribute
-        description: Updates attribute.
+        description: Updates an attribute.
         headers:
             Accept:
                 description: If set, the updated attribute is returned in XML or JSON format.
@@ -42,13 +75,13 @@ post:
         body:
             application/vnd.ibexa.api.AttributeUpdate+json:
                 type: AttributeUpdate
-                example: !include examples/product/catalog/attributes/id/PATCH/AttributeUpdate.json.example
+                example: !include examples/product/catalog/attributes/id/group_id/PATCH/AttributeUpdate.json.example
         responses:
             201:
                 body:
                     application/vnd.ibexa.api.Attribute+json:
                         type: Attribute
-                        example: !include examples/product/catalog/attributes/id/PATCH/Attribute.json.example
+                        example: !include examples/product/catalog/attributes/id/group_id/PATCH/Attribute.json.example
             400:
                 description: Error - the input does not match the input schema definition.
             401:
@@ -57,14 +90,6 @@ post:
                 description: Error - an attribute with the same name already exists.
             404:
                 description: Error - the attribute with the given ID does not exist.
-    delete:
-        displayName: Delete attribute
-        description: The given attribute is removed from the attribute group.
-        responses:
-            200:
-                description: No Content.
-            401:
-                description: Error - the user is not authorized to delete this attribute.
 /translation/{languageCode}:
     delete:
         displayName: Delete attribute translation
@@ -98,28 +123,3 @@ get:
                     example: !include examples/product/catalog/attributes/GET/AttributeList.json.example
         401:
             description: Error - the user has no permission to read user groups.
-    /{id}:
-        displayName: Load attributes
-        description: Loads given attribute.
-        headers:
-            Accept:
-                description: AttributeGet - If set, the given attribute is returned in XML or JSON format.
-                example: |
-                    application/vnd.ibexa.api.AttributeGet+json
-            Content-Type:
-                description: The attribute schema encoded in XML or JSON format.
-                example: |
-                    application/vnd.ibexa.api.AttributeGet+json
-        body:
-            application/vnd.ibexa.api.AttributeGet+json
-                type: AttributeList
-                example: !include examples/product/catalog/attributes/id/GET/AttributeGet.json.example
-        responses:
-            200:
-                body:
-                    application/vnd.ibexa.api.Attribute+json:
-                        type: Attribute
-                        example: !include examples/product/catalog/attributes/id/GET/Attribute.json.example
-            401:
-                description: Error - the user has no permission to read the attribute.
-

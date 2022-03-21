@@ -1,0 +1,9 @@
+{
+    "CustomerGroupUpdate": {
+        "identifier": "customer_group",
+        "names": {
+            "eng-GB": "Customer Group"
+        },
+        "global_price_rate": "1"
+    }
+}
