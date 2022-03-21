@@ -2,7 +2,7 @@
     "ProductCreate": {
         "ContentCreate": {
             "ContentType": {
-                "_href": "/api/ibexa/v2/content/types/51",
+                "_href": "/api/ibexa/v2/content/types/46",
                 "FieldDefinitions": {
                     "_media-type": "application/vnd.ibexa.api.FieldDefinitionList+json",
                     "_href": "/api/ibexa/v2/content/types/260/fieldDefinitions",

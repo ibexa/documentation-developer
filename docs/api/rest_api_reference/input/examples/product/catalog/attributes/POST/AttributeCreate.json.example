@@ -4,7 +4,7 @@
         "type": "checkbox",
         "group": "attr_group_test",
         "names": {
-            "eng-GB": "Attribute Group" 
+            "eng-GB": "Attribute" 
         },
         "descriptions": {
             "eng-GB": "description" 

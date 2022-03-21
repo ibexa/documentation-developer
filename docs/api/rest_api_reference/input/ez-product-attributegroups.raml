@@ -1,3 +1,27 @@
+get:
+    displayName: Load attribute groups
+    description: Returns a list of attribute groups.
+    body:
+        application/vnd.ibexa.api.AttributeGroupList+json:
+            type: AttributeGroup
+            example: !include examples/product/catalog/attribute_groups/GET/AttributeGroupList.json.example
+    headers:
+        Accept:
+            description: AttributeGroupListGet - If set, the attribute group list is returned in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.AttributeGroupListGet+json
+        Content-Type:
+            description: The AttributeGroupList schema encoded in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.AttributeGroupListGet+json
+    responses:
+        200:
+            body:
+                application/vnd.ibexa.api.AttributeGroupList+json:
+                    type: AttributeGroupList
+                    example: !include examples/product/catalog/attribute_groups/GET/AttributeGroupList.json.example
+        401:
+            description: Error - the user has no permission to read attribute groups.
 post:
     displayName: Create attribute group
     description: Creates a new attribute group.
@@ -27,6 +51,30 @@ post:
         403:
             description: Error - an attribute group.
 /{id}:
+    get:
+        displayName: Load attribute group
+        description: Returns the given attribute group.
+        body:
+            application/vnd.ibexa.api.AttributeGroup+json:
+                type: AttributeGroup
+                example: !include examples/product/catalog/attribute_groups/id/GET/AttributeGroup.json.example
+        headers:
+            Accept:
+                description: AttributeGroupGet - If set, the attribute group List is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.AttributeGroupGet+json
+            Content-Type:
+                description: The AttributeGroup schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.AttributeGroupGet+json
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.AttributeGroupList+json:
+                        type: AttributeGroupList
+                        example: !include examples/product/catalog/attribute_groups/id/GET/AttributeGroup.json.example
+            401:
+                description: Error - the user has no permission to read attribute groups.
     patch:
         displayName: Update attribute group
         description: Updates an attribute group.
@@ -42,13 +90,13 @@ post:
         body:
             application/vnd.ibexa.api.AttributeGroup+json:
                 type: AttributeGroupUpdate
-                example: !include examples/product/catalog/attribute_groups/attribute_groups_id/PATCH/AttributeGroupUpdate.json.example
+                example: !include examples/product/catalog/attribute_groups/id/PATCH/AttributeGroupUpdate.json.example
         responses:
             201:
                 body:
                     application/vnd.ibexa.api.AttributeGroup+json:
                         type: AttributeGroup
-                        example: !include examples/product/catalog/attribute_groups/attribute_groups_id/PATCH/AttributeGroup.json.example
+                        example: !include examples/product/catalog/attribute_groups/id/PATCH/AttributeGroup.json.example
             400:
                 description: Error - the input does not match the input schema definition.
             401:
@@ -57,61 +105,20 @@ post:
                 description: Error - an attribute group with the same login already exists.
             404:
                 description: Error - the group with the given ID does not exist.
-delete:
-    displayName: Delete attribute group
-    description: Deletes an attribute group.
-    responses:
-        204:
-            description: No content - the given attribute group is deleted.
-        401:
-            description: Error - the user is not authorized to delete this attribute group.
+    delete:
+        displayName: Delete attribute group
+        description: Deletes an attribute group.
+        responses:
+            204:
+                description: No content - the given attribute group is deleted.
+            401:
+                description: Error - the user is not authorized to delete this attribute group.
 /translation/{id}/{languageCode}:
     delete:
-        displayName: Delete translation
+        displayName: Delete attribute group translation
         description: Deletes given translation from attribute group.
         responses:
             200:
                 description: No content - the given attribute group translation is deleted.
             401:
                 description: Error - the user is not authorized to delete this attribute group translation assignment.
-get:
-    displayName: Load Attribute Groups
-    description: Returns a list of Attribute Groups.
-    headers:
-        Accept:
-            description: AttributeGroupListGet - If set, the attribute group list is returned in XML or JSON format.
-            example: |
-                application/vnd.ibexa.api.AttributeGroupListGet+json
-        Content-Type:
-            description: The AttributeGroupList schema encoded in XML or JSON format.
-            example:  |
-                application/vnd.ibexa.api.AttributeGroupListGet+json
-    responses:
-        200:
-            body:
-                application/vnd.ibexa.api.AttributeGroupList+json:
-                    type: AttributeGroupList
-                    example: !include examples/product/catalog/attribute_groups/GET/AttributeGroupList.json.example
-        401:
-            description: Error - the user has no permission to read attribute groups.
-
-    /id:
-        displayName: Load attribute group
-        description: Returns a list of given attribute group.
-        headers:
-            Accept:
-                description: AttributeGrouptGet - If set, the attribute group List is returned in XML or JSON format.
-                example: |
-                    application/vnd.ibexa.api.AttributeGroupGet+json
-            Content-Type:
-                description: The AttributeGroup schema encoded in XML or JSON format.
-                example:  |
-                    application/vnd.ibexa.api.AttributeGroupGet+json
-        responses:
-            200:
-                body:
-                    application/vnd.ibexa.api.AttributeGroupList+json:
-                        type: AttributeGroupList
-                        example: !include examples/product/catalog/attribute_groups/attribute_groups_id/GET/AttributeGroup.json.example
-            401:
-                description: Error - the user has no permission to read attribute groups.

@@ -1,0 +1,50 @@
+{
+    "CurrencyList": {
+        "_media-type": "application/vnd.ibexa.api.CurrencyList+json",
+        "Currency": [
+            {
+                "_media-type": "application/vnd.ibexa.api.Currency+json",
+                "id": 1,
+                "code": "AFN",
+                "subunits": 1,
+                "enabled": false
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Currency+json",
+                "id": 2,
+                "code": "EUR",
+                "subunits": 2,
+                "enabled": false
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Currency+json",
+                "id": 3,
+                "code": "ALL",
+                "subunits": 2,
+                "enabled": false
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Currency+json",
+                "id": 4,
+                "code": "DZD",
+                "subunits": 2,
+                "enabled": false
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Currency+json",
+                "id": 5,
+                "code": "USD",
+                "subunits": 2,
+                "enabled": false
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Currency+json",
+                "id": 6,
+                "code": "AOA",
+                "subunits": 2,
+                "enabled": false
+            },
+            ...
+        ]
+    }
+}
