@@ -178,8 +178,8 @@ The following combinations of types are modes are available:
 |`location`||&#10004;||
 |`attribute_group`|&#10004;||
 |`attribute`|&#10004;||
-|`customer_group`|&#10004;||
-|`currency`|&#10004;||
+|`customer_group`|&#10004;|&#10004;|&#10004;|
+|`currency`|&#10004;|&#10004;|&#10004;|
 
 ### match-property
 
@@ -309,6 +309,53 @@ Create a currency:
     code: TST
     subunits: 3
 ```
+
+### Criteria
+
+When using `update` or `delete` modes, you can use criteria to identify the objects to operate on.
+
+``` yaml
+type: currency
+mode: update
+criteria:
+    type: field_value
+    field: code
+    value: EUR
+    operator: '=' # default
+code: EEE
+subunits: 3
+enabled: false
+```
+
+Available operators are:
+
+- `=`
+- `<>`
+- `<`
+- `<=`
+- `>`
+- `>=`
+- `IN`
+- `NIN`
+- `CONTAINS`
+- `STARTS_WITH`
+- `ENDS_WITH`.
+
+You can combine criteria by using logical criteria `and` and `or`:
+
+``` yaml
+type: or
+criteria:
+    -   type: field_value
+        field: code
+        value: EUR
+    -   type: field_value
+        field: code
+        value: X
+        operator: STARTS_WITH
+```
+
+Criteria can be nested.
 
 ## Executing migrations
 
