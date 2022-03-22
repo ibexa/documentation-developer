@@ -2,7 +2,7 @@
 
 ## Enabling Back Office languages
 
-All translations are available as a part of the [[= product_name =]]. To enable Back Office translations, use the following configuration:
+All translations are available as a part of [[= product_name =]]. To enable Back Office translations, use the following configuration:
 
 ``` yaml
 ibexa:
@@ -20,9 +20,9 @@ If your browser language is set to French, the Back Office will be displayed in 
 
 !!! tip
 
-    If you do want to add your own bundle with Back Office translation, you could install it manualy via composer.  
+    If you do want to add your own bundle with Back Office translations, you can install it manually via Composer.  
 
-    Also, you can manually add the necessary .xliff files to existing project.
+    Also, you can manually add the necessary .xliff files to an existing project.
     
     Add the language to an array under `ibexa.system.<siteaccess>.user_preferences.additional_translations`, for example:
 
