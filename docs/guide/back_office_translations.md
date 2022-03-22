@@ -2,6 +2,15 @@
 
 ## Changing Back Office languages
 
+To enable Back Office translations, use the following configuration:
+
+``` yaml
+ibexa:
+    ui:
+        translations:
+            enabled: true
+```
+
 ### Installing new translations
 
 If you want to install a new language in your project, install the corresponding package.
