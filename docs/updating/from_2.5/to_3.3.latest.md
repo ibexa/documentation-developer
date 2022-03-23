@@ -53,8 +53,6 @@ if (req.restarts == 0 && resp.status == 301 && req.http.x-fos-original-url) {
 }
 ```
 
-If you want to provide custom configuration in VCL snippets, for example, to handle exceptions or special cases, make sure that in your `ez_main.vcl` file you move the `#FASTLY recv` macro call to [a new location](https://github.com/ezsystems/ezplatform-http-cache-fastly/blob/a1f193438f1d6cf604d331630f14f91a7f42dd77/fastly/ez_main.vcl#L25), right after the `Preserve X-Forwarded-For in all requests` section.
-
 #### Optimize workflow queries
 
 Run the following SQL queries to optimize workflow performance:
