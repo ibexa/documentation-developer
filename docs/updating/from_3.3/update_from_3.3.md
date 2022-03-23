@@ -1,5 +1,5 @@
 ---
-latest_tag: '3.3.14'
+latest_tag: '3.3.16'
 ---
 
 # Update from v3.3.x to v3.3.latest
@@ -11,6 +11,47 @@ Go through the following steps to update to the latest maintenance release of v3
 !!! note
 
     You can only update to the latest patch release of 3.3.x.
+
+## Update the application
+
+First, run:
+
+=== "[[= product_name_content =]]"
+
+    ``` bash
+    composer require ibexa/content:[[= latest_tag =]] --with-all-dependencies --no-scripts
+    composer recipes:install ibexa/content --force -v
+    composer run post-install-cmd
+    ```
+
+=== "[[= product_name_exp =]]"
+
+    ``` bash
+    composer require ibexa/experience:[[= latest_tag =]] --with-all-dependencies --no-scripts
+    composer recipes:install ibexa/experience --force -v
+    composer run post-install-cmd
+    ```
+
+=== "[[= product_name_com =]]"
+
+    ``` bash
+    composer require ibexa/commerce:[[= latest_tag =]] --with-all-dependencies --no-scripts
+    composer recipes:install ibexa/commerce --force -v
+    composer run post-install-cmd
+    ```
+    
+Review the changes to make sure your custom configuration was not affected.
+
+Then, perform a database upgrade and other steps relevant to the version you are updating to.
+
+!!! caution "Clear Redis cache"
+
+    If you are using Redis as your persistence cache storage you should always clear it manually after an upgrade.
+    You can do it by executing the following command:
+
+    ```bash
+    php bin/console cache:pool:clear cache.redis
+    ```
 
 ### v3.3.2
 
@@ -121,45 +162,6 @@ including the Symfony version (line 9):
 ```
 
 See https://github.com/ibexa/website-skeleton/pull/5/files for details of the package version change.
-
-Next, run:
-
-=== "[[= product_name_content =]]"
-
-    ``` bash
-    composer require ibexa/content:3.3.9 --with-all-dependencies --no-scripts
-    composer recipes:install ibexa/content --force -v
-    composer run post-install-cmd
-    ```
-
-=== "[[= product_name_exp =]]"
-
-    ``` bash
-    composer require ibexa/experience:3.3.9 --with-all-dependencies --no-scripts
-    composer recipes:install ibexa/experience --force -v
-    composer run post-install-cmd
-    ```
-
-=== "[[= product_name_com =]]"
-
-    ``` bash
-    composer require ibexa/commerce:3.3.9 --with-all-dependencies --no-scripts
-    composer recipes:install ibexa/commerce --force -v
-    composer run post-install-cmd
-    ```
-    
-Review the changes to make sure your custom configuration was not affected.
-
-Then, perform a database upgrade relevant to the version you are updating to.
-
-!!! caution "Clear Redis cache"
-
-    If you are using Redis as your persistence cache storage you should always clear it manually after an upgrade.
-    You can do it by executing the following command:
-
-    ```bash
-    php bin/console cache:pool:clear cache.redis
-    ```
 
 ### v3.3.7
 
