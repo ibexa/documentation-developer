@@ -14,13 +14,7 @@ Visit [[[= product_name =]]'s Crowdin page](https://crowdin.com/project/ibexa-dx
 
 If the language you want to translate to is not available, you can ask for it to be added in the [Crowdin discussion forum for [[= product_name =]]](https://crowdin.com/project/ibexa-dxp/discussions).
 
-## Translation process
-
-There is a Github integration configured. When you provide a new translation message in the Crowdin UI then it will be automatically transferred to the `l10n_main` branch of `ibexa/i18` package. 
-
-Synchronization will be done every 6 hours. As the last step of synchronization new PR will be automatically created with new translations or, if PR is already open, it will be updated with a new commit. 
-
-Next PR will be merged to the main branch.
+Crowdin then automatically creates a GitHub PR and the translations are updated in the product.
 
 ## Full translation workflow
 
