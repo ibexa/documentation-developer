@@ -1,8 +1,8 @@
 # Back Office translations
 
-## Changing Back Office languages
+## Enabling Back Office languages
 
-To enable Back Office translations, use the following configuration:
+All translations are available as a part of [[= product_name =]]. To enable Back Office translations, use the following configuration:
 
 ``` yaml
 ibexa:
@@ -11,17 +11,7 @@ ibexa:
             enabled: true
 ```
 
-### Installing new translations
-
-If you want to install a new language in your project, install the corresponding package.
-
-For example, if you want to translate your application into French, run:
-
-`composer require ezplatform-i18n/ezplatform-i18n-fr_fr`
-
-and then clear the cache.
-
-Now you can reload your [[= product_name =]] Back Office.
+Then clear the cache. Now you can reload your [[= product_name =]] Back Office.
 If your browser language is set to French, the Back Office will be displayed in French.
 
 !!! tip "Checking browser language"
@@ -30,7 +20,10 @@ If your browser language is set to French, the Back Office will be displayed in 
 
 !!! tip
 
-    If you do not want to add a bundle with Back Office translation, you can manually add the necessary .xliff files.
+    If you do want to add your own bundle with Back Office translations, you can install it manually via Composer.  
+
+    Also, you can manually add the necessary .xliff files to an existing project.
+    
     Add the language to an array under `ibexa.system.<siteaccess>.user_preferences.additional_translations`, for example:
 
     `ibexa.system.<siteaccess>.user_preferences.additional_translations: ['pl_PL', 'fr_FR']`
@@ -43,7 +36,7 @@ To learn how to contribute to a translation, see [Contributing translations](../
 
 ### Selecting Back Office language
 
-Once you have language packages installed, you can switch the language of the Back Office
+Once you have language packages enabled, you can switch the language of the Back Office
 in the User Settings menu.
 
 Otherwise, the language will be selected based on the browser language.
