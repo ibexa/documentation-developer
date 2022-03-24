@@ -1,6 +1,6 @@
 ---
 target_version: '3.2'
-latest_tag: '3.3.14'
+latest_tag: '3.3.16'
 ---
 
 # From 2.5
