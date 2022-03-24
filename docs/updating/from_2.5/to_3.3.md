@@ -1,6 +1,6 @@
 ---
 target_version: '3.3'
-latest_tag: '3.3.14'
+latest_tag: '3.3.16'
 ---
 
 # Update the app to v3.3
