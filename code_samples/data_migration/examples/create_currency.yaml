@@ -1,0 +1,4 @@
+-   type: currency
+    mode: create
+    code: TST
+    subunits: 3

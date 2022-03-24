@@ -15,7 +15,7 @@ Ibexa Migrations store execution metadata in `ibexa_migrations` database table. 
 the `ibexa:migration:migrate` command ignores files that it had previously executed.
 
 
-## Migration file content
+## Migration examples
 
 The following examples show what data you can import using data migrations.
 
@@ -81,44 +81,42 @@ The required metadata keys are: `languageCode`, `name`, and `enabled`.
 
 ### Product catalog
 
-Create an attribute group with an attribute:
+Create an attribute group with two attributes:
 
 ``` yaml
--   type: attribute_group
-    mode: create
-    identifier: hat
-    names:
-        eng-GB: Hat
--   type: attribute
-    mode: create
-    identifier: size
-    attribute_type_identifier: integer
-    attribute_group_identifier: hat
-    names:
-        eng-GB: Size
+[[= include_file('code_samples/data_migration/examples/create_attribute_group.yaml') =]]
 ```
 
-Create a customer group with a defined global price discount:
+#### Product type
+
+The following example shows how to create a product type.
+
+The main part of the migration file is the same as when creating a regular Content item.
+
+A product type must also contain the definition for an `ibexa_product_specification` Field.
+`fieldSettings` contains information about the product attributes.
 
 ``` yaml
--   type: customer_group
-    mode: create
-    identifier: contractors
-    names:
-        eng-GB: Contractors
-    global_price_rate: -20.0
+[[= include_file('code_samples/data_migration/examples/create_product_type.yaml') =]]
 ```
 
-Create a currency:
+#### Customer groups
+
+The following example shows how to create a customer group with a defined global price discount:
 
 ``` yaml
--   type: currency
-    mode: create
-    code: TST
-    subunits: 3
+[[= include_file('code_samples/data_migration/examples/create_customer_group.yaml') =]]
 ```
 
-### Criteria
+#### Currencies
+
+The following example shows how to create a currency:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_currency.yaml') =]]
+```
+
+## Criteria
 
 When using `update` or `delete` modes, you can use criteria to identify the objects to operate on.
 
