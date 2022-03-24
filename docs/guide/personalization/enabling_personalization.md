@@ -49,13 +49,13 @@ the Personalization server.
 Its job is to track the way visitors use the website and recommend content 
 based on their behavior.
 
-After you become familiar with this article, for more information about integrating 
-the Personalization service, see [Developer guide](developer_guide/tracking_api.md) and [Best practices](best_practices/tracking_integration.md).
+For more information about integrating the Personalization service,
+see [Developer guide](developer_guide/tracking_api.md) and [Best practices](best_practices/tracking_integration.md).
 
 ### Set up item type tracking
 
 For the recommendations to be calculated, apart from visitor events (CLICK, BUY, etc.), 
-the Personalization server must be fed with the list of item types that are tracked.
+the Personalization server must receive a list of item types that are tracked.
 
 You define item types to be tracked in the `config/packages/ibexa.yaml` file.
 The content is then initially exported by a script.
@@ -108,8 +108,8 @@ ibexa_personalization:
 | `authentication.customer_id`         | A customer ID related to the supported SiteAccess.                                         |
 | `authentication.license_key`         | The Personalization service's license key.                                         |
 | `export.authentication.method`         | Authentication method used to get access when importing items.                                         |
-| `export.authentication.login`         | A credential used when importing items.                                         |
-| `export.authentication.password`         | A password used when importing items.                                         |
+| `export.authentication.login`         | The credential used when importing items.                                         |
+| `export.authentication.password`         | The password used when importing items.                                         |
 | `included_item_types`             | A list of alphanumerical identifiers of item types on which the tracking script is shown. |
 | `random_item_types`               | A list of alphanumerical identifiers of item types that are returned when the response from the server contains no content. |
 
@@ -293,7 +293,7 @@ The username is the customer ID and the password is the license key.
 
 ##### Personalization backend
 
-In the Back Office, go to **Personalization** > **Import** and review a list of historical import operations to see whether a full import was successful.
+In the Back Office, go to **Personalization** > **Import** and review the list of historical import operations to see whether a full import was successful.
 
 ![Item Import tab with full import results](img/reco_full_import.png)
 
@@ -329,7 +329,7 @@ To display recommendations on your site, you must include the asset in the templ
 
 This file is responsible for sending notifications to the [Recommendation API](developer_guide/recommendation_api.md) after the user clicks a tracking element.
 
-To render recommended content, use a dedicated `showRecommendationsAction` from the `RecommendationController.php`:
+To render recommended content, use a dedicated `showRecommendationsAction()` from the `RecommendationController.php`:
 
 ``` html+twig
 render_esi(controller('ibexa_personalization::showRecommendationsAction', {
@@ -480,7 +480,7 @@ You can retrieve data returned from the Personalization server and modify it
 before it is shown to the user.
 
 To modify recommendation data, subscribe to `RecommendationResponseEvent`.
-See [`Event/Subscriber/RecommendationEventSubscriber.php`](https://github.com/ibexa/personalization-client/blob/main/src/lib/Event/Subscriber/RecommendationEventSubscriber.php) for example:
+See [`Event/Subscriber/RecommendationEventSubscriber.php`](https://github.com/ibexa/personalization-client/blob/main/src/lib/Event/Subscriber/RecommendationEventSubscriber.php) for an example:
 
 ``` php
 public static function getSubscribedEvents(): array
@@ -496,7 +496,7 @@ before the main subscriber is run.
 
 ### Image variations
 
-Displaying image variations is not readily supported yet.
+Displaying image variations is not supported out of the box.
 
 You can work around this limitation by creating a template
 (based on [recommendations.html.twig](https://github.com/ibexa/personalization-client/blob/main/src/bundle/Resources/views/recommendations.html.twig)).
@@ -534,6 +534,6 @@ and results that come from these websites.
 
 ## Configure recommendation logic
 
-Wjen you enable the Personalization, you can go back to the Back Office, 
+When you enable the Personalization, you can go back to the Back Office, 
 refresh the Personalization dashboard and proceed with [configuring the logic]([[= user_doc =]]/personalization/perso_configuration) 
 used to calculate the recommendation results.
