@@ -19,6 +19,66 @@ the `ibexa:migration:migrate` command ignores files that it had previously execu
 
 The following examples show what data you can import using data migrations.
 
+### Content Types
+
+The following example shows how to create a Content Type with two Field definitions.
+
+The required metadata keys are: `identifier`, `mainTranslation`, `contentTypeGroups` and `translations`.
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_blog_post_ct.yaml') =]]
+```
+
+### Content
+
+The following example shows how to create two Content items: a folder and an article inside it.
+
+When creating a Content item, two metadata keys are required: `contentType` and `mainTranslation`,
+as well as `parentLocationId`.
+
+To use the Location ID of the folder, which is created automatically by the system,
+you can use a [reference](migration_management.md#references).
+In this case you assign the `parent_folder_location_id` reference name to the Location ID
+and then use it when creating the article.
+
+``` yaml hl_lines="15 24"
+[[= include_file('code_samples/data_migration/examples/create_parent_and_child_content.yaml') =]]
+```
+
+### Roles
+
+The following example shows how to create a Role.
+A Role requires the `identifier` metadata key.
+
+For each Policy assigned to the Role you select the module and function, with optional Limitations.
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_role.yaml') =]]
+```
+
+### Users
+
+The following example shows how to create a user.
+
+The required metadata keys are: `login`, `email`, `password`, `enabled`, `mainLanguage`, and `contentType`.
+You also need to provide the user group's remote content ID.
+
+You can use an [action](data_migration_actions.md) to assign a Role to the user.
+
+``` yaml hl_lines="22-23"
+[[= include_file('code_samples/data_migration/examples/create_user.yaml') =]]
+```
+
+### Language
+
+The following example shows how to create a language.
+
+The required metadata keys are: `languageCode`, `name`, and `enabled`.
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_language.yaml') =]]
+```
+
 ### Product catalog
 
 Create an attribute group with an attribute:

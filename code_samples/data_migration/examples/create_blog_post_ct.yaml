@@ -1,0 +1,24 @@
+-
+    type: content_type
+    mode: create
+    metadata:
+        identifier: blog_post
+        mainTranslation: eng-GB
+        contentTypeGroups:
+            - Content
+        translations:
+            eng-GB:
+                name: Blog Post
+    fields:
+        -   identifier: title
+            type: ezstring
+            required: true
+            translations:
+                eng-GB:
+                    name: 'Title'
+        -   identifier: body
+            type: ezrichtext
+            required: false
+            translations:
+                eng-GB:
+                    name: 'Body'

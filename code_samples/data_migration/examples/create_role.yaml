@@ -1,0 +1,26 @@
+-
+    type: role
+    mode: create
+    metadata:
+        identifier: Contributor
+    policies:
+        -
+            module: content
+            function: read
+        -
+            module: content
+            function: create
+            limitations:
+                -
+                    identifier: Class
+                    values: [folder, article, blog_post]
+                -
+                    identifier: Section
+                    values: [standard, media]
+        -
+            module: content
+            function: edit
+            limitations:
+                -
+                    identifier: Owner
+                    values: ['1']
