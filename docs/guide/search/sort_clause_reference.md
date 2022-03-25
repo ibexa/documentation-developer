@@ -36,5 +36,6 @@ All Sort Clauses can take the following optional argument:
 
 | Sort Clause | Sorting based on | Supported by |
 |-----|-----|-----|
+|[ProductAvailability](sort_clause_reference/productavailability_sort_clause.md)|Product's availability|Content and Location Search; Filtering|
 |[ProductCode](sort_clause_reference/productcode_sort_clause.md)|Product's code|Content and Location Search; Filtering|
 |[ProductName](sort_clause_reference/productname_sort_clause.md)|Product's name|Content and Location Search; Filtering|
