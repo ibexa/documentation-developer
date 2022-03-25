@@ -6,7 +6,7 @@
 
     | Name    | Internal name |
     |---------|---------------|
-    | `Image` | `ezform`      |
+    | `Form` | `ezform`      |
 
 
 
