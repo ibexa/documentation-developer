@@ -2,9 +2,9 @@
 
 The Form Field Type stores a Form consisting of one or more form fields.
 
-| Name    | Internal name |
-|---------|---------------|
-| `Image` | `ezform`      |
+| Name   | Internal name |
+|--------|---------------|
+| `Form` | `ezform`      |
 
 
 
