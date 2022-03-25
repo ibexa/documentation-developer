@@ -65,8 +65,8 @@ You can also use your own [custom schema](graphql_customization.md#custom-schema
 GraphQL is SiteAccess-aware, but can have only one schema per installation.
 This means you cannot use GraphQL with multiple repositories.
 
-When you request a URL from a SiteAccess different that the current one,
-the API generates it for the item's SiteAccess, with an absolute URL if necessary.
+When you request a URL from a SiteAccess that is different than the current one,
+the API generates it for the Content item's SiteAccess, with an absolute URL if necessary.
 
 ## Authentication
 

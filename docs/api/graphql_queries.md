@@ -6,7 +6,7 @@ You can query a single Content item or a list of Content items using fields defi
 
 ### Get a Content item
 
-To get a specific Content item by its content, Location ID, or URL alias, use its relevant singular field,
+To get a specific Content item by its content ID, Location ID, or URL alias, use its relevant singular field,
 for example `article`, `folder`, `image`, etc.:
 
 ```
@@ -245,7 +245,7 @@ When you use `_location`, the API returns:
 
 - the Location specified in the `locationId` or `urlAlias` argument
 - the Location based on the current SiteAccess
-- the main Location.
+- the main Location
 
 ```
 {

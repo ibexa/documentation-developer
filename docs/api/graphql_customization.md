@@ -6,7 +6,8 @@ You can customize the GraphQL schema that is generated from your repository.
 
 You can use it if your application requires custom GraphQL resources, for instance for Doctrine entities.
 
-To do so, create an `config/graphql/Query.types.yaml` file. It will be used as the GraphQL query root.
+To do so, create an `config/graphql/Query.types.yaml` file. 
+The file will be used as the GraphQL query root.
 
 In that file, add new fields that use any custom type or custom logic you require, based
 on [overblog/GraphQLBundle](https://github.com/overblog/GraphQLBundle).
@@ -49,7 +50,7 @@ Query:
 ### Custom mutations
 
 Custom mutations are created in the same way as custom query configuration.
-An `config/graphql/Mutation.types.yaml` file will be used as the source for mutation definitions in your schema.
+A `config/graphql/Mutation.types.yaml` file will be used as the source for mutation definitions in your schema.
 
 ``` yaml
 Mutation:
