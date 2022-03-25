@@ -112,19 +112,19 @@ run the following command:
 === "[[= product_name_content =]]"
 
     ``` bash
-    composer create-project ibexa/content-skeleton .
+    composer create-project ibexa/content-skeleton:^3.3 .
     ```
 
 === "[[= product_name_exp =]]"
 
     ``` bash
-    composer create-project ibexa/experience-skeleton .
+    composer create-project ibexa/experience-skeleton:^3.3 .
     ```
 
 === "[[= product_name_com =]]"
 
     ``` bash
-    composer create-project ibexa/commerce-skeleton .
+    composer create-project ibexa/commerce-skeleton:^3.3 .
     ```
 
 ??? note "Using PHP 8"
