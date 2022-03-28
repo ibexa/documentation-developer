@@ -20,6 +20,34 @@ First, run:
 
     ``` bash
     composer require ibexa/content:[[= latest_tag =]] --with-all-dependencies --no-scripts
+    ```
+
+=== "[[= product_name_exp =]]"
+
+    ``` bash
+    composer require ibexa/experience:[[= latest_tag =]] --with-all-dependencies --no-scripts
+    ```
+
+=== "[[= product_name_com =]]"
+
+    ``` bash
+    composer require ibexa/commerce:[[= latest_tag =]] --with-all-dependencies --no-scripts
+    ```
+
+If your `composer.json` still uses the `https://flex.ibexa.co` endpoint in `extra.symfony.endpoint`, 
+replace it with the new [`https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main`](https://github.com/ibexa/website-skeleton/blob/v3.3.16/composer.json#L98) endpoint.
+
+You can do it manually, or by running the following command:
+
+``` bash
+composer config extra.symfony.endpoint "https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main"
+```
+
+Next, continue with updating the app:
+
+=== "[[= product_name_content =]]"
+
+    ``` bash
     composer recipes:install ibexa/content --force -v
     composer run post-install-cmd
     ```
@@ -27,7 +55,6 @@ First, run:
 === "[[= product_name_exp =]]"
 
     ``` bash
-    composer require ibexa/experience:[[= latest_tag =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
     composer run post-install-cmd
     ```
@@ -35,7 +62,6 @@ First, run:
 === "[[= product_name_com =]]"
 
     ``` bash
-    composer require ibexa/commerce:[[= latest_tag =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/commerce --force -v
     composer run post-install-cmd
     ```
