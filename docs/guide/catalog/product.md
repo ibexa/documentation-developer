@@ -56,9 +56,9 @@ Additionally add the following parameters for your custom Content Type's identif
 
 ``` yaml
 parameters:
-    # enable buying the product in the shop
+    # Enable buying the product in the shop
     silver_eshop.default.catalog_factory.my_custom_product_type: createOrderableProductNode
-    # enable price export in the admin ui
+    # Enable price export in the Back Office
     siso_price.default.price_export.product_type_filter: [ ses_product, my_custom_product_type ]
 ```
 
