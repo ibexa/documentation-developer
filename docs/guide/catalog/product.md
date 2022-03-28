@@ -52,12 +52,14 @@ but you can add other Fields to it.
     To ensure all the Fields are set up correctly, you can copy the built-in Product Content Type
     and add your custom Field to the copy.
 
-Additionally, to enable buying the product in the shop,
-add the following parameter for your custom Content Type's identifier:
+Additionally add the following parameters for your custom Content Type's identifier:
 
 ``` yaml
 parameters:
+    # enable buying the product in the shop
     silver_eshop.default.catalog_factory.my_custom_product_type: createOrderableProductNode
+    # enable price export in the admin ui
+    siso_price.default.price_export.product_type_filter: [ ses_product, my_custom_product_type ]
 ```
 
 ## Product specifications
