@@ -34,8 +34,8 @@ First, run:
     composer require ibexa/commerce:[[= latest_tag =]] --with-all-dependencies --no-scripts
     ```
 
-If your `composer.json` is still using the `https://flex.ibexa.co` endpoint in `extra.symfony.endpoint`,
-you need to replace it with the new [`https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main` endpoint.](https://github.com/ibexa/website-skeleton/blob/v3.3.16/composer.json#L98)
+If your `composer.json` still uses the `https://flex.ibexa.co` endpoint in `extra.symfony.endpoint`, 
+replace it with the new [`https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main`](https://github.com/ibexa/website-skeleton/blob/v3.3.16/composer.json#L98) endpoint.
 
 You can do it manually, or by running the following command:
 
