@@ -240,6 +240,7 @@ Run the following scripts:
 #### Update VCL
 
 Update your Varnish VCL file to align with [`docs/varnish/vcl/varnish5.vcl`](https://github.com/ezsystems/ezplatform-http-cache/blob/2.3/docs/varnish/vcl/varnish5.vcl).
+Make sure it contains the highlighted additions.
 
 ``` vcl hl_lines="4-7 16"
 // Compressing the content
