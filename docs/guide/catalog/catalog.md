@@ -47,4 +47,4 @@ The stock can also be set to infinite (for example, in case of digital products)
     Availability does not automatically mean that a product can be ordered.
     A product can be available, but have zero stock.
 
-    A product can only be ordered when it either has positive stock, or stock set to infinite.
+    A product can only be ordered when it has either positive stock, or stock set to infinite.

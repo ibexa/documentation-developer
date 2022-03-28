@@ -18,11 +18,11 @@ You can use the following matchers to [match content views](template_configurati
 | [`Identifier\Section`](#identifiersection) | Identifier of the Section that the Content item belongs to. |
 | [`Depth`](#depth) | Depth of the Location. The depth of a top level Location is 1. |
 | [`UrlAlias`](#urlalias) | Virtual URL of the Location. |
-| [`ProductBased\AttributeValue`](#productbasedattributevalue) | Value of product attributes |
-| [`ProductBased\ProductCode`](#productbasedproductcode) | Product code |
-| [`ProductBased\ProductType`](#productbasedproducttype) | Product type |
-| [`ProductBased\IsAvailable`](#productbasedisavailable) | Product availability |
-| [`ProductBased\IsProduct`](#productbasedisproduct) | Whether the object is a product |
+| [`ProductBased\AttributeValue`](#productbasedattributevalue) | Value of product attributes. |
+| [`ProductBased\ProductCode`](#productbasedproductcode) | Product code. |
+| [`ProductBased\ProductType`](#productbasedproducttype) | Product type. |
+| [`ProductBased\IsAvailable`](#productbasedisavailable) | Product availability. |
+| [`ProductBased\IsProduct`](#productbasedisproduct) | Whether the object is a product. |
 
 !!! tip
 
@@ -185,7 +185,7 @@ match:
 ## ProductBased\IsAvailable
 
 Matches the availability of a product.
-Note that this refers to the existence of availability, not to whether the product is in stock.
+Refers to the existence of availability, not to whether the product is in stock.
 
 ``` yaml
 match:
