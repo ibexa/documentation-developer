@@ -881,15 +881,7 @@ You do this manually by following this procedure:
 
 ###### VCL configuration for Fastly
 
-If you use Fastly, update your VCL configuration.
-
-Locate the `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_main.vcl` file and add the following lines to it:
-
-``` vcl
-if (req.restarts == 0 && resp.status == 301 && req.http.x-fos-original-url) {
-    set resp.http.location = regsub(resp.http.location, "/_fos_user_context_hash", req.http.x-fos-original-url);
-}
-```
+[[% include 'snippets/update/vcl_configuration_for_fastly.md' %]]
 
 ##### Optimize workflow queries
 
