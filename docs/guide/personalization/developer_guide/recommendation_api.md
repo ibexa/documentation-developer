@@ -125,8 +125,8 @@ A JSON response can look like this:
       },
       "category" : "Women/Shirts", // Provided only if category suggestion is requested
       "links" : {
-         "clickRecommended" : "//https://event.perso.ibexa.co/api/[customerID]/clickrecommended/[someuser]/[itemtype]/[itemid]?scenario=<scenario>&...", // A link that is provided if User ID is available. Link is fired when this recommendation is clicked.
-         "rendered" : "//https://event.perso.ibexa.co/..." // A link used to inform the engine that this recommendation was shown to the user
+         "clickRecommended" : "//event.perso.ibexa.co/api/[customerID]/clickrecommended/[someuser]/[itemtype]/[itemid]?scenario=<scenario>&...", // A link that is provided if User ID is available. Link is fired when this recommendation is clicked.
+         "rendered" : "//event.perso.ibexa.co/..." // A link used to inform the engine that this recommendation was shown to the user
       },
       "attributes" : [  // Only values that were requested in the query string are provided
          {  "key": "title",
@@ -182,8 +182,8 @@ jsonpCallback({
       },
       "category" : "Women/Shirts",
       "links" : {
-         "clickRecommended" : "//https://event.perso.ibexa.co/api/[customerID]/clickrecommended/[someuser]/[itemtype]/[itemid]?scenario=<scenario>&...",
-         "rendered" : "//https://event.perso.ibexa.co/..."
+         "clickRecommended" : "//event.perso.ibexa.co/api/[customerID]/clickrecommended/[someuser]/[itemtype]/[itemid]?scenario=<scenario>&...",
+         "rendered" : "//event.perso.ibexa.co/..."
       },
       "attributes" : [
          {  "key": "title",
