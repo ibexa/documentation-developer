@@ -15,7 +15,7 @@ The associated Content Type is `tag`.
 
 * `ibexa_taxonomies` - section responsible for taxonomy, you can use any alphanumeric identifier
 * `ibexa_taxonomies.tags.parent_location_remote_id` - Remote ID for Location where new Content items representing tags are created
-* `ibexa_taxonomies.tags.content_type` - Content Type identifier which stands for the taxonomy
+* `ibexa_taxonomies.tags.content_type` - Content Type identifier which stands for the tags
 * `ibexa_taxonomies.tags.field_mappings` - Field Types map of a Content Type which taxonomy receives information about the tag from. 
 
 Three fields are available: `identifier`, `parent` and `name`.
