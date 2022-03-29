@@ -21,7 +21,7 @@ The associated Content Type is `tag`.
 Three fields are available: `identifier`, `parent` and `name`.
 The identifiers correspond to Field names defined in the Content Type. The `name` Field is used to automatically generate an identifier.
 
-## Customize taxonony structure
+## Customize taxonomy structure
 
 You can create other taxonomies than the one predefined in the system, for example a Content category.
 To do it, first, create a new Content Type with `content_category` identifier and include the following Field Types:
