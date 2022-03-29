@@ -1,8 +1,10 @@
 # Importing data
 
-To import Repository data from YAML files, run the `ibexa:migrations:migrate` command.
+To import data from YAML migration files into Repository, run the `ibexa:migrations:migrate` command.
 
-Place your import file in the `src/Migrations/Ibexa/migrations` folder
+You can use the `ibexa:migrations:import` command to automatically place migration files in the correct folder.
+
+Alternatively, you can place the files manually in the `src/Migrations/Ibexa/migrations` folder
 or in [a custom folder that you configure](migration_management.md#migration-folders).
 The command takes the file name within this folder as parameter.
 If file is not specified, all files within this directory are used.
@@ -119,6 +121,10 @@ The following example shows how to create a currency:
 ## Criteria
 
 When using `update` or `delete` modes, you can use criteria to identify the objects to operate on.
+
+!!! caution
+
+    Criteria only work with objects related to the product catalog.
 
 ``` yaml
 type: currency
