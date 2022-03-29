@@ -112,7 +112,7 @@ Place the following code snippet in the `<head>` section of your header template
 
 ``` html+twig
 {% if content is defined %}
-    {{ ez_recommendation_track_user(content.id) }}
+    {{ ez_recommendation_track_user(content) }}
 {% endif %}
 ```
 
