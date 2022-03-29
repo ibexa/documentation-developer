@@ -372,6 +372,8 @@ nav:
                 - 'Search synonyms': 'guide/search/shop_search/search_synonyms.md'
                 - 'Autosuggestion': 'guide/search/shop_search/search_autosuggest.md'
                 - 'Solr spellcheck': 'guide/search/shop_search/using_solr_spellcheck.md'
+        - Taxonomy:
+            - 'Taxonomy': 'guide/taxonomy/taxonomy.md'
         - Multisite:
             - 'Multisite': 'guide/multisite/multisite.md'
             - 'Multisite configuration': 'guide/multisite/multisite_configuration.md'
