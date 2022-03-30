@@ -338,7 +338,7 @@ render_esi(controller('ibexa_recommendation::showRecommendationsAction', {
 
 | Parameter        | Type   | Description   |
 |------------------|--------|---------------|
-| `contextItems`   | instance of eZ\Publish\API\Repository\Values\Content\Content   | Content you want to get recommendations for. |
+| `contextItems`   | instance of Ibexa\Contracts\Core\Repository\Values\Content\Content   | Content you want to get recommendations for. |
 | `scenario`       | string | Scenario used to display recommendations. You can create custom scenarios in the Back Office. |
 | `outputTypeId`   | int | Content Type you are expecting in response, for example, 10. |
 | `limit`          | int    | Number of recommendations to fetch. |
