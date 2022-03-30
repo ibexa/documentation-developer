@@ -60,7 +60,7 @@ the Personalization server must receive a list of item types that are tracked.
 You define item types to be tracked in the `config/packages/ibexa.yaml` file.
 The content is then initially exported by a script.
 After this, it is synchronized with the Personalization service every time a change 
-occurs in the Back Office.
+occurs (using any method that trigers the event).
 
 The Personalization configuration is SiteAccess-aware.
 If your installation [hosts multiple sites]([[= user_doc =]]/personalization/use_cases/#multiple-stores) with different customer IDs, 
@@ -240,6 +240,12 @@ The export process can take several minutes.
 #### Check export results
 
 There are three ways to check whether content was transferred and stored successfully in the Personalization server:
+
+- [REST request to client's content store](#rest-request-to-clients-content-store)
+
+- [Personalization backend](#personalization-backend)
+
+- [Subsequent content exports](#subsequent-content-exports)
 
 ##### REST request to client's content store
 
