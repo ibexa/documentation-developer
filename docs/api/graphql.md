@@ -19,12 +19,6 @@ YAML files with the schema are located in `config/graphql/types/ezplatform`.
 They contain information about the domain objects and the fields
 you can [query](graphql_queries.md) and [operate on](graphql_operations.md).
 
-!!! tip
-
-    To make use of enhanced Location handling, you can add the beta 3.0 version of [ezplatform-graphql](https://github.com/ezsystems/ezplatform-graphql/tree/3.0) to your project.
-
-    See [overview of the upcoming changes](https://github.com/ezsystems/ezplatform-graphql/pull/90).
-
 ### Schema generation limitations
 
 GraphQL schema cannot be generated for names that do not follow the [GraphQL specification](http://spec.graphql.org/June2018/#sec-Names),
@@ -66,10 +60,13 @@ The `_repository` field also enables you to query e.g. Object states configured 
 
 You can also use your own [custom schema](graphql_customization.md#custom-schema).
 
-### Multiple repositories
+### SiteAccesses and multiple repositories
 
 GraphQL is SiteAccess-aware, but can have only one schema per installation.
 This means you cannot use GraphQL with multiple repositories.
+
+When you request a URL from a SiteAccess that is different than the current one,
+the API generates it for the Content item's SiteAccess, with an absolute URL if necessary.
 
 ## Authentication
 
