@@ -255,6 +255,35 @@ Run the following scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.8-to-3.3.9.sql
     ```
 
+### v3.3.14
+
+#### VCL configuration
+
+Update your Varnish VCL file to align with [`docs/varnish/vcl/varnish5.vcl`](https://github.com/ezsystems/ezplatform-http-cache/blob/2.3/docs/varnish/vcl/varnish5.vcl).
+Make sure it contains the highlighted additions.
+
+``` vcl hl_lines="4-7 16"
+// Compressing the content
+// ...
+
+// Modify xkey header to add translation suffix
+if (beresp.http.xkey && beresp.http.x-lang) {
+    set beresp.http.xkey = beresp.http.xkey + " " + regsuball(beresp.http.xkey, "(\S+)", "\1" + beresp.http.x-lang);
+}
+
+// ...
+
+if (client.ip ~ debuggers) {
+/// ...
+} else {
+    // Remove tag headers when delivering to non debug client
+    unset resp.http.xkey;
+    unset resp.http.x-lang;
+    // Sanity check to prevent ever exposing the hash to a non debug client.
+    unset resp.http.x-user-context-hash;
+}
+```
+
 ### 3.3.15
 
 !!! note "Symfony 5.4"
