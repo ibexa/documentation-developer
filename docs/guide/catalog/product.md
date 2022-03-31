@@ -43,12 +43,23 @@ silversolutions_eshop:
             - my_custom_product_type
 ```
 
-Additionally, to enable buying the product in the shop,
-add the following parameter for your custom Content Type's identifier:
+The custom Content Type must mirror the structure of the built-in `ses_product` Content Type,
+by having Fields with the same identifiers,
+but you can add other Fields to it.
+
+!!! tip
+
+    To ensure that all the Fields are set up correctly, you can copy the `ses_product` Content Type
+    and add your custom Field to the copy.
+
+Additionally, add the following parameters for your custom Content Type's identifier:
 
 ``` yaml
 parameters:
+    # Enable buying the product in the shop
     silver_eshop.default.catalog_factory.my_custom_product_type: createOrderableProductNode
+    # Enable price export in the Back Office
+    siso_price.default.price_export.product_type_filter: [ ses_product, my_custom_product_type ]
 ```
 
 ## Product specifications
