@@ -1,19 +1,20 @@
 # Importing data
 
-To import data from YAML migration files into Repository, run the `ibexa:migrations:migrate` command.
+To import data from YAML migration files into Repository, you run the `ibexa:migrations:migrate` command.
 
-You can use the `ibexa:migrations:import` command to automatically place migration files in the correct folder.
+The `ibexa:migrations:import` command automatically places migration files in the correct folder.
 
 Alternatively, you can place the files manually in the `src/Migrations/Ibexa/migrations` folder
-or in [a custom folder that you configure](migration_management.md#migration-folders).
-The command takes the file name within this folder as parameter.
-If file is not specified, all files within this directory are used.
+or in [a custom folder that you configure](migration_management.md#migration-folders), 
+and specify the file name within this folder as parameter.
+If you do not specify the file, all files within this directory are used.
 
 ``` bash
 php bin/console ibexa:migrations:migrate --file=my_data_export.yaml
 ```
 
-Ibexa Migrations store execution metadata in `ibexa_migrations` database table. This allows incremental upgrades:
+Migrations store execution metadata in the `ibexa_migrations` database table. 
+This allows incremental upgrades:
 the `ibexa:migration:migrate` command ignores files that it had previously executed.
 
 
@@ -31,7 +32,7 @@ The required metadata keys are: `identifier`, `mainTranslation`, `contentTypeGro
 [[= include_file('code_samples/data_migration/examples/create_blog_post_ct.yaml') =]]
 ```
 
-### Content
+### Content items
 
 The following example shows how to create two Content items: a folder and an article inside it.
 
@@ -40,7 +41,7 @@ as well as `parentLocationId`.
 
 To use the Location ID of the folder, which is created automatically by the system,
 you can use a [reference](migration_management.md#references).
-In this case you assign the `parent_folder_location_id` reference name to the Location ID
+In this case you assign the `parent_folder_location_id` reference name to the Location ID,
 and then use it when creating the article.
 
 ``` yaml hl_lines="15 24"
@@ -52,7 +53,7 @@ and then use it when creating the article.
 The following example shows how to create a Role.
 A Role requires the `identifier` metadata key.
 
-For each Policy assigned to the Role you select the module and function, with optional Limitations.
+For each Policy assigned to the Role, you select the module and function, with optional Limitations.
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_role.yaml') =]]
@@ -83,7 +84,7 @@ The required metadata keys are: `languageCode`, `name`, and `enabled`.
 
 ### Product catalog
 
-Create an attribute group with two attributes:
+The following example shows how to create an attribute group with two attributes:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_attribute_group.yaml') =]]
@@ -93,7 +94,7 @@ Create an attribute group with two attributes:
 
 The following example shows how to create a product type.
 
-The main part of the migration file is the same as when creating a regular Content item.
+The main part of the migration file is the same as when creating a regular Content Type.
 
 A product type must also contain the definition for an `ibexa_product_specification` Field.
 `fieldSettings` contains information about the product attributes.
