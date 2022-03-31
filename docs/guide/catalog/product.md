@@ -44,15 +44,15 @@ silversolutions_eshop:
 ```
 
 The custom Content Type must mirror the structure of the built-in `ses_product` Content Type,
-including having Fields with the same identifiers,
+by having Fields with the same identifiers,
 but you can add other Fields to it.
 
 !!! tip
 
-    To ensure all the Fields are set up correctly, you can copy the built-in Product Content Type
+    To ensure that all the Fields are set up correctly, you can copy the `ses_product` Content Type
     and add your custom Field to the copy.
 
-Additionally add the following parameters for your custom Content Type's identifier:
+Additionally, add the following parameters for your custom Content Type's identifier:
 
 ``` yaml
 parameters:
