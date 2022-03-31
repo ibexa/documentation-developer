@@ -90,7 +90,7 @@ ibexa:
 | `included_item_types`             | A list of alphanumerical identifiers of item types on which the tracking script is shown. |
 | `random_item_types`               | A list of alphanumerical identifiers of item types that are returned when the response from the server contains no content. |
 
-It is possible to use an alphanumeric Content identificator `remoteId` instead of a numeric `id`. To enable it, add the following code to the configuration file:
+You can use an alphanumeric Content identificator `remoteId` instead of a numeric `id`. To enable it, add the following code to the configuration file:
 
 ```yaml
 ibexa:
