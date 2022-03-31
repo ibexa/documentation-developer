@@ -237,7 +237,7 @@ Run the following scripts:
 
 ### v3.3.14
 
-#### Update VCL
+#### VCL configuration
 
 Update your Varnish VCL file to align with [`docs/varnish/vcl/varnish5.vcl`](https://github.com/ezsystems/ezplatform-http-cache/blob/2.3/docs/varnish/vcl/varnish5.vcl).
 Make sure it contains the highlighted additions.
