@@ -100,6 +100,17 @@ ezrecommendation:
                     endpoint: 'https://admin.yoochoose.net'
 ```
 
+It is possible to use an alphanumeric Content identificator `remoteId` instead of a numeric `id`. To enable it, add the following code to the configuration file:
+
+``` yaml
+ezrecommendation:
+    system:
+        <siteaccess>:
+            repository:
+                content:
+                    use_remote_id: true
+```
+
 !!! caution
 
     Changing any of these parameters without a valid reason breaks all calls to the Recommendation engine.
