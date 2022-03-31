@@ -6,13 +6,13 @@ You can query a single Content item or a list of Content items using fields defi
 
 ### Get a Content item
 
-To get a specific Content item by its ID, use its relevant singular field,
+To get a specific Content item by its content ID, Location ID, or URL alias, use its relevant singular field,
 for example `article`, `folder`, `image`, etc.:
 
 ```
 {
   content {
-    article (id: 55) {
+    article (contentId: 62) {
       title
       author {
         name
@@ -42,6 +42,30 @@ Response:
 ```
 
 You can request any Fields of the Content item. In the example above, these are `title` and `author`.
+
+You can also query the generic `item` object.
+The `item` object references a Content item, but you can also get its [Location information](#querying-locations).
+The query accepts `locationId`, `remoteId`, and `urlAlias` as arguments.
+
+```
+{
+  item (locationId: 2) {
+    _name
+  }
+}
+```
+
+Response:
+
+```
+{
+  "data": {
+    "item": {
+      "_name": "Ibexa Digital Experience Platform"
+    }
+  }
+}
+```
 
 #### Get language versions
 
@@ -216,18 +240,84 @@ Response:
 
 ## Querying Locations
 
-!!! tip
+You can get the Location object from any item by querying for `_location` or `_allLocations`.
+When you use `_location`, the API returns:
 
-    To make use of enhanced Location handling, you can add the beta 3.0 version of [ezplatform-graphql](https://github.com/ezsystems/ezplatform-graphql/tree/3.0) to your project.
-
-    See [overview of the upcoming changes](https://github.com/ezsystems/ezplatform-graphql/pull/90).
-
-To query a Location and its children, use the repository schema:
+- the Location specified in the `locationId` or `urlAlias` argument
+- the Location based on the current SiteAccess
+- the main Location
 
 ```
 {
-  _repository {
-    location(locationId: 2) {
+  content {
+    folder (contentId: 133) {
+      _allLocations {
+        pathString
+      }
+    }
+  }
+}
+```
+
+Response:
+
+```
+{
+  "data": {
+    "content": {
+      "folder": {
+        "_allLocations": [
+          {
+            "pathString": "/1/2/128/132/"
+          },
+          {
+            "pathString": "/1/2/133/"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+To query the URL alias of a Content item, use `_url`.
+This returns the "best" URL alias for this Content item based on its main Location and the current SiteAccess:
+
+```
+{
+  content {
+    folder (contentId: 1) {
+      _url
+    }
+  }
+}
+```
+
+Response:
+
+```
+{
+  "data": {
+    "content": {
+      "folder": {
+        "_url": "/site/ez-platform"
+      }
+    }
+  }
+}
+```
+
+## Getting children of a Location
+
+To get a [Location's](#querying-locations) children,
+it is recommended to use the [Query Field](../guide/content_rendering/queries_and_controllers/content_queries.md#content-query-field).
+
+Alternatively, you can query the `children` property of an `item` or `content` object:
+
+```
+{
+  item (locationId: 2) {
+    _location{
       children {
         edges {
           node {
@@ -244,24 +334,21 @@ To query a Location and its children, use the repository schema:
   }
 }
 ```
-
-The query accepts `locationId`, `remoteId`, and `urlAlias` as arguments.
-
 Response:
 
 ```
 {
   "data": {
-    "_repository": {
-      "location": {
+    "item": {
+      "_location": {
         "children": {
           "edges": [
             {
               "node": {
                 "content": {
-                  "_name": "About us",
+                  "_name": "Ibexa Platform",
                   "_type": {
-                    "name": "About"
+                    "name": "Folder"
                   }
                 }
               }
@@ -269,9 +356,9 @@ Response:
             {
               "node": {
                 "content": {
-                  "_name": "Travel literature, How to get started",
+                  "_name": "Product Catalog",
                   "_type": {
-                    "name": "Article"
+                    "name": "Product catalog"
                   }
                 }
               }
@@ -281,26 +368,6 @@ Response:
       }
     }
   }
-}
-```
-
-You can also query the children of a Content item:
-
-```
-{
-  content {
-    folder(id: 1) {
-      name
-      _location {
-        children {
-          edges {
-            # ...
-          }
-        }
-      }
-    }
-  }
-}
 ```
 
 ## Filtering
