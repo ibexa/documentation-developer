@@ -97,6 +97,10 @@ The following BatchIterator adapters are available, for both `query` and `filter
 | `ContentSearchAdapter`     | `\Ibexa\Contracts\Core\Repository\SearchService::findContent`     |
 | `LocationFilteringAdapter` | `\Ibexa\Contracts\Core\Repository\LocationService::find`          |
 | `LocationSearchAdapter`    | `\Ibexa\Contracts\Core\Repository\SearchService::findLocations`   |
+| `AttributeDefinitionFetchAdapter` | `Ibexa\Contracts\ProductCatalog\AttributeDefinitionServiceInterface::findAttributesDefinitions` |
+| `AttributeGroupFetchAdapter` | `Ibexa\Contracts\ProductCatalog\AttributeGroupServiceInterface::findAttributeGroups` |
+| `CurrencyFetchAdapter` | `Ibexa\Contracts\ProductCatalog\CurrencyServiceInterface::findCurrencies` |
+| `ProductTypeListAdapter` | `Ibexa\Contracts\ProductCatalog\ProductTypeServiceInterface::findProductTypes` |
 
 ## Repository filtering
 
@@ -244,6 +248,14 @@ You can access the following additional search result data from PagerFanta:
 |[`LocationSearchHitAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/LocationSearchHitAdapter.php)|Makes a Location search against passed Query and  returns [SearchHit](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Search/SearchHit.php) objects instead.|
 |[`ContentFilteringAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/ContentFilteringAdapter.php)|Applies a Content filter and returns a `ContentList` object.|
 |[`LocationFilteringAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/LocationFilteringAdapter.php)|Applies a Location filter and returns a `LocationList` object.|
+|`AttributeDefinitionListAdapter`| Makes a search for product attributes and returns an `AttributeDefinitionListInterface` object. |
+|`AttributeGroupListAdapter`| Makes a search for product attribute groups and returns an `AttributeGroupListInterface` object. |
+|`CurrencyListAdapter`| Makes a search for currencies and returns a `CurrencyListInterface` object.
+|`CustomPricesAdapter`| Makes a search for custom prices and returns a `CustomPrice` object. |
+|`CustomerGroupListAdapter`| Makes a search for customer groups and returns a `CustomerGroupListInterface` object. |
+|`ProductListAdapter`| Makes a search for products and returns a `ProductListInterface` object. |
+|`ProductTypeListAdapter`| Makes a search for product types and returns a `ProductTypeListInterface` object. |
+|`RegionListAdapter`| Makes a search for regions and returns a `RegionListInterface` object. |
 
 ## Complex search
 

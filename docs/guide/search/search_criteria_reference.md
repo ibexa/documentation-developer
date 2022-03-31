@@ -46,9 +46,6 @@ Due to this storage limitation, searching content using the Country Field Type o
 |[ObjectStateIdentifier](criteria_reference/objectstateidentifier_criterion.md)|Object State Identifier|Content and Location Search; Filtering|
 |[ParentLocationId](criteria_reference/parentlocationid_criterion.md)|Location ID of a Content item's parent|Content and Location Search; Filtering|
 |[Priority](criteria_reference/priority_criterion.md)|Location priority|Location Search, Filtering|
-|[ProductCode](criteria_reference/productcode_criterion.md)|Product's code|Content and Location Search; Filtering|
-|[ProductName](criteria_reference/productname_criterion.md)|Product's name|Content and Location Search; Filtering|
-|[ProductType](criteria_reference/producttype_criterion.md)|Product type|Content and Location Search; Filtering|
 |[RemoteId](criteria_reference/remoteid_criterion.md)|Remote content ID|Content and Location Search; Filtering|
 |[SectionId](criteria_reference/sectionid_criterion.md)|ID of the Section content is assigned to|Content and Location Search; Filtering|
 |[SectionIdentifier](criteria_reference/sectionidentifier_criterion.md)|Identifier of the Section content is assigned to|Content and Location Search; Filtering|
@@ -59,6 +56,14 @@ Due to this storage limitation, searching content using the Country Field Type o
 |[UserLogin](criteria_reference/userlogin_criterion.md)|User login|Content and Location Search; Filtering|
 |[UserMetadata](criteria_reference/usermetadata_criterion.md)|The creator or modifier of a Content item|Content and Location Search; Filtering|
 |[Visibility](criteria_reference/visibility_criterion.md)|Whether the Content item is visible or not|Content and Location Search; Filtering|
+
+### Product search
+
+|Search Criterion|Search based on|Supported by|
+|-----|-----|-----|
+|[ProductCode](criteria_reference/productcode_criterion.md)|Product's code|Content and Location Search; Filtering|
+|[ProductName](criteria_reference/productname_criterion.md)|Product's name|Content and Location Search; Filtering|
+|[ProductType](criteria_reference/producttype_criterion.md)|Product type|Content and Location Search; Filtering|
 
 ### Logical operators
 

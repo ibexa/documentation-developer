@@ -9,7 +9,7 @@ All Sort Clauses can take the following optional argument:
 
 - `sortDirection` - the direction of the sorting, either `Query::SORT_ASC` (default) or `Query::SORT_DESC`
 
-#### Sort Clauses 
+## Sort Clauses 
 
 | Sort Clause | Sorting based on | Supported by |
 |-----|-----|-----|
@@ -26,10 +26,15 @@ All Sort Clauses can take the following optional argument:
 |[MapLocationDistance](sort_clause_reference/maplocationdistance_sort_clause.md)|Distance between the location contained in a MapLocation Field and the provided coordinates|Content and Location Search|
 |[Path](sort_clause_reference/path_sort_clause.md)|PathString of the Location|Location Search, Filtering|
 |[Priority](sort_clause_reference/priority_sort_clause.md)|Location priority|Location Search, Filtering|
-|[ProductCode](sort_clause_reference/productcode_sort_clause.md)|Product's code|Content and Location Search; Filtering|
-|[ProductName](sort_clause_reference/productname_sort_clause.md)|Product's name|Content and Location Search; Filtering|
 |[Random](sort_clause_reference/random_sort_clause.md)|Random seed|Content and Location Search|
 |[Score](sort_clause_reference/score_sort_clause.md)|Score of the search result|Content and Location Search|
 |[SectionIdentifier](sort_clause_reference/sectionidentifier_sort_clause.md)|ID of the Section content is assigned to|Content and Location Search, and Filtering|
 |[SectionName](sort_clause_reference/sectionname_sort_clause.md)|Name of the Section content is assigned to|Content and Location Search, and Filtering|
 |[Visibility](sort_clause_reference/visibility_sort_clause.md)|Whether the Location is visible or not|Location Search, Filtering|
+
+### Product search
+
+| Sort Clause | Sorting based on | Supported by |
+|-----|-----|-----|
+|[ProductCode](sort_clause_reference/productcode_sort_clause.md)|Product's code|Content and Location Search; Filtering|
+|[ProductName](sort_clause_reference/productname_sort_clause.md)|Product's name|Content and Location Search; Filtering|

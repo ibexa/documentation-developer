@@ -35,3 +35,16 @@ An example of an attribute group can be dimensions (length, width, height).
 
 You can assign both whole attribute groups or individual attributes to a product type.
 
+## Product availability and stock
+
+Product availability defines whether a product is available in the catalog.
+
+When a product is available, it can have numerical stock defined.
+The stock can also be set to infinite (for example, in case of digital products).
+
+!!! note
+
+    Availability does not automatically mean that a product can be ordered.
+    A product can be available, but have zero stock.
+
+    A product can only be ordered when it has either positive stock, or stock set to infinite.

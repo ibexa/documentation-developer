@@ -18,6 +18,11 @@ You can use the following matchers to [match content views](template_configurati
 | [`Identifier\Section`](#identifiersection) | Identifier of the Section that the Content item belongs to. |
 | [`Depth`](#depth) | Depth of the Location. The depth of a top level Location is 1. |
 | [`UrlAlias`](#urlalias) | Virtual URL of the Location. |
+| [`ProductBased\AttributeValue`](#productbasedattributevalue) | Value of product attributes. |
+| [`ProductBased\ProductCode`](#productbasedproductcode) | Product code. |
+| [`ProductBased\ProductType`](#productbasedproducttype) | Product type. |
+| [`ProductBased\IsAvailable`](#productbasedisavailable) | Product availability. |
+| [`ProductBased\IsProduct`](#productbasedisproduct) | Whether the object is a product. |
 
 !!! tip
 
@@ -148,4 +153,50 @@ Matches when the URL alias of the Location starts with the value passed.
 ``` yaml
 match:
     UrlAlias: 'terms-and-conditions'
+```
+
+## ProductBased\AttributeValue
+
+Matches the value of product attributes.
+
+``` yaml
+match:
+    '@Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\AttributeValue': { width: 20, height: 10 }
+```
+
+## ProductBased\ProductCode
+
+Matches the product code.
+
+``` yaml
+match:
+    '@Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\ProductCode': ['DRE1536SF']
+```
+
+## ProductBased\ProductType
+
+Matches the product type.
+
+``` yaml
+match:
+    '@Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\ProductType': ['dress']
+```
+
+## ProductBased\IsAvailable
+
+Matches the availability of a product.
+Refers to the existence of availability, not to whether the product is in stock.
+
+``` yaml
+match:
+    '@Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\IsAvailable': true
+```
+
+## ProductBased\IsProduct
+
+Matches when the object is a product.
+
+``` yaml
+match:
+    '@Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\IsProduct': ~
 ```
