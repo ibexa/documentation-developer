@@ -1,0 +1,28 @@
+-   type: content_type
+    mode: create
+    metadata:
+        identifier: hat
+        mainTranslation: eng-GB
+        contentTypeGroups:
+            - product
+        translations:
+            eng-GB:
+                name: Hat
+    fields:
+        -   identifier: name
+            type: ezstring
+            required: true
+            translations:
+                eng-GB:
+                    name: Name
+        -   identifier: specification
+            type: ibexa_product_specification
+            required: true
+            translations:
+                eng-GB:
+                    name: Specification
+            fieldSettings:
+                attributes_definitions:
+                    dimensions:
+                        - { attributeDefinition: size, required: true, discriminator: false }
+                        - { attributeDefinition: color, required: true, discriminator: true }
