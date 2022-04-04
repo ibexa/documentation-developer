@@ -59,9 +59,9 @@ The underlying cache system is exposed as an `ibexa.cache_pool` service, and can
 ### Configuration
 
 By default, configuration uses the `cache.tagaware.filesystem` service to store cache files.
-The service is defined in `bin/config/cache_pool/cache.tagaware.filesystem.yml`
+The service is defined in `config/packages/cache_pool/cache.tagaware.filesystem.yaml`
 to use [FilesystemTagAwareAdapter](https://github.com/ibexa/recipes/blob/master/ibexa/oss/4.0.x-dev/config/packages/cache_pool/cache.tagaware.filesystem.yaml#L8).
-This service is loaded through `bin/config/env/generic.php`.
+This service is loaded through `config/env/generic.php`.
 
 You can select a different cache backend and configure its parameters in the relevant file in the `cache_pool` folder.
 
@@ -78,7 +78,7 @@ ibexa:
         # "site_group" refers to the group configured in site access
         site_group:
             # cache_pool is set to '%env(CACHE_POOL)%'
-            # env(CACHE_POOL) is set to 'cache.tagaware.filesystem' (a Symfony service) by default, for more examples see bin/config/cache_pool/*
+            # env(CACHE_POOL) is set to 'cache.tagaware.filesystem' (a Symfony service) by default, for more examples see config/packages/cache_pool/*
             cache_service_name: '%cache_pool%'
 ```
 
