@@ -40,7 +40,7 @@ final class ReplaceNameStepNormalizer extends AbstractStepNormalizer
 
     public function getType(): string
     {
-        return 'name';
+        return 'company_name';
     }
 
     public function getMode(): string

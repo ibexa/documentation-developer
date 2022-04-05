@@ -19,7 +19,7 @@ services:
     App\Migrations\Step\ReplaceNameStepNormalizer:
         tags:
             - 'ibexa.migrations.serializer.step_normalizer'
-            - { name: 'ibexa.migrations.serializer.normalizer', priority: 9000 }
+            - 'ibexa.migrations.serializer.normalizer'
 
     App\Migrations\Step\ReplaceNameStepExecutor:
         tags:

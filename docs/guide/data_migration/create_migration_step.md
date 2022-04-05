@@ -49,7 +49,7 @@ Tag the executor with `ibexa.migrations.step_executor` tag.
 Then you can create a migration file that represents this step in your application:
 
 ```yaml
--   type: name
+-   type: company_name
     mode: replace
     replacement: 'New Company Name' # as declared in normalizer, this is optional
 ```
