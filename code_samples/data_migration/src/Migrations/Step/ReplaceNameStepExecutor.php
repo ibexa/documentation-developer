@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace App\Migrations\ImATeapot;
+namespace App\Migrations\Step;
 
 use Ibexa\Core\FieldType\TextLine\Value;
 use Ibexa\Contracts\Core\Repository\ContentService;
@@ -14,7 +14,7 @@ use Ibexa\Contracts\Core\Repository\Values\Filter\Filter;
 use Ibexa\Contracts\Migration\StepExecutor\AbstractStepExecutor;
 use Ibexa\Migration\ValueObject\Step\StepInterface;
 
-final class ImATeapotStepExecutor extends AbstractStepExecutor
+final class ReplaceNameStepExecutor extends AbstractStepExecutor
 {
     private ContentService $contentService;
 
@@ -26,7 +26,7 @@ final class ImATeapotStepExecutor extends AbstractStepExecutor
 
     protected function doHandle(StepInterface $step): void
     {
-        assert($step instanceof ImATeapotStep);
+        assert($step instanceof ReplaceNameStep);
 
         $contentItems = $this->contentService->find(new Filter());
 
@@ -42,7 +42,9 @@ final class ImATeapotStepExecutor extends AbstractStepExecutor
                     continue;
                 }
 
-                $struct->setField($field->fieldDefIdentifier, new Value($step->getReplacement()));
+                if ($field->value == 'Company Name') {
+                    $struct->setField($field->fieldDefIdentifier, new Value($step->getReplacement()));
+                }
             }
 
             try {
@@ -57,6 +59,6 @@ final class ImATeapotStepExecutor extends AbstractStepExecutor
 
     public function canHandle(StepInterface $step): bool
     {
-        return $step instanceof ImATeapotStep;
+        return $step instanceof ReplaceNameStep;
     }
 }

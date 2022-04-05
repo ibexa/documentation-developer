@@ -6,22 +6,22 @@
  */
 declare(strict_types=1);
 
-namespace App\Migrations\ImATeapot;
+namespace App\Migrations\Step;
 
 use Ibexa\Contracts\Migration\Serializer\AbstractStepNormalizer;
 use Ibexa\Migration\ValueObject\Step\StepInterface;
 
 /**
- * @extends \Ibexa\Contracts\Migration\Serializer\AbstractStepNormalizer<\App\Migrations\ImATeapot\ImATeapotStep>
+ * @extends \Ibexa\Contracts\Migration\Serializer\AbstractStepNormalizer<\App\Migrations\Step\ReplaceNameStep>
  */
-final class ImATeapotStepNormalizer extends AbstractStepNormalizer
+final class ReplaceNameStepNormalizer extends AbstractStepNormalizer
 {
     protected function normalizeStep(
         StepInterface $object,
         string $format = null,
         array $context = []
     ): array {
-        assert($object instanceof ImATeapotStep);
+        assert($object instanceof ReplaceNameStep);
 
         return [
             'replacement' => $object->getReplacement(),
@@ -33,22 +33,22 @@ final class ImATeapotStepNormalizer extends AbstractStepNormalizer
         string $type,
         string $format,
         array $context = []
-    ): ImATeapotStep {
-        return new ImATeapotStep($data['replacement'] ?? null);
+    ): ReplaceNameStep {
+        return new ReplaceNameStep($data['replacement'] ?? null);
     }
 
     public function getHandledClassType(): string
     {
-        return ImATeapotStep::class;
+        return ReplaceNameStep::class;
     }
 
     public function getType(): string
     {
-        return 'im_a';
+        return 'name';
     }
 
     public function getMode(): string
     {
-        return 'teapot';
+        return 'replace';
     }
 }

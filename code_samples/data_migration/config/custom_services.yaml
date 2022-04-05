@@ -16,11 +16,11 @@ services:
         tags:
             - { name: 'ibexa.migrations.generator.criterion_generator.content' }
 
-    App\Migrations\Step\ImATeapotStepNormalizer:
+    App\Migrations\Step\ReplaceNameStepNormalizer:
         tags:
             - 'ibexa.migrations.serializer.step_normalizer'
             - { name: 'ibexa.migrations.serializer.normalizer', priority: 9000 }
 
-    App\Migrations\Step\ImATeapotStepExecutor:
+    App\Migrations\Step\ReplaceNameStepExecutor:
         tags:
             - 'ibexa.migrations.step_executor'
