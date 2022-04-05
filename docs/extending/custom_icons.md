@@ -26,7 +26,7 @@ If you want to configure icons per SiteAccess, see [Icon sets](../guide/config_b
 
 ### Icons size variants
 
-The default icon size in the Back Office is `32px`. To change the default size, in the template add the modificator to the class name.
+The default icon size in the Back Office is `32px`. To change the default size, in the template add the modifier to the class name.
 
 ``` twig
 <svg class="ibexa-icon ibexa-icon--medium ibexa-icon--create">
@@ -111,7 +111,7 @@ See the example with React component in the `alert.js` configuration:
 </div>
 ```
 
-The configuration can pass three parameters:
+`Icon` component has three attributes (called props):
 
 - `customPath` - a path to the custom icon
 

@@ -13,15 +13,15 @@ With `embed` you can override blocks that are defined inside the included templa
 
 ## Alerts
 
-The alert component consists of the following elements:
+The alert component has the following properties:
 
 - `type` - available types of alert: error, info, success and warning
 - `icon_path` - overrides the path to the default icons set, can be modified
 - `title` - alert title
 - `subtitle` - displays subtitle content
-- `show_subtitle_below` - default set to false, the subtitle is displayed next to the title
+- `show_subtitle_below` - default set to `false`, the subtitle is displayed next to the title
 - `extra_content` - use to add custom elements, such as buttons or additional text
-- `close_btn` - by default set to false, if set to true, an 'X' button is displayed but requires additional JavaScript configuration to work
+- `close_btn` - by default set to `false`, if set to `true`, an 'X' button is displayed but requires additional JavaScript configuration on your side to work
 - `class` - additional CSS classes
 - `attributes` - additional HTML attributes
 
