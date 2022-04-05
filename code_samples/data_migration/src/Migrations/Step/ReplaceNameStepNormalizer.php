@@ -1,18 +1,14 @@
 <?php
 
-/**
- * @copyright Copyright (C) Ibexa AS. All rights reserved.
- * @license For full copyright and license information view LICENSE file distributed with this source code.
- */
 declare(strict_types=1);
 
 namespace App\Migrations\Step;
 
-use Ibexa\Contracts\Migration\Serializer\AbstractStepNormalizer;
-use Ibexa\Migration\ValueObject\Step\StepInterface;
+use Ibexa\Platform\Contracts\Migration\Serializer\AbstractStepNormalizer;
+use Ibexa\Platform\Migration\ValueObject\Step\StepInterface;
 
 /**
- * @extends \Ibexa\Contracts\Migration\Serializer\AbstractStepNormalizer<\App\Migrations\Step\ReplaceNameStep>
+ * @extends \Ibexa\Platform\Contracts\Migration\Serializer\AbstractStepNormalizer<\App\Migrations\Step\ReplaceNameStep>
  */
 final class ReplaceNameStepNormalizer extends AbstractStepNormalizer
 {

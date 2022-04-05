@@ -1,18 +1,14 @@
 <?php
 
-/**
- * @copyright Copyright (C) Ibexa AS. All rights reserved.
- * @license For full copyright and license information view LICENSE file distributed with this source code.
- */
 declare(strict_types=1);
 
 namespace App\Migrations\Step;
 
-use Ibexa\Core\FieldType\TextLine\Value;
-use Ibexa\Contracts\Core\Repository\ContentService;
-use Ibexa\Contracts\Core\Repository\Values\Filter\Filter;
-use Ibexa\Contracts\Migration\StepExecutor\AbstractStepExecutor;
-use Ibexa\Migration\ValueObject\Step\StepInterface;
+use eZ\Publish\Core\FieldType\TextLine\Value;
+use eZ\Publish\API\Repository\ContentService;
+use eZ\Publish\API\Repository\Values\Filter\Filter;
+use Ibexa\Platform\Contracts\Migration\StepExecutor\AbstractStepExecutor;
+use Ibexa\Platform\Migration\ValueObject\Step\StepInterface;
 
 final class ReplaceNameStepExecutor extends AbstractStepExecutor
 {
