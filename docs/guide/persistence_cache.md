@@ -169,7 +169,7 @@ For instance, if you set the following environment variables `export CACHE_POOL=
 ``` yaml
 services:
     cache.redis:
-        # NOTE: This optimized Redis Adapter is avaiable as of 2.5LTS via https://github.com/ezsystems/symfony-tools
+        # NOTE: This optimized Redis Adapter is available as of 2.5LTS via https://github.com/ezsystems/symfony-tools
         class: Symfony\Component\Cache\Adapter\TagAware\RedisTagAwareAdapter
         parent: cache.adapter.redis
         tags:
