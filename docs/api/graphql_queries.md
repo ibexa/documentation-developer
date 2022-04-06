@@ -370,6 +370,146 @@ Response:
   }
 ```
 
+## Querying products
+
+You can query a single product, products of one type, or all products by providing criteria.
+
+!!! note
+
+    GraphQL schema for product catalog is generated only when at least one product type exists in the system.
+    If your queries fail, make sure you regenerate the schema.
+
+To get a single product by its code:
+
+```
+{
+  products {
+    single(code: "DRESUN") {
+      name
+      productType {name}
+      createdAt {
+        timestamp
+      }
+    }
+  }
+}
+```
+
+Response:
+
+```
+{
+  "data": {
+    "products": {
+      "single": {
+        "name": "Sundress",
+        "productType": {
+          "name": "Dress"
+        },
+        "createdAt": {
+          "timestamp": 1649229733
+        }
+      }
+    }
+  }
+}
+```
+
+To get products of a specific type:
+
+```
+{
+  products {
+    byType {
+  	  dresses {
+        edges {
+          node {
+            name
+            code
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+Response:
+
+```
+{
+  "data": {
+    "products": {
+      "byType": {
+        "dresses": {
+          "edges": [
+            {
+              "node": {
+                "name": "Sundress",
+                "code": "DRESUN"
+              }
+            },
+            {
+              "node": {
+                "name": "Cocktail dress",
+                "code": "DRECO"
+              }
+            }
+          ]
+        }
+      },
+    }
+  }
+}
+```
+
+To get all products, using specific criteria (in this case, unavailable products):
+
+```
+{
+  products {
+    all(
+      availability:unavailable
+    	sortBy: [name]
+    ) {
+      edges {
+        node {
+          name
+          code
+        }
+      }
+    }
+  }
+}
+```
+
+Response:
+
+```
+{
+  "data": {
+    "products": {
+      "all": {
+        "edges": [
+          {
+            "node": {
+              "name": "Cocktail dress",
+              "code": "DRECO"
+            }
+          },
+          {
+            "node": {
+              "name": "Sundress",
+              "code": "DRESUN"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
 ## Filtering
 
 To get all articles with a specific text:
