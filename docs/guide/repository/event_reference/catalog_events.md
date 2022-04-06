@@ -63,3 +63,14 @@ description: Events that are triggered when working with products, prices and cu
 |`CreateCurrencyEvent`|`CurrencyService::createCurrency`|`CurrencyCreateStruct $createStruct`</br>`CurrencyInterface $currency`|
 |`DeleteCurrencyEvent`|`CurrencyService::deleteCurrency`|`CurrencyInterface $currency`|
 |`UpdateCurrencyEvent`|`CurrencyService::updateCurrency`|`CurrencyInterface $currency`</br>`CurrencyUpdateStruct $updateStruct`|
+
+## Catalogs
+
+| Event | Dispatched by | Properties |
+|---|---|---|
+|`BeforeCreateCatalogEvent`|`CatalogService::createCatalog`|`CatalogCreateStruct $createStruct`|
+|`BeforeDeleteCatalogEvent`|`CatalogService::deleteCatalog`|`CatalogInterface $catalog`|
+|`BeforeUpdateCatalogEvent`|`CatalogService::updateCatalog`|`CatalogUpdateStruct $updateStruct`|
+|`CreateCatalogEvent`|`CatalogService::createCatalog`|`CatalogCreateStruct $createStruct`</br>`CatalogInterface $catalog`|
+|`DeleteCatalogEvent`|`CatalogService::deleteCatalog`|`CatalogInterface $catalog`|
+|`UpdateCatalogEvent`|`CatalogService::updateCatalog`|`CatalogUpdateStruct $updateStruct`|
