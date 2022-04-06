@@ -5,82 +5,128 @@ Follow the steps below to learn how to integrate this component to fit it to you
 
 ## Prepare custom drop-down structure
 
-First prepare the component HTML code structure in the template inside the `content` section:
+First prepare the component structure and place it in the template inside the `content` section. See the example:
 
-```html hl_lines="2 11 12"
-<div class="ibexa-custom-dropdown">
-    <select class="ibexa-custom-dropdown__select" hidden multiple>
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
-        <option value="4">Option 4</option>
-    </select>
-    <div class="ibexa-custom-dropdown__wrapper">
-        <ul class="ibexa-custom-dropdown__selection-info"></ul>
-        <ul class="ibexa-custom-dropdown__items ibexa-custom-dropdown__items--hidden">
-            <li data-value="" class="ibexa-custom-dropdown__item" disabled>Select an option</li>
-            <li data-value="1" class="ibexa-custom-dropdown__item">Option 1</li>
-            <li data-value="2" class="ibexa-custom-dropdown__item">Option 2</li>
-            <li data-value="3" class="ibexa-custom-dropdown__item">Option 3</li>
-            <li data-value="4" class="ibexa-custom-dropdown__item">Option 4</li>
-        </ul>
-    </div>
-</div>
+```twig
+{% include '@ezdesign/ui/component/dropdown.html.twig' with {
+    source: source,
+    choices: choices,
+    preferred_choices: preferred_choices,
+    value: value,
+    multiple: multiple,
+    translation_domain: translation_domain,
+    custom_form: custom_form,
+    class: class,
+    placeholder: placeholder,
+    custom_init: custom_init
+} %}
 ```
 
-In line two, the code contains a hidden native `select` input. It stores the selection values.
-Input is hidden because a custom drop-down duplicates its functionality.
+## Create `<select>` input
 
-!!! caution
+Next, set elements which are available for the `<select>` input, for example:
 
-    Do not remove the `select` input, otherwise form submission may not work.
-
-![Dropdown expanded state](img/dropdown_expanded_state.jpg)
-
-## Generate `<select>` input
-
-Next, generate a standard select input with the `ibexa-custom-dropdown__select` CSS class added to the `<select>` element.
-This element should contain at least one additional attribute: `hidden`. 
-If you want to allow users to pick multiple items from a list, add the `multiple` attribute to the same element.
-
-Example:
-
-```html
-    <select class="ibexa-custom-dropdown__select" hidden multiple></select>
+```twig
+{% set source %}
+<select class="ibexa-input">
+    <option value="DE">DE</option>
+    <option value="US">US</option>
+    <option value="NO">NO</option>
+    <option value="PL">PL</option>
+</select>
+{% endset %}
 ```
 
-![Drop-down multiple selection](img/dropdown_multiple_selection.jpg)
+ `<select>` input shoud have `ibexa-input` class.
 
-## Add attributes
+Define `choices`:
 
-Next, look at the `data-value` attribute in the code (line 11 and 12) for duplicated options with the CSS class: `ibexa-custom-dropdown__item`.
-It stores a value of an option from a select input.
-
-You can provide placeholder text for your custom drop-down. To do so:
-
-- put a `data-value` attribute with no value `data-value=""`
-- add a `disabled` attribute to the item in the duplicated list of options to make it unclickable.
-
-
-Example:  
- 
-```html
-<li data-value="" class="ibexa-custom-dropdown__item" disabled>Select an option</li>
-<li data-value="1" class="ibexa-custom-dropdown__item">Option 1</li>
+```twig
+{% set choices = [{
+    value: "DE",
+    label: "DE"
+}, {
+    value: "US",
+    label: "US"
+}, {
+    value: "NO",
+    label: "NO"
+}, {
+    value: "PL",
+    label: "PL"
+}] %}
 ```
+
+If you need a multilevel `choices`, use the following structure:
+
+```twig{% set choices = [{
+    value: "DE",
+    label: "DE"
+}, {
+    value: "US",
+    label: "US"
+}, {
+    value: "NO",
+    label: "NO"
+}, {
+    value: "PL",
+    label: "PL",
+    choices: [{
+        value: "PL_S",
+        label: "Silesian"
+    }, {
+        value: "PL_K",
+        label: "Kashubian"
+    }]
+}] %}
+```
+
+To set `preferred_choices`, use the following:
+
+```twig
+{% set preferred_choices = [{
+    value: "NO",
+    label: "NO"
+}] %}
+```
+
+For `value`, see the example:
+
+```twig
+{% set value = [{
+    value: "DE",
+    label: "DE"
+}] %}
+```
+
+You can configure the following attributes:
+
+Name|Values|Definition|
+|---|------|----------|
+|`source`| - |What is currently defined in the `<select>` input header.|
+|`choices`| - |Elements listed in the drop-down.|
+|`preferred_choices`|Elements listed at the top of the list with a separator.|
+|`value`|-|The currently selected element.It is an object with a key `value`. |
+|`multiple`| true</br>false|Boolean. To allow users to select multiple items, add this attribute to the same element.|
+|`translation_domain`|true</br>false|Used for translating choices and placeholder.|
+|`custom_form`|true</br>false|For custom form must be set to true.|
+|`class`| - |Additional classes for the element with `ibexa-dropdown` class.|
+`placeholder`|Displayed placeholder when no option is selected.|
+|`custom_init`|true</br>false|By default set to `false`. If set to `true`, requires to manually initialize drop-down in the JavaScript.|
+
+![Dropd-own expanded state](img/dropdown_expanded_state.png)
 
 ## Initialize
 
-To initialize a custom drop-down, run the following JavaScript code:
+All drop-downs are searched and initialized automatically in `admin.dropdown.js`. However, if you want to extend it or make some modifications, run the following JavaScript code:
 
 ```javascript
 (function (global, document) {
-const container = document.querySelector('.ibexa-custom-dropdown');
-
-const dropdown = new global.ibexa.core.CustomDropdown({
+const container = document.querySelector('.ibexa-dropdown');
+const dropdown = new global.eZ.core.CustomDropdown({
     container: container,
-    sourceInput: container.querySelector('.ibexa-custom-dropdown__select'),
-    itemsContainer: container.querySelector('.ibexa-custom-dropdown__items'),
+    selectorSource: selectorSource,
+    itemsContainer: container.querySelector('.ibexa-dropdown__items'),
     hasDefaultSelection: true
 });
 
@@ -94,15 +140,8 @@ Full list of options:
 
 |Name|Description|Required|
 |----|-----------|--------|
-|`container`|contains a reference to a DOM node where custom drop-down is initialized.|required|
-|`sourceInput`|contains a reference to a DOM node where the value of selected option is stored. Preferably, it should be a reference to a select input node.|required|
-|`itemsContainer`|contains a reference to a duplicated items container.|required|
-|`hasDefaultSelection`|contains a boolean value. If set to `true` the first option is selected as a placeholder or selected value.|optional|
-|`selectedItemTemplate`|contains a literal template string with placeholders for `value` and `label` data.|optional|
-
-In the code samples you can find 4 of 5 configuration options.
-Default template HTML code structure for missing `selectedItemTemplate` looks like this:
-
-```html
-    <li class="ibexa-custom-dropdown__selected-item" data-value="{{value}}">{{label}}<span class="${CLASS_REMOVE_SELECTION}"></span></li>
-```
+|`container`|Contains a reference to a DOM node where custom drop-down is initialized.|required|
+|`selectorSource`|Contains a reference |required|
+|`itemsContainer`|Contains a reference to a duplicated items container.|required|
+|`hasDefaultSelection`|Contains a boolean value. If set to `true` the first option will be selected as a placeholder or selected value.|optional|
+|`selectedItemTemplate`|Contains a literal template string with placeholders for `value` and `label` data.|optional|

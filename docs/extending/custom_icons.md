@@ -20,8 +20,11 @@ ibexa:
 Place the icon in `public/assets/images` and run `yarn encore <dev|prod>` after adding it.
 
 !!! note "Icons format"
+    To ensure proper display in the Back Office, all icons should have SVG format with `symbol`.
 
-    All icons should be in SVG format with `symbol` so they can display properly in the Back Office.
+If you want to configure icons per SiteAccess, see [Icon sets](../guide/config_back_office.md#icon-sets).
+
+To see more configuration options, see [icon sizes](../guide/content_rendering/twig_function_reference/other_twig_filters.md).
 
 ### Custom icons in Twig templates
 
@@ -38,7 +41,7 @@ It requires Content Type identifier as an argument. The function returns the pat
 
 Content Types icons configuration is stored in a global object: `ibexa.adminUiConfig.contentTypes`.
 
-You can easily retrieve the icon URL with the `getContentTypeIcon`  helper function that is set on the global `ibexa.helpers.contentType` object.
+You can easily retrieve the icon URL with the `getContentTypeIcon` helper function that is set on the global `eZ.helpers.contentType` object.
 It takes Content Type identifier as an argument and returns one of the following items:
 
 - URL of a specified Content Type's icon
@@ -54,3 +57,35 @@ return (
    </svg>
 )
 ```
+
+### Custom icons in React component
+
+You can use React component to customize icons in Back Office and Page Builder.
+
+See the example with React component in the `alert.js` configuration:
+
+```jsx hl_lines="2"
+<div className={className} role="alert">
+    <Icon name={iconName} customPath={iconPath} extraClasses="ibexa-icon--small ibexa-alert__icon" />
+    <div className={contentClassName}>
+        {title && <div className="ibexa-alert__title">{title}</div>}
+        {subtitle && <div className="ibexa-alert__subtitle">{subtitle}</div>}
+    <div className="ibexa-alert__extra_content">{children}</div>
+    </div>
+        {showCloseBtn && (
+            <button
+                className="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small ibexa-btn--no-text ibexa-alert__close-btn"
+                onClick={onClose}>
+                <Icon name="discard" extraClasses="ibexa-icon--tiny-small" />
+            </button>
+        )}
+</div>
+```
+
+`Icon` component has three attributes (called props):
+
+- `customPath` - a path to the custom icon
+
+- `name` - the path is generated inside the component provided you use icon from the system
+
+- `extraClasses` - additional CSS classes, use to set for example, icon size.
