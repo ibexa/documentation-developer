@@ -119,6 +119,20 @@ The following example shows how to create a currency:
 [[= include_file('code_samples/data_migration/examples/create_currency.yaml') =]]
 ```
 
+### Segments
+
+The following example shows how to create a segment group and add segments in it, ybusing references:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_segment.yaml', 0, 17) =]]
+```
+
+When updating a segment group or segment, you can match the object to update by using its numerical ID or identifier:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_segment.yaml', 18, 24) =]]
+```
+
 ## Criteria
 
 When using `update` or `delete` modes, you can use criteria to identify the objects to operate on.
