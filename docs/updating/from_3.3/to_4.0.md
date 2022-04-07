@@ -22,25 +22,54 @@ An additional compatibility layer makes the process of updating your code easier
 
 ## Update the app to v4.0
 
+First, run:
 
 === "[[= product_name_content =]]"
 
     ``` bash
-    composer require ibexa/content:4.0.2 --with-all-dependencies --no-scripts
+    composer require ibexa/content:[[= latest_tag =]] --with-all-dependencies --no-scripts
+    ```
+
+=== "[[= product_name_exp =]]"
+
+    ``` bash
+    composer require ibexa/experience:[[= latest_tag =]] --with-all-dependencies --no-scripts
+    ```
+
+=== "[[= product_name_com =]]"
+
+    ``` bash
+    composer require ibexa/commerce:[[= latest_tag =]] --with-all-dependencies --no-scripts
+    ```
+
+### Update Flex server
+
+If your `composer.json` still uses the `https://flex.ibexa.co` endpoint in `extra.symfony.endpoint`, 
+replace it with the new [`https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main`](https://github.com/ibexa/website-skeleton/blob/v4.0.3/composer.json#L96) endpoint.
+
+You can do it manually, or by running the following command:
+
+``` bash
+composer config extra.symfony.endpoint "https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main"
+```
+
+Next, continue with updating the app:
+
+=== "[[= product_name_content =]]"
+
+    ``` bash
     composer recipes:install ibexa/content --force -v
     ```
 
 === "[[= product_name_exp =]]"
 
     ``` bash
-    composer require ibexa/experience:4.0.2 --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
     ```
 
 === "[[= product_name_com =]]"
 
     ``` bash
-    composer require ibexa/commerce:4.0.2 --with-all-dependencies --no-scripts
     composer recipes:install ibexa/commerce --force -v
     ```
 
