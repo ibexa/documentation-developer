@@ -96,3 +96,49 @@ h5.tile-title {
 .features ul li {
     margin-bottom: 0;
 }
+
+.announcement {
+    margin-bottom: 1rem;
+    padding: .75rem 1.25rem;
+    background-color: #FFFFFF;
+    border: 1px solid var(--ibexa-jazzberry);
+    border-radius: 5px;
+    font-size: 18px;
+    color: var(--ibexa-jazzberry);
+}
+
+.announcement a.external:after {
+    content: none;
+}
+
+.announcement .btn {
+    font-size: 0.8rem;
+    padding: .4rem .8rem;
+}
+
+.announcement .tile-icon {
+    flex-shrink: 0;
+}
+
+.announcement .btn-announcement {
+    background: var(--ibexa-jazzberry);
+    border: 1px solid var(--ibexa-jazzberry);
+    color: #FFFFFF;
+}
+
+.announcement .btn-announcement-outline {
+    background: #FFFFFF;
+    border: 1px solid var(--ibexa-jazzberry);
+    color: var(--ibexa-jazzberry);
+}
+
+.announcement .btn-announcement-outline:hover,
+.announcement .btn-announcement-outline:focus {
+    background: var(--ibexa-jazzberry);
+    color: #FFFFFF;
+}
+
+.announcement .btn-announcement:hover,
+.announcement .btn-announcement:focus {
+    background: #FFFFFF;
+}
