@@ -90,6 +90,14 @@ The following example shows how to create an attribute group with two attributes
 [[= include_file('code_samples/data_migration/examples/create_attribute_group.yaml') =]]
 ```
 
+You can also update attributes, including changing which attribute group they belong to:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/update_attribute.yaml') =]]
+```
+
+You cannot change the attribute type of an existing attribute.
+
 #### Product type
 
 The following example shows how to create a product type.
