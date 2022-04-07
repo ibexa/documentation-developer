@@ -17,6 +17,31 @@ Migrations store execution metadata in the `ibexa_migrations` database table.
 This allows incremental upgrades:
 the `ibexa:migration:migrate` command ignores files that it had previously executed.
 
+## Available migrations
+
+The following modes are available for specific objects:
+
+|                      | `create` | `update` | `delete` |
+|----------------------|:--------:|:--------:|:--------:|
+| `content`            | &#10004; | &#10004; | &#10004; |
+| `content_type`       | &#10004; | &#10004; |          |
+| `role`               | &#10004; | &#10004; | &#10004; |
+| `content_type_group` | &#10004; | &#10004; |          |
+| `user`               | &#10004; | &#10004; |          |
+| `user_group`         | &#10004; |          | &#10004; |
+| `language`           | &#10004; |          |          |
+| `object_state_group` | &#10004; |          |          |
+| `object_state`       | &#10004; |          |          |
+| `section`            | &#10004; | &#10004; |          |
+| `location`           |          | &#10004; |          |
+| `attribute_group`    | &#10004; |          |          |
+| `attribute`          | &#10004; | &#10004; | &#10004; |
+| `customer_group`     | &#10004; | &#10004; | &#10004; |
+| `currency`           | &#10004; | &#10004; | &#10004; |
+| `price`              | &#10004; |          |          |
+| `segment_group`      | &#10004; | &#10004; | &#10004; |
+| `segment`            | &#10004; | &#10004; | &#10004; |
+
 
 ## Migration examples
 
