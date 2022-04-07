@@ -14,7 +14,7 @@
     name: 'Painter'
     identifier: painter
     group:
-        id: 'reference:contractors_group_id'
+        identifier: contractors
 
 -
     type: segment

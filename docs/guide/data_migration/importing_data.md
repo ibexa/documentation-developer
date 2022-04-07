@@ -162,7 +162,7 @@ The following example shows how to create a price for a product identified by it
 
 ### Segments
 
-The following example shows how to create a segment group and add segments in it, ybusing references:
+The following example shows how to create a segment group and add segments in it:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_segment.yaml', 0, 17) =]]
