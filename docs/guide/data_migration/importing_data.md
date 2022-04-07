@@ -38,7 +38,7 @@ The following modes are available for specific objects:
 | `attribute`          | &#10004; | &#10004; | &#10004; |
 | `customer_group`     | &#10004; | &#10004; | &#10004; |
 | `currency`           | &#10004; | &#10004; | &#10004; |
-| `price`              | &#10004; |          |          |
+| `product_price`      | &#10004; |          |          |
 | `segment_group`      | &#10004; | &#10004; | &#10004; |
 | `segment`            | &#10004; | &#10004; | &#10004; |
 
@@ -150,6 +150,14 @@ The following example shows how to create a currency:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_currency.yaml') =]]
+```
+
+#### Prices
+
+The following example shows how to create a price for a product identified by its code:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_price.yaml') =]]
 ```
 
 ### Segments
