@@ -76,7 +76,7 @@ and any other application-specific secrets.
 
 Introduce a measure against brute force login attacks (captcha, etc.).
 
-### Disable Fastly when using Varnish
+### Disable Varnish when using Fastly
 
 If you are using Fastly, disable Varnish.
 See [Security advisory: EZSA-2020-002.](https://developers.ibexa.co/security-advisories/ezsa-2020-002-unauthorised-cache-purge-with-misconfigured-fastly)
