@@ -8,7 +8,7 @@ The GraphQL implementation for [[= product_name =]] is located in [`ibexa/graphq
 Using GraphQL requires a domain schema.
 The schema is generated automatically when installing [[= product_name =]].
 
-When you modify Content Types in your installation, you need to regenerate the schema:
+When you modify Content Types or product types in your installation, you need to regenerate the schema:
 
 ``` bash
 php bin/console ibexa:graphql:generate-schema
@@ -24,7 +24,7 @@ you can [query](graphql_queries.md) and [operate on](graphql_operations.md).
 GraphQL schema cannot be generated for names that do not follow the [GraphQL specification](http://spec.graphql.org/June2018/#sec-Names),
 for example names that start with a digit.
 
-This concerns image variations, Content Types, Content Type groups, and Field definition identifiers.
+This concerns image variations, Content Types, Content Type groups, product types, and Field definition identifiers.
 
 It is recommended to rename the relevant identifiers. Failure to generate schema is registered in logs.
 To find identifiers that are not included in the schema, look for "Skipped schema generation" log messages, for example:
@@ -32,7 +32,7 @@ To find identifiers that are not included in the schema, look for "Skipped schem
 
 ## Domain schema
 
-GraphQL for [[= product_name =]] is based on the Content Types, Content Type groups, and Content items
+GraphQL for [[= product_name =]] is based on the Content Types (including product types), Content Type groups, and Content items
 defined in the Repository.
 
 For each Content Type the schema exposes a singular and plural field, e.g. `article` and `articles`.
