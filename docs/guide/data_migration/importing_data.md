@@ -17,6 +17,31 @@ Migrations store execution metadata in the `ibexa_migrations` database table.
 This allows incremental upgrades:
 the `ibexa:migration:migrate` command ignores files that it had previously executed.
 
+## Available migrations
+
+The following modes are available for specific objects:
+
+|                      | `create` | `update` | `delete` |
+|----------------------|:--------:|:--------:|:--------:|
+| `content`            | &#10004; | &#10004; | &#10004; |
+| `content_type`       | &#10004; | &#10004; |          |
+| `role`               | &#10004; | &#10004; | &#10004; |
+| `content_type_group` | &#10004; | &#10004; |          |
+| `user`               | &#10004; | &#10004; |          |
+| `user_group`         | &#10004; |          | &#10004; |
+| `language`           | &#10004; |          |          |
+| `object_state_group` | &#10004; |          |          |
+| `object_state`       | &#10004; |          |          |
+| `section`            | &#10004; | &#10004; |          |
+| `location`           |          | &#10004; |          |
+| `attribute_group`    | &#10004; |          |          |
+| `attribute`          | &#10004; | &#10004; | &#10004; |
+| `customer_group`     | &#10004; | &#10004; | &#10004; |
+| `currency`           | &#10004; | &#10004; | &#10004; |
+| `product_price`      | &#10004; |          |          |
+| `segment_group`      | &#10004; | &#10004; | &#10004; |
+| `segment`            | &#10004; | &#10004; | &#10004; |
+
 
 ## Migration examples
 
@@ -90,6 +115,14 @@ The following example shows how to create an attribute group with two attributes
 [[= include_file('code_samples/data_migration/examples/create_attribute_group.yaml') =]]
 ```
 
+You can also update attributes, including changing which attribute group they belong to:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/update_attribute.yaml') =]]
+```
+
+You cannot change the attribute type of an existing attribute.
+
 #### Product type
 
 The following example shows how to create a product type.
@@ -117,6 +150,28 @@ The following example shows how to create a currency:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_currency.yaml') =]]
+```
+
+#### Prices
+
+The following example shows how to create a price for a product identified by its code:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_price.yaml') =]]
+```
+
+### Segments
+
+The following example shows how to create a segment group and add segments in it:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_segment.yaml', 0, 17) =]]
+```
+
+When updating a segment group or segment, you can match the object to update by using its numerical ID or identifier:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_segment.yaml', 18, 24) =]]
 ```
 
 ## Criteria

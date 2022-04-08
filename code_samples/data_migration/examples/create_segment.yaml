@@ -1,0 +1,24 @@
+-
+    type: segment_group
+    mode: create
+    name: 'Contractors'
+    identifier: contractors
+    references:
+        -
+            name: contractors_group_id
+            type: segment_group_id
+
+-
+    type: segment
+    mode: create
+    name: 'Painter'
+    identifier: painter
+    group:
+        identifier: contractors
+
+-
+    type: segment
+    mode: update
+    name: 'Painter and Finish'
+    matcher:
+        identifier: painter
