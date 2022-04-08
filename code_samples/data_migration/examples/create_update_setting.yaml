@@ -1,0 +1,14 @@
+- type: setting
+  mode: create
+  group: test
+  identifier: my_setting
+  value:
+      first: first_value
+      second: second_value
+
+- type: setting
+  mode: update
+  group: test
+  identifier: my_setting
+  value:
+    first: first_value_modified
