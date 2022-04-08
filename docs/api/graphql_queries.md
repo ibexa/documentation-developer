@@ -377,7 +377,7 @@ You can query a single product, products of one type, or all products by providi
 !!! note
 
     GraphQL schema for product catalog is generated only when at least one product type exists in the system.
-    If your queries fail, make sure you regenerate the schema.
+    If your queries fail, make sure you regenerated the schema.
 
 To get a single product by its code:
 
