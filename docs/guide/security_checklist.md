@@ -115,9 +115,22 @@ Use the following checklist to ensure the Roles and Policies are secure:
 
 ## Underlying stack
 
+Once you have properly configured secure user roles and permissions, to avoid exposing your application to DDOS vulnerabilities and other, yet unknown security threats, make sure that you do the following:
 - Avoid exposing servers on the open internet when not strictly required.
 - Ensure any servers, services, ports and virtual hosts that were opened for testing purposes are locked down before going live.
 - Secure the database with a good password, keys, firewall, etc.
+- Consider whether you must make certain interfaces available on the open internet, for example:
+    - The `/search` and `/graphql` endpoints
+    - The REST API endpoints
+
+!!! tip "Access control"
+One way to secure an endpoint that should not be openly available is to restrict access to logged-in users, by using the [`access_control`](https://symfony.com/doc/5.4/security/access_control.html) feature. In your YAML configuration, under the `security` key, add an entry similar to the following one, which redirects requests to a login page:
+
+```yaml
+security:
+    access_control:
+        - { path: ^/search, roles: ROLE_USER}
+```
 
 ### Track dependencies
 
