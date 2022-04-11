@@ -25,6 +25,11 @@
 
 ### Expanded data migrations
 
+[Data migration](../guide/data_migration/data_migration.md) now covers additional objects:
+
+- [database settings](../guide/data_migration/importing_data.md#settings)
+- [segments](../guide/data_migration/importing_data.md#segments)
+- [prices](../guide/data_migration/importing_data.md#prices) with `create` mode
 
 ## Full changelog
 
