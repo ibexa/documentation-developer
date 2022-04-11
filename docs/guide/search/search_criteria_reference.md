@@ -61,6 +61,7 @@ Due to this storage limitation, searching content using the Country Field Type o
 
 |Search Criterion|Search based on|Supported by|
 |-----|-----|-----|
+|[ProductAvailability](criteria_reference/productavailability_criterion.md)|Product's availability|Content and Location Search; Filtering|
 |[ProductCode](criteria_reference/productcode_criterion.md)|Product's code|Content and Location Search; Filtering|
 |[ProductName](criteria_reference/productname_criterion.md)|Product's name|Content and Location Search; Filtering|
 |[ProductType](criteria_reference/producttype_criterion.md)|Product type|Content and Location Search; Filtering|
