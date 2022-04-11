@@ -11,7 +11,7 @@
 ### Catalog integration with transactional system
 
 
-### Measurements Field Type and attribute
+### Measurement Field Type and attribute
 
 
 ### New importer service
