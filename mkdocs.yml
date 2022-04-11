@@ -304,6 +304,7 @@ nav:
                 - 'LogicalNot Criterion': 'guide/search/criteria_reference/logicalnot_criterion.md'
                 - 'LogicalOr Criterion': 'guide/search/criteria_reference/logicalor_criterion.md'
             - Product Search Criteria:
+                - 'ProductAvailability': 'guide/search/criteria_reference/productavailability_criterion.md'
                 - 'ProductCode': 'guide/search/criteria_reference/productcode_criterion.md'
                 - 'ProductName': 'guide/search/criteria_reference/productname_criterion.md'
                 - 'ProductType': 'guide/search/criteria_reference/producttype_criterion.md'
@@ -331,6 +332,7 @@ nav:
                 - 'UserLogin': 'guide/search/sort_clause_reference/userlogin_sort_clause.md'
                 - 'Visibility': 'guide/search/sort_clause_reference/visibility_sort_clause.md'
             - Product Sort Clauses:
+                - 'ProductAvailability': 'guide/search/sort_clause_reference/productavailability_sort_clause.md'
                 - 'ProductCode': 'guide/search/sort_clause_reference/productcode_sort_clause.md'
                 - 'ProductName': 'guide/search/sort_clause_reference/productname_sort_clause.md'
             - 'Aggregation reference': 'guide/search/aggregation_reference.md'
