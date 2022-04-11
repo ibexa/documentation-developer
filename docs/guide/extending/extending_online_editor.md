@@ -301,7 +301,11 @@ ezpublish:
             fieldtypes:
                 ezrichtext:
                     custom_tags: [acronym]
-
+                    toolbars:
+                        text:
+                            buttons:
+                                acronym:
+                                    priority: 5
 ezrichtext:
     custom_tags:
         acronym:
