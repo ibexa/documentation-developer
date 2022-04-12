@@ -20,7 +20,7 @@ To enable or disable Site Factory, follow respectively:
 
 ## Enable Site Factory
 
-To enable Site Factory, set `ez_platform_site_factory.enabled` to `true` in `config/packages/ibexa_site_factory.yaml`.
+To enable Site Factory, set `ibexa_site_factory.enabled` to `true` in `config/packages/ibexa_site_factory.yaml`.
 
 ### Configure designs
 
