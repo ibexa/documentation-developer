@@ -19,6 +19,7 @@
 
 ### Dynamic targeting block
 
+Dynamic targeting block for the Page builder provides recommendation items based on users related to the configured Segments.
 
 ## Other changes
 
