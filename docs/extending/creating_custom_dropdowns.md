@@ -59,7 +59,8 @@ Define `choices`:
 
 If you need a multilevel `choices`, use the following structure:
 
-```twig{% set choices = [{
+```twig
+{% set choices = [{
     value: "DE",
     label: "DE"
 }, {
