@@ -125,13 +125,13 @@ Once you have properly configured secure user roles and permissions, to avoid ex
     - The REST API endpoints
 
 !!! tip "Access control"
-  One way to lock down an endpoint that should not be openly available is to restrict access to logged-in users, by using the [`access_control`](https://symfony.com/doc/5.4/security/access_control.html) feature. In your YAML configuration, under the `security` key, add an entry similar to the following one, which redirects requests to a login page:
+    One way to lock down an endpoint that should not be openly available is to restrict access to logged-in users, by using the [`access_control`](https://symfony.com/doc/5.4/security/access_control.html) feature. In your YAML configuration, under the `security` key, add an entry similar to the following one, which redirects requests to a login page:
 
-```yaml
-security:
-    access_control:
-        - { path: ^/search, roles: ROLE_USER}
-```
+    ```yaml
+    security:
+        access_control:
+            - { path: ^/search, roles: ROLE_USER}
+    ```
 
 ### Track dependencies
 
