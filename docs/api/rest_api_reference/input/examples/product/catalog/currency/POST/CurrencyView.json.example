@@ -1,0 +1,88 @@
+{
+    "CurrencyView": {
+        "_media-type": "application/vnd.ibexa.api.CurrencyView+json",
+        "identifier": "TitleView",
+        "CurrencyQuery": {
+            "_media-type": "application/vnd.ibexa.api.CurrencyQuery+json"
+        },
+        "Result": {
+            "_media-type": "application/vnd.ibexa.api.ViewResult+json",
+            "count": 179,
+            "CurrencyList": {
+                "_media-type": "application/vnd.ibexa.api.CurrencyList+json",
+                "Currency": [
+                    {
+                        "_media-type": "application/vnd.ibexa.api.Currency+json",
+                        "id": 1,
+                        "code": "AFN",
+                        "subunits": 2,
+                        "enabled": false
+                    },
+                    {
+                        "_media-type": "application/vnd.ibexa.api.Currency+json",
+                        "id": 2,
+                        "code": "EUR",
+                        "subunits": 2,
+                        "enabled": false
+                    },
+                    {
+                        "_media-type": "application/vnd.ibexa.api.Currency+json",
+                        "id": 3,
+                        "code": "ALL",
+                        "subunits": 2,
+                        "enabled": false
+                    },
+                    {
+                        "_media-type": "application/vnd.ibexa.api.Currency+json",
+                        "id": 4,
+                        "code": "DZD",
+                        "subunits": 2,
+                        "enabled": false
+                    },
+                    {
+                        "_media-type": "application/vnd.ibexa.api.Currency+json",
+                        "id": 5,
+                        "code": "USD",
+                        "subunits": 2,
+                        "enabled": false
+                    },
+                    {
+                        "_media-type": "application/vnd.ibexa.api.Currency+json",
+                        "id": 6,
+                        "code": "AOA",
+                        "subunits": 2,
+                        "enabled": false
+                    },
+                    {
+                        "_media-type": "application/vnd.ibexa.api.Currency+json",
+                        "id": 7,
+                        "code": "XCD",
+                        "subunits": 2,
+                        "enabled": false
+                    },
+                    {
+                        "_media-type": "application/vnd.ibexa.api.Currency+json",
+                        "id": 8,
+                        "code": "ARS",
+                        "subunits": 2,
+                        "enabled": false
+                    },
+                    {
+                        "_media-type": "application/vnd.ibexa.api.Currency+json",
+                        "id": 9,
+                        "code": "AMD",
+                        "subunits": 2,
+                        "enabled": false
+                    },
+                    {
+                        "_media-type": "application/vnd.ibexa.api.Currency+json",
+                        "id": 10,
+                        "code": "AWG",
+                        "subunits": 2,
+                        "enabled": false
+                    }
+                ]
+            }
+        }
+    }
+}

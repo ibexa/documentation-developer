@@ -1,0 +1,13 @@
+{
+    "ViewInput": {
+        "identifier": "TitleView",
+        "AttributeQuery": {
+            "limit": "10",
+            "offset": "0",
+            "Query": {
+                "AttributeNameCriterion": "measure",
+                "AttributeGroupIdentifierCriterion": "test_attribute_group"
+            }
+        }
+    }
+}
