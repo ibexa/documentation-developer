@@ -8,14 +8,13 @@
 
 ## Notable changes
 
-### Catalog integration with transactional system
+### Product Catalog integration with the transactional system
 
-
+With transactional system integration, it is now possible to sell products that have been defined in the Product Catalog.
+  
 ### Measurement Field Type and attribute
 
-
-### New importer service
-
+With the new Measurement Field Type users can now describe products and their attributes with different types and units of measure.
 
 ### Dynamic targeting block
 
@@ -23,6 +22,13 @@ Dynamic targeting block for the Page builder provides recommendation items based
 
 ## Other changes
 
+### User Interface improvements
+
+Several improvements to the Back Office user interface improve the user experience, including the “Scroll to top” button, a new DateTime widget, or a View Switcher between lists, grids and calendar, as well as several new options in the Content Tree’s contextual menu.
+
+### Product Catalog enhancements
+
+With this release, Product Catalog brings new PHP APIs, productivity boost from new product search criteria and sort classes, advanced filtering in REST endpoints, auto-generated identifiers, product list sorting, and more.
 
 ### Expanded data migrations
 
