@@ -123,14 +123,15 @@
                 <span class="pill">v4.1</span>
             </h5>
             <div class="row mt-3">
-                <div class="col-lg-5">The <a href="releases/ibexa_dxp_v4.1/">latest version of Ibexa DXP is v4.1</a>. It is a Fast Track release, and it was released on , 2022.
+                <div class="col-lg-5">The <a href="releases/ibexa_dxp_v4.1/">latest version of Ibexa DXP is v4.1</a>. It is a Fast Track release, and it was released on April 15, 2022.
                 </div>
                 <div class="col-sm-7 features">
                     <ul>
-                        <li><a href="releases/ibexa_dxp_v4.1/#catalog-integration-with-transactional-system">Catalog integration with transactional system</a></li>
+                        <li><a href="releases/ibexa_dxp_v4.1/#product-catalog-integration-with-transactional-system">Product Catalog integration with the transactional system</a></li>
                         <li><a href="releases/ibexa_dxp_v4.1/#measurement-field-type-and-attribute">Measurement Field Type and attribute</a></li>
-                        <li><a href="releases/ibexa_dxp_v4.1/#new-importer-service">New importer service</a></li>
                         <li><a href="releases/ibexa_dxp_v4.1/#dynamic-targeting-block">Dynamic targeting block</a></li>
+                        <li><a href="releases/ibexa_dxp_v4.1/#user-interface-improvements">User Interface improvements</a></li>
+                        <li><a href="releases/ibexa_dxp_v4.1/#poduct-catalog-enhancements">Product Catalog enhancements</a></li>
                         <li><a href="releases/ibexa_dxp_v4.1/#expanded-data-migrations">Expanded data migrations</a></li>
                     </ul>
                 </div>
