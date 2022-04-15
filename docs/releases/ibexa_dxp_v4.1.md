@@ -24,7 +24,7 @@ Dynamic targeting block for the Page builder provides recommendation items based
 
 ### User Interface improvements
 
-Several improvements to the Back Office user interface improve the user experience, including the “Scroll to top” button, a new DateTime widget, or a View Switcher between lists, grids and calendar, as well as several new options in the Content Tree’s contextual menu.
+Several improvements to the Back Office user interface improve the user experience, including the "Go to top” button, a new DateTime widget, or a View Switcher between lists, grids and calendar, as well as several new options in the Content Tree’s contextual menu.
 
 ### Product Catalog enhancements
 
