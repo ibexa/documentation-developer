@@ -80,25 +80,29 @@ $(document).ready(function() {
         .addClass('external');
 
     docsearch({
-        container: '#docsearch',
+        container: '.md-search',
         appId: '2DNYOU6YJZ',
         apiKey: '21ce3e522455e18e7ee16cf7d66edb4b',
         indexName: 'ezplatform',
-        inputSelector: '#search_input',
-        transformData: function(hits) {
+        transformItems: function(items) {
             let removedPattern = '¶';
-            $.each(hits, function(index, hit) {
+            $.each(items, function(index, item) {
                 for (let lvl=2; lvl<=6; lvl++) {
-                    if (null !== hit.hierarchy['lvl'+lvl]) {
-                        hits[index].hierarchy['lvl' + lvl] = hit.hierarchy['lvl' + lvl].replace(removedPattern, '');
+                    if (null !== item.hierarchy['lvl'+lvl]) {
+                        items[index].hierarchy['lvl' + lvl] = item.hierarchy['lvl' + lvl].replace(removedPattern, '');
                     }
-                    if ('undefined' !== typeof hit._highlightResult.hierarchy['lvl'+lvl]) {
-                        hits[index]._highlightResult.hierarchy['lvl'+lvl].value = hit._highlightResult.hierarchy['lvl'+lvl].value.replace(removedPattern, '');
+                    if ('undefined' !== typeof item._highlightResult.hierarchy['lvl'+lvl]) {
+                        items[index]._highlightResult.hierarchy['lvl'+lvl].value = item._highlightResult.hierarchy['lvl'+lvl].value.replace(removedPattern, '');
+                    }
+                    if ('undefined' !== typeof item._snippetResult.hierarchy['lvl'+lvl]) {
+                        items[index]._snippetResult.hierarchy['lvl'+lvl].value = item._snippetResult.hierarchy['lvl'+lvl].value.replace(removedPattern, '');
                     }
                 }
             });
+
+            return items;
         },
-        algoliaOptions: {
+        searchParameters: {
             facetFilters: ['lang:en', 'version:' + branchName],
             hitsPerPage: 10,
         },
