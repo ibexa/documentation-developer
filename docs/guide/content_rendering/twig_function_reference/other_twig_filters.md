@@ -37,3 +37,9 @@ The list of available icon sizes:
 |`38px`|`--medium-large`|
 |`48px`|`--large`|
 |`64px`|`--extra-large`|
+
+!!! note
+
+	The values are defined in `rem` units and almost every `px` unit is converted to `rem`
+	using the following formula: <br>
+	`8px / (16px/rem) = 0.5rem`
