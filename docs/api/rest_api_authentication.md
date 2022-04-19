@@ -74,6 +74,6 @@ A person with minimal insight into this application and the company can easily s
 The REST API provides authentication of a user by a subject in a client certificate delivered by the web server configured as SSL endpoint.
 
 ## TODO: JWT
-TODO: This page should list all authentification method
+TODO: This page should list all authentication method
 
 For more information, see [REST API authentication / JWT authentication](general_rest_usage.md#jwt-authentication).
