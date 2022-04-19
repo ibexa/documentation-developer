@@ -86,13 +86,14 @@ $(document).ready(function() {
         indexName: 'ezplatform',
         inputSelector: '#search_input',
         transformData: function(hits) {
+            let removedPattern = /[.¶]/g;
             $.each(hits, function(index, hit) {
-                for (lvl=2; lvl<=3; lvl++) {
+                for (let lvl=2; lvl<=3; lvl++) {
                     if (null !== hit.hierarchy['lvl'+lvl]) {
-                        hits[index].hierarchy['lvl' + lvl] = hit.hierarchy['lvl' + lvl].replace(/[.¶]/g, '');
+                        hits[index].hierarchy['lvl' + lvl] = hit.hierarchy['lvl' + lvl].replace(removedPattern, '');
                     }
                     if ('undefined' !== typeof hit._highlightResult.hierarchy['lvl'+lvl]) {
-                        hits[index]._highlightResult.hierarchy['lvl'+lvl].value = hit._highlightResult.hierarchy['lvl'+lvl].value.replace(/[.¶]/g, '');
+                        hits[index]._highlightResult.hierarchy['lvl'+lvl].value = hit._highlightResult.hierarchy['lvl'+lvl].value.replace(removedPattern, '');
                     }
                 }
             });
