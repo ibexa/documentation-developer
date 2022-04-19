@@ -88,7 +88,7 @@ $(document).ready(function() {
         transformData: function(hits) {
             let removedPattern = '¶';
             $.each(hits, function(index, hit) {
-                for (let lvl=2; lvl<=3; lvl++) {
+                for (let lvl=2; lvl<=6; lvl++) {
                     if (null !== hit.hierarchy['lvl'+lvl]) {
                         hits[index].hierarchy['lvl' + lvl] = hit.hierarchy['lvl' + lvl].replace(removedPattern, '');
                     }
