@@ -88,7 +88,8 @@ security:
                 realm: Ibexa DXP REST API
 ```
 
-TODO: "@deprecated Use http_basic in security.yml instead of ezpublish_http_basic" but I didn't manage to use basic auth with neither of the two
+TODO: ["@deprecated Use http_basic in security.yml instead of ezpublish_http_basic"](https://github.com/ibexa/core/blob/main/src/bundle/Core/DependencyInjection/Security/HttpBasicFactory.php#L14) but I didn't manage to use basic auth with neither of the two
+TODO: https://symfony.com/doc/5.4/security.html#http-basic
 
 ### Testing the API
 
