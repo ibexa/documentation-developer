@@ -85,6 +85,18 @@ $(document).ready(function() {
         apiKey: '21ce3e522455e18e7ee16cf7d66edb4b',
         indexName: 'ezplatform',
         inputSelector: '#search_input',
+        transformData: function(hits) {
+            $.each(hits, function(index, hit) {
+                for (lvl=2; lvl<=3; lvl++) {
+                    if (null !== hit.hierarchy['lvl'+lvl]) {
+                        hits[index].hierarchy['lvl' + lvl] = hit.hierarchy['lvl' + lvl].replace(/[.¶]/g, '');
+                    }
+                    if ('undefined' !== typeof hit._highlightResult.hierarchy['lvl'+lvl]) {
+                        hits[index]._highlightResult.hierarchy['lvl'+lvl].value = hit._highlightResult.hierarchy['lvl'+lvl].value.replace(/[.¶]/g, '');
+                    }
+                }
+            });
+        },
         algoliaOptions: {
             facetFilters: ['lang:en', 'version:' + branchName],
             hitsPerPage: 10,
