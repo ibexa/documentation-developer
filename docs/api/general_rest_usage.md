@@ -382,7 +382,8 @@ For details, see [Session-based authentication](https://github.com/ezsystems/ezp
 
 To enable HTTP basic authentication, edit `config/packages/security.yaml`, and add/uncomment the following block. Note that this is enabled by default.
 
-TODO: rest_api_guide.md says it's activated by default. Still can't find it.
+TODO: rest_api_guide.md says it's NOT activated by default. Session is activated by default. Still can't find it.
+TODO: Fix, Update and Deduplicate security.yaml example
 
 !!! caution
 

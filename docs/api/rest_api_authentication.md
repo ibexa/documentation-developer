@@ -18,7 +18,7 @@ For more information, see [OAuth 2.0 protocol for authorization.](https://oauth.
 Sessions are created to re-authenticate the user only  (and perform authorization), not to hold session state in the service.
 Because of that, we regard this method as supporting AJAX-based applications even if it violates the principles of RESTful services.
 
-For more information, see [REST API authentication](general_rest_usage.md#rest-api-authentication).
+For more information, see [REST API authentication / Session-based authentication](general_rest_usage.md#session-based-authentication).
 
 ### Session cookie
 
@@ -72,3 +72,8 @@ A person with minimal insight into this application and the company can easily s
 ## SSL client authentication
 
 The REST API provides authentication of a user by a subject in a client certificate delivered by the web server configured as SSL endpoint.
+
+## TODO: JWT
+TODO: This page should list all authentification method
+
+For more information, see [REST API authentication / JWT authentication](general_rest_usage.md#jwt-authentication).
