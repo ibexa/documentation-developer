@@ -103,7 +103,7 @@ One of the main reasons for this API is to help implement JavaScript / AJAX inte
 
 **REST API with JavaScript**
 
-```javascript
+```html+javascript
 <pre id="rest-output"></pre>
 <script>
 var resource = '/api/ibexa/v2/content/objects/59',
