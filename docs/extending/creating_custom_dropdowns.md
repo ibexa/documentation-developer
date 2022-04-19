@@ -8,8 +8,8 @@ Follow the steps below to learn how to integrate this component to fit it to you
 First prepare the component structure and place it in the template inside the `content` section. See the example:
 
 ```twig
-{% include '@ezdesign/ui/component/dropdown.html.twig' with {
-    source: source,
+{% include '@ibexadesign/ui/component/dropdown.html.twig' with {
+    source,
     choices: choices,
     preferred_choices: preferred_choices,
     value: value,
@@ -123,7 +123,7 @@ All drop-downs are searched and initialized automatically in `admin.dropdown.js`
 ```javascript
 (function (global, document) {
 const container = document.querySelector('.ibexa-dropdown');
-const dropdown = new global.eZ.core.CustomDropdown({
+const dropdown = new global.ibexa.core.CustomDropdown({
     container: container,
     selectorSource: selectorSource,
     itemsContainer: container.querySelector('.ibexa-dropdown__items'),

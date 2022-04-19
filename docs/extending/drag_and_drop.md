@@ -19,7 +19,7 @@ First, prepare the HTML code structure and place it in a Twig template. See the 
 To initialize a drag and drop interface, add a JavaScript Code that comes with the template following the convention:
 
 ```javascript
-    const draggable = new eZ.core.Draggable({
+    const draggable = new ibexa.core.Draggable({
         itemsContainer: doc.querySelector('.items-container-drag'),
         selectorItem: '.item-drag',
         selectorPlaceholder: '.item-placeholder-drag',

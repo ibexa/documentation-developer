@@ -20,14 +20,14 @@
 The default icon size in the Back Office is `32px`. To change the default size, in the template add the modifier to the class name.
 
 ``` twig
-<svg class="ibexa-icon ibexa-icon--medium ibexa-icon--create">
+<svg class="ibexa-icon ibexa-icon--medium">
   <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
 </svg>
 ```
 
 The list of available icon sizes:
 
-|Size|Class name|
+|Size|Class postfix (modifiers)|
 |----|---------|
 |`8px`|`--tiny`|
 |`12px`|`--tiny-small`|
