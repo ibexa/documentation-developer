@@ -83,6 +83,19 @@ $(document).ready(function() {
         apiKey: 'bfb5bd7cad971d31ef8be599174334f3',
         indexName: 'ezplatform',
         inputSelector: '#search_input',
+        transformData: function(hits) {
+            let removedPattern = '¶';
+            $.each(hits, function(index, hit) {
+                for (let lvl=2; lvl<=6; lvl++) {
+                    if (null !== hit.hierarchy['lvl'+lvl]) {
+                        hits[index].hierarchy['lvl' + lvl] = hit.hierarchy['lvl' + lvl].replace(removedPattern, '');
+                    }
+                    if ('undefined' !== typeof hit._highlightResult.hierarchy['lvl'+lvl]) {
+                        hits[index]._highlightResult.hierarchy['lvl'+lvl].value = hit._highlightResult.hierarchy['lvl'+lvl].value.replace(removedPattern, '');
+                    }
+                }
+            });
+        },
         algoliaOptions: {
             facetFilters: ['lang:en', 'version:' + branchName],
             hitsPerPage: 10,
