@@ -13,11 +13,7 @@ REST API resources and endpoints.
 
 ## Accessing the REST API
 
-The REST API is available at the URI `/api/ibexa/v2` . HTTPS is available as long as your server is properly configured. Refer to the [Getting started with the REST API](#getting-started-with-the-rest-api) section below to start using the API.
-
-## Basics
-
-REST (REpresentational State Transfer) is a web services architecture that follows the HTTP Protocol very closely. The [[= product_name =]] REST API supports both [JSON](http://www.json.org/) and [XML](http://www.w3.org/XML/) in terms of format.
+The REST API is available under the URI prefix `/api/ibexa/v2`. HTTPS is available as long as your server is properly configured. Refer to the [Getting started with the REST API](#getting-started-with-the-rest-api) section below to start using the API.
 
 ### Resources
 
@@ -38,12 +34,14 @@ It uses HTTP methods ( **`GET`** , **`POST`** , **`PUT`** , **`DELETE`** , etc.)
 
     Using custom HTTP verbs, those besides the standard (GET, POST, PUT, DELETE, OPTIONS, TRACE), can cause issues with several HTTP proxies, network firewall/security solutions and simpler web servers. To avoid issues with this REST API allows you to set these using a HTTP header instead using HTTP verb POST. Example: `X-HTTP-Method-Override: PUBLISH`
 
+TODO: Where does `PUBLISH` come from? What about `PATCH`?
+
 ### Media type headers
 
 On top of methods, HTTP request headers will allow you to personalize the request's behavior. On every resource, you can use the Accept header to indicate which format you want to communicate in, JSON or XML. This header is also used to specify the response type you want the server to send when multiple ones are available.
 
--   `Accept: application/vnd.ibexa.api.Content+xml` to get **Content** (full data, fields included) as **XML**
--   `Accept: application/vnd.ibexa.api.ContentInfo+json` to get **ContentInfo** (metadata only) as **JSON**
+-   `Accept: application/vnd.ibexa.api.Content+xml` to get **Content** (full data, fields included) as **[XML](http://www.w3.org/XML/)**
+-   `Accept: application/vnd.ibexa.api.ContentInfo+json` to get **ContentInfo** (metadata only) as **[JSON](http://www.json.org/)**
 
 !!! note "More information"
 
@@ -69,9 +67,13 @@ No special preparations are necessary to use the REST API. As long as your [[= p
 
 #### Authentication
 
-As explained in more detail in the [authentication page](general_rest_usage.md#rest-api-authentication), two authentication methods are currently supported: session and basic. By default, session authentication is the active mode, it uses a session cookie. The alternative, basic auth authentication requires a login / password to be sent using basic HTTP authentication.
+As explained in more detail in the [authentication page](general_rest_usage.md#rest-api-authentication), three authentication methods are currently supported: session, basic and JWT. By default, session authentication is the active mode, it uses a session cookie. The alternative, basic auth authentication requires a login / password to be sent using basic HTTP authentication.
+
+TODO: It seems that auth methods could not be usable together at the same time. To activate JWT will disable Session method.
 
 To enable basic auth based authentication, you need to edit `config/packages/security.yaml` and uncomment the configuration block about REST
+
+TODO: Can't find this block; Where is it?
 
 **security.yaml**
 
@@ -80,11 +82,13 @@ security:
     # ...
     firewalls:
         # ...
-        ezpublish_rest:
+        ibexa_rest:
             pattern: ^/api/ibexa/v2
-            ezpublish_http_basic:
-                realm: eZ Platform REST API
+            http_basic:
+                realm: Ibexa DXP REST API
 ```
+
+TODO: "@deprecated Use http_basic in security.yml instead of ezpublish_http_basic" but I didn't manage to use basic auth with neither of the two
 
 ### Testing the API
 

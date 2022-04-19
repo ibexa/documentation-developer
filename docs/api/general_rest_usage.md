@@ -382,9 +382,13 @@ For details, see [Session-based authentication](https://github.com/ezsystems/ezp
 
 To enable HTTP basic authentication, edit `config/packages/security.yaml`, and add/uncomment the following block. Note that this is enabled by default.
 
+TODO: rest_api_guide.md says it's activated by default. Still can't find it.
+
 !!! caution
 
     Until [EZP-22192](https://jira.ez.no/browse/EZP-22192) is implemented, enabling basic authentication in REST will prevent PlatformUI from working.
+
+TODO: PlatformUI? https://github.com/ezsystems/PlatformUIBundle seems to have been remove in v2+
 
 ``` yaml
 ezpublish_rest:
@@ -424,8 +428,8 @@ Provide the user name and password in the request body:
 
 ``` xml
 <JWTInput>
-    <password>publish</password>
     <username>admin</username>
+    <password>publish</password>
 </JWTInput>
 ```
 
