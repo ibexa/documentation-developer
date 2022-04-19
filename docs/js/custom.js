@@ -86,7 +86,7 @@ $(document).ready(function() {
         indexName: 'ezplatform',
         inputSelector: '#search_input',
         transformData: function(hits) {
-            let removedPattern = /[.¶]/g;
+            let removedPattern = '¶';
             $.each(hits, function(index, hit) {
                 for (let lvl=2; lvl<=3; lvl++) {
                     if (null !== hit.hierarchy['lvl'+lvl]) {
