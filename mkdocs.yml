@@ -407,7 +407,7 @@ nav:
             - Best practices:
                 - 'Tracking integration': 'guide/personalization/best_practices/tracking_integration.md'
                 - 'Recommendation integration': 'guide/personalization/best_practices/recommendation_integration.md'
-         - Data migration:
+        - Data migration:
             - 'Data migration': 'guide/data_migration/data_migration.md'
             - 'Importing data': 'guide/data_migration/importing_data.md'
             - 'Exporting data': 'guide/data_migration/exporting_data.md'
