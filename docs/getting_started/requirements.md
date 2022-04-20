@@ -56,7 +56,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 ## Search
 
 - Solr 7.7LTS or Solr 8
-- Elasticsearch 7.7, using Oracle Java/Open JDK 8 or higher
+- Elasticsearch 7.16, using Oracle Java/Open JDK 8 or higher
 
 ## Graphic Handler
 
