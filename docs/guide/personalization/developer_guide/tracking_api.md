@@ -395,8 +395,8 @@ Example of a recommendation response:
       },
       "category" : "Men/Shirts", // Provided only, if category suggestion is requested
       "links" : {
-         "clickRecommended" : "//https://event.perso.ibexa.co/clickrecommended/johndoe/1/100175717?scenario=also_clicked&modelId=37",
-         "rendered" : "//https://event.perso.ibexa.co/rendered/johndoe/1/100175717"
+         "clickRecommended" : "//event.perso.ibexa.co/clickrecommended/johndoe/1/100175717?scenario=also_clicked&modelId=37",
+         "rendered" : "//event.perso.ibexa.co/rendered/johndoe/1/100175717"
       },
 ```
 
