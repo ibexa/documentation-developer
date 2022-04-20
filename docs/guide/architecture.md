@@ -27,5 +27,5 @@ The architecture of [[= product_name =]] is layered and uses clearly defined API
 |[Solr Storage Engine](search/solr.md)|Transparent drop-in replacement for the SQL-based Legacy search engine.|
 |[IO](file_management.md#native-io-handler)|The IO API is organized around two types of handlers, both used by the IOService.|
 |[IO Handler](clustering.md#dfs-io-handler)|The IO Handler manipulates metadata, making up for the potential inconsistency of network-based filesystems.|
-|[Recommendation](personalization/recommendation_client.md#enabling-recommendations)|Recommendation API.|
-|[Personalization server](personalization/recommendation_client.md#enabling-recommendations)|Personalization server allows displaying recommendations on the website.|
+|[Recommendation](personalization/enabling_personalization.md#enabling-recommendations)|Recommendation API.|
+|[Personalization server](personalization/enabling_personalization.md#enabling-recommendations)|Personalization server allows displaying recommendations on the website.|
