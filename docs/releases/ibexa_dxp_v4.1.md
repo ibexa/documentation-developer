@@ -34,9 +34,9 @@ With this release, Product Catalog brings new PHP APIs, productivity boost from 
 
 [Data migration](../guide/data_migration/data_migration.md) now covers additional objects:
 
-- [database settings](../guide/data_migration/importing_data.md#settings)
-- [segments](../guide/data_migration/importing_data.md#segments)
-- [prices](../guide/data_migration/importing_data.md#prices) with `create` mode
+- [database settings](https://doc.ibexa.co/en/4.1/guide/data_migration/importing_data/#settings)
+- [segments](https://doc.ibexa.co/en/4.1/guide/data_migration/importing_data/#segments)
+- [prices](https://doc.ibexa.co/en/4.1/guide/data_migration/importing_data/#prices) with `create` mode
 
 ## Full changelog
 
