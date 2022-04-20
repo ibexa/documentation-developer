@@ -187,7 +187,7 @@ structure of the website.
 
 The URL to track user clicks has the following format:
 
-`GET https://event.yoochoose.net/api/[customerid]/click/[userid]/[itemtypeid]/[itemid]`
+`GET https://event.perso.ibexa.co/api/[customerid]/click/[userid]/[itemtypeid]/[itemid]`
 
 
 |Name|Description|Values|
@@ -200,7 +200,7 @@ The URL to track user clicks has the following format:
 All embedded parameters are required for the request. 
 Some optional request parameters can be set over query string parameters (GET parameters).
 
-`GET https://event.yoochoose.net/api/[customerid]/click/[userid]/[itemtypeid]/[itemid]?parameter1=value1&parameter2=value2`
+`GET https://event.perso.ibexa.co/api/[customerid]/click/[userid]/[itemtypeid]/[itemid]?parameter1=value1&parameter2=value2`
 
 |Name|Description|Values|
 |---|---|---|
@@ -218,7 +218,7 @@ It is then assumed that the user consumed the item (read an article or watched a
 
 The URL has the following format:
 
-`GET https://event.yoochoose.net/api/[customerid]/consume/[userid]/[itemtypeid]/[itemid]`
+`GET https://event.perso.ibexa.co/api/[customerid]/consume/[userid]/[itemtypeid]/[itemid]`
 
 All embedded parameters are the same as for a Click event. 
 The following table lists the request parameters:
@@ -255,7 +255,7 @@ to ensure that no further action of the user can result in an abort.
 
 The URL has the following format: 
 
-`GET https://event.yoochoose.net/api/[customerid]/buy/[userid]/[itemtypeid]/[itemid]?fullprice=2.50EUR&quantity=4`
+`GET https://event.perso.ibexa.co/api/[customerid]/buy/[userid]/[itemtypeid]/[itemid]?fullprice=2.50EUR&quantity=4`
 
 In addition to the fact that an item is bought, this event should provide information 
 about the product price and quantity.
@@ -309,7 +309,7 @@ The Login event serves exactly this purpose.
 
 The format of the URL is: 
 
-`GET https://event.yoochoose.net/api/[customerid]/login/[sourceuserid]/[targetuserid]`
+`GET https://event.perso.ibexa.co/api/[customerid]/login/[sourceuserid]/[targetuserid]`
 
 |Name|Description|Values|
 |---|---|---|
@@ -330,7 +330,7 @@ and plan to buy them later.
 With the help of this information, personalized shopping cart-based recommendations 
 can be provided in the whole shop.
 
-`GET https://event.yoochoose.net/api/[customerid]/basket/[userid]/[itemtypeid]/[itemid]`
+`GET https://event.perso.ibexa.co/api/[customerid]/basket/[userid]/[itemtypeid]/[itemid]`
 
 There are no query string parameters for this event. 
 
@@ -342,7 +342,7 @@ to be treated separately.
 
 The format of the URL is:
 
-`GET https://event.yoochoose.net/api/[customerid]/rate/[userid]/[itemtypeid]/[itemid]?rating=50`
+`GET https://event.perso.ibexa.co/api/[customerid]/rate/[userid]/[itemtypeid]/[itemid]?rating=50`
 
 This can also be used for explicit ratings like a five-star rating for hotels. 
 A predefined rating can be submitted when the user comments on an item.
@@ -359,7 +359,7 @@ it already in another shop.
 
 The format of the URL is:
 
-`GET https://event.yoochoose.net/api/[customerid]/blacklist/[userid]/[itemtypeid]/[itemid]`
+`GET https://event.perso.ibexa.co/api/[customerid]/blacklist/[userid]/[itemtypeid]/[itemid]`
 
 There are no query string parameters for this event. 
 
@@ -395,8 +395,8 @@ Example of a recommendation response:
       },
       "category" : "Men/Shirts", // Provided only, if category suggestion is requested
       "links" : {
-         "clickRecommended" : "//event.yoochoose.net/clickrecommended/johndoe/1/100175717?scenario=also_clicked&modelId=37",
-         "rendered" : "//event.yoochoose.net/rendered/johndoe/1/100175717"
+         "clickRecommended" : "//event.perso.ibexa.co/clickrecommended/johndoe/1/100175717?scenario=also_clicked&modelId=37",
+         "rendered" : "//event.perso.ibexa.co/rendered/johndoe/1/100175717"
       },
 ```
 
@@ -416,7 +416,7 @@ to gather statistics related to the acceptance of recommendations.
 
 The URL has the following format:
 
-`GET https://event.yoochoose.net/api/[customerid]/clickrecommended/[userid]/[itemtypeid]/[itemid]?scenario=<scenarioid>`
+`GET https://event.perso.ibexa.co/api/[customerid]/clickrecommended/[userid]/[itemtypeid]/[itemid]?scenario=<scenarioid>`
 
 The embedded parameters are the same as for a Click event. 
 
@@ -443,7 +443,7 @@ same user multiple times during a session.
 
 The URL for a Rendered event has the following format:
 
-`GET https://event.yoochoose.net/api/[customerid]/rendered/[userid]/[itemtypeid]/[itemid[,itemid]]`
+`GET https://event.perso.ibexa.co/api/[customerid]/rendered/[userid]/[itemtypeid]/[itemid[,itemid]]`
 
 The Rendered event has the same embedded parameters as the Click event, except 
 for the item ID. 
@@ -457,46 +457,46 @@ Below are examples for the translation of user actions on a website into trackin
 
 User "Js79009234YU7" navigates to an item 123 of type 1, located under `Shoes/Children`:
 
-`GET https://event.yoochoose.net/api/00000/click/Js79009234YU7/1/123?categorypath=%2FShoes%2FChildren`
+`GET https://event.perso.ibexa.co/api/00000/click/Js79009234YU7/1/123?categorypath=%2FShoes%2FChildren`
 
 Products 128, 129 and 155 of type 1 are rendered as recommendations for user "Js79009234YU7". 
 Recommendations were delivered by the scenario "also\_bought":
 
-`GET https://event.yoochoose.net/api/00000/rendered/Js79009234YU7/1/128,129,155`
+`GET https://event.perso.ibexa.co/api/00000/rendered/Js79009234YU7/1/128,129,155`
 
 User clicks a recommended product 155 that was delivered by the scenario "also\_bought":
 
-`GET https://event.yoochoose.net/api/00000/clickrecommended/Js79009234YU7/1/155?scenario=also_bought`
+`GET https://event.perso.ibexa.co/api/00000/clickrecommended/Js79009234YU7/1/155?scenario=also_bought`
 
 User "Js79009234YU7" has watched a video 452 (all videos are item type "3"):
 
-`GET https://event.yoochoose.net/api/00000/consume/Js79009234YU7/3/452`
+`GET https://event.perso.ibexa.co/api/00000/consume/Js79009234YU7/3/452`
 
 User "Js79009234YU7" has watched 60 percent of a video 466:
 
-`GET https://event.yoochoose.net/api/00000/consume/Js79009234YU7/3/452?percentage=60`
+`GET https://event.perso.ibexa.co/api/00000/consume/Js79009234YU7/3/452?percentage=60`
 
 User "Js79009234YU7" puts products 128 and 129 into the shopping basket.
 
-`GET https://event.yoochoose.net/api/00000/basket/Js79009234YU7/1/128`
+`GET https://event.perso.ibexa.co/api/00000/basket/Js79009234YU7/1/128`
 
-`GET https://event.yoochoose.net/api/00000/basket/Js79009234YU7/1/129`
+`GET https://event.perso.ibexa.co/api/00000/basket/Js79009234YU7/1/129`
 
 To buy selected products, user "Js79009234YU7" logs in and obtains an internal 
 identifier (for example, the registration ID) "johndoe" from the site. 
 
-`GET https://event.yoochoose.net/api/00000/login/Js79009234YU7/johndoe`
+`GET https://event.perso.ibexa.co/api/00000/login/Js79009234YU7/johndoe`
 
 The user buys two products from the shopping basket: product 128 (one piece for 
 the price of EUR 19.99) 
 and product 129 (2 pieces for the price of EUR 4.44 each).
 
-`GET https://event.yoochoose.net/api/00000/buy/johndoe/1/128?quantity=1&fullprice=19.99EUR`
-`GET https://event.yoochoose.net/api/00000/buy/johndoe/1/129?quantity=2&fullprice=4.44EUR`
+`GET https://event.perso.ibexa.co/api/00000/buy/johndoe/1/128?quantity=1&fullprice=19.99EUR`
+`GET https://event.perso.ibexa.co/api/00000/buy/johndoe/1/129?quantity=2&fullprice=4.44EUR`
 
 User "johndoe" likes the product 133 and wants to rate it with 5 stars.
 
-`GET https://event.yoochoose.net/api/00000/rate/Js79009234YU7/1/133?rating=5`
+`GET https://event.perso.ibexa.co/api/00000/rate/Js79009234YU7/1/133?rating=5`
 
 ### Response handling
 

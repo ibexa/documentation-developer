@@ -14,7 +14,7 @@ Otherwise a new one is created.
 
 The YOOCHOOSE JavaScript is a Google-like tracking API (ga.js) that you can paste 
 into your pages. 
-It activates the YOOCHOOSE tracking by inserting <https://cdn.yoochoose.net/yct.js> 
+It activates the YOOCHOOSE tracking by inserting <https://cdn.perso.ibexa.co/ibexa-tracker.js> 
 into the page.
 
 To use this mechanism on your pages, copy the code snippet below, and replace 
@@ -34,7 +34,7 @@ the closing `</head>` tag.
     var yc = document.createElement('script'); 
     yc.type = 'text/javascript'; 
     yc.async = true;
-    yc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.yoochoose.net/yct.js';
+    yc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.perso.ibexa.co/ibexa-tracker.js';
     var ycs = document.getElementsByTagName('script')[0];
     ycs.parentNode.insertBefore(yc, ycs);
   })();
