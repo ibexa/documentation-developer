@@ -60,7 +60,7 @@ the Personalization server must receive a list of item types that are tracked.
 You define item types to be tracked in the `config/packages/ibexa.yaml` file.
 The content is then initially exported by a script.
 After this, it is synchronized with the Personalization service every time a change 
-occurs (using any method that trigers the event).
+occurs (using any method that triggers the event).
 
 The Personalization configuration is SiteAccess-aware.
 If your installation [hosts multiple sites]([[= user_doc =]]/personalization/use_cases/#multiple-stores) with different customer IDs, 
