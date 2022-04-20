@@ -196,7 +196,7 @@ nav:
               - 'Configure Image Editor': 'guide/image_editor.md'
               - 'Extend Image Editor': 'extending/extending_image_editor.md'
             - Rich Text:
-                - 'Extend Online Editor': 'extending/extending_online_editor.md'            
+                - 'Extend Online Editor': 'extending/extending_online_editor.md'
                 - 'Create custom RichText block': 'extending/richtext_block.md'
             - 'File management': 'guide/file_management.md'
             - Page:
@@ -407,7 +407,6 @@ nav:
             - Best practices:
                 - 'Tracking integration': 'guide/personalization/best_practices/tracking_integration.md'
                 - 'Recommendation integration': 'guide/personalization/best_practices/recommendation_integration.md'
-            - 'Personalization client': 'guide/personalization/recommendation_client.md'
         - Data migration:
             - 'Data migration': 'guide/data_migration/data_migration.md'
             - 'Importing data': 'guide/data_migration/importing_data.md'
