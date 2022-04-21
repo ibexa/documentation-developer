@@ -216,7 +216,7 @@ Available operators are:
 - `NIN`
 - `CONTAINS`
 - `STARTS_WITH`
-- `ENDS_WITH`.
+- `ENDS_WITH`
 
 You can combine criteria by using logical criteria `and` and `or`:
 
