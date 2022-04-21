@@ -119,6 +119,5 @@ In order to test it, just copy-paste this code into your browser console alongsi
 
 If necessary, substitute `52` with the Content ID of an item from your database.
 
-You will get the response headers in a string and the ContentInfo for item `52` in an object created by parsing the response body text as JSON.
-
-Note that if you add `request.withCredentials = true;` before `request.send();`, the request will have the same cookie as the page opened alongside the console. For example, if you are connected with an account allowed to read users, you could replace `52` (default content root on clean install) with `14` (default admin user), paste the code in the console and obtain its ContentInfo.
+TODO: Check if it works. Is `request.withCredentials = true;` needed?
+Note that by default, session authentication is used. This means that if you use this example from a page on the same server, the session cookie will be transparently sent together with the request, and every AJAX call will have the same permissions as the currently logged in user.
