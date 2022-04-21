@@ -69,11 +69,11 @@ No special preparations are necessary to use the REST API. As long as your [[= p
 
 As explained in more detail in the [authentication page](general_rest_usage.md#rest-api-authentication), three authentication methods are currently supported: session, basic and JWT. By default, session authentication is the active mode, it uses a session cookie. The alternative, basic auth authentication requires a login / password to be sent using basic HTTP authentication.
 
-TODO: It seems that auth methods could not be usable together at the same time. To activate JWT will disable Session method.
+TODO: It seems that auth methods could not be usable together at the same time. For example, to activate JWT will disable Session method.
 
-To enable basic auth based authentication, you need to edit `config/packages/security.yaml` and uncomment the configuration block about REST
+To enable basic auth based authentication, you need to edit `config/packages/security.yaml` and, in the `main` firewall, uncomment the configuration line `http_basic: ~`.
 
-TODO: Can't find this block; Where is it?
+If you prefer, you can add a dedicated firewall like the following:
 
 **security.yaml**
 
@@ -88,7 +88,7 @@ security:
                 realm: Ibexa DXP REST API
 ```
 
-TODO: ["@deprecated Use http_basic in security.yml instead of ezpublish_http_basic"](https://github.com/ibexa/core/blob/main/src/bundle/Core/DependencyInjection/Security/HttpBasicFactory.php#L14) but I didn't manage to use basic auth with neither of the two
+TODO: Merge auth config examples with general_rest_usage.md; maybe move them to rest_api_authentification.md
 TODO: https://symfony.com/doc/5.4/security.html#http-basic
 
 ### Testing the API

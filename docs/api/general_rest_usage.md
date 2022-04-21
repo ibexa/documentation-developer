@@ -380,23 +380,34 @@ For details, see [Session-based authentication](https://github.com/ezsystems/ezp
 
 ### HTTP basic authentication
 
-To enable HTTP basic authentication, edit `config/packages/security.yaml`, and add/uncomment the following block. Note that this is enabled by default.
-
-TODO: rest_api_guide.md says it's NOT activated by default. Session is activated by default. Still can't find it.
-TODO: Fix, Update and Deduplicate security.yaml example
-
 !!! caution
 
     Until [EZP-22192](https://jira.ez.no/browse/EZP-22192) is implemented, enabling basic authentication in REST will prevent PlatformUI from working.
 
 TODO: PlatformUI? https://github.com/ezsystems/PlatformUIBundle seems to have been remove in v2+
 
-``` yaml
-ezpublish_rest:
-    pattern: ^/api/ibexa/v2
-    stateless: true
-    ezpublish_http_basic:
-        realm: eZ Publish REST API
+TODO: Merge auth config examples with rest_api_guide.md; maybe move them to rest_api_authentification.md
+
+To enable HTTP basic authentication, edit `config/packages/security.yaml`, and, in the `main` firewall, uncomment the [`http_basic`](https://symfony.com/doc/5.4/security.html#http-basic) configuration line:
+
+```diff+yaml
+        main:
+            anonymous: ~
+            # activate different ways to authenticate
+
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+-            #http_basic: ~
++            http_basic: ~
+
+```
+
+If you prefer, you can add a dedicated firewall like the following:
+
+```yaml
+    ibexa_rest:
+        pattern: ^/api/ibexa/v2
+        http_basic:
+            realm: Ibexa DXP REST API
 ```
 
 Basic authentication requires the username and password to be sent *(username:password)*, based 64 encoded, with each request.
