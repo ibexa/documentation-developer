@@ -177,7 +177,7 @@ When updating a segment group or segment, you can match the object to update by 
 
 ### Settings
 
-The following example shows how to create and update a database setting:
+The following example shows how you can create and update a setting that is stored in the database:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_update_setting.yaml') =]]
