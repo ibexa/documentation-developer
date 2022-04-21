@@ -103,28 +103,22 @@ One of the main reasons for this API is to help implement JavaScript / AJAX inte
 
 **REST API with JavaScript**
 
-```html+javascript
-<pre id="rest-output"></pre>
-<script>
-var resource = '/api/ibexa/v2/content/objects/59',
-    log = document.getElementById('rest-output'),
+```javascript
+var resource = '/api/ibexa/v2/content/objects/52',
     request = new XMLHttpRequest();
 
-log.innerHTML = "Loading the content info from " + resource + "...";
-
 request.open('GET', resource, true);
-request.onreadystatechange = function () {
-    if ( request.readyState === 4 ) {
-        log.innerHTML = "HTTP response from " + resource + "\n\n" + request.getAllResponseHeaders() + "\n" + request.responseText;
-    }
-};
 request.setRequestHeader('Accept', 'application/vnd.ibexa.api.ContentInfo+json');
+request.onload = function () {
+    console.log(request.getAllResponseHeaders(), JSON.parse(request.responseText));
+};
 request.send();
-</script>
 ```
 
-In order to test it, just save this code to some test.html file in the web folder of your [[= product_name =]] installation. If you use the rewrite rules, don't forget to allow this file to be served directly.
+In order to test it, just copy-paste this code into your browser console alongside a page from your website.
 
-If necessary, substitute `59` with the Content item ID of an item from your database. You will get the ContentInfo for item 59 in JSON encoding.
+If necessary, substitute `52` with the Content ID of an item from your database.
 
-Note that by default, session authentication is used. This means that the session cookie will be transparently sent together with the request, and every AJAX call will have the same permissions as the currently logged in user.
+You will get the response headers in a string and the ContentInfo for item `52` in an object created by parsing the response body text as JSON.
+
+Note that if you add `request.withCredentials = true;` before `request.send();`, the request will have the same cookie as the page opened alongside the console. For example, if you are connected with an account allowed to read users, you could replace `52` (default content root on clean install) with `14` (default admin user), paste the code in the console and obtain its ContentInfo.
