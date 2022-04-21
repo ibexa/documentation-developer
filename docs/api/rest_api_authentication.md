@@ -13,6 +13,8 @@ For more information, see [HTTP Authentication: Basic and Digest Access Authenti
 
 For more information, see [OAuth 2.0 protocol for authorization.](https://oauth.net/2/)
 
+TODO: Is REST+OAuth documented somewhere? Any example?
+
 ## Session-based authentication
 
 Sessions are created to re-authenticate the user only  (and perform authorization), not to hold session state in the service.
@@ -25,11 +27,12 @@ For more information, see [REST API authentication / Session-based authenticatio
 If activated, the user must log in, and the client must send the session cookie in every request, using standard Cookie header.
 The name (`sessionName`) and value (`sessionID`) of the header are defined in a `/user/sessions` POST response.
 
-Example request header: `Cookie: <SessionName>=<sessionID>`.
+Example request header: `Cookie: <SessionName>=<sessionIdentifier>`.
 
 ### CSRF token
 
 A CSRF token must be sent in every request that uses unsafe methods (not GET or HEAD or OPTIONS), when a session has been established.
+TODO: List methods needing it instead of methods which doesn't?
 It should be sent with an `X-CSRF-Token` header.
 The token (`csrfToken`) is defined in a response during logging in through the POST `/user/sessions`.
 
