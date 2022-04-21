@@ -41,6 +41,7 @@ The following modes are available for specific objects:
 | `product_price`      | &#10004; |          |          |
 | `segment_group`      | &#10004; | &#10004; | &#10004; |
 | `segment`            | &#10004; | &#10004; | &#10004; |
+| `setting`            | &#10004; | &#10004; | &#10004; |
 
 
 ## Migration examples
@@ -174,6 +175,14 @@ When updating a segment group or segment, you can match the object to update by 
 [[= include_file('code_samples/data_migration/examples/create_segment.yaml', 18, 24) =]]
 ```
 
+### Settings
+
+The following example shows how you can create and update a setting that is stored in the database:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_update_setting.yaml') =]]
+```
+
 ## Criteria
 
 When using `update` or `delete` modes, you can use criteria to identify the objects to operate on.
@@ -207,7 +216,7 @@ Available operators are:
 - `NIN`
 - `CONTAINS`
 - `STARTS_WITH`
-- `ENDS_WITH`.
+- `ENDS_WITH`
 
 You can combine criteria by using logical criteria `and` and `or`:
 
