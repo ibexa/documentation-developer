@@ -36,7 +36,7 @@ add the `content/read` Policy with the Owner Limitation set to `self` to the "Ec
 
 ### Ibexa Open Source
 
-If you're upgrading to Ibexa Open Source v3.3 and have no access to `ibexa/installer` package, run the following SQL commands:
+If you are upgrading to Ibexa Open Source v3.3 and have no access to `ibexa/installer` package, run the following SQL commands:
 
 === "MySQL"
 
