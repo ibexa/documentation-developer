@@ -102,13 +102,32 @@ php bin/console cache:clear
 
 Apply the following database update script:
 
-``` bash
-mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.latest-to-4.0.0.sql
-```
+### Ibexa DXP
 
-``` bash
-psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.latest-to-4.0.0.sql
-```
+=== "MySQL"
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.latest-to-4.0.0.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.latest-to-4.0.0.sql
+    ```
+
+### Ibexa Open Source
+
+If you have no access to Ibexa DXP's `ibexa/installer` package, apply the following database upgrade script:
+
+=== "MySQL"
+    ``` sql
+    ALTER TABLE `ezcontentclassgroup` ADD COLUMN `is_system` BOOLEAN NOT NULL DEFAULT false;
+    ```
+
+=== "PostgreSQL"
+    ``` sql
+    ALTER TABLE "ezcontentclassgroup" ADD "is_system" boolean DEFAULT false NOT NULL;
+    ```
 
 ### Prepare new database tables
 
