@@ -89,6 +89,7 @@ The plugin provides the following built-in file templates:
 | Field Type Indexable | Class implementing `Ibexa\Contracts\Core\FieldType\Indexable` |
 | Field value form mapper | Class implementing `Ibexa\Contracts\ContentForms\FieldType\FieldValueFormMapperInterface` |
 | Field value object | Field Type value class |
+| Installer Provisioner | Class implementing `\Ibexa\Installer\Provisioner\ProvisionerInterface`  |
 | Menu configuration event subscriber | Event subscriber for `Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent::MAIN_MENU`  |
 | Policy provider | Class implementing `Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\PolicyProviderInterface` |
 | Policy provider (YAML) | Policy provider class based on `Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider` |
