@@ -1,0 +1,26 @@
+{
+    "RegionView": {
+        "_media-type": "application/vnd.ibexa.api.RegionView+json",
+        "identifier": "TitleView",
+        "RegionQuery": {
+            "_media-type": "application/vnd.ibexa.api.RegionQuery+json"
+        },
+        "Result": {
+            "_media-type": "application/vnd.ibexa.api.ViewResult+json",
+            "count": 2,
+            "RegionList": {
+                "_media-type": "application/vnd.ibexa.api.RegionList+json",
+                "Region": [
+                    {
+                        "_media-type": "application/vnd.ibexa.api.Region+json",
+                        "identifier": "region_1"
+                    },
+                    {
+                        "_media-type": "application/vnd.ibexa.api.Region+json",
+                        "identifier": "region_2"
+                    }
+                ]
+            }
+        }
+    }
+}

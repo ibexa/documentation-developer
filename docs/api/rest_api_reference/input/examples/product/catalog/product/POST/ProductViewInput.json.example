@@ -1,0 +1,17 @@
+{
+    "ViewInput": {
+        "identifier": "TitleView",
+        "ProductQuery": {
+            "limit": "10",
+            "offset": "0",
+            "Filter": {
+                "ProductNameCriterion": "LaSportiva Solution",
+                "ProductCodeCriterion": "solution",
+                "ProductAvailabilityCriterion": false
+            },
+            "SortClauses": {
+                "ProductName": "descending"
+            }
+        }
+    }
+}
