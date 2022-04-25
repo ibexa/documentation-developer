@@ -40,4 +40,6 @@ ibexa:
                         
 ```
 
-EventSubscriber `Ibexa\Personalization\Event\Subscriber\UniversalDiscovery\AllowedContentTypes` has been dropped because UDW is no longer used.
+![Attributes search](../img/perso_attributes_search.png)
+
+EventSubscriber `Ibexa\Personalization\Event\Subscriber\UniversalDiscovery\AllowedContentTypes` is dropped because UDW is no longer used.
