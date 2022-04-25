@@ -553,6 +553,79 @@ Response:
 }
 ```
 
+To filter products based on content fields:
+
+```
+{
+  products {
+    all {
+      edges {
+        node {
+          fields {
+            ... on DressContentFields {
+              name
+              description {
+                plaintext
+              }
+            }
+            _all {
+              fieldDefIdentifier
+              value
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+To filter products based on attributes:
+
+
+```
+{
+  products {
+    single(code: "BLUELACE") {
+      attributes {
+        ... on DressAttributes {
+          measure {
+            reason
+          }
+          lace_color {
+            identifier
+            value
+          }
+        }
+      }
+    }
+  }
+}
+
+```
+ 
+If the attribute type cannot be found in the schema, the response is:
+
+```
+{
+  "data": {
+    "products": {
+      "single": {
+        "attributes": {
+          "measure": {
+            "reason": "This attribute type isn't yet part of the schema."
+          },
+          "lace_color": {
+            "identifier": "lace_color",
+            "value": "#387be8"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
 ## Sorting
 
 You can sort query results using `sortBy`:
