@@ -60,9 +60,10 @@ You can override the global configuration per scope under `ibexa.system.<scope>.
 
 ``` yaml
 ibexa:
-    system:
+    repositories:
         <scope>:
             product_catalog:
+                engine: default
                 regions:
                     region_1:
                         vat_categories:
