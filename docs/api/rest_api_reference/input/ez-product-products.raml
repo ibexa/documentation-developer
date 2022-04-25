@@ -136,12 +136,12 @@ get:
         body:
             application/vnd.ibexa.api.ProductViewInput+json:
                 type: ProductViewInput
-                example: !include examples/product/catalog/products/POST/ProductViewInput.json.example
+                example: !include examples/product/catalog/product/POST/ProductViewInput.json.example
         responses:
             200:
                 body:
                     application/vnd.ibexa.api.ProductView+json;
                         type: ProductView
-                        example: !include examples/product/catalog/products/POST/ProductView.json.example
+                        example: !include examples/product/catalog/product/POST/ProductView.json.example
             400:
                 description: Error - the input does not match the input schema definition.
