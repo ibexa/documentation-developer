@@ -1,0 +1,10 @@
+{
+    "ViewInput": {
+        "identifier": "TitleView",
+        "AttributeGroupQuery": {
+            "limit": "10",
+            "offset": "0",
+            "name_prefix": "test"
+        }
+    }
+}

@@ -1,0 +1,55 @@
+{
+    "ProductTypeView": {
+        "_media-type": "application/vnd.ibexa.api.ProductTypeView+json",
+        "identifier": "TitleView",
+        "ProductTypeQuery": {
+            "_media-type": "application/vnd.ibexa.api.ProductTypeQuery+json"
+        },
+        "Result": {
+            "_media-type": "application/vnd.ibexa.api.ViewResult+json",
+            "count": 1,
+            "ProductTypeList": {
+                "_media-type": "application/vnd.ibexa.api.ProductTypeList+json",
+                "ProductType": [
+                    {
+                        "_media-type": "application/vnd.ibexa.api.ProductType+json",
+                        "identifier": "climbing_shoe",
+                        "name": "New Product Type",
+                        "AttributeAssignmentList": [
+                            {
+                                "_media-type": "application/vnd.ibexa.api.AttributeAssignment+json",
+                                "is_required": false,
+                                "is_discriminator": false,
+                                "Attribute": {
+                                    "_media-type": "application/vnd.ibexa.api.Attribute+json",
+                                    "identifier": "measure",
+                                    "name": "measure",
+                                    "description": "",
+                                    "type": "Measurement",
+                                    "group": "Test Attribute group",
+                                    "position": 0,
+                                    "options": "{\"type\":\"length\",\"unit\":\"millimeter\",\"inputType\":0,\"sign\":\"lte\",\"measurementRange\":{\"minimum\":-2,\"maximum\":2},\"defaultValue\":0,\"measurementDefaultRange\":{\"defaultRangeMinimumValue\":4,\"defaultRangeMaximumValue\":5}}"
+                                }
+                            },
+                            {
+                                "_media-type": "application/vnd.ibexa.api.AttributeAssignment+json",
+                                "is_required": false,
+                                "is_discriminator": false,
+                                "Attribute": {
+                                    "_media-type": "application/vnd.ibexa.api.Attribute+json",
+                                    "identifier": "leather_color",
+                                    "name": "leather color",
+                                    "description": "",
+                                    "type": "Color",
+                                    "group": "Test Attribute group",
+                                    "position": 0,
+                                    "options": "[]"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
