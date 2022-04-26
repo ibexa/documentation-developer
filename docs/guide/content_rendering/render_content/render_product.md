@@ -45,7 +45,7 @@ You can access the product's price information from the product object:
 
 The `ibexa.commerce.basket.add` route enables you to create an "Add to basket" button.
 To make the button fully functional, you must first configure all necessary information for the product, otherwise the product will not be added to basket.
-See []() for more information.
+See [Set up products for purchasing](../../catalog/set_up_products.md) for more information.
 
 ``` html+twig
 [[= include_file('code_samples/front/shop/render_product/templates/full/product.html.twig', 11, 17) =]]
