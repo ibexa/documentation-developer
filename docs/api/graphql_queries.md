@@ -582,7 +582,6 @@ To filter products based on content fields:
 
 To filter products based on attributes:
 
-
 ```
 {
   products {
