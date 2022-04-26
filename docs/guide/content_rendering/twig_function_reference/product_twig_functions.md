@@ -2,7 +2,7 @@
 
 ### `ibexa_get_product`
 
-The `ibexa_get_product()` filter renders the selected product
+The `ibexa_get_product()` filter gets the selected product
 based on either a product object or a Content item object that contains a product.
 
 #### Examples

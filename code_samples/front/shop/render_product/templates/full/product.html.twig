@@ -1,0 +1,24 @@
+{% set product = content|ibexa_get_product %}
+
+<h1>{{ ibexa_content_name(content) }}</h1>
+<p>Code: <code>{{ product.code }}</code></p>
+
+<p>{{ ibexa_render_field(content, 'description') }}</p>
+
+{{ ibexa_render_field(content, 'image', {'parameters': {'alias': 'medium'}}) }}
+
+<p>Price: {{ product.price }}</p>
+
+<form method="POST" action="{{ path('ibexa.commerce.basket.add') }}">
+    <input type="hidden" name="ses_basket[0][sku]" value="{{ product.code }}"/>
+    <input type="number" name="ses_basket[0][quantity]" value="1"/>
+
+    <button>Add to basket</button>
+</form>
+
+<h2>Specification</h2>
+<ol>
+    {% for attribute in product.attributes %}
+        <li>{{ attribute.getAttributeDefinition().getName }}: {{ attribute|ibexa_format_product_attribute }}</li>
+    {% endfor %}
+</ol>

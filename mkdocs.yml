@@ -178,8 +178,8 @@ nav:
                 - 'Controllers': 'guide/content_rendering/queries_and_controllers/controllers.md'
             - Embed and list content:
                 - 'List content': 'guide/content_rendering/embed_and_list_content/list_content.md'
+                - 'List products': 'guide/content_rendering/embed_and_list_content/list_products.md'
                 - 'Embed content': 'guide/content_rendering/embed_and_list_content/embed_content.md'
-                - 'Embed product': 'guide/content_rendering/embed_and_list_content/embed_product.md'
                 - 'Render images': 'guide/content_rendering/embed_and_list_content/render_images.md'
             - Layout:
                 - 'Add breadcrumbs': 'guide/content_rendering/layout/add_breadcrumbs.md'
