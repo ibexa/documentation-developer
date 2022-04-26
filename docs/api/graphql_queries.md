@@ -604,7 +604,7 @@ To filter products based on attributes:
 
 ```
  
-If the attribute type cannot be found in the schema, the response is:
+If the attribute type (in this case, `measure`) cannot be found in the schema, the response is:
 
 ```
 {
