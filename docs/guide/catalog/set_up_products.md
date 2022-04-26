@@ -31,7 +31,8 @@ ibexa:
 
 By default, the system always uses the first currency and the first region configured.
 
-To implement a different logic, for example a switcher for preferred currencies and regions, you need to use `CurrencyResolverInterface` and `RegionResolverInterface` in you customization.
+To implement a different logic, for example a switcher for preferred currencies and regions,
+you need to use `CurrencyResolverInterface` and `RegionResolverInterface` in you customization.
 
 ## VAT rates
 
@@ -47,5 +48,5 @@ The product must have at least one [price](../pricing/price_engine.md) configure
 
 ## Product availability
 
-Finally to enable adding to basket, you must configure the product to have [availability](catalog.md#product-availability-and-stock)
-and have positive or infinite stock.
+To enable adding a product to basket, you must configure product [availability](catalog.md#product-availability-and-stock)
+with positive or infinite stock.

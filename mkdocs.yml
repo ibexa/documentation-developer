@@ -235,7 +235,7 @@ nav:
         - Product catalog:
             - 'Catalog': 'guide/catalog/catalog.md'
             - 'Catalog configuration': 'guide/catalog/catalog_configuration.md'
-            - 'Set up products for purchase': 'guide/catalog/set_up_products.md'
+            - 'Set up products for purchasing': 'guide/catalog/set_up_products.md'
             - 'Pricing': 'guide/pricing/price_engine.md'
             - Product comparison:
                 - 'Product comparison ': 'guide/product_comparison/product_comparison.md'
