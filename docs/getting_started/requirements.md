@@ -57,7 +57,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 
 - For content search, Solr 7.7 LTS or Solr 8, or Elasticsearch 7.16 or higher 7.x version.
 - For BinaryFile Field indexing, Apache Tika 1.20 or higher 1.x version. We recommend 1.28.1 or higher.
-- The above solutions require Oracle Java/Open JDK. The minimum requirement is 8, but we recommend 11 LTS or higher.
+- The above solutions require Oracle Java/Open JDK. The minimum requirement is 8 LTS, but we recommend 11 LTS. Newer versions are not supported.
 
 ## Graphic Handler
 
