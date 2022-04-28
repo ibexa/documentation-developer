@@ -1,16 +1,16 @@
-# Attributes search in Elasticsearch database
+# Attribute search in Elasticsearch database
 
-If you use external data source, it is not possible to display external content in the Universal Discovery Widget as it is deprecated. Attributes search is used in scenario preview and editorials models instead.
-This works like an autocomplete feature however, values are dynamically taken from the Elasticsearch database.
+If you use external data source for personalization data, it is not possible to display external content in the Universal Discovery Widget as it is deprecated. Attribute search is used in scenario preview and editorials models instead.
+Attribute search works like an autocomplete feature, but values are dynamically taken from the Elasticsearch database.
 
-## Configure attributes search
+## Configure attribute search
 
-In the `config/packages/ibexa.yaml`, add the following configuration key:
+In the `config/packages/ibexa.yaml`, add the following configuration:
 
 ```yaml
 ibexa:
     system:
-       <site_access>:
+       <scope>:
             personalization:
                 output_type_attributes:
                     <item_type_id>:
