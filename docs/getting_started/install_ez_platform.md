@@ -253,12 +253,6 @@ Open your project in the browser and you should see the welcome page.
     If you are installing eZ Enterprise,
     take a look at [Installing eZ Enterprise](install_ez_enterprise.md) for additional steps.
 
-!!! tip "eZ Launchpad for quick deployment"
-
-    If you want to get your eZ Platform installation up and running quickly,
-    you can use Docker-based [eZ Launchpad](https://ezsystems.github.io/launchpad/), supported by the eZ Community,
-    which takes care of the whole setup for you.
-
 !!! note "Security checklist"
 
     See the [Security checklist](../guide/security_checklist.md) for a list of security-related issues
