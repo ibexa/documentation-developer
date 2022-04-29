@@ -356,12 +356,6 @@ service apache2 restart
 Open your project in the browser by visiting the domain address, for example `http://localhost:8080`.
 You should see the welcome page.
 
-!!! tip "eZ Launchpad for quick deployment"
-
-    To get your [[= product_name =]] installation up and running quickly,
-    use the Docker-based [eZ Launchpad](https://ezsystems.github.io/launchpad/), which takes care of the whole setup for you.
-    eZ Launchpad is supported by the Ibexa Community.
-
 ## Post-installation steps
 
 !!! note "Security checklist"
