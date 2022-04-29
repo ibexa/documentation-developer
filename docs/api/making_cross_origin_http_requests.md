@@ -1,3 +1,6 @@
+TODO: CORS is related to more than REST API. Is it?:
+TODO: Is NelmioCorsBundle can allow origins (add `Access-Control-Allow-Origin` HTTP header) to any route pattern?
+
 # Making cross-origin HTTP requests
 
 [[= product_name =]] ships with [NelmioCorsBundle](https://github.com/nelmio/NelmioCorsBundle),
@@ -47,7 +50,7 @@ nelmio_cors:
         '^/api/ibexa/v2/':
             max_age: 3600
             allow_credentials: false
-            allow_origin: ['http://ez.no']
+            allow_origin: ['http://ibexa.co']
 ```
 
 ### Granting CORS access to your own HTTP resources

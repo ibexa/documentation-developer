@@ -207,6 +207,7 @@ services:
 ```
 
 ## Fetching the modified response
+TODO: It's hard to see the customization compared to the default response
 
 After following all the steps you should see an example of the modified API response below. As you see `media-type` is correctly interpreted and `commentsCount` is also appended (it's `null` as you did not provide any logic to fetch it).
 Please note that you should set a proper `Accept` header value. For this example: `application/my.api.VersionList+json`.

@@ -1,6 +1,5 @@
 # REST API Guide
 
-The REST API v2 introduced in [[= product_name =]] allows you to interact with an [[= product_name =]] installation using the HTTP protocol, following a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
 
 ## REST API reference
 
@@ -21,20 +20,6 @@ The API provides a set of URIs, each of them identifying and providing access to
 
 ### HTTP methods
 
-It uses HTTP methods ( **`GET`** , **`POST`** , **`PUT`** , **`DELETE`** , etc.), as well as HTTP headers to specify the type of request. Depending on the used HTTP verb, different actions will be possible. Example:
-
-|Action|Description|
-|------|-----------|
-|`GET  /content/objects/2`| Provides you with data about Content item \#2|
-|`PATCH  /content/objects/2`| Updates the Content item \#2's metadata (section, main language, main location...)|
-|`DELETE  /content/objects/2`| Deletes Content item \#2|
-|`COPY  /content/objects/2`| Creates a copy of this Content|
-
-!!! note "Caution with custom HTTP verbs"
-
-    Using custom HTTP verbs, those besides the standard (GET, POST, PUT, DELETE, OPTIONS, TRACE), can cause issues with several HTTP proxies, network firewall/security solutions and simpler web servers. To avoid issues with this REST API allows you to set these using a HTTP header instead using HTTP verb POST. Example: `X-HTTP-Method-Override: PUBLISH`
-
-TODO: Where does `PUBLISH` come from? What about `PATCH`?
 
 ### Media type headers
 
@@ -66,30 +51,6 @@ No special preparations are necessary to use the REST API. As long as your [[= p
 ### Configuration
 
 #### Authentication
-
-As explained in more detail in the [authentication page](general_rest_usage.md#rest-api-authentication), three authentication methods are currently supported: session, basic and JWT. By default, session authentication is the active mode, it uses a session cookie. The alternative, basic auth authentication requires a login / password to be sent using basic HTTP authentication.
-
-TODO: It seems that auth methods could not be usable together at the same time. For example, to activate JWT will disable Session method.
-
-To enable basic auth based authentication, you need to edit `config/packages/security.yaml` and, in the `main` firewall, uncomment the configuration line `http_basic: ~`.
-
-If you prefer, you can add a dedicated firewall like the following:
-
-**security.yaml**
-
-```yaml
-security:
-    # ...
-    firewalls:
-        # ...
-        ibexa_rest:
-            pattern: ^/api/ibexa/v2
-            http_basic:
-                realm: Ibexa DXP REST API
-```
-
-TODO: Merge auth config examples with general_rest_usage.md; maybe move them to rest_api_authentification.md
-TODO: https://symfony.com/doc/5.4/security.html#http-basic
 
 ### Testing the API
 

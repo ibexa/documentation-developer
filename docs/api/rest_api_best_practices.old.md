@@ -111,17 +111,3 @@ In practice, the `/api/ibexa/v2` prefixes are all REST hrefs.
 Remember that the URIs to REST resources should never be generated manually, but obtained from earlier REST calls.
 
 ### OPTIONS requests
-
-Any URI resource that the REST API responds to will respond to an OPTIONS request.
-
-The response contains an `Allow` header, that as specified in [chapter 14.7 of RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.7) lists the methods accepted by the resource.
-
-```
-OPTIONS /content/objects/1 HTTP/1.1
-Host: api.example.net
-```
-
-```
-HTTP/1.1 200 OK
-Allow: PATCH,GET,DELETE,COPY
-```

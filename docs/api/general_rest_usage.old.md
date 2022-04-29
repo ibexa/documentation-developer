@@ -156,32 +156,15 @@ Accept: application/vnd.ibexa.api.RelationList+xml
 ### Working with value objects IDs
 
 Resources that accept a reference to another resource expect reference to be given as a REST ID, not as a Public API ID.
+TODO: What does it mean?
 For example, the URI requesting a list of users assigned to the role with ID 1 is:
 
 ```
 GET /api/ibexa/v2/user/users?roleId=/api/ibexa/v2/user/roles/1
 ```
+TODO: What is the error to not make? /api/ibexa/v2/user/users?roleId=1
 
 ## Custom HTTP verbs
-
-In addition to the usual GET, POST, PUT, and DELETE HTTP verbs, the API supports a few custom ones: 
-
-- COPY
-- [MOVE](http://tools.ietf.org/html/rfc2518)
-- [PATCH](http://tools.ietf.org/html/rfc5789)
-- PUBLISH
-
-They should be recognized by most of the HTTP servers. 
-If the server does not recognize the custom methods you use, you can customize a standard verb (e.g. POST or PUT) with the `X-HTTP-Method-Override` header.
-
-**PATCH HTTP request**
-
-```
-POST /content/objects/59 HTTP/1.1
-X-HTTP-Method-Override: PATCH
-```
-
-If applicable, both methods are always mentioned in the specifications.
 
 ### Logical operators
 
@@ -295,155 +278,11 @@ Session-based is the default authentication method as it is needed for UI.
 
 ### Session-based authentication
 
-This authentication method requires a Session cookie to be sent with each request.
-
-If this authentication method is used with a web browser, this session cookie is automatically available as soon as your visitor logs in.
-Add it as a cookie to your REST requests, and the user will be authenticated.
-
 #### Logging in
-
-You can create a session for a visitor even if they are not logged in by sending the **`POST`** request to `/user/sessions`.
-For logging out, use the **`DELETE`** request on the same resource.
-
-**Creating session — XML example**
-
-```
-POST /user/sessions HTTP/1.1
-Host: www.example.net
-Accept: application/vnd.ibexa.api.Session+xml
-Content-Type: application/vnd.ibexa.api.SessionInput+xml
-```
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SessionInput>
-  <login>admin</login>
-  <password>secret</password>
-</SessionInput>
-```
-
-```
-HTTP/1.1 201 Created
-Location: /user/sessions/go327ij2cirpo59pb6rrv2a4el2
-Set-Cookie: eZSSID=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
-Content-Type: application/vnd.ibexa.api.Session+xml
-```
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<Session href="/user/sessions/sessionID" media-type="application/vnd.ibexa.api.Session+xml">
-  <name>eZSSID</name>
-  <identifier>go327ij2cirpo59pb6rrv2a4el2</identifier>
-  <csrfToken>23lkneri34ijajedfw39orj3j93</csrfToken>
-  <User href="/user/users/14" media-type="vnd.ibexa.api.User+xml"/>
-</Session>
-```
-
-**Logging in with active session — XML example**
-
-```
-POST /user/sessions HTTP/1.1
-Host: www.example.net
-Accept: application/vnd.ibexa.api.Session+xml
-Content-Type: application/vnd.ibexa.api.SessionInput+xml
-Cookie: eZSSID=go327ij2cirpo59pb6rrv2a4el2
-X-CSRF-Token: 23lkneri34ijajedfw39orj3j93
-```
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SessionInput>
-  <login>admin</login>
-  <password>secret</password>
-</SessionInput>
-```
-
-```
-HTTP/1.1 200 OK
-Content-Type: application/vnd.ibexa.api.Session+xml
-```
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<Session href="user/sessions/go327ij2cirpo59pb6rrv2a4el2/refresh" media-type="application/vnd.ibexa.api.Session+xml">
-  <name>eZSSID</name>
-  <identifier>go327ij2cirpo59pb6rrv2a4el2</identifier>
-  <csrfToken>23lkneri34ijajedfw39orj3j93</csrfToken>
-  <User href="/user/users/14" media-type="vnd.ibexa.api.User+xml"/>
-</Session>
-```
-
-The `csrfToken` is returned in the login response.
-It is important to keep the CSRF Token for the duration of the session as it needs to be sent with requests other than GET/HEAD when auth is set to session (in most cases it is).
-
-For details, see [Session-based authentication](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta5/doc/specifications/rest/REST-API-V2.rst#session-based-authentication) in the REST specifications.
 
 ### HTTP basic authentication
 
-!!! caution
-
-    Until [EZP-22192](https://jira.ez.no/browse/EZP-22192) is implemented, enabling basic authentication in REST will prevent PlatformUI from working.
-
-TODO: PlatformUI? https://github.com/ezsystems/PlatformUIBundle seems to have been remove in v2+
-
-TODO: Merge auth config examples with rest_api_guide.md; maybe move them to rest_api_authentification.md
-
-To enable HTTP basic authentication, edit `config/packages/security.yaml`, and, in the `main` firewall, uncomment the [`http_basic`](https://symfony.com/doc/5.4/security.html#http-basic) configuration line:
-
-```diff+yaml
-        main:
-            anonymous: ~
-            # activate different ways to authenticate
-
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
--            #http_basic: ~
-+            http_basic: ~
-
-```
-
-If you prefer, you can add a dedicated firewall like the following:
-
-```yaml
-    ibexa_rest:
-        pattern: ^/api/ibexa/v2
-        http_basic:
-            realm: Ibexa DXP REST API
-```
-
-Basic authentication requires the username and password to be sent *(username:password)*, based 64 encoded, with each request.
-For details, see [RFC 2617](http://tools.ietf.org/html/rfc2617).
-
-Most HTTP client libraries as well as REST libraries support this method.
-
-**Raw HTTP request with basic authentication**
-
-```
-GET / HTTP/1.1
-Host: api.example.com
-Accept: application/vnd.ibexa.api.Root+json
-Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
-```
-
 ### JWT authentication
-
-After you [configure JWT authentication](../guide/security.md#jwt-authentication)
-you can get the JWT token through the following request:
-
-```
-POST /user/token/jwt HTTP/1.1
-Host: <yourdomain>
-Accept: application/vnd.ibexa.api.JWT+xml
-Content-Type: application/vnd.ibexa.api.JWTInput+xml
-```
-
-Provide the user name and password in the request body:
-
-``` xml
-<JWTInput>
-    <username>admin</username>
-    <password>publish</password>
-</JWTInput>
-```
 
 ### Error handling
 
@@ -459,17 +298,22 @@ A few error codes apply to most resources (if they *are* applicable):
 
 |Error code|Error message|Description|
 |----------|-----------|-------------|
+|`401`|Unauthorized|The User does not have the permission to make this request.|
 |`404`|Not Found|Returned when the request failed because the request object was not found.|
 |`405`|Method Not Allowed|Returned when the requested REST API resource does not support the HTTP verb that was used.|
 |`406`|Not Acceptable|Returned when an accept header sent with the requested is not supported.|
 |`500`|Internal Server Error|The server encountered an unexpected condition, usually an exception, which prevents it from fulfilling the request: database down, permissions or configuration error.|
 |`501`|Not Implemented|Returned when the requested method has not yet been implemented. For [[= product_name =]], most of Users, User groups, Content items, Locations and Content Types have been implemented. Some of their methods, as well as other features, may return a 501.|
 
+TODO: Could success code be also interesting? Like 200 OK, 204 No Content
+
 #### Error handling in your REST implementation
 
 Depending on your client implementation, handle these codes by checking if an error code (4xx or 5xx) was returned instead of the expected 2xx or 3xx.
 
 ## REST API countries list
+
+TODO: What is the interest to have this feature here in addition to the API reference?
 
 Countries list is a REST service that gives access to an [ISO-3166](http://en.wikipedia.org/wiki/ISO_3166) formatted list of world countries. It is useful when presenting a country options list from any application.
 

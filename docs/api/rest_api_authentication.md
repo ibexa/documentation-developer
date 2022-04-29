@@ -3,40 +3,130 @@
 This page refers to [REST API reference](rest_api_reference/rest_api_reference.html), where you can find detailed information about
 REST API resources and endpoints.
 
+Five authentication methods are currently supported: session (default), basic, JWT, OAuth and client certificate (SSL).
+TODO: Confirm OAuth and certificate (SSL)
+
+Those methods can't be used at the same time.
+TODO: Confirm; priorities: session < basic < JWT; What about OAuth and SSL?
+
 Using HTTPS for authenticated (REST) traffic is highly recommended.
 
-## Basic authentication
-
-For more information, see [HTTP Authentication: Basic and Digest Access Authentication.](http://tools.ietf.org/html/rfc2617)
-
-## OAuth
-
-For more information, see [OAuth 2.0 protocol for authorization.](https://oauth.net/2/)
-
-TODO: Is REST+OAuth documented somewhere? Any example?
-
 ## Session-based authentication
+https://doc.ibexa.co/en/latest/api/rest_api_authentication/#session-based-authentication
 
-Sessions are created to re-authenticate the user only  (and perform authorization), not to hold session state in the service.
+This authentication method requires a Session cookie to be sent with each request.
+
+If this authentication method is used with a web browser, this session cookie is automatically available as soon as your visitor logs in.
+Add it as a cookie to your REST requests, and the user will be authenticated.
+
+Sessions are created to re-authenticate the user only (and perform authorization), not to hold session state in the service.
 Because of that, we regard this method as supporting AJAX-based applications even if it violates the principles of RESTful services.
 
-For more information, see [REST API authentication / Session-based authentication](general_rest_usage.md#session-based-authentication).
+### Configuration
 
-### Session cookie
+Session is the default method and is already enabled; no configuration required. Notice that enabling whatever other method will disable session.
+TODO: Is OAuth or certificate methods also disable the session one?
 
-If activated, the user must log in, and the client must send the session cookie in every request, using standard Cookie header.
-The name (`sessionName`) and value (`sessionID`) of the header are defined in a `/user/sessions` POST response.
+### Usage examples
+https://doc.ibexa.co/en/latest/api/general_rest_usage/#session-based-authentication
 
-Example request header: `Cookie: <SessionName>=<sessionIdentifier>`.
+You can create a session for a visitor even if they are not logged in by sending the **`POST`** request to `/user/sessions`.
+For logging out, use the **`DELETE`** request on the same resource.
 
-### CSRF token
+#### Establishing a session
+
+**Creating session — XML example**
+
+```
+POST /user/sessions HTTP/1.1
+Host: www.example.net
+Accept: application/vnd.ibexa.api.Session+xml
+Content-Type: application/vnd.ibexa.api.SessionInput+xml
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SessionInput>
+  <login>admin</login>
+  <password>secret</password>
+</SessionInput>
+```
+
+```
+HTTP/1.1 201 Created
+Location: /user/sessions/go327ij2cirpo59pb6rrv2a4el2
+Set-Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
+Content-Type: application/vnd.ibexa.api.Session+xml
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Session href="/user/sessions/sessionID" media-type="application/vnd.ibexa.api.Session+xml">
+  <name>eZSESSID98defd6ee70dfb1dea416</name>
+  <identifier>go327ij2cirpo59pb6rrv2a4el2</identifier>
+  <csrfToken>23lk.neri34ijajedfw39orj-3j93</csrfToken>
+  <User href="/user/users/14" media-type="vnd.ibexa.api.User+xml"/>
+</Session>
+```
+
+**Logging in with active session — XML example**
+
+```
+POST /user/sessions HTTP/1.1
+Host: www.example.net
+Accept: application/vnd.ibexa.api.Session+xml
+Content-Type: application/vnd.ibexa.api.SessionInput+xml
+Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
+X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SessionInput>
+  <login>admin</login>
+  <password>secret</password>
+</SessionInput>
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/vnd.ibexa.api.Session+xml
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Session href="user/sessions/go327ij2cirpo59pb6rrv2a4el2/refresh" media-type="application/vnd.ibexa.api.Session+xml">
+  <name>eZSESSID98defd6ee70dfb1dea416</name>
+  <identifier>go327ij2cirpo59pb6rrv2a4el2</identifier>
+  <csrfToken>23lk.neri34ijajedfw39orj-3j93</csrfToken>
+  <User href="/user/users/14" media-type="vnd.ibexa.api.User+xml"/>
+</Session>
+```
+
+#### Use the session
+
+##### Session cookie
+
+The cookie previously set can now be joined to request to be executed with this user.
+
+```
+GET /content/locations/1/5 HTTP/1.1
+Host: www.example.net
+Accept: Accept: application/vnd.ibexa.api.Location+xml
+Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
+```
+
+##### CSRF token
+
+It can be important to keep the CSRF Token (`csrfToken`) for the duration of the session as this CSRF token must be sent in every request that uses unsafe methods (DELETE, TODO, not GET or HEAD or OPTIONS), when a session has been established.
+It should be sent with an `X-CSRF-Token` header.
+TODO: List methods needing it instead of methods which doesn't?
+TODO: Is CSRF token also needed to close a session with DELETE?
+
+For details, see [Session-based authentication](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta5/doc/specifications/rest/REST-API-V2.rst#session-based-authentication) in the REST specifications.
 
 A CSRF token must be sent in every request that uses unsafe methods (not GET or HEAD or OPTIONS), when a session has been established.
-TODO: List methods needing it instead of methods which doesn't?
-It should be sent with an `X-CSRF-Token` header.
 The token (`csrfToken`) is defined in a response during logging in through the POST `/user/sessions`.
-
-Example request headers:
 
 ```
 DELETE /content/types/32 HTTP/1.1
@@ -48,35 +138,119 @@ DELETE /user/sessions/<sessionID>
 X-CSRF-Token: <csrfToken>
 ```
 
-If an unsafe request is missing the CSRF token, or the token has incorrect value, an error is returned: `401 Unauthorized`.
+If an unsafe request is missing the CSRF token, or the token has incorrect value, an error is returned: `401 Unauthorized`.cations/rest/REST-API-V2.rst#session-based-authentication) in the REST specifications.
 
-### Rich client application security concerns
 
-The purpose of CSRF protection is to prevent users from accidentally running harmful operations by being tricked into executing an HTTP(S) request against a web applications they are logged into.
-In browsers this action will be blocked by lack of CSRF token.
+## HTTP basic authentication
+https://doc.ibexa.co/en/latest/api/rest_api_authentication/#basic-authentication
 
-However, if you develop a rich client application (JavaScript, JAVA, iOS, Android, etc.), that is:
+For more information, see [HTTP Authentication: Basic and Digest Access Authentication](http://tools.ietf.org/html/rfc2617).
 
-- Registering itself as a protocol handler:
-    - Exposes unsafe methods in any way
-- Authenticates using either:
-    - Session-based authentication
-    - "Client side session" by remembering user login/password
+### Configuration
 
-Then, you have to make sure to confirm with the user if they want to perform an unsafe operation.
+To enable HTTP basic authentication, edit `config/packages/security.yaml`, and, in the `main` firewall, uncomment the [`http_basic`](https://symfony.com/doc/5.4/security.html#http-basic) configuration line:
 
-Example: 
+```diff+yaml
+        main:
+            anonymous: ~
+            # activate different ways to authenticate
 
-A rich JavaScript/web application is using `navigator.registerProtocolHandler()` to register "web+ez:" links to go against REST API.
-It uses a session-based authentication, and it is in widespread use across the net, or/and it is used by everyone within a company.
-A person with minimal insight into this application and the company can easily send out the following link to all employees in that company in email: 
-`<a href="web+ez:DELETE /content/locations/1/2">latest reports</a>`.
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+-            #http_basic: ~
++            http_basic: ~
 
-## SSL client authentication
+```
+
+Instead, ff you prefer, you can add a dedicated firewall like the following before the `main` one:
+
+```yaml
+    ibexa_rest:
+        pattern: ^/api/ibexa/v2
+        http_basic:
+            realm: Ibexa DXP REST API
+```
+
+### Usage example
+https://doc.ibexa.co/en/latest/api/general_rest_usage/#http-basic-authentication
+
+Basic authentication requires the username and password to be sent *(username:password)*, based 64 encoded, with each request.
+For details, see [RFC 2617](http://tools.ietf.org/html/rfc2617).
+
+Most HTTP client libraries as well as REST libraries support this method.
+
+**Raw HTTP request with basic authentication**
+
+```
+GET / HTTP/1.1
+Host: api.example.com
+Accept: application/vnd.ibexa.api.Root+json
+Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
+```
+
+
+## JWT authentication
+
+### Configuration
+https://doc.ibexa.co/en/latest/guide/security/#jwt-authentication
+
+See [JWT authentication](../guide/security/#jwt-authentication) to lear how to enable JWT for REST and/or GraphQL.
+
+### Usage example
+https://doc.ibexa.co/en/latest/api/general_rest_usage/#jwt-authentication
+
+After you [configure JWT authentication](../guide/security.md#jwt-authentication) at least for REST,
+you can get the JWT token through the following request:
+
+```
+POST /user/token/jwt HTTP/1.1
+Host: <yourdomain>
+Accept: application/vnd.ibexa.api.JWT+xml
+Content-Type: application/vnd.ibexa.api.JWTInput+xml
+```
+
+Provide the username and password in the request body:
+
+```xml
+<JWTInput>
+    <username>admin</username>
+    <password>publish</password>
+</JWTInput>
+```
+
+If credentials are valid, the server response will contain a token:
+
+```xml
+<JWT media-type="application/vnd.ibexa.api.JWT+xml" token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg"/>
+```
+
+You can then use this token in your request instead of username and password.
+
+```
+GET /content/locations/1/5/children
+Host: <yourdomain>
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg
+Accept: application/vnd.ibexa.api.LocationList+xml
+```
+
+
+## OAuth?
+https://doc.ibexa.co/en/latest/api/rest_api_authentication/#oauth
+
+For more information, see [OAuth 2.0 protocol for authorization.](https://oauth.net/2/)
+
+### Configuration
+TODO
+
+### Usage example
+TODO
+
+## SSL client authentication?
+https://doc.ibexa.co/en/latest/api/rest_api_authentication/#ssl-client-authentication
 
 The REST API provides authentication of a user by a subject in a client certificate delivered by the web server configured as SSL endpoint.
 
-## TODO: JWT
-TODO: This page should list all authentication method
+### Configuration
+TODO
 
-For more information, see [REST API authentication / JWT authentication](general_rest_usage.md#jwt-authentication).
+### Usage example
+TODO
