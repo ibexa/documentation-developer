@@ -237,22 +237,6 @@ Note that making the `AND` query for different values of the same criterion type
 
 ## Specifying SiteAccess
 
-One of the principles of REST is that the same resource (Content item, Location, Content Type, etc.) should be unique.
-It allows caching your REST API using a reverse proxy like Varnish.
-If the same resource is available in multiple locations, cache purging is noticeably more complex.
-
-Consequently, SiteAccess matching with REST is not enabled.
-In order to specify a SiteAccess when talking to the REST API, a custom `X-Siteaccess` header has to be provided. If not, the default one is used:
-
-**X-Siteaccess header example**
-
-```
-GET / HTTP/1.1
-Host: api.example.com
-Accept: application/vnd.ibexa.api.Root+json
-X-Siteaccess: ezdemo_site_admin
-```
-
 ## REST API authentication
 
 The REST API supports the following authentication methods:

@@ -5,18 +5,6 @@ REST API resources and endpoints.
 
 ## Specifying SiteAccess
 
-In order to specify a SiteAccess when communicating with the REST API, provide a custom `X-Siteaccess` header.
-If it is not provided, the default SiteAccess is be used.
-
-Example:
-
-```
-GET / HTTP/1.1
-Host: api.example.com
-Accept: application/vnd.ibexa.api.Root+json
-X-Siteaccess: admin
-```
-
 ## Media types
 
 The methods on resources provide multiple media types in their responses.
