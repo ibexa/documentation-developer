@@ -175,6 +175,20 @@ or
 
 `DATABASE_URL=postgresql://user:password@host:port/database_name`.
 
+!!! tip "Encoding database password"
+
+    The password entered in `DATABASE_URL` must either be URL encoded, or not contain any special characters that would require URL encoding.
+    
+    #### Alternative 1: URL encoding
+    
+    This involves two steps. First, the password must be URL encoded. This can for instance be done with PHP's `urlencode()` function. This converts e.g. a password like `(/!=#Æ¤*;%?[` to `%28%2F%21%3D%23%C3%86%C2%A4%2A%3B%25%3F%5B`.
+    
+    Second, you must remove `resolve:` from `doctrine.dbal.url` in `config/packages/doctrine.yaml`. That means changing `%env(resolve:DATABASE_URL)%` to `%env(DATABASE_URL)%`.
+    
+    #### Alternative 2: Avoid special characters
+    
+    If your password only contains letters a-z, A-Z, and numbers 0-9, you don't need to do any encoding. You can either create your password that way, in which case it is a good idea to make it longer to maintain entropy, keeping the password hard to guess for an attacker. Or, you can for instance convert your password with `bin2hex()`, so that e.g. `(/!=#Æ¤*;%?[` becomes `282f213d23c386c2a42a3b253f5b`. The output from bin2hex is limited to 0-9 and a-f. As you can see this more than doubles the length, keeping entropy similar.
+
 Choose a [secret]([[= symfony_doc =]]/reference/configuration/framework.html#secret)
 and provide it in the `APP_SECRET` parameter in `.env`.
 It should be a random string, made up of at least 32 characters, numbers, and symbols.
