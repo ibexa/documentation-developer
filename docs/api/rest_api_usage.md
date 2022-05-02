@@ -4,16 +4,16 @@ TODO: Introduction? Do not explain what REST is, only the specificity of Ibexa D
 
 The REST API v2 introduced in [[= product_name =]] allows you to interact with an [[= product_name =]] installation using the HTTP protocol, following a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
 
+The REST API uses HTTP methods ( **`GET`** , **`POST`** , **`DELETE`** , etc.), as well as HTTP headers to specify the type of request.
+
 ## HTTP verbs
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#http-methods
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#custom-http-verbs
 
-TODO: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
-TODO: Standard: GET, POST, DELETE, OPTIONS; Is PUT used??
-TODO: Almost? standard: PATCH
-TODO: Custom: COPY, MOVE, PUBLISH
+TODO: Is PUT used?? What about HEAD? or TRACE?
+TODO: "Verb" VS "Method"; Why our doc uses "verb" while others like RFCs use "method"? Even in `X-HTTP-Method-Override`…
 
-It uses HTTP methods ( **`GET`** , **`POST`** , **`PUT`** , **`DELETE`** , etc.), as well as HTTP headers to specify the type of request. Depending on the used HTTP verb, different actions will be possible. Example:
+Depending on the used HTTP verb (or method), different actions will be possible on the same resource. Example:
 
 | Action                                  | Description                                                          |
 |-----------------------------------------|----------------------------------------------------------------------|
@@ -24,31 +24,28 @@ It uses HTTP methods ( **`GET`** , **`POST`** , **`PUT`** , **`DELETE`** , etc.)
 | `PUBLISH  /content/objects/2/version/3` | Promotes the version \#3 of Content item \#2 from draft to published |
 | `OPTIONS  /content/objects/2/version/3` | Lists all the verbs usable with this resource, the 5 ones above      |
 
+The following list of available verbs just give a quick hint of the action a verb will trigger on a resource if available. For action details, see the [REST API reference](rest_api_reference/rest_api_reference.html).
+
+| HTTP verb/method                                           |          | Description                                                        |
+|------------------------------------------------------------|----------|--------------------------------------------------------------------|
+| [GET](https://tools.ietf.org/html/rfc2616#section-9.3)     | Standard | To collect data                                                    |
+| [POST](https://tools.ietf.org/html/rfc2616#section-9.5)    | Standard | To send a payload to create an item (content, session, role, etc.) |
+| [PATCH](http://tools.ietf.org/html/rfc5789)                | Custom   | To send a payload to update an item                                |                            
+| COPY                                                       | Custom   | To duplicate an item                                               |
+| [MOVE](http://tools.ietf.org/html/rfc2518)                 | Custom   | To move an item (Location, etc)                                    |                           
+| PUBLISH                                                    | Custom   | To publish an item                                                 |
+| [DELETE](https://tools.ietf.org/html/rfc2616#section-9.7)  | Standard | To remove an item                                                  |
+| [OPTIONS](https://tools.ietf.org/html/rfc2616#section-9.2) | Standard | To list available verb for a resource                              |
+
 !!! note "Caution with custom HTTP verbs"
 
-    Using custom HTTP verbs, those besides the standard (GET, POST, PUT, DELETE, OPTIONS, TRACE), can cause issues with several HTTP proxies, network firewall/security solutions and simpler web servers. To avoid issues with this REST API allows you to set these using a HTTP header instead using HTTP verb POST. Example: `X-HTTP-Method-Override: PUBLISH`
-
-In addition to the usual GET, POST, PUT, and DELETE HTTP verbs, the API supports a few custom ones:
-
-- COPY
-- [MOVE](http://tools.ietf.org/html/rfc2518)
-- [PATCH](http://tools.ietf.org/html/rfc5789)
-- PUBLISH
-
-They should be recognized by most of the HTTP servers.
-If the server does not recognize the custom methods you use, you can use the `POST` verb and precise the custom verb with the `X-HTTP-Method-Override` header.
-
-**PATCH HTTP request**
-
-```
-POST /content/objects/59 HTTP/1.1
-X-HTTP-Method-Override: PATCH
-```
+    Using custom HTTP verbs can cause issues with several HTTP proxies, network firewall/security solutions and simpler web servers. To avoid issues with this, REST API allows you to set these using the HTTP header `X-HTTP-Method-Override` along standard `POST` instead of using a custom HTTP verb. Example: `X-HTTP-Method-Override: PUBLISH`
 
 If applicable, both methods are always mentioned in the specifications.
 
 ### OPTIONS requests
 https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#options-requests
+TODO: Needed or table above is enough?
 
 Any URI resource that the REST API responds to will respond to an OPTIONS request.
 
@@ -66,6 +63,8 @@ Allow: PATCH,GET,DELETE,COPY
 
 ## Headers
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#other-headers
+
+TODO: Intro listing the main headers: `Accept` describing the response type and format, `Content-Type` describing the payload type and format, `X-Siteaccess` specifying the target SiteAccess, `X-HTTP-Method-Override` allowing to pass a verb while using `POST` method as previously seen  
 
 ### SiteAccess
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#specifying-siteaccess
