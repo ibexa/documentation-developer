@@ -7,11 +7,12 @@ First, prepare the HTML code structure and place it in a Twig template. See the 
 ```html
 <div 
         class="items-container-drag"
-        data-placeholder='<div class="item-placeholder-drag">item placeholder name</div>'>
-        <div class="item-drag" draggable="true">item name</div>
-        <div class="item-drag" draggable="true">item name</div>
-        <div class="item-drag" draggable="true">item name</div>
-    </div>
+        data-placeholder='<div class="item-placeholder-drag">item placeholder name</div>'
+>
+    <div class="item-drag" draggable="true">item name</div>
+    <div class="item-drag" draggable="true">item name</div>
+    <div class="item-drag" draggable="true">item name</div>
+</div>
 ```
 
 ## Initialize

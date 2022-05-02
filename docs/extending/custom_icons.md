@@ -41,7 +41,7 @@ It requires Content Type identifier as an argument. The function returns the pat
 
 Content Types icons configuration is stored in a global object: `ibexa.adminUiConfig.contentTypes`.
 
-You can easily retrieve the icon URL with the `getContentTypeIcon` helper function that is set on the global `eZ.helpers.contentType` object.
+You can easily retrieve the icon URL with the `getContentTypeIcon` helper function that is set on the global `ibexa.helpers.contentType` object.
 It takes Content Type identifier as an argument and returns one of the following items:
 
 - URL of a specified Content Type's icon

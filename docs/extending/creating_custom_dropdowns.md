@@ -10,15 +10,15 @@ First prepare the component structure and place it in the template inside the `c
 ```twig
 {% include '@ibexadesign/ui/component/dropdown.html.twig' with {
     source,
-    choices: choices,
-    preferred_choices: preferred_choices,
-    value: value,
-    multiple: multiple,
-    translation_domain: translation_domain,
-    custom_form: custom_form,
-    class: class,
-    placeholder: placeholder,
-    custom_init: custom_init
+    choices,
+    preferred_choices,
+    value,
+    multiple,
+    translation_domain,
+    custom_form,
+    class,
+    placeholder,
+    custom_init,
 } %}
 ```
 
@@ -114,7 +114,7 @@ Name|Values|Definition|
 `placeholder`|Displayed placeholder when no option is selected.|
 |`custom_init`|true</br>false|By default set to `false`. If set to `true`, requires to manually initialize drop-down in the JavaScript.|
 
-![Dropd-own expanded state](img/dropdown_expanded_state.png)
+![Drop-down expanded state](img/dropdown_expanded_state.png)
 
 ## Initialize
 
@@ -123,11 +123,9 @@ All drop-downs are searched and initialized automatically in `admin.dropdown.js`
 ```javascript
 (function (global, document) {
 const container = document.querySelector('.ibexa-dropdown');
-const dropdown = new global.ibexa.core.CustomDropdown({
-    container: container,
-    selectorSource: selectorSource,
-    itemsContainer: container.querySelector('.ibexa-dropdown__items'),
-    hasDefaultSelection: true
+const dropdown = new global.ibexa.core.Dropdown({
+    container,
+    selectorSource,
 });
 
 dropdown.init();
