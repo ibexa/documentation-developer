@@ -119,7 +119,7 @@ Name|Values|Definition|
 
 ## Initialize
 
-All drop-downs are searched and initialized automatically in `admin.dropdown.js`. However, if you want to extend it or make some modifications, run the following JavaScript code:
+All drop-downs are searched and initialized automatically in `admin.dropdown.js`. To extend or modify it, you need to add a `custom_init` parameter to twig element. otherwise it will be initialized two times. Next, run the following JavaScript code:
 
 ```javascript
 (function (global, document) {
