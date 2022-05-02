@@ -23,11 +23,6 @@ The API provides a set of URIs, each of them identifying and providing access to
 
 ### Media type headers
 
-On top of methods, HTTP request headers will allow you to personalize the request's behavior. On every resource, you can use the Accept header to indicate which format you want to communicate in, JSON or XML. This header is also used to specify the response type you want the server to send when multiple ones are available.
-
--   `Accept: application/vnd.ibexa.api.Content+xml` to get **Content** (full data, fields included) as **[XML](http://www.w3.org/XML/)**
--   `Accept: application/vnd.ibexa.api.ContentInfo+json` to get **ContentInfo** (metadata only) as **[JSON](http://www.json.org/)**
-
 !!! note "More information"
 
     For more information, see [Media Types](rest_api_best_practices.md#media-types).

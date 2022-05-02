@@ -95,6 +95,93 @@ TODO: Notice that to login (at least with a session), anonymous must have user/l
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#media-type-headers
 https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#media-types
 
+On top of methods, HTTP request headers will allow you to personalize the request's behavior. On every resource, you can use the Accept header to indicate which format you want to communicate in, JSON or XML. This header is also used to specify the response type you want the server to send when multiple ones are available.
+
+-   `Accept: application/vnd.ibexa.api.Content+xml` to get **Content** (full data, fields included) as **[XML](http://www.w3.org/XML/)**
+-   `Accept: application/vnd.ibexa.api.ContentInfo+json` to get **ContentInfo** (metadata only) as **[JSON](http://www.json.org/)**
+
+Each XML media type has a unique name, e.g. `application/vnd.ibexa.api.User+xml`.
+The returned XML response conforms with the complex type definition with a name, e.g. `vnd.ibexa.api.User` in the `user.xsd` XML schema definition file (see `User_`).
+
+To derive the implicit schema of the JSON from the XML schema a uniform transformation from XML to JSON is performed as shown below.
+
+TODO: This concept transformation could be followed with a real example?
+
+```xml
+<test attr1="attr1">
+   <value attr2="attr2">value</value>
+   <simpleValue>45</simpleValue>
+   <fields>
+     <field>1</field>
+     <field>2</field>
+   </fields>
+</test>
+```
+
+Transforms to:
+
+```json
+{
+  "test":{
+    "_attr1":"attr1",
+    "value":{
+      "_attr2":"attr2",
+      "#text":"value"
+    },
+    "simpleValue":"45",
+    "fields": {
+       "field": [ 1, 2 ]
+    }
+  }
+}
+```
+
+Different schemas that induce different media types on resource can be used to allow making specific representations optimized for purposes of clients.
+It is possible to make e.g. a new schema for mobile devices for retrieving an article.
+
+TODO: Where this schema should be stored?
+TODO: Are `xmlns` and `targetNamespace` up-to-date?
+TODO: Could be part of, or referenced by, rest_api_customization_and_extension.md
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://ez.no/API/Values" targetNamespace="http://ez.no/API/Values">
+  <xsd:include schemaLocation="CommonDefinitions.xsd" />
+  <xsd:complexType name="vnd.ibexa.api.MobileContent">
+    <xsd:complexContent>
+      <xsd:extension base="ref">
+        <xsd:all>
+          <xsd:element name="Title" type="xsd:string" />
+          <xsd:element name="Summary" type="xsd:string" />
+        </xsd:all>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="MobileContent" type="vnd.ibexa.api.MobileContent"/>
+</xsd:schema>
+```
+
+So that:
+
+```
+GET /content/objects/23 HTTP/1.1
+Accept: application/vnd.ibexa.api.MobileContent+xml
+```
+
+Returns:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<MobileContent href="/content/objects/23" media-type="application/vnd.ibexa.api.MobileContent+xml">
+  <Title>Title</Title>
+  <Summary>This is a summary</Summary>
+</MobileContent>
+```
+
+In this specification, only the standard schemas and media types are defined (see `InputOutput_`).
+If there is only one media type defined for XML or JSON, it is also possible to specify `application/xml` or `application/json`.
+
 ## Creating content with binary attachments
 https://doc.ibexa.co/en/latest/api/creating_content_with_binary_attachments_via_rest_api/
 TODO: Other example of payload/body?
