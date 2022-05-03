@@ -6,14 +6,13 @@ The REST API v2 introduced in [[= product_name =]] allows you to interact with a
 
 The REST API uses HTTP methods ( **`GET`** , **`POST`** , **`DELETE`** , etc.), as well as HTTP headers to specify the type of request.
 
-## HTTP verbs
+## HTTP methods
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#http-methods
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#custom-http-verbs
 
 TODO: Is PUT used?? What about HEAD? or TRACE?
-TODO: "Verb" VS "Method"; Why our doc uses "verb" while others like RFCs use "method"? Even in `X-HTTP-Method-Override`…
 
-Depending on the used HTTP verb (or method), different actions will be possible on the same resource. Example:
+Depending on the used HTTP method, different actions will be possible on the same resource. Example:
 
 | Action                                  | Description                                                          |
 |-----------------------------------------|----------------------------------------------------------------------|
@@ -22,11 +21,11 @@ Depending on the used HTTP verb (or method), different actions will be possible 
 | `DELETE  /content/objects/2/version/3`  | Deletes the (draft or archived) version \#3 from Content item \#2    |
 | `COPY  /content/objects/2/version/3`    | Creates a new draft version of Content item \#2 from its version \#3 |
 | `PUBLISH  /content/objects/2/version/3` | Promotes the version \#3 of Content item \#2 from draft to published |
-| `OPTIONS  /content/objects/2/version/3` | Lists all the verbs usable with this resource, the 5 ones above      |
+| `OPTIONS  /content/objects/2/version/3` | Lists all the methods usable with this resource, the 5 ones above    |
 
-The following list of available verbs just give a quick hint of the action a verb will trigger on a resource if available. For action details, see the [REST API reference](rest_api_reference/rest_api_reference.html).
+The following list of available methods just give a quick hint of the action a method will trigger on a resource if available. For action details, see the [REST API reference](rest_api_reference/rest_api_reference.html).
 
-| HTTP verb/method                                           |          | Description                                                        |
+| HTTP method                                                |          | Description                                                        |
 |------------------------------------------------------------|----------|--------------------------------------------------------------------|
 | [GET](https://tools.ietf.org/html/rfc2616#section-9.3)     | Standard | To collect data                                                    |
 | [POST](https://tools.ietf.org/html/rfc2616#section-9.5)    | Standard | To send a payload to create an item (content, session, role, etc.) |
@@ -35,11 +34,11 @@ The following list of available verbs just give a quick hint of the action a ver
 | [MOVE](http://tools.ietf.org/html/rfc2518)                 | Custom   | To move an item (Location, etc)                                    |                           
 | PUBLISH                                                    | Custom   | To publish an item                                                 |
 | [DELETE](https://tools.ietf.org/html/rfc2616#section-9.7)  | Standard | To remove an item                                                  |
-| [OPTIONS](https://tools.ietf.org/html/rfc2616#section-9.2) | Standard | To list available verb for a resource                              |
+| [OPTIONS](https://tools.ietf.org/html/rfc2616#section-9.2) | Standard | To list available methods for a resource                           |
 
-!!! note "Caution with custom HTTP verbs"
+!!! note "Caution with custom HTTP methods"
 
-    Using custom HTTP verbs can cause issues with several HTTP proxies, network firewall/security solutions and simpler web servers. To avoid issues with this, REST API allows you to set these using the HTTP header `X-HTTP-Method-Override` along standard `POST` instead of using a custom HTTP verb. Example: `X-HTTP-Method-Override: PUBLISH`
+    Using custom HTTP methods can cause issues with several HTTP proxies, network firewall/security solutions and simpler web servers. To avoid issues with this, REST API allows you to set these using the HTTP header `X-HTTP-Method-Override` along standard `POST` method instead of using a custom HTTP method. Example: `X-HTTP-Method-Override: PUBLISH`
 
 If applicable, both methods are always mentioned in the specifications.
 
@@ -64,7 +63,7 @@ Allow: PATCH,GET,DELETE,COPY
 ## Headers
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#other-headers
 
-TODO: Intro listing the main headers: `Accept` describing the response type and format, `Content-Type` describing the payload type and format, `X-Siteaccess` specifying the target SiteAccess, `X-HTTP-Method-Override` allowing to pass a verb while using `POST` method as previously seen  
+TODO: Intro listing the main headers: `Accept` describing the response type and format, `Content-Type` describing the payload type and format, `X-Siteaccess` specifying the target SiteAccess, `X-HTTP-Method-Override` allowing to pass a method while using `POST` method as previously seen  
 
 ### SiteAccess
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#specifying-siteaccess
@@ -73,7 +72,7 @@ https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#specifying-siteacces
 In order to specify a SiteAccess when communicating with the REST API, provide a custom `X-Siteaccess` header.
 If it is not provided, the default SiteAccess is used.
 
-Example:
+Example with what could be a SiteAccess called `restapi` dedicated to REST API accesses:
 
 ```
 GET / HTTP/1.1
@@ -94,7 +93,7 @@ TODO: Notice that to login (at least with a session), anonymous must have user/l
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#media-type-headers
 https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#media-types
 
-On top of methods, HTTP request headers will allow you to personalize the request's behavior. On every resource, you can use the Accept header to indicate which format you want to communicate in, JSON or XML. This header is also used to specify the response type you want the server to send when multiple ones are available.
+On top of methods, HTTP request headers will allow you to personalize the request's behavior. On every resource, you can use the `Accept header to indicate which format you want to communicate in, JSON or XML. This header is also used to specify the response type you want the server to send when multiple ones are available.
 
 -   `Accept: application/vnd.ibexa.api.Content+xml` to get **Content** (full data, fields included) as **[XML](http://www.w3.org/XML/)**
 -   `Accept: application/vnd.ibexa.api.ContentInfo+json` to get **ContentInfo** (metadata only) as **[JSON](http://www.json.org/)**
