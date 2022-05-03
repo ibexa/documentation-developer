@@ -13,16 +13,16 @@ latest_tag: '2.5.27'
 
 [[% include 'snippets/update/merge_composer.md' %]]
 
-## 3. Update the app
+## 3. Version Specific changes
 
-First, perform version-specific steps depending on which version you are updating from.
+When updating a release **earlier than v2.5.0**, some version-specific changes are required.
 
-### A. v2.2
+### A. Update from <=v2.1.1
     
-When upgrading an Enterprise installation to v2.2, you need to disable `EzSystemsPlatformEEAssetsBundle` by removing
+When updating from a release **<=v2.1.1** you need to disable `EzSystemsPlatformEEAssetsBundle` by removing
 `new EzSystems\PlatformEEAssetsBundle\EzSystemsPlatformEEAssetsBundle(),` from `app/AppKernel.php`.
 
-### B. v2.5
+### B. Update from <=v2.4.2
 
 Since v2.5 eZ Platform uses [Webpack Encore]([[= symfony_doc =]]/frontend.html#webpack-encore) for asset management.
 You need to install [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/lang/en/docs/install) to update to this version.
@@ -33,6 +33,8 @@ will not compile correctly with Assetic.
 In this case, use Webpack Encore. See [Importing assets from a bundle](../../guide/project_organization.md#importing-assets-from-a-bundle) for more information.
 
 If you experience issues during the update, see [Troubleshooting](../../getting_started/troubleshooting.md#cloning-failed-using-an-ssh-key).
+
+## 4. Update the app
 
 ### C. Run composer update
 
