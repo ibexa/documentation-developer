@@ -28,7 +28,7 @@ In this case, use Webpack Encore. See [Importing assets from a bundle](../../gui
 
 If you experience issues during the update, see [Troubleshooting](../../getting_started/troubleshooting.md#cloning-failed-using-an-ssh-key).
 
-### C. Run composer update
+### Run composer update
 
 [[% include 'snippets/update/update_app.md' %]]
 
