@@ -32,7 +32,8 @@ ibexa:
 By default, the system always uses the first currency and the first region configured.
 
 To implement a different logic, for example a switcher for preferred currencies and regions,
-you need to use `CurrencyResolverInterface` and `RegionResolverInterface` in you customization.
+you need to subscribe to `Ibexa\Contracts\ProductCatalog\Events\CurrencyResolveEvent`
+and `Ibexa\Contracts\ProductCatalog\Events\RegionResolveEvent` in your customization.
 
 ## VAT rates
 
