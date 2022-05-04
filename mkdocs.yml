@@ -235,6 +235,7 @@ nav:
         - Product catalog:
             - 'Catalog': 'guide/catalog/catalog.md'
             - 'Catalog configuration': 'guide/catalog/catalog_configuration.md'
+            - 'Create custom attribute type': 'guide/catalog/create_custom_attribute_type.md'
             - 'Pricing': 'guide/pricing/price_engine.md'
             - Product comparison:
                 - 'Product comparison ': 'guide/product_comparison/product_comparison.md'

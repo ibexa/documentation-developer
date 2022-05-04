@@ -1,0 +1,16 @@
+services:
+    ibexa.product_catalog.attribute_type.date:
+        class: Ibexa\ProductCatalog\Local\Repository\Attribute\AttributeType
+        arguments:
+            $identifier: 'date'
+        tags:
+            -   name: ibexa.product_catalog.attribute_type
+                alias: date
+    App\Attribute\Date\Form\DateValueFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.attribute.form_mapper.value
+                type: date
+    App\Attribute\Date\DateValueFormatter:
+        tags:
+            -   name: ibexa.product_catalog.attribute.formatter.value
+                type: date
