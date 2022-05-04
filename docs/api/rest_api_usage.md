@@ -87,7 +87,6 @@ If the same resource is available in multiple locations, cache purging is notice
 This is why SiteAccess matching with REST is not enabled at URL level (nor domain).
 
 TODO: This could be important to notice earlier that URIElement can't be used (e.g. http://localhost:8080/admin/api/ibexa/v2/user/sessions)
-TODO: Notice that to login (at least with a session), anonymous must have user/login. `X-Siteaccess: admin` is not a good example as anonymous will probably never has the right to log into it. (`User 'anon.' doesn't have user/login permission to SiteAccess 'admin'`)
 
 ### Media types
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#media-type-headers

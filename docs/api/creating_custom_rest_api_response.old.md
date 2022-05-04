@@ -53,6 +53,9 @@ class VersionInfo extends BaseVersionInfo
 
 ## Overriding response type
 
+TODO: Can it be really called "Overriding" when it's a new media type "application/my.api.VersionList+json" extending "application/vnd.ibexa.api.VersionList+json" without removing it?
+TODO: Rename to "Extending response type"?
+
 Next, make sure that your new implementation of serialization applies only to the selected objects. In order to do that, you need to
 decorate `Ibexa\Contracts\Rest\Output\ValueObjectVisitorDispatcher` from `ibexa/core`.
 
@@ -99,6 +102,7 @@ class ValueObjectVisitorDispatcher extends BaseValueObjectVisitorDispatcher
 ```
 
 To be able to use the overridden type you also need to implement new Compiler Pass. For more details, see [Symfony doc.]([[= symfony_doc =]]/service_container/compiler_passes.html)
+TODO: Rename to "extended type" or "extending type"?
 
 ```php
 <?php
@@ -139,6 +143,8 @@ class ValueObjectVisitorPass implements CompilerPassInterface
 
 Also, do not forget to register it in your bundle.
 
+TODO: Can it be done outside a bundle? A bundle could be used to share code across several projects in an advanced case but the best practice for the regular case of one instance is to avoid bundles (at least from Symfony POV https://symfony.com/doc/5.4/best_practices.html#don-t-create-any-bundle-to-organize-your-application-logic)
+
 ```php
 <?php
 
@@ -164,7 +170,7 @@ class ExampleBundle extends Bundle
 The last thing you need to do is to set a configuration which should be located in the `services.yaml` file of your bundle.
 The important part are the keys:
 
-- `app.rest.output.visitor.json.regexps` which helps identifying proper header
+- `app.rest.output.visitor.json.regexps` which helps to identify proper header
 - `priority` which should be set high enough, to not be overridden by another implementation
 
 All the other keys need to correspond with the current namespace of your bundle. In this example it is just `ExampleBundle`.
@@ -208,6 +214,7 @@ services:
 
 ## Fetching the modified response
 TODO: It's hard to see the customization compared to the default response
+TODO: `"commentsCount": null` looks like a bad example. Maybe something more generic? Like adding System URL Alias to Location?
 
 After following all the steps you should see an example of the modified API response below. As you see `media-type` is correctly interpreted and `commentsCount` is also appended (it's `null` as you did not provide any logic to fetch it).
 Please note that you should set a proper `Accept` header value. For this example: `application/my.api.VersionList+json`.
