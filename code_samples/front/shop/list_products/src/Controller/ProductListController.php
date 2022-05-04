@@ -3,19 +3,19 @@
 namespace App\Controller;
 
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
-use Ibexa\ProductCatalog\Local\Repository\ProductService;
+use Ibexa\Contracts\ProductCatalog\ProductServiceInterface;
 use Ibexa\Core\MVC\Symfony\View\View;
 
-class ProductListController
+final class ProductListController
 {
-    private $productService;
+    private ProductServiceInterface $productService;
 
-    public function __construct(ProductService $productService)
+    public function __construct(ProductServiceInterface $productService)
     {
         $this->productService = $productService;
     }
 
-    public function showProductsAction(View $view)
+    public function showProductsAction(View $view): View
     {
         $query = new ProductQuery();
 
