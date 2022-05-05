@@ -2,6 +2,27 @@
 
 This page lists potential problems that you may encounter while installing, configuring, and running [[= product_name =]].
 
+## Encoding database password
+
+The password entered in `DATABASE_URL` during installation must either be URL encoded,
+or not contain any special characters that would require URL encoding.
+
+### URL encoding
+
+Using URL encoding involves two steps. First, the password must be URL encoded. This can for instance be done with PHP's `urlencode()` function.
+For example, this function converts a password like `(/!=#Æ¤*;%?[` to `%28%2F%21%3D%23%C3%86%C2%A4%2A%3B%25%3F%5B`.
+
+Second, you must remove `resolve:` from `doctrine.dbal.url` in `config/packages/doctrine.yaml`.
+That means changing `%env(resolve:DATABASE_URL)%` to `%env(DATABASE_URL)%`.
+
+### Avoid special characters
+
+If your password only contains letters a-z, A-Z, and numbers 0-9, you don't need to do any encoding.
+You can either create your password that way, in which case it is a good idea to make it longer to maintain entropy,
+keeping the password hard to guess for an attacker.
+Or, you can for instance convert your password with `bin2hex()`, so that e.g. `(/!=#Æ¤*;%?[` becomes `282f213d23c386c2a42a3b253f5b`.
+The output from `bin2hex` is limited to 0-9 and a-f. This more than doubles the length of the password, keeping entropy similar.
+
 ## Enable swap on systems with limited RAM
 
 If you have problems installing [[= product_name =]] on a system with limited RAM (for example 1GB or 2GB), enable swap.
