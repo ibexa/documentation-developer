@@ -1,5 +1,5 @@
 {
-    "AttributeGroupUpdate": {
+    "AttributeUpdate": {
         "identifier": "attr_group",
             "eng-GB": "Attribute Group"
         },
