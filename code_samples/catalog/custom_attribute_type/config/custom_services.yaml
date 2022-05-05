@@ -1,16 +1,30 @@
 services:
-    ibexa.product_catalog.attribute_type.date:
+    app.product_catalog.attribute_type.percent:
         class: Ibexa\ProductCatalog\Local\Repository\Attribute\AttributeType
         arguments:
-            $identifier: 'date'
+            $identifier: 'percent'
         tags:
             -   name: ibexa.product_catalog.attribute_type
-                alias: date
-    App\Attribute\Date\Form\DateValueFormMapper:
+                alias: percent
+
+    App\Attribute\Percent\Form\PercentValueFormMapper:
         tags:
             -   name: ibexa.product_catalog.attribute.form_mapper.value
-                type: date
-    App\Attribute\Date\DateValueFormatter:
+                type: percent
+
+    App\Attribute\Percent\PercentValueFormatter:
         tags:
             -   name: ibexa.product_catalog.attribute.formatter.value
-                type: date
+                type: percent
+
+    app.product_catalog.attribute.percent.form_mapper.options:
+        class: App\Attribute\Percent\PercentOptionsFormMapper
+        tags:
+            -   name: ibexa.product_catalog.attribute.form_mapper.options
+                type: percent
+
+    app.product_catalog.attribute.value_validator.percent:
+        class: App\Attribute\Percent\PercentValueValidator
+        tags:
+            -   name: ibexa.product_catalog.attribute.validator.value
+                type: percent

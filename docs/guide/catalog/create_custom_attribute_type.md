@@ -2,8 +2,7 @@
 
 Besides the [built-in attribute types](catalog.md#product-attributes), you can also create custom ones.
 
-The example belows shows how to add a Date attribute type.
-You could use it, for example, in a "Concert ticket" or "Film" product to indicate the event or release date.
+The example below shows how to add a Percentage attribute type.
 
 ## Select attribute type class
 
@@ -14,7 +13,7 @@ First, you need to register the type class that the attribute uses:
 ```
 
 Use the `ibexa.product_catalog.attribute_type` tag to indicate the use as a product attribute type.
-The custom attribute type has the identifier `date`.
+The custom attribute type has the identifier `percent`.
 
 ## Create value form mapper
 
@@ -22,44 +21,82 @@ A form mapper maps the data entered in an editing form into an attribute value.
 
 The form mapper must implement `Ibexa\Contracts\ProductCatalog\Local\Attribute\ValueFormMapperInterface`.
 
-In this example, you can use the Symfony's built-in `DateType` class (line 38).
+In this example, you can use the Symfony's built-in `PercentType` class (line 42).
 
-``` php hl_lines="28-29 38"
-[[= include_file('code_samples/catalog/custom_attribute_type/src/Attribute/Date/Form/DateValueFormMapper.php') =]]
+``` php hl_lines="42"
+[[= include_file('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/Form/PercentValueFormMapper.php') =]]
 ```
 
-The `options` array contains additional options for the form, including options resulting from the selected form type. In this case, these are [`input`](https://symfony.com/doc/current/reference/forms/types/date.html#input) and [`widget`](https://symfony.com/doc/current/reference/forms/types/date.html#widget) options (lines 28-29) which define how the date input looks like and what type of data it returns.
+The `options` array contains additional options for the form, including options resulting from the selected form type.
 
 Register the form mapper as a service and tag it with `ibexa.product_catalog.attribute.form_mapper.value`:
 
 ``` yaml
-[[= include_file('code_samples/catalog/custom_attribute_type/config/custom_services.yaml', 8, 12) =]]
+[[= include_file('code_samples/catalog/custom_attribute_type/config/custom_services.yaml', 9, 13) =]]
 ```
 
 ## Create value formatter
 
 A value formatter prepares the attribute value for rendering in the proper format.
 
-In this example, you can use the `IntlDateFormatter` to ensure the date takes into account the selected locale.
+In this example, you can use the `NumberFormatter` to ensure the number is rendered in the percentage form (line 22).
 
-``` php
-[[= include_file('code_samples/catalog/custom_attribute_type/src/Attribute/Date/DateValueFormatter.php') =]]
+``` php hl_lines="22"
+[[= include_file('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/PercentValueFormatter.php') =]]
 ```
-
-!!! tip
-
-    When rendering product attributes, use the [`ibexa_format_product_attribute`](../content_rendering/twig_function_reference/product_twig_functions.md#ibexa_format_product_attribute) Twig filter to render the attribute in a proper format.
-
 
 Register the value formatter as a service and tag it with `ibexa.product_catalog.attribute.formatter.value`:
 
+``` yaml
+[[= include_file('code_samples/catalog/custom_attribute_type/config/custom_services.yaml', 14, 18) =]]
+```
+
+## Add attribute options
+
+You can also add options specific for the attribute type that the user selects when creating an attribute.
+
+In this example, you can set the minimum and maximum allowed percentage.
+
+### Options type
+
+First, create `PercentAttributeOptionsType` that defines two options, `min` and `max`.
+Both those options need to be of `PercentType`.
+
+``` php hl_lines="16 22"
+[[= include_file('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/PercentAttributeOptionsType.php') =]]
+```
+
+### Options form mapper
+
+Next, create a `PercentOptionsFormMapper` that maps the information that the user input in the form into attribute definition.
+
+``` php
+[[= include_file('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/PercentOptionsFormMapper.php') =]]
+```
+
+Register the options form mapper as a service and tag it with `ibexa.product_catalog.attribute.form_mapper.options`:
 
 ``` yaml
-[[= include_file('code_samples/catalog/custom_attribute_type/config/custom_services.yaml', 12, 16) =]]
+[[= include_file('code_samples/catalog/custom_attribute_type/config/custom_services.yaml', 19, 24) =]]
+```
+
+### Validator
+
+Finally, make sure the data provided by the user is validated.
+To do that, create `PercentValueValidator` that checks the values against `min` and `max` and dispatches an error when needed.
+
+``` php hl_lines="23-27"
+[[= include_file('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/PercentValueValidator.php') =]]
+```
+
+Register the validator as a service and tag it with `ibexa.product_catalog.attribute.validator.value`:
+
+``` yaml
+[[= include_file('code_samples/catalog/custom_attribute_type/config/custom_services.yaml', 25, 30) =]]
 ```
 
 ## Use new attribute type
 
-In the Back Office you can now add a new Date attribute to your product type and create a product with it.
+In the Back Office you can now add a new Percent attribute to your product type and create a product with it.
 
-![Creating a product with a custom Date attribute](../img/catalog_custom_attribute_type.png)
+![Creating a product with a custom Percent attribute](../img/catalog_custom_attribute_type.png)

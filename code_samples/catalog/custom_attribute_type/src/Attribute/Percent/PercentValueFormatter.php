@@ -2,15 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Attribute\Date;
+namespace App\Attribute\Percent;
 
 use Ibexa\Contracts\ProductCatalog\Local\Attribute\ValueFormatterInterface;
 use Ibexa\Contracts\ProductCatalog\Values\AttributeInterface;
-use IntlDateFormatter;
-use DateTime;
-use Locale;
+use NumberFormatter;
 
-final class DateValueFormatter implements ValueFormatterInterface
+final class PercentValueFormatter implements ValueFormatterInterface
 {
     public function formatValue(AttributeInterface $attribute, array $parameters = []): ?string
     {
@@ -19,8 +17,11 @@ final class DateValueFormatter implements ValueFormatterInterface
             return null;
         }
 
-        $formatter = new IntlDateFormatter($parameters['locale'] ?? Locale::getDefault(), IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+        $formatter = $parameters['formatter'] ?? null;
+        if ($formatter === null) {
+            $formatter = new NumberFormatter('', NumberFormatter::PERCENT);
+        }
 
-        return $formatter->format(new DateTime($value['date']));
+        return $formatter->format($value);
     }
 }

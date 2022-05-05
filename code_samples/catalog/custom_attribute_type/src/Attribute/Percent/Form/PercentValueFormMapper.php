@@ -2,15 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Attribute\Date;
+namespace App\Attribute\Percent\Form;
 
+use Ibexa\Bundle\ProductCatalog\Validator\Constraints\AttributeValue;
 use Ibexa\Contracts\ProductCatalog\Local\Attribute\ValueFormMapperInterface;
 use Ibexa\Contracts\ProductCatalog\Values\AttributeDefinitionAssignmentInterface;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\PercentType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
-final class DateValueFormMapper implements ValueFormMapperInterface
+final class PercentValueFormMapper implements ValueFormMapperInterface
 {
     public function createValueForm(
         string $name,
@@ -23,10 +24,13 @@ final class DateValueFormMapper implements ValueFormMapperInterface
         $options = [
             'disabled' => $context['translation_mode'] ?? false,
             'label' => $definition->getName(),
-            'block_prefix' => 'date_attribute_value',
+            'block_prefix' => 'percentage_attribute_value',
             'required' => $assignment->isRequired(),
-            'widget' => 'single_text',
-            'input' => 'datetime',
+            'constraints' => [
+                new AttributeValue([
+                    'definition' => $definition,
+                ]),
+            ],
         ];
 
         if ($assignment->isRequired()) {
@@ -35,6 +39,6 @@ final class DateValueFormMapper implements ValueFormMapperInterface
             ];
         }
 
-        $builder->add($name, DateType::class, $options);
+        $builder->add($name, PercentType::class, $options);
     }
 }
