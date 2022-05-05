@@ -200,6 +200,12 @@ or
 
 `DATABASE_URL=postgresql://user:password@host:port/database_name`.
 
+!!! tip "Encoding database password"
+
+    The password entered in `DATABASE_URL` must either be URL encoded, or not contain any special characters that would require URL encoding.
+
+    For more information, see [Encoding database password](troubleshooting.md#encoding-database-password).
+
 Choose a [secret]([[= symfony_doc =]]/reference/configuration/framework.html#secret)
 and provide it in the `APP_SECRET` parameter in `.env`.
 It should be a random string, made up of at least 32 characters, numbers, and symbols.
