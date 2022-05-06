@@ -52,9 +52,9 @@ Continue with updating the app:
 
 The `recipes:install` command installs new YAML configuration files. Look through the old YAML files and move your custom configuration to the relevant new files.
 
-Review the `bundles.php` and leave only third-party entires and entries added by the `recipes:install` command, that start with `Ibexa\Bundle`.
-
 ## Update the database
+
+[[% include 'snippets/update/db/db_backup_warning.md' %]]
 
 Apply the following database update script:
 
@@ -73,7 +73,11 @@ Apply the following database update script:
 
 ## Configure the Product Catalog [[% include 'snippets/experience_badge.md' %]]
 
-Regardless of whether your application already uses the Product Catalog or you want to start using this functionality, you can choose to use old features, present in v4.0.x, or upgrade to the all new Product Catalog that v.4.1.x brings.
+!!! caution
+
+    Always back up your data before you perform any actions on your Product Catalog.
+
+Regardless of whether your application already uses the Product Catalog or you want to start using this functionality, you can choose to use the old features, present in v4.0.x, or upgrade to the all new Product Catalog that v.4.1.x brings.
 
 Either way, make sure that in `config/packages/ibexa_shop.yaml` you set a value of the 
 `ibexa.commerce.site_access.config.eshop.default.catalog_data_provider` parameter correctly: 
