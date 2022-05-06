@@ -84,7 +84,7 @@ Either way, make sure that in `config/packages/ibexa_shop.yaml` you set a value 
 to use the old Product Catalog bundle, leave the value as-is and continue to the next section.
 To use the updated Product Catalog, change the value to `ibexa`, and perform the steps below.
   
-The new Product Catalog does not support the old price engine, therefore in the `ibexa_setting` table, you must update the following parameters by providing the `Ibexa\\ProductCatalog\\Bridge\\PriceProvider` path:
+The new Product Catalog does not support the old price engine, therefore in the `ibexa_setting` table, you must update the following parameters by providing the `Ibexa\\ProductCatalog\\Bridge\\PriceProvider` value:
 
 ```yaml
 ibexa.commerce.site_access.config.price.default.price_service_chain.basket
