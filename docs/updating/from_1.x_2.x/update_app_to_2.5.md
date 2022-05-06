@@ -15,14 +15,8 @@ latest_tag: '2.5.27'
 
 ## 3. Update the app
 
-First, perform version-specific steps depending on which version you are updating from.
-
-### A. v2.2
-    
-When upgrading an Enterprise installation to v2.2, you need to disable `EzSystemsPlatformEEAssetsBundle` by removing
-`new EzSystems\PlatformEEAssetsBundle\EzSystemsPlatformEEAssetsBundle(),` from `app/AppKernel.php`.
-
-### B. v2.5
+If `EzSystemsPlatformEEAssetsBundle` is present in `app/AppKernel.php`, 
+disable it by removing the `new EzSystems\PlatformEEAssetsBundle\EzSystemsPlatformEEAssetsBundle(),` entry.
 
 Since v2.5 eZ Platform uses [Webpack Encore]([[= symfony_doc =]]/frontend.html#webpack-encore) for asset management.
 You need to install [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/lang/en/docs/install) to update to this version.
@@ -34,7 +28,7 @@ In this case, use Webpack Encore. See [Importing assets from a bundle](https://d
 
 If you experience issues during the update, see [Troubleshooting](../../getting_started/troubleshooting.md#cloning-failed-using-an-ssh-key).
 
-### C. Run composer update
+### Run composer update
 
 [[% include 'snippets/update/update_app.md' %]]
 
