@@ -100,6 +100,8 @@ On top of methods, HTTP request headers will allow you to personalize the reques
 Each XML media type has a unique name, e.g. `application/vnd.ibexa.api.User+xml`.
 The returned XML response conforms with the complex type definition with a name, e.g. `vnd.ibexa.api.User` in the `user.xsd` XML schema definition file (see `User_`).
 
+If there is only one media type defined for XML or JSON, it is also possible to specify `application/xml` or `application/json`.
+
 To derive the implicit schema of the JSON from the XML schema a uniform transformation from XML to JSON is performed as shown below.
 
 TODO: This concept transformation could be followed with a real example?
@@ -132,52 +134,6 @@ Transforms to:
   }
 }
 ```
-
-Different schemas that induce different media types on resource can be used to allow making specific representations optimized for purposes of clients.
-It is possible to make e.g. a new schema for mobile devices for retrieving an article.
-
-TODO: Where this schema should be stored?
-TODO: Are `xmlns` and `targetNamespace` up-to-date?
-TODO: Could be part of, or referenced by, rest_api_customization_and_extension.md
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-  xmlns="http://ez.no/API/Values" targetNamespace="http://ez.no/API/Values">
-  <xsd:include schemaLocation="CommonDefinitions.xsd" />
-  <xsd:complexType name="vnd.ibexa.api.MobileContent">
-    <xsd:complexContent>
-      <xsd:extension base="ref">
-        <xsd:all>
-          <xsd:element name="Title" type="xsd:string" />
-          <xsd:element name="Summary" type="xsd:string" />
-        </xsd:all>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element name="MobileContent" type="vnd.ibexa.api.MobileContent"/>
-</xsd:schema>
-```
-
-So that:
-
-```
-GET /content/objects/23 HTTP/1.1
-Accept: application/vnd.ibexa.api.MobileContent+xml
-```
-
-Returns:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<MobileContent href="/content/objects/23" media-type="application/vnd.ibexa.api.MobileContent+xml">
-  <Title>Title</Title>
-  <Summary>This is a summary</Summary>
-</MobileContent>
-```
-
-In this specification, only the standard schemas and media types are defined (see `InputOutput_`).
-If there is only one media type defined for XML or JSON, it is also possible to specify `application/xml` or `application/json`.
 
 ## Creating content with binary attachments
 https://doc.ibexa.co/en/latest/api/creating_content_with_binary_attachments_via_rest_api/
