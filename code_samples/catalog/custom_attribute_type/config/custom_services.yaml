@@ -28,3 +28,9 @@ services:
         tags:
             -   name: ibexa.product_catalog.attribute.validator.value
                 type: percent
+
+    app.product_catalog.attribute.options_validator.percent:
+        class: App\Attribute\Percent\PercentOptionsValidator
+        tags:
+            -   name: ibexa.product_catalog.attribute.validator.options
+                type: percent

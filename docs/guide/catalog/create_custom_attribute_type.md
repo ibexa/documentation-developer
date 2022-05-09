@@ -80,7 +80,24 @@ Register the options form mapper as a service and tag it with `ibexa.product_cat
 [[= include_file('code_samples/catalog/custom_attribute_type/config/custom_services.yaml', 19, 24) =]]
 ```
 
-### Validator
+### Options validator
+
+Create a `PercentOptionsValidator` that implements `Ibexa\Contracts\ProductCatalog\Local\Attribute\OptionsValidatorInterface`.
+It validates the options that the user sets while creating the attribute definition.
+
+In this example, the validator verifies whether the minimum percentage is lower than the maximum.
+
+``` php
+[[= include_file('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/PercentOptionsValidator.php') =]]
+```
+
+Register the options validator as a service and tag it with `ibexa.product_catalog.attribute.validator.options`:
+
+``` yaml
+[[= include_file('code_samples/catalog/custom_attribute_type/config/custom_services.yaml', 31, 36) =]]
+```
+
+### Value validator
 
 Finally, make sure the data provided by the user is validated.
 To do that, create `PercentValueValidator` that checks the values against `min` and `max` and dispatches an error when needed.
