@@ -141,6 +141,3 @@ Full list of options:
 |----|-----------|--------|
 |`container`|Contains a reference to a DOM node where custom drop-down is initialized.|required|
 |`selectorSource`|Contains a reference |required|
-|`itemsContainer`|Contains a reference to a duplicated items container.|required|
-|`hasDefaultSelection`|Contains a boolean value. If set to `true` the first option will be selected as a placeholder or selected value.|optional|
-|`selectedItemTemplate`|Contains a literal template string with placeholders for `value` and `label` data.|optional|
