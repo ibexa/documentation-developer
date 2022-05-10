@@ -244,5 +244,5 @@ See [related JetBrains issue](https://youtrack.jetbrains.com/issue/WI-61330) for
 
 ## Feedback
 
-You can report bugs and feature suggestions on https://issues.ibexa.co/
+You can report bugs and feature suggestions on [https://issues.ibexa.co/](https://issues.ibexa.co/issues/?jql=project%20%3D%20IBX%20AND%20component%20%3D%20%22PHPStorm%20plugin%22)
 using the "PHPStorm plugin" component, or on the `#phpstorm-plugin` Ibexa Community Slack channel.
