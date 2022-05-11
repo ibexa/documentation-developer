@@ -50,6 +50,7 @@ The following list of available methods just give a quick hint of the action a m
 | [PATCH](http://tools.ietf.org/html/rfc5789)                | Custom   | To send a payload to update an item                                |                            
 | COPY                                                       | Custom   | To duplicate an item                                               |
 | [MOVE](http://tools.ietf.org/html/rfc2518)                 | Custom   | To move an item (Location, etc)                                    |                           
+| SWAP                                                       | Custom   | To swap two items (Locations)                                      |
 | PUBLISH                                                    | Custom   | To publish an item                                                 |
 | [DELETE](https://tools.ietf.org/html/rfc2616#section-9.7)  | Standard | To remove an item                                                  |
 | [OPTIONS](https://tools.ietf.org/html/rfc2616#section-9.2) | Standard | To list available methods for a resource                           |
