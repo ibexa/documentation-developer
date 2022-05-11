@@ -51,6 +51,7 @@ When you have a distinct file for the REST routes, you can apply the prefix to a
 
 Next, you create the REST route. 
 In the `config/routes_rest.yaml` file, define the route's [controller as a service]([[= symfony_doc =]]/cookbook/controller/service.html) because your controller was defined as such.
+TODO: Confusing. The route's controller is defined as a service in config/services.yaml below, not in routes_rest.yaml. https://symfony.com/doc/5.4/controller/service.html also use another way to link the controller to the route.
 
 ``` yaml
 my_rest_hello_world:
@@ -75,6 +76,7 @@ CSRF protection is enabled by default for all POST, PUT, and DELETE requests.
 
 Due to [EZP-23016 - Custom REST API routes (v2) are not accessible from the legacy backend](https://jira.ez.no/browse/EZP-23016), 
 custom REST routes must be prefixed with `ezpublish_rest_`, or they are not recognized.
+TODO: So, why `my_rest_hello_world` above is not prefixed with `ezpublish_rest_`? Outdated?
 Modify the `config/services.yaml` file by adding the following code:
 
 ``` yaml
