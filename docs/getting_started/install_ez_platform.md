@@ -310,11 +310,11 @@ You can copy [the example vhost file](https://github.com/ezsystems/developer-doc
 to `/etc/apache2/sites-available` as a `.conf` file and modify it to fit your project.
 
 Specify `/<your installation directory>/public` as the `DocumentRoot` and `Directory`.
-Uncomment the line that starts with `#if [SYMFONY_ENV]` and set the value to `prod` or `dev`,
+Uncomment the line that starts with `#if [APP_ENV]` and set the value to `prod` or `dev`,
 depending on the environment that you are configuring:
 
 ```
-SetEnvIf Request_URI ".*" SYMFONY_ENV=prod
+SetEnvIf Request_URI ".*" APP_ENV=prod
 ```
 
 #### Enable the virtual host
