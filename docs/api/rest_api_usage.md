@@ -6,6 +6,24 @@ The REST API v2 introduced in [[= product_name =]] allows you to interact with a
 
 The REST API uses HTTP methods ( **`GET`** , **`POST`** , **`DELETE`** , etc.), as well as HTTP headers to specify the type of request.
 
+## URIs
+https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#uris
+
+The REST API is designed in such a way that the client doesn't need to construct any URIs to resources.
+Starting from the root resources (`ListRoot_`) every response includes further links to related resources.
+The URIs should be used directly as identifiers on the client side and the client should not construct any URIs by using an ID.
+
+### URIs prefix
+https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#uris-prefix
+
+TODO: Also said in https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#uris-prefix
+
+In [REST reference](rest_api_reference/rest_api_reference.html), for the sake of readability, there are no prefixes used in the URIs.
+In practice, the `/api/ibexa/v2` prefixes all REST hrefs.
+
+Remember that the URIs to REST resources should never be generated manually, but obtained from earlier REST calls.
+TODO: Make sure this is demonstrated in "customization and extension" examples.
+
 ## HTTP methods
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#http-methods
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#custom-http-verbs
@@ -97,6 +115,8 @@ On top of methods, HTTP request headers will allow you to personalize the reques
 -   `Accept: application/vnd.ibexa.api.Content+xml` to get **Content** (full data, fields included) as **[XML](http://www.w3.org/XML/)**
 -   `Accept: application/vnd.ibexa.api.ContentInfo+json` to get **ContentInfo** (metadata only) as **[JSON](http://www.json.org/)**
 
+TODO: media-types are also used with `Content-Type` header to characterize the payload.
+
 Each XML media type has a unique name, e.g. `application/vnd.ibexa.api.User+xml`.
 The returned XML response conforms with the complex type definition with a name, e.g. `vnd.ibexa.api.User` in the `user.xsd` XML schema definition file (see `User_`).
 
@@ -104,7 +124,8 @@ If there is only one media type defined for XML or JSON, it is also possible to 
 
 To derive the implicit schema of the JSON from the XML schema a uniform transformation from XML to JSON is performed as shown below.
 
-TODO: This concept transformation could be followed with a real example?
+TODO: Could this concept transformation be followed with a real example?
+TODO: Is it still true? The Ibexa\Rest\Output\Generator\Json is directly used by Visitors to transform Values to a Json object and Response.
 
 ```xml
 <test attr1="attr1">

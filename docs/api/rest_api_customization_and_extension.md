@@ -99,6 +99,7 @@ class RestLocation extends BaseRestLocation
             'media-type',
             'application/app.api.Location+' . strtolower((new \ReflectionClass($generator))->getShortName())
         );
+        //TODO: Add _href attribute
         $generator->endAttribute('media-type');
         parent::visit($visitor, $generator, $data);
         $visitor->visitValueObject(new URLAliasRefList(array_merge(
@@ -114,7 +115,7 @@ class RestLocation extends BaseRestLocation
 
 ```
 
-This new `ValueObjectVisitor` receiveq a new tag `app.rest.output.value_object.visitor` to be associated to the new `ValueObjectVisitorDispatcher` in the next step.
+This new `ValueObjectVisitor` receives a new tag `app.rest.output.value_object.visitor` to be associated to the new `ValueObjectVisitorDispatcher` in the next step.
 This tag has a `type` property to associate the new `ValueObjectVisitor` with the type of value is made for.
 TODO: Expose the default `ibexa.rest.output.value_object.visitor` tagging earlier.
 ```yaml
