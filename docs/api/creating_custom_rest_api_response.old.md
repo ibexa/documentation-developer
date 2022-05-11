@@ -272,4 +272,4 @@ Please note that you should set a proper `Accept` header value. For this example
 
 !!! tip
 
-    You can test your response by using JavaScript/AJAX example code, see [testing the API](rest_api_guide.md#testing-the-api).
+    You can test your response by using JavaScript/AJAX example code, see [testing the API](rest_api_guide.old.md#testing-the-api).

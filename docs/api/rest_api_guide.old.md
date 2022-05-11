@@ -25,11 +25,11 @@ The API provides a set of URIs, each of them identifying and providing access to
 
 !!! note "More information"
 
-    For more information, see [Media Types](rest_api_best_practices.md#media-types).
+    For more information, see [Media Types](rest_api_best_practices.old.md#media-types).
 
 ### Other headers
 
-Other headers will be used in HTTP requests for specifying: the siteaccess to interact with and [authentication credentials](general_rest_usage.md#rest-api-authentication).
+Other headers will be used in HTTP requests for specifying: the siteaccess to interact with and [authentication credentials](general_rest_usage.old.md#rest-api-authentication).
 
 Responses returned by the API will also use custom headers to indicate information about the executed operation.
 
