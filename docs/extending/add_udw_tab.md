@@ -1,6 +1,7 @@
 # Add browser tab
 
 The Universal Discovery Widget (UDW) is a separate React module. By default, it contains three tabs: Browse and Bookmarks.
+
 ![UDW default tabs](img/udw_tabs.png)
 
 Follow the instructions below to create and add a new tab called **Images** which displays all Content items of the type 'Image'.
