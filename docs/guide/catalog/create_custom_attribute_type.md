@@ -68,7 +68,7 @@ Both those options need to be of `PercentType`.
 
 ### Options form mapper
 
-Next, create a `PercentOptionsFormMapper` that maps the information that the user input in the form into attribute definition.
+Next, create a `PercentOptionsFormMapper` that maps the information that the user inputs in the form into attribute definition.
 
 ``` php
 [[= include_file('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/PercentOptionsFormMapper.php') =]]
