@@ -51,4 +51,4 @@ The following template renders the product name, price, main image, and an "Add 
 !!! caution
 
     To enable adding a product to basket, you must first configure all necessary information for the product.
-    See [Set up products for purchasing](../../catalog/set_up_products.md) for more information.
+    See [Enable purchasing products](../../catalog/enable_purchasing_products.md) for more information.
