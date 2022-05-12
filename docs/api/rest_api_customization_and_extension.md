@@ -233,4 +233,73 @@ services:
 ## Creating a new REST resource route
 https://doc.ibexa.co/en/latest/api/extending_the_rest_api/
 
-TODO
+### Requirements / Needs check list
+https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#requirements
+
+* The REST route leading to a controller action.
+* The controller and its action.
+* Optionally, an InputParser if the controller needs to receive a payload to treat.
+* Optionally, a new Value class to represent the Controller action result and its ValueObjectVisitor to help the Generator to turn this into XML or JSON.
+TODO: media-types? Value class for InputParser usage to represent the payload?
+
+### Route
+https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#route
+
+```yaml
+# config/routes.yaml
+app_rest_routes:
+    resource: routes_rest.yaml
+    prefix: '%ibexa.rest.path_prefix%'
+```
+
+```yaml
+# config/routes_rest.yaml
+app.rest.hello_world:
+    path: '/hello/world'
+    controller: App\Rest\Controller\DefaultController::helloWorld
+    methods: [GET]
+```
+TODO: Start with a closer-to-reality example right away instead of Hello World
+
+#### CSRF protection
+
+### Controller
+
+#### Controller service
+
+```yaml
+# config/services.yaml
+services:
+    #…
+    App\Rest\Controller\:
+        resource: '../src/Rest/Controller/'
+        parent: Ibexa\Rest\Server\Controller
+        tags: [ 'controller.service_arguments' ]
+```
+
+#### Controller action
+https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#controller-action
+
+```php
+<?php
+
+namespace App\Rest\Controller;
+```
+
+### InputParser
+
+### Value and ValueObjectVisitor
+
+```php
+<?php
+
+namespace App\Rest\Values;
+```
+
+```php
+<?php
+
+namespace App\Rest\ValueObjectVisitor;
+```
+
+### Registering resources in the REST root

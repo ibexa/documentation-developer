@@ -14,6 +14,7 @@ To do so, you create:
 -   a controller action
 -   optionally, a `ValueObjectVisitor` (if the controller returns an object that doesn't already have a converter)
 -   optionally, an `InputParser`
+TODO: What about new media-types for `Accept` header or `Content-Type` header?
 
 ### Controller
 
@@ -85,11 +86,13 @@ services:
         parent: Ibexa\Rest\Server\Controller
         tags: ['controller.service_arguments']
 ```
+TODO: Set all App\Rest\Controller\* as REST controllers
 
 ## Controller action
 
 Unlike standard Symfony controllers, REST controllers return `ValueObject` instead of 
-the `HttpFoundation\Response` object. 
+the `HttpFoundation\Response` object.
+TODO: Rewrite. A REST controller could return a Response. This is just a better practice to return a Value object and have a Generator producing XML or JSON
 During the kernel run, `ValueObjectVisitor` converts `ValueObject` into a proper Symfony response. 
 One benefit of such behavior is that the visitor is reused when multiple controllers return 
 the same object, for example, a Content item or a Location.
@@ -112,6 +115,7 @@ class Hello
 
 An instance of this class is returned from the `sayHello()` controller method in the `src/Rest/Controller/DefaultController.php` file.
 
+TODO: namespace App\Rest\Controller;
 ``` php
 namespace App\Controller\Rest;
 
@@ -313,6 +317,8 @@ my_rest_hello_world_using_post:
 For more examples, examine the built-in `InputParsers` in `Ibexa\Rest\Server\Input\Parser`.
 
 ## Registering resources in the REST root
+
+TODO: Is this REST root resource list introduced elsewhere earlier?
 
 You can register newly added resources so that they show up in the REST root resource for automatic discovery.
 
