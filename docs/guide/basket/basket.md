@@ -13,12 +13,11 @@ A basket can be of one of the following types:
 - [`quickOrder`](../quick_order/quick_order.md)
 - [`storedBasket`](wishlist_and_stored_baskets.md#basket-type)
 - [`wishList`](wishlist_and_stored_baskets.md#basket-type)
-- [`comparison`](../product_comparison/product_comparison.md)
 
 A standard basket (type `basket`) can have different states during the checkout process. After the order is sent, the basket is assigned the state `ordered`.
 
 Data validation, such as for the minimum order amount, only happens when adding products to the shopping basket,
-not to wishlist, stored basket or comparison.
+not to wishlist, or stored basket.
 
 ## Basket structure
 

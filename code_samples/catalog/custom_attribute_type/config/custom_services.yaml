@@ -1,0 +1,36 @@
+services:
+    app.product_catalog.attribute_type.percent:
+        class: Ibexa\ProductCatalog\Local\Repository\Attribute\AttributeType
+        arguments:
+            $identifier: 'percent'
+        tags:
+            -   name: ibexa.product_catalog.attribute_type
+                alias: percent
+
+    App\Attribute\Percent\Form\PercentValueFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.attribute.form_mapper.value
+                type: percent
+
+    App\Attribute\Percent\PercentValueFormatter:
+        tags:
+            -   name: ibexa.product_catalog.attribute.formatter.value
+                type: percent
+
+    app.product_catalog.attribute.percent.form_mapper.options:
+        class: App\Attribute\Percent\PercentOptionsFormMapper
+        tags:
+            -   name: ibexa.product_catalog.attribute.form_mapper.options
+                type: percent
+
+    app.product_catalog.attribute.value_validator.percent:
+        class: App\Attribute\Percent\PercentValueValidator
+        tags:
+            -   name: ibexa.product_catalog.attribute.validator.value
+                type: percent
+
+    app.product_catalog.attribute.options_validator.percent:
+        class: App\Attribute\Percent\PercentOptionsValidator
+        tags:
+            -   name: ibexa.product_catalog.attribute.validator.options
+                type: percent

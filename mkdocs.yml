@@ -1,7 +1,7 @@
 site_name: Developer Documentation
 repo_url: https://github.com/ezsystems/developer-documentation
 site_url: https://doc.ibexa.co/en/latest/
-copyright: "Copyright 1999-2021 Ibexa AS and others"
+copyright: "Copyright 1999-2022 Ibexa AS and others"
 nav:
     - 'Ibexa Developer Documentation': 'index.md'
     - Getting started:
@@ -236,10 +236,8 @@ nav:
             - 'Catalog': 'guide/catalog/catalog.md'
             - 'Catalog configuration': 'guide/catalog/catalog_configuration.md'
             - 'Enable purchasing products': 'guide/catalog/enable_purchasing_products.md'
+            - 'Create custom attribute type': 'guide/catalog/create_custom_attribute_type.md'
             - 'Pricing': 'guide/pricing/price_engine.md'
-            - Product comparison:
-                - 'Product comparison ': 'guide/product_comparison/product_comparison.md'
-                - 'Product comparison API': 'guide/product_comparison/product_comparison_api.md'
             - 'Bestsellers': 'guide/bestsellers.md'
         - Purchasing:
             - 'Basket': 'guide/basket/basket.md'
@@ -373,11 +371,9 @@ nav:
                 - 'Shop search': 'guide/search/shop_search/shop_search.md'
                 - 'Search configuration': 'guide/search/shop_search/search_configuration.md'
                 - 'Search API': 'guide/search/shop_search/search_api.md'
-                - 'Product search': 'guide/search/shop_search/searching_for_products.md'
                 - 'Search indexing': 'guide/search/shop_search/search_indexing.md'
                 - 'Search synonyms': 'guide/search/shop_search/search_synonyms.md'
                 - 'Autosuggestion': 'guide/search/shop_search/search_autosuggest.md'
-                - 'Solr spellcheck': 'guide/search/shop_search/using_solr_spellcheck.md'
         - Taxonomy:
             - 'Taxonomy': 'guide/taxonomy/taxonomy.md'
         - Multisite:
@@ -405,6 +401,7 @@ nav:
                 - 'Recommendation API': 'guide/personalization/developer_guide/recommendation_api.md'
                 - 'Content API': 'guide/personalization/developer_guide/content_api.md'
                 - 'User API': 'guide/personalization/developer_guide/user_api.md'
+                - 'Attribute search': 'guide/personalization/developer_guide/attributes_search_elastic.md'
             - Best practices:
                 - 'Tracking integration': 'guide/personalization/best_practices/tracking_integration.md'
                 - 'Recommendation integration': 'guide/personalization/best_practices/recommendation_integration.md'

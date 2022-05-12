@@ -175,6 +175,12 @@ or
 
 `DATABASE_URL=postgresql://user:password@host:port/database_name`.
 
+!!! tip "Encoding database password"
+
+    The password entered in `DATABASE_URL` must either be URL encoded, or not contain any special characters that would require URL encoding.
+
+    For more information, see [Encoding database password](troubleshooting.md#encoding-database-password).
+
 Choose a [secret]([[= symfony_doc =]]/reference/configuration/framework.html#secret)
 and provide it in the `APP_SECRET` parameter in `.env`.
 It should be a random string, made up of at least 32 characters, numbers, and symbols.
@@ -304,11 +310,11 @@ You can copy [the example vhost file](https://github.com/ezsystems/developer-doc
 to `/etc/apache2/sites-available` as a `.conf` file and modify it to fit your project.
 
 Specify `/<your installation directory>/public` as the `DocumentRoot` and `Directory`.
-Uncomment the line that starts with `#if [SYMFONY_ENV]` and set the value to `prod` or `dev`,
+Uncomment the line that starts with `#if [APP_ENV]` and set the value to `prod` or `dev`,
 depending on the environment that you are configuring:
 
 ```
-SetEnvIf Request_URI ".*" SYMFONY_ENV=prod
+SetEnvIf Request_URI ".*" APP_ENV=prod
 ```
 
 #### Enable the virtual host
@@ -330,12 +336,6 @@ service apache2 restart
 
 Open your project in the browser by visiting the domain address, for example `http://localhost:8080`.
 You should see the welcome page.
-
-!!! tip "eZ Launchpad for quick deployment"
-
-    To get your [[= product_name =]] installation up and running quickly,
-    use the Docker-based [eZ Launchpad](https://ezsystems.github.io/launchpad/), which takes care of the whole setup for you.
-    eZ Launchpad is supported by the Ibexa Community.
 
 ## Post-installation steps
 

@@ -15,7 +15,7 @@ For example, using Apache, in the [`VirtualHost` example](https://github.com/ezs
 # Environment.
 # Possible values: "prod" and "dev" out-of-the-box, other values possible with proper configuration
 # Defaults to "prod" if omitted (uses SetEnvIf so value can be used in rewrite rules)
-SetEnvIf Request_URI ".*" SYMFONY_ENV="dev"
+SetEnvIf Request_URI ".*" APP_ENV="dev"
 ```
 
 ## Using custom environments
