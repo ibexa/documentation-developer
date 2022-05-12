@@ -37,7 +37,7 @@ and `Ibexa\Contracts\ProductCatalog\Events\RegionResolveEvent` in your customiza
 
 ## VAT rates
 
-You configure VAT rates per product type in the Back Office.
+You can configure VAT rates per product type in the Back Office.
 
 In the product type editing mode, access the definition of the Product Specification Field.
 

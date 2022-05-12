@@ -7,7 +7,7 @@ In this example the controller renders all products that exist in the catalog.
 
 !!! note
 
-    By default, the anonymous user doesn't have permissions to view products.
+    By default, the anonymous user does not have permissions to view products.
     To change this, add the `Product/View` Policy to the Anonymous Role.
 
 ## Add product list controller
