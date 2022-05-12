@@ -175,12 +175,12 @@ The available scopes are:
 3. SiteAccess group
 4. `default`
 
-The scopes are applied in the order presented. This means that `global` overrides all other scopes.
-If `global` is not defined, the configuration will then try to match a SiteAccess, and then a SiteAccess group.
-Finally, if no other scope is matched, `default` will be applied.
+`global` overrides all other scopes.
+If `global` is not defined, the configuration then tries to match a SiteAccess, and then a SiteAccess group.
+Finally, if no other scope is matched, `default` is applied.
 
-In short: if you want a match that will always apply, regardless of SiteAccesses use `global`.
-To define a fallback, use `default`.
+In short: if you want a match that always applies, regardless of SiteAccesses, use `global`.
+To define a fallback, use `default`.
 
 ``` yaml
 ezpublish:
