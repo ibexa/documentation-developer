@@ -84,6 +84,55 @@ get:
                 description: Error - the user is not authorized to delete this subtree.
             404:
                 description: Error - the Location with the given ID does not exist.
+    patch:
+        displayName: Update Location
+        description: Updates the Location. This method can also be used to hide/reveal a Location via the hidden field in the LocationUpdate. PATCH or POST with header X-HTTP-Method-Override PATCH.
+        headers:
+            Accept:
+                description: If set, the Location is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.Location+xml
+                    application/vnd.ibexa.api.Location+json
+            Content-Type:
+                description: The LocationUpdate schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.LocationUpdate+xml
+                    application/vnd.ibexa.api.LocationUpdate+json
+            If-Match:
+                description: ETag
+        body:
+            application/vnd.ibexa.api.LocationUpdate+xml:
+                type: LocationUpdateStruct
+                example: !include examples/content/locations/location_id/PATCH/LocationUpdate.xml.example
+            application/vnd.ibexa.api.LocationUpdate+json:
+                type: LocationUpdateStruct
+                example: !include examples/content/locations/location_id/PATCH/LocationUpdate.json.example
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.Location+xml:
+                        type: Location
+                        example: !include examples/content/locations/location_id/PATCH/Location.xml.example
+                    application/vnd.ibexa.api.Location+json:
+                        type: Location
+                        example: !include examples/content/locations/location_id/PATCH/Location.json.example
+            401:
+                description: Error - the user is not authorized to update this Location.
+            404:
+                description: Error - the Location with the given ID does not exist.
+    swap:
+        displayName: Swap Location
+        description: Swaps the Location of a Content item with the given Location of another Content item. SWAP or POST with header X-HTTP-Method-Override SWAP.
+        headers:
+            Destination:
+                description: A parent Location resource to which the Location is moved e.g. '/api/ibexa/v2/content/locations/1/63'.
+        responses:
+            204:
+                description: No Content. Swapped the Location of a Content item with the given Location of another Content item.
+            401:
+                description: Error - the user is not authorized to swap this Location.
+            404:
+                description: Error - the Location with the given ID does not exist.
     /children:
         get:
             displayName: Get child Locations.
@@ -136,53 +185,3 @@ get:
                     description: Error - The user has no permission to read URL aliases.
                 401:
                     description: Error - The Location was not found.
-    /{locationId}:
-        patch:
-            displayName: Update Location
-            description: Updates the Location. This method can also be used to hide/reveal a Location via the hidden field in the LocationUpdate. PATCH or POST with header X-HTTP-Method-Override PATCH.
-            headers:
-                Accept:
-                    description: If set, the Location is returned in XML or JSON format.
-                    example:  |
-                        application/vnd.ibexa.api.Location+xml
-                        application/vnd.ibexa.api.Location+json
-                Content-Type:
-                    description: The LocationUpdate schema encoded in XML or JSON format.
-                    example:  |
-                        application/vnd.ibexa.api.LocationUpdate+xml
-                        application/vnd.ibexa.api.LocationUpdate+json
-                If-Match:
-                    description: ETag
-            body:
-                application/vnd.ibexa.api.LocationUpdate+xml:
-                    type: LocationUpdateStruct
-                    example: !include examples/content/locations/location_id/PATCH/LocationUpdate.xml.example
-                application/vnd.ibexa.api.LocationUpdate+json:
-                    type: LocationUpdateStruct
-                    example: !include examples/content/locations/location_id/PATCH/LocationUpdate.json.example
-            responses:
-                200:
-                    body:
-                        application/vnd.ibexa.api.Location+xml:
-                            type: Location
-                            example: !include examples/content/locations/location_id/PATCH/Location.xml.example
-                        application/vnd.ibexa.api.Location+json:
-                            type: Location
-                            example: !include examples/content/locations/location_id/PATCH/Location.json.example
-                401:
-                    description: Error - the user is not authorized to update this Location.
-                404:
-                    description: Error - the Location with the given ID does not exist.
-        swap:
-            displayName: Swap Location
-            description: Swaps the Location of a Content item with the given Location of another Content item. SWAP or POST with header X-HTTP-Method-Override SWAP.
-            headers:
-                Destination:
-                    description: A parent Location resource to which the Location is moved e.g. '/api/ibexa/v2/content/locations/1/63'.
-            responses:
-                204:
-                    description: No Content. Swapped the Location of a Content item with the given Location of another Content item.
-                401:
-                    description: Error - the user is not authorized to swap this Location.
-                404:
-                    description: Error - the Location with the given ID does not exist.
