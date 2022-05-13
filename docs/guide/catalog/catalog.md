@@ -26,8 +26,10 @@ Typical product attribute examples are: length, weight, color, format, and so on
 The following attribute types are available:
 
 - Checkbox
+- Color
 - Float
 - Integer
+- Measurement
 - Selection
 
 Product attributes are collected in groups.
