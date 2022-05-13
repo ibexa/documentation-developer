@@ -76,7 +76,7 @@ const ImagesList = () => {
 
         return (
             <div {...attrs}>
-                <svg className="ez-icon">
+                <svg className="ibexa-icon">
                     <use xlinkHref={window.ibexa.helpers.icon.getIconPath('caret-next')}></use>
                 </svg>
             </div>

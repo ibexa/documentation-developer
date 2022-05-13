@@ -142,8 +142,8 @@ ibexaConfigManager.add({
     });
     
     ibexaConfigManager.add({
-    ibexaConfig,
-    entryName: 'ibexa-admin-ui-layout-css',
+        ibexaConfig,
+        entryName: 'ibexa-admin-ui-layout-css',
     });
     
     // uncomment the two lines below, if you added a new entry (by Encore.addEntry() or Encore.addStyleEntry() method) to your own Encore configuration for your project
@@ -151,7 +151,7 @@ ibexaConfigManager.add({
     // module.exports = [ eZConfig, ...customConfigs, projectConfig ];
     
     // comment-out this line if you've uncommented the above lines
-    module.exports = [ ibexaConfig, ...customConfigs, projectConfig ];
+    module.exports = [ ibexaConfig, ...customConfigs ];
     ```
 
 ## Check results
