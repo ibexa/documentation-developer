@@ -13,10 +13,8 @@ The REST API is designed in such a way that the client doesn't need to construct
 Starting from the root resources (`ListRoot_`) every response includes further links to related resources.
 The URIs should be used directly as identifiers on the client side and the client should not construct any URIs by using an ID.
 
-### URIs prefix
+### URI prefix
 https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#uris-prefix
-
-TODO: Also said in https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#uris-prefix
 
 In [REST reference](rest_api_reference/rest_api_reference.html), for the sake of readability, there are no prefixes used in the URIs.
 In practice, the `/api/ibexa/v2` prefixes all REST hrefs.
@@ -27,8 +25,6 @@ TODO: Make sure this is demonstrated in "customization and extension" examples.
 ## HTTP methods
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#http-methods
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#custom-http-verbs
-
-TODO: Is PUT used?? What about HEAD? or TRACE?
 
 Depending on the used HTTP method, different actions will be possible on the same resource. Example:
 
@@ -43,17 +39,18 @@ Depending on the used HTTP method, different actions will be possible on the sam
 
 The following list of available methods just give a quick hint of the action a method will trigger on a resource if available. For action details, see the [REST API reference](rest_api_reference/rest_api_reference.html).
 
-| HTTP method                                                |          | Description                                                        |
-|------------------------------------------------------------|----------|--------------------------------------------------------------------|
-| [GET](https://tools.ietf.org/html/rfc2616#section-9.3)     | Standard | To collect data                                                    |
-| [POST](https://tools.ietf.org/html/rfc2616#section-9.5)    | Standard | To send a payload to create an item (content, session, role, etc.) |
-| [PATCH](http://tools.ietf.org/html/rfc5789)                | Custom   | To send a payload to update an item                                |                            
-| COPY                                                       | Custom   | To duplicate an item                                               |
-| [MOVE](http://tools.ietf.org/html/rfc2518)                 | Custom   | To move an item (Location, etc)                                    |                           
-| SWAP                                                       | Custom   | To swap two items (Locations)                                      |
-| PUBLISH                                                    | Custom   | To publish an item                                                 |
-| [DELETE](https://tools.ietf.org/html/rfc2616#section-9.7)  | Standard | To remove an item                                                  |
-| [OPTIONS](https://tools.ietf.org/html/rfc2616#section-9.2) | Standard | To list available methods for a resource                           |
+| HTTP method                                                |          | Description               |
+|------------------------------------------------------------|----------|---------------------------|
+| [OPTIONS](https://tools.ietf.org/html/rfc2616#section-9.2) | Standard | To list available methods |
+| [GET](https://tools.ietf.org/html/rfc2616#section-9.3)     | Standard | To collect data           |
+| [HEAD](https://tools.ietf.org/html/rfc2616#section-9.4)    | Standard | To check existence        |
+| [POST](https://tools.ietf.org/html/rfc2616#section-9.5)    | Standard | To create an item         |
+| [PATCH](http://tools.ietf.org/html/rfc5789)                | Custom   | To update an item         |                            
+| COPY                                                       | Custom   | To duplicate an item      |
+| [MOVE](http://tools.ietf.org/html/rfc2518)                 | Custom   | To move an item           |                           
+| SWAP                                                       | Custom   | To swap two locations     |
+| PUBLISH                                                    | Custom   | To publish an item        |
+| [DELETE](https://tools.ietf.org/html/rfc2616#section-9.7)  | Standard | To remove an item         |
 
 !!! note "Caution with custom HTTP methods"
 
@@ -67,7 +64,11 @@ TODO: Needed or table above is enough?
 
 Any URI resource that the REST API responds to will respond to an OPTIONS request.
 
-The response contains an `Allow` header, that as specified in [chapter 14.7 of RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.7) lists the methods accepted by the resource.
+The response contains an `Allow` header, as specified in [chapter 14.7 of RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.7), which lists the methods accepted by the resource.
+
+```shell
+curl -IX OPTIONS http://api.example.net/api/ibexa/v2/content/objects/1
+```
 
 ```
 OPTIONS /content/objects/1 HTTP/1.1
@@ -77,6 +78,20 @@ Host: api.example.net
 ```
 HTTP/1.1 200 OK
 Allow: PATCH,GET,DELETE,COPY
+```
+
+```shell
+curl -IX OPTIONS http://api.example.net/api/ibexa/v2/content/locations/1/2
+```
+
+```
+OPTIONS /content/locations/1/2 HTTP/1.1
+Host: api.example.net
+```
+
+```
+HTTP/1.1 200 OK
+Allow: GET,PATCH,DELETE,COPY,MOVE,SWAP
 ```
 
 ## Headers

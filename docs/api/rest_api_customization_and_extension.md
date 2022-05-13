@@ -230,7 +230,7 @@ services:
             - { name: ibexa.rest.output.visitor, regexps: app.rest.output.visitor.json.regexps, priority: 20 }
 ```
 
-## Creating a new REST resource route
+## Creating a new REST resource
 https://doc.ibexa.co/en/latest/api/extending_the_rest_api/
 
 ### Requirements / Needs check list
@@ -244,6 +244,8 @@ TODO: media-types? Value class for InputParser usage to represent the payload?
 
 ### Route
 https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#route
+
+Your REST routes should use the [REST URI prefix](rest_api_usage.md#uri-prefix) for consistency. To ensure that they do, in the config/routes.yaml file, while importing your routing file, use `ibexa.rest.path_prefix` parameter as a `prefix`.
 
 ```yaml
 # config/routes.yaml
@@ -259,7 +261,7 @@ app.rest.hello_world:
     controller: App\Rest\Controller\DefaultController::helloWorld
     methods: [GET]
 ```
-TODO: Start with a closer-to-reality example right away instead of Hello World
+TODO: Start with a closer-to-reality example right away instead of Hello World?
 
 #### CSRF protection
 
