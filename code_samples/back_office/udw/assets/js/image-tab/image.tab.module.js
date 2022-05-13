@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import Tab from '../../../vendor/ibexa/admin-ui/src/bundle/ui-dev/src/modules/universal-discovery/components/tab/tab';
+import Tab from '@ibexa-admin-ui/src/bundle/ui-dev/src/modules/universal-discovery/components/tab/tab';
 import ImagesList from './components/image.list';
 
 const ImageTabModule = () => {
@@ -13,7 +13,7 @@ const ImageTabModule = () => {
     );
 };
 ibexa.addConfig(
-'adminUiConfig.universalDiscoveryWidget.tabs',
+    'adminUiConfig.universalDiscoveryWidget.tabs',
     [
         {
             id: 'image',

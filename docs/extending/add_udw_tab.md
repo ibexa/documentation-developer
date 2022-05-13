@@ -39,7 +39,7 @@ The module governs the creation of the new tab.
 
 ## Add tab to webpack config
 
-In `webpack.config.js`, add the following key:
+In `webpack.config.js`, add the following declaration:
 ```js
 const ibexaConfigManager = require('./ibexa.webpack.config.manager.js');
 ```
@@ -123,6 +123,7 @@ ibexaConfigManager.add({
     const ibexaConfig = getIbexaConfig(Encore);
     const customConfigs = require('./ibexa.webpack.custom.configs.js');
     const ibexaConfigManager = require('./ibexa.webpack.config.manager.js');
+
     Encore.reset();
     Encore
         .setOutputPath('public/build/')
@@ -135,9 +136,9 @@ ibexaConfigManager.add({
     // Put your config here.
     
     ibexaConfigManager.add({
-    ibexaConfig,
-    entryName: 'ibexa-admin-ui-udw-tabs-js',
-    newItems: [path.resolve(__dirname, './assets/js/image-tab/image.tab.module.js')],
+        ibexaConfig,
+        entryName: 'ibexa-admin-ui-udw-tabs-js',
+        newItems: [path.resolve(__dirname, './assets/js/image-tab/image.tab.module.js')],
     });
     
     ibexaConfigManager.add({
