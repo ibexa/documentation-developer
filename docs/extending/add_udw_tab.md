@@ -1,6 +1,6 @@
 # Add browser tab
 
-The Universal Discovery Widget (UDW) is a separate React module. By default, it contains three tabs: Browse and Bookmarks.
+The Universal Discovery Widget (UDW) is a separate React module. By default, it contains two tabs: Browse and Bookmarks.
 
 ![UDW default tabs](img/udw_tabs.png)
 
