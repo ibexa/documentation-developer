@@ -11,7 +11,7 @@ TODO: Early explanation of CachedValue (like in https://doc.ibexa.co/en/latest/a
   - This Controller action might wrap its return into a `CachedValue` which contains caching information for the reverse proxies.
 * The `Ibexa\Bundle\Rest\EventListener\ResponseListener` attached to the `kernel.view event` is triggered, and, passes the Request and the Controller action's result to the `AcceptHeaderVisitorDispatcher`.
 * The `AcceptHeaderVisitorDispatcher` matches one of the `regexps` of an `ibexa.rest.output.visitor` service (an `Ibexa\Contracts\Rest\Output\Visitor`). The role of this `Output\Visitor` is to transform the Value returned by the Controller into XML or JSON. To do so, it combines an `Output\Generator` corresponding to the output format and a `ValueObjectVisitorDispatcher`.
-* The matched `Output\Visitor` uses its `ValueObjectVisitorDispatcher` to select the right `ValueObjectVisitor` according to the FQCN of the Controller result.
+* The matched `Output\Visitor` uses its `ValueObjectVisitorDispatcher` to select the right `ValueObjectVisitor` according to the fully qualified class name (FQCN) of the Controller result. A `ValueObjectVisitor` is a service tagged `ibexa.rest.output.value_object.visitor` and this tag has a property `type` pointing a FQCN.
 * `ValueObjectVisitor`s will recursively help to transform the Controller result thanks to the abstraction layer of the `Generator`.
 * The `Output\Visitor` returns the `Response` to send back to the client.
 
@@ -234,9 +234,9 @@ https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#requirements
 
 * The REST route leading to a controller action.
 * The controller and its action.
-* Optionally, an InputParser if the controller needs to receive a payload to treat.
-* Optionally, a new Value class to represent the Controller action result and its ValueObjectVisitor to help the Generator to turn this into XML or JSON.
-TODO: media-types? Value class for InputParser usage to represent the payload?
+* Optionally, an InputParser if the controller needs to receive a payload to treat, a Value class to represent this payload and eventually a new media-type to type this payload in the `Content-Type` header.
+* Optionally, a new Value class to represent the Controller action result, its ValueObjectVisitor to help the Generator to turn this into XML or JSON and eventually a new media-type to claim for this Value in the `Accept` header.
+TODO: "one or several" InputParser, Value class, media-types…
 
 ### Route
 https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#route
