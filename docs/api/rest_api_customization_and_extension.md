@@ -1,28 +1,22 @@
 # REST API customization and extension
 TODO: Or "Customizing and extending the REST API"
 
-## Component Cascade / Timeline Summary
+## Component Cascade / Timeline Summary / REST request lifecycle
 TODO: Find the right section title
-TODO: Choose a version below
 TODO: Early explanation of CachedValue (like in https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#valueobjectvisitor)
 
-### (short version)
-* The REST route leads to a REST controller action witch returns an Ibexa\Rest\Value descendant (for example, an Ibexa\Rest\Server\Values\CachedValue); this return can depend on the request’s Accept HTTP header.
-* The AcceptHeaderVisitorDispatcher matchs the regexps of an ibexa.rest.output.visitor (an Ibexa\Contracts\Rest\Output\Visitor).
-* The matched Output\Visitor uses its ValueObjectVisitorDispatcher to select the right ValueObjectVisitor according to the FQCN of the Controller result .
-
-### (long version)
-* A REST Route leads to a REST Controller action.
-TODO: Explain the route building (root-route + sub-route)
-* This Controller action returns an Ibexa\Rest\Value descendant; the Controller might use the Request (like the Accept header) to build its result.
-TODO: Explain a bit more. What about inputs?
-* The Ibexa\Bundle\Rest\EventListener\ResponseListener listening the `kernel.view event` is triggered, and, passes the Request and the Controller Result to the AcceptHeaderVisitorDispatcher.
-* The AcceptHeaderVisitorDispatcher matches the regexps of an ibexa.rest.output.visitor (an Ibexa\Contracts\Rest\Output\Visitor).
-* The matched Output\Visitor uses its ValueObjectVisitorDispatcher to select the right ValueObjectVisitor according to the FQCN of the Controller result.
-* ValueObjectVisitors will recursively transform the Controller result into TODO
-* The Output\Visitor returns the Response to send back to the client.
+* A REST Route leads to a REST Controller action. A REST route is composed of the root prefix (`ibexa.rest.path_prefix: /api/ibexa/v2`) and a resource path (e.g. `/content/objects/{contentId}`).
+* This Controller action returns an `Ibexa\Rest\Value` descendant.
+  - This Controller action might use the `Request` to build its result according to, for example, GET parameters, the `Accept` HTTP header, or, the Request payload and its `Content-Type` HTTP header.
+  - This Controller action might wrap its return into a `CachedValue` which contains caching information for the reverse proxies.
+* The `Ibexa\Bundle\Rest\EventListener\ResponseListener` attached to the `kernel.view event` is triggered, and, passes the Request and the Controller action's result to the `AcceptHeaderVisitorDispatcher`.
+* The `AcceptHeaderVisitorDispatcher` matches one of the `regexps` of an `ibexa.rest.output.visitor` service (an `Ibexa\Contracts\Rest\Output\Visitor`). The role of this `Output\Visitor` is to transform the Value returned by the Controller into XML or JSON. To do so, it combines an `Output\Generator` corresponding to the output format and a `ValueObjectVisitorDispatcher`.
+* The matched `Output\Visitor` uses its `ValueObjectVisitorDispatcher` to select the right `ValueObjectVisitor` according to the FQCN of the Controller result.
+* `ValueObjectVisitor`s will recursively help to transform the Controller result thanks to the abstraction layer of the `Generator`.
+* The `Output\Visitor` returns the `Response` to send back to the client.
 
 ### vnd.ibexa.api.Content VS vnd.ibexa.api.ContentInfo example
+TODO: Keep? It pictures well but line numbers can change over time while fixing to one version risks obsolescence. If kept, format.
 
 https://github.com/ibexa/rest/blob/main/src/lib/Server/Controller/Content.php#L79: The controller associated to /content/objects/{contentId} returns a Ibexa\Rest\Server\Values\RestContent (wrapped in a CachedValue) with currentVersion property that depends on the Accept header: null if vnd.ibexa.api.ContentInfo, not null if vnd.ibexa.api.Content but an Ibexa\Contracts\Core\Repository\Values\Content\Content
 
@@ -67,8 +61,8 @@ TODO: This chronology is closer to the development
 
 ### New `RestLocation` `ValueObjectVisitor`
 
-The default Controller action returns a `Values\RestLocation` wrapped in a `Values\CachedValue`.
-The new `ValueObjectVisitor` has to visit `Values\RestLocation` to prepare the new Response.
+The Controller action returns a `Values\RestLocation` wrapped in a `Values\CachedValue`.
+The new `ValueObjectVisitor` has to visit `Values\RestLocation` to prepare the new `Response`.
 TODO: For the example, this new `ValueObjectVisitor` extends the default visitor to have less code to write / this new `ValueObjectVisitor` needs to extend the default visitor to be accepted by…
 
 ```php
