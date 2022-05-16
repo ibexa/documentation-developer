@@ -95,8 +95,15 @@ class RestLocation extends BaseRestLocation
             'media-type',
             'application/app.api.Location+' . strtolower((new \ReflectionClass($generator))->getShortName())
         );
-        //TODO: Add _href attribute
         $generator->endAttribute('media-type');
+        $generator->startAttribute(
+            'href',
+            $this->router->generate(
+                'ibexa.rest.load_location',
+                ['locationPath' => trim($data->location->pathString, '/')]
+            )
+        );
+        $generator->endAttribute('href');
         parent::visit($visitor, $generator, $data);
         $visitor->visitValueObject(new URLAliasRefList(array_merge(
             $this->urlAliasService->listLocationAliases($data->location, false),
