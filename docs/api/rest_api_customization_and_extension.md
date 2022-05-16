@@ -3,6 +3,8 @@ TODO: Or "Customizing and extending the REST API"
 
 ## Component Cascade / Timeline Summary
 TODO: Find the right section title
+TODO: Choose a version below
+TODO: Early explanation of CachedValue (like in https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#valueobjectvisitor)
 
 ### (short version)
 * The REST route leads to a REST controller action witch returns an Ibexa\Rest\Value descendant (for example, an Ibexa\Rest\Server\Values\CachedValue); this return can depend on the request’s Accept HTTP header.
@@ -276,6 +278,8 @@ services:
     App\Rest\Controller\:
         resource: '../src/Rest/Controller/'
         parent: Ibexa\Rest\Server\Controller
+        autowire: true
+        autoconfigure: true
         tags: [ 'controller.service_arguments' ]
 ```
 
@@ -286,6 +290,8 @@ https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#controller-action
 <?php
 
 namespace App\Rest\Controller;
+
+use Ibexa\Rest\Server\Controller;
 ```
 
 ### InputParser
@@ -302,6 +308,10 @@ namespace App\Rest\Values;
 <?php
 
 namespace App\Rest\ValueObjectVisitor;
+
+use Ibexa\Contracts\Rest\Output\ValueObjectVisitor;
+use Ibexa\Contracts\Rest\Output\Generator;
+use Ibexa\Contracts\Rest\Output\Visitor;
 ```
 
 ### Registering resources in the REST root
