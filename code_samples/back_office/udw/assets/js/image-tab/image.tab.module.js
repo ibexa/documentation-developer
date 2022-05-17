@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import Tab from '@ibexa-admin-ui/src/bundle/ui-dev/src/modules/universal-discovery/components/tab/tab';
-import ImagesList from './components/image.list';
+import ImagesList from './components/images.list';
 
 const ImageTabModule = () => {
     return (

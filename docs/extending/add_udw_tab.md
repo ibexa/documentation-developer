@@ -110,7 +110,7 @@ Finally, add css in `webpack.config.js`:
 ibexaConfigManager.add({
     ibexaConfig,
     entryName: 'ibexa-admin-ui-layout-css',
-    newItems: [path.resolve(__dirname, './assets/css/image.css'), path.resolve(__dirname, './assets/css/images.list.css')],
+    newItems: [path.resolve(__dirname, './assets/css/image.css'), path.resolve(__dirname, './assets/css/image.list.css')],
 });
 ```
 
@@ -164,4 +164,4 @@ In the UDW a new **Images** tab appears, listing all images from the Repository.
 !!! tip
 
     If you cannot see the results or encounter an error, clear the cache and reload the application. 
-    Remember, after any change of css/js file you should always run `yarn encore dev` in the terminal.
+    Remember, after any change of css/js files you should always run `yarn encore dev` in the terminal.
