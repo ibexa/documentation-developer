@@ -116,7 +116,7 @@ ibexaConfigManager.add({
 
 ## Check results
     
-In the Back Office go to **Content** -> **Dashboard**. On the left panel, click the **Create content** button.
+In the Back Office go to **Content** -> **Dashboard**. On the top right, click the **Create content** button.
 In the UDW a new **Images** tab appears, listing all images from the Repository.
 
 ![Image tab in UDW](img/udw_image_tab.png)
