@@ -58,7 +58,7 @@ The following list of available methods just give a quick hint of the action a m
 
 If applicable, both methods are always mentioned in the specifications.
 
-Not safe methods will require a CSRF token if [session-based authentication](rest_api_authentification.md#session-based-authentication) is used.
+Not safe methods will require a CSRF token if [session-based authentication](rest_api_authentication.md#session-based-authentication) is used.
 
 ### OPTIONS requests
 https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#options-requests
@@ -99,7 +99,13 @@ Allow: GET,PATCH,DELETE,COPY,MOVE,SWAP
 ## Headers
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#other-headers
 
-TODO: Intro listing the main headers: `Accept` describing the response type and format, `Content-Type` describing the payload type and format, `X-Siteaccess` specifying the target SiteAccess, `X-HTTP-Method-Override` allowing to pass a method while using `POST` method as previously seen  
+There are mainly four headers to specify a REST request:
+- `Accept` describing the response type and format;
+- `Content-Type` describing the payload type and format;
+- `X-Siteaccess` specifying the target SiteAccess;
+- `X-HTTP-Method-Override` allowing to pass a method while using `POST` method as previously seen in [HTTP methods](http-methods).
+
+Few other headers related to authentication methods can be found in [REST API authentication](rest_api_authentication.md).
 
 ### SiteAccess
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#specifying-siteaccess
@@ -128,50 +134,22 @@ TODO: This could be important to notice earlier that URIElement can't be used (e
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#media-type-headers
 https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#media-types
 
-On top of methods, HTTP request headers will allow you to personalize the request's behavior. On every resource, you can use the `Accept header to indicate which format you want to communicate in, JSON or XML. This header is also used to specify the response type you want the server to send when multiple ones are available.
+On top of methods, HTTP request headers will allow you to personalize the request's behavior. On every resource, you can use the `Accept` header to indicate which format you want to communicate in, JSON or XML. This header is also used to specify the response type you want the server to send when multiple ones are available.
 
 -   `Accept: application/vnd.ibexa.api.Content+xml` to get **Content** (full data, fields included) as **[XML](http://www.w3.org/XML/)**
 -   `Accept: application/vnd.ibexa.api.ContentInfo+json` to get **ContentInfo** (metadata only) as **[JSON](http://www.json.org/)**
 
-TODO: media-types are also used with `Content-Type` header to characterize the payload.
+Media-types are also used with the `Content-Type` header to characterize a request payload. See Creating session [XML](rest_api_authentication.md#creating-session-xml-example) and [JSON](rest_api_authentication.md#creating-session-json-example) examples.
 
-Each XML media type has a unique name, e.g. `application/vnd.ibexa.api.User+xml`.
-The returned XML response conforms with the complex type definition with a name, e.g. `vnd.ibexa.api.User` in the `user.xsd` XML schema definition file (see `User_`).
+If the resource returns only deals with one media type, it is also possible to skip it and to just specify the format using `application/xml` or `application/json`.
 
-If there is only one media type defined for XML or JSON, it is also possible to specify `application/xml` or `application/json`.
+## REST root
 
-To derive the implicit schema of the JSON from the XML schema a uniform transformation from XML to JSON is performed as shown below.
+The `/` root route is answered by a cheat sheet with the main resource routes and media-types. In XML by default, it can also be switched to JSON output.
 
-TODO: Could this concept transformation be followed with a real example?
-TODO: Is it still true? The Ibexa\Rest\Output\Generator\Json is directly used by Visitors to transform Values to a Json object and Response.
-
-```xml
-<test attr1="attr1">
-   <value attr2="attr2">value</value>
-   <simpleValue>45</simpleValue>
-   <fields>
-     <field>1</field>
-     <field>2</field>
-   </fields>
-</test>
-```
-
-Transforms to:
-
-```json
-{
-  "test":{
-    "_attr1":"attr1",
-    "value":{
-      "_attr2":"attr2",
-      "#text":"value"
-    },
-    "simpleValue":"45",
-    "fields": {
-       "field": [ 1, 2 ]
-    }
-  }
-}
+```shell
+curl http://api.example.net/api/ibexa/v2/
+curl -H "Accept: application/json" http://api.example.net/api/ibexa/v2/
 ```
 
 ## Creating content with binary attachments

@@ -242,6 +242,7 @@ https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#requirements
 * The controller and its action.
 * Optionally, one or several `InputParser` if the Controller needs to receive a payload to treat, one or several Value classes to represent this payload and eventually one or several new media-types to type this payload in the `Content-Type` header.
 * Optionally, one or several new Value classes to represent the Controller action result, their `ValueObjectVisitor` to help the Generator to turn this into XML or JSON and eventually one or several new media-types to claim in the `Accept` header the desired Value.
+* Optionally, the addition of this resources route to the REST root.
 
 ### Route
 https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#route
@@ -279,6 +280,8 @@ app.rest.hello_world:
 ```
 
 ### Controller
+
+TODO: What is the benefit of inheriting from Ibexa\Rest\Server\Controller?
 
 #### Controller service
 

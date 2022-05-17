@@ -35,7 +35,7 @@ For logging out, use the **`DELETE`** request on the same resource.
 
 #### Establishing a session
 
-**Creating session — XML example**
+##### Creating session: XML example
 
 ```
 POST /user/sessions HTTP/1.1
@@ -48,7 +48,7 @@ Content-Type: application/vnd.ibexa.api.SessionInput+xml
 <?xml version="1.0" encoding="UTF-8"?>
 <SessionInput>
   <login>admin</login>
-  <password>secret</password>
+  <password>publish</password>
 </SessionInput>
 ```
 
@@ -69,7 +69,48 @@ Content-Type: application/vnd.ibexa.api.Session+xml
 </Session>
 ```
 
-**Logging in with active session — XML example**
+##### Creating session: JSON example
+
+```
+POST /user/sessions HTTP/1.1
+Host: www.example.net
+Accept: application/vnd.ibexa.api.Session+json
+Content-Type: application/vnd.ibexa.api.SessionInput+json
+```
+
+```json
+{
+  "SessionInput": {
+    "login": "admin",
+    "password": "publish"
+  }
+}
+```
+
+```
+HTTP/1.1 201 Created
+Location: /user/sessions/go327ij2cirpo59pb6rrv2a4el2
+Set-Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
+Content-Type: application/vnd.ibexa.api.Session+xml
+```
+
+```json
+{
+  "Session": {
+    "_media-type": "application\/vnd.ibexa.api.Session+json",
+    "_href": "\/api\/ibexa\/v2\/user\/sessions\/jg1nhinvepsb9ivd10hbjbdp4l",
+    "name": "eZSESSID98defd6ee70dfb1dea416",
+    "identifier": "go327ij2cirpo59pb6rrv2a4el2",
+    "csrfToken": "23lk.neri34ijajedfw39orj-3j93",
+    "User": {
+      "_media-type": "application\/vnd.ibexa.api.User+json",
+      "_href": "\/api\/ibexa\/v2\/user\/users\/14"
+    }
+  }
+}
+```
+
+##### Logging in with active session: XML example
 
 ```
 POST /user/sessions HTTP/1.1
@@ -84,7 +125,7 @@ X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
 <?xml version="1.0" encoding="UTF-8"?>
 <SessionInput>
   <login>admin</login>
-  <password>secret</password>
+  <password>publish</password>
 </SessionInput>
 ```
 
@@ -134,6 +175,7 @@ X-CSRF-Token: <csrfToken>
 If an unsafe request is missing the CSRF token, or the token has incorrect value, an error is returned: `401 Unauthorized`.
 
 ##### Rich client application security concerns
+https://doc.ibexa.co/en/latest/api/rest_api_authentication/#rich-client-application-security-concerns
 
 The purpose of CSRF protection is to prevent users from accidentally running harmful operations by being tricked into executing an HTTP(S) request against a web applications they are logged into.
 In browsers this action will be blocked by lack of CSRF token.
