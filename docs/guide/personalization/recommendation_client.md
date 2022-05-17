@@ -35,7 +35,7 @@ ezrecommendation:
                 license_key: 1234-5678-9012-3456-7890
             included_content_types: [blog, article]
             random_content_types: [blog]
-            host_uri: http://example.com
+            host_uri: https://server_uri
 ```
 
 !!! tip
