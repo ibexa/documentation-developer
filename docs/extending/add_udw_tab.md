@@ -114,49 +114,9 @@ ibexaConfigManager.add({
 });
 ```
 
-??? tip "Complete `webpack.config.js` code"
-
-    ```js
-    const Encore = require('@symfony/webpack-encore');
-    const path = require('path');
-    const getIbexaConfig = require('./ibexa.webpack.config.js');
-    const ibexaConfig = getIbexaConfig(Encore);
-    const customConfigs = require('./ibexa.webpack.custom.configs.js');
-    const ibexaConfigManager = require('./ibexa.webpack.config.manager.js');
-
-    Encore.reset();
-    Encore
-        .setOutputPath('public/build/')
-        .setPublicPath('/build')
-        .enableStimulusBridge('./assets/controllers.json')
-        .enableSassLoader()
-        .enableReactPreset()
-        .enableSingleRuntimeChunk()
-    
-    // Put your config here.
-    
-    ibexaConfigManager.add({
-        ibexaConfig,
-        entryName: 'ibexa-admin-ui-udw-tabs-js',
-        newItems: [path.resolve(__dirname, './assets/js/image-tab/image.tab.module.js')],
-    });
-    
-    ibexaConfigManager.add({
-        ibexaConfig,
-        entryName: 'ibexa-admin-ui-layout-css',
-    });
-    
-    // uncomment the two lines below, if you added a new entry (by Encore.addEntry() or Encore.addStyleEntry() method) to your own Encore configuration for your project
-    // const projectConfig = Encore.getWebpackConfig();
-    // module.exports = [ eZConfig, ...customConfigs, projectConfig ];
-    
-    // comment-out this line if you've uncommented the above lines
-    module.exports = [ ibexaConfig, ...customConfigs ];
-    ```
-
 ## Check results
     
-In the Back Office go to **Content** -> **Content structure**. On the left panel, click **Browse**.
+In the Back Office go to **Content** -> **Dashboard**. On the left panel, click the **Create content** button.
 In the UDW a new **Images** tab appears, listing all images from the Repository.
 
 ![Image tab in UDW](img/udw_image_tab.png)
