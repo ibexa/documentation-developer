@@ -192,7 +192,7 @@ To upload the value to the data store, add the following line under the `<attrib
 You can have multiple attributes with the same name and different type. 
 For example, `size` can be expressed as a number (40.5) or as a code ("L").
 
-## Handle responses
+## Responses
 
 ### HTTP response codes
 
@@ -205,7 +205,7 @@ The following HTTP response codes are used by the recommendation controller:
 |400 Bad Request|Wrong request formatting. The XML content cannot be validated.|
 |404 Not Found|The element requested by the GET or DELETE request was not found.|
 
-## Transfer item identifiers
+## Transferring item identifiers
 
 You could use the data import interface to help migrate the database, 
 when it involves changing item IDs of items that are supported by the 

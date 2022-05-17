@@ -1,4 +1,4 @@
-# Sending notifications
+# Notifications
 
 You can send two types on notifications to the users.
 
@@ -12,12 +12,12 @@ They will appear in their profile in the Back Office.
 
 ![Notification in profile](img/notification3.png)
 
-## Display notification bars
+## Notification bars
 
 Notifications are displayed as a message bar in the Back Office.
 There are four types of notifications: `info`, `success`, `warning` and `error`.
 
-### Display notifications from PHP
+### Displaying notifications from PHP
 
 To send a notification from PHP, inject the `TranslatableNotificationHandlerInterface` into your class.
 
@@ -32,7 +32,7 @@ $this->notificationHandler->info(
 
 To have the notification translated, provide the message strings in the translation files under the correct domain and key.
 
-### Display notifications from front end
+### Displaying notifications from front end
 
 To create a notification from the front end (in this example, of type `info`), use the following code:
 

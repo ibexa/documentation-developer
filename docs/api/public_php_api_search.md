@@ -1,4 +1,4 @@
-# Content search
+# Search API
 
 You can search for content with the PHP API in two ways.
 
@@ -405,4 +405,4 @@ $query->aggregations[] = new IntegerRangeAggregation('range', 'person', 'age',
     `null` means that a range does not have an end.
     In the example all values above (and including) 60 are included in the last range.
 
-See [Agrregation reference](../guide/search/aggregation_reference.md) for details of all available aggregations.
+See [Agrregation reference](../guide/search/aggregation_reference/aggregation_reference.md) for details of all available aggregations.

@@ -29,7 +29,7 @@ Remember to register the bundle by adding it to `config/bundles.php`:
 Acme\ExampleBundle\AcmeExampleBundle::class => ['all' => true],
 ```
 
-### Semantic configuration parsing
+### Parsing semantic configuration
 
 To parse semantic configuration, create a `Configuration` class which extends
 `Ibexa\Bundle\Core\DependencyInjection\Configuration\SiteAccessAware\Configuration`
@@ -218,7 +218,7 @@ parameters:
         language: javascript
 ```
 
-##### Merge from second level
+##### Merging from second level
 
 In the example above, entries were merged in respect to the scope order of precedence.
 However, because you defined the `os_types` key for `siteaccess1`, it completely overrode the default value,

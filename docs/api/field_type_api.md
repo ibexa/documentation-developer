@@ -1,7 +1,5 @@
 # Field Type API
 
-## Basic information
-
 Field Types are the smallest building blocks of content.
 [[= product_name =]] comes with many [built-in Field Types](field_type_reference.md#available-field-types) that cover most common needs e.g. Text line, Email address, Author list, Content relation, Map location, Float, etc.
 
@@ -44,23 +42,23 @@ will be treated as [external storage](field_type_storage.md#external-storage).
 
 The following sequence diagrams visualize the process of creating and publishing new content across all layers, especially focused on the interaction with a Field Type.
 
-## Create Content Sequence
+## Creating content
 
-![Create Content Sequence](img/create_content_sequence.png)
+![Create content sequence](img/create_content_sequence.png)
 
-## Publish Content Sequence
+## Publishing content
 
 !!! note "indexLocation()"
 
     For **Solr** Locations are indexed during Content indexing.
     For **Legacy/SQL** indexing is not required as Location data already exists in a database.
 
-![Publish Content Sequence](img/publish_content_sequence.png)
+![Publish content sequence](img/publish_content_sequence.png)
 
-## Update Content Sequence
+## Updating content
 
-![Update Content Sequence](img/update_content_sequence.png)
+![Update content sequence](img/update_content_sequence.png)
 
-## Load Content Sequence
+## Loading content
 
-![Load Content Sequence](img/load_content_sequence.png)
+![Load content sequence](img/load_content_sequence.png)

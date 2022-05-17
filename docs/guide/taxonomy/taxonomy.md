@@ -1,4 +1,4 @@
-# Tags
+# Taxonomy
 
 Taxonomies (**Tags**) allow you to organize content to make it easy for your site users to browse and to deliver content appropriate for them. It also enhances content search.
 Taxonomies are classifications of logical relationships between content.

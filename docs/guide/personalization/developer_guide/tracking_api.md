@@ -363,7 +363,7 @@ The format of the URL is:
 
 There are no query string parameters for this event. 
 
-## Track events based on recommendations
+## Tracking events based on recommendations
 
 Tracking events based on integrated recommendations are the only way to measure 
 success of recommendations. 
@@ -451,7 +451,7 @@ It is common that recommendations are rendered as a block with multiple items.
 To save traffic and reduce latency, you can bundle multiple recommendations in one request. 
 Several item IDs must be comma-separated.
 
-## Examples of translating user actions into tracking events
+## Tracking event examples
 
 Below are examples for the translation of user actions on a website into tracking requests.
 

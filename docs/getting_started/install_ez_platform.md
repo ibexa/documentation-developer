@@ -7,7 +7,7 @@
     To install [[= product_name =]] for development on macOS or Windows,
     see the [installation guide for macOS and Windows](install-on-mac-os-and-windows.md).
 
-## Prepare the work environment
+## Prepare work environment
 
 To install [[= product_name =]] you need a stack with your operating system, MySQL and PHP.
 
@@ -275,7 +275,7 @@ You can also use [Symfony CLI](https://symfony.com/download):
 symfony serve
 ```
 
-## Prepare the installation for production
+## Prepare installation for production
 
 To use [[= product_name =]] with an HTTP server, you need to [set up directory permissions](#set-up-permissions) and [prepare a virtual host](#set-up-virtual-host).
 
@@ -302,7 +302,7 @@ To set up permissions for production, it is recommended to use an ACL (Access Co
 See [Setting up or Fixing File Permissions]([[= symfony_doc =]]/setup/file_permissions.html) in Symfony documentation
 for information on how to do it on different systems.
 
-### Set up a virtual host
+### Set up virtual host
 
 Prepare a [virtual host configuration](https://httpd.apache.org/docs/2.4/vhosts/) for your site.
 
@@ -317,7 +317,7 @@ depending on the environment that you are configuring:
 SetEnvIf Request_URI ".*" APP_ENV=prod
 ```
 
-#### Enable the virtual host
+#### Enable virtual host
 
 When the virtual host file is ready, enable the virtual host and disable the default:
 

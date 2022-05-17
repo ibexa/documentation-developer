@@ -4,7 +4,7 @@ Before you start using Symfony reverse proxy, you must change your kernel to use
 
 Next, to use Symfony reverse proxy, follow the [Symfony documentation](https://symfony.com/doc/current/http_cache.html#symfony-reverse-proxy).
 
-## Use Varnish or Fastly
+## Using Varnish or Fastly
 
 As [[= product_name =]] is built on top of Symfony, it uses standard HTTP cache headers.
 By default, the Symfony reverse proxy is used to handle cache.
@@ -126,7 +126,7 @@ ibexa:
                     use_ajax: true
 ```
 
-### Custom Captcha block [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+### Update custom Captcha block [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 If you created a custom Captcha block for your site by overriding the default file (`vendor/gregwar/captcha-bundle/Resources/views/captcha.html.twig`),
 you must make the following changes to the custom block template file:
@@ -199,7 +199,7 @@ The service ID is displayed next to the name of your service on any page.
 For instructions on how to generate a Fastly API token, see [the Fastly guide](https://docs.fastly.com/guides/account-management-and-security/using-api-tokens).
 The API token needs the `purge_all` an `purge_select` scopes.
 
-### Examples for configuring [[= product_name =]]
+### Configuration examples
 
 See below the most common configuration examples for the system, using environment variables.
 
@@ -233,7 +233,7 @@ You can configure environment variables through [Platform.sh variables](https://
     For HTTP cache, you will most likely only use this for configuring Fastly for production and optionally staging,
     allowing `variables:env:` in `.platform.app.yaml` to, for example, specify Varnish or Symfony proxy as default for dev environment.
 
-#### Example for Apache with Varnish
+#### Apache with Varnish
 
 ```apacheconfig
 # mysite_com.conf
@@ -247,7 +247,7 @@ SetEnv HTTPCACHE_PURGE_SERVER "http://varnish:80"
 SetEnv TRUSTED_PROXIES "193.22.44.22"
 ```
 
-#### Example for Nginx with Fastly
+#### Nginx with Fastly
 
 ```nginx
 # mysite_com.conf
@@ -261,7 +261,7 @@ fastcgi_param FASTLY_SERVICE_ID "ID"
 fastcgi_param FASTLY_KEY "token"
 ```
 
-## Understand stale cache
+## Stale cache
 
 Stale cache, or grace mode in Varnish, occurs when:
 - Cache is served some time after the TTL expired.

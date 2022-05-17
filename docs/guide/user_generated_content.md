@@ -1,18 +1,16 @@
 # User-Generated Content
 
-## Creating content
-
 [[= product_name =]] comes with content edition features via the Symfony stack.
 They are meant to allow the implementation of user-generated content from the front end, without entering the Back Office.
 
-### Creating a new draft
+## Creating a new draft
 
 The `content/create/draft` route enables you to create a new draft for the selected Content item.
 Pass the ID of the Content item as an argument.
 
 For example, `content/create/draft/59` creates a new draft of the Content item with ID 59.
 
-### Creating a content item without using a draft
+## Creating a Content item without using a draft
 
 The `/content/edit/nodraft` route shows a Content item creation form for a given Content Type:
 
@@ -38,7 +36,7 @@ A limited subset of Field Types is supported:
 - `Float`
 - `URL`
 
-### Editing a Content item
+## Editing a Content item
 
 To edit an existing draft, use the `/content/edit/draft/` route, with the following arguments:
 
@@ -50,7 +48,7 @@ To edit an existing draft, use the `/content/edit/draft/` route, with the follow
 
 For example, `/content/edit/draft/1/5/eng-GB` enables you to edit draft 5 of Content item 1 in English.
 
-### Content editing templates
+## Content editing templates
 
 You can use custom templates for the content editing forms.
 

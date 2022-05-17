@@ -31,7 +31,7 @@ In the case of a fully qualified class name, the matching configuration is passe
 In the case of a service, it must implement `Ibexa\Bundle\Core\SiteAccess\Matcher`.
 The matching configuration is passed to `setMatchingConfiguration()`.
 
-## Available matchers
+## Available SiteAccess matchers
 
 - [`URIElement`](#urielement)
 - [`URIText`](#uritext)

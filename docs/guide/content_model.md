@@ -1,4 +1,4 @@
-# Content Model
+# Content model
 
 ## Content model overview
 

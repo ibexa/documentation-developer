@@ -1,4 +1,4 @@
-# Administration management
+# Admin panel
 
 Once you set up your environment you can start your work as an administrator.
 Your most useful tools can be found in **Admin Panel**.

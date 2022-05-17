@@ -1,4 +1,4 @@
-# Step 5 — Display a list of content items
+# Step 5 — Display a list of Content items
 
 Now that you know how to display a single Content item, you can take care of rendering a list of Content items.
 

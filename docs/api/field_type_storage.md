@@ -154,8 +154,6 @@ The configuration requires providing the `ibexa.field_type.storage.external.hand
 
 External storage configuration for basic Field Types is located in [`ibexa/core/src/lib/Resources/settings/fieldtype_external_storages.yml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/fieldtype_external_storages.yml).
 
-#### Registration
-
 Using gateway-based storage requires another service implementing `Ibexa\Core\FieldType\StorageGateway` to be injected into the [external storage handler](#storing-external-data)).
 
 ``` yaml

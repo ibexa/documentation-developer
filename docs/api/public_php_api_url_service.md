@@ -1,4 +1,4 @@
-# URLService
+# URL API
 
 [`URLService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/URLService.php)
 enables you to find, load and update external URLs used in RichText and URL Fields.

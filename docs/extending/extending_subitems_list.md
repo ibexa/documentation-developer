@@ -8,7 +8,7 @@ It provides an interface for listing the sub-items of any Location.
     If you want to load the Sub-items module, you need to load the JS code for it in your view,
     as it is not available by default.
 
-## How to use it?
+## Use sub-items list
 
 With plain JS:
 

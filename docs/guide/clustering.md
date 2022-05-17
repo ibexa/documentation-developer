@@ -268,7 +268,3 @@ While the command is running, the files should not be modified.
 To avoid surprises you should create a [backup](backup.md) and/or execute a dry run before doing the actual update, using the `--dry-run` switch.
 
 Since this command can run for a very long time, to avoid memory exhaustion run it in the production environment using the `--env=prod` switch.
-
-## Clustering using Amazon AWS S3
-
-See [AWS S3 clustering](clustering_aws_s3.md).

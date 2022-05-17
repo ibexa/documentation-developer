@@ -1,4 +1,4 @@
-# Add dashboard tab
+# Create dashboard tab
 
 To create a new tab in the dashboard, create an `EveryoneArticleTab.php` file in `src/Tab/Dashboard/Everyone`.
 This adds a tab to the **Common content** dashboard block that displays all articles in the repository.

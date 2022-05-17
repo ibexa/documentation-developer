@@ -1,4 +1,4 @@
-# Managing Users [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+# User API [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 ## Segments
 
@@ -48,7 +48,7 @@ and provide it with a `SegmentGroupCreateStruct`:
 [[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 37, 44) =]]
 ```
 
-To create a Segment, use `SegmentationService::createSegment()`
+To add a Segment, use `SegmentationService::createSegment()`
 and provide it with a `SegmentCreateStruct`, which takes an existing group as one of the parameters:
 
 ``` php

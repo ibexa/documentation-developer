@@ -19,7 +19,7 @@ Configure the first custom action in the following way:
 The configuration indicates the name of the custom action (`legal_transition_action`).
 `data` contains additional data that is passed to the action. In this case, it is a message to display.
 
-## Add event listener
+## Create event listener
 
 To define what the action does, create an event listener `src/EventListener/LegalTransitionListener.php`:
 

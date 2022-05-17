@@ -53,7 +53,7 @@ ibexa_migrations:
     migrations_files_subdir: migration_files
 ```
 
-## Configuration reference
+## Preview configuration
 
 You can get default configuration along with option descriptions by executing the following command:
 
@@ -148,7 +148,7 @@ For example:
     You don't need to save references if they are used in the same migration file.
     References are stored in memory during migration, whether they are used or not.
 
-## Available references types
+## Available reference types
 
 - `content`
     - content_id

@@ -1,6 +1,6 @@
-# PayPal Express Checkout [[% include 'snippets/commerce_badge.md' %]]
+# PayPal [[% include 'snippets/commerce_badge.md' %]]
 
-## Installation and configuration
+## Enabling PayPal Express Checkout
 
 PayPal Express Checkout payment requires the third-party `JMSPaymentPaypalBundle` library. 
 The library's fork is available at the following [location](https://github.com/ezsystems/JMSPaymentPaypalBundle/releases/tag/v2.0.0).
@@ -27,7 +27,7 @@ _siso_paypal_payment:
     resource: '@SisoPaypalPaymentBundle/Resources/config/routing.yml'
 ```
 
-## How to get the API credentials
+## Getting API credentials
 
 Provide your [PayPal API credentials](https://developer.paypal.com/docs/nvp-soap-api/apiCredentials/#api-certificates) in configuration:
 
