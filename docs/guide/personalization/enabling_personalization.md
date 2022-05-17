@@ -17,7 +17,7 @@ by adding the following lines with your customer ID and license key:
 ```
 RECOMMENDATION_CUSTOMER_ID=12345
 RECOMMENDATION_LICENSE_KEY=67890-1234-5678-90123-4567
-RECOMMENDATION_HOST_URI=http://example.com
+RECOMMENDATION_HOST_URI=https://server_uri
 ```
 
 ## Configuring event tracking
