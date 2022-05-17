@@ -1,14 +1,14 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
+use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Ibexa\Contracts\FormBuilder\FormSubmission\FormSubmissionServiceInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Ibexa\Contracts\FormBuilder\FormSubmission\FormSubmissionServiceInterface;
-use Ibexa\Contracts\Core\Repository\ContentService;
 
 final class FormSubmissionCommand extends Command
 {
@@ -27,7 +27,7 @@ final class FormSubmissionCommand extends Command
         $this->formSubmissionService = $formSubmissionService;
         $this->contentService = $contentService;
 
-        parent::__construct("doc:form-submission");
+        parent::__construct('doc:form-submission');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
