@@ -240,9 +240,8 @@ https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#requirements
 
 * The REST route leading to a controller action.
 * The controller and its action.
-* Optionally, an InputParser if the controller needs to receive a payload to treat, a Value class to represent this payload and eventually a new media-type to type this payload in the `Content-Type` header.
-* Optionally, a new Value class to represent the Controller action result, its ValueObjectVisitor to help the Generator to turn this into XML or JSON and eventually a new media-type to claim for this Value in the `Accept` header.
-TODO: "one or several" InputParser, Value class, media-types…
+* Optionally, one or several `InputParser` if the Controller needs to receive a payload to treat, one or several Value classes to represent this payload and eventually one or several new media-types to type this payload in the `Content-Type` header.
+* Optionally, one or several new Value classes to represent the Controller action result, their `ValueObjectVisitor` to help the Generator to turn this into XML or JSON and eventually one or several new media-types to claim in the `Accept` header the desired Value.
 
 ### Route
 https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#route
@@ -263,9 +262,21 @@ app.rest.hello_world:
     controller: App\Rest\Controller\DefaultController::helloWorld
     methods: [GET]
 ```
-TODO: Start with a closer-to-reality example right away instead of Hello World?
 
 #### CSRF protection
+
+If a REST route is designed to be used with [unsafe methods](rest_api_usage#http-methods), the CSRF protection is enabled by default like for built-in routes. It can be disabled by using the route parameter `csrf_protection`.
+
+```yaml
+# config/routes_rest.yaml
+app.rest.hello_world:
+    path: '/hello/world'
+    controller: App\Rest\Controller\DefaultController::helloWorld
+    defaults:
+        csrf_protection: false
+    methods: [GET,POST]
+
+```
 
 ### Controller
 

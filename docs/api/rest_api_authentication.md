@@ -103,7 +103,7 @@ Content-Type: application/vnd.ibexa.api.Session+xml
 </Session>
 ```
 
-#### Use the session
+#### Using the session
 
 ##### Session cookie
 
@@ -118,28 +118,42 @@ Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
 
 ##### CSRF token
 
-It can be important to keep the CSRF Token (`csrfToken`) for the duration of the session as this CSRF token must be sent in every request that uses unsafe methods (DELETE, TODO, not GET or HEAD or OPTIONS), when a session has been established.
+It can be important to keep the CSRF Token (`csrfToken`) for the duration of the session as this CSRF token must be sent in every request that uses [unsafe HTTP methods](rest_api_usage.md#http-methods) (others than the safe GET or HEAD or OPTIONS) when a session has been established.
 It should be sent with an `X-CSRF-Token` header.
-TODO: List methods needing it instead of methods which doesn't?
-TODO: Is CSRF token also needed to close a session with DELETE?
+
+Only three built-in routes can accept unsafe methods without CSRF, the sessions routes starting with `/user/sessions` to create, refresh or delete a session.
 
 For details, see [Session-based authentication](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta5/doc/specifications/rest/REST-API-V2.rst#session-based-authentication) in the REST specifications.
-
-A CSRF token must be sent in every request that uses unsafe methods (not GET or HEAD or OPTIONS), when a session has been established.
-The token (`csrfToken`) is defined in a response during logging in through the POST `/user/sessions`.
+TODO: Remove this link to old stuff after picking interesting things from there if there is.
 
 ```
 DELETE /content/types/32 HTTP/1.1
 X-CSRF-Token: <csrfToken>
 ```
 
-```
-DELETE /user/sessions/<sessionID>
-X-CSRF-Token: <csrfToken>
-```
+If an unsafe request is missing the CSRF token, or the token has incorrect value, an error is returned: `401 Unauthorized`.
 
-If an unsafe request is missing the CSRF token, or the token has incorrect value, an error is returned: `401 Unauthorized`.cations/rest/REST-API-V2.rst#session-based-authentication) in the REST specifications.
+##### Rich client application security concerns
 
+The purpose of CSRF protection is to prevent users from accidentally running harmful operations by being tricked into executing an HTTP(S) request against a web applications they are logged into.
+In browsers this action will be blocked by lack of CSRF token.
+
+However, if you develop a rich client application (JavaScript, JAVA, iOS, Android, etc.), that is:
+
+- Registering itself as a protocol handler:
+    - Exposes unsafe methods in any way
+- Authenticates using either:
+    - Session-based authentication
+    - "Client side session" by remembering user login/password
+
+Then, you have to make sure to confirm with the user if they want to perform an unsafe operation.
+
+Example:
+
+A rich JavaScript/web application is using `navigator.registerProtocolHandler()` to register "web+ez:" links to go against REST API.
+It uses a session-based authentication, and it is in widespread use across the net, or/and it is used by everyone within a company.
+A person with minimal insight into this application and the company can easily send out the following link to all employees in that company in email:
+`<a href="web+ez:DELETE /content/locations/1/2">latest reports</a>`.
 
 ## HTTP basic authentication
 https://doc.ibexa.co/en/latest/api/rest_api_authentication/#basic-authentication
@@ -186,7 +200,6 @@ Host: api.example.com
 Accept: application/vnd.ibexa.api.Root+json
 Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
 ```
-
 
 ## JWT authentication
 

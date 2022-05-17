@@ -39,24 +39,26 @@ Depending on the used HTTP method, different actions will be possible on the sam
 
 The following list of available methods just give a quick hint of the action a method will trigger on a resource if available. For action details, see the [REST API reference](rest_api_reference/rest_api_reference.html).
 
-| HTTP method                                                |          | Description               |
-|------------------------------------------------------------|----------|---------------------------|
-| [OPTIONS](https://tools.ietf.org/html/rfc2616#section-9.2) | Standard | To list available methods |
-| [GET](https://tools.ietf.org/html/rfc2616#section-9.3)     | Standard | To collect data           |
-| [HEAD](https://tools.ietf.org/html/rfc2616#section-9.4)    | Standard | To check existence        |
-| [POST](https://tools.ietf.org/html/rfc2616#section-9.5)    | Standard | To create an item         |
-| [PATCH](http://tools.ietf.org/html/rfc5789)                | Custom   | To update an item         |                            
-| COPY                                                       | Custom   | To duplicate an item      |
-| [MOVE](http://tools.ietf.org/html/rfc2518)                 | Custom   | To move an item           |                           
-| SWAP                                                       | Custom   | To swap two locations     |
-| PUBLISH                                                    | Custom   | To publish an item        |
-| [DELETE](https://tools.ietf.org/html/rfc2616#section-9.7)  | Standard | To remove an item         |
+| HTTP method                                                | Status   | Description               | Safe |
+|------------------------------------------------------------|----------|---------------------------|------|
+| [OPTIONS](https://tools.ietf.org/html/rfc2616#section-9.2) | Standard | To list available methods | Yes  |
+| [GET](https://tools.ietf.org/html/rfc2616#section-9.3)     | Standard | To collect data           | Yes  |
+| [HEAD](https://tools.ietf.org/html/rfc2616#section-9.4)    | Standard | To check existence        | Yes  |
+| [POST](https://tools.ietf.org/html/rfc2616#section-9.5)    | Standard | To create an item         | No   |
+| [PATCH](http://tools.ietf.org/html/rfc5789)                | Custom   | To update an item         | No   |
+| COPY                                                       | Custom   | To duplicate an item      | No   |
+| [MOVE](http://tools.ietf.org/html/rfc2518)                 | Custom   | To move an item           | No   |
+| SWAP                                                       | Custom   | To swap two locations     | No   |
+| PUBLISH                                                    | Custom   | To publish an item        | No   |
+| [DELETE](https://tools.ietf.org/html/rfc2616#section-9.7)  | Standard | To remove an item         | No   |
 
 !!! note "Caution with custom HTTP methods"
 
     Using custom HTTP methods can cause issues with several HTTP proxies, network firewall/security solutions and simpler web servers. To avoid issues with this, REST API allows you to set these using the HTTP header `X-HTTP-Method-Override` along standard `POST` method instead of using a custom HTTP method. Example: `X-HTTP-Method-Override: PUBLISH`
 
 If applicable, both methods are always mentioned in the specifications.
+
+Not safe methods will require a CSRF token if [session-based authentication](rest_api_authentification.md#session-based-authentication) is used.
 
 ### OPTIONS requests
 https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#options-requests
