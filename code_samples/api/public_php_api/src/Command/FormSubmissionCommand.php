@@ -30,9 +30,6 @@ final class FormSubmissionCommand extends Command
         parent::__construct("doc:form-submission");
     }
 
-    public function configure(): void
-    {}
-
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
@@ -68,7 +65,7 @@ final class FormSubmissionCommand extends Command
         }
 
         $submission = $this->formSubmissionService->loadById(29);
-        $this>$this->formSubmissionService->delete($submission);
+        $this->formSubmissionService->delete($submission);
 
         return self::SUCCESS;
     }

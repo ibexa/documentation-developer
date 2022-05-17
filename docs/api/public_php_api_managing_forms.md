@@ -10,14 +10,14 @@ To get existing form submissions, use `FormSubmissionServiceInterface::loadByCon
 (which takes a `ContentInfo` object as parameter), or `FormSubmissionServiceInterface::loadById()`.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FormSubmissionCommand.php', 57, 58) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FormSubmissionCommand.php', 54, 55) =]]
 ```
 
 Through this object, you can get information about submissions, such as their total number,
 and submission contents.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FormSubmissionCommand.php', 59, 68) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FormSubmissionCommand.php', 55, 66) =]]
 ```
 
 ### Creating form submissions
@@ -32,7 +32,7 @@ This method takes:
 - the array of form field values
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FormSubmissionCommand.php', 43, 56) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FormSubmissionCommand.php', 40, 53) =]]
 ```
 
 ### Deleting form submissions
@@ -40,5 +40,5 @@ This method takes:
 You can delete a form submission by using the `FormSubmissionServiceInterface::delete()` method.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FormSubmissionCommand.php', 69, 71) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FormSubmissionCommand.php', 66, 68) =]]
 ```
