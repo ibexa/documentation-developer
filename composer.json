@@ -14,6 +14,10 @@
         "symfony/property-access": "^3.1"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "~2.7.1"
+        "ibexa/code-style": "^1.0"
+    },
+    "scripts": {
+        "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",
+        "check-cs": "@fix-cs --dry-run"
     }
 }
