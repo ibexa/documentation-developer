@@ -3,7 +3,6 @@ TODO: Or "Customizing and extending the REST API"
 
 ## Component Cascade / Timeline Summary / REST request lifecycle
 TODO: Find the right section title
-TODO: Early explanation of CachedValue (like in https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#valueobjectvisitor)
 
 * A REST Route leads to a REST Controller action. A REST route is composed of the root prefix (`ibexa.rest.path_prefix: /api/ibexa/v2`) and a resource path (e.g. `/content/objects/{contentId}`).
 * This Controller action returns an `Ibexa\Rest\Value` descendant.
