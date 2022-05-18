@@ -4,14 +4,15 @@ TODO: Introduction? Do not explain what REST is, only the specificity of Ibexa D
 
 The REST API v2 introduced in [[= product_name =]] allows you to interact with an [[= product_name =]] installation using the HTTP protocol, following a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
 
+Each resource (URI) interacts with a part of the system (Content, URL aliases, User Groups, etc.).
+
 The REST API uses HTTP methods ( **`GET`** , **`POST`** , **`DELETE`** , etc.), as well as HTTP headers to specify the type of request.
 
 ## URIs
 https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#uris
 
-The REST API is designed in such a way that the client doesn't need to construct any URIs to resources.
-Starting from the root resources (`ListRoot_`) every response includes further links to related resources.
-The URIs should be used directly as identifiers on the client side and the client should not construct any URIs by using an ID.
+The REST API is designed in such a way that the client can explore the repository without constructing any URIs to resources.
+Starting from the [root resource](#rest-root), every response includes further links (`href`s) to related resources.
 
 ### URI prefix
 https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#uris-prefix
@@ -37,7 +38,7 @@ Depending on the used HTTP method, different actions will be possible on the sam
 | `PUBLISH  /content/objects/2/version/3` | Promotes the version \#3 of Content item \#2 from draft to published |
 | `OPTIONS  /content/objects/2/version/3` | Lists all the methods usable with this resource, the 5 ones above    |
 
-The following list of available methods just give a quick hint of the action a method will trigger on a resource if available. For action details, see the [REST API reference](rest_api_reference/rest_api_reference.html).
+The following list of available methods just give a quick hint of the kind of action a method will trigger on a resource if available. For action details, see the [REST API reference](rest_api_reference/rest_api_reference.html).
 
 | HTTP method                                                | Status   | Description               | Safe |
 |------------------------------------------------------------|----------|---------------------------|------|
@@ -65,6 +66,7 @@ https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#options-requests
 TODO: Needed or table above is enough?
 
 Any URI resource that the REST API responds to will respond to an OPTIONS request.
+TODO: Is it true for custom route? How to make it true for customs?
 
 The response contains an `Allow` header, as specified in [chapter 14.7 of RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.7), which lists the methods accepted by the resource.
 
@@ -96,7 +98,7 @@ HTTP/1.1 200 OK
 Allow: GET,PATCH,DELETE,COPY,MOVE,SWAP
 ```
 
-## Headers
+## Request HTTP headers
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#other-headers
 
 There are mainly four headers to specify a REST request:
@@ -143,6 +145,8 @@ Media-types are also used with the `Content-Type` header to characterize a reque
 
 If the resource returns only deals with one media type, it is also possible to skip it and to just specify the format using `application/xml` or `application/json`.
 
+A response indicates hrefs to related resources and their media-types.
+
 ## REST root
 
 The `/` root route is answered by a cheat sheet with the main resource routes and media-types. In XML by default, it can also be switched to JSON output.
@@ -156,7 +160,7 @@ curl -H "Accept: application/json" http://api.example.net/api/ibexa/v2/
 https://doc.ibexa.co/en/latest/api/creating_content_with_binary_attachments_via_rest_api/
 TODO: Other example of payload/body?
 
-## HTTP error codes
+## HTTP error codes / Response headers(?)
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#general-error-codes
 
 ## Making cross-origin HTTP requests
