@@ -251,7 +251,7 @@ Your REST routes should use the [REST URI prefix](rest_api_usage.md#uri-prefix) 
 
 ```yaml
 # config/routes.yaml
-app_rest_routes:
+app.rest:
     resource: routes_rest.yaml
     prefix: '%ibexa.rest.path_prefix%'
 ```
@@ -276,7 +276,21 @@ app.rest.hello_world:
     defaults:
         csrf_protection: false
     methods: [GET,POST]
+```
 
+#### OPTIONS method support
+TODO: Handle it at Controller level or using the OptionsLoader?
+```yaml
+# config/routes.yaml
+app.rest:
+    resource: routes_rest.yaml
+    prefix: '%ibexa.rest.path_prefix%'
+
+app.rest.options:
+    #TODO: There is something wrong with resource, it only works with an absolute path on ibexa/rest v4.1.2
+    resource: routes_rest.yaml
+    prefix: '%ibexa.rest.path_prefix%'
+    type: rest_options
 ```
 
 ### Controller
