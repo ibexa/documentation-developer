@@ -4,21 +4,10 @@ The [[= product_name =]] REST API comes with a framework that makes it easy to e
 
 ## Requirements
 
-REST routes must use the [[= product_name =]] REST API prefix, `/api/ibexa/v2`. 
-You create new resources below this prefix.
-
-To do so, you create:
-
--   a controller that handles your route actions
--   a route in your routing file
--   a controller action
--   optionally, a `ValueObjectVisitor` (if the controller returns an object that doesn't already have a converter)
--   optionally, an `InputParser`
-TODO: What about new media-types for `Accept` header or `Content-Type` header?
-
 ### Controller
 
 To create a REST controller, you extend the `Ibexa\Rest\Server\Controller` service, as well as the `Ibexa\Rest\Server\Controller` class.
+TODO: Why?
 
 First, create a simple controller with a `sayHello()` method that takes a name as an argument.
 It can be, for example, `src/Rest/Controller/DefaultController.php`.
@@ -38,55 +27,6 @@ class DefaultController extends BaseController
 ```
 
 ### Route
-
-Your REST routes must use the REST URI prefix. 
-To ensure that they do, in the `config/routes.yaml` file, import your routing file by using this prefix.
-
-``` yaml
-my_rest_routes:
-    resource: routes_rest.yaml
-    prefix: '%ibexa.rest.path_prefix%'
-```
-
-When you have a distinct file for the REST routes, you can apply the prefix to all the routes from this file, without affecting other routes.
-
-Next, you create the REST route. 
-In the `config/routes_rest.yaml` file, define the route's [controller as a service]([[= symfony_doc =]]/cookbook/controller/service.html) because your controller was defined as such.
-TODO: Confusing. The route's controller is defined as a service in config/services.yaml below, not in routes_rest.yaml. https://symfony.com/doc/5.4/controller/service.html also use another way to link the controller to the route.
-
-``` yaml
-my_rest_hello_world:
-    path: '/my_rest_bundle/hello/{name}'
-    defaults:
-        _controller: App\Rest\Controller\DefaultController::sayHello
-    methods: [GET]
-```
-
-To configure whether the endpoint uses CSRF validation, add the `csrf_protection` setting to the route:
-
-``` yaml
-my_rest_hello_world:
-    path: '/my_rest_bundle/hello/{name}'
-    defaults:
-        _controller: App\Rest\Controller\DefaultController::sayHello
-        csrf_protection: false
-    methods: [GET]
-```
-
-CSRF protection is enabled by default for all POST, PUT, and DELETE requests.
-
-Due to [EZP-23016 - Custom REST API routes (v2) are not accessible from the legacy backend](https://jira.ez.no/browse/EZP-23016), 
-custom REST routes must be prefixed with `ezpublish_rest_`, or they are not recognized.
-TODO: So, why `my_rest_hello_world` above is not prefixed with `ezpublish_rest_`? Outdated?
-Modify the `config/services.yaml` file by adding the following code:
-
-``` yaml
-services:
-    App\Controller\Rest\DefaultController:
-        parent: Ibexa\Rest\Server\Controller
-        tags: ['controller.service_arguments']
-```
-TODO: Set all App\Rest\Controller\* as REST controllers
 
 ## Controller action
 
@@ -317,30 +257,3 @@ my_rest_hello_world_using_post:
 For more examples, examine the built-in `InputParsers` in `Ibexa\Rest\Server\Input\Parser`.
 
 ## Registering resources in the REST root
-
-TODO: Is this REST root resource list introduced elsewhere earlier?
-
-You can register newly added resources so that they show up in the REST root resource for automatic discovery.
-
-You can register new resources with code similar the following example, where `someresource` is a unique key:
-
-``` yaml
-ez_publish_rest:
-    system:
-        <siteaccess>:
-            rest_root_resources:
-                someresource:
-                    mediaType: Content
-                    href: 'router.generate("ibexa.rest.load_content", {"contentId": 2})'
-```
-
-The `router.generate` call dynamically renders a URI based on the name of the route and the optional parameters that are passed as the other arguments.
-In the above code sample, `contentId` is the additional parameter.
-
-The syntax is based on the Symfony's [expression language]([[= symfony_doc =]]/components/expression_language/index.html), an extensible component that allows limited/readable scripting to be used outside of the code context.
-
-The above configuration adds the following entry to the root resource:
-
-`<someresource media-type="application/vnd.ibexa.api.Content+xml" href="/api/ibexa/v2/content/objects/2"/>`
-
-`<someresource media-type="application/vnd.ibexa.api.Content+xml" href="/api/ibexa/v2/content/objects/2"/>

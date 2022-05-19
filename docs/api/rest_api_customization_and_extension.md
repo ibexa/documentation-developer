@@ -247,7 +247,7 @@ https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#requirements
 ### Route
 https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#route
 
-Your REST routes should use the [REST URI prefix](rest_api_usage.md#uri-prefix) for consistency. To ensure that they do, in the config/routes.yaml file, while importing your routing file, use `ibexa.rest.path_prefix` parameter as a `prefix`.
+Your REST routes should use the [REST URI prefix](rest_api_usage.md#uri-prefix) for consistency. To ensure that they do, in the config/routes.yaml file, while importing a REST routing file, use `ibexa.rest.path_prefix` parameter as a `prefix`.
 
 ```yaml
 # config/routes.yaml
@@ -279,6 +279,7 @@ app.rest.hello_world:
 ```
 
 #### OPTIONS method support
+
 TODO: Handle it at Controller level or using the OptionsLoader?
 ```yaml
 # config/routes.yaml
@@ -287,17 +288,19 @@ app.rest:
     prefix: '%ibexa.rest.path_prefix%'
 
 app.rest.options:
-    #TODO: There is something wrong with resource, it only works with an absolute path on ibexa/rest v4.1.2
+    #TODO: There is something wrong with resource, it only works with an absolute path on ibexa/rest v4.1.2 — see https://issues.ibexa.co/browse/IBX-2927
     resource: routes_rest.yaml
     prefix: '%ibexa.rest.path_prefix%'
     type: rest_options
 ```
 
 ### Controller
-
-TODO: What is the benefit of inheriting from Ibexa\Rest\Server\Controller?
+https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#controller
 
 #### Controller service
+https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#route
+
+TODO: What happens when Controller are not services? Is it really mandatory? If yes, why?
 
 ```yaml
 # config/services.yaml
@@ -313,6 +316,11 @@ services:
 
 #### Controller action
 https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#controller-action
+
+A REST controller should:
+- return a Value object and have a Generator and ValueObjectVisitors producing the XML or JSON output;
+- extend `Ibexa\Rest\Server\Controller` to inherit few utils methods and properties like the InputDispatcher or the RequestParser.
+TODO: Better exposition of this inheritance advantages…
 
 ```php
 <?php
@@ -343,3 +351,39 @@ use Ibexa\Contracts\Rest\Output\Visitor;
 ```
 
 ### Registering resources in the REST root
+https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#registering-resources-in-the-rest-root
+
+TODO: Earlier, after or within route configuration?
+
+The new resource can be added to the [root resource](rest_api_usage.md#rest-root) through a configuration with the following pattern:
+
+```yaml
+ibexa_rest:
+    system:
+        <siteaccess_scope>:
+            rest_root_resources:
+                <resourceName>:
+                    mediaType: <MediaType>
+                    href: 'router.generate("<resource_route_name>", {routeParameter: value})'
+```
+
+The `router.generate` renders a URI based on the name of the route and its parameters. The parameter values can be a real value or a placeholder. For example, `'router.generate("ibexa.rest.load_location", {locationPath: "1/2"})'` results in `/api/ibexa/v2/content/locations/1/2` while `'router.generate("ibexa.rest.load_location", {locationPath: "{locationPath}"})'` gives `/api/ibexa/v2/content/locations/{locationPath}`.
+This syntax is based on the Symfony's [expression language]([[= symfony_doc =]]/components/expression_language/index.html), an extensible component that allows limited/readable scripting to be used outside the code context.
+
+For the previous example `app.rest.hello_world` available in every SiteAccess (`default`):
+
+```yaml
+ibexa_rest:
+    system:
+        default:
+            rest_root_resources:
+                helloWorld:
+                    mediaType: Hello
+                    href: 'router.generate("app.rest.hello_world")'
+```
+
+The above example add the following entry to the root XML output:
+```xml
+<helloWorld media-type="application/vnd.ibexa.api.Hello+xml" href="/api/ibexa/v2/hello/world"/>
+```
+TODO: Is there a way to change the media-type vendor?
