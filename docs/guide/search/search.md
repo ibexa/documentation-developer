@@ -42,44 +42,6 @@ which will be used to translate the value object into a storage-specific search 
 As an example take a look at the [`ContentId` Criterion handler](https://github.com/ibexa/core/blob/main/src/lib/Search/Legacy/Content/Common/Gateway/CriterionHandler/ContentId.php) in Legacy search engine
 or [`ContentId` Criterion handler](https://github.com/ibexa/solr-search-engine/blob/main/lib/Query/Common/CriterionVisitor/ContentIdIn.php) in Solr search engine.
 
-## Search Facet reference
-
-!!! caution "Deprecated"
-
-    Search Facets are deprecated since version v3.2.
-    
-    Use [Aggregation API](../../api/public_php_api_search.md#aggregation) instead.
-
-Search Facets enable you to apply [faceted search](../../api/public_php_api_search.md#faceted-search)
-to get a count of search results for each Facet value.
-
-### Available FacetBuilders
-
-#### ContentTypeFacetBuilder
-
-Arguments:
-
-- `name`: `string`
-- `minCount` (optional): `integer`
-- `limit` (optional): `integer`
-
-#### SectionFacetBuilder
-
-Arguments:
-
-- `name`: `string`
-- `minCount` (optional): `integer`
-- `limit` (optional): `integer`
-
-#### UserFacetBuilder
-
-Arguments:
-
-- `name`: `string`
-- `type`: `string` [`OWNER = 'owner'`, `GROUP = 'group'`, `MODIFIER = 'modifier'`]
-- `minCount` (optional): `integer`
-- `limit` (optional): `integer`
-
 ## Custom Criteria and Sort Clauses
 
 Sometimes you will find that standard Search Criteria and Sort Clauses provided with [[= product_name =]] are not sufficient for your needs. Most often this will be the case if you have a custom Field Type using external storage which cannot be searched using the standard Field Criterion.
