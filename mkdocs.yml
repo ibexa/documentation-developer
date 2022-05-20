@@ -568,6 +568,7 @@ plugins:
         j2_block_end_string: '%]]'
         j2_variable_start_string: '[[='
         j2_variable_end_string: '=]]'
+    - redirects
 
 extra:
   append_bootstrap:
