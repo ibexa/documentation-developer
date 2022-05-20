@@ -64,73 +64,18 @@ The Controller action returns a `Values\RestLocation` wrapped in a `Values\Cache
 The new `ValueObjectVisitor` has to visit `Values\RestLocation` to prepare the new `Response`.
 TODO: For the example, this new `ValueObjectVisitor` extends the default visitor to have less code to write / this new `ValueObjectVisitor` needs to extend the default visitor to be accepted by…
 
-```php
-<?php
-// src/Rest/ValueObjectVisitor/RestLocation.php
-
-namespace App\Rest\ValueObjectVisitor;
-
-use Ibexa\Contracts\Core\Repository\URLAliasService as URLAliasServiceInterface;
-use Ibexa\Contracts\Rest\Output\Generator;
-use Ibexa\Contracts\Rest\Output\Visitor;
-use Ibexa\Rest\Server\Output\ValueObjectVisitor\RestLocation as BaseRestLocation;
-use Ibexa\Rest\Server\Values\URLAliasRefList;
-
-class RestLocation extends BaseRestLocation
-{
-    private URLAliasServiceInterface $urlAliasService;
-
-    public function __construct(URLAliasServiceInterface $urlAliasService/* Repository $repository */)
-    {
-        $this->urlAliasService = $urlAliasService;
-    }
-
-
-    public function visit(Visitor $visitor, Generator $generator, $data)
-    {
-        $generator->startObjectElement('Location');
-        //TODO: Can a "generator" add the media-type?
-        $generator->startAttribute(
-            'media-type',
-            'application/app.api.Location+' . strtolower((new \ReflectionClass($generator))->getShortName())
-        );
-        $generator->endAttribute('media-type');
-        $generator->startAttribute(
-            'href',
-            $this->router->generate(
-                'ibexa.rest.load_location',
-                ['locationPath' => trim($data->location->pathString, '/')]
-            )
-        );
-        $generator->endAttribute('href');
-        parent::visit($visitor, $generator, $data);
-        $visitor->visitValueObject(new URLAliasRefList(array_merge(
-            $this->urlAliasService->listLocationAliases($data->location, false),
-            $this->urlAliasService->listLocationAliases($data->location, true)
-        ), $this->router->generate(
-            'ibexa.rest.list_location_url_aliases',
-            ['locationPath' => trim($data->location->pathString, '/')]
-        )));
-        $generator->endObjectElement('Location');
-    }
-}
-
+``` php
+[[= include_file('code_samples/api/rest_api/src/Rest/ValueObjectVisitor/RestLocation.php') =]]
 ```
 
 This new `ValueObjectVisitor` receives a new tag `app.rest.output.value_object.visitor` to be associated to the new `ValueObjectVisitorDispatcher` in the next step.
 This tag has a `type` property to associate the new `ValueObjectVisitor` with the type of value is made for.
 TODO: Expose the default `ibexa.rest.output.value_object.visitor` tagging earlier.
-```yaml
+``` yaml
 # config/services.yaml
 services:
     #…
-    App\Rest\ValueObjectVisitor\RestLocation:
-        class: App\Rest\ValueObjectVisitor\RestLocation
-        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
-        arguments:
-            $urlAliasService:  '@ibexa.api.service.url_alias'
-        tags:
-            - { name: app.rest.output.value_object.visitor, type: Ibexa\Rest\Server\Values\RestLocation }
+[[= include_file('code_samples/api/rest_api/config/services.yaml', 28, 35) =]]
 ```
 
 ### New `ValueObjectVisitorDispatcher`
@@ -138,98 +83,29 @@ services:
 The new `ValueObjectVisitorDispatcher` receives the `ValueObjectVisitor`s tagged `app.rest.output.value_object.visitor`.
 As not all value FQCNs are handled, the new `ValueObjectVisitorDispatcher` also receives the default one as a fallback.
 
-```yaml
+``` yaml
 # config/services.yaml
 services:
     #…
-    App\Rest\Output\ValueObjectVisitorDispatcher:
-        class: App\Rest\Output\ValueObjectVisitorDispatcher
-        arguments:
-            - !tagged_iterator { tag: 'app.rest.output.value_object.visitor', index_by: 'type' }
-            - '@Ibexa\Contracts\Rest\Output\ValueObjectVisitorDispatcher'
+[[= include_file('code_samples/api/rest_api/config/services.yaml', 22, 27) =]]
 ```
 
-```php
-<?php
-// src/Rest/Output/ValueObjectVisitorDispatcher.php
-
-namespace App\Rest\Output;
-
-use Ibexa\Contracts\Rest\Output\Generator;
-use Ibexa\Contracts\Rest\Output\ValueObjectVisitorDispatcher as BaseValueObjectVisitorDispatcher;
-use Ibexa\Contracts\Rest\Output\Visitor;
-
-class ValueObjectVisitorDispatcher extends BaseValueObjectVisitorDispatcher
-{
-    private array $visitors;
-
-    private BaseValueObjectVisitorDispatcher $valueObjectVisitorDispatcher;
-
-    private Visitor $outputVisitor;
-
-    private Generator $outputGenerator;
-
-    public function __construct(iterable $visitors, BaseValueObjectVisitorDispatcher $valueObjectVisitorDispatcher)
-    {
-        $this->visitors = [];
-        foreach ($visitors as $type => $visitor) {
-            $this->visitors[$type] = $visitor;
-        }
-        $this->valueObjectVisitorDispatcher = $valueObjectVisitorDispatcher;
-    }
-
-    public function setOutputVisitor(Visitor $outputVisitor)
-    {
-        $this->outputVisitor = $outputVisitor;
-        $this->valueObjectVisitorDispatcher->setOutputVisitor($outputVisitor);
-    }
-
-    public function setOutputGenerator(Generator $outputGenerator)
-    {
-        $this->outputGenerator = $outputGenerator;
-        $this->valueObjectVisitorDispatcher->setOutputGenerator($outputGenerator);
-    }
-
-    public function visit($data)
-    {
-        $className = get_class($data);
-        if (isset($this->visitors[$className])) {
-            return $this->visitors[$className]->visit($this->outputVisitor, $this->outputGenerator, $data);
-        }
-        return $this->valueObjectVisitorDispatcher->visit($data);
-    }
-}
+``` php
+[[= include_file('code_samples/api/rest_api/src/Rest/Output/ValueObjectVisitorDispatcher.php') =]]
 ```
 
 ### New `Output\Visitor` service
 
 The following new pair of `Ouput\Visitor` associate `Accept` headers starting with `application/app.api.` to the new `ValueObjectVisitorDispatcher` for both XML and JSON.
 
-```yaml
+``` yaml
 # config/services.yaml
 parameters:
     #…
-    app.rest.output.visitor.xml.regexps: ['(^application/app\.api\.[A-Za-z]+\+xml$)']
-    app.rest.output.visitor.json.regexps: ['(^application/app\.api\.[A-Za-z]+\+json$)']
-
+[[= include_file('code_samples/api/rest_api/config/services.yaml', 1, 3) =]]
 services:
     #…
-
-    app.rest.output.visitor.xml:
-        class: Ibexa\Contracts\Rest\Output\Visitor
-        arguments:
-            - '@Ibexa\Rest\Output\Generator\Xml'
-            - '@App\Rest\Output\ValueObjectVisitorDispatcher'
-        tags:
-            - { name: ibexa.rest.output.visitor, regexps: app.rest.output.visitor.xml.regexps, priority: 20 }
-
-    app.rest.output.visitor.json:
-        class: Ibexa\Contracts\Rest\Output\Visitor
-        arguments:
-            - '@Ibexa\Rest\Output\Generator\Json'
-            - '@App\Rest\Output\ValueObjectVisitorDispatcher'
-        tags:
-            - { name: ibexa.rest.output.visitor, regexps: app.rest.output.visitor.json.regexps, priority: 20 }
+[[= include_file('code_samples/api/rest_api/config/services.yaml', 6, 21) =]]
 ```
 
 ## Creating a new REST resource
@@ -302,16 +178,11 @@ https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#route
 
 TODO: What happens when Controller are not services? Is it really mandatory? If yes, why?
 
-```yaml
+``` yaml
 # config/services.yaml
 services:
     #…
-    App\Rest\Controller\:
-        resource: '../src/Rest/Controller/'
-        parent: Ibexa\Rest\Server\Controller
-        autowire: true
-        autoconfigure: true
-        tags: [ 'controller.service_arguments' ]
+[[= include_file('code_samples/api/rest_api/config/services.yaml', 36, 42) =]]
 ```
 
 #### Controller action
@@ -373,6 +244,7 @@ This syntax is based on the Symfony's [expression language]([[= symfony_doc =]]/
 For the previous example `app.rest.hello_world` available in every SiteAccess (`default`):
 
 ```yaml
+#TODO: Which file?
 ibexa_rest:
     system:
         default:
