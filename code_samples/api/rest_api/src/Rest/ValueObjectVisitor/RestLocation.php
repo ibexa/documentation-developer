@@ -3,7 +3,7 @@
 
 namespace App\Rest\ValueObjectVisitor;
 
-use Ibexa\Contracts\Core\Repository\URLAliasService as URLAliasServiceInterface;
+use Ibexa\Contracts\Core\Repository\URLAliasService;
 use Ibexa\Contracts\Rest\Output\Generator;
 use Ibexa\Contracts\Rest\Output\Visitor;
 use Ibexa\Rest\Server\Output\ValueObjectVisitor\RestLocation as BaseRestLocation;
@@ -11,9 +11,9 @@ use Ibexa\Rest\Server\Values\URLAliasRefList;
 
 class RestLocation extends BaseRestLocation
 {
-    private URLAliasServiceInterface $urlAliasService;
+    private URLAliasService $urlAliasService;
 
-    public function __construct(URLAliasServiceInterface $urlAliasService/* Repository $repository */)
+    public function __construct(URLAliasService $urlAliasService)
     {
         $this->urlAliasService = $urlAliasService;
     }
@@ -21,8 +21,8 @@ class RestLocation extends BaseRestLocation
 
     public function visit(Visitor $visitor, Generator $generator, $data)
     {
+        dump($data);
         $generator->startObjectElement('Location');
-        //TODO: Can a "generator" add the media-type?
         $generator->startAttribute(
             'media-type',
             'application/app.api.Location+' . strtolower((new \ReflectionClass($generator))->getShortName())
