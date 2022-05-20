@@ -588,5 +588,5 @@ For more information about how Elasticsearch handles settings and mappings from 
 
 ## Extending Elasticsearch
 
-To learn how to create custom Search Criteria, Sort Clauses and Facets for use with Elasticsearch,
+To learn how to create custom Search Criteria and Sort Clauses for use with Elasticsearch,
 and how to index custom data and manipulate the query, see [Elasticsearch extensibility](extend_elasticsearch.md).
