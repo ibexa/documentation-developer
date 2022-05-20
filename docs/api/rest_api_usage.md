@@ -156,16 +156,49 @@ curl http://api.example.net/api/ibexa/v2/
 curl -H "Accept: application/json" http://api.example.net/api/ibexa/v2/
 ```
 
-## Creating content with binary attachments
+## Request payloads
+
+Several resources need data.
+While some short scalar parameters can be passed in the URIs or as GET parameters, some resources needs heavier structured payloads, in particular the ones to create (`POST`) or update (`PATCH`) items.
+In the [REST API reference](rest_api_reference/rest_api_reference.html), request payload examples are given when needed.
+
+One example is the [creation of an authentication session](rest_api_authentication.md#establishing-a-session).
+
+When creating a Content, the payload can be complex if the ContentType has some [Image](field_types_reference/imagefield.md) or [BinaryFile](field_types_reference/binaryfilefield.md) fields. 
+
+### Creating content with binary attachments
 https://doc.ibexa.co/en/latest/api/creating_content_with_binary_attachments_via_rest_api/
-TODO: Other example of payload/body?
+
+The example below is a command-line script to upload images.
+
+This script will
+- receive an image path and optionally a name as command-line arguments,
+- use the [HTTP basic authentication](rest_api_authentication.md#http-basic-authentication) assuming it is enabled,
+- communicate in JSON format,
+- create a draft in the /Media/Images folder by `POST`ing data to [`/content/objects`](rest_api_reference/rest_api_reference.html#managing-content-create-content-item),
+- and, `PUBLISH` the draft through [/content/objects/{contentId}/versions/{versionNo}](rest_api_reference/rest_api_reference.html#managing-content-publish-a-content-version).
+
+``` php
+[[= include_file('code_samples/api/rest_api/create_image.php') =]]
+```
 
 ## HTTP error codes / Response headers(?)
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#general-error-codes
+TODO: Needed? More about Responses?
 
 ## Making cross-origin HTTP requests
 https://doc.ibexa.co/en/latest/api/making_cross_origin_http_requests/
+TODO: Related to JS example below
 
 ## Testing the API
+
+### PHP
+
+TODO: Just a GET
+
+A content creation example using PHP is available above in [Creating content with binary attachments section](#creating-content-with-binary-attachments)
+
+### JS
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#testing-the-api
-TODO: Earlier? Merged into another section? What about PHP example(s)?
+
+TODO: Earlier? Merged into another section?
