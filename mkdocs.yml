@@ -59,6 +59,7 @@ nav:
             - 'Managing Content': 'api/public_php_api_managing_content.md'
             - 'Managing catalog': 'api/public_php_api_managing_catalog.md'
             - 'Managing prices': 'api/public_php_api_managing_prices.md'
+            - 'Managing forms': 'api/public_php_api_managing_forms.md'
             - 'Managing Repository': 'api/public_php_api_managing_repository.md'
             - 'Managing migrations': 'api/public_php_api_managing_migrations.md'
             - 'Managing Users': 'api/public_php_api_managing_users.md'
