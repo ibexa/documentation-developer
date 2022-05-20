@@ -204,14 +204,44 @@ For more information, see [HTTP Authentication: Basic and Digest Access Authenti
 
 ### Configuration
 
-To enable HTTP basic authentication, edit `config/packages/security.yaml`, and, before the `ibexa_front` firewall, add a new firewall dedicated to REST with [`http_basic`](https://symfony.com/doc/5.4/security.html#http-basic) configuration:
+To enable HTTP basic authentication for every connection, edit `config/packages/security.yaml`,
+- remove or comment the `ibexa_front` firewall,
+- in the `main` firewall, uncomment the [`http_basic`](https://symfony.com/doc/5.4/security.html#http-basic) configuration line:
+
+```diff+yaml
+-        ibexa_front:
+-            pattern: ^/
+-            user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
+-            anonymous: ~
+-            ibexa_rest_session: ~
+-            form_login:
+-                require_previous_session: false
+-                csrf_token_generator: security.csrf.token_manager
+-            guard:
+-                authenticator: 'Ibexa\PageBuilder\Security\EditorialMode\TokenAuthenticator'
+-            logout: ~
+
+        main:
+            anonymous: ~
+            # activate different ways to authenticate
+
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+-            #http_basic: ~
++            http_basic: ~
+```
+
+Instead, if you have a dedicated host for REST, you can enable HTTP basic authentication only this host by setting a firewall like the following before the `ibexa_front` one:
 
 ```yaml
         ibexa_rest:
-            pattern: ^/api/ibexa/v2
+            host: ^api\.example\.com$
             http_basic:
                 realm: Ibexa DXP REST API
 ```
+
+Notice that the Back Office uses the REST API too (for some parts like the Location tree) but on its own domain. If Back Office and REST client got to use the same domain, both must use the same authentication method.
+
+TODO: Simplify
 
 ### Usage example
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#http-basic-authentication
@@ -219,7 +249,7 @@ https://doc.ibexa.co/en/latest/api/general_rest_usage/#http-basic-authentication
 Basic authentication requires the username and password to be sent *(username:password)*, based 64 encoded, with each request.
 For details, see [RFC 2617](http://tools.ietf.org/html/rfc2617).
 
-Most HTTP client libraries as well as REST libraries support this method.
+Most HTTP client libraries as well as REST libraries support this method. [Creating content with binary attachments](rest_api_usage.md#creating-content-with-binary-attachments) has an example using Basic authentication with [cURL](https://www.php.net/manual/en/book.curl.php) and its `CURLOPT_USERPWD`. 
 
 **Raw HTTP request with basic authentication**
 
@@ -290,6 +320,8 @@ TODO
 https://doc.ibexa.co/en/latest/api/rest_api_authentication/#ssl-client-authentication
 
 The REST API provides authentication of a user by a subject in a client certificate delivered by the web server configured as SSL endpoint.
+
+TODO: Something to do with https://symfony.com/doc/5.4/security.html#x-509-client-certificates ?
 
 ### Configuration
 TODO
