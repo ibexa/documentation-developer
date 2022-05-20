@@ -204,26 +204,13 @@ For more information, see [HTTP Authentication: Basic and Digest Access Authenti
 
 ### Configuration
 
-To enable HTTP basic authentication, edit `config/packages/security.yaml`, and, in the `main` firewall, uncomment the [`http_basic`](https://symfony.com/doc/5.4/security.html#http-basic) configuration line:
-
-```diff+yaml
-        main:
-            anonymous: ~
-            # activate different ways to authenticate
-
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
--            #http_basic: ~
-+            http_basic: ~
-
-```
-
-Instead, ff you prefer, you can add a dedicated firewall like the following before the `main` one:
+To enable HTTP basic authentication, edit `config/packages/security.yaml`, and, before the `ibexa_front` firewall, add a new firewall dedicated to REST with [`http_basic`](https://symfony.com/doc/5.4/security.html#http-basic) configuration:
 
 ```yaml
-    ibexa_rest:
-        pattern: ^/api/ibexa/v2
-        http_basic:
-            realm: Ibexa DXP REST API
+        ibexa_rest:
+            pattern: ^/api/ibexa/v2
+            http_basic:
+                realm: Ibexa DXP REST API
 ```
 
 ### Usage example
