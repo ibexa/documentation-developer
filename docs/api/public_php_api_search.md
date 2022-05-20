@@ -47,7 +47,7 @@ $output->writeln($result->getName());
 
 !!! tip
 
-    For full list and details of available Search Criteria, see [Search Criteria reference](../guide/search/search_criteria_reference.md).
+    For full list and details of available Search Criteria, see [Search Criteria reference](../guide/search/criteria_reference/search_criteria_reference.md).
 
 !!! note "Search result limit"
 
@@ -172,8 +172,8 @@ $filter
     and Sort Clauses implementing [`FilteringSortClause`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Filter/FilteringSortClause.php)
     are supported.
 
-    See [Search Criteria](../guide/search/search_criteria_reference.md)
-    and [Sort Clause reference](../guide/search/sort_clause_reference.md) for details.
+    See [Search Criteria](../guide/search/criteria_reference/search_criteria_reference.md)
+    and [Sort Clause reference](../guide/search/sort_clause_reference/sort_clause_reference.md) for details.
 
 !!! tip
 
@@ -306,7 +306,7 @@ Even though the Location B is hidden, the query will find the content because bo
 
 ## Sorting results
 
-To sort the results of a query, use one of more [Sort Clauses](../guide/search/sort_clause_reference.md).
+To sort the results of a query, use one of more [Sort Clauses](../guide/search/sort_clause_reference/sort_clause_reference.md).
 
 For example, to order search results by their publicationg date, from oldest to newest,
 and then alphabetically by content name, add the following Sort Clauses to the query:
@@ -317,7 +317,7 @@ and then alphabetically by content name, add the following Sort Clauses to the q
 
 !!! tip
 
-    For the full list and details of available Sort Clauses, see [Sort Clause reference](../guide/search/sort_clause_reference.md).
+    For the full list and details of available Sort Clauses, see [Sort Clause reference](../guide/search/sort_clause_reference/sort_clause_reference.md).
 
 ## Searching in trash
 

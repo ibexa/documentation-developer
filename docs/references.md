@@ -22,6 +22,6 @@
 
 ## Search
 
-- [Search Criteria](guide/search/search_criteria_reference.md)
-- [Sort Clauses](guide/search/sort_clause_reference.md)
-- [Aggregation](guide/search/aggregation_reference.md)
+- [Search Criteria](guide/search/criteria_reference/search_criteria_reference.md)
+- [Sort Clauses](guide/search/sort_clause_reference/sort_clause_reference.md)
+- [Aggregation](guide/search/aggregation_reference/aggregation_reference.md)
