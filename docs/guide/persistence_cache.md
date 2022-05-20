@@ -29,7 +29,7 @@ Notes:
   order to allow clearing cache by alternative indexes.
   For instance tree operations or changes to Content Types are
   examples of operations that also need to invalidate content cache by tags.
-- Search is not defined as persistence and the queries themselves are not planned to be cached as they are too complex by design (full text, facets, etc.).
+- Search is not defined as persistence and the queries themselves are not planned to be cached as they are too complex by design (for example, full text).
   Use [Solr](search/solr.md) which caches this for you to improve scale/performance, and to offload your database.
 
 For further details on which calls are cached or not, see details in the [Symfony Web Debug Toolbar](devops.md#web-debug-toolbar)
