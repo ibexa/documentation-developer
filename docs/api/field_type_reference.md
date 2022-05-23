@@ -33,7 +33,7 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Keyword](field_types_reference/keywordfield.md) | Stores keywords. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [MapLocation](field_types_reference/maplocationfield.md) | Stores map coordinates. | Yes, with [`MapLocationDistance` Criterion](../guide/search/criteria_reference/maplocationdistance_criterion.md) | Yes |
 | [Matrix](field_types_reference/matrixfield.md) | Represents and handles a table of rows and columns of data. | No | No |
-| [Measurement](field_types_reference/measurementfield.md) | Validates and stores a unit of measure and measurement value or range top and bottom values. | Yes | Yes |
+| [Measurement](field_types_reference/measurementfield.md) | Validates and stores a unit of measure, and either a measurement single value or measurement range top and bottom values. | Yes | Yes |
 | [Media](field_types_reference/mediafield.md) | Validates and stores a media file. | No | Yes |
 | [Null](field_types_reference/nullfield.md) | Used as fallback for missing Field Types and for testing purposes. | N/A | N/A |
 | [Page](field_types_reference/pagefield.md) | Stores a Page with a layout consisting of multiple zones. | N/A | N/A |
