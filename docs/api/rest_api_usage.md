@@ -177,17 +177,17 @@ This script will
 - create a draft in the /Media/Images folder by `POST`ing data to [`/content/objects`](rest_api_reference/rest_api_reference.html#managing-content-create-content-item),
 - and, `PUBLISH` the draft through [/content/objects/{contentId}/versions/{versionNo}](rest_api_reference/rest_api_reference.html#managing-content-publish-a-content-version).
 
-#### Using XML
+=== "Using XML"
 
-``` php
-[[= include_file('code_samples/api/rest_api/create_image.xml.php') =]]
-```
+    ``` php
+    [[= include_file('code_samples/api/rest_api/create_image.xml.php') =]]
+    ```
 
-#### Using JSON
+=== "Using JSON"
 
-``` php
-[[= include_file('code_samples/api/rest_api/create_image.json.php') =]]
-```
+    ``` php
+    [[= include_file('code_samples/api/rest_api/create_image.json.php') =]]
+    ```
 
 ## HTTP error codes / Response headers(?)
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#general-error-codes
