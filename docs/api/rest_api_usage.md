@@ -4,9 +4,9 @@ TODO: Introduction? Do not explain what REST is, only the specificity of Ibexa D
 
 The REST API v2 introduced in [[= product_name =]] allows you to interact with an [[= product_name =]] installation using the HTTP protocol, following a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
 
-Each resource (URI) interacts with a part of the system (Content, URL aliases, User Groups, etc.).
+Each resource (URI) interacts with a part of the system (Content, User, etc.).
 
-The REST API uses HTTP methods ( **`GET`** , **`POST`** , **`DELETE`** , etc.), as well as HTTP headers to specify the type of request.
+The REST API uses HTTP methods ( `GET`, `PUBLISH` , etc.), as well as HTTP headers to specify the type of request.
 
 ## URIs
 https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#uris
