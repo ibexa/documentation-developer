@@ -204,9 +204,28 @@ For more information, see [HTTP Authentication: Basic and Digest Access Authenti
 
 ### Configuration
 
-To enable HTTP basic authentication for every connection, edit `config/packages/security.yaml`,
-- remove or comment the `ibexa_front` firewall,
-- in the `main` firewall, uncomment the [`http_basic`](https://symfony.com/doc/5.4/security.html#http-basic) configuration line:
+!!! caution "Back Office uses REST API"
+
+    Notice that the Back Office uses the REST API too (for some parts like the Location tree) on its own domain.
+    
+    * If the Back Office SiteAccess matches admin.example.com, it will call the REST API under //admin.example.com/api/ibexa/v2;
+    * If the Back Office SiteAccess matches localhost/admin, it will call the REST API under //localhost/api/ibexa/v2.
+
+If the installation has a dedicated host for REST, you can enable HTTP basic authentication only this host by setting a firewall like the following before the `ibexa_front` one:
+
+```yaml
+        ibexa_rest:
+            host: ^api\.example\.com$
+            http_basic:
+                realm: Ibexa DXP REST API
+```
+
+If the Back Office and REST client got to use the same domain, both must use the same authentication method.
+
+To enable HTTP basic authentication for every SiteAccesses, edit `config/packages/security.yaml`,
+
+* remove or comment the `ibexa_front` firewall,
+* in the `main` firewall, uncomment the [`http_basic`](https://symfony.com/doc/5.4/security.html#http-basic) configuration line:
 
 ```diff+yaml
 -        ibexa_front:
@@ -230,18 +249,11 @@ To enable HTTP basic authentication for every connection, edit `config/packages/
 +            http_basic: ~
 ```
 
-Instead, if you have a dedicated host for REST, you can enable HTTP basic authentication only this host by setting a firewall like the following before the `ibexa_front` one:
-
-```yaml
-        ibexa_rest:
-            host: ^api\.example\.com$
-            http_basic:
-                realm: Ibexa DXP REST API
-```
-
-Notice that the Back Office uses the REST API too (for some parts like the Location tree) but on its own domain. If Back Office and REST client got to use the same domain, both must use the same authentication method.
+In this last case, the Back Office won't use the traditional login page but the browser will use its own Basic Authentication popup to ask for credential. There is no logout.
 
 TODO: Simplify
+TODO: Is there a doc about Basic Auth?
+TODO: The logout button is still there and lead to an error "Unable to find the controller for path "/admin/logout". The route is wrongly configured."
 
 ### Usage example
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#http-basic-authentication
