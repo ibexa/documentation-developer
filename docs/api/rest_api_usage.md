@@ -194,8 +194,8 @@ This script will
     }
     
     // URL to Ibexa DXP installation and its REST API
-    $host = 'localhost:8004';
-    $scheme = 'http';
+    $host = 'api.example.com';
+    $scheme = 'https';
     $api = '/api/ibexa/v2';
     $baseUrl = "{$scheme}://{$host}{$api}";
     
