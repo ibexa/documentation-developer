@@ -38,7 +38,7 @@ Depending on the used HTTP method, different actions will be possible on the sam
 | `PUBLISH  /content/objects/2/version/3` | Promotes the version \#3 of Content item \#2 from draft to published |
 | `OPTIONS  /content/objects/2/version/3` | Lists all the methods usable with this resource, the 5 ones above    |
 
-The following list of available methods just give a quick hint of the kind of action a method will trigger on a resource if available. For action details, see the [REST API reference](rest_api_reference/rest_api_reference.html).
+The following list of available methods just give a quick hint of the kind of action a method will trigger on a resource if available. For method action details per resource, see the [REST API reference](rest_api_reference/rest_api_reference.html).
 
 | HTTP method                                                | Status   | Description               | Safe |
 |------------------------------------------------------------|----------|---------------------------|------|
@@ -175,7 +175,7 @@ This script will
 - receive an image path and optionally a name as command-line arguments,
 - use the [HTTP basic authentication](rest_api_authentication.md#http-basic-authentication) assuming it is enabled,
 - create a draft in the /Media/Images folder by `POST`ing data to [`/content/objects`](rest_api_reference/rest_api_reference.html#managing-content-create-content-item),
-- and, `PUBLISH` the draft through [/content/objects/{contentId}/versions/{versionNo}](rest_api_reference/rest_api_reference.html#managing-content-publish-a-content-version).
+- and, `PUBLISH` the draft through [`/content/objects/{contentId}/versions/{versionNo}`](rest_api_reference/rest_api_reference.html#managing-content-publish-a-content-version).
 
 === "Using XML"
 
@@ -189,9 +189,32 @@ This script will
     [[= include_file('code_samples/api/rest_api/create_image.json.php', 0, None, '    ') =]]
     ```
 
-## HTTP error codes / Response headers(?)
+## Response HTTP codes and headers
+https://doc.ibexa.co/en/latest/api/general_rest_usage/#response-headers
+https://doc.ibexa.co/en/latest/api/general_rest_usage/#http-code
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#general-error-codes
-TODO: Needed? More about Responses?
+
+The following list of available HTTP response codes just give a quick hint of the meaning of a code. For code details per resource, see the [REST API reference](rest_api_reference/rest_api_reference.html).
+
+| Code  | Message                | Description                                                                                                                                                                                                                                                  |
+|-------|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `200` | OK                     | The resource has been found.                                                                                                                                                                                                                                 |
+| `201` | Created                | The request to create a new item has succeeded.                                                                                                                                                                                                              |
+| `204` | No Content             | The request has succeeded and there is nothing to say about it in the response header nor body (for example when publishing or deleting).                                                                                                                    |
+| `307` | Temporary Redirect     | The resource is available at another URL considered as its main.                                                                                                                                                                                             |
+| `400` | Bad Request            | The input (payload) doesn't have the proper schema for the resource.                                                                                                                                                                                         |
+| `401` | Unauthorized           | The user does not have the permission to make this request.                                                                                                                                                                                                  |
+| `403` | Forbidden              | The user has the permission but action can't be done because of repository logic (for example, when trying to create an item with an already existing ID or identifier, when attempting to update a version in another state than draft).                    |
+| `404` | Not Found              | The requested object (or a request data like the parent of a new item) hasn't been found.                                                                                                                                                                    |
+| `405` | Method Not Allowed     | The requested resource does not support the HTTP verb that was used.                                                                                                                                                                                         |
+| `406` | Not Acceptable         | The request `accept` header is not supported.                                                                                                                                                                                                                |
+| `409` | Conflict               | TODO.                                                                                                                                                                                                                                                        |
+| `412` | Precondition Failed    | TODO.                                                                                                                                                                                                                                                        |
+| `415` | Unsupported Media Type | TODO.                                                                                                                                                                                                                                                        |
+| `500` | Internal Server Error  | The server encountered an unexpected condition, usually an exception, which prevents it from fulfilling the request, like database down, permissions or configuration error.                                                                                 |
+| `501` | Not Implemented        | Returned when the requested method has not yet been implemented. For [[= product_name =]], most of Users, User groups, Content items, Locations and Content Types have been implemented. Some of their methods, as well as other features, may return a 501. |
+
+TODO: Continue
 
 ## Making cross-origin HTTP requests
 https://doc.ibexa.co/en/latest/api/making_cross_origin_http_requests/
