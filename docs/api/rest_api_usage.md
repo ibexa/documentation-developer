@@ -174,12 +174,19 @@ The example below is a command-line script to upload images.
 This script will
 - receive an image path and optionally a name as command-line arguments,
 - use the [HTTP basic authentication](rest_api_authentication.md#http-basic-authentication) assuming it is enabled,
-- communicate in JSON format,
 - create a draft in the /Media/Images folder by `POST`ing data to [`/content/objects`](rest_api_reference/rest_api_reference.html#managing-content-create-content-item),
 - and, `PUBLISH` the draft through [/content/objects/{contentId}/versions/{versionNo}](rest_api_reference/rest_api_reference.html#managing-content-publish-a-content-version).
 
+#### Using XML
+
 ``` php
-[[= include_file('code_samples/api/rest_api/create_image.php') =]]
+[[= include_file('code_samples/api/rest_api/create_image.xml.php') =]]
+```
+
+#### Using JSON
+
+``` php
+[[= include_file('code_samples/api/rest_api/create_image.json.php') =]]
 ```
 
 ## HTTP error codes / Response headers(?)

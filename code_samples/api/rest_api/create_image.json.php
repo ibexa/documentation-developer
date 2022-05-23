@@ -13,7 +13,7 @@ if (!is_file($argv[1])) {
 
 // URL to Ibexa DXP installation and its REST API
 $host = 'api.example.com';
-$scheme = 'http';
+$scheme = 'https';
 $api = '/api/ibexa/v2';
 $baseUrl = "{$scheme}://{$host}{$api}";
 
@@ -37,8 +37,8 @@ $data = [
             'ParentLocation' => [
                 '_href' => "$api/content/locations/$parentLocationPath",
             ],
-            'sortField' => 'PATH',
-            'sortOrder' => 'ASC',
+            //'sortField' => 'PATH',
+            //'sortOrder' => 'ASC',
         ],
         'Section' => [
             '_href' => "$api/content/sections/$sectionId",
@@ -53,7 +53,7 @@ $data = [
                     'fieldDefinitionIdentifier' => 'image',
                     'fieldValue' => [
                         // Original file name
-                        'fileName' => pathinfo($argv[1], PATHINFO_BASENAME),
+                        'fileName' => basename($argv[1]),
                         // File size in bytes
                         'fileSize' => filesize($argv[1]),
                         // File content must be encoded as Base64
@@ -126,7 +126,8 @@ if ($error = curl_error($curl)) {
 }
 
 if (204 !== $responseCode = curl_getinfo($curl, CURLINFO_RESPONSE_CODE)) {
-    if (array_key_exists('ErrorMessage', $response)) {
+    $response = json_decode($response, true);
+    if (is_array($response) && array_key_exists('ErrorMessage', $response)) {
         echo "Server error: {$response['ErrorMessage']['errorCode']} {$response['ErrorMessage']['errorMessage']}\n";
         echo "\t{$response['ErrorMessage']['errorDescription']}\n";
         curl_close($curl);
@@ -137,7 +138,7 @@ if (204 !== $responseCode = curl_getinfo($curl, CURLINFO_RESPONSE_CODE)) {
     }
 }
 
-echo
+echo "Success: Image Content created with ID $contentId and published\n";
 
 curl_close($curl);
 exit(0);
