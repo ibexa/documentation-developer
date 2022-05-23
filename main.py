@@ -10,7 +10,7 @@ def define_env(env):
 
 
     @env.macro
-    def include_file(filename, start_line=0, end_line=None):
+    def include_file(filename, start_line=0, end_line=None, separator=''):
         """
         Include a file, optionally indicating start_line and end_line
         (start counting from 0)
@@ -21,4 +21,4 @@ def define_env(env):
         with open(full_filename, 'r') as f:
             lines = f.readlines()
         line_range = lines[start_line:end_line]
-        return ''.join(line_range)
+        return separator.join(line_range)
