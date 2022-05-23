@@ -80,38 +80,56 @@ $measurementValue = new Measurement\Value(
 
 The Measurement Field Type validates measurement types and units passed within 
 the Value object against a list of the ones that the system supports, which can 
-be found in the `/Resources/config/builtin_units.yaml` file.
+be found in the `vendor/ibexa/measurement/src/bundle/Resources/config/builtin_units.yaml` file.
 
-## Template rendering
+### Extending the default list of Measurement types and units
 
-Example:
+You can extend the default list of Measurement types and units by modifying the existing entries or adding new ones. To do this, you modify your YAML configuration, for example, by creating the `config/packages/ibexa_measurement.yaml` file.
 
-``` html+twig
-{{ ibexa_render_field(content, 'measurement') }}
-```
-
-## Extending Measurement Types and units
-
-`config/packages/ibexa_measurement.yaml`:
+To override an existing designation of the unit of measure by changing the symbol that corresponds to a nautical unit of speed, and to add a rotational speed unit, add the following lines to your YAML configuration:
 
 ```yaml
 ibexa_measurement:
     types:
         speed:
-            knot: { symbol: kt } # override existing unit symbol
-            new_unit: { symbol: new } # add new unit to the existing type
-        my_type: # define new custom type and its units
-            my_unit: { symbol: my }
+            knot: { symbol: kt }
+            revolutions per minute: { symbol: RPM }
 
-# each new type or unit needs to be enabled per given SiteAccess to be visible in AdminUI
 ibexa:
     system:
         default:
             measurement:
                 types:
                     speed:
-                        - new_unit
+                        - revolutions per minute
+```
+
+To add a new Measurement type with its own new units, add the following lines to your YAML configuration:
+
+```yaml
+ibexa_measurement:
+    types:
+        my_type:
+            my_unit: { symbol: my }
+ibexa:
+    system:
+        default:
+            measurement:
+                types:
                     my_type:
                         - my_unit
+```
 
+!!! note
+
+    To be available for selection in the Back Office, each new Measurement type or unit must be enabled for the SiteAccess, in which it is intended to be used.
+    
+## Template rendering
+
+The template called by the `ibexa_render_field()` Twig function while rendering a Measurement Field cannot access any parameters.
+
+Example:
+
+``` html+twig
+{{ ibexa_render_field(content, 'measurement') }}
 ```
