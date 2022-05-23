@@ -37,8 +37,8 @@ $data = [
             'ParentLocation' => [
                 '_href' => "$api/content/locations/$parentLocationPath",
             ],
-            //'sortField' => 'PATH',
-            //'sortOrder' => 'ASC',
+            'sortField' => 'PATH',
+            'sortOrder' => 'ASC',
         ],
         'Section' => [
             '_href' => "$api/content/sections/$sectionId",
@@ -66,6 +66,7 @@ $data = [
 ];
 
 $curl = curl_init();
+$responseHeaders = [];
 
 curl_setopt_array($curl, [
     CURLOPT_USERPWD => "$username:$password",
@@ -77,6 +78,11 @@ curl_setopt_array($curl, [
         'Accept: application/vnd.ibexa.api.ContentInfo+json',
     ],
     CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_HEADERFUNCTION => function ($curl, $header) {
+        global $responseHeaders;
+        $responseHeaders[] = $header;
+        return strlen($header);
+    },
 ]);
 
 $response = curl_exec($curl);
@@ -87,24 +93,32 @@ if ($error = curl_error($curl)) {
     exit(3);
 }
 
-$response = json_decode($response, true);
-
-if (array_key_exists('ErrorMessage', $response)) {
-    echo "Server error: {$response['ErrorMessage']['errorCode']} {$response['ErrorMessage']['errorMessage']}\n";
-    echo "\t{$response['ErrorMessage']['errorDescription']}\n";
+if (201 !== $responseCode = curl_getinfo($curl, CURLINFO_RESPONSE_CODE)) {
+    $response = json_decode($response, true);
+    if (is_array($response) && array_key_exists('ErrorMessage', $response)) {
+        echo "Server error: {$response['ErrorMessage']['errorCode']} {$response['ErrorMessage']['errorMessage']}\n";
+        echo "\t{$response['ErrorMessage']['errorDescription']}\n";
+        curl_close($curl);
+        exit(4);
+    }
+    $error = $responseHeaders[0] ?? $responseCode;
+    echo "Server error: $error\n";
     curl_close($curl);
-    exit(4);
+    exit(5);
 }
+
+$response = json_decode($response, true);
 
 if (!(array_key_exists('Content', $response) && array_key_exists('_id', $response['Content']))) {
     echo "Response error: Unexpected response structure\n";
     curl_close($curl);
-    exit(5);
+    exit(6);
 }
 
 $contentId = $response['Content']['_id'];
 
 curl_reset($curl);
+$responseHeaders = [];
 
 curl_setopt_array($curl, [
     CURLOPT_USERPWD => "$username:$password",
@@ -115,6 +129,11 @@ curl_setopt_array($curl, [
         'Accept: application/json',
     ],
     CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_HEADERFUNCTION => function ($curl, $header) {
+        global $responseHeaders;
+        $responseHeaders[] = $header;
+        return strlen($header);
+    },
 ]);
 
 $response = curl_exec($curl);
@@ -122,7 +141,7 @@ $response = curl_exec($curl);
 if ($error = curl_error($curl)) {
     echo "cURL error: $error\n";
     curl_close($curl);
-    exit(6);
+    exit(7);
 }
 
 if (204 !== $responseCode = curl_getinfo($curl, CURLINFO_RESPONSE_CODE)) {
@@ -131,11 +150,11 @@ if (204 !== $responseCode = curl_getinfo($curl, CURLINFO_RESPONSE_CODE)) {
         echo "Server error: {$response['ErrorMessage']['errorCode']} {$response['ErrorMessage']['errorMessage']}\n";
         echo "\t{$response['ErrorMessage']['errorDescription']}\n";
         curl_close($curl);
-        exit(7);
-    } else {
-        echo "Server error: $responseCode\n";
         exit(8);
     }
+    $error = $responseHeaders[0] ?? $responseCode;
+    echo "Server error: $error\n";
+    exit(9);
 }
 
 echo "Success: Image Content created with ID $contentId and published\n";

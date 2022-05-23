@@ -67,6 +67,9 @@ $data = <<<XML
 XML;
 
 $curl = curl_init();
+$responseHeaders = [];
+$doc = new DOMDocument();
+
 
 curl_setopt_array($curl, [
     CURLOPT_USERPWD => "$username:$password",
@@ -78,6 +81,11 @@ curl_setopt_array($curl, [
         'Accept: application/vnd.ibexa.api.ContentInfo+xml',
     ],
     CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_HEADERFUNCTION => function ($curl, $header) {
+        global $responseHeaders;
+        $responseHeaders[] = $header;
+        return strlen($header);
+    },
 ]);
 
 $response = curl_exec($curl);
@@ -88,25 +96,31 @@ if ($error = curl_error($curl)) {
     exit(3);
 }
 
-$doc = new DOMDocument();
-$doc->loadXML($response);
-
-if ('ErrorMessage' === $doc->firstChild->nodeName) {
-    echo "Server error: {$doc->getElementsByTagName('errorCode')->item(0)->nodeValue} {{$doc->getElementsByTagName('errorMessage')->item(0)->nodeValue}\n";
-    echo "\t{$doc->getElementsByTagName('errorDescription')->item(0)->nodeValue}\n";
+if (201 !== $responseCode = curl_getinfo($curl, CURLINFO_RESPONSE_CODE)) {
+    if (!empty($response) && $doc->loadXML($response) && 'ErrorMessage' === $doc->firstChild->nodeName) {
+        echo "Server error: {$doc->getElementsByTagName('errorCode')->item(0)->nodeValue} {$doc->getElementsByTagName('errorMessage')->item(0)->nodeValue}\n";
+        echo "\t{$doc->getElementsByTagName('errorDescription')->item(0)->nodeValue}\n";
+        curl_close($curl);
+        exit(4);
+    }
+    $error = $responseHeaders[0] ?? $responseCode;
+    echo "Server error: $error\n";
     curl_close($curl);
-    exit(4);
+    exit(5);
 }
+
+$doc->loadXML($response);
 
 if ('Content' !== $doc->firstChild->nodeName || !$doc->firstChild->hasAttribute('id')) {
     echo "Response error: Unexpected response structure\n";
     curl_close($curl);
-    exit(5);
+    exit(6);
 }
 
 $contentId = $doc->firstChild->getAttribute('id');
 
 curl_reset($curl);
+$responseHeaders = [];
 
 curl_setopt_array($curl, [
     CURLOPT_USERPWD => "$username:$password",
@@ -124,7 +138,7 @@ $response = curl_exec($curl);
 if ($error = curl_error($curl)) {
     echo "cURL error: $error\n";
     curl_close($curl);
-    exit(6);
+    exit(7);
 }
 
 if (204 !== $responseCode = curl_getinfo($curl, CURLINFO_RESPONSE_CODE)) {
@@ -132,12 +146,11 @@ if (204 !== $responseCode = curl_getinfo($curl, CURLINFO_RESPONSE_CODE)) {
         echo "Server error: {$doc->getElementsByTagName('errorCode')->item(0)->nodeValue} {{$doc->getElementsByTagName('errorMessage')->item(0)->nodeValue}\n";
         echo "\t{$doc->getElementsByTagName('errorDescription')->item(0)->nodeValue}\n";
         curl_close($curl);
-        exit(7);
-    } else {
-        echo "Server error: $responseCode\n";
-        curl_close($curl);
         exit(8);
     }
+    $error = $responseHeaders[0] ?? $responseCode;
+    echo "Server error: $error\n";
+    exit(9);
 }
 
 echo "Success: Image Content created with ID $contentId and published\n";
