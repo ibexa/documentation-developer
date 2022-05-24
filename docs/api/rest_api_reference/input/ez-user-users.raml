@@ -90,13 +90,13 @@ head:
             If-Match:
                 description: Performs a PATCH only if the specified ETag is the current one.
                 example: ETag
-                body:
-                    application/vnd.ibexa.api.UserUpdate+xml:
-                        type: UserUpdate
-                        example: !include examples/user/users/user_id/PATCH/UserUpdate.xml.example
-                    application/vnd.ibexa.api.UserUpdate+json:
-                        type: UserUpdate
-                        example: !include examples/user/users/user_id/PATCH/UserUpdate.json.example
+        body:
+            application/vnd.ibexa.api.UserUpdate+xml:
+                type: UserUpdate
+                example: !include examples/user/users/user_id/PATCH/UserUpdate.xml.example
+            application/vnd.ibexa.api.UserUpdate+json:
+                type: UserUpdate
+                example: !include examples/user/users/user_id/PATCH/UserUpdate.json.example
         responses:
             200:
                 description: OK - User updated.
