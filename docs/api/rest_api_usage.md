@@ -170,6 +170,16 @@ If the resource returns only deals with one media type, it is also possible to s
 
 A response indicates hrefs to related resources and their media-types.
 
+### Destination header
+https://doc.ibexa.co/en/latest/api/general_rest_usage/#destination-header
+
+This request header is the request counterpart of the `Location` response header.
+It is used for a `COPY` or `MOVE` operation on a resource to indicate where the resource should be moved to or copied to by using the ID of the parent destination.
+
+Examples of such requests are
+- [copying a Content](rest_api_reference/rest_api_reference.html#managing-content-copy-content);
+- [moving a Location and its subtree](hrest_api_reference/rest_api_reference.html#managing-content-move-subtree)
+
 ## REST root
 
 The `/` root route is answered by a cheat sheet with the main resource routes and media-types. In XML by default, it can also be switched to JSON output.
@@ -212,7 +222,7 @@ This script will
     [[= include_file('code_samples/api/rest_api/create_image.json.php', 0, None, '    ') =]]
     ```
 
-## Response HTTP codes
+## Response HTTP codes and headers
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#response-headers
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#http-code
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#general-error-codes
@@ -222,10 +232,10 @@ The following list of available HTTP response status codes just give a quick hin
 | Code  | Message                | Description                                                                                                                                                                                                                                                  |
 |-------|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `200` | OK                     | The resource has been found.                                                                                                                                                                                                                                 |
-| `201` | Created                | The request to create a new item has succeeded.                                                                                                                                                                                                              |
+| `201` | Created                | The request to create a new item has succeeded; the response `Location` header indicates when the created item could be consulted.                                                                                                                           |
 | `204` | No Content             | The request has succeeded and there is nothing to say about it in the response header nor body (for example when publishing or deleting).                                                                                                                    |
-| `301` | Moved Permanently      | The resource is available at another URL considered as its main.                                                                                                                                                                                             |
-| `307` | Temporary Redirect     | The resource is available at another URL considered as its main.                                                                                                                                                                                             |
+| `301` | Moved Permanently      | The resource should not be accessed this way; the response `Location` header indicates the proper way.                                                                                                                                                       |
+| `307` | Temporary Redirect     | The resource is available at another URL considered as its main; the response `Location` header indicates this main URL.                                                                                                                                     |
 | `400` | Bad Request            | The input (payload) doesn't have the proper schema for the resource.                                                                                                                                                                                         |
 | `401` | Unauthorized           | The user does not have the permission to make this request.                                                                                                                                                                                                  |
 | `403` | Forbidden              | The user has the permission but action can't be done because of repository logic (for example, when trying to create an item with an already existing ID or identifier, when attempting to update a version in another state than draft).                    |
@@ -243,41 +253,101 @@ TODO: Continue
 ### Content-Type header
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#content-type-header
 
-As long as a response contains an actual HTTP body, the Content Type header will be used to specify which Content Type is contained in the response. In that case:
+As long as a response contains an actual HTTP body, the Content Type header will be used to specify which Content Type is contained in the response.
 
-- ContentInfo: `Content-Type: application/vnd.ibexa.api.ContentInfo`
-- ContentInfo in XML format: `Content-Type: application/vnd.ibexa.api.ContentInfo+xml`
+For example, the first following request without an `Accept header` will return a default format indicated in the response `Content-Type` header while the second request show that the response is in the asked format.
+
+```
+GET /content/objects/52 HTTP/1.1
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/vnd.ibexa.api.ContentInfo+xml
+```
+
+```
+GET /content/objects/52 HTTP/1.1
+Accept: application/vnd.ibexa.api.Content+json
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/vnd.ibexa.api.Content+json
+```
 
 ### Accept-Patch header
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#accept-patch-header
 
-It tells you that the received content can be modified by patching it with a [ContentUpdateStruct](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentUpdateStruct.php) in XML format:
+When available, the `Accept-Patch` tells how the received item could be modified with `PATCH`.
 
-`Accept-Patch: application/vnd.ibexa.api.ContentUpdate+xml;charset=utf8`
+The following examples also shows that the format (XML or JSON) is adapted:
 
-JSON would also work, with the proper format.
+```
+GET /content/objects/52 HTTP/1.1
+```
 
-As the example above shows, sending a PATCH `/content/objects/23` request with a [ContentUpdateStruct](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentUpdateStruct.php) XML payload will update this content.
+```
+HTTP/1.1 200 OK
+Content-Type: application/vnd.ibexa.api.ContentInfo+xml
+Accept-Patch: application/vnd.ibexa.api.ContentUpdate+xml
+```
 
-REST will use the `Accept-Patch` header to indicate how to **modify** the returned **data**.
+```
+GET /content/objects/52 HTTP/1.1
+Accept: application/vnd.ibexa.api.Content+json
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/vnd.ibexa.api.Content+json
+Accept-Patch: application/vnd.ibexa.api.ContentUpdate+json
+```
+
+Those example `Accept-Path` headers above indicate that the content could be modified by sending a [ContentUpdateStruct](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentUpdateStruct.php) in XML or JSON.
 
 ### Location header
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#location-header
 
-Depending on the resource, request and response headers will vary.
-
 For instance [creating Content](rest_api_reference/rest_api_reference.html#managing-content-create-content-type) and [getting a Content item's current version](rest_api_reference/rest_api_reference.html#managing-content-get-current-version)
-will both send a **Location header** to provide you with the requested resource's ID.
+will both send a `Location` header to provide you with the requested resource's ID.
 
 Those particular headers generally match a specific list of HTTP response codes.
-Location is sent by `201 Created`, `301 Moved permanently`, `307 Temporary redirect responses`, etc. You can expect these HTTP responses to provide you with a Location header.
+`Location` is mainly sent alongside `201 Created`, `301 Moved permanently`, `307 Temporary redirect responses`.
 
-### Destination header
-https://doc.ibexa.co/en/latest/api/general_rest_usage/#destination-header
+In the following example, the content object remote ID 34720ff636e1d4ce512f762dc638e4ac corresponds to the ID 52:
 
-This request header is the request counterpart of the Location response header.
-It is used for a COPY or MOVE operation on a resource to indicate where the resource should be moved to by using the ID of the destination.
-An example of such a request is [copying a Content item](rest_api_reference/rest_api_reference.html#managing-content-copy-content).
+```
+GET /content/objects?remoteId=34720ff636e1d4ce512f762dc638e4ac" HTTP/1.1
+```
+
+```
+HTTP/1.1 307 Temporary Redirect
+Location: /content/objects/52
+```
+
+In the following example, an erroneous slash has been added to demonstrate the 301 case:
+
+```
+GET /content/objects?remoteId=34720ff636e1d4ce512f762dc638e4ac" HTTP/1.1
+```
+
+```
+HTTP/1.1 301 Moved Permanently
+Location: /content/objects?remoteId=34720ff636e1d4ce512f762dc638e4ac
+```
+
+Notice that cURL can follow those redirections. On CLI, there is the `--location` option (or its shorthand `-L`); with PHP, is the `CURLOPT_FOLLOWLOCATION`.
+The following command-line example follows the two redirections above and the `Accept` header is propagated:
+
+```shell
+curl --header "Accept: application/vnd.ibexa.api.Content+json" --head --location "http://api.example.com/api/ibexa/v2/content/objects/?remoteId=34720ff636e1d4ce512f762dc638e4ac"
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/vnd.ibexa.api.Content+json
+```
 
 ## Making cross-origin HTTP requests
 https://doc.ibexa.co/en/latest/api/making_cross_origin_http_requests/
