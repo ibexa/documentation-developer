@@ -15,7 +15,7 @@ php bin/console ibexa:graphql:generate-schema
 php bin/console cache:clear
 ```
 
-YAML files with the schema are located in `config/graphql/types/ezplatform`.
+YAML files with the schema are located in `config/graphql/types/ibexa`.
 They contain information about the domain objects and the fields
 you can [query](graphql_queries.md) and [operate on](graphql_operations.md).
 
