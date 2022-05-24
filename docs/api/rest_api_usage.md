@@ -174,11 +174,12 @@ A response indicates hrefs to related resources and their media-types.
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#destination-header
 
 This request header is the request counterpart of the `Location` response header.
-It is used for a `COPY` or `MOVE` operation on a resource to indicate where the resource should be moved to or copied to by using the ID of the parent destination.
+It is used for a `COPY`, `MOVE` or `SWAP` operation on a resource to indicate where the resource should be moved, copied to or swapped with by using the ID of the parent or target location.
 
 Examples of such requests are
 - [copying a Content](rest_api_reference/rest_api_reference.html#managing-content-copy-content);
-- [moving a Location and its subtree](hrest_api_reference/rest_api_reference.html#managing-content-move-subtree)
+- [moving a Location and its subtree](rest_api_reference/rest_api_reference.html#managing-content-move-subtree)
+- [swapping a Location with another](rest_api_reference/rest_api_reference.html#managing-content-swap-location)
 
 ## REST root
 
