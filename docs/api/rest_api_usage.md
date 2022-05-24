@@ -1,7 +1,5 @@
 # REST API usage
 
-TODO: Introduction? Do not explain what REST is, only the specificity of Ibexa DXP's REST API
-
 The REST API v2 introduced in [[= product_name =]] allows you to interact with an [[= product_name =]] installation using the HTTP protocol, following a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
 
 Each resource (URI) interacts with a part of the system (Content, User, etc.).
@@ -32,7 +30,7 @@ They usually serve as options or filters for the requested resource.
 As a pagination example, the request below would return the first 5 relations for version 3 of the Content item 59:
 
 ```
-GET /content/objects/59/versions/3/relations&limit=5 HTTP/1.1
+GET /content/objects/59/versions/3/relations?limit=5 HTTP/1.1
 Accept: application/vnd.ibexa.api.RelationList+xml
 ```
 
@@ -46,7 +44,16 @@ For example, the URI requesting a list of user groups assigned to the role with 
 GET /api/ibexa/v2/user/groups?roleId=/api/ibexa/v2/user/roles/1
 ```
 
-## HTTP methods
+### REST root
+
+The `/` root route is answered by a cheat sheet with the main resource routes and media-types. In XML by default, it can also be switched to JSON output.
+
+```shell
+curl http://api.example.net/api/ibexa/v2/
+curl -H "Accept: application/json" http://api.example.net/api/ibexa/v2/
+```
+
+## Request HTTP methods
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#http-methods
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#custom-http-verbs
 
@@ -78,18 +85,16 @@ The following list of available methods just give a quick hint of the kind of ac
 
 !!! note "Caution with custom HTTP methods"
 
-    Using custom HTTP methods can cause issues with several HTTP proxies, network firewall/security solutions and simpler web servers. To avoid issues with this, REST API allows you to set these using the HTTP header `X-HTTP-Method-Override` along standard `POST` method instead of using a custom HTTP method. Example: `X-HTTP-Method-Override: PUBLISH`
+    Using custom HTTP methods can cause issues with several HTTP proxies, network firewall/security solutions and simpler web servers. To avoid issues with this, REST API allows you to set these using the HTTP header `X-HTTP-Method-Override` along standard `POST` method instead of using a custom HTTP method. Example: `X-HTTP-Method-Override: PUBLISH`
 
 If applicable, both methods are always mentioned in the specifications.
 
 Not safe methods will require a CSRF token if [session-based authentication](rest_api_authentication.md#session-based-authentication) is used.
 
-### OPTIONS requests
+### OPTIONS method
 https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#options-requests
-TODO: Needed or table above is enough?
 
-Any URI resource that the REST API responds to will respond to an OPTIONS request.
-TODO: Is it true for custom route? How to make it true for customs?
+Any URI resource that the REST API responds to will respond to an `OPTIONS` request.
 
 The response contains an `Allow` header, as specified in [chapter 14.7 of RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.7), which lists the methods accepted by the resource.
 
@@ -128,7 +133,7 @@ There are mainly four headers to specify a REST request:
 - `Accept` describing the response type and format;
 - `Content-Type` describing the payload type and format;
 - `X-Siteaccess` specifying the target SiteAccess;
-- `X-HTTP-Method-Override` allowing to pass a method while using `POST` method as previously seen in [HTTP methods](http-methods).
+- `X-HTTP-Method-Override` allowing to pass a method while using `POST` method as previously seen in [HTTP methods](#request-http-methods).
 
 Few other headers related to authentication methods can be found in [REST API authentication](rest_api_authentication.md).
 
@@ -170,25 +175,17 @@ If the resource returns only deals with one media type, it is also possible to s
 
 A response indicates hrefs to related resources and their media-types.
 
-### Destination header
+### Destination
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#destination-header
 
-This request header is the request counterpart of the `Location` response header.
+The `Destination` request header is the request counterpart of the `Location` response header.
 It is used for a `COPY`, `MOVE` or `SWAP` operation on a resource to indicate where the resource should be moved, copied to or swapped with by using the ID of the parent or target location.
 
 Examples of such requests are
+
 - [copying a Content](rest_api_reference/rest_api_reference.html#managing-content-copy-content);
 - [moving a Location and its subtree](rest_api_reference/rest_api_reference.html#managing-content-move-subtree)
 - [swapping a Location with another](rest_api_reference/rest_api_reference.html#managing-content-swap-location)
-
-## REST root
-
-The `/` root route is answered by a cheat sheet with the main resource routes and media-types. In XML by default, it can also be switched to JSON output.
-
-```shell
-curl http://api.example.net/api/ibexa/v2/
-curl -H "Accept: application/json" http://api.example.net/api/ibexa/v2/
-```
 
 ## Request payloads
 
@@ -206,6 +203,7 @@ https://doc.ibexa.co/en/latest/api/creating_content_with_binary_attachments_via_
 The example below is a command-line script to upload images.
 
 This script will
+
 - receive an image path and optionally a name as command-line arguments,
 - use the [HTTP basic authentication](rest_api_authentication.md#http-basic-authentication) assuming it is enabled,
 - create a draft in the /Media/Images folder by `POST`ing data to [`/content/objects`](rest_api_reference/rest_api_reference.html#managing-content-create-content-item),
@@ -223,8 +221,7 @@ This script will
     [[= include_file('code_samples/api/rest_api/create_image.json.php', 0, None, '    ') =]]
     ```
 
-## Response HTTP codes and headers
-https://doc.ibexa.co/en/latest/api/general_rest_usage/#response-headers
+## Response HTTP codes
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#http-code
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#general-error-codes
 
@@ -249,14 +246,17 @@ The following list of available HTTP response status codes just give a quick hin
 | `500` | Internal Server Error  | The server encountered an unexpected condition, usually an exception, which prevents it from fulfilling the request, like database down, permissions or configuration error.                                                                                 |
 | `501` | Not Implemented        | Returned when the requested method has not yet been implemented. For [[= product_name =]], most of Users, User groups, Content items, Locations and Content Types have been implemented. Some of their methods, as well as other features, may return a 501. |
 
-TODO: Continue
+## Response HTTP headers
+https://doc.ibexa.co/en/latest/api/general_rest_usage/#response-headers
+
+The `Allow` response header for [`OPTIONS` method](#options-requests) was previously seen. Response to some other methods may have data indicated through their headers.
 
 ### Content-Type header
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#content-type-header
 
 As long as a response contains an actual HTTP body, the Content Type header will be used to specify which Content Type is contained in the response.
 
-For example, the first following request without an `Accept header` will return a default format indicated in the response `Content-Type` header while the second request show that the response is in the asked format.
+For example, the first following request without an `Accept` header will return a default format indicated in the response `Content-Type` header while the second request show that the response is in the asked format.
 
 ```
 GET /content/objects/52 HTTP/1.1
@@ -352,6 +352,7 @@ Content-Type: application/vnd.ibexa.api.Content+json
 
 ## Making cross-origin HTTP requests
 https://doc.ibexa.co/en/latest/api/making_cross_origin_http_requests/
+
 TODO: Related to JS example below
 
 ## Testing the API

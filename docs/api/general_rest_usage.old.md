@@ -219,19 +219,6 @@ For the complete list of error codes and the conditions in which they apply, see
 
 ### General error codes
 
-A few error codes apply to most resources (if they *are* applicable):
-
-|Error code|Error message|Description|
-|----------|-----------|-------------|
-|`401`|Unauthorized|The User does not have the permission to make this request.|
-|`404`|Not Found|Returned when the request failed because the request object was not found.|
-|`405`|Method Not Allowed|Returned when the requested REST API resource does not support the HTTP verb that was used.|
-|`406`|Not Acceptable|Returned when an accept header sent with the requested is not supported.|
-|`500`|Internal Server Error|The server encountered an unexpected condition, usually an exception, which prevents it from fulfilling the request: database down, permissions or configuration error.|
-|`501`|Not Implemented|Returned when the requested method has not yet been implemented. For [[= product_name =]], most of Users, User groups, Content items, Locations and Content Types have been implemented. Some of their methods, as well as other features, may return a 501.|
-
-TODO: Could success code be also interesting? Like 200 OK, 204 No Content
-
 #### Error handling in your REST implementation
 
 Depending on your client implementation, handle these codes by checking if an error code (4xx or 5xx) was returned instead of the expected 2xx or 3xx.
