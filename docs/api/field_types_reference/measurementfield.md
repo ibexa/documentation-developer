@@ -12,8 +12,7 @@ or a pair of values that defines a range.
 
 ### Input expectations
 
-To create a value, a Service of `Ibexa\Contracts\Measurement\MeasurementServiceInterface` 
-type is required.
+To create a value, you use a service that implements `Ibexa\Contracts\Measurement\MeasurementServiceInterface` .
 You must inject the service directly with [dependency injection](../api/service_container.md). 
 The service contains the following API endpoints:
 - `buildSimpleValue` that is used to handle a single value
@@ -39,7 +38,7 @@ The Value class of this Field Type contains the following properties:
 
 ##### Constructor
 
-The `Measurement\Value`constructor for this Value object initializes a new Value 
+The `Measurement\Value` constructor for this value object initializes a new value 
 object with the value provided. 
 As its first argument it accepts an object of `Ibexa\Contracts\Measurement\Value\ValueInterface` type.
 
@@ -79,12 +78,13 @@ $measurementValue = new Measurement\Value(
 ### Validation
 
 The Measurement Field Type validates measurement types and units passed within 
-the Value object against a list of the ones that the system supports, which can 
+the value object against a list of the ones that the system supports, which can 
 be found in the `vendor/ibexa/measurement/src/bundle/Resources/config/builtin_units.yaml` file.
 
-### Extending the default list of Measurement types and units
+### Modify and add Measurement types and units
 
-You can extend the default list of Measurement types and units by modifying the existing entries or adding new ones. To do this, you modify your YAML configuration, for example, by creating the `config/packages/ibexa_measurement.yaml` file.
+You can extend the default list of Measurement types and units by modifying the existing entries or adding new ones. 
+To do this, you modify the YAML configuration, for example, by creating a `config/packages/ibexa_measurement.yaml` file.
 
 To override an existing designation of the unit of measure by changing the symbol that corresponds to a nautical unit of speed, and to add a rotational speed unit, add the following lines to your YAML configuration:
 
@@ -122,7 +122,7 @@ ibexa:
 
 !!! note
 
-    To be available for selection in the Back Office, each new Measurement type or unit must be enabled for the SiteAccess, in which it is intended to be used.
+    To be available for selection in the Back Office, each new Measurement type or unit must be enabled for the  Back Office SiteAccess.
     
 ## Template rendering
 
