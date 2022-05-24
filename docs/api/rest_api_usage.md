@@ -6,7 +6,7 @@ The REST API v2 introduced in [[= product_name =]] allows you to interact with a
 
 Each resource (URI) interacts with a part of the system (Content, User, etc.).
 
-The REST API uses HTTP methods ( `GET`, `PUBLISH` , etc.), as well as HTTP headers to specify the type of request.
+The REST API uses HTTP methods (`GET`, `PUBLISH` , etc.), as well as HTTP headers to specify the type of request.
 
 ## URIs
 https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#uris
@@ -22,6 +22,29 @@ In practice, the `/api/ibexa/v2` prefixes all REST hrefs.
 
 Remember that the URIs to REST resources should never be generated manually, but obtained from earlier REST calls.
 TODO: Make sure this is demonstrated in "customization and extension" examples.
+
+### Request parameters
+https://doc.ibexa.co/en/latest/api/general_rest_usage/#request-parameters
+
+URI parameters (query string) can be used on some resources.
+They usually serve as options or filters for the requested resource.
+
+As a pagination example, the request below would return the first 5 relations for version 3 of the Content item 59:
+
+```
+GET /content/objects/59/versions/3/relations&limit=5 HTTP/1.1
+Accept: application/vnd.ibexa.api.RelationList+xml
+```
+
+#### Working with value objects IDs
+https://doc.ibexa.co/en/latest/api/general_rest_usage/#working-with-value-objects-ids
+
+Resources that accept a reference to another resource expect reference to be given as a REST URI, not a single ID.
+For example, the URI requesting a list of user groups assigned to the role with ID 1 is:
+
+```
+GET /api/ibexa/v2/user/groups?roleId=/api/ibexa/v2/user/roles/1
+```
 
 ## HTTP methods
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#http-methods
@@ -189,18 +212,19 @@ This script will
     [[= include_file('code_samples/api/rest_api/create_image.json.php', 0, None, '    ') =]]
     ```
 
-## Response HTTP codes and headers
+## Response HTTP codes
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#response-headers
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#http-code
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#general-error-codes
 
-The following list of available HTTP response codes just give a quick hint of the meaning of a code. For code details per resource, see the [REST API reference](rest_api_reference/rest_api_reference.html).
+The following list of available HTTP response status codes just give a quick hint of the meaning of a code. For code details per resource, see the [REST API reference](rest_api_reference/rest_api_reference.html).
 
 | Code  | Message                | Description                                                                                                                                                                                                                                                  |
 |-------|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `200` | OK                     | The resource has been found.                                                                                                                                                                                                                                 |
 | `201` | Created                | The request to create a new item has succeeded.                                                                                                                                                                                                              |
 | `204` | No Content             | The request has succeeded and there is nothing to say about it in the response header nor body (for example when publishing or deleting).                                                                                                                    |
+| `301` | Moved Permanently      | The resource is available at another URL considered as its main.                                                                                                                                                                                             |
 | `307` | Temporary Redirect     | The resource is available at another URL considered as its main.                                                                                                                                                                                             |
 | `400` | Bad Request            | The input (payload) doesn't have the proper schema for the resource.                                                                                                                                                                                         |
 | `401` | Unauthorized           | The user does not have the permission to make this request.                                                                                                                                                                                                  |
@@ -215,6 +239,45 @@ The following list of available HTTP response codes just give a quick hint of th
 | `501` | Not Implemented        | Returned when the requested method has not yet been implemented. For [[= product_name =]], most of Users, User groups, Content items, Locations and Content Types have been implemented. Some of their methods, as well as other features, may return a 501. |
 
 TODO: Continue
+
+### Content-Type header
+https://doc.ibexa.co/en/latest/api/general_rest_usage/#content-type-header
+
+As long as a response contains an actual HTTP body, the Content Type header will be used to specify which Content Type is contained in the response. In that case:
+
+- ContentInfo: `Content-Type: application/vnd.ibexa.api.ContentInfo`
+- ContentInfo in XML format: `Content-Type: application/vnd.ibexa.api.ContentInfo+xml`
+
+### Accept-Patch header
+https://doc.ibexa.co/en/latest/api/general_rest_usage/#accept-patch-header
+
+It tells you that the received content can be modified by patching it with a [ContentUpdateStruct](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentUpdateStruct.php) in XML format:
+
+`Accept-Patch: application/vnd.ibexa.api.ContentUpdate+xml;charset=utf8`
+
+JSON would also work, with the proper format.
+
+As the example above shows, sending a PATCH `/content/objects/23` request with a [ContentUpdateStruct](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentUpdateStruct.php) XML payload will update this content.
+
+REST will use the `Accept-Patch` header to indicate how to **modify** the returned **data**.
+
+### Location header
+https://doc.ibexa.co/en/latest/api/general_rest_usage/#location-header
+
+Depending on the resource, request and response headers will vary.
+
+For instance [creating Content](rest_api_reference/rest_api_reference.html#managing-content-create-content-type) and [getting a Content item's current version](rest_api_reference/rest_api_reference.html#managing-content-get-current-version)
+will both send a **Location header** to provide you with the requested resource's ID.
+
+Those particular headers generally match a specific list of HTTP response codes.
+Location is sent by `201 Created`, `301 Moved permanently`, `307 Temporary redirect responses`, etc. You can expect these HTTP responses to provide you with a Location header.
+
+### Destination header
+https://doc.ibexa.co/en/latest/api/general_rest_usage/#destination-header
+
+This request header is the request counterpart of the Location response header.
+It is used for a COPY or MOVE operation on a resource to indicate where the resource should be moved to by using the ID of the destination.
+An example of such a request is [copying a Content item](rest_api_reference/rest_api_reference.html#managing-content-copy-content).
 
 ## Making cross-origin HTTP requests
 https://doc.ibexa.co/en/latest/api/making_cross_origin_http_requests/

@@ -1,16 +1,11 @@
 # General REST usage
 
-As explained in the [introduction](rest_api_guide.old.md), the REST API is based on a limited list of general principles:
-
-- Each resource (URI) interacts with a part of the system (content, URL aliases, User Groups, etc.).
-- For each resource, one or more HTTP methods are available. Each method has a different effect (DELETE a Content item, GET a URL Alias, GET a list of user groups, etc.).
-- Media-type request headers indicate what kind of data type (Content / ContentInfo) and data format (JSON or XML) are expected as a response, and what can be requested.
-
 ## Anatomy of REST call
 
 ### GET request
 
 The GET request is used to query the API for information. It is one of the two operations web browsers implement, and the one most commonly used.
+TODO: Not interesting trivia; probably already said somehow
 
 ### Request
 
@@ -50,38 +45,11 @@ The [REST reference](rest_api_reference/rest_api_reference.html) provide the lis
 
 ###### Content-Type header
 
-As long as a response contains an actual HTTP body, the Content Type header will be used to specify which Content Type is contained in the response. In that case:
-
-- ContentInfo: `Content-Type: application/vnd.ibexa.api.ContentInfo`
-- ContentInfo in XML format: `Content-Type: application/vnd.ibexa.api.ContentInfo+xml`
-
 ###### Accept-Patch header
-
-It tells you that the received content can be modified by patching it with a [ContentUpdateStruct](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentUpdateStruct.php) in XML format:
-
- `Accept-Patch: application/vnd.ibexa.api.ContentUpdate+xml;charset=utf8`
-
-JSON would also work, with the proper format.
-
-As the example above shows, sending a PATCH `/content/objects/23` request with a [ContentUpdateStruct](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentUpdateStruct.php) XML payload will update this content.
-
-REST will use the `Accept-Patch` header to indicate how to **modify** the returned **data**.
 
 ###### Location header
 
-Depending on the resource, request and response headers will vary.
-
-For instance [creating Content](rest_api_reference/rest_api_reference.html#managing-content-create-content-type) and [getting a Content item's current version](rest_api_reference/rest_api_reference.html#managing-content-get-current-version)
-will both send a **Location header** to provide you with the requested resource's ID.
-
-Those particular headers generally match a specific list of HTTP response codes.
-Location is sent by `201 Created`, `301 Moved permanently`, `307 Temporary redirect responses`, etc. You can expect these HTTP responses to provide you with a Location header.
-
 ###### Destination header
-
-This request header is the request counterpart of the Location response header.
-It is used for a COPY or MOVE operation on a resource to indicate where the resource should be moved to by using the ID of the destination.
-An example of such a request is [copying a Content item](rest_api_reference/rest_api_reference.html#managing-content-copy-content).
 
 #### Response body
 
@@ -111,6 +79,7 @@ The XML body is a serialized version of a [ContentInfo](https://github.com/ibexa
 Most of the REST API calls will involve exchanging XML or JSON representations of the public API.
 
 The example above shows that Content item 23 can be modified by sending a `vendor/application/vnd.ez.ContentUpdate+xml`.
+TODO: Not the example just above but way more above (https://doc.ibexa.co/en/latest/api/general_rest_usage/#accept-patch-header)
 This media type again matches a Value in the API, [ContentUpdateStruct](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentUpdateStruct.php).
 
 The REST API data structs mostly match a PHP Public API value object.
@@ -130,39 +99,11 @@ Depending on how much data you need, you may choose to crawl those relations or 
 
 For each XML structure known to the REST API, you can find [XSD files](https://github.com/ezsystems/ezpublish-kernel/tree/master/doc/specifications/rest/xsd) in the XSD folder of the specifications.
 They will allow you to validate your XML and to learn about every option these XML structures feature.
+TODO: Remove as obsolete
 
 ## Request parameters
 
-Responses depend on:
-
-- URI
-- request headers (e.g. ACCEPT)
-
-The URI parameters are used as well.
-They usually serve as filters / options for the requested resource.
-For instance, they can be used to customize a list's offset/limit.
-To filter a list, specify which fields you want from a content, etc.
-For almost all resources, these parameters must be provided as GET. 
-
-The example request below would return the first 5 relations for version 3 of the Content item 59:
-
-**GET request with limit parameter**
-
-```
-GET /content/objects/59/versions/3/relations&limit=5 HTTP/1.1
-Accept: application/vnd.ibexa.api.RelationList+xml
-```
-
 ### Working with value objects IDs
-
-Resources that accept a reference to another resource expect reference to be given as a REST ID, not as a Public API ID.
-TODO: What does it mean?
-For example, the URI requesting a list of users assigned to the role with ID 1 is:
-
-```
-GET /api/ibexa/v2/user/users?roleId=/api/ibexa/v2/user/roles/1
-```
-TODO: What is the error to not make? /api/ibexa/v2/user/users?roleId=1
 
 ## Custom HTTP verbs
 
