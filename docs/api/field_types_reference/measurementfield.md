@@ -14,7 +14,7 @@ or a pair of values that defines a range.
 
 To create a value, a Service of `Ibexa\Contracts\Measurement\MeasurementServiceInterface` 
 type is required.
-You must inject the service directly with [dependency injection(../api/service_container.md). 
+You must inject the service directly with [dependency injection](../api/service_container.md). 
 The service contains the following API endpoints:
 - `buildSimpleValue` that is used to handle a single value
 - `buildRangeValue` that is used to handle a range
