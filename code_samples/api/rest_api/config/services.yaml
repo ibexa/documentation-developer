@@ -30,7 +30,7 @@ services:
         class: App\Rest\ValueObjectVisitor\RestLocation
         parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
         arguments:
-            $urlAliasService:  '@ibexa.api.service.url_alias'
+            $urlAliasService: '@ibexa.api.service.url_alias'
         tags:
             - { name: app.rest.output.value_object.visitor, type: Ibexa\Rest\Server\Values\RestLocation }
 

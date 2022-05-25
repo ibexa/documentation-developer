@@ -37,7 +37,7 @@ https://github.com/ibexa/rest/blob/main/src/lib/Server/Output/ValueObjectVisitor
 
 https://github.com/ibexa/rest/blob/main/src/lib/Server/Output/ValueObjectVisitor/RestContent.php#L102: The Values\RestContent returned by the controller is visited by the ValueObjectVisitor\RestContent; if not null, its currentVersion property will be wrapped in a Ibexa\Rest\Server\Values\Version to be visited by the associated Ibexa\Rest\Server\Output\ValueObjectVisitor\Version
 
-## Adding a custom media-type / Accept header to an existing route / resource
+## Adding a custom media-type / an Accept header to an existing route/resource
 https://doc.ibexa.co/en/latest/api/creating_custom_rest_api_response/
 TODO: Explain vocabulary usage in previous section. Fix this section title.
 
@@ -59,6 +59,8 @@ TODO: Choose the chronology: ValueObjectVisitor → ValueObjectVisitorDispatcher
 TODO: This chronology is closer to the development
 
 ### New `RestLocation` `ValueObjectVisitor`
+https://doc.ibexa.co/en/latest/api/creating_custom_rest_api_response/#implementation-of-dedicated-visitor
+https://doc.ibexa.co/en/latest/api/creating_custom_rest_api_response/#configuration
 
 The Controller action returns a `Values\RestLocation` wrapped in a `Values\CachedValue`.
 The new `ValueObjectVisitor` has to visit `Values\RestLocation` to prepare the new `Response`.
@@ -79,6 +81,8 @@ services:
 ```
 
 ### New `ValueObjectVisitorDispatcher`
+https://doc.ibexa.co/en/latest/api/creating_custom_rest_api_response/#overriding-response-type
+https://doc.ibexa.co/en/latest/api/creating_custom_rest_api_response/#configuration
 
 The new `ValueObjectVisitorDispatcher` receives the `ValueObjectVisitor`s tagged `app.rest.output.value_object.visitor`.
 As not all value FQCNs are handled, the new `ValueObjectVisitorDispatcher` also receives the default one as a fallback.
@@ -95,8 +99,9 @@ services:
 ```
 
 ### New `Output\Visitor` service
+https://doc.ibexa.co/en/latest/api/creating_custom_rest_api_response/#configuration
 
-The following new pair of `Ouput\Visitor` associate `Accept` headers starting with `application/app.api.` to the new `ValueObjectVisitorDispatcher` for both XML and JSON.
+The following new pair of `Ouput\Visitor` associate `Accept` headers starting with `application/app.api.` to the new `ValueObjectVisitorDispatcher` for both XML and JSON. A priority is set higher than other `ibexa.rest.output.visitor` tagged built-in services.
 
 ``` yaml
 # config/services.yaml

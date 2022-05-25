@@ -1,4 +1,5 @@
 # REST API authentication
+https://doc.ibexa.co/en/latest/api/rest_api_authentication/
 
 This page refers to [REST API reference](rest_api_reference/rest_api_reference.html), where you can find detailed information about
 REST API resources and endpoints.
@@ -226,6 +227,8 @@ To enable HTTP basic authentication for every SiteAccesses, edit `config/package
 
 * remove or comment the `ibexa_front` firewall,
 * in the `main` firewall, uncomment the [`http_basic`](https://symfony.com/doc/5.4/security.html#http-basic) configuration line:
+
+TODO: What is this `ibexa_front` that need to be removed? Session-based auth? "Symfony auth" according to https://doc.ibexa.co/en/master/guide/security/#symfony-authentication but what this is really meaning?
 
 ```diff+yaml
 -        ibexa_front:
