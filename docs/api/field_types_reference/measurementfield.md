@@ -12,9 +12,10 @@ or a pair of values that defines a range.
 
 ### Input expectations
 
-To create a value, you use a service that implements `Ibexa\Contracts\Measurement\MeasurementServiceInterface` .
+To create a value, you use a service that implements `Ibexa\Contracts\Measurement\MeasurementServiceInterface`.
 You must inject the service directly with [dependency injection](../api/service_container.md). 
-The service contains the following API endpoints:
+The service contains the following API endpoints: 
+
 - `buildSimpleValue` that is used to handle a single value
 - `buildRangeValue` that is used to handle a range
 
