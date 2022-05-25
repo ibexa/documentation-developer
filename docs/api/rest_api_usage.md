@@ -69,7 +69,9 @@ The ISO-3166 country codes can be represented as:
 
 For details, see the [ISO-3166 glossary](http://www.iso.org/iso/home/standards/country_codes/country_codes_glossary.htm).
 
-## Request HTTP methods
+## Requests
+
+### Request HTTP methods
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#http-methods
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#custom-http-verbs
 
@@ -107,7 +109,7 @@ If applicable, both methods are always mentioned in the specifications.
 
 Not safe methods will require a CSRF token if [session-based authentication](rest_api_authentication.md#session-based-authentication) is used.
 
-### OPTIONS method
+#### OPTIONS method
 https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#options-requests
 
 Any URI resource that the REST API responds to will respond to an `OPTIONS` request.
@@ -142,7 +144,7 @@ HTTP/1.1 200 OK
 Allow: GET,PATCH,DELETE,COPY,MOVE,SWAP
 ```
 
-## Request HTTP headers
+### Request HTTP headers
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#other-headers
 
 There are mainly four headers to specify a REST request:
@@ -154,7 +156,7 @@ There are mainly four headers to specify a REST request:
 
 Few other headers related to authentication methods can be found in [REST API authentication](rest_api_authentication.md).
 
-### SiteAccess
+#### SiteAccess
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#specifying-siteaccess
 https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#specifying-siteaccess
 
@@ -177,7 +179,7 @@ This is why SiteAccess matching with REST is not enabled at URL level (nor domai
 
 TODO: This could be important to notice earlier that URIElement can't be used (e.g. http://localhost:8080/admin/api/ibexa/v2/user/sessions)
 
-### Media types
+#### Media types
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#media-type-headers
 https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#media-types
 
@@ -192,7 +194,7 @@ If the resource returns only deals with one media type, it is also possible to s
 
 A response indicates hrefs to related resources and their media-types.
 
-### Destination
+#### Destination
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#destination-header
 
 The `Destination` request header is the request counterpart of the `Location` response header.
@@ -204,7 +206,7 @@ Examples of such requests are
 - [moving a Location and its subtree](rest_api_reference/rest_api_reference.html#managing-content-move-subtree)
 - [swapping a Location with another](rest_api_reference/rest_api_reference.html#managing-content-swap-location)
 
-## Request body
+### Request body
 
 While some short scalar parameters can be passed in the URIs or as GET parameters, some resources needs heavier structured payloads passed in the request body, in particular the ones to create (`POST`) or update (`PATCH`) items.
 In the [REST API reference](rest_api_reference/rest_api_reference.html), request payload examples are given when needed.
@@ -215,7 +217,7 @@ When creating a Content, the payload is particular if the ContentType has some [
 
 See the [Search section](#search) below for another example of request body where query grammar .
 
-### Creating content with binary attachments
+#### Creating content with binary attachments
 https://doc.ibexa.co/en/latest/api/creating_content_with_binary_attachments_via_rest_api/
 
 The example below is a command-line script to upload images.
@@ -239,12 +241,14 @@ This script will
     [[= include_file('code_samples/api/rest_api/create_image.json.php', 0, None, '    ') =]]
     ```
 
-### Search
+#### Search
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#logical-operators
 
 TODO
 
-## Response HTTP codes
+## Responses
+
+### Response HTTP codes
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#http-code
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#general-error-codes
 
@@ -269,12 +273,12 @@ The following list of available HTTP response status codes just give a quick hin
 | `500` | Internal Server Error  | The server encountered an unexpected condition, usually an exception, which prevents it from fulfilling the request, like database down, permissions or configuration error.                                                                                 |
 | `501` | Not Implemented        | Returned when the requested method has not yet been implemented. For [[= product_name =]], most of Users, User groups, Content items, Locations and Content Types have been implemented. Some of their methods, as well as other features, may return a 501. |
 
-## Response HTTP headers
+### Response HTTP headers
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#response-headers
 
 The `Allow` response header for [`OPTIONS` method](#options-requests) was previously seen. Response to some other methods may have data indicated through their headers.
 
-### Content-Type header
+#### Content-Type header
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#content-type-header
 
 As long as a response contains an actual HTTP body, the Content Type header will be used to specify which Content Type is contained in the response.
@@ -300,7 +304,7 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.ibexa.api.Content+json
 ```
 
-### Accept-Patch header
+#### Accept-Patch header
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#accept-patch-header
 
 When available, the `Accept-Patch` tells how the received item could be modified with `PATCH`.
@@ -330,7 +334,7 @@ Accept-Patch: application/vnd.ibexa.api.ContentUpdate+json
 
 Those example `Accept-Path` headers above indicate that the content could be modified by sending a [ContentUpdateStruct](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentUpdateStruct.php) in XML or JSON.
 
-### Location header
+#### Location header
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#location-header
 
 For instance [creating Content](rest_api_reference/rest_api_reference.html#managing-content-create-content-type) and [getting a Content item's current version](rest_api_reference/rest_api_reference.html#managing-content-get-current-version)
@@ -373,17 +377,14 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.ibexa.api.Content+json
 ```
 
-## Response body
+### Response body
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#response-body
 
 TODO
 
-## Making cross-origin HTTP requests
-https://doc.ibexa.co/en/latest/api/making_cross_origin_http_requests/
-
-TODO: Related to JS example below
-
 ## Testing the API
+
+TODO: There is something wrong with this title. "Usage examples"? "Short client implementation examples"?
 
 ### PHP
 
@@ -394,4 +395,7 @@ A content creation example using PHP is available above in [Creating content wit
 ### JS
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#testing-the-api
 
-TODO: Earlier? Merged into another section?
+### Cross-origin requests
+https://doc.ibexa.co/en/latest/api/making_cross_origin_http_requests/
+
+TODO: Related to "JS" example above or to "Requests" sections far above?
