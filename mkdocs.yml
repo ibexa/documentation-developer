@@ -1,5 +1,4 @@
 site_name: Developer Documentation
-site_display_name: Ibexa Documentation
 repo_url: https://github.com/ezsystems/developer-documentation
 site_url: https://doc.ibexa.co/en/latest/
 copyright: "Copyright 1999-2022 Ibexa AS and others"
@@ -581,6 +580,7 @@ extra:
     - title: 'User Documentation'
       url: '/projects/userguide'
   # Global variables
+  site_display_name: 'Ibexa Documentation'
   product_name: 'Ibexa DXP'
   product_name_content: 'Ibexa Content'
   product_name_exp: 'Ibexa Experience'
