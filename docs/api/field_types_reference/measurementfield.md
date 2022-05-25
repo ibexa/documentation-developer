@@ -126,7 +126,8 @@ ibexa:
     
 ## Template rendering
 
-The template called by the `ibexa_render_field()` Twig function while rendering a Measurement Field cannot access any parameters.
+The Measurement field is rendered with the [`ibexa_render_field()`](../../guide/content_rendering/twig_function_reference/field_twig_functions.md#ibexa_render_field) Twig function.
+
 
 Example:
 
