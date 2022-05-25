@@ -2,7 +2,8 @@
 
 The REST API v2 introduced in [[= product_name =]] allows you to interact with an [[= product_name =]] installation using the HTTP protocol, following a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
 
-Each resource (URI) interacts with a part of the system (Content, User, etc.).
+Each resource (URI) interacts with a part of the system (Content, User, Search, etc.).
+Every interaction with the repository than you can do from Back Office or using the [Public PHP API](public_php_api.md) can also be done using the REST API. TODO: Is it actually true?
 
 The REST API uses HTTP methods (`GET`, `PUBLISH` , etc.), as well as HTTP headers to specify the type of request.
 
@@ -52,6 +53,21 @@ The `/` root route is answered by a cheat sheet with the main resource routes an
 curl http://api.example.net/api/ibexa/v2/
 curl -H "Accept: application/json" http://api.example.net/api/ibexa/v2/
 ```
+
+### Country list
+https://doc.ibexa.co/en/latest/api/general_rest_usage/#rest-api-countries-list
+
+Alongside regular repository interactions, is a REST service providing a list of countries with their names, [ISO-3166](http://en.wikipedia.org/wiki/ISO_3166) codes and International Dialing Codes (IDC). It could be useful when presenting a country options list from any application.
+
+This country list's URI is `/services/countries`.
+
+The ISO-3166 country codes can be represented as:
+
+- two-letter code (alpha-2) — recommended as the general purpose code
+- three-letter code (alpha-3) — related to the country name
+- three-digit numeric code (numeric-3) — useful if you need to avoid using Latin script
+
+For details, see the [ISO-3166 glossary](http://www.iso.org/iso/home/standards/country_codes/country_codes_glossary.htm).
 
 ## Request HTTP methods
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#http-methods
@@ -130,10 +146,11 @@ Allow: GET,PATCH,DELETE,COPY,MOVE,SWAP
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#other-headers
 
 There are mainly four headers to specify a REST request:
-- `Accept` describing the response type and format;
-- `Content-Type` describing the payload type and format;
+- [`Accept`](https://tools.ietf.org/html/rfc2616#section-14.1) describing the response type and format;
+- [`Content-Type`](https://toos.ietf.org/html/rfc2616#section-14.17) describing the payload type and format;
 - `X-Siteaccess` specifying the target SiteAccess;
 - `X-HTTP-Method-Override` allowing to pass a method while using `POST` method as previously seen in [HTTP methods](#request-http-methods).
+- [`If-None-Match`](https://tools.ietf.org/html/rfc7232#section-3.2) reclaiming the cached response of a previously visited resource if still up-to-date using [HTTP Etag](https://tools.ietf.org/html/rfc7232#section-2.3). TODO: Is it usable or not enough implemented to be used?
 
 Few other headers related to authentication methods can be found in [REST API authentication](rest_api_authentication.md).
 
@@ -187,15 +204,16 @@ Examples of such requests are
 - [moving a Location and its subtree](rest_api_reference/rest_api_reference.html#managing-content-move-subtree)
 - [swapping a Location with another](rest_api_reference/rest_api_reference.html#managing-content-swap-location)
 
-## Request payloads
+## Request body
 
-Several resources need data.
-While some short scalar parameters can be passed in the URIs or as GET parameters, some resources needs heavier structured payloads, in particular the ones to create (`POST`) or update (`PATCH`) items.
+While some short scalar parameters can be passed in the URIs or as GET parameters, some resources needs heavier structured payloads passed in the request body, in particular the ones to create (`POST`) or update (`PATCH`) items.
 In the [REST API reference](rest_api_reference/rest_api_reference.html), request payload examples are given when needed.
 
 One example is the [creation of an authentication session](rest_api_authentication.md#establishing-a-session).
 
-When creating a Content, the payload can be complex if the ContentType has some [Image](field_types_reference/imagefield.md) or [BinaryFile](field_types_reference/binaryfilefield.md) fields. 
+When creating a Content, the payload is particular if the ContentType has some [Image](field_types_reference/imagefield.md) or [BinaryFile](field_types_reference/binaryfilefield.md) fields as files need to be attached. See the example of a [script uploading images](#creating-content-with-binary-attachments) below.
+
+See the [Search section](#search) below for another example of request body where query grammar .
 
 ### Creating content with binary attachments
 https://doc.ibexa.co/en/latest/api/creating_content_with_binary_attachments_via_rest_api/
@@ -220,6 +238,11 @@ This script will
     ``` php
     [[= include_file('code_samples/api/rest_api/create_image.json.php', 0, None, '    ') =]]
     ```
+
+### Search
+https://doc.ibexa.co/en/latest/api/general_rest_usage/#logical-operators
+
+TODO
 
 ## Response HTTP codes
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#http-code
@@ -349,6 +372,11 @@ curl --header "Accept: application/vnd.ibexa.api.Content+json" --head --location
 HTTP/1.1 200 OK
 Content-Type: application/vnd.ibexa.api.Content+json
 ```
+
+## Response body
+https://doc.ibexa.co/en/latest/api/general_rest_usage/#response-body
+
+TODO
 
 ## Making cross-origin HTTP requests
 https://doc.ibexa.co/en/latest/api/making_cross_origin_http_requests/

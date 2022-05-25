@@ -4,44 +4,11 @@
 
 ### GET request
 
-The GET request is used to query the API for information. It is one of the two operations web browsers implement, and the one most commonly used.
-TODO: Not interesting trivia; probably already said somehow
-
 ### Request
-
-The only requirement for this verb is usually the resource URI and the accept header.
-On top of that, cache request headers can be added, like `If-None-Match`, but those are not fully implemented yet.
-
-**Load ContentInfo request**
-
-```
-GET /content/objects/23 HTTP/1.1
-Accept: application/vnd.ibexa.api.ContentInfo+xml
-```
 
 #### Response headers
 
-The API response contains:
-
-- HTTP response code
-- headers
-- XML representation of the ContentInfo for content with ID 23 in XML format as specified in the Accept header
-
-**Load ContentInfo response**
-
-```
-HTTP/1.1 200 OK
-Accept-Patch: application/vnd.ibexa.api.ContentUpdate+xml;charset=utf8
-Content-Type: application/vnd.ibexa.api.ContentInfo+xml
-```
-
 ###### HTTP code
-
-The API responded here with a standard `200 OK` HTTP response code, which is the expected response code for a typical GET request.
-Some GET requests, like [getting a Content item's current version,](rest_api_reference/rest_api_reference.html#managing-content-get-current-version) may return a `301 Moved permanently` or `307 Temporary redirect` code.
-
-Errors are indicated with HTTP error codes, e.g. `404 Not Found` or `500 Internal Server Error`.
-The [REST reference](rest_api_reference/rest_api_reference.html) provide the list of every HTTP response code you can expect from implemented resources.
 
 ###### Content-Type header
 
@@ -99,6 +66,7 @@ Depending on how much data you need, you may choose to crawl those relations or 
 
 For each XML structure known to the REST API, you can find [XSD files](https://github.com/ezsystems/ezpublish-kernel/tree/master/doc/specifications/rest/xsd) in the XSD folder of the specifications.
 They will allow you to validate your XML and to learn about every option these XML structures feature.
+
 TODO: Remove as obsolete
 
 ## Request parameters
@@ -225,10 +193,6 @@ Depending on your client implementation, handle these codes by checking if an er
 
 ## REST API countries list
 
-TODO: What is the interest to have this feature here in addition to the API reference?
-
-Countries list is a REST service that gives access to an [ISO-3166](http://en.wikipedia.org/wiki/ISO_3166) formatted list of world countries. It is useful when presenting a country options list from any application.
-
 ### Obtaining list of countries
 
 To send a GET request to the REST API countries list, provide the Content Type header: `application/vnd.ibexa.api.CountriesList+xml`.
@@ -259,16 +223,6 @@ Content-Type: application/vnd.ibexa.api.CountriesList+xml
 ```
 
 The HTTP response is a `200 OK` header and XML formatted country list with names and codes according to the ISO-3166 standard body. 
-
-**ISO-3166 standard**
-
-The **country codes** can be represented as:
-
-- two-letter code (alpha-2) — recommended as the general purpose code
-- three-letter code (alpha-3) — related to the country name
-- three-digit numeric code (numeric-3) — useful if you need to avoid using Latin script
-
-For details, see the [ISO-3166 glossary.](http://www.iso.org/iso/home/standards/country_codes/country_codes_glossary.htm)
 
 **Body XML response**
 
