@@ -108,6 +108,7 @@ nav:
                - 'Keyword Field Type': 'api/field_types_reference/keywordfield.md'
                - 'MapLocation Field Type': 'api/field_types_reference/maplocationfield.md'
                - 'Matrix Field Type': 'api/field_types_reference/matrixfield.md'
+               - 'Measurement Field Type': 'api/field_types_reference/measurementfield.md'
                - 'Media Field Type': 'api/field_types_reference/mediafield.md'
                - 'Null Field Type': 'api/field_types_reference/nullfield.md'
                - 'Page Field Type': 'api/field_types_reference/pagefield.md'
