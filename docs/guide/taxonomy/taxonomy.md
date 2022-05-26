@@ -28,6 +28,7 @@ To do it, first, create a new Content Type with `content_category` identifier an
 
 * `category_identifier` of `ezstring` type
 * `parent` of `ibexa_taxonomy_entry` type
+* `name` of `string` type
 
 Next, in `config/packages/ibexa_taxonomy.yaml` add the following configuration:
 
