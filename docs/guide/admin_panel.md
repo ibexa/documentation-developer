@@ -1,3 +1,8 @@
+---
+title: Administration management
+description: You can use the Back Office's Admin panel to manage the functionalities of the platform
+---
+
 # Administration management
 
 Once you set up your environment you can start your work as an administrator.
