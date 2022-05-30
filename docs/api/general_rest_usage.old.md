@@ -77,72 +77,26 @@ TODO: Remove as obsolete
 
 ### Logical operators
 
-When performing search endpoint (`/views`), the criteria model allows combining criteria using the following logical operators:
-
-- `AND`
-- `OR`
-- `NOT`
+TODO: This is about a request body and should be moved closer to other body related sections.
 
 By default, if multiple criteria are given, but not wrapped by any operator, the `AND` operator is used.
 
 When using the same criterion for multiple times, the parser wraps it with the `OR` operator.
 Note that making the `AND` query for different values of the same criterion type always returns zero results.
 
+TODO: Those automatic `AND` and `OR` cases are not clear enough: add examples
+
 **Logical operators XML example**
 
 ``` xml
-<?xml version="1.0" encoding="UTF-8"?>
-<ViewInput>
-  <identifier>test</identifier>
-  <ContentQuery>
-    <Filter>
-        <AND>
-            <OR>
-                <ContentTypeIdentifierCriterion>folder</ContentTypeIdentifierCriterion>
-                <ContentTypeIdentifierCriterion>article</ContentTypeIdentifierCriterion>
-            </OR>
-            <SectionIdentifierCriterion>standard</SectionIdentifierCriterion>
-        </AND>
-    </Filter>
-    <limit>10</limit>
-    <offset>0</offset>
-    <SortClauses>
-      <ContentName>ascending</ContentName>
-    </SortClauses>
-  </ContentQuery>
-</ViewInput>
+
 ``` 
 
 **Logical operators JSON example**
 
 ``` json
-{
-  "ViewInput": {
-    "identifier": "test",
-    "ContentQuery": {
-      "Filter": {
-        "AND": {
-          "OR": {
-            "ContentTypeIdentifierCriterion": [
-              "folder",
-              "article"
-            ]
-          },
-          "SectionIdentifierCriterion": "standard"
-        }
-      },
-      "limit": "10",
-      "offset": "0",
-      "SortClauses": { "ContentName": "ascending" }
-    }
-  }
-}
+
 ```
-
-!!! note
-
-    The structure for `ContentTypeIdentifierCriterion` with multiple values is slightly
-    different in JSON format, because the parser expects keys to be unique.
 
 ## Specifying SiteAccess
 

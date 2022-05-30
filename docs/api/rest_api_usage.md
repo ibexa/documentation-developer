@@ -215,7 +215,7 @@ One example is the [creation of an authentication session](rest_api_authenticati
 
 When creating a Content, the payload is particular if the ContentType has some [Image](field_types_reference/imagefield.md) or [BinaryFile](field_types_reference/binaryfilefield.md) fields as files need to be attached. See the example of a [script uploading images](#creating-content-with-binary-attachments) below.
 
-See the [Search section](#search) below for another example of request body where query grammar .
+When searching for Contents (TODO: or Locations), the query grammar is also particular. See the [Search section](#search) below.
 
 #### Creating content with binary attachments
 https://doc.ibexa.co/en/latest/api/creating_content_with_binary_attachments_via_rest_api/
@@ -229,22 +229,85 @@ This script will
 - create a draft in the /Media/Images folder by `POST`ing data to [`/content/objects`](rest_api_reference/rest_api_reference.html#managing-content-create-content-item),
 - and, `PUBLISH` the draft through [`/content/objects/{contentId}/versions/{versionNo}`](rest_api_reference/rest_api_reference.html#managing-content-publish-a-content-version).
 
-=== "Using XML"
+=== "XML"
 
     ``` php
     [[= include_file('code_samples/api/rest_api/create_image.xml.php', 0, None, '    ') =]]
     ```
 
-=== "Using JSON"
+=== "JSON"
 
     ``` php
     [[= include_file('code_samples/api/rest_api/create_image.json.php', 0, None, '    ') =]]
     ```
 
-#### Search
+#### Search (`/view`)
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#logical-operators
 
-TODO
+When performing search on the `/views` endpoint, the criteria model allows combining criteria using the logical operators `AND`, `OR` and `NOT`.
+
+Almost all [search criteria](../guide/search/search_criteria_reference.md#search-criteria) are available on REST API. The suffix `Criterion` is added when used with REST API.
+TODO: Rephrase. Maybe all criteria are available; CurrencyCode was the only one I didn't find on REST side on first quick check.
+TODO: More about SortClauses
+TODO: `LocationQuery`
+
+=== "XML"
+
+    ``` xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <ViewInput>
+      <identifier>test</identifier>
+      <ContentQuery>
+        <Filter>
+            <AND>
+                <OR>
+                    <ContentTypeIdentifierCriterion>folder</ContentTypeIdentifierCriterion>
+                    <ContentTypeIdentifierCriterion>article</ContentTypeIdentifierCriterion>
+                </OR>
+                <SectionIdentifierCriterion>standard</SectionIdentifierCriterion>
+            </AND>
+        </Filter>
+        <limit>10</limit>
+        <offset>0</offset>
+        <SortClauses>
+          <ContentName>ascending</ContentName>
+        </SortClauses>
+      </ContentQuery>
+    </ViewInput>
+    ```
+
+=== "JSON"
+
+    ``` json
+    {
+      "ViewInput": {
+        "identifier": "test",
+        "ContentQuery": {
+          "Filter": {
+            "AND": {
+              "OR": {
+                "ContentTypeIdentifierCriterion": [
+                  "folder",
+                  "article"
+                ]
+              },
+              "SectionIdentifierCriterion": "standard"
+            }
+          },
+          "limit": "10",
+          "offset": "0",
+          "SortClauses": { "ContentName": "ascending" }
+        }
+      }
+    }
+    ```
+
+TODO: I guess that multiple sortClauses would have lead to an array instead of directly the sortClause
+
+!!! note
+
+    The structure for `ContentTypeIdentifierCriterion` with multiple values is slightly
+    different in JSON format, because the parser expects keys to be unique.
 
 ## Responses
 
