@@ -24,7 +24,7 @@ Due to this storage limitation, searching content using the Country Field Type o
 |[ContentTypeGroupId](criteria_reference/contenttypegroupid_criterion.md)|ID of the Content item's Content Type group|Content and Location Search; Filtering|
 |[ContentTypeId](criteria_reference/contenttypeid_criterion.md)|ID of the Content item's Content Type|Content and Location Search; Filtering|
 |[ContentTypeIdentifier](criteria_reference/contenttypeidentifier_criterion.md)|Identifier of the Content item's Content Type|Content and Location Search; Filtering|
-|[CurrencyCodeCriterion](criteria_reference/currencycode_criterion.md)|Currency code|Content and Location Search; Filtering|
+|[CurrencyCode](criteria_reference/currencycode_criterion.md)|Currency code|Content and Location Search; Filtering|
 |[DateMetadata](criteria_reference/datemetadata_criterion.md)|The date when content was created or last modified|Content and Location Search; Filtering|
 |[Depth](criteria_reference/depth_criterion.md)|Location depth in the Content tree|Location Search, Filtering|
 |[Field](criteria_reference/field_criterion.md)|Content of one of Content item's Fields|Content and Location Search|
