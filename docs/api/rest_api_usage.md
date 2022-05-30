@@ -244,14 +244,58 @@ This script will
 #### Search (`/view`)
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#logical-operators
 
-When performing search on the `/views` endpoint, the criteria model allows combining criteria using the logical operators `AND`, `OR` and `NOT`.
+The `/view` route allow to [search in the repository](../guide/search/search.md). It works close to its [PHP API counterpart](public_php_api_search.md).
+
+The model allows combining criteria using the logical operators `AND`, `OR` and `NOT`.
 
 Almost all [search criteria](../guide/search/search_criteria_reference.md#search-criteria) are available on REST API. The suffix `Criterion` is added when used with REST API.
 TODO: Rephrase. Maybe all criteria are available; CurrencyCode was the only one I didn't find on REST side on first quick check.
-TODO: More about SortClauses
-TODO: `LocationQuery`
+
+Almost all [sort clauses](../guide/search/sort_clause_reference.md#sort-clauses) are available too. No prefix ou suffix for them.
+TODO: All sort clauses?
+
+The search request HTTP header to type its body is `Content-Type: application/vnd.ibexa.api.ViewInput+xml` or `+json`.
+The root node is `<ViewInput>` and it has two mandatory children: `<identifier>` and `<Query>`.
+TODO: Direct access to a view through its identifier is not implemented (501).
+
+`version=1.1` can be added to the `Content-Type` header to support the distinction between `ContentQuery` and `LocationQuery` instead of just `Query` which implicitly looked only for Contents.
+TODO: Where are `ContentQuery` and `LocationQuery` documented on PHP API side?
 
 === "XML"
+
+    ```
+    Content-Type: application/vnd.ibexa.api.ViewInput+xml
+    ```
+
+    ``` xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <ViewInput>
+      <identifier>test</identifier>
+      <Query>
+        <Filter>
+            <AND>
+                <OR>
+                    <ContentTypeIdentifierCriterion>article</ContentTypeIdentifierCriterion>
+                    <ContentTypeIdentifierCriterion>news</ContentTypeIdentifierCriterion>
+                    <ParentLocationIdCriterion>123</ParentLocationIdCriterion>
+                </OR>
+                <SectionIdentifierCriterion>standard</SectionIdentifierCriterion>
+            </AND>
+        </Filter>
+        <limit>10</limit>
+        <offset>0</offset>
+        <SortClauses>
+          <ContentName>ascending</ContentName>
+        </SortClauses>
+      </ContentQuery>
+    </ViewInput>
+    ```
+
+=== "XML; 1.1"
+
+    ```
+    Content-Type: application/vnd.ibexa.api.ViewInput+xml; version=1.1
+    ```
 
     ``` xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -261,8 +305,9 @@ TODO: `LocationQuery`
         <Filter>
             <AND>
                 <OR>
-                    <ContentTypeIdentifierCriterion>folder</ContentTypeIdentifierCriterion>
                     <ContentTypeIdentifierCriterion>article</ContentTypeIdentifierCriterion>
+                    <ContentTypeIdentifierCriterion>news</ContentTypeIdentifierCriterion>
+                    <ParentLocationIdCriterion>123</ParentLocationIdCriterion>
                 </OR>
                 <SectionIdentifierCriterion>standard</SectionIdentifierCriterion>
             </AND>
@@ -278,18 +323,23 @@ TODO: `LocationQuery`
 
 === "JSON"
 
+    ```
+    Content-Type: application/vnd.ibexa.api.ViewInput+json
+    ```
+
     ``` json
     {
       "ViewInput": {
         "identifier": "test",
-        "ContentQuery": {
+        "Query": {
           "Filter": {
             "AND": {
               "OR": {
                 "ContentTypeIdentifierCriterion": [
-                  "folder",
-                  "article"
-                ]
+                  "article",
+                  "news"
+                ],
+                "ParentLocationIdCriterion": 123
               },
               "SectionIdentifierCriterion": "standard"
             }
@@ -307,7 +357,7 @@ TODO: I guess that multiple sortClauses would have lead to an array instead of d
 !!! note
 
     The structure for `ContentTypeIdentifierCriterion` with multiple values is slightly
-    different in JSON format, because the parser expects keys to be unique.
+    different in JSON format as keys must be unique.
 
 ## Responses
 
