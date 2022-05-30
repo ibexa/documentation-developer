@@ -38,6 +38,8 @@ For logging out, use the **`DELETE`** request on the same resource.
 
 ##### Creating session: XML example
 
+TODO: Use XML/JSON tabs
+
 ```
 POST /user/sessions HTTP/1.1
 Host: www.example.net
@@ -112,6 +114,8 @@ Content-Type: application/vnd.ibexa.api.Session+xml
 ```
 
 ##### Logging in with active session: XML example
+
+TODO: Create JSON example then Use XML/JSON tabs
 
 ```
 POST /user/sessions HTTP/1.1
@@ -212,7 +216,7 @@ For more information, see [HTTP Authentication: Basic and Digest Access Authenti
     * If the Back Office SiteAccess matches admin.example.com, it will call the REST API under //admin.example.com/api/ibexa/v2;
     * If the Back Office SiteAccess matches localhost/admin, it will call the REST API under //localhost/api/ibexa/v2.
 
-If the installation has a dedicated host for REST, you can enable HTTP basic authentication only this host by setting a firewall like the following before the `ibexa_front` one:
+If the installation has a dedicated host for REST, you can enable HTTP basic authentication only on this host by setting a firewall like the following before the `ibexa_front` one:
 
 ```yaml
         ibexa_rest:
@@ -221,7 +225,9 @@ If the installation has a dedicated host for REST, you can enable HTTP basic aut
                 realm: Ibexa DXP REST API
 ```
 
-If the Back Office and REST client got to use the same domain, both must use the same authentication method.
+If the Back Office and REST client got to use the same domain, both must use the basic authentication method.
+TODO: Be more clear about which authentication method must be the same for both REST API and Back Office.
+TODO: To use Back Office and REST API on same domain should be strongly discouraged and maybe not even documented. REST API could share a domain with a Front Office not using authentication for regular HTML and using basic only for REST API.
 
 To enable HTTP basic authentication for every SiteAccesses, edit `config/packages/security.yaml`,
 
@@ -255,7 +261,7 @@ TODO: What is this `ibexa_front` that need to be removed? Session-based auth? "S
 In this last case, the Back Office won't use the traditional login page but the browser will use its own Basic Authentication popup to ask for credential. There is no logout.
 
 TODO: Simplify
-TODO: Is there a doc about Basic Auth?
+TODO: Is there a doc about Basic Auth for global usage?
 TODO: The logout button is still there and lead to an error "Unable to find the controller for path "/admin/logout". The route is wrongly configured."
 
 ### Usage example
@@ -276,6 +282,7 @@ Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
 ```
 
 ## JWT authentication
+TODO: Maybe move upward, after Session and before Basic as it seems more recommendable.
 
 ### Configuration
 https://doc.ibexa.co/en/latest/guide/security/#jwt-authentication
