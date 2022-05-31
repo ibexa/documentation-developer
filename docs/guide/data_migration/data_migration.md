@@ -19,7 +19,5 @@ between installations by using the migration command.
     As of v3.3.3, the `ezmigrationbundle` package has been removed to mitigate this issue. 
     It is recommended that you use the default `ibexa/migrations` package to migrate your data. 
 
-## Examples of using migration
-
-You can find examples of using migrations in [Migration file content](importing_data.md#migration-file-content),
+You can find examples of using migrations in [Migration examples](importing_data.md#migration-examples),
 and in your project's `vendor/ibexa/migrations/tests/bundle/Command/MigrateCommand/migrate-command-fixtures` folder.

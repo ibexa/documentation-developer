@@ -1,10 +1,10 @@
-# Recommendation Integration
+# Recommendation integration
 
 There are several ways to integrate the REST calls with the Personalization server 
 and to avoid blocking web page rendering, if the communication with the Recommender 
 is distrusted or interrupted.
 
-## Simple Way
+## Simple way
 
 The simplest way to load recommendations is to synchronously request the Personalization 
 server for recommendations as they are needed. This way is sufficient in most cases. 
@@ -33,14 +33,14 @@ The page generation and the recommendation requests are accomplished in parallel
 By combining this idea with the previous solution and placing the recommendation 
 results at the bottom of the page you can avoid any interruption in the processing.
 
-## Load from JavaScript using JSONP
+## Loading from JavaScript using JSONP
 
 You cannot request the recommendation controller server directly from the JavaScript 
 (over AJAX library or directly over XMLHttpRequest) because of the cross-domain 
 restriction in most browsers. 
 One of the possible ways to work around this limitation is JSONP.
 
-## Load over proxy
+## Loading over proxy
 
 A better solution than JSONP is to provide the proxy on the server side, which 
 forwards script requests to the Personalization service. 

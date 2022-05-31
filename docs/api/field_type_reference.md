@@ -1,4 +1,4 @@
-# Field Types reference
+# Field Type reference
 
 A Field Type is the underlying building block of the content model. It consists of two entities: Field value and Field definition. Field value is determined by values entered into the Content Field. Field definition is provided by the Content Type, and holds any user defined rules used by Field Type to determine how a Field Value is validated, stored, retrieved, formatted and so on.
 
@@ -56,7 +56,7 @@ Legacy Search/Storage Engine index is limited to 255 characters in database desi
 so formatted and unformatted text blocks will only index the first part.
 In case of multiple selection Field Types like Keyword, Selection, Country, etc.,
 only the first choices are indexed. They are indexed only as a text blob separated by string separator.
-Proper indexing of these Field Types is done with [Solr Search Bundle](../guide/search/solr.md).
+Proper indexing of these Field Types is done with [Solr Search engine](../guide/search/solr.md).
 
 ### Other Field Types
 

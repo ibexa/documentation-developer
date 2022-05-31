@@ -1,9 +1,9 @@
-# Searching in trash reference
+# Search in trash reference
 
 When you [search for Content items that are held in trash](../../api/public_php_api_search.md#searching-in-trash), you can apply only a limited set of Search Criteria and Sort Clauses.
 They can be used by `Ibexa\Contracts\Core\Repository\TrashService::findTrashItems` only.
 
-## Supported Search Criteria
+## Search Criteria
 
 | Search Criterion | Search based on | Search type |
 |-----|-----|-----|
@@ -14,7 +14,7 @@ They can be used by `Ibexa\Contracts\Core\Repository\TrashService::findTrashItem
 |[SectionId](criteria_reference/sectionid_criterion.md)|ID of the Section the Content item was assigned to|Content and Location|
 |[UserMetadata](criteria_reference/usermetadata_criterion.md)|The creator or modifier of a Content item|Content and Location|
 
-## Supported logical operators
+## logical operators
 
 |Search Criterion|Search based on|Search type|
 |-----|-----|-----|
@@ -22,7 +22,7 @@ They can be used by `Ibexa\Contracts\Core\Repository\TrashService::findTrashItem
 |[LogicalNot](criteria_reference/logicalor_criterion.md)|Implements a logical NOT Criterion. It matches if the provided Criterion doesn't match.|Content and Location|
 |[LogicalOr](criteria_reference/logicalor_criterion.md)|Implements a logical OR Criterion. It matches if at least one of the provided Criteria matches.|Content and Location|
 
-## Supported Sort Clauses
+## Sort Clauses
 
 | Sort Clause | Sorting based on | Search type|
 |-----|-----|-----|

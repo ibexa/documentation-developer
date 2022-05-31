@@ -1,4 +1,4 @@
-# Managing product catalog
+# Catalog API
 
 ## Products
 
