@@ -76,7 +76,7 @@ In production setups:
 
 - Use [Solr Bundle and Solr](search/solr.md) to greatly offload your database and get more stable performance on your installation.
 
-## Executing long-running console commands
+## Long-running console commands
 
 Executing long-running console commands can result in running out of memory.
 Two examples of such commands are a custom import command and the indexing command provided by the [Solr Bundle](search/solr.md).

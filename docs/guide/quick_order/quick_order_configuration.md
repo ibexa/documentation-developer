@@ -1,6 +1,6 @@
 # Quick order configuration [[% include 'snippets/commerce_badge.md' %]]
 
-## Disable autosuggestion
+## Disabling autosuggestion
 
 To disable autosuggestions in quick orders, use the `auto_suggest_limit` setting:
 

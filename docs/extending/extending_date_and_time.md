@@ -1,4 +1,4 @@
-# Format date and time
+# Formatting date and time
 
 You can format date and time by using the following services:
 

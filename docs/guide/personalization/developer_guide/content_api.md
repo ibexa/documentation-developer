@@ -184,7 +184,7 @@ To upload the value to the data store, add the following line under the `<attrib
 You can have multiple attributes with the same name and different type. 
 For example, `size` can be expressed as a number (40.5) or as a code ("L").
 
-## Response handling
+## Responses
 
 ### HTTP response codes
 

@@ -1,4 +1,4 @@
-# Import assets from a bundle
+# Importing assets from a bundle
 
 [[= product_name =]] uses [Webpack Encore]([[= symfony_doc =]]/frontend.html#webpack-encore) for asset management.
 

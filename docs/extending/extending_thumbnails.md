@@ -32,7 +32,7 @@ If there is more than one Field in the Content Type that can be used as a thumbn
 
 This mechanism can be modified to fit your site needs, so you can decide from where and how the thumbnails will be downloaded.
 
-### Add a thumbnail mechanism 
+### Create a thumbnail mechanism 
 
 First, create base strategy for returning custom thumbnails from a static file.
 Create `StaticStrategy.php` in `src/Strategy`.

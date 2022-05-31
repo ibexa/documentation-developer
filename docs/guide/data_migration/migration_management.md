@@ -53,7 +53,7 @@ ibexa_migrations:
     migrations_files_subdir: migration_files
 ```
 
-## Configuration reference
+## Preview configuration
 
 You can get default configuration along with option descriptions by executing the following command:
 
@@ -123,7 +123,7 @@ Then this reference is reused as part of a new role, as a limitation.
 ```
 
 By default, reference files are located in a separate directory `src/Migrations/Ibexa/references`
-(see [configuration reference](#configuration-reference)
+(see [previewing reference](#preview-configuration)
 `ibexa_migrations.migration_directory` and `ibexa_migrations.references_files_subdir` options).
 
 Reference files are **NOT** loaded by default. A separate step (type: "reference", mode: "load", with filename as "value")
@@ -148,7 +148,7 @@ For example:
     You don't need to save references if they are used in the same migration file.
     References are stored in memory during migration, whether they are used or not.
 
-## Available references types
+## Available reference types
 
 - `content`
     - content_id

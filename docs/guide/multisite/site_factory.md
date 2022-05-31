@@ -177,7 +177,7 @@ Set the below Policies to allow Users to:
 
 For full documentation on how Permissions work and how to set them up, see [the Permissions section](../permissions.md).
 
-To learn how to use Site Factory, see [User documentation.]([[= user_doc =]]/site_organization/site_factory/#site-factory)
+To learn how to use Site Factory, see [User documentation.]([[= user_doc =]]/site_organization/site_factory/)
 
 ## Disable Site Factory
 

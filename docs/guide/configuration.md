@@ -73,4 +73,4 @@ For specific configuration settings, see:
 - [Logging and debug](devops.md#logging-and-debug-configuration)
 - [Authentication](security.md#symfony-authentication)
 - [Sessions](sessions.md#configuration)
-- [Persistence cache](persistence_cache.md#configuration)
+- [Persistence cache](persistence_cache.md#persistence-cache-configuration)

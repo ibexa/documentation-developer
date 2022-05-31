@@ -1,4 +1,4 @@
-# Adding login through external service
+# Add login through external service
 
 To add an option to log in to the system through an external service, you can use [OAuth2](oauth.md) to authorize your users.
 

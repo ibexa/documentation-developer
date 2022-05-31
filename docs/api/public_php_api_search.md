@@ -1,4 +1,4 @@
-# Content search
+# Search API
 
 You can search for content with the PHP API in two ways.
 
@@ -47,7 +47,7 @@ $output->writeln($result->getName());
 
 !!! tip
 
-    For full list and details of available Search Criteria, see [Search Criteria reference](../guide/search/search_criteria_reference.md).
+    For full list and details of available Search Criteria, see [Search Criteria reference](../guide/search/criteria_reference/search_criteria_reference.md).
 
 !!! note "Search result limit"
 
@@ -168,8 +168,8 @@ $filter
     and Sort Clauses implementing [`FilteringSortClause`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.1.0/eZ/Publish/SPI/Repository/Values/Filter/FilteringSortClause.php)
     are supported.
 
-    See [Search Criteria](../guide/search/search_criteria_reference.md)
-    and [Sort Clause reference](../guide/search/sort_clause_reference.md) for details.
+    See [Search Criteria](../guide/search/criteria_reference/search_criteria_reference.md)
+    and [Sort Clause reference](../guide/search/sort_clause_reference/sort_clause_reference.md) for details.
 
 !!! tip
 
@@ -294,7 +294,7 @@ Even though the Location B is hidden, the query will find the content because bo
 
 ## Sorting results
 
-To sort the results of a query, use one of more [Sort Clauses](../guide/search/sort_clause_reference.md).
+To sort the results of a query, use one of more [Sort Clauses](../guide/search/sort_clause_reference/sort_clause_reference.md).
 
 For example, to order search results by their publicationg date, from oldest to newest,
 and then alphabetically by content name, add the following Sort Clauses to the query:
@@ -305,14 +305,14 @@ and then alphabetically by content name, add the following Sort Clauses to the q
 
 !!! tip
 
-    For the full list and details of available Sort Clauses, see [Sort Clause reference](../guide/search/sort_clause_reference.md).
+    For the full list and details of available Sort Clauses, see [Sort Clause reference](../guide/search/sort_clause_reference/sort_clause_reference.md).
 
 ## Searching in trash
 
 In the user interface, on the Trash screen, you can search for Content items, and then sort the results based on different criteria.
 To search the trash with the API, use the `TrashService::findInTrash` method to submit a query for Content items that are held in trash.
 Searching in trash supports a limited set of Criteria and Sort Clauses.
-For a list of supported Criteria and Sort Clauses, see [Searching in trash reference](../guide/search/search_in_trash_reference.md).
+For a list of supported Criteria and Sort Clauses, see [Search in trash reference](../guide/search/search_in_trash_reference.md).
 
 !!! note
 
@@ -393,7 +393,7 @@ $query->aggregations[] = new IntegerRangeAggregation('range', 'person', 'age',
     `null` means that a range does not have an end.
     In the example all values above (and including) 60 are included in the last range.
 
-See [Agrregation reference](../guide/search/aggregation_reference.md) for details of all available aggregations.
+See [Agrregation reference](../guide/search/aggregation_reference/aggregation_reference.md) for details of all available aggregations.
 
 ## Faceted search
 

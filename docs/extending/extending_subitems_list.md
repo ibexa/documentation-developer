@@ -8,7 +8,7 @@ It provides an interface for listing the sub-items of any Location.
     If you want to load the Sub-items module, you need to load the JS code for it in your view,
     as it is not available by default.
 
-## How to use it?
+## Use sub-items list
 
 With plain JS:
 
@@ -97,7 +97,7 @@ Optionally, Sub-items module can take a following list of props:
     - **gridViewItem** _{Object}_ - list of grid item view component labels
 - **languageContainerSelector** _{String}_ - selector where the language selector should be rendered
 
-## Reusing Sub-items list
+## Reuse Sub-items list
 
 To add a Sub-items list on a page that does not have the (right) action sidebar, you need to do one of the following things:
 

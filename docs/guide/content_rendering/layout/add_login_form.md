@@ -1,6 +1,6 @@
-# Add user login form
+# Create login form
 
-You can add a login form for your users. 
+You can create a login form for your users. 
 Follow the instruction below to create a template with login form. If you want to configure more options for example, password expiration, see [other user management templates](../../user_management/user_management.md#other-user-management-templates).
 
 First, make sure you have configured [login methods](../../user_management/user_management.md#login-methods).

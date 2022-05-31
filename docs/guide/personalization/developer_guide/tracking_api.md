@@ -190,7 +190,7 @@ Some optional request parameters can be set over query string parameters (GET pa
 
 |Name|Description|Values|
 |---|---|---|
-|`categorypath`|The forward slash-separated path of categories of the item. Like all other parameters it must be URL-encoded, for example `%2FCameras%26Foto%2FCompact%20Cameras%2FCanon`.</br>For use cases, see [Category filter]([[= user_doc =]]/personalization/filters/#category-filter) in the user documentation.|URL-encoded string.</br>Initial and trailing slashes are ignored: "/Cameras/" is the same as "Cameras".|
+|`categorypath`|The forward slash-separated path of categories of the item. Like all other parameters it must be URL-encoded, for example `%2FCameras%26Foto%2FCompact%20Cameras%2FCanon`.</br>For use cases, see [Category path filters]([[= user_doc =]]/personalization/filters/#category-path-filters) in the user documentation.|URL-encoded string.</br>Initial and trailing slashes are ignored: "/Cameras/" is the same as "Cameras".|
 
 ### Consume event
 
@@ -416,7 +416,7 @@ It is common that recommendations are rendered as a block with multiple items.
 To save traffic and reduce latency, you can bundle multiple recommendations in one request. 
 Several item IDs must be comma-separated.
 
-## Examples of translating user actions into tracking events
+## Tracking event examples
 
 Below are examples for the translation of user actions on a website into tracking requests.
 

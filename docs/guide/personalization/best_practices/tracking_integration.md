@@ -44,7 +44,7 @@ instead of waiting for this process to finish.
 
 ## Client-side tracking
 
-### JSONP
+### Using JSONP
 
 Another solution is to provide a proxy on the server side, which will forward script requests to 
 the recommendation engine. 

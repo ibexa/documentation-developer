@@ -27,7 +27,7 @@ under the Location and can now be reused.
 After you establish a media library, you can create [Relations](content_management.md#content-relations) between the 
 image Content item and the main Content item that uses it.
 
-## Normalize image file names
+## Normalizing image file names
 
 If you use image files with unprintable UTF-8 characters in file names, you may 
 come across a problem with images not displaying.
@@ -49,7 +49,7 @@ and run the following:
 php bin/console liip:imagine:cache:remove
 ```
 
-## Configure image variations
+## Configuring image variations
 
 With image variations (image aliases) you can define and use different versions 
 of the same image. 
@@ -85,7 +85,7 @@ Paths to repository images must be relative to the `var/<site>/storage/images`
 directory, for example: `7/4/2/0/247-1-eng-GB/test.jpg`.
 For more information, see [LiipImagineBundle documentation](https://symfony.com/bundles/LiipImagineBundle/current/commands.html#resolve-cache).
 
-## Resize images
+## Resizing images
 
 You can resize all original images of a chosen Content Type with the following 
 command.
@@ -119,7 +119,7 @@ You can also pass two additional parameters:
 
     The `resize-original` command publishes a new version of each Content item it modifies.
 
-## Generate placeholder images
+## Generating placeholder images
 
 With a placeholder generator you can download or generate placeholder images for 
 any missing image. 
@@ -281,7 +281,7 @@ Install these libraries using your package manager, for example:
 sudo apt-get install optipng
 ```
 
-## Embed images in Rich Text
+## Embedding images in Rich Text
 
 The [RichText](../api/field_types_reference/richtextfield.md) field allows you to embed other 
 Content items within the field.

@@ -1,4 +1,4 @@
-# Content Model
+# Content model
 
 ## Content model overview
 
@@ -125,7 +125,7 @@ They determine what Fields of what Field Types will be included in all Content i
 
 !!! note
 
-    You can assign each Field defined in a Content Type to a group by selecting one of the groups in the Category drop-down. [Available groups can be configured in the content repository](configuration.md#content-repository-configuration).
+    You can assign each Field defined in a Content Type to a group by selecting one of the groups in the Category drop-down. [Available groups can be configured in the content repository](config_repository.md).
 
 !!! caution
 

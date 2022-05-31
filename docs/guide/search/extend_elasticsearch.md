@@ -1,6 +1,6 @@
 # Elasticsearch extensibility
 
-## Indexing custom data
+## Index custom data
 
 [Elasticsearch](elastic.md) indexes content and Location data out of the box.
 Besides what is indexed automatically, you can add additional data to the Elasticsearch index.
@@ -71,7 +71,7 @@ services:
             - { name: kernel.event_subscriber }
 ```
 
-## Manipulating the query
+## Manipulate the query
 
 You can customize the search query before it is executed.
 To do it, subscribe to `Ibexa\Platform\Contracts\ElasticSearchEngine\Query\Event\QueryFilterEvent`.
@@ -130,7 +130,7 @@ services:
             - { name: kernel.event_subscriber }
 ```
 
-## Custom Search Criterion
+## Create custom Search Criterion
 
 To provide support for a custom Search Criterion, you need to implement `CriterionVisitor`:
 
@@ -215,7 +215,7 @@ services:
             - { name: ezplatform.search.elasticsearch.query.location.criterion_visitor }
 ```
 
-## Custom Sort Clause
+## Create custom Sort Clause
 
 To create a custom Sort Clause for use with Elasticsearch,
 implement `SortClauseVisitor`
@@ -289,7 +289,7 @@ services:
             - { name: ezplatform.search.elasticsearch.query.location.sort_clause_visitor }
 ```
 
-## Custom Aggregation
+## Create custom Aggregation
 
 To create a custom aggregation for use with Elasticsearch, create an aggregation class.
 In the following example, an aggregation groups Location query results according to the Location priority:
@@ -388,7 +388,7 @@ If you are using a different type of aggregation than range, you can also use re
 
 If you have a more complex use case, you need to create your own visitor and extractor.
 
-### Custom aggregation visitor
+### Create aggregation visitor
 
 The aggregation visitor must implement `Ibexa\Platform\Contracts\ElasticSearchEngine\Query\AggregationVisitor`:
 
@@ -455,7 +455,7 @@ The `supports()` method checks whether the provided aggregation is of the suppor
 
 The `visit()` method returns an array of results.
 
-### Custom result extractor
+### Create result extractor
 
 You also need to create a result extractor, implementing `Ibexa\Platform\Contracts\ElasticSearchEngine\Query\AggregationResultExtractor`,
 that transforms raw aggregation results from Elasticsearch into `AggregationResult` objects:

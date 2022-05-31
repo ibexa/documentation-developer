@@ -1,4 +1,4 @@
-# Managing the Repository
+# Repository API
 
 ## Sections
 

@@ -1,4 +1,4 @@
-# Content Repository configuration
+# Repository configuration
 
 You can define several Repositories within a single application. However, you can only use one per site.
 
@@ -179,7 +179,7 @@ user_data: User data
 
 To see your translations, you need to change your [Back Office language](back_office_translations.md#changing-back-office-languages) accordingly. 
 
-## Limit of archived Content item versions
+## Limit of archived content versions
 
 `default_version_archive_limit` controls the number of archived versions per Content item that are stored in the Repository.
 By default it is set to 5. This setting is configured in the following way (typically in `ezplatform.yaml`):

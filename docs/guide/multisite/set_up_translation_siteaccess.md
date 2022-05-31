@@ -4,9 +4,9 @@ One of common uses for multisite installations is serving different language ver
 To do this, set up multiple SiteAccesses, each corresponding to one language.
 Proper configuration means avoiding duplicate content that could affect SEO.
 
-## Create a language
+## Add a language
 
-First, create a new language for the whole installation.
+First, add a new language for the whole installation.
 
 !!! tip
 

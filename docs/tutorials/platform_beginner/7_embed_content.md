@@ -5,9 +5,9 @@ In this step, you add a related object, a Landmark, which will be displayed on R
 
 You can add as many or as little related resources as you like.
 
-## Create the Landmark Content Type
+## Add the Landmark Content Type
 
-Now you need to create the second Content Type needed in the site, Landmark.
+Now you need to add the second Content Type needed in the site, Landmark.
 
 Go to **Admin** &gt; **Content Types**, and in the **Content** group, create the Landmark Content Type.
 
@@ -16,7 +16,7 @@ A Landmark is an interesting place that Rides go through. Each Ride may be relat
 - **Name**: Landmark
 - **Identifier**: landmark
 
-Then create all Fields with the following information: 
+Then add all Fields with the following information: 
 
 | Field Type   | Name             | Identifier       |  Required | Searchable | Translatable |
 | ------------ | ---------------- | ---------------- | --------- | ---------- | ------------ |

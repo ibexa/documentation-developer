@@ -97,7 +97,7 @@ To do so, configure the `publish` action for the transition:
 [[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 53, 61) =]]
 ```
 
-### Quick Review disabling
+### Disable Quick Review
 
 You can disable the default workflow, for example, if your project does not use 
 workflows, or Quick Review entries clog your database:

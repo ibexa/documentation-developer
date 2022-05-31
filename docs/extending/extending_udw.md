@@ -3,7 +3,7 @@
 Browsing the content structure and selecting content from the Repository uses the module Universal Discovery Widget (UDW). UDW has an interactive interface
 which allows you to create, move or copy Content items.
 
-## How to use UDW?
+## Using UDW
 
 UDW requires that you provide configuration by using the `ez_udw_config` Twig helper. This configuration must be spread to the props of the component itself.
 
@@ -46,7 +46,7 @@ const config = /* fetch the config somewhere */;
 
 The Universal Discovery Widget enables you to add new tabs to the module. To learn how to add new tabs, see [Creating a UDW tab tutorial](adding_tab_to_udw.md).
 
-## Configuration
+## UDW configuration
 
 You can configure UDW in the [`universal_discovery_widget.yaml`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/config/universal_discovery_widget.yaml) file.
 
@@ -68,7 +68,7 @@ There you can set the following properties:
 |selected_locations</br>`selectedLocations`|[]</br>[locationId]|no|Location that will be selected automatically.|
 |allow_confirmation</br>`allowConfirmation`|true</br>false|yes|Shows confirmations buttons in the UDW. If set to false, it will not be possible to confirm selection.|
 
-### Content on the Fly Group
+### Content on the Fly group
 
 |YML</br>React props|Values|Required|Definition|
 |-------------------|------|--------|----------|
@@ -79,7 +79,7 @@ There you can set the following properties:
 |hidden</br>`hidden`|true</br>false|yes|Content on the Fly visibility.|
 |auto_confirm_after_publish</br>`autoConfirmAfterPublish`|true</br>false|yes|If set to `true` UDW will be automatically closed after publishing the content.|
 
-### Tabs Config Group
+### Tabs config group
 
 General configuration for tabs, for example, browse, search, bookmarks.
 

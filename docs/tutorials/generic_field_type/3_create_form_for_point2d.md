@@ -1,4 +1,4 @@
-# Step 3 - Create form for editing Field Type
+# Step 3 - Create a form for editing Field Type
 
 ## Create a form
 

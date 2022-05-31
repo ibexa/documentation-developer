@@ -127,7 +127,7 @@ For more information, see [Searching in trash](public_php_api_search.md#searchin
 
 ## Content Types
 
-### Creating Content Types
+### Adding Content Types
 
 To operate on Content Types, you need to make use of [`ContentTypeService`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentTypeService.php)
 
