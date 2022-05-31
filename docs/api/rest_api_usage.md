@@ -594,6 +594,17 @@ TODO
 
 TODO: There is something wrong with this title. "Usage examples"? "Short client implementation examples"?
 
+A standard web browser is not sufficient to fully test the API. You can, however, try opening the root resource with it, using the session authentication: `http://example.com/api/ibexa/v2/`. Depending on how your browser understands XML, it will either download the XML file, or open it in the browser.
+
+To test further, you can use browser extensions, like [Advanced REST client for Chrome](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo) or [RESTClient for Firefox](https://addons.mozilla.org/firefox/addon/restclient/), or dedicated tools. For command line users, [HTTPie](https://github.com/jkbr/httpie) is a good tool.
+
+### CLI
+
+Few `curl` command line examples have been previously shown
+- [REST root](#rest-root)
+- [OPTIONS method](#options-method)
+- [Location header](#location-header)
+
 ### PHP
 
 TODO: Just a GET
@@ -602,6 +613,26 @@ A content creation example using PHP is available above in [Creating content wit
 
 ### JS
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#testing-the-api
+
+One of the main reasons for this API is to help implement JavaScript / AJAX interaction. You can see here an example of an AJAX call that retrieves ContentInfo (e.g. metadata) for a Content item:
+
+```javascript
+var resource = '/api/ibexa/v2/content/objects/52',
+    request = new XMLHttpRequest();
+
+request.open('GET', resource, true);
+request.setRequestHeader('Accept', 'application/vnd.ibexa.api.ContentInfo+json');
+request.onload = function () {
+    console.log(request.getAllResponseHeaders(), JSON.parse(request.responseText));
+};
+request.send();
+```
+
+To possibly test it, just copy-paste this code into your browser console alongside a page from your website (to share the domain).
+
+`resource` URI can be edited to address another domain.
+
+On a freshly installed Ibexa DXP, `52` is the Content ID of the Front-Office home page. If necessary, substitute `52` with the Content ID of an item from your database.
 
 ### Cross-origin requests
 https://doc.ibexa.co/en/latest/api/making_cross_origin_http_requests/
