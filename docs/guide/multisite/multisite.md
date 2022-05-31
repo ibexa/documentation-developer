@@ -18,7 +18,7 @@ A multisite set-up enables you to configure different things per SiteAccess, for
 - [languages](set_up_translation_siteaccess.md)
 - [tree roots](multisite_configuration.md#location-tree)
 - [repositories](../config_repository.md) and [cache strategies](../persistence_cache.md#multi-repository-setup)
-- [recommendations](../personalization/enabling_personalization.md#configuration)
+- [recommendations](../personalization/enabling_personalization.md#configure-personalization)
 
 Many other settings in the application are also configured per SiteAccess (also known as "SiteAccess-aware").
 

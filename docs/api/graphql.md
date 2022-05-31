@@ -60,7 +60,7 @@ The `_repository` field also enables you to query e.g. Object states configured 
 
 You can also use your own [custom schema](graphql_customization.md#custom-schema).
 
-### SiteAccesses and multiple repositories
+### SiteAccesses and multiple Repositories
 
 GraphQL is SiteAccess-aware, but can have only one schema per installation.
 This means you cannot use GraphQL with multiple repositories.

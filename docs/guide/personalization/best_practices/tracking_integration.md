@@ -30,14 +30,14 @@ If the network is overloaded or the Personalization server is not available,
 the number of requests could grow and lead to a stalled and finally crashing HTTP service. 
 There are several techniques that can help you avoid it.
 
-### Track at the bottom
+### Tracking at the bottom
 
 You can place the code at the very end of the generating script 
 and flush the output buffer to the client just before sending the events. 
 The connection to the browser might remain open for the time of processing, 
 but it will be transparent for the end user.
 
-### Track asynchronously
+### Tracking asynchronously
 
 If the website is implemented in a language that supports multithreading, non-blocking 
 I/O or messaging infrastructure, you can start the event request just after 
@@ -45,7 +45,7 @@ the browser request is received instead of waiting for this process to finish.
 
 ## Client-side tracking
 
-### Use JSONP
+### Using JSONP
 
 Another solution is to provide a proxy on the server side, which will forward 
 script requests to the Personalization server. 
@@ -56,7 +56,7 @@ It is impossible to request the recommendation controller server directly from J
 cross-domain restriction in most browsers. 
 One possible work around this limitation is [JSONP](https://en.wikipedia.org/wiki/JSONP).
 
-### Use a server proxy
+### Using a server proxy
 
 Another option is to tunnel the JavaScript request through the proxy on the same server. 
 The server only forwards requests to the Personalization server. 

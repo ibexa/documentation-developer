@@ -2,11 +2,8 @@
 
 ## Customize Content Type icons
 
-To add custom icons for existing Content Types or custom Content Types in [[= product_name =]], follow the instructions below.
-
-### Configuration
-
-To configure a custom icon for a Content Type, use the following configuration in `config/packages/ibexa.yaml`, for example:
+To add custom icons for existing Content Types or custom Content Types in [[= product_name =]],
+use the following configuration in `config/packages/ibexa.yaml`, for example:
 
 ```yaml
 ibexa:
@@ -23,7 +20,7 @@ Place the icon in `public/assets/images` and run `yarn encore <dev|prod>` after 
 
     All icons should be in SVG format with `symbol` so they can display properly in the Back Office.
 
-### Custom icons in Twig templates
+### Access icons in Twig templates
 
 Content Type icons are accessible in Twig templates via the `ibexa_content_type_icon` function.
 It requires Content Type identifier as an argument. The function returns the path to a Content Type icon.
@@ -34,7 +31,7 @@ It requires Content Type identifier as an argument. The function returns the pat
 </svg>
 ```
 
-### Custom icons in JavaScript
+### Access icons in JavaScript
 
 Content Types icons configuration is stored in a global object: `ibexa.adminUiConfig.contentTypes`.
 

@@ -74,7 +74,7 @@ For more information, see [Submodels]([[= user_doc =]]/personalization/recommend
 |attribute key|`&color=red`|Applicable if a submodel with the same name and value is configured.|string|
 |`userattribute`|gender|If defined, the Personalization server tries to find the attribute value for the current user and, if found, "prefers" recommendations that are typically followed by users with the same value of the attribute. The default value is null.|string, csv list|
 
-## Handle responses
+## Responses
 
 The recommendation request returns information about the currently used context 
 items and an array of recommendation objects in JSON or JSONP format. 

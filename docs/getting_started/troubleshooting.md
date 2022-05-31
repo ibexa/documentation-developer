@@ -23,7 +23,7 @@ keeping the password hard to guess for an attacker.
 Or, you can for instance convert your password with `bin2hex()`, so that e.g. `(/!=#Æ¤*;%?[` becomes `282f213d23c386c2a42a3b253f5b`.
 The output from `bin2hex` is limited to 0-9 and a-f. This more than doubles the length of the password, keeping entropy similar.
 
-## Enable swap on systems with limited RAM
+## Enabling swap with limited RAM
 
 If you have problems installing [[= product_name =]] on a system with limited RAM (for example 1GB or 2GB), enable swap.
 It allows your operating system to use the hard disk to supplement RAM when it runs out.
@@ -50,14 +50,18 @@ if you tell Composer to download dev packages or to download from source.
 
 To avoid the error, check the stability of packages and avoid using `--prefer-source`.
 
-## Redis: Cache / Session data inconsistent across web servers
+## Redis sessions issues
 
-See [Redis Cluster info in persistence cache doc](../guide/persistence_cache.md#redis-clustering), and make sure you only read/write to
+### Inconsistent cache/session data
+
+If cache or session data inconsistent across web servers in Redis,
+see [Redis clustering](../guide/persistence_cache.md#redis-clustering), and make sure you only read/write to
 one active master instance at a time.
 
-## Redis: Sessions are removed or new sessions are refused
+### Removed or refused sessions
 
-See info on [Redis in session doc](../guide/sessions.md#cluster-setup).
+If Redis sessions are removed or new sessions are refused.
+see info on [Cluster setup](../guide/sessions.md#cluster-setup).
 Ideally, use a separated instance of Redis for sessions,
 that either never runs out of memory or uses an eviction policy that suits your needs.
 
@@ -89,7 +93,7 @@ configure the following variables in your Platform.sh environment:
 - `HTTPCACHE_USERNAME`
 - `HTTPCACHE_PASSWORD`
 
-## Images in shop are not converted.
+## Unconverted images in shop
 
 Make sure that you have set up correct rights for the image folder:
 
@@ -97,7 +101,7 @@ Make sure that you have set up correct rights for the image folder:
 sudo chmod -R g+w web/var/ecommerce/storage/
 ```
 
-## `Defuse\Crypto\Exception\BadFormatException` after installation
+## `BadFormatException` after installation
 
 If you see the following error after installation:
 
