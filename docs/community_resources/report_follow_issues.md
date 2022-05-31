@@ -10,13 +10,13 @@ The first thing you should do in order to be able to get involved and have feedb
 
     If you discover a security issue, please do not report it using regular channels, but instead take a look at [Security section](../guide/reporting_issues.md).
 
-## How to find an existing issue
+## Finding an existing issue
 
 When you have a great idea or if you have found a bug, you may want to create a new issue to let everyone know about it. Before doing that, you should make sure no one has made a similar report before.
 
 In order to do that, you should use the search page available in the top menu (under **Issues/Search for issues**) or the search box in the top right corner. Using filters and keywords you should be able to search and maybe find an issue to update instead of creating a new one.
 
-## How to improve existing issues
+## Improving existing issues
 
 Existing issues need to be monitored, sorted and updated in order to be processed in the best way possible.
 
@@ -28,13 +28,13 @@ In case of bugs, trying to reproduce them, in order to confirm that they are (st
 
 In case of improvements, you can add extra use cases and spot behaviors that might be tricky or misleading.
 
-## How to follow an issue
+## Following an issue
 
 Every issue has a "Start watching this issue" link. It lets you receive notifications each time the issue is updated.
 
 This way you can get and provide feedback during the issue's life. You are also informed about ongoing development regarding the issue and can try out patches before they are integrated into the product.
 
-## How to report an issue
+## Reporting an issue
 
 !!! note "Issues in [[= product_name_exp =]] [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]"
 

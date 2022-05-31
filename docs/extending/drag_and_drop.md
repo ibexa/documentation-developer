@@ -1,4 +1,4 @@
-# Create drag and drop
+# Add drag and drop
 
 You can create a generic interface for drag and drop interactions that you can reuse in many places across the Back Office.
 
@@ -7,8 +7,6 @@ First, prepare the HTML code structure and place it in a Twig template. See the 
 ```html
 <div class="items-container" data-placeholder="HTML template for placeholder"></div>
 ```
-
-## Initialize
 
 To initialize a drag and drop interface, add a JavaScript Code that comes with the template following the convention:
 

@@ -1,4 +1,4 @@
-# Price engine
+# Prices
 
 The price engine is responsible for calculating prices for products in the [catalog](../catalog/catalog.md).
 

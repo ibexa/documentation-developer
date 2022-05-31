@@ -87,7 +87,7 @@ You index full text data only on the content document, therefore, you would regi
     If you use PHP API in your custom document field mappers, apply [`sudo()`](../../api/public_php_api.md#using-sudo),
     or use the Persistence SPI layer as in the example above.
 
-## Custom Search Criteria
+## Create custom Search Criteria
 
 To provide support for a custom Search Criterion, do the following.
 
@@ -114,7 +114,7 @@ To choose the search type, use either `content` or `location` in the tag:
 [[= include_file('code_samples/search/solr/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/search/solr/config/packages/services.yaml', 32, 36) =]]
 ```
 
-## Custom Sort Clause
+## Create custom Sort Clause
 
 To create a custom Sort Clause, do the following.
 
@@ -143,7 +143,7 @@ To choose the search type, use either `content` or `location` in the tag:
 [[= include_file('code_samples/search/solr/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/search/solr/config/packages/services.yaml', 37, 41) =]]
 ```
 
-## Custom Aggregation
+## Create custom Aggregation
 
 To create a custom Aggregation for use with Solr, create an aggregation class.
 In the following example, an aggregation groups the Location query results by the Location priority:
@@ -219,7 +219,7 @@ You can use a different type of aggregation, followed by respective visitor and 
 
 In a more complex use case, you must create your own visitor and extractor.
 
-### Custom aggregation visitor
+### Create aggregation visitor
 
 The aggregation visitor must implement `Ibexa\Contracts\Solr\Query\AggregationVisitor`:
 
@@ -232,7 +232,7 @@ The `canVisit()` method checks whether the provided aggregation is of the suppor
 
 The `visit()` method returns an array of results.
 
-### Custom result extractor
+### Create result extractor
 
 You must also create a result extractor, which implements  `Ibexa\Solr\ResultExtractor\AggregationResultExtractor` 
 that transforms raw aggregation results from Solr into `AggregationResult` objects:

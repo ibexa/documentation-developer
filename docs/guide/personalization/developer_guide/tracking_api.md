@@ -192,7 +192,7 @@ The URL to track user clicks has the following format:
 
 |Name|Description|Values|
 |---|---|---|
-|`customerid`|A customer ID (for example "00000"). Can be used to identify a website in installations that [hosts multiple SiteAccesses]([[= user_doc =]]/personalization/use_cases/#hosting-multiple-websites).|alphanumeric|
+|`customerid`|A customer ID (for example "00000"). Can be used to identify a website in installations that [hosts multiple SiteAccesses]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting).|alphanumeric|
 |userid|A user's ID on the website of the customer. It could be an internal customer code, a session code or a cookie for anonymous users.|URL-encoded alphanumeric|
 |`itemtypeid`|Item type ID.|1 to 2147483647|
 |`itemid`|A unique ID of the item the user has clicked.</br>String-based identifiers are also supported as item IDs to track content on a website, but it is discouraged due to fraud and security issues. If you are unable to provide numeric identifiers for the tracking process, contact Ibexa for further information and implementation notes.|1 to 2147483647|
@@ -204,7 +204,7 @@ Some optional request parameters can be set over query string parameters (GET pa
 
 |Name|Description|Values|
 |---|---|---|
-|`categorypath`|The forward slash-separated path of categories of the item. Like all other parameters it must be URL-encoded, for example `%2FCameras%26Foto%2FCompact%20Cameras%2FCanon`.</br>For use cases, see [Category filter]([[= user_doc =]]/personalization/filters/#category-filter) in the user documentation.|URL-encoded string.</br>Initial and trailing slashes are ignored: "/Cameras/" is the same as "Cameras".|
+|`categorypath`|The forward slash-separated path of categories of the item. Like all other parameters it must be URL-encoded, for example `%2FCameras%26Foto%2FCompact%20Cameras%2FCanon`.</br>For use cases, see [Category path filters]([[= user_doc =]]/personalization/filters/#category-path-filters) in the user documentation.|URL-encoded string.</br>Initial and trailing slashes are ignored: "/Cameras/" is the same as "Cameras".|
 
 ### Consume event
 
@@ -363,7 +363,7 @@ The format of the URL is:
 
 There are no query string parameters for this event. 
 
-## Track events based on recommendations
+## Tracking events based on recommendations
 
 Tracking events based on integrated recommendations are the only way to measure 
 success of recommendations. 
@@ -451,7 +451,7 @@ It is common that recommendations are rendered as a block with multiple items.
 To save traffic and reduce latency, you can bundle multiple recommendations in one request. 
 Several item IDs must be comma-separated.
 
-## Examples of translating user actions into tracking events
+## Tracking event examples
 
 Below are examples for the translation of user actions on a website into tracking requests.
 

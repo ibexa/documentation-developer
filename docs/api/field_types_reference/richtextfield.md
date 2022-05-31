@@ -37,7 +37,7 @@ For a string of a `DOMDocument` object, if the input does not conform to this fo
     The Legacy eZXML format is also supported by the RichText Field Type,
     but can be used only for migration, in compatibility with the [legacy XML format](xmltextfield.md).
     For more information about migrating eZXML content,
-    see [Migrating from eZ Publish Platform](../..//migrating/migrating_from_ez_publish_platform.md#321-migrate-xmltext-content-to-richtext).
+    see [Migrating from eZ Publish Platform](../../migrating/migrating_from_ez_publish_platform.md#321-migrate-xmltext-content-to-richtext).
 
 ##### Internal format
 

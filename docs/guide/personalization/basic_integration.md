@@ -1,4 +1,4 @@
-# Basic service integration
+# Integrate Recommendation service
 
 To return recommendations, you must first [enable the Personalization service](enabling_personalization.md).
 Then, you must integrate the service with [[= product_name =]] by activating 

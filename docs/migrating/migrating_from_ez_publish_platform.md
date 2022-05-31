@@ -47,23 +47,21 @@ This section describes how to upgrade your existing  eZ Publish Platform  5.4
     If at any point during the migration procedure you encounter problems with the cache,
     refer to [How to clear the cache properly?](../community_resources/support_maintenance_faq.md#how-to-clear-the-cache-properly).
 
-## Upgrade steps
-
-### Step 1: Extract eZ Platform/Enterprise v1.7
+## Step 1: Extract eZ Platform/Enterprise v1.7
 
 The easiest way to upgrade the distribution files is to extract a clean installation of eZ Platform / eZ Enterprise to a separate directory.
 
-### Step 2: Move over code and config
+## Step 2: Move over code and config
 
-##### 2.1. Code
+### 2.1. Code
 
 If you have code in src folder, move that over:
 
 `<old-ez-root>/src =>  <new-ez-root>/src`
 
-##### 2.2. Composer
+### 2.2. Composer
 
-###### 2.2.1 Move over own packages
+#### 2.2.1 Move over own packages
 
 Assuming you have own composer packages *(libraries and bundles, but not eZ Publish legacy packages)*, execute commands like below to add them to new install in `<new-ez-root>`:
 
@@ -71,7 +69,7 @@ Assuming you have own composer packages *(libraries and bundles, but not eZ Publ
 
 Adapt the command with your `vendor`, `package`, version number, and add `"–dev"` if a given package is for dev use. Also check if there are other changes in `composer.json` you should move over.
 
-###### 2.2.2 Install XmlText Field Type
+#### 2.2.2 Install XmlText Field Type
 
 While no longer bundled, the XmlText Field Type still exists and is needed to perform a migration from eZ Publish's XmlText to the new docbook-based format used by the RichText Field Type. If you plan to use Legacy Bridge for a while before migrating content, you'll also need this for rendering content with XMLText. From `<new-ez-root>` execute:
 
@@ -82,7 +80,7 @@ While no longer bundled, the XmlText Field Type still exists and is needed to p
     As of v1.3, be aware this Field Type now uses the Content View system introduced in eZ Platform 1.0, so make sure you adapt custom templates and override rules if you plan to use this for rendering content _(in Legacy Bridge setup)_.
 
 
-##### 2.3. Config
+### 2.3. Config
 
 To move over your own custom configurations, follow the conventions below and manually move the settings over:
 
@@ -115,7 +113,7 @@ To move over your own custom configurations, follow the conventions below and ma
 
     In the default configurations in **ezplatform.yaml** you'll find existing SiteAccesses like `site`, and depending on installation perhaps a few others, all under a site group called `site\_group`. Make sure to change those to what you had in **ezpublish.yaml** to avoid issues with having to log in to your website, given user/login policy rules will need to be updated if you change names of SiteAccess as part of the upgrade.
 
-###### 2.3.1 Image aliases
+#### 2.3.1 Image aliases
 
 Image aliases defined in legacy must also be defined for eZ Platform. Since image aliases in legacy may be scattered around
 in different `image.ini` files in various extensions, you may find it easier to find all image alias definitions using
@@ -158,14 +156,14 @@ ezpublish:
                         - { name: geometry/scaledownonly, params: [170, 220] }
 ```
 
-##### 2.4. Bundles
+### 2.4. Bundles
 
 Move over registration of _your_ bundles you have from src and from composer packages, from old to new kernel:
 
 `<old-ez-root>/ezpublish/EzPublishKernel.php => <new-ez-root>/app/AppKernel.php`
 
 
-##### 2.5. Optional: Install Legacy Bridge
+### 2.5. Optional: Install Legacy Bridge
 
 If you don't plan to migrate content directly to newer eZ Platform Field Types, you can optionally install Legacy Bridge and gradually handle code and subsequent content migration afterwards. For installation instructions see [here](https://github.com/ezsystems/LegacyBridge/blob/master/INSTALL.md).
 
@@ -173,7 +171,7 @@ If you don't plan to migrate content directly to newer eZ Platform Field Types, 
 
     The Legacy Bridge integration does not have the same performance, scalability or integrated experience as a pure Platform setup. Like on eZ Publish Platform 5.x there are known edge cases where, for instance, cache or search index won't always be immediately updated across the two systems using the bridge. This is one of the many reasons why we recommend a pure Platform setup where that is possible.
 
-###### 2.5.1 Set up symlinks for legacy folders
+#### 2.5.1 Set up symlinks for legacy folders
 
 As eZ Publish legacy is installed via composer, we need to take care of placing some files outside its generated `<new-ez-root>/ezpublish_legacy/` folder, and for instance use symlink to place them inside during installation.
 
@@ -181,7 +179,7 @@ As eZ Publish legacy is installed via composer, we need to take care of placing 
 
 1. The same goes for the `<new-ez-root>/ezpublish_legacy/var/[<site>/]storage` folder. However, as it is typically not versioned in git, there's no predefined convention for this. If you create a folder within your project structure for symlinking into this folder, as opposed to a mount somewhere else, make sure to mark this folder as ignored by git once it and the corresponding `.keep` file have been added to your checkout. The example below will assume `<new-ez-root>/src/legacy_files/storage` was created for this purpose, if you opt for something else just adjust the instructions.
 
-###### 2.5.2 Upgrade the legacy distribution files
+#### 2.5.2 Upgrade the legacy distribution files
 
 The easiest way to upgrade the distribution files is to copy the directories that contain site-specific files from the existing 5.4 installation into `/<ezplatform>/ezpublish_legacy`. Make sure you copy the following directories:
 
@@ -198,7 +196,7 @@ The easiest way to upgrade the distribution files is to copy the directories tha
 
     Since writable directories and files have been replaced / copied, their permissions might have changed. You most likely need to reconfigure webserver user permissions as instructed further down.
 
-#####  2.6 Binary files
+###  2.6 Binary files
 
 Binary files can simply be copied from the old to the new installation:
 
@@ -208,7 +206,7 @@ Binary files can simply be copied from the old to the new installation:
 
     In the eZ Publish Platform 5.x installation `web/var` is a symlink to `ezpublish_legacy/var`, so if you can't find it in path above you can instead copy the storage files to the similar `ezpublish_legacy/var[/<site_name>]/storage` path.
 
-#####  2.7 Re-apply permissions and update composer
+###  2.7 Re-apply permissions and update composer
 
 Since writable directories and files have been replaced / copied, their permissions might have changed. You need to re-apply them.
 
@@ -220,15 +218,15 @@ When that is done, execute the following to update and install all packages from
 
     At the end of the process, you will be asked for values for parameters.yaml not already moved from old installation, or new *(as defined in parameters.yaml.dist)*.
 
-##### 2.8 Register EzSystemsEzPlatformXmlTextFieldTypeBundle
+### 2.8 Register EzSystemsEzPlatformXmlTextFieldTypeBundle
 
 Add the following new bundle to your new kernel file, `<new-ez-root>/app/AppKernel.php`:
 
 `new EzSystems\EzPlatformXmlTextFieldTypeBundle\EzSystemsEzPlatformXmlTextFieldTypeBundle(),` 
 
-### Step 3: Upgrade the database
+## Step 3: Upgrade the database
 
-##### 3.1. Execute update SQL
+### 3.1. Execute update SQL
 
 Import to your database the changes provided in one of the following files. It's also recommended to read inline comments as you might not need to run some of the queries:
 
@@ -236,11 +234,11 @@ Import to your database the changes provided in one of the following files. It's
 
 `Postgres: <new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-5.4.0-to-6.13.0.sql`
 
-##### 3.2. Once you are ready to migrate content to Platform Field Types
+### 3.2. Once you are ready to migrate content to Platform Field Types
 
 Steps here should only be done once you are ready to move away from legacy and Legacy Bridge, as the following Field Types are not supported by legacy. In other words, content you have migrated will not be editable in legacy admin interface anymore, but rather in the more modern eZ Platform back-end UI, allowing you to take full advantage of what the Platform has to offer.
 
-###### 3.2.1 Migrate XmlText content to RichText
+#### 3.2.1 Migrate XmlText content to RichText
 
 You should test the XmlText to RichText conversion before you apply it to a production database. RichText has a stricter validation compared to XmlText and you may have to fix some of your XmlText before you are able to convert it to RichText.
 Run the conversion script on a copy of your production database as the script is rather resource-intensive.
@@ -414,7 +412,7 @@ When you are ready to migrate your eZ Publish XmlText content to the eZ Platform
 
 eZ Platform now supports custom tags, including inline custom tags, and limited use of custom tag attributes.
 After migrating to RichText, you need to adapt your custom tag config for eZ Platform and rewrite the custom tags in Twig.
-See [Custom tag documentation](../extending/extending_online_editor.md#custom-tags) for more info.
+See [Custom tag documentation](../extending/extending_online_editor.md#configure-custom-tags) for more info.
 
 If you configured custom attributes in legacy in OE using [ezoe_attributes.ini](https://github.com/ezsystems/ezpublish-legacy/blob/master/extension/ezoe/settings/ezoe_attributes.ini#L33-L48), note that not all types are supported.
 
@@ -422,7 +420,7 @@ Below is a table of the tags that are currently supported, and their correspondi
 
 | [XmlText](https://github.com/ezsystems/ezpublish-legacy/blob/2019.03/extension/ezoe/settings/ezoe_attributes.ini#L33-L48) | [RichText](https://github.com/ezsystems/ezplatform-richtext/blob/v1.1.5/src/bundle/DependencyInjection/Configuration.php#L17) | Note  |
 | ------------- | ------------- | ----- |
-| `link`        | [`link`](../extending/extending_online_editor.md#example-link-tag) |  |
+| `link`        | [`link`](../extending/extending_online_editor.md#link-tag) |  |
 | `number`      | `number`      |  |
 | `int`         | `number`      |  |
 | `checkbox`    | `boolean`     |  |
@@ -438,29 +436,29 @@ Below is a table of the tags that are currently supported, and their correspondi
 | `cssborder`   | Not supported |   Use `string` as workaround |
 
 
-###### 3.2.2 Migrate Page field to Page (eZ Enterprise only)
+#### 3.2.2 Migrate Page field to Page (eZ Enterprise only)
 
 **If** you use Page field (ezflow) and an eZ Enterprise subscription, and are ready to migrate your eZ Publish Flow content to the eZ Enterprise Page format, you can use a script to migrate your old Page content to new Page, to start using a pure eZ Enterprise setup. See [Migrating legacy Page field (ezflow) to new Page (Enterprise)](#migrating-legacy-page-field-ezflow-to-new-page-enterprise) for more information.
 
-###### 3.2.3 Add other eZ Enterprise schemas (eZ Enterprise only)
+#### 3.2.3 Add other eZ Enterprise schemas (eZ Enterprise only)
 
 For date-based publisher and form builder, there are additional tables, you can import them to your database using the following sql files:
 `<new-ez-root>/vendor/ezsystems/date-based-publisher/bundle/Resources/install/datebasedpublisher_scheduled_version.sql`,
 `<new-ez-root>/vendor/ezsystems/ezstudio-form-builder/bundle/Resources/install/form_builder.sql`, `<new-ez-root>/vendor/ezsystems/ezstudio-notifications/bundle/Resources/install/ezstudio-notifications.sql`
 
-### Step 4: Re-configure web server and proxy
+## Step 4: Re-configure web server and proxy
 
-#### Varnish *(optional)*
+### Varnish *(optional)*
 
-If you use Varnish, the recommended Varnish (4 or higher) VCL configuration can be found in the [Using Varnish](../guide/cache/symfony_reverse_proxy.md#use-varnish-or-fastly) page.
+If you use Varnish, the recommended Varnish (4 or higher) VCL configuration can be found in the [Using Varnish](../guide/cache/symfony_reverse_proxy.md#configure-varnish-or-fastly) page.
 
-#### Web server configuration
+### Web server configuration
 
 The officially recommended virtual configuration is now shipped in the `doc` folder, for both apache2 (`doc/apache2`) and nginx (`doc/nginx`). Both are built to be easy to understand and use, but aren't meant as drop-in replacements for your existing configuration.
 
 As was the case starting 5.4, one notable change is that `SetEnvIf` is now used to dynamically change rewrite rules depending on the Symfony environment. It is currently used for the assetic production rewrite rules.
 
-### Step 5: Link assets
+## Step 5: Link assets
 
 Assets from the various bundles need to be made available for the webserver through the web/ document root. Execute the following commands from `<new-ez-root>`:
 

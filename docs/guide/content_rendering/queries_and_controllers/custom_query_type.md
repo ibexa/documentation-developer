@@ -29,7 +29,7 @@ The name defined in `getName()` is the one you use to identify the Query type in
 
 The `getQuery()` method constructs the query based on Search Criteria and Sort Clauses.
 See [Content search](../../../api/public_php_api_search.md) for more information about queries
-and [Search reference](../../search/search_criteria_reference.md) for a reference of available Criteria and Sort Clauses.
+and [Search reference](../../search/criteria_reference/search_criteria_reference.md) for a reference of available Criteria and Sort Clauses.
 
 The `getSupportedParameters()` method provides the parameters you can set in content view configuration.
 

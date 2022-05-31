@@ -46,7 +46,7 @@ At this point you should be able to see a new button in the Image Editor's UI.
 The button that you created above does not initiate any action yet.
 You must modify the JavaScript component to add a function to the button.
 
-#### Contexts
+### Contexts
 
 When you create a React-based extension of the Image Editor, you can use a number of contexts that have the following functions:
 
