@@ -15,7 +15,7 @@ publishing the draft will not overwrite later modifications.
 
 ### Adding available languages
 
-The multilanguage system operates based on a global translation list that contains all languages available in the installation. Languages can be [added to this list from the Admin Panel](https://doc.ibexa.co/projects/userguide/en/latest/creating_content_advanced/#languages) in the Back Office. After adding a language be sure to dump all assets to the file system:
+The multilanguage system operates based on a global translation list that contains all languages available in the installation. Languages can be [added to this list from the Admin Panel](https://doc.ibexa.co/projects/userguide/en/latest/translating_content/) in the Back Office. After adding a language be sure to dump all assets to the file system:
 
 ```
 yarn encore <environment>

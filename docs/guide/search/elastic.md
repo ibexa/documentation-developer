@@ -70,9 +70,9 @@ All configuration is made in the `/config/packages/ibexa_elasticsearch.yaml` fil
     the Elasticsearch documentation.
 
 First, decide how [[= product_name =]] connects to Elasticsearch and configure other connection settings.
-For more information, see [Configuring connections](#configuring-connections).
+For more information, see [Configuring connections](#connections).
 
-Then, define a field type mappings template that instructs Elasticsearch to interpret [[= product_name =]] fields as specific types. For more information, see [Configuring field type mappings](#configuring-field-type-mapping-templates).
+Then, define a field type mappings template that instructs Elasticsearch to interpret [[= product_name =]] fields as specific types. For more information, see [Configuring field type mappings](#field-type-mapping-templates).
 
 ## Step 5: Push the templates
 
@@ -102,7 +102,7 @@ php bin/console ibexa:reindex
 ### Connections
 
 When you configure the Elasticsearch integration, you must first configure the connections.
-You either connect to a [cluster of Elasticsearch nodes](#configure-a-cluster) or the [Elasticsearch Cloud](#configure-elasticsearch-cloud).
+You either connect to a [cluster of Elasticsearch nodes](#cluster) or the [Elasticsearch Cloud](#elasticsearch-cloud).
 
 Define the connection settings under the `connections` key. First, set a name of the connection:
 
@@ -114,8 +114,8 @@ ibexa_elasticsearch:
 
 Then decide whether to add a cluster that you administer and manage yourself, or use a cloud
 solution from Elastic, as well as configure additional parameters.
-You can then decide how the cluster [handles communication with individual nodes](#configure-the-multi-node-cluster-behavior),
-and configure the [security settings](#configure-security).
+You can then decide how the cluster [handles communication with individual nodes](#multi-node-cluster-behavior),
+and configure the [security settings](#security).
 
 !!! tip "A default connection"
 

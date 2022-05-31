@@ -22,7 +22,7 @@ PERSONALIZATION_HOST_URI=https://server_uri
 
 !!! note "Configuring user credentials for different customers"
 
-    If your installation [hosts multiple sites]([[= user_doc =]]/personalization/use_cases/#hosting-multiple-websites) with different 
+    If your installation [hosts multiple sites]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting) with different 
     customer IDs, for example, to provide separate recommendations for different 
     language versions of the store, you can store all credentials in the same file:
     
@@ -63,7 +63,7 @@ After this, it is synchronized with the Personalization service every time a cha
 occurs (using any method that triggers the event).
 
 The Personalization configuration is SiteAccess-aware.
-If your installation [hosts multiple sites]([[= user_doc =]]/personalization/use_cases/#multiple-stores) with different customer IDs, 
+If your installation hosts multiple sites with different customer IDs, 
 for example, to provide separate recommendations for different language versions 
 of the site, provide the credentials that correspond to each of the sites.
 
@@ -98,7 +98,7 @@ ibexa_personalization:
 
     For data exchange purposes, basic authentication is enabled by default. 
     To change this, contact support@ibexa.co.
-    For security reasons, [store the authentication credentials in the ENV file](enabling_personalization.md#set-up-customer-credentials), 
+    For security reasons, [store the authentication credentials in the ENV file](#set-up-customer-credentials), 
     and do not commit them to the Version Control System.
     Then, use environment variables to pull them into the YAML file.
 

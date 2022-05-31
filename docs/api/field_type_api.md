@@ -21,7 +21,7 @@ available in the [`Ibexa\Core\FieldType`](https://github.com/ibexa/core/tree/mai
 !!! note "Registration"
 
     Remember that all your custom Field Types must be registered in `config/services.yml`.
-    For more information see [Registration section](field_type_type_and_value.md#registration).
+    For more information see [Registration](field_type_type_and_value.md#registration).
 
 In order to provide custom functionality for a Field Type, the SPI interacts with multiple layers of the [[= product_name =]] architecture:
 
@@ -38,7 +38,7 @@ Below that, the Field Type must support the **Public API** implementation regard
 On the bottom level, a Field Type can additionally hook into the **Persistence SPI**
 in order to store data from a `FieldValue` in an external service.
 Note that all non-standard [[= product_name =]] database tables (e.g. `ezurl`)
-will be treated as [external storage](field_type_storage.md#external-storage).
+will be treated as [external storage](field_type_storage.md#storing-external-data).
 
 The following sequence diagrams visualize the process of creating and publishing new content across all layers, especially focused on the interaction with a Field Type.
 

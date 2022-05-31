@@ -123,7 +123,7 @@ php bin/console ibexa:migrations:generate --type=content_type --mode=update --ma
 
 ```
 
-Note that you should test your migrations. See [migrating data](#executing-migrations).
+Note that you should test your migrations. See [Importing data](importing_data.md).
 
 !!! tip
 
@@ -259,7 +259,7 @@ php bin/console ibexa:migrations:generate --type=content --mode=create --file=my
 The optional `--user-context` option enables you to run the export command as a specified User.
 The command only exports Repository data that the selected User has access to.
 By default the admin account is used, unless specifically overridden by this option or in
-[bundle configuration](migration_management.md#configuration-reference) (`ibexa_migrations.default_user_login`).
+bundle configuration (`ibexa_migrations.default_user_login`).
 
 ``` bash
 php bin/console ibexa:migrations:generate --type=content --mode=create --user-context=jessica_andaya

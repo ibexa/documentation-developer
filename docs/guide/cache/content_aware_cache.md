@@ -476,7 +476,7 @@ The output for this command should look similar to this:
 ```
 
 The header `X-User-Context-Hash` is the one of the interest here, but you may also note the `Surrogate-Key` which
-holds the [cache tags](#understanding-cache-tags).
+holds the [cache tags](#cache-tags).
 
 ### Fetching HTML response
 

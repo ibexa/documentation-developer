@@ -2,7 +2,7 @@
 
 You can send two types on notifications to the users.
 
-[Notification bar](#display-notification-bars) is displayed in specific situations as a message bar appearing at the bottom of the page.
+[Notification bar](#notification-bars) is displayed in specific situations as a message bar appearing at the bottom of the page.
 It appears to whoever is doing a specific operation in the Back Office.
 
 ![Example of an info notification](img/notification2.png "Example of the notification bar")

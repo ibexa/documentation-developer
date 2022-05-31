@@ -36,7 +36,7 @@ The configuration of [[= product_name =]] for using Varnish or Fastly requires a
 ### Configure Symfony front controller
 
 Before you configure Symfony to [work behind a load balancer or a reverse proxy](https://symfony.com/doc/5.1/deployment/proxies.html),
-make sure that [Symfony reverse proxy](#symfony-reverse-proxy) is enabled.
+make sure that Symfony reverse proxy is enabled.
 
 To configure trusted proxies, use [Symfony semantic configuration]([[= symfony_doc =]]/deployment/proxies.html#solution-settrustedproxies) under
 `framework.trusted_proxies`, for example:
@@ -69,7 +69,7 @@ When using Fastly, you need to set `trusted_proxies` according to the [IP ranges
     The Platform.sh router automatically changes the source IP of requests coming from Fastly,
     replacing the source IP with the actual client IP and removing any `X-FORWARD-...` header in the request before it reaches Ibexa DXP.
 
-For more information about setting these variables, see [Examples for configuring [[= product_name =]]](#examples-for-configuring-ibexa-dxp).
+For more information about setting these variables, see [Configuration examples](#configuration-examples).
 
 ### Update YML configuration
 

@@ -37,7 +37,7 @@ This section provides the number of non-cached [SPI](repository.md#spi) calls a
 
 #### SiteAccess
 
-Here you can see the name of the current SiteAccess and how it was matched. For reference see the [list of possible SiteAccess matchers](multisite/siteaccess_matching.md#available-matchers).
+Here you can see the name of the current SiteAccess and how it was matched. For reference see the [list of possible SiteAccess matchers](multisite/siteaccess_matching.md#available-siteaccess-matchers).
 
 ## Logging and debug configuration
 

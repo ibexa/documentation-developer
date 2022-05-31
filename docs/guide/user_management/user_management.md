@@ -14,7 +14,7 @@ It allows them to create a new password.
 For information about how to create and configure the template, see [Add forgot password option](../content_rendering/layout/add_forgot_password.md)
 
 The template for this email is located in `Resources/views/forgot_password/mail/forgot_user_password.html.twig` in `ibexa/user`.
-You can [customize it according to your needs](#customize-login-form).
+You can [customize it according to your needs](../content_rendering/layout/add_login_form.md#customize-login-form).
 
 The validity of the password recovery token can be set using the `ibexa.system.<siteaccess>.security.token_interval_spec` parameter.
 By default, it is set to `PT1H` (one hour).

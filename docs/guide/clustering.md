@@ -15,7 +15,7 @@ is up to you and your performance needs.
 
 The minimal requirements are:
 
-- [Shared HTTP cache (using Varnish)](cache/http_cache.md#using-varnish)
+- [Shared HTTP cache (using Varnish)](cache/symfony_reverse_proxy/#using-varnish-or-fastly)
 - [Shared persistence cache](#shared-persistence-cache) and [sessions](#shared-sessions) (using Redis or Memcached)
 - Shared database (using MySQL/MariaDB)
 - [Shared binary files](#shared-binary-files) (using NFS, or S3)
@@ -211,7 +211,7 @@ ibexa:
                 url_prefix: 'http://static.example.com/'
 ```
 
-You can read more about that on [Binary files URL handling](file_management.md#url-handling).
+You can read more about that on [Binary files URL handling](file_management.md#file-url-handling).
 
 ### Web server rewrite rules
 

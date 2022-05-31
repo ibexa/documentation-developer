@@ -150,7 +150,7 @@ services:
             - {name: ibexa.field_type.storage.external.handler, alias: myfield}
 ```
 
-The configuration requires providing the `ibexa.field_type.storage.external.handler` tag, with the `alias` attribute being the *fieldTypeIdentifier*. You also have to inject the gateway in `arguments`, [see below](#gateway-based-storage).
+The configuration requires providing the `ibexa.field_type.storage.external.handler` tag, with the `alias` attribute being the *fieldTypeIdentifier*. You also have to inject the gateway in `arguments`, [see Gateway-based storage](#gateway-based-storage).
 
 External storage configuration for basic Field Types is located in [`ibexa/core/src/lib/Resources/settings/fieldtype_external_storages.yml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/fieldtype_external_storages.yml).
 

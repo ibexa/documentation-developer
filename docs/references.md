@@ -11,8 +11,8 @@
 
 - [Twig functions](guide/content_rendering/twig_function_reference/twig_functions_reference.md)
 - [Template variables](guide/content_rendering/templates/templates.md#template-variables)
-- [Image variation filters](guide/images.md#available-filters)
-- [SiteAccess matchers](guide/multisite/siteaccess_matching.md#available-matchers)
+- [Image variation filters](guide/content_rendering/image_variations.md#available-variation-filters)
+- [SiteAccess matchers](guide/multisite/siteaccess_matching.md#available-siteaccess-matchers)
 - [View matcher reference](guide/content_rendering/templates/view_matcher_reference.md)
 
 ## Permissions

@@ -123,7 +123,7 @@ Then this reference is reused as part of a new role, as a limitation.
 ```
 
 By default, reference files are located in a separate directory `src/Migrations/Ibexa/references`
-(see [configuration reference](#configuration-reference)
+(see [previewing reference](#preview-configuration)
 `ibexa_migrations.migration_directory` and `ibexa_migrations.references_files_subdir` options).
 
 Reference files are **NOT** loaded by default. A separate step (type: "reference", mode: "load", with filename as "value")

@@ -412,7 +412,7 @@ When you are ready to migrate your eZ Publish XmlText content to the eZ Platform
 
 eZ Platform now supports custom tags, including inline custom tags, and limited use of custom tag attributes.
 After migrating to RichText, you need to adapt your custom tag config for eZ Platform and rewrite the custom tags in Twig.
-See [Custom tag documentation](../extending/extending_online_editor.md#custom-tags) for more info.
+See [Custom tag documentation](../extending/extending_online_editor.md#configure-custom-tags) for more info.
 
 If you configured custom attributes in legacy in OE using [ezoe_attributes.ini](https://github.com/ezsystems/ezpublish-legacy/blob/master/extension/ezoe/settings/ezoe_attributes.ini#L33-L48), note that not all types are supported.
 
@@ -420,7 +420,7 @@ Below is a table of the tags that are currently supported, and their correspondi
 
 | [XmlText](https://github.com/ezsystems/ezpublish-legacy/blob/2019.03/extension/ezoe/settings/ezoe_attributes.ini#L33-L48) | [RichText](https://github.com/ezsystems/ezplatform-richtext/blob/v1.1.5/src/bundle/DependencyInjection/Configuration.php#L17) | Note  |
 | ------------- | ------------- | ----- |
-| `link`        | [`link`](../extending/extending_online_editor.md#example-link-tag) |  |
+| `link`        | [`link`](../extending/extending_online_editor.md#link-tag) |  |
 | `number`      | `number`      |  |
 | `int`         | `number`      |  |
 | `checkbox`    | `boolean`     |  |
@@ -450,7 +450,7 @@ For date-based publisher and form builder, there are additional tables, you can 
 
 ### Varnish *(optional)*
 
-If you use Varnish, the recommended Varnish (4 or higher) VCL configuration can be found in the [Using Varnish](../guide/cache/symfony_reverse_proxy.md#use-varnish-or-fastly) page.
+If you use Varnish, the recommended Varnish (4 or higher) VCL configuration can be found in the [Using Varnish](../guide/cache/symfony_reverse_proxy.md#configure-varnish-or-fastly) page.
 
 ### Web server configuration
 

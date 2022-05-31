@@ -1,6 +1,6 @@
 # Add custom workflow action
 
-Built-in workflow actions enable you to [automatically publish a Content item](workflow.md#publishing-content)
+Built-in workflow actions enable you to [automatically publish a Content item](workflow.md#content-publishing)
 or to [send a notification to reviewers](workflow.md#notifications).
 
 You can also create custom actions that are called when content reaches a specific stage

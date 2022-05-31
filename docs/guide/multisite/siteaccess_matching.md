@@ -40,7 +40,7 @@ The matching configuration is passed to `setMatchingConfiguration()`.
 - [`Map\Host`](#maphost)
 - [`Map\URI`](#mapuri)
 - [`Map\Port`](#mapport)
-- [`Ibexa\SiteFactory\SiteAccessMatcher`](#siteaccessmatcher)
+- [`Ibexa\SiteFactory\SiteAccessMatcher`](#ibexasitefactorysiteaccessmatcher)
 
 ### `URIElement`
 
