@@ -577,7 +577,7 @@ Notice that cURL can follow those redirections. On CLI, there is the `--location
 The following command-line example follows the two redirections above and the `Accept` header is propagated:
 
 ```shell
-curl --header "Accept: application/vnd.ibexa.api.Content+json" --head --location "http://api.example.com/api/ibexa/v2/content/objects/?remoteId=34720ff636e1d4ce512f762dc638e4ac"
+curl --header "Accept: application/vnd.ibexa.api.Content+json" --head --location "https://api.example.com/api/ibexa/v2/content/objects/?remoteId=34720ff636e1d4ce512f762dc638e4ac"
 ```
 
 ```
@@ -607,7 +607,27 @@ Few `curl` command line examples have been previously shown
 
 ### PHP
 
-TODO: Just a GET
+```php
+$resource = 'https://api.example.com/api/ibexa/v2/content/objects/52';
+$curl = curl_init($resource);
+curl_setopt_array($curl, [
+    CURLOPT_HTTPHEADER => ['Accept: application/vnd.ibexa.api.ContentInfo+json'],
+    CURLOPT_HEADERFUNCTION => function($curl, $header) {
+        if (!empty($cleanedHeader = trim($header))) {
+            var_dump($cleanedHeader);
+        }
+        return strlen($header);
+    },
+    CURLOPT_RETURNTRANSFER => true,
+]);
+var_dump(json_decode(curl_exec($curl), true));
+```
+
+To possibly test it, just open a PHP shell in a terminal with `php -a` and copy-paste this code into it.
+
+`$resource` URI should be edited to address the right domain.
+
+On a freshly installed Ibexa DXP, `52` is the Content ID of the Front-Office home page. If necessary, substitute `52` with the Content ID of an item from your database.
 
 A content creation example using PHP is available above in [Creating content with binary attachments section](#creating-content-with-binary-attachments)
 
