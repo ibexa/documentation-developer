@@ -77,27 +77,6 @@ TODO: Remove as obsolete
 
 ### Logical operators
 
-TODO: This is about a request body and should be moved closer to other body related sections.
-
-By default, if multiple criteria are given, but not wrapped by any operator, the `AND` operator is used.
-
-When using the same criterion for multiple times, the parser wraps it with the `OR` operator.
-Note that making the `AND` query for different values of the same criterion type always returns zero results.
-
-TODO: Those automatic `AND` and `OR` cases are not clear enough: add examples
-
-**Logical operators XML example**
-
-``` xml
-
-``` 
-
-**Logical operators JSON example**
-
-``` json
-
-```
-
 ## Specifying SiteAccess
 
 ## REST API authentication

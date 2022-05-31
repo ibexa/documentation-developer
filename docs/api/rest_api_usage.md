@@ -256,10 +256,12 @@ TODO: All sort clauses?
 
 The search request HTTP header to type its body is `Content-Type: application/vnd.ibexa.api.ViewInput+xml` or `+json`.
 The root node is `<ViewInput>` and it has two mandatory children: `<identifier>` and `<Query>`.
-TODO: Direct access to a view through its identifier is not implemented (501).
+TODO: Even if mandatory, direct access to a view through its identifier is not implemented (501).
 
 `version=1.1` can be added to the `Content-Type` header to support the distinction between `ContentQuery` and `LocationQuery` instead of just `Query` which implicitly looked only for Contents.
 TODO: Where are `ContentQuery` and `LocationQuery` documented on PHP API side?
+
+The following examples will search for `article` and `news` typed Contents everywhere, search for Contents of all types directly under Location `123`, all those Contents must be in the `standard` Section.
 
 === "XML"
 
@@ -352,12 +354,105 @@ TODO: Where are `ContentQuery` and `LocationQuery` documented on PHP API side?
     }
     ```
 
-TODO: I guess that multiple sortClauses would have lead to an array instead of directly the sortClause
+=== "JSON; 1.1"
+
+    ```
+    Content-Type: application/vnd.ibexa.api.ViewInput+json
+    ```
+
+    ``` json
+    {
+      "ViewInput": {
+        "identifier": "test",
+        "ContentQuery": {
+          "Filter": {
+            "AND": {
+              "OR": {
+                "ContentTypeIdentifierCriterion": [
+                  "article",
+                  "news"
+                ],
+                "ParentLocationIdCriterion": 123
+              },
+              "SectionIdentifierCriterion": "standard"
+            }
+          },
+          "limit": "10",
+          "offset": "0",
+          "SortClauses": { "ContentName": "ascending" }
+        }
+      }
+    }
+    ```
 
 !!! note
 
-    The structure for `ContentTypeIdentifierCriterion` with multiple values is slightly
-    different in JSON format as keys must be unique.
+    In JSON, the structure for `ContentTypeIdentifierCriterion` with multiple values has a slightly different format as keys must be unique.
+    In JSON, if there is only one `SortClauses`, it can be passed directly without an array to wrap it.
+
+Logical operators may be omitted. If criteria are of mixed types, they will be wrapped in an implicit `AND`. If they are of the same type, they will be wrapped in an implicit `OR`.
+
+For example, the `AND` operator from previous example's `Filter` could be removed.
+
+=== "XML Explicit `AND`"
+
+    ``` xml
+    <Filter>
+        <AND>
+            <OR>
+                <ContentTypeIdentifierCriterion>article</ContentTypeIdentifierCriterion>
+                <ContentTypeIdentifierCriterion>news</ContentTypeIdentifierCriterion>
+                <ParentLocationIdCriterion>123</ParentLocationIdCriterion>
+            </OR>
+            <SectionIdentifierCriterion>standard</SectionIdentifierCriterion>
+        </AND>
+    </Filter>
+    ```
+
+=== "XML Implicit `AND`"
+
+    ``` xml
+    <Filter>
+        <OR>
+            <ContentTypeIdentifierCriterion>article</ContentTypeIdentifierCriterion>
+            <ContentTypeIdentifierCriterion>news</ContentTypeIdentifierCriterion>
+            <ParentLocationIdCriterion>123</ParentLocationIdCriterion>
+        </OR>
+        <SectionIdentifierCriterion>standard</SectionIdentifierCriterion>
+    </Filter>
+    ```
+
+=== "JSON Explicit `AND`"
+
+    ``` json
+    "Filter": {
+      "AND": {
+        "OR": {
+           "ContentTypeIdentifierCriterion": [
+            "article",
+            "news"
+          ],
+          "ParentLocationIdCriterion": 123
+        },
+        "SectionIdentifierCriterion": "standard"
+      }
+    },
+    ```
+
+=== "JSON Implicit `AND`"
+
+    ``` json
+    "Filter": {
+      "OR": {
+         "ContentTypeIdentifierCriterion": [
+          "article",
+          "news"
+        ],
+        "ParentLocationIdCriterion": 123
+      },
+      "SectionIdentifierCriterion": "standard"
+    },
+    ```
 
 ## Responses
 
