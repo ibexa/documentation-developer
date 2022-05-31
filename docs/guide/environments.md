@@ -18,7 +18,7 @@ For example, using Apache, in the [`VirtualHost` example](https://github.com/ezs
 SetEnvIf Request_URI ".*" APP_ENV="dev"
 ```
 
-## Using custom environments
+## Custom environments
 
 If you want to use a custom environment (something other than `prod` and `dev`), you need to place dedicated configuration files in a separate folder:
 `config/packages/<env_name>/config_<env_name>.yaml`

@@ -1,6 +1,6 @@
 # Add custom workflow action
 
-Built-in workflow actions enable you to [automatically publish a Content item](workflow.md#publishing-content)
+Built-in workflow actions enable you to [automatically publish a Content item](workflow.md#content-publishing)
 or to [send a notification to reviewers](workflow.md#notifications).
 
 You can also create custom actions that are called when content reaches a specific stage
@@ -19,7 +19,7 @@ Configure the first custom action in the following way:
 The configuration indicates the name of the custom action (`legal_transition_action`).
 `data` contains additional data that is passed to the action. In this case, it is a message to display.
 
-## Add event listener
+## Create event listener
 
 To define what the action does, create an event listener `src/EventListener/LegalTransitionListener.php`:
 

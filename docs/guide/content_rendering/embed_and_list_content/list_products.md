@@ -10,7 +10,7 @@ In this example the controller renders all products that exist in the catalog.
     By default, the anonymous user does not have permissions to view products.
     To change this, add the `Product/View` Policy to the Anonymous Role.
 
-## Add product list controller
+## Create product list controller
 
 Create a controller file in `src/Controller/ProductListController` that uses the [ProductService](../../../api/public_php_api_managing_catalog.md#products)
 to query for all products:

@@ -105,7 +105,7 @@ The URIs should be used directly as identifiers on the client side and the clien
 
 ### URIs prefix
 
-In [REST reference](rest_api_reference/rest_api_reference.html), for the sake of readability, there are no prefixes used in the URIs.
+In [REST API reference](rest_api_reference/rest_api_reference.html), for the sake of readability, there are no prefixes used in the URIs.
 In practice, the `/api/ibexa/v2` prefixes are all REST hrefs.
 
 Remember that the URIs to REST resources should never be generated manually, but obtained from earlier REST calls.

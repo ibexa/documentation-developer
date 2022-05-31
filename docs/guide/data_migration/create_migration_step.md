@@ -9,7 +9,7 @@ To create a migration step, you need:
 The following example shows how to create a step that replaces all `ezstring` Fields
 that have an old company name with "New Company Name".
 
-## Step class
+## Create step class
 
 First, create a step class, in `src/Migrations/Step/ReplaceNameStep.php`:
 
@@ -17,7 +17,7 @@ First, create a step class, in `src/Migrations/Step/ReplaceNameStep.php`:
 [[= include_file('code_samples/data_migration/src/Migrations/Step/ReplaceNameStep.php') =]]
 ```
 
-## Normalizer
+## Create normalizer
 
 Then you need a normalizer to convert data that comes from YAML into a step object,
 in `src/Migrations/Step/ReplaceNameStepNormalizer.php`:
@@ -32,9 +32,9 @@ Then, tag the step normalizer, so it is recognized by the serializer used for mi
 [[= include_file('code_samples/data_migration/config/custom_services.yaml', 18, 23) =]]
 ```
 
-## Executor
+## Create executor
 
-And finally, add an executor to perform the step, in `src/Migrations/Step/ReplaceNameExecutor.php`:
+And finally, create an executor to perform the step, in `src/Migrations/Step/ReplaceNameExecutor.php`:
 
 ``` php
 [[= include_file('code_samples/data_migration/src/Migrations/Step/ReplaceNameStepExecutor.php') =]]

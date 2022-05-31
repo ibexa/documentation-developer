@@ -1,4 +1,4 @@
-# Step 5 - Add a new Point 2D field
+# Step 5 - Add a new Point 2D Field
 
 All actions in this step are done in the admin interface also called the Back Office.
 Go to the admin interface (`<yourdomain>/admin`) and log in with the default username: `admin` and the default password: `publish`. 

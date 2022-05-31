@@ -41,7 +41,7 @@ Preparing a new layout requires three things:
 - thumbnail
 - template
 
-#### Create entry in configuration
+#### Add entry in configuration
 
 First create a new file for layout configuration, `config/packages/ibexa_fieldtype_page.yaml`:
 

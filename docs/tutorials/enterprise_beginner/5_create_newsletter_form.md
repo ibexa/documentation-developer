@@ -117,7 +117,7 @@ To see details about a submission, click the view icon.
 
 ![Collect Form Submissions](img/enterprise_tut_form_collect_sub.png "Collect Form Submissions")
 
-For more details, see [viewing form results.](https://doc.ezplatform.com/projects/userguide/en/latest/creating_content_advanced/#viewing-results)
+For more details, see [viewing form results.](https://doc.ezplatform.com/projects/userguide/en/latest/creating_forms/#viewing-results)
 
 ## Congratulations!
 

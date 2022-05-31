@@ -61,7 +61,7 @@ fos_http_cache:
                         s_maxage: 20
 ```
 
-## Set time-to-live value for Page blocks
+## Time-to-live value for Page blocks
 
 For the Page Builder, block cache by default respects `$content.ttl_cache$` and `$content.default_ttl$` settings.
 However, if the given block value has a since or till date, 
