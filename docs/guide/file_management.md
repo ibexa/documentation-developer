@@ -1,4 +1,4 @@
-# File Management
+# File management
 
 ## Accessing binary files
 
@@ -119,7 +119,7 @@ The way to configure other adapters can be found in the [bundle's online documen
 
 For clustering use we provide a custom metadata handler that stores metadata about your assets in the database. This is done as it is faster than accessing the remote NFS or S3 instance in order to read metadata. For further reading on setting this up, see [Clustering](clustering.md).
 
-## Enable BinaryFile Field indexing
+## Enabling BinaryFile Field indexing
 
 The indexing of all binary file Fields is disabled by default.
 If you want to enable indexing, you must have installed Oracle Java/Open JDK 8 or higher and Apache Tika 1.20.
@@ -173,7 +173,7 @@ The `uri` property of Binary Fields in REST contains a valid download URL, of th
 
 For [more information about REST API see the documentation](../api/rest_api_guide).
 
-## URL handling
+## File URL handling
 
 ### IO URL decoration
 
@@ -188,9 +188,9 @@ ibexa:
                 url_prefix: '$var_dir$/$storage_dir$'
 ```
 
-`$var_dir$` and `$storage_dir$` are dynamic, [SiteAccess-aware settings](configuration.md#dynamic-settings-injection), and will be replaced by their values in the execution context.
+`$var_dir$` and `$storage_dir$` are dynamic, [SiteAccess-aware settings](config_dynamic.md#inject-configresolver-into-services), and will be replaced by their values in the execution context.
 
-### Using a static server for images
+#### Using a static server for images
 
 One common use case is to use an optimized nginx to serve images in an optimized way. The example image
 above could be made available as `http://static.example.com/var/site/storage/images/3/6/4/6/6463-1-eng-GB/kidding.png`
@@ -211,7 +211,7 @@ ibexa:
     Document Root of the static server.
     Map the `/var/` directory directly to `/path/to/ibexa/public/var` instead.
 
-### Internals
+### `io.url_prefix`
 
 Any `BinaryFile` returned by the public API is prefixed with the value of this setting, internally stored as `ibexa.site_access.config.scope.io.url_prefix`.
 
@@ -224,9 +224,7 @@ Used to configure the default URL decorator service (`ibexa.core.io.default_url_
 
 This setting is SiteAccess-aware.
 
-#### Services
-
-##### URL decorators
+### URL decorator service
 
 A UrlDecorator decorates and undecorates a given string (URL). It has two mirror methods: `decorate` and `undecorate`.
 

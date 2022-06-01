@@ -8,9 +8,9 @@ To begin the tutorial, you need a clean installation of [[= product_name_exp =]]
 
 Get it by following the [Install [[= product_name =]]](../../getting_started/install_ez_platform.md) guide.
 
-## Create Content Types
+## Add Content Types
 
-Log in to the Back Office – add `/admin` to your installation's address (`<yourdomain>/admin`) and log in using `admin` as the login and `publish` as the password. Go to Content Types screen and (under the Content category) create two Content Types with the following settings:
+Log in to the Back Office – add `/admin` to your installation's address (`<yourdomain>/admin`) and log in using `admin` as the login and `publish` as the password. Go to Content Types screen and (under the Content category) add two Content Types with the following settings:
 
 ### Dog Breed
 

@@ -39,7 +39,7 @@ Register the setting group as a service:
 
 The value of the setting is accessible with `ez_user_settings['unit']`.
 
-## Create setting edit for template
+## Create template for editing settings
 
 You can override a template used when editing the new setting:
 

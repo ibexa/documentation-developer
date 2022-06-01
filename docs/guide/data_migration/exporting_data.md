@@ -1,6 +1,4 @@
-# Exporting and importing data
-
-## Exporting data
+# Exporting data
 
 To see an example of migrations in action, export data already present in your installation.
 
@@ -125,13 +123,13 @@ php bin/console ibexa:migrations:generate --type=content_type --mode=update --ma
 
 ```
 
-Note that you should test your migrations. See [migrating data](#executing-migrations).
+Note that you should test your migrations. See [Importing data](importing_data.md).
 
 !!! tip
 
     Migration command can be executed with database rollback at the end with the `--dry-run` option.
 
-### type
+## type
 
 The mandatory `--type` option defines the type of Repository data to export.
 The following types are available:
@@ -150,7 +148,7 @@ The following types are available:
 
 If you do not provide the `--type` option, the command asks you to select a type of data.
 
-### mode
+## mode
 
 The mandatory `--mode` option defines the action that importing the file performs.
 The following modes are available:
@@ -181,7 +179,7 @@ The following combinations of types are modes are available:
 |`customer_group`|&#10004;|&#10004;|&#10004;|
 |`currency`|&#10004;|&#10004;|&#10004;|
 
-### match-property
+## match-property
 
 The optional `--match-property` option, together with `value`, enables you to select which data from the Repository to export.
 `match-property` defines what property should be used as a criterion for selecting data.
@@ -228,7 +226,7 @@ The following properties are available (per type):
 
 You can extend the list of available matchers by creating [a custom one](add_data_migration_matcher.md).
 
-### value
+## value
 
 The optional `--value` option, together with `match-property`, filters the Repository content that the command exports.
 `value` defines which values of the `match-property` should be included in the export.
@@ -243,7 +241,7 @@ php bin/console ibexa:migrations:generate --type=content --mode=create --match-p
 
     The same `match-property` and `value` is added to generated `update` and `delete` type migration files.
 
-### file
+## file
 
 The optional `--file` option defines the name of the YAML file to export to.
 
@@ -256,12 +254,12 @@ php bin/console ibexa:migrations:generate --type=content --mode=create --file=my
     When migrating multiple files at once (for example when calling `ibexa:migration:migrate` without options),
     they are executed in alphabetical order.
 
-### user-context
+## user-context
 
 The optional `--user-context` option enables you to run the export command as a specified User.
 The command only exports Repository data that the selected User has access to.
 By default the admin account is used, unless specifically overridden by this option or in
-[bundle configuration](migration_management.md#configuration-reference) (`ibexa_migrations.default_user_login`).
+bundle configuration (`ibexa_migrations.default_user_login`).
 
 ``` bash
 php bin/console ibexa:migrations:generate --type=content --mode=create --user-context=jessica_andaya

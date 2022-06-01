@@ -59,7 +59,7 @@ You can listen to the following events:
 | User settings | `ConfigureMenuEvent::USER_PASSWORD_CHANGE_SIDEBAR_RIGHT` |
 || `ConfigureMenuEvent::USER_SETTING_UPDATE_SIDEBAR_RIGHT` |
 
-## Add menu items
+## Adding menu items
 
 To add a menu item, use the `addChild()` method. Provide the method with the new menu item's identifier
 and, optionally, with parameters.
@@ -78,7 +78,7 @@ The following method adds a new menu section under **Content**, and under it, a 
 `attributes` adds attributes (such as CSS classes) to the container `<li>` element of the new menu item.
 `linkAttributes` adds attributes to the `<a>` element.
 
-### Pass a parameter to a menu item
+### Passing a parameter to a menu item
 
 You can also pass parameters to templates used to render menu items with `template_parameters`:
 
@@ -114,7 +114,7 @@ $menu->addChild(
 );
 ```
 
-## Modify menu items
+## Modifying menu items
 
 To modify the parameters of an existing menu item, use the `setExtra()` method.
 
@@ -127,7 +127,7 @@ For example, the following code changes the default icon for the "Create" button
 [[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 46, 48) =]]
 ```
 
-## Remove menu items
+## Removing menu items
 
 To remove a menu item, for example, to remove the **Copy subtree** item from the right menu in content view,
 use the following event listener:

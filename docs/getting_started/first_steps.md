@@ -33,7 +33,7 @@ so that the end of the file looks like this:
 module.exports = [ IbexaConfig, ...customConfigs ];
 ```
 
-## Create a Content Type
+## Add a Content Type
 
 1\. In your browser, go to the Back Office: `<your_domain>/admin`, and use the default credentials to log in: `admin/publish`.
 
@@ -138,7 +138,7 @@ For now the new SiteAccess does not differ from the main site.
 !!! tip "More information"
 
     - [SiteAccess](../guide/multisite/multisite.md)
-    - [SiteAccess matchers](../guide/multisite/siteaccess_matching.md#available-matchers)
+    - [SiteAccess matchers](../guide/multisite/siteaccess_matching.md#available-siteaccess-matchers)
 
 ## Add a language and translate Content
 

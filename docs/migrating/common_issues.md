@@ -1,4 +1,4 @@
-# Common issues
+# Common migration issues
 
 Below you will find cleanup commands from the EzPublishMigrationBundle for the most common
 issues that can occur after migration to [[= product_name =]].
@@ -67,7 +67,7 @@ Only affected Fields will be processed by the cleanup command.
 
 You can read more about this issue here: [EZP-24882](https://jira.ez.no/browse/EZP-24882)
 
-## Trouble listing sub content
+## Listing sub-content
 
 It is possible that after upgrade `sort_key_string` is left empty. This may cause problems
 in searches throughout the API. The cleanup script will check if Fields of given Field

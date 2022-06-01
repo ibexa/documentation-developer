@@ -1,4 +1,4 @@
-# Managing prices
+# Price API
 
 ## Currencies
 

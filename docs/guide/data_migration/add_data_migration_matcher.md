@@ -1,4 +1,4 @@
-# Add data migration matcher
+# Create data migration matcher
 
 [Matchers in data migrations](exporting_data.md#match-property) enable you to select which data from the Repository to export.
 

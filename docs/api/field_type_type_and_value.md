@@ -1,4 +1,4 @@
-# Type and Value classes
+# Type and Value
 
 A Field Type must contain a Type class which contains the logic of the Field Type: validating data, transforming from various formats, describing the validators, etc.
 A Type class must implement `Ibexa\Core\FieldType\FieldType` ("Field Type interface").

@@ -1,4 +1,14 @@
 {% extends "base.html" %}
+  {% block htmltitle %}
+    {%- if page and page.meta and page.meta.title -%} 
+      <title>{{ page.meta.title }}</title> 
+    {%- elif page and page.title and not page.is_homepage -%} 
+      <title>{{ page.title }} ({{ config.extra.site_display_name }})</title>
+    {%- else -%} 
+      <title>{{ config.extra.site_display_name }}</title>
+    {%- endif -%} 
+  {% endblock %}
+
   {% block extrahead %}
     <meta name="google-site-verification" content="zttxcBm_blrd3kCAsNlGZqvzga_-8ovH4IxSHw2l5OQ" />
   {% endblock %}

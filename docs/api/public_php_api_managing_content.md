@@ -127,11 +127,11 @@ For more information, see [Searching in trash](public_php_api_search.md#searchin
 
 ## Content Types
 
-### Creating Content Types
+### Adding Content Types
 
 To operate on Content Types, you need to make use of [`ContentTypeService`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentTypeService.php)
 
-Creating a new Content Type, like creating content, must happen with the use of a struct, because a Content Type value object is read-only.
+Adding a new Content Type, like creating content, must happen with the use of a struct, because a Content Type value object is read-only.
 In this case you use [`ContentTypeCreateStruct`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/ContentType/ContentTypeCreateStruct.php)
 
 A Content Type must have at least one name, in the main language, and at least one Field definition.

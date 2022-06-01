@@ -28,7 +28,7 @@ You can also install the plugin manually from a `.jar` file:
 2\. In PhpStorm settings/preferences (depending on your system), select **Plugins** > (gear icon) > **Install plugin from Disk...**
 and select the downloaded file.
 
-## Plugin configuration
+## Configuration
 
 Plugin configuration is available in PhpStorm settings/preferences (depending on your system), 
 under **PHP** > **Frameworks** > **Ibexa DXP**.
