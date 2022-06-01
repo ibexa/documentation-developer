@@ -552,6 +552,7 @@ theme:
     name: material
     features:
         - content.code.annotate 
+        - navigation.tracking
     custom_dir: 'theme'
     favicon: 'images/favicon.png'
     language: 'en'
