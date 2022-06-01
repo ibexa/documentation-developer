@@ -21,21 +21,19 @@ class RestLocation extends BaseRestLocation
 
     public function visit(Visitor $visitor, Generator $generator, $data)
     {
-        dump($data);
         $generator->startObjectElement('Location');
-        $generator->startAttribute(
+        //TODO: The wrong default media-type added by the Generator is still there in XML
+        $generator->attribute(
             'media-type',
             'application/app.api.Location+' . strtolower((new \ReflectionClass($generator))->getShortName())
         );
-        $generator->endAttribute('media-type');
-        $generator->startAttribute(
+        $generator->attribute(
             'href',
             $this->router->generate(
                 'ibexa.rest.load_location',
                 ['locationPath' => trim($data->location->pathString, '/')]
             )
         );
-        $generator->endAttribute('href');
         parent::visit($visitor, $generator, $data);
         $visitor->visitValueObject(new URLAliasRefList(array_merge(
             $this->urlAliasService->listLocationAliases($data->location, false),
