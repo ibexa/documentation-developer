@@ -124,54 +124,38 @@ https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#requirements
 * Optionally, one or several new Value classes to represent the Controller action result, their `ValueObjectVisitor` to help the Generator to turn this into XML or JSON and eventually one or several new media-types to claim in the `Accept` header the desired Value.
 * Optionally, the addition of this resources route to the REST root.
 
+In the following example, a greeting resource will be added to the REST API. It will be available through `GET` and `POST` methods. `GET` will set default values while `POST` will allow to input custom values.
+
 ### Route
 https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#route
 
 Your REST routes should use the [REST URI prefix](rest_api_usage.md#uri-prefix) for consistency. To ensure that they do, in the config/routes.yaml file, while importing a REST routing file, use `ibexa.rest.path_prefix` parameter as a `prefix`.
 
-```yaml
+``` yaml
 # config/routes.yaml
-app.rest:
-    resource: routes_rest.yaml
-    prefix: '%ibexa.rest.path_prefix%'
+[[= include_file('code_samples/api/rest_api/config/routes.yaml', 0, 3) =]]
 ```
 
-```yaml
+``` yaml
 # config/routes_rest.yaml
-app.rest.hello_world:
-    path: '/hello/world'
-    controller: App\Rest\Controller\DefaultController::helloWorld
-    methods: [GET]
+[[= include_file('code_samples/api/rest_api/config/routes_rest.yaml', 0, 3) =]]    methods: [GET]
 ```
 
 #### CSRF protection
 
 If a REST route is designed to be used with [unsafe methods](rest_api_usage#http-methods), the CSRF protection is enabled by default like for built-in routes. It can be disabled by using the route parameter `csrf_protection`.
 
-```yaml
+``` yaml
 # config/routes_rest.yaml
-app.rest.hello_world:
-    path: '/hello/world'
-    controller: App\Rest\Controller\DefaultController::helloWorld
-    defaults:
-        csrf_protection: false
-    methods: [GET,POST]
+[[= include_file('code_samples/api/rest_api/config/routes_rest.yaml') =]]
 ```
 
 #### OPTIONS method support
 
-TODO: Handle it at Controller level or using the OptionsLoader?
-```yaml
+TODO: Handle it at Controller level or using the buggy OptionsLoader?
+``` yaml
 # config/routes.yaml
-app.rest:
-    resource: routes_rest.yaml
-    prefix: '%ibexa.rest.path_prefix%'
-
-app.rest.options:
-    #TODO: There is something wrong with resource, it only works with an absolute path on ibexa/rest v4.1.2 — see https://issues.ibexa.co/browse/IBX-2927
-    resource: routes_rest.yaml
-    prefix: '%ibexa.rest.path_prefix%'
-    type: rest_options
+[[= include_file('code_samples/api/rest_api/config/routes.yaml') =]]
 ```
 
 ### Controller
@@ -197,33 +181,98 @@ A REST controller should:
 - extend `Ibexa\Rest\Server\Controller` to inherit few utils methods and properties like the InputDispatcher or the RequestParser.
 TODO: Better exposition of this inheritance advantages…
 
-```php
-<?php
-
-namespace App\Rest\Controller;
-
-use Ibexa\Rest\Server\Controller;
+``` php
+[[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php') =]]
 ```
-
-### InputParser
 
 ### Value and ValueObjectVisitor
 
-```php
-<?php
-
-namespace App\Rest\Values;
+``` php
+[[= include_file('code_samples/api/rest_api/src/Rest/Values/Greeting.php') =]]
 ```
 
-```php
-<?php
-
-namespace App\Rest\ValueObjectVisitor;
-
-use Ibexa\Contracts\Rest\Output\ValueObjectVisitor;
-use Ibexa\Contracts\Rest\Output\Generator;
-use Ibexa\Contracts\Rest\Output\Visitor;
+``` php
+[[= include_file('code_samples/api/rest_api/src/Rest/ValueObjectVisitor/Greeting.php') =]]
 ```
+
+The `Values/Greeting` class is linked to its `ValueObjectVisitor` through the service tag.
+
+``` yaml
+# config/services.yaml
+services:
+    #…
+[[= include_file('code_samples/api/rest_api/config/services.yaml', 43, 48) =]]
+```
+
+Here, the media-type will be `application/vnd.ibexa.api.Greeting` plus a format. To have another vendor than the default, a new `Output\Generator` could be created or the `ValueObjectVisitor` could hard-code it like the [`RestLocation`'s one from previous example](#new-restlocation-valueobjectvisitor).
+
+### InputParser
+
+It could use route parameters, but this example's goal is to illustrate the usage of an input parser.
+
+``` php
+[[= include_file('code_samples/api/rest_api/src/Rest/InputParser/GreetingInput.php') =]]
+```
+
+Here, this InputParser directly return the right Value object but this could be whatever object needed to represent the input for the controller to perform its action, like arguments to use with a repository service.
+
+``` yaml
+# config/services.yaml
+services:
+    #…
+[[= include_file('code_samples/api/rest_api/config/services.yaml', 48, 53) =]]
+```
+
+### Testing the new resource
+
+Let's test both `GET` and `POST` methods and both `XML` and `JSON` outputs.
+
+```shell
+curl https://api.example.com/api/ibexa/v2/greet --include;
+curl https://api.example.com/api/ibexa/v2/greet --include --request POST \
+    --header 'Content-Type: application/vnd.ibexa.api.GreetingInput+xml' \
+    --data '<GreetingInput><Salutation>Good morning</Salutation></GreetingInput>';
+curl https://api.example.com/api/ibexa/v2/greet --include --request POST \
+    --header 'Content-Type: application/vnd.ibexa.api.GreetingInput+json' \
+    --data '{"GreetingInput": {"Salutation": "Good evening", "Recipient": "Earth"}}' \
+    --header 'Accept: application/vnd.ibexa.api.Greeting+json';
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/vnd.ibexa.api.greeting+xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Greeting media-type="application/vnd.ibexa.api.Greeting+xml" href="/api/ibexa/v2/greet">
+ <Salutation>Hello</Salutation>
+ <Recipient>World</Recipient>
+ <Sentence>Hello World</Sentence>
+</Greeting>
+
+HTTP/1.1 200 OK
+Content-Type: application/vnd.ibexa.api.greeting+xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Greeting media-type="application/vnd.ibexa.api.Greeting+xml" href="/api/ibexa/v2/greet">
+ <Salutation>Good morning</Salutation>
+ <Recipient>World</Recipient>
+ <Sentence>Good morning World</Sentence>
+</Greeting>
+
+HTTP/1.1 200 OK
+Content-Type: application/vnd.ibexa.api.greeting+json
+
+{
+    "Greeting": {
+        "_media-type": "application\/vnd.ibexa.api.Greeting+json",
+        "_href": "\/api\/ibexa\/v2\/greet",
+        "Salutation": "Good evening",
+        "Recipient": "Earth",
+        "Sentence": "Good evening Earth"
+    }
+}                              
+```
+
 
 ### Registering resources in the REST root
 https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#registering-resources-in-the-rest-root
@@ -245,7 +294,7 @@ ibexa_rest:
 The `router.generate` renders a URI based on the name of the route and its parameters. The parameter values can be a real value or a placeholder. For example, `'router.generate("ibexa.rest.load_location", {locationPath: "1/2"})'` results in `/api/ibexa/v2/content/locations/1/2` while `'router.generate("ibexa.rest.load_location", {locationPath: "{locationPath}"})'` gives `/api/ibexa/v2/content/locations/{locationPath}`.
 This syntax is based on the Symfony's [expression language]([[= symfony_doc =]]/components/expression_language/index.html), an extensible component that allows limited/readable scripting to be used outside the code context.
 
-For the previous example `app.rest.hello_world` available in every SiteAccess (`default`):
+For the previous example `app.rest.greeting` available in every SiteAccess (`default`):
 
 ```yaml
 #TODO: Which file?
@@ -253,13 +302,13 @@ ibexa_rest:
     system:
         default:
             rest_root_resources:
-                helloWorld:
-                    mediaType: Hello
-                    href: 'router.generate("app.rest.hello_world")'
+                greeting:
+                    mediaType: Greeting
+                    href: 'router.generate("app.rest.greeting")'
 ```
 
 The above example add the following entry to the root XML output:
 ```xml
-<helloWorld media-type="application/vnd.ibexa.api.Hello+xml" href="/api/ibexa/v2/hello/world"/>
+<greeting media-type="application/vnd.ibexa.api.Greeting+xml" href="/api/ibexa/v2/greet"/>
 ```
 TODO: Is there a way to change the media-type vendor?
