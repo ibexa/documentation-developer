@@ -21,8 +21,8 @@ class RestLocation extends BaseRestLocation
 
     public function visit(Visitor $visitor, Generator $generator, $data)
     {
-        //TODO: This is a wrong media-type added by default by the Generator in XML
-        $generator->startObjectElement('Location', 'Location+UrlAliasRefList');
+        // Not using $generator->startObjectElement to not have the XML Generator adding its own media-type attribute with the default vendor
+        $generator->startHashElement('Location');
         $generator->attribute(
             'media-type',
             'application/app.api.Location+' . strtolower((new \ReflectionClass($generator))->getShortName())
@@ -42,6 +42,6 @@ class RestLocation extends BaseRestLocation
             'ibexa.rest.list_location_url_aliases',
             ['locationPath' => trim($data->location->pathString, '/')]
         )));
-        $generator->endObjectElement('Location');
+        $generator->endHashElement('Location');
     }
 }
