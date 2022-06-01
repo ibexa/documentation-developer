@@ -21,8 +21,8 @@ class RestLocation extends BaseRestLocation
 
     public function visit(Visitor $visitor, Generator $generator, $data)
     {
-        $generator->startObjectElement('Location');
-        //TODO: The wrong default media-type added by the Generator is still there in XML
+        //TODO: This is a wrong media-type added by default by the Generator in XML
+        $generator->startObjectElement('Location', 'Location+UrlAliasRefList');
         $generator->attribute(
             'media-type',
             'application/app.api.Location+' . strtolower((new \ReflectionClass($generator))->getShortName())
