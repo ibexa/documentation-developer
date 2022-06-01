@@ -267,7 +267,7 @@ ul li li li {
             mask-image: var(--md-admonition-icon--note);
 }
 
-.md-typeset :is(.admonition,details).caution>:is(.admonition-title.summary):before {
+.md-typeset :is(.admonition,details).caution>:is(.admonition-title,summary):before {
     background-color: var(--caution-border);
     -webkit-mask-image: var(--md-admonition-icon--caution);
             mask-image: var(--md-admonition-icon--caution);
