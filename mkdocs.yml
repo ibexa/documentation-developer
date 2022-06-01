@@ -142,7 +142,6 @@ nav:
                 - 'Template configuration': 'guide/content_rendering/templates/template_configuration.md'
                 - 'View matcher reference': 'guide/content_rendering/templates/view_matcher_reference.md'
                 - 'Create custom view matcher': 'guide/content_rendering/templates/custom_view_matcher.md'
-                - 'Shop templates': 'guide/content_rendering/templates/overriding_shop_templates.md'
             - 'Assets': 'guide/content_rendering/assets.md'
             - 'Image variations': 'guide/content_rendering/image_variations.md'
             - Twig functions reference:
@@ -217,7 +216,6 @@ nav:
             - 'Token': 'guide/user_management/token.md'
             - Customers:
                 - 'Customers': 'guide/customers/customers.md'
-                - 'VAT handling': 'guide/customers/vat_handling.md'
                 - 'Customer API': 'guide/customers/customer_api/customer_api.md'
                 - 'Customer profile data': 'guide/customers/customer_api/customer_profile_data.md'
                 - 'Customer data configuration': 'guide/customers/customer_api/configuration_for_customer_data.md'
