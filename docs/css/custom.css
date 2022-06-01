@@ -365,6 +365,12 @@ ul li li li {
     background-color: var(--code-highlight);
 }
 
+/* Code block titles */
+
+.highlighttable span.filename {
+    background-color: var(--ibexa-snow);
+}
+
 /* Tables */
 
 .md-typeset table:not([class]) {
