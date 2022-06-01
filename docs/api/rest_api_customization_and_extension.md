@@ -9,7 +9,7 @@ TODO: Find the right section title
   - This Controller action might use the `Request` to build its result according to, for example, GET parameters, the `Accept` HTTP header, or, the Request payload and its `Content-Type` HTTP header.
   - This Controller action might wrap its return into a `CachedValue` which contains caching information for the reverse proxies.
 * The `Ibexa\Bundle\Rest\EventListener\ResponseListener` attached to the `kernel.view event` is triggered, and, passes the Request and the Controller action's result to the `AcceptHeaderVisitorDispatcher`.
-* The `AcceptHeaderVisitorDispatcher` matches one of the `regexps` of an `ibexa.rest.output.visitor` service (an `Ibexa\Contracts\Rest\Output\Visitor`). The role of this `Output\Visitor` is to transform the Value returned by the Controller into XML or JSON. To do so, it combines an `Output\Generator` corresponding to the output format and a `ValueObjectVisitorDispatcher`.
+* The `AcceptHeaderVisitorDispatcher` matches one of the `regexps` of an `ibexa.rest.output.visitor` service (an `Ibexa\Contracts\Rest\Output\Visitor`). The role of this `Output\Visitor` is to transform the Value returned by the Controller into XML or JSON output format. To do so, it combines an `Output\Generator` corresponding to the output format and a `ValueObjectVisitorDispatcher`. This `Output\Generator` is also adding the `media-type` attributes.
 * The matched `Output\Visitor` uses its `ValueObjectVisitorDispatcher` to select the right `ValueObjectVisitor` according to the fully qualified class name (FQCN) of the Controller result. A `ValueObjectVisitor` is a service tagged `ibexa.rest.output.value_object.visitor` and this tag has a property `type` pointing a FQCN.
 * `ValueObjectVisitor`s will recursively help to transform the Controller result thanks to the abstraction layer of the `Generator`.
 * The `Output\Visitor` returns the `Response` to send back to the client.
@@ -46,17 +46,16 @@ In this example case, a new media-type will be passed in the `Accept` header of 
 By default, this resource handle a `application/vnd.ibexa.api.Location+xml` (or `+json`) `Accept` header.
 The following example will add the handling of a new media-type `application/app.api.Location+xml` (or `+json`) `Accept` header to obtain a different Response using the same controller.
 
-TODO: Choose the chronology: Output\Visitor → ValueObjectVisitorDispatcher → ValueObjectVisitor
-* To handle Request with an `Accept` header stating with `application/app.api`, a new `Output\Visitor` service is needed.
-* This `Output\Visitor` will need a new `ValueObjectVisitorDispatcher` to handle the result of the default Controller action and treat it differently.
-* The new `ValueObjectVisitorDispatcher` will use a new `ValueObjectVisitor` to visit the default Controller result.
-TODO: This chronology is closer to the system
-
-TODO: Choose the chronology: ValueObjectVisitor → ValueObjectVisitorDispatcher → Output\Visitor
 * To create the new Response corresponding to this new media-type, a new `ValueObjectVisitor` is needed.
 * To have this new `ValueObjectVisitor` used to visit the default Controller result, a new `ValueObjectVisitorDispatcher` is needed.
 * To have this new `ValueObjectVisitorDispatcher` associated to the new media-type in an `Accept` header, a new `Output\Visitor` service is needed.
-TODO: This chronology is closer to the development
+
+!!! note
+
+    You may not change the vendor from default `vnd.ibexa.api` to new `app.api` like in this example but create a new type in the default vendor instead.
+    To do so, your new ValueObjectVisitor will be tagged with `ibexa.rest.output.value_object.visitor` to be added to the existing `ValueObjectVisitorDispatcher` and no new one will be needed.
+    The `media-type` attribute would also be easier to create as the default `Output\Generator` will use this default vendor.
+    In this example, to create a new vendor has been chosen as a good practice to highlight that this is custom and won't be available on a regular Ibexa DXP.
 
 ### New `RestLocation` `ValueObjectVisitor`
 https://doc.ibexa.co/en/latest/api/creating_custom_rest_api_response/#implementation-of-dedicated-visitor
@@ -72,7 +71,7 @@ TODO: For the example, this new `ValueObjectVisitor` extends the default visitor
 
 This new `ValueObjectVisitor` receives a new tag `app.rest.output.value_object.visitor` to be associated to the new `ValueObjectVisitorDispatcher` in the next step.
 This tag has a `type` property to associate the new `ValueObjectVisitor` with the type of value is made for.
-TODO: Expose the default `ibexa.rest.output.value_object.visitor` tagging earlier.
+
 ``` yaml
 # config/services.yaml
 services:
