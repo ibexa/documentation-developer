@@ -37,7 +37,23 @@ and `Ibexa\Contracts\ProductCatalog\Events\RegionResolveEvent` in your customiza
 
 ## VAT rates
 
-You can configure VAT rates per product type in the Back Office.
+You set up VAT percentage values corresponding to VAT rates in configuration:
+
+``` yaml
+ibexa:
+    repositories:
+        shop:
+            product_catalog:
+                engine: default
+                regions:
+                    region_1:
+                        vat_categories:
+                            standard: 18
+                            reduced: 6
+                            none: ~
+```
+
+You can configure which VAT rate to use per product type in the Back Office.
 
 In the product type editing mode, access the definition of the Product Specification Field.
 

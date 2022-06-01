@@ -43,8 +43,7 @@ Do this, for example, when you create a SiteAccess with a special design for a c
 
 You can add any Twig template folder to the theme configuration.
 
-You can use it if you want to define templates from third-party bundles as part of one of your themes,
-or to [override built-in shop templates](../templates/overriding_shop_templates.md).
+You can use it if you want to define templates from third-party bundles as part of one of your themes.
 
 To do it, set the `ibexadesign.templates_theme_paths` parameter:
 
