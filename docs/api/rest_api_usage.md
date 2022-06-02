@@ -22,7 +22,7 @@ In practice, the `/api/ibexa/v2` prefixes all REST hrefs.
 Remember that the URIs to REST resources should never be generated manually, but obtained from earlier REST calls.
 TODO: Make sure this is demonstrated in "customization and extension" examples.
 
-### Request parameters
+### URI parameters
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#request-parameters
 
 URI parameters (query string) can be used on some resources.
@@ -71,7 +71,7 @@ For details, see the [ISO-3166 glossary](http://www.iso.org/iso/home/standards/c
 
 ## Requests
 
-### Request HTTP methods
+### Request method
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#http-methods
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#custom-http-verbs
 
@@ -144,15 +144,16 @@ HTTP/1.1 200 OK
 Allow: GET,PATCH,DELETE,COPY,MOVE,SWAP
 ```
 
-### Request HTTP headers
+### Request headers
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#other-headers
 
-There are mainly four headers to specify a REST request:
+There are mainly four/five (TODO) HTTP headers to specify a REST request:
 - [`Accept`](https://tools.ietf.org/html/rfc2616#section-14.1) describing the response type and format;
 - [`Content-Type`](https://toos.ietf.org/html/rfc2616#section-14.17) describing the payload type and format;
 - `X-Siteaccess` specifying the target SiteAccess;
 - `X-HTTP-Method-Override` allowing to pass a method while using `POST` method as previously seen in [HTTP methods](#request-http-methods).
-- [`If-None-Match`](https://tools.ietf.org/html/rfc7232#section-3.2) reclaiming the cached response of a previously visited resource if still up-to-date using [HTTP Etag](https://tools.ietf.org/html/rfc7232#section-2.3). TODO: Is it usable or not enough implemented to be used?
+- [`If-None-Match`](https://tools.ietf.org/html/rfc7232#section-3.2) reclaiming the cached response of a previously visited resource if still up-to-date using [HTTP Etag](https://tools.ietf.org/html/rfc7232#section-2.3).
+TODO: Is `If-None-Match` usable or not enough implemented to be used? Worst mentioning it?
 
 Few other headers related to authentication methods can be found in [REST API authentication](rest_api_authentication.md).
 
@@ -456,7 +457,7 @@ For example, the `AND` operator from previous example's `Filter` could be remove
 
 ## Responses
 
-### Response HTTP codes
+### Response code
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#http-code
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#general-error-codes
 
@@ -481,10 +482,12 @@ The following list of available HTTP response status codes just give a quick hin
 | `500` | Internal Server Error  | The server encountered an unexpected condition, usually an exception, which prevents it from fulfilling the request, like database down, permissions or configuration error.                                                                                 |
 | `501` | Not Implemented        | Returned when the requested method has not yet been implemented. For [[= product_name =]], most of Users, User groups, Content items, Locations and Content Types have been implemented. Some of their methods, as well as other features, may return a 501. |
 
-### Response HTTP headers
+### Response headers
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#response-headers
 
-The `Allow` response header for [`OPTIONS` method](#options-requests) was previously seen. Response to some other methods may have data indicated through their headers.
+A resource's response may contain meta-data in its HTTP headers.
+
+The `Allow` response header for [`OPTIONS` method](#options-requests) was previously seen.
 
 #### Content-Type header
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#content-type-header
@@ -650,11 +653,26 @@ request.send();
 
 To possibly test it, just copy-paste this code into your browser console alongside a page from your website (to share the domain).
 
-`resource` URI can be edited to address another domain.
-
 On a freshly installed Ibexa DXP, `52` is the Content ID of the Front-Office home page. If necessary, substitute `52` with the Content ID of an item from your database.
 
-### Cross-origin requests
+`resource` URI can be edited to address another domain but cross-origin requests must be allowed first; see the following section.
+
+## Cross-origin requests
 https://doc.ibexa.co/en/latest/api/making_cross_origin_http_requests/
 
-TODO: Related to "JS" example above or to "Requests" sections far above?
+[Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) can allow the REST API to be reached from a page on another domain.
+
+!!! tip "More information about CORS"
+
+    - [CORS' W3C specification](http://www.w3.org/TR/cors/)
+    - [Overview of CORS on developer.mozilla.org](https://developer.mozilla.org/en-US/docs/HTTP/Access_control_CORS)
+
+CORS support is provided by the third party [nelmio/cors-bundle](https://packagist.org/packages/nelmio/cors-bundle). You can read more about it in [NelmioCorsBundle's README](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md).
+
+### Configuration
+
+You can add an allowed domain regular expression using the .env variable `CORS_ALLOW_ORIGIN`.
+
+For example, to allow the JS test above to be executed along-side this page, the following could be added to a .env file (like the .env.local): `CORS_ALLOW_ORIGIN=^https?://doc.ibexa.co`. 
+
+To add several domain, to change the default (like disabling regular expressions), config/packages/nelmio_cors.yaml should be edited.
