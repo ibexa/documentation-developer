@@ -1,45 +1,9 @@
-# REST API customization and extension
-TODO: Or "Customizing and extending the REST API"
+# Extending REST API
 
-## Component Cascade / Timeline Summary / REST request lifecycle
-TODO: Find the right section title
+To imagine what could be added to the REST API and to understand what the examples below are overriding, customizing or extending, it's important to picture the [REST request lifecycle](rest_api_usage.md#rest-communication-summary).
 
-* A REST Route leads to a REST Controller action. A REST route is composed of the root prefix (`ibexa.rest.path_prefix: /api/ibexa/v2`) and a resource path (e.g. `/content/objects/{contentId}`).
-* This Controller action returns an `Ibexa\Rest\Value` descendant.
-  - This Controller action might use the `Request` to build its result according to, for example, GET parameters, the `Accept` HTTP header, or, the Request payload and its `Content-Type` HTTP header.
-  - This Controller action might wrap its return into a `CachedValue` which contains caching information for the reverse proxies.
-* The `Ibexa\Bundle\Rest\EventListener\ResponseListener` attached to the `kernel.view event` is triggered, and, passes the Request and the Controller action's result to the `AcceptHeaderVisitorDispatcher`.
-* The `AcceptHeaderVisitorDispatcher` matches one of the `regexps` of an `ibexa.rest.output.visitor` service (an `Ibexa\Contracts\Rest\Output\Visitor`). The role of this `Output\Visitor` is to transform the Value returned by the Controller into XML or JSON output format. To do so, it combines an `Output\Generator` corresponding to the output format and a `ValueObjectVisitorDispatcher`. This `Output\Generator` is also adding the `media-type` attributes.
-* The matched `Output\Visitor` uses its `ValueObjectVisitorDispatcher` to select the right `ValueObjectVisitor` according to the fully qualified class name (FQCN) of the Controller result. A `ValueObjectVisitor` is a service tagged `ibexa.rest.output.value_object.visitor` and this tag has a property `type` pointing a FQCN.
-* `ValueObjectVisitor`s will recursively help to transform the Controller result thanks to the abstraction layer of the `Generator`.
-* The `Output\Visitor` returns the `Response` to send back to the client.
-
-### vnd.ibexa.api.Content VS vnd.ibexa.api.ContentInfo example
-TODO: Keep? It pictures well but line numbers can change over time while fixing to one version risks obsolescence. If kept, format.
-
-https://github.com/ibexa/rest/blob/main/src/lib/Server/Controller/Content.php#L79: The controller associated to /content/objects/{contentId} returns a Ibexa\Rest\Server\Values\RestContent (wrapped in a CachedValue) with currentVersion property that depends on the Accept header: null if vnd.ibexa.api.ContentInfo, not null if vnd.ibexa.api.Content but an Ibexa\Contracts\Core\Repository\Values\Content\Content
-
-https://github.com/ibexa/rest/blob/main/src/bundle/Resources/config/services.yml#L280: The tagging associate a regex to an Output\Visitor
-* "(^application/vnd\.ibexa\.api\.[A-Za-z]+\+json$)" => Ibexa\Contracts\Rest\Output\Visitor
-* "(^application/vnd\.ibexa\.api\.[A-Za-z]+\+xml$)" => Ibexa\Contracts\Rest\Output\Visitor
-
-https://github.com/ibexa/rest/blob/main/src/lib/Server/View/AcceptHeaderVisitorDispatcher.php#L52: The AcceptHeaderVisitorDispatcher will match vnd.ibexa.api.Content or vnd.ibexa.api.ContentInfo with Ibexa\Contracts\Rest\Output\Visitor
-
-https://github.com/ibexa/rest/blob/main/src/contracts/Output/Visitor.php#L138: This Output\Visitor uses its ValueObjectVisitorDispatcher to visit data returned by the controller
-
-* https://github.com/ibexa/rest/blob/main/src/bundle/Resources/config/value_object_visitors.yml#L682: Ibexa\Rest\Server\Values\CachedValue is associated to Ibexa\Rest\Server\Output\ValueObjectVisitor\CachedValue
-* https://github.com/ibexa/rest/blob/main/src/bundle/Resources/config/value_object_visitors.yml#L202: Ibexa\Rest\Server\Values\RestContent is associated to Ibexa\Rest\Server\Output\ValueObjectVisitor\RestContent
-* https://github.com/ibexa/rest/blob/main/src/bundle/Resources/config/value_object_visitors.yml#L241: Ibexa\Rest\Server\Values\Version is associated to Ibexa\Rest\Server\Output\ValueObjectVisitor\Version
-
-https://github.com/ibexa/rest/blob/main/src/contracts/Output/ValueObjectVisitorDispatcher.php#L73: The ValueObjectVisitorDispatcher use the data to select the right ValueObjectVisitor
-
-https://github.com/ibexa/rest/blob/main/src/lib/Server/Output/ValueObjectVisitor/CachedValue.php#L37: ValueObjectVisitor can recursively call the ValueObjectVisitorDispatcher to visit properties with the right ValueObjectVisitor as, for example, the ValueObjectVisitor/CachedValue does.
-
-https://github.com/ibexa/rest/blob/main/src/lib/Server/Output/ValueObjectVisitor/RestContent.php#L102: The Values\RestContent returned by the controller is visited by the ValueObjectVisitor\RestContent; if not null, its currentVersion property will be wrapped in a Ibexa\Rest\Server\Values\Version to be visited by the associated Ibexa\Rest\Server\Output\ValueObjectVisitor\Version
-
-## Adding a custom media-type / an Accept header to an existing route/resource
+## Adding a custom media-type
 https://doc.ibexa.co/en/latest/api/creating_custom_rest_api_response/
-TODO: Explain vocabulary usage in previous section. Fix this section title.
 
 In this example case, a new media-type will be passed in the `Accept` header of a GET request to `/content/locations/{locationPath}` route and its Controller action (`Controller/Location::loadLocation`).
 
@@ -110,6 +74,29 @@ parameters:
 services:
     #…
 [[= include_file('code_samples/api/rest_api/config/services.yaml', 6, 21) =]]
+```
+
+### Testing the new media-type
+
+In the following example, `curl` and `diff` command-lines are used to compare the default media-type (`application/vnd.ibexa.api.Location+xml`) with the new `application/app.api.Location+xml`.
+
+```shell
+diff --ignore-space-change \
+  <(curl --silent https://api.example.com/api/ibexa/v2/content/locations/1/2) \
+  <(curl --silent https://api.example.com/api/ibexa/v2/content/locations/1/2 --header 'Accept: application/app.api.Location+xml');
+```
+
+```
+2c2,3
+< <Location media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1/2">
+---
+> <Location media-type="application/app.api.Location+xml" href="/api/ibexa/v2/content/locations/1/2">
+>  <Location media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1/2">
+37a39,42
+>  </Location>
+>  <UrlAliasRefList media-type="application/vnd.ibexa.api.UrlAliasRefList+xml" href="/api/ibexa/v2/content/locations/1/2/urlaliases">
+>   <UrlAlias media-type="application/vnd.ibexa.api.UrlAlias+xml" href="/api/ibexa/v2/content/urlaliases/0-d41d8cd98f00b204e9800998ecf8427e"/>
+>  </UrlAliasRefList>
 ```
 
 ## Creating a new REST resource
@@ -184,6 +171,8 @@ TODO: Better exposition of this inheritance advantages…
 ``` php
 [[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php') =]]
 ```
+
+TODO: CachedValue
 
 ### Value and ValueObjectVisitor
 
@@ -272,7 +261,6 @@ Content-Type: application/vnd.ibexa.api.greeting+json
     }
 }                              
 ```
-
 
 ### Registering resources in the REST root
 https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#registering-resources-in-the-rest-root

@@ -180,7 +180,7 @@ This is why SiteAccess matching with REST is not enabled at URL level (nor domai
 
 TODO: This could be important to notice earlier that URIElement can't be used (e.g. http://localhost:8080/admin/api/ibexa/v2/user/sessions)
 
-#### Media types
+#### Media-types
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#media-type-headers
 https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#media-types
 
@@ -189,7 +189,7 @@ On top of methods, HTTP request headers will allow you to personalize the reques
 -   `Accept: application/vnd.ibexa.api.Content+xml` to get **Content** (full data, fields included) as **[XML](http://www.w3.org/XML/)**
 -   `Accept: application/vnd.ibexa.api.ContentInfo+json` to get **ContentInfo** (metadata only) as **[JSON](http://www.json.org/)**
 
-Media-types are also used with the `Content-Type` header to characterize a request payload. See Creating session [XML](rest_api_authentication.md#creating-session-xml-example) and [JSON](rest_api_authentication.md#creating-session-json-example) examples.
+Media-types are also used with the [`Content-Type` header](#content-type-header) to characterize a request payload. See Creating session [XML](rest_api_authentication.md#creating-session-xml-example) and [JSON](rest_api_authentication.md#creating-session-json-example) examples.
 
 If the resource returns only deals with one media type, it is also possible to skip it and to just specify the format using `application/xml` or `application/json`.
 
@@ -492,7 +492,7 @@ The `Allow` response header for [`OPTIONS` method](#options-requests) was previo
 #### Content-Type header
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#content-type-header
 
-As long as a response contains an actual HTTP body, the Content Type header will be used to specify which Content Type is contained in the response.
+As long as a response contains an actual HTTP body, the `Content-Type` header will be used to specify what it is containing. The `Content-Type` header's value is a [media-type](#media-types) as previously seen for the `Accept` header.
 
 For example, the first following request without an `Accept` header will return a default format indicated in the response `Content-Type` header while the second request show that the response is in the asked format.
 
@@ -595,15 +595,15 @@ TODO
 
 ## Testing the API
 
-TODO: There is something wrong with this title. "Usage examples"? "Short client implementation examples"?
-
 A standard web browser is not sufficient to fully test the API. You can, however, try opening the root resource with it, using the session authentication: `http://example.com/api/ibexa/v2/`. Depending on how your browser understands XML, it will either download the XML file, or open it in the browser.
+
+Here come some examples to start interrogating the REST API using cURL, PHP or JS.
 
 To test further, you can use browser extensions, like [Advanced REST client for Chrome](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo) or [RESTClient for Firefox](https://addons.mozilla.org/firefox/addon/restclient/), or dedicated tools. For command line users, [HTTPie](https://github.com/jkbr/httpie) is a good tool.
 
 ### CLI
 
-Few `curl` command line examples have been previously shown
+Few `curl` command-line examples have been previously shown
 - [REST root](#rest-root)
 - [OPTIONS method](#options-method)
 - [Location header](#location-header)
@@ -669,10 +669,24 @@ https://doc.ibexa.co/en/latest/api/making_cross_origin_http_requests/
 
 CORS support is provided by the third party [nelmio/cors-bundle](https://packagist.org/packages/nelmio/cors-bundle). You can read more about it in [NelmioCorsBundle's README](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md).
 
+Notice that this is not limited to REST API resources and can be used for any resource of the platform.
+
 ### Configuration
 
 You can add an allowed domain regular expression using the .env variable `CORS_ALLOW_ORIGIN`.
 
 For example, to allow the JS test above to be executed along-side this page, the following could be added to a .env file (like the .env.local): `CORS_ALLOW_ORIGIN=^https?://doc.ibexa.co`. 
 
-To add several domain, to change the default (like disabling regular expressions), config/packages/nelmio_cors.yaml should be edited.
+To add several domains, to change the default (like disabling regular expressions), config/packages/nelmio_cors.yaml should be edited.
+
+## REST communication summary
+
+* A REST route (URI) leads to a REST Controller action. A REST route is composed of the root prefix (`ibexa.rest.path_prefix: /api/ibexa/v2`) and a resource path (e.g. `/content/objects/{contentId}`).
+* This Controller action returns an `Ibexa\Rest\Value` descendant.
+  - This Controller action might use the `Request` to build its result according to, for example, GET parameters, the `Accept` HTTP header, or, the Request payload and its `Content-Type` HTTP header.
+  - This Controller action might wrap its return into a `CachedValue` which contains caching information for the reverse proxies.
+* The `Ibexa\Bundle\Rest\EventListener\ResponseListener` attached to the `kernel.view event` is triggered, and, passes the Request and the Controller action's result to the `AcceptHeaderVisitorDispatcher`.
+* The `AcceptHeaderVisitorDispatcher` matches one of the `regexps` of an `ibexa.rest.output.visitor` service (an `Ibexa\Contracts\Rest\Output\Visitor`). The role of this `Output\Visitor` is to transform the Value returned by the Controller into XML or JSON output format. To do so, it combines an `Output\Generator` corresponding to the output format and a `ValueObjectVisitorDispatcher`. This `Output\Generator` is also adding the `media-type` attributes.
+* The matched `Output\Visitor` uses its `ValueObjectVisitorDispatcher` to select the right `ValueObjectVisitor` according to the fully qualified class name (FQCN) of the Controller result. A `ValueObjectVisitor` is a service tagged `ibexa.rest.output.value_object.visitor` and this tag has a property `type` pointing a FQCN.
+* `ValueObjectVisitor`s will recursively help to transform the Controller result thanks to the abstraction layer of the `Generator`.
+* The `Output\Visitor` returns the `Response` to send back to the client.

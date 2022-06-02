@@ -43,9 +43,8 @@ nav:
         - REST API:
             - 'REST API usage': 'api/rest_api_usage.md'
             - 'REST API reference': 'api/rest_api_reference/rest_api_reference.html'
-            - 'REST API customization and extension': 'api/rest_api_customization_and_extension.md'
+            - 'Extending REST API': 'api/rest_api_extension.md'
             - 'REST API authentication': 'api/rest_api_authentication.md'
-            - 'Cross-origin HTTP requests': 'api/making_cross_origin_http_requests.md'
         - Public PHP API:
             - 'Public PHP API': 'api/public_php_api.md'
             - 'Browsing Content': 'api/public_php_api_browsing.md'

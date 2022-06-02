@@ -326,7 +326,6 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg
 Accept: application/vnd.ibexa.api.LocationList+xml
 ```
 
-
 ## OAuth?
 https://doc.ibexa.co/en/latest/api/rest_api_authentication/#oauth
 
