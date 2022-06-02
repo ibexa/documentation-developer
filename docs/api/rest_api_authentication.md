@@ -12,6 +12,11 @@ TODO: Confirm; priorities: session < basic < JWT; What about OAuth and SSL?
 
 Using HTTPS for authenticated (REST) traffic is highly recommended.
 
+Other security related subjects can be consulted:
+
+- [Cross-origin requests](rest_api_usage.md#cross-origin-requests)
+- [`access_control`]([[= symfony_doc =]]/security/access_control.html)
+
 ## Session-based authentication
 https://doc.ibexa.co/en/latest/api/rest_api_authentication/#session-based-authentication
 
