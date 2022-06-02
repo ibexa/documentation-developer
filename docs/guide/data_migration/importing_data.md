@@ -43,6 +43,53 @@ The following modes are available for specific objects:
 | `segment`            | &#10004; | &#10004; | &#10004; |
 | `setting`            | &#10004; | &#10004; | &#10004; |
 
+### Repeatable steps
+
+You can run the same migration step multiple times by using the special `repeatable` migration type.
+
+A repeatable migration performs the defined migration steps as many times as the `iterations` setting declares.
+
+``` yaml hl_lines="4"
+[[= include_file('code_samples/data_migration/examples/repeatable_step.yaml', 0, 5) =]]
+```
+
+!!! tip
+
+    You can use repeatable migration steps, for example,
+    to quickly generate large numbers of Content items for testing purposes.
+
+You can vary the operations using the iteration counter.
+
+For example, to create five Folders, with names ranging from "Folder 0" to "Folder 4", you can run the following migration using the iteration counter `i`:
+
+``` yaml hl_lines="16"
+[[= include_file('code_samples/data_migration/examples/repeatable_step.yaml', 0, 16) =]]
+```
+
+To vary the content name, the migration above uses Symfony expression syntax.
+The expression is enclosed in `###` and any repeated string, in this case, `SSS`.
+
+!!! note 
+    
+    Iteration counter is assigned to `i` by default, but you can modify it in the `iteration_counter_name` setting.
+
+#### Generating fake data
+
+You can also generate fake data with the help of [`FakerPHP`](https://fakerphp.github.io/).
+
+To use it, first install Faker on your system:
+
+``` bash
+composer require fakerphp/faker
+```
+
+Then, you can use `faker()` in expressions, for example:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/repeatable_step.yaml', 16, 19) =]]
+```
+
+This step generates Field values with fake personal names.
 
 ## Migration examples
 
