@@ -64,8 +64,7 @@ nav:
             - 'Data migration API': 'api/public_php_api_managing_migrations.md'
             - 'User API': 'api/public_php_api_managing_users.md'
             - 'Shop API': 'api/shop_business_api.md'
-            - 'URL API': 'api/public_php_api_url_service.md'   
-        - 'Service container': 'api/service_container.md'
+            - 'URL API': 'api/public_php_api_url_service.md'
         - Field Type:
             - 'Field Type API': 'api/field_type_api.md'
             - 'Type and Value': 'api/field_type_type_and_value.md'

@@ -147,3 +147,18 @@ try {
         $output->writeln("<error>Permission denied on content with id $contentId</error>");
     }
 ```
+
+## Service container
+
+[[= product_name =]] uses the [Symfony service container]([[=symfony_doc=]]/service_container.html) for dependency resolution.
+
+[Symfony dependency injection]([[=symfony_doc=]]/components/dependency_injection.html) ensures that any required services are available in your custom code
+(for example controllers) when you inject them into the constructor.
+
+Symfony service container uses service tags to dedicate services to a specific purpose. They are usually used for extension points.
+
+[[= product_name =]] exposes multiple features using service tags, for example, Field Types.
+
+!!! tip
+
+    For a list of all service tags exposed by Symfony, see its [reference documentation]([[=symfony_doc=]]/reference/dic_tags.html).
