@@ -3,7 +3,7 @@
 The REST API v2 introduced in [[= product_name =]] allows you to interact with an [[= product_name =]] installation using the HTTP protocol, following a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
 
 Each resource (URI) interacts with a part of the system (Content, User, Search, etc.).
-Every interaction with the repository than you can do from Back Office or using the [Public PHP API](public_php_api.md) can also be done using the REST API. TODO: Is it actually true?
+Every interaction with the repository than you can do from Back Office or using the [Public PHP API](public_php_api.md) can also be done using the REST API.
 
 The REST API uses HTTP methods (`GET`, `PUBLISH` , etc.), as well as HTTP headers to specify the type of request.
 
@@ -11,7 +11,7 @@ The REST API uses HTTP methods (`GET`, `PUBLISH` , etc.), as well as HTTP header
 https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#uris
 
 The REST API is designed in such a way that the client can explore the repository without constructing any URIs to resources.
-Starting from the [root resource](#rest-root), every response includes further links (`href`s) to related resources.
+Starting from the [root resource](#rest-root), every response includes further links (`href`) to related resources.
 
 ### URI prefix
 https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#uris-prefix
@@ -19,8 +19,7 @@ https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#uris-prefix
 In [REST reference](rest_api_reference/rest_api_reference.html), for the sake of readability, there are no prefixes used in the URIs.
 In practice, the `/api/ibexa/v2` prefixes all REST hrefs.
 
-Remember that the URIs to REST resources should never be generated manually, but obtained from earlier REST calls.
-TODO: Make sure this is demonstrated in "customization and extension" examples.
+Notice that this prefix immediately follow the domain and that the [`URIElement` SiteAccess matcher](../guide/multisite/siteaccess_matching.md#urielement) can't be used. If the selection of a SiteAccess is needed, see the [`X-Siteaccess` HTTP header](#siteaccess).
 
 ### URI parameters
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#request-parameters
@@ -178,8 +177,6 @@ It allows caching your REST API using a reverse proxy like Varnish.
 If the same resource is available in multiple locations, cache purging is noticeably more complex.
 This is why SiteAccess matching with REST is not enabled at URL level (nor domain).
 
-TODO: This could be important to notice earlier that URIElement can't be used (e.g. http://localhost:8080/admin/api/ibexa/v2/user/sessions)
-
 #### Media-types
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#media-type-headers
 https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#media-types
@@ -216,7 +213,7 @@ One example is the [creation of an authentication session](rest_api_authenticati
 
 When creating a Content, the payload is particular if the ContentType has some [Image](field_types_reference/imagefield.md) or [BinaryFile](field_types_reference/binaryfilefield.md) fields as files need to be attached. See the example of a [script uploading images](#creating-content-with-binary-attachments) below.
 
-When searching for Contents (TODO: or Locations), the query grammar is also particular. See the [Search section](#search) below.
+When searching for Contents (or Locations), the query grammar is also particular. See the [Search section](#search) below.
 
 #### Creating content with binary attachments
 https://doc.ibexa.co/en/latest/api/creating_content_with_binary_attachments_via_rest_api/
