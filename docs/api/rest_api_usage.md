@@ -594,7 +594,7 @@ TODO: Always?
 For example, the resource `/content/objects/52` with the `Accept: application/vnd.ibexa.api.Content+xml` header returns a serialized version of a [ContentInfo](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php) object.
 
 ```shell
-curl https://api.example.com/content/objects/52 --header 'Accept: application/vnd.ibexa.api.Content+xml';
+curl https://api.example.com/content/objects/52 --header 'Accept: application/vnd.ibexa.api.ContentInfo+xml';
 ```
 
 ```xml
@@ -634,10 +634,12 @@ To test further, you can use browser extensions, like [Advanced REST client for 
 
 ### CLI
 
-Few `curl` command-line examples have been previously shown
+Few `curl` command-line examples have been previously shown:
+
 - [REST root](#rest-root)
 - [OPTIONS method](#options-method)
 - [Location header](#location-header)
+- [ContentInfo body](#response-body)
 
 ### PHP
 
@@ -708,7 +710,7 @@ You can add an allowed domain regular expression using the .env variable `CORS_A
 
 For example, to allow the JS test above to be executed along-side this page, the following could be added to a .env file (like the .env.local): `CORS_ALLOW_ORIGIN=^https?://doc.ibexa.co`. 
 
-To add several domains, to change the default (like disabling regular expressions), config/packages/nelmio_cors.yaml should be edited.
+To add several domains, to filter on URIs, to change the default (like disabling regular expressions), config/packages/nelmio_cors.yaml should be edited with the help of the [NelmioCorsBundle Configuration Documentation](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md#configuration).
 
 ## REST communication summary
 
