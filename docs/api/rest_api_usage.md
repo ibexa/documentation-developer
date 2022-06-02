@@ -186,11 +186,11 @@ On top of methods, HTTP request headers will allow you to personalize the reques
 -   `Accept: application/vnd.ibexa.api.Content+xml` to get **Content** (full data, fields included) as **[XML](http://www.w3.org/XML/)**
 -   `Accept: application/vnd.ibexa.api.ContentInfo+json` to get **ContentInfo** (metadata only) as **[JSON](http://www.json.org/)**
 
-Media-types are also used with the [`Content-Type` header](#content-type-header) to characterize a request payload. See Creating session [XML](rest_api_authentication.md#creating-session-xml-example) and [JSON](rest_api_authentication.md#creating-session-json-example) examples.
+Media-types are also used with the [`Content-Type` header](#content-type-header) to characterize a request payload. See [Creating content with binary attachments](#creating-content-with-binary-attachments) below. Also see Creating session [XML](rest_api_authentication.md#creating-session-xml-example) and [JSON](rest_api_authentication.md#creating-session-json-example) examples.
 
 If the resource returns only deals with one media type, it is also possible to skip it and to just specify the format using `application/xml` or `application/json`.
 
-A response indicates hrefs to related resources and their media-types.
+A response indicates `href`s to related resources and their media-types.
 
 #### Destination
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#destination-header
@@ -588,7 +588,41 @@ Content-Type: application/vnd.ibexa.api.Content+json
 ### Response body
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#response-body
 
-TODO
+The Response body is often a serialization in XML or JSON of an object as it could be retrieved using the Public PHP API.
+TODO: Always?
+
+For example, the resource `/content/objects/52` with the `Accept: application/vnd.ibexa.api.Content+xml` header returns a serialized version of a [ContentInfo](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php) object.
+
+```shell
+curl https://api.example.com/content/objects/52 --header 'Accept: application/vnd.ibexa.api.Content+xml';
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/52" remoteId="34720ff636e1d4ce512f762dc638e4ac" id="52">
+  <ContentType media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ibexa/v2/content/types/42"/>
+  <Name>Ibexa Digital Experience Platform</Name>
+  <TranslatedName>Ibexa Digital Experience Platform</TranslatedName>
+  <Versions media-type="application/vnd.ibexa.api.VersionList+xml" href="/api/ibexa/v2/content/objects/52/versions"/>
+  <CurrentVersion media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/52/currentversion"/>
+  <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ibexa/v2/content/sections/1"/>
+  <MainLocation media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1/2"/>
+  <Locations media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ibexa/v2/content/objects/52/locations"/>
+  <Owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+  <lastModificationDate>2015-09-17T09:22:23+00:00</lastModificationDate>
+  <publishedDate>2015-09-17T09:22:23+00:00</publishedDate>
+  <mainLanguageCode>eng-GB</mainLanguageCode>
+  <currentVersionNo>1</currentVersionNo>
+  <alwaysAvailable>true</alwaysAvailable>
+  <isHidden>false</isHidden>
+  <status>PUBLISHED</status>
+  <ObjectStates media-type="application/vnd.ibexa.api.ContentObjectStates+xml" href="/api/ibexa/v2/content/objects/52/objectstates"/>
+</Content>
+```
+
+There is two types of node:
+- Final nodes that fully give an information as a scalar value;
+- Reference nodes which link to `href` where a new resource of a given `media-type` can be explored when needing to know more.
 
 ## Testing the API
 

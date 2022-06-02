@@ -20,54 +20,9 @@
 
 #### Response body
 
-Load ContentInfo response body, expand source:
-
-``` xml
-<?xml version="1.0" encoding="UTF-8"?>
-<Content href="/content/objects/23" id="23"
-  media-type="application/vnd.ibexa.api.Content+xml" remoteId="qwert123">
-  <ContentType href="/content/types/10" media-type="application/vnd.ibexa.api.ContentType+xml" />
-  <Name>This is a title</Name>
-  <Versions href="/content/objects/23/versions" media-type="application/vnd.ibexa.api.VersionList+xml" />
-  <CurrentVersion href="/content/objects/23/currentversion"
-    media-type="application/vnd.ibexa.api.Version+xml"/>
-  <Section href="/content/sections/4" media-type="application/vnd.ibexa.api.Section+xml" />
-  <MainLocation href="/content/locations/1/4/65" media-type="application/vnd.ibexa.api.Location+xml" />
-  <Locations href="/content/objects/23/locations" media-type="application/vnd.ibexa.api.LocationList+xml" />
-  <Owner href="/user/users/14" media-type="application/vnd.ibexa.api.User+xml" />
-  <lastModificationDate>2012-02-12T12:30:00</lastModificationDate>
-  <publishedDate>2012-02-12T15:30:00</publishedDate>
-  <mainLanguageCode>eng-US</mainLanguageCode>
-  <alwaysAvailable>true</alwaysAvailable>
-</Content>
-```
-
-The XML body is a serialized version of a [ContentInfo](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php) struct.
-Most of the REST API calls will involve exchanging XML or JSON representations of the public API.
-
-The example above shows that Content item 23 can be modified by sending a `vendor/application/vnd.ez.ContentUpdate+xml`.
-TODO: Not the example just above but way more above (https://doc.ibexa.co/en/latest/api/general_rest_usage/#accept-patch-header)
-This media type again matches a Value in the API, [ContentUpdateStruct](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentUpdateStruct.php).
-
-The REST API data structs mostly match a PHP Public API value object.
-
 #### Value objects representation
 
-Value objects like [ContentInfo](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php) feature two types of fields: 
-
-- local fields (e.g. currentVersionNo, name)
-- foreign field(s) references (e.g. sectionId, mainLocationId)
-
-Local fields will be represented in XML / JSON format with a plain type (integer, string), while foreign key references will be represented as a link to another resource.
-This resource will be identified with its URI (`/content/objects/23/locations`) and the media-type that should be requested when calling that resource (`media-type="application/vnd.ibexa.api.LocationList+xml"`).
-Depending on how much data you need, you may choose to crawl those relations or to ignore them.
-
 ##### XSD files
-
-For each XML structure known to the REST API, you can find [XSD files](https://github.com/ezsystems/ezpublish-kernel/tree/master/doc/specifications/rest/xsd) in the XSD folder of the specifications.
-They will allow you to validate your XML and to learn about every option these XML structures feature.
-
-TODO: Remove as obsolete
 
 ## Request parameters
 
