@@ -77,6 +77,7 @@ services:
 ```
 
 ### Testing the new media-type
+https://doc.ibexa.co/en/master/api/creating_custom_rest_api_response/#fetching-the-modified-response
 
 In the following example, `curl` and `diff` command-lines are used to compare the default media-type (`application/vnd.ibexa.api.Location+xml`) with the new `application/app.api.Location+xml`.
 
@@ -151,7 +152,7 @@ https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#controller
 #### Controller service
 https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#route
 
-TODO: What happens when Controller are not services? Is it really mandatory? If yes, why?
+The following configuration can be used to have all controllers from the `App\Rest\Controller\` namespace (files under `src/Rest/Controller/` folder) to be set as REST Controller services.
 
 ``` yaml
 # config/services.yaml
@@ -159,6 +160,8 @@ services:
     #…
 [[= include_file('code_samples/api/rest_api/config/services.yaml', 36, 42) =]]
 ```
+
+Having the REST controllers set as services allow to use features like the InputDispatcher service in the [Controller action](#controller-action) below.
 
 #### Controller action
 https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#controller-action
