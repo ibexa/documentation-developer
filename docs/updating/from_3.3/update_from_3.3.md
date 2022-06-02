@@ -1,5 +1,5 @@
 ---
-latest_tag: '3.3.16'
+latest_tag: '3.3.20'
 ---
 
 # Update from v3.3.x to v3.3.latest
@@ -36,8 +36,11 @@ First, run:
 
 ### Update Flex server
 
-If your `composer.json` still uses the `https://flex.ibexa.co` endpoint in `extra.symfony.endpoint`, 
-replace it with the new [`https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main`](https://github.com/ibexa/website-skeleton/blob/v3.3.16/composer.json#L98) endpoint.
+The `flex.ibexa.co` Flex server has been disabled.
+If you are using v3.3.15 or earlier v3.3 version, you need to update your Flex server.
+
+To do it, in your `composer.json` check whether the `https://flex.ibexa.co` endpoint is still listed in `extra.symfony.endpoint`. 
+If so, replace it with the new [`https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main`](https://github.com/ibexa/website-skeleton/blob/v3.3.20/composer.json#L98) endpoint.
 
 You can do it manually, or by running the following command:
 
