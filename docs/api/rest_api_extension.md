@@ -142,7 +142,6 @@ If a REST route is designed to be used with [unsafe methods](rest_api_usage#http
 
 #### OPTIONS method support
 
-TODO: Handle it at Controller level or using the buggy OptionsLoader?
 ``` yaml
 # config/routes.yaml
 [[= include_file('code_samples/api/rest_api/config/routes.yaml') =]]
