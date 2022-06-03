@@ -214,12 +214,11 @@ It should be sent with an `X-CSRF-Token` header.
 
 Only three built-in routes can accept unsafe methods without CSRF, the sessions routes starting with `/user/sessions` to create, refresh or delete a session.
 
-For details, see [Session-based authentication](https://github.com/ezsystems/ezpublish-kernel/blob/v8.0.0-beta5/doc/specifications/rest/REST-API-V2.rst#session-based-authentication) in the REST specifications.
-TODO: Remove this link to old stuff after picking interesting things from there if there is.
-
 ```
 DELETE /content/types/32 HTTP/1.1
-X-CSRF-Token: <csrfToken>
+Host: www.example.net
+Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
+X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
 ```
 
 If an unsafe request is missing the CSRF token, or the token has incorrect value, an error is returned: `401 Unauthorized`.
@@ -246,6 +245,17 @@ A rich JavaScript/web application is using `navigator.registerProtocolHandler()`
 It uses a session-based authentication, and it is in widespread use across the net, or/and it is used by everyone within a company.
 A person with minimal insight into this application and the company can easily send out the following link to all employees in that company in email:
 `<a href="web+ez:DELETE /content/locations/1/2">latest reports</a>`.
+
+#### Logging out from the session
+
+To log out is to `DELETE` the session using its ID (like in the cookie). As this is an unsafe method, the CSRF token must be presented.
+
+```
+DELETE /user/sessions/go327ij2cirpo59pb6rrv2a4el2 HTTP/1.1
+Host: www.example.net
+Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
+X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
+```
 
 ## JWT authentication
 
