@@ -78,10 +78,10 @@ The more Role assignments and complex Policies you add for a given User, the mor
 |               | `setup`              | unused                                                                                                                                  |
 |               | `system_info`        | view the System Information tab in Admin                                                                                      |
 |`site`|`view`|view the "Sites" in the top navigation|
-|               |`create`|create sites in the Site Factory|
-|               |`edit`|edit sites in the Site Factory|
-|               |`delete`|delete sites from the Site Factory|
-|               |`change_status`|change status of the public accesses of sites to `Live` or `Offline` in the Site Factory|
+|               |`create`|create sites in the Site Factory</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|
+|               |`edit`|edit sites in the Site Factory</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|
+|               |`delete`|delete sites from the Site Factory</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|
+|               |`change_status`|change status of the public accesses of sites to `Live` or `Offline` in the Site Factory</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|
 | `user`        | `login`              | log in to the application                                                                                                               |
 |               | `password`           | unused                                                                                                                                  |
 |               | `preferences`        | access and set user preferences                                                                                                                                  |
@@ -119,7 +119,7 @@ The more Role assignments and complex Policies you add for a given User, the mor
 || `view` |view customer groups|
 || `edit` |edit a customer group|
 || `delete` |delete a customer group|
-|`siso_policy`</br>[[% include 'snippets/commerce_badge.md' %]]|`checkout`|access the checkout process|
+|`siso_policy`|`checkout`|access the checkout process</br>[[% include 'snippets/commerce_badge.md' %]]|
 ||`edit_invoice`|edit invoice address|
 ||`edit_delivery`|edit delivery address|
 ||`delegate`|access delegate screen|
@@ -138,7 +138,7 @@ The more Role assignments and complex Policies you add for a given User, the mor
 ||`read_basket`|see the basket|
 ||`write_basket`|modify the basket (add, update, delete)|
 ||`see_product_price`|see product prices in the catalog|
-|`siso_customercenter`</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|`approve`|approve baskets in the customer center|
+|`siso_customercenter`|`approve`|approve baskets in the customer center</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|
 ||`buy`|buy as the customer center user|
 ||`view`|access the customer center user management|
 
