@@ -373,26 +373,12 @@ Accept: application/vnd.ibexa.api.Root+json
 Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
 ```
 
-## OAuth?
+## OAuth
 https://doc.ibexa.co/en/latest/api/rest_api_authentication/#oauth
 
 For more information, see [OAuth 2.0 protocol for authorization.](https://oauth.net/2/)
 
-### Configuration
-TODO
-
-### Usage example
-TODO
-
-## SSL client authentication?
+## SSL client authentication
 https://doc.ibexa.co/en/latest/api/rest_api_authentication/#ssl-client-authentication
 
 The REST API provides authentication of a user by a subject in a client certificate delivered by the web server configured as SSL endpoint.
-
-TODO: Something to do with https://symfony.com/doc/5.4/security.html#x-509-client-certificates ?
-
-### Configuration
-TODO
-
-### Usage example
-TODO
