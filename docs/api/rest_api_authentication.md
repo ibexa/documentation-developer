@@ -41,118 +41,161 @@ For logging out, use the **`DELETE`** request on the same resource.
 
 #### Establishing a session
 
-##### Creating session: XML example
+##### Creating session
 
-TODO: Use XML/JSON tabs
+=== "XML"
 
-```
-POST /user/sessions HTTP/1.1
-Host: www.example.net
-Accept: application/vnd.ibexa.api.Session+xml
-Content-Type: application/vnd.ibexa.api.SessionInput+xml
-```
+    ```
+    POST /user/sessions HTTP/1.1
+    Host: www.example.net
+    Accept: application/vnd.ibexa.api.Session+xml
+    Content-Type: application/vnd.ibexa.api.SessionInput+xml
+    ```
+    
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <SessionInput>
+      <login>admin</login>
+      <password>publish</password>
+    </SessionInput>
+    ```
+    
+    ```
+    HTTP/1.1 201 Created
+    Location: /user/sessions/go327ij2cirpo59pb6rrv2a4el2
+    Set-Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
+    Content-Type: application/vnd.ibexa.api.Session+xml
+    ```
+    
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <Session href="/user/sessions/sessionID" media-type="application/vnd.ibexa.api.Session+xml">
+      <name>eZSESSID98defd6ee70dfb1dea416</name>
+      <identifier>go327ij2cirpo59pb6rrv2a4el2</identifier>
+      <csrfToken>23lk.neri34ijajedfw39orj-3j93</csrfToken>
+      <User href="/user/users/14" media-type="vnd.ibexa.api.User+xml"/>
+    </Session>
+    ```
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SessionInput>
-  <login>admin</login>
-  <password>publish</password>
-</SessionInput>
-```
+=== "JSON"
 
-```
-HTTP/1.1 201 Created
-Location: /user/sessions/go327ij2cirpo59pb6rrv2a4el2
-Set-Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
-Content-Type: application/vnd.ibexa.api.Session+xml
-```
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<Session href="/user/sessions/sessionID" media-type="application/vnd.ibexa.api.Session+xml">
-  <name>eZSESSID98defd6ee70dfb1dea416</name>
-  <identifier>go327ij2cirpo59pb6rrv2a4el2</identifier>
-  <csrfToken>23lk.neri34ijajedfw39orj-3j93</csrfToken>
-  <User href="/user/users/14" media-type="vnd.ibexa.api.User+xml"/>
-</Session>
-```
-
-##### Creating session: JSON example
-
-```
-POST /user/sessions HTTP/1.1
-Host: www.example.net
-Accept: application/vnd.ibexa.api.Session+json
-Content-Type: application/vnd.ibexa.api.SessionInput+json
-```
-
-```json
-{
-  "SessionInput": {
-    "login": "admin",
-    "password": "publish"
-  }
-}
-```
-
-```
-HTTP/1.1 201 Created
-Location: /user/sessions/go327ij2cirpo59pb6rrv2a4el2
-Set-Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
-Content-Type: application/vnd.ibexa.api.Session+xml
-```
-
-```json
-{
-  "Session": {
-    "_media-type": "application\/vnd.ibexa.api.Session+json",
-    "_href": "\/api\/ibexa\/v2\/user\/sessions\/jg1nhinvepsb9ivd10hbjbdp4l",
-    "name": "eZSESSID98defd6ee70dfb1dea416",
-    "identifier": "go327ij2cirpo59pb6rrv2a4el2",
-    "csrfToken": "23lk.neri34ijajedfw39orj-3j93",
-    "User": {
-      "_media-type": "application\/vnd.ibexa.api.User+json",
-      "_href": "\/api\/ibexa\/v2\/user\/users\/14"
+    ```
+    POST /user/sessions HTTP/1.1
+    Host: www.example.net
+    Accept: application/vnd.ibexa.api.Session+json
+    Content-Type: application/vnd.ibexa.api.SessionInput+json
+    ```
+    
+    ```json
+    {
+      "SessionInput": {
+        "login": "admin",
+        "password": "publish"
+      }
     }
-  }
-}
-```
+    ```
+    
+    ```
+    HTTP/1.1 201 Created
+    Location: /user/sessions/go327ij2cirpo59pb6rrv2a4el2
+    Set-Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
+    Content-Type: application/vnd.ibexa.api.Session+xml
+    ```
+    
+    ```json
+    {
+      "Session": {
+        "_media-type": "application\/vnd.ibexa.api.Session+json",
+        "_href": "\/api\/ibexa\/v2\/user\/sessions\/jg1nhinvepsb9ivd10hbjbdp4l",
+        "name": "eZSESSID98defd6ee70dfb1dea416",
+        "identifier": "go327ij2cirpo59pb6rrv2a4el2",
+        "csrfToken": "23lk.neri34ijajedfw39orj-3j93",
+        "User": {
+          "_media-type": "application\/vnd.ibexa.api.User+json",
+          "_href": "\/api\/ibexa\/v2\/user\/users\/14"
+        }
+      }
+    }
+    ```
 
 ##### Logging in with active session: XML example
 
-TODO: Create JSON example then Use XML/JSON tabs
+It's almost the same exchange as for the session creation, but, this time, important detail, the CSRF token obtained in the previous step is added to the new request through the `X-CSRF-Token` header.
 
-```
-POST /user/sessions HTTP/1.1
-Host: www.example.net
-Accept: application/vnd.ibexa.api.Session+xml
-Content-Type: application/vnd.ibexa.api.SessionInput+xml
-Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
-X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
-```
+=== "XML"
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<SessionInput>
-  <login>admin</login>
-  <password>publish</password>
-</SessionInput>
-```
+    ```
+    POST /user/sessions HTTP/1.1
+    Host: www.example.net
+    Accept: application/vnd.ibexa.api.Session+xml
+    Content-Type: application/vnd.ibexa.api.SessionInput+xml
+    Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
+    X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
+    ```
+    
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <SessionInput>
+      <login>admin</login>
+      <password>publish</password>
+    </SessionInput>
+    ```
+    
+    ```
+    HTTP/1.1 200 OK
+    Content-Type: application/vnd.ibexa.api.Session+xml
+    ```
+    
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <Session href="user/sessions/go327ij2cirpo59pb6rrv2a4el2/refresh" media-type="application/vnd.ibexa.api.Session+xml">
+      <name>eZSESSID98defd6ee70dfb1dea416</name>
+      <identifier>go327ij2cirpo59pb6rrv2a4el2</identifier>
+      <csrfToken>23lk.neri34ijajedfw39orj-3j93</csrfToken>
+      <User href="/user/users/14" media-type="vnd.ibexa.api.User+xml"/>
+    </Session>
+    ```
 
-```
-HTTP/1.1 200 OK
-Content-Type: application/vnd.ibexa.api.Session+xml
-```
+=== "JSON"
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<Session href="user/sessions/go327ij2cirpo59pb6rrv2a4el2/refresh" media-type="application/vnd.ibexa.api.Session+xml">
-  <name>eZSESSID98defd6ee70dfb1dea416</name>
-  <identifier>go327ij2cirpo59pb6rrv2a4el2</identifier>
-  <csrfToken>23lk.neri34ijajedfw39orj-3j93</csrfToken>
-  <User href="/user/users/14" media-type="vnd.ibexa.api.User+xml"/>
-</Session>
-```
+    ```
+    POST /user/sessions HTTP/1.1
+    Host: www.example.net
+    Accept: application/vnd.ibexa.api.Session+json
+    Content-Type: application/vnd.ibexa.api.SessionInput+json
+    Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
+    X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
+    ```
+    
+    ```xml
+    {
+      "SessionInput": {
+        "login": "admin",
+        "password": "publish"
+      }
+    }
+    ```
+    
+    ```
+    HTTP/1.1 200 OK
+    Content-Type: application/vnd.ibexa.api.Session+json
+    ```
+    
+    ```xml
+    {
+      "Session": {
+        "_media-type": "application\/vnd.ibexa.api.Session+json",
+        "_href": "\/api\/ibexa\/v2\/user\/sessions\/jg1nhinvepsb9ivd10hbjbdp4l",
+        "name": "eZSESSID98defd6ee70dfb1dea416",
+        "identifier": "go327ij2cirpo59pb6rrv2a4el2",
+        "csrfToken": "23lk.neri34ijajedfw39orj-3j93",
+        "User": {
+          "_media-type": "application\/vnd.ibexa.api.User+json",
+          "_href": "\/api\/ibexa\/v2\/user\/users\/14"
+        }
+      }
+    }
+    ```
 
 #### Using the session
 
