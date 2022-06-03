@@ -12,19 +12,19 @@ Go through the following steps to update to v4.1.
 
 First, run the following command:
 
-=== "[[= product_name_content =]]"
+=== "Ibexa Content"
 
     ``` bash
     composer require ibexa/content:[[= latest_tag =]] --with-all-dependencies --no-scripts
     ```
 
-=== "[[= product_name_exp =]]"
+=== "Ibexa Experience"
 
     ``` bash
     composer require ibexa/experience:[[= latest_tag =]] --with-all-dependencies --no-scripts
     ```
 
-=== "[[= product_name_com =]]"
+=== "Ibexa Commerce"
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag =]] --with-all-dependencies --no-scripts
@@ -49,19 +49,19 @@ composer config extra.symfony.endpoint "https://api.github.com/repos/ibexa/recip
 
 Run the following command:
 
-=== "[[= product_name_content =]]"
+=== "Ibexa Content"
 
     ``` bash
     composer recipes:install ibexa/content --force -v
     ```
 
-=== "[[= product_name_exp =]]"
+=== "Ibexa Experience"
 
     ``` bash
     composer recipes:install ibexa/experience --force -v
     ```
 
-=== "[[= product_name_com =]]"
+=== "Ibexa Commerce"
 
     ``` bash
     composer recipes:install ibexa/commerce --force -v

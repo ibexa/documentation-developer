@@ -36,7 +36,7 @@ First, run:
     composer require ibexa/experience:[[= latest_tag =]] --with-all-dependencies --no-scripts
     ```
 
-=== "ibexa Commerce"
+=== "Ibexa Commerce"
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag =]] --with-all-dependencies --no-scripts
