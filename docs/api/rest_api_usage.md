@@ -146,13 +146,13 @@ Allow: GET,PATCH,DELETE,COPY,MOVE,SWAP
 ### Request headers
 https://doc.ibexa.co/en/latest/api/rest_api_guide/#other-headers
 
-There are mainly four/five (TODO) HTTP headers to specify a REST request:
-- [`Accept`](https://tools.ietf.org/html/rfc2616#section-14.1) describing the response type and format;
+There are HTTP headers to specify a REST request:
+
+- [`Accept`](https://tools.ietf.org/html/rfc2616#section-14.1) describing the desired response type and format;
 - [`Content-Type`](https://toos.ietf.org/html/rfc2616#section-14.17) describing the payload type and format;
 - `X-Siteaccess` specifying the target SiteAccess;
 - `X-HTTP-Method-Override` allowing to pass a method while using `POST` method as previously seen in [HTTP methods](#request-http-methods).
-- [`If-None-Match`](https://tools.ietf.org/html/rfc7232#section-3.2) reclaiming the cached response of a previously visited resource if still up-to-date using [HTTP Etag](https://tools.ietf.org/html/rfc7232#section-2.3).
-TODO: Is `If-None-Match` usable or not enough implemented to be used? Worst mentioning it?
+<!-- - [`If-None-Match`](https://tools.ietf.org/html/rfc7232#section-3.2) reclaiming the cached response of a previously visited resource if still up-to-date using [HTTP Etag](https://tools.ietf.org/html/rfc7232#section-2.3). -->
 
 Few other headers related to authentication methods can be found in [REST API authentication](rest_api_authentication.md).
 
@@ -247,17 +247,13 @@ The `/view` route allow to [search in the repository](../guide/search/search.md)
 The model allows combining criteria using the logical operators `AND`, `OR` and `NOT`.
 
 Almost all [search criteria](../guide/search/search_criteria_reference.md#search-criteria) are available on REST API. The suffix `Criterion` is added when used with REST API.
-TODO: Rephrase. Maybe all criteria are available; CurrencyCode was the only one I didn't find on REST side on first quick check.
 
 Almost all [sort clauses](../guide/search/sort_clause_reference.md#sort-clauses) are available too. No prefix ou suffix for them.
-TODO: All sort clauses?
 
 The search request HTTP header to type its body is `Content-Type: application/vnd.ibexa.api.ViewInput+xml` or `+json`.
 The root node is `<ViewInput>` and it has two mandatory children: `<identifier>` and `<Query>`.
-TODO: Even if mandatory, direct access to a view through its identifier is not implemented (501).
 
 `version=1.1` can be added to the `Content-Type` header to support the distinction between `ContentQuery` and `LocationQuery` instead of just `Query` which implicitly looked only for Contents.
-TODO: Where are `ContentQuery` and `LocationQuery` documented on PHP API side?
 
 The following examples will search for `article` and `news` typed Contents everywhere, search for Contents of all types directly under Location `123`, all those Contents must be in the `standard` Section.
 
@@ -589,7 +585,6 @@ Content-Type: application/vnd.ibexa.api.Content+json
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#response-body
 
 The Response body is often a serialization in XML or JSON of an object as it could be retrieved using the Public PHP API.
-TODO: Always?
 
 For example, the resource `/content/objects/52` with the `Accept: application/vnd.ibexa.api.Content+xml` header returns a serialized version of a [ContentInfo](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php) object.
 
@@ -710,7 +705,7 @@ You can add an allowed domain regular expression using the .env variable `CORS_A
 
 For example, to allow the JS test above to be executed along-side this page, the following could be added to a .env file (like the .env.local): `CORS_ALLOW_ORIGIN=^https?://doc.ibexa.co`. 
 
-To add several domains, to filter on URIs, to change the default (like disabling regular expressions), config/packages/nelmio_cors.yaml should be edited with the help of the [NelmioCorsBundle Configuration Documentation](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md#configuration).
+To add several domains, to filter on URIs, to change the default (like not allowing all the methods), config/packages/nelmio_cors.yaml should be edited with the help of the [NelmioCorsBundle Configuration Documentation](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md#configuration).
 
 ## REST communication summary
 
