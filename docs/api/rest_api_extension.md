@@ -27,7 +27,9 @@ https://doc.ibexa.co/en/latest/api/creating_custom_rest_api_response/#configurat
 
 The Controller action returns a `Values\RestLocation` wrapped in a `Values\CachedValue`.
 The new `ValueObjectVisitor` has to visit `Values\RestLocation` to prepare the new `Response`.
-TODO: For the example, this new `ValueObjectVisitor` extends the default visitor to have less code to write / this new `ValueObjectVisitor` needs to extend the default visitor to be accepted by…
+
+All new `ValueObjectVisitor` needs to extend the abstract class `Output\ValueObjectVisitor` to be accepted by the `ValueObjectVisitorDispatcher`.
+In this example, this new `ValueObjectVisitor` extends the built-in `RestLocation` visitor to reuse it; So, the abstract class is implicitly inherited.
 
 ``` php
 [[= include_file('code_samples/api/rest_api/src/Rest/ValueObjectVisitor/RestLocation.php') =]]
@@ -167,15 +169,22 @@ Having the REST controllers set as services allow to use features like the Input
 https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#controller-action
 
 A REST controller should:
-- return a Value object and have a Generator and ValueObjectVisitors producing the XML or JSON output;
-- extend `Ibexa\Rest\Server\Controller` to inherit few utils methods and properties like the InputDispatcher or the RequestParser.
-TODO: Better exposition of this inheritance advantages…
+- return a Value object and have a `Generator` and `ValueObjectVisitors` producing the XML or JSON output;
+- extend `Ibexa\Rest\Server\Controller` to inherit utils methods and properties like the `InputDispatcher` or the `RequestParser`.
 
 ``` php
 [[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php') =]]
 ```
 
-TODO: CachedValue
+If the returned value was depending on a Location, it could have been wrapped in a `CachedValue` to be cached by the reverse proxy (like Varnish) for future calls.
+
+The use of `CachedValue` looks like this:
+```php
+return new CachedValue(
+    new MyValue($args…),
+    ['locationId'=> $locationId]
+);
+```
 
 ### Value and ValueObjectVisitor
 
@@ -202,6 +211,8 @@ Here, the media-type will be `application/vnd.ibexa.api.Greeting` plus a format.
 
 It could use route parameters, but this example's goal is to illustrate the usage of an input parser.
 
+For this example, the structure will be a `GreetingInput` root node with two leaf nodes, `Salutation` and `Recipient`.
+
 ``` php
 [[= include_file('code_samples/api/rest_api/src/Rest/InputParser/GreetingInput.php') =]]
 ```
@@ -217,7 +228,7 @@ services:
 
 ### Testing the new resource
 
-Let's test both `GET` and `POST` methods and both `XML` and `JSON` outputs.
+Let's test both `GET` and `POST` methods, and, both `XML` and `JSON` format for inputs and outputs.
 
 ```shell
 curl https://api.example.com/api/ibexa/v2/greet --include;
@@ -226,7 +237,7 @@ curl https://api.example.com/api/ibexa/v2/greet --include --request POST \
     --data '<GreetingInput><Salutation>Good morning</Salutation></GreetingInput>';
 curl https://api.example.com/api/ibexa/v2/greet --include --request POST \
     --header 'Content-Type: application/vnd.ibexa.api.GreetingInput+json' \
-    --data '{"GreetingInput": {"Salutation": "Good evening", "Recipient": "Earth"}}' \
+    --data '{"GreetingInput": {"Salutation": "Good day", "Recipient": "Earth"}}' \
     --header 'Accept: application/vnd.ibexa.api.Greeting+json';
 ```
 
@@ -258,9 +269,9 @@ Content-Type: application/vnd.ibexa.api.greeting+json
     "Greeting": {
         "_media-type": "application\/vnd.ibexa.api.Greeting+json",
         "_href": "\/api\/ibexa\/v2\/greet",
-        "Salutation": "Good evening",
+        "Salutation": "Good day",
         "Recipient": "Earth",
-        "Sentence": "Good evening Earth"
+        "Sentence": "Good day Earth"
     }
 }                              
 ```
