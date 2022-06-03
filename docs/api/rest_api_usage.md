@@ -470,10 +470,11 @@ The following list of available HTTP response status codes just give a quick hin
 | `405` | Method Not Allowed     | The requested resource does not support the HTTP verb that was used.                                                                                                                                                                                         |
 | `406` | Not Acceptable         | The request `accept` header is not supported.                                                                                                                                                                                                                |
 | `409` | Conflict               | The request is in conflict with another part of the repository (for example, trying to create a new item with an identifier already used).                                                                                                                   |
-| `412` | Precondition Failed    | TODO.                                                                                                                                                                                                                                                        |
-| `415` | Unsupported Media Type | TODO.                                                                                                                                                                                                                                                        |
+| `415` | Unsupported Media Type | The request payload media-type doesn't match the media-type specified in the request header                                                                                                                                                                  |
 | `500` | Internal Server Error  | The server encountered an unexpected condition, usually an exception, which prevents it from fulfilling the request, like database down, permissions or configuration error.                                                                                 |
 | `501` | Not Implemented        | Returned when the requested method has not yet been implemented. For [[= product_name =]], most of Users, User groups, Content items, Locations and Content Types have been implemented. Some of their methods, as well as other features, may return a 501. |
+
+<!-- | `412` | Precondition Failed | The current ETag does not match with the one provided in the If-Match header | -->
 
 ### Response headers
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#response-headers
