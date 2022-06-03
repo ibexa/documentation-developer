@@ -276,10 +276,8 @@ Content-Type: application/vnd.ibexa.api.greeting+json
 }                              
 ```
 
-### Registering resources in the REST root
+### Registering resources in REST root
 https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#registering-resources-in-the-rest-root
-
-TODO: Earlier, after or within route configuration?
 
 The new resource can be added to the [root resource](rest_api_usage.md#rest-root) through a configuration with the following pattern:
 
@@ -299,7 +297,6 @@ This syntax is based on the Symfony's [expression language]([[= symfony_doc =]]/
 For the previous example `app.rest.greeting` available in every SiteAccess (`default`):
 
 ```yaml
-#TODO: Which file?
 ibexa_rest:
     system:
         default:
@@ -309,8 +306,9 @@ ibexa_rest:
                     href: 'router.generate("app.rest.greeting")'
 ```
 
+This could be in any regular config file, like the existing config/packages/ibexa.yaml or a created config/packages/ibexa_rest.yaml.
+
 The above example add the following entry to the root XML output:
 ```xml
 <greeting media-type="application/vnd.ibexa.api.Greeting+xml" href="/api/ibexa/v2/greet"/>
 ```
-TODO: Is there a way to change the media-type vendor?
