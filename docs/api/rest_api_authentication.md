@@ -250,6 +250,50 @@ It uses a session-based authentication, and it is in widespread use across the n
 A person with minimal insight into this application and the company can easily send out the following link to all employees in that company in email:
 `<a href="web+ez:DELETE /content/locations/1/2">latest reports</a>`.
 
+## JWT authentication
+
+### Configuration
+https://doc.ibexa.co/en/latest/guide/security/#jwt-authentication
+
+See [JWT authentication](../guide/security/#jwt-authentication) to lear how to enable JWT for REST and/or GraphQL.
+
+### Usage example
+https://doc.ibexa.co/en/latest/api/general_rest_usage/#jwt-authentication
+
+After you [configure JWT authentication](../guide/security.md#jwt-authentication) at least for REST,
+you can get the JWT token through the following request:
+
+```
+POST /user/token/jwt HTTP/1.1
+Host: <yourdomain>
+Accept: application/vnd.ibexa.api.JWT+xml
+Content-Type: application/vnd.ibexa.api.JWTInput+xml
+```
+
+Provide the username and password in the request body:
+
+```xml
+<JWTInput>
+    <username>admin</username>
+    <password>publish</password>
+</JWTInput>
+```
+
+If credentials are valid, the server response will contain a token:
+
+```xml
+<JWT media-type="application/vnd.ibexa.api.JWT+xml" token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg"/>
+```
+
+You can then use this token in your request instead of username and password.
+
+```
+GET /content/locations/1/5/children
+Host: <yourdomain>
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg
+Accept: application/vnd.ibexa.api.LocationList+xml
+```
+
 ## HTTP basic authentication
 https://doc.ibexa.co/en/latest/api/rest_api_authentication/#basic-authentication
 
@@ -327,51 +371,6 @@ GET / HTTP/1.1
 Host: api.example.com
 Accept: application/vnd.ibexa.api.Root+json
 Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
-```
-
-## JWT authentication
-TODO: Maybe move upward, after Session and before Basic as it seems more recommendable.
-
-### Configuration
-https://doc.ibexa.co/en/latest/guide/security/#jwt-authentication
-
-See [JWT authentication](../guide/security/#jwt-authentication) to lear how to enable JWT for REST and/or GraphQL.
-
-### Usage example
-https://doc.ibexa.co/en/latest/api/general_rest_usage/#jwt-authentication
-
-After you [configure JWT authentication](../guide/security.md#jwt-authentication) at least for REST,
-you can get the JWT token through the following request:
-
-```
-POST /user/token/jwt HTTP/1.1
-Host: <yourdomain>
-Accept: application/vnd.ibexa.api.JWT+xml
-Content-Type: application/vnd.ibexa.api.JWTInput+xml
-```
-
-Provide the username and password in the request body:
-
-```xml
-<JWTInput>
-    <username>admin</username>
-    <password>publish</password>
-</JWTInput>
-```
-
-If credentials are valid, the server response will contain a token:
-
-```xml
-<JWT media-type="application/vnd.ibexa.api.JWT+xml" token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg"/>
-```
-
-You can then use this token in your request instead of username and password.
-
-```
-GET /content/locations/1/5/children
-Host: <yourdomain>
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg
-Accept: application/vnd.ibexa.api.LocationList+xml
 ```
 
 ## OAuth?
