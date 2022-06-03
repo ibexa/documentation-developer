@@ -1,4 +1,4 @@
-# Managing prices
+# Price API
 
 ## Currencies
 
@@ -22,23 +22,29 @@ and provide it with a `CurrencyCreateStruct` with code, number of fractional dig
 
 To manage prices, use `ProductPriceService`.
 
-To retrieve the price of a product in a specific currency, use `ProductPriceService::getPriceByProductAndCurrency`:
+To retrieve the price of a product in the currency for the current context, use `Product::getPrice()`:
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 61, 64) =]]
 ```
 
+To retrieve the price of a product in a specific currency, use `ProductPriceService::getPriceByProductAndCurrency`:
+
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 65, 68) =]]
+```
+
 To get all prices (in different currencies) for a given product, use `ProductPriceService::findPricesByProductCode`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 76, 82) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 81, 85) =]]
 ```
 
 You can also use `ProductPriceService` to create or modify existing prices.
 For example, to create a new price for a given currency, use `ProductPriceService::createProductPrice` and provide it with a `ProductPriceCreateStruct` object:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 68, 74) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 72, 78) =]]
 ```
 
 !!! note

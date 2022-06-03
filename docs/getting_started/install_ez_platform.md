@@ -7,7 +7,7 @@
     To install [[= product_name =]] for development on macOS or Windows,
     see the [installation guide for macOS and Windows](install-on-mac-os-and-windows.md).
 
-## Prepare the work environment
+## Prepare work environment
 
 To install [[= product_name =]] you need a stack with your operating system, MySQL and PHP.
 
@@ -175,6 +175,12 @@ or
 
 `DATABASE_URL=postgresql://user:password@host:port/database_name`.
 
+!!! tip "Encoding database password"
+
+    The password entered in `DATABASE_URL` must either be URL encoded, or not contain any special characters that would require URL encoding.
+
+    For more information, see [Encoding database password](troubleshooting.md#encoding-database-password).
+
 Choose a [secret]([[= symfony_doc =]]/reference/configuration/framework.html#secret)
 and provide it in the `APP_SECRET` parameter in `.env`.
 It should be a random string, made up of at least 32 characters, numbers, and symbols.
@@ -269,7 +275,7 @@ You can also use [Symfony CLI](https://symfony.com/download):
 symfony serve
 ```
 
-## Prepare the installation for production
+## Prepare installation for production
 
 To use [[= product_name =]] with an HTTP server, you need to [set up directory permissions](#set-up-permissions) and [prepare a virtual host](#set-up-virtual-host).
 
@@ -296,7 +302,7 @@ To set up permissions for production, it is recommended to use an ACL (Access Co
 See [Setting up or Fixing File Permissions]([[= symfony_doc =]]/setup/file_permissions.html) in Symfony documentation
 for information on how to do it on different systems.
 
-### Set up a virtual host
+### Set up virtual host
 
 Prepare a [virtual host configuration](https://httpd.apache.org/docs/2.4/vhosts/) for your site.
 
@@ -304,14 +310,14 @@ You can copy [the example vhost file](https://github.com/ezsystems/developer-doc
 to `/etc/apache2/sites-available` as a `.conf` file and modify it to fit your project.
 
 Specify `/<your installation directory>/public` as the `DocumentRoot` and `Directory`.
-Uncomment the line that starts with `#if [SYMFONY_ENV]` and set the value to `prod` or `dev`,
+Uncomment the line that starts with `#if [APP_ENV]` and set the value to `prod` or `dev`,
 depending on the environment that you are configuring:
 
 ```
-SetEnvIf Request_URI ".*" SYMFONY_ENV=prod
+SetEnvIf Request_URI ".*" APP_ENV=prod
 ```
 
-#### Enable the virtual host
+#### Enable virtual host
 
 When the virtual host file is ready, enable the virtual host and disable the default:
 
@@ -330,12 +336,6 @@ service apache2 restart
 
 Open your project in the browser by visiting the domain address, for example `http://localhost:8080`.
 You should see the welcome page.
-
-!!! tip "eZ Launchpad for quick deployment"
-
-    To get your [[= product_name =]] installation up and running quickly,
-    use the Docker-based [eZ Launchpad](https://ezsystems.github.io/launchpad/), which takes care of the whole setup for you.
-    eZ Launchpad is supported by the Ibexa Community.
 
 ## Post-installation steps
 

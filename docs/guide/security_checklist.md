@@ -81,7 +81,7 @@ Introduce a measure against brute force login attacks (captcha, etc.).
 If you are using Fastly, disable Varnish.
 See [Security advisory: EZSA-2020-002.](https://developers.ibexa.co/security-advisories/ezsa-2020-002-unauthorised-cache-purge-with-misconfigured-fastly)
 
-### Block the execution of scripts in the `var` directory
+### Block execution of scripts in `var` directory
 
 Make sure the web server blocks the execution of PHP files and other scripts in the `var` directory.
 See [vhost.template.](https://github.com/ezsystems/developer-documentation/tree/master/code_samples/install/vhost_template/vhost.template#L80)
@@ -90,9 +90,9 @@ See [vhost.template.](https://github.com/ezsystems/developer-documentation/tree/
 
 Use the most secure supported password hashing method. This is currently `bcrypt`.
 
-### Restrict access to the back end
+### Restrict access to the Back Office
 
-If possible, make the back end unavailable on the open internet.
+If possible, make the Back Office unavailable on the open internet.
 
 ### Use UTF8MB4 with MySQL/MariaDB
 

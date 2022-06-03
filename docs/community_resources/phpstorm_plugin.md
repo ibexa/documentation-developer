@@ -28,7 +28,7 @@ You can also install the plugin manually from a `.jar` file:
 2\. In PhpStorm settings/preferences (depending on your system), select **Plugins** > (gear icon) > **Install plugin from Disk...**
 and select the downloaded file.
 
-## Plugin configuration
+## Configuration
 
 Plugin configuration is available in PhpStorm settings/preferences (depending on your system), 
 under **PHP** > **Frameworks** > **Ibexa DXP**.
@@ -245,5 +245,5 @@ See [related JetBrains issue](https://youtrack.jetbrains.com/issue/WI-61330) for
 
 ## Feedback
 
-You can report bugs and feature suggestions on https://issues.ibexa.co/
-using the "PHPStorm plugin" component, or on the `#phpstorm-plugin` Ibexa Community Slack channel.
+You can report bugs and feature suggestions on [https://issues.ibexa.co/](https://issues.ibexa.co/issues/?jql=project%20%3D%20IBX%20AND%20component%20%3D%20%22PHPStorm%20plugin%22) by
+selecting the "PHPStorm plugin" component, or on the `#phpstorm-plugin` Ibexa Community Slack channel.

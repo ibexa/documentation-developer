@@ -1,15 +1,13 @@
 # Contribute to documentation
 
-While we are doing our best to make sure our documentation fulfills all your needs, there is always place for improvement. If you'd like to contribute to our docs, you can do the following:
-
-## How to contribute to documentation
+While we are doing our best to make sure our documentation fulfills all your needs, there is always place for improvement.
 
 This documentation is written on GitHub and generated into a static site. It is organized in branches. Each branch is a version of documentation (which in turn corresponds to a version of [[= product_name =]]).
 
 If you are familiar with the git workflow, you will find it easy to contribute.
 Please create a Pull Request for any, even the smallest change you want to suggest.
 
-### Contributing through the GitHub website
+## Contributing through the GitHub website
 
 To quickly contribute a fix to a page, find the correct `*.md` file in the GitHub repository and select "Edit this file".
 
@@ -20,7 +18,7 @@ This will lead to a screen for creating a Pull Request. Enter a name and descrip
 Your pull request will be reviewed by the team and, when accepted, merged with the rest of the repository.
 You will be notified of all activity related to the pull request by email.
 
-### Contributing through git
+## Contributing through git
 
 You can also contribute to the documentation by using a regular git workflow.
 If you are familiar with it, this should be quick work.
@@ -56,7 +54,7 @@ git rebase origin/<branch name>
 
 1. Finally, you can go to the project's page on GitHub and you should see a "Compare and pull request" button. Activate it, write a description and select "Create pull request". If your contribution solves a JIRA issues, start the pull request's name with the issue number. Now you can wait for your changes to be reviewed and merged.
 
-### Contributing outside git and GitHub
+## Contributing outside git and GitHub
 
 - **Create a JIRA issue.** You can also report any omissions or inaccuracies you find by creating a JIRA issue. See [Report and follow issues](report_follow_issues.md) on how to do this. Remember to add the "Documentation" component to your issue to make sure we don't lose track of it
 - **Visit Slack.** The `\#documentation-contrib` channel on [eZ Community Slack team](http://ez-community-on-slack.herokuapp.com) is the place to drop your comments, suggestions, or proposals for things you'd like to see covered in documentation. (You can use the link to get an auto-invite to Slack)

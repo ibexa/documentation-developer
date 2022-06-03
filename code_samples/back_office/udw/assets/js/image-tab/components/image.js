@@ -1,11 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { loadImageContent } from '../services/images.service';
-
+import {
+    MarkedLocationIdContext,
+    LoadedLocationsMapContext,
+    MultipleConfigContext,
+    SelectedLocationsContext,
+} from '@ibexa-admin-ui/src/bundle/ui-dev/src/modules/universal-discovery/universal.discovery.module';
 const Image = ({ restInfo, location }) => {
     const [content, setContent] = useState(null);
+    const [markedLocationId, setMarkedLocationId] = useContext(MarkedLocationIdContext);
+    const [loadedLocationsMap, dispatchLoadedLocationsAction] = useContext(LoadedLocationsMapContext);
+    const [selectedLocations, dispatchSelectedLocationsAction] = useContext(SelectedLocationsContext);
+    const [multiple] = useContext(MultipleConfigContext);
     const updateVersionInfoState = (response) => {
 
         setContent(response.View.Result.searchHits.searchHit[0].value.Content);
+    };
+    const markLocation = ({ nativeEvent }) => {
+        const isMarkedLocationClicked = location.id === markedLocationId;
+
+        if (isMarkedLocationClicked) {
+            return;
+        }
+
+        setMarkedLocationId(location.id);
+        dispatchLoadedLocationsAction({ type: 'CUT_LOCATIONS', locationId: location.id });
+        dispatchLoadedLocationsAction({ type: 'UPDATE_LOCATIONS', data: { parentLocationId: location.id, subitems: [] } });
+
+        if (!multiple) {
+            dispatchSelectedLocationsAction({ type: 'CLEAR_SELECTED_LOCATIONS' });
+                dispatchSelectedLocationsAction({ type: 'ADD_SELECTED_LOCATION', location });
+        }
     };
     let src =
 
@@ -24,7 +49,7 @@ const Image = ({ restInfo, location }) => {
     }
 
     return (
-        <div className="c-image" data-title={alt} onClick={() => console.log(data)}>
+        <div className="c-image" data-title={alt} onClick={markLocation}>
             <img className="c-image__thumb" src={src} alt={alt} />
         </div>
     );

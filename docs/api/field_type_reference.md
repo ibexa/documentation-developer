@@ -1,4 +1,4 @@
-# Field Types reference
+# Field Type reference
 
 A Field Type is the underlying building block of the content model. It consists of two entities: Field value and Field definition. Field value is determined by values entered into the Content Field. Field definition is provided by the Content Type, and holds any user defined rules used by Field Type to determine how a Field Value is validated, stored, retrieved, formatted and so on.
 
@@ -33,6 +33,7 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Keyword](field_types_reference/keywordfield.md) | Stores keywords. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [MapLocation](field_types_reference/maplocationfield.md) | Stores map coordinates. | Yes, with [`MapLocationDistance` Criterion](../guide/search/criteria_reference/maplocationdistance_criterion.md) | Yes |
 | [Matrix](field_types_reference/matrixfield.md) | Represents and handles a table of rows and columns of data. | No | No |
+| [Measurement](field_types_reference/measurementfield.md) | Validates and stores a unit of measure, and either a single measurement value, or top and bottom values of a measurement range. | Yes | Yes |
 | [Media](field_types_reference/mediafield.md) | Validates and stores a media file. | No | Yes |
 | [Null](field_types_reference/nullfield.md) | Used as fallback for missing Field Types and for testing purposes. | N/A | N/A |
 | [Page](field_types_reference/pagefield.md) | Stores a Page with a layout consisting of multiple zones. | N/A | N/A |
@@ -56,7 +57,7 @@ Legacy Search/Storage Engine index is limited to 255 characters in database desi
 so formatted and unformatted text blocks will only index the first part.
 In case of multiple selection Field Types like Keyword, Selection, Country, etc.,
 only the first choices are indexed. They are indexed only as a text blob separated by string separator.
-Proper indexing of these Field Types is done with [Solr Search Bundle](../guide/search/solr.md).
+Proper indexing of these Field Types is done with [Solr Search engine](../guide/search/solr.md).
 
 ### Other Field Types
 

@@ -1,4 +1,4 @@
-# Managing migrations
+# Data migration API
 
 You can use the PHP API to manage and run [data migrations](../guide/data_migration/data_migration.md).
 

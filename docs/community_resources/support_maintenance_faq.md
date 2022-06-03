@@ -1,4 +1,4 @@
-# Support and Maintenance FAQ
+# Support and maintenance FAQ
 
 This page contains answers to most common questions and tips around support and maintenance,
 as well as references to important parts of the documentation and tools useful for developers in their daily work.

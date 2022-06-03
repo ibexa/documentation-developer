@@ -76,7 +76,7 @@ Content of `app/Resources/assets` has been moved to `assets`.
 Because eZ Platform v3 is based on Symfony 5, you need to make sure all additional third-party dependencies
 that your project uses have been adapted to Symfony 5.
 
-### Automatic code refactoring - non-essential step
+### Automatic code refactoring (optional)
 
 To simplify the process of adapting your code to Symfony 5, you can use [Rector, a reconstructor tool](https://github.com/rectorphp/rector)
 that will automatically refactor your Symfony and PHPunit code.

@@ -1,9 +1,9 @@
 # Bestsellers
 
-Bestsellers are determined based on all confirmed orders. The information how often a product was purchased is stored in Solr by a Solr plugin.
+Bestsellers are determined based on all confirmed orders. The information how often a product was purchased is stored in the search engine.
 The shop owner can specify from which point a product counts as a bestseller.
 
-Bestsellers can be displayed on Landing Pages, category pages and a bestseller page. 
+Bestsellers can be displayed on Landing Pages and a bestseller page. 
 
 ## Configuration
 
@@ -12,15 +12,6 @@ To enable bestsellers, set the following parameter to true:
 ``` yaml
 ibexa.commerce.site_access.config.core.default.enable_bestsellers: true
 ```
-
-The following settings are available in the eCommerce->Configuration Settings->Miscellaneous section in the Back Office:
-
-| Configuration        | Description      |
-| -------------------- | ---------------- |
-| Number of bestsellers displayed on bestseller page | |
-| Number of bestsellers displayed on catalog pages   | |
-| Number of bestsellers displayed in a slider        | How many bestsellers should be available in a slider on a Landing Page      |
-| Threshold   | How often a product has to be sold to count as a bestseller  |
 
 ## Template list
 
@@ -46,8 +37,8 @@ The following settings are available in the eCommerce->Configuration Settings->M
 
 ### `BestsellerService`
 
-`Ibexa\Bundle\Commerce\Search\Api\Engine/BestsellerService.php` fetches bestsellers from Solr.
+`Ibexa\Bundle\Commerce\Search\Api\Engine\BestsellerService.php` fetches bestsellers from the search engine.
 
 ### `EcontentBestsellerIndexerPlugin`
 
-`Ibexa\Bundle\Commerce\Search\Service\EcontentBestsellerIndexerPlugin.php` adds an additional Solr field with a sum of basket lines.
+`Ibexa\Bundle\Commerce\Search\Service\EcontentBestsellerIndexerPlugin.php` adds an additional search index field with a sum of basket lines.

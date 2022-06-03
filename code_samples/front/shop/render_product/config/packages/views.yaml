@@ -1,0 +1,9 @@
+ibexa:
+    system:
+        site:
+            content_view:
+                full:
+                    product:
+                        template: 'full/product.html.twig'
+                        match:
+                            '@Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\IsProduct': ~

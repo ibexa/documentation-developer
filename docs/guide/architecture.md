@@ -23,9 +23,9 @@ The architecture of [[= product_name =]] is layered and uses clearly defined API
 |[SPI](repository.md#spi)|Service Provider Interface which defines contracts for implementing various parts of the system, including persistence layer (`SPI\Persistence`), custom Field Types, custom Limitations, etc.|
 |[Persistence cache](persistence_cache.md)|The implementation of SPI\Persistence that decorates the main backend implementation.|
 |[Search](search/search.md)|Search API that allows both full-text search and querying the content.|
-|[SQL Storage Engine](search/search_engines.md#legacy-search-engine-bundle)|Legacy search engine is SQL-based and uses Doctrine's database connection.|
+|[SQL Storage Engine](search/search.md#legacy-search-engine)|Legacy search engine is SQL-based and uses Doctrine's database connection.|
 |[Solr Storage Engine](search/solr.md)|Transparent drop-in replacement for the SQL-based Legacy search engine.|
 |[IO](file_management.md#native-io-handler)|The IO API is organized around two types of handlers, both used by the IOService.|
 |[IO Handler](clustering.md#dfs-io-handler)|The IO Handler manipulates metadata, making up for the potential inconsistency of network-based filesystems.|
-|[Recommendation](personalization/enabling_personalization.md#enabling-recommendations)|Recommendation API.|
-|[Personalization server](personalization/enabling_personalization.md#enabling-recommendations)|Personalization server allows displaying recommendations on the website.|
+|[Recommendation](personalization/enabling_personalization.md)|Recommendation API.|
+|[Personalization server](personalization/enabling_personalization.md)|Personalization server allows displaying recommendations on the website.|

@@ -71,7 +71,7 @@ ibexa:
 
 The values shown above are the defaults. `0` means the notification does not hide automatically.
 
-## Location for Form-uploaded files
+## Form-uploaded files
 
 You can use Forms to enable the user to upload files.
 The default Location for files uploaded in this way is `/Media/Files/Form Uploads`.
@@ -187,7 +187,7 @@ ibexa:
                    - 43 # Media
 ```
 
-## Universal Discovery Widget (UDW) configuration
+## Universal Discovery Widget
 
 The Universal Discovery Widget (UDW) can be found in [Extending UDW.](../extending/extending_udw.md)
 
@@ -206,7 +206,7 @@ ibexa:
                 default_icon_set: my_icons
 ```
 
-## Enable Commerce features
+## Enabling Commerce features
 
 The `commerce.enabled` setting responsible for displaying the eCommerce tab, Content and Field types for Commerce in the Back Office, is set to `false` by default.
 If you want to enable and use Commerce features in Content and Experience editions or Commerce edition, go to `config\packages\ecommerce.yaml`

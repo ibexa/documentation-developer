@@ -1,4 +1,4 @@
-# How to Contribute
+# How to contribute
 
 Are you ready to become a part of the Ibexa Community? There are several ways in which you can contribute, from spotting and reporting bugs to committing to the documentation to discussing innovative uses on Slack to coding new bundles.
 

@@ -30,7 +30,7 @@ If your browser language is set to French, the Back Office will be displayed in 
 
     Then, run `composer run post-update-cmd` and clear the cache.
 
-##### Contributing Back Office translations
+### Contributing Back Office translations
 
 To learn how to contribute to a translation, see [Contributing translations](../community_resources/translations.md).
 

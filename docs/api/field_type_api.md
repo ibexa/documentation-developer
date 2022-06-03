@@ -1,7 +1,5 @@
 # Field Type API
 
-## Basic information
-
 Field Types are the smallest building blocks of content.
 [[= product_name =]] comes with many [built-in Field Types](field_type_reference.md#available-field-types) that cover most common needs e.g. Text line, Email address, Author list, Content relation, Map location, Float, etc.
 
@@ -23,7 +21,7 @@ available in the [`Ibexa\Core\FieldType`](https://github.com/ibexa/core/tree/mai
 !!! note "Registration"
 
     Remember that all your custom Field Types must be registered in `config/services.yml`.
-    For more information see [Registration section](field_type_type_and_value.md#registration).
+    For more information see [Registration](field_type_type_and_value.md#registration).
 
 In order to provide custom functionality for a Field Type, the SPI interacts with multiple layers of the [[= product_name =]] architecture:
 
@@ -40,27 +38,27 @@ Below that, the Field Type must support the **Public API** implementation regard
 On the bottom level, a Field Type can additionally hook into the **Persistence SPI**
 in order to store data from a `FieldValue` in an external service.
 Note that all non-standard [[= product_name =]] database tables (e.g. `ezurl`)
-will be treated as [external storage](field_type_storage.md#external-storage).
+will be treated as [external storage](field_type_storage.md#storing-external-data).
 
 The following sequence diagrams visualize the process of creating and publishing new content across all layers, especially focused on the interaction with a Field Type.
 
-## Create Content Sequence
+## Creating content
 
-![Create Content Sequence](img/create_content_sequence.png)
+![Create content sequence](img/create_content_sequence.png)
 
-## Publish Content Sequence
+## Publishing content
 
 !!! note "indexLocation()"
 
     For **Solr** Locations are indexed during Content indexing.
     For **Legacy/SQL** indexing is not required as Location data already exists in a database.
 
-![Publish Content Sequence](img/publish_content_sequence.png)
+![Publish content sequence](img/publish_content_sequence.png)
 
-## Update Content Sequence
+## Updating content
 
-![Update Content Sequence](img/update_content_sequence.png)
+![Update content sequence](img/update_content_sequence.png)
 
-## Load Content Sequence
+## Loading content
 
-![Load Content Sequence](img/load_content_sequence.png)
+![Load content sequence](img/load_content_sequence.png)

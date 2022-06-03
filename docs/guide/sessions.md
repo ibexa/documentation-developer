@@ -118,8 +118,6 @@ Alternatively if you have needs to configure Redis servers dynamically:
 
 If you are on `php-redis` v4.2.0 and higher, you can optionally tweak [`php-redis` settings](https://github.com/phpredis/phpredis#session-locking) for session locking.
 
-###### Additional notes on using Redis for Sessions
-
 Ideally keep [persistence cache](persistence_cache.md) and session data separated:
 
 - Sessions can't risk getting [randomly evicted](https://redis.io/topics/lru-cache#eviction-policies) when you run out of memory for cache.

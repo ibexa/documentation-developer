@@ -1,20 +1,52 @@
 # Render a product
 
-To customize the template for a product, first, you need to [override the existing shop templates](../templates/overriding_shop_templates.md):
+To customize the template for a product, first, you need to prepare a content view configuration.
+
+!!! note
+
+    By default, the anonymous user does not have permissions to view products.
+    To change this, add the `Product/View` Policy to the Anonymous Role.
+
+To match all products, you can use the [`ProductBased\IsProduct`](../templates/view_matcher_reference.md#productbasedisproduct) view matcher.
 
 ``` yaml
-[[= include_file('code_samples/front/shop/override_navigation/config/packages/design.yaml') =]]
+[[= include_file('code_samples/front/shop/render_product/config/packages/views.yaml') =]]
 ```
 
-The built-in templates that are responsible for rendering a product are stored in
-`vendor/ibexa/commerce-shop-ui/src/bundle/Resources/views/themes/standard/Catalog`.
-You can override any partial template in the folder.
+This matching applies to Content items that are also products.
 
-For example, to modify the general layout of the product page, create a 
-`templates/themes/my_theme/Catalog/product_layout.html.twig` file:
+This enables you to access both content properties and product properties in the template.
+You can use the `ibexa_get_product` Twig filter to get the product object from a Content item:
 
 ``` html+twig
-[[= include_file('code_samples/front/shop/render_product/templates/themes/my_theme/Catalog/product_layout.html.twig') =]]
+[[= include_file('code_samples/front/shop/render_product/templates/full/product.html.twig', 0, 4) =]]
 ```
 
-In the template you can access the product via the `catalogElement` object.
+## Attributes
+
+You can access all attributes of a product with `product.attributes`:
+
+``` html+twig
+[[= include_file('code_samples/front/shop/render_product/templates/full/product.html.twig', 19, 24) =]]
+```
+
+The [`ibexa_format_product_attribute`](../twig_function_reference/product_twig_functions.md#ibexaformatproductattribute) filter formats the attributes, including number formatting.
+For example, it renders human-readable labels instead of identifiers and applies correct decimal digit separators for the locale.
+
+## Price
+
+You can access the product's price information from the product object:
+
+``` html+twig
+[[= include_file('code_samples/front/shop/render_product/templates/full/product.html.twig', 9, 10) =]]
+```
+
+## Add to basket
+
+The `ibexa.commerce.basket.add` route enables you to create an "Add to basket" button.
+To make the button fully functional, you must first configure all necessary information for the product, otherwise the product will not be added to basket.
+See [Enable purchasing products](../../catalog/enable_purchasing_products.md) for more information.
+
+``` html+twig
+[[= include_file('code_samples/front/shop/render_product/templates/full/product.html.twig', 11, 17) =]]
+```

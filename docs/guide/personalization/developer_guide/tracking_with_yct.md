@@ -42,7 +42,7 @@ the closing `</head>` tag.
 </script>
 ```
 
-## How the asynchronous syntax works
+## Asynchronous syntax
 
 The `_ycq` object is what makes the asynchronous syntax possible. 
 It acts as a queue, which is a "first-in, first-out" (FIFO) data structure that 
@@ -58,12 +58,12 @@ It must be a string. The remaining elements are the arguments you want to pass
 to the tracker object method. 
 These can be any JavaScript value.
 
-## Tracking code: The \_ycq global object
+## Tracking code
 
 The `_ycq` global object can be used directly for asynchronous page tracking 
 with the `push(...)` method. 
 
-### \_ycq object methods
+### `_ycq` object methods
 
 #### push
 
@@ -84,17 +84,17 @@ _ycq.push(['_setMandator', '<YOUR_MANDATOR_ID>']);
 _ycq.push(['_trackEvent', '1', 'click', 'https://mydoc.pdf', 'user1234']);
 ```
 
-## Tracker Object Names
+## Tracker object names
 
 | Object          | Description   | Example  |
 | --------------- | ------------- | ----- |
 | `_setMandator ` | - Executed with one additional parameter: `MandatorId` | `_ycq.push (['_setMandator' , '<YOUR_MANDATOR_ID>']);` |
-| `_trackEvent` | - Executed with 4 additional parameters: `ItemType`, `EventType`, `ItemId`, `UserId`.<br /> - `EventType` can be any of the [described types]([[= user_doc =]]/personalization/event_types.md) |  capturing an event: `_ycq.push(['_trackEvent', '1', 'buy', 'https://mydoc.pdf', 'user1234x']);` |
-| `_trackTimedEvent` | - Executed with 5 additional parameters: `ItemType`, `EventType`, `ItemId`, `Timeout`, `UserId`.<br /> - `EventType` can be any of the [described types]([[= user_doc =]]/personalization/event_types.md).<br /> - `Timeout` can be any integer greater than than 0 representing time in ms | consume event sent after 20s: `_ycq.push(['_trackTimedEvent', '1', 'consume', 'https://mydoc.pdf', '20000', 'user1234x']);` |
+| `_trackEvent` | - Executed with 4 additional parameters: `ItemType`, `EventType`, `ItemId`, `UserId`.<br /> - `EventType` can be any of the [described types]([[= user_doc =]]/personalization/event_types/) |  capturing an event: `_ycq.push(['_trackEvent', '1', 'buy', 'https://mydoc.pdf', 'user1234x']);` |
+| `_trackTimedEvent` | - Executed with 5 additional parameters: `ItemType`, `EventType`, `ItemId`, `Timeout`, `UserId`.<br /> - `EventType` can be any of the [described types]([[= user_doc =]]/personalization/event_types/).<br /> - `Timeout` can be any integer greater than than 0 representing time in ms | consume event sent after 20s: `_ycq.push(['_trackTimedEvent', '1', 'consume', 'https://mydoc.pdf', '20000', 'user1234x']);` |
 | `_login` | - Executed with 2 additional parameters: anonymous userId, pseudonymous userId.<br /> - It is to be triggered when a user logs in and the tracking identity is changed.<br /> |-|
 | `ycreco=true` | - If you want to send a click recommended event you can append the following parameter to the recommended item URLs: | [https://mydomain.com/mypage.html?ycreco=true](https://mydomain.com/mypage.html?ycreco=true) or <br />[https://mydomain.com/mypage.html?myparameter=x&ycreco=true](https://mydomain.com/mypage.html?myparameter=x&ycreco=true) |
 
-## Track with HTML event handlers
+## Tracking with HTML event handlers
 
 The asynchronous tracking syntax should also be used from within DOM event handlers. 
 For example, the following button generates an event when it is clicked:

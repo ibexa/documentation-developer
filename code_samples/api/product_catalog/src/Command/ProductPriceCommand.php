@@ -59,6 +59,10 @@ final class ProductPriceCommand extends Command
         $currencyCode = $input->getArgument('currencyCode');
         $currency = $this->currencyService->getCurrencyByCode($currencyCode);
 
+        $productPrice = $product->getPrice();
+
+        $output->writeln("Price for ". $product->getName() . " is " . $productPrice);
+
         $productPrice = $this->productPriceService->getPriceByProductAndCurrency($product, $currency);
 
         $output->writeln("Price for ". $product->getName() . " in " . $currencyCode . " is " . $productPrice);

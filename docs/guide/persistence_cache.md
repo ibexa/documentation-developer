@@ -29,7 +29,7 @@ Notes:
   order to allow clearing cache by alternative indexes.
   For instance tree operations or changes to Content Types are
   examples of operations that also need to invalidate content cache by tags.
-- Search is not defined as persistence and the queries themselves are not planned to be cached as they are too complex by design (full text, facets, etc.).
+- Search is not defined as persistence and the queries themselves are not planned to be cached as they are too complex by design (for example, full text).
   Use [Solr](search/solr.md) which caches this for you to improve scale/performance, and to offload your database.
 
 For further details on which calls are cached or not, see details in the [Symfony Web Debug Toolbar](devops.md#web-debug-toolbar)
@@ -56,15 +56,13 @@ Filesystem adapters, for example, are **not** intended to be used over a shared 
 
 The underlying cache system is exposed as an `ibexa.cache_pool` service, and can be reused by any other service as described in the [Using Cache service](#using-cache-service) section.
 
-### Configuration
-
 By default, configuration uses the `cache.tagaware.filesystem` service to store cache files.
 The service is defined in `config/packages/cache_pool/cache.tagaware.filesystem.yaml`
 to use [FilesystemTagAwareAdapter](https://github.com/ibexa/recipes/blob/master/ibexa/oss/4.0.x-dev/config/packages/cache_pool/cache.tagaware.filesystem.yaml#L8).
 
 You can select a different cache backend and configure its parameters in the relevant file in the `cache_pool` folder.
 
-#### Multi Repository setup
+### Multi Repository setup
 
 You can [configure multisite to work with multiple Repositories](multisite/multisite_configuration.md#location-id).
 Then, in `ibexa.yaml` you can specify which cache pool you want to use on a SiteAccess or SiteAccess group level.
@@ -85,7 +83,7 @@ ibexa:
 
     If your installation has several Repositories *(databases)*, make sure every group of sites using different Repositories also uses a different cache pool.
 
-#### In-Memory cache configuration
+### In-Memory cache configuration
 
 Persistence cache layer caches selected objects in-memory for a short time.
 It avoids loading repeatedly the same data from e.g. a remote Redis instance, which can take up to 4-5ms per call due to the network latency and Redis instance load.
@@ -278,7 +276,7 @@ See `config/default_parameters.yaml` and `config/cache_pool/cache.memcached.yaml
 
     > Listen on &lt;addr&gt;; default to INADDR\_ANY. &lt;addr&gt; may be specified as host:port. If you don't specify a port number, the value you specified with -p or -U is used. You may specify multiple addresses separated by comma or by using -l multiple times. This is an important option to consider as there is no other way to secure the installation. Binding to an internal or firewalled network interface is suggested.
 
-## Using Cache Service
+## Using cache service
 
 Using the internal cache service allows you to use an interface and without caring whether the system is configured to place the cache in Memcached or on File system.
 And as [[= product_name =]] requires that instances use a cluster-aware cache in Cluster setup, you can safely assume your cache is shared *(and invalidated)* across all web servers.
@@ -294,7 +292,7 @@ And as [[= product_name =]] requires that instances use a cluster-aware cache in
     That is why the example of usage below starts with a unique `myApp` key.
     For the namespace of your own cache, you must do the same.
 
-#### Getting Cache service
+#### Getting cache service
 
 ##### With dependency injection
 
@@ -341,7 +339,7 @@ return $myObject;
 
 For more info on usage, see [Symfony Cache's documentation]([[= symfony_doc =]]/components/cache.html).
 
-### Clearing Persistence cache
+### Clearing persistence cache
 
 Persistence cache prefixes it's cache using "ibx-". Clearing persistence cache can thus be done in the following ways:
 
