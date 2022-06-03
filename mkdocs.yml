@@ -526,6 +526,8 @@ nav:
         - Update from v3.3:
             - 'Update to v3.3.latest': 'updating/from_3.3/update_from_3.3.md'
             - 'Update to v4.0': 'updating/from_3.3/to_4.0.md'
+        - Update from v4.0:
+            - 'Update to v4.1': 'updating/from_4.0/to_4.1.md'
         - Migrate to Ibexa DXP:
             - 'Migrate from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
             - 'Migrate from eZ Publish': 'migrating/migrating_from_ez_publish.md'
