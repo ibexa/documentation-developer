@@ -4,13 +4,11 @@ https://doc.ibexa.co/en/latest/api/rest_api_authentication/
 This page refers to [REST API reference](rest_api_reference/rest_api_reference.html), where you can find detailed information about
 REST API resources and endpoints.
 
-Five authentication methods are currently supported: session (default), basic, JWT, OAuth and client certificate (SSL).
-TODO: Confirm OAuth and certificate (SSL)
+Five authentication methods are currently supported: session (default), JWT, basic, OAuth and client certificate (SSL).
 
 Those methods can't be used at the same time.
-TODO: Confirm; priorities: session < basic < JWT; What about OAuth and SSL?
 
-Using HTTPS for authenticated (REST) traffic is highly recommended.
+Using HTTPS for authenticated traffic is highly recommended.
 
 Other security related subjects can be consulted:
 
@@ -31,7 +29,6 @@ Because of that, we regard this method as supporting AJAX-based applications eve
 ### Configuration
 
 Session is the default method and is already enabled; no configuration required. Notice that enabling whatever other method will disable session.
-TODO: Is OAuth or certificate methods also disable the session one?
 
 ### Usage examples
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#session-based-authentication
@@ -118,7 +115,7 @@ For logging out, use the **`DELETE`** request on the same resource.
     }
     ```
 
-##### Logging in with active session: XML example
+##### Logging in with active session
 
 It's almost the same exchange as for the session creation, but, this time, important detail, the CSRF token obtained in the previous step is added to the new request through the `X-CSRF-Token` header.
 
@@ -301,13 +298,6 @@ For more information, see [HTTP Authentication: Basic and Digest Access Authenti
 
 ### Configuration
 
-!!! caution "Back Office uses REST API"
-
-    Notice that the Back Office uses the REST API too (for some parts like the Location tree) on its own domain.
-    
-    * If the Back Office SiteAccess matches admin.example.com, it will call the REST API under //admin.example.com/api/ibexa/v2;
-    * If the Back Office SiteAccess matches localhost/admin, it will call the REST API under //localhost/api/ibexa/v2.
-
 If the installation has a dedicated host for REST, you can enable HTTP basic authentication only on this host by setting a firewall like the following before the `ibexa_front` one:
 
 ```yaml
@@ -317,44 +307,14 @@ If the installation has a dedicated host for REST, you can enable HTTP basic aut
                 realm: Ibexa DXP REST API
 ```
 
-If the Back Office and REST client got to use the same domain, both must use the basic authentication method.
-TODO: Be more clear about which authentication method must be the same for both REST API and Back Office.
-TODO: To use Back Office and REST API on same domain should be strongly discouraged and maybe not even documented. REST API could share a domain with a Front Office not using authentication for regular HTML and using basic only for REST API.
+!!! caution "Back Office uses REST API"
 
-To enable HTTP basic authentication for every SiteAccesses, edit `config/packages/security.yaml`,
-
-* remove or comment the `ibexa_front` firewall,
-* in the `main` firewall, uncomment the [`http_basic`](https://symfony.com/doc/5.4/security.html#http-basic) configuration line:
-
-TODO: What is this `ibexa_front` that need to be removed? Session-based auth? "Symfony auth" according to https://doc.ibexa.co/en/master/guide/security/#symfony-authentication but what this is really meaning?
-
-```diff+yaml
--        ibexa_front:
--            pattern: ^/
--            user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
--            anonymous: ~
--            ibexa_rest_session: ~
--            form_login:
--                require_previous_session: false
--                csrf_token_generator: security.csrf.token_manager
--            guard:
--                authenticator: 'Ibexa\PageBuilder\Security\EditorialMode\TokenAuthenticator'
--            logout: ~
-
-        main:
-            anonymous: ~
-            # activate different ways to authenticate
-
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
--            #http_basic: ~
-+            http_basic: ~
-```
-
-In this last case, the Back Office won't use the traditional login page but the browser will use its own Basic Authentication popup to ask for credential. There is no logout.
-
-TODO: Simplify
-TODO: Is there a doc about Basic Auth for global usage?
-TODO: The logout button is still there and lead to an error "Unable to find the controller for path "/admin/logout". The route is wrongly configured."
+    Notice that the Back Office uses the REST API too (for some parts like the Location tree or the Calendar) on its own domain.
+    
+    * If the Back Office SiteAccess matches admin.example.com, it will call the REST API under //admin.example.com/api/ibexa/v2;
+    * If the Back Office SiteAccess matches localhost/admin, it will call the REST API under //localhost/api/ibexa/v2.
+    
+    If Basic authentication is aimed only for REST API, it is better to have a dedicated domain even on a developpement environement.
 
 ### Usage example
 https://doc.ibexa.co/en/latest/api/general_rest_usage/#http-basic-authentication
