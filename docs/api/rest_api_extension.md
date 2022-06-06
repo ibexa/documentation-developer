@@ -123,7 +123,7 @@ The new REST routes should use the [REST URI prefix](rest_api_usage.md#uri-prefi
 
 #### CSRF protection
 
-If a REST route is designed to be used with [unsafe methods](rest_api_usage#http-methods), the CSRF protection is enabled by default like for built-in routes. It can be disabled by using the route parameter `csrf_protection`.
+If a REST route is designed to be used with [unsafe methods](rest_api_usage#request-method), the CSRF protection is enabled by default like for built-in routes. It can be disabled by using the route parameter `csrf_protection`.
 
 ``` yaml
 # config/routes_rest.yaml

@@ -141,8 +141,9 @@ There are HTTP headers to specify a REST request:
 
 - [`Accept`](https://tools.ietf.org/html/rfc2616#section-14.1) describing the desired response type and format;
 - [`Content-Type`](https://toos.ietf.org/html/rfc2616#section-14.17) describing the payload type and format;
-- `X-Siteaccess` specifying the target SiteAccess;
-- `X-HTTP-Method-Override` allowing to pass a method while using `POST` method as previously seen in [HTTP methods](#request-http-methods).
+- [`X-Siteaccess`](#siteaccess) specifying the target SiteAccess;
+- `X-HTTP-Method-Override` allowing to pass a custom method while using `POST` method as previously seen in [HTTP method](#request-method).
+- [`Destination`](#destination) specifying where to move an item
 <!-- - [`If-None-Match`](https://tools.ietf.org/html/rfc7232#section-3.2) reclaiming the cached response of a previously visited resource if still up-to-date using [HTTP Etag](https://tools.ietf.org/html/rfc7232#section-2.3). -->
 
 Few other headers related to authentication methods can be found in [REST API authentication](rest_api_authentication.md).
@@ -173,7 +174,7 @@ On top of methods, HTTP request headers will allow you to personalize the reques
 -   `Accept: application/vnd.ibexa.api.Content+xml` to get **Content** (full data, fields included) as **[XML](http://www.w3.org/XML/)**
 -   `Accept: application/vnd.ibexa.api.ContentInfo+json` to get **ContentInfo** (metadata only) as **[JSON](http://www.json.org/)**
 
-Media-types are also used with the [`Content-Type` header](#content-type-header) to characterize a request payload. See [Creating content with binary attachments](#creating-content-with-binary-attachments) below. Also see Creating session [XML](rest_api_authentication.md#creating-session-xml-example) and [JSON](rest_api_authentication.md#creating-session-json-example) examples.
+Media-types are also used with the [`Content-Type` header](#content-type-header) to characterize a request payload. See [Creating content with binary attachments](#creating-content-with-binary-attachments) below. Also see [Creating session](rest_api_authentication.md#creating-session) examples.
 
 If the resource returns only deals with one media type, it is also possible to skip it and to just specify the format using `application/xml` or `application/json`.
 
@@ -199,7 +200,7 @@ One example is the [creation of an authentication session](rest_api_authenticati
 
 When creating a Content, the payload is particular if the ContentType has some [Image](field_types_reference/imagefield.md) or [BinaryFile](field_types_reference/binaryfilefield.md) fields as files need to be attached. See the example of a [script uploading images](#creating-content-with-binary-attachments) below.
 
-When searching for Contents (or Locations), the query grammar is also particular. See the [Search section](#search) below.
+When searching for Contents (or Locations), the query grammar is also particular. See the [Search section](#search-view) below.
 
 #### Creating content with binary attachments
 
@@ -462,7 +463,7 @@ The following list of available HTTP response status codes just give a quick hin
 
 A resource's response may contain meta-data in its HTTP headers.
 
-The `Allow` response header for [`OPTIONS` method](#options-requests) was previously seen.
+The `Allow` response header for [`OPTIONS` method](#options-method) was previously seen.
 
 #### Content-Type header
 
