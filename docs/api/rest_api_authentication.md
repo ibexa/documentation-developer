@@ -264,36 +264,78 @@ See [JWT authentication](../guide/security/#jwt-authentication) to lear how to e
 After you [configure JWT authentication](../guide/security.md#jwt-authentication) at least for REST,
 you can get the JWT token through the following request:
 
-```
-POST /user/token/jwt HTTP/1.1
-Host: <yourdomain>
-Accept: application/vnd.ibexa.api.JWT+xml
-Content-Type: application/vnd.ibexa.api.JWTInput+xml
-```
+=== "XML"
 
-Provide the username and password in the request body:
+    ```
+    POST /user/token/jwt HTTP/1.1
+    Host: <yourdomain>
+    Accept: application/vnd.ibexa.api.JWT+xml
+    Content-Type: application/vnd.ibexa.api.JWTInput+xml
+    ```
+    
+    Provide the username and password in the request body:
+    
+    ```xml
+    <JWTInput>
+        <username>admin</username>
+        <password>publish</password>
+    </JWTInput>
+    ```
+    
+    If credentials are valid, the server response will contain a token:
+    
+    ```xml
+    <JWT media-type="application/vnd.ibexa.api.JWT+xml" token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg"/>
+    ```
+    
+    You can then use this token in your request instead of username and password.
+    
+    ```
+    GET /content/locations/1/5/children
+    Host: <yourdomain>
+    Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg
+    Accept: application/vnd.ibexa.api.LocationList+xml
+    ```
 
-```xml
-<JWTInput>
-    <username>admin</username>
-    <password>publish</password>
-</JWTInput>
-```
+=== "JSON"
 
-If credentials are valid, the server response will contain a token:
-
-```xml
-<JWT media-type="application/vnd.ibexa.api.JWT+xml" token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg"/>
-```
-
-You can then use this token in your request instead of username and password.
-
-```
-GET /content/locations/1/5/children
-Host: <yourdomain>
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg
-Accept: application/vnd.ibexa.api.LocationList+xml
-```
+    ```
+    POST /user/token/jwt HTTP/1.1
+    Host: <yourdomain>
+    Accept: application/vnd.ibexa.api.JWT+json
+    Content-Type: application/vnd.ibexa.api.JWTInput+json
+    ```
+    
+    Provide the username and password in the request body:
+    
+    ```json
+    {
+        "JWTInput": {
+            "username": "admin",
+            "password": "publish"
+        }
+    }
+    ```
+    
+    If credentials are valid, the server response will contain a token:
+    
+    ```json
+    {
+        "JWT": {
+            "_media-type": "application/vnd.ibexa.api.JWT+xml",
+            "_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg"
+        }
+    }
+    ```
+    
+    You can then use this token in your request instead of username and password.
+    
+    ```
+    GET /content/locations/1/5/children
+    Host: <yourdomain>
+    Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg
+    Accept: application/vnd.ibexa.api.LocationList+json
+    ```
 
 ## HTTP basic authentication
 
