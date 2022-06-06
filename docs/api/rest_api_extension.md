@@ -180,11 +180,11 @@ return new CachedValue(
 
 A `ValueObjectVisitor` must implement the `visit` method.
 
-| Argument     | Description                                                                                                                                        |
-|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `$visitor`   | The output visitor. Can be used to set custom response headers ( `setHeader( $name, $value )`), HTTP status code ( `setStatus( $statusCode )` )    |
-| `$generator` | The actual response generator. It provides you with a DOM like API.                                                                                |
-| `$data`      | The visited data. The exact object that you returned from the controller. It can't have a type declaration because the method signature is shared. |
+| Argument     | Description                                                                                                                                       |
+|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| `$visitor`   | The output visitor.<br/>Can be used to set custom response headers (`setHeader`), HTTP status code ( `setStatus`)                                 |
+| `$generator` | The actual response generator. It provides you with a DOM like API.                                                                               |
+| `$data`      | The visited data. The exact object that you returned from the controller.<br/>It can't have a type declaration because the method signature is shared. |
 
 ``` php
 [[= include_file('code_samples/api/rest_api/src/Rest/ValueObjectVisitor/Greeting.php') =]]
