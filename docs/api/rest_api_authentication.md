@@ -206,7 +206,7 @@ Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
 
 ##### CSRF token
 
-It can be important to keep the CSRF Token (`csrfToken`) for the duration of the session as this CSRF token must be sent in every request that uses [unsafe HTTP methods](rest_api_usage.md#http-methods) (others than the safe GET or HEAD or OPTIONS) when a session has been established.
+It can be important to keep the CSRF Token (`csrfToken`) for the duration of the session as this CSRF token must be sent in every request that uses [unsafe HTTP methods](rest_api_usage.md#request-method) (others than the safe GET or HEAD or OPTIONS) when a session has been established.
 It should be sent with an `X-CSRF-Token` header.
 
 Only three built-in routes can accept unsafe methods without CSRF, the sessions routes starting with `/user/sessions` to create, refresh or delete a session.
@@ -257,7 +257,7 @@ X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
 
 ### Configuration
 
-See [JWT authentication](../guide/security/#jwt-authentication) to lear how to enable JWT for REST and/or GraphQL.
+See [JWT authentication](../guide/security.md#jwt-authentication) to lear how to enable JWT for REST and/or GraphQL.
 
 ### Usage example
 
