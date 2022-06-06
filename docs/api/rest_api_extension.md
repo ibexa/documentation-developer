@@ -180,10 +180,10 @@ return new CachedValue(
 
 A `ValueObjectVisitor` must implement the `visit` method.
 
-| Argument     | Description                                                                                                                                       |
-|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
-| `$visitor`   | The output visitor.<br/>Can be used to set custom response headers (`setHeader`), HTTP status code ( `setStatus`)                                 |
-| `$generator` | The actual response generator. It provides you with a DOM like API.                                                                               |
+| Argument     | Description                                                                                                                                            |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `$visitor`   | The output visitor.<br/>Can be used to set custom response headers (`setHeader`), HTTP status code ( `setStatus`)                                      |
+| `$generator` | The actual response generator. It provides you with a DOM like API.                                                                                    |
 | `$data`      | The visited data. The exact object that you returned from the controller.<br/>It can't have a type declaration because the method signature is shared. |
 
 ``` php
