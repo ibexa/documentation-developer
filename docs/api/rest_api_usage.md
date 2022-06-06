@@ -553,7 +553,7 @@ Notice that cURL can follow those redirections. On CLI, there is the `--location
 The following command-line example follows the two redirections above and the `Accept` header is propagated:
 
 ```shell
-curl --header "Accept: application/vnd.ibexa.api.Content+json" --head --location "https://api.example.com/api/ibexa/v2/content/objects/?remoteId=34720ff636e1d4ce512f762dc638e4ac"
+curl --head --location --header "Accept: application/vnd.ibexa.api.Content+json" "https://api.example.com/api/ibexa/v2/content/objects/?remoteId=34720ff636e1d4ce512f762dc638e4ac"
 ```
 
 ```
