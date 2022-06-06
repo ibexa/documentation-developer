@@ -38,6 +38,17 @@
 |`IncreaseProductAvailabilityEvent`|`ProductAvailabilityService::increaseProductAvailability`|`AvailabilityInterface $productAvailability ProductInterface $product`</br>`int $amount`|
 |`UpdateProductAvailabilityEvent`|`ProductAvailabilityService::updateProductAvailability`|`AvailabilityInterface $productAvailability`</br>`ProductAvailabilityUpdateStruct $updateStruct`|
 
+## Price
+
+| Event | Dispatched by | Properties |
+|---|---|---|
+|`BeforeCreatePriceEvent`|`ProductPriceService::createProductPrice`|`ProductPriceCreateStructInterface $createStruct`|
+|`BeforeDeletePriceEvent`|`ProductPriceService::deletePrice`|`ProductPriceDeleteStructInterface $deleteStruct`|
+|`BeforeUpdatePriceEvent`|`ProductPriceService::updateProductPrice`|`ProductPriceUpdateStructInterface $updateStruct`|
+|`CreatePriceEvent`|`ProductPriceService::createProductPrice`|`ProductPriceCreateStructInterface $createStruct`</br>`PriceInterface $price`|
+|`DeletePriceEvent`|`ProductPriceService::deletePrice`|`ProductPriceDeleteStructInterface $deleteStruct`|
+|`UpdatePriceEvent`|`ProductPriceService::updateProductPrice`|`PriceInterface $price`</br>`ProductPriceUpdateStructInterface $updateStruct`|
+
 ## Currency
 
 | Event | Dispatched by | Properties |
