@@ -217,10 +217,8 @@ Finish the update process:
 composer run post-install-cmd
 ```
 
-Finally, generate the new GraphQL schema:
+Finally, generate the new GraphQl schema:
 
 ``` bash
 php bin/console ibexa:graphql:generate-schema
 ```
-
-YAML files with the schema are located in `config/graphql/types/ibexa`.
