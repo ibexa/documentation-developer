@@ -8,13 +8,11 @@ Every interaction with the repository than you can do from Back Office or using 
 The REST API uses HTTP methods (`GET`, `PUBLISH` , etc.), as well as HTTP headers to specify the type of request.
 
 ## URIs
-https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#uris
 
 The REST API is designed in such a way that the client can explore the repository without constructing any URIs to resources.
 Starting from the [root resource](#rest-root), every response includes further links (`href`) to related resources.
 
 ### URI prefix
-https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#uris-prefix
 
 In [REST reference](rest_api_reference/rest_api_reference.html), for the sake of readability, there are no prefixes used in the URIs.
 In practice, the `/api/ibexa/v2` prefixes all REST hrefs.
@@ -22,7 +20,6 @@ In practice, the `/api/ibexa/v2` prefixes all REST hrefs.
 Notice that this prefix immediately follow the domain and that the [`URIElement` SiteAccess matcher](../guide/multisite/siteaccess_matching.md#urielement) can't be used. If the selection of a SiteAccess is needed, see the [`X-Siteaccess` HTTP header](#siteaccess).
 
 ### URI parameters
-https://doc.ibexa.co/en/latest/api/general_rest_usage/#request-parameters
 
 URI parameters (query string) can be used on some resources.
 They usually serve as options or filters for the requested resource.
@@ -35,7 +32,6 @@ Accept: application/vnd.ibexa.api.RelationList+xml
 ```
 
 #### Working with value objects IDs
-https://doc.ibexa.co/en/latest/api/general_rest_usage/#working-with-value-objects-ids
 
 Resources that accept a reference to another resource expect reference to be given as a REST URI, not a single ID.
 For example, the URI requesting a list of user groups assigned to the role with ID 1 is:
@@ -54,7 +50,6 @@ curl -H "Accept: application/json" http://api.example.net/api/ibexa/v2/
 ```
 
 ### Country list
-https://doc.ibexa.co/en/latest/api/general_rest_usage/#rest-api-countries-list
 
 Alongside regular repository interactions, is a REST service providing a list of countries with their names, [ISO-3166](http://en.wikipedia.org/wiki/ISO_3166) codes and International Dialing Codes (IDC). It could be useful when presenting a country options list from any application.
 
@@ -71,8 +66,6 @@ For details, see the [ISO-3166 glossary](http://www.iso.org/iso/home/standards/c
 ## Requests
 
 ### Request method
-https://doc.ibexa.co/en/latest/api/rest_api_guide/#http-methods
-https://doc.ibexa.co/en/latest/api/general_rest_usage/#custom-http-verbs
 
 Depending on the used HTTP method, different actions will be possible on the same resource. Example:
 
@@ -109,7 +102,6 @@ If applicable, both methods are always mentioned in the specifications.
 Not safe methods will require a CSRF token if [session-based authentication](rest_api_authentication.md#session-based-authentication) is used.
 
 #### OPTIONS method
-https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#options-requests
 
 Any URI resource that the REST API responds to will respond to an `OPTIONS` request.
 
@@ -144,7 +136,6 @@ Allow: GET,PATCH,DELETE,COPY,MOVE,SWAP
 ```
 
 ### Request headers
-https://doc.ibexa.co/en/latest/api/rest_api_guide/#other-headers
 
 There are HTTP headers to specify a REST request:
 
@@ -157,8 +148,6 @@ There are HTTP headers to specify a REST request:
 Few other headers related to authentication methods can be found in [REST API authentication](rest_api_authentication.md).
 
 #### SiteAccess
-https://doc.ibexa.co/en/latest/api/general_rest_usage/#specifying-siteaccess
-https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#specifying-siteaccess
 
 In order to specify a SiteAccess when communicating with the REST API, provide a custom `X-Siteaccess` header.
 If it is not provided, the default SiteAccess is used.
@@ -178,8 +167,6 @@ If the same resource is available in multiple locations, cache purging is notice
 This is why SiteAccess matching with REST is not enabled at URL level (nor domain).
 
 #### Media-types
-https://doc.ibexa.co/en/latest/api/rest_api_guide/#media-type-headers
-https://doc.ibexa.co/en/latest/api/rest_api_best_practices/#media-types
 
 On top of methods, HTTP request headers will allow you to personalize the request's behavior. On every resource, you can use the `Accept` header to indicate which format you want to communicate in, JSON or XML. This header is also used to specify the response type you want the server to send when multiple ones are available.
 
@@ -193,7 +180,6 @@ If the resource returns only deals with one media type, it is also possible to s
 A response indicates `href`s to related resources and their media-types.
 
 #### Destination
-https://doc.ibexa.co/en/latest/api/general_rest_usage/#destination-header
 
 The `Destination` request header is the request counterpart of the `Location` response header.
 It is used for a `COPY`, `MOVE` or `SWAP` operation on a resource to indicate where the resource should be moved, copied to or swapped with by using the ID of the parent or target location.
@@ -216,7 +202,6 @@ When creating a Content, the payload is particular if the ContentType has some [
 When searching for Contents (or Locations), the query grammar is also particular. See the [Search section](#search) below.
 
 #### Creating content with binary attachments
-https://doc.ibexa.co/en/latest/api/creating_content_with_binary_attachments_via_rest_api/
 
 The example below is a command-line script to upload images.
 
@@ -240,7 +225,6 @@ This script will
     ```
 
 #### Search (`/view`)
-https://doc.ibexa.co/en/latest/api/general_rest_usage/#logical-operators
 
 The `/view` route allow to [search in the repository](../guide/search/search.md). It works close to its [PHP API counterpart](public_php_api_search.md).
 
@@ -451,8 +435,6 @@ For example, the `AND` operator from previous example's `Filter` could be remove
 ## Responses
 
 ### Response code
-https://doc.ibexa.co/en/latest/api/general_rest_usage/#http-code
-https://doc.ibexa.co/en/latest/api/general_rest_usage/#general-error-codes
 
 The following list of available HTTP response status codes just give a quick hint of the meaning of a code. For code details per resource, see the [REST API reference](rest_api_reference/rest_api_reference.html).
 
@@ -477,14 +459,12 @@ The following list of available HTTP response status codes just give a quick hin
 <!-- | `412` | Precondition Failed | The current ETag does not match with the one provided in the If-Match header | -->
 
 ### Response headers
-https://doc.ibexa.co/en/latest/api/general_rest_usage/#response-headers
 
 A resource's response may contain meta-data in its HTTP headers.
 
 The `Allow` response header for [`OPTIONS` method](#options-requests) was previously seen.
 
 #### Content-Type header
-https://doc.ibexa.co/en/latest/api/general_rest_usage/#content-type-header
 
 As long as a response contains an actual HTTP body, the `Content-Type` header will be used to specify what it is containing. The `Content-Type` header's value is a [media-type](#media-types) as previously seen for the `Accept` header.
 
@@ -510,7 +490,6 @@ Content-Type: application/vnd.ibexa.api.Content+json
 ```
 
 #### Accept-Patch header
-https://doc.ibexa.co/en/latest/api/general_rest_usage/#accept-patch-header
 
 When available, the `Accept-Patch` tells how the received item could be modified with `PATCH`.
 
@@ -540,7 +519,6 @@ Accept-Patch: application/vnd.ibexa.api.ContentUpdate+json
 Those example `Accept-Path` headers above indicate that the content could be modified by sending a [ContentUpdateStruct](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentUpdateStruct.php) in XML or JSON.
 
 #### Location header
-https://doc.ibexa.co/en/latest/api/general_rest_usage/#location-header
 
 For instance [creating Content](rest_api_reference/rest_api_reference.html#managing-content-create-content-type) and [getting a Content item's current version](rest_api_reference/rest_api_reference.html#managing-content-get-current-version)
 will both send a `Location` header to provide you with the requested resource's ID.
@@ -583,7 +561,6 @@ Content-Type: application/vnd.ibexa.api.Content+json
 ```
 
 ### Response body
-https://doc.ibexa.co/en/latest/api/general_rest_usage/#response-body
 
 The Response body is often a serialization in XML or JSON of an object as it could be retrieved using the Public PHP API.
 
@@ -664,7 +641,6 @@ On a freshly installed Ibexa DXP, `52` is the Content ID of the Front-Office hom
 A content creation example using PHP is available above in [Creating content with binary attachments section](#creating-content-with-binary-attachments)
 
 ### JS
-https://doc.ibexa.co/en/latest/api/rest_api_guide/#testing-the-api
 
 One of the main reasons for this API is to help implement JavaScript / AJAX interaction. You can see here an example of an AJAX call that retrieves ContentInfo (e.g. metadata) for a Content item:
 
@@ -687,7 +663,6 @@ On a freshly installed Ibexa DXP, `52` is the Content ID of the Front-Office hom
 `resource` URI can be edited to address another domain but cross-origin requests must be allowed first; see the following section.
 
 ## Cross-origin requests
-https://doc.ibexa.co/en/latest/api/making_cross_origin_http_requests/
 
 [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) can allow the REST API to be reached from a page on another domain.
 

@@ -3,7 +3,6 @@
 To imagine what could be added to the REST API and to understand what the examples below are overriding, customizing or extending, it's important to picture the [REST request lifecycle](rest_api_usage.md#rest-communication-summary).
 
 ## Adding a custom media-type
-https://doc.ibexa.co/en/latest/api/creating_custom_rest_api_response/
 
 In this example case, a new media-type will be passed in the `Accept` header of a GET request to `/content/locations/{locationPath}` route and its Controller action (`Controller/Location::loadLocation`).
 
@@ -22,8 +21,6 @@ The following example will add the handling of a new media-type `application/app
     In this example, to create a new vendor has been chosen as a good practice to highlight that this is custom and won't be available on a regular Ibexa DXP.
 
 ### New `RestLocation` `ValueObjectVisitor`
-https://doc.ibexa.co/en/latest/api/creating_custom_rest_api_response/#implementation-of-dedicated-visitor
-https://doc.ibexa.co/en/latest/api/creating_custom_rest_api_response/#configuration
 
 The Controller action returns a `Values\RestLocation` wrapped in a `Values\CachedValue`.
 The new `ValueObjectVisitor` has to visit `Values\RestLocation` to prepare the new `Response`.
@@ -46,8 +43,6 @@ services:
 ```
 
 ### New `ValueObjectVisitorDispatcher`
-https://doc.ibexa.co/en/latest/api/creating_custom_rest_api_response/#overriding-response-type
-https://doc.ibexa.co/en/latest/api/creating_custom_rest_api_response/#configuration
 
 The new `ValueObjectVisitorDispatcher` receives the `ValueObjectVisitor`s tagged `app.rest.output.value_object.visitor`.
 As not all value FQCNs are handled, the new `ValueObjectVisitorDispatcher` also receives the default one as a fallback.
@@ -64,7 +59,6 @@ services:
 ```
 
 ### New `Output\Visitor` service
-https://doc.ibexa.co/en/latest/api/creating_custom_rest_api_response/#configuration
 
 The following new pair of `Ouput\Visitor` associate `Accept` headers starting with `application/app.api.` to the new `ValueObjectVisitorDispatcher` for both XML and JSON. A priority is set higher than other `ibexa.rest.output.visitor` tagged built-in services.
 
@@ -79,7 +73,6 @@ services:
 ```
 
 ### Testing the new media-type
-https://doc.ibexa.co/en/master/api/creating_custom_rest_api_response/#fetching-the-modified-response
 
 In the following example, `curl` and `diff` command-lines are used to compare the default media-type (`application/vnd.ibexa.api.Location+xml`) with the new `application/app.api.Location+xml`.
 
@@ -103,10 +96,8 @@ diff --ignore-space-change \
 ```
 
 ## Creating a new REST resource
-https://doc.ibexa.co/en/latest/api/extending_the_rest_api/
 
 ### Requirements / Needs check list
-https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#requirements
 
 * The REST route leading to a controller action.
 * The controller and its action.
@@ -117,9 +108,8 @@ https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#requirements
 In the following example, a greeting resource will be added to the REST API. It will be available through `GET` and `POST` methods. `GET` will set default values while `POST` will allow to input custom values.
 
 ### Route
-https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#route
 
-Your REST routes should use the [REST URI prefix](rest_api_usage.md#uri-prefix) for consistency. To ensure that they do, in the config/routes.yaml file, while importing a REST routing file, use `ibexa.rest.path_prefix` parameter as a `prefix`.
+The new REST routes should use the [REST URI prefix](rest_api_usage.md#uri-prefix) for consistency. To ensure that they do, in the config/routes.yaml file, while importing a REST routing file, use `ibexa.rest.path_prefix` parameter as a `prefix`.
 
 ``` yaml
 # config/routes.yaml
@@ -148,10 +138,8 @@ If a REST route is designed to be used with [unsafe methods](rest_api_usage#http
 ```
 
 ### Controller
-https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#controller
 
 #### Controller service
-https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#route
 
 The following configuration can be used to have all controllers from the `App\Rest\Controller\` namespace (files under `src/Rest/Controller/` folder) to be set as REST Controller services.
 
@@ -165,7 +153,6 @@ services:
 Having the REST controllers set as services allow to use features like the InputDispatcher service in the [Controller action](#controller-action) below.
 
 #### Controller action
-https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#controller-action
 
 A REST controller should:
 - return a Value object and have a `Generator` and `ValueObjectVisitors` producing the XML or JSON output;
@@ -284,7 +271,6 @@ Content-Type: application/vnd.ibexa.api.greeting+json
 ```
 
 ### Registering resources in REST root
-https://doc.ibexa.co/en/latest/api/extending_the_rest_api/#registering-resources-in-the-rest-root
 
 The new resource can be added to the [root resource](rest_api_usage.md#rest-root) through a configuration with the following pattern:
 

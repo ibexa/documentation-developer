@@ -1,5 +1,4 @@
 # REST API authentication
-https://doc.ibexa.co/en/latest/api/rest_api_authentication/
 
 This page refers to [REST API reference](rest_api_reference/rest_api_reference.html), where you can find detailed information about
 REST API resources and endpoints.
@@ -16,7 +15,6 @@ Other security related subjects can be consulted:
 - [`access_control`]([[= symfony_doc =]]/security/access_control.html)
 
 ## Session-based authentication
-https://doc.ibexa.co/en/latest/api/rest_api_authentication/#session-based-authentication
 
 This authentication method requires a Session cookie to be sent with each request.
 
@@ -31,7 +29,6 @@ Because of that, we regard this method as supporting AJAX-based applications eve
 Session is the default method and is already enabled; no configuration required. Notice that enabling whatever other method will disable session.
 
 ### Usage examples
-https://doc.ibexa.co/en/latest/api/general_rest_usage/#session-based-authentication
 
 You can create a session for a visitor even if they are not logged in by sending the **`POST`** request to `/user/sessions`.
 For logging out, use the **`DELETE`** request on the same resource.
@@ -224,7 +221,6 @@ X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
 If an unsafe request is missing the CSRF token, or the token has incorrect value, an error is returned: `401 Unauthorized`.
 
 ##### Rich client application security concerns
-https://doc.ibexa.co/en/latest/api/rest_api_authentication/#rich-client-application-security-concerns
 
 The purpose of CSRF protection is to prevent users from accidentally running harmful operations by being tricked into executing an HTTP(S) request against a web applications they are logged into.
 In browsers this action will be blocked by lack of CSRF token.
@@ -260,12 +256,10 @@ X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
 ## JWT authentication
 
 ### Configuration
-https://doc.ibexa.co/en/latest/guide/security/#jwt-authentication
 
 See [JWT authentication](../guide/security/#jwt-authentication) to lear how to enable JWT for REST and/or GraphQL.
 
 ### Usage example
-https://doc.ibexa.co/en/latest/api/general_rest_usage/#jwt-authentication
 
 After you [configure JWT authentication](../guide/security.md#jwt-authentication) at least for REST,
 you can get the JWT token through the following request:
@@ -302,7 +296,6 @@ Accept: application/vnd.ibexa.api.LocationList+xml
 ```
 
 ## HTTP basic authentication
-https://doc.ibexa.co/en/latest/api/rest_api_authentication/#basic-authentication
 
 For more information, see [HTTP Authentication: Basic and Digest Access Authentication](http://tools.ietf.org/html/rfc2617).
 
@@ -327,7 +320,6 @@ If the installation has a dedicated host for REST, you can enable HTTP basic aut
     If Basic authentication is aimed only for REST API, it is better to have a dedicated domain even on a developpement environement.
 
 ### Usage example
-https://doc.ibexa.co/en/latest/api/general_rest_usage/#http-basic-authentication
 
 Basic authentication requires the username and password to be sent *(username:password)*, based 64 encoded, with each request.
 For details, see [RFC 2617](http://tools.ietf.org/html/rfc2617).
@@ -344,11 +336,9 @@ Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
 ```
 
 ## OAuth
-https://doc.ibexa.co/en/latest/api/rest_api_authentication/#oauth
 
 For more information, see [OAuth 2.0 protocol for authorization.](https://oauth.net/2/)
 
 ## SSL client authentication
-https://doc.ibexa.co/en/latest/api/rest_api_authentication/#ssl-client-authentication
 
 The REST API provides authentication of a user by a subject in a client certificate delivered by the web server configured as SSL endpoint.
