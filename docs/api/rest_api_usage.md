@@ -230,9 +230,9 @@ The `/view` route allow to [search in the repository](../guide/search/search.md)
 
 The model allows combining criteria using the logical operators `AND`, `OR` and `NOT`.
 
-Almost all [search criteria](../guide/search/search_criteria_reference.md#search-criteria) are available on REST API. The suffix `Criterion` is added when used with REST API.
+Almost all [search criteria](../guide/search/criteria_reference/search_criteria_reference.md#search-criteria) are available on REST API. The suffix `Criterion` is added when used with REST API.
 
-Almost all [sort clauses](../guide/search/sort_clause_reference.md#sort-clauses) are available too. No prefix ou suffix for them.
+Almost all [sort clauses](../guide/search/sort_clause_reference/sort_clause_reference.md#sort-clauses) are available too. No prefix ou suffix for them.
 
 The search request HTTP header to type its body is `Content-Type: application/vnd.ibexa.api.ViewInput+xml` or `+json`.
 The root node is `<ViewInput>` and it has two mandatory children: `<identifier>` and `<Query>`.
