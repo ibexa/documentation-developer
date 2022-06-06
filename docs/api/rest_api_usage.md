@@ -45,8 +45,8 @@ GET /api/ibexa/v2/user/groups?roleId=/api/ibexa/v2/user/roles/1
 The `/` root route is answered by a cheat sheet with the main resource routes and media-types. In XML by default, it can also be switched to JSON output.
 
 ```shell
-curl http://api.example.net/api/ibexa/v2/
-curl -H "Accept: application/json" http://api.example.net/api/ibexa/v2/
+curl https://api.example.com/api/ibexa/v2/
+curl -H "Accept: application/json" https://api.example.com/api/ibexa/v2/
 ```
 
 ### Country list
@@ -108,12 +108,12 @@ Any URI resource that the REST API responds to will respond to an `OPTIONS` requ
 The response contains an `Allow` header, as specified in [chapter 14.7 of RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.7), which lists the methods accepted by the resource.
 
 ```shell
-curl -IX OPTIONS http://api.example.net/api/ibexa/v2/content/objects/1
+curl -IX OPTIONS https://api.example.com/api/ibexa/v2/content/objects/1
 ```
 
 ```
 OPTIONS /content/objects/1 HTTP/1.1
-Host: api.example.net
+Host: api.example.com
 ```
 
 ```
@@ -122,12 +122,12 @@ Allow: PATCH,GET,DELETE,COPY
 ```
 
 ```shell
-curl -IX OPTIONS http://api.example.net/api/ibexa/v2/content/locations/1/2
+curl -IX OPTIONS https://api.example.com/api/ibexa/v2/content/locations/1/2
 ```
 
 ```
 OPTIONS /content/locations/1/2 HTTP/1.1
-Host: api.example.net
+Host: api.example.com
 ```
 
 ```
