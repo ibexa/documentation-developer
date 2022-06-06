@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import Image from './image';
 import { getImages } from '../services/images.service';
 
-import { RestInfoContext } from '../../../../vendor/ezsystems/ezplatform-admin-ui/src/bundle/ui-dev/src/modules/universal-discovery/universal.discovery.module';
+import { RestInfoContext } from '@ibexa-admin-ui/src/bundle/ui-dev/src/modules/universal-discovery/universal.discovery.module';
 
 const ImagesList = () => {
     const [images, setImages] = useState([]);
@@ -59,7 +59,7 @@ const ImagesList = () => {
         return (
             <div {...attrs}>
                 <svg className="ibexa-icon">
-                    <use xlinkHref="/bundles/ibexaplatformicons/img/all-icons.svg#caret-back"></use>
+                    <use xlinkHref={window.ibexa.helpers.icon.getIconPath('caret-back')}></use>
                 </svg>
             </div>
         );
@@ -77,7 +77,7 @@ const ImagesList = () => {
         return (
             <div {...attrs}>
                 <svg className="ibexa-icon">
-                    <use xlinkHref="/bundles/ibexaplatformicons/img/all-icons.svg#caret-next"></use>
+                    <use xlinkHref={window.ibexa.helpers.icon.getIconPath('caret-next')}></use>
                 </svg>
             </div>
         );

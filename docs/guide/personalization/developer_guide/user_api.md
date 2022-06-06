@@ -17,16 +17,16 @@ If you plan to import user metadata, contact support@ibexa.co to ensure that you
 
 Use the following request to fetch user attributes for the specified users:
 
-`GET: https://import.yoochoose.net/api/[customerid]/[source]/user/[userid[,userid[...]]]`
+`GET: https://import.perso.ibexa.co/api/[customerid]/[source]/user/[userid[,userid[...]]]`
 
-User data is returned as an [XML object](#metadata-object-format).
+User data is returned as an XML object.
 Make sure that you use the **HTTP Content-Type=text/xml** header.
 
 ## POST requests
 
 Use the following request to update the specified user's attribute set:
 
-`POST: https://import.yoochoose.net/api/[customerid]/[source]/user`
+`POST: https://import.perso.ibexa.co/api/[customerid]/[source]/user`
 
 ## Request parameters
 
@@ -34,7 +34,7 @@ For the requests to function, you must provide the following parameters:
 
 |Parameter|Description|Value|
 |---|---|---|
-|`customerid`|A customer ID (for example "00000"), as defined when [enabling Personalization](../enabling_personalization.md#set-up-customer-credentials). Can be used to identify a website in installations that [hosts multiple SiteAccesses]([[= user_doc =]]/personalization/use_cases/#hosting-multiple-websites).|alphanumeric|
+|`customerid`|A customer ID (for example "00000"), as defined when [enabling Personalization](../enabling_personalization.md#set-up-customer-credentials). Can be used to identify a website in installations that [hosts multiple SiteAccesses]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting).|alphanumeric|
 |`source`|An ID of the source of the specified user's metadata.|alphanumeric|
 |`userid`|An ID of the tracked user in the website (for example, an internal customer code, a session code or a cookie for anonymous users.|alphanumeric|
   
@@ -54,9 +54,9 @@ for the same user/source pair.
 
 If you need to get all the available attributes for all sources, apply the `allSources` query string parameter, for example:
 
-`GET: https://import.yoochoose.net/api/00000/facebook/user/CUSTOMER_1234?allSources=true`
+`GET: https://import.perso.ibexa.co/api/00000/facebook/user/CUSTOMER_1234?allSources=true`
 
-When you do that, and the source returned is different from the source passed in the request (in this case, "facebook"), an additional attribute `source` is added to the [XML object](#metadata-object-format).
+When you do that, and the source returned is different from the source passed in the request (in this case, "facebook"), an additional attribute `source` is added to the XML object.
 
 ##### User ID
 
@@ -71,7 +71,7 @@ For example:
 | `Customer<12.2014>` | `Customer%3C12.2014%3E` | `Customer&lt;12.2014&gt;` |
 
 
-## Handle responses
+## Responses
 
 ### Response object format
 

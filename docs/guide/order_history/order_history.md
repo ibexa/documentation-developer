@@ -10,8 +10,7 @@ Order history supports different document types:
 - delivery note
 - credit memo
 
-Order history is available in the user menu under **Your documents**,
-and through the `/orderhistory` route.
+Order history is available through the `/orderhistory` route.
 
 To access order history, the User must have the `siso_policy/orderhistory_view` Policy.
 

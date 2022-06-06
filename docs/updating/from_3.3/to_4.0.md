@@ -1,5 +1,5 @@
 ---
-latest_tag: '4.0.3'
+latest_tag: '4.0.7'
 ---
 
 # Update from v3.3.x to v4.0
@@ -44,8 +44,14 @@ First, run:
 
 ### Update Flex server
 
+The `flex.ibexa.co` Flex server has been disabled.
+If you are using v4.0.2 or earlier v4.0 version, you need to update your Flex server.
+
+To do it, in your `composer.json` check whether the `https://flex.ibexa.co` endpoint is still listed in `extra.symfony.endpoint`. 
+If so, replace it with the new [`https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main`](https://github.com/ibexa/website-skeleton/blob/v4.0.7/composer.json#L98) endpoint.
+
 If your `composer.json` still uses the `https://flex.ibexa.co` endpoint in `extra.symfony.endpoint`, 
-replace it with the new [`https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main`](https://github.com/ibexa/website-skeleton/blob/v4.0.3/composer.json#L96) endpoint.
+replace it with the new [`https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main`](https://github.com/ibexa/website-skeleton/blob/v4.0.7/composer.json#L96) endpoint.
 
 You can do it manually, or by running the following command:
 
@@ -102,13 +108,32 @@ php bin/console cache:clear
 
 Apply the following database update script:
 
-``` bash
-mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.latest-to-4.0.0.sql
-```
+### Ibexa DXP
 
-``` bash
-psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.latest-to-4.0.0.sql
-```
+=== "MySQL"
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.latest-to-4.0.0.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.latest-to-4.0.0.sql
+    ```
+
+### Ibexa Open Source
+
+If you have no access to Ibexa DXP's `ibexa/installer` package, apply the following database upgrade script:
+
+=== "MySQL"
+    ``` sql
+    ALTER TABLE `ezcontentclassgroup` ADD COLUMN `is_system` BOOLEAN NOT NULL DEFAULT false;
+    ```
+
+=== "PostgreSQL"
+    ``` sql
+    ALTER TABLE "ezcontentclassgroup" ADD "is_system" boolean DEFAULT false NOT NULL;
+    ```
 
 ### Prepare new database tables
 

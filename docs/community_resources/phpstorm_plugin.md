@@ -28,7 +28,7 @@ You can also install the plugin manually from a `.jar` file:
 2\. In PhpStorm settings/preferences (depending on your system), select **Plugins** > (gear icon) > **Install plugin from Disk...**
 and select the downloaded file.
 
-## Plugin configuration
+## Configuration
 
 Plugin configuration is available in PhpStorm settings/preferences (depending on your system), 
 under **PHP** > **Frameworks** > **Ibexa DXP**.
@@ -89,6 +89,7 @@ The plugin provides the following built-in file templates:
 | Field Type Indexable | Class implementing `Ibexa\Contracts\Core\FieldType\Indexable` |
 | Field value form mapper | Class implementing `Ibexa\Contracts\ContentForms\FieldType\FieldValueFormMapperInterface` |
 | Field value object | Field Type value class |
+| Installer Provisioner | Class implementing `\Ibexa\Installer\Provisioner\ProvisionerInterface`  |
 | Menu configuration event subscriber | Event subscriber for `Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent::MAIN_MENU`  |
 | Policy provider | Class implementing `Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\PolicyProviderInterface` |
 | Policy provider (YAML) | Policy provider class based on `Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider` |
@@ -244,5 +245,5 @@ See [related JetBrains issue](https://youtrack.jetbrains.com/issue/WI-61330) for
 
 ## Feedback
 
-You can report bugs and feature suggestions on https://issues.ibexa.co/
-using the "PHPStorm plugin" component, or on the `#phpstorm-plugin` Ibexa Community Slack channel.
+You can report bugs and feature suggestions on [https://issues.ibexa.co/](https://issues.ibexa.co/issues/?jql=project%20%3D%20IBX%20AND%20component%20%3D%20%22PHPStorm%20plugin%22) by
+selecting the "PHPStorm plugin" component, or on the `#phpstorm-plugin` Ibexa Community Slack channel.

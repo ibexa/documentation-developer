@@ -41,7 +41,7 @@ Each type of Form field can have validators of the following types:
 - `upload_size`
 - `extensions`
 
-## Add mapper
+## Create mapper
 
 New types of fields require a mapper which implements the `Ibexa\Contracts\FormBuilder\FieldType\Field\FieldMapperInterface` interface.
 

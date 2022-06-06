@@ -160,7 +160,7 @@ You can for example use `simple_block_field`, `simple_inline_field` or `field_at
 
     To be able to reuse built-in blocks, your template must inherit from `@IbexaCore/content_fields.html.twig`.
 
-### Registering your template
+### Registering a template
 
 If you don't use the [design engine](../guide/content_rendering/design_engine/design_engine.md) or you want to have separate templates per Field Type and/or SiteAccess,
 you can register a template with the following configuration:

@@ -2,9 +2,9 @@
 
 [ibexa/solr](https://github.com/ibexa/solr) aims to be a transparent drop-in replacement for the SQL-based Legacy search engine powering [[= product_name =]] Search API by default. When you enable Solr and re-index your content, all your existing Search queries using `SearchService` will be powered by Solr automatically. This allows you to scale up your [[= product_name =]] installation and be able to continue development locally against SQL engine, and have a test infrastructure, Staging and Prod powered by Solr. This removes considerable load from your database. See [further information on the architecture of [[= product_name =]]](../architecture.md).
 
-## How to set up Solr search engine
+## Set up Solr search engine
 
-### Step 1: Configuring and starting Solr
+### Step 1: Configure and start Solr
 
 The example presents a configuration with a single core. For configuring Solr in other ways, including examples, see [Solr Cores and `solr.xml`](https://cwiki.apache.org/confluence/display/solr/Solr+Cores+and+solr.xml) and [core administration](https://wiki.apache.org/solr/CoreAdmin).
 
@@ -79,7 +79,7 @@ Execute the script from the [[= product_name =]] root directory for further info
 ./vendor/ibexa/solr-search-engine/bin/generate-solr-config.sh --help
 ```
 
-### Step 2: Configuring the bundle
+### Step 2: Configure the bundle
 
 The Solr Search Engine Bundle can be configured in many ways. The config further below assumes you have parameters set up for Solr DSN and search engine *(however both are optional)*, for example:
 
@@ -242,7 +242,7 @@ ibexa_solr:
 
 Obviously, you should pass credentials for every configured and HTTP Basic secured Solr core. Configuration for multi core setup is exactly the same.
 
-### Step 3: Configuring repository with the specific search engine
+### Step 3: Configure repository with the specific search engine
 
 The following is an example of configuring Solr search engine, where `connection` name is same as in the example above, and engine is set to `solr`:
 
@@ -290,7 +290,7 @@ Here are the most common issues you may encounter:
     - In general make sure to run indexing using the prod environment to avoid debuggers and loggers from filling up memory.
     - Flysystem: You can find further info in https://jira.ez.no/browse/EZP-25325.
 
-## Configuring the Solr Search Engine Bundle
+## Solr configuration
 
 ### Boost configuration
 
@@ -431,13 +431,13 @@ ibexa_solr:
                     article: 2
 ```
 
-## Configuring Solr Replication (master/slave)
+### Configuring Solr Replication (master/slave)
 
 !!! note
 
     The configuration below has been tested on Solr 7.7.
 
-### Configuring Master for replication
+#### Configuring Master for replication
 
 First you need to change the core configuration in `solrconfig.xml` (for example `*/opt/solr/server/ez/collection1/conf/solrconfig.xml`).
 You can copy and paste the code below before any other `requestHandler` section.
@@ -464,7 +464,7 @@ Then restart the master with:
 sudo su - solr -c "/opt/solr/bin/solr restart"
 ```
 
-### Configuring Slave for replication
+#### Configuring Slave for replication
 
 You have to edit the same file on the slave server, and use the code below:
 

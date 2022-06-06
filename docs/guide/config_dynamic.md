@@ -54,7 +54,7 @@ Both `getParameter()` and `hasParameter()` can take three arguments:
 2. `$namespace` - your application namespace, `myapp` in the previous example. If null, the default namespace will be used, which is `ibexa.site_access.config` by default.
 3. `$scope` - a SiteAccess name. If null, the current SiteAccess will be used.
 
-## Inject the ConfigResolver in your services
+## Inject ConfigResolver into services
 
 You can use the ConfigResolver in your own services whenever needed.
 To do this, inject the `ibexa.config.resolver` service:

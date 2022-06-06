@@ -3,7 +3,7 @@
 Browsing the content structure and selecting content from the Repository uses the module Universal Discovery Widget (UDW). UDW has an interactive interface
 which allows you to create, move or copy Content items.
 
-## How to use UDW?
+## Using UDW
 
 UDW requires that you provide configuration by using the `ibexa_udw_config` Twig helper. This configuration must be spread to the props of the component itself.
 
@@ -42,7 +42,7 @@ const config = /* fetch the config somewhere */;
 <UniversalDiscoveryModule {...props} {...config} />
 ```
 
-## Configuration
+## UDW configuration
 
 You can configure UDW in the [`universal_discovery_widget.yaml`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/config/universal_discovery_widget.yaml) file.
 
@@ -59,12 +59,12 @@ There you can set the following properties:
 |active_sort_clause</br>`activeSortClause`|DatePublished</br>ContentName|no|Sort Clause by which children in the Content Tree will be sorted.|
 |active_sort_order</br>`activeSortOrder`|ascending</br>descending|no|Sorting order of the children in the Content Tree.|
 |active_tab</br>`activeTab`|browse</br>search</br>bookmarks|no|Starting tab in the UDW.|
-|active_view</br>`activeView`|finder</br>grid|no|Starting view in the UDW.|
+|active_view</br>`activeView`|finder</br>grid</br>tree|no|Starting view in the UDW.|
 |allow_redirects</br>`allowRedirects`|true</br>false|yes|Allows to redirect content from the UDW tab to another page, for example, to Content Edit page.|
 |selected_locations</br>`selectedLocations`|[]</br>[locationId]|no|Location that will be selected automatically.|
 |allow_confirmation</br>`allowConfirmation`|true</br>false|yes|Shows confirmations buttons in the UDW. If set to false, it will not be possible to confirm selection.|
 
-### Content on the Fly Group
+### Content on the Fly group
 
 |YML</br>React props|Values|Required|Definition|
 |-------------------|------|--------|----------|
@@ -75,7 +75,7 @@ There you can set the following properties:
 |hidden</br>`hidden`|true</br>false|yes|Content on the Fly visibility.|
 |auto_confirm_after_publish</br>`autoConfirmAfterPublish`|true</br>false|yes|If set to `true` UDW will be automatically closed after publishing the content.|
 
-### Tabs Config Group
+### Tabs config group
 
 General configuration for tabs, for example, browse, search, bookmarks.
 

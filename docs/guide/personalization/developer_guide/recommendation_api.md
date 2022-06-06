@@ -74,7 +74,7 @@ For more information, see [Submodels]([[= user_doc =]]/personalization/recommend
 |attribute key|`&color=red`|Applicable if a submodel with the same name and value is configured.|string|
 |`userattribute`|gender|If defined, the Personalization server tries to find the attribute value for the current user and, if found, "prefers" recommendations that are typically followed by users with the same value of the attribute. The default value is null.|string, csv list|
 
-## Handle responses
+## Responses
 
 The recommendation request returns information about the currently used context 
 items and an array of recommendation objects in JSON or JSONP format. 
@@ -125,8 +125,8 @@ A JSON response can look like this:
       },
       "category" : "Women/Shirts", // Provided only if category suggestion is requested
       "links" : {
-         "clickRecommended" : "//event.yoochoose.net/api/[customerID]/clickrecommended/[someuser]/[itemtype]/[itemid]?scenario=<scenario>&...", // A link that is provided if User ID is available. Link is fired when this recommendation is clicked.
-         "rendered" : "//event.yoochoose.net/..." // A link used to inform the engine that this recommendation was shown to the user
+         "clickRecommended" : "//event.perso.ibexa.co/api/[customerID]/clickrecommended/[someuser]/[itemtype]/[itemid]?scenario=<scenario>&...", // A link that is provided if User ID is available. Link is fired when this recommendation is clicked.
+         "rendered" : "//event.perso.ibexa.co/..." // A link used to inform the engine that this recommendation was shown to the user
       },
       "attributes" : [  // Only values that were requested in the query string are provided
          {  "key": "title",
@@ -182,8 +182,8 @@ jsonpCallback({
       },
       "category" : "Women/Shirts",
       "links" : {
-         "clickRecommended" : "//event.yoochoose.net/api/[customerID]/clickrecommended/[someuser]/[itemtype]/[itemid]?scenario=<scenario>&...",
-         "rendered" : "//event.yoochoose.net/..."
+         "clickRecommended" : "//event.perso.ibexa.co/api/[customerID]/clickrecommended/[someuser]/[itemtype]/[itemid]?scenario=<scenario>&...",
+         "rendered" : "//event.perso.ibexa.co/..."
       },
       "attributes" : [
          {  "key": "title",

@@ -1,6 +1,6 @@
 # Elasticsearch extensibility
 
-## Indexing custom data
+## Index custom data
 
 [Elasticsearch](elastic.md) indexes content and Location data out of the box.
 Besides what is indexed automatically, you can add additional data to the Elasticsearch index.
@@ -71,7 +71,7 @@ services:
             - { name: kernel.event_subscriber }
 ```
 
-## Manipulating the query
+## Manipulate the query
 
 You can customize the search query before it is executed.
 To do it, subscribe to `Ibexa\Contracts\ElasticSearchEngine\Query\Event\QueryFilterEvent`.
@@ -130,7 +130,7 @@ services:
             - { name: kernel.event_subscriber }
 ```
 
-## Custom Search Criterion
+## Create custom Search Criterion
 
 To provide support for a custom Search Criterion, you need to implement `CriterionVisitor`:
 
@@ -215,7 +215,7 @@ services:
             - { name: ibexa.elasticsearch.query.location.criterion_visitor }
 ```
 
-## Custom Sort Clause
+## Create custom Sort Clause
 
 To create a custom Sort Clause for use with Elasticsearch,
 implement `SortClauseVisitor`
@@ -289,7 +289,7 @@ services:
             - { name: ibexa.elasticsearch.query.location.sort_clause_visitor }
 ```
 
-## Custom Aggregation
+## Create custom Aggregation
 
 To create a custom aggregation for use with Elasticsearch, create an aggregation class.
 In the following example, an aggregation groups Location query results according to the Location priority:
@@ -388,7 +388,7 @@ If you are using a different type of aggregation than range, you can also use re
 
 If you have a more complex use case, you need to create your own visitor and extractor.
 
-### Custom aggregation visitor
+### Create aggregation visitor
 
 The aggregation visitor must implement `Ibexa\Contracts\ElasticSearchEngine\Query\AggregationVisitor`:
 
@@ -455,7 +455,7 @@ The `supports()` method checks whether the provided aggregation is of the suppor
 
 The `visit()` method returns an array of results.
 
-### Custom result extractor
+### Create result extractor
 
 You also need to create a result extractor, implementing `Ibexa\Contracts\ElasticSearchEngine\Query\AggregationResultExtractor`,
 that transforms raw aggregation results from Elasticsearch into `AggregationResult` objects:
@@ -519,137 +519,3 @@ services:
 ```
 
 For content-based aggregations, use the `ibexa.elasticsearch.query.content.aggregation_visitor.` and `ibexa.elasticsearch.query.content.aggregation_result_extractor` tags respectively.
-
-## Custom Facet
-
-!!! caution "Deprecated"
-
-    Search Facets are deprecated since version v3.2. Use a custom [Aggregation](../../api/public_php_api_search.md#aggregation) instead.
-
-To create a custom search Facet for use with Elasticsearch, create a Facet class and a Facet builder.
-You also need to add a visitor and a result extractor.
-
-The following example shows how to create a Facet that filters results according to their Content Type group.
-
-`src/Query/ContentTypeGroupFacet`:
-
-``` php
-<?php
-
-declare(strict_types=1);
-
-namespace App\Query\Facet;
-
-use Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet;
-
-/**
- * This class holds counts of content with content type.
- */
-final class ContentTypeGroupFacet extends Facet
-{
-    /**
-     * An array with ContentTypeGroup::$id as key and count of matching content objects as value.
-     *
-     * @var int[]
-     */
-    public $entries = [];
-}
-```
-
-`src/Query/ContentTypeGroupFacetBuilder`:
-
-``` php
-<?php
-
-declare(strict_types=1);
-
-namespace App\Query\FacetBuilder;
-
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder;
-
-final class ContentTypeGroupFacetBuilder extends FacetBuilder
-{
-}
-```
-
-`src/Query/ContentTypeGroupFacetBuilderVisitor`:
-
-``` php
-<?php
-
-declare(strict_types=1);
-
-namespace App\Query\FacetBuilder;
-
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder;
-use Ibexa\Contracts\ElasticSearchEngine\Query\FacetBuilderVisitor;
-use Ibexa\Contracts\ElasticSearchEngine\Query\LanguageFilter;
-
-/**
- * Example (simplified) visitor implementation for ContentTypeGroupFacetBuilder
- */
-final class ContentTypeGroupFacetBuilderVisitor implements FacetBuilderVisitor
-{
-    public function supports(FacetBuilder $builder, LanguageFilter $languageFilter): bool
-    {
-        return $builder instanceof ContentTypeGroupFacetBuilder;
-    }
-
-    public function visit(FacetBuilderVisitor $dispatcher, FacetBuilder $builder, LanguageFilter $languageFilter): array
-    {
-        return [
-            'terms' => [
-                'field' => 'content_type_group_id_mid',
-            ],
-        ];
-    }
-}
-```
-
-`src/Query/ContentTypeGroupFacetResultExtractor`:
-
-``` php
-<?php
-
-declare(strict_types=1);
-
-namespace App\Query\FacetBuilder;
-
-use App\Query\Facet\ContentTypeGroupFacet;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\FacetBuilder;
-use Ibexa\Contracts\Core\Repository\Values\Content\Search\Facet;
-use Ibexa\Contracts\ElasticSearchEngine\Query\FacetResultExtractor;
-
-final class ContentTypeGroupFacetResultExtractor implements FacetResultExtractor
-{
-    public function supports(FacetBuilder $builder): bool
-    {
-        return $builder instanceof ContentTypeGroupFacetBuilder;
-    }
-
-    public function extract(FacetBuilder $builder, array $data): Facet
-    {
-        $facet = new ContentTypeGroupFacet();
-        $facet->name = $builder->name;
-        foreach ($data['buckets'] as $bucket) {
-            $facet->entries[$bucket['key']] = $bucket['doc_count'];
-        }
-
-        return $facet;
-    }
-}
-```
-
-Remember to register the facet classes as services:
-
-``` yaml
-services:
-    App\Query\FacetBuilder\ContentTypeGroupFacetBuilderVisitor:
-        tags:
-            - { name: ibexa.elasticsearch.query.content.facet_builder_visitor }
-            - { name: ibexa.elasticsearch.query.location.facet_builder_visitor }
-
-    App\Query\FacetBuilder\ContentTypeGroupFacetResultExtractor:
-        tags:
-            - { name: ibexa.search.elasticsearch.query.facet_result.extractor }
-```

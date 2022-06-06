@@ -102,3 +102,31 @@ post:
                 description: No content - the given customer group is deleted.
             401:
                 description: Error - the user is not authorized to delete this customer group.
+
+/view:
+    post:
+        displayName: Filter customer groups
+        description: Executes a query and returns a View including the results. The View input reflects the criteria model of the public API.
+        headers:
+            Accept:
+                description: The view in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CustomerGroupView+xml
+                    application/vnd.ibexa.api.CustomerGroupView+json
+            Content-Type:
+                description: The view input in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CustomerGroupViewInput+xml
+                    application/vnd.ibexa.api.CustomerGroupViewInput+json
+        body:
+            application/vnd.ibexa.api.CustomerGroupViewInput+json:
+                type: CustomerGroupViewInput
+                example: !include examples/product/catalog/customer_groups/POST/CustomerGroupViewInput.json.example
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.CustomerGroupView+json;
+                        type: CustomerGroupView
+                        example: !include examples/product/catalog/customer_groups/POST/CustomerGroupView.json.example
+            400:
+                description: Error - the input does not match the input schema definition.

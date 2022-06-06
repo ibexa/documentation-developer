@@ -1,0 +1,10 @@
+ibexa:
+    system:
+        site:
+            content_view:
+                full:
+                    catalog:
+                        template: 'full/catalog.html.twig'
+                        match:
+                            Identifier\ContentType: 'ses_productcatalog'
+                        controller: App\Controller\ProductListController::showProductsAction

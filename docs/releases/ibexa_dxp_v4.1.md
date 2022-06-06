@@ -8,35 +8,76 @@
 
 ## Notable changes
 
-### Product Catalog integration with the transactional system
+### Product catalog enhancements
 
-With transactional system integration, it is now possible to sell products that have been defined in the Product Catalog.
+With this release, product catalog brings new PHP APIs, productivity boost from new product search criteria and sort classes, advanced filtering in REST endpoints, auto-generated identifiers, product list sorting, and more.
+
+You can now use [advanced filtering on products, product types, attributes, and others in REST endpoints](https://doc.ibexa.co/en/4.1/api/rest_api_reference/rest_api_reference.html#product-catalog-filter-currencies).
+
+Currencies, regions and customer groups can now be resolved automatically in the PHP API
+based on the current context (for example, selected locale).
+
+A new Color attribute enables adding a product attribute that uses the color picker to select a precise color.
+
+The product catalog is now fully integrated with the transactional system integration, enabling a full purchasing process.
   
 ### Measurement Field Type and attribute
 
-With the new Measurement Field Type users can now describe products and their attributes with different types and units of measure.
+With the new Measurement Field Type users can now add a Measurement Field, with different pre-built units, to content:
+
+![Adding a Measurement Field to Content Type definition](img/4.1_measurement_ft.png)
+
+The new Measurement product attribute enables describing products with different types and units of measurement:
+
+![Adding measurement attribute values to product](img/4.1_measurement_attribute.png)
 
 ### Dynamic targeting block
 
-Dynamic targeting block for the Page builder provides recommendation items based on users related to the configured Segments.
+[Dynamic targeting block](https://doc.ibexa.co/projects/userguide/en/4.1/site_organization/working_with_page/#dynamic-targeting-block) for the Page Builder provides recommendation items based on users related to the configured Segments.
+
+![Dynamic targeting block](img/4.1_page_builder_dynamic_targeting.png)
+
+### User interface improvements
+
+Several improvements to the Back Office interface enhance the user experience.
+These include:
+
+- "Go to top" button
+- new DateTime widget
+- view switcher between lists, grids and calendar.
+
+Several new options have been added to the Content Tree's contextual menu, including Hide/Reveal, Create, Edit and Add translation, Add/Remove from bookmarks.
+
+![New Content Tree options](img/4.1_content_tree.png)
 
 ## Other changes
 
-### User Interface improvements
+### GraphlQL
 
-Several improvements to the Back Office user interface improve the user experience, including the "Go to top” button, a new DateTime widget, or a View Switcher between lists, grids and calendar, as well as several new options in the Content Tree’s contextual menu.
+Product catalog is now fully covered in GraphQL API.
 
-### Product Catalog enhancements
+### Taxonomy language switcher
 
-With this release, Product Catalog brings new PHP APIs, productivity boost from new product search criteria and sort classes, advanced filtering in REST endpoints, auto-generated identifiers, product list sorting, and more.
+A language switcher in Taxonomy view enables quick switching between different translations of the tag tree.
+
+![Language switcher in Taxonomy tree](img/4.1_taxonomy_lang_switcher.png)
+
+### Image optimization
+
+Images modified in the Image Editor are now optimized for reduced file size.
+You can use external libraries to [optimize different image formats](https://doc.ibexa.co/en/4.1/guide/images/#image-optimization).
 
 ### Expanded data migrations
 
 [Data migration](../guide/data_migration/data_migration.md) now covers additional objects:
 
-- [database settings](../guide/data_migration/importing_data.md#settings)
-- [segments](../guide/data_migration/importing_data.md#segments)
-- [prices](../guide/data_migration/importing_data.md#prices) with `create` mode
+- [database settings](https://doc.ibexa.co/en/4.1/guide/data_migration/importing_data/#settings)
+- [segments](https://doc.ibexa.co/en/4.1/guide/data_migration/importing_data/#segments)
+- [prices](https://doc.ibexa.co/en/4.1/guide/data_migration/importing_data/#prices) with `create` mode
+- [settings](https://doc.ibexa.co/en/4.1/guide/data_migration/importing_data/#settings)
+
+Data migration now also offers a locking capability,
+which prevents multiple processes from executing the same migration and causing duplicated records.
 
 ## Full changelog
 

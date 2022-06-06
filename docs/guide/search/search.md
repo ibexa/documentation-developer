@@ -2,13 +2,44 @@
 
 [[= product_name =]] exposes a very powerful [Search API](../../api/public_php_api_search.md), allowing both full-text search and querying the content Repository using several built-in Search Criteria and Sort Clauses. These are supported across different search engines, allowing you to plug in another search engine without changing your code.
 
+## Search engines
+
 Currently, the following search engines exist in their own [[= product_name =]] Bundles:
 
-1.  [Legacy search engine](search_engines.md#legacy-search-engine-bundle), a database-powered search engine for basic needs.
+1.  [Legacy search engine](#legacy-search-engine), a database-powered search engine for basic needs.
 1.  [Solr](solr.md), an integration providing better overall performance, much better scalability and support for more advanced search capabilities.
 1.  [Elasticsearch](elastic.md), available for [[= product_name_exp =]] customers, a document-oriented engine providing even better performance and scalability.
 
-### Feature comparison
+### Legacy search engine
+
+Legacy search engine is the default search engine, it is SQL-based and uses Doctrine's database connection.
+Its connections are defined in the same way as for storage engine, and no further specific configuration is needed.
+
+!!! tip
+
+    The features and performance of Legacy search engine are limited.
+    If you have specific search or performance needs you should look towards using [Solr](solr.md)
+    or [Elasticsearch](elastic.md).
+    
+    Using the Legacy search engine disables most shop features, such as product search.
+
+#### Configuring Repository with Legacy search engine
+
+Search can be configured independently from storage, and the following configuration example shows both the default values, and how you configure legacy as the search engine:
+
+``` yaml
+ibexa:
+    repositories:
+        main:
+            storage:
+                engine: legacy
+                connection: default
+            search:
+                engine: legacy
+                connection: default
+```
+
+### Search engine comparison
 
 | Feature | Elasticsearch | Apache Solr | Legacy Search Engine (SQL) |
 | --- | --- | --- | --- |
@@ -41,44 +72,6 @@ which will be used to translate the value object into a storage-specific search 
 
 As an example take a look at the [`ContentId` Criterion handler](https://github.com/ibexa/core/blob/main/src/lib/Search/Legacy/Content/Common/Gateway/CriterionHandler/ContentId.php) in Legacy search engine
 or [`ContentId` Criterion handler](https://github.com/ibexa/solr-search-engine/blob/main/lib/Query/Common/CriterionVisitor/ContentIdIn.php) in Solr search engine.
-
-## Search Facet reference
-
-!!! caution "Deprecated"
-
-    Search Facets are deprecated since version v3.2.
-    
-    Use [Aggregation API](../../api/public_php_api_search.md#aggregation) instead.
-
-Search Facets enable you to apply [faceted search](../../api/public_php_api_search.md#faceted-search)
-to get a count of search results for each Facet value.
-
-### Available FacetBuilders
-
-#### ContentTypeFacetBuilder
-
-Arguments:
-
-- `name`: `string`
-- `minCount` (optional): `integer`
-- `limit` (optional): `integer`
-
-#### SectionFacetBuilder
-
-Arguments:
-
-- `name`: `string`
-- `minCount` (optional): `integer`
-- `limit` (optional): `integer`
-
-#### UserFacetBuilder
-
-Arguments:
-
-- `name`: `string`
-- `type`: `string` [`OWNER = 'owner'`, `GROUP = 'group'`, `MODIFIER = 'modifier'`]
-- `minCount` (optional): `integer`
-- `limit` (optional): `integer`
 
 ## Custom Criteria and Sort Clauses
 
@@ -118,7 +111,7 @@ Content Search explicitly refuses to accept Criteria and Sort Clauses implementi
 - `Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Location`
 - `Ibexa\Contracts\Core\Repository\Values\Content\SortClause\Criterion\Location`
 
-#### How to configure your own Criterion and Sort Clause Handlers
+#### Configuring custom Criterion and Sort Clause handlers
 
 After you have implemented your Criterion / Sort Clause and its handler, you will need to configure the handler for the [service container](../../api/service_container.md) by using dedicated service tags for each type of search. Doing so will automatically register it and handle your Criterion / Search Clause when it is given as a parameter to one of the Search Service methods.
 
@@ -147,7 +140,7 @@ Available tags for Sort Clause handlers in Legacy Storage Engine are:
 
     For more information about the Criteria and Sort Clauses that are supported when searching for trashed Content items, see [Searching in trash reference](search_in_trash_reference.md).
 
-##### Example of registering a ContentId Criterion handler, common for both Content and Location Search
+The following example shows how to register a ContentId Criterion handler, common for both Content and Location Search:
 
 ``` yaml
 services:
@@ -158,7 +151,7 @@ services:
           - {name: ibexa.search.legacy.gateway.criterion_handler.location}
 ```
 
-##### Example of registering a Depth Sort Clause handler for Location Search
+The following example shows how to register a Depth Sort Clause handler for Location Search:
 
 ``` yaml
 Ibexa\Core\Search\Legacy\Content\Location\Gateway\SortClauseHandler\Location\Depth:

@@ -8,7 +8,7 @@ This awareness is accomplished by means of cache tagging. All supported reverse 
     For security reasons this header, and other internal cache headers,
     are stripped from output in production by the reverse proxy (in VCL for Varnish and Fastly).
 
-## Understanding cache tags
+## Cache tags
 
 Understanding tags is the key to making the most ofIbexa's HTTP cache.
 
@@ -63,7 +63,7 @@ You may also see `502 Headers too long` errors, and webserver refusing to serve 
 
 You can solve this issue in one of the following ways:
 
-#### A. Configure allowing larger headers
+#### A. Allow larger headers
 
 Varnish configuration:
 
@@ -103,7 +103,7 @@ parameters:
     ibexa.http_cache.tags.header_reduced_ttl: 7200
 ```
 
-## Response tagging done with content view
+## Response tagging with content view
 
 For content views response tagging is done automatically, and cache system outputs headers as follows:
 
@@ -128,7 +128,7 @@ If the given content has several Locations, you can see several `l<location-id>`
     - `ResponseCacheConfigurator` applies SiteAccess settings for enabled/disabled cache and default TTL.
     - `DispatcherTagger` dispatches the built-in ResponseTaggers which generate the tags as described above.
 
-### The ResponseConfigurator
+### ResponseConfigurator
 
 A `ReponseCacheConfigurator` configures an HTTP Response object, makes the response public, adds tags and sets the shared max age. 
 It is provided to `ReponseTaggers` that use it to add the tags to the response.
@@ -140,7 +140,7 @@ The `ConfigurableResponseCacheConfigurator` (`Ibexa\HttpCache\ResponseConfigurat
 - Delegator taggers - extract another value or several from the given value and pass it on to another tagger. For example, a `ContentView` is covered both by the `ContentValueViewTagger` and `LocationValueViewTagger`, where the first extracts the Content from the `ContentView` and passes it to the `ContentInfoTagger`.
 - Value taggers - extract the `Location` and pass it on to the `LocationViewTagger`.
 
-## The DispatcherTagger
+## DispatcherTagger
 
 Accepts any value and passes it on to every tagger registered with the service tag `ibexa.cache.http.response.tagger`.
 
@@ -250,15 +250,13 @@ See [Tagging from Twig Templates](https://foshttpcachebundle.readthedocs.io/en/l
 
 ## Tag purging
 
-### Default purge tagging
+### Default tag purging
 
 `ibexa/http-cache` uses Repository API event subscribers to listen to events emitted on Repository operations,
 and depending on the operation triggers expiry on a specific tag or set of tags.
 All event subscribers can be found in `ezplatform-http-cache/src/EventSubscriber/CachePurge`.
 
-### Understanding when the different tags are purged
-
-#### Tags purged during a publish event
+### Tags purged on publish event
 
 Below is an example of a Content structure. The tags which the content view controller adds to each location are
 also listed
@@ -292,7 +290,7 @@ location for `[Child]`, any children of `[Child]`, any Location that relates to 
 Effectively, in this example HTTP cache for `[Parent1]` and `[Child]` will be cleared.
 
 
-#### Tags purged during a move event
+### Tags purged on move event
 
 With the same Content structure as above, the `[Child]` location is moved below `[Parent2]`.
 
@@ -354,7 +352,7 @@ bin/console fos:httpcache:invalidate:tag ez-all
     Similarly to purging from code, the tags you purge on, are prefixed to match the currently configured SiteAccess. 
     When you use this command in combination with multi-repository setup, make sure to specify SiteAccess argument.
 
-## Test and debug HTTP cache
+## Testing and debugging HTTP cache
 
 It is important to test your code in an environment which is as similar as your production environment as possible. That
 means that if only are testing locally using the default Symfony Reverse proxy when your are going to use Varnish or
@@ -388,9 +386,9 @@ HTTP/2 200
 x-cache: MISS
 ```
 
-### Find the Nginx endpoint on Platform.sh
+### Nginx endpoint on Platform.sh
 
-#### Find the Nginx endpoint for environments located on the grid
+#### Finding Nginx endpoint for environments located on the grid
 
 To find the Nginx point, first, you need to know in which region your project is located. To do that, go to the Platform.sh dashboard.
 To find a valid route, click an element in the **URLs** drop-down for the specified environment and select the route.
@@ -413,7 +411,7 @@ You can also use the [Platform.sh CLI command](https://docs.platform.sh/developm
     $ platform environment:info edge_hostname
 ```
 
-#### Find Nginx endpoint on dedicated cloud
+#### Finding Nginx endpoint on dedicated cloud
 
 If you have a dedicated 3-node cluster on Platform.sh, the procedure for getting the endpoint to environments that are 
 located on that cluster (`production` and sometimes also `staging`) is slightly different.
@@ -430,7 +428,7 @@ Next, use nslookup to find the IP:
    Address:  1.2.3.4
 ```
 
-### Fetch User Context Hash
+### Fetching user context hash
 
 As explained in [User Context Hash caching](context_aware_cache.md#user-context-hash-caching), the HTTP cache indexes the cache based on the
 user-context-hash. Users with the same user-context-hash here the same cache (as long as [[= product_name =]]
@@ -478,9 +476,9 @@ The output for this command should look similar to this:
 ```
 
 The header `X-User-Context-Hash` is the one of the interest here, but you may also note the `Surrogate-Key` which
-holds the [cache tags](#understanding-cache-tags).
+holds the [cache tags](#cache-tags).
 
-### Fetch the HTML response
+### Fetching HTML response
 
 Now you have the user-context-hash, and you can ask origin for the actual resource you are after:
 

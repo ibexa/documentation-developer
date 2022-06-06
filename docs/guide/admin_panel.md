@@ -1,4 +1,4 @@
-# Administration management
+# Admin panel
 
 Once you set up your environment you can start your work as an administrator.
 Your most useful tools can be found in **Admin Panel**.
@@ -75,7 +75,7 @@ Rules that give users access to different function in a module.
 You can restrict what user can do with Limitations.
 The available Limitations depend on the chosen Policy.
 When Policy has more than one Limitation, all of them have to apply.
-See [example below](#restrict-editing-to-part-of-the-tree).
+See [example use case](permission_use_cases.md#restrict-editing-to-part-of-the-tree).
 
 !!! note
 
@@ -154,7 +154,7 @@ Their specific use cases depend on your needs and the setup of your permission s
 ## Segments
 
 You can use Segments to display specific content to specific Users.
-They are used out of the box in the Targeting block in the Page.
+They are used out of the box in the Targeting and Dynamic targeting blocks in the Page.
 
 Segments are collected in Segment Groups:
 
