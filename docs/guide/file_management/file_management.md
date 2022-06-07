@@ -26,8 +26,13 @@ class FileController
 
 The IO API is organized around two types of handlers, both used by the IOService:
 
+<<<<<<< HEAD
 - `Ibexa\Core\IO\IOMetadataHandler`: stores and reads metadata (such as, validity, size)
 - `Ibexa\Core\IO\IOBinarydataHandler`: stores and reads the actual binary data
+=======
+- `Ibexa\Core\IO\IOMetadataHandler`: Stores and reads metadata (such as, validity, size)
+- `Ibexa\Core\IO\IOBinarydataHandler`: Stores and reads the actual binary data
+>>>>>>> 81ab46ab... Division into subchapters
 
 You can configure IO handlers using semantic configuration. IO handlers are configurable per SiteAccess.
 See the default configuration:
@@ -55,7 +60,11 @@ ibexa_io:
                 adapter: default
 ```
 
+<<<<<<< HEAD
 The default Flysystem adapter's directory is based on your site settings, and will automatically be set to `%webroot_dir%/$var_dir$/$storage_dir$` (for example, `/path/to/ibexa/public/var/site/storage`).
+=======
+The 'default' Flysystem adapter's directory is based on your site settings, and will automatically be set to `%webroot_dir%/$var_dir$/$storage_dir$` (for example, `/path/to/ibexa/public/var/site/storage`).
+>>>>>>> 81ab46ab... Division into subchapters
 
 #### Permissions of generated files
 
@@ -108,7 +117,11 @@ Flysystem is a file storage library for PHP. It provides one interface to intera
 
 ##### Adapter
 
+<<<<<<< HEAD
 The adapter is the *driver* used by Flysystem to read/write files. Adapters are declared using `oneup_flysystem`. A basic configuration might look like the following:
+=======
+The adapter is the "driver" used by Flysystem to read/write files. Adapters are declared using `oneup_flysystem`. A basic configuration might look like the following:
+>>>>>>> 81ab46ab... Division into subchapters
 
 ``` yaml
 oneup_flysystem:
@@ -122,8 +135,12 @@ To learn how to configure other adapters, see the [bundle's online documentation
 
 !!! note
 
+<<<<<<< HEAD
     Only the adapters are used here, not the filesystem configuration described in this documentation.
     
+=======
+Only the adapters are used here, not the filesystem configuration described in this documentation.
+>>>>>>> 81ab46ab... Division into subchapters
 
 ### DFS Cluster handler
 

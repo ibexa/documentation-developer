@@ -2,7 +2,11 @@
 
 ### IO URL decoration
 
+<<<<<<< HEAD
 By default, images and binary files that are referenced by the content is served from the same server as the application, for example `/var/site/storage/images/3/6/4/6/6463-1-eng-GB/kidding.png`.
+=======
+By default, images and binary files that are referenced by the content will be served from the same server as the application, for example `/var/site/storage/images/3/6/4/6/6463-1-eng-GB/kidding.png`.
+>>>>>>> 81ab46ab... Division into subchapters
 This is the default semantic configuration:
 
 ``` yaml
@@ -13,7 +17,11 @@ ibexa:
                 url_prefix: '$var_dir$/$storage_dir$'
 ```
 
+<<<<<<< HEAD
 `$var_dir$` and `$storage_dir$` are dynamic, [SiteAccess-aware settings](../configuration.md#dynamic-settings-injection), and is replaced by their values in the execution context.
+=======
+`$var_dir$` and `$storage_dir$` are dynamic, [SiteAccess-aware settings](../configuration.md#dynamic-settings-injection), and will be replaced by their values in the execution context.
+>>>>>>> 81ab46ab... Division into subchapters
 
 ## Using a static server for images
 
@@ -45,7 +53,11 @@ Any `BinaryFile` returned by the public API is prefixed with the value of this 
 Default value: `$var_dir$/$storage_dir$`
 Example: `/var/site/storage`
 
+<<<<<<< HEAD
 Used to configure the default URL decorator service (`ibexa.core.io.default_url_decorator`), used by all binary data handlers to generate the URI of loaded files. It is always interpreted as an absolute URI, meaning that unless it contains a scheme (`http://`, `ftp://`), is prepended with a `/`.
+=======
+Used to configure the default URL decorator service (`ibexa.core.io.default_url_decorator`), used by all binary data handlers to generate the URI of loaded files. It is always interpreted as an absolute URI, meaning that unless it contains a scheme (http://, ftp://), it will be prepended with a '/'.
+>>>>>>> 81ab46ab... Division into subchapters
 
 This setting is SiteAccess-aware.
 
@@ -53,13 +65,25 @@ This setting is SiteAccess-aware.
 
 #### URL decorators
 
+<<<<<<< HEAD
 A UrlDecorator decorates and undecorates a specified string (URL). It has two mirror methods: `decorate` and `undecorate`.
 
 Two implementations are provided: `Prefix`, and `AbsolutePrefix`. They both add a prefix to a URL, but `AbsolutePrefix` ensures that unless the prefix is an external URL, the result is prepended with `/`.
+=======
+A UrlDecorator decorates and undecorates a given string (URL). It has two mirror methods: `decorate` and `undecorate`.
+
+Two implementations are provided: `Prefix`, and `AbsolutePrefix`. They both add a prefix to a URL, but `AbsolutePrefix` will ensure that unless the prefix is an external URL, the result will be prepended with /.
+>>>>>>> 81ab46ab... Division into subchapters
 
 Three UrlDecorator services are introduced:
 
 - `Ibexa\Core\IO\UrlDecorator\AbsolutePrefix` used by the binary data handlers to decorate all URIs sent out by the API. Uses `AbsolutePrefix`.
+<<<<<<< HEAD
 - `Ibexa\Core\IO\UrlDecorator\Prefix` used through the UrlRedecorator by various legacy elements (Converter, Storage Gateway, etc.) to generate its internal storage format for URIs. Uses a `Prefix`, not an `AbsolutePrefix`, meaning that no leading `/` is added.
 
 In addition, a UrlRedecorator service, `Ibexa\Core\IO\UrlDecorator\Prefix`, uses both previously mentioned decorators to convert URIs between what is used on the new stack, and what format legacy expects (relative urls from the ezpublish root).
+=======
+- `Ibexa\Core\IO\UrlDecorator\Prefix` used via the UrlRedecorator by various legacy elements (Converter, Storage Gateway, etc.) to generate its internal storage format for URIs. Uses a `Prefix`, not an `AbsolutePrefix`, meaning that no leading / is added.
+
+In addition, a UrlRedecorator service, `Ibexa\Core\IO\UrlDecorator\Prefix`, uses both decorators above to convert URIs between what is used on the new stack, and what format legacy expects (relative urls from the ezpublish root).
+>>>>>>> 81ab46ab... Division into subchapters

@@ -1,6 +1,11 @@
 # Binary and Media download
+<<<<<<< HEAD
 
 Unlike image files, you can restrict files stored in BinaryFile or Media to certain user roles.
+=======
+(but it does not apply to image files).
+You can restrict files stored in BinaryFile or Media to certain user roles 
+>>>>>>> 81ab46ab... Division into subchapters
 As such, they are not publicly downloadable from disk, and are instead served by Symfony, using a custom route that runs the necessary checks. This route is automatically generated as the `url` property for those Field values.
 
 ## The `content/download` route
@@ -12,7 +17,11 @@ It also accepts optional query parameters:
 - `version`: the version number that the file must be downloaded for. Requires the `versionread` permission. If not specified, uses the published version.
 - `inLanguage`: The language the file should be downloaded in. If not specified, the most prioritized language for the SiteAccess will be used.
 
+<<<<<<< HEAD
 The [ibexa\_render\_field](../content_rendering/twig_function_reference/field_twig_functions.md#ibexa_render_field) Twig helper will by default generate a working link.
+=======
+The [ez\_render\_field](../content_rendering/twig_function_reference/field_twig_functions.md#ibexa_render_field) Twig helper will by default generate a working link.
+>>>>>>> 81ab46ab... Division into subchapters
 
 ## Download link generation
 
