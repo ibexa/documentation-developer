@@ -119,6 +119,9 @@ get:
             404:
                 description: Error - The Content Type does not exist.
     /fieldDefinitions:
+        get:
+            displayName: Get Field definition list
+            description: Returns all Field definitions of the provided Content Type.
         /{fieldDefinitionId}:
             get:
                 displayName: Get Field definition
@@ -211,6 +214,9 @@ get:
                 404:
                     description: Error - The Content Type draft does not exist.
         /fieldDefinitions:
+            get:
+                displayName: Get Field definition list
+                description: Returns all Field definitions of the provided Content Type Draft.
             post:
                 displayName: Add Content Type Draft Field definition
                 description: Creates a new Field definition for the given Content Type.
