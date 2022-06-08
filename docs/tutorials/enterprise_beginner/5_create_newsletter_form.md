@@ -2,9 +2,7 @@
 
 The final step of this tutorial assists you in adding to the home page a Form block for signing up to a newsletter.
 
-!!! caution "Known limitation"
-
-    To have multiple instances of the same form on one page, create several identical form blocks that you can then use. Otherwise you may encounter issues with submitting data from all forms at the same time.
+[[% include 'snippets/forms_caution.md' %]]
     
 ### Add a Form block
 
