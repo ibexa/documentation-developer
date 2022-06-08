@@ -199,41 +199,40 @@ displayName: eCommerce API
                                 type: Basket
                                 example: !include examples/commerce/basket/Basket.json.example
 
-        /{basketId}:
-            /line:
-                post:
-                    displayName: Add products to stored basket
-                    description: Adds products to the stored basket.
-                    body:
-                        application/vnd.ibexa.api.BasketLineData+json:
-                            type: BasketLineData
-                            example: !include examples/commerce/basket/current/lines/POST/BasketLineData.json.example
-                    responses:
-                        200:
-                            body:
-                                application/vnd.ibexa.api.Basket+json:
-                                    type: Basket
-                                    example: !include examples/commerce/basket/Basket.json.example
-                        400:
-                            body:
-                                application/vnd.ibexa.api.ValidationResponse+json:
-                                    type: ValidationResponse
-                                    example: !include examples/commerce/basket/current/lines/POST/ValidationResponse.json.example
+        /line:
+            post:
+                displayName: Add products to stored basket
+                description: Adds products to the stored basket.
+                body:
+                    application/vnd.ibexa.api.BasketLineData+json:
+                        type: BasketLineData
+                        example: !include examples/commerce/basket/current/lines/POST/BasketLineData.json.example
+                responses:
+                    200:
+                        body:
+                            application/vnd.ibexa.api.Basket+json:
+                                type: Basket
+                                example: !include examples/commerce/basket/Basket.json.example
+                    400:
+                        body:
+                            application/vnd.ibexa.api.ValidationResponse+json:
+                                type: ValidationResponse
+                                example: !include examples/commerce/basket/current/lines/POST/ValidationResponse.json.example
 
-            /line/{lineId}:
-                delete:
-                    displayName: Delete a line from a stored basket
-                    responses:
-                        200:
-                            body:
-                                application/vnd.ibexa.api.Basket+json:
-                                    type: Basket
-                                    example: !include examples/commerce/basket/Basket.json.example
-                        400:
-                            body:
-                                application/vnd.ibexa.api.ValidationResponse+json:
-                                    type: ValidationResponse
-                                    example: !include examples/commerce/basket/_id_/line/_line_id_/DELETE/ValidationResponse.json.example
+        /line/{lineId}:
+            delete:
+                displayName: Delete a line from a stored basket
+                responses:
+                    200:
+                        body:
+                            application/vnd.ibexa.api.Basket+json:
+                                type: Basket
+                                example: !include examples/commerce/basket/Basket.json.example
+                    400:
+                        body:
+                            application/vnd.ibexa.api.ValidationResponse+json:
+                                type: ValidationResponse
+                                example: !include examples/commerce/basket/_id_/line/_line_id_/DELETE/ValidationResponse.json.example
 
     /{basketName}:
         post:
