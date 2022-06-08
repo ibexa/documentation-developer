@@ -40,7 +40,7 @@ post:
                 example: |
                     application/vnd.ibexa.api.AttributeGet+json
         body:
-            application/vnd.ibexa.api.AttributeGet+json
+            application/vnd.ibexa.api.AttributeGet+json:
                 type: AttributeList
                 example: !include examples/product/catalog/attributes/id/GET/AttributeGet.json.example
         responses:
@@ -90,7 +90,7 @@ post:
                 description: Error - an attribute with the same name already exists.
             404:
                 description: Error - the attribute with the given ID does not exist.
-/translation/{languageCode}:
+/translation/{id}/{languageCode}:
     delete:
         displayName: Delete attribute translation
         description: The given translation is removed from the attribute.
