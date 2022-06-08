@@ -215,7 +215,7 @@ ibexa:
                 url_prefix: 'http://static.example.com/'
 ```
 
-You can read more about that on [Binary files URL handling](../file_management/file_management.md#url-handling).
+You can read more about that on [Binary files URL handling](file_management/handling_file_url.md#file-url-handling).
 
 ### Web server rewrite rules
 
