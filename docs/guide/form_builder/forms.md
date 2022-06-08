@@ -7,6 +7,8 @@ You can build forms consisting of different fields in the Form Builder.
     To learn how to get, create, and delete form submissions by using the PHP API,
     see [Managing forms](../../api/public_php_api_managing_forms.md).
 
+[[% include 'snippets/forms_caution.md' %]]
+
 ## Existing Form fields
 
 ### Captcha field
