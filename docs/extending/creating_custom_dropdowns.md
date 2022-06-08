@@ -19,6 +19,12 @@ First prepare the component structure and place it in the template inside the `c
     class,
     placeholder,
     custom_init,
+    is_disabled,
+    is_hidden,
+    is_small,
+    is_ghost,
+    min_search_items,
+    selected_item_label,
 } %}
 ```
 
@@ -114,6 +120,12 @@ Name|Values|Definition|
 |`class`| - |Additional classes for the element with `ibexa-dropdown` class.|
 `placeholder`|Displayed placeholder when no option is selected.|
 |`custom_init`|true</br>false|By default set to `false`. If set to `true`, requires to manually initialize drop-down in the JavaScript.|
+|`is_disabled`|true</br>false|Disables drop-down.|
+|`is_hidden`|true</br>false|Hides the whole widget.|
+|`is_small`|true</br>false|Adjusts height of the widget (from 48px to 32px).|
+|`is_ghost`|true</br>false|Changes layout of the widget, removes all borders and backgrounds (similar to buttons modifier).|
+|`min_search_items`|number, default 5|Minimum number of options that has to be passed to show the search inside the drop-down.|
+|`selected_item_label`|text|Allows to set constant label for widget, by default visible label shows currently selected options.|
 
 ![Drop-down expanded state](img/dropdown_expanded_state.png)
 
