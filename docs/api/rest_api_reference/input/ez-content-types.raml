@@ -118,30 +118,31 @@ get:
                 description: Error - There are object instances of this Content Type.
             404:
                 description: Error - The Content Type does not exist.
-    /{fieldDefinitionId}:
-        get:
-            displayName: Get Field definition
-            description: Returns the Field definition by the given ID.
-            headers:
-                Accept:
-                    description: If set, the Field definition is returned in XML or JSON format.
-                    example: |
-                        application/vnd.ibexa.api.FieldDefinition+xml
-                        application/vnd.ibexa.api.FieldDefinition+json
-            responses:
-                200:
-                    description: OK - returns the Field definition.
-                    body:
-                        application/vnd.ibexa.api.FieldDefinition+xml:
-                            type: FieldDefinition
-                            example: !include examples/content/types/content_type_id/field_definition_id/GET/FieldDefinition.xml.example
-                        application/vnd.ibexa.api.FieldDefinition+json:
-                            type: FieldDefinition
-                            example: !include examples/content/types/content_type_id/field_definition_id/GET/FieldDefinition.json.example
-                401:
-                    description: Error - The user is not authorized to read the Content Type.
-                404:
-                    description: Error - The Content Type does not exist.
+    /fieldDefinitions:
+        /{fieldDefinitionId}:
+            get:
+                displayName: Get Field definition
+                description: Returns the Field definition by the given ID.
+                headers:
+                    Accept:
+                        description: If set, the Field definition is returned in XML or JSON format.
+                        example: |
+                            application/vnd.ibexa.api.FieldDefinition+xml
+                            application/vnd.ibexa.api.FieldDefinition+json
+                responses:
+                    200:
+                        description: OK - returns the Field definition.
+                        body:
+                            application/vnd.ibexa.api.FieldDefinition+xml:
+                                type: FieldDefinition
+                                example: !include examples/content/types/content_type_id/field_definition_id/GET/FieldDefinition.xml.example
+                            application/vnd.ibexa.api.FieldDefinition+json:
+                                type: FieldDefinition
+                                example: !include examples/content/types/content_type_id/field_definition_id/GET/FieldDefinition.json.example
+                    401:
+                        description: Error - The user is not authorized to read the Content Type.
+                    404:
+                        description: Error - The Content Type does not exist.
     /draft:
         patch:
             displayName: Update Content Type draft
