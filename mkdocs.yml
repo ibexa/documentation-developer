@@ -553,6 +553,7 @@ theme:
     features:
         - content.code.annotate 
         - navigation.tracking
+        - navigation.top
     custom_dir: 'theme'
     favicon: 'images/favicon.png'
     language: 'en'
