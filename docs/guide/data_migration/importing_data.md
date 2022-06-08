@@ -45,7 +45,7 @@ The following modes are available for specific objects:
 
 ### Repeatable steps
 
-You can run the same migration step multiple times by using the special `repeatable` migration type.
+You can run a set of one or more similar migration steps multiple times by using the special `repeatable` migration type.
 
 A repeatable migration performs the defined migration steps as many times as the `iterations` setting declares.
 
@@ -66,8 +66,9 @@ For example, to create five Folders, with names ranging from "Folder 0" to "Fold
 [[= include_file('code_samples/data_migration/examples/repeatable_step.yaml', 0, 16) =]]
 ```
 
-To vary the content name, the migration above uses Symfony expression syntax.
-The expression is enclosed in `###` and any repeated string, in this case, `SSS`.
+To vary the content name, the migration above uses [Symfony expression syntax](#expression-syntax).
+
+In the example above, the expression is enclosed in `###` and the repeated string `SSS`.
 
 !!! note 
     
@@ -90,6 +91,16 @@ Then, you can use `faker()` in expressions, for example:
 ```
 
 This step generates Field values with fake personal names.
+
+### Expression syntax
+
+You can use [Symfony expression syntax](https://symfony.com/doc/current/components/expression_language/syntax.html) in data migrations.
+It is especially useful in [repeatable steps](#repeatable-steps),
+where you can use it to generate varied content if migration steps.
+
+The expression syntax uses the following structure: `###<IDENTIFIER> <EXPRESSION> <IDENTIFIER>###`
+
+The `IDENTIFIER` can be any repeated string that encloses the actual expression.
 
 ## Migration examples
 
