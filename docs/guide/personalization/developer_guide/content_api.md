@@ -150,11 +150,6 @@ or you want to want to apply ad-hoc boosting and filtering of recommendations.
 As a result, the recommendation engine randomly recommends the imported items/products.
 This can prove useful for a news agency, where new items are published very often.
 
-#### Free-form data
-
-You can upload any data under the `<content>` key of the XML object.
-This data is used in full-text analysis models only.
-
 #### Custom attributes
 
 You can also define custom attributes under the `<attributes>` key.
