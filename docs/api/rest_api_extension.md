@@ -1,32 +1,33 @@
 # Extending REST API
 
-To imagine what could be added to the REST API and to understand what the examples below are overriding, customizing or extending, it's important to picture the [REST request lifecycle](rest_api_usage.md#rest-communication-summary).
+To decide how to extend the REST API and to understand what the examples below are overriding, customizing or extending, it's important to picture the [REST request lifecycle](rest_api_usage.md#rest-communication-summary).
 
-## Adding a custom media-type
+## Adding a custom media type
 
-In this example case, a new media-type will be passed in the `Accept` header of a GET request to `/content/locations/{locationPath}` route and its Controller action (`Controller/Location::loadLocation`).
+In this example case, you pass a new media type in the `Accept` header of a GET request to `/content/locations/{locationPath}` route and its controller action (`Controller/Location::loadLocation`).
 
-By default, this resource handle a `application/vnd.ibexa.api.Location+xml` (or `+json`) `Accept` header.
-The following example will add the handling of a new media-type `application/app.api.Location+xml` (or `+json`) `Accept` header to obtain a different Response using the same controller.
+By default, this resource takes an `application/vnd.ibexa.api.Location+xml` (or `+json`) `Accept` header.
+The following example adds the handling of a new media type `application/app.api.Location+xml` (or `+json`) `Accept` header to obtain a different response using the same controller.
 
-* To create the new Response corresponding to this new media-type, a new `ValueObjectVisitor` is needed.
-* To have this new `ValueObjectVisitor` used to visit the default Controller result, a new `ValueObjectVisitorDispatcher` is needed.
-* To have this new `ValueObjectVisitorDispatcher` associated to the new media-type in an `Accept` header, a new `Output\Visitor` service is needed.
+* To create the new response corresponding to this new media type, you need a new `ValueObjectVisitor`.
+* To have this new `ValueObjectVisitor` used to visit the default controller result, you need a new `ValueObjectVisitorDispatcher`.
+* To have this new `ValueObjectVisitorDispatcher` associated to the new media type in an `Accept` header, you need a new `Output\Visitor` service.
 
 !!! note
 
     You may not change the vendor from default `vnd.ibexa.api` to new `app.api` like in this example but create a new type in the default vendor instead.
-    To do so, your new ValueObjectVisitor will be tagged with `ibexa.rest.output.value_object.visitor` to be added to the existing `ValueObjectVisitorDispatcher` and no new one will be needed.
-    The `media-type` attribute would also be easier to create as the default `Output\Generator` will use this default vendor.
-    In this example, to create a new vendor has been chosen as a good practice to highlight that this is custom and won't be available on a regular Ibexa DXP.
+    To do so, tag your new ValueObjectVisitor with `ibexa.rest.output.value_object.visitor` to add it to the existing `ValueObjectVisitorDispatcher`, and a new one will not be needed.
+    This way, the `media-type` attribute is also easier to create, because the default `Output\Generator` uses this default vendor.
+    This example presents creating a new vendor as a good practice, to highlight that this is custom extensions that isn't available in a regular Ibexa DXP installation.
 
 ### New `RestLocation` `ValueObjectVisitor`
 
-The Controller action returns a `Values\RestLocation` wrapped in a `Values\CachedValue`.
+The controller action returns a `Values\RestLocation` object wrapped in `Values\CachedValue`.
 The new `ValueObjectVisitor` has to visit `Values\RestLocation` to prepare the new `Response`.
 
 All new `ValueObjectVisitor` needs to extend the abstract class `Output\ValueObjectVisitor` to be accepted by the `ValueObjectVisitorDispatcher`.
-In this example, this new `ValueObjectVisitor` extends the built-in `RestLocation` visitor to reuse it; So, the abstract class is implicitly inherited.
+In this example, this new `ValueObjectVisitor` extends the built-in `RestLocation` visitor to reuse it.
+This way, the abstract class is implicitly inherited.
 
 ``` php
 [[= include_file('code_samples/api/rest_api/src/Rest/ValueObjectVisitor/RestLocation.php') =]]
@@ -60,7 +61,8 @@ services:
 
 ### New `Output\Visitor` service
 
-The following new pair of `Ouput\Visitor` associate `Accept` headers starting with `application/app.api.` to the new `ValueObjectVisitorDispatcher` for both XML and JSON. A priority is set higher than other `ibexa.rest.output.visitor` tagged built-in services.
+The following new pair of `Ouput\Visitor` entries associates `Accept` headers starting with `application/app.api.` to the new `ValueObjectVisitorDispatcher` for both XML and JSON.
+A priority is set higher than other `ibexa.rest.output.visitor` tagged built-in services.
 
 ``` yaml
 # config/services.yaml
@@ -74,7 +76,7 @@ services:
 
 ### Testing the new media-type
 
-In the following example, `curl` and `diff` command-lines are used to compare the default media-type (`application/vnd.ibexa.api.Location+xml`) with the new `application/app.api.Location+xml`.
+In the following example, `curl` and `diff` commands are used to compare the default media type (`application/vnd.ibexa.api.Location+xml`) with the new `application/app.api.Location+xml`.
 
 ```shell
 diff --ignore-space-change \
@@ -82,7 +84,7 @@ diff --ignore-space-change \
   <(curl --silent https://api.example.com/api/ibexa/v2/content/locations/1/2 --header 'Accept: application/app.api.Location+xml');
 ```
 
-```
+``` diff
 2c2,3
 < <Location media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1/2">
 ---
@@ -97,19 +99,21 @@ diff --ignore-space-change \
 
 ## Creating a new REST resource
 
-### Requirements / Needs check list
+To create a new REST resource, you need to prepare:
 
 * The REST route leading to a controller action.
 * The controller and its action.
-* Optionally, one or several `InputParser` if the Controller needs to receive a payload to treat, one or several Value classes to represent this payload and eventually one or several new media-types to type this payload in the `Content-Type` header.
-* Optionally, one or several new Value classes to represent the Controller action result, their `ValueObjectVisitor` to help the Generator to turn this into XML or JSON and eventually one or several new media-types to claim in the `Accept` header the desired Value.
-* Optionally, the addition of this resources route to the REST root.
+* Optionally, one or several `InputParser` objects if the controller needs to receive a payload to treat, one or several value classes to represent this payload and potetially one or several new media types to type this payload in the `Content-Type` header.
+* Optionally, one or several new value classes to represent the controller action result, their `ValueObjectVisitor` to help the generator to turn this into XML or JSON and potentially one or several new media types to claim in the `Accept` header the desired value.
+* Optionally, the addition of this resource route to the REST root.
 
-In the following example, a greeting resource will be added to the REST API. It will be available through `GET` and `POST` methods. `GET` will set default values while `POST` will allow to input custom values.
+In the following example, you add a greeting resource to the REST API.
+It is available through `GET` and `POST` methods. `GET` sets default values while `POST` allows inputting custom values.
 
 ### Route
 
-The new REST routes should use the [REST URI prefix](rest_api_usage.md#uri-prefix) for consistency. To ensure that they do, in the config/routes.yaml file, while importing a REST routing file, use `ibexa.rest.path_prefix` parameter as a `prefix`.
+New REST routes should use the [REST URI prefix](rest_api_usage.md#uri-prefix) for consistency.
+To ensure that they do, in the `config/routes.yaml` file, while importing a REST routing file, use `ibexa.rest.path_prefix` parameter as a `prefix`.
 
 ``` yaml
 # config/routes.yaml
@@ -123,7 +127,8 @@ The new REST routes should use the [REST URI prefix](rest_api_usage.md#uri-prefi
 
 #### CSRF protection
 
-If a REST route is designed to be used with [unsafe methods](rest_api_usage#request-method), the CSRF protection is enabled by default like for built-in routes. It can be disabled by using the route parameter `csrf_protection`.
+If a REST route is designed to be used with [unsafe methods](rest_api_usage#request-method), the CSRF protection is enabled by default like for built-in routes.
+You can disable it by using the route parameter `csrf_protection`.
 
 ``` yaml
 # config/routes_rest.yaml
@@ -141,7 +146,7 @@ If a REST route is designed to be used with [unsafe methods](rest_api_usage#requ
 
 #### Controller service
 
-The following configuration can be used to have all controllers from the `App\Rest\Controller\` namespace (files under `src/Rest/Controller/` folder) to be set as REST Controller services.
+You can use the following configuration to have all controllers from the `App\Rest\Controller\` namespace (files in the `src/Rest/Controller/` folder) to be set as REST controller services.
 
 ``` yaml
 # config/services.yaml
@@ -150,13 +155,14 @@ services:
 [[= include_file('code_samples/api/rest_api/config/services.yaml', 36, 42) =]]
 ```
 
-Having the REST controllers set as services allow to use features like the InputDispatcher service in the [Controller action](#controller-action) below.
+Having the REST controllers set as services enables using features such as the `InputDispatcher` service in the [Controller action](#controller-action).
 
 #### Controller action
 
 A REST controller should:
-- return a Value object and have a `Generator` and `ValueObjectVisitors` producing the XML or JSON output;
-- extend `Ibexa\Rest\Server\Controller` to inherit utils methods and properties like the `InputDispatcher` or the `RequestParser`.
+
+- return a value object and have a `Generator` and `ValueObjectVisitor`s producing the XML or JSON output;
+- extend `Ibexa\Rest\Server\Controller` to inherit utils methods and properties like `InputDispatcher` or `RequestParser`.
 
 ``` php
 [[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php') =]]
@@ -164,7 +170,8 @@ A REST controller should:
 
 If the returned value was depending on a Location, it could have been wrapped in a `CachedValue` to be cached by the reverse proxy (like Varnish) for future calls.
 
-The use of `CachedValue` looks like this:
+`CachedValue` is used in the following way:
+
 ```php
 return new CachedValue(
     new MyValue($args…),
@@ -183,7 +190,7 @@ A `ValueObjectVisitor` must implement the `visit` method.
 | Argument     | Description                                                                                                                                            |
 |--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `$visitor`   | The output visitor.<br/>Can be used to set custom response headers (`setHeader`), HTTP status code ( `setStatus`)                                      |
-| `$generator` | The actual response generator. It provides you with a DOM like API.                                                                                    |
+| `$generator` | The actual response generator. It provides you with a DOM-like API.                                                                                    |
 | `$data`      | The visited data. The exact object that you returned from the controller.<br/>It can't have a type declaration because the method signature is shared. |
 
 ``` php
@@ -199,19 +206,20 @@ services:
 [[= include_file('code_samples/api/rest_api/config/services.yaml', 43, 48) =]]
 ```
 
-Here, the media-type will be `application/vnd.ibexa.api.Greeting` plus a format. To have another vendor than the default, a new `Output\Generator` could be created or the `ValueObjectVisitor` could hard-code it like the [`RestLocation`'s one from previous example](#new-restlocation-valueobjectvisitor).
+Here, the media type is `application/vnd.ibexa.api.Greeting` plus a format. To have a different vendor than the default, you could create a new `Output\Generator` or hard-code it in the `ValueObjectVisitor` like in the [`RestLocation` example](#new-restlocation-valueobjectvisitor).
 
 ### InputParser
 
-It could use route parameters, but this example's goal is to illustrate the usage of an input parser.
+A REST resource could use route parameters to handle input, but this example illustrates the usage of an input parser.
 
-For this example, the structure will be a `GreetingInput` root node with two leaf nodes, `Salutation` and `Recipient`.
+For this example, the structure is a `GreetingInput` root node with two leaf nodes, `Salutation` and `Recipient`.
 
 ``` php
 [[= include_file('code_samples/api/rest_api/src/Rest/InputParser/GreetingInput.php') =]]
 ```
 
-Here, this InputParser directly return the right Value object but this could be whatever object needed to represent the input for the controller to perform its action, like arguments to use with a repository service.
+Here, this `InputParser` directly returns the right value object.
+In other cases, it could return whatever object is needed to represent the input for the controller to perform its action, like arguments to use with a Repository service.
 
 ``` yaml
 # config/services.yaml
@@ -222,7 +230,7 @@ services:
 
 ### Testing the new resource
 
-Let's test both `GET` and `POST` methods, and, both `XML` and `JSON` format for inputs and outputs.
+Now you can test both `GET` and `POST` methods, and both `XML` and `JSON` format for inputs and outputs.
 
 ```shell
 curl https://api.example.com/api/ibexa/v2/greet --include;
@@ -272,12 +280,12 @@ Content-Type: application/vnd.ibexa.api.greeting+json
 
 ### Registering resources in REST root
 
-The new resource can be added to the [root resource](rest_api_usage.md#rest-root) through a configuration with the following pattern:
+You can add the new resource to the [root resource](rest_api_usage.md#rest-root) through a configuration with the following pattern:
 
 ```yaml
 ibexa_rest:
     system:
-        <siteaccess_scope>:
+        <scope>:
             rest_root_resources:
                 <resourceName>:
                     mediaType: <MediaType>
@@ -285,9 +293,9 @@ ibexa_rest:
 ```
 
 The `router.generate` renders a URI based on the name of the route and its parameters. The parameter values can be a real value or a placeholder. For example, `'router.generate("ibexa.rest.load_location", {locationPath: "1/2"})'` results in `/api/ibexa/v2/content/locations/1/2` while `'router.generate("ibexa.rest.load_location", {locationPath: "{locationPath}"})'` gives `/api/ibexa/v2/content/locations/{locationPath}`.
-This syntax is based on the Symfony's [expression language]([[= symfony_doc =]]/components/expression_language/index.html), an extensible component that allows limited/readable scripting to be used outside the code context.
+This syntax is based on Symfony's [expression language]([[= symfony_doc =]]/components/expression_language/index.html), an extensible component that allows limited/readable scripting to be used outside the code context.
 
-For the previous example `app.rest.greeting` available in every SiteAccess (`default`):
+In this example, `app.rest.greeting` is available in every SiteAccess (`default`):
 
 ```yaml
 ibexa_rest:
@@ -299,7 +307,7 @@ ibexa_rest:
                     href: 'router.generate("app.rest.greeting")'
 ```
 
-This could be in any regular config file, like the existing config/packages/ibexa.yaml or a created config/packages/ibexa_rest.yaml.
+You can place this configuration in any regular config file, like the existing `config/packages/ibexa.yaml`, or a new `config/packages/ibexa_rest.yaml` file.
 
 The above example adds the following entry to the root XML output:
 
