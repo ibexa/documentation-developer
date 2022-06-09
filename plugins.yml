@@ -1,0 +1,13 @@
+plugins:
+    - search
+    - autolinks
+    - macros:
+        j2_block_start_string: '[[%'
+        j2_block_end_string: '%]]'
+        j2_variable_start_string: '[[='
+        j2_variable_end_string: '=]]'
+    - redirects:
+        redirect_maps:
+            'reference.md': 'references.md'
+            'rerefence.md': 'references.md'
+            'guide/content_rendering/templates/templates.md#template-variable': 'guide/content_rendering/templates/templates.md#template-variables'
