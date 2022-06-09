@@ -153,7 +153,7 @@ if (204 !== $responseCode = curl_getinfo($curl, CURLINFO_RESPONSE_CODE)) {
     exit(9);
 }
 
-echo "Success: Image Content created with ID $contentId and published\n";
+echo "Success: Image Content item created with ID $contentId and published\n";
 
 curl_close($curl);
 exit(0);
