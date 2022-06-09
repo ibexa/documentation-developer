@@ -301,7 +301,8 @@ ibexa_rest:
 
 This could be in any regular config file, like the existing config/packages/ibexa.yaml or a created config/packages/ibexa_rest.yaml.
 
-The above example add the following entry to the root XML output:
+The above example adds the following entry to the root XML output:
+
 ```xml
 <greeting media-type="application/vnd.ibexa.api.Greeting+xml" href="/api/ibexa/v2/greet"/>
 ```
