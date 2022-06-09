@@ -1,4 +1,4 @@
-# Shop events
+# Shop events [[% include 'snippets/commerce_badge.md' %]]
 
 ## BasketLine Events
 
