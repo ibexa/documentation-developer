@@ -69,7 +69,7 @@ You can also use the [autowire feature]([[= symfony_doc =]]/service_container/au
 
 !!! tip
 
-    For more information about dependency injection, see [Service container](../api/service_container.md).
+    For more information about dependency injection, see [Service container](../api/public_php_api.md#service-container).
 
 !!! note
 
