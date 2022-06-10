@@ -49,7 +49,6 @@ The new `ValueObjectVisitorDispatcher` receives the `ValueObjectVisitor`s tagged
 As not all value FQCNs are handled, the new `ValueObjectVisitorDispatcher` also receives the default one as a fallback.
 
 ``` yaml
-# config/services.yaml
 services:
     #…
 [[= include_file('code_samples/api/rest_api/config/services.yaml', 22, 27) =]]
@@ -65,7 +64,6 @@ The following new pair of `Ouput\Visitor` entries associates `Accept` headers st
 A priority is set higher than other `ibexa.rest.output.visitor` tagged built-in services.
 
 ``` yaml
-# config/services.yaml
 parameters:
     #…
 [[= include_file('code_samples/api/rest_api/config/services.yaml', 1, 3) =]]
@@ -116,12 +114,12 @@ New REST routes should use the [REST URI prefix](rest_api_usage.md#uri-prefix) f
 To ensure that they do, in the `config/routes.yaml` file, while importing a REST routing file, use `ibexa.rest.path_prefix` parameter as a `prefix`.
 
 ``` yaml
-# config/routes.yaml
 [[= include_file('code_samples/api/rest_api/config/routes.yaml', 0, 3) =]]
 ```
 
+The `config/routes_rest.yaml` file imported above is created with the following configuration:
+
 ``` yaml
-# config/routes_rest.yaml
 [[= include_file('code_samples/api/rest_api/config/routes_rest.yaml', 0, 3) =]]    methods: [GET]
 ```
 
@@ -131,7 +129,6 @@ If a REST route is designed to be used with [unsafe methods](rest_api_usage#requ
 You can disable it by using the route parameter `csrf_protection`.
 
 ``` yaml
-# config/routes_rest.yaml
 [[= include_file('code_samples/api/rest_api/config/routes_rest.yaml') =]]
 ```
 
@@ -142,7 +139,6 @@ You can disable it by using the route parameter `csrf_protection`.
 You can use the following configuration to have all controllers from the `App\Rest\Controller\` namespace (files in the `src/Rest/Controller/` folder) to be set as REST controller services.
 
 ``` yaml
-# config/services.yaml
 services:
     #…
 [[= include_file('code_samples/api/rest_api/config/services.yaml', 36, 42) =]]
@@ -193,7 +189,6 @@ A `ValueObjectVisitor` must implement the `visit` method.
 The `Values/Greeting` class is linked to its `ValueObjectVisitor` through the service tag.
 
 ``` yaml
-# config/services.yaml
 services:
     #…
 [[= include_file('code_samples/api/rest_api/config/services.yaml', 43, 48) =]]
@@ -215,7 +210,6 @@ Here, this `InputParser` directly returns the right value object.
 In other cases, it could return whatever object is needed to represent the input for the controller to perform its action, like arguments to use with a Repository service.
 
 ``` yaml
-# config/services.yaml
 services:
     #…
 [[= include_file('code_samples/api/rest_api/config/services.yaml', 48, 53) =]]
