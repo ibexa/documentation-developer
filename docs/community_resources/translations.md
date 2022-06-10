@@ -15,7 +15,3 @@ Visit [[[= product_name =]]'s Crowdin page](https://crowdin.com/project/ibexa-dx
 If the language you want to translate to is not available, you can ask for it to be added in the [Crowdin discussion forum for [[= product_name =]]](https://crowdin.com/project/ibexa-dxp/discussions).
 
 Crowdin then automatically creates a GitHub PR and the translations are updated in the product.
-
-## Full translation workflow
-
-You can read a full description of how new translations are prepared and distributed in [the documentation of GitHub](https://github.com/ibexa/i18n/blob/main/README.md).
