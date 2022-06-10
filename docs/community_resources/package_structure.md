@@ -1,5 +1,8 @@
 # Package and bundle structure and namespaces
 
+If you wish to contribute to [[= product_name =]] development,
+you need to adhere to the package and bundle structure and namespace standards.
+
 The following conventions apply to contributions to Ibexa core code, not to third party packages.
 
 !!! note
