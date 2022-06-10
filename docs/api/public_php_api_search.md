@@ -3,7 +3,7 @@
 [`SearchService`](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/SearchService.php)
 enables you to perform search queries using the PHP API.
 
-The service should be [injected into the constructor of your command or controller](../api/service_container.md).
+The service should be [injected into the constructor of your command or controller](../api/public_php_api.md#service-container).
 
 !!! tip "SearchService in the Back Office"
 
