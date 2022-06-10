@@ -1,30 +1,32 @@
 # REST API usage
 
-The REST API v2 introduced in [[= product_name =]] allows you to interact with an [[= product_name =]] installation using the HTTP protocol, following a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
+The REST API in [[= product_name =]] allows you to interact with an [[= product_name =]] installation using the HTTP protocol,
+following a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
 
-Each resource (URI) interacts with a part of the system (Content, User, Search, etc.).
-Every interaction with the repository than you can do from Back Office or using the [Public PHP API](public_php_api.md) can also be done using the REST API.
+Each resource (URI) interacts with a part of the system (content, users, search, and so on).
+Every interaction with the Repository than you can do from Back Office or using the [Public PHP API](public_php_api.md) can also be done using the REST API.
 
-The REST API uses HTTP methods (`GET`, `PUBLISH` , etc.), as well as HTTP headers to specify the type of request.
+The REST API uses HTTP methods (`GET`, `PUBLISH` , and so on), as well as HTTP headers to specify the type of request.
 
 ## URIs
 
-The REST API is designed in such a way that the client can explore the repository without constructing any URIs to resources.
+The REST API is designed in such a way that the client can explore the Repository without constructing any URIs to resources.
 Starting from the [root resource](#rest-root), every response includes further links (`href`) to related resources.
 
 ### URI prefix
 
-In [REST reference](rest_api_reference/rest_api_reference.html), for the sake of readability, there are no prefixes used in the URIs.
+[REST reference](rest_api_reference/rest_api_reference.html), for the sake of readability, uses no prefixes in the URIs.
 In practice, the `/api/ibexa/v2` prefixes all REST hrefs.
 
-Notice that this prefix immediately follow the domain and that the [`URIElement` SiteAccess matcher](../guide/multisite/siteaccess_matching.md#urielement) can't be used. If the selection of a SiteAccess is needed, see the [`X-Siteaccess` HTTP header](#siteaccess).
+This prefix immediately follows the domain and you can't use the [`URIElement` SiteAccess matcher](../guide/multisite/siteaccess_matching.md#urielement).
+If you need to the select a SiteAccess, see the [`X-Siteaccess` HTTP header](#siteaccess).
 
 ### URI parameters
 
 URI parameters (query string) can be used on some resources.
 They usually serve as options or filters for the requested resource.
 
-As a pagination example, the request below would return the first 5 relations for version 3 of the Content item 59:
+As an example, the request below would paginate the results and return the first 5 relations for version 3 of the Content item 59:
 
 ```
 GET /content/objects/59/versions/3/relations?limit=5 HTTP/1.1
@@ -33,7 +35,7 @@ Accept: application/vnd.ibexa.api.RelationList+xml
 
 #### Working with value objects IDs
 
-Resources that accept a reference to another resource expect reference to be given as a REST URI, not a single ID.
+Resources that accept a reference to another resource expect the reference to be given as a REST URI, not a single ID.
 For example, the URI requesting a list of user groups assigned to the role with ID 1 is:
 
 ```
@@ -42,7 +44,8 @@ GET /api/ibexa/v2/user/groups?roleId=/api/ibexa/v2/user/roles/1
 
 ### REST root
 
-The `/` root route is answered by a cheat sheet with the main resource routes and media-types. In XML by default, it can also be switched to JSON output.
+The `/` root route is answered by a reference list with the main resource routes and media-types.
+It is presented in XML by default, but you can also switch to JSON output.
 
 ```shell
 curl https://api.example.com/api/ibexa/v2/
@@ -51,7 +54,7 @@ curl -H "Accept: application/json" https://api.example.com/api/ibexa/v2/
 
 ### Country list
 
-Alongside regular repository interactions, is a REST service providing a list of countries with their names, [ISO-3166](http://en.wikipedia.org/wiki/ISO_3166) codes and International Dialing Codes (IDC). It could be useful when presenting a country options list from any application.
+Alongside regular Repository interactions, there is a REST service providing a list of countries with their names, [ISO-3166](http://en.wikipedia.org/wiki/ISO_3166) codes and International Dialing Codes (IDC). It could be useful when presenting a country options list from any application.
 
 This country list's URI is `/services/countries`.
 
@@ -67,7 +70,7 @@ For details, see the [ISO-3166 glossary](http://www.iso.org/iso/home/standards/c
 
 ### Request method
 
-Depending on the used HTTP method, different actions will be possible on the same resource. Example:
+Depending on the HTTP method used, different actions will be possible on the same resource. Example:
 
 | Action                                  | Description                                                          |
 |-----------------------------------------|----------------------------------------------------------------------|
@@ -78,34 +81,37 @@ Depending on the used HTTP method, different actions will be possible on the sam
 | `PUBLISH  /content/objects/2/version/3` | Promotes the version \#3 of Content item \#2 from draft to published |
 | `OPTIONS  /content/objects/2/version/3` | Lists all the methods usable with this resource, the 5 ones above    |
 
-The following list of available methods just give a quick hint of the kind of action a method will trigger on a resource if available. For method action details per resource, see the [REST API reference](rest_api_reference/rest_api_reference.html).
+The following list of available methods gives an overview of the kind of action a method triggers on a resource, if available.
+For method action details per resource, see the [REST API reference](rest_api_reference/rest_api_reference.html).
 
 | HTTP method                                                | Status   | Description               | Safe |
 |------------------------------------------------------------|----------|---------------------------|------|
-| [OPTIONS](https://tools.ietf.org/html/rfc2616#section-9.2) | Standard | To list available methods | Yes  |
-| [GET](https://tools.ietf.org/html/rfc2616#section-9.3)     | Standard | To collect data           | Yes  |
-| [HEAD](https://tools.ietf.org/html/rfc2616#section-9.4)    | Standard | To check existence        | Yes  |
-| [POST](https://tools.ietf.org/html/rfc2616#section-9.5)    | Standard | To create an item         | No   |
-| [PATCH](http://tools.ietf.org/html/rfc5789)                | Custom   | To update an item         | No   |
-| COPY                                                       | Custom   | To duplicate an item      | No   |
-| [MOVE](http://tools.ietf.org/html/rfc2518)                 | Custom   | To move an item           | No   |
-| SWAP                                                       | Custom   | To swap two locations     | No   |
-| PUBLISH                                                    | Custom   | To publish an item        | No   |
-| [DELETE](https://tools.ietf.org/html/rfc2616#section-9.7)  | Standard | To remove an item         | No   |
+| [OPTIONS](https://tools.ietf.org/html/rfc2616#section-9.2) | Standard | List available methods | Yes  |
+| [GET](https://tools.ietf.org/html/rfc2616#section-9.3)     | Standard | Collect data           | Yes  |
+| [HEAD](https://tools.ietf.org/html/rfc2616#section-9.4)    | Standard | Check existence        | Yes  |
+| [POST](https://tools.ietf.org/html/rfc2616#section-9.5)    | Standard | Create an item         | No   |
+| [PATCH](http://tools.ietf.org/html/rfc5789)                | Custom   | Update an item         | No   |
+| COPY                                                       | Custom   | Duplicate an item      | No   |
+| [MOVE](http://tools.ietf.org/html/rfc2518)                 | Custom   | Move an item           | No   |
+| SWAP                                                       | Custom   | Swap two Locations     | No   |
+| PUBLISH                                                    | Custom   | Publish an item        | No   |
+| [DELETE](https://tools.ietf.org/html/rfc2616#section-9.7)  | Standard | Remove an item         | No   |
 
 !!! note "Caution with custom HTTP methods"
 
-    Using custom HTTP methods can cause issues with several HTTP proxies, network firewall/security solutions and simpler web servers. To avoid issues with this, REST API allows you to set these using the HTTP header `X-HTTP-Method-Override` along standard `POST` method instead of using a custom HTTP method. Example: `X-HTTP-Method-Override: PUBLISH`
+    Using custom HTTP methods can cause issues with several HTTP proxies, network firewall/security solutions and simpler web servers.
+    To avoid issues with this, REST API allows you to set these using the HTTP header `X-HTTP-Method-Override` alongside the standard `POST` method
+    instead of using a custom HTTP method. For example: `X-HTTP-Method-Override: PUBLISH`
 
-If applicable, both methods are always mentioned in the specifications.
+    If applicable, both methods are always mentioned in the specifications.
 
-Not safe methods will require a CSRF token if [session-based authentication](rest_api_authentication.md#session-based-authentication) is used.
+Unsafe methods will require a CSRF token if [session-based authentication](rest_api_authentication.md#session-based-authentication) is used.
 
 #### OPTIONS method
 
 Any URI resource that the REST API responds to will respond to an `OPTIONS` request.
 
-The response contains an `Allow` header, as specified in [chapter 14.7 of RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.7), which lists the methods accepted by the resource.
+The response contains an [`Allow` header](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.7), which lists the methods accepted by the resource.
 
 ```shell
 curl -IX OPTIONS https://api.example.com/api/ibexa/v2/content/objects/1
@@ -137,7 +143,7 @@ Allow: GET,PATCH,DELETE,COPY,MOVE,SWAP
 
 ### Request headers
 
-There are HTTP headers to specify a REST request:
+You can use the following HTTP headers with a REST request:
 
 - [`Accept`](https://tools.ietf.org/html/rfc2616#section-14.1) describing the desired response type and format;
 - [`Content-Type`](https://toos.ietf.org/html/rfc2616#section-14.17) describing the payload type and format;
@@ -146,14 +152,14 @@ There are HTTP headers to specify a REST request:
 - [`Destination`](#destination) specifying where to move an item
 <!-- - [`If-None-Match`](https://tools.ietf.org/html/rfc7232#section-3.2) reclaiming the cached response of a previously visited resource if still up-to-date using [HTTP Etag](https://tools.ietf.org/html/rfc7232#section-2.3). -->
 
-Few other headers related to authentication methods can be found in [REST API authentication](rest_api_authentication.md).
+Other headers related to authentication methods can be found in [REST API authentication](rest_api_authentication.md).
 
 #### SiteAccess
 
 In order to specify a SiteAccess when communicating with the REST API, provide a custom `X-Siteaccess` header.
-If it is not provided, the default SiteAccess is used.
+Otherwise, the default SiteAccess is used.
 
-Example with what could be a SiteAccess called `restapi` dedicated to REST API accesses:
+The following example shows what could be a SiteAccess called `restapi` dedicated to REST API accesses:
 
 ```
 GET / HTTP/1.1
@@ -162,30 +168,34 @@ Accept: application/vnd.ibexa.api.Root+json
 X-Siteaccess: restapi
 ```
 
-One of the principles of REST is that the same resource (Content item, Location, Content Type, etc.) should be unique.
-It allows caching your REST API using a reverse proxy like Varnish.
+One of the principles of REST is that the same resource (such as Content item, Location, Content Type) should be unique.
+It allows caching your REST API using a reverse proxy such as Varnish.
 If the same resource is available in multiple locations, cache purging is noticeably more complex.
-This is why SiteAccess matching with REST is not enabled at URL level (nor domain).
+This is why SiteAccess matching with REST is not enabled at URL level (or domain).
 
-#### Media-types
+#### Media types
 
-On top of methods, HTTP request headers will allow you to personalize the request's behavior. On every resource, you can use the `Accept` header to indicate which format you want to communicate in, JSON or XML. This header is also used to specify the response type you want the server to send when multiple ones are available.
+On top of methods, HTTP request headers allow you to personalize the request's behavior.
+On every resource, you can use the `Accept` header to indicate which format you want to communicate in, JSON or XML.
+This header is also used to specify the response type you want the server to send when multiple types are available.
 
--   `Accept: application/vnd.ibexa.api.Content+xml` to get **Content** (full data, fields included) as **[XML](http://www.w3.org/XML/)**
--   `Accept: application/vnd.ibexa.api.ContentInfo+json` to get **ContentInfo** (metadata only) as **[JSON](http://www.json.org/)**
+-   `Accept: application/vnd.ibexa.api.Content+xml` to get `Content` (full data, Fields included) as **[XML](http://www.w3.org/XML/)**
+-   `Accept: application/vnd.ibexa.api.ContentInfo+json` to get `ContentInfo` (metadata only) as **[JSON](http://www.json.org/)**
 
-Media-types are also used with the [`Content-Type` header](#content-type-header) to characterize a request payload. See [Creating content with binary attachments](#creating-content-with-binary-attachments) below. Also see [Creating session](rest_api_authentication.md#creating-session) examples.
+Media types are also used with the [`Content-Type` header](#content-type-header) to characterize a request payload.
+See [Creating content with binary attachments](#creating-content-with-binary-attachments) below.
+Also see [Creating session](rest_api_authentication.md#creating-session) examples.
 
-If the resource returns only deals with one media type, it is also possible to skip it and to just specify the format using `application/xml` or `application/json`.
+If the resource only returns one media type, it is also possible to skip it and to just specify the format using `application/xml` or `application/json`.
 
-A response indicates `href`s to related resources and their media-types.
+A response indicates `href`s to related resources and their media types.
 
 #### Destination
 
 The `Destination` request header is the request counterpart of the `Location` response header.
-It is used for a `COPY`, `MOVE` or `SWAP` operation on a resource to indicate where the resource should be moved, copied to or swapped with by using the ID of the parent or target location.
+It is used for a `COPY`, `MOVE` or `SWAP` operation to indicate where the resource should be moved, copied to or swapped with by using the ID of the parent or target Location.
 
-Examples of such requests are
+Examples of such requests are:
 
 - [copying a Content](rest_api_reference/rest_api_reference.html#managing-content-copy-content);
 - [moving a Location and its subtree](rest_api_reference/rest_api_reference.html#managing-content-move-subtree)
@@ -193,12 +203,13 @@ Examples of such requests are
 
 ### Request body
 
-While some short scalar parameters can be passed in the URIs or as GET parameters, some resources needs heavier structured payloads passed in the request body, in particular the ones to create (`POST`) or update (`PATCH`) items.
+You can pass some short scalar parameters in the URIs or as GET parameters, but other resources need heavier structured payloads passed in the request body,
+in particular the ones to create (`POST`) or update (`PATCH`) items.
 In the [REST API reference](rest_api_reference/rest_api_reference.html), request payload examples are given when needed.
 
 One example is the [creation of an authentication session](rest_api_authentication.md#establishing-a-session).
 
-When creating a Content, the payload is particular if the ContentType has some [Image](field_types_reference/imagefield.md) or [BinaryFile](field_types_reference/binaryfilefield.md) fields as files need to be attached. See the example of a [script uploading images](#creating-content-with-binary-attachments) below.
+When creating a Content item, a special payload is needed if the ContentType has some [Image](field_types_reference/imagefield.md) or [BinaryFile](field_types_reference/binaryfilefield.md) Fields as files need to be attached. See the example of a [script uploading images](#creating-content-with-binary-attachments) below.
 
 When searching for Contents (or Locations), the query grammar is also particular. See the [Search section](#search-view) below.
 
@@ -206,12 +217,12 @@ When searching for Contents (or Locations), the query grammar is also particular
 
 The example below is a command-line script to upload images.
 
-This script will
+This script:
 
-- receive an image path and optionally a name as command-line arguments,
-- use the [HTTP basic authentication](rest_api_authentication.md#http-basic-authentication) assuming it is enabled,
-- create a draft in the /Media/Images folder by `POST`ing data to [`/content/objects`](rest_api_reference/rest_api_reference.html#managing-content-create-content-item),
-- and, `PUBLISH` the draft through [`/content/objects/{contentId}/versions/{versionNo}`](rest_api_reference/rest_api_reference.html#managing-content-publish-a-content-version).
+- receives an image path and optionally a name as command-line arguments,
+- uses the [HTTP basic authentication](rest_api_authentication.md#http-basic-authentication), if it is enabled,
+- creates a draft in the /Media/Images folder by posting (`POST`) data to [`/content/objects`](rest_api_reference/rest_api_reference.html#managing-content-create-content-item),
+- and, publishes (`PUBLISH`) the draft through [`/content/objects/{contentId}/versions/{versionNo}`](rest_api_reference/rest_api_reference.html#managing-content-publish-a-content-version).
 
 === "XML"
 
@@ -227,20 +238,20 @@ This script will
 
 #### Search (`/view`)
 
-The `/view` route allow to [search in the repository](../guide/search/search.md). It works close to its [PHP API counterpart](public_php_api_search.md).
+The `/view` route allows you to [search in the repository](../guide/search/search.md). It works similarly to its [PHP API counterpart](public_php_api_search.md).
 
 The model allows combining criteria using the logical operators `AND`, `OR` and `NOT`.
 
-Almost all [search criteria](../guide/search/criteria_reference/search_criteria_reference.md#search-criteria) are available on REST API. The suffix `Criterion` is added when used with REST API.
+Almost all [Search Criteria](../guide/search/criteria_reference/search_criteria_reference.md#search-criteria) are available in REST API. The suffix `Criterion` is added when used with REST API.
 
-Almost all [sort clauses](../guide/search/sort_clause_reference/sort_clause_reference.md#sort-clauses) are available too. No prefix ou suffix for them.
+Almost all [Sort Clauses](../guide/search/sort_clause_reference/sort_clause_reference.md#sort-clauses) are available too. They require no additional prefix or suffix.
 
 The search request HTTP header to type its body is `Content-Type: application/vnd.ibexa.api.ViewInput+xml` or `+json`.
 The root node is `<ViewInput>` and it has two mandatory children: `<identifier>` and `<Query>`.
 
-`version=1.1` can be added to the `Content-Type` header to support the distinction between `ContentQuery` and `LocationQuery` instead of just `Query` which implicitly looked only for Contents.
+You can add `version=1.1` to the `Content-Type` header to support the distinction between `ContentQuery` and `LocationQuery` instead of just `Query` which implicitly looks only for Content items.
 
-The following examples will search for `article` and `news` typed Contents everywhere, search for Contents of all types directly under Location `123`, all those Contents must be in the `standard` Section.
+The following examples search for `article` and `news` typed Content items everywhere or for Content items of all types directly under Location `123`. All those Content items must be in the `standard` Section.
 
 === "XML"
 
@@ -369,7 +380,8 @@ The following examples will search for `article` and `news` typed Contents every
     In JSON, the structure for `ContentTypeIdentifierCriterion` with multiple values has a slightly different format as keys must be unique.
     In JSON, if there is only one `SortClauses`, it can be passed directly without an array to wrap it.
 
-Logical operators may be omitted. If criteria are of mixed types, they will be wrapped in an implicit `AND`. If they are of the same type, they will be wrapped in an implicit `OR`.
+You can omit logical operators. If Criteria are of mixed types, they are wrapped in an implicit `AND`.
+If they are of the same type, they are wrapped in an implicit `OR`.
 
 For example, the `AND` operator from previous example's `Filter` could be removed.
 
@@ -437,23 +449,24 @@ For example, the `AND` operator from previous example's `Filter` could be remove
 
 ### Response code
 
-The following list of available HTTP response status codes just give a quick hint of the meaning of a code. For code details per resource, see the [REST API reference](rest_api_reference/rest_api_reference.html).
+The following list of available HTTP response status codes gives an overview of the meaning of each code.
+For code details per resource, see the [REST API reference](rest_api_reference/rest_api_reference.html).
 
 | Code  | Message                | Description                                                                                                                                                                                                                                                  |
 |-------|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `200` | OK                     | The resource has been found.                                                                                                                                                                                                                                 |
-| `201` | Created                | The request to create a new item has succeeded; the response `Location` header indicates when the created item could be consulted.                                                                                                                           |
-| `204` | No Content             | The request has succeeded and there is nothing to say about it in the response header nor body (for example when publishing or deleting).                                                                                                                    |
+| `201` | Created                | The request to create a new item has succeeded; the response `Location` header indicates where you can find the created item.                                                                                                                           |
+| `204` | No Content             | The request has succeeded and there is no additional information in the response header or body (for example when publishing or deleting).                                                                                                                    |
 | `301` | Moved Permanently      | The resource should not be accessed this way; the response `Location` header indicates the proper way.                                                                                                                                                       |
 | `307` | Temporary Redirect     | The resource is available at another URL considered as its main; the response `Location` header indicates this main URL.                                                                                                                                     |
 | `400` | Bad Request            | The input (payload) doesn't have the proper schema for the resource.                                                                                                                                                                                         |
 | `401` | Unauthorized           | The user does not have the permission to make this request.                                                                                                                                                                                                  |
-| `403` | Forbidden              | The user has the permission but action can't be done because of repository logic (for example, when trying to create an item with an already existing ID or identifier, when attempting to update a version in another state than draft).                    |
+| `403` | Forbidden              | The user has the permission but action can't be performed because of Repository logic (for example, when trying to create an item with an already existing ID or identifier, when attempting to update a version in another state than draft).                    |
 | `404` | Not Found              | The requested object (or a request data like the parent of a new item) hasn't been found.                                                                                                                                                                    |
 | `405` | Method Not Allowed     | The requested resource does not support the HTTP verb that was used.                                                                                                                                                                                         |
-| `406` | Not Acceptable         | The request `accept` header is not supported.                                                                                                                                                                                                                |
+| `406` | Not Acceptable         | The request's `Accept` header is not supported.                                                                                                                                                                                                                |
 | `409` | Conflict               | The request is in conflict with another part of the repository (for example, trying to create a new item with an identifier already used).                                                                                                                   |
-| `415` | Unsupported Media Type | The request payload media-type doesn't match the media-type specified in the request header                                                                                                                                                                  |
+| `415` | Unsupported Media Type | The request payload media type doesn't match the media type specified in the request header.                                                                                                                                                                  |
 | `500` | Internal Server Error  | The server encountered an unexpected condition, usually an exception, which prevents it from fulfilling the request, like database down, permissions or configuration error.                                                                                 |
 | `501` | Not Implemented        | Returned when the requested method has not yet been implemented. For [[= product_name =]], most of Users, User groups, Content items, Locations and Content Types have been implemented. Some of their methods, as well as other features, may return a 501. |
 
@@ -463,13 +476,15 @@ The following list of available HTTP response status codes just give a quick hin
 
 A resource's response may contain metadata in its HTTP headers.
 
-The `Allow` response header for [`OPTIONS` method](#options-method) was previously seen.
+!!! note
+    For information about the `Allow` response header, see the [`OPTIONS` method](#options-method).
 
 #### Content-Type header
 
-As long as a response contains an actual HTTP body, the `Content-Type` header will be used to specify what it is containing. The `Content-Type` header's value is a [media-type](#media-types) as previously seen for the `Accept` header.
+When a response contains an actual HTTP body, the `Content-Type` header specifies what the body contains.
+The `Content-Type` header's value is a [media type](#media-types), like with the `Accept` header.
 
-For example, the first following request without an `Accept` header will return a default format indicated in the response `Content-Type` header while the second request show that the response is in the asked format.
+For example, the first following request without an `Accept` header returns a default format indicated in the response `Content-Type` header, while the second request shows that the response is in the requested format.
 
 ```
 GET /content/objects/52 HTTP/1.1
@@ -521,13 +536,13 @@ Those example `Accept-Path` headers above indicate that the content could be mod
 
 #### Location header
 
-For instance [creating Content](rest_api_reference/rest_api_reference.html#managing-content-create-content-type) and [getting a Content item's current version](rest_api_reference/rest_api_reference.html#managing-content-get-current-version)
-will both send a `Location` header to provide you with the requested resource's ID.
+For example, [creating content](rest_api_reference/rest_api_reference.html#managing-content-create-content-type) and [getting a Content item's current version](rest_api_reference/rest_api_reference.html#managing-content-get-current-version)
+both send a `Location` header to provide you with the requested resource's ID.
 
 Those particular headers generally match a specific list of HTTP response codes.
 `Location` is mainly sent alongside `201 Created`, `301 Moved permanently`, `307 Temporary redirect responses`.
 
-In the following example, the content object remote ID 34720ff636e1d4ce512f762dc638e4ac corresponds to the ID 52:
+In the following example, the Content item's remote ID 34720ff636e1d4ce512f762dc638e4ac corresponds to the ID 52:
 
 ```
 GET /content/objects?remoteId=34720ff636e1d4ce512f762dc638e4ac" HTTP/1.1
@@ -549,7 +564,8 @@ HTTP/1.1 301 Moved Permanently
 Location: /content/objects?remoteId=34720ff636e1d4ce512f762dc638e4ac
 ```
 
-Notice that cURL can follow those redirections. On CLI, there is the `--location` option (or its shorthand `-L`); with PHP, is the `CURLOPT_FOLLOWLOCATION`.
+cURL can follow those redirections. On CLI, there is the `--location` option (or its shorthand `-L`).
+In PHP, you can achieve the same effect with `CURLOPT_FOLLOWLOCATION`.
 The following command-line example follows the two redirections above and the `Accept` header is propagated:
 
 ```shell
@@ -594,21 +610,24 @@ curl https://api.example.com/content/objects/52 --header 'Accept: application/vn
 </Content>
 ```
 
-There is two types of node:
+The response body XML can contain two types of nodes:
+
 - Final nodes that fully give an information as a scalar value;
-- Reference nodes which link to `href` where a new resource of a given `media-type` can be explored when needing to know more.
+- Reference nodes which link to `href` where a new resource of a given `media-type` can be explored if you need to know more.
 
 ## Testing the API
 
-A standard web browser is not sufficient to fully test the API. You can, however, try opening the root resource with it, using the session authentication: `http://example.com/api/ibexa/v2/`. Depending on how your browser understands XML, it will either download the XML file, or open it in the browser.
+A standard web browser is not sufficient to fully test the API.
+You can, however, try opening the root resource with it, using the session authentication: `http://example.com/api/ibexa/v2/`.
+Depending on how your browser understands XML, it either downloads the XML file, or opens it in the browser.
 
-Here come some examples to start interrogating the REST API using cURL, PHP or JS.
+The following examples show how to interrogate the REST API using cURL, PHP or JS.
 
 To test further, you can use browser extensions, like [Advanced REST client for Chrome](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo) or [RESTClient for Firefox](https://addons.mozilla.org/firefox/addon/restclient/), or dedicated tools. For command line users, [HTTPie](https://github.com/jkbr/httpie) is a good tool.
 
 ### CLI
 
-Few `curl` command-line examples have been previously shown:
+For examples of using `curl`, refer to:
 
 - [REST root](#rest-root)
 - [OPTIONS method](#options-method)
@@ -633,17 +652,18 @@ curl_setopt_array($curl, [
 var_dump(json_decode(curl_exec($curl), true));
 ```
 
-To possibly test it, just open a PHP shell in a terminal with `php -a` and copy-paste this code into it.
+To test it, open a PHP shell in a terminal with `php -a` and copy-paste this code into it.
 
 `$resource` URI should be edited to address the right domain.
 
-On a freshly installed Ibexa DXP, `52` is the Content ID of the Front-Office home page. If necessary, substitute `52` with the Content ID of an item from your database.
+On a freshly installed Ibexa DXP, `52` is the Content ID of the home page. If necessary, substitute `52` with the Content ID of an item from your database.
 
-A content creation example using PHP is available above in [Creating content with binary attachments section](#creating-content-with-binary-attachments)
+For a content creation example using PHP, see [Creating content with binary attachments](#creating-content-with-binary-attachments)
 
 ### JS
 
-One of the main reasons for this API is to help implement JavaScript / AJAX interaction. You can see here an example of an AJAX call that retrieves ContentInfo (e.g. metadata) for a Content item:
+The REST API can help you implement JavaScript / AJAX interaction.
+The following example of an AJAX call retrieves `ContentInfo` (that is, metadata) for a Content item:
 
 ```javascript
 var resource = '/api/ibexa/v2/content/objects/52',
@@ -657,11 +677,11 @@ request.onload = function () {
 request.send();
 ```
 
-To possibly test it, just copy-paste this code into your browser console alongside a page from your website (to share the domain).
+To test it, copy-paste this code into your browser console alongside a page from your website (to share the domain).
 
-On a freshly installed Ibexa DXP, `52` is the Content ID of the Front-Office home page. If necessary, substitute `52` with the Content ID of an item from your database.
+On a freshly installed Ibexa DXP, `52` is the Content ID of the home page. If necessary, substitute `52` with the Content ID of an item from your database.
 
-`resource` URI can be edited to address another domain but cross-origin requests must be allowed first; see the following section.
+You can edit the `resource` URI to address another domain, but cross-origin requests must be allowed first.
 
 ## Cross-origin requests
 
@@ -674,24 +694,26 @@ On a freshly installed Ibexa DXP, `52` is the Content ID of the Front-Office hom
 
 CORS support is provided by the third party [nelmio/cors-bundle](https://packagist.org/packages/nelmio/cors-bundle). You can read more about it in [NelmioCorsBundle's README](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md).
 
-Notice that this is not limited to REST API resources and can be used for any resource of the platform.
+Using CORS is not limited to REST API resources and can be used for any resource of the platform.
 
 ### Configuration
 
-You can add an allowed domain regular expression using the .env variable `CORS_ALLOW_ORIGIN`.
+To enable CORS, add regular expression for an allowed domain using the `.env` variable `CORS_ALLOW_ORIGIN`.
 
-For example, to allow the JS test above to be executed along-side this page, the following could be added to a .env file (like the .env.local): `CORS_ALLOW_ORIGIN=^https?://doc.ibexa.co`. 
+For example, to allow the JS test above to be executed alongside this page, you could add the following to an `.env` file (like the `.env.local`): `CORS_ALLOW_ORIGIN=^https?://doc.ibexa.co`. 
 
-To add several domains, to filter on URIs, to change the default (like not allowing all the methods), config/packages/nelmio_cors.yaml should be edited with the help of the [NelmioCorsBundle Configuration Documentation](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md#configuration).
+To add several domains, filter on URIs, or change the default (like not allowing all the methods),
+refer to [NelmioCorsBundle Configuration Documentation](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md#configuration)
+to learn how to edit `config/packages/nelmio_cors.yaml`.
 
 ## REST communication summary
 
-* A REST route (URI) leads to a REST Controller action. A REST route is composed of the root prefix (`ibexa.rest.path_prefix: /api/ibexa/v2`) and a resource path (e.g. `/content/objects/{contentId}`).
-* This Controller action returns an `Ibexa\Rest\Value` descendant.
-  - This Controller action might use the `Request` to build its result according to, for example, GET parameters, the `Accept` HTTP header, or, the Request payload and its `Content-Type` HTTP header.
-  - This Controller action might wrap its return into a `CachedValue` which contains caching information for the reverse proxies.
-* The `Ibexa\Bundle\Rest\EventListener\ResponseListener` attached to the `kernel.view event` is triggered, and, passes the Request and the Controller action's result to the `AcceptHeaderVisitorDispatcher`.
-* The `AcceptHeaderVisitorDispatcher` matches one of the `regexps` of an `ibexa.rest.output.visitor` service (an `Ibexa\Contracts\Rest\Output\Visitor`). The role of this `Output\Visitor` is to transform the Value returned by the Controller into XML or JSON output format. To do so, it combines an `Output\Generator` corresponding to the output format and a `ValueObjectVisitorDispatcher`. This `Output\Generator` is also adding the `media-type` attributes.
-* The matched `Output\Visitor` uses its `ValueObjectVisitorDispatcher` to select the right `ValueObjectVisitor` according to the fully qualified class name (FQCN) of the Controller result. A `ValueObjectVisitor` is a service tagged `ibexa.rest.output.value_object.visitor` and this tag has a property `type` pointing a FQCN.
-* `ValueObjectVisitor`s will recursively help to transform the Controller result thanks to the abstraction layer of the `Generator`.
+* A REST route (URI) leads to a REST controller action. A REST route is composed of the root prefix (`ibexa.rest.path_prefix: /api/ibexa/v2`) and a resource path (for example, `/content/objects/{contentId}`).
+* This controller action returns an `Ibexa\Rest\Value` descendant.
+  - This controller action might use the `Request` to build its result according to, for example, GET parameters, the `Accept` HTTP header, or the request payload and its `Content-Type` HTTP header.
+  - This controller action might wrap its return in a `CachedValue` which contains caching information for the reverse proxies.
+* The `Ibexa\Bundle\Rest\EventListener\ResponseListener` attached to the `kernel.view event` is triggered, and passes the request and the controller action's result to the `AcceptHeaderVisitorDispatcher`.
+* The `AcceptHeaderVisitorDispatcher` matches one of the `regexps` of an `ibexa.rest.output.visitor` service (an `Ibexa\Contracts\Rest\Output\Visitor`). The role of this `Output\Visitor` is to transform the value returned by the controller into XML or JSON output format. To do so, it combines an `Output\Generator` corresponding to the output format and a `ValueObjectVisitorDispatcher`. This `Output\Generator` is also adding the `media-type` attributes.
+* The matched `Output\Visitor` uses its `ValueObjectVisitorDispatcher` to select the right `ValueObjectVisitor` according to the fully qualified class name (FQCN) of the controller result. A `ValueObjectVisitor` is a service tagged `ibexa.rest.output.value_object.visitor` and this tag has a property `type` pointing a FQCN.
+* `ValueObjectVisitor`s will recursively help to transform the controller result thanks to the abstraction layer of the `Generator`.
 * The `Output\Visitor` returns the `Response` to send back to the client.
