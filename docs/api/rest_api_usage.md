@@ -461,7 +461,7 @@ The following list of available HTTP response status codes just give a quick hin
 
 ### Response headers
 
-A resource's response may contain meta-data in its HTTP headers.
+A resource's response may contain metadata in its HTTP headers.
 
 The `Allow` response header for [`OPTIONS` method](#options-method) was previously seen.
 
