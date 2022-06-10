@@ -58,7 +58,7 @@ return (
 )
 ```
 
-### Custom icons in React component
+### Icon React component
 
 You can use React component to customize icons in Back Office and Page Builder.
 
