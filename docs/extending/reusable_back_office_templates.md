@@ -27,7 +27,7 @@ The alert component has the following properties:
 - `attributes` - additional HTML attributes
 
 ``` html+twig
-{% include '@ezdesign/ui/component/alert/alert.html.twig' with {
+{% include '@ibexadesign/ui/component/alert/alert.html.twig' with {
     type: 'info',
     title: 'Some title',
     subtitle: 'Some subtitle',
