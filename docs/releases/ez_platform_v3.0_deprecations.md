@@ -476,7 +476,7 @@ Do not store the values globally. Every time the value is needed call `ConfigRes
 #### AbstractController
 
 The `eZ\Bundle\EzPublishCoreBundle\Controller` now extends `Symfony\Bundle\FrameworkBundle\Controller\AbstractController` instead of `Symfony\Bundle\FrameworkBundle\Controller\Controller` which has limited access to the [service container](https://doc.ibexa.co/en/latest/guide/api/public_php_api.md#service-container).
-For details, see [Service Subscribers Locators](https://symfony.com/doc/5.0/api/public_php_api.md#service-container/service_subscribers_locators.html).
+For details, see [Service Subscribers Locators](https://symfony.com/doc/5.0/service_container/service_subscribers_locators.html).
 
 The `Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand` is deprecated, use `Symfony\Component\Console\Command\Command` instead.
 
