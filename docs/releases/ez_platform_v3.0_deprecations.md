@@ -42,7 +42,7 @@ For more information, see the Doctrine connection configuration example in the [
 
 ## Field Types
 
-The following tags used to register Field Type features in the [service container](https://doc.ibexa.co/en/latest/guide/service_container) have been renamed:
+The following tags used to register Field Type features in the [service container](https://doc.ibexa.co/en/latest/api/public_php_api/#service-container) have been renamed:
 
 |Former name|New name|
 |-----------|--------|
@@ -90,7 +90,7 @@ The following Symfony Service definitions that provide extension point to create
 
 The `ezstudio.installer.studio_installer` service has been renamed to the FQCN-named
 service `EzSystems\EzPlatformEnterpriseEditionInstallerBundle\Installer\Installer`.
-Deprecated `ezplatform.ee.installer.class` [service container](https://doc.ibexa.co/en/latest/guide/service_container) parameter has been removed.
+Deprecated `ezplatform.ee.installer.class` [service container](https://doc.ibexa.co/en/latest/api/public_php_api/#service-container) parameter has been removed.
 
 See [eZ Platform v3.0 project update instructions](https://doc.ibexa.co/en/latest/updating/4_8_upgrade_rest/#custom-installers) for upgrade details.
 
@@ -475,7 +475,7 @@ Do not store the values globally. Every time the value is needed call `ConfigRes
 
 #### AbstractController
 
-The `eZ\Bundle\EzPublishCoreBundle\Controller` now extends `Symfony\Bundle\FrameworkBundle\Controller\AbstractController` instead of `Symfony\Bundle\FrameworkBundle\Controller\Controller` which has limited access to the [service container](https://doc.ibexa.co/en/latest/guide/service_container).
+The `eZ\Bundle\EzPublishCoreBundle\Controller` now extends `Symfony\Bundle\FrameworkBundle\Controller\AbstractController` instead of `Symfony\Bundle\FrameworkBundle\Controller\Controller` which has limited access to the [service container](https://doc.ibexa.co/en/latest/api/public_php_api/#service-container).
 For details, see [Service Subscribers Locators](https://symfony.com/doc/5.0/service_container/service_subscribers_locators.html).
 
 The `Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand` is deprecated, use `Symfony\Component\Console\Command\Command` instead.
@@ -691,7 +691,7 @@ The deprecated `Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesserI
 
 ### Symfony service container
 
-The deprecated Symfony [service container](https://doc.ibexa.co/en/latest/guide/service_container) parameters ending with `.class` have been removed, services relying on them now have their classes defined explicitly.
+The deprecated Symfony [service container](https://doc.ibexa.co/en/latest/api/public_php_api/#service-container) parameters ending with `.class` have been removed, services relying on them now have their classes defined explicitly.
 To properly decorate a Symfony service, use the `decorates` attribute instead.
 For the full list of the dropped parameters, see
 [kernel documentation.](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/bc/1.0/dropped-container-parameters.md)

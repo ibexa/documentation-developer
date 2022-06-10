@@ -9,7 +9,7 @@ To do this, you can use the [`SearchService`](#searchservice) or [Repository fil
 [`SearchService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SearchService.php)
 enables you to perform search queries using the PHP API.
 
-The service should be [injected into the constructor of your command or controller](../api/service_container.md).
+The service should be [injected into the constructor of your command or controller](../api/public_php_api.md#service-container).
 
 !!! tip "SearchService in the Back Office"
 
