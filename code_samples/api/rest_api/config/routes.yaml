@@ -3,7 +3,6 @@ app.rest:
     prefix: '%ibexa.rest.path_prefix%'
 
 app.rest.options:
-    #TODO: There is something wrong with resource, it only works with an absolute path on ibexa/rest v4.1.2 — see https://issues.ibexa.co/browse/IBX-2927
     resource: routes_rest.yaml
     prefix: '%ibexa.rest.path_prefix%'
     type: rest_options

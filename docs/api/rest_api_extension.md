@@ -135,13 +135,6 @@ You can disable it by using the route parameter `csrf_protection`.
 [[= include_file('code_samples/api/rest_api/config/routes_rest.yaml') =]]
 ```
 
-#### OPTIONS method support
-
-``` yaml
-# config/routes.yaml
-[[= include_file('code_samples/api/rest_api/config/routes.yaml') =]]
-```
-
 ### Controller
 
 #### Controller service
