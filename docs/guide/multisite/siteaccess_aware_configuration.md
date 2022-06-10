@@ -93,7 +93,7 @@ acme_example:
 ### Mapping to internal settings
 
 Semantic configuration must always be mapped to internal key/value settings within the service container.
-You usually do it in the [service container](../../api/service_container.md) extension.
+You usually do it in the [service container](../../api/public_php_api.md#service-container) extension.
 
 ``` php
 <?php
