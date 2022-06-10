@@ -15,7 +15,7 @@ The following example adds the handling of a new media type `application/app.api
 
 !!! note
 
-    You may not change the vendor from default `vnd.ibexa.api` to new `app.api` like in this example but create a new type in the default vendor instead.
+    You can change the vendor name (from default `vnd.ibexa.api` to new `app.api` like in this example), or you can create a new media type in the default vendor (like `vnd.ibexa.api.Greeting` in the [Creating a new REST resource](#creating-a-new-rest-resource) example).
     To do so, tag your new ValueObjectVisitor with `ibexa.rest.output.value_object.visitor` to add it to the existing `ValueObjectVisitorDispatcher`, and a new one will not be needed.
     This way, the `media-type` attribute is also easier to create, because the default `Output\Generator` uses this default vendor.
     This example presents creating a new vendor as a good practice, to highlight that this is custom extensions that isn't available in a regular Ibexa DXP installation.
@@ -25,7 +25,7 @@ The following example adds the handling of a new media type `application/app.api
 The controller action returns a `Values\RestLocation` object wrapped in `Values\CachedValue`.
 The new `ValueObjectVisitor` has to visit `Values\RestLocation` to prepare the new `Response`.
 
-All new `ValueObjectVisitor` needs to extend the abstract class `Output\ValueObjectVisitor` to be accepted by the `ValueObjectVisitorDispatcher`.
+To be accepted by the `ValueObjectVisitorDispatcher`, all new `ValueObjectVisitor` need to extend the abstract class `Output\ValueObjectVisitor`.
 In this example, this new `ValueObjectVisitor` extends the built-in `RestLocation` visitor to reuse it.
 This way, the abstract class is implicitly inherited.
 
