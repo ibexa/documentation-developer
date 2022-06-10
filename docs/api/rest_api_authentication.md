@@ -5,33 +5,34 @@ REST API resources and endpoints.
 
 Five authentication methods are currently supported: session (default), JWT, basic, OAuth and client certificate (SSL).
 
-Those methods can't be used at the same time.
+You can only use one of those methods at the same time.
 
 Using HTTPS for authenticated traffic is highly recommended.
 
-Other security related subjects can be consulted:
+For other security related subjects, see:
 
 - [Cross-origin requests](rest_api_usage.md#cross-origin-requests)
 - [`access_control`]([[= symfony_doc =]]/security/access_control.html)
 
 ## Session-based authentication
 
-This authentication method requires a Session cookie to be sent with each request.
+This authentication method requires a session cookie to be sent with each request.
 
-If this authentication method is used with a web browser, this session cookie is automatically available as soon as your visitor logs in.
+If you use this authentication method with a web browser, this session cookie is automatically available as soon as your visitor logs in.
 Add it as a cookie to your REST requests, and the user will be authenticated.
 
 Sessions are created to re-authenticate the user only (and perform authorization), not to hold session state in the service.
-Because of that, we regard this method as supporting AJAX-based applications even if it violates the principles of RESTful services.
+Because of that, you can use this method as supporting AJAX-based applications even if it violates the principles of RESTful services.
 
 ### Configuration
 
-Session is the default method and is already enabled; no configuration required. Notice that enabling whatever other method will disable session.
+Session is the default method and is already enabled, so no configuration required.
+Enabling any other method disables session.
 
 ### Usage examples
 
 You can create a session for a visitor even if they are not logged in by sending the **`POST`** request to `/user/sessions`.
-For logging out, use the **`DELETE`** request on the same resource.
+To log out, use the **`DELETE`** request on the same resource.
 
 #### Establishing a session
 
@@ -114,7 +115,8 @@ For logging out, use the **`DELETE`** request on the same resource.
 
 ##### Logging in with active session
 
-It's almost the same exchange as for the session creation, but, this time, important detail, the CSRF token obtained in the previous step is added to the new request through the `X-CSRF-Token` header.
+Logging in is very similar to session creation, with one important detail:
+the CSRF token obtained in the previous step is added to the new request through the `X-CSRF-Token` header.
 
 === "XML"
 
@@ -195,7 +197,7 @@ It's almost the same exchange as for the session creation, but, this time, impor
 
 ##### Session cookie
 
-The cookie previously set can now be joined to request to be executed with this user.
+You can now add the previously set cookie to requests to be executed with the logged-in user.
 
 ```
 GET /content/locations/1/5 HTTP/1.1
@@ -206,7 +208,8 @@ Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
 
 ##### CSRF token
 
-It can be important to keep the CSRF Token (`csrfToken`) for the duration of the session as this CSRF token must be sent in every request that uses [unsafe HTTP methods](rest_api_usage.md#request-method) (others than the safe GET or HEAD or OPTIONS) when a session has been established.
+It can be important to keep the CSRF token (`csrfToken`) for the duration of the session,
+because you must send this token in every request that uses [unsafe HTTP methods](rest_api_usage.md#request-method) (others than the safe GET or HEAD or OPTIONS) when a session has been established.
 It should be sent with an `X-CSRF-Token` header.
 
 Only three built-in routes can accept unsafe methods without CSRF, the sessions routes starting with `/user/sessions` to create, refresh or delete a session.
@@ -282,7 +285,7 @@ you can get the JWT token through the following request:
     </JWTInput>
     ```
     
-    If credentials are valid, the server response will contain a token:
+    If credentials are valid, the server response contains a token:
     
     ```xml
     <JWT media-type="application/vnd.ibexa.api.JWT+xml" token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg"/>
@@ -317,7 +320,7 @@ you can get the JWT token through the following request:
     }
     ```
     
-    If credentials are valid, the server response will contain a token:
+    If credentials are valid, the server response contains a token:
     
     ```json
     {
@@ -343,7 +346,7 @@ For more information, see [HTTP Authentication: Basic and Digest Access Authenti
 
 ### Configuration
 
-If the installation has a dedicated host for REST, you can enable HTTP basic authentication only on this host by setting a firewall like the following before the `ibexa_front` one:
+If the installation has a dedicated host for REST, you can enable HTTP basic authentication only on this host by setting a firewall like in the following example before the `ibexa_front` one:
 
 ```yaml
         ibexa_rest:
