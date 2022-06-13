@@ -357,19 +357,20 @@ If the installation has a dedicated host for REST, you can enable HTTP basic aut
 
 !!! caution "Back Office uses REST API"
 
-    Notice that the Back Office uses the REST API too (for some parts like the Location tree or the Calendar) on its own domain.
+    Back Office uses the REST API too (for some parts like the Location tree or the Calendar) on its own domain.
     
-    * If the Back Office SiteAccess matches admin.example.com, it will call the REST API under //admin.example.com/api/ibexa/v2;
-    * If the Back Office SiteAccess matches localhost/admin, it will call the REST API under //localhost/api/ibexa/v2.
+    * If the Back Office SiteAccess matches `admin.example.com`, it will call the REST API under `//admin.example.com/api/ibexa/v2`;
+    * If the Back Office SiteAccess matches localhost/admin, it will call the REST API under `//localhost/api/ibexa/v2`.
     
-    If Basic authentication is aimed only for REST API, it is better to have a dedicated domain even on a developpement environement.
+    If basic authentication is used only for REST API, it is better to have a dedicated domain even on a development environment.
 
 ### Usage example
 
-Basic authentication requires the username and password to be sent *(username:password)*, based 64 encoded, with each request.
+Basic authentication requires the username and password to be sent *(username:password)*, base64 encoded, with each request.
 For details, see [RFC 2617](http://tools.ietf.org/html/rfc2617).
 
-Most HTTP client libraries as well as REST libraries support this method. [Creating content with binary attachments](rest_api_usage.md#creating-content-with-binary-attachments) has an example using Basic authentication with [cURL](https://www.php.net/manual/en/book.curl.php) and its `CURLOPT_USERPWD`. 
+Most HTTP client libraries as well as REST libraries support this method.
+[Creating content with binary attachments](rest_api_usage.md#creating-content-with-binary-attachments) has an example using basic authentication with [cURL](https://www.php.net/manual/en/book.curl.php) and its `CURLOPT_USERPWD`. 
 
 **Raw HTTP request with basic authentication**
 

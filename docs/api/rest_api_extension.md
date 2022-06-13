@@ -37,7 +37,6 @@ This new `ValueObjectVisitor` receives a new tag `app.rest.output.value_object.v
 This tag has a `type` property to associate the new `ValueObjectVisitor` with the type of value is made for.
 
 ``` yaml
-# config/services.yaml
 services:
     #…
 [[= include_file('code_samples/api/rest_api/config/services.yaml', 28, 35) =]]

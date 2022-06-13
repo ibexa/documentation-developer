@@ -378,7 +378,7 @@ The following examples search for `article` and `news` typed Content items every
 !!! note
 
     In JSON, the structure for `ContentTypeIdentifierCriterion` with multiple values has a slightly different format as keys must be unique.
-    In JSON, if there is only one `SortClauses`, it can be passed directly without an array to wrap it.
+    In JSON, if there is only one item in `SortClauses`, it can be passed directly without an array to wrap it.
 
 You can omit logical operators. If Criteria are of mixed types, they are wrapped in an implicit `AND`.
 If they are of the same type, they are wrapped in an implicit `OR`.
