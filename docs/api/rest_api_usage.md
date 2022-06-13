@@ -18,7 +18,7 @@ Starting from the [root resource](#rest-root), every response includes further l
 [REST reference](rest_api_reference/rest_api_reference.html), for the sake of readability, uses no prefixes in the URIs.
 In practice, the `/api/ibexa/v2` prefixes all REST hrefs.
 
-This prefix immediately follows the domain and you can't use the [`URIElement` SiteAccess matcher](../guide/multisite/siteaccess_matching.md#urielement).
+This prefix immediately follows the domain, and you can't use the [`URIElement` SiteAccess matcher](../guide/multisite/siteaccess_matching.md#urielement).
 If you need to the select a SiteAccess, see the [`X-Siteaccess` HTTP header](#siteaccess).
 
 ### URI parameters
@@ -84,8 +84,8 @@ Depending on the HTTP method used, different actions will be possible on the sam
 The following list of available methods gives an overview of the kind of action a method triggers on a resource, if available.
 For method action details per resource, see the [REST API reference](rest_api_reference/rest_api_reference.html).
 
-| HTTP method                                                | Status   | Description               | Safe |
-|------------------------------------------------------------|----------|---------------------------|------|
+| HTTP method                                                | Status   | Description            | Safe |
+|------------------------------------------------------------|----------|------------------------|------|
 | [OPTIONS](https://tools.ietf.org/html/rfc2616#section-9.2) | Standard | List available methods | Yes  |
 | [GET](https://tools.ietf.org/html/rfc2616#section-9.3)     | Standard | Collect data           | Yes  |
 | [HEAD](https://tools.ietf.org/html/rfc2616#section-9.4)    | Standard | Check existence        | Yes  |
@@ -455,18 +455,18 @@ For code details per resource, see the [REST API reference](rest_api_reference/r
 | Code  | Message                | Description                                                                                                                                                                                                                                                  |
 |-------|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `200` | OK                     | The resource has been found.                                                                                                                                                                                                                                 |
-| `201` | Created                | The request to create a new item has succeeded; the response `Location` header indicates where you can find the created item.                                                                                                                           |
-| `204` | No Content             | The request has succeeded and there is no additional information in the response header or body (for example when publishing or deleting).                                                                                                                    |
+| `201` | Created                | The request to create a new item has succeeded; the response `Location` header indicates where you can find the created item.                                                                                                                                |
+| `204` | No Content             | The request has succeeded and there is no additional information in the response header or body (for example when publishing or deleting).                                                                                                                   |
 | `301` | Moved Permanently      | The resource should not be accessed this way; the response `Location` header indicates the proper way.                                                                                                                                                       |
 | `307` | Temporary Redirect     | The resource is available at another URL considered as its main; the response `Location` header indicates this main URL.                                                                                                                                     |
 | `400` | Bad Request            | The input (payload) doesn't have the proper schema for the resource.                                                                                                                                                                                         |
 | `401` | Unauthorized           | The user does not have the permission to make this request.                                                                                                                                                                                                  |
-| `403` | Forbidden              | The user has the permission but action can't be performed because of Repository logic (for example, when trying to create an item with an already existing ID or identifier, when attempting to update a version in another state than draft).                    |
+| `403` | Forbidden              | The user has the permission but action can't be performed because of Repository logic (for example, when trying to create an item with an already existing ID or identifier, when attempting to update a version in another state than draft).               |
 | `404` | Not Found              | The requested object (or a request data like the parent of a new item) hasn't been found.                                                                                                                                                                    |
 | `405` | Method Not Allowed     | The requested resource does not support the HTTP verb that was used.                                                                                                                                                                                         |
-| `406` | Not Acceptable         | The request's `Accept` header is not supported.                                                                                                                                                                                                                |
+| `406` | Not Acceptable         | The request's `Accept` header is not supported.                                                                                                                                                                                                              |
 | `409` | Conflict               | The request is in conflict with another part of the repository (for example, trying to create a new item with an identifier already used).                                                                                                                   |
-| `415` | Unsupported Media Type | The request payload media type doesn't match the media type specified in the request header.                                                                                                                                                                  |
+| `415` | Unsupported Media Type | The request payload media type doesn't match the media type specified in the request header.                                                                                                                                                                 |
 | `500` | Internal Server Error  | The server encountered an unexpected condition, usually an exception, which prevents it from fulfilling the request, like database down, permissions or configuration error.                                                                                 |
 | `501` | Not Implemented        | Returned when the requested method has not yet been implemented. For [[= product_name =]], most of Users, User groups, Content items, Locations and Content Types have been implemented. Some of their methods, as well as other features, may return a 501. |
 
@@ -636,6 +636,8 @@ For examples of using `curl`, refer to:
 
 ### PHP
 
+To test it, open a PHP shell in a terminal with `php -a` and copy-paste this code into it:
+
 ```php
 $resource = 'https://api.example.com/api/ibexa/v2/content/objects/52';
 $curl = curl_init($resource);
@@ -652,8 +654,6 @@ curl_setopt_array($curl, [
 var_dump(json_decode(curl_exec($curl), true));
 ```
 
-To test it, open a PHP shell in a terminal with `php -a` and copy-paste this code into it.
-
 `$resource` URI should be edited to address the right domain.
 
 On a freshly installed Ibexa DXP, `52` is the Content ID of the home page. If necessary, substitute `52` with the Content ID of an item from your database.
@@ -664,6 +664,8 @@ For a content creation example using PHP, see [Creating content with binary atta
 
 The REST API can help you implement JavaScript / AJAX interaction.
 The following example of an AJAX call retrieves `ContentInfo` (that is, metadata) for a Content item:
+
+To test it, copy-paste this code into your browser console alongside a page from your website (to share the domain):
 
 ```javascript
 var resource = '/api/ibexa/v2/content/objects/52',
@@ -676,8 +678,6 @@ request.onload = function () {
 };
 request.send();
 ```
-
-To test it, copy-paste this code into your browser console alongside a page from your website (to share the domain).
 
 On a freshly installed Ibexa DXP, `52` is the Content ID of the home page. If necessary, substitute `52` with the Content ID of an item from your database.
 
