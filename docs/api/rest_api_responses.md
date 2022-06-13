@@ -23,15 +23,15 @@ For code details per resource, see the [REST API reference](rest_api_reference/r
 | `500` | Internal Server Error  | The server encountered an unexpected condition, usually an exception, which prevents it from fulfilling the request, like database down, permissions or configuration error.                                                                                 |
 | `501` | Not Implemented        | Returned when the requested method has not yet been implemented. For [[= product_name =]], most of Users, User groups, Content items, Locations and Content Types have been implemented. Some of their methods, as well as other features, may return a 501. |
 
-### Response headers
+## Response headers
 
 A resource's response may contain metadata in its HTTP headers.
 
 !!! note
-For information about the `Allow` response header, see the [`OPTIONS` method](rest_api_requests.md#options-method).
-For information about the `Access-Control-Allow-Origin` response header, see the [Cross-origin](#cross-origin) section.
 
-#### Content-Type header
+    For information about the `Allow` response header, see the [`OPTIONS` method](rest_api_requests.md#options-method).
+
+### Content-Type header
 
 When a response contains an actual HTTP body, the `Content-Type` header specifies what the body contains.
 The `Content-Type` header's value is a [media type](rest_api_requests.md#media-types), like with the request `Accept` and `Content-Type` headers.
@@ -57,7 +57,7 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.ibexa.api.Content+json
 ```
 
-#### Accept-Patch header
+### Accept-Patch header
 
 When available, the `Accept-Patch` tells how the received item could be modified with `PATCH`.
 
@@ -86,7 +86,7 @@ Accept-Patch: application/vnd.ibexa.api.ContentUpdate+json
 
 Those example `Accept-Path` headers above indicate that the content could be modified by sending a [ContentUpdateStruct](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentUpdateStruct.php) in XML or JSON.
 
-#### Location header
+### Location header
 
 For example, [creating content](rest_api_reference/rest_api_reference.html#managing-content-create-content-type) and [getting a Content item's current version](rest_api_reference/rest_api_reference.html#managing-content-get-current-version)
 both send a `Location` header to provide you with the requested resource's ID.
@@ -129,7 +129,32 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.ibexa.api.Content+json
 ```
 
-### Response body
+### Cross-origin
+
+[Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) can allow the REST API to be reached from a page on another domain.
+
+!!! tip "More information about CORS"
+
+    - [CORS' W3C specification](http://www.w3.org/TR/cors/)
+    - [Overview of CORS on developer.mozilla.org](https://developer.mozilla.org/en-US/docs/HTTP/Access_control_CORS)
+
+CORS support is provided by the third party [nelmio/cors-bundle](https://packagist.org/packages/nelmio/cors-bundle). You can read more about it in [NelmioCorsBundle's README](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md).
+
+Using CORS is not limited to REST API resources and can be used for any resource of the platform.
+
+The CORS bundle add `Access-Control-Allow-Origin` header to the response.
+
+#### Configuration
+
+To enable CORS, add regular expression for an allowed domain using the `.env` variable `CORS_ALLOW_ORIGIN`.
+
+For example, to allow the JS test above to be executed alongside this page, you could add the following to an `.env` file (like the `.env.local`): `CORS_ALLOW_ORIGIN=^https?://doc.ibexa.co`.
+
+To add several domains, filter on URIs, or change the default (like not allowing all the methods),
+refer to [NelmioCorsBundle Configuration Documentation](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md#configuration)
+to learn how to edit `config/packages/nelmio_cors.yaml`.
+
+## Response body
 
 The Response body is often a serialization in XML or JSON of an object as it could be retrieved using the Public PHP API.
 
@@ -166,26 +191,3 @@ The response body XML can contain two types of nodes:
 
 - Final nodes that fully give an information as a scalar value;
 - Reference nodes which link to `href` where a new resource of a given `media-type` can be explored if you need to know more.
-
-## Cross-origin
-
-[Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) can allow the REST API to be reached from a page on another domain.
-
-!!! tip "More information about CORS"
-
-    - [CORS' W3C specification](http://www.w3.org/TR/cors/)
-    - [Overview of CORS on developer.mozilla.org](https://developer.mozilla.org/en-US/docs/HTTP/Access_control_CORS)
-
-CORS support is provided by the third party [nelmio/cors-bundle](https://packagist.org/packages/nelmio/cors-bundle). You can read more about it in [NelmioCorsBundle's README](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md).
-
-Using CORS is not limited to REST API resources and can be used for any resource of the platform.
-
-### Configuration
-
-To enable CORS, add regular expression for an allowed domain using the `.env` variable `CORS_ALLOW_ORIGIN`.
-
-For example, to allow the JS test above to be executed alongside this page, you could add the following to an `.env` file (like the `.env.local`): `CORS_ALLOW_ORIGIN=^https?://doc.ibexa.co`.
-
-To add several domains, filter on URIs, or change the default (like not allowing all the methods),
-refer to [NelmioCorsBundle Configuration Documentation](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md#configuration)
-to learn how to edit `config/packages/nelmio_cors.yaml`.
