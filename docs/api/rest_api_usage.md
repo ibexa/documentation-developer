@@ -636,7 +636,7 @@ For examples of using `curl`, refer to:
 
 ### PHP
 
-To test it, open a PHP shell in a terminal with `php -a` and copy-paste this code into it:
+To test REST API with PHP, cURL can be used; open a PHP shell in a terminal with `php -a` and copy-paste this code into it:
 
 ```php
 $resource = 'https://api.example.com/api/ibexa/v2/content/objects/52';
@@ -700,7 +700,7 @@ Using CORS is not limited to REST API resources and can be used for any resource
 
 To enable CORS, add regular expression for an allowed domain using the `.env` variable `CORS_ALLOW_ORIGIN`.
 
-For example, to allow the JS test above to be executed alongside this page, you could add the following to an `.env` file (like the `.env.local`): `CORS_ALLOW_ORIGIN=^https?://doc.ibexa.co`. 
+For example, to allow the JS test above to be executed alongside this page, you could add the following to an `.env` file (like the `.env.local`): `CORS_ALLOW_ORIGIN=^https?://doc.ibexa.co`.
 
 To add several domains, filter on URIs, or change the default (like not allowing all the methods),
 refer to [NelmioCorsBundle Configuration Documentation](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md#configuration)
