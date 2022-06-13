@@ -245,7 +245,7 @@ Almost all [Search Criteria](../guide/search/criteria_reference/search_criteria_
 
 Almost all [Sort Clauses](../guide/search/sort_clause_reference/sort_clause_reference.md#sort-clauses) are available too. They require no additional prefix or suffix.
 
-The search request HTTP header to type its body is `Content-Type: application/vnd.ibexa.api.ViewInput+xml` or `+json`.
+The search request has a `Content-Type: application/vnd.ibexa.api.ViewInput+xml` or `+json` header to specify the format of its body's payload.
 The root node is `<ViewInput>` and it has two mandatory children: `<identifier>` and `<Query>`.
 
 You can add `version=1.1` to the `Content-Type` header to support the distinction between `ContentQuery` and `LocationQuery` instead of just `Query` which implicitly looks only for Content items.
