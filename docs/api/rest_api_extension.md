@@ -9,9 +9,10 @@ In this example case, you pass a new media type in the `Accept` header of a GET 
 By default, this resource takes an `application/vnd.ibexa.api.Location+xml` (or `+json`) `Accept` header.
 The following example adds the handling of a new media type `application/app.api.Location+xml` (or `+json`) `Accept` header to obtain a different response using the same controller.
 
-* To create the new response corresponding to this new media type, you need a new `ValueObjectVisitor`.
-* To have this new `ValueObjectVisitor` used to visit the default controller result, you need a new `ValueObjectVisitorDispatcher`.
-* To have this new `ValueObjectVisitorDispatcher` associated to the new media type in an `Accept` header, you need a new `Output\Visitor` service.
+You need the following elements:
+* A `ValueObjectVisitor` to create the new response corresponding to the new media type;
+* A `ValueObjectVisitorDispatcher` to have this `ValueObjectVisitor` used to visit the default controller result;
+* An `Output\Visitor` service associating this new `ValueObjectVisitorDispatcher` with the new media type.
 
 !!! note
 
