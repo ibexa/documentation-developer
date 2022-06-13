@@ -861,7 +861,7 @@ Version v2.5.18 introduces new entity managers.
 To ensure that they work in multi-repository setups, you must update the GraphQL schema.
 You do this manually by following this procedure:
 
-1. Update your project to v2.5.18 and run the `php bin/console cache:clear` command to generate the [service container](../../api/service_container.md).
+1. Update your project to v2.5.18 and run the `php bin/console cache:clear` command to generate the [service container](../../api/public_php_api.md#service-container).
 
 1. Run the following command to discover the names of the new entity managers. 
     Take note of the names that you discover:

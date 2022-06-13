@@ -2,6 +2,8 @@
 
 The final step of this tutorial assists you in adding to the home page a Form block for signing up to a newsletter.
 
+[[% include 'snippets/forms_caution.md' %]]
+    
 ### Add a Form block
 
 Start with creating a Form Content item.

@@ -3,7 +3,7 @@
   <ContentType href="/api/ibexa/v2/content/types/2"/>
   <mainLanguageCode>eng-GB</mainLanguageCode>
   <LocationCreate>
-    <ParentLocation href="/api/ibexa/v2/content/locations/1/2" />
+    <ParentLocation href="/api/ibexa/v2/content/locations/1/2"/>
     <priority>0</priority>
     <hidden>false</hidden>
     <sortField>PATH</sortField>
@@ -22,15 +22,15 @@
       <fieldDefinitionIdentifier>intro</fieldDefinitionIdentifier>
       <languageCode>eng-GB</languageCode>
       <fieldValue>
-    <value key="xml"><![CDATA[<section xmlns="http://ez.no/namespaces/ezpublish5/xhtml5/edit"><p>draft draft</p></section>]]></value>
-   </fieldValue>
+        <value key="xml"><![CDATA[<section xmlns="http://ibexa.co/namespaces/ezpublish5/xhtml5/edit"><p>draft draft</p></section>]]></value>
+      </fieldValue>
     </field>
     <field>
       <fieldDefinitionIdentifier>body</fieldDefinitionIdentifier>
       <languageCode>eng-GB</languageCode>
       <fieldValue>
-    <value key="xml"><![CDATA[<section xmlns="http://ez.no/namespaces/ezpublish5/xhtml5/edit"><p>draft draft draft </p></section>]]></value>
-   </fieldValue>
+        <value key="xml"><![CDATA[<section xmlns="http://ibexa.co/namespaces/ezpublish5/xhtml5/edit"><p>draft draft draft</p></section>]]></value>
+      </fieldValue>
     </field>
   </fields>
 </ContentCreate>
