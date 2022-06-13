@@ -658,7 +658,7 @@ You can also query attributes by providing the attribute type:
 
 !!! note
 
-    You need to use use aliases (for example, `sizeValue`) when querying attributes by using the attribute type
+    You need to use aliases (for example, `sizeValue`) when querying attributes by the attribute type
     due to the conflicting return types.
 
 Response:
@@ -711,7 +711,6 @@ Response:
   }
 }
 ```
-
 
 ## Sorting
 
