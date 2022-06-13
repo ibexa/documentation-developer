@@ -139,12 +139,12 @@ There are a number of security related HTTP response headers you can use to impr
 
 You will likely need to vary the security headers based on the site access in question, and on the details of the site implementation, like frontend code and libraries used.
 
-- `Strict-Transport-Security`: Ensure all requests are over HTTPS, with no fallback to HTTP. All production sites should be using HTTPS and this header, unless they have very particular needs. During development it is less important, at least as long as the site is on an internal, protected network.
-- `X-Frame-Options`: Ensure the site won't be embedded in a frame, by a compliant browser. Set to `SAMEORIGIN` if you need to allow embedding by your own site, otherwise `DENY` to block framing completely.
-- `X-Content-Type-Options`: Prevent the browser from second-guessing the mime-type of delivered content. Not important if users can't upload content and you trust your editors, though the safer option is to use it. Make sure the Content-Type header is also correctly set, including for the top-level document, to avoid issues with HTML documents being downloaded when they should be rendered.
-- `Content-Security-Policy`: Blocks cross site scripting (XSS) attacks by setting an allowlist (whitelist) of resources to be loaded for a given page. You can set separate lists for scripts, images, fonts, and more. You can use `Content-Security-Policy-Report-Only` for experimentation and testing before activating the actual policy.
-- `Referrer-Policy`: Limit what information is sent from the previous page/site when navigating to a new page/site. It has several directives for fine-tuning the referrer information.
-- `Permissions-Policy`: Limits what features the browser can use, like fullscreen, notifications, location, camera, microphone, etc. If for instance someone has succeeded in injecting their javascript into your site, this header prevents them from using those features to attack your users.
+- `Strict-Transport-Security`- ensures all requests are over HTTPS, with no fallback to HTTP. All production sites should use HTTPS and this header, unless they have very particular needs. During development it is less important, at least as long as the site is on an internal, protected network.
+- `X-Frame-Options` - ensures the site will not be embedded in a frame, by a compliant browser. Set to `SAMEORIGIN` if you need to allow embedding by your own site, or `DENY` to block framing completely.
+- `X-Content-Type-Options` - prevents the browser from second-guessing the mime-type of delivered content. Not important if users cannot upload content and you trust your editors, though the safer option is to use it. Make sure the Content-Type header is also correctly set, including for the top-level document, to avoid issues with HTML documents being downloaded when they should be rendered.
+- `Content-Security-Policy` - blocks cross site scripting (XSS) attacks by setting an allowlist (whitelist) of resources to be loaded for a given page. You can set separate lists for scripts, images, fonts, and more. You can use `Content-Security-Policy-Report-Only` for experimentation and testing before activating the actual policy.
+- `Referrer-Policy` - limits what information is sent from the previous page or site when navigating to a new page or site. It has several directives for fine-tuning the referrer information.
+- `Permissions-Policy` - limits what features the browser can use, such as fullscreen, notifications, location, camera, microphone. If for instance someone has succeeded in injecting their JavaScript into your site, this header prevents them from using those features to attack your users.
 
 ### Track dependencies
 
