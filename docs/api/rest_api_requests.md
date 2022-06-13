@@ -82,7 +82,6 @@ You can use the following HTTP headers with a REST request:
 - [`X-Siteaccess`](#siteaccess) specifying the target SiteAccess;
 - `X-HTTP-Method-Override` allowing to pass a custom method while using `POST` method as previously seen in [HTTP method](#request-method).
 - [`Destination`](#destination) specifying where to move an item
-<!-- - [`If-None-Match`](https://tools.ietf.org/html/rfc7232#section-3.2) reclaiming the cached response of a previously visited resource if still up-to-date using [HTTP Etag](https://tools.ietf.org/html/rfc7232#section-2.3). -->
 
 Other headers related to authentication methods can be found in [REST API authentication](rest_api_authentication.md).
 

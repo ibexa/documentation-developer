@@ -23,8 +23,6 @@ For code details per resource, see the [REST API reference](rest_api_reference/r
 | `500` | Internal Server Error  | The server encountered an unexpected condition, usually an exception, which prevents it from fulfilling the request, like database down, permissions or configuration error.                                                                                 |
 | `501` | Not Implemented        | Returned when the requested method has not yet been implemented. For [[= product_name =]], most of Users, User groups, Content items, Locations and Content Types have been implemented. Some of their methods, as well as other features, may return a 501. |
 
-<!-- | `412` | Precondition Failed | The current ETag does not match with the one provided in the If-Match header | -->
-
 ### Response headers
 
 A resource's response may contain metadata in its HTTP headers.
