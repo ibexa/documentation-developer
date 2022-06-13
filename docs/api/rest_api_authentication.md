@@ -38,6 +38,8 @@ To log out, use the **`DELETE`** request on the same resource.
 
 ##### Creating session
 
+To create a session, execute the following REST request:
+
 === "XML"
 
     ```
