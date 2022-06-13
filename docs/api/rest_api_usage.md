@@ -210,7 +210,7 @@ One example is the [creation of an authentication session](rest_api_authenticati
 
 When creating a Content item, a special payload is needed if the ContentType has some [Image](field_types_reference/imagefield.md) or [BinaryFile](field_types_reference/binaryfilefield.md) Fields as files need to be attached. See the example of a [script uploading images](#creating-content-with-binary-attachments) below.
 
-When searching for Contents (or Locations), the query grammar is also particular. See the [Search section](#search-view) below.
+When searching for Content items (or Locations), the query grammar is also particular. See the [Search section](#search-view) below.
 
 #### Creating content with binary attachments
 
