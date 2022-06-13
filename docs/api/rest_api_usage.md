@@ -150,7 +150,6 @@ You can use the following HTTP headers with a REST request:
 - [`X-Siteaccess`](#siteaccess) specifying the target SiteAccess;
 - `X-HTTP-Method-Override` allowing to pass a custom method while using `POST` method as previously seen in [HTTP method](#request-method).
 - [`Destination`](#destination) specifying where to move an item
-<!-- - [`If-None-Match`](https://tools.ietf.org/html/rfc7232#section-3.2) reclaiming the cached response of a previously visited resource if still up-to-date using [HTTP Etag](https://tools.ietf.org/html/rfc7232#section-2.3). -->
 
 Other headers related to authentication methods can be found in [REST API authentication](rest_api_authentication.md).
 
@@ -469,8 +468,6 @@ For code details per resource, see the [REST API reference](rest_api_reference/r
 | `415` | Unsupported Media Type | The request payload media type doesn't match the media type specified in the request header.                                                                                                                                                                 |
 | `500` | Internal Server Error  | The server encountered an unexpected condition, usually an exception, which prevents it from fulfilling the request, like database down, permissions or configuration error.                                                                                 |
 | `501` | Not Implemented        | Returned when the requested method has not yet been implemented. For [[= product_name =]], most of Users, User groups, Content items, Locations and Content Types have been implemented. Some of their methods, as well as other features, may return a 501. |
-
-<!-- | `412` | Precondition Failed | The current ETag does not match with the one provided in the If-Match header | -->
 
 ### Response headers
 
