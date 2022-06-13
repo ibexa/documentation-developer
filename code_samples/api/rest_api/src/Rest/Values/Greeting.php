@@ -1,5 +1,4 @@
 <?php
-// src/Rest/Values/Greeting.php
 
 namespace App\Rest\Values;
 

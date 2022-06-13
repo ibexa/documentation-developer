@@ -1,5 +1,4 @@
 <?php
-// src/Rest/InputParser/GreetingInput.php
 
 namespace App\Rest\InputParser;
 

@@ -1,5 +1,4 @@
 <?php
-// src/Rest/ValueObjectVisitor/RestLocation.php
 
 namespace App\Rest\ValueObjectVisitor;
 

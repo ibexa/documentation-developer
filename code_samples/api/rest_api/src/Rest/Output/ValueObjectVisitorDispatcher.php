@@ -1,5 +1,4 @@
 <?php
-// src/Rest/Output/ValueObjectVisitorDispatcher.php
 
 namespace App\Rest\Output;
 

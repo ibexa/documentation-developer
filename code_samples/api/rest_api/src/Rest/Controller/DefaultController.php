@@ -1,5 +1,4 @@
 <?php
-// src/Rest/Controller/DefaultController.php
 
 namespace App\Rest\Controller;
 
