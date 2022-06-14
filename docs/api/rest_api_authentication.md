@@ -34,7 +34,7 @@ Enabling any other method disables session.
 You can create a session for a visitor even if they are not logged in by sending the **`POST`** request to `/user/sessions`.
 To log out, use the **`DELETE`** request on the same resource.
 
-#### Establishing a session
+#### Establishing session
 
 ##### Creating session
 
@@ -195,7 +195,7 @@ the CSRF token obtained in the previous step is added to the new request through
     }
     ```
 
-#### Using the session
+#### Using session
 
 ##### Session cookie
 
@@ -247,7 +247,7 @@ It uses a session-based authentication, and it is in widespread use across the n
 A person with minimal insight into this application and the company can easily send out the following link to all employees in that company in email:
 `<a href="web+ez:DELETE /content/locations/1/2">latest reports</a>`.
 
-#### Logging out from the session
+#### Logging out from session
 
 To log out is to `DELETE` the session using its ID (like in the cookie). As this is an unsafe method, the CSRF token must be presented.
 
