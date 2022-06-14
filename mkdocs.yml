@@ -41,9 +41,15 @@ nav:
             - '8. Data migration': 'tutorials/generic_field_type/8_data_migration.md'
     - API:
         - REST API:
-            - 'REST API usage': 'api/rest_api_usage.md'
+            - 'REST API usage':
+              - 'REST API usage': 'api/rest_api_usage.md'
+              - 'REST requests': 'api/rest_api_requests.md'
+              - 'REST responses': 'api/rest_api_responses.md'
+              - 'Testing REST API': 'api/rest_api_testing.md'
             - 'REST API reference': 'api/rest_api_reference/rest_api_reference.html'
-            - 'Extending REST API': 'api/rest_api_extension.md'
+            - 'Extending REST API':
+              - 'Adding custom media type': 'api/rest_api_extension_media_type.md'
+              - 'Creating new REST resource': 'api/rest_api_extension_resource.md'
             - 'REST API authentication': 'api/rest_api_authentication.md'
         - PHP API:
             - 'PHP API': 'api/public_php_api.md'
