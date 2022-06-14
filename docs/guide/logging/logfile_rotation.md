@@ -1,3 +1,7 @@
+---
+description: Configure rotation of log files to minimize disk space usage.
+---
+
 # Logfile rotation
 
 You can set up automatic rotation of logfiles to avoid overfilling the disk space.

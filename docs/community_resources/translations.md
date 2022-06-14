@@ -1,3 +1,7 @@
+---
+description: You can contribute Back Office translations to Ibexa DXP by using Crowdin.
+---
+
 # Contribute translations
 
 If you'd like to see [[= product_name =]] in your language, you can contribute to the translations.

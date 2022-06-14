@@ -1,3 +1,7 @@
+---
+description: Manage image assets by using DAM systems, configuring image variations, optimizing and using placeholders.
+---
+
 # Images
 
 Images are an integral part of any website.

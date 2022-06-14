@@ -1,3 +1,7 @@
+---
+description: REST API requests can have one of generic or custom headers. They define additional options in their headers, such as the accepted content type of reponse.
+---
+
 # REST requests
 
 ## Request method

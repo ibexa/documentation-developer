@@ -1,3 +1,7 @@
+---
+description: Render content images and configure their variations.
+---
+
 # Render images
 
 To render images contained in Image Asset or Image Fields, use the [`ibexa_render_field()`](../twig_function_reference/field_twig_functions.md#ibexa_render_field) Twig function.

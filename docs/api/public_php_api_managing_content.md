@@ -1,3 +1,7 @@
+---
+description: PHP API enables managing content Locations, Content Types, as well as content in Trash and Calendar events.
+---
+
 # Managing content
 
 ## Locations

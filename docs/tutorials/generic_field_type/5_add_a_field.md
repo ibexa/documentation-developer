@@ -1,3 +1,7 @@
+---
+description: Learn how to use your custom Field Type by adding a Field to a Content Type and creating an instance.
+---
+
 # Step 5 - Add a new Point 2D Field
 
 All actions in this step are done in the admin interface also called the Back Office.

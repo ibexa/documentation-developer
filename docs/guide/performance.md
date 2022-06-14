@@ -1,3 +1,7 @@
+---
+description: Ensure that your Ibexa DXP installation performs well by following our set of recommendations.
+---
+
 # Performance
 
 [[= product_name =]] can be set up to run efficiently on almost any modern configuration.

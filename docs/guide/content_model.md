@@ -1,3 +1,7 @@
+---
+description: Ibexa DXP's content model relies on Content items based on Content Types, containing different content Fields.
+---
+
 # Content model
 
 ## Content model overview

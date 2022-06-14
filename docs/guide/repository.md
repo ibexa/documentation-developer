@@ -1,3 +1,7 @@
+---
+description: Ibexa DXP's content Repository stores all content and its related information and exposes a set of services to interact with via API.
+---
+
 # Repository
 
 The content Repository is where all your content is stored.

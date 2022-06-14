@@ -1,3 +1,7 @@
+---
+description: Locations hold any published Content items and can be used to control visibility.
+---
+
 # Content management
 
 ## Locations

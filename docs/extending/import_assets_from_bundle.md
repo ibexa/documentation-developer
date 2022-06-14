@@ -1,3 +1,7 @@
+---
+description: Import assets, such as stylesheets or images, from a separate bundle with customizations.
+---
+
 # Importing assets from a bundle
 
 [[= product_name =]] uses [Webpack Encore]([[= symfony_doc =]]/frontend.html#webpack-encore) for asset management.

@@ -1,3 +1,7 @@
+---
+description: 
+---
+
 # Tracking integration
 
 There are several ways to integrate event reporting into the webpage. 

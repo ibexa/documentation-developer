@@ -1,3 +1,7 @@
+---
+description: Add custom tags and styles to enrich the functionality of the Online Editor.
+---
+
 # Extend Online Editor
 
 [[= product_name =]] users edit the contents of RichText Fields, for example, 

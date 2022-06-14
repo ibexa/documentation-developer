@@ -1,3 +1,7 @@
+---
+description: How to report security issues in Ibexa DXP?
+---
+
 # Reporting security issues in Ibexa products
 
 The security of our software is a primary concern and we take it seriously.

@@ -1,3 +1,7 @@
+---
+description: Limitations let you fine-tune the permission system by specifying limits to Roles granted to users.
+---
+
 # Limitation reference
 
 ## Blocking Limitation

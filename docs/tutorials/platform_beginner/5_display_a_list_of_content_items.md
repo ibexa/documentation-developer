@@ -1,3 +1,7 @@
+---
+description: Learn how to query for content and render it in a list.
+---
+
 # Step 5 — Display a list of Content items
 
 Now that you know how to display a single Content item, you can take care of rendering a list of Content items.

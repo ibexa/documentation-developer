@@ -1,3 +1,7 @@
+---
+description: Enrich you site front with a menu displaying selected Content items.
+---
+
 # Add navigation menu
 
 To add a navigation menu to your website, prepare a general layout template in a `templates/themes/<theme_name>/pagelayout.html.twig` file.

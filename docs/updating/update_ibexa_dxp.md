@@ -1,3 +1,7 @@
+---
+description: Update your installation to the latest supported version.
+---
+
 # Updating Ibexa DXP
 
 To update [[= product_name =]] to a newer version, select the version you are currently using:

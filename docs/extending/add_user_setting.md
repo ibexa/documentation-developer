@@ -1,3 +1,7 @@
+---
+description: Add the option to select a custom preference in user menu.
+---
+
 # Add user setting
 
 ## Create new User setting

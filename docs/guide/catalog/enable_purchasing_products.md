@@ -1,3 +1,7 @@
+---
+description: Ensure your product catalog is ready for use with full configuration of products that enables purchasing them in shop frontend.
+---
+
 # Enable purchasing products
 
 To enable purchasing from the catalog, the following configuration is required:

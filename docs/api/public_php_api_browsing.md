@@ -1,3 +1,7 @@
+---
+description: Use PHP API to get Content items and their information, as well as content Fields, Location, and others.
+---
+
 # Browsing and viewing content
 
 To retrieve a Content item and its information, you need to make use of the [`ContentService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php).

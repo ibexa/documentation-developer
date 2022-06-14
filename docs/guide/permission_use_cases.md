@@ -1,3 +1,7 @@
+---
+description: Set up permission sets for common use cases.
+---
+
 # Permission use cases
 
 Here are a few examples of sets of Policies that you can use to get some common permission configurations.

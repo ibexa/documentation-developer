@@ -1,3 +1,7 @@
+---
+description: Search Criteria help define and fine-tune search queries for content and Locations.
+---
+
 # Search Criteria reference
 
 Search Criteria are filters for Content and Location Search and

@@ -1,3 +1,7 @@
+---
+description: Ibexa DXP uses the Twig template engine to customize the rendering of content in the site.
+---
+
 # Templates
 
 You can customize the layout and look of your website with templates.

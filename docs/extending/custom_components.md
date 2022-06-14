@@ -1,3 +1,7 @@
+---
+description: Back Office components allow you to inject any custom widgets into selected places of the user interface.
+---
+
 # Custom components
 
 The Back Office has designated places where you can use your own components.

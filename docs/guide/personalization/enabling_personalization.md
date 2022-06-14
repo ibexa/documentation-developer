@@ -1,3 +1,7 @@
+---
+description: 
+---
+
 # Enable personalization
 
 The personalization service is based on a client-server architecture.

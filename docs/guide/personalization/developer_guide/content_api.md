@@ -1,3 +1,7 @@
+---
+description: 
+---
+
 # Content API
 
 Apart from the [events]([[= user_doc =]]/personalization/event_types) collected by the Personalization client, 

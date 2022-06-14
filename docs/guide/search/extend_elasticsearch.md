@@ -1,3 +1,7 @@
+---
+description: Create custom Search Criteria, Sort Clauses and aggregation to use with Elasticsearch search engine.
+---
+
 # Elasticsearch extensibility
 
 ## Index custom data

@@ -1,3 +1,7 @@
+---
+description: Events that are triggered when working with content.
+---
+
 # Content events
 
 | Event | Dispatched by | Properties |

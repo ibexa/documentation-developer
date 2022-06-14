@@ -1,3 +1,7 @@
+---
+description: The customer can store products in a wishlist, or in a number of stored, named baskets, for future purchasing.
+---
+
 # Wishlist and stored baskets [[% include 'snippets/commerce_badge.md' %]]
 
 The logged-in customer can save selected products in a list and easily access them or add them to the shopping basket.

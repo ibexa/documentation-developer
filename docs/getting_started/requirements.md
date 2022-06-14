@@ -1,3 +1,7 @@
+---
+description: System, component and package requirements for running Ibexa DXP.
+---
+
 # Requirements
 
 The following server requirements cover both running the software on-premise and on third-party PaaS providers.

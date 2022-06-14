@@ -1,3 +1,7 @@
+---
+description: Customize thumbnails use for Content items in the Back Office.
+---
+
 # Extending thumbnails
 
 The thumbnails API enable you to easily choose an image for a specific content.

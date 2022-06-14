@@ -1,3 +1,7 @@
+---
+description: The REST API covers objects in the Ibexa DXP Repository with regular HTTP methods, such as GET or POST, as well as custom methods such as PUBLISH or SWAP.
+---
+
 # REST API usage
 
 The REST API in [[= product_name =]] allows you to interact with an [[= product_name =]] installation using the HTTP protocol,

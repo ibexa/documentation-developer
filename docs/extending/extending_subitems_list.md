@@ -1,3 +1,7 @@
+---
+description: Inject a sub-items list into your Back Office customizations.
+---
+
 # Sub-items list
 
 The Sub-items List module is meant to be used as a part of the editorial interface of [[= product_name =]].

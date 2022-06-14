@@ -1,3 +1,7 @@
+---
+description: Migrate an older eZ Publish Platform installation to eZ Platform.
+---
+
 # Migrating from eZ Publish Platform
 
 eZ Publish Platform (5.x) was a transitional version of the Ibexa CMS, bridging the gap between the earlier generation called eZ Publish (sometimes referred to as *legacy*), and eZ Platform, the predecessor to [[= product_name =]].
