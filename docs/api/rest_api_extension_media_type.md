@@ -1,4 +1,4 @@
-# Adding a custom media type
+# Adding custom media type
 
 In this example case, you pass a new media type in the `Accept` header of a GET request to `/content/locations/{locationPath}` route and its controller action (`Controller/Location::loadLocation`).
 

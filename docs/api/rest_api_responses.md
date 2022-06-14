@@ -1,4 +1,4 @@
-# Responses
+# REST Responses
 
 ## Response code
 
@@ -142,7 +142,7 @@ CORS support is provided by the third party [nelmio/cors-bundle](https://packagi
 
 Using CORS is not limited to REST API resources and can be used for any resource of the platform.
 
-The CORS bundle add `Access-Control-Allow-Origin` header to the response.
+The CORS bundle adds an `Access-Control-Allow-Origin` header to the response.
 
 #### Configuration
 

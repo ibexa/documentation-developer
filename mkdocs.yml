@@ -48,8 +48,8 @@ nav:
               - 'Testing REST API': 'api/rest_api_testing.md'
             - 'REST API reference': 'api/rest_api_reference/rest_api_reference.html'
             - 'Extending REST API':
-              - 'Adding a custom media type': 'api/rest_api_extension_media_type.md'
-              - 'Creating a new REST resource': 'api/rest_api_extension_resource.md'
+              - 'Adding custom media type': 'api/rest_api_extension_media_type.md'
+              - 'Creating new REST resource': 'api/rest_api_extension_resource.md'
             - 'REST API authentication': 'api/rest_api_authentication.md'
         - PHP API:
             - 'PHP API': 'api/public_php_api.md'

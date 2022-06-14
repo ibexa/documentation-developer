@@ -1,4 +1,4 @@
-# Creating a new REST resource
+# Creating new REST resource
 
 To create a new REST resource, you need to prepare:
 
