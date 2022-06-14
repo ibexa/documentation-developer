@@ -36,27 +36,7 @@ Under `options.product_type_group_identifier` you can define the identifier of t
 
 ## VAT rates
 
-To set up different VAT rates for different regions (countries), you can use the following configuration:
-
-``` yaml
-ibexa_product_catalog:
-    regions:
-        region_1:
-            vat_categories:
-                standard: 12
-                reduced: 8
-                zero: 0
-        region_2:
-            vat_categories:
-                standard: 24
-                reduced: 12
-                zero: 0
-```
-
-`ibexa_product_catalog.regions` enables you to configure global regions which have different VAT rules,
-with their specific VAT rates.
-
-You can override the global configuration per scope under `ibexa.system.<scope>.product_catalog.regions`:
+To set up different VAT rates for different regions (countries), you can use the following configuration under `ibexa.repositories.<scope>.product_catalog.regions`:
 
 ``` yaml
 ibexa:
