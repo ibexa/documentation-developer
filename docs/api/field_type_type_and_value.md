@@ -87,7 +87,7 @@ It is based on the Field Type settings and validator configuration and stored in
 
 ### Serialization
 
-When [REST API](rest_api_guide.md) is used, conversion needs to be done for Field Type values, settings and validator configurations. These are converted to and from a simple hash format that can be encoded in REST payload. As conversion needs to be done both when transmitting and receiving data through REST, Field Type implements the following pairs of methods:
+When [REST API](rest_api_usage.md) is used, conversion needs to be done for Field Type values, settings and validator configurations. These are converted to and from a simple hash format that can be encoded in REST payload. As conversion needs to be done both when transmitting and receiving data through REST, Field Type implements the following pairs of methods:
 
 |Method|Description|
 |------|-----------|
