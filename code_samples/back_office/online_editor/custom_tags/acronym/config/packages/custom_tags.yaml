@@ -1,0 +1,20 @@
+ibexa:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    custom_tags: [acronym]
+                    toolbar:
+                        custom_tags_group:
+                            buttons:
+                                acronym:
+                                    priority: 7
+ibexa_fieldtype_richtext:
+    custom_tags:
+        acronym:
+            template: '@ibexadesign/field_type/ezrichtext/custom_tags/acronym.html.twig'
+            icon: '/bundles/ibexaicons/img/all-icons.svg#edit'
+            is_inline: true
+            attributes:
+                explanation:
+                    type: string
