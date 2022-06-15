@@ -165,7 +165,7 @@ Content-Type: application/vnd.ibexa.api.greeting+json
         "Recipient": "Earth",
         "Sentence": "Good day Earth"
     }
-}                              
+}
 ```
 
 ## Registering resources in REST root
