@@ -216,12 +216,6 @@ Response:
 
 ## Querying Locations
 
-!!! tip
-
-    To make use of enhanced Location handling, you can add the beta 3.0 version of [ezplatform-graphql](https://github.com/ezsystems/ezplatform-graphql/tree/3.0) to your project.
-
-    See [overview of the upcoming changes](https://github.com/ezsystems/ezplatform-graphql/pull/90).
-
 To query a Location and its children, use the repository schema:
 
 ```
