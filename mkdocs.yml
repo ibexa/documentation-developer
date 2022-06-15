@@ -1,3 +1,5 @@
+INHERIT: plugins.yml
+
 site_name: Developer Documentation
 repo_url: https://github.com/ezsystems/developer-documentation
 site_url: https://doc.ibexa.co/en/latest/
@@ -559,14 +561,6 @@ theme:
         primary: 'blue grey'
         accent: 'deep orange'
     logo: 'images/ibexa-dxp-logo.svg'
-
-plugins:
-    - search
-    - macros:
-        j2_block_start_string: '[[%'
-        j2_block_end_string: '%]]'
-        j2_variable_start_string: '[[='
-        j2_variable_end_string: '=]]'
 
 extra:
   append_bootstrap:
