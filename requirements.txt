@@ -4,4 +4,5 @@ pymdown-extensions==9.1
 Markdown==3.2.1
 mkdocs-material==7.3.6
 mkdocs-macros-plugin==0.6.0
+mkdocs-redirects==1.0.4
 Jinja2==3.0.2
