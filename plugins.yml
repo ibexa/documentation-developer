@@ -1,5 +1,6 @@
 plugins:
     - search
+    - autolinks
     - macros:
         j2_block_start_string: '[[%'
         j2_block_end_string: '%]]'

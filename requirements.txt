@@ -5,4 +5,5 @@ Markdown==3.2.1
 mkdocs-material==7.3.6
 mkdocs-macros-plugin==0.6.0
 mkdocs-redirects==1.0.4
+mkdocs-autolinks-plugin==0.5.0
 Jinja2==3.0.2
