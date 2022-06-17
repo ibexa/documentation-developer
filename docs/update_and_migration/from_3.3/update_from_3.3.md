@@ -14,7 +14,11 @@ Go through the following steps to update to the latest maintenance release of v3
 
 ## Update the application
 
-First, run:
+!!! note
+
+    If you are using v3.3.15 or earlier v3.3 version, or encounter an error related to flex.ibexa.co, you need to [update your Flex server](#update-flex-server) first.
+
+Run:
 
 === "[[= product_name_content =]]"
 
@@ -38,13 +42,20 @@ First, run:
 
 The `flex.ibexa.co` Flex server has been disabled.
 If you are using v3.3.15 or earlier v3.3 version, you need to update your Flex server.
+In your `composer.json` check whether the `https://flex.ibexa.co` endpoint is still listed in `extra.symfony.endpoint`.
+If it's the case, you need to do the following update procedure.
 
-To do it, in your `composer.json` check whether the `https://flex.ibexa.co` endpoint is still listed in `extra.symfony.endpoint`. 
-If so, replace it with the new [`https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main`](https://github.com/ibexa/website-skeleton/blob/v3.3.20/composer.json#L98) endpoint.
+First, update the `symfony/flex` bundle to handle the new endpoint properly:
+
+```bash
+composer update symfony/flex --no-plugins --no-scripts;
+```
+
+Then, `https://flex.ibexa.co` endpoint need to be replaced with the new [`https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main`](https://github.com/ibexa/website-skeleton/blob/v3.3.20/composer.json#L98) endpoint in the composer.json as `extra.symfony.endpoint`.
 
 You can do it manually, or by running the following command:
 
-``` bash
+```bash
 composer config extra.symfony.endpoint "https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main"
 ```
 
