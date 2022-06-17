@@ -334,7 +334,7 @@ if (client.ip ~ debuggers) {
 }
 ```
 
-### 3.3.15
+### v3.3.15
 
 !!! note "Symfony 5.4"
 
