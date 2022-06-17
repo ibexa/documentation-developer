@@ -160,7 +160,7 @@ php bin/console ibexa:upgrade --force
 If you are using MySQL, run the following update script:
 
 ``` sql
-mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.1-to-3.3.2.sql
+mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.1-to-3.3.2.sql
 ```
 
 ### v3.3.4
