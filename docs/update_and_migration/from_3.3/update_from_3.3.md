@@ -296,7 +296,7 @@ Run the following scripts:
 === "MySQL"
 
     ``` sql
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.8-to-3.3.9.sql
+    mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.8-to-3.3.9.sql
     ```
 
 === "PostgreSQL"
