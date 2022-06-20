@@ -21,7 +21,7 @@ docker run -d --name ibexa-dxp-elasticsearch -p 9200:9200 -p 9300:9300 -e "disco
 
 !!! note
 
-    [[= product_name =]] supports Elasticsearch in version 7.7.
+    [[= product_name =]] supports Elasticsearch in version 7.16.2 or higher.
 
 ## Step 2: Verify that the Elasticsearch instance is up
 
