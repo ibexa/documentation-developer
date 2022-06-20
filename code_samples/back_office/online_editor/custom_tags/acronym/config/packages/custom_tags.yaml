@@ -1,0 +1,30 @@
+ezplatform:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    custom_tags: [acronym]
+                    toolbars:
+                        text:
+                            buttons:
+                                acronym:
+                                    priority: 5
+                        acronym:
+                            buttons:
+                                ezmoveup:
+                                    priority: 40
+                                ezmovedown:
+                                    priority: 30
+                                ezcustomtagedit:
+                                    priority: 20
+                                ezblockremove:
+                                    priority: 10
+ezrichtext:
+    custom_tags:
+        acronym:
+            template: '@ezdesign/field_type/ezrichtext/custom_tags/acronym.html.twig'
+            icon: '/bundles/ezplatformadminui/img/ez-icons.svg#edit'
+            is_inline: true
+            attributes:
+                explanation:
+                    type: string

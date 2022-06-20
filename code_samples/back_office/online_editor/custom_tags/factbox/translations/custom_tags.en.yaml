@@ -1,0 +1,3 @@
+ezrichtext.custom_tags.factbox.label: 'Factbox'
+ezrichtext.custom_tags.factbox.attributes.name.label: 'Name'
+ezrichtext.custom_tags.factbox.attributes.style.label: 'Style'
