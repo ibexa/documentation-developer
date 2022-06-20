@@ -1,0 +1,5 @@
+ezrichtext.custom_tags.linktag.label: 'Link Tag'
+ezrichtext.custom_tags.linktag.attributes.title.label: 'Title'
+ezrichtext.custom_tags.linktag.attributes.description.label: 'Description'
+ezrichtext.custom_tags.linktag.attributes.color.label: 'Color'
+ezrichtext.custom_tags.linktag.attributes.url.label: 'URL'

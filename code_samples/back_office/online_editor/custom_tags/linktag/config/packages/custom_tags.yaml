@@ -1,0 +1,31 @@
+ibexa:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    custom_tags: [linktag]
+                    toolbar:
+                        custom_tags_group:
+                            buttons:
+                                linktag:
+                                    priority: 6
+ibexa_fieldtype_richtext:
+    custom_tags:
+        linktag:
+            template: '@ibexadesign/field_type/ezrichtext/custom_tags/linktag.html.twig'
+            icon: '/bundles/ibexaicons/img/all-icons.svg#link'
+            is_inline: true
+            attributes:
+                title:
+                    type: string
+                    required: false
+                description:
+                    type: string
+                    required: false
+                color:
+                    type: choice
+                    required: false
+                    choices: [Red, Blue, Green]
+                url:
+                    type: link
+                    required: false
