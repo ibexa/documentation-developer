@@ -4,7 +4,7 @@ To set up the starter website, you need to follow these steps:
 
 ## Get a clean [[= product_name =]] installation
 
-To begin the tutorial, you need a clean installation of [[= product_name_exp =]] or [[= product_name_com =]].
+To begin the tutorial, you need a clean installation of [[= product_name_exp =]].
 
 Get it by following the [Install [[= product_name =]]](../../getting_started/install_ez_platform.md) guide.
 
