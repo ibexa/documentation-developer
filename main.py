@@ -1,4 +1,20 @@
 import os
+import re
+from mkdocs.structure.pages import Page
+from mkdocs.utils import meta
+
+CARDS_MARKDOWN_TEMPLATE = """
+-   __%s__
+{: .title}
+
+    %s
+{: .description}
+
+
+    [&raquo; %s](%s)
+{: .link}
+"""
+
 
 def define_env(env):
     """
@@ -23,3 +39,36 @@ def define_env(env):
             lines = f.readlines()
         line_range = lines[start_line:end_line]
         return glue.join(line_range)
+
+    @env.macro
+    def cards(pages, columns=1):
+        if isinstance(pages, str):
+            pages = [pages]
+        cards_markdown = []
+        for page in pages:
+            with open("docs/" + page, "r") as doc_file:
+                doc = doc_file.read()
+                match = re.search("^# (.*)", doc, re.MULTILINE)
+                if match:
+                    header = match.groups()[0]
+                else:
+                    header = ""
+                default_meta = {
+                    "title": header,
+                    "short": "",
+                    "description": ""
+                }
+                doc_meta = {
+                    **default_meta,
+                    **meta.get_data(doc)[1]
+                }
+                cards_markdown.append(
+                    CARDS_MARKDOWN_TEMPLATE % (
+                        doc_meta['short'] or doc_meta['title'],
+                        doc_meta['description'] or doc_meta['title'],
+                        doc_meta['title'],
+                        page
+                    )
+                )
+
+        return """<div class="cards col-%s" markdown>%s</div>""" % (columns, "\n".join(cards_markdown))
