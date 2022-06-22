@@ -92,11 +92,6 @@ For more information, see [Working with Page](https://doc.ibexa.co/projects/user
 You can purge all submissions of a given form. 
 For more information, see [Forms](../guide/form_builder/forms.md#form-submission-purging).
 
-### Hidden eCommerce features
-
-In [[= product_name_content =]], Commerce tab and all its features are now disabled by default.
-For more information, see [Enabling Commerce features](https://doc.ibexa.co/en/4.0/guide/config_back_office/#enable-commerce-features).
-
 ### External datasource handling
 
 Pesronalization has been given an option to fetch content feed from external sources.
