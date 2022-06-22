@@ -1,4 +1,4 @@
-# Step 3 — Use existing blocks [[% include 'snippets/experience_badge.md' %]]
+# Step 3 — Use existing blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 In this step you'll add a Content List block and a Content Scheduler block and customize them.
 
