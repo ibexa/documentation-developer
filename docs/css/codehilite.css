@@ -105,7 +105,7 @@
 
 .highlighttable {
     display: block;
-    overflow: hidden
+    overflow: unset;
 }
 
 .highlighttable tbody, .highlighttable td {
@@ -144,7 +144,7 @@
 
 .highlighttable .code {
     flex: 1;
-    overflow: hidden
+    overflow: unset;
 }
 
 .md-typeset .highlighttable,
