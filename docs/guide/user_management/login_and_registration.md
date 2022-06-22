@@ -42,7 +42,7 @@ The shop owner checks the provided data and creates a customer record in the ERP
 The shop checks this data by sending a request to the ERP. There are two options:
 
     - activate a business account - the customer is created using their customer number and can immediately see their special discounts in the shop.
-    - create the main contact in Customer Center - if Customer Center is enabled, the company is created in the shop, and the account is created as the main contact.  
+    - in [[= product_name_com =]], create the main contact in Customer Center. If Customer Center is enabled, the company is created in the shop, and the account is created as the main contact.  
 
 ## Configuration
 

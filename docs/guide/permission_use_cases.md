@@ -117,7 +117,7 @@ To allow the User to remove a Location, grant them the following Policies:
 
 Hiding and revealing Location requires one more Policy: `content/hide`.
 
-## Editorial workflows [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+## Editorial workflows
 
 You can control which stages in an editorial workflow the user can work with.
 

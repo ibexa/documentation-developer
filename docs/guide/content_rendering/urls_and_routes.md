@@ -106,7 +106,7 @@ The following built-in routes are available for the front of the website.
 | `ezplatform.user.forgot_password.login` | `/user/forgot-password/login` | Form for resetting password based on login instead of email address |
 | `ezplatform.user.reset_password` | `/user/reset-password/{hashKey}` | Form for resetting password based on a generated link |
 
-### Shop
+### Shop [[% include 'snippets/commerce_badge.md' %]]
 
 |Route name|Path|Description|
 |---|---|---|

@@ -1,4 +1,4 @@
-# Page and Form tutorial [[% include 'snippets/experience_badge.md' %]]
+# Page and Form tutorial [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 This tutorial is a step-by-step guide to building an advanced website with [[= product_name_exp =]].
 It focuses on creating a front page using a feature called **Page Builder**.

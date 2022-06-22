@@ -1,4 +1,4 @@
-# Step 2 — Prepare the Page [[% include 'snippets/experience_badge.md' %]]
+# Step 2 — Prepare the Page [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 !!! tip
 

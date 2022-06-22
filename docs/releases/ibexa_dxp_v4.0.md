@@ -82,12 +82,12 @@ See [Managing migrations](https://doc.ibexa.co/en/4.0/api/public_php_api_managin
 Alternative text for an Image field is now optional by default. 
 You can set it as required when adding the Image field to a Content Type.
 
-### Configure what elements are available in the Page Builder for the Content type
+### Configure what elements are available in the Page Builder for the Content type [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 You can now select which page blocks, page layout and what edit mode are available in the Editor mode for the Content type.
 For more information, see [Working with Page](https://doc.ibexa.co/projects/userguide/en/latest/site_organization/working_with_page/#configure-blocks-display).
 
-### Purge all submissions of given form
+### Purge all submissions of given form [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 You can purge all submissions of a given form. 
 For more information, see [Forms](https://doc.ibexa.co/en/4.0/guide/form_builder/forms/#form-submission-purging).
@@ -104,7 +104,7 @@ Pesronalization has been given an option to fetch content feed from external sou
 ### Category exclusion 
 
 Personalization service has been enhanced with a feature which allows to exclude categories from the recommendation response.
-See [Exclusions](https://doc.ibexa.co/projects/userguide/en/master/personalization/filters/#exclusions).
+See [Exclusions](https://doc.ibexa.co/projects/userguide/en/latest/personalization/filters/#exclusions).
 
 ## Deprecations
 

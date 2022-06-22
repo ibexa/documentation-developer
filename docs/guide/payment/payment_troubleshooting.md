@@ -1,4 +1,4 @@
-# Payment troubleshooting
+# Payment troubleshooting [[% include 'snippets/commerce_badge.md' %]]
 
 ## Extending the order size limit
 
