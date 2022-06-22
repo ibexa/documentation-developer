@@ -39,7 +39,7 @@ or by Field aggregations such as the value of specific Fields.
 
 See [Aggregation API](https://doc.ibexa.co/en/latest/api/public_php_api_search/#aggregation) for more information.
 
-### Targeting block and Segmentation API
+### Targeting block and Segmentation API [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 Targeting block for the Page Builder enables you to display different Content items to different users
 depending on the Segments they belong to.
@@ -68,7 +68,7 @@ and [GraphQL](https://doc.ibexa.co/en/latest/api/graphql/#jwt-authentication).
 
 See [JWT authentication](https://doc.ibexa.co/en/latest/guide/security/#jwt-authentication) to learn how to configure this authentication method.
 
-### Searching in Ibexa Commerce with Elasticsearch
+### Searching in Ibexa Commerce with Elasticsearch [[% include 'snippets/commerce_badge.md' %]]
 
 You can now use Elasticsearch for searching in Ibexa Commerce.
 
@@ -76,7 +76,7 @@ See [Install Ibexa Platform](https://doc.ibexa.co/en/latest/getting_started/inst
 
 ## Other changes
 
-### Site Factory improvements
+### Site Factory improvements [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 You can now define User Group skeletons where you define Policies and Limitations that apply to a specific User Group. 
 You can then associate a number of such skeletons with a site template. 

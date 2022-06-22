@@ -9,9 +9,9 @@
 |`CollectBlockRelationsEvent`|`CollectRelationsSubscriber::onCollectBlockRelations`|`LandingPage\Value $fieldValue`</br>`LandingPage\Model\BlockValue $blockValue`</br>`int[] $relations`|
 |`PageRenderEvent`|`PageService::dispatchRenderPageEvent`|`Content $content`</br>`Location|null $location`</br>`LandingPage\Model\Page $page`</br>`Request $request`|
 
-## Page builder
+## Page Builder
 
-The following events are dispatched when editing a Page in the Page builder.
+The following events are dispatched when editing a Page in the Page Builder.
 
 | Event | Dispatched by | Properties |
 |---|---|---|
