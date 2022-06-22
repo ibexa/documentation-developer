@@ -305,6 +305,33 @@ Run the following scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.8-to-3.3.9.sql
     ```
 
+### v3.3.13
+
+!!! note "Symfony 5.4"
+
+    Prior to 3.3.13, Symfony 5.3 was used by default.
+
+    If you are still using Symfony 5.3, you need to update your installation to Symfony 5.4.
+    To do this, update your composer.json to refer to `5.4.*` instead or `5.3.*`.
+
+    Refer to the relevant website skeleton for an example: [content](https://github.com/ibexa/content-skeleton/blob/v3.3.13/composer.json), [experience](https://github.com/ibexa/experience-skeleton/blob/v3.3.13/composer.json), [commerce](https://github.com/ibexa/commerce-skeleton/blob/v3.3.13/composer.json).
+
+    The following `sed` commands should update the right lines, use with caution and properly check the result:
+
+    ```shell
+    sed -i -E 's/"symfony\/(.+)": "5.3.*"/"symfony\/\1": "5.4.*"/' composer.json;
+    sed -i -E 's/"require": "5.3.*"/"require": "5.4.*"/' composer.json;
+    ```
+
+    After this composer.json update, run `composer update "symfony/*"`.
+
+    You may have to adapt some configuration to fit this new Symfony minor version.
+    For example, you might have to remove `timeout` related config from `nelmio_solarium` bundle config:
+    ```shell
+    sed -i -E '/ *timeout: [0-9]+/d' ./config/packages/nelmio_solarium.yaml ./config/packages/ezcommerce/ezcommerce_advanced.yaml
+    composer update "symfony/*"
+    ```
+
 ### v3.3.14
 
 #### VCL configuration
@@ -336,23 +363,23 @@ if (client.ip ~ debuggers) {
 
 ### v3.3.15
 
-!!! note "Symfony 5.4"
+Adapt your `composer.json` file according to [`manifest.json`](https://github.com/ibexa/recipes/blob/master/ibexa/commerce/3.3.x-dev/manifest.json#L167-L168), by adding and moving the following lines:
 
-    If you are using Symfony 5.3, you need to update your installation to Symfony 5.4.
-    To do this, update your composer.json to refer to `5.4.*` instead or `5.3.*`.
-
-    Refer to the relevant website skeleton for an example: [content](https://github.com/ibexa/content-skeleton/blob/v3.3.15/composer.json), [experience](https://github.com/ibexa/experience-skeleton/blob/v3.3.15/composer.json), [commerce](https://github.com/ibexa/commerce-skeleton/blob/v3.3.15/composer.json).
-    
-    After composer.json update, run `composer update "symfony/*"`
-
-Adapt your `composer.json` file according to [`manifest.json`](https://github.com/ibexa/recipes/blob/master/ibexa/commerce/3.3.x-dev/manifest.json#L167-L168), by adding the following lines:
-
-``` json hl_lines="2-3"
-"yarn install": "script",
-"ibexa:encore:compile --config-name app": "symfony-cmd",
-"bazinga:js-translation:dump %PUBLIC_DIR%/assets --merge-domains": "symfony-cmd",
-"ibexa:encore:compile": "symfony-cmd"
+``` diff
+  "composer-scripts": {
+    "cache:clear": "symfony-cmd",
+    "assets:install %PUBLIC_DIR%": "symfony-cmd",
+-    "bazinga:js-translation:dump %PUBLIC_DIR%/assets --merge-domains": "symfony-cmd",
+    "yarn install": "script",
++    "ibexa:encore:compile --config-name app": "symfony-cmd",
++    "bazinga:js-translation:dump %PUBLIC_DIR%/assets --merge-domains": "symfony-cmd",
+    "ibexa:encore:compile": "symfony-cmd"
+  }
 ```
+
+### v3.3.16
+
+See [Update Flex server](#update-flex-server).
 
 ### v3.3.24
 
