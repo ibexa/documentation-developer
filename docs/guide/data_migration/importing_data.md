@@ -161,7 +161,7 @@ The following example shows how to create a price for a product identified by it
 [[= include_file('code_samples/data_migration/examples/create_price.yaml') =]]
 ```
 
-### Segments
+### Segments [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 The following example shows how to create a segment group and add segments in it:
 
@@ -233,4 +233,3 @@ criteria:
 ```
 
 Criteria can be nested.
-

@@ -187,7 +187,7 @@ Beyond that the following Limitations are available:
 
 - [Personalization access](limitation_reference.md#personalization-access-limitation)
 
-#### Segment
+#### Segment [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 - [Segment Group](limitation_reference.md#segment-group-limitation)
 

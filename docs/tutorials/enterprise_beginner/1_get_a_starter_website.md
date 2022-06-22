@@ -1,8 +1,8 @@
-# Step 1 — Get a starter website [[% include 'snippets/experience_badge.md' %]]
+# Step 1 — Get a starter website [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 To set up the starter website, you need to follow these steps:
 
-## Get a clean [[= product_name_exp =]] installation
+## Get a clean [[= product_name =]] installation
 
 To begin the tutorial, you need a clean installation of [[= product_name_exp =]].
 
