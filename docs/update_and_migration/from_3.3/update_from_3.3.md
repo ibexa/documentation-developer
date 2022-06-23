@@ -211,48 +211,18 @@ php bin/console ibexa:migrations:migrate --file=src/bundle/Resources/install/mig
 
 #### Database update
 
-Run the following SQL commands:
+Run the following scripts:
 
 === "MySQL"
 
-    ``` sql
-    CREATE TABLE IF NOT EXISTS `ibexa_workflow_version_lock` (
-        `id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-        `content_id` INT(11) NOT NULL,
-        `version` INT(11) NOT NULL,
-        `user_id` INT(11) NOT NULL,
-        `created` INT(11) NOT NULL DEFAULT 0,
-        `modified` INT(11) NOT NULL DEFAULT 0,
-        `is_locked` BOOLEAN NOT NULL DEFAULT true,
-        KEY `ibexa_workflow_version_lock_content_id_index` (`content_id`) USING BTREE,
-        KEY `ibexa_workflow_version_lock_user_id_index` (`user_id`) USING BTREE,
-        UNIQUE KEY `ibexa_workflow_version_lock_content_id_version_uindex` (`content_id`,`version`) USING BTREE
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+    ``` shell
+    mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.6-to-3.3.7.sql
     ```
 
 === "PostgreSQL"
 
-    ``` sql
-    CREATE TABLE IF NOT EXISTS ibexa_workflow_version_lock
-    (
-        "id" SERIAL,
-        "content_id" INTEGER,
-        "version" INTEGER,
-        "user_id" INTEGER,
-        "created" INTEGER DEFAULT 0 NOT NULL,
-        "modified" INTEGER DEFAULT 0 NOT NULL,
-        "is_locked" boolean DEFAULT TRUE NOT NULL,
-        CONSTRAINT "ibexa_workflow_version_lock_pk" PRIMARY KEY ("id")
-    );
-
-    CREATE INDEX IF NOT EXISTS "ibexa_workflow_version_lock_content_id_index"
-        ON "ibexa_workflow_version_lock" ("content_id");
-
-    CREATE INDEX IF NOT EXISTS "ibexa_workflow_version_lock_user_id_index"
-        ON "ibexa_workflow_version_lock" ("user_id");
-
-    CREATE UNIQUE INDEX IF NOT EXISTS "ibexa_workflow_version_lock_content_id_version_uindex"
-        ON "ibexa_workflow_version_lock" ("content_id", "version");
+    ``` shell
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.6-to-3.3.7.sql
     ```
 
 ### Ibexa Open Source
@@ -295,13 +265,13 @@ Run the following scripts:
 
 === "MySQL"
 
-    ``` sql
+    ``` shell
     mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.8-to-3.3.9.sql
     ```
 
 === "PostgreSQL"
 
-    ``` sql
+    ``` shell
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.8-to-3.3.9.sql
     ```
 
