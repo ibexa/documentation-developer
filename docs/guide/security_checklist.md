@@ -135,16 +135,28 @@ Once you have properly configured secure user roles and permissions, to avoid ex
 
 ### Security headers
 
-There are a number of security related HTTP response headers you can use to improve your security. This is primarily the responsibility of the site owner, since the headers need to be adapted to the site in question. The headers can be set by the web server, or by a proxy like Varnish. It can also be set in PHP code, by making a Symfony `RequestListener` for the `kernel.response` event and adding the header to the response object headers list.
+There are a number of security related HTTP response headers that you can use to improve your security. 
+Headers must be adapted to the site in question, and in most cases it is site owner's responsibility. 
+The headers can be set either by the web server, or by a proxy like Varnish. 
+You can also set headers in PHP code by making a Symfony `RequestListener` for the `kernel.response` event and adding the header to the response object headers list.
 
-You will likely need to vary the security headers based on the site access in question, and on the details of the site implementation, like frontend code and libraries used.
+You will likely need to vary the security headers based on the SiteAccess in question and the site implementation details, such as frontend code and libraries used.
 
-- `Strict-Transport-Security` - ensures all requests are over HTTPS, with no fallback to HTTP. All production sites should use HTTPS and this header, unless they have very particular needs. During development it is less important, at least as long as the site is on an internal, protected network.
-- `X-Frame-Options` - ensures the site will not be embedded in a frame, by a compliant browser. Set to `SAMEORIGIN` if you need to allow embedding by your own site, or `DENY` to block framing completely.
-- `X-Content-Type-Options` - prevents the browser from second-guessing the mime-type of delivered content. Not important if users cannot upload content and you trust your editors, though the safer option is to use it. Make sure the Content-Type header is also correctly set, including for the top-level document, to avoid issues with HTML documents being downloaded when they should be rendered.
-- `Content-Security-Policy` - blocks cross site scripting (XSS) attacks by setting an allowlist (whitelist) of resources to be loaded for a given page. You can set separate lists for scripts, images, fonts, and more. You can use `Content-Security-Policy-Report-Only` for experimentation and testing before activating the actual policy.
-- `Referrer-Policy` - limits what information is sent from the previous page or site when navigating to a new page or site. It has several directives for fine-tuning the referrer information.
-- `Permissions-Policy` - limits what features the browser can use, such as fullscreen, notifications, location, camera, microphone. If for instance someone has succeeded in injecting their JavaScript into your site, this header prevents them from using those features to attack your users.
+- `Strict-Transport-Security` - ensures that all requests are sent over HTTPS, with no fallback to HTTP. 
+All production sites should use HTTPS and this header unless they have very particular needs. 
+This header is less important during development provided that the site is on an internal, protected network. 
+- `X-Frame-Options` - ensures that the site is not be embedded in a frame by a compliant browser. 
+Set the header to `SAMEORIGIN` to allow embedding by your own site, or `DENY` to block framing completely. 
+- `X-Content-Type-Options` - prevents the browser from second-guessing the mime-type of delivered content. 
+This header is less important if users cannot upload content and/or you trust your editors. However, it is safer to use it at all times. 
+Make sure that the `Content-Type` header is also correctly set, including for the top-level document, to avoid issues with HTML documents being downloaded while they should be rendered. 
+- `Content-Security-Policy` - blocks cross site scripting (XSS) attacks by setting an allowlist (whitelist) of resources to be loaded for a given page. 
+You can set separate lists for scripts, images, fonts, and so on. 
+For experimentation and testing, you can use `Content-Security-Policy-Report-Only` before activating the actual policy. 
+- `Referrer-Policy` - limits what information is sent from the previous page or site when navigating to a new page or site. 
+This header has several directives for fine-tuning the referrer information. 
+- `Permissions-Policy` - limits what features the browser can use, such as fullscreen, notifications, location, camera, or microphone. 
+For example, if someone succeeds in injecting their JavaScript into your site, this header prevents them from using those features to attack your users. 
 
 ### Track dependencies
 
