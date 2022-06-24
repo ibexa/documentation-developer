@@ -206,7 +206,9 @@ See https://github.com/ibexa/website-skeleton/pull/5/files for details of the pa
 If you are using Commerce, run the following migration action to update the way Commerce configuration is stored:
 
 ``` bash
-php bin/console ibexa:migrations:migrate --file=src/bundle/Resources/install/migrations/content/Components/move_configuration_to_settings.yaml
+mkdir --parent src/Migrations/Ibexa/migrations
+cp vendor/ibexa/installer/src/bundle/Resources/install/migrations/content/Components/move_configuration_to_settings.yaml src/Migrations/Ibexa/migrations/
+php bin/console ibexa:migrations:migrate --file=move_configuration_to_settings.yaml
 ```
 
 #### Database update
