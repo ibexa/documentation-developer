@@ -140,7 +140,7 @@ Headers must be adapted to the site in question, and in most cases it is site ow
 The headers can be set either by the web server, or by a proxy like Varnish. 
 You can also set headers in PHP code by making a Symfony `RequestListener` for the `kernel.response` event and adding the header to the response object headers list.
 
-You will likely need to vary the security headers based on the SiteAccess in question and the site implementation details, such as frontend code and libraries used.
+You will likely need to vary the security headers based on the SiteAccess in question and site implementation details, such as frontend code and libraries used.
 
 - `Strict-Transport-Security` - ensures that all requests are sent over HTTPS, with no fallback to HTTP. 
 All production sites should use HTTPS and this header unless they have very particular needs. 
