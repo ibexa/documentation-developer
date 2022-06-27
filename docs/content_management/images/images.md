@@ -231,7 +231,7 @@ a custom extension that lets you display and download files in your templates.
 First, enable adding SVG files to content by removing them from the blacklist 
 of allowed MIME types.
 
-To do it, overwrite `ibexa.site_access.config.default.io.file_storage.file_type_blacklist` defined in `Core/Resources/config/default_settings.yml` so that `svg` is removed from the Blacklist. This can be done per Site Acces using [SiteAccess-aware configuration](multisite/siteaccess_aware_configuration.md).
+To do it, overwrite `ibexa.site_access.config.default.io.file_storage.file_type_blacklist` defined in `Core/Resources/config/default_settings.yml` so that `svg` is removed from the Blacklist. This can be done per Site Access using [SiteAccess-aware configuration](multisite/siteaccess_aware_configuration.md).
 
 Then, add a download route to the `config/routes.yaml` file:
 
