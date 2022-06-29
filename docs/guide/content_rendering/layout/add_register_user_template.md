@@ -1,11 +1,31 @@
 # Create user registration form
 
-You can create a registration form for users to your website.
+You can create a registration form for users to your website by creating a twig template or editing the existing registration form in YAML file.
 Follow the instructions below to create and customize templates for a registration form, and a registration confirmation page.
 
 First, make sure you [enabled user registration](../../permission_use_cases.md#register-users).
 
-Next, in the `config/packages/views.yaml` file add the following configuration:
+## Configure existing form
+
+In the `config/packages/views.yaml` file specify the fields that should be part of your registration form under `allowed_field_definitions_identifiers`.
+You must also define if you are creating a backend user `user` or a frontend user `customer`under `user_type_identifier`.
+
+``` yaml
+ibexa:
+    system:
+        default:
+            user_registration:
+                user_type_identifier: customer
+                form:
+                    allowed_field_definitions_identifiers:
+                        - first_name
+                        - last_name
+                        - user_account
+```
+
+## Add a form template
+
+In the `config/packages/views.yaml` file add the following configuration:
 
 ``` yaml
 ibexa:

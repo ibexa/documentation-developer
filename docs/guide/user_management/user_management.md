@@ -136,7 +136,7 @@ You can allow your users to create accounts by employing the `/register` route. 
 
 ### User types
 
-To decide where the user should be registered, you need to specify their user type under `user_type_identifier`.
+To decide to what workspace the user should be registered to, you need to specify their user type under `user_type_identifier`.
 Currently, there are two user types defined: `users` and `customers`.
 `users` are backend users that are involved in creating the page such as editors and `customers` are frontend users.
 
@@ -162,7 +162,7 @@ ibexa:
 
 ### Registration form field configuration
 
-To modify the form template add or remove fields under `allowed_field_definitions_identifiers`:
+To modify the registration form template add or remove fields under `allowed_field_definitions_identifiers`:
 
 ```yaml
 ibexa:
