@@ -14,7 +14,7 @@ The route follows this pattern: `/content/download/{contentId}/{fieldIdentifier
 
 It also accepts optional query parameters:
 
-- `version`: the version number that the file must be downloaded for. Requires the `versionread` permission. If not specified, uses the published version.
+- `version`: the version number that the file must be downloaded for. Requires the `content / versionread` permission. If not specified, uses the published version.
 - `inLanguage`: The language the file should be downloaded in. If not specified, the most prioritized language for the SiteAccess will be used.
 
 <<<<<<< HEAD

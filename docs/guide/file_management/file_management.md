@@ -42,22 +42,21 @@ ibexa:
     system:
         default:
             io:
-                metadata_handler: default
-                binarydata_handler: default
-```
+                metadata_handler: dfs
+                binarydata_handler: nfs
 
 Metadata and binary data handlers are configured under `ibexa_io`. See below the configuration for the default handlers. It declares a metadata handler and a binary data handler, both labeled `default`. Both handlers are of type `flysystem`, and use the same Flysystem adapter, labeled `default` as well.
 
 ``` yaml
 ibexa_io:
-    metadata_handlers:
-        default:
-            flysystem:
-                adapter: default
     binarydata_handlers:
-        default:
+        nfs:
             flysystem:
-                adapter: default
+                adapter: nfs_adapter
+    metadata_handlers:
+        dfs:
+            legacy_dfs_cluster:
+                connection: doctrine.dbal.dfs_connection
 ```
 
 <<<<<<< HEAD
@@ -157,7 +156,7 @@ ibexa_commerce_field_types:
         enabled: true
 ```
 
-To check what types are indexed, see under the `ibexa_commerce_search.default.index_content` parameter in `src/Siso/Bundle/SearchBundle/Resources/config/search.yml`. This parameter can be overriden, so you use it to index only specific types per SiteAccess or to extend the indexing to other file types.
+To check what types are indexed, check the `ibexa.commerce.site_access.config.search.default.index_content` Service Container parameter. This parameter can be overridden for a specific SiteAccess by replacing `default` by its name
 The following file types are indexed by default:
 
 ``` yaml
