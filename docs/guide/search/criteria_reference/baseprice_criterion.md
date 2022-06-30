@@ -9,7 +9,7 @@ The `BasePrice` Search Criterion searches for products by their base price.
 
 ## Limitations
 
-The `CustomPrice` Criterion is not available in the Legacy Search engine.
+The `BasePrice` Criterion is not available in the Legacy Search engine.
 
 ## Example
 
