@@ -1,6 +1,6 @@
 # Create user registration form
 
-You can create a registration form for users to your website by creating a twig template or editing the existing registration form in YAML file.
+You can create a registration form for users to your website by creating a Twig template or editing the existing registration form in YAML file.
 Follow the instructions below to create and customize templates for a registration form, and a registration confirmation page.
 
 First, make sure you [enabled user registration](../../permission_use_cases.md#register-users).
