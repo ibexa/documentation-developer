@@ -1,5 +1,5 @@
 ---
-description: 
+description: Methods for REST call with Personalization server.
 ---
 
 # Recommendation integration

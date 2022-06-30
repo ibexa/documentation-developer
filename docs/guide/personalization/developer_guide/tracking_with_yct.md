@@ -1,5 +1,5 @@
 ---
-description: 
+description: Integrate tracking with a Google-style JavaScript.
 ---
 
 # Track events with yct.js

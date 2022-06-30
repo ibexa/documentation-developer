@@ -1,5 +1,5 @@
 ---
-description: 
+description: Allows to track items using it ID. It covers many content types with the same ID configured for tracking.
 ---
 
 # Tracking API

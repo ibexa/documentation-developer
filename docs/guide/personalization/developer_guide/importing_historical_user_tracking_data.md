@@ -1,5 +1,5 @@
 ---
-description: 
+description: Use historical user tracking data to build user profiles and generate better recommendations.
 ---
 
 # Importing historical user tracking data

@@ -1,5 +1,5 @@
 ---
-description: 
+description: Use HTTP GET request method to render recommendations.
 ---
 
 # Recommendation API

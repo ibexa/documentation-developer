@@ -1,5 +1,5 @@
 ---
-description: 
+description: Attribute search uses Elasticsearch database to display dynamically taken values in scenario and model previews.
 ---
 
 # Attribute search in Elasticsearch database

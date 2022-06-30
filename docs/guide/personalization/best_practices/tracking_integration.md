@@ -1,5 +1,5 @@
 ---
-description: 
+description: See the methods of event tracking integration using tracking from server or from client-side.
 ---
 
 # Tracking integration

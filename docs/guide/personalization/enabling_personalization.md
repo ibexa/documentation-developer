@@ -1,5 +1,5 @@
 ---
-description: 
+description: Configure your project files to enable Personalization and set up items you want to track.
 ---
 
 # Enable personalization

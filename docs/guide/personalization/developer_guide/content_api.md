@@ -1,5 +1,5 @@
 ---
-description: 
+description: Personalization server can use external information about the items. Use HTTP methods to create, update or get items from the data store.
 ---
 
 # Content API
