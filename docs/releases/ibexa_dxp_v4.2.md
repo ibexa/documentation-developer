@@ -36,12 +36,12 @@
 ### New ways to add images in Online Editor
 
 You can now drag and drop images directly into the Online Editor. 
-To achieve the same result, you can also click the **Upload image** button and select file from the disk.
+To achieve the same result, you can also click the **Upload image** button and select a file from the disk.
 Images that you upload this way are automatically added to the Media library.
 
 !!! note
 
-    In the Media library, to avoid potential conflicts, 
+    In Media library, to avoid potential conflicts, 
     if several images are added with identical file names, 
     each of them is modified by appending a unique prefix.  
 
