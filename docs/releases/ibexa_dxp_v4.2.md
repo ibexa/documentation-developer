@@ -33,7 +33,19 @@
 - GraphQL attribute querying
 - https://github.com/ibexa/core/pull/115
 
-### New ways to add images in online editor
+### New ways to add images in Online Editor
+
+You can now drag and drop images directly into the Online Editor. 
+To achieve the same result, you can also click the **Upload image** button and select file from the disk.
+Images that you upload this way are automatically added to the Media library.
+
+!!! note
+
+    In the Media library, to avoid potential conflicts, 
+    if several images are added with identical file names, 
+    each of them is modified by appending a unique prefix.  
+
+![Drag and drop image into the Online Editor](img/4.2_online_editor_dnd_image.png)
 
 ### Search in URL wildcards
 
