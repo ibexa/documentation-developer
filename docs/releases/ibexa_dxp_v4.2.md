@@ -20,6 +20,8 @@
 
 ### Cross-content type recommendations
 
+If the Scenario has more than one content types configured, with cross-content type parameter in the request, you can get recommendations for all these content types.
+
 ### Repeatable migration steps
 
 
