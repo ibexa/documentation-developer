@@ -1,0 +1,19 @@
+-
+    type: repeatable
+    mode: create
+    iterations: 5
+    steps:
+        -   type: content
+            mode: create
+            metadata:
+                contentType: folder
+                mainTranslation: eng-GB
+            location:
+                parentLocationId: 2
+            fields:
+                -   fieldDefIdentifier: name
+                    languageCode: eng-GB
+                    value: 'Folder ###SSS i SSS###'
+                -   fieldDefIdentifier: short_name
+                    languageCode: eng-GB
+                    value: '### faker().name() ###'
