@@ -1,5 +1,5 @@
 ---
-description: Configure multi-file upload functionality which allows uploading files into the system in bulk.
+description: Configure multi-file upload functionality which allows uploading files in bulk.
 ---
 
 # Multi-file upload

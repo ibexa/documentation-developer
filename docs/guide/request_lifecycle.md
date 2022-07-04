@@ -1,5 +1,5 @@
 ---
-description: See the lifecycle of an HTTP request in Ibexa DXP, from request to reponse.
+description: See the lifecycle of an HTTP request in Ibexa DXP, from request to response.
 ---
 
 # Request lifecycle: from request to response

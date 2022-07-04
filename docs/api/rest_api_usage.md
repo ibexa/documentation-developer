@@ -1,5 +1,5 @@
 ---
-description: The REST API covers objects in the Ibexa DXP Repository with regular HTTP methods, such as GET or POST, as well as custom methods such as PUBLISH or SWAP.
+description: The REST API covers objects in the Ibexa DXP Repository with regular and custom HTTP methods, such as GET or PUBLISH, as well as HTTP headers.
 ---
 
 # REST API usage

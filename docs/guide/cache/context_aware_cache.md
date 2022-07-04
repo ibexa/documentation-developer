@@ -1,5 +1,5 @@
 ---
-description: Context-aware HTTP cache caches requests depending on the user context, that is, the logged-in user.
+description: Context-aware HTTP cache caches requests depending on the logged-in user context.
 ---
 
 # Context-aware HTTP cache

@@ -1,5 +1,5 @@
 ---
-description: You can report issues encountered in Ibexa DXP in JIRA and use it to follow the development of new features and fixes.
+description: You can report encountered issues to Ibexa DXP JIRA or use it to follow the development of new features and fixes.
 ---
 
 # Report and follow issues

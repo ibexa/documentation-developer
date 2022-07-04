@@ -1,5 +1,5 @@
 ---
-description: Ensure your product catalog is ready for use with full configuration of products that enables purchasing them in shop frontend.
+description: Ensure your product catalog is ready for use with full configuration of products that enables purchasing them in the frontend shop.
 ---
 
 # Enable purchasing products

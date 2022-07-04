@@ -1,5 +1,5 @@
 ---
-description: Trash Search Criteria and sort Clauses help define and fine-tune search queries for content in trash.
+description: Trash Search Criteria and Sort Clauses help define and fine-tune search queries for content in trash.
 ---
 
 # Search in trash reference

@@ -1,5 +1,5 @@
 ---
-description: See how you can resolve common issues and how to report a Customer Support ticket.
+description: See how you can resolve common issues and report a Customer Support ticket.
 ---
 
 # Support and maintenance FAQ

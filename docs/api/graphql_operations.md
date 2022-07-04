@@ -1,5 +1,5 @@
 ---
-description: Use GraphQL operations to create update and delete content.
+description: Use GraphQL operations to create, update, and delete content.
 ---
 
 # GraphQL operations

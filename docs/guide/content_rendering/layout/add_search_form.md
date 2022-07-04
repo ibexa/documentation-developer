@@ -1,5 +1,5 @@
 ---
-description: Add a search bar and customize the search form on your site's front.
+description: Add a search bar and customize the search form in your site front end.
 ---
 
 # Add search form to front page

@@ -1,5 +1,5 @@
 ---
-description: REST API response codes define the status of the response received via API.
+description: REST API response code defines the status of the received response.
 ---
 
 # REST Responses

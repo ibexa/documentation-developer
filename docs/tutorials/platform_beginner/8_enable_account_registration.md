@@ -1,5 +1,5 @@
 ---
-description: Se how you can enable external users to register and contribute to your site.
+description: See how you can enable external users to register and contribute to your site.
 ---
 
 # Step 8 — Enable account registration
