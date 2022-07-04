@@ -381,7 +381,22 @@ For a full list of standard buttons, see the RichText module's [configuration fi
 
 ## Add CKEditor plugins
 
-Custom CKEditor plugin should be added to the `extraPlugins` array under the 
+Custom CKEditor plugin must be added to the `extraPlugins` array under the 
 `window.ibexa.richText.CKEditor.extraPlugins` key.
+For this purpose, either in the bundle's `Resources/encore/` folder, 
+or in the `encore` folder in the root directory of your project, 
+create the following `ibexa.richtext.config.manager.js` file:
+
+``` js
+const path = require('path');
+
+module.exports = (ibexaConfig, ibexaConfigManager) => {
+    ibexaConfigManager.add({
+        ibexaConfig,
+        entryName: 'ibexa-richtext-onlineeditor-js',
+        newItems: ["path_to_file"],
+    });
+};
+```
 
 For more information, see [CKEditor plugins documentation](https://ckeditor.com/docs/ckeditor4/latest/guide/plugin_sdk_intro.html).
