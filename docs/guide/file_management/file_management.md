@@ -26,13 +26,8 @@ class FileController
 
 The IO API is organized around two types of handlers, both used by the IOService:
 
-<<<<<<< HEAD
 - `Ibexa\Core\IO\IOMetadataHandler`: stores and reads metadata (such as, validity, size)
 - `Ibexa\Core\IO\IOBinarydataHandler`: stores and reads the actual binary data
-=======
-- `Ibexa\Core\IO\IOMetadataHandler`: stores and reads metadata (such as, validity, size)
-- `Ibexa\Core\IO\IOBinarydataHandler`: stores and reads the actual binary data
->>>>>>> cbb79188... Updates on handling.md
 
 You can configure IO handlers using semantic configuration. IO handlers are configurable per SiteAccess.
 See the default configuration:
@@ -44,6 +39,7 @@ ibexa:
             io:
                 metadata_handler: dfs
                 binarydata_handler: nfs
+```
 
 Metadata and binary data handlers are configured under `ibexa_io`. See below the configuration for the default handlers. It declares a metadata handler and a binary data handler, both labeled `default`. Both handlers are of type `flysystem`, and use the same Flysystem adapter, labeled `default` as well.
 
@@ -59,11 +55,7 @@ ibexa_io:
                 connection: doctrine.dbal.dfs_connection
 ```
 
-<<<<<<< HEAD
 The default Flysystem adapter's directory is based on your site settings, and will automatically be set to `%webroot_dir%/$var_dir$/$storage_dir$` (for example, `/path/to/ibexa/public/var/site/storage`).
-=======
-The default Flysystem adapter's directory is based on your site settings, and will automatically be set to `%webroot_dir%/$var_dir$/$storage_dir$` (for example, `/path/to/ibexa/public/var/site/storage`).
->>>>>>> cbb79188... Updates on handling.md
 
 #### Permissions of generated files
 
@@ -106,11 +98,9 @@ Default values:
 
 ### Native Flysystem handler
 
-Flysystem is a file storage library for PHP. It provides one interface to interact with many types of filesystems. 
-
 [league/flysystem](http://flysystem.thephpleague.com/) (along with [FlysystemBundle](https://github.com/1up-lab/OneupFlysystemBundle/)) is an abstract file handling library.
 
-[[= product_name =]] uses it as the default way to read and write content in form of binary files. Flysystem can use the `local` filesystem (this is the default and officially supported configuration), but is also able to read/write to `sftp`, `zip` or cloud filesystems (`azure`, `rackspace`, `S3`).
+[[= product_name =]] uses it as the default way to read and write content in form of binary files. Flysystem can use the `local` filesystem, but is also able to read/write to `sftp`, `zip` or cloud filesystems (`azure`, `rackspace`, `S3`).
 
 #### Handler options
 
@@ -119,15 +109,15 @@ Flysystem is a file storage library for PHP. It provides one interface to intera
 <<<<<<< HEAD
 The adapter is the *driver* used by Flysystem to read/write files. Adapters are declared using `oneup_flysystem`. A basic configuration might look like the following:
 =======
-The adapter is the *driver* used by Flysystem to read/write files. Adapters are declared using `oneup_flysystem`. A basic configuration might look like the following:
->>>>>>> cbb79188... Updates on handling.md
+The adapter is the *driver* used by Flysystem to read/write files. Adapters are declared using `oneup_flysystem`. To be able to rely on dynamic SiteAccess-aware paths, you need to use Ibexa custom `nfs_adapter`. A basic configuration might look like the following:
+>>>>>>> 275ed656... Changes after review
 
 ``` yaml
 oneup_flysystem:
     adapters:
-        default:
-            local:
-                directory: /path/to/directory
+        nfs_adapter:
+            custom:
+                service: ibexa.io.nfs.adapter.site_access_aware
 ```
 
 To learn how to configure other adapters, see the [bundle's online documentation](https://github.com/1up-lab/OneupFlysystemBundle/blob/main/doc/index.md#step3-configure-your-filesystems). 
