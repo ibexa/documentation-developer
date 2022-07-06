@@ -163,7 +163,7 @@ The following modes are available:
 
 If you do not provide the `--mode` option, the command asks you to select the mode.
 
-The following combinations of types are modes are available:
+The following data migration steps are available:
 
 ||`create`|`update`|`delete`|
 |---|:---:|:---:|:---:|
