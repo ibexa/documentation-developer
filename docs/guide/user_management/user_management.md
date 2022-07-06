@@ -136,9 +136,9 @@ You can allow your users to create accounts by employing the `/register` route. 
 
 ### User types
 
-To decide to what workspace the user should be registered to, you need to specify their user type under `user_type_identifier`.
 There are two user types defined: `users` and `customers`.
 `users` are Back Office users that are involved in creating the page such as editors, and `customers` are frontend users.
+To decide where the user should be registered to, you need to specify their user type under `user_type_identifier`.
 
 ```yaml
 ibexa:

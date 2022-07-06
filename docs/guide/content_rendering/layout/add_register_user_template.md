@@ -9,6 +9,7 @@ First, make sure you [enabled user registration](../../permission_use_cases.md#r
 
 In the `config/packages/views.yaml` file, under `allowed_field_definitions_identifiers`, specify the fields that should be part of your registration form.
 You can also define what kind of user you want to create under `user_type_identifier` e.g. frontend user.
+To learn more about available users, see [user types documentation](../../user_management/user_management.md#user-types). 
 
 ``` yaml
 ibexa:
