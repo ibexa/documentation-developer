@@ -1,3 +1,7 @@
+---
+description: GraphQL enables making concise, readable requests to Ibexa DXP APIs.
+---
+
 # GraphQL
 
 [GraphQL](https://graphql.org/) is a query language for the API.

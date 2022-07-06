@@ -1,3 +1,7 @@
+---
+description: Add a new design for a special marketing campaign site.
+---
+
 # Add new design
 
 To create different designs for different version of the website,

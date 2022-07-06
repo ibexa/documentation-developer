@@ -1,3 +1,7 @@
+---
+description: Customize the configuration of the content browser.
+---
+
 # Browser
 
 Browsing the content structure and selecting content from the Repository uses the module Universal Discovery Widget (UDW). UDW has an interactive interface

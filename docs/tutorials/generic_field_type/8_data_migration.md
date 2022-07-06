@@ -1,3 +1,7 @@
+---
+description: Learn how to serialize and deserialize Field data to enable sorting or search.
+---
+
 # Step 8 -  Data migration between Field Type versions
 
 Adding data migration enables you to easily change the output of the Field Type to fit your current needs.

@@ -1,3 +1,7 @@
+---
+description: You can test operations in the REST API by using command line, PHP or JS code.
+---
+
 # Testing the API
 
 A standard web browser is not sufficient to fully test the API.

@@ -1,3 +1,7 @@
+---
+description: Image Twig functions enable rendering images in a specific variation.
+---
+
 # Image Twig functions
 
 - [`ibexa_image_alias`](#ibexa_image_alias) returns the selected variation of an image Field.

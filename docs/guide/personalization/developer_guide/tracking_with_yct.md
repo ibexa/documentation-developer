@@ -1,3 +1,7 @@
+---
+description: Integrate tracking with a Google-style JavaScript.
+---
+
 # Track events with yct.js
 
 This is yet another example of how to integrate the tracking with a Google-style 

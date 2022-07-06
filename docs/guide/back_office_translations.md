@@ -1,3 +1,7 @@
+---
+description: The language of the Back Office is selected automatically based on browser language, or you can choose it manually in user settings.
+---
+
 # Back Office translations
 
 ## Enabling Back Office languages

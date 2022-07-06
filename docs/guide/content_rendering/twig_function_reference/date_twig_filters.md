@@ -1,3 +1,7 @@
+---
+description: Use date Twig filters to select the date and time format used in templates.
+---
+
 # Date Twig filters
 
 Date and time Twig filters format a date and time object (`DateTimeInterface`)

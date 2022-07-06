@@ -1,3 +1,7 @@
+---
+description: An Ibexa DXP project follows Symfony's directory structure to organize files in the project.
+---
+
 # Project organization
 
 [[= product_name =]] is a Symfony application and follows the project structure used by Symfony.

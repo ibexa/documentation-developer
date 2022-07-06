@@ -1,3 +1,7 @@
+---
+description: Go through a beginner tutorial which presents the Ibexa DXP content model and show how to configure and use templates to create a basic site.
+---
+
 # Beginner tutorial
 
 This tutorial is a step-by-step guide to building an [[= product_name =]] website.

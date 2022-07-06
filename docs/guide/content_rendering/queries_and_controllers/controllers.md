@@ -1,3 +1,7 @@
+---
+description: Use controllers to customize rendering and querying content in your site.
+---
+
 # Controllers
 
 By configuring a controller you can modify and enhance the way in which the built-in content view controller renders content.

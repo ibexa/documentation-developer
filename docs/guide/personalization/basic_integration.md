@@ -1,3 +1,7 @@
+---
+description: Integrate recommendation service into your website.
+---
+
 # Integrate Recommendation service
 
 To return recommendations, you must first [enable the Personalization service](enabling_personalization.md).

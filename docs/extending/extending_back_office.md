@@ -1,3 +1,7 @@
+---
+description: Back Office holds the administrator and editor interface and allows creating, publishing and managing content, users, settings and so on.
+---
+
 # Back Office
 
 The Back Office interface is produced by the [`ibexa/admin-ui` bundle](https://github.com/ibexa/admin-ui).

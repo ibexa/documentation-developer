@@ -1,3 +1,7 @@
+---
+description: Configure Repository connections, archive limits, Field groups and other settings.
+---
+
 # Repository configuration
 
 You can define several Repositories within a single application. However, you can only use one per site.

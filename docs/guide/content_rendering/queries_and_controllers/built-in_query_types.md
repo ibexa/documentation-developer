@@ -1,3 +1,7 @@
+---
+description: Use built-in Query types to quickly query Content items in templates.
+---
+
 # Built-in Query types
 
 ## General Query type parameters

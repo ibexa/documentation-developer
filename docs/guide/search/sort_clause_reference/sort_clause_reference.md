@@ -1,3 +1,7 @@
+---
+description: Sort Clauses help fine-tune sorting order when searching for content and Locations.
+---
+
 # Sort Clause reference
 
 Sort Clauses are the sorting options for Content and Location Search and

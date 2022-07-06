@@ -1,3 +1,7 @@
+---
+description: Enhance product catalog by creating a custom product attribute type to fit your specific needs.
+---
+
 # Create custom attribute type
 
 Besides the [built-in attribute types](catalog.md#product-attributes), you can also create custom ones.

@@ -1,3 +1,7 @@
+---
+description: Periodically back up your Repository information by making a database backup.
+---
+
 # Backup 
 
 You should always make sure that your solution is properly backed up. The following example shows you how to do this on a Linux-UNIX-based system where [[= product_name =]] is using a MySQL database called "example". You should shut down Platform if it's running before making a backup or an upgrade.

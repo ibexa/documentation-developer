@@ -1,3 +1,7 @@
+---
+description: Use HTTP GET request method to render recommendations.
+---
+
 # Recommendation API
 
 Recommendations are retrieved from the Personalization server with RESTful requests 

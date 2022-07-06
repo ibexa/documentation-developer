@@ -1,3 +1,7 @@
+---
+description: Configure image variations to scale, crop and otherwise modify rendered images.
+---
+
 # Image variations
 
 With image variations you can render different versions of one image by means 

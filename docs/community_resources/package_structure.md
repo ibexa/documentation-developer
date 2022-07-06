@@ -1,3 +1,7 @@
+---
+description: All code contributions to Ibexa DXP must follow package and bundle structure and namespace standards.
+---
+
 # Package and bundle structure and namespaces
 
 If you wish to contribute to [[= product_name =]] development,

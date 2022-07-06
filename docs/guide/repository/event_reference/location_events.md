@@ -1,3 +1,7 @@
+---
+description: Events that are triggered when working with content Locations.
+---
+
 # Location events
 
 | Event | Dispatched by | Properties |

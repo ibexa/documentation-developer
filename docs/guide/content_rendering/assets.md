@@ -1,3 +1,7 @@
+---
+description: Add assets (CSS, JS, image and other files) to your site and manage them using Webpack Encore.
+---
+
 # Assets
 
 Assets enable you to add CSS, JS, image or other files to your project,

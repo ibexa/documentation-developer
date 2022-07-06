@@ -1,3 +1,7 @@
+---
+description: Events that are triggered when working with Trash.
+---
+
 # Trash events
 
 The following events are dispatched when managing Trash.

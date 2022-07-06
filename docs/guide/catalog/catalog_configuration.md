@@ -1,3 +1,7 @@
+---
+description: Configure product catalog per Repository, with different catalog engines and VAT configurations.
+---
+
 # Catalog configuration
 
 You can configure the product catalog per [Repository](../config_repository.md).

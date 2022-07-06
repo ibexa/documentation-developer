@@ -1,3 +1,7 @@
+---
+description: Create and render a list of Content items, for example, content in a folder or blog posts in a blog.
+---
+
 # List content
 
 To render a list of Content items, for example, content in a folder, blog posts in a blog, and so on,

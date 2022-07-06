@@ -1,3 +1,7 @@
+---
+description: See how you can enable external users to register and contribute to your site.
+---
+
 # Step 8 — Enable account registration
 
 In this step you will enable other users to create accounts on your site, access the Back Office and create content.

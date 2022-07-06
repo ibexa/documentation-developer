@@ -1,3 +1,7 @@
+---
+description: Field Types define the Fields that a Content item is built of.
+---
+
 # Field Type API
 
 Field Types are the smallest building blocks of content.

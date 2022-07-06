@@ -1,3 +1,7 @@
+---
+description: Use GraphQL to query for content and Locations.
+---
+
 # GraphQL queries
 
 ## Querying content

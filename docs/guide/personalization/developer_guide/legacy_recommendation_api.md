@@ -1,3 +1,7 @@
+---
+description: An old method of fetching recommendations from the system using recommendation requests.
+---
+
 # Legacy Recommendation API
 
 !!! caution

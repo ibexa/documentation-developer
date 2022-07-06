@@ -1,3 +1,7 @@
+---
+description: Add custom drag-and-drop interactions to Back Office interface.
+---
+
 # Add drag and drop
 
 You can create a generic interface for drag and drop interactions that you can reuse in many places across the Back Office.
