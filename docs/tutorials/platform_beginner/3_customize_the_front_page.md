@@ -1,3 +1,7 @@
+---
+description: Try customizing the front page by using custom templates and adding assets.
+---
+
 # Step 3 — Customize the front page
 
 In this step you will create the global layout of your site, and display content using custom templates.

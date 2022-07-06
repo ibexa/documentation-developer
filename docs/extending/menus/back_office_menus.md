@@ -1,3 +1,7 @@
+---
+description: All menus in the Back Office are based on KnpMenuBundle and you can easily extend them with new items.
+---
+
 # Back Office menus
 
 Back Office menus are based on the [KnpMenuBundle](https://github.com/KnpLabs/KnpMenuBundle) and are easily extensible.

@@ -1,3 +1,7 @@
+---
+description: Create custom Search Criteria, Sort Clauses and aggregation to use with Solr search engine.
+---
+
 # Solr extensibility
 
 [Solr](solr.md) can be extended by adding several functionalities, such as document field mappers, custom search criteria, custom sort clauses, or custom aggregations.

@@ -1,3 +1,7 @@
+---
+description: Create and configure custom Page blocks to add customized content to Pages.
+---
+
 # Create custom Page block
 
 In addition to existing blocks which you can use in a Page, you can also create custom blocks.

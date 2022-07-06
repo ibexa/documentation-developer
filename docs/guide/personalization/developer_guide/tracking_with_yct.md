@@ -1,3 +1,7 @@
+---
+description: Integrate tracking with a Google-style JavaScript.
+---
+
 # Tracking with yct.js
 
 This is yet another example of how to integrate the tracking with a Google-style JavaScript in your site. It is a very generic approach and should be evaluated if this meets your **requirements and security policy!**

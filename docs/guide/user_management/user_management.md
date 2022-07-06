@@ -1,3 +1,7 @@
+---
+description: Set up user login methods, password rules, and customize user authentication.
+---
+
 # User management
 
 ## Passwords

@@ -1,3 +1,7 @@
+---
+description: Use SiteAccess matchers to control which site is served when and to which user.
+---
+
 # SiteAccess matching
 
 To be usable, every SiteAccess must be matched by one of configured matchers.

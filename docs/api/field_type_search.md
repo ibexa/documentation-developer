@@ -1,3 +1,7 @@
+---
+description: To be searchable, a Field Type must implement the Indexable interface.
+---
+
 # Field Type searching
 
 Fields, or a custom Field Type, might contain or maintain data relevant for user searches.

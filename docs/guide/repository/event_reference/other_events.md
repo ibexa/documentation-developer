@@ -1,3 +1,7 @@
+---
+description: Events that are triggered when working with bookmarks, notifications, settings, forms and others.
+---
+
 # Other events
 
 ## Bookmarks

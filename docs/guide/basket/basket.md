@@ -1,3 +1,7 @@
+---
+description: The basket functionality covers the shopping basket, as well as wishlist and stored, named baskets.
+---
+
 # Basket [[% include 'snippets/commerce_badge.md' %]]
 
 ![](../img/basket_1.png)

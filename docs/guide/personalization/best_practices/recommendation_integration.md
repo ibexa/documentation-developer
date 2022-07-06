@@ -1,3 +1,7 @@
+---
+description: Methods for REST call with Personalization server.
+---
+
 # Recommendation integration
 
 There are several ways to integrate the REST calls with the Recommendation engine and to avoid blocking web page rendering, if the communication with the Recommender is distrusted or interrupted.

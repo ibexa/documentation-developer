@@ -1,3 +1,7 @@
+---
+description: Add new functionalities to the image editor.
+---
+
 # Extend Image Editor
 
 With the Image Editor, users can do basic image modifications.

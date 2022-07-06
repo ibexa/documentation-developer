@@ -1,3 +1,7 @@
+---
+description: Ensure that your logs are secure and GDPR compliant by clearing them of sensitive user data.
+---
+
 # Logging
 
 [[= product_name =]] uses [Monolog](https://github.com/Seldaek/monolog) to log shop-related information.

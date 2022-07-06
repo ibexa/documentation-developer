@@ -1,3 +1,7 @@
+---
+description: Customize the registration form for new users in your site front end.
+---
+
 # Create user registration form
 
 You can create a registration form for users to your website.

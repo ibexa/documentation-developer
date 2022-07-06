@@ -1,3 +1,7 @@
+---
+description: Add a "forgot password" form and configure templates for it.
+---
+
 # Add "forgot password" option
 
 The "forgot password" option allows users of a specific SiteAccess, admin or front, to request a password change.

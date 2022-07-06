@@ -1,3 +1,7 @@
+---
+description: Persistence cache caches SPI\Persistence calls used in common page loads.
+---
+
 # Persistence cache
 
 ![SPI cache diagram](img/spi_cache.png)

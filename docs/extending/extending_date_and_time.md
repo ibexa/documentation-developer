@@ -1,3 +1,7 @@
+---
+description: Use different formats to render dates and times in the Back Office and website front.
+---
+
 # Formatting date and time
 
 You can format date and time by using the following services:

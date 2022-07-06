@@ -1,3 +1,7 @@
+---
+description: Configure Elasticsearch to use with Ibexa DXP.
+---
+
 # Elasticsearch search engine
 
 Elasticsearch is an open-source, distributed, Java-based search engine that responds to queries

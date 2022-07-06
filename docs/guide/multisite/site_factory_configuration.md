@@ -1,3 +1,7 @@
+---
+description: Configure Site Factory, including site skeletons.
+---
+
 # Site Factory configuration [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 ## Parent Location

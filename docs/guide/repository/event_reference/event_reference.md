@@ -1,3 +1,7 @@
+---
+description: Ibexa DXP dispatches events before and after you perform different operations in the Back Office and on the Repository.
+---
+
 # Event reference
 
 [[= product_name =]] dispatches events during different actions.

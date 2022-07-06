@@ -1,3 +1,7 @@
+---
+description: Add a new tab to the Back Office dashboard that welcomes every user after logging in.
+---
+
 # Create dashboard tab
 
 To create a new tab in the dashboard, create an `EveryoneArticleTab.php` file in `src/Tab/Dashboard/Everyone`.

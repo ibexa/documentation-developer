@@ -1,3 +1,7 @@
+---
+description: Learn how to create a sign-up form and how to view and manage its submissions.
+---
+
 # Step 5 — Create a newsletter form [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 !!! tip

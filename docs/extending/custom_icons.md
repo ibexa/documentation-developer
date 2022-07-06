@@ -1,3 +1,7 @@
+---
+description: Configure custom icons to use for Content Types.
+---
+
 # Custom icons
 
 ## Customize Content Type icons

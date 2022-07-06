@@ -1,3 +1,7 @@
+---
+description: Configure the behavior of the Ibxa DXP shop, including basket storage time and validation.
+---
+
 # Shop configuration
 
 To change configuration settings for the shop, go to **eCommerce** > **Configuration settings**.

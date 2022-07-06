@@ -1,3 +1,7 @@
+---
+description: Configure SiteAccesses to serve different content in different layouts.
+---
+
 # Multisite configuration
 
 You can configure the available SiteAccesses under the `ezplatform.siteaccess` key.

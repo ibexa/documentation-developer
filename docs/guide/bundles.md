@@ -1,3 +1,7 @@
+---
+description: Ibexa DXP is composed of bundles containing different parts of the application.
+---
+
 # Bundles
 
 A bundle in Symfony (and [[= product_name =]]) is a separate part of your application that implements a feature.

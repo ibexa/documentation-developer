@@ -1,3 +1,7 @@
+---
+description: Create a new Field Type based on the Generic Field Type.
+---
+
 # Create custom generic Field Type
 
 The Generic Field Type is an abstract implementation of Field Types holding structured data for example, address.

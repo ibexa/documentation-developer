@@ -1,3 +1,7 @@
+---
+description: Use quick order to quickly add products to the basket in bulk.
+---
+
 # Quick order [[% include 'snippets/commerce_badge.md' %]]
 
 Quick order is an order form that speeds up the checkout and order process.

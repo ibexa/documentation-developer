@@ -1,3 +1,7 @@
+---
+description: Trash Search Criteria and Sort Clauses help define and fine-tune search queries for content in trash.
+---
+
 # Search in trash reference
 
 When you [search for Content items that are held in trash](../../api/public_php_api_search.md#searching-in-trash), you can apply only a limited set of Search Criteria and Sort Clauses.

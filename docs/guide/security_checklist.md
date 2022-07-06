@@ -1,3 +1,7 @@
+---
+description: Ensure that your Ibexa DXP installation is secure by following our set of recommendations.
+---
+
 # Security checklist
 
 When getting ready to go live with your project for the first time, or when re-launching it,

@@ -1,3 +1,7 @@
+---
+description: Make sure your custom development's configuration can be used with SiteAccesses.
+---
+
 # SiteAccess-aware configuration
 
 The [Symfony Config component]([[= symfony_doc =]]/components/config.html) makes it possible to define semantic configuration, exposed to the end developer.

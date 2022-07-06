@@ -1,3 +1,7 @@
+---
+description: Caching shop content by using HTTP cache helps increase page performance.
+---
+
 # Shop cache
 
 [[= product_name =]] uses different caches for the shop, including HTTP cache, which can greatly increase shop performance.

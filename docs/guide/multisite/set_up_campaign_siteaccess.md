@@ -1,3 +1,7 @@
+---
+description: Create a special SiteAccess to host a campaign site with different content subtree.
+---
+
 # Set up campaign SiteAccess
 
 The following example shows how to set up a special `campaign` SiteAccess.

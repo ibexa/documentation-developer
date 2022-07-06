@@ -1,3 +1,7 @@
+---
+description: You can search for content, Locations and products by using the PHP API. Fine-tune the search with Search Criteria, Sort Clauses and Aggregations.
+---
+
 # Search API
 
 You can search for content with the PHP API in two ways.

@@ -1,3 +1,7 @@
+---
+description: Use HTTP GET request method to render recommendations.
+---
+
 # Recommendation API
 
 Recommendations are retrieved from the recommendation engine with RESTful requests that rely on the HTTP GET method. 

@@ -1,3 +1,7 @@
+---
+description: Add custom actions that are performed during specific workflow transitions.
+---
+
 # Add custom workflow action
 
 Built-in workflow actions enable you to [automatically publish a Content item](workflow.md#content-publishing)

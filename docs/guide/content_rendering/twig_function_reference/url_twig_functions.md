@@ -1,3 +1,7 @@
+---
+description: URL Twig functions enable rendering URLs and routes.
+---
+
 # URL Twig functions
 
 - [`ez_path()`](#ez_path) returns the relative URL to a Content item or Location.

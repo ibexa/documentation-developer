@@ -1,3 +1,7 @@
+---
+description: Ibexa DXP offers a built-in product return process in its shop.
+---
+
 # Return process [[% include 'snippets/commerce_badge.md' %]]
 
 [[= product_name =]] offers a simple RMA (return merchandise authorization) process.

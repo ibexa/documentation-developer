@@ -1,3 +1,7 @@
+---
+description: Adapt the form and content of emails sent out from the Form Builder.
+---
+
 # Customize email notifications [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 Email is one of the Submit button options you can add to a form in the Form Builder.

@@ -1,3 +1,7 @@
+---
+description: Learn how to use and customize built-in Page blocks.
+---
+
 # Step 3 — Use existing blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 !!! tip

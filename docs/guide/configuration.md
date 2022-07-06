@@ -1,3 +1,7 @@
+---
+description: In Ibexa DXP you store and manage configuration in project files, typically in YAML format.
+---
+
 # Configuration
 
 [[= product_name =]] configuration is delivered using a number of dedicated configuration files.

@@ -1,3 +1,7 @@
+---
+description: URL Search Criteria help define and fine-tune search queries for URLs.
+---
+
 # URL search reference
 
 ## URL criteria reference

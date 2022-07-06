@@ -1,3 +1,7 @@
+---
+description: Start off working with Ibexa DXP by doing initial configuration and testing system capabilities.
+---
+
 # First steps
 
 This page lists first steps you can take after installing [[= product_name =]].

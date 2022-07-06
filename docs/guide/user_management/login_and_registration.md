@@ -1,3 +1,7 @@
+---
+description: Configure registering and activating customers.
+---
+
 # Login and registration
 
 ## Login

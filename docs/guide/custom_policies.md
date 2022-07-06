@@ -1,3 +1,7 @@
+---
+description: Create a custom Policy to cover non-standard permission needs.
+---
+
 # Custom Policies
 
 The content Repository uses [Roles and Policies](permissions.md) to give Users access to different functions of the system.

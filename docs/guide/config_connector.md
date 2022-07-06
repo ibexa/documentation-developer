@@ -1,3 +1,7 @@
+---
+description: Configure a Digital Asset Management connector.
+---
+
 # Connector configuration
 
 ## DAM configuration

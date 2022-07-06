@@ -1,3 +1,7 @@
+---
+description: Learn how to embed related content in another Content item's template.
+---
+
 # Step 7 — Embed content
 
 Creating lists and detailed views of Content Types and their respective items often involves loading related resources.

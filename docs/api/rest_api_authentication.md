@@ -1,3 +1,7 @@
+---
+description: To authenticate REST API communication you can use session (default), JWT, basic, OAuth and client certificate (SSL) authentication.
+---
+
 # REST API authentication
 
 This page refers to [REST API reference](rest_api_reference/rest_api_reference.html), where you can find detailed information about

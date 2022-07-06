@@ -1,3 +1,7 @@
+---
+description: Binary files are handled by the native IO handler.
+---
+
 # File management
 
 ## Accessing binary files

@@ -1,3 +1,7 @@
+---
+description: To be able to store the data saved to a Field, you must configure storage conversion for the Field Type.
+---
+
 # Field Type storage
 
 ## Storage conversion

@@ -1,3 +1,7 @@
+---
+description: Learn how to render content details with a custom template.
+---
+
 # Step 4 — Display a single Content item
 
 You'll render a list of all Rides here in the next step.

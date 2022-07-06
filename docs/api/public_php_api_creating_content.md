@@ -1,3 +1,7 @@
+---
+description: Create, publish, update and translate Content items by using the PHP API.
+---
+
 # Creating content
 
 !!! note

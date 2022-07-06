@@ -1,3 +1,7 @@
+---
+description: The basis of all Field Types are their Type and Value classes, containing, respectively, the logic and the data for the Fields.
+---
+
 # Type and Value
 
 A Field Type must contain a Type class which contains the logic of the Field Type: validating data, transforming from various formats, describing the validators, etc.

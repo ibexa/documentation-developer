@@ -1,3 +1,7 @@
+---
+description: Extend REST API by creating a new resource.
+---
+
 # Creating new REST resource
 
 To create a new REST resource, you need to prepare:

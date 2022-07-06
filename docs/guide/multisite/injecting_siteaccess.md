@@ -1,3 +1,7 @@
+---
+description: Inject the SiteAccess service to get SiteAccess information in your custom PHP code.
+---
+
 # Injecting SiteAccess
 
 The [service container](../../api/public_php_api.md#service-container) exposes the SiteAccess through the `@ezpublish.siteaccess_service` service, which fulfills the `\eZ\Publish\Core\MVC\Symfony\SiteAccess\SiteAccessServiceInterface` contract.

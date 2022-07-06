@@ -1,3 +1,7 @@
+---
+description: Add links to Content items or specific built-in and custom routes in your templates.
+---
+
 # URLs and routes
 
 To link to a [Location](../content_management.md#locations) or [Content item](../content_model.md#content-items), use the [`ez_path()`](twig_function_reference/url_twig_functions.md#ez_path) Twig function.

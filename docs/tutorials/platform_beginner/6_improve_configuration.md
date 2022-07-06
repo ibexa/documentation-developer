@@ -1,3 +1,7 @@
+---
+description: See how you can manage Ibexa DXP configuration files.
+---
+
 # Step 6 — Improve configuration
 
 ## Define image variations

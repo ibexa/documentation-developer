@@ -1,3 +1,7 @@
+---
+description: Product Twig functions enable getting products and their attributes in templates.
+---
+
 # Product Twig functions
 
 Twig functions for rendering product Fields include `ses_render_field()`,

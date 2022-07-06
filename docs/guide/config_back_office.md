@@ -1,3 +1,7 @@
+---
+description: Configure default upload locations, pagination limits, date and time, and more settings for the Back Office.
+---
+
 # Back Office configuration
 
 ## Copy subtree limit

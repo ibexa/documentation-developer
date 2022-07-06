@@ -1,3 +1,7 @@
+---
+description: Content-aware HTTP cache takes into account the content it is connected to.
+---
+
 # Content-aware HTTP cache
 
 HTTP cache in [[= product_name =]] is aware of which content or entity it is connected to.

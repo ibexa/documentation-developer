@@ -1,3 +1,7 @@
+---
+description: You can send notifications to users who work with the Back Office by using notification bars or notifications in the user menu.
+---
+
 # Notifications
 
 You can send two types on notifications to the users.

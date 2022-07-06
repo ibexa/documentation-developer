@@ -1,3 +1,7 @@
+---
+description: Start the tutorial by getting a clean installation of Ibexa DXP.
+---
+
 # Step 1 — Get ready
 
 To begin the tutorial, you need a clean installation of [[= product_name =]].

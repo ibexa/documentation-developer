@@ -1,3 +1,7 @@
+---
+description: See the methods of event tracking integration using tracking from server or from client-side.
+---
+
 # Tracking integration
 
 There are several ways to integrate event reporting into the webpage. 
