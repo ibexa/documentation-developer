@@ -63,13 +63,3 @@ Three UrlDecorator services are introduced:
 - `Ibexa\Core\IO\UrlDecorator\Prefix` used through the UrlRedecorator by various legacy elements (Converter, Storage Gateway, etc.) to generate its internal storage format for URIs. Uses a `Prefix`, not an `AbsolutePrefix`, meaning that no leading `/` is added.
 
 In addition, a UrlRedecorator service, `Ibexa\Core\IO\UrlDecorator\Prefix`, uses both previously mentioned decorators to convert URIs between what is used on the new stack, and what format legacy expects (relative urls from the ezpublish root).
-=======
-
-
-Fully-Qualified Class Name
-
-
-Nazwa Klasy wraz z przestrzenią nazw w której sie znajduje
-
-przykładowo: \Ibexa\Bundle\ProductCatalog\Form\Data\AttributeGroupBulkDeleteData
->>>>>>> 61e571c5... Fixes after review

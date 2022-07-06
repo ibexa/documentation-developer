@@ -78,7 +78,7 @@ Default values:
 
 !!! note
 
-    Make sure to configure permissions using a number and **not** a string. If you write "0644" it will **not** be interpreted by PHP as an octal number, and unexpected permissions will be applied.
+    Make sure to configure permissions using a number and **not** a string. If you write "0644" it will **not** be interpreted by PHP as an octal number, and unexpected permissions is applied.
 
 !!! note
 
@@ -106,11 +106,7 @@ Default values:
 
 ##### Adapter
 
-<<<<<<< HEAD
-The adapter is the *driver* used by Flysystem to read/write files. Adapters are declared using `oneup_flysystem`. A basic configuration might look like the following:
-=======
 The adapter is the *driver* used by Flysystem to read/write files. Adapters are declared using `oneup_flysystem`. To be able to rely on dynamic SiteAccess-aware paths, you need to use Ibexa custom `nfs_adapter`. A basic configuration might look like the following:
->>>>>>> 275ed656... Changes after review
 
 ``` yaml
 oneup_flysystem:
@@ -125,10 +121,6 @@ To learn how to configure other adapters, see the [bundle's online documentation
 !!! note
 
 Only the adapters are used here, not the filesystem configuration described in this documentation.
-=======
-    Only the adapters are used here, not the filesystem configuration described in this documentation.
-    
->>>>>>> cbb79188... Updates on handling.md
 
 ### DFS Cluster handler
 
