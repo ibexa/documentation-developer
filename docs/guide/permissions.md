@@ -1,3 +1,7 @@
+---
+description: Use granular permission system to grant access to various parts of the system using Roles, Policies, and Limitations.
+---
+
 # Permissions
 
 ## Permission overview

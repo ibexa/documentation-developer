@@ -1,3 +1,7 @@
+---
+description: Export Repository data to use in future data migrations.
+---
+
 # Exporting data
 
 To see an example of migrations in action, export data already present in your installation.

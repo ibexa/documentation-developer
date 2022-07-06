@@ -1,3 +1,7 @@
+---
+description: Customize breadcrumb rendering in shop front page.
+---
+
 # Custom breadcrumbs
 
 ## Breadcrumbs for custom routes

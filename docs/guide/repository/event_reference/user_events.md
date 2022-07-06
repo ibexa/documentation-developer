@@ -1,3 +1,7 @@
+---
+description: Events that are triggered when working with users and User Groups.
+---
+
 # User events
 
 | Event | Dispatched by | Properties |

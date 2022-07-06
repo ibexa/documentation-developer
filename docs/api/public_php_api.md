@@ -1,3 +1,7 @@
+---
+description: Public PHP API exposes the Repository in a number of services and allows creating, reading, updating, managing, and deleting objects.
+---
+
 # PHP API
 
 The public PHP API enables you to interact with [[= product_name =]]'s Repository and content model from your PHP code.

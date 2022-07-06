@@ -1,4 +1,5 @@
 ---
+description: Update your installation to the latest v4.1 version from v4.0.
 latest_tag: '4.1.5'
 ---
 

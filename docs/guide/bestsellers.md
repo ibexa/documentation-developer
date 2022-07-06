@@ -1,3 +1,7 @@
+---
+description: The bestseller functionality calculates the best-selling products in the catalog.
+---
+
 # Bestsellers
 
 Bestsellers are determined based on all confirmed orders. The information how often a product was purchased is stored in the search engine.

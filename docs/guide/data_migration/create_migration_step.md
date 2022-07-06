@@ -1,3 +1,7 @@
+---
+description: Create a custom step for data migrations.
+---
+
 # Create data migration step
 
 To create a migration step, you need:

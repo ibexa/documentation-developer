@@ -1,3 +1,7 @@
+---
+description: Clustering enables you to host one installation of Ibexa DXP on multiple servers.
+---
+
 # Clustering
 
 Clustering in [[= product_name =]] refers to setting up your installation with several web servers for handling more load and/or for failover.

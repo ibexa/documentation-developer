@@ -1,3 +1,7 @@
+---
+description: Customize your GraphQL API with a custom schema.
+---
+
 # GraphQL customization
 
 ## Custom schema

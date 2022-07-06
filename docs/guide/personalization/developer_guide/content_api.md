@@ -1,3 +1,7 @@
+---
+description: Personalization server can use external information about the items. Use HTTP methods to create, update or get items from the data store.
+---
+
 # Content API
 
 Apart from the [events]([[= user_doc =]]/personalization/event_types) collected by the Personalization client, 

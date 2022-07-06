@@ -1,3 +1,7 @@
+---
+description: Use the ConfigResolver to inject dynamic configuration into your services.
+---
+
 # Dynamic configuration
 
 ## ConfigResolver

@@ -1,3 +1,7 @@
+---
+description: Use PHP API to manage currencies in the shop and product prices.
+---
+
 # Price API
 
 ## Currencies

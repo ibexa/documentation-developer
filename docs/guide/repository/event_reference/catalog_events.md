@@ -1,3 +1,7 @@
+---
+description: Events that are triggered when working with products, prices and currencies.
+---
+
 # Catalog events
 
 ## Products

@@ -1,3 +1,7 @@
+---
+description: Go through a Page and Form tutorial to learn how to create modular Sites and how to manage forms and their submissions.
+---
+
 # Page and Form tutorial [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 This tutorial is a step-by-step guide to building an advanced website with [[= product_name_exp =]].

@@ -1,3 +1,7 @@
+---
+description: You can use PHP API to get, create and delete form submissions.
+---
+
 # Form API [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 ## Form submissions

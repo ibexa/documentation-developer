@@ -1,3 +1,7 @@
+---
+description: Ibexa DXP can use MySQL, PostgreSQL or MariaDB as its database.
+---
+
 # Databases
 
 ## Using PostgreSQL

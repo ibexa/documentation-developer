@@ -1,3 +1,7 @@
+---
+description: Add a custom tab displaying selected data to the content browser.
+---
+
 # Add browser tab
 
 The Universal Discovery Widget (UDW) is a separate React module. By default, it contains two tabs: Browse and Bookmarks.

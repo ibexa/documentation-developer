@@ -1,3 +1,7 @@
+---
+description: Allows to track items using it ID. It covers many Content Types with the same ID configured for tracking.
+---
+
 # Tracking API
 
 To provide recommendations, a tracking process needs to collect user behavior 

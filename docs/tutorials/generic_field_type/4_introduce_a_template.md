@@ -1,3 +1,7 @@
+---
+description: Learn how to add a template for rendering the custom Field on the site front.
+---
+
 # Step 4 - Introduce a template
 
 ## Point 2D template

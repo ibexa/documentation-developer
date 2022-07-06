@@ -1,3 +1,7 @@
+---
+description: The price engine calculates product prices taking into account customer groups, currencies and taxes.
+---
+
 # Prices
 
 The price engine is responsible for calculating prices for products in the [catalog](../catalog/catalog.md).

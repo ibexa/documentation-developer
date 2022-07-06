@@ -1,3 +1,7 @@
+---
+description: Learn how to add settings that format the Field value.
+---
+
 # Step 6 - Implement Point 2D settings
 
 Implementing settings enables you to define the format for displaying the Field on the page.

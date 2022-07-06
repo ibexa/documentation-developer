@@ -1,3 +1,7 @@
+---
+description: Attribute search uses Elasticsearch database to display dynamically taken values in scenario and model previews.
+---
+
 # Attribute search in Elasticsearch database
 
 If you use external data source for personalization data, it is not possible to display external content in the Universal Discovery Widget as it is deprecated. Attribute search is used in scenario preview and editorials models instead.

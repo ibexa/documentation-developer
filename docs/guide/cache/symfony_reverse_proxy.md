@@ -1,3 +1,7 @@
+---
+description: You can use Symfony HttpCache Proxy, Varnish or Fastly as reverse proxies with Ibexa DXP.
+---
+
 # Reverse proxy
 
 Before you start using Symfony reverse proxy, you must change your kernel to use `Ibexa\Bundle\HttpCache\AppCache` instead of `Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache`.

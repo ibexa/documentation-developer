@@ -1,3 +1,7 @@
+---
+description: You can report encountered issues to Ibexa DXP JIRA or use it to follow the development of new features and fixes.
+---
+
 # Report and follow issues
 
 [[= product_name =]] uses [JIRA](https://issues.ibexa.co) to track product development, improvements, and bugs.

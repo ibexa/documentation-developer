@@ -1,3 +1,7 @@
+---
+description: A token is used in the registration process to send out unique emails to activate accounts.
+---
+
 # Token
 
 [[= product_name =]] uses the token system in the registration process to create a double opt-in possibility.

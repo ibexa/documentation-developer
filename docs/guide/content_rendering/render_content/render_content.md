@@ -1,3 +1,7 @@
+---
+description: Customize rendering of Content items on the site front end by using templates with proper content view configuration.
+---
+
 # Render content
 
 Content is rendered automatically by using default, basic templates.

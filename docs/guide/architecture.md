@@ -1,3 +1,7 @@
+---
+description: Ibexa DXP architecture is structured in multiple layers connected by APIs.
+---
+
 # Architecture
 
 [[= product_name =]] architecture is based on the philosophy to **use APIs** that will be maintained in the long term. This **makes upgrades easier and provides lossless couplings** between all parts of the architecture, at the same time improving the migration capabilities of the system.

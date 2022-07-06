@@ -1,3 +1,7 @@
+---
+description: Design engine allows you to use different SiteAccess-aware themes in your site.
+---
+
 # Design engine
 
 You can use multiple different designs (themes) in your installation.

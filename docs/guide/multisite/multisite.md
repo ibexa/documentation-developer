@@ -1,3 +1,7 @@
+---
+description: Multisite enables hosting multiple websites with different content, templates and configuration using one Repository.
+---
+
 # Multisite
 
 Multisite configuration is done using SiteAccesses.
