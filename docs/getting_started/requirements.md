@@ -23,7 +23,7 @@ Using the latest listed version of each product or component is always recommend
 
 ## Web server
 
-- Nginx 1.18
+- Nginx 1.18 or higher
 - Apache 2.4 (with required modules `mod_rewrite`, `mod_env` and recommended: `mod_setenvif`, `mod_expires`;
 event MPM is recommended, if you need to use prefork you also need the `mod_php` module)
 
