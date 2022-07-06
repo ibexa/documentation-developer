@@ -7,7 +7,7 @@ First, make sure you [enabled user registration](../../permission_use_cases.md#r
 
 ## Configure existing form
 
-In the `config/packages/views.yaml` file specify the fields that should be part of your registration form under `allowed_field_definitions_identifiers`.
+In the `config/packages/views.yaml` file, under `allowed_field_definitions_identifiers`, specify the fields that should be part of your registration form.
 You can also define what kind of user you want to create under `user_type_identifier` e.g. frontend user.
 
 ``` yaml
