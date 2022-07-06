@@ -138,6 +138,20 @@ It will check all User accounts in the database and list those that do not fit t
 
 You can allow your users to create accounts by employing the `/register` route. This route leads to a registration form that, when filled in, creates a new User Content item in the repository.
 
+### User types
+
+There are two user types defined: `users` and `customers`.
+`users` are Back Office users that are involved in creating the page such as editors, and `customers` are frontend users.
+To decide where the user should be registered to, you need to specify their user type under `user_type_identifier`.
+
+```yaml
+ibexa:
+    system:
+        <scope>:
+            user_registration:
+                user_type_identifier: user
+```
+
 ### User Groups
 
 By default, new Users generated in this way are placed in the Guest accounts group. You can select a different default group in the following section of configuration:
@@ -150,9 +164,26 @@ ibexa:
                 group_id: <userGroupContentId>
 ```
 
+### Registration form field configuration
+
+To modify the registration form template, add or remove fields under `allowed_field_definitions_identifiers`:
+
+```yaml
+ibexa:
+    system:
+        <scope>:
+            user_registration:
+                user_type_identifier: user
+                form:
+                    allowed_field_definitions_identifiers:
+                        - first_name
+                        - last_name
+                        - user_account
+```
+
 ### Other user management templates
 
-You can also modify the following form templates:
+You can also modify form templates in the following way:
 
 **Changing user password:**
 
