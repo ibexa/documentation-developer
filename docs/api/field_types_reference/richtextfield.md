@@ -32,13 +32,6 @@ The Field Type expects an XML value as input, in the form of a string, `DOMDocum
 The Field Type's `Value` object must hold the value in the Field Type's [internal format](#internal-format).
 For a string of a `DOMDocument` object, if the input does not conform to this format, it is converted into it.
 
-!!! note "Legacy eZXML format"
-
-    The Legacy eZXML format is also supported by the RichText Field Type,
-    but can be used only for migration, in compatibility with the [legacy XML format](xmltextfield.md).
-    For more information about migrating eZXML content,
-    see [Migrating from eZ Publish Platform](../../migrating/migrating_from_ez_publish_platform.md#321-migrate-xmltext-content-to-richtext).
-
 ##### Internal format
 
 As its internal format, the RichText Field Type uses a [custom flavor of the DocBook format](#custom-docbook-format).

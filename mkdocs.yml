@@ -113,7 +113,6 @@ nav:
                - 'Time Field Type': 'api/field_types_reference/timefield.md'
                - 'URL Field Type': 'api/field_types_reference/urlfield.md'
                - 'User Field Type': 'api/field_types_reference/userfield.md'
-               - 'XmlText Field Type': 'api/field_types_reference/xmltextfield.md'
         - GraphQL:
             - 'GraphQL': 'api/graphql.md'
             - 'GraphQL queries': 'api/graphql_queries.md'
