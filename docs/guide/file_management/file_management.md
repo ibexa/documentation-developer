@@ -55,7 +55,7 @@ ibexa_io:
                 connection: doctrine.dbal.dfs_connection
 ```
 
-The default Flysystem adapter's directory is based on your site settings, and will automatically be set to `%webroot_dir%/$var_dir$/$storage_dir$` (for example, `/path/to/ibexa/public/var/site/storage`).
+The nfs_adapter's directory is based on your site settings, and will automatically be set to `$var_dir$/$storage_dir$` (for example, `/path/to/ibexa/public/var/site/storage`).
 
 #### Permissions of generated files
 
@@ -69,7 +69,7 @@ ibexa:
                     directories: 0640 #default is 0755
 ```
 
-Both `files` and `directories` rules are optional.
+Both `files` and `directories` are optional.
 
 Default values:
 

@@ -8,9 +8,9 @@ Unlike image files, you can restrict files stored in BinaryFile or Media to cert
 >>>>>>> cbb79188... Updates on handling.md
 As such, they are not publicly downloadable from disk, and are instead served by Symfony, using a custom route that runs the necessary checks. This route is automatically generated as the `url` property for those Field values.
 
-## The `content/download` route
+## The content/download route
 
-The route follows this pattern: `/content/download/{contentId}/{fieldIdentifier}/{filename}`. For example: `/content/download/68/file/My-file.pdf.`
+The path to content download should follow the route name.
 
 It also accepts optional query parameters:
 
