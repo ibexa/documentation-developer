@@ -6,7 +6,8 @@ description: Create a custom step for data migrations.
 
 A data migration step is a single operation in data migration process
 that combines a mode (for example: `create`, `update`, `delete`)
-and a type (for example: `content`, `section`, `currency`), with optional additional information.
+and a type (for example: `content`, `section`, `currency`),
+with optional additional information depending on the specific step.
 
 Besides the [built-in migrations steps](importing_data.md#available-migrations), you can also create custom ones.
 
