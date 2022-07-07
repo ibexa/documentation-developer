@@ -342,7 +342,7 @@
 }
 
 /* Breadcrumbs */
-ul.breadcrumbs {
+.md-typeset ul.breadcrumbs {
     margin-left: 0;
     margin-top: 0;
     padding-bottom: 2rem;
