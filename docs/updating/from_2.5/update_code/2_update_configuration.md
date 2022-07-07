@@ -26,7 +26,7 @@ ezpublish:
 ## Resolving settings
 
 If you used dynamic settings (through `$setting$`),
-or got settings from the [ConfigResolver](../../../guide/config_dynamic.md#configresolver) in a class constructor,
+or got settings from the [ConfigResolver](../../../guide/configuration/config_dynamic.md#configresolver) in a class constructor,
 you now need to rewrite your code to inject the ConfigResolver and get the relevant setting:
 
 **Use:**

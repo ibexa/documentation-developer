@@ -463,7 +463,7 @@ Index names use the following pattern:
     `<repository>_<document_type>_<language_code>_<content_type_id>`
 
     By default, repository name is set to `default`, however, in the context of an [[= product_name =]] instance,
-    there can be [several repositories with different names](../config_repository.md#defining-custom-connection).
+    there can be [several repositories with different names](../configuration/config_repository.md#defining-custom-connection).
     Document type can be either `content` or `location`.
     In a language code, hyphens are replaced with underscores, and all characters must be lowercase.
     An index name can therefore look like this:

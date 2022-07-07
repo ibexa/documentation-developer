@@ -32,7 +32,7 @@ To retrieve the price of a product in the currency for the current context, use 
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 61, 64) =]]
 ```
 
-To retrieve the price of a product in a specific currency, use `ProductPriceService::getPriceByProductAndCurrency`:
+To retrieve the price of a product in a specific currency, use hj`ProductPriceService::getPriceByProductAndCurrency`:
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 65, 68) =]]

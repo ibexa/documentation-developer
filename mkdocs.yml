@@ -131,7 +131,6 @@ nav:
             - 'Back Office configuration': 'guide/config_back_office.md'
             - 'Repository configuration': 'guide/config_repository.md'
             - 'Connector configuration': 'guide/config_connector.md'
-            - 'Shop configuration': 'guide/shop_configuration.md'
         - 'Admin panel': 'guide/admin_panel.md'
         - Content rendering:
             - Render content:
