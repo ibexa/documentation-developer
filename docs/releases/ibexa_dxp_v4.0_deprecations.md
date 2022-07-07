@@ -121,7 +121,7 @@ The following Twig functions and filter have been renamed, including:
 | `ez_field` | `ibexa_field` |
 | `ez_image_alias` | `ibexa_image_alias` |
 
-??? "Full list of changed Twig function and filter names"
+??? note "Full list of changed Twig function and filter names"
 
     | Old name | New name |
     | --- | --- |
