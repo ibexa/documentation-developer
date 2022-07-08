@@ -15,7 +15,7 @@ The communication covers, among other things, product and customer data, price a
 
 ## ERP configuration
 
-To connect your shop to ERP, configure the following [ERP settings](../shop_configuration.md#erp) in the Back Office:
+To connect your shop to ERP, configure the following [ERP settings](../../guide/basket/basket.md) in the Back Office:
 
 - URL of the Web-Connector
 - User name (configured per Web-Connector)
