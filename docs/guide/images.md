@@ -16,7 +16,7 @@ placeholders for missing ones.
 If your installation is connected to a DAM system, you can use images directly 
 from a DAM system in your content.
 
-Specific [DAM configuration](config_connector.md#dam-configuration) depends on 
+Specific [DAM configuration](configuration/config_connector.md#dam-configuration) depends on 
 the system that the installation uses.
 
 ## Reuse images

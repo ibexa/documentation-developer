@@ -192,7 +192,7 @@ ibexa:
                 url_prefix: '$var_dir$/$storage_dir$'
 ```
 
-`$var_dir$` and `$storage_dir$` are dynamic, [SiteAccess-aware settings](config_dynamic.md#inject-configresolver-into-services), and will be replaced by their values in the execution context.
+`$var_dir$` and `$storage_dir$` are dynamic, [SiteAccess-aware settings](configuration/config_dynamic.md#inject-configresolver-into-services), and will be replaced by their values in the execution context.
 
 #### Using a static server for images
 
