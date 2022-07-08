@@ -291,10 +291,17 @@ nav:
                 - 'LogicalNot Criterion': 'guide/search/criteria_reference/logicalnot_criterion.md'
                 - 'LogicalOr Criterion': 'guide/search/criteria_reference/logicalor_criterion.md'
             - Product Search Criteria:
+                - 'BasePrice': 'guide/search/criteria_reference/baseprice_criterion.md'
+                - 'CheckboxAttribute': 'guide/search/criteria_reference/checkboxattribute_criterion.md'
+                - 'ColorAttribute': 'guide/search/criteria_reference/colorattribute_criterion.md'
+                - 'CustomPrice': 'guide/search/criteria_reference/customprice_criterion.md'
+                - 'FloatAttribute': 'guide/search/criteria_reference/floatattribute_criterion.md'
+                - 'IntegerAttribute': 'guide/search/criteria_reference/integerattribute_criterion.md'
                 - 'ProductAvailability': 'guide/search/criteria_reference/productavailability_criterion.md'
                 - 'ProductCode': 'guide/search/criteria_reference/productcode_criterion.md'
                 - 'ProductName': 'guide/search/criteria_reference/productname_criterion.md'
                 - 'ProductType': 'guide/search/criteria_reference/producttype_criterion.md'
+                - 'SelectionAttribute': 'guide/search/criteria_reference/selectionattribute_criterion.md'
             - Sort Clause reference:
                 - 'Sort Clause reference': 'guide/search/sort_clause_reference/sort_clause_reference.md'
                 - 'ContentId': 'guide/search/sort_clause_reference/contentid_sort_clause.md'
@@ -319,6 +326,7 @@ nav:
                 - 'UserLogin': 'guide/search/sort_clause_reference/userlogin_sort_clause.md'
                 - 'Visibility': 'guide/search/sort_clause_reference/visibility_sort_clause.md'
             - Product Sort Clauses:
+                - 'CreatedAt': 'guide/search/sort_clause_reference/createdat_sort_clause.md'
                 - 'ProductAvailability': 'guide/search/sort_clause_reference/productavailability_sort_clause.md'
                 - 'ProductCode': 'guide/search/sort_clause_reference/productcode_sort_clause.md'
                 - 'ProductName': 'guide/search/sort_clause_reference/productname_sort_clause.md'
