@@ -59,7 +59,7 @@ Main variables include:
 |`ezplatform.viewParametersString`| View parameters as a string. |
 |`ezplatform.translationSiteAccess`| Translation SiteAccess for a given language (null if the SiteAccess cannot be found). |
 |`ezplatform.availableLanguages`| List of available languages. |
-|`ezplatform.configResolver`| [Config resolver](../../config_dynamic.md#configresolver). |
+|`ezplatform.configResolver`| [Config resolver](../../configuration/config_dynamic.md#configresolver). |
 
 ### Custom template variables
 

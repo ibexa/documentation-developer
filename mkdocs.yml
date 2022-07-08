@@ -123,12 +123,11 @@ nav:
             - 'Bundles': 'guide/bundles.md'
             - 'Content model': 'guide/content_model.md'
         - Configuration:
-            - 'Configuration': 'guide/configuration.md'
-            - 'Dynamic configuration': 'guide/config_dynamic.md'
-            - 'Back Office configuration': 'guide/config_back_office.md'
-            - 'Repository configuration': 'guide/config_repository.md'
-            - 'Connector configuration': 'guide/config_connector.md'
-            - 'Shop configuration': 'guide/shop_configuration.md'
+            - 'Configuration': 'guide/configuration/configuration.md'
+            - 'Dynamic configuration': 'guide/configuration/config_dynamic.md'
+            - 'Back Office configuration': 'guide/configuration/config_back_office.md'
+            - 'Repository configuration': 'guide/configuration/config_repository.md'
+            - 'Connector configuration': 'guide/configuration/config_connector.md'
         - 'Admin panel': 'guide/admin_panel.md'
         - Content rendering:
             - Render content:

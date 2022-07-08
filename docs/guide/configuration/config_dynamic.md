@@ -50,7 +50,7 @@ $myParamSettingAdmin = $configResolver->getParameter( 'my_param', 'myapp', 'admi
 
 !!! tip
 
-    To learn more about scopes, see [SiteAccess documentation](multisite/multisite_configuration.md#scope).
+    To learn more about scopes, see [SiteAccess documentation](../multisite/multisite_configuration.md#scope).
 
 Both `getParameter()` and `hasParameter()` can take three arguments:
 
@@ -73,7 +73,7 @@ You can also use the [autowire feature]([[= symfony_doc =]]/service_container/au
 
 !!! tip
 
-    For more information about dependency injection, see [Service container](../api/public_php_api.md#service-container).
+    For more information about dependency injection, see [Service container](../../api/public_php_api.md#service-container).
 
 !!! note
 

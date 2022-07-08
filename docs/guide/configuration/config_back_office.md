@@ -32,7 +32,7 @@ ezplatform:
 
 ## Default Locations
 
-Default Location IDs for [Content structure, Media and Users](content_management.md#top-level-locations) in the menu are configured using the following settings:
+Default Location IDs for [Content structure, Media and Users](../content_management.md#top-level-locations) in the menu are configured using the following settings:
 
 ``` yaml
 ezplatform:
@@ -123,7 +123,7 @@ ezplatform:
                     time_format: 'hh:mm'
 ```
 
-You can also [format date and time](../extending/extending_date_and_time.md) by using Twig filters and PHP services.
+You can also [format date and time](../../extending/extending_date_and_time.md) by using Twig filters and PHP services.
 
 ### Allowed formats
 
@@ -184,7 +184,7 @@ ezplatform:
 
 ## Universal Discovery Widget
 
-The Universal Discovery Widget (UDW) can be found in [Extending UDW.](../extending/extending_udw.md)
+The Universal Discovery Widget (UDW) can be found in [Extending UDW.](../../extending/extending_udw.md)
 
 ## Icon sets
 

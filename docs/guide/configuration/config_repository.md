@@ -47,7 +47,7 @@ ezplatform:
 #### Multisite URI matching with multi-Repository setup
 
 You can use only one Repository (database) per domain.
-This does not prohibit using [different Repositories](persistence_cache.md#multi-repository-setup) on different subdomains.
+This does not prohibit using [different Repositories](../persistence_cache.md#multi-repository-setup) on different subdomains.
 However, when using URI matching for multisite setup, all SiteAccesses sharing domain also need to share Repository.
 For example:
 
@@ -61,7 +61,7 @@ But the following configuration would be invalid:
 
 Invalid configuration causes problems for different parts of the system,
 for example back-end UI, REST interface and other non-SiteAccess-aware Symfony routes
-such as `/_fos_user_context_hash` used by [HTTP cache](cache/http_cache.md).
+such as `/_fos_user_context_hash` used by [HTTP cache](../cache/http_cache.md).
 
 ### Entity manager
 
@@ -181,7 +181,7 @@ metadata: Metadata
 user_data: User data
 ```
 
-To see your translations, you need to change your [Back Office language](back_office_translations.md#changing-back-office-languages) accordingly. 
+To see your translations, you need to change your [Back Office language](../back_office_translations.md#changing-back-office-languages) accordingly. 
 
 ## Limit of archived content versions
 
