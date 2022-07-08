@@ -286,7 +286,7 @@ This enables you to use different settings for different Repositories.
 !!! tip "SiteAccess-aware configuration"
 
     If you need to use different settings per SiteAccess, not per Repository,
-    see [SiteAccess-aware configuration](multisite/siteaccess_aware_configuration.md).
+    see [SiteAccess-aware configuration](../multisite/siteaccess_aware_configuration.md).
 
 To do this, create a parser that implements `Ibexa\Bundle\Core\DependencyInjection\Configuration\RepositoryConfigParserInterface`:
 

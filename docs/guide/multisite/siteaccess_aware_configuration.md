@@ -24,7 +24,7 @@ For more information about the ConfigResolver, namespaces and scopes, see [[[= p
 !!! tip "Repository-aware configuration"
 
     If you need to use different settings per Repository, not per SiteAccess,
-    see [Repository-aware configuration](../config_repository.md#repository-aware-configuration).
+    see [Repository-aware configuration](../configuration/config_repository.md#repository-aware-configuration).
 
 The example below assumes you are using an `Acme\ExampleBundle`.
 Remember to register the bundle by adding it to `config/bundles.php`:
