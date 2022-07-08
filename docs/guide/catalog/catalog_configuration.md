@@ -4,7 +4,7 @@ description: Configure product catalog per Repository, with different catalog en
 
 # Catalog configuration
 
-You can configure the product catalog per [Repository](../config_repository.md).
+You can configure the product catalog per [Repository](../configuration/config_repository.md).
 
 Under `ibexa.repositories.<repository_name>.product_catalog`, indicate the catalog engine to use:
 
