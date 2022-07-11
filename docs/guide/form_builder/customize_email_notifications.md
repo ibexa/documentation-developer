@@ -26,7 +26,11 @@ Each of them is rendered independently and consists of three sets of parameters.
 Some email providers require a sender address to be set, so to avoid unsent emails when using Form Builder,
 it is recommended to configure `sender_address` in `config/packages/swiftmailer.yaml`.
 This email acts as a sender and return address for all bounced messages.
-For more information, see [Symfony Mailer Configuration Reference.]([[= symfony_doc =]]/reference/configuration/swiftmailer.html#sender-address)
+
+!!! note
+
+    Since November 2021 the Swift Mailer is no longer supported and the integration with Symfony is deprecated in Symfony 6.0.
+    The Swift Mailer got replaced by the Symfony Mailer.
 
 Add `sender_address` entry to `config/packages/swiftmailer.yaml`:
 
