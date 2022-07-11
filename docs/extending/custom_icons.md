@@ -63,7 +63,7 @@ return (
 
 You can use a React component to change icons in Back Office and Page Builder.
 
-See the example with React component in the `alert.js` configuration:
+The following example from the `alert.js` file shows configuration for icons in the [alert](reusable_back_office_templates.md#alerts) component:
 
 ```jsx hl_lines="2"
 <div className={className} role="alert">

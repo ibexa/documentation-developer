@@ -38,7 +38,7 @@ Next, set elements which are available for the `<select>` input, for example:
     <option value="DE">DE</option>
     <option value="US">US</option>
     <option value="NO">NO</option>
-    <option value="PL">PL</option>
+    <option value="PL">PL</option> 
 </select>
 {% endset %}
 ```
@@ -114,7 +114,7 @@ You can configure the following attributes:
 |`choices`| - |Elements listed in the drop-down.|
 |`preferred_choices`|Elements listed at the top of the list with a separator.|
 |`value`|-|The currently selected element. It is an object with a key `value`. |
-|`multiple`| true</br>false|Boolean. To allow users to select multiple items, add this attribute to the same element.|
+|`multiple`| true</br>false|Boolean. To allow users to select multiple items.|
 |`translation_domain`|true</br>false|Used for translating choices and placeholder.|
 |`custom_form`|true</br>false|For custom form must be set to true.|
 |`class`| - |Additional classes for the element with `ibexa-dropdown` class.|
@@ -153,5 +153,5 @@ Full list of options:
 
 |Name|Description|Required|
 |----|-----------|--------|
-|`container`|Contains a reference to a DOM node where custom drop-down is initialized.|required|
-|`selectorSource`|Contains a reference |required|
+|`container`|Contains a reference to a DOM node where the custom drop-down is initialized.|required|
+|`selectorSource`|Use to change a class on the source element.|required|
