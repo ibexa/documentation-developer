@@ -7,9 +7,8 @@ plugins:
         j2_variable_start_string: '[[='
         j2_variable_end_string: '=]]'
     - tags
-    - redirects
+    - redirects:
         redirect_maps:
-
             'guide/configuration/config_back_office.md': 'extending/extending_back_office.md'
             'guide/configuration/config_connector.md': 'guide/images/config_connector.md'
             
