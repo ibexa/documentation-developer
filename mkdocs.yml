@@ -182,7 +182,7 @@ nav:
               - 'Images': 'guide/images/images.md'
               - 'Configure Image Editor': 'guide/images/image_editor.md'
               - 'Extend Image Editor': 'guide/images/extending_image_editor.md'
-              - 'Add image asset': 'guide/images/config_connector.md'
+              - 'Add Image Asset': 'guide/images/config_connector.md'
             - Rich Text:
                 - 'Extend Online Editor': 'extending/extending_online_editor.md'
                 - 'Create custom RichText block': 'extending/richtext_block.md'
