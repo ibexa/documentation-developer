@@ -5,7 +5,6 @@ description: Configure default upload locations, pagination limits, date and tim
 # Back Office configuration
 
 
-
 ## Pagination limits
 
 Default pagination limits for different sections of the Back Office can be defined through respective settings in
@@ -43,24 +42,6 @@ ibexa:
                 media: 43
                 users: 5
 ```
-
-## Form-uploaded files
-
-You can use Forms to enable the user to upload files.
-The default Location for files uploaded in this way is `/Media/Files/Form Uploads`.
-You can change it with the following configuration:
-
-``` yaml
-ibexa:
-    system:
-        default:
-            form_builder:
-                upload_location_id: 54
-```
-
-This applies only if no specific Location is defined in the Form itself.
-
-#
 
 ## Universal Discovery Widget
 
