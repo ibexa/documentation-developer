@@ -42,7 +42,7 @@ Accept: application/vnd.ibexa.api.RelationList+xml
 Resources that accept a reference to another resource expect the reference to be given as a REST URI, not a single ID.
 For example, the URI requesting a list of user groups assigned to the role with ID 1 is:
 
-```
+```http
 GET /api/ibexa/v2/user/groups?roleId=/api/ibexa/v2/user/roles/1
 ```
 
