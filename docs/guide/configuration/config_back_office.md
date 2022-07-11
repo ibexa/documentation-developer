@@ -132,18 +132,3 @@ ibexa:
 ## Universal Discovery Widget
 
 The Universal Discovery Widget (UDW) can be found in [Extending UDW.](../../extending/extending_udw.md)
-
-## Icon sets
-
-You can configure icon sets to be used per SiteAccess:
-
-``` yaml
-ibexa:
-    system:
-        <siteaccess>:
-            assets:
-                icon_sets:
-                    my_icons: /assets/images/icons/my_icons.svg
-                    additional_icons: /assets/images/icons/additional_icons.svg
-                default_icon_set: my_icons
-```

@@ -55,3 +55,18 @@ return (
    </svg>
 )
 ```
+
+## Icon sets
+
+You can configure icon sets to be used per SiteAccess:
+
+``` yaml
+ibexa:
+    system:
+        <siteaccess>:
+            assets:
+                icon_sets:
+                    my_icons: /assets/images/icons/my_icons.svg
+                    additional_icons: /assets/images/icons/additional_icons.svg
+                default_icon_set: my_icons
+```
