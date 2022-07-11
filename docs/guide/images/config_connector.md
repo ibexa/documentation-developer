@@ -2,7 +2,7 @@
 description: Configure a Digital Asset Management connector.
 ---
 
-# Add Image Asset with Digital Asset Management
+# Add Image Asset from Digital Asset Management
 
 With the Digital Asset Management (DAM) system connector you can use assets such as images directly from the DAM in your content.
 
