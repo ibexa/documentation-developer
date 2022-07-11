@@ -75,7 +75,7 @@ The Image Field Type supports one `FieldDefinition` option: the maximum size for
 
 ## Using an Image Field
 
-To read more about handling images and image variations, see the [Images documentation](../../guide/images.md).
+To read more about handling images and image variations, see the [Images documentation](../../guide/images/images.md).
 
 ### Template Rendering
 

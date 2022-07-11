@@ -73,7 +73,7 @@ For specific configuration settings, see:
 - [Repository configuration](config_repository.md)
 - [Content views](../content_rendering/templates/template_configuration.md)
 - [Multisite configuration](../multisite/multisite_configuration.md)
-- [Image variations](../images.md#configuring-image-variations)
+- [Image variations](../images/images.md#configuring-image-variations)
 - [Logging and debug](../devops.md#logging-and-debug-configuration)
 - [Authentication](../security.md#symfony-authentication)
 - [Sessions](../sessions.md#configuration)

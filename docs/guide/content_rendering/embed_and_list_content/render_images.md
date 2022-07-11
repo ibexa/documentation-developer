@@ -74,7 +74,7 @@ To use it, select the variation when rendering the image:
 
 ## Use focal point
 
-In the [image editor](../../image_editor.md) you can define a focal point for an image.
+In the [image editor](../../images/image_editor.md) you can define a focal point for an image.
 The focal point does not have an instant effect when you use the default templates.
 However, you can use it to select the part of the image the view focuses on when the image is cropped.
 
