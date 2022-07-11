@@ -167,9 +167,9 @@ This script:
     [[= include_file('code_samples/api/rest_api/create_image.json.php', 0, None, '    ') =]]
     ```
 
-### Search (`/view`)
+### Search (`/views`)
 
-The `/view` route allows you to [search in the repository](../guide/search/search.md). It works similarly to its [PHP API counterpart](public_php_api_search.md).
+The `/views` route allows you to [search in the repository](../guide/search/search.md). It works similarly to its [PHP API counterpart](public_php_api_search.md).
 
 The model allows combining criteria using the logical operators `AND`, `OR` and `NOT`.
 
