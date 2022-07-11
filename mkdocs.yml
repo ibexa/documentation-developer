@@ -470,6 +470,7 @@ nav:
         - 'Notifications': 'guide/sending_notifications.md'
     - Extend Back Office:
         - 'Back Office': 'extending/extending_back_office.md'
+        - 'Content Tree': 'extending/content_tree.md'
         - Back Office elements:
             - 'Reusable components': 'extending/reusable_back_office_templates.md'
             - 'Add drop-downs': 'extending/creating_custom_dropdowns.md'
