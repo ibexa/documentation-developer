@@ -4,7 +4,6 @@ description: Configure default upload locations, pagination limits, date and tim
 
 # Back Office configuration
 
-
 ## Pagination limits
 
 Default pagination limits for different sections of the Back Office can be defined through respective settings in
@@ -31,7 +30,7 @@ ezsettings.default.product_catalog.pagination.product_types_limit: 25
 
 ## Default Locations
 
-Default Location IDs for [Content structure, Media and Users](../content_management.md#top-level-locations) in the menu are configured using the following settings:
+Default Location IDs for [Content structure, Media and Users](../guide/content_management.md#top-level-locations) in the menu are configured using the following settings:
 
 ``` yaml
 ibexa:
@@ -42,7 +41,3 @@ ibexa:
                 media: 43
                 users: 5
 ```
-
-## Universal Discovery Widget
-
-The Universal Discovery Widget (UDW) can be found in [Extending UDW.](../../extending/extending_udw.md)

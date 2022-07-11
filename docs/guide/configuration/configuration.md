@@ -69,7 +69,7 @@ $myParameter = $this->container->getParameter( 'myapp.parameter.name' );
 
 For specific configuration settings, see:
 
-- [Back Office configuration](config_back_office.md)
+- [Back Office configuration](../../extending/config_back_office.md)
 - [Repository configuration](config_repository.md)
 - [Content views](../content_rendering/templates/template_configuration.md)
 - [Multisite configuration](../multisite/multisite_configuration.md)
