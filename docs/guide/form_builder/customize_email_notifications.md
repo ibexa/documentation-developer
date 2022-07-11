@@ -31,7 +31,6 @@ This email acts as a sender and return address for all bounced messages.
 
     Since November 2021 the Swift Mailer is no longer supported and the integration with Symfony was deprecated in Symfony 6.0.
     The Swift Mailer will be replaced with the Symfony Mailer.
-    For more information, see [Symfony Mailer Configuration Reference.]([[= symfony_doc =]]/mailer.html)
 
 Add `sender_address` entry to `config/packages/swiftmailer.yaml`:
 
