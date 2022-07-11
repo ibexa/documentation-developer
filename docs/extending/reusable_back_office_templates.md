@@ -16,7 +16,7 @@ With `embed` you can override blocks that are defined inside the included templa
 The alert component has the following properties:
 
 - `type` - available types of alert: error, info, success and warning
-- `icon` - name of the icon, which will be taken from the default icon set
+- `icon` - name of the icon, taken from the default icon set
 - `icon_path` - full icon path, in case you do not want to use an icon from the default icon set
 - `title` - alert title
 - `subtitle` - displays subtitle content

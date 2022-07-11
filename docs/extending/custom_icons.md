@@ -20,6 +20,7 @@ ibexa:
 Place the icon in `public/assets/images` and run `yarn encore <dev|prod>` after adding it.
 
 !!! note "Icons format"
+
     To ensure proper display in the Back Office, all icons should have SVG format with `symbol`.
 
 If you want to configure icons per SiteAccess, see [Icon sets](../guide/config_back_office.md#icon-sets).
@@ -41,7 +42,7 @@ It requires Content Type identifier as an argument. The function returns the pat
 
 Content Types icons configuration is stored in a global object: `ibexa.adminUiConfig.contentTypes`.
 
-You can easily retrieve the icon URL with the `getContentTypeIcon` helper function that is set on the global `ibexa.helpers.contentType` object.
+You can retrieve the icon URL with the `getContentTypeIcon` helper function that is set on the global `ibexa.helpers.contentType` object.
 It takes Content Type identifier as an argument and returns one of the following items:
 
 - URL of a specified Content Type's icon
@@ -60,7 +61,7 @@ return (
 
 ### Icons React component
 
-You can use React component to change icons in Back Office and Page Builder.
+You can use a React component to change icons in Back Office and Page Builder.
 
 See the example with React component in the `alert.js` configuration:
 
@@ -85,7 +86,5 @@ See the example with React component in the `alert.js` configuration:
 `Icon` component has three attributes (called props):
 
 - `customPath` - a path to the custom icon
-
 - `name` - the path is generated inside the component provided you use icon from the system
-
 - `extraClasses` - additional CSS classes, use to set for example, icon size.
