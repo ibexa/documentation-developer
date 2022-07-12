@@ -7,4 +7,6 @@ plugins:
         j2_variable_start_string: '[[='
         j2_variable_end_string: '=]]'
     - tags
-    - redirects
+    - redirects:
+        redirect_maps:
+            'api/field_types_reference/xmltextfield.md': 'api/field_type_reference.md'
