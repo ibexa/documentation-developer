@@ -1,7 +1,5 @@
 # Content Tree
 
-## Configuration
-
 With this configuration you can:
 
 - define configuration for a SiteAccess or a SiteAccess group

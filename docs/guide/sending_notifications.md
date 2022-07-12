@@ -193,3 +193,25 @@ services:
         tags:
             - { name: ibexa.notification.renderer, alias: MyNotification:TypeName }
 ```
+
+## Notification timeout
+
+To define the timeout for hiding Back-Office notification bars, per notification type,
+use the following configuration (times are provided in milliseconds):
+
+``` yaml
+ibexa:
+    system:
+        admin:
+            notifications:
+                error:
+                    timeout: 0
+                warning:
+                    timeout: 0
+                success:
+                    timeout: 5000
+                info:
+                    timeout: 0
+```
+
+The values shown above are the defaults. `0` means the notificati
