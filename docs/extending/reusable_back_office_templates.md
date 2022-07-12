@@ -8,11 +8,38 @@ When you extend the Back Office, you can use base Twig templates for commonly us
 
 The available templates are:
 
+- `@ibexadesign/ui/component/table/alert.html.twig`
 - `@ibexadesign/ui/component/table/table.html.twig`
 - `@ibexadesign/ui/component/tab/tabs.html.twig`
 
 To use the components, [`embed`](https://twig.symfony.com/doc/3.x/tags/embed.html) them in templates.
 With `embed` you can override blocks that are defined inside the included template.
+
+## Alerts
+
+The alert component has the following properties:
+
+- `type` - available types of alert: error, info, success and warning
+- `icon` - name of the icon, taken from the default icon set
+- `icon_path` - full icon path, in case you do not want to use an icon from the default icon set
+- `title` - alert title
+- `subtitle` - displays subtitle content
+- `show_subtitle_below` - default set to `false`, the subtitle is displayed next to the title
+- `extra_content` - use to add custom elements, such as buttons or additional text
+- `close_btn` - by default set to `false`, if set to `true`, an 'X' button is displayed but requires additional JavaScript configuration on your side to work
+- `class` - additional CSS classes
+- `attributes` - additional HTML attributes
+
+``` html+twig
+{% include '@ibexadesign/ui/component/alert/alert.html.twig' with {
+    type: 'info',
+    title: 'Some title',
+    subtitle: 'Some subtitle',
+    show_subtitle_below: true,
+    icon_path: ibexa_icon_path('hide'),
+    class: 'mb-4',
+} only %}
+```
 
 ## Tables
 
