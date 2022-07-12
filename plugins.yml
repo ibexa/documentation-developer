@@ -9,6 +9,4 @@ plugins:
     - tags
     - redirects:
         redirect_maps:
-            'guide/configuration/config_back_office.md': 'extending/extending_back_office.md'
-            'guide/configuration/config_connector.md': 'guide/images/config_connector.md'
-            
+            'api/field_types_reference/xmltextfield.md': 'api/field_type_reference.md'

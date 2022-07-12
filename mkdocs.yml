@@ -113,7 +113,6 @@ nav:
                - 'Time Field Type': 'api/field_types_reference/timefield.md'
                - 'URL Field Type': 'api/field_types_reference/urlfield.md'
                - 'User Field Type': 'api/field_types_reference/userfield.md'
-               - 'XmlText Field Type': 'api/field_types_reference/xmltextfield.md'
         - GraphQL:
             - 'GraphQL': 'api/graphql.md'
             - 'GraphQL queries': 'api/graphql_queries.md'
@@ -129,7 +128,6 @@ nav:
             - 'Configuration': 'guide/configuration/configuration.md'
             - 'Dynamic configuration': 'guide/configuration/config_dynamic.md'
             - 'Repository configuration': 'guide/configuration/config_repository.md'
-            - 'Connector configuration': 'guide/configuration/config_connector.md'
         - 'Admin panel': 'guide/admin_panel.md'
         - Content rendering:
             - Render content:
@@ -179,9 +177,10 @@ nav:
         - Content management:
             - 'Content management': 'guide/content_management.md'
             - Images:
-              - 'Images': 'guide/images.md'
-              - 'Configure Image Editor': 'guide/image_editor.md'
-              - 'Extend Image Editor': 'extending/extending_image_editor.md'
+              - 'Images': 'guide/images/images.md'
+              - 'Configure Image Editor': 'guide/images/image_editor.md'
+              - 'Extend Image Editor': 'guide/images/extending_image_editor.md'
+              - 'Add Image Asset': 'guide/images/config_connector.md'
             - Rich Text:
                 - 'Extend Online Editor': 'extending/extending_online_editor.md'
                 - 'Create custom RichText block': 'extending/richtext_block.md'
