@@ -78,7 +78,7 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |ezsystems/ezplatform-version-comparison|Enables comparing between two versions of the same Field|
 |ezsystems/ezplatform-workflow|Collaboration feature that enables you to send content draft to any user for a review or rewriting|
 |ezsystems/ezrecommendation-client|Client for connecting with the personalization engine|
-|ibexa/image-editor|[Image Editor](image_editor.md)|
+|ibexa/image-editor|[Image Editor](images/image_editor.md)|
 |ibexa/installer|Provides the `ibexa:install` command|
 |ibexa/migrations|[Migration of Repository data](data_migration/data_migration.md)|
 |ibexa/oauth2-client|Integration with [`knpuniversity/oauth2-client-bundle`](https://github.com/knpuniversity/oauth2-client-bundle)|

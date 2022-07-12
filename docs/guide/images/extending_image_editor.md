@@ -5,7 +5,7 @@ description: Add new functionalities to the image editor.
 # Extend Image Editor
 
 With the Image Editor, users can do basic image modifications.
-You can configure the Image Editor's [default appearance or behavior](../guide/image_editor.md).
+You can configure the Image Editor's [default appearance or behavior](image_editor.md).
 You can also extend it by adding custom features.
 
 The following example shows how to extend the Image Editor
@@ -23,7 +23,7 @@ The code does not perform any action yet, you add the action in the following st
 
 ## Add configuration
 
-Depending on whether you [modified the default settings](../guide/image_editor.md#configuration), and where you did it,
+Depending on whether you [modified the default settings](image_editor.md#configuration), and where you did it,
 in `config/packages` either modify the `ezplatform.yaml` file, or create an 
 `image_editor.yaml` file by adding settings similar to the following example:
 
@@ -33,7 +33,7 @@ in `config/packages` either modify the `ezplatform.yaml` file, or create an
 
 ## Add entry to the Webpack configuration
 
-Once you create and configure the React component, you must add an entry to [the Webpack configuration](../tutorials/platform_beginner/3_customize_the_front_page.md#configuring-webpack).
+Once you create and configure the React component, you must add an entry to [the Webpack configuration](../../tutorials/platform_beginner/3_customize_the_front_page.md#configuring-webpack).
 In the root directory of your project, modify the `webpack.config.js` file by adding the following code:
 
 ``` js

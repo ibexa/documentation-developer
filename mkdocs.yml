@@ -126,7 +126,6 @@ nav:
             - 'Dynamic configuration': 'guide/configuration/config_dynamic.md'
             - 'Back Office configuration': 'guide/configuration/config_back_office.md'
             - 'Repository configuration': 'guide/configuration/config_repository.md'
-            - 'Connector configuration': 'guide/configuration/config_connector.md'
         - 'Admin panel': 'guide/admin_panel.md'
         - Content rendering:
             - Render content:
@@ -174,9 +173,10 @@ nav:
         - Content management:
             - 'Content management': 'guide/content_management.md'
             - Images:
-              - 'Images': 'guide/images.md'
-              - 'Configure Image Editor': 'guide/image_editor.md'
-              - 'Extend Image Editor': 'extending/extending_image_editor.md'
+              - 'Images': 'guide/images/images.md'
+              - 'Configure Image Editor': 'guide/images/image_editor.md'
+              - 'Extend Image Editor': 'guide/images/extending_image_editor.md'
+              - 'Add Image Asset': 'guide/images/config_connector.md'
             - Rich Text:
                 - 'Extend Online Editor': 'extending/extending_online_editor.md'
                 - 'Create Online Editor button': 'extending/online_editor_button.md'

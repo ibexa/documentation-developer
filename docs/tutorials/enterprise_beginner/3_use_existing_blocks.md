@@ -53,7 +53,7 @@ blocks:
                 name: Content List
 ```
 
-The template makes use of an [image variation](../../guide/images.md) (line 10).
+The template makes use of an [image variation](../../guide/images/images.md) (line 10).
 It is the thumbnail of the Dog Breed image that will be displayed in the block.
 To configure this variation, open the `config/packages/image_variations.yaml` file and add the following code under the `image_variations` key:
 
