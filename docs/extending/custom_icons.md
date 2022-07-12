@@ -23,7 +23,7 @@ Place the icon in `public/assets/images` and run `yarn encore <dev|prod>` after 
 
     To ensure proper display in the Back Office, all icons should have SVG format with `symbol`.
 
-If you want to configure icons per SiteAccess, see [Icon sets](../guide/config_back_office.md#icon-sets).
+If you want to configure icons per SiteAccess, see [Icon sets](../guide/configuration/config_back_office.md#icon-sets).
 
 To see more configuration options, see [icon sizes](../guide/content_rendering/twig_function_reference/other_twig_filters.md).
 
