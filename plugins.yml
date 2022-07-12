@@ -20,3 +20,4 @@ plugins:
             'guide/config_repository.md': 'guide/configuration/config_repository.md'
             'guide/configuration.md': 'guide/configuration/configuration.md'
             'guide/shop_configuration.md': 'guide/basket/basket.md'
+            
