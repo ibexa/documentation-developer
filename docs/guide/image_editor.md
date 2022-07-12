@@ -28,7 +28,7 @@ the following example.
 The settings tree can contain one or more action groups.
 You can control the order of actions within a group by setting the `priority` parameter.
 You can also toggle the visibility of actions within the user interface.
-Image Editor settings are [SiteAccess-aware](config_dynamic.md).
+Image Editor settings are [SiteAccess-aware](configuration/config_dynamic.md).
 
 The following example sets the aspect ratio values and label names for buttons used by the Crop feature. 
 

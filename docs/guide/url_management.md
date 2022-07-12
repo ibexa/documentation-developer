@@ -95,7 +95,7 @@ For details, see the tables below.
 |--------------------|---------------------------------------------------------------------|---------------|
 | enabled            | Enables link validation.                                            | true          |
 
-For more information about Ibexa configuration, see [Configuration](configuration.md).
+For more information about Ibexa configuration, see [Configuration](configuration/configuration.md).
 
 ### Custom protocol support
 

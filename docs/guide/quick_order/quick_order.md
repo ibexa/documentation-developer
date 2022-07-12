@@ -54,7 +54,7 @@ To provide SKU, variant code and quantity:
 SE0101,VAR-BLK,3
 ```
 
-You can set a different order of data and add [additional text](../shop_configuration.md#additional-data-in-the-basket-line)
+You can set a different order of data and add [additional text](../basket/basket.md#basket-configuration)
 in [configuration](quick_order_configuration.md#csv-data-order).
 
 The following MIME types are supported:

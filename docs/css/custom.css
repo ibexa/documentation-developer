@@ -1,4 +1,4 @@
-:root {
+:root > * {
     --ibexa-orange: rgb(255,71,19);
     --ibexa-red: rgb(219,0,50);
     --ibexa-jazzberry: rgb(174,17,100);
@@ -26,6 +26,9 @@
     --code-highlight: #D9E9FF;
     
     --link: rgb(0,71,206);
+
+    /* Override Material colors */
+    --md-accent-fg-color: var(--ibexa-jazzberry);
     
     
     --md-admonition-icon--tip: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 01-1 1H9a1 1 0 01-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7M9 21v-1h6v1a1 1 0 01-1 1h-4a1 1 0 01-1-1m3-17a5 5 0 00-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 00-5-5z"/></svg>');
@@ -218,103 +221,76 @@ ul li li li {
 
 /* Admonitions */
 
-.md-typeset details {
-    font-size: 16px;
-    box-shadow: none;
-}
+/* Reset Material admonitions */
 
-/* DXP */
-
-.admonition.dxp>.admonition-title,
-.admonition.enterprise>.admonition-title {
-    padding-left: 0.6rem;
-}
-
-.admonition.dxp, .admonition.dxp>.admonition-title, 
-.admonition.enterprise, .admonition.enterprise>.admonition-title {
-    border-color: var(--enterprise-border);
+.md-typeset :is(.admonition,details):is(.tip,.note,.caution),
+.md-typeset :is(.admonition-title,summary),
+.md-typeset :is(.tip,.note)>:is(.admonition-title,summary) {
+    border: 0;
     background-color: #ffffff;
+    box-shadow: none;
+    font-size: 16px;
 }
 
 /* Caution */
 
-.md-typeset .admonition.caution, .md-typeset .admonition.caution>.admonition-title {
-    border-color: var(--caution-border);
+.md-typeset .admonition:is(.caution)
+{
+    border: 0.1rem solid var(--caution-border);
+}
+
+.md-typeset .admonition:is(.caution)>.admonition-title {
+    border-left: 0.1rem solid var(--caution-border);
 }
 
 /* Note, tip and expand box */
 
-.md-typeset .admonition.tip,
-.md-typeset .admonition.tip>.admonition-title,
-.md-typeset .admonition.note,
-.md-typeset .admonition.note>.admonition-title,
-.md-typeset details.tip, .md-typeset details.note
+.md-typeset :is(.admonition,details):is(.tip,.note)
 {
-    border-color: var(--note-border);
+    border: 0.1rem solid var(--note-border);
 }
 
-.md-typeset .admonition.dxp>.admonition-title:before, .md-typeset .admonition.enterprise>.admonition-title:before {
-    background-color: transparent;
-    -webkit-mask-image: none;
-            mask-image: none;
+.md-typeset :is(.admonition,details):is(.tip,.note)>:is(.admonition-title,summary) {
+    border-left: 0.1rem solid var(--note-border);
 }
 
-.md-typeset .admonition.tip>.admonition-title:before, .md-typeset details.tip>summary:before {
+/* Admonition icons */
+.md-typeset :is(.admonition,details).tip>:is(.admonition-title,summary):before {
     background-color: var(--note-border);
     -webkit-mask-image: var(--md-admonition-icon--tip);
             mask-image: var(--md-admonition-icon--tip);
 }
 
-.md-typeset .admonition.note>.admonition-title:before, .md-typeset details.note>summary:before {
+.md-typeset :is(.admonition,details).note>:is(.admonition-title,summary):before {
     background-color: var(--note-border);
     -webkit-mask-image: var(--md-admonition-icon--note);
             mask-image: var(--md-admonition-icon--note);
 }
 
-.md-typeset .admonition.caution>.admonition-title:before, .md-typeset details.caution>summary:before {
+.md-typeset :is(.admonition,details).caution>:is(.admonition-title,summary):before {
     background-color: var(--caution-border);
     -webkit-mask-image: var(--md-admonition-icon--caution);
             mask-image: var(--md-admonition-icon--caution);
 }
 
-.md-typeset .admonition.tip>.admonition-title:before, .md-typeset details.tip>summary:before,
-.md-typeset .admonition.note>.admonition-title:before, .md-typeset details.note>summary:before {
-    color: var(--ibexa-dusk-black);
-}
-
 /* General admonitions */
 
-.md-typeset .admonition.caution>.admonition-title, .md-typeset .admonition.note>.admonition-title,
-.md-typeset .admonition.tip>.admonition-title, .md-typeset .admonition.dxp>.admonition-title,
-.md-typeset .admonition.enterprise>.admonition-title,
-.md-typeset details.tip, .md-typeset details.tip>summary,
-.md-typeset details.note, .md-typeset details.note>summary {
+.md-typeset .admonition.caution>.admonition-title {
+    background-color: #ffffff;
+    border-color: var(--caution-border);    
+}
+
+.md-typeset .admonition:is(.note,.tip)>:is(.admonition-title) {
     background-color: #ffffff;
     border-color: var(--note-border);
 }
 
-.md-typeset .admonition {
-    font-size: 16px;
-    box-shadow: none;
-}
-
-.md-typeset .admonition,
-.md-typeset details {
-    border: .1rem solid;
-}
-
-.md-typeset summary {
-    border-left: 2px solid;
-    margin-left: -0.7rem;
-}
-
-.md-typeset .admonition-title,
-.md-typeset details[open] summary {
+.md-typeset :is(.admonition,details[open]):is(.note,.tip,.caution) :is(.admonition-title,summary) {
     border-bottom: 1px solid var(--note-border);
 }
 
-.bootstrap-iso .admonition p {
-    margin-top: 1em;
+.md-typeset :is(.admonition,details):is(.note,.tip,.caution) :is(.admonition-title,summary) {
+    margin-left: -0.7rem;
 }
 
 /* Fix scrollbar in admonitions when containing a table */
@@ -328,52 +304,52 @@ ul li li li {
     color: var(--ibexa-dusk-black);
 }
 
-.md-typeset .codehilite code, .md-typeset .codehilite pre {
+.md-typeset .highlighttable code, .md-typeset .highlighttable pre {
     background-color: #fff;
     padding: 0;
 }
 
-.md-typeset .codehilite code, .md-typeset .codehilite pre code {
+.md-typeset .highlighttable code, .md-typeset .highlighttable pre code {
     padding: 1.05rem 1.2rem;
 }
 
-.md-typeset .codehilitetable {
+.md-typeset .highlighttable {
     border: 1px solid var(--codeblock);
 }
 
 /* Code block scrollbar */
 
-.md-typeset .codehilite pre code::-webkit-scrollbar {
+.md-typeset .highlighttable pre code::-webkit-scrollbar {
     height: 10px;
 }
 
-.md-typeset .codehilite pre code::-webkit-scrollbar-track {
+.md-typeset .highlighttable pre code::-webkit-scrollbar-track {
     background-color: var(--ibexa-snow); 
 }
 
-.md-typeset .codehilite pre code::-webkit-scrollbar-thumb {
+.md-typeset .highlighttable pre code::-webkit-scrollbar-thumb {
     background: var(--codeblock);
 }
 
-.md-typeset .codehilite code, .md-typeset .codehilite pre code {
+.md-typeset .highlighttable code, .md-typeset .highlighttable pre code {
     padding: 0.5rem 0.5rem;
 }
 
-.md-typeset .codehilitetable .linenos {
+.md-typeset .highlighttable .linenos {
     padding: 0;
     background-color: var(--codeblock);
 }
 
-.md-typeset .codehilitetable .linenodiv {
+.md-typeset .highlighttable .linenodiv {
     padding: 0.5rem 0.5rem
 }
 
-.md-typeset .codehilitetable .linenodiv pre {
+.md-typeset .highlighttable .linenodiv pre {
     color: var(--ibexa-snow);
     background-color: var(--codeblock);
 }
 
-.md-typeset .codehilite, .md-typeset .highlight pre {
+.md-typeset .highlighttable, .md-typeset .highlight pre {
     background-color: var(--inline-code);
 }
 
@@ -385,8 +361,14 @@ ul li li li {
     font-family: monospace;
 }
 
-.codehilite .hll {
+.highlighttable .hll {
     background-color: var(--code-highlight);
+}
+
+/* Code block titles */
+
+.highlighttable span.filename {
+    background-color: var(--ibexa-snow);
 }
 
 /* Tables */
@@ -503,61 +485,29 @@ a.external:after {
 
 /* Tabs */
 
-.tabbed-set {
-  display: flex;
-  position: relative;
-  flex-wrap: wrap;
-  margin-top: 1.2rem;
-}
-
-.tabbed-set .highlight {
-  background: #dee2e6;
-}
-
-.tabbed-set .tabbed-content {
-  display: none;
+.md-typeset .tabbed-set .tabbed-content {
   order: 99;
-  width: 100%;
   border: 1px solid var(--ibexa-snow);
   padding: 4px 4px 4px 1rem;
   border-radius: 0 .2rem .2rem .2rem;
 }
 
-.tabbed-set label {
-  width: auto;
-  /* margin: 0 0.5em 0 0; */
-  padding: 0.25em 1rem;
-  cursor: pointer;
+.md-typeset .tabbed-set label {
+  font-size: .64rem;
+  font-weight: 700;
+  padding: 0.9375em 1.25em 0.78125em;
   border: 1px solid var(--ibexa-snow);
   border-bottom: 2px solid var(--ibexa-snow);
   border-radius: 4px 4px 0 0;
 }
 
-.tabbed-set input {
-  position: absolute;
-  opacity: 0;
+.js .md-typeset .tabbed-labels:before {
+    height: 4px;
 }
 
-.tabbed-set input:nth-child(n+1) {
-  color: #333333;
-  font-weight: 700;
-}
-
-.md-typeset .tabbed-set>input:checked+label {
-  color: var(--ibexa-jazzberry);
-  font-weight: 700;
-  border-color: var(--mid-grey);
-  border-bottom: 4px solid var(--ibexa-jazzberry);
-}
-
-
-.md-typeset .tabbed-set>label:hover {
+.md-typeset .tabbed-labels>label:hover {
   color: var(--ibexa-dusk-black);
   border-bottom: 2px solid var(--ibexa-dusk-black);
-}
-
-.tabbed-set input:nth-child(n+1):checked + label + .tabbed-content {
-  display: block;
 }
 
 .pill {

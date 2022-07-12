@@ -12,19 +12,19 @@ Usually, after it is validated and processed, this semantic configuration is the
 For each defined SiteAccess, you need to be able to use the same configuration tree to define SiteAccess-specific config.
 
 These settings then need to be mapped to SiteAccess-aware internal parameters 
-that you can retrieve with the [ConfigResolver](../config_dynamic.md#configresolver).
+that you can retrieve with the [ConfigResolver](../configuration/config_dynamic.md#configresolver).
 For this, internal keys need to follow the format `<namespace>.<scope>.<parameter_name>`. where:
 
 - `namespace` is specific to your app or bundle
 - `scope` is the SiteAccess, SiteAccess group, `default` or `global`
 - `parameter_name` is the actual setting *identifier*
 
-For more information about the ConfigResolver, namespaces and scopes, see [[[= product_name =]] configuration basics](../configuration.md).
+For more information about the ConfigResolver, namespaces and scopes, see [[[= product_name =]] configuration basics](../configuration/configuration.md).
 
 !!! tip "Repository-aware configuration"
 
     If you need to use different settings per Repository, not per SiteAccess,
-    see [Repository-aware configuration](../config_repository.md#repository-aware-configuration).
+    see [Repository-aware configuration](../configuration/config_repository.md#repository-aware-configuration).
 
 The example below assumes you are using an `Acme\ExampleBundle`.
 Remember to register the bundle by adding it to `config/bundles.php`:

@@ -19,7 +19,7 @@ Configuration is provided per package in the `config/packages` folder,
 and routes are defined per package in `config/routes`.
 
 `config/packages/ibexa.yaml` contains basic configuration.
-It stores, among others, [SiteAccess](multisite/multisite.md) information and content view config.
+It stores, among others, [SiteAccess](../multisite/multisite.md) information and content view config.
 
 Other configuration is provided in respective files, e.g. `config/packages/ibexa_admin_ui.yaml`,
 `config/packages/ibexa_http_cache.yaml`.
@@ -35,7 +35,7 @@ These files contain additional settings and point to the general (not environmen
 
 !!! note
 
-    Configuration is tightly related to the [service container](../api/public_php_api.md#service-container).
+    Configuration is tightly related to the [service container](../../api/public_php_api.md#service-container).
     To fully understand it, you must be familiar with the service container and [its configuration]([[= symfony_doc =]]/service_container.html#service-parameters).
 
 Basic configuration handling in [[= product_name =]] is similar to what is commonly possible with Symfony.
@@ -47,7 +47,7 @@ Keys are usually prefixed by a *namespace* corresponding to your application. Al
 For configuration that is meant to be exposed to an end-user (or end-developer),
 it's usually a good idea to also [implement semantic configuration.]([[= symfony_doc =]]/components/config/definition.html)
 
-Note that you can also [implement SiteAccess-aware semantic configuration](multisite/siteaccess_aware_configuration.md).
+Note that you can also [implement SiteAccess-aware semantic configuration](../multisite/siteaccess_aware_configuration.md).
 
 For example:
 
@@ -71,10 +71,10 @@ For specific configuration settings, see:
 
 - [Back Office configuration](config_back_office.md)
 - [Repository configuration](config_repository.md)
-- [Content views](content_rendering/templates/template_configuration.md)
-- [Multisite configuration](multisite/multisite_configuration.md)
-- [Image variations](images.md#configuring-image-variations)
-- [Logging and debug](devops.md#logging-and-debug-configuration)
-- [Authentication](security.md#symfony-authentication)
-- [Sessions](sessions.md#configuration)
-- [Persistence cache](persistence_cache.md#persistence-cache-configuration)
+- [Content views](../content_rendering/templates/template_configuration.md)
+- [Multisite configuration](../multisite/multisite_configuration.md)
+- [Image variations](../images.md#configuring-image-variations)
+- [Logging and debug](../devops.md#logging-and-debug-configuration)
+- [Authentication](../security.md#symfony-authentication)
+- [Sessions](../sessions.md#configuration)
+- [Persistence cache](../persistence_cache.md#persistence-cache-configuration)
