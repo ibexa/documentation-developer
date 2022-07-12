@@ -154,4 +154,4 @@ Full list of options:
 |Name|Description|Required|
 |----|-----------|--------|
 |`container`|Contains a reference to a DOM node where the custom drop-down is initialized.|required|
-|`selectorSource`|Use to change a class on the source element.|required|
+|`selectorSource`|Use to change class of the source element.|required|
