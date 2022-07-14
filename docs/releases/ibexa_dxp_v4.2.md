@@ -14,6 +14,13 @@
 
 ### Catalogs
 
+You can now create catalogs containing sub-sets of products.
+Choose products for a catalog by applying filters which enable you to select products
+for example by product type, price range, availability or category.
+
+You can use catalogs for special discount lists, campaigns, tenders, or other situations
+where you need to present a selected set of products.
+
 ### Product variants
 
 ### Product completeness
