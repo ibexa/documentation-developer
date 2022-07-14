@@ -156,6 +156,20 @@ Run the following scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.8-to-3.3.9.sql
     ```
 
+### D. v3.3.24
+
+#### VCL configuration for Fastly
+
+Ibexa DXP now supports Fastly shielding. If you are using Fastly and want to use shielding, you need to update your VCL files.
+
+!!! tip
+
+    Even if you do not plan to use Fastly shielding, it is recommended to update the VCL files for future compatibility.
+
+1. Locate the `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_main.vcl` file and update your VCL file with the recent changes.
+2. Do the same with `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_user_cache.vcl`
+3. Upload a new `snippet_re_enable_shielding.vcl` snippet file, based on `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/snippet_re_enable_shielding.vcl`.
+
 ## 8. Finish the update
 
 [[% include 'snippets/update/finish_the_update.md' %]]
