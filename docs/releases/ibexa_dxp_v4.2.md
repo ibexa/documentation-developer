@@ -2,7 +2,7 @@
 
 **Version number**: v4.2
 
-**Release date**: July 14, 2022
+**Release date**: August 4, 2022
 
 **Release type**: [Fast Track](../community_resources/release_process.md#release-process)
 
