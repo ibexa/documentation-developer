@@ -1,3 +1,7 @@
+---
+description: Configure SiteAccess, displayed Content items, depth and root location for the Content Tree.
+---
+
 # Content Tree
 
 With this configuration you can:
