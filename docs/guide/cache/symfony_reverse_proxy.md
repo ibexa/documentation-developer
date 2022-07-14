@@ -25,7 +25,7 @@ Using a different proxy is highly recommended as they provide better performance
 For reverse proxies to work properly with your installation, you need to adapt one of the provided VCL files as the basis:
 
 - [Varnish VCL xkey example](https://github.com/ibexa/http-cache/blob/main/docs/varnish/vcl/varnish5.vcl)
-- Fastly VCL can be found in `vendor/ibexa/http-cache-fastly/fastly`
+- Fastly VCL can be found in `vendor/ibexa/fastly/fastly`
 
 !!! tip
 
