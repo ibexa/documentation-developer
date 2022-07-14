@@ -1,5 +1,5 @@
 ---
-description: Update your installation to the latest v4.1 version from an earlier v4.1 version.
+description: Update your installation to the v4.1.latest version from an earlier v4.1.x version.
 latest_tag: '4.1.6'
 ---
 
@@ -46,5 +46,5 @@ Ibexa DXP now supports Fastly shielding. If you are using Fastly and want to use
     Even if you do not plan to use Fastly shielding, it is recommended to update the VCL files for future compatibility.
 
 1. Locate the `vendor/ibexa/fastly/fastly/ez_main.vcl` file and update your VCL file with the recent changes.
-2. Do the same with `vendor/ibexa/fastly/fastly/ez_user_cache.vcl`
+2. Do the same with `vendor/ibexa/fastly/fastly/ez_user_cache.vcl`.
 3. Upload a new `snippet_re_enable_shielding.vcl` snippet file, based on `vendor/ibexa/fastly/fastly/snippet_re_enable_shielding.vcl`.

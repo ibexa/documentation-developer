@@ -308,7 +308,6 @@ Adapt your `composer.json` file according to [`manifest.json`](https://github.co
 "ibexa:encore:compile": "symfony-cmd"
 ```
 
-
 ### v3.3.24
 
 #### VCL configuration for Fastly
@@ -320,5 +319,5 @@ Ibexa DXP now supports Fastly shielding. If you are using Fastly and want to use
     Even if you do not plan to use Fastly shielding, it is recommended to update the VCL files for future compatibility.
 
 1. Locate the `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_main.vcl` file and update your VCL file with the recent changes.
-2. Do the same with `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_user_cache.vcl`
+2. Do the same with `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_user_cache.vcl`.
 3. Upload a new `snippet_re_enable_shielding.vcl` snippet file, based on `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/snippet_re_enable_shielding.vcl`.
