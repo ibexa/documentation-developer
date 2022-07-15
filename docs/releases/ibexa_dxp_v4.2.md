@@ -18,12 +18,36 @@ You can now create catalogs containing sub-sets of products.
 Choose products for a catalog by applying filters which enable you to select products
 for example by product type, price range, availability or category.
 
-You can use catalogs for special discount lists, campaigns, tenders, or other situations
-where you need to present a selected set of products.
+![](img/4.2_catalogs_product_list.png)
+
+You can use catalogs for special discount lists, campaigns, tenders,
+or other situations where you need to present a selected set of products.
 
 ### Product variants
 
+You can create product variants based on selected attributes.
+The system automatically generates variants for the attribute values you select.
+
+![](img/4.2_product_variants_generate.png)
+
+You can set prices, including custom pricing, for each variant separately.
+
+### Product assets
+
+You can now upload multiple assets (images) assigned to products.
+Assets are grouped into collections based on attribute values
+and in this way are connected to product variants which have these attributes.
+
+![](img/4.2_product_assets.png)
+
 ### Product completeness
+
+The new product completeness tab in product view lists all the parts of a product you can configure:
+attributes, assets, prices, availability, and other.
+You can use it to get a quick overview of missing parts of product configuration
+and to instantly move to the proper screen to fill the gaps.
+
+![](img/4.2_product_completeness.png)
 
 ### Cross-content type recommendations
 
