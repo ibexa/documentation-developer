@@ -12,7 +12,7 @@ or a custom controller.
 To list products from a catalog in a [Content query Field](../../../api/field_types_reference/contentqueryfield.md),
 add this Field to a Content Type definition.
 
-Select the "Catalog" Query type and "Product" as returned type.
+Select the ["Catalog" Query type](../queries_and_controllers/built-in_query_types.md#catalog) and "Product" as returned type.
 In parameters, provide the identifier of the catalog.
 
 ![Configuration of Content query Type for catalog](../../img/catalog_query_type_field.png)
