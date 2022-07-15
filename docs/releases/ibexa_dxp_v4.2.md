@@ -8,7 +8,7 @@
 
 ## Notable changes
 
-### Corporate accounts
+### Customer portals
 
 #### Inviting users
 
