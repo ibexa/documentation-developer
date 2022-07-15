@@ -55,6 +55,10 @@ If the Scenario has more than one content types configured, with cross-content t
 
 ### Repeatable migration steps
 
+Data migration now offers [repeatable migrations steps](https://doc.ibexa.co/en/latest/guide/data_migration/importing_data/#repeatable-steps),
+especially useful when creating large amounts of data for example for testing.
+
+You can vary the migration values by using the iteration counter, or by generating random data by using [`FakerPHP`](https://fakerphp.github.io/).
 
 ## Other changes
 
@@ -84,8 +88,11 @@ Images that you upload this way are automatically added to the Media library.
 
 ### Product price events
 
+The price engine now dispatches [events related to creating, updating and deleting prices](https://doc.ibexa.co/en/latest/guide/repository/event_reference/catalog_events/#price).
+
 ### Data migration for attributes and attribute groups
 
+Data migration now supports `attribute` and `attribute_group` types when generating migration files.
 
 ## Full changelog
 
