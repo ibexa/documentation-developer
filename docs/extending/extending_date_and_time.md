@@ -4,6 +4,8 @@ description: Use different formats to render dates and times in the Back Office 
 
 # Formatting date and time
 
+## Using Twig filters and PHP services
+
 You can format date and time by using the following services:
 
 - `@ibexa.user.settings.short_datetime_format.formatter`
@@ -57,3 +59,63 @@ services:
         arguments:
             $shortDateTimeFormatter: '@ibexa.user.settings.short_datetime_format.formatter'
 ```
+
+## Using User settings menu
+
+Users can set their preferred date and time formats in the User settings menu.
+This format is used throughout the Back Office.
+
+You can set the list of available formats with the following configuration:
+
+``` yaml
+ibexa:
+    system:
+        <siteaccess>:
+            user_preferences:
+                allowed_short_date_formats:
+                    'label for dd/MM/yyyy': 'dd/MM/yyyy'
+                    'label for MM/dd/yyyy': 'MM/dd/yyyy'
+                allowed_short_time_formats:
+                    'label for HH:mm' : 'HH:mm'
+                    'label for hh:mm a' : 'hh:mm a'
+                allowed_full_date_formats:
+                    'label for dd/MM/yyyy': 'dd/MM/yyyy'
+                    'label for MM/dd/yyyy': 'MM/dd/yyyy'
+                allowed_full_time_formats:
+                    'label for HH:mm': 'HH:mm'
+                    'label for hh:mm a': 'hh:mm a'
+```
+
+The default date and time format is set using:
+
+``` yaml
+ibexa:
+    system:
+        <siteaccess>:
+            user_preferences:
+                short_datetime_format:
+                    date_format: 'dd/MM/yyyy'
+                    time_format: 'hh:mm'
+                full_datetime_format:
+                    date_format: 'dd/MM/yyyy'
+                    time_format: 'hh:mm'
+```
+
+## Allowed formats
+
+The following subset of the [ICU date and time formats](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/classSimpleDateFormat.html#details) is allowed:
+
+|Symbol|Meaning|
+|---|---|
+|y, yy, yyyy, Y, YY, YYYY|year|
+|q, Q|quarter|
+|M, MM, MMM, MMMM, L, LL, LLL, LLLL|month|
+|w, WW|week|
+|d, dd|day of the month|
+|D, DDD|day of the year|
+|E, EE, EEE, EEEE, EEEEEE, e, ee, eee, eeee, eeeeee, c, cc, ccc, cccc, cccccc|weekday|
+|a|AM or PM|
+|h, hh, H, HH, k, kk|hour|
+|m, mm|minute|
+|s, ss, S...|second|
+|Z, ZZ, ZZZ, ZZZZZ|timezone|

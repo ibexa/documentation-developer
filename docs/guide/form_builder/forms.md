@@ -60,3 +60,19 @@ The following table lists some of the available options and their meaning:
 | `-u` | `--user[=USER]` | Passes a repository username. By default it is "admin". |
 | `-c` | `--batch-size[=BATCH-SIZE]` | Passes a number of URLs to check in a single iteration. Set it to avoid using too much memory. By default it is set to 50. |
 | | `--siteaccess[=SITEACCESS]` | Passes a SiteAccess to use for operations. If not provided, the default SiteAccess is used. |
+
+## Form-uploaded files
+
+You can use Forms to enable the user to upload files.
+The default Location for files uploaded in this way is `/Media/Files/Form Uploads`.
+You can change it with the following configuration:
+
+``` yaml
+ibexa:
+    system:
+        default:
+            form_builder:
+                upload_location_id: 54
+```
+
+This applies only if no specific Location is defined in the Form itself.

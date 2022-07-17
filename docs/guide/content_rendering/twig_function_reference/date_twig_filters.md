@@ -5,7 +5,7 @@ description: Use date Twig filters to select the date and time format used in te
 # Date Twig filters
 
 Date and time Twig filters format a date and time object (`DateTimeInterface`)
-in one of the formats defined in [user preferences](../../configuration/config_back_office.md#date-and-time-formats).
+in one of the formats defined in [user preferences](../../../extending/extending_date_and_time.md#using-user-settings-menu).
 
 - `ibexa_full_datetime`
 - `ibexa_full_date`
