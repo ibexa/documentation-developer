@@ -8,9 +8,19 @@
 
 ## Notable changes
 
-### Customer portals
+### Customer Portal
+
+You can now create a company account where you can invite members of your organization and manage them by assigning them specific roles and limitations.
+
+### User management
 
 #### Inviting users
+
+You can invite users to create their account in the frontend as customers or in the Back Office.
+
+#### Configure register form
+
+Register forms for new users can now be [configured straight in the YAML file](../guide/content_rendering/layout/add_register_user_template.md).
 
 ### Catalogs
 
@@ -98,4 +108,4 @@ Data migration now supports `attribute` and `attribute_group` types when generat
 
 | Ibexa Content  | Ibexa Experience  | Ibexa Commerce |
 |--------------|------------|------------|
-| [Ibexa Content v4.2](https://github.com/ibexa/content/releases/tag/v4.2.0) | [Ibexa Experience v4.2](https://github.com/ibexa/experience/releases/tag/v4.2.0) | [Ibexa Commerce v4.2](https://github.com/ibexa/commerce/releases/tag/v4.2.0)
+| [Ibexa Content v4.2](https://github.com/ibexa/content/releases/tag/v4.2.0) | [Ibexa Experience v4.2](https://github.com/ibexa/experience/releases/tag/v4.2.0) | [Ibexa Commerce v4.2](https://github.com/ibexa/commerce/releases/tag/v4.2.0)|
