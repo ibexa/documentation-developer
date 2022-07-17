@@ -24,7 +24,7 @@ Place the icon in `public/assets/images` and run `yarn encore <dev|prod>` after 
 
     To ensure proper display in the Back Office, all icons should have SVG format with `symbol`.
 
-If you want to configure icons per SiteAccess, see [Icon sets](../guide/configuration/config_back_office.md#icon-sets).
+If you want to configure icons per SiteAccess, see [Icon sets](#icon-sets).
 
 To see more configuration options, see [icon sizes](../guide/content_rendering/twig_function_reference/other_twig_filters.md).
 
@@ -89,3 +89,18 @@ The following example from the `alert.js` file shows configuration for icons in 
 - `customPath` - a path to the custom icon
 - `name` - the path is generated inside the component provided you use icon from the system
 - `extraClasses` - additional CSS classes, use to set for example, icon size.
+
+## Icon sets
+
+You can configure icon sets to be used per SiteAccess:
+
+``` yaml
+ibexa:
+    system:
+        <siteaccess>:
+            assets:
+                icon_sets:
+                    my_icons: /assets/images/icons/my_icons.svg
+                    additional_icons: /assets/images/icons/additional_icons.svg
+                default_icon_set: my_icons
+```

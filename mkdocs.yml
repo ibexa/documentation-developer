@@ -127,7 +127,6 @@ nav:
         - Configuration:
             - 'Configuration': 'guide/configuration/configuration.md'
             - 'Dynamic configuration': 'guide/configuration/config_dynamic.md'
-            - 'Back Office configuration': 'guide/configuration/config_back_office.md'
             - 'Repository configuration': 'guide/configuration/config_repository.md'
         - 'Admin panel': 'guide/admin_panel.md'
         - Content rendering:
@@ -469,6 +468,8 @@ nav:
         - 'Notifications': 'guide/sending_notifications.md'
     - Extend Back Office:
         - 'Back Office': 'extending/extending_back_office.md'
+        - 'Configuration': 'extending/config_back_office.md'
+        - 'Content Tree': 'extending/content_tree.md'
         - Back Office elements:
             - 'Reusable components': 'extending/reusable_back_office_templates.md'
             - 'Add drop-downs': 'extending/creating_custom_dropdowns.md'
