@@ -10,3 +10,14 @@ plugins:
     - redirects:
         redirect_maps:
             'api/field_types_reference/xmltextfield.md': 'api/field_type_reference.md'
+            'extending/extending_image_editor.md': 'guide/images/extending_image_editor.md'
+            'guide/configuration/config_connector.md': 'guide/images/config_connector.md'
+            'guide/image_editor.md': 'guide/images/image_editor.md'
+            'guide/images.md': 'guide/images/images.md'
+            'guide/config_back_office.md': 'extending/config_back_office.md'
+            'guide/config_connector.md': 'guide/images/config_connector.md'
+            'guide/config_dynamic.md': 'guide/configuration/config_dynamic.md'
+            'guide/config_repository.md': 'guide/configuration/config_repository.md'
+            'guide/configuration.md': 'guide/configuration/configuration.md'
+            'guide/shop_configuration.md': 'guide/basket/basket.md'
+            
