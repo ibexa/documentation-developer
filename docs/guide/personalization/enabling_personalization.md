@@ -358,7 +358,7 @@ To render recommended content, use a dedicated `showRecommendationsAction()` fro
 render(controller('ibexa_personalization::showRecommendationsAction', {
         'contextItems': content.id,
         'scenario': 'front',
-        'outputTypeId': '57',
+        'outputTypeId': 57,
         'limit': 3,
         'template': '@IbexaPersonalization::recommendations.html.twig',
         'attributes': ['title', 'intro', 'image', 'uri']
