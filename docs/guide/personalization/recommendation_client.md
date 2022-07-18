@@ -322,7 +322,7 @@ To render recommended content, use a dedicated `showRecommendationsAction` from 
 render(controller('ez_recommendation::showRecommendationsAction', {
         'contextItems': content,
         'scenario': 'front',
-        'outputTypeId': '57',
+        'outputTypeId': 57,
         'limit': 3,
         'template': 'EzRecommendationClientBundle::recommendations.html.twig',
         'attributes': ['title', 'intro', 'image', 'uri']
