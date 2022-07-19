@@ -555,6 +555,7 @@ theme:
         - content.code.annotate 
         - navigation.tracking
         - navigation.top
+        - content.tabs.link
     custom_dir: 'theme'
     favicon: 'images/favicon.png'
     language: 'en'
