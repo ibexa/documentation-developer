@@ -592,5 +592,5 @@ For more information about how Elasticsearch handles settings and mappings from 
 
 ## Extending Elasticsearch
 
-To learn how to create custom Search Criteria and Sort Clauses for use with Elasticsearch,
-and how to index custom data and manipulate the query, see [Elasticsearch extensibility](extend_elasticsearch.md).
+To learn how you can create document field mappers, custom Search Criteria, 
+custom Sort Clauses and Aggregations, see [Search extensibility](extensibility/create_custom_search_criterion.md).
