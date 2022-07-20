@@ -1,5 +1,5 @@
 ---
-latest_tag: '4.0.7'
+latest_tag: '4.0.8'
 ---
 
 # Update from v3.3.x to v4.0

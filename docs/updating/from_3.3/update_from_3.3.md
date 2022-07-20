@@ -1,6 +1,6 @@
 ---
 description: Update your installation to the latest v3.3 version from an earlier v3.3 version.
-latest_tag: '3.3.20'
+latest_tag: '3.3.24'
 ---
 
 # Update from v3.3.x to v3.3.latest
