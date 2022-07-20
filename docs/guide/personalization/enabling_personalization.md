@@ -355,10 +355,10 @@ This file is responsible for sending notifications to the [Recommendation API](d
 To render recommended content, use a dedicated `showRecommendationsAction()` from the `RecommendationController.php`:
 
 ``` html+twig
-render_esi(controller('ibexa_personalization::showRecommendationsAction', {
-        'contextItems': content.id,
+render(controller('ibexa_personalization::showRecommendationsAction', {
+        'contextItems': content,
         'scenario': 'front',
-        'outputTypeId': 'blog_post',
+        'outputTypeId': 57,
         'limit': 3,
         'template': '@IbexaPersonalization::recommendations.html.twig',
         'attributes': ['title', 'intro', 'image', 'uri']
