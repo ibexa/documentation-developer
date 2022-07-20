@@ -319,10 +319,10 @@ This file is responsible for sending notifications to the [Recommendation API](d
 To render recommended content, use a dedicated `showRecommendationsAction` from the `RecommendationController.php`:
 
 ``` html+twig
-render_esi(controller('ez_recommendation::showRecommendationsAction', {
+render(controller('ez_recommendation::showRecommendationsAction', {
         'contextItems': content,
         'scenario': 'front',
-        'outputTypeId': 'outputTypeId',
+        'outputTypeId': 57,
         'limit': 3,
         'template': 'EzRecommendationClientBundle::recommendations.html.twig',
         'attributes': ['title', 'intro', 'image', 'uri']
