@@ -382,6 +382,7 @@ render_esi(controller('ibexa_personalization::showRecommendationsAction', {
 | `contextItems`   | int    | ID of the content you want to get recommendations for. |
 | `scenario`       | string | Scenario used to display recommendations. You can create custom scenarios in the Back Office. |
 | `outputTypeId`   | string | Item type that you expect in response, for example, `blog_post`. |
+| `crossContentType`| string | If set to `true`, returns recommendations for all content types specified in the scenario. |
 | `limit`          | int    | Number of recommendations to fetch. |
 | `template`       | string | Template name. |
 | `attributes`     | array  | Fields that are required and are requested from the Personalization server. These Field names are also used inside Handlebars templates. |
