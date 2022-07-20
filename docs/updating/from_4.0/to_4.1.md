@@ -5,39 +5,29 @@ latest_tag: '4.1.5'
 
 # Update from v4.0.x to v4.1
 
-This update procedure applies if you are using v4.0.latest.
+This update procedure applies if you are using v4.0.0.
 
 Go through the following steps to update to v4.1.
 
-## Update the app to v4.1
+!!! note
 
-First, run the following command:
+    During the update process you can encounter the following error:
 
-=== "[[= product_name_content =]]"
+    `Failed to create closure from callable: class 'Ibexa\Bundle\Commerce\Eshop\Twig\SilvercommonExtension' does not have a method 'getNavigation'`
 
-    ``` bash
-    composer require ibexa/content:[[= latest_tag =]] --with-all-dependencies --no-scripts
-    ```
+    You can ignore this error, it does not require any action on your part.
 
-=== "[[= product_name_exp =]]"
+## Update the app to latest version of v4.0
 
-    ``` bash
-    composer require ibexa/experience:[[= latest_tag =]] --with-all-dependencies --no-scripts
-    ```
-
-=== "[[= product_name_com =]]"
-
-    ``` bash
-    composer require ibexa/commerce:[[= latest_tag =]] --with-all-dependencies --no-scripts
-    ```
+First, update your application to the latest version of v4.0: v4.0.8.
 
 ### Update Flex server
 
-The `flex.ibexa.co` Flex server has been disabled. 
-If you are using earlier v4.x versions, and you have not done it before, 
+The `flex.ibexa.co` Flex server has been disabled.
+If you are using earlier v4.x versions, and you have not done it before,
 you have to update your Flex server.
 
-To do it, in your `composer.json` check whether the `https://flex.ibexa.co` endpoint is still listed in `extra.symfony.endpoint`. 
+To do it, in your `composer.json` check whether the `https://flex.ibexa.co` endpoint is still listed in `extra.symfony.endpoint`.
 If so, replace it with the new [`https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main`](https://github.com/ibexa/website-skeleton/blob/v4.1.5/composer.json#L96) endpoint.
 
 You can do it manually, or by running the following command:
@@ -45,49 +35,131 @@ You can do it manually, or by running the following command:
 ``` bash
 composer config extra.symfony.endpoint "https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main"
 ```
-    
-### Continue with updating the app
 
-Run the following command:
+Perform the update:
 
 === "[[= product_name_content =]]"
 
     ``` bash
+    composer require ibexa/content:4.0.8 --with-all-dependencies --no-scripts
     composer recipes:install ibexa/content --force -v
     ```
 
 === "[[= product_name_exp =]]"
 
     ``` bash
+    composer require ibexa/experience:4.0.8 --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
     ```
 
 === "[[= product_name_com =]]"
 
     ``` bash
+    composer require ibexa/commerce:4.0.8 --with-all-dependencies --no-scripts
+    composer recipes:install ibexa/commerce --force -v
+    ```
+
+Next, run:
+
+``` bash
+composer run post-install-cmd
+mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.0.3-to-4.0.4.sql
+```
+
+## Update the app to v4.1.0
+
+When you have the v4.0 version, you can update to v4.1.0:
+
+=== "[[= product_name_content =]]"
+
+    ``` bash
+    composer require ibexa/content:4.1.0 --with-all-dependencies --no-scripts
+    composer recipes:install ibexa/content --force -v
+    ```
+
+=== "[[= product_name_exp =]]"
+
+    ``` bash
+    composer require ibexa/experience:4.1.0 --with-all-dependencies --no-scripts
+    composer recipes:install ibexa/experience --force -v
+    ```
+
+=== "[[= product_name_com =]]"
+
+    ``` bash
+    composer require ibexa/commerce:4.1.0 --with-all-dependencies --no-scripts
     composer recipes:install ibexa/commerce --force -v
     ```
 
 The `recipes:install` command installs new YAML configuration files. Look through the old YAML files and move your custom configuration to the relevant new files.
 
-## Update the database
+Next, run:
+
+``` bash
+composer run post-install-cmd
+```
+
+
+### Update the database
 
 [[% include 'snippets/update/db/db_backup_warning.md' %]]
 
 Apply the following database update scripts:
 
-### Ibexa DXP
-
 === "MySQL"
     ``` bash
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.0.0-to-4.1.0.sql>
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.1.0-to-4.1.1.sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.0.0-to-4.1.0.sql
     ```
 
 === "PostgreSQL"
 
     ``` bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.0.0-to-4.1.0.sql
+    ```
+
+## Update the app to latest version of v4.1
+
+Now, update the application to the latest version of v4.1: [[= latest_tag =]].
+
+=== "[[= product_name_content =]]"
+
+    ``` bash
+    composer require ibexa/content:[[= latest_tag =]] --with-all-dependencies --no-scripts
+    composer recipes:install ibexa/content --force -v
+    ```
+
+=== "[[= product_name_exp =]]"
+
+    ``` bash
+    composer require ibexa/experience:[[= latest_tag =]] --with-all-dependencies --no-scripts
+    composer recipes:install ibexa/experience --force -v
+    ```
+
+=== "[[= product_name_com =]]"
+
+    ``` bash
+    composer require ibexa/commerce:[[= latest_tag =]] --with-all-dependencies --no-scripts
+    composer recipes:install ibexa/commerce --force -v
+    ```
+
+Next, run:
+
+``` bash
+composer run post-install-cmd
+```
+
+### Update the database
+
+Apply the following database update scripts:
+
+=== "MySQL"
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.1.0-to-4.1.1.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.1.0-to-4.1.1.sql
     ```
 
