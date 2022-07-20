@@ -27,6 +27,15 @@ description: Events that are triggered when working with products, prices and cu
 |`UpdateAttributeGroupEvent`|`AttributeGroupService::updateAttributeGroup`|`AttributeGroupInterface $attributeGroup`</br>`AttributeGroupUpdateStruct $updateStruct`|
 |`UpdateProductEvent`|`ProductService::updateProduct`|`ProductInterface $product`</br>`ProductUpdateStruct $updateStruct`|
 
+## Product variants
+
+| Event | Dispatched by | Properties |
+|---|---|---|
+|`BeforeCreateProductVariantsEvent`|`ProductService::createProductVariants`|`ProductInterface $product`</br>`iterable $createStructs`|
+|`BeforeUpdateProductVariantEvent`|`ProductService::updateProductVariant`|`ProductVariantInterface $productVariant`</br>`ProductVariantUpdateStruct $updateStruct`|
+|`CreateProductVariantsEvent`|`ProductService::createProductVariants`|`ProductInterface $product`</br>`iterable $createStructs`|
+|`UpdateProductVariantEvent`|`ProductService::updateProductVariant`|`ProductVariantInterface $productVariant`</br>`ProductVariantUpdateStruct $updateStruct`|
+
 ## Product availability
 
 | Event | Dispatched by | Properties |
