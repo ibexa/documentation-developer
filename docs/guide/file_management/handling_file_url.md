@@ -27,7 +27,7 @@ ibexa:
     system:
         default:
             io:
-                url_prefix: 'http://static.example.com/$var_dir$/$storage_dir$'
+                url_prefix: 'https://static.example.com/$var_dir$/$storage_dir$'
 ```
 
 !!! caution
@@ -38,7 +38,7 @@ ibexa:
 
 ## `io.url_prefix`
 
-Any `BinaryFile` returned by the public API is prefixed with the value of this setting, internally stored as `ibexa.site_access.config.scope.io.url_prefix`.
+Any `BinaryFile` returned by the public API is prefixed with the value of this setting, internally stored as `ibexa.site_access.config.<scope>.io.url_prefix`.
 
 ### `io.url_prefix` dynamic service container setting
 
@@ -53,7 +53,7 @@ This setting is SiteAccess-aware.
 
 #### URL decorators
 
-A UrlDecorator decorates and undecorates a specified string (URL). It has two mirror methods: `decorate` and `undecorate`.
+A `\Ibexa\Core\IO\UrlDecorator` decorates and undecorates a specified string (URL). It has two mirror methods: `decorate` and `undecorate`.
 
 Two implementations are provided: `Prefix`, and `AbsolutePrefix`. They both add a prefix to a URL, but `AbsolutePrefix` ensures that unless the prefix is an external URL, the result is prepended with `/`.
 

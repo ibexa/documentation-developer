@@ -9,7 +9,7 @@ The path to content download should follow the route name.
 
 It also accepts optional query parameters:
 
-- `version`: the version number that the file must be downloaded for. Requires the `content / versionread` permission. If not specified, uses the published version.
+- `version`: the version number that the file must be downloaded for. Requires the `content / read` permission for published Version and additionally `content / versionread` permission for not published Version. If not specified, uses the published version.
 - `inLanguage`: The language the file should be downloaded in. If not specified, the most prioritized language for the SiteAccess will be used.
 
 The [ibexa\_render\_field](../content_rendering/twig_function_reference/field_twig_functions.md#ibexa_render_field) Twig helper will by default generate a working link.
