@@ -21,7 +21,7 @@ number of events must be collected and the model build must finish successfully.
     **BASIC Authentication** for fetching recommendations is enabled for some 
     configurations (for example for Gambio Plugin) by default.
     Use the customerid as username and the license key as password.
-    The license key is displayed in the upper right in the [Admin GUI](https://admin.perso.ibexa.co/)) 
+    The license key is displayed in the upper right in the [Admin GUI](https://admin.yoochoose.net/)) 
     after you log in with your registration credentials.
 
     If you plan to use [JSONP](https://en.wikipedia.org/wiki/JSONP), authentication 
