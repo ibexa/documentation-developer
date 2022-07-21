@@ -179,11 +179,7 @@ placeholders from:
 
 ### Semantic configuration
 
-<<<<<<< HEAD:docs/guide/images.md
 Placeholder generation can be configured for each [`binary_handler`](file_management/file_management.md#handling-binary-files) under the 
-=======
-Placeholder generation can be configured for each [`binary_handler`](../file_management.md#handling-binary-files) under the 
->>>>>>> master:docs/guide/images/images.md
 `ibexa.image_placeholder` key:
  
 ```yaml
