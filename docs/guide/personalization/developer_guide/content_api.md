@@ -35,13 +35,13 @@ You can use HTTP methods to create, update or retrieve items that are in the dat
 Use the GET method to retrieve all information that is stored in the database 
 for the given item ID:
 
-`GET: https://admin.yoochoose.net/api/[customerid]/item/[itemtypeid]/[itemid]`
+`GET: https://admin.perso.ibexa.co/api/[customerid]/item/[itemtypeid]/[itemid]`
 
 ## POST requests
 
 Use the POST request to create or update items with the given ID in the database:
 
-`POST: https://admin.yoochoose.net/api/[customerid]/item`
+`POST: https://admin.perso.ibexa.co/api/[customerid]/item`
 
 A body of the request must contain a valid XML document.
 Once uploaded, the item is scheduled to be inserted in the database, and it 
@@ -51,7 +51,7 @@ is not directly available.
 
 Use the DELETE method to delete all information that is related to the given item ID. 
 
-`DELETE: https://admin.yoochoose.net/api/[customerid]/item/[itemtypeid]/[itemid]?lang=<language_code>`
+`DELETE: https://admin.perso.ibexa.co/api/[customerid]/item/[itemtypeid]/[itemid]?lang=<language_code>`
 
 The item is scheduled to be removed from the database.
 
@@ -105,7 +105,7 @@ An XML representation of the data object used for item import can look like this
 !!! note "XML schema definition"
 
     The current schema that is used for interpreting the XML objects 
-    can be seen [here](https://admin.yoochoose.net/api/00000/item/schema.xsd).
+    can be seen [here](https://admin.perso.ibexa.co/api/00000/item/schema.xsd).
 
 The following keys and attributes used in the XML object are available:
 
@@ -214,7 +214,7 @@ for "old" item IDs to calculate model results that present "new" IDs.
 
 Use the following method to pass the XML object:
 
-`POST: https://admin.yoochoose.net/api/[customerid]/transferitems`
+`POST: https://admin.perso.ibexa.co/api/[customerid]/transferitems`
 `Content-Type=text/xml`
 
 ``` xml
