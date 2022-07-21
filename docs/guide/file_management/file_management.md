@@ -40,7 +40,7 @@ ibexa:
                 metadata_handler: dfs
                 binarydata_handler: nfs
 ```
-
+The adapter is the *driver* used by Flysystem to read/write files. Adapters are declared using `oneup_flysystem`. 
 Metadata and binary data handlers are configured under `ibexa_io`. See below the configuration for the default handlers. It declares a metadata handler and a binary data handler, both labeled `default`. Both handlers are of type `flysystem`, and use the same Flysystem adapter, labeled `default` as well.
 
 ``` yaml
@@ -82,19 +82,17 @@ Default values:
 
 !!! note
 
-    When using the NFS [adapter](../file_management/file_management.md#adapter), configure file permissions under the `oneup_flysystem` key instead, as follows:
+    As SiteAccess configuration Flysystem's native Local NFS adapter is not supported, the following
+    configuration should be used:
 
     ``` yaml
     oneup_flysystem:
         adapters:
             nfs_adapter:
-                local:
-                    permissions:
-                        file:
-                            public: 0750
-                        dir:
-                            public: 0640
+                custom:
+                    service: ibexa.io.nfs.adapter.site_access_aware
     ```
+
 
 ### Native Flysystem handler
 
@@ -106,7 +104,7 @@ Default values:
 
 ##### Adapter
 
-The adapter is the *driver* used by Flysystem to read/write files. Adapters are declared using `oneup_flysystem`. To be able to rely on dynamic SiteAccess-aware paths, you need to use Ibexa custom `nfs_adapter`. A basic configuration might look like the following:
+To be able to rely on dynamic SiteAccess-aware paths, you need to use Ibexa custom `nfs_adapter`. A basic configuration might look like the following:
 
 ``` yaml
 oneup_flysystem:
