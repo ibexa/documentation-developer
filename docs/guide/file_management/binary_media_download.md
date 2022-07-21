@@ -1,3 +1,7 @@
+---
+description: Create route to to enable binary and media files download.
+---
+
 # Binary and Media download
 
 You can restrict files stored in BinaryFile or Media Fields to certain user Roles.
@@ -18,7 +22,7 @@ The [`ibexa_render`_field`](../content_rendering/twig_function_reference/field_t
 ## Download link generation
 
 To generate a direct download link for the `File` Field Type you have to create
-a RouteReference with the `ibexa_route` helper, passing `content` and `File` Field identifier as parameters.
+a [RouteReference](../content_rendering/urls_and_routes.md#routereference) with the `ibexa_route` helper, passing `content` and `File` Field identifier as parameters.
 Optional parameter `inLanguage` may be used to specify File content translation.
 
 ```twig

@@ -1,3 +1,7 @@
+---
+description: Manage files URL.
+---
+
 # File URL handling
 
 ### IO URL decoration

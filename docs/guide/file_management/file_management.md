@@ -1,3 +1,7 @@
+---
+description: Configurations and management of binary files.
+---
+
 # File management
 
 ## Access binary files
@@ -96,9 +100,8 @@ Default values:
 
 ### Native Flysystem handler
 
-[league/flysystem](http://flysystem.thephpleague.com/) (along with [FlysystemBundle](https://github.com/1up-lab/OneupFlysystemBundle/)) is an abstract file handling library.
-
 [[= product_name =]] uses it as the default way to read and write content in form of binary files. Flysystem can use the `local` filesystem, but is also able to read/write to `sftp`, `zip` or cloud filesystems (`azure`, `rackspace`, `S3`).
+[league/flysystem](http://flysystem.thephpleague.com/) (along with [FlysystemBundle](https://github.com/1up-lab/OneupFlysystemBundle/)) is an abstract file handling library.
 
 #### Handler options
 
