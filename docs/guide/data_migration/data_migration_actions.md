@@ -50,6 +50,8 @@ The following migration actions are available out of the box:
 - `assign_object_state` (Content Create)
 - `assign_parent_location` (Content Create / Update)
 - `assign_section` (Content Update)
+- `hide` (Content Create / Update)
+- `reveal` (Content Create / Update)
 - `assign_content_type_group` (Content Type Create / Update)
 - `remove_drafts` (Content Type Update)
 - `remove_field_by_identifier` (Content Type Update)
@@ -73,6 +75,7 @@ mode: Create
     actions:
         - { action: assign_object_state, identifier: locked, groupIdentifier: ez_lock }
         - { action: assign_parent_location, value: 2 }
+        - { action: hide }
 ```
 
 mode: Update
