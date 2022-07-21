@@ -11,6 +11,16 @@ To enable purchasing from the catalog, the following configuration is required:
 - at least [one price for the product](../pricing/price_engine.md)
 - [availability with positive or infinite stock for the product](catalog.md#product-availability-and-stock)
 
+!!! tip "Product completeness"
+
+    You can track required tasks related to product configuration in product view's **Completeness** tab.
+
+    ![Product completeness](../img/product_completeness.png)
+
+    This page shows which tasks are finished for the given product, and which are still awaiting completion.
+
+    Click the edit button next to an unfinished task to move directly to the screen where you can add the missing information.
+
 ## Region and currency
 
 All currencies available in the system must be enabled in the Back Office under **Commerce** -> **Currencies**.

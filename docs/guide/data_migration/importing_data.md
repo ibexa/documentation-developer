@@ -23,7 +23,7 @@ the `ibexa:migration:migrate` command ignores files that it had previously execu
 
 ## Available migrations
 
-The following modes are available for specific objects:
+The following data migration steps are available:
 
 |                      | `create` | `update` | `delete` |
 |----------------------|:--------:|:--------:|:--------:|

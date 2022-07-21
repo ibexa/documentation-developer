@@ -2,7 +2,9 @@
 description: Configure a Digital Asset Management connector.
 ---
 
-# Connector configuration
+# Add Image Asset from Digital Asset Management
+
+With the Digital Asset Management (DAM) system connector you can use assets such as images directly from the DAM in your content.
 
 ## DAM configuration
 
@@ -42,7 +44,7 @@ First, in `templates/embed/`, create a custom template `dam.html.twig`:
 The `770px` parameter in the template above is used to render the DAM image. It is the `unsplash` specific image variation and must be defined separately.
 
 Next, in `config/packages/ibexa.yaml`, set the `dam.html.twig` template for the `embed` view type that is matched for the Content Type, which you created for DAM images. 
-For more information about displaying content, see [Content rendering](../guide/content_rendering/render_content/render_content.md).
+For more information about displaying content, see [Content rendering](../content_rendering/render_content/render_content.md).
 
 ``` yaml
  ibexa:
@@ -78,4 +80,4 @@ In the **Content** group, create a Content Type for DAM images, which includes t
 
 Now, when you use the Embed block in the Page Builder, you should see a DAM Image.
 
-For more information about block customization (defined templates, variations), see [Create custom block](../tutorials/enterprise_beginner/4_create_a_custom_block.md).
+For more information about block customization (defined templates, variations), see [Create custom block](../../tutorials/enterprise_beginner/4_create_a_custom_block.md).

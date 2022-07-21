@@ -40,7 +40,7 @@ All project assets are accessible through the `assets` path.
 ## Configuration
 
 You project's configuration is placed in the respective files in `config/packages`.
-See [Configuration](configuration.md) for more information.
+See [Configuration](configuration/configuration.md) for more information.
 
 ### Importing configuration from a bundle
 

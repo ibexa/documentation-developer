@@ -49,7 +49,7 @@ can be viewed by selecting the **Content structure** tab in the Content mode int
 ![Content structure](img/content_management_tree.png "Content structure")
 
 This part of the tree is typically used for organizing folders, articles, information pages, etc.
-The default ID number of this Location is 2, but it can be [modified via configuration](config_repository.md#top-level-locations).
+The default ID number of this Location is 2, but it can be [modified via configuration](configuration/config_repository.md#top-level-locations).
 It contains a Folder Content item.
 
 #### Media
@@ -60,7 +60,7 @@ that is frequently used by Content items located below the **Content** node.
 ![Media](img/content_management_media.png "Media")
 
 It usually contains images, animations, documents and other files.
-The default ID number of the **Media** Location is 43, but it can be [modified via configuration](config_repository.md#top-level-locations).
+The default ID number of the **Media** Location is 43, but it can be [modified via configuration](configuration/config_repository.md#top-level-locations).
 It contains a Folder Content item.
 
 #### Users
@@ -74,7 +74,7 @@ The Users are organized within User Group Content items below this Location.
 
 In other words, the **Users** Location contains the actual Users and User Groups,
 which can be viewed by selecting the **Users** tab in the Admin Panel.
-The default ID number of the **Users** Location is 5, but it can be [modified via configuration](config_repository.md#top-level-locations).
+The default ID number of the **Users** Location is 5, but it can be [modified via configuration](configuration/config_repository.md#top-level-locations).
 It contains a User Group Content item.
 
 #### Forms [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]

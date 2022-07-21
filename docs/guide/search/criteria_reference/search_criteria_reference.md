@@ -65,9 +65,16 @@ Due to this storage limitation, searching content using the Country Field Type o
 
 |Search Criterion|Search based on|Supported by|
 |-----|-----|-----|
+|[CheckboxAttribute](checkboxattribute_criterion.md)|Value of product's checkbox attribute|Product search|
+|[ColorAttribute](colorattribute_criterion.md)|Value of product's color attribute|Product search|
+|[FloatAttribute](floatattribute_criterion.md)|Value of product's float attribute|Product search|
+|[IntegerAttribute](integerattribute_criterion.md)|Value of product's integer attribute|Product search|
+|[SelectionAttribute](selectionattribute_criterion.md)|Value of product's selection attribute|Product search|
 |[ProductAvailability](productavailability_criterion.md)|Product's availability|Content and Location Search; Filtering|
 |[ProductCode](productcode_criterion.md)|Product's code|Content and Location Search; Filtering|
 |[ProductName](productname_criterion.md)|Product's name|Content and Location Search; Filtering|
+|[BasePrice](baseprice_criterion.md)|Product's base price|Product search|
+|[CustomPrice](customprice_criterion.md)|Product's custom price|Product search|
 |[ProductType](producttype_criterion.md)|Product type|Content and Location Search; Filtering|
 
 ### Logical operators

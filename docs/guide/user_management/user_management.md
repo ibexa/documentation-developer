@@ -39,7 +39,7 @@ To access the password settings:
 !!! tip
 
     There can be other Content Types that function as users, beyond the built-in User Content Type.
-    For details, see [User Identifiers](../config_repository.md#user-identifiers).
+    For details, see [User Identifiers](../configuration/config_repository.md#user-identifiers).
 
 ### Password attributes
 

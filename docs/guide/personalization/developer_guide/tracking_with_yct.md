@@ -16,9 +16,9 @@ Otherwise a new one is created.
 
 ## Tracking code quickstart
 
-The YOOCHOOSE JavaScript is a Google-like tracking API (ga.js) that you can paste 
+The Personalization JavaScript is a Google-like tracking API (ga.js) that you can paste 
 into your pages. 
-It activates the YOOCHOOSE tracking by inserting <https://cdn.perso.ibexa.co/ibexa-tracker.js> 
+It activates the tracking by inserting <https://cdn.perso.ibexa.co/ibexa-tracker.js> 
 into the page.
 
 To use this mechanism on your pages, copy the code snippet below, and replace 

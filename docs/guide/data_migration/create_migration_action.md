@@ -4,7 +4,7 @@ description: Create a custom action to use while performing data migration.
 
 # Create data migration action
 
-To create an action, you need:
+To create an [action](data_migration_actions.md) that is performed after a migration step, you need:
 
 - An action class, to store any additional data that you might require.
 - An action denormalizer, to convert YAML definition into your action class.

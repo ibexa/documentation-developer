@@ -113,7 +113,6 @@ nav:
                - 'Time Field Type': 'api/field_types_reference/timefield.md'
                - 'URL Field Type': 'api/field_types_reference/urlfield.md'
                - 'User Field Type': 'api/field_types_reference/userfield.md'
-               - 'XmlText Field Type': 'api/field_types_reference/xmltextfield.md'
         - GraphQL:
             - 'GraphQL': 'api/graphql.md'
             - 'GraphQL queries': 'api/graphql_queries.md'
@@ -126,12 +125,9 @@ nav:
             - 'Bundles': 'guide/bundles.md'
             - 'Content model': 'guide/content_model.md'
         - Configuration:
-            - 'Configuration': 'guide/configuration.md'
-            - 'Dynamic configuration': 'guide/config_dynamic.md'
-            - 'Back Office configuration': 'guide/config_back_office.md'
-            - 'Repository configuration': 'guide/config_repository.md'
-            - 'Connector configuration': 'guide/config_connector.md'
-            - 'Shop configuration': 'guide/shop_configuration.md'
+            - 'Configuration': 'guide/configuration/configuration.md'
+            - 'Dynamic configuration': 'guide/configuration/config_dynamic.md'
+            - 'Repository configuration': 'guide/configuration/config_repository.md'
         - 'Admin panel': 'guide/admin_panel.md'
         - Content rendering:
             - Render content:
@@ -181,9 +177,10 @@ nav:
         - Content management:
             - 'Content management': 'guide/content_management.md'
             - Images:
-              - 'Images': 'guide/images.md'
-              - 'Configure Image Editor': 'guide/image_editor.md'
-              - 'Extend Image Editor': 'extending/extending_image_editor.md'
+              - 'Images': 'guide/images/images.md'
+              - 'Configure Image Editor': 'guide/images/image_editor.md'
+              - 'Extend Image Editor': 'guide/images/extending_image_editor.md'
+              - 'Add Image Asset': 'guide/images/config_connector.md'
             - Rich Text:
                 - 'Extend Online Editor': 'extending/extending_online_editor.md'
                 - 'Create custom RichText block': 'extending/richtext_block.md'
@@ -294,10 +291,17 @@ nav:
                 - 'LogicalNot Criterion': 'guide/search/criteria_reference/logicalnot_criterion.md'
                 - 'LogicalOr Criterion': 'guide/search/criteria_reference/logicalor_criterion.md'
             - Product Search Criteria:
+                - 'BasePrice': 'guide/search/criteria_reference/baseprice_criterion.md'
+                - 'CheckboxAttribute': 'guide/search/criteria_reference/checkboxattribute_criterion.md'
+                - 'ColorAttribute': 'guide/search/criteria_reference/colorattribute_criterion.md'
+                - 'CustomPrice': 'guide/search/criteria_reference/customprice_criterion.md'
+                - 'FloatAttribute': 'guide/search/criteria_reference/floatattribute_criterion.md'
+                - 'IntegerAttribute': 'guide/search/criteria_reference/integerattribute_criterion.md'
                 - 'ProductAvailability': 'guide/search/criteria_reference/productavailability_criterion.md'
                 - 'ProductCode': 'guide/search/criteria_reference/productcode_criterion.md'
                 - 'ProductName': 'guide/search/criteria_reference/productname_criterion.md'
                 - 'ProductType': 'guide/search/criteria_reference/producttype_criterion.md'
+                - 'SelectionAttribute': 'guide/search/criteria_reference/selectionattribute_criterion.md'
             - Sort Clause reference:
                 - 'Sort Clause reference': 'guide/search/sort_clause_reference/sort_clause_reference.md'
                 - 'ContentId': 'guide/search/sort_clause_reference/contentid_sort_clause.md'
@@ -322,6 +326,7 @@ nav:
                 - 'UserLogin': 'guide/search/sort_clause_reference/userlogin_sort_clause.md'
                 - 'Visibility': 'guide/search/sort_clause_reference/visibility_sort_clause.md'
             - Product Sort Clauses:
+                - 'CreatedAt': 'guide/search/sort_clause_reference/createdat_sort_clause.md'
                 - 'ProductAvailability': 'guide/search/sort_clause_reference/productavailability_sort_clause.md'
                 - 'ProductCode': 'guide/search/sort_clause_reference/productcode_sort_clause.md'
                 - 'ProductName': 'guide/search/sort_clause_reference/productname_sort_clause.md'
@@ -466,6 +471,8 @@ nav:
         - 'Notifications': 'guide/sending_notifications.md'
     - Extend Back Office:
         - 'Back Office': 'extending/extending_back_office.md'
+        - 'Configuration': 'extending/config_back_office.md'
+        - 'Content Tree': 'extending/content_tree.md'
         - Back Office elements:
             - 'Reusable components': 'extending/reusable_back_office_templates.md'
             - 'Add drop-downs': 'extending/creating_custom_dropdowns.md'
@@ -523,6 +530,8 @@ nav:
             - 'Update to v4.0': 'updating/from_3.3/to_4.0.md'
         - Update from v4.0:
             - 'Update to v4.1': 'updating/from_4.0/to_4.1.md'
+        - Update from v4.1:
+            - 'Update to v4.1.latest': 'updating/from_4.1/update_from_4.1.md'
         - Migrate to Ibexa DXP:
             - 'Migrate from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
             - 'Migrate from eZ Publish': 'migrating/migrating_from_ez_publish.md'
@@ -553,6 +562,11 @@ nav:
 
 theme:
     name: material
+    features:
+        - content.code.annotate 
+        - navigation.tracking
+        - navigation.top
+        - content.tabs.link
     custom_dir: 'theme'
     favicon: 'images/favicon.png'
     language: 'en'
@@ -619,7 +633,6 @@ markdown_extensions:
   - pymdownx.highlight:
       guess_lang: false
       linenums: true
-      css_class: codehilite
       extend_pygments_lang:
         - name: php
           lang: php
@@ -629,7 +642,8 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde

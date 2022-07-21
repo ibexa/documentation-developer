@@ -16,7 +16,7 @@ The architecture of [[= product_name =]] is layered and uses clearly defined API
 
 |Layer|Description|
 |-----|-----------|
-|[Back Office](config_back_office.md)|Back Office contains all the necessary parts to run the [[= product_name =]] Back Office interface.|
+|[Back Office](../extending/config_back_office.md)|Back Office contains all the necessary parts to run the [[= product_name =]] Back Office interface.|
 |[HTTP Cache](cache/http_cache.md))|Symfony HTTP cache is used to manage content "view" cache with an expiration model. In addition it is extended by using FOSHttpCache to add several advanced features.|
 |[Controllers](content_rendering/queries_and_controllers/controllers.md)|Controllers created by you to read information from a Request object, create and return a Response objects.|
 |[Twig templates](content_rendering/twig_function_reference/twig_functions_reference.md)|Set of custom and built-in Twig templates. User interfaces are developed with the Twig template engine and query the Public API directly.|

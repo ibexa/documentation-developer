@@ -40,6 +40,7 @@ All Sort Clauses can take the following optional argument:
 
 | Sort Clause | Sorting based on | Supported by |
 |-----|-----|-----|
+|[CreatedAt](createdat_sort_clause.md)|Date and time of the creation of a product.|Product search|
 |[ProductAvailability](productavailability_sort_clause.md)|Product's availability|Content and Location Search; Filtering|
 |[ProductCode](productcode_sort_clause.md)|Product's code|Content and Location Search; Filtering|
 |[ProductName](productname_sort_clause.md)|Product's name|Content and Location Search; Filtering|

@@ -355,10 +355,10 @@ This file is responsible for sending notifications to the [Recommendation API](d
 To render recommended content, use a dedicated `showRecommendationsAction()` from the `RecommendationController.php`:
 
 ``` html+twig
-render_esi(controller('ibexa_personalization::showRecommendationsAction', {
-        'contextItems': content.id,
+render(controller('ibexa_personalization::showRecommendationsAction', {
+        'contextItems': content,
         'scenario': 'front',
-        'outputTypeId': 'blog_post',
+        'outputTypeId': 57,
         'limit': 3,
         'template': '@IbexaPersonalization::recommendations.html.twig',
         'attributes': ['title', 'intro', 'image', 'uri']
@@ -428,8 +428,8 @@ if the content Fields were previously exported by the export script.
                 "itemType": 38,
                 "relevance": 3,
                 "links": {
-                    "clickRecommended": "//event.test.yoochoose.net/api/723/clickrecommended/someuser/38/71?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736",
-                    "rendered": "//event.test.yoochoose.net/api/723/rendered/someuser/38/71?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736"
+                    "clickRecommended": "//event.test.perso.ibexa.co/api/723/clickrecommended/someuser/38/71?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736",
+                    "rendered": "//event.test.perso.ibexa.co/api/723/rendered/someuser/38/71?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736"
                 },
                 "attributes": [
                     {
@@ -463,8 +463,8 @@ if the content Fields were previously exported by the export script.
                 "itemType": 38,
                 "relevance": 1,
                 "links": {
-                    "clickRecommended": "//event.test.yoochoose.net/api/723/clickrecommended/someuser/38/75?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736",
-                    "rendered": "//event.test.yoochoose.net/api/723/rendered/someuser/38/75?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736"
+                    "clickRecommended": "//event.test.perso.ibexa.co/api/723/clickrecommended/someuser/38/75?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736",
+                    "rendered": "//event.test.perso.ibexa.co/api/723/rendered/someuser/38/75?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736"
                 },
                 "attributes": [
                     {

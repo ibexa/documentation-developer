@@ -4,7 +4,14 @@ description: Create a custom step for data migrations.
 
 # Create data migration step
 
-To create a migration step, you need:
+A data migration step is a single operation in data migration process
+that combines a mode (for example: `create`, `update`, `delete`)
+and a type (for example: `content`, `section`, `currency`),
+with optional additional information depending on the specific step.
+
+Besides the [built-in migrations steps](importing_data.md#available-migrations), you can also create custom ones.
+
+To create a custom migration step, you need:
 
 - A step class, to store any additional data that you might require.
 - A step normalizer, to convert YAML definition into your step class.
