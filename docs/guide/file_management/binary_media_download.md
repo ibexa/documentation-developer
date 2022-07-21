@@ -5,7 +5,7 @@ As such, they are not publicly downloadable from disk, and are instead served b
 
 ## The content/download route
 
-The path to content download should follow the route name.
+You have to create create a route using download route name.
 
 It also accepts optional query parameters:
 
