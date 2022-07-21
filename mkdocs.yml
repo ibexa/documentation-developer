@@ -181,7 +181,10 @@ nav:
                 - 'Create Online Editor button': 'extending/online_editor_button.md'
                 - 'Create Online Editor plugin': 'extending/online_editor_plugin.md'            
                 - 'Create custom RichText block': 'extending/richtext_block.md'
-            - 'File management': 'guide/file_management.md'
+            - File management: 
+                - 'File management': 'guide/file_management/file_management.md'
+                - 'Binary and Media download': 'guide/file_management/binary_media_download.md'
+                - 'File URL handling': 'guide/file_management/handling_file_url.md'
             - Page:
                 - 'Page blocks': 'guide/page/page_blocks.md'
                 - 'Page block attributes': 'guide/page/page_block_attributes.md'

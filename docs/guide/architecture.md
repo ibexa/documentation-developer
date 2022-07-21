@@ -29,7 +29,7 @@ The architecture of [[= product_name =]] is layered and uses clearly defined API
 |[Search](search/search.md)|Search API that allows both full-text search and querying the content.|
 |[SQL Storage Engine](search/search.md#legacy-search-engine)|Legacy search engine is SQL-based and uses Doctrine's database connection.|
 |[Solr Storage Engine](search/solr.md)|Transparent drop-in replacement for the SQL-based Legacy search engine.|
-|[IO](file_management.md#native-io-handler)|The IO API is organized around two types of handlers, both used by the IOService.|
+|[IO](file_management/file_management.md#native-io-handler)|The IO API is organized around two types of handlers, both used by the IOService.|
 |[IO Handler](clustering.md#dfs-io-handler)|The IO Handler manipulates metadata, making up for the potential inconsistency of network-based filesystems.|
 |[Recommendation](personalization/recommendation_client.md#enabling-recommendations)|Recommendation API.|
 |[Recommendation Engine](personalization/recommendation_client.md#enabling-recommendations)|Recommendation Engine allows displaying recommendations on your website.|

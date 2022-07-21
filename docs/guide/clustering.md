@@ -56,7 +56,7 @@ On Ibexa Cloud (and Platform.sh) Redis is preferred and supported.
 
 ### Shared binary files
 
-[[= product_name =]] supports multi-server setups by means of [custom IO handlers](file_management.md#the-dfs-cluster-handler).
+[[= product_name =]] supports multi-server setups by means of [custom IO handlers](file_management/file_management.md#the-dfs-cluster-handler).
 They make sure that files are correctly synchronized among the multiple clients using the data.
 
 ## DFS IO handler
@@ -215,7 +215,7 @@ ezplatform:
                 url_prefix: 'http://static.example.com/'
 ```
 
-You can read more about that on [Binary files URL handling](file_management.md#file-url-handling).
+You can read more about that on [Binary files URL handling](file_management/handling_file_url.md#file-url-handling).
 
 ### Web server rewrite rules
 
