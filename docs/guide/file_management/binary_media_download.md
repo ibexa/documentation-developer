@@ -1,23 +1,24 @@
 # Binary and Media download
 
-Unlike image files, you can restrict files stored in BinaryFile or Media to certain user roles.
-As such, they are not publicly downloadable from disk, and are instead served by Symfony, using a custom route that runs the necessary checks. This route is automatically generated as the `url` property for those Field values.
+You can restrict files stored in BinaryFile or Media Fields to certain user Roles.
+These files are not publicly downloadable from disk, and are instead served by Symfony, using a custom route that runs the necessary checks.
+This route is automatically generated as the `url` property for those Field values.
 
 ## The content/download route
 
-You have to create create a route using download route name.
+You have to create a route using the `download` route name.
 
-It also accepts optional query parameters:
+It accepts optional query parameters:
 
-- `version`: the version number that the file must be downloaded for. Requires the `content / read` permission for published Version and additionally `content / versionread` permission for not published Version. If not specified, uses the published version.
-- `inLanguage`: The language the file should be downloaded in. If not specified, the most prioritized language for the SiteAccess will be used.
+- `version`: The content version number that the file is downloaded for. Requires the `content / read` permission for a published version and additionally `content / versionread` permission for an unpublished version. If not specified, uses the published version.
+- `inLanguage`: The language the file should be downloaded in. If not specified, the most prioritized language for the SiteAccess is used.
 
-The [ibexa\_render\_field](../content_rendering/twig_function_reference/field_twig_functions.md#ibexa_render_field) Twig helper will by default generate a working link.
+The [`ibexa_render`_field`](../content_rendering/twig_function_reference/field_twig_functions.md#ibexa_render_field) Twig helper by default generates a working link.
 
 ## Download link generation
 
 To generate a direct download link for the `File` Field Type you have to create
-a Route Reference with the `ibexa_route` helper, passing `content` and `File` Field identifier as parameters.
+a RouteReference with the `ibexa_route` helper, passing `content` and `File` Field identifier as parameters.
 Optional parameter `inLanguage` may be used to specify File content translation.
 
 ```twig

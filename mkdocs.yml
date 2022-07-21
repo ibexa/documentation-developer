@@ -189,7 +189,7 @@ nav:
                 - 'Create custom RichText block': 'extending/richtext_block.md'
             - File management: 
                 - 'File management': 'guide/file_management/file_management.md'
-                - 'Binary and media download': 'guide/file_management/binary_media_download.md'
+                - 'Binary and Media download': 'guide/file_management/binary_media_download.md'
                 - 'File URL handling': 'guide/file_management/handling_file_url.md'
             - Page:
                 - 'Page blocks': 'guide/page/page_blocks.md'

@@ -1,4 +1,4 @@
-# File Management
+# File management
 
 ## Access binary files
 
@@ -26,7 +26,7 @@ class FileController
 
 The IO API is organized around two types of handlers, both used by the IOService:
 
-- `Ibexa\Core\IO\IOMetadataHandler`: stores and reads metadata (such as, validity, size)
+- `Ibexa\Core\IO\IOMetadataHandler`: stores and reads metadata (such as validity or size)
 - `Ibexa\Core\IO\IOBinarydataHandler`: stores and reads the actual binary data
 
 You can configure IO handlers using semantic configuration. IO handlers are configurable per SiteAccess.
@@ -39,7 +39,6 @@ ibexa:
             io:
                 metadata_handler: dfs
                 binarydata_handler: nfs
-```
 The adapter is the *driver* used by Flysystem to read/write files. Adapters are declared using `oneup_flysystem`. 
 Metadata and binary data handlers are configured under `ibexa_io`. See below the configuration for the default handlers. It declares a metadata handler and a binary data handler, both labeled `default`. Both handlers are of type `flysystem`, and use the same Flysystem adapter, labeled `default` as well.
 
@@ -55,7 +54,7 @@ ibexa_io:
                 connection: doctrine.dbal.dfs_connection
 ```
 
-The nfs_adapter's directory is based on your site settings, and will automatically be set to `$var_dir$/$storage_dir$` (for example, `/path/to/ibexa/public/var/site/storage`).
+The `nfs_adapter`'s directory is based on your site settings, and is automatically set to `$var_dir$/$storage_dir$` (for example, `/path/to/ibexa/public/var/site/storage`).
 
 #### Permissions of generated files
 
@@ -78,7 +77,8 @@ Default values:
 
 !!! note
 
-    Make sure to configure permissions using a number and **not** a string. If you write "0644" it will **not** be interpreted by PHP as an octal number, and unexpected permissions is applied.
+    Make sure to configure permissions using a number and **not** a string.
+    "0644" is **not** interpreted by PHP as an octal number, and unexpected permissions can be applied.
 
 !!! note
 
@@ -118,15 +118,16 @@ To learn how to configure other adapters, see the [bundle's online documentation
 
 !!! note
 
-Only the adapters are used here, not the filesystem configuration described in this documentation.
+    Only the adapters are used here, not the filesystem configuration described in this documentation.
 
 ### DFS Cluster handler
 
-For clustering use the platform provides a custom metadata handler that stores metadata about your assets in the database. This is done as it is faster than accessing the remote NFS or S3 instance to read metadata. For further reading on setting this up, see [Clustering](../clustering.md).
+For clustering, the platform provides a custom metadata handler that stores metadata about your assets in the database.
+This is faster than accessing the remote NFS or S3 instance to read metadata. For further reading on setting this up, see [Clustering](../clustering.md).
 
 ## Enabling BinaryFile Field indexing
 
-The indexing of all binary file Fields is disabled by default.
+The indexing of all BinaryFile Fields is disabled by default.
 To enable it, first, make sure you have installed Oracle Java/Open JDK 8 or higher and Apache Tika 1.20.
 Next, in the `config/packages` folder create a `binary_files.yaml` file with the following configuration:
 
@@ -136,7 +137,7 @@ ibexa_commerce_field_types:
         enabled: true
 ```
 
-To check what types are indexed, check the `ibexa.commerce.site_access.config.search.default.index_content` Service Container parameter. This parameter can be overridden for a specific SiteAccess by replacing `default` by its name
+To check what types are indexed, check the `ibexa.commerce.site_access.config.search.default.index_content` service container parameter. You can override this parameter for a specific SiteAccess by replacing `default` by its name
 The following file types are indexed by default:
 
 ``` yaml
