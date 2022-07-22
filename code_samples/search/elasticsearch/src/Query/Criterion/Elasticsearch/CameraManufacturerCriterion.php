@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Query\Criterion;
+namespace App\Query\Criterion\Elasticsearch;
 
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Operator;
@@ -11,7 +11,7 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Operator\Spec
 final class CameraManufacturerCriterion extends Criterion
 {
     /**
-     * @param string|string[] $value Manufacturer name(s) to be matched.
+     * @param string|string[] $value One or more manufacturer names that must be matched.
      */
     public function __construct($value)
     {

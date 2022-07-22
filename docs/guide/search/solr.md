@@ -518,5 +518,5 @@ Connect to the Solr slave interface (http://localhost:8983/solr), go to your cor
 
 ## Extending Solr
 
-To learn how you can create document field mappers, custom search criteria, 
-custom sort clauses and aggregations, see [Solr extensibility](extend_solr.md).
+To learn how you can create document field mappers, custom Search Criteria, 
+custom Sort Clauses and Aggregations, see [Search extensibility](extensibility/create_custom_search_criterion.md).

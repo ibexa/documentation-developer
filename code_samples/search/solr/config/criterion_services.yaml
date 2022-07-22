@@ -1,0 +1,5 @@
+services:
+    App\Query\Criterion\Solr\CameraManufacturerVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.content.criterion.visitor }
+            - { name: ibexa.search.solr.query.location.criterion.visitor }

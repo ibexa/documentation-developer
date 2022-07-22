@@ -1,0 +1,10 @@
+services:
+    App\Query\Aggregation\Elasticsearch\PriorityAggregationVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.visitor }
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.visitor }
+    
+    App\Query\Aggregation\Elasticsearch\PriorityAggregationResultExtractor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
