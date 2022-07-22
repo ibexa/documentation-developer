@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Query\Criterion;
+namespace App\Query\Criterion\Solr;
 
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Contracts\Solr\Query\CriterionVisitor;
@@ -13,6 +13,7 @@ final class CameraManufacturerVisitor extends CriterionVisitor
     {
         return $criterion instanceof CameraManufacturerCriterion;
     }
+
     public function visit(Criterion $criterion, CriterionVisitor $subVisitor = null)
     {
         $expressions = array_map(
@@ -21,6 +22,7 @@ final class CameraManufacturerVisitor extends CriterionVisitor
             },
             $criterion->value
         );
+
         return '(' . implode(' OR ', $expressions) . ')';
     }
 }

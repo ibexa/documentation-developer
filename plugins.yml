@@ -20,4 +20,5 @@ plugins:
             'guide/config_repository.md': 'guide/configuration/config_repository.md'
             'guide/configuration.md': 'guide/configuration/configuration.md'
             'guide/shop_configuration.md': 'guide/basket/basket.md'
-            
+            'guide/search/extend_solr.md': 'guide/search/solr.md'
+            'guide/search/extend_elasticsearch.md': 'guide/search/elastic.md'
