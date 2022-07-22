@@ -20,7 +20,7 @@
                 body:
                     application/vnd.ibexa.api.ProductCreate+json:
                         type: Product
-                        example: !include examples/product/catalog/product/POST/ProductCreate.json.example
+                        example: !include examples/product/catalog/product/GET/Product.json.example
             400:
                 description: Error - the input does not match the input schema definition.
             401:
@@ -28,6 +28,7 @@
             403:
                 description: Error - a product with the same name already exists.
             404:
+                description: Error - the product with the given code does not exist.
 /{identifier}:
     delete:
         displayName: Delete product
@@ -50,10 +51,6 @@
                 description: The product schema encoded in XML or JSON format.
                 example:  |
                     application/vnd.ibexa.api.ProductGet+json
-        body:
-            application/vnd.ibexa.api.ProductGet+json:
-                type: ProductGet
-                example: !include examples/product/catalog/product/code/GET/Product.json.example
         responses:
             200:
                 body:
@@ -63,7 +60,7 @@
             401:
                 description: Error - the user is not authorized to view this product.
             404:
-                description: Error - the product with the given ID does not exist.
+                description: Error - the product with the given code does not exist.
     patch:
         displayName: Update product
         description: Updates product.
@@ -91,9 +88,9 @@
             401:
                 description: Error - the user is not authorized to create this product.
             403:
-                description: Error - a product with the same ID already exists.
+                description: Error - a product with the same code already exists.
             404:
-                description: Error - the product with the given ID does not exist.
+                description: Error - the product with the given code does not exist.
 get:
     displayName: Load products list
     description: Returns a list of products.
