@@ -1,0 +1,10 @@
+services:
+    App\Query\Aggregation\Solr\PriorityRangeAggregationVisitor:
+        tags:
+            - { name: ezplatform.search.solr.query.location.aggregation_visitor }
+            - { name: ezplatform.search.solr.query.content.aggregation_visitor }
+
+    App\Query\Aggregation\Solr\PriorityAggregationResultExtractor:
+        tags:
+            - { name: ezplatform.search.solr.query.location.aggregation_result_extractor }
+            - { name: ezplatform.search.solr.query.content.aggregation_result_extractor }

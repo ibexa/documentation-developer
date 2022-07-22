@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Query\Aggregation;
+namespace App\Query\Aggregation\Solr;
 
 use eZ\Publish\API\Repository\Values\Content\Query\Aggregation;
 use eZ\Publish\API\Repository\Values\Content\Query\Aggregation\Range;
@@ -18,6 +18,7 @@ final class PriorityAggregationResultExtractor implements AggregationResultExtra
     {
         return $aggregation instanceof PriorityRangeAggregation;
     }
+
     public function extract(Aggregation $aggregation, array $languageFilter, stdClass $data): AggregationResult
     {
         $entries = [];

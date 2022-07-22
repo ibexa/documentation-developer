@@ -2,7 +2,8 @@
 
 declare(strict_types=1);
 
-namespace App\Query\Aggregation;
+namespace App\Query\Aggregation\Solr;
+
 use eZ\Publish\API\Repository\Values\Content\Query\Aggregation;
 use EzSystems\EzPlatformSolrSearchEngine\Query\AggregationVisitor;
 
@@ -16,7 +17,6 @@ final class PriorityRangeAggregationVisitor implements AggregationVisitor
     /**
      * @param \eZ\Publish\API\Repository\Values\Content\Query\Aggregation\AbstractRangeAggregation $aggregation
      */
-    
     public function visit(
         AggregationVisitor $dispatcherVisitor,
         Aggregation $aggregation,
@@ -31,7 +31,7 @@ final class PriorityRangeAggregationVisitor implements AggregationVisitor
                 'q' => sprintf('priority_i:[%s TO %s}', $from, $to),
             ];
         }
- 
+
         return [
             'type' => 'query',
             'q' => '*:*',

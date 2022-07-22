@@ -431,9 +431,14 @@ nav:
                 - 'LogicalOr Criterion': 'guide/search/url_search_reference/logicalor_url_criterion.md'   
             - 'Search in trash reference': 'guide/search/search_in_trash_reference.md'
             - 'Elasticsearch search engine': 'guide/search/elastic.md'
-            - 'Elasticsearch extensibility': 'guide/search/extend_elasticsearch.md'
             - 'Solr search engine': 'guide/search/solr.md'
-            - 'Solr extensibility': 'guide/search/extend_solr.md'
+            - Extend search:
+                - 'Create custom Search Criterion': 'guide/search/extensibility/create_custom_search_criterion.md'
+                - 'Create custom Sort Clause': 'guide/search/extensibility/create_custom_sort_clause.md'
+                - 'Create custom Aggregation': 'guide/search/extensibility/create_custom_aggregation.md'
+                - 'Solr document field mappers': 'guide/search/extensibility/solr_document_field_mappers.md'
+                - 'Index custom Elasticsearch data': 'guide/search/extensibility/index_custom_elasticsearch_data.md'
+                - 'Manipulate Elasticsearch query': 'guide/search/extensibility/manipulate_elasticsearch_query.md'
             - Shop search:
                 - 'Shop search': 'guide/search/shop_search/shop_search.md'
                 - 'Search templates': 'guide/search/shop_search/search_templates.md'
@@ -697,6 +702,7 @@ markdown_extensions:
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
+  - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
