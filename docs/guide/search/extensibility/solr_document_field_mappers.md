@@ -1,5 +1,5 @@
 ---
-description: Use document field mappers to add additional in Solr search engine.
+description: Use document field mappers to add additional data in Solr search engine.
 ---
 
 # Solr document field mappers
