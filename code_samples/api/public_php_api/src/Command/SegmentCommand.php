@@ -51,7 +51,7 @@ class SegmentCommand extends Command
 
         $newSegment = $this->segmentationService->createSegment($segmentCreateStruct);
 
-        $segmentGroup = $this->segmentationService->loadSegmentGroup(1);
+        $segmentGroup = $this->segmentationService->loadSegmentGroupByIdentifier('custom_group');
 
         $segments = $this->segmentationService->loadSegmentsAssignedToGroup($segmentGroup);
 
@@ -59,7 +59,7 @@ class SegmentCommand extends Command
             $output->writeln('Segment ID: ' . $segment->id . ', name: ' . $segment->name);
         }
 
-        $segment = $this->segmentationService->loadSegment(1);
+        $segment = $this->segmentationService->loadSegmentByIdentifier('segment_1');
 
         $this->segmentationService->assignUserToSegment($user, $segment);
 
