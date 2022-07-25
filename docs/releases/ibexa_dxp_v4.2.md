@@ -104,6 +104,14 @@ The price engine now dispatches [events related to creating, updating and deleti
 
 Data migration now supports `attribute` and `attribute_group` types when generating migration files.
 
+## Deprecations
+
+- `SegmentationService::loadSegmentGroup()` and `SegmentationService::loadSegment()` are now deprecated.
+Use `SegmentationService::loadSegmentGroupByIdentifier()` and `SegmentationService::loadSegmentByIdentifier()` instead,
+which take `SegmentGroup` and `Segment` identifier respectively, instead of numerical IDs.
+- `SegmentationService::updateSegmentGroup()` and `SegmentationService::updateSegment()` now take
+a `SegmentGroup` and `Segment` objects respectively, instead of numerical IDs.
+
 ## Full changelog
 
 | Ibexa Content  | Ibexa Experience  | Ibexa Commerce |
