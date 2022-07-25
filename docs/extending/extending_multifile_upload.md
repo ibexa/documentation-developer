@@ -1,3 +1,7 @@
+---
+description: Configure multi-file upload functionality which allows uploading files in bulk.
+---
+
 # Multi-file upload
 
 You can use the multi-file upload module in the editorial interface of [[= product_name =]].

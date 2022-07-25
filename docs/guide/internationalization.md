@@ -1,3 +1,7 @@
+---
+description: You can create multiple language versions (translations) of content and serve different language versions of your site with the help of SiteAccesses.
+---
+
 # Languages
 
 ## Language versions

@@ -1,3 +1,7 @@
+---
+description: See what issues you can encounter when installing Ibexa DXP and how to resolve them.
+---
+
 # Troubleshooting
 
 This page lists potential problems that you may encounter while installing, configuring, and running [[= product_name =]].

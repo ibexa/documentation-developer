@@ -1,3 +1,7 @@
+---
+description: Aggregations help fine-tune search for content and Locations by grouping results into categories.
+---
+
 # Aggregation reference
 
 [Aggregation](../../../api/public_php_api_search.md#aggregation) is used to group search results into categories.

@@ -1,3 +1,7 @@
+---
+description: Configure Elasticsearch to use with Ibexa DXP.
+---
+
 # Elasticsearch search engine
 
 Elasticsearch is an open-source, distributed, Java-based search engine that responds to queries
@@ -21,7 +25,7 @@ docker run -d --name ibexa-dxp-elasticsearch -p 9200:9200 -p 9300:9300 -e "disco
 
 !!! note
 
-    [[= product_name =]] supports Elasticsearch in version 7.7.
+    [[= product_name =]] supports Elasticsearch in version 7.16.2 or higher.
 
 ## Step 2: Verify that the Elasticsearch instance is up
 
@@ -459,7 +463,7 @@ Index names use the following pattern:
     `<repository>_<document_type>_<language_code>_<content_type_id>`
 
     By default, repository name is set to `default`, however, in the context of an [[= product_name =]] instance,
-    there can be [several repositories with different names](../config_repository.md#defining-custom-connection).
+    there can be [several repositories with different names](../configuration/config_repository.md#defining-custom-connection).
     Document type can be either `content` or `location`.
     In a language code, hyphens are replaced with underscores, and all characters must be lowercase.
     An index name can therefore look like this:
@@ -588,5 +592,5 @@ For more information about how Elasticsearch handles settings and mappings from 
 
 ## Extending Elasticsearch
 
-To learn how to create custom Search Criteria and Sort Clauses for use with Elasticsearch,
-and how to index custom data and manipulate the query, see [Elasticsearch extensibility](extend_elasticsearch.md).
+To learn how you can create document field mappers, custom Search Criteria, 
+custom Sort Clauses and Aggregations, see [Search extensibility](extensibility/create_custom_search_criterion.md).

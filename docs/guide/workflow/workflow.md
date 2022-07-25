@@ -1,3 +1,7 @@
+---
+description: Workflow controls how Content items pass between stages and allows setting up editorial flows, for example for reviews and proofreading.
+---
+
 # Workflow
 
 The workflow functionality passes a Content item version through a series of stages.

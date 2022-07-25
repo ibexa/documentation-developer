@@ -1,3 +1,7 @@
+---
+description: Learn how to validate custom Field data.
+---
+
 # Step 7 - Add basic validation
 
 To provide basic validation that ensures both coordinates are provided, add assertions to the `src/FieldType/Point2D/Value.php`:

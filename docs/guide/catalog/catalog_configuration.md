@@ -1,6 +1,10 @@
+---
+description: Configure product catalog per Repository, with different catalog engines and VAT configurations.
+---
+
 # Catalog configuration
 
-You can configure the product catalog per [Repository](../config_repository.md).
+You can configure the product catalog per [Repository](../configuration/config_repository.md).
 
 Under `ibexa.repositories.<repository_name>.product_catalog`, indicate the catalog engine to use:
 
@@ -36,27 +40,7 @@ Under `options.product_type_group_identifier` you can define the identifier of t
 
 ## VAT rates
 
-To set up different VAT rates for different regions (countries), you can use the following configuration:
-
-``` yaml
-ibexa_product_catalog:
-    regions:
-        region_1:
-            vat_categories:
-                standard: 12
-                reduced: 8
-                zero: 0
-        region_2:
-            vat_categories:
-                standard: 24
-                reduced: 12
-                zero: 0
-```
-
-`ibexa_product_catalog.regions` enables you to configure global regions which have different VAT rules,
-with their specific VAT rates.
-
-You can override the global configuration per scope under `ibexa.system.<scope>.product_catalog.regions`:
+To set up different VAT rates for different regions (countries), you can use the following configuration under `ibexa.repositories.<scope>.product_catalog.regions`:
 
 ``` yaml
 ibexa:

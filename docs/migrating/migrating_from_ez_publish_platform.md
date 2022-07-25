@@ -1,3 +1,7 @@
+---
+description: Migrate an older eZ Publish Platform installation to eZ Platform.
+---
+
 # Migrating from eZ Publish Platform
 
 eZ Publish Platform (5.x) was a transitional version of the Ibexa CMS, bridging the gap between the earlier generation called eZ Publish (sometimes referred to as *legacy*), and eZ Platform, the predecessor to [[= product_name =]].
@@ -442,7 +446,7 @@ Below is a table of the tags that are currently supported, and their correspondi
 
 #### 3.2.3 Add other eZ Enterprise schemas (eZ Enterprise only)
 
-For date-based publisher and form builder, there are additional tables, you can import them to your database using the following sql files:
+For date-based publisher and Form Builder, there are additional tables, you can import them to your database using the following sql files:
 `<new-ez-root>/vendor/ezsystems/date-based-publisher/bundle/Resources/install/datebasedpublisher_scheduled_version.sql`,
 `<new-ez-root>/vendor/ezsystems/ezstudio-form-builder/bundle/Resources/install/form_builder.sql`, `<new-ez-root>/vendor/ezsystems/ezstudio-notifications/bundle/Resources/install/ezstudio-notifications.sql`
 

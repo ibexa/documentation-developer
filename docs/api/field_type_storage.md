@@ -1,3 +1,7 @@
+---
+description: To be able to store the data saved to a Field, you must configure storage conversion for the Field Type.
+---
+
 # Field Type storage
 
 ## Storage conversion
@@ -56,7 +60,7 @@ which you must implement in your Field Type. The interface contains the followin
 |`toFieldDefinition`|Converts the other way around.|
 |`getIndexColumn()`|Returns the storage column which is used for indexing either `sort_key_string` or `sort_key_int`.|
 
-Just like a Type, a Legacy Converter needs to be registered and tagged in the [service container](../api/service_container.md).
+Just like a Type, a Legacy Converter needs to be registered and tagged in the [service container](../api/public_php_api.md#service-container).
 
 #### Registering a converter
 

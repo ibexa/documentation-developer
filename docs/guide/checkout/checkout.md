@@ -1,4 +1,8 @@
-# Checkout
+---
+description: One-page checkout form covers providing customer information, addresses, payment and shipping methods.
+---
+
+# Checkout [[% include 'snippets/commerce_badge.md' %]]
 
 [[= product_name =]] provides a multi-step checkout process that takes place on one page.
 

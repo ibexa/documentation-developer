@@ -1,3 +1,7 @@
+---
+description: Events that are triggered when working with Pages and Page blocks.
+---
+
 # Page events [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 | Event | Dispatched by | Properties |
@@ -9,9 +13,9 @@
 |`CollectBlockRelationsEvent`|`CollectRelationsSubscriber::onCollectBlockRelations`|`LandingPage\Value $fieldValue`</br>`LandingPage\Model\BlockValue $blockValue`</br>`int[] $relations`|
 |`PageRenderEvent`|`PageService::dispatchRenderPageEvent`|`Content $content`</br>`Location|null $location`</br>`LandingPage\Model\Page $page`</br>`Request $request`|
 
-## Page builder
+## Page Builder
 
-The following events are dispatched when editing a Page in the Page builder.
+The following events are dispatched when editing a Page in the Page Builder.
 
 | Event | Dispatched by | Properties |
 |---|---|---|

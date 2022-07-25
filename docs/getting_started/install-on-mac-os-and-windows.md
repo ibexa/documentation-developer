@@ -1,3 +1,7 @@
+---
+description: Install Ibexa DXP on a macOS or Windows system to use it for development.
+---
+
 # Install [[= product_name =]] on macOS or Windows
 
 This page explains how to install [[= product_name =]] on macOS or Windows.

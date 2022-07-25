@@ -1,0 +1,8 @@
+app.rest:
+    resource: routes_rest.yaml
+    prefix: '%ibexa.rest.path_prefix%'
+
+app.rest.options:
+    resource: routes_rest.yaml
+    prefix: '%ibexa.rest.path_prefix%'
+    type: rest_options

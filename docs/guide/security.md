@@ -1,3 +1,7 @@
+---
+description: Ensure the security of your Ibexa DXP installation by using one of the available authentication methods.
+---
+
 # Development security
 
 !!! tip
@@ -120,7 +124,7 @@ It is already provided in `config/packages/security.yaml`, you only need to unco
 ``` yaml
 security:
     firewalls:
-        ibexa_rest:
+        ibexa_jwt_rest:
             request_matcher: Ibexa\AdminUi\REST\Security\NonAdminRESTRequestMatcher
             user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
             anonymous: ~
@@ -130,7 +134,7 @@ security:
                 entry_point: lexik_jwt_authentication.jwt_token_authenticator
             stateless: true
 
-        ibexa_graphql:
+        ibexa_jwt_graphql:
             request_matcher: Ibexa\GraphQL\Security\NonAdminGraphQLRequestMatcher
             user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
             anonymous: ~

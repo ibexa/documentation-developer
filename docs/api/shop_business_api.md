@@ -1,4 +1,4 @@
-# Shop API
+# Shop API [[% include 'snippets/commerce_badge.md' %]]
 
 Shop business API is the layer between the application entry points (like controllers or CLI commands) and the particular shop-related services.
 

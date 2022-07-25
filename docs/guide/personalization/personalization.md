@@ -1,3 +1,7 @@
+---
+description: Personalization tracks consumed content and suggests targeted content to your website visitors.
+---
+
 # Personalization
 
 Ibexa Personalization is a service that offers personalized recommendations 

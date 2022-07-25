@@ -1,3 +1,7 @@
+---
+description: Configure SiteAccesses to serve different content in different layouts.
+---
+
 # Multisite configuration
 
 You can configure the available SiteAccesses under the `ibexa.siteaccess` key.
@@ -38,7 +42,7 @@ The predefined `admin` SiteAccess in `admin_group` (configured in `config/packag
 Do not remove this group.
 If you need a multisite setup with multiple Back Offices, add any additional administration SiteAccesses to `admin_group`.
 
-In cases where the sites are on separate databases, each needs its own [repository](../config_repository.md)
+In cases where the sites are on separate databases, each needs its own [repository](../configuration/config_repository.md)
 (including their own storage and search connection), var dir, [cache pool](../persistence_cache.md#persistence-cache-configuration),
 and ideally also separate Varnish/Fastly configuration.
 
@@ -164,7 +168,7 @@ ibexa:
     be sure to use SSL (https protocol).
     Otherwise, you cannot preview content in Page Builder from the Back Office.
 
-#### SiteAccess switching in Page Builder [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+#### SiteAccess switching in Page Builder
 
 If you need to change between SiteAccesses in Site mode, do not use any functions in the page itself (for example, a language switcher).
 This may cause unexpected errors. Instead, switch between SiteAccesses using the SiteAccess bar above the page.

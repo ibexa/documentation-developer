@@ -1,3 +1,7 @@
+---
+description: Check common issues that occur when updating from earlier version to Ibexa DXP and how to resolve them.
+---
+
 # Common migration issues
 
 Below you will find cleanup commands from the EzPublishMigrationBundle for the most common

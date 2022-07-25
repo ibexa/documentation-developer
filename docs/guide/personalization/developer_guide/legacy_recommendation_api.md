@@ -1,3 +1,7 @@
+---
+description: An old method of fetching recommendations from the system using recommendation requests.
+---
+
 # Legacy Recommendation API
 
 !!! caution
@@ -36,7 +40,7 @@ These configurations are a combination of methods and filters that should be app
 
 A recommendation request looks like this:
 
-**`https://reco.yoochoose.net/\[solutionid\]/\[customerid\]/\[userid\]/\[scenarioid\].\[extension\]?parameter=value&\[attributename=attributevalue\]`**
+**`https://reco.perso.ibexa.co/\[solutionid\]/\[customerid\]/\[userid\]/\[scenarioid\].\[extension\]?parameter=value&\[attributename=attributevalue\]`**
 
 The embedded parameters `solutionid`, `clientid` and `userid` are the same as used for event tracking. Additional embedded parameters are described in the following table.
 
@@ -60,7 +64,7 @@ Using additional query string parameters one can customize the recommendation re
 
 An example of the recommendation request: 
 
-**`https://reco.yoochoose.net/ebl/0000/smith/productpage.json?contextitems=123&categorypath=%2FCamera%2FCompact&numrecs=8`**
+**`https://reco.perso.ibexa.co/ebl/0000/smith/productpage.json?contextitems=123&categorypath=%2FCamera%2FCompact&numrecs=8`**
 
 It fetches 8 recommendations for user Smith, who is watching the item 123 and the category *"/Camera/Compact"* from the scenario with the identifier productpage.
 

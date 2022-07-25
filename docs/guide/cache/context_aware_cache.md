@@ -1,3 +1,7 @@
+---
+description: Context-aware HTTP cache caches requests depending on the logged-in user context.
+---
+
 # Context-aware HTTP cache
 
 [[= product_name =]] allows caching requests made by logged-in users.

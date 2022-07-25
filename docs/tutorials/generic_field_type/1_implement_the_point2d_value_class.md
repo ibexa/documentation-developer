@@ -1,3 +1,7 @@
+---
+description: Learn how to create a Value class that stores the value of the Field.
+---
+
 # Step 1 - Implement the Point 2D Value class
 
 ## Project installation

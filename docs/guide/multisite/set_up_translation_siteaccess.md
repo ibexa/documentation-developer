@@ -1,3 +1,7 @@
+---
+description: Set up SiteAccesses to hold different language versions of a site.
+---
+
 # Set up translation SiteAccess
 
 One of common uses for multisite installations is serving different language versions of a website.

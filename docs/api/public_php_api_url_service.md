@@ -1,3 +1,7 @@
+---
+description: The PHP API URLService enables searching for external URLs used in tech text and URL Fields.
+---
+
 # URL API
 
 [`URLService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/URLService.php)

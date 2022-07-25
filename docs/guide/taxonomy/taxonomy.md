@@ -1,3 +1,7 @@
+---
+description: A taxonomy uses tags to categorize and organize content
+---
+
 # Taxonomy
 
 Taxonomies (**Tags**) allow you to organize content to make it easy for your site users to browse and to deliver content appropriate for them. It also enhances content search.

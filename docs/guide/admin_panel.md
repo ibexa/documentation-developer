@@ -1,3 +1,7 @@
+---
+description: Ibexa DXP Back Office contains managements options for permissions, users, languages, Content Types, as well as system information.
+---
+
 # Admin panel
 
 Once you set up your environment you can start your work as an administrator.
@@ -151,7 +155,7 @@ By default, [[= product_name =]] contains one Object state group: **Lock**, with
 Object states can be used in conjunction with permissions, in particular with the [State Limitation](limitation_reference.md#state-limitation).
 Their specific use cases depend on your needs and the setup of your permission system.
 
-## Segments
+## Segments [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 You can use Segments to display specific content to specific Users.
 They are used out of the box in the Targeting and Dynamic targeting blocks in the Page.

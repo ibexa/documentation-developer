@@ -1,3 +1,7 @@
+---
+description: Enable comparison of content Fields based on a custom Field Type.
+---
+
 # Create custom Field Type comparison
 
 In the Back Office, you can compare the contents of Fields.

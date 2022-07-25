@@ -1,3 +1,7 @@
+---
+description: Order history lets the user check the historical records of all their orders.
+---
+
 # Order history [[% include 'snippets/commerce_badge.md' %]]
 
 The **Order History** screen enables you to see an overview and details of your orders or other documents.

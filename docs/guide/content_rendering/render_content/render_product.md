@@ -1,3 +1,7 @@
+---
+description: Prepare templates for rendering products from the catalog.
+---
+
 # Render a product
 
 To customize the template for a product, first, you need to prepare a content view configuration.
@@ -41,7 +45,7 @@ You can access the product's price information from the product object:
 [[= include_file('code_samples/front/shop/render_product/templates/full/product.html.twig', 9, 10) =]]
 ```
 
-## Add to basket
+## Add to basket [[% include 'snippets/commerce_badge.md' %]]
 
 The `ibexa.commerce.basket.add` route enables you to create an "Add to basket" button.
 To make the button fully functional, you must first configure all necessary information for the product, otherwise the product will not be added to basket.

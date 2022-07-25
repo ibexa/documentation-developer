@@ -1,4 +1,8 @@
-# Step 3 — Use existing blocks [[% include 'snippets/experience_badge.md' %]]
+---
+description: Learn how to use and customize built-in Page blocks.
+---
+
+# Step 3 — Use existing blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 In this step you'll add a Content List block and a Content Scheduler block and customize them.
 
@@ -17,7 +21,7 @@ In `config/packages/ibexa_fieldtype_page.yaml` add the following code at the end
 [[= include_file('code_samples/tutorials/page_tutorial/config/packages/ibexa_fieldtype_page.yaml', 13, 19) =]]
 ```
 
-The template makes use of an [image variation](../../guide/images.md) (line 10).
+The template makes use of an [image variation](../../guide/images/images.md) (line 10).
 It is the thumbnail of the Dog Breed image that will be displayed in the block.
 To configure this variation, open the `config/packages/image_variations.yaml` file and add the following code under the `image_variations` key:
 

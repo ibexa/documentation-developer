@@ -1,4 +1,8 @@
-# Step 2 — Prepare the Page [[% include 'snippets/experience_badge.md' %]]
+---
+description: Learn how to build a Page with a custom layout.
+---
+
+# Step 2 — Prepare the Page [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 In this step you'll prepare and configure your front page, together with its layout and templates.
 

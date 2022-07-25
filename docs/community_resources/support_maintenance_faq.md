@@ -1,3 +1,7 @@
+---
+description: See how you can resolve common issues and report a Customer Support ticket.
+---
+
 # Support and maintenance FAQ
 
 This page contains answers to most common questions and tips around support and maintenance,

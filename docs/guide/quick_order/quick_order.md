@@ -1,3 +1,7 @@
+---
+description: Use quick order to quickly add products to the basket in bulk.
+---
+
 # Quick order [[% include 'snippets/commerce_badge.md' %]]
 
 Quick order is an order form that speeds up the checkout and order process.
@@ -50,7 +54,7 @@ To provide SKU, variant code and quantity:
 SE0101,VAR-BLK,3
 ```
 
-You can set a different order of data and add [additional text](../shop_configuration.md#additional-data-in-the-basket-line)
+You can set a different order of data and add [additional text](../basket/basket.md#basket-configuration)
 in [configuration](quick_order_configuration.md#csv-data-order).
 
 The following MIME types are supported:

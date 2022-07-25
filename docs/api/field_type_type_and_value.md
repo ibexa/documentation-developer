@@ -1,3 +1,7 @@
+---
+description: The basis of all Field Types are their Type and Value classes, containing, respectively, the logic and the data for the Fields.
+---
+
 # Type and Value
 
 A Field Type must contain a Type class which contains the logic of the Field Type: validating data, transforming from various formats, describing the validators, etc.
@@ -87,7 +91,7 @@ It is based on the Field Type settings and validator configuration and stored in
 
 ### Serialization
 
-When [REST API](rest_api_guide.md) is used, conversion needs to be done for Field Type values, settings and validator configurations. These are converted to and from a simple hash format that can be encoded in REST payload. As conversion needs to be done both when transmitting and receiving data through REST, Field Type implements the following pairs of methods:
+When [REST API](rest_api_usage.md) is used, conversion needs to be done for Field Type values, settings and validator configurations. These are converted to and from a simple hash format that can be encoded in REST payload. As conversion needs to be done both when transmitting and receiving data through REST, Field Type implements the following pairs of methods:
 
 |Method|Description|
 |------|-----------|
@@ -120,7 +124,7 @@ If you need to inject other services into your Type class, skip using the `paren
 Like most API components, Field Types use the [Symfony service tag mechanism]([[= symfony_doc =]]/service_container/tags.html).
 
 A service can be assigned one or several tags, with specific parameters.
-When the [service container](../api/service_container.md) is compiled into a PHP file, 
+When the [service container](../api/public_php_api.md#service-container) is compiled into a PHP file, 
 tags are read by `CompilerPass` implementations that add extra handling for tagged services.
 Each service tagged as `ibexa.field_type` is added to a [registry](http://martinfowler.com/eaaCatalog/registry.html) using the `alias` key as its unique `fieldTypeIdentifier` e.g. `ezstring`.
 Each Field Type must also inherit from the abstract `ibexa.field_type` service.

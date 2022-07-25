@@ -1,3 +1,7 @@
+---
+description: Manage URL aliases and wildcards, and validate external URLs.
+---
+
 # URL management
 
 You can manage external URL addresses and URL wildcards in the Back Office, **Admin** tab, the **URL Management** node.
@@ -91,7 +95,7 @@ For details, see the tables below.
 |--------------------|---------------------------------------------------------------------|---------------|
 | enabled            | Enables link validation.                                            | true          |
 
-For more information about Ibexa configuration, see [Configuration](configuration.md).
+For more information about Ibexa configuration, see [Configuration](configuration/configuration.md).
 
 ### Custom protocol support
 

@@ -1,3 +1,7 @@
+---
+description: Data migration enables you to import and export Repository data by using YAML files.
+---
+
 # Data migration
 
 You can use migrations in projects that require the same data to be present across multiple instances.

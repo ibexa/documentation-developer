@@ -1,3 +1,7 @@
+---
+description: Set up rules for validating Page block content.
+---
+
 # Page block validators
 
 Validators check values passed to Page block attributes.

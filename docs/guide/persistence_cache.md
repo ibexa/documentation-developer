@@ -1,3 +1,7 @@
+---
+description: Persistence cache caches SPI\Persistence calls used in common page loads.
+---
+
 # Persistence cache
 
 ![SPI cache diagram](img/spi_cache.png)
@@ -309,7 +313,7 @@ This service is an instance of `Symfony\Component\Cache\Adapter\TagAwareAdapterI
 
 ##### With service container
 
-Like any other service, you can also get the cache service with the [service container](../api/service_container.md) like so:
+Like any other service, you can also get the cache service with the [service container](../api/public_php_api.md#service-container) like so:
 
 ``` php
 // Getting the cache service in PHP

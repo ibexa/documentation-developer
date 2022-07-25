@@ -1,3 +1,7 @@
+---
+description: Template configuration defines which templates are used for which content and in what cases.
+---
+
 # Template configuration
 
 You configure how templates are used under the `content_view` key.

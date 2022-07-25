@@ -1,3 +1,7 @@
+---
+description: Methods for REST call with Personalization server.
+---
+
 # Recommendation integration
 
 There are several ways to integrate the REST calls with the Personalization server 

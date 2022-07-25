@@ -1,3 +1,7 @@
+---
+description: Configure Solr search engine to use with Ibexa DXP.
+---
+
 # Solr search engine
 
 [ibexa/solr](https://github.com/ibexa/solr) aims to be a transparent drop-in replacement for the SQL-based Legacy search engine powering [[= product_name =]] Search API by default. When you enable Solr and re-index your content, all your existing Search queries using `SearchService` will be powered by Solr automatically. This allows you to scale up your [[= product_name =]] installation and be able to continue development locally against SQL engine, and have a test infrastructure, Staging and Prod powered by Solr. This removes considerable load from your database. See [further information on the architecture of [[= product_name =]]](../architecture.md).
@@ -12,13 +16,12 @@ The example presents a configuration with a single core. For configuring Solr in
 
 !!! note "Solr versions"
 
-    For v3 `ezplatform-solr-search-engine` works with Solr 7 and 8, using most recent version of Solr 7.7 or 8.6 is recommended.
+    Supported Solr versions are Solr 7 and 8. Using most recent version of Solr 7.7 or 8.11 is recommended.
 
-##### Solr 7
+Download and extract Solr:
 
-Download and extract Solr, for example, in version 7.7.2:
-
-- [solr-7.7.2.tgz](http://archive.apache.org/dist/lucene/solr/7.7.2/solr-7.7.2.tgz) or [solr-7.7.2.zip](http://archive.apache.org/dist/lucene/solr/7.7.2/solr-7.7.2.zip)
+- [solr-7.7.2.tgz](http://archive.apache.org/dist/lucene/solr/7.7.2/solr-7.7.2.tgz) or [solr-7.7.2.zip](http://archive.apache.org/dist/lucene/solr/7.7.2/solr-7.7.2.zip)
+- [solr-8.11.2.tgz](https://www.apache.org/dyn/closer.lua/lucene/solr/8.11.2/solr-8.11.2.tgz) or [solr-8.11.2.zip](https://www.apache.org/dyn/closer.lua/lucene/solr/8.11.2/solr-8.11.2.zip)
 
 Copy the necessary configuration files. In the example below from the root of your project to the place you extracted Solr:
 
@@ -26,13 +29,13 @@ Copy the necessary configuration files. In the example below from the root of yo
 # Make sure to replace the /opt/solr/ path with where you have placed Solr
 cd /opt/solr
 mkdir -p server/ez/template
-cp -R <solr>/src/lib/Resources/config/solr/* server/ez/template
+cp -R ./vendor/ibexa/solr/src/lib/Resources/config/solr/* server/ez/template
 cp server/solr/configsets/_default/conf/{solrconfig.xml,stopwords.txt,synonyms.txt} server/ez/template
 cp server/solr/solr.xml server/ez
 
 # Modify solrconfig.xml to remove the section that doesn't agree with your schema
 sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema".*/,/<\/updateRequestProcessorChain>/d' server/ez/template/solrconfig.xml
- 
+
 # Start Solr (but apply autocommit settings below first if you need to)
 bin/solr -s ez
 bin/solr create_core -c collection1 -d server/ez/template
@@ -76,7 +79,7 @@ It can be used for deploying to Ibexa Cloud (Platform.sh) and on-premise install
 Execute the script from the [[= product_name =]] root directory for further information:
 
 ``` bash
-./vendor/ibexa/solr-search-engine/bin/generate-solr-config.sh --help
+./vendor/ibexa/solr/bin/generate-solr-config.sh --help
 ```
 
 ### Step 2: Configure the bundle
@@ -514,5 +517,5 @@ Connect to the Solr slave interface (http://localhost:8983/solr), go to your cor
 
 ## Extending Solr
 
-To learn how you can create document field mappers, custom search criteria, 
-custom sort clauses and aggregations, see [Solr extensibility](extend_solr.md).
+To learn how you can create document field mappers, custom Search Criteria, 
+custom Sort Clauses and Aggregations, see [Search extensibility](extensibility/create_custom_search_criterion.md).

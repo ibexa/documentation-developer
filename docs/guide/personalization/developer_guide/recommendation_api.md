@@ -1,3 +1,7 @@
+---
+description: Use HTTP GET request method to render recommendations.
+---
+
 # Recommendation API
 
 Recommendations are retrieved from the Personalization server with RESTful requests 
@@ -19,7 +23,7 @@ For more information about Personalization, see [Introduction](../personalizatio
 
 The request for recommendations uses the following pattern:
 
-`GET https://reco.yoochoose.net/api/v2/[customerid]/[userid]/[scenarioid].[extension]?parameter=value&[attribute=attributekey]`
+`GET https://reco.perso.ibexa.co/api/v2/[customerid]/[userid]/[scenarioid].[extension]?parameter=value&[attribute=attributekey]`
 
 ## Request parameters
 
@@ -42,7 +46,7 @@ For the request to return recommendations, you must provide the following parame
 You can customize the recommendation request by using additional query string parameters. 
 For example, you can send the following request to the Personalization server: 
 
-`GET https://reco.yoochoose.net/api/v2/00000/john.doe/landing_page.json ?contextitems=123&categorypath=%2FCamera%2FCompact&attribute=title&attribute=deeplink,description&numrecs=8`
+`GET https://reco.perso.ibexa.co/api/v2/00000/john.doe/landing_page.json ?contextitems=123&categorypath=%2FCamera%2FCompact&attribute=title&attribute=deeplink,description&numrecs=8`
 
 The request fetches 8 recommendations for user ID `john.doe`, who is viewing item 123 
 and the category `/Camera/Compact`, based on the scenario with the identifier `landing_page`. 

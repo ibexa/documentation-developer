@@ -1,3 +1,7 @@
+---
+description: Assigning users to customer groups allows defining user-specific pricing rules.
+---
+
 # Customer groups
 
 You can assign users to different custom groups to enable [custom pricing](../pricing/price_engine.md).

@@ -1,3 +1,7 @@
+---
+description: Add custom tags and styles to enrich the functionality of the Online Editor.
+---
+
 # Extend Online Editor
 
 [[= product_name =]] users edit the contents of RichText Fields, for example, 
@@ -14,14 +18,13 @@ For more information about extending the Back Office, see [Extend Back Office](e
 
 ## Configure custom tags
 
-With custom tags, you can enhance the Online Editor with features that go beyond 
-the built-in ones.
-You configure custom tags in the `ibexa.yaml` file, under the `ezrichtext` key.
+With custom tags, you can enhance the Online Editor with features that go beyond the built-in ones.
+You configure custom tags under the `ezrichtext` key.
 
-Start preparing the tag by adding a configuration file to the `config` folder. 
+Start preparing the tag by adding a configuration file: 
 
 ```yaml
-[[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 0, 11) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 14, 27) =]]
+[[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/config/packages/custom_tags.yaml') =]]
 ```
 
 Custom tags can have as many attributes as needed.
@@ -30,11 +33,11 @@ Supported attribute types are:
 The latter requires that you provide a list of choices in the `choices` key.
 
 You must provide your own files for the Twig template and the icon.
-Place the `ezfactbox.html.twig` template in the 
-`templates/field_type/ezrichtext/custom_tags` directory:
+Place the `factbox.html.twig` template in the 
+`templates/themes/<your-theme>/field_type/ezrichtext/custom_tags` directory:
 
 ```html+twig
-[[= include_file('code_samples/back_office/online_editor/templates/ezfactbox.html.twig') =]]
+[[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/templates/themes/standard/field_type/ezrichtext/custom_tags/factbox.html.twig') =]]
 ```
 
 !!! tip
@@ -51,7 +54,7 @@ Place the `ezfactbox.html.twig` template in the
 Add labels for the new tag by providing translations in `translations/custom_tags.en.yaml`:
 
 ```yaml
-[[= include_file('code_samples/back_office/online_editor/translations/custom_tags.en.yaml', 0, 6) =]]
+[[= include_file('code_samples/back_office/online_editor/custom_tags/factbox/translations/custom_tags.en.yaml') =]]
 ```
 
 Now you can use the tag.
@@ -62,24 +65,15 @@ In the Online Editor, click **Add**, and from the list of available tags select 
 
 ### Inline custom tags
 
-You can also place Custom tags inline with the following configuration:
+You can also place custom tags inline with the following configuration:
 
 ``` yaml hl_lines="6"
-[[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 13, 15) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 44, 50) =]]
+[[= include_file('code_samples/back_office/online_editor/custom_tags/acronym/config/packages/custom_tags.yaml', 11, 18) =]]                # ...
 ```
 
 `is_inline` is an optional key.
 The default value is `false`, therefore, if it is not set, the custom tag is 
 treated as a block tag.
-
-You can only use inline custom tags in the `text` toolbar.
-
-!!! caution "Incorrect configuration"
-
-    Newer configuration options, such as `is_inline`, only work with the configuration provided above.
-    If your project uses [configuration from version prior to 2.4](../updating/from_1.x_2.x/update_db_to_2.5.md#changes-to-custom-tags),
-    these options will not work.
-    You need to update your configuration to be placed under the `ezrichtext` key.
 
 ### Use cases
 
@@ -88,38 +82,31 @@ You can only use inline custom tags in the `text` toolbar.
 You can configure a custom tag with a `link` attribute that offers a basic UI with text input.
 It is useful when migrating from eZ Publish to [[= product_name =]].
 
-The configuration in `app/config/custom_tags.yaml` is:
+The configuration is:
 
-```yaml hl_lines="22 23"
-[[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 0, 5) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 11, 12) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 13, 15) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 27, 44) =]]
+```yaml hl_lines="30-31"
+[[= include_file('code_samples/back_office/online_editor/custom_tags/linktag/config/packages/custom_tags.yaml') =]]
 ```
 
 Provide your own files for the Twig template and the icon.
 
-The tag has the `attrUrl` attribute with the `type` parameter set as `link` (lines 24-25).
-Before you proceed, add the `custom_tags.yaml` file to `app/config/config.yaml` under the `imports` key:
+The tag has the `url` attribute with the `type` parameter set as `link` (lines 30-31).
 
-``` yaml
-imports:
-# ...
-    - { resource: custom_tags.yaml }
-```
-
-Then create the `app/Resources/views/field_type/ezrichtext/linktag.html.twig` template:
+Then create the `templates/themes/<your-theme>/field_type/ezrichtext/custom_tags/linktag.html.twig` template:
 
 ``` html+twig
-[[= include_file('code_samples/back_office/online_editor/templates/linktag.html.twig') =]]
+[[= include_file('code_samples/back_office/online_editor/custom_tags/linktag/templates/themes/standard/field_type/ezrichtext/custom_tags/linktag.html.twig') =]]
 ```
 
 Add labels for the tag by providing translations in `translations/custom_tags.en.yaml`:
 
 ``` yaml
-[[= include_file('code_samples/back_office/online_editor/translations/custom_tags.en.yaml', 7, 12) =]]
+[[= include_file('code_samples/back_office/online_editor/custom_tags/linktag/translations/custom_tags.en.yaml') =]]
 ```
 
 Now you can use the tag.
 In the Back Office, create or edit a Content item that has a RichText Field Type.
-In the Online Editor, click **Add**, and from the list of available tags select the Link tag icon.
+In the Online Editor's toolbar, click **Show more items**, and from the list of available tags select the Link tag icon.
 
 ![Link Tag](img/custom_tag_link.png "Link Tag in the Online Editor") 
 
@@ -128,7 +115,7 @@ In the Online Editor, click **Add**, and from the list of available tags select 
 You can create an inline custom tag that displays a hovering tooltip with an explanation of an acronym.
 
 ``` yaml
-[[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 0, 5) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 13, 15) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_tags.yaml', 51, 57) =]]
+[[= include_file('code_samples/back_office/online_editor/custom_tags/acronym/config/packages/custom_tags.yaml') =]]
 ```
 
 The `explanation` attribute contains the meaning of the acronym that will be provided
@@ -137,12 +124,12 @@ while editing in the Online Editor.
 Add labels for the tag by providing translations in `translations/custom_tags.en.yaml`:
 
 ``` yaml
-[[= include_file('code_samples/back_office/online_editor/translations/custom_tags.en.yaml', 13, 15) =]]
+[[= include_file('code_samples/back_office/online_editor/custom_tags/acronym/translations/custom_tags.en.yaml') =]]
 ```
 
 ![Adding an explanation to an Acronym custom tag](img/oe_custom_tag_add_acronym.png)
 
-In the template file `acronym.html.twig` provide the explanation as `attr_value`
+In the template file `acronym.html.twig` provide the explanation as attribute value
 to the title of the `abbr` tag:
 
 ``` html+twig
@@ -174,10 +161,10 @@ A sample configuration could look as follows:
 
     Currently, if you define these lists for a front site SiteAccess, it has no effect.
 
-Add labels for the new styles by providing translations in `translations/custom_tags.en.yaml`:
+Add labels for the new styles by providing translations in `translations/custom_styles.en.yaml`:
 
 ```yaml
-[[= include_file('code_samples/back_office/online_editor/translations/custom_tags.en.yaml', 16, 18) =]]
+[[= include_file('code_samples/back_office/online_editor/translations/custom_styles.en.yaml') =]]
 ```
 
 ### Rendering
@@ -232,7 +219,7 @@ The `note_box.html.twig` template wraps the content of the selected text
 }
 ```
 
-Add label for the new style by providing a translation in `translations/custom_tags.en.yaml`:
+Add label for the new style by providing a translation in `translations/custom_styles.en.yaml`:
 
 ``` yaml
 ezrichtext.custom_styles.note_box.label: 'Note box'
@@ -268,7 +255,7 @@ The `highlight.html.twig` template wraps the content of the selected text
 }
 ```
 
-Add label for the new style by providing a translation in `translations/custom_tags.en.yaml`:
+Add label for the new style by providing a translation in `translations/custom_styles.en.yaml`:
 
 ``` yaml
 ezrichtext.custom_styles.highlight.label: 'Highlight'
@@ -398,7 +385,22 @@ For a full list of standard buttons, see the RichText module's [configuration fi
 
 ## Add CKEditor plugins
 
-Custom CKEditor plugin should be added to the `extraPlugins` array under the 
+Custom CKEditor plugin must be added to the `extraPlugins` array under the 
 `window.ibexa.richText.CKEditor.extraPlugins` key.
+For this purpose, either in the bundle's `Resources/encore/` folder, 
+or in the `encore` folder in the root directory of your project, 
+create the following `ibexa.richtext.config.manager.js` file:
+
+``` js
+const path = require('path');
+
+module.exports = (ibexaConfig, ibexaConfigManager) => {
+    ibexaConfigManager.add({
+        ibexaConfig,
+        entryName: 'ibexa-richtext-onlineeditor-js',
+        newItems: ["path_to_file"],
+    });
+};
+```
 
 For more information, see [CKEditor plugins documentation](https://ckeditor.com/docs/ckeditor4/latest/guide/plugin_sdk_intro.html).

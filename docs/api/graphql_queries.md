@@ -1,3 +1,7 @@
+---
+description: Use GraphQL to query for content and Locations.
+---
+
 # GraphQL queries
 
 ## Querying content
@@ -580,6 +584,8 @@ To filter products based on content fields:
 }
 ```
 
+### Querying product attributes
+
 To filter products based on attributes:
 
 ```
@@ -619,6 +625,91 @@ If the attribute type (in this case, `measure`) cannot be found in the schema, t
             "value": "#387be8"
           }
         }
+      }
+    }
+  }
+}
+```
+
+You can also query attributes by providing the attribute type:
+
+```
+{
+  products {
+    all {
+      edges {
+        node {
+          attributes {
+            _all {
+              ... on ColorAttribute {
+                identifier
+                name
+                colorValue: value
+              }
+              ... on IntegerAttribute {
+                identifier
+                name
+                sizeValue: value
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+!!! note
+
+    You need to use aliases (for example, `sizeValue`) when querying attributes by the attribute type
+    due to the conflicting return types.
+
+Response:
+
+```
+{
+  "data": {
+    "products": {
+      "all": {
+        "edges": [
+          {
+            "node": {
+              "attributes": {
+                "_all": [
+                  {
+                    "identifier": "size",
+                    "name": "Size",
+                    "sizeValue": 36
+                  },
+                  {
+                    "identifier": "color",
+                    "name": "Color",
+                    "colorValue": "#fcff38"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "node": {
+              "attributes": {
+                "_all": [
+                  {
+                    "identifier": "color",
+                    "name": "Color",
+                    "colorValue": "#000000"
+                  },
+                  {
+                    "identifier": "size",
+                    "name": "Size",
+                    "sizeValue": 40
+                  }
+                ]
+              }
+            }
+          }
+        ]
       }
     }
   }

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
   {% block htmltitle %}
     {%- if page and page.meta and page.meta.title -%} 
-      <title>{{ page.meta.title }}</title> 
+      <title>{{ page.meta.title }} ({{ config.extra.site_display_name }})</title>
     {%- elif page and page.title and not page.is_homepage -%} 
       <title>{{ page.title }} ({{ config.extra.site_display_name }})</title>
     {%- else -%} 
@@ -57,5 +57,6 @@
                   <li class="breadcrumb-item breadcrumb-item-current">{{ page.title }}</li>
           </ul>
           {{ page.content }}
+          {% include "partials/tags.html" %}
         </div>
     {% endblock %}

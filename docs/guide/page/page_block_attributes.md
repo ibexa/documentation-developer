@@ -1,3 +1,7 @@
+---
+description: Page blocks can contain multiple attributes, of both built-in and custom types.
+---
+
 # Page block attributes
 
 A block has attributes that the editor fills in when adding th block to a Page.

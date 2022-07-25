@@ -1,3 +1,7 @@
+---
+description: Create a Query type to search for content according to your custom needs.
+---
+
 # Create a custom Query type
 
 If you need to perform a more complex query than the [built-in Query types](built-in_query_types.md) allow,

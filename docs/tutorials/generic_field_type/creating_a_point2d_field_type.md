@@ -1,3 +1,7 @@
+---
+description: Go through a Field Type tutorial to learn how to create a custom Field Type based on the built-in Generic Field Type.
+---
+
 # Creating a Point 2D Field Type 
 
 This tutorial covers the creation and development of a custom [[= product_name =]] [Field Type](../../api/field_type_reference.md) based on a [Generic Field Type](../../api/field_type/create_custom_generic_field_type.md).

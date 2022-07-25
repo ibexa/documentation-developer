@@ -1,3 +1,7 @@
+---
+description: Site Factory allows creating multiple sites (SiteAccesses) from the Back Office.
+---
+
 # Site Factory [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 Site Factory is a site management interface, integrated with the Back Office.
@@ -183,7 +187,7 @@ To learn how to use Site Factory, see [User documentation.]([[= user_doc =]]/sit
 
 Enabled Site Factory may cause following performance issues:
 
-- [ConfigResolver](../config_dynamic.md#configresolver) looks for SiteAccesses in the database
+- [ConfigResolver](../configuration/config_dynamic.md#configresolver) looks for SiteAccesses in the database
 - Site Factory matchers are connected to the database in search for new SiteAccesses
 
 You can disable Site Factory to boost ConfigResolver performance.

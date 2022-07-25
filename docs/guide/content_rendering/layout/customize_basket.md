@@ -1,3 +1,7 @@
+---
+description: Customize the template for the shop basket.
+---
+
 # Customize basket
 
 To customize the look of the basket, you override the default template.

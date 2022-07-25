@@ -1,8 +1,13 @@
-# Site Factory configuration
+---
+description: Configure Site Factory, including site skeletons.
+---
+
+# Site Factory configuration [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 ## Parent Location
 
-You can define the parent Location for a new site in the configuration.
+When working with the [Site Factory](site_factory.md), you can define the parent 
+Location for a new site in the configuration.
 Each new site is created in the designated Location.
 
 To define a parent Location, add a new configuration key to the site template definition.

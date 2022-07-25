@@ -1,3 +1,7 @@
+---
+description: System, component and package requirements for running Ibexa DXP.
+---
+
 # Requirements
 
 The following server requirements cover both running the software on-premise and on third-party PaaS providers.
@@ -19,7 +23,7 @@ Using the latest listed version of each product or component is always recommend
 
 ## Web server
 
-- Nginx 1.18
+- Nginx 1.18 or higher
 - Apache 2.4 (with required modules `mod_rewrite`, `mod_env` and recommended: `mod_setenvif`, `mod_expires`;
 event MPM is recommended, if you need to use prefork you also need the `mod_php` module)
 
@@ -65,7 +69,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 - ImageMagick
 - GD
 
-Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Editor](../guide/images.md#image-optimization):
+Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Editor](../guide/images/images.md#image-optimization):
 
 - JpegOptim
 - Optipng

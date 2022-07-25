@@ -1,3 +1,7 @@
+---
+description: Configure registering and activating customers.
+---
+
 # Login and registration
 
 ## Login
@@ -41,7 +45,7 @@ A business customer has two options to register:
 The shop checks this data. There are two options:
 
     - activate a business account - the customer is created using their customer number and can immediately see their special discounts in the shop.
-    - create the main contact in Customer Center - if Customer Center is enabled, the company is created in the shop, and the account is created as the main contact.  
+    - in [[= product_name_com =]], create the main contact in Customer Center. If Customer Center is enabled, the company is created in the shop, and the account is created as the main contact.  
 
 ## Configuration
 

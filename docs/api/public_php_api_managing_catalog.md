@@ -1,3 +1,7 @@
+---
+description: Use PHP API to manage products in the catalog, their attributes, availability and prices.
+---
+
 # Catalog API
 
 ## Products

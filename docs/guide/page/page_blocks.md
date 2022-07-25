@@ -1,3 +1,7 @@
+---
+description: Use blocks to customize the content of a Page with dynamic content.
+---
+
 # Page blocks
 
 Page blocks are configured in YAML files, under the `ibexa_fieldtype_page` key.

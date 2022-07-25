@@ -1,3 +1,7 @@
+---
+description: Configure your project files to enable Personalization and set up items you want to track.
+---
+
 # Enable personalization
 
 The personalization service is based on a client-server architecture.
@@ -112,6 +116,19 @@ ibexa_personalization:
 | `export.authentication.password`         | The password used when importing items.                                         |
 | `included_item_types`             | A list of alphanumerical identifiers of item types on which the tracking script is shown. |
 | `random_item_types`               | A list of alphanumerical identifiers of item types that are returned when the response from the server contains no content. |
+
+You can use an alphanumeric content identifier `remoteId` instead of a numeric `id`.
+To enable it, add the following configuration:
+
+```yaml
+ibexa:
+    system:
+        <scope>:
+            personalization:
+                repository:
+                    content:
+                        use_remote_id: true
+```
 
 #### Enable tracking
 
@@ -338,10 +355,10 @@ This file is responsible for sending notifications to the [Recommendation API](d
 To render recommended content, use a dedicated `showRecommendationsAction()` from the `RecommendationController.php`:
 
 ``` html+twig
-render_esi(controller('ibexa_personalization::showRecommendationsAction', {
-        'contextItems': content.id,
+render(controller('ibexa_personalization::showRecommendationsAction', {
+        'contextItems': content,
         'scenario': 'front',
-        'outputTypeId': 'blog_post',
+        'outputTypeId': 57,
         'limit': 3,
         'template': '@IbexaPersonalization::recommendations.html.twig',
         'attributes': ['title', 'intro', 'image', 'uri']
@@ -411,8 +428,8 @@ if the content Fields were previously exported by the export script.
                 "itemType": 38,
                 "relevance": 3,
                 "links": {
-                    "clickRecommended": "//event.test.yoochoose.net/api/723/clickrecommended/someuser/38/71?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736",
-                    "rendered": "//event.test.yoochoose.net/api/723/rendered/someuser/38/71?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736"
+                    "clickRecommended": "//event.test.perso.ibexa.co/api/723/clickrecommended/someuser/38/71?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736",
+                    "rendered": "//event.test.perso.ibexa.co/api/723/rendered/someuser/38/71?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736"
                 },
                 "attributes": [
                     {
@@ -446,8 +463,8 @@ if the content Fields were previously exported by the export script.
                 "itemType": 38,
                 "relevance": 1,
                 "links": {
-                    "clickRecommended": "//event.test.yoochoose.net/api/723/clickrecommended/someuser/38/75?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736",
-                    "rendered": "//event.test.yoochoose.net/api/723/rendered/someuser/38/75?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736"
+                    "clickRecommended": "//event.test.perso.ibexa.co/api/723/clickrecommended/someuser/38/75?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736",
+                    "rendered": "//event.test.perso.ibexa.co/api/723/rendered/someuser/38/75?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736"
                 },
                 "attributes": [
                     {

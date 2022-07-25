@@ -1,3 +1,7 @@
+---
+description: Allows to track items using it ID. It covers many Content Types with the same ID configured for tracking.
+---
+
 # Tracking API
 
 To provide recommendations, a tracking process needs to collect user behavior 
@@ -211,7 +215,7 @@ Some optional request parameters can be set over query string parameters (GET pa
 !!! note "eCommerce vs. content publishing"
 
     The Consume event is important for content publishing websites. 
-    For eCommerce stores this event is not required but can be used in custom implementations.
+    For eCommerce stores, this event is not required but can be used in custom implementations.
 
 The event is sent when the end user stays on the page for a predefined period of time. 
 It is then assumed that the user consumed the item (read an article or watched a video).

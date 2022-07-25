@@ -1,3 +1,7 @@
+---
+description: Content Twig function enable rendering whole Content items and their information.
+---
+
 # Content Twig functions
 
 - [`ibexa_render()`](#ibexa_render) renders a Content item.

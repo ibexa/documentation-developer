@@ -1,3 +1,7 @@
+---
+description: Field Type FormMappers allow Field editing, while custom templates ensure the Field can be rendered both in the Back office and on site front.
+---
+
 # Field Type form and template
 
 ## FormMapper

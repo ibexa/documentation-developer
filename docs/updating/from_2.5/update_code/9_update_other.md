@@ -30,7 +30,7 @@ If your code uses them, you must rewrite it to use the permission resolver.
 
 ## Service container parameters
 
-A number of Symfony [service container](../../../api/service_container.md) parameters [have been dropped](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/bc/1.0/dropped-container-parameters.md).
+A number of Symfony [service container](../../../api/public_php_api.md#service-container) parameters [have been dropped](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/bc/1.0/dropped-container-parameters.md).
 
 Check if your code uses such invalid parameters: search for them by using the `ezpublish\..*\.class` regular expression pattern. 
 When found, replace all the occurrences with fully-qualified class names.

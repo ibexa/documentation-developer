@@ -1,3 +1,7 @@
+---
+description: Use granular permission system to grant access to various parts of the system using Roles, Policies, and Limitations.
+---
+
 # Permissions
 
 ## Permission overview
@@ -77,11 +81,11 @@ The more Role assignments and complex Policies you add for a given User, the mor
 |               | `install`            | unused                                                                                                                                  |
 |               | `setup`              | unused                                                                                                                                  |
 |               | `system_info`        | view the System Information tab in Admin                                                                                      |
-|`site`|`view`|view the "Sites" in the top navigation|
-|               |`create`|create sites in the Site Factory|
-|               |`edit`|edit sites in the Site Factory|
-|               |`delete`|delete sites from the Site Factory|
-|               |`change_status`|change status of the public accesses of sites to `Live` or `Offline` in the Site Factory|
+|`site` <br/> [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|`view`|view the "Sites" in the top navigation|
+|               |`create`|create sites in the Site Factory</br>|
+|               |`edit`|edit sites in the Site Factory</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|
+|               |`delete`|delete sites from the Site Factory</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|
+|               |`change_status`|change status of the public accesses of sites to `Live` or `Offline` in the Site Factory</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|
 | `user`        | `login`              | log in to the application                                                                                                               |
 |               | `password`           | unused                                                                                                                                  |
 |               | `preferences`        | access and set user preferences                                                                                                                                  |
@@ -92,12 +96,12 @@ The more Role assignments and complex Policies you add for a given User, the mor
 | `comparison` | `view` | view version comparison |
 | `personalization`    | `view`       | view scenario configuration and results for selected SiteAccesses |
 || `edit`|modify scenario configuration for selected SiteAccesses|
-| `segment` | `read`|load Segment information|
+| `segment`</br>[[% include 'snippets/commerce_badge.md' %]] | `read`|load Segment information|
 || `create`|create Segments|
 || `update`|update Segments|
 || `remove`|remove Segments|
 || `assign_to_user` |assign Segments to Users|
-| `segment_group` | `read` |load Segment Group information|
+| `segment_group`</br>[[% include 'snippets/commerce_badge.md' %]] | `read` |load Segment Group information|
 || `create` |create Segment Groups|
 || `update` |update Segment Groups|
 || `remove` |remove Segment Groups|
@@ -114,7 +118,7 @@ The more Role assignments and complex Policies you add for a given User, the mor
 || `edit` |edit an attribute group|
 || `delete` |delete an attribute group|
 | `commerce` | `currency` |manage currencies|
-| `commerce` | `region` |manage regions|
+|| `region` |manage regions|
 | `customer_group` | `create` |create a customer group|
 || `view` |view customer groups|
 || `edit` |edit a customer group|

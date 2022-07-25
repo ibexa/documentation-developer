@@ -1,4 +1,8 @@
-# Order confirmation
+---
+description: A finished order sends out a configurable confirmation email.
+---
+
+# Order confirmation [[% include 'snippets/commerce_badge.md' %]]
 
 After finishing the checkout (in case of an electronic payment transaction after redirection from the payment provider) the user is redirected to the confirmation page.
 

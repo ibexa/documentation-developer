@@ -1,3 +1,7 @@
+---
+description: Add custom events to the calendar and customize its looks.
+---
+
 # Customize calendar
 
 By default, the Calendar displays scheduled events of the following types:

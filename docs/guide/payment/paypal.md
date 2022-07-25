@@ -1,3 +1,7 @@
+---
+description: You can configure Ibexa DXP to allow PayPal Express Checkout as one of the payment methods.
+---
+
 # PayPal [[% include 'snippets/commerce_badge.md' %]]
 
 ## Enabling PayPal Express Checkout

@@ -1,3 +1,7 @@
+---
+description: Use SiteAccess matchers to control which site is served when and to which user.
+---
+
 # SiteAccess matching
 
 To be usable, every SiteAccess must be matched by one of configured matchers.
@@ -166,7 +170,7 @@ ibexa:
 
 Example URL `http://my_site.com:8080/content` matches SiteAccess `site`.
 
-### `Ibexa\SiteFactory\SiteAccessMatcher`
+### `Ibexa\SiteFactory\SiteAccessMatcher` [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 Enables the use of [Site Factory](site_factory.md).
 Does not take any parameters in configuration:

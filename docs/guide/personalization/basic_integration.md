@@ -1,3 +1,7 @@
+---
+description: Integrate recommendation service into your website.
+---
+
 # Integrate Recommendation service
 
 To return recommendations, you must first [enable the Personalization service](enabling_personalization.md).
@@ -68,15 +72,15 @@ Recommendations can be fetched with the following calls, and the response is ret
 
 To return the most popular products, use:
 
-`https://reco.yoochoose.net/api/v2/00000/<user_ID>/landing_page.json`
+`https://reco.perso.ibexa.co/api/v2/00000/<user_ID>/landing_page.json`
 
 To return products that the current user is most probably interested in, use:
 
-`https://reco.yoochoose.net/api/v2/00000/<user_ID>/cross_sell.json?contextitems=OWNS,CLICKED`
+`https://reco.perso.ibexa.co/api/v2/00000/<user_ID>/cross_sell.json?contextitems=OWNS,CLICKED`
 
 To return products that are most probably interesting for users interested in product 123, use:
 
-`https://reco.yoochoose.net/api/v2/00000/<user_ID>/cross_sell.json?contextitems=123`
+`https://reco.perso.ibexa.co/api/v2/00000/<user_ID>/cross_sell.json?contextitems=123`
 
 A response with two recommendations will resemble the following object:
 
@@ -120,7 +124,7 @@ You can use the following code to make requests and parse results:
 ``` php
 $mandator_id = '00000';
 $license_key = '67890-1234-5678-90123-4567';
-$server = "https://reco.yoochoose.net";
+$server = "https://reco.perso.ibexa.co";
 $scenario = "category_page";
 $url = $server.'/ebl/00000/'.urlencode(session_id()).'/'.urlencode($scenario).'.json';
 

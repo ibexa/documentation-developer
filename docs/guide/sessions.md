@@ -1,3 +1,7 @@
+---
+description: Ibexa DXP uses Symfony to handle user sessions, with support for SiteAccess-aware session cookie configuration.
+---
+
 # Sessions
 
 Sessions are handled by the Symfony framework, specifically API and underlying session handlers provided by the HttpFoundation component.

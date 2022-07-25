@@ -1,3 +1,7 @@
+---
+description: Product catalog offers PIM functionalities, with product, product type and attribute management capabilities to manage complex products.
+---
+
 # Product catalog
 
 The product catalog enables handling of products offered in the shop,

@@ -1,3 +1,7 @@
+---
+description: Add a search bar and customize the search form in your site front end.
+---
+
 # Add search form to front page
 
 You can add a search form to selected parts of your front page

@@ -1,3 +1,5 @@
+INHERIT: plugins.yml
+
 site_name: Developer Documentation
 repo_url: https://github.com/ezsystems/developer-documentation
 site_url: https://doc.ibexa.co/en/latest/
@@ -42,16 +44,16 @@ nav:
     - API:
         - PHP API: api/public_php_api.md
         - REST API:
-            - REST API guide: api/rest_api_guide.md
-            - REST API usage: api/general_rest_usage.md
-            - Extending the REST API: api/extending_the_rest_api.md
-            - REST API reference:
-                - REST API reference: api/rest_api_reference/rest_api_reference.html
-                - REST API best practices: api/rest_api_best_practices.md
-                - REST API authentication: api/rest_api_authentication.md
-            - Accept header-based REST API response: api/creating_custom_rest_api_response.md
-            - Binary attachments via REST API: api/creating_content_with_binary_attachments_via_rest_api.md
-            - Cross-origin HTTP requests: api/making_cross_origin_http_requests.md
+            - REST API usage:
+                - REST API usage: api/rest_api_usage.md
+                - REST requests: api/rest_api_requests.md
+                - REST responses: api/rest_api_responses.md
+                - Testing REST API: api/rest_api_testing.md
+            - REST API reference: api/rest_api_reference/rest_api_reference.html
+            - Extending REST API:
+                - Adding custom media type': api/rest_api_extension_media_type.md
+                - Creating new REST resource': api/rest_api_extension_resource.md
+            - REST API authentication': api/rest_api_authentication.md
         - GraphQL:
             - GraphQL: api/graphql.md
             - GraphQL queries: api/graphql_queries.md
@@ -65,14 +67,13 @@ nav:
             - Content model: guide/content_model.md
         - Admin panel: guide/admin_panel.md
         - Configuration:
-            - Configuration: guide/configuration.md
-            - Dynamic configuration: guide/config_dynamic.md
-            - Back Office configuration: guide/config_back_office.md
-            - Repository configuration: guide/config_repository.md
-            - Connector configuration: guide/config_connector.md
-            - Shop configuration: guide/shop_configuration.md
+            - Configuration: guide/configuration/configuration.md
+            - Dynamic configuration: guide/configuration/config_dynamic.md
+            - Repository configuration: guide/configuration/config_repository.md
         - Extend Back Office:
             - Back Office: extending/extending_back_office.md
+            - Configuration: extending/config_back_office.md
+            - Content Tree: extending/content_tree.md
             - Back Office elements:
                 - Reusable components: extending/reusable_back_office_templates.md
                 - Add drop-downs: extending/creating_custom_dropdowns.md
@@ -143,13 +144,17 @@ nav:
     - Content management:
         - Content management: guide/content_management.md
         - Images:
-            - Images: guide/images.md
-            - Configure Image Editor: guide/image_editor.md
-            - Extend Image Editor: extending/extending_image_editor.md
+            - Images: guide/images/images.md
+            - Configure Image Editor: guide/images/image_editor.md
+            - Extend Image Editor: guide/images/extending_image_editor.md
+            - Add Image Asset: guide/images/config_connector.md
         - Rich Text:
             - Extend Online Editor: extending/extending_online_editor.md
             - Create custom RichText block: extending/richtext_block.md
-        - File management: guide/file_management.md
+        - File management:
+            - File management: guide/file_management/file_management.md
+            - Binary and Media download: guide/file_management/binary_media_download.md
+            - File URL handling: guide/file_management/handling_file_url.md
         - Page:
             - Page blocks: guide/page/page_blocks.md
             - Page block attributes: guide/page/page_block_attributes.md
@@ -230,7 +235,6 @@ nav:
                - Time Field Type: api/field_types_reference/timefield.md
                - URL Field Type: api/field_types_reference/urlfield.md
                - User Field Type: api/field_types_reference/userfield.md
-               - XmlText Field Type: api/field_types_reference/xmltextfield.md
     - Commerce:
         - Product catalog:
             - Product catalog: guide/catalog/catalog.md
@@ -355,10 +359,17 @@ nav:
             - LogicalNot Criterion: guide/search/criteria_reference/logicalnot_criterion.md
             - LogicalOr Criterion: guide/search/criteria_reference/logicalor_criterion.md
         - Product Search Criteria:
+            - BasePrice: guide/search/criteria_reference/baseprice_criterion.md
+            - CheckboxAttribute: guide/search/criteria_reference/checkboxattribute_criterion.md
+            - ColorAttribute: guide/search/criteria_reference/colorattribute_criterion.md
+            - CustomPrice: guide/search/criteria_reference/customprice_criterion.md
+            - FloatAttribute: guide/search/criteria_reference/floatattribute_criterion.md
+            - IntegerAttribute: guide/search/criteria_reference/integerattribute_criterion.md
             - ProductAvailability: guide/search/criteria_reference/productavailability_criterion.md
             - ProductCode: guide/search/criteria_reference/productcode_criterion.md
             - ProductName: guide/search/criteria_reference/productname_criterion.md
             - ProductType: guide/search/criteria_reference/producttype_criterion.md
+            - SelectionAttribute: guide/search/criteria_reference/selectionattribute_criterion.md
         - Sort Clause reference:
             - Sort Clause reference: guide/search/sort_clause_reference/sort_clause_reference.md
             - ContentId: guide/search/sort_clause_reference/contentid_sort_clause.md
@@ -383,6 +394,7 @@ nav:
             - UserLogin: guide/search/sort_clause_reference/userlogin_sort_clause.md
             - Visibility: guide/search/sort_clause_reference/visibility_sort_clause.md
         - Product Sort Clauses:
+            - CreatedAt: guide/search/sort_clause_reference/createdat_sort_clause.md
             - ProductAvailability: guide/search/sort_clause_reference/productavailability_sort_clause.md
             - ProductCode: guide/search/sort_clause_reference/productcode_sort_clause.md
             - ProductName: guide/search/sort_clause_reference/productname_sort_clause.md
@@ -415,23 +427,28 @@ nav:
             - TimeRangeAggregation: guide/search/aggregation_reference/timerange_aggregation.md
         - URL search reference:
             - URL search reference: guide/search/url_search_reference/url_search_reference.md
-            - Id Sort Clause: guide/search/url_search_reference/id_sort_clause.md
-            - Url Sort Clause: guide/search/url_search_reference/url_sort_clause.md
-            - MatchAll Criterion: guide/search/url_search_reference/matchall_criterion.md
-            - MatchNone Criterion: guide/search/url_search_reference/matchnone_criterion.md
-            - Pattern Criterion: guide/search/url_search_reference/pattern_criterion.md
-            - SectionId Criterion: guide/search/url_search_reference/sectionid_criterion.md
-            - SectionIdentifier Criterion: guide/search/url_search_reference/sectionidentifier_criterion.md
-            - Validity Criterion: guide/search/url_search_reference/validity_criterion.md
-            - VisibleOnly Criterion: guide/search/url_search_reference/visibleonly_criterion.md
-            - LogicalAnd Criterion: guide/search/url_search_reference/logicaland_criterion.md
-            - LogicalNot Criterion: guide/search/url_search_reference/logicalnot_criterion.md
-            - LogicalOr Criterion: guide/search/url_search_reference/logicalor_criterion.md
+            - Id Sort Clause: guide/search/url_search_reference/id_url_sort_clause.md
+            - Url Sort Clause: guide/search/url_search_reference/url_url_sort_clause.md
+            - MatchAll Criterion: guide/search/url_search_reference/matchall_url_criterion.md
+            - MatchNone Criterion: guide/search/url_search_reference/matchnone_url_criterion.md
+            - Pattern Criterion: guide/search/url_search_reference/pattern_url_criterion.md
+            - SectionId Criterion: guide/search/url_search_reference/sectionid_url_criterion.md
+            - SectionIdentifier Criterion: guide/search/url_search_reference/sectionidentifier_url_criterion.md
+            - Validity Criterion: guide/search/url_search_reference/validity_url_criterion.md
+            - VisibleOnly Criterion: guide/search/url_search_reference/visibleonly_url_criterion.md
+            - LogicalAnd Criterion: guide/search/url_search_reference/logicaland_url_criterion.md
+            - LogicalNot Criterion: guide/search/url_search_reference/logicalnot_url_criterion.md
+            - LogicalOr Criterion: guide/search/url_search_reference/logicalor_url_criterion.md
         - Search in trash reference: guide/search/search_in_trash_reference.md
         - Elasticsearch search engine: guide/search/elastic.md
-        - Elasticsearch extensibility: guide/search/extend_elasticsearch.md
         - Solr search engine: guide/search/solr.md
-        - Solr extensibility: guide/search/extend_solr.md
+        - Extend search:
+            - Create custom Search Criterion': guide/search/extensibility/create_custom_search_criterion.md
+            - Create custom Sort Clause: guide/search/extensibility/create_custom_sort_clause.md
+            - Create custom Aggregation: guide/search/extensibility/create_custom_aggregation.md
+            - Solr document field mappers: guide/search/extensibility/solr_document_field_mappers.md
+            - Index custom Elasticsearch data: guide/search/extensibility/index_custom_elasticsearch_data.md
+            - Manipulate Elasticsearch query: guide/search/extensibility/manipulate_elasticsearch_query.md
         - Shop search:
             - Shop search: guide/search/shop_search/shop_search.md
             - Search configuration: guide/search/shop_search/search_configuration.md
@@ -513,22 +530,18 @@ nav:
             - Update to v4.0: updating/from_3.3/to_4.0.md
         - Update from v4.0:
             - Update to v4.1: updating/from_4.0/to_4.1.md
+        - Update from v4.1:
+            - Update to v4.1.latest: updating/from_4.1/update_from_4.1.md
         - Migrate to Ibexa DXP:
             - Migrate from eZ Publish Platform: migrating/migrating_from_ez_publish_platform.md
             - Migrate from eZ Publish: migrating/migrating_from_ez_publish.md
             - Common migration issues: migrating/common_issues.md
-
     - Resources:
-        - Resources: community_resources/resources.md
         - Release process and roadmap: community_resources/release_process.md
         - Ibexa DXP PhpStorm plugin: community_resources/phpstorm_plugin.md
         - Contributing:
-            - How to contribute: community_resources/contributing.md
             - Report and follow issues: community_resources/report_follow_issues.md
-            - Contribute code: community_resources/code.md
-            - Development guidelines: community_resources/development_guidelines.md
             - Contribute translations: community_resources/translations.md
-            - Contribute to documentation: community_resources/documentation.md
             - Package structure: community_resources/package_structure.md
     - Releases:
         - Ibexa DXP v4.1: releases/ibexa_dxp_v4.1.md
@@ -555,6 +568,11 @@ nav:
 
 theme:
     name: material
+    features:
+        - content.code.annotate 
+        - navigation.tracking
+        - navigation.top
+        - content.tabs.link
     custom_dir: 'theme'
     favicon: 'images/favicon.png'
     language: 'en'
@@ -562,14 +580,6 @@ theme:
         primary: 'blue grey'
         accent: 'deep orange'
     logo: 'images/ibexa-dxp-logo.svg'
-
-plugins:
-    - search
-    - macros:
-        j2_block_start_string: '[[%'
-        j2_block_end_string: '%]]'
-        j2_variable_start_string: '[[='
-        j2_variable_end_string: '=]]'
 
 extra:
   append_bootstrap:
@@ -629,7 +639,6 @@ markdown_extensions:
   - pymdownx.highlight:
       guess_lang: false
       linenums: true
-      css_class: codehilite
       extend_pygments_lang:
         - name: php
           lang: php
@@ -638,8 +647,10 @@ markdown_extensions:
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
+  - pymdownx.snippets
   - pymdownx.superfences
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde

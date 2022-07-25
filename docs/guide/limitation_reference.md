@@ -1,3 +1,7 @@
+---
+description: Limitations let you fine-tune the permission system by specifying limits to Roles granted to users.
+---
+
 # Limitation reference
 
 ## Blocking Limitation
@@ -352,7 +356,7 @@ Section.
 |------|------|------|
 |`<Session_id>`|`<Session_name>`|All valid session IDs can be set as value(s)|
 
-## Segment Group Limitation
+## Segment Group Limitation [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 A Limitation to specify whether the User has access Segments within a specific 
 Segment Group.

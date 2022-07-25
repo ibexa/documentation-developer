@@ -1,3 +1,7 @@
+---
+description: Events that are triggered when working with object states and object state groups.
+---
+
 # Object state events
 
 | Event | Dispatched by | Properties |

@@ -1,3 +1,7 @@
+---
+description: Import data into your Repository from prepared YAML files.
+---
+
 # Importing data
 
 To import data from YAML migration files into Repository, you run the `ibexa:migrations:migrate` command.
@@ -19,7 +23,7 @@ the `ibexa:migration:migrate` command ignores files that it had previously execu
 
 ## Available migrations
 
-The following modes are available for specific objects:
+The following data migration steps are available:
 
 |                      | `create` | `update` | `delete` |
 |----------------------|:--------:|:--------:|:--------:|
@@ -43,6 +47,64 @@ The following modes are available for specific objects:
 | `segment`            | &#10004; | &#10004; | &#10004; |
 | `setting`            | &#10004; | &#10004; | &#10004; |
 
+### Repeatable steps
+
+You can run a set of one or more similar migration steps multiple times by using the special `repeatable` migration type.
+
+A repeatable migration performs the defined migration steps as many times as the `iterations` setting declares.
+
+``` yaml hl_lines="4"
+[[= include_file('code_samples/data_migration/examples/repeatable_step.yaml', 0, 5) =]]
+```
+
+!!! tip
+
+    You can use repeatable migration steps, for example,
+    to quickly generate large numbers of Content items for testing purposes.
+
+You can vary the operations using the iteration counter.
+
+For example, to create five Folders, with names ranging from "Folder 0" to "Folder 4", you can run the following migration using the iteration counter `i`:
+
+``` yaml hl_lines="16"
+[[= include_file('code_samples/data_migration/examples/repeatable_step.yaml', 0, 16) =]]
+```
+
+To vary the content name, the migration above uses [Symfony expression syntax](#expression-syntax).
+
+In the example above, the expression is enclosed in `###` and the repeated string `SSS`.
+
+!!! note 
+    
+    Iteration counter is assigned to `i` by default, but you can modify it in the `iteration_counter_name` setting.
+
+#### Generating fake data
+
+You can also generate fake data with the help of [`FakerPHP`](https://fakerphp.github.io/).
+
+To use it, first install Faker on your system:
+
+``` bash
+composer require fakerphp/faker
+```
+
+Then, you can use `faker()` in expressions, for example:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/repeatable_step.yaml', 16, 19) =]]
+```
+
+This step generates Field values with fake personal names.
+
+### Expression syntax
+
+You can use [Symfony expression syntax](https://symfony.com/doc/current/components/expression_language/syntax.html) in data migrations.
+It is especially useful in [repeatable steps](#repeatable-steps),
+where you can use it to generate varied content in migration steps.
+
+The expression syntax uses the following structure: `###<IDENTIFIER> <EXPRESSION> <IDENTIFIER>###`
+
+The `IDENTIFIER` can be any repeated string that encloses the actual expression.
 
 ## Migration examples
 
@@ -161,7 +223,7 @@ The following example shows how to create a price for a product identified by it
 [[= include_file('code_samples/data_migration/examples/create_price.yaml') =]]
 ```
 
-### Segments
+### Segments [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 The following example shows how to create a segment group and add segments in it:
 
@@ -233,4 +295,3 @@ criteria:
 ```
 
 Criteria can be nested.
-

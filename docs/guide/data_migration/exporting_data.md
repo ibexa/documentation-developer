@@ -1,3 +1,7 @@
+---
+description: Export Repository data to use in future data migrations.
+---
+
 # Exporting data
 
 To see an example of migrations in action, export data already present in your installation.
@@ -145,6 +149,10 @@ The following types are available:
 - `object_state`
 - `section`
 - `location`
+- `attribute_group`
+- `attribute`
+- `customer_group`
+- `currency`
 
 If you do not provide the `--type` option, the command asks you to select a type of data.
 
@@ -174,8 +182,8 @@ The following combinations of types are modes are available:
 |`object_state`|&#10004;|||
 |`section`|&#10004;|&#10004;||
 |`location`||&#10004;||
-|`attribute_group`|&#10004;||
-|`attribute`|&#10004;||
+|`attribute_group`|&#10004;|&#10004;|&#10004;|
+|`attribute`|&#10004;|&#10004;|&#10004;|
 |`customer_group`|&#10004;|&#10004;|&#10004;|
 |`currency`|&#10004;|&#10004;|&#10004;|
 

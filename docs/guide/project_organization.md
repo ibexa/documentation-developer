@@ -1,3 +1,7 @@
+---
+description: An Ibexa DXP project follows Symfony's directory structure to organize files in the project.
+---
+
 # Project organization
 
 [[= product_name =]] is a Symfony application and follows the project structure used by Symfony.
@@ -36,7 +40,7 @@ All project assets are accessible through the `assets` path.
 ## Configuration
 
 You project's configuration is placed in the respective files in `config/packages`.
-See [Configuration](configuration.md) for more information.
+See [Configuration](configuration/configuration.md) for more information.
 
 ### Importing configuration from a bundle
 

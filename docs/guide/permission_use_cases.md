@@ -1,3 +1,7 @@
+---
+description: Set up permission sets for common use cases.
+---
+
 # Permission use cases
 
 Here are a few examples of sets of Policies that you can use to get some common permission configurations.
@@ -117,7 +121,7 @@ To allow the User to remove a Location, grant them the following Policies:
 
 Hiding and revealing Location requires one more Policy: `content/hide`.
 
-## Editorial workflows [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+## Editorial workflows
 
 You can control which stages in an editorial workflow the user can work with.
 

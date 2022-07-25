@@ -1,3 +1,7 @@
+---
+description: Product Twig functions enable getting products and their attributes in templates.
+---
+
 # Product Twig functions
 
 ### `ibexa_get_product`

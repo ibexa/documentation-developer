@@ -1,3 +1,7 @@
+---
+description: Render a list of products from your product catalog.
+---
+
 # List products
 
 To render a list of products, for example for the catalog of your site,

@@ -3,8 +3,7 @@
 ## User Groups for private and business customers
 
 To separate business and private users in one installation, there are two User Groups in the "Shop user" group.
-You can configure those groups by using `user_group_location.business` and `user_group_location.private`
-in `config/ecommerce_parameters.yml`:
+You can configure those groups in shop configuration, by using `user_group_location.business` and `user_group_location.private`:
 
 ``` yaml
 ibexa.commerce.site_access.config.core.default.user_group_location.business: 385

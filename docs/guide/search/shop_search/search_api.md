@@ -14,7 +14,7 @@ The following interfaces represent the entry point for search:
 
 ### SearchContext
 
-The current controller implementation for the eshop search uses a service call to instantiate the `SearchContext`: `Ibexa\Bundle\Commerce\Search\Service\SearchContextService`.
+The current controller implementation for the shop search uses a service call to instantiate the `SearchContext`: `Ibexa\Bundle\Commerce\Search\Service\SearchContextService`.
 It has the service ID: `Ibexa\Bundle\Commerce\Search\Service\SearchContextService`.
 To change the default implementation, override this service.
 

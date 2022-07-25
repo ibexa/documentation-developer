@@ -1,3 +1,7 @@
+---
+description: Install Ibexa DXP on a Linux system and prepare your installation for production.
+---
+
 # Install [[= product_name =]]
 
 !!! note
@@ -212,9 +216,13 @@ In `DATABASE_VERSION` you can also configure the database server version (for a 
 
     If you want an installation with PostgreSQL instead of MySQL, refer to [Using PostgreSQL](../guide/databases.md#using-postgresql).
 
-#### Install and configure a search engine [[% include 'snippets/commerce_badge.md' %]]
+#### Install and configure a search engine
 
-Search in the shop front end requires that you have either Solr or Elasticsearch installed as a search engine.
+You may choose to replace the [default search engine](../guide/search/search.md#legacy-search-engine) with either Solr or Elasticsearch.
+
+!!! note "Shop front end requirement [[% include 'snippets/commerce_badge.md' %]]"
+
+    Search in the shop front end requires that you have either Solr or Elasticsearch as a search engine.
 
 === "Solr"
 
@@ -365,7 +373,7 @@ Finally, remove the temporary file:
 
 `rm ezp_cron.txt`
 
-### Enable the Link manager [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+### Enable the Link manager
 
 To make use of the [Link Manager](../guide/url_management.md), you must [set up cron](../guide/url_management.md#enable-automatic-url-validation).
 

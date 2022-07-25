@@ -1,10 +1,14 @@
+---
+description: Import assets, such as stylesheets or images, from a separate bundle with customizations.
+---
+
 # Importing assets from a bundle
 
 [[= product_name =]] uses [Webpack Encore]([[= symfony_doc =]]/frontend.html#webpack-encore) for asset management.
 
 ## Configuration from a bundle
 
-To import assets from a bundle, you must configure them in the bundle's `Resources/encore/ibexa.config.js` file:
+To import assets from a bundle, configure them in an `ibexa.config.js` file that you create either in the bundle's `Resources/encore/` folder, or in the `encore` folder in the root directory of your project:
 
 ``` js
 const path = require('path');
@@ -31,7 +35,9 @@ To import CSS files only, use:
     For a full example of importing asset configuration,
     see [`ibexa.config.js`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/encore/ibexa.config.js)
 
-To edit existing configuration entries, create a `Resources/encore/ibexa.config.manager.js` file:
+To edit existing configuration entries, either in the bundle's `Resources/encore/` folder, 
+or in the `encore` folder in the root folder of your project, 
+create an `ibexa.config.manager.js` file:
 
 ``` js
 const path = require('path');
@@ -74,8 +80,9 @@ module.exports = (IbexaConfig, IbexaConfigManager) => {
     For a full example of overriding configuration,
     see [`ibexa.config.manager.js`](https://github.com/ibexa/matrix-fieldtype/blob/main/src/bundle/Resources/encore/ibexa.config.manager.js).
 
-To add a new configuration under your own namespace and with its own dependencies,
-add the `Resources/encore/ez.webpack.custom.config.js` file, for example:
+To add a new configuration under your own namespace and with its own dependencies, 
+create an `ibexa.webpack.custom.config.js` file that you create either in the bundle's `Resources/encore/` folder, 
+or in the `encore` folder in the root directory of your project, for example:
 
 ``` js
 	const Encore = require('@symfony/webpack-encore');

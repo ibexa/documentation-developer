@@ -1,7 +1,13 @@
-# Step 5 — Create a newsletter form [[% include 'snippets/experience_badge.md' %]]
+---
+description: Learn how to create a sign-up form and how to view and manage its submissions.
+---
+
+# Step 5 — Create a newsletter form [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 The final step of this tutorial assists you in adding to the home page a Form block for signing up to a newsletter.
 
+[[% include 'snippets/forms_caution.md' %]]
+    
 ### Add a Form block
 
 Start with creating a Form Content item.
