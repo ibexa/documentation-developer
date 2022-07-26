@@ -1,0 +1,9 @@
+{
+    "ProductVariantUpdate": {
+        "code": "test",
+        "attributes": {
+            "number": 2.0,
+            "testattr": 10
+        }
+    }
+}
