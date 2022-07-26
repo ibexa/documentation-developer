@@ -28,7 +28,7 @@
             403:
                 description: Error - a product with the same name already exists.
             404:
-                description: Error - the product with the given code does not exist.
+                description: Error - no product with the given code exists.
 /{identifier}:
     delete:
         displayName: Delete product
@@ -60,7 +60,7 @@
             401:
                 description: Error - the user is not authorized to view this product.
             404:
-                description: Error - the product with the given code does not exist.
+                description: Error - no product with the given code exists.
     patch:
         displayName: Update product
         description: Updates product.
@@ -90,7 +90,7 @@
             403:
                 description: Error - a product with the same code already exists.
             404:
-                description: Error - the product with the given code does not exist.
+                description: Error - no product with the given code exists.
 get:
     displayName: Load products list
     description: Returns a list of products.

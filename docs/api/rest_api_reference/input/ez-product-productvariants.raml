@@ -17,7 +17,7 @@
                 example: !include examples/product/catalog/product_variants/POST/ProductVariantCreate.json.example
         responses:
             201:
-                description: No content - the given product variant was created
+                description: No content - product variant is created.
             400:
                 description: Error - the input does not match the input schema definition.
             401:
@@ -25,11 +25,11 @@
             403:
                 description: Error - a product variant with the same name already exists.
             404:
-                description: Error - the base product with the given code does not exist.
+                description: Error - no base product with the given code exists.
 /generate/{baseProductCode}:
     post:
         displayName: Generate product variants
-        description: Generates new product variants based on discriminator attributes.
+        description: Generates new product variants based on selected (discriminator) attributes.
         headers:
             Accept:
                 description: If set, the new product variant is returned in XML or JSON format.
@@ -45,7 +45,7 @@
                 example: !include examples/product/catalog/product_variants/POST/ProductVariantGenerate.json.example
         responses:
             201:
-                description: No content - the given product variants were generated
+                description: No content - product variants are generated.
             400:
                 description: Error - the input does not match the input schema definition.
             401:
@@ -53,14 +53,14 @@
             403:
                 description: Error - a product variant with the same name already exists.
             404:
-                description: Error - the base product with the given code does not exist.
+                description: Error - no base product with the given code exists.
 /{code}:
     delete:
         displayName: Delete product variant
         description: Deletes the given product variant.
         responses:
             204:
-                description: No content - the given product variant is deleted.
+                description: No content - product variant is deleted.
             401:
                 description: Error - the user is not authorized to delete this product variant.
 /{code}:
@@ -93,7 +93,7 @@
             403:
                 description: Error - a product variant with the same code already exists.
             404:
-                description: Error - the product variant with the given code does not exist.
+                description: Error - no product variant with the given code exists.
 /view:
     post:
         displayName: Filter product variants
