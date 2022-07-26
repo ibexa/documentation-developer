@@ -76,9 +76,10 @@ You can vary the migration values by using the iteration counter, or by generati
 
 ### API improvements
 
+#### GraphQL
+
 - Taxonomy is now covered with GraphQL API.
-- GraphQL attribute querying
-- https://github.com/ibexa/core/pull/115
+- Querying product attributes with GraphQL is improved with the option to query by attribute type.
 
 ### New ways to add images in Online Editor
 
@@ -100,9 +101,19 @@ Images that you upload this way are automatically added to the Media library.
 
 The price engine now dispatches [events related to creating, updating and deleting prices](https://doc.ibexa.co/en/latest/guide/repository/event_reference/catalog_events/#price).
 
-### Data migration for attributes and attribute groups
+### Data migration
+
+#### Migrations for attributes and attribute groups
 
 Data migration now supports `attribute` and `attribute_group` types when generating migration files.
+
+#### Hide and reveal content actions
+
+You can now hide and reveal Content items in data migrations by using the [`hide` and `reveal` actions](https://doc.ibexa.co/en/latest/guide/data_migration/data_migration_actions/#available-migration-actions).
+
+### Fastly shielding
+
+Ibexa DXP now supports Fastly shielding.
 
 ## Deprecations
 
