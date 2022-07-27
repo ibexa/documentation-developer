@@ -28,7 +28,7 @@ You can also customize the rendering of products from a selected catalog with a 
 
 In this example, create a custom controller for a promo catalog in `src/Controllers/PromoController.php`:
 
-``` php hl_lines="24 25 27"
+``` php hl_lines="26 27 29"
 [[= include_file('code_samples/front/shop/list_products_in_catalog/src/Controller/PromoController.php') =]]
 ```
 
@@ -46,7 +46,7 @@ Next, add a route for rendering the promo content which points to the controller
 Finally, add a template to render a table with the products covered by the promo:
 
 ``` html+twig
-[[= include_file('code_samples/front/shop/list_products_in_catalog/templates/full/promo.html.twig') =]]
+[[= include_file('code_samples/front/shop/list_products_in_catalog/templates/themes/standard/full/promo.html.twig') =]]
 ```
 
 You can now preview the `<youdomain>/promo` page and view the products

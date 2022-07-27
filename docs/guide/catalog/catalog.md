@@ -21,6 +21,7 @@ When creating a catalog, you can filter the products by:
 - product code
 - availability
 - product category
+- the date when the product was created
 
 ![]()
 

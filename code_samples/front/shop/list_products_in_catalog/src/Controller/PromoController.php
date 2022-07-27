@@ -28,7 +28,7 @@ final class PromoController extends Controller
 
         $result = $this->productService->findProducts($query);
 
-        return $this->render('full/promo.html.twig', [
+        return $this->render('@ibexadesign/full/promo.html.twig', [
             'products' => $result,
         ]);
     }
