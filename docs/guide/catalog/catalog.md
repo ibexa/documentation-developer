@@ -1,5 +1,5 @@
 ---
-description: Product catalog offers PIM functionalities, with product, product type and attribute management capabilities to manage complex products.
+description: Product catalog offers PIM functionalities, with product, product type, product variant and attribute management capabilities to manage complex products.
 ---
 
 # Product catalog
@@ -61,9 +61,8 @@ If a variant does not have separate price rules, it uses the price of its base p
 
 Product assets are images that are assigned to products and their specific variants.
 
-Variants are grouped in collections which correspond to specific values of attributes.
-A collection is assigned to the variant or variants
-that have these attribute values.
+You can group assets in collections which correspond to specific values of attributes.
+A collection is assigned to the variant or variants that have these attribute values.
 
 ## Product availability and stock
 
