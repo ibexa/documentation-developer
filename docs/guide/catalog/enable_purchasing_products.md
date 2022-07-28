@@ -21,6 +21,8 @@ To enable purchasing from the catalog, the following configuration is required:
 
     Click the edit button next to an unfinished task to move directly to the screen where you can add the missing information.
 
+[[% include 'snippets/catalog_permissions_note.md' %]]
+
 ## Region and currency
 
 All currencies available in the system must be enabled in the Back Office under **Commerce** -> **Currencies**.
