@@ -11,6 +11,8 @@ To enable purchasing from the catalog, the following configuration is required:
 - at least [one price for the product](../pricing/price_engine.md)
 - [availability with positive or infinite stock for the product](catalog.md#product-availability-and-stock)
 
+[[% include 'snippets/catalog_permissions_note.md' %]]
+
 ## Region and currency
 
 All currencies available in the system must be enabled in the Back Office under **Commerce** -> **Currencies**.
