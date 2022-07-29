@@ -350,6 +350,10 @@ Prepare a [virtual host configuration](https://httpd.apache.org/docs/2.4/vhosts/
 You can copy [the example vhost file](https://github.com/ezsystems/developer-documentation/tree/master/code_samples/install/vhost_template/vhost.template)
 to `/etc/apache2/sites-available` as a `.conf` file and modify it to fit your project.
 
+!!! note "Nginx"
+
+    If you are using Nginx instead of Apache, please use  [this example vhost file](https://github.com/ezsystems/developer-documentation/tree/master/code_samples/install/vhost_template/nginx-vhost.template) and modify it to fit your project. Also modify the instructions below accordingly.
+
 Specify `/<your installation directory>/public` as the `DocumentRoot` and `Directory`.
 Uncomment the line that starts with `#if [APP_ENV]` and set the value to `prod` or `dev`,
 depending on the environment that you are configuring:
