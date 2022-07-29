@@ -15,7 +15,7 @@ To do so, create a `config/graphql/types/Query.types.yaml` file. It will be used
 In that file, add new fields that use any custom type or custom logic you require, based
 on [overblog/GraphQLBundle](https://github.com/overblog/GraphQLBundle).
 
-The custom schema should be created only after generating other schemas to avoid problems, especially if the custom schema depends on other schema elements. For example ...
+The custom schema should be created only after generating other schemas to avoid problems, especially if the custom schema depends on other schema elements. For example:
 `Type "Domain" inherited by "Query" not found.`.
 To avoid this problem during deployment, add the generated schemas to the repository.
 Update the schema in the event of any changes related to GraphQL as well as when changing the environment, for example from `dev` to `prod`.
