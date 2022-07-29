@@ -58,7 +58,7 @@ Also make the corresponding change in `app/config/dfs/dfs.yml`.
 
 To update to v2.2 with existing Landing Pages, you need to use a dedicated script.
 The script is contained in the `ezplatform-page-migration` bundle and **works since version v2.2.2**.
-To use it:
+To use the script:
 
 1. Run `composer require ezsystems/ezplatform-page-migration`
 2. Add the bundle to `app/AppKernel.php`: `new EzSystems\EzPlatformPageMigrationBundle\EzPlatformPageMigrationBundle(),`
@@ -71,10 +71,12 @@ To use it:
     from `ez_systems_landing_page_field_type` under `ezplatform_page_fieldtype` in the new config.
     Otherwise the script will encounter errors.
 
+!!! caution "Avoid exception when migrating from eZ Publish"
 
-You can remove the bundle after the migration is complete.
+    If you are [migrating from from eZ Publish to eZ Platform](../../migrating/migrating_from_ez_publish.md), an exception will occur when you run the `bin/console ezplatform:page:migrate` command while the database contains internal drafts of Landing Pages. 
+    To overcome this obstacle, before you migrate the original database, you must first remove all internal drafts by setting the `InternalDraftsCleanUpLimit` and `InternalDraftsDuration` values in `content.ini` to 0 and [running](https://doc.ez.no/eZ-Publish/Technical-manual/4.x/Features/Cronjobs/Running-cronjobs) the [internal drafts cleanup](https://github.com/ezsystems/ezpublish-legacy/blob/2019.03/cronjobs/internal_drafts_cleanup.php) cron job. 
 
-The command migrates Landing Pages created in eZ Platform v1.x, v2.0 and v2.1 to new Pages.
+The `ezplatform:page:migrate` command migrates Landing Pages created in eZ Platform v1.x, v2.0 and v2.1 to new Pages.
 The operation is transactional and rolls back in case of errors.
 
 ##### Block migration
@@ -113,7 +115,7 @@ Typically, what you previously would do in `getTemplateParameters()`, you'll now
 
 The definition of block parameters has to be moved from `createBlockDefinition()` to the [YAML configuration](../../guide/page/create_custom_page_block.md) for your custom blocks.
 
-For more information about how custom blocks are implemented in Pagebuilder, have a look at [Creating custom Page blocks](../../guide/page/create_custom_page_block.md) for your custom blocks.
+For more information about how custom blocks are implemented in Page Builder, have a look at [Creating custom Page blocks](../../guide/page/create_custom_page_block.md) for your custom blocks.
 
 For the migration of blocks from Landing Page to Page Builder, you'll need to provide a converter for attributes of custom blocks. For simple blocks you can use `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\DefaultConverter`.
 Custom converters must implement the `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\ConverterInterface` interface.
