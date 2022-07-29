@@ -71,13 +71,15 @@ To use the script:
     from `ez_systems_landing_page_field_type` under `ezplatform_page_fieldtype` in the new config.
     Otherwise the script will encounter errors.
 
-!!! caution "Avoid exception when migrating from eZ Publish"
-
-    If you are [migrating from from eZ Publish to eZ Platform](../../migrating/migrating_from_ez_publish.md), an exception will occur when you run the `bin/console ezplatform:page:migrate` command while the database contains internal drafts of Landing Pages. 
-    To overcome this obstacle, before you migrate the original database, you must first remove all internal drafts by setting the `InternalDraftsCleanUpLimit` and `InternalDraftsDuration` values in `content.ini` to 0 and [running](https://doc.ez.no/eZ-Publish/Technical-manual/4.x/Features/Cronjobs/Running-cronjobs) the [internal drafts cleanup](https://github.com/ezsystems/ezpublish-legacy/blob/2019.03/cronjobs/internal_drafts_cleanup.php) cron job. 
+You can remove the bundle after the migration is complete.
 
 The `ezplatform:page:migrate` command migrates Landing Pages created in eZ Platform v1.x, v2.0 and v2.1 to new Pages.
 The operation is transactional and rolls back in case of errors.
+
+!!! caution "Avoid exception when migrating from eZ Publish"
+
+    If you are [migrating from from eZ Publish to eZ Platform](../../migrating/migrating_from_ez_publish.md), an exception will occur when you run the `bin/console ezplatform:page:migrate` command while the database contains internal drafts of Landing Pages. 
+    To overcome this obstacle, before you migrate the original database, you must first remove all internal drafts by setting, in `content.ini`, the `InternalDraftsCleanUpLimit` and `InternalDraftsDuration` values to 0 and [running](https://doc.ez.no/eZ-Publish/Technical-manual/4.x/Features/Cronjobs/Running-cronjobs) the [internal drafts cleanup](https://github.com/ezsystems/ezpublish-legacy/blob/2019.03/cronjobs/internal_drafts_cleanup.php) cron job. 
 
 ##### Block migration
 
