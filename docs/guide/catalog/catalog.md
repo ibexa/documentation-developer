@@ -68,7 +68,10 @@ A collection is assigned to the variant or variants that have these attribute va
 
 Product availability defines whether a product is available in the catalog.
 
-You set product availability per variant, if a product can have variants configured, or per base product.
+You set product availability per variant or per base product:
+
+- if a product cannot have variants (has no attributes with the "Used for product variants" flag), you set availability per base product
+- if a product can have variants (even if no variants are configured yet), you set availability per variant.
 
 When a product is available, it can have numerical stock defined.
 The stock can also be set to infinite (for example, in case of digital products).
