@@ -27,7 +27,7 @@ The `flex.ibexa.co` Flex server has been disabled.
 If you are using earlier v4.x versions, and you have not done it before,
 you have to update your Flex server.
 
-To do it, in your `composer.json` check whether the `https://flex.ibexa.co` endpoint is still listed in `extra.symfony.endpoint`.
+To do it, in your `composer.json`, check whether the `https://flex.ibexa.co` endpoint is still listed in `extra.symfony.endpoint`.
 If so, replace it with the new [`https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main`](https://github.com/ibexa/website-skeleton/blob/v4.1.5/composer.json#L96) endpoint.
 
 You can do it manually, or by running the following command:

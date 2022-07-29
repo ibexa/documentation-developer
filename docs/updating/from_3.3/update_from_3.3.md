@@ -74,7 +74,7 @@ Next, continue with updating the app:
     
 Review the changes to make sure your custom configuration was not affected.
 
-Remove the `vendor` folder to prevent issues related to [new Flex server](#update-flex-server).
+Remove the `vendor` folder to prevent issues related to the [new Flex server](#update-flex-server).
 
 Then, perform a database upgrade and other steps relevant to the version you are updating to.
 
