@@ -10,15 +10,15 @@ You can customize the GraphQL schema that is generated from your repository.
 
 You can use it if your application requires custom GraphQL resources, for instance for Doctrine entities.
 
-To do so, create an `config/graphql/types/Query.types.yaml` file. It will be used as the GraphQL query root.
+To do so, create a `config/graphql/types/Query.types.yaml` file. It will be used as the GraphQL query root.
 
 In that file, add new fields that use any custom type or custom logic you require, based
 on [overblog/GraphQLBundle](https://github.com/overblog/GraphQLBundle).
 
-The custom schema should be created only after generating Ibexa schema to avoid problems, for example
-`Type "Domain" inherited by "Query" not found.`. To prevent this problem from occurring during deployment, add the generated schemas to the repository,
-you should also remember to update the schema in the event of any changes related to graphQL as well as when changing the environment, for example from dev to prod
-
+The custom schema should be created only after generating other schemas to avoid problems, especially if the custom schema depends on other schema elements. For example ...
+`Type "Domain" inherited by "Query" not found.`.
+To avoid this problem during deployment, add the generated schemas to the repository.
+Update the schema in the event of any changes related to GraphQL as well as when changing the environment, for example from `dev` to `prod`.
 ### Configuration
 
 You can include the [[= product_name =]] schema in two ways: either through inheritance or composition.
@@ -57,7 +57,7 @@ Query:
 ### Custom mutations
 
 Custom mutations are created in the same way as custom query configuration.
-An `config/graphql/types/Mutation.types.yaml` file will be used as the source for mutation definitions in your schema.
+A `config/graphql/types/Mutation.types.yaml` file will be used as the source for mutation definitions in your schema.
 
 ``` yaml
 Mutation:
