@@ -28,7 +28,7 @@ The full list of available services covers:
 - [ContentService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php)
 - [ContentTypeService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentTypeService.php)
 - [FieldTypeService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/FieldTypeService.php)
-- [InvitationService](https://github.com/ibexa/user/blob/main/src/lib/Invitation/InvitationService.php)
+- [InvitationService](https://github.com/ibexa/user/blob/main/src/contracts/Invitation/InvitationService.php)
 - [LanguageService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LanguageService.php)
 - [LocationService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php)
 - [NotificationService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/NotificationService.php)
