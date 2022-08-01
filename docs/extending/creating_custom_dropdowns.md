@@ -22,7 +22,8 @@ Set elements which are available for the `<select>` input, for example:
 {% endset %}
 ```
 
- `<select>` input must have the `ibexa-input` class. Multiple option is optional but should be added if the drop-down attribute `multiple` is set to true
+ `<select>` input must have the `ibexa-input` class.
+The `multiple` setting is optional, but you should add it if the drop-down attribute `multiple` is set to true.
 
 Define `choices`:
 
@@ -98,8 +99,9 @@ Next, prepare the component structure and place it in the template after setting
 } %}
 ```
 
-# Drop-down attributes
-The following attribute are available:
+## Drop-down attributes
+
+The following attributes are available:
 
 |Name|Values|Definition|
 |---|------|----------|
@@ -122,12 +124,12 @@ The following attribute are available:
 
 ![Drop-down expanded state](img/dropdown_expanded_state.png)
 
-# Extend drop-down templates
+## Extend drop-down templates
 
-## Initialize
+### Initialize
 
 All drop-downs are searched and initialized automatically in `admin.dropdown.js`.
-To extend or modify the search, you need to add a `custom_init` attribute to the drop-down Twig parameteres. Otherwise it will be initialized two times.
+To extend or modify the search, you need to add a `custom_init` attribute to the drop-down Twig parameters. Otherwise it will be initialized two times.
 Next, run the following JavaScript code:
 
 ```javascript
