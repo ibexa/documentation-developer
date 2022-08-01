@@ -78,8 +78,8 @@ The operation is transactional and rolls back in case of errors.
 
 !!! caution "Avoid exception when migrating from eZ Publish"
 
-    If you are [migrating from from eZ Publish to eZ Platform](../../migrating/migrating_from_ez_publish.md), an exception will occur when you run the `bin/console ezplatform:page:migrate` command while the database contains internal drafts of Landing Pages. 
-    To overcome this obstacle, before you migrate the original database, you must first remove all internal drafts by setting, in `content.ini`, the `InternalDraftsCleanUpLimit` and `InternalDraftsDuration` values to 0 and [running](https://doc.ez.no/eZ-Publish/Technical-manual/4.x/Features/Cronjobs/Running-cronjobs) the [internal drafts cleanup](https://github.com/ezsystems/ezpublish-legacy/blob/2019.03/cronjobs/internal_drafts_cleanup.php) cron job. 
+    If you are [migrating from from eZ Publish to eZ Platform](../../migrating/migrating_from_ez_publish.md), an exception will occur when you run the `bin/console ezplatform:page:migrate` command and the database contains internal drafts of Landing Pages. 
+    To avoid this exception, you must first [remove all internal drafts before you migrate](../migrating/migrating_from_ez_publish.md#migration_exception). 
 
 ##### Block migration
 

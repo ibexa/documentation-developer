@@ -43,11 +43,15 @@ If you are coming directly from legacy (4.x), you need to follow the best practi
     - And if you do this while on 5.x, you can use several of the [available legacy migration features](https://doc.ez.no/display/EZP/Legacy+code+and+features) to make the new code appear in legacy admin
 
 See Upgrade documentation on how to perform the actual upgrade: [Upgrade (eZ Publish Platform page)](https://doc.ez.no/display/EZP/Upgrade)
-
+<a name="migration_exception"></a>
 !!! caution "Avoid exception when migrating the database"
 
-    If you plan to migrate from from eZ Publish through eZ Publish Platform 5.4 to eZ Platform and further, an exception may occur when you try to migrate the database while it contains internal drafts of Landing Pages, because such drafts do not have an expected row in the `ezcontentobject_name` table. 
-    To overcome this obstacle, you must first remove all internal drafts by setting the `InternalDraftsCleanUpLimit` and `InternalDraftsDuration` values to 0 and [running](https://doc.ez.no/eZ-Publish/Technical-manual/4.x/Features/Cronjobs/Running-cronjobs) the [internal drafts cleanup](https://github.com/ezsystems/ezpublish-legacy/blob/2019.03/cronjobs/internal_drafts_cleanup.php) cron job. 
+    If you plan to migrate from from eZ Publish through eZ Publish Platform 5.4 to eZ Platform and further, an exception may occur when you try to migrate the database while it contains internal drafts of Landing Pages.
+    This can happen because such drafts do not have an expected row in the `ezcontentobject_name` table. 
+    
+    To avoid this exception, you must remove all internal drafts before you migrate. 
+    First, in `content.ini`, set the `InternalDraftsCleanUpLimit` and `InternalDraftsDuration` values to 0. 
+    Then [run](https://symfony.com/doc/current/the-fast-track/en/24-cron.html) the [internal drafts cleanup](https://github.com/ezsystems/ezpublish-legacy/blob/2019.03/cronjobs/internal_drafts_cleanup.php) cron job. 
 
 ### From Platform stack (5.4/2014.11) to eZ Platform
 
