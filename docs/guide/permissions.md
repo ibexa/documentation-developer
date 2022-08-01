@@ -43,7 +43,7 @@ The more Role assignments and complex Policies you add for a given User, the mor
 ## Available Policies
 
 | Module        | Function             | Effect                                                                                                                                  |
- |---------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+|---------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
 | `all modules` | `all functions`      | grant all available permissions                                                                                                         |
 | `content`     | `read`               | view the content both in front and back end                                                                                             |
 |               | `diff`               | unused                                                                                                                                  |
