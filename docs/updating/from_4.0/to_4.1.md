@@ -1,6 +1,5 @@
 ---
 description: Update your installation to the latest v4.1 version from v4.0.
-latest_tag: '4.1.5'
 ---
 
 # Update from v4.0.x to v4.1
@@ -41,21 +40,21 @@ Perform the update:
 === "[[= product_name_content =]]"
 
     ``` bash
-    composer require ibexa/content:4.0.8 --with-all-dependencies --no-scripts
+    composer require ibexa/content:[[= latest_tag_4_0 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/content --force -v
     ```
 
 === "[[= product_name_exp =]]"
 
     ``` bash
-    composer require ibexa/experience:4.0.8 --with-all-dependencies --no-scripts
+    composer require ibexa/experience:[[= latest_tag_4_0 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
     ```
 
 === "[[= product_name_com =]]"
 
     ``` bash
-    composer require ibexa/commerce:4.0.8 --with-all-dependencies --no-scripts
+    composer require ibexa/commerce:[[= latest_tag_4_0 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/commerce --force -v
     ```
 
@@ -119,26 +118,26 @@ Apply the following database update scripts:
 
 ## Update the app to latest version of v4.1
 
-Now, update the application to the latest version of v4.1: [[= latest_tag =]].
+Now, update the application to the latest version of v4.1: [[= latest_tag_4_1 =]].
 
 === "[[= product_name_content =]]"
 
     ``` bash
-    composer require ibexa/content:[[= latest_tag =]] --with-all-dependencies --no-scripts
+    composer require ibexa/content:[[= latest_tag_4_1 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/content --force -v
     ```
 
 === "[[= product_name_exp =]]"
 
     ``` bash
-    composer require ibexa/experience:[[= latest_tag =]] --with-all-dependencies --no-scripts
+    composer require ibexa/experience:[[= latest_tag_4_1 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
     ```
 
 === "[[= product_name_com =]]"
 
     ``` bash
-    composer require ibexa/commerce:[[= latest_tag =]] --with-all-dependencies --no-scripts
+    composer require ibexa/commerce:[[= latest_tag_4_1 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/commerce --force -v
     ```
 

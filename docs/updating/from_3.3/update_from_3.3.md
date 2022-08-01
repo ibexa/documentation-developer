@@ -1,13 +1,12 @@
 ---
 description: Update your installation to the latest v3.3 version from an earlier v3.3 version.
-latest_tag: '3.3.24'
 ---
 
 # Update from v3.3.x to v3.3.latest
 
 This update procedure applies if you are using a v3.3 installation without the latest maintenance release.
 
-Go through the following steps to update to the latest maintenance release of v3.3 (v[[= latest_tag =]]).
+Go through the following steps to update to the latest maintenance release of v3.3 (v[[= latest_tag_3_3 =]]).
 
 !!! note
 
@@ -20,19 +19,19 @@ First, run:
 === "[[= product_name_content =]]"
 
     ``` bash
-    composer require ibexa/content:[[= latest_tag =]] --with-all-dependencies --no-scripts
+    composer require ibexa/content:[[= latest_tag_3_3 =]] --with-all-dependencies --no-scripts
     ```
 
 === "[[= product_name_exp =]]"
 
     ``` bash
-    composer require ibexa/experience:[[= latest_tag =]] --with-all-dependencies --no-scripts
+    composer require ibexa/experience:[[= latest_tag_3_3 =]] --with-all-dependencies --no-scripts
     ```
 
 === "[[= product_name_com =]]"
 
     ``` bash
-    composer require ibexa/commerce:[[= latest_tag =]] --with-all-dependencies --no-scripts
+    composer require ibexa/commerce:[[= latest_tag_3_3 =]] --with-all-dependencies --no-scripts
     ```
 
 ### Update Flex server

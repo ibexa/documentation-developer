@@ -1,7 +1,3 @@
----
-latest_tag: '4.0.8'
----
-
 # Update from v3.3.x to v4.0
 
 This update procedure applies if you are using v3.3.
@@ -27,19 +23,19 @@ First, run:
 === "[[= product_name_content =]]"
 
     ``` bash
-    composer require ibexa/content:[[= latest_tag =]] --with-all-dependencies --no-scripts
+    composer require ibexa/content:[[= latest_tag_4_0 =]] --with-all-dependencies --no-scripts
     ```
 
 === "[[= product_name_exp =]]"
 
     ``` bash
-    composer require ibexa/experience:[[= latest_tag =]] --with-all-dependencies --no-scripts
+    composer require ibexa/experience:[[= latest_tag_4_0 =]] --with-all-dependencies --no-scripts
     ```
 
 === "[[= product_name_com =]]"
 
     ``` bash
-    composer require ibexa/commerce:[[= latest_tag =]] --with-all-dependencies --no-scripts
+    composer require ibexa/commerce:[[= latest_tag_4_0 =]] --with-all-dependencies --no-scripts
     ```
 
 ### Update Flex server
