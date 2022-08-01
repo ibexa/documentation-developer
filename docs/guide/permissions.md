@@ -183,8 +183,8 @@ public function performAccessCheck(): void
 - `module` is the Policy module (e.g. `content`)
 - `function` is the function inside the module (e.g. `read`)
 - `limitations` are optional Limitations to check against. Here you can provide two keys:
-  - `valueObject` is the object you want to check for, for example `ContentInfo`.
-  - `targets` are a table of value objects that are the target of the operation.
+    - `valueObject` is the object you want to check for, for example `ContentInfo`.
+    - `targets` are a table of value objects that are the target of the operation.
     For example, to check if content can be assigned to a Section, provide the Section as `targets`.
     `targets` accept Location, Object state and Section objects.
 
