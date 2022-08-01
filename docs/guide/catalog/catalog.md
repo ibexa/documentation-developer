@@ -14,6 +14,9 @@ as well as additional product information.
 
 Each product belongs to a product type (similar to how a Content item belongs to a Content Type).
 
+Each product has a unique identifying product code.
+Product code can have up to 64 characters. It can contain only letters, numbers, underscores, and dashes.
+
 ## Product types
 
 Product types represent categories that a product can belong to.
