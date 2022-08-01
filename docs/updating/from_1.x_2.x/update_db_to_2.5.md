@@ -79,7 +79,7 @@ The operation is transactional and rolls back in case of errors.
 !!! caution "Avoid exception when migrating from eZ Publish"
 
     If you are [migrating from from eZ Publish to eZ Platform](../../migrating/migrating_from_ez_publish.md), an exception will occur when you run the `bin/console ezplatform:page:migrate` command and the database contains internal drafts of Landing Pages. 
-    To avoid this exception, you must first [remove all internal drafts before you migrate](../migrating/migrating_from_ez_publish.md#migration_exception). 
+    To avoid this exception, you must first [remove all internal drafts before you migrate](../../migrating/migrating_from_ez_publish.md#migration_exception). 
 
 ##### Block migration
 
