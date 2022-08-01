@@ -78,7 +78,7 @@ Next, add the strategy with the `ibexa.repository.thumbnail.strategy.content` ta
 services:
     App\Strategy\StaticStrategy:
         arguments:
-            $staticThumbnail: http://example.com/some_image.jpg
+            $staticThumbnail: 'https://dummyimage.com/100/ae1164/ffffff.jpg&text=Ibexa'
         tags:
             - { name: ibexa.repository.thumbnail.strategy.content, priority: 100 }
 ```
@@ -86,6 +86,11 @@ services:
 Priority `100` will allow this strategy to be used first on a clean installation or before any other strategy with lower priority.
 
 At this point you can go to the Back Office and check the results.
+
+!!! note "Thumbnail mechanism "
+
+    This strategy overrides all generated thumbnails. You can specify a specific Content Type. See the example [here](https://github.com/ibexa/user/blob/main/src/lib/Strategy/DefaultThumbnailStrategy.php)
+
 
 ## Other Fields as thumbnails
 
