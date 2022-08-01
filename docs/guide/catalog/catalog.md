@@ -56,6 +56,8 @@ that have the "Used for product variants" flag enabled in the product type defin
 You can create variants for any combination of values of selected attributes.
 In the Back Office you can automatically generate all possible variants for a product.
 
+Codes for product variants are generated automatically based on the [selected strategy](catalog_configuration.md#code-generation-strategy).
+
 Each product variant has separate availability and stock information.
 Each variant can also have separate price rules.
 If a variant does not have separate price rules, it uses the price of its base product.
