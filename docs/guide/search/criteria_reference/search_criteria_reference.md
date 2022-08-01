@@ -67,7 +67,7 @@ Due to this storage limitation, searching content using the Country Field Type o
 |-----|-----|-----|
 |[CheckboxAttribute](checkboxattribute_criterion.md)|Value of product's checkbox attribute|Product search|
 |[ColorAttribute](colorattribute_criterion.md)|Value of product's color attribute|Product search|
-|[CreatedAt](createdat_criterion.md)|Date and time the product was created|Product search|
+|[CreatedAt](createdat_criterion.md)|Date and time when product was created|Product search|
 |[CreatedAtRange](createdatrange_criterion.md)|Date and time range when product was created|Product search|
 |[FloatAttribute](floatattribute_criterion.md)|Value of product's float attribute|Product search|
 |[IntegerAttribute](integerattribute_criterion.md)|Value of product's integer attribute|Product search|
