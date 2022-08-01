@@ -87,9 +87,9 @@ Priority `100` will allow this strategy to be used first on a clean installation
 
 At this point you can go to the Back Office and check the results.
 
-!!! note "thumbnail mechanism "
+!!! note "Thumbnail mechanism "
 
-    Above strategy will override all genertaed thumbnails. You might specify a specific contenttype. See example [here](https://github.com/ibexa/user/blob/main/src/lib/Strategy/DefaultThumbnailStrategy.php)
+    This strategy overrides all generated thumbnails. You can specify a specific Content Type. See the example [here](https://github.com/ibexa/user/blob/main/src/lib/Strategy/DefaultThumbnailStrategy.php)
 
 
 ## Other Fields as thumbnails
