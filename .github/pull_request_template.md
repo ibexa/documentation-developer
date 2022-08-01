@@ -13,3 +13,4 @@
 - [ ] Redirects cover removed/moved pages
 - [ ] Code samples are working
 - [ ] PHP code samples have been fixed with PHP CS fixer
+- [ ] Added link to this PR in relevant JIRA ticket or code PR
