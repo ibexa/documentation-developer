@@ -7,34 +7,9 @@ description: Add custom drop down menus to Back Office interface.
 In [[= product_name =]], you can create a reusable custom drop-down and implement it anywhere in the Back Office.
 Follow the steps below to learn how to integrate this component to fit it to your project needs.
 
-## Prepare custom drop-down structure
-
-First prepare the component structure and place it in the template inside the `content` section. See the example:
-
-```twig
-{% include '@ibexadesign/ui/component/dropdown.html.twig' with {
-    source,
-    choices,
-    preferred_choices,
-    value,
-    multiple,
-    translation_domain,
-    custom_form,
-    class,
-    placeholder,
-    custom_init,
-    is_disabled,
-    is_hidden,
-    is_small,
-    is_ghost,
-    min_search_items,
-    selected_item_label,
-} %}
-```
-
 ## Create `<select>` input
 
-Next, set elements which are available for the `<select>` input, for example:
+Set elements which are available for the `<select>` input, for example:
 
 ```twig
 {% set source %}
@@ -48,6 +23,7 @@ Next, set elements which are available for the `<select>` input, for example:
 ```
 
  `<select>` input must have the `ibexa-input` class.
+The `multiple` setting is optional, but you should add it if the drop-down attribute `multiple` is set to true.
 
 Define `choices`:
 
@@ -110,7 +86,22 @@ For `value`, see the example:
 }] %}
 ```
 
-You can configure the following attributes:
+## Prepare custom drop-down structure
+
+Next, prepare the component structure and place it in the template after setting the needed attributes. See the example:
+
+```twig
+{% include '@ibexadesign/ui/component/dropdown/dropdown.html.twig' with {
+    source: source,
+    choices: choices,
+    preferred_choices: preferred_choices,
+    value: value
+} %}
+```
+
+## Drop-down attributes
+
+The following attributes are available:
 
 |Name|Values|Definition|
 |---|------|----------|
@@ -133,10 +124,12 @@ You can configure the following attributes:
 
 ![Drop-down expanded state](img/dropdown_expanded_state.png)
 
-## Initialize
+## Extend drop-down templates
+
+### Initialize
 
 All drop-downs are searched and initialized automatically in `admin.dropdown.js`.
-To extend or modify the search, you need to add a `custom_init` parameter to the Twig element. Otherwise it will be initialized two times.
+To extend or modify the search, you need to add a `custom_init` attribute to the drop-down Twig parameters. Otherwise it will be initialized two times.
 Next, run the following JavaScript code:
 
 ```javascript
