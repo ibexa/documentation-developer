@@ -42,7 +42,8 @@ If you are coming directly from legacy (4.x), you need to follow the best practi
 - Rewrite custom admin modules to use the new Platform/Symfony stack
     - And if you do this while on 5.x, you can use several of the [available legacy migration features](https://doc.ez.no/display/EZP/Legacy+code+and+features) to make the new code appear in legacy admin
 
-See Upgrade documentation on how to perform the actual upgrade: [Upgrade (eZ Publish Platform page)](https://doc.ez.no/display/EZP/Upgrade)
+See Upgrade documentation on how to perform the actual upgrade: [Upgrade (eZ Publish Platform page)](https://doc.ez.no/display/EZP/Upgrade).
+
 <a name="migration_exception"></a>
 !!! caution "Avoid exception when migrating the database"
 
