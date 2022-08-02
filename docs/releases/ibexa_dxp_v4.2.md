@@ -63,6 +63,10 @@ and to instantly move to the proper screen to fill the gaps.
 
 If the Scenario has more than one content types configured, with cross-content type parameter in the request, you can get recommendations for all these content types.
 
+### Taxonomy Field type
+
+Taxonomy is now [configured with a Field type](https://doc.ibexa.co/projects/userguide/en/4.2/taxonomy/#add-tag), so you can use many Field type instances to add different taxonomy categories, for example, tags and product categories in the same Content Type.
+
 ### Repeatable migration steps
 
 Data migration now offers [repeatable migrations steps](https://doc.ibexa.co/en/latest/guide/data_migration/importing_data/#repeatable-steps),
