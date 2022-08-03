@@ -126,6 +126,8 @@ Images that you upload this way are automatically added to the Media library.
 
 ### Search in URL wildcards
 
+You can now search in the **URL wildcards** table in the Back Office.
+
 ### Product price events
 
 The price engine now dispatches [events related to creating, updating and deleting prices](https://doc.ibexa.co/en/latest/guide/repository/event_reference/catalog_events/#price).
