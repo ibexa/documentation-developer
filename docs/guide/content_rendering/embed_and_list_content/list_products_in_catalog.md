@@ -32,10 +32,10 @@ In this example, create a custom controller for a promo catalog in `src/Controll
 [[= include_file('code_samples/front/shop/list_products_in_catalog/src/Controller/PromoController.php') =]]
 ```
 
-The controller uses `CatalogService` to get the selected catalog by its identifier, `desk_promo` (line 24).
+The controller uses `CatalogService` to get the selected catalog by its identifier, `desk_promo` (line 26).
 
 The catalog provides a query, based on the filters you configured.
-You can get the query with `$catalog->getQuery()` and use it as criteria in product query (lines 25-27).
+You can get the query with `$catalog->getQuery()` and use it as criteria in product query (lines 27-29).
 
 Next, add a route for rendering the promo content which points to the controller:
 
