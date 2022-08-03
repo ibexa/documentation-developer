@@ -6,10 +6,7 @@ description: Prepare templates for rendering products from the catalog.
 
 To customize the template for a product, first, you need to prepare a content view configuration.
 
-!!! note
-
-    By default, the anonymous user does not have permissions to view products.
-    To change this, add the `Product/View` Policy to the Anonymous Role.
+[[% include 'snippets/catalog_permissions_note.md' %]]
 
 To match all products, you can use the [`ProductBased\IsProduct`](../templates/view_matcher_reference.md#productbasedisproduct) view matcher.
 

@@ -14,14 +14,14 @@ To manage Segments, use the `SegmentationService`.
 
 ### Getting Segment information
 
-To load a Segment Group, use `SegmentationService::loadSegmentGroup()`.
+To load a Segment Group, use `SegmentationService::loadSegmentGroupByIdentifier()`.
 Get all Segments assigned to the group with `SegmentationService::loadSegmentsAssignedToGroup()`:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 53, 60) =]]
 ```
 
-Similarly, you can load a Segment in a group by using `SegmentationService::loadSegmentGroup()`:
+Similarly, you can load a Segment in a group by using `SegmentationService::loadSegmentIdentifier()`:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 61, 62) =]]

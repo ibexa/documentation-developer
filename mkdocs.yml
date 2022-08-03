@@ -363,10 +363,13 @@ nav:
             - BasePrice: guide/search/criteria_reference/baseprice_criterion.md
             - CheckboxAttribute: guide/search/criteria_reference/checkboxattribute_criterion.md
             - ColorAttribute: guide/search/criteria_reference/colorattribute_criterion.md
+            - CreatedAt: guide/search/criteria_reference/createdat_criterion.md
+            - CreatedAtRange: guide/search/criteria_reference/createdatrange_criterion.md
             - CustomPrice: guide/search/criteria_reference/customprice_criterion.md
             - FloatAttribute: guide/search/criteria_reference/floatattribute_criterion.md
             - IntegerAttribute: guide/search/criteria_reference/integerattribute_criterion.md
             - ProductAvailability: guide/search/criteria_reference/productavailability_criterion.md
+            - ProductCategory: guide/search/criteria_reference/productcategory_criterion.md
             - ProductCode: guide/search/criteria_reference/productcode_criterion.md
             - ProductName: guide/search/criteria_reference/productname_criterion.md
             - ProductType: guide/search/criteria_reference/producttype_criterion.md
