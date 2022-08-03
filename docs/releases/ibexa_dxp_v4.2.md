@@ -2,7 +2,7 @@
 
 **Version number**: v4.2
 
-**Release date**: August 4, 2022
+**Release date**: August 8, 2022
 
 **Release type**: [Fast Track](../community_resources/release_process.md#release-process)
 
@@ -20,7 +20,7 @@ You can invite users to create their account in the frontend as customers or in 
 
 #### Configure register form
 
-Register forms for new users can now be [configured straight in the YAML file](../guide/content_rendering/layout/add_register_user_template.md).
+Register forms for new users can now be [configured straight in the YAML file](https://doc.ibexa.co/en/4.2/guide/content_rendering/layout/add_register_user_template/#configure-existing-form).
 
 ### Catalogs
 
@@ -28,49 +28,52 @@ You can now create catalogs containing sub-sets of products.
 Choose products for a catalog by applying filters which enable you to select products
 for example by product type, price range, availability or category.
 
-![](img/4.2_catalogs_product_list.png)
+![List of products in a catalog](img/4.2_catalogs_product_list.png)
 
-You can use catalogs for special discount lists, campaigns, tenders,
+Catalogs are useful when creating special discount lists, campaigns, tenders,
 or other situations where you need to present a selected set of products.
 
 ### Product variants
 
-You can create product variants based on selected attributes.
+To cover use cases of products with variable characteristics (such as colors, technical parameters or sizes),
+you can now create product variants based on selected attributes.
 The system automatically generates variants for the attribute values you select.
 
-![](img/4.2_product_variants_generate.png)
+![Generating product variants](img/4.2_product_variants_generate.png)
 
-You can set prices, including custom pricing, for each variant separately.
+You can set prices, including custom pricing, as well as availability and stock for each variant separately.
 
 ### Product assets
 
-You can now upload multiple assets (images) assigned to products.
+To provide your products with images, you can now upload multiple assets to each product.
 Assets are grouped into collections based on attribute values
 and in this way are connected to product variants which have these attributes.
 
-![](img/4.2_product_assets.png)
+![Asset images in product view](img/4.2_product_assets.png)
 
 ### Product completeness
 
 The new product completeness tab in product view lists all the parts of a product you can configure:
-attributes, assets, prices, availability, and other.
+attributes, assets, prices, availability, and so on.
 You can use it to get a quick overview of missing parts of product configuration
 and to instantly move to the proper screen to fill the gaps.
 
-![](img/4.2_product_completeness.png)
+![Product completeness tab](img/4.2_product_completeness.png)
 
 ### Cross-content type recommendations
 
-If the Scenario has more than one content types configured, with cross-content type parameter in the request, you can get recommendations for all these content types.
+If a recommendation scenario has more than one content type configured, with cross-content type parameter in the request,
+you can now get recommendations for all these content types.
 
-### Taxonomy Field type
+### Taxonomy Field Type
 
-Taxonomy is now [configured with a Field type](https://doc.ibexa.co/projects/userguide/en/4.2/taxonomy/#add-tag), so you can use many Field type instances to add different taxonomy categories, for example, tags and product categories in the same Content Type.
+Taxonomy is now [configured with a Field Type](https://doc.ibexa.co/projects/userguide/en/4.2/taxonomy/#add-tag),
+so you can use many Fields to add different taxonomy categories, for example, tags and product categories in the same Content Type.
 
 ### Repeatable migration steps
 
-Data migration now offers [repeatable migrations steps](https://doc.ibexa.co/en/latest/guide/data_migration/importing_data/#repeatable-steps),
-especially useful when creating large amounts of data for example for testing.
+Data migration now offers [repeatable migrations steps](https://doc.ibexa.co/en/4.2/guide/data_migration/importing_data/#repeatable-steps),
+especially useful when creating large amounts of data, for example for testing.
 
 You can vary the migration values by using the iteration counter, or by generating random data by using [`FakerPHP`](https://fakerphp.github.io/).
 
@@ -107,8 +110,9 @@ Finally, you can search product by product category:
 
 #### GraphQL
 
-- Taxonomy is now covered with GraphQL API.
-- Querying product attributes with GraphQL is improved with the option to query by attribute type.
+Taxonomy is now covered with GraphQL API.
+
+Querying product attributes with GraphQL is improved with the option to [query by attribute type](https://doc.ibexa.co/en/4.2/api/graphql_queries/#querying-product-attributes).
 
 ### New ways to add images in Online Editor
 
@@ -130,7 +134,7 @@ You can now search in the **URL wildcards** table in the Back Office.
 
 ### Product price events
 
-The price engine now dispatches [events related to creating, updating and deleting prices](https://doc.ibexa.co/en/latest/guide/repository/event_reference/catalog_events/#price).
+The price engine now dispatches [events related to creating, updating and deleting prices](https://doc.ibexa.co/en/4.2/guide/repository/event_reference/catalog_events/#price).
 
 ### Data migration
 
@@ -140,13 +144,15 @@ Data migration now supports `attribute` and `attribute_group` types when generat
 
 #### Hide and reveal content actions
 
-You can now hide and reveal Content items in data migrations by using the [`hide` and `reveal` actions](https://doc.ibexa.co/en/latest/guide/data_migration/data_migration_actions/#available-migration-actions).
+You can now hide and reveal Content items in data migrations by using the [`hide` and `reveal` actions](https://doc.ibexa.co/en/4.2/guide/data_migration/data_migration_actions/#available-migration-actions).
 
 ### Fastly shielding
 
 Ibexa DXP now supports Fastly shielding.
 
 ## Deprecations
+
+### Segmentation
 
 - `SegmentationService::loadSegmentGroup()` and `SegmentationService::loadSegment()` are now deprecated.
 Use `SegmentationService::loadSegmentGroupByIdentifier()` and `SegmentationService::loadSegmentByIdentifier()` instead,
