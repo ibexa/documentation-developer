@@ -78,7 +78,7 @@ The operation is transactional and rolls back in case of errors.
 
 !!! caution "Avoid exception when migrating from eZ Publish"
 
-    If you [migrated to v1.13 from eZ Publish](../../migrating/migrating_from_ez_publish.md), and want to upgrade to eZ Platform, an exception will occur when you run the `bin/console ezplatform:page:migrate` command and the database contains internal drafts of Landing Pages. 
+    If you [migrated to v1.13 from eZ Publish](../../migrating/migrating_from_ez_publish.md), and want to upgrade to v2.5, an exception will occur when you run the `bin/console ezplatform:page:migrate` command and the database contains internal drafts of Landing Pages. 
     
     To avoid this exception, you must first [remove all internal drafts before you migrate](../../migrating/migrating_from_ez_publish.md#migration_exception). 
 
