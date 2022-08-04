@@ -1,7 +1,7 @@
 ---
 description: Update your installation to the latest v3.3 version from v2.5.
 target_version: '3.2'
-latest_tag: '3.3.16'
+latest_tag: '3.3.24'
 ---
 
 # From 2.5
