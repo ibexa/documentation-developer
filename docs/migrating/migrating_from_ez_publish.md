@@ -42,7 +42,16 @@ If you are coming directly from legacy (4.x), you need to follow the best practi
 - Rewrite custom admin modules to use the new Platform/Symfony stack
     - And if you do this while on 5.x, you can use several of the [available legacy migration features](https://doc.ez.no/display/EZP/Legacy+code+and+features) to make the new code appear in legacy admin
 
-See Upgrade documentation on how to perform the actual upgrade: [Upgrade (eZ Publish Platform page)](https://doc.ez.no/display/EZP/Upgrade)
+See Upgrade documentation on how to perform the actual upgrade: [Upgrade (eZ Publish Platform page)](https://doc.ez.no/display/EZP/Upgrade).
+
+!!! caution "Avoid exception when migrating the database"
+
+    If you plan to migrate from from eZ Publish through eZ Publish Platform 5.4 to eZ Platform and further, an exception may occur when you try to migrate the database while it contains internal drafts of Landing Pages.
+    This can happen because such drafts do not have an expected row in the `ezcontentobject_name` table.<a id="migration_exception"></a> 
+    
+    To avoid this exception, you must remove all internal drafts before you migrate. 
+    First, in `content.ini`, set the `InternalDraftsCleanUpLimit` and `InternalDraftsDuration` values to 0. 
+    Then run the [internal drafts cleanup](https://github.com/ezsystems/ezpublish-legacy/blob/2019.03/cronjobs/internal_drafts_cleanup.php) cron job. 
 
 ### From Platform stack (5.4/2014.11) to eZ Platform
 
