@@ -55,3 +55,25 @@ ibexa:
                             reduced: 6
                             none: ~
 ```
+
+## Code generation strategy
+
+Product codes for variants are generated automatically based on the selected strategy.
+
+The following strategies are available:
+
+- `incremental` (default) - variant code consists of base product code plus index, for example: `ErgoDesk-1`, `ErgoDesk-2`.
+- `random` - variant code consists of base product code plus random string of characters, for example: `ErgoDesk-62E7B3379AEB4`, `ErgoDesk-62E7B3379AFBC`
+
+You can choose the strategy with the following configuration:
+
+``` yaml hl_lines="8"
+ibexa_product_catalog:
+    engines:
+        default:
+            type: local
+            options:
+                root_location_remote_id: ibexa_product_catalog_root
+                product_type_group_identifier: 'product'
+                variant_code_generator_strategy: 'random'
+```

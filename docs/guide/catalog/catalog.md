@@ -14,6 +14,9 @@ as well as additional product information.
 
 Each product belongs to a product type (similar to how a Content item belongs to a Content Type).
 
+Each product has a unique identifying product code.
+Product code can have up to 64 characters. It can contain only letters, numbers, underscores, and dashes.
+
 ## Product types
 
 Product types represent categories that a product can belong to.
@@ -52,6 +55,8 @@ that have the "Used for product variants" flag enabled in the product type defin
 
 You can create variants for any combination of values of selected attributes.
 In the Back Office you can automatically generate all possible variants for a product.
+
+Codes for product variants are generated automatically based on the [selected strategy](catalog_configuration.md#code-generation-strategy).
 
 Each product variant has separate availability and stock information.
 Each variant can also have separate price rules.
