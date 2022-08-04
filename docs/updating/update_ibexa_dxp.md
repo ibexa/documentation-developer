@@ -16,3 +16,9 @@ To update [[= product_name =]] to a newer version, select the version you are cu
 === "I am using v3.3"
 
     If you already have a v3.3 installation, [update to the latest v3.3 version](from_3.3/update_from_3.3.md).
+
+    You can also [update to v4](from_3.3/to_4.0.md).
+
+=== "I am using v4.0"
+
+    If you already have a v4.0 installation, [update to the latest v4.1 version](from_4.0/to_4.1.md).
