@@ -1,7 +1,7 @@
 ---
 description: Update your installation to the latest v2.5 version from v1.13 or earlier v2 version.
 target_version: '2.5'
-latest_tag: '2.5.27'
+latest_tag: '2.5.30'
 ---
 
 # From 1.13 and 2.x

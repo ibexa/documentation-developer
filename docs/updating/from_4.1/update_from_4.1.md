@@ -1,7 +1,5 @@
 ---
 description: Update your installation to the v4.1.latest version from an earlier v4.1.x version.
-latest_tag_4_1: '4.1.5'
-latest_tag_4_2: '4.2.0'
 ---
 
 # Update from v4.1.x to v4.2

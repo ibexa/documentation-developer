@@ -20,7 +20,7 @@ To proceed you need to be familiar with how indexing, filtering and queries work
 For example, use the following [Docker](https://docs.docker.com/get-started/overview/) command:
 
 ```
-docker run -d --name ibexa-dxp-elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.7.1
+docker run -d --name ibexa-dxp-elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.16.2
 ```
 
 !!! note
