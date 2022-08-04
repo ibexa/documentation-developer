@@ -60,6 +60,15 @@ and to instantly move to the proper screen to fill the gaps.
 
 ![Product completeness tab](img/4.2_product_completeness.png)
 
+### Product categories
+
+With product categories you can organize products that populate the Product Catalog.
+You do it, for example, to assist users in searching for products.
+
+For more information, see [Product categories](https://doc.ibexa.co/projects/userguide/en/master/shop_administration/categories).
+
+![Product categories](img/4.2_product_categories_rn.png)
+
 ### Cross-content type recommendations
 
 If a recommendation scenario has more than one content type configured, with cross-content type parameter in the request,
