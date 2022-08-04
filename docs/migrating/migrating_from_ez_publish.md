@@ -51,7 +51,7 @@ See Upgrade documentation on how to perform the actual upgrade: [Upgrade (eZ Pub
     
     To avoid this exception, you must remove all internal drafts before you migrate. 
     First, in `content.ini`, set the `InternalDraftsCleanUpLimit` and `InternalDraftsDuration` values to 0. 
-    Then [run](https://symfony.com/doc/current/the-fast-track/en/24-cron.html) the [internal drafts cleanup](https://github.com/ezsystems/ezpublish-legacy/blob/2019.03/cronjobs/internal_drafts_cleanup.php) cron job. 
+    Then run the [internal drafts cleanup](https://github.com/ezsystems/ezpublish-legacy/blob/2019.03/cronjobs/internal_drafts_cleanup.php) cron job. 
 
 ### From Platform stack (5.4/2014.11) to eZ Platform
 
