@@ -223,6 +223,7 @@ nav:
         - Product catalog:
             - 'Product catalog': 'guide/catalog/catalog.md'
             - 'Catalog configuration': 'guide/catalog/catalog_configuration.md'
+            - 'Create product code generator': 'guide/catalog/create_product_code_generator.md'
             - 'Enable purchasing products': 'guide/catalog/enable_purchasing_products.md'
             - 'Create custom attribute type': 'guide/catalog/create_custom_attribute_type.md'
             - 'Prices': 'guide/pricing/price_engine.md'

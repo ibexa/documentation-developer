@@ -1,0 +1,4 @@
+services:
+    App\CodeGenerator\Strategy\ProductTypeCodeGenerator:
+        tags:
+            - { name: 'ibexa.product_catalog.code_generator', type: 'product_type' }
