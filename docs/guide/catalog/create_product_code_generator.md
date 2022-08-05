@@ -1,3 +1,7 @@
+---
+description: A custom product code generator enables you to control how product codes are created.
+---
+
 # Create custom product code generator strategy
 
 Product code generator strategies control what product variant code are generated.
