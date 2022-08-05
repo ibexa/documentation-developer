@@ -86,6 +86,12 @@ especially useful when creating large amounts of data, for example for testing.
 
 You can vary the migration values by using the iteration counter, or by generating random data by using [`FakerPHP`](https://fakerphp.github.io/).
 
+### Search Engine Optimization
+
+Version 4.2 brings an integrated [Search Engine Optimization](https://doc.ibexa.co/projects/userguide/en/4.2/seo) (SEO) solution that includes title tag, meta tag, meta description Fields, and special Twitter and cards. Users can enable the SEO capability at a content/product type level, while editing or adding content to the site.
+
+You can also expand the functionality of SEO with extension points if needed.
+
 ## Other changes
 
 ### New product Search Criteria and Sort Clauses
