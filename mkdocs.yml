@@ -113,7 +113,6 @@ nav:
             - Multi-file upload: extending/extending_multifile_upload.md
             - Sub-items list: extending/extending_subitems_list.md
             - Notifications: guide/sending_notifications.md
-        - Content rendering: content_rendering/content_rendering.md
     - Content management:
         - Content management: guide/content_management.md # Split into separate pages or include in Content model, then replace with landing page
         - Content model: guide/content_model.md
@@ -209,6 +208,7 @@ nav:
                 - URL Field Type: api/field_types_reference/urlfield.md
                 - User Field Type: api/field_types_reference/userfield.md
     - Templating:
+        - Content rendering: content_rendering/content_rendering.md
         - Render content:
             - Render content: guide/content_rendering/render_content/render_content.md
             - Render Page: guide/content_rendering/render_content/render_page.md
