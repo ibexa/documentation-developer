@@ -59,12 +59,28 @@ nav:
             - GraphQL queries: api/graphql_queries.md
             - GraphQL operations: api/graphql_operations.md
             - GraphQL customization: api/graphql_customization.md
-    - Administration:
+        - Event reference:
+            - Event reference: guide/repository/event_reference/event_reference.md
+            - Content events: guide/repository/event_reference/content_events.md
+            - Content Type events: guide/repository/event_reference/content_type_events.md
+            - Location events: guide/repository/event_reference/location_events.md
+            - Catalog events: guide/repository/event_reference/catalog_events.md
+            - Language events: guide/repository/event_reference/language_events.md
+            - Section events: guide/repository/event_reference/section_events.md
+            - Object state events: guide/repository/event_reference/object_state_events.md
+            - Role events: guide/repository/event_reference/role_events.md
+            - User events: guide/repository/event_reference/user_events.md
+            - Page events: guide/repository/event_reference/page_events.md
+            - Site events: guide/repository/event_reference/site_events.md
+            - Shop events: guide/repository/event_reference/shop_events.md
+            - URL events: guide/repository/event_reference/url_events.md
+            - Trash events: guide/repository/event_reference/trash_events.md
+            - Other events: guide/repository/event_reference/other_events.md
+    - Administration: # Setup? Configuration? Back Office
         - Project organization:
             - Project organization: guide/project_organization.md
             - Architecture: guide/architecture.md
             - Bundles: guide/bundles.md
-            - Content model: guide/content_model.md
         - Admin panel: guide/admin_panel.md
         - Configuration:
             - Configuration: guide/configuration/configuration.md
@@ -97,7 +113,7 @@ nav:
             - Multi-file upload: extending/extending_multifile_upload.md
             - Sub-items list: extending/extending_subitems_list.md
             - Notifications: guide/sending_notifications.md
-    - Rendering:
+    - Templating:
         - Content rendering: content_rendering/content_rendering.md
         - Render content:
             - Render content: guide/content_rendering/render_content/render_content.md
@@ -145,6 +161,9 @@ nav:
             - Customize basket: guide/content_rendering/layout/customize_basket.md
     - Content management:
         - Content management: guide/content_management.md
+        - Content model: guide/content_model.md
+        - Taxonomy:
+            - Taxonomy: guide/taxonomy/taxonomy.md
         - Images:
             - Images: guide/images/images.md
             - Configure Image Editor: guide/images/image_editor.md
@@ -174,8 +193,6 @@ nav:
             - URL management: guide/url_management.md
             - URL API: api/public_php_api_url_service.md   
         - User-generated content: guide/user_generated_content.md
-        - Taxonomy:
-            - Taxonomy: guide/taxonomy/taxonomy.md
         - Content API:
             - Browsing content: api/public_php_api_browsing.md
             - Creating content: api/public_php_api_creating_content.md
@@ -460,29 +477,10 @@ nav:
             - Search indexing: guide/search/shop_search/search_indexing.md
             - Search synonyms: guide/search/shop_search/search_synonyms.md
             - Autosuggestion: guide/search/shop_search/search_autosuggest.md
-    - Maintenance:
-        - Repository:
-            - Repository: guide/repository.md
-            - Repository API: api/public_php_api_managing_repository.md
-            - Request lifecycle: guide/request_lifecycle.md
-            - Databases: guide/databases.md
-            - Event reference:
-                - Event reference: guide/repository/event_reference/event_reference.md
-                - Content events: guide/repository/event_reference/content_events.md
-                - Content Type events: guide/repository/event_reference/content_type_events.md
-                - Location events: guide/repository/event_reference/location_events.md
-                - Catalog events: guide/repository/event_reference/catalog_events.md
-                - Language events: guide/repository/event_reference/language_events.md
-                - Section events: guide/repository/event_reference/section_events.md
-                - Object state events: guide/repository/event_reference/object_state_events.md
-                - Role events: guide/repository/event_reference/role_events.md
-                - User events: guide/repository/event_reference/user_events.md
-                - Page events: guide/repository/event_reference/page_events.md
-                - Site events: guide/repository/event_reference/site_events.md
-                - Shop events: guide/repository/event_reference/shop_events.md
-                - URL events: guide/repository/event_reference/url_events.md
-                - Trash events: guide/repository/event_reference/trash_events.md
-                - Other events: guide/repository/event_reference/other_events.md
+    - Infrastructure and maintenance:
+        - Repository API: api/public_php_api_managing_repository.md # Divide, next to related topics
+        - Request lifecycle: guide/request_lifecycle.md
+        - Databases: guide/databases.md
         - Cache:
             - HTTP cache: 
               - HTTP cache: guide/cache/http_cache.md
@@ -547,7 +545,7 @@ nav:
             - Report and follow issues: community_resources/report_follow_issues.md
             - Contribute translations: community_resources/translations.md
             - Package structure: community_resources/package_structure.md
-    - Releases:
+    - Release notes:
         - Ibexa DXP v4.1: releases/ibexa_dxp_v4.1.md
         - Ibexa DXP v4.0: releases/ibexa_dxp_v4.0.md
         - Ibexa DXP v4.0 deprecations and BC breaks: releases/ibexa_dxp_v4.0_deprecations.md
