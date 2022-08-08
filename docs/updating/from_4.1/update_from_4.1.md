@@ -63,6 +63,20 @@ First, run:
 
 The `recipes:install` command installs new YAML configuration files. Look through the old YAML files and move your custom configuration to the relevant new files.
 
+#### Run data migration
+
+Next, run data migration required by the Customer portal feature:
+
+``` bash
+php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/corporate_account.yaml --name=001_corporate_account.yaml
+```
+
+If you are using [[= product_name_com =]], additionally run:
+
+``` bash
+php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/corporate_account_commerce.yaml --name=002_corporate_account_commerce.yaml
+```
+
 ### Update the database
 
 Next, update the database.
