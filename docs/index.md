@@ -116,7 +116,6 @@
                         <li><a href="releases/ibexa_dxp_v4.2/#catalogs">Product catalog enhancements</a></li>
                         <li><a href="releases/ibexa_dxp_v4.2/#cross-content-type-recommendations">Cross content type recommendations</a></li>
                         <li><a href="releases/ibexa_dxp_v4.2/#taxonomy-field-type">Taxonomy Field Type</a></li>
-                        <li><a href="releases/ibexa_dxp_v4.2/#search-engine-optimization">Search engine optimization</a></li>
                         <li><a href="releases/ibexa_dxp_v4.2/#repeatable-migration-steps">Repeatable migration steps</a></li>
                         <li><a href="releases/ibexa_dxp_v4.2/#api-improvements">API improvements</a></li>
 </div>
