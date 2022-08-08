@@ -13,7 +13,7 @@
                         Ibexa DXP v4.2 is now out!
                     </span>
                     <span class="d-flex flex-column flex-xs-row flex-sm-row flex-md-row justify-content-between align-items-center ml-md-4">
-                        <a href="updating/from_3.3/to_4.0/#update-flex-server" class="btn btn-sm btn-announcement-outline mr-4 ml-4 ml-md-0 mb-3 mb-sm-0">
+                        <a href="releases/ibexa_dxp_v4.2" class="btn btn-sm btn-announcement-outline mr-4 ml-4 ml-md-0 mb-3 mb-sm-0">
                             See more
                         </a>
                     </span>
@@ -78,7 +78,7 @@
                         <ul>
                             <li><a href="guide/content_rendering/render_content/render_content/">Content rendering</a></li>
                             <li><a href="guide/search/search/">Search</a></li>
-                            <li><a href="releases/ibexa_dxp_v4.0/">Releases</a></li>
+                            <li><a href="releases/ibexa_dxp_v4.2/">Releases</a></li>
                             <li><a href="api/public_php_api/">API</a></li>
                         </ul>
                     </div>
@@ -119,10 +119,4 @@
                         <li><a href="releases/ibexa_dxp_v4.2/#search-engine-optimization">Search engine optimization</a></li>
                         <li><a href="releases/ibexa_dxp_v4.2/#repeatable-migration-steps">Repeatable migration steps</a></li>
                         <li><a href="releases/ibexa_dxp_v4.2/#api-improvements">API improvements</a></li>
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
