@@ -254,10 +254,10 @@ nav:
             - Create user registration form: guide/content_rendering/layout/add_register_user_template.md
             - Customize basket: guide/content_rendering/layout/customize_basket.md
     - Commerce:
-        - Product catalog:
-            - Product catalog: guide/catalog/catalog.md
-            - Catalog configuration: guide/catalog/catalog_configuration.md
-            - Catalog API: api/public_php_api_managing_catalog.md
+        - PIM:
+            - PIM (Product catalog): guide/catalog/catalog.md
+            - PIM configuration: guide/catalog/catalog_configuration.md
+            - Product API: api/public_php_api_managing_catalog.md
             - Enable purchasing products: guide/catalog/enable_purchasing_products.md
             - Create custom attribute type: guide/catalog/create_custom_attribute_type.md
             - Prices: guide/pricing/price_engine.md
