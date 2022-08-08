@@ -10,7 +10,13 @@
 
 ### Customer Portal
 
-You can now create a company account where you can invite members of your organization and manage them by assigning them specific roles and limitations.
+The new Customer Portal allows you to create and manage business account for your company.
+With this new feature, you can easily manage members of your organization,
+your shipping information and view your past orders.
+You can invite members to your company, activate or deactivate their accounts, 
+assign them specific roles and limitations, such as a buyer, or sales representative, and group them into teams.
+
+![Customer Portal Back Office](img/4.2_customer_portal.png)
 
 ### User management
 
