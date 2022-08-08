@@ -76,7 +76,7 @@ nav:
             - URL events: guide/repository/event_reference/url_events.md
             - Trash events: guide/repository/event_reference/trash_events.md
             - Other events: guide/repository/event_reference/other_events.md
-    - Administration: # Setup? Configuration? Back Office
+    - Administration:
         - Project organization:
             - Project organization: guide/project_organization.md
             - Architecture: guide/architecture.md
@@ -113,54 +113,9 @@ nav:
             - Multi-file upload: extending/extending_multifile_upload.md
             - Sub-items list: extending/extending_subitems_list.md
             - Notifications: guide/sending_notifications.md
-    - Templating:
         - Content rendering: content_rendering/content_rendering.md
-        - Render content:
-            - Render content: guide/content_rendering/render_content/render_content.md
-            - Render Page: guide/content_rendering/render_content/render_page.md
-            - Render product: guide/content_rendering/render_content/render_product.md
-        - Templates:
-            - Templates: guide/content_rendering/templates/templates.md
-            - Template configuration: guide/content_rendering/templates/template_configuration.md
-            - View matcher reference: guide/content_rendering/templates/view_matcher_reference.md
-            - Create custom view matcher: guide/content_rendering/templates/custom_view_matcher.md
-        - Assets: guide/content_rendering/assets.md
-        - Image variations: guide/content_rendering/image_variations.md
-        - Twig functions reference:
-            - Twig functions reference: guide/content_rendering/twig_function_reference/twig_functions_reference.md
-            - Content Twig functions: guide/content_rendering/twig_function_reference/content_twig_functions.md
-            - Field Twig functions: guide/content_rendering/twig_function_reference/field_twig_functions.md
-            - Product Twig functions: guide/content_rendering/twig_function_reference/product_twig_functions.md
-            - Image Twig functions: guide/content_rendering/twig_function_reference/image_twig_functions.md
-            - URL Twig functions: guide/content_rendering/twig_function_reference/url_twig_functions.md
-            - Date Twig filters: guide/content_rendering/twig_function_reference/date_twig_filters.md
-            - Other Twig filters: guide/content_rendering/twig_function_reference/other_twig_filters.md
-        - URLs and routes:
-            - URLs and routes: guide/content_rendering/urls_and_routes.md
-            - Custom breadcrumbs: guide/content_rendering/custom_breadcrumbs.md
-        - Design engine:
-            - Design engine: guide/content_rendering/design_engine/design_engine.md
-            - Add new design: guide/content_rendering/design_engine/add_new_design.md
-        - Queries and controllers:
-            - Content queries: guide/content_rendering/queries_and_controllers/content_queries.md
-            - Built-in Query types: guide/content_rendering/queries_and_controllers/built-in_query_types.md
-            - Create custom Query type: guide/content_rendering/queries_and_controllers/custom_query_type.md
-            - Controllers: guide/content_rendering/queries_and_controllers/controllers.md
-        - Embed and list content:
-            - List content: guide/content_rendering/embed_and_list_content/list_content.md
-            - List products: guide/content_rendering/embed_and_list_content/list_products.md
-            - Embed content: guide/content_rendering/embed_and_list_content/embed_content.md
-            - Render images: guide/content_rendering/embed_and_list_content/render_images.md
-        - Layout:
-            - Add breadcrumbs: guide/content_rendering/layout/add_breadcrumbs.md
-            - Add forgot password option: guide/content_rendering/layout/add_forgot_password.md
-            - Add login form: guide/content_rendering/layout/add_login_form.md
-            - Add navigation menu: guide/content_rendering/layout/add_menu.md
-            - Add search form to front page: guide/content_rendering/layout/add_search_form.md
-            - Create user registration form: guide/content_rendering/layout/add_register_user_template.md
-            - Customize basket: guide/content_rendering/layout/customize_basket.md
     - Content management:
-        - Content management: guide/content_management.md
+        - Content management: guide/content_management.md # Split into separate pages or include in Content model, then replace with landing page
         - Content model: guide/content_model.md
         - Taxonomy:
             - Taxonomy: guide/taxonomy/taxonomy.md
@@ -253,6 +208,51 @@ nav:
                 - Time Field Type: api/field_types_reference/timefield.md
                 - URL Field Type: api/field_types_reference/urlfield.md
                 - User Field Type: api/field_types_reference/userfield.md
+    - Templating:
+        - Render content:
+            - Render content: guide/content_rendering/render_content/render_content.md
+            - Render Page: guide/content_rendering/render_content/render_page.md
+            - Render product: guide/content_rendering/render_content/render_product.md
+        - Templates:
+            - Templates: guide/content_rendering/templates/templates.md
+            - Template configuration: guide/content_rendering/templates/template_configuration.md
+            - View matcher reference: guide/content_rendering/templates/view_matcher_reference.md
+            - Create custom view matcher: guide/content_rendering/templates/custom_view_matcher.md
+        - Assets: guide/content_rendering/assets.md
+        - Image variations: guide/content_rendering/image_variations.md
+        - Twig functions reference:
+            - Twig functions reference: guide/content_rendering/twig_function_reference/twig_functions_reference.md
+            - Content Twig functions: guide/content_rendering/twig_function_reference/content_twig_functions.md
+            - Field Twig functions: guide/content_rendering/twig_function_reference/field_twig_functions.md
+            - Product Twig functions: guide/content_rendering/twig_function_reference/product_twig_functions.md
+            - Image Twig functions: guide/content_rendering/twig_function_reference/image_twig_functions.md
+            - URL Twig functions: guide/content_rendering/twig_function_reference/url_twig_functions.md
+            - Date Twig filters: guide/content_rendering/twig_function_reference/date_twig_filters.md
+            - Other Twig filters: guide/content_rendering/twig_function_reference/other_twig_filters.md
+        - URLs and routes:
+            - URLs and routes: guide/content_rendering/urls_and_routes.md
+            - Custom breadcrumbs: guide/content_rendering/custom_breadcrumbs.md
+        - Design engine:
+            - Design engine: guide/content_rendering/design_engine/design_engine.md
+            - Add new design: guide/content_rendering/design_engine/add_new_design.md
+        - Queries and controllers:
+            - Content queries: guide/content_rendering/queries_and_controllers/content_queries.md
+            - Built-in Query types: guide/content_rendering/queries_and_controllers/built-in_query_types.md
+            - Create custom Query type: guide/content_rendering/queries_and_controllers/custom_query_type.md
+            - Controllers: guide/content_rendering/queries_and_controllers/controllers.md
+        - Embed and list content:
+            - List content: guide/content_rendering/embed_and_list_content/list_content.md
+            - List products: guide/content_rendering/embed_and_list_content/list_products.md
+            - Embed content: guide/content_rendering/embed_and_list_content/embed_content.md
+            - Render images: guide/content_rendering/embed_and_list_content/render_images.md
+        - Layout:
+            - Add breadcrumbs: guide/content_rendering/layout/add_breadcrumbs.md
+            - Add forgot password option: guide/content_rendering/layout/add_forgot_password.md
+            - Add login form: guide/content_rendering/layout/add_login_form.md
+            - Add navigation menu: guide/content_rendering/layout/add_menu.md
+            - Add search form to front page: guide/content_rendering/layout/add_search_form.md
+            - Create user registration form: guide/content_rendering/layout/add_register_user_template.md
+            - Customize basket: guide/content_rendering/layout/customize_basket.md
     - Commerce:
         - Product catalog:
             - Product catalog: guide/catalog/catalog.md
@@ -478,7 +478,7 @@ nav:
             - Search synonyms: guide/search/shop_search/search_synonyms.md
             - Autosuggestion: guide/search/shop_search/search_autosuggest.md
     - Infrastructure and maintenance:
-        - Repository API: api/public_php_api_managing_repository.md # Divide, next to related topics
+        - Repository API: api/public_php_api_managing_repository.md # Split, next to relevant topics
         - Request lifecycle: guide/request_lifecycle.md
         - Databases: guide/databases.md
         - Cache:
