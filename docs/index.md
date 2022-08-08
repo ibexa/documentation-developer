@@ -108,7 +108,7 @@
                 <span class="pill">v4.2</span>
             </h5>
             <div class="row mt-3">
-                <div class="col-lg-5">The <a href="releases/ibexa_dxp_v4.1/">latest version of Ibexa DXP is v4.2</a>. It is a Fast Track release, and it was released on August 8, 2022.
+                <div class="col-lg-5">The <a href="releases/ibexa_dxp_v4.2/">latest version of Ibexa DXP is v4.2</a>. It is a Fast Track release, and it was released on August 8, 2022.
                 </div>
                 <div class="col-sm-7 features">
                     <ul>
