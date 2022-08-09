@@ -123,6 +123,10 @@ The more Role assignments and complex Policies you add for a given User, the mor
 || `view` |view customer groups|
 || `edit` |edit a customer group|
 || `delete` |delete a customer group|
+| `catalog` | `create` |create a catalog|
+|| `view` |view catalogs|
+|| `edit` |edit a catalog|
+|| `delete` |delete a catalog|
 |`siso_policy`</br>[[% include 'snippets/commerce_badge.md' %]]|`checkout`|access the checkout process|
 ||`edit_invoice`|edit invoice address|
 ||`edit_delivery`|edit delivery address|

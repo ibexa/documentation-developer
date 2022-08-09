@@ -140,3 +140,20 @@ params:
             operator: '<'
         assign_results_to: items
 ```
+
+## Catalog
+
+The `Catalog` Query type retrieves products belonging to a [catalog](../../catalog/catalog.md#catalogs).
+
+It takes the following parameters:
+
+- `identifier` - identifier of the catalog
+
+``` yaml
+params:
+    query:
+        query_type: 'Catalog'
+        parameters:
+            identifier: 'promo'
+        assign_results_to: products
+```

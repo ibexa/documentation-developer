@@ -164,6 +164,7 @@ nav:
             - Embed and list content:
                 - 'List content': 'guide/content_rendering/embed_and_list_content/list_content.md'
                 - 'List products': 'guide/content_rendering/embed_and_list_content/list_products.md'
+                - 'List products in catalog': 'guide/content_rendering/embed_and_list_content/list_products_in_catalog.md'
                 - 'Embed content': 'guide/content_rendering/embed_and_list_content/embed_content.md'
                 - 'Render images': 'guide/content_rendering/embed_and_list_content/render_images.md'
             - Layout:

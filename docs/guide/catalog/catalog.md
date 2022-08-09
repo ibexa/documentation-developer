@@ -7,6 +7,24 @@ description: Product catalog offers PIM functionalities, with product, product t
 The product catalog enables handling of products offered in the shop,
 including their specifications and pricing.
 
+## Catalogs
+
+You can create multiple catalogs containing subsets of the whole product list.
+
+Use them, for example, to build special catalogs for B2B and B2C uses, for retailers and distributors or for different regions.
+
+When creating a catalog, you can filter the products by:
+
+- price
+- product attributes
+- product type
+- product code
+- availability
+- product category
+- the date when the product was created
+
+![List of filters for selecting products for a catalog](../img/catalogs_filters.png)
+
 ## Products
 
 Products are a special type of content that contains typical content Fields
