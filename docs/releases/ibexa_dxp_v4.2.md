@@ -22,7 +22,9 @@ assign them specific roles and limitations, such as a buyer, or sales representa
 
 #### Inviting users
 
-You can invite users to create their account in the frontend as customers or in the Back Office.
+You can invite users to create their account in the frontend as customers or in the Back Office as members of your team.
+
+![Inviting members of your team](img/4.2_invite_users.png)
 
 #### Configure register form
 
