@@ -8,7 +8,7 @@
 
 ## Notable changes
 
-### Customer Portal
+### Customer Portal [[% include 'snippets/commerce_badge.md' %]]
 
 The new Customer Portal allows you to create and manage business account for your company.
 With this new feature, you can easily manage members of your organization,
@@ -39,8 +39,8 @@ Register forms for new users can now be [configured straight in the YAML file](h
 ### Catalogs
 
 You can now create catalogs containing sub-sets of products.
-Choose products for a catalog by applying filters which enable you to select products
-for example by product type, price range, availability or category.
+Choose products for a catalog by applying filters which enable you to select products,
+for example, by product type, price range, availability or category.
 
 ![List of products in a catalog](img/4.2_catalogs_product_list.png)
 
@@ -61,32 +61,32 @@ You can set prices, including custom pricing, as well as availability and stock 
 
 To provide your products with images, you can now upload multiple assets to each product.
 Assets are grouped into collections based on attribute values
-and in this way are connected to product variants which have these attributes.
+ and, in this way, are connected to product variants which have these attributes.
 
 ![Asset images in product view](img/4.2_product_assets.png)
 
 ### Product completeness
 
-The new product completeness tab in product view lists all the parts of a product you can configure:
+The new product completeness tab, in product view, lists all the parts of a product you can configure:
 attributes, assets, prices, availability, and so on.
-You can use it to get a quick overview of missing parts of product configuration
+You can use it to get a quick overview of missing parts in the product configuration
 and to instantly move to the proper screen to fill the gaps.
 
 ![Product completeness tab](img/4.2_product_completeness.png)
 
 ### Product categories
 
-With product categories you can organize products that populate the Product Catalog.
+With product categories, you can organize products that populate the Product Catalog.
 You do it, for example, to assist users in searching for products.
 
 For more information, see [Product categories](https://doc.ibexa.co/projects/userguide/en/master/shop_administration/categories).
 
 ![Product categories](img/4.2_product_categories_rn.png)
 
-### Cross-content type recommendations
+### Cross-content type (CCT) recommendations
 
-If a recommendation scenario has more than one content type configured, with cross-content type parameter in the request,
-you can now get recommendations for all these content types.
+If a recommendation scenario has more than one Content Type configured, with cross-content type (CCT) parameter in the request,
+you can now get recommendations for all these Content Types.
 
 ### Taxonomy Field Type
 
@@ -95,7 +95,7 @@ so you can use many Fields to add different taxonomy categories, for example, ta
 
 ### Repeatable migration steps
 
-Data migration now offers [repeatable migrations steps](https://doc.ibexa.co/en/4.2/guide/data_migration/importing_data/#repeatable-steps),
+Data migration now offers [repeatable migration steps](https://doc.ibexa.co/en/4.2/guide/data_migration/importing_data/#repeatable-steps),
 especially useful when creating large amounts of data, for example for testing.
 
 You can vary the migration values by using the iteration counter, or by generating random data by using [`FakerPHP`](https://fakerphp.github.io/).
@@ -153,7 +153,7 @@ Images that you upload this way are automatically added to the Media library.
 
 ### Search in URL wildcards
 
-You can now search in the **URL wildcards** table in the Back Office.
+You can now search through the **URL wildcards** table in the Back Office.
 
 ### Product price events
 
