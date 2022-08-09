@@ -38,7 +38,7 @@ for example by product type, price range, availability or category.
 
 ![List of products in a catalog](img/4.2_catalogs_product_list.png)
 
-Catalogs are useful when creating special discount lists, campaigns, tenders,
+Catalogs are useful when creating special lists for B2B and B2C uses, for retailers and distributors or for different regions,
 or other situations where you need to present a selected set of products.
 
 ### Product variants
