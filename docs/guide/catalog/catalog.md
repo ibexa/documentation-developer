@@ -11,7 +11,7 @@ including their specifications and pricing.
 
 You can create multiple catalogs containing subsets of the whole product list.
 
-Use them, for example, to build special discount catalogs, campaigns, or tenders.
+Use them, for example, to build special catalogs for B2B and B2C uses, for retailers and distributors or for different regions.
 
 When creating a catalog, you can filter the products by:
 
