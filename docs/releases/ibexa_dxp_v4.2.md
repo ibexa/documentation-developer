@@ -10,7 +10,7 @@
 
 ### Customer Portal [[% include 'snippets/commerce_badge.md' %]]
 
-The new Customer Portal allows you to create and manage business account for your company.
+The new Customer Portal allows you to create and manage a business account for your company.
 With this new feature, you can easily manage members of your organization,
 your shipping information and view your past orders.
 You can invite members to your company, activate or deactivate their accounts,
