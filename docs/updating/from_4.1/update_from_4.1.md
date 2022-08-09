@@ -65,7 +65,7 @@ The `recipes:install` command installs new YAML configuration files. Look throug
 
 #### Run data migration
 
-Next, run data migration required by the Customer portal feature:
+Next, if you are using [[= product_name_exp =]] or [[= product_name_com =]], run data migration required by the Customer portal feature:
 
 ``` bash
 php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/corporate_account.yaml --name=001_corporate_account.yaml
@@ -75,6 +75,13 @@ If you are using [[= product_name_com =]], additionally run:
 
 ``` bash
 php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/corporate_account_commerce.yaml --name=002_corporate_account_commerce.yaml
+```
+
+Run `php bin/console ibexa:migrations:migrate -v --dry-run` to ensure that all migrations are ready to be performed.
+If the dry run is successful, run:
+
+``` bash
+php bin/console ibexa:migrations:migrate
 ```
 
 ### Update the database
