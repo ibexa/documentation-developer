@@ -23,7 +23,7 @@ When creating a catalog, you can filter the products by:
 - product category
 - the date when the product was created
 
-![]()
+![List of filters for selecting products for a catalog](../img/catalogs_filters.png)
 
 ## Products
 
