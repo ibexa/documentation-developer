@@ -534,6 +534,7 @@ nav:
             - 'Migrate from eZ Publish': 'migrating/migrating_from_ez_publish.md'
             - 'Common migration issues': 'migrating/common_issues.md'
     - Releases:
+        - 'Ibexa DXP v4.2': 'releases/ibexa_dxp_v4.2.md'
         - 'Ibexa DXP v4.1': 'releases/ibexa_dxp_v4.1.md'
         - 'Ibexa DXP v4.0': 'releases/ibexa_dxp_v4.0.md'
         - 'Ibexa DXP v4.0 deprecations and BC breaks': 'releases/ibexa_dxp_v4.0_deprecations.md'
