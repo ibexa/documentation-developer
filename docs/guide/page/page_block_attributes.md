@@ -34,6 +34,7 @@ The following attribute types are available:
 |`locationlist`|Location selection|-|
 |`contenttypelist`|List of Content Types|-|
 |`schedule_events`,</br>`schedule_snapshots`,</br>`schedule_initial_items`,</br>`schedule_slots`,</br>`schedule_loaded_snapshot`|Used in the Content Scheduler block|-|
+|`nested_attribute`|Defines a group of attributes in a block.|-|
 
 When you define attributes, you can omit most keys as long as you use simple types that do not require additional options:
 

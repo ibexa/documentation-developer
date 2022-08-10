@@ -33,6 +33,28 @@ For a list of all available attribute types, see [Page block attributes](page_bl
 
 Each attribute can have [validators](page_block_validators.md). The `not_blank` validators in the example ensure that the user fills in the two block fields.
 
+## Add group of attributes
+
+If a block has multiple attributes, you can group them with the `nested_attribute`. Groups can be defined with the following configuration:
+
+``` yaml
+[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 0,16) =]][[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 20,23) =]]
+```
+
+The `multiple` option indicates that new groups can be added dynamically with the **Add field group** button.
+
+To set validation for each nested attribute:
+
+``` yaml
+[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9,19) =]]
+```
+
+Validators can be also set on a parent attribute (group defining level), it means all validators apply to each nested attribute:
+
+``` yaml
+[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9,16) =]] [[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 20,26) =]]
+```
+
 ## Add block templates
 
 A block can have different templates that you select when adding it to a Page.
