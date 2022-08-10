@@ -91,6 +91,12 @@ you can now get recommendations for all these Content Types.
 Taxonomy is now [configured with a Field Type](https://doc.ibexa.co/projects/userguide/en/4.2/taxonomy/#add-tag),
 so you can use many Fields to add different taxonomy categories, for example, tags and product categories in the same Content Type.
 
+### Address Field Type
+
+With the new Address Field Type, you can now customize address Fields and configure them per country.
+
+![Address Field Type](img/4.2_address_field_type.png)
+
 ### Repeatable migration steps
 
 Data migration now offers [repeatable migration steps](https://doc.ibexa.co/en/4.2/guide/data_migration/importing_data/#repeatable-steps),
@@ -116,6 +122,9 @@ Attribute Criteria search for products based on their attribute values, per attr
 - [FloatAttribute](https://doc.ibexa.co/en/4.2/guide/search/criteria_reference/floatattribute_criterion/)
 - [IntegerAttribute](https://doc.ibexa.co/en/4.2/guide/search/criteria_reference/integerattribute_criterion/)
 - [SelectionAttribute](https://doc.ibexa.co/en/4.2/guide/search/criteria_reference/selectionattribute_criterion/)
+- SimpleMeasurementAttribute
+- RangeMeasurementAttributeMinimum
+- RangeMeasurementAttributeMaximum
 
 Creation date Criteria and Sort Clauses allow searching by date of the product's creation:
 
@@ -148,6 +157,13 @@ Images that you upload this way are automatically added to the Media library.
     each of them is modified by appending a unique prefix.  
 
 ![Drag and drop image into the Online Editor](img/4.2_online_editor_dnd_image.png)
+
+### Content edit tabs
+
+Content editing screen is now enriched with a tab switcher, allowing easy access to metadata such as taxonomies.
+The view can be extended with custom tabs.
+
+![Tabs in content edit view](img/4.2_content_edit_tabs.png)
 
 ### Search in URL wildcards
 
