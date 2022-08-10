@@ -8,7 +8,7 @@
 
 ## Notable changes
 
-### Customer Portal [[% include 'snippets/commerce_badge.md' %]]
+### Customer Portal [[% include 'snippets/experience_badge.md' %]]
 
 The new Customer Portal allows you to create and manage a business account for your company.
 With this new feature, you can easily manage members of your organization,
