@@ -122,6 +122,9 @@ Attribute Criteria search for products based on their attribute values, per attr
 - [FloatAttribute](https://doc.ibexa.co/en/4.2/guide/search/criteria_reference/floatattribute_criterion/)
 - [IntegerAttribute](https://doc.ibexa.co/en/4.2/guide/search/criteria_reference/integerattribute_criterion/)
 - [SelectionAttribute](https://doc.ibexa.co/en/4.2/guide/search/criteria_reference/selectionattribute_criterion/)
+- SimpleMeasurementAttribute
+- RangeMeasurementAttributeMinimum
+- RangeMeasurementAttributeMaximum
 
 Creation date Criteria and Sort Clauses allow searching by date of the product's creation:
 
