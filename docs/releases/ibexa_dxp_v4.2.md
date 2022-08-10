@@ -93,7 +93,7 @@ so you can use many Fields to add different taxonomy categories, for example, ta
 
 ### Address Field Type
 
-With a new Address Field Type, you can now customize address fields and configure them per country.
+With the new Address Field Type, you can now customize address Fields and configure them per country.
 
 ![Address Field Type](img/4.2_address_field_type.png)
 
