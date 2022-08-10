@@ -91,6 +91,12 @@ you can now get recommendations for all these Content Types.
 Taxonomy is now [configured with a Field Type](https://doc.ibexa.co/projects/userguide/en/4.2/taxonomy/#add-tag),
 so you can use many Fields to add different taxonomy categories, for example, tags and product categories in the same Content Type.
 
+### Address Field Type
+
+With a new Address Field Type, you can now customize address fields and configure them per country.
+
+![Address Field Type](img/4.2_address_field_type.png)
+
 ### Repeatable migration steps
 
 Data migration now offers [repeatable migration steps](https://doc.ibexa.co/en/4.2/guide/data_migration/importing_data/#repeatable-steps),
