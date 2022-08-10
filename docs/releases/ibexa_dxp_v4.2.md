@@ -155,6 +155,13 @@ Images that you upload this way are automatically added to the Media library.
 
 ![Drag and drop image into the Online Editor](img/4.2_online_editor_dnd_image.png)
 
+### Content edit tabs
+
+Content editing screen is now enriched with a tab switcher, allowing easy access to metadata such as taxonomies.
+The view can be extended with custom tabs.
+
+![Tabs in content edit view](img/4.2_content_edit_tabs.png)
+
 ### Search in URL wildcards
 
 You can now search through the **URL wildcards** table in the Back Office.
