@@ -2,19 +2,17 @@
 description: Update your installation to the v4.1.latest version from an earlier v4.1.x version.
 ---
 
-# Update from v4.1.x to v4.1.latest
+# Update from v4.1.x to v4.2
 
-This update procedure applies if you are using a v4.1 installation without the latest maintenance release.
+This update procedure applies if you are using a v4.1 installation.
 
-Go through the following steps to update to the latest maintenance release of v4.1 (v[[= latest_tag_4_1 =]]).
+## Update from v4.1.x to v4.1.latest
 
-!!! note
+Before you update to v4.2, you need to go through the following steps to update to the latest maintenance release of v4.1 (v[[= latest_tag_4_1 =]]).
 
-    You can only update to the latest patch release of 4.1.x.
+### Update the application
 
-## Update the application
-
-First, run:
+Run:
 
 === "Ibexa Content"
 
@@ -32,4 +30,77 @@ First, run:
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_1 =]] --with-all-dependencies --no-scripts
+    ```
+
+## Update from v4.1.latest to v4.2
+
+When you have the latest version of v4.1, you can update to v4.2.
+
+### Update the application
+
+First, run:
+
+=== "Ibexa Content"
+
+    ``` bash
+    composer require ibexa/content:[[= latest_tag_4_2 =]] --with-all-dependencies --no-scripts
+    composer recipes:install ibexa/content --force -v
+    ```
+
+=== "Ibexa Experience"
+
+    ``` bash
+    composer require ibexa/experience:[[= latest_tag_4_2 =]] --with-all-dependencies --no-scripts
+    composer recipes:install ibexa/experience --force -v
+    ```
+
+=== "Ibexa Commerce"
+
+    ``` bash
+    composer require ibexa/commerce:[[= latest_tag_4_2 =]] --with-all-dependencies --no-scripts
+    composer recipes:install ibexa/commerce --force -v
+    ```
+
+The `recipes:install` command installs new YAML configuration files. 
+Review the old YAML files and move your custom configuration to the relevant new files.
+
+#### Run data migration
+
+Next, if you are using Ibexa Experience or Ibexa Commerce, run data migration required by the Customer portal feature:
+
+``` bash
+php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/corporate_account.yaml --name=001_corporate_account.yaml
+```
+
+If you are using Ibexa Commerce, additionally run:
+
+``` bash
+php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/corporate_account_commerce.yaml --name=002_corporate_account_commerce.yaml
+```
+
+Run `php bin/console ibexa:migrations:migrate -v --dry-run` to ensure that all migrations are ready to be performed.
+If the dry run is successful, run:
+
+``` bash
+php bin/console ibexa:migrations:migrate
+```
+
+### Update the database
+
+Next, update the database.
+
+[[% include 'snippets/update/db/db_backup_warning.md' %]]
+
+Apply the following database update scripts:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.1.latest-to-4.2.0.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.1.latest-to-4.2.0.sql
     ```
