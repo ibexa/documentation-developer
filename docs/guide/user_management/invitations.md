@@ -47,6 +47,7 @@ and what should be the expiration time for the invitation link included in that 
 
 ### Configuration in YAML
 
+This is not a recommended way of configuring templates, if you can, use the [semantic configuration](#semantic-configuration) from above.
 You can also configure invitation templates in `user/src/bundle/Resources/config/ezplatform_default_settings.yaml`.
 There, you can point to the specific forms and invitation email templates.
 
