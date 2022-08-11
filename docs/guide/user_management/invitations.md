@@ -34,12 +34,12 @@ For example, use the following configuration:
 
 ```yaml
  ibexa:
-   system:
-      <scope>:
-          user_invitation:
-              hash_expiration_time: P7D
-              templates:
-                  mail: "@@App/invitation/mail.html.twig"
+     system:
+         <scope>:
+             user_invitation:
+                 hash_expiration_time: P7D
+                 templates:
+                     mail: "@@App/invitation/mail.html.twig"
  ```
 
 Here, you can specify which template should be used for the invitation mail,
