@@ -167,6 +167,12 @@ The view can be extended with custom tabs.
 
 ![Tabs in content edit view](img/4.2_content_edit_tabs.png)
 
+### Grouped attributes in Page block
+
+If a Page block has multiple attributes, you can now group them with the `nested_attribute` parameter.
+
+![Grouped attributes](img/4.2_page_block_nested.png)
+
 ### Search in URL wildcards
 
 You can now search through the **URL wildcards** table in the Back Office.
