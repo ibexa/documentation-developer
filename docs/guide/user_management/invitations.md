@@ -31,7 +31,6 @@ create a template file and inform the system, through configuration, when to use
 
 For example, use the following configuration:
 
-
 ```yaml
  ibexa:
      system:
