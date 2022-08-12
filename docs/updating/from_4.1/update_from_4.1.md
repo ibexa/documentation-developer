@@ -66,7 +66,13 @@ Review the old YAML files and move your custom configuration to the relevant new
 
 #### Run data migration
 
-Next, if you are using Ibexa Experience or Ibexa Commerce, run data migration required by the Customer portal feature:
+Next, run data migration required by Product Categories:
+
+``` bash
+php bin/console ibexa:migrations:import vendor/ibexa/product-catalog/src/bundle/Resources/migrations/2022_06_23_09_39_product_categories.yaml --name=013_product_categories.yaml
+```
+
+If you are using Ibexa Experience or Ibexa Commerce, run data migration required by the Customer portal feature:
 
 ``` bash
 php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/corporate_account.yaml --name=001_corporate_account.yaml
