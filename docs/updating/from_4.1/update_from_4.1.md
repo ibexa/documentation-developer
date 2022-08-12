@@ -70,6 +70,7 @@ Next, if you are using [[= product_name_exp =]] or [[= product_name_com =]], run
 
 ``` bash
 php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/corporate_account.yaml --name=001_corporate_account.yaml
+php bin/console ibexa:migrations:import vendor/ibexa/product-catalog/src/bundle/Resources/migrations/2022_06_23_09_39_product_categories.yaml --name=013_product_categories.yaml
 ```
 
 If you are using [[= product_name_com =]], additionally run:
