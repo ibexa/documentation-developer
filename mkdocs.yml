@@ -305,6 +305,9 @@ nav:
                 - 'ProductCode': 'guide/search/criteria_reference/productcode_criterion.md'
                 - 'ProductName': 'guide/search/criteria_reference/productname_criterion.md'
                 - 'ProductType': 'guide/search/criteria_reference/producttype_criterion.md'
+                - 'RangeMeasurementAttributeMinimum': 'guide/search/criteria_reference/rangemeasurementattributeminimum_criterion.md'
+                - 'RangeMeasurementAttributeMaximum': 'guide/search/criteria_reference/rangemeasurementattributemaximum_criterion.md'
+                - 'SimpleMeasurementAttribute': 'guide/search/criteria_reference/simplemeasurementattribute_criterion.md'
                 - 'SelectionAttribute': 'guide/search/criteria_reference/selectionattribute_criterion.md'
             - Sort Clause reference:
                 - 'Sort Clause reference': 'guide/search/sort_clause_reference/sort_clause_reference.md'

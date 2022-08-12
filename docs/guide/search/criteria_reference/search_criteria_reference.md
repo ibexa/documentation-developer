@@ -76,6 +76,9 @@ Due to this storage limitation, searching content using the Country Field Type o
 |[ProductCategory](productcategory_criterion.md)|Product category assigned to product|Product search|
 |[ProductCode](productcode_criterion.md)|Product's code|Content and Location Search; Filtering|
 |[ProductName](productname_criterion.md)|Product's name|Content and Location Search; Filtering|
+|[RangeMeasurementAttributeMinimum](rangemeasurementattributeminimum_criterion.md)|Minimum value of product's measurement attribute|Product search|
+|[RangeMeasurementAttributeMaximum](rangemeasurementattributemaximum_criterion.md)|Maximum value of product's measurement attribute|Product search|
+|[SimpleMeasurementAttribute](simplemeasurementattribute_criterion.md)|Value of product's measurement attribute|Product search|
 |[BasePrice](baseprice_criterion.md)|Product's base price|Product search|
 |[CustomPrice](customprice_criterion.md)|Product's custom price|Product search|
 |[ProductType](producttype_criterion.md)|Product type|Content and Location Search; Filtering|
