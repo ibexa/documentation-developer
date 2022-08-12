@@ -86,7 +86,7 @@ nav:
             - Configuration: guide/configuration/configuration.md
             - Dynamic configuration: guide/configuration/config_dynamic.md
             - Repository configuration: guide/configuration/config_repository.md
-        - Extend Back Office:
+        - Back Office:
             - Back Office: extending/extending_back_office.md
             - Configuration: extending/config_back_office.md
             - Content Tree: extending/content_tree.md
@@ -332,6 +332,8 @@ nav:
             - Recommendation integration: guide/personalization/best_practices/recommendation_integration.md
     - Search:
         - Search: guide/search/search.md
+        - Elasticsearch search engine: guide/search/elastic.md
+        - Solr search engine: guide/search/solr.md
         - Search API: api/public_php_api_search.md
         - Search Criteria reference:
             - Search Criteria reference: guide/search/criteria_reference/search_criteria_reference.md
@@ -461,8 +463,6 @@ nav:
             - LogicalNot Criterion: guide/search/url_search_reference/logicalnot_url_criterion.md
             - LogicalOr Criterion: guide/search/url_search_reference/logicalor_url_criterion.md
         - Search in trash reference: guide/search/search_in_trash_reference.md
-        - Elasticsearch search engine: guide/search/elastic.md
-        - Solr search engine: guide/search/solr.md
         - Extend search:
             - Create custom Search Criterion': guide/search/extensibility/create_custom_search_criterion.md
             - Create custom Sort Clause: guide/search/extensibility/create_custom_sort_clause.md
