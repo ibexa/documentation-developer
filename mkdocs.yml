@@ -243,6 +243,7 @@ nav:
         - Embed and list content:
             - List content: guide/content_rendering/embed_and_list_content/list_content.md
             - List products: guide/content_rendering/embed_and_list_content/list_products.md
+            - List products in catalog: guide/content_rendering/embed_and_list_content/list_products_in_catalog.md
             - Embed content: guide/content_rendering/embed_and_list_content/embed_content.md
             - Render images: guide/content_rendering/embed_and_list_content/render_images.md
         - Layout:
@@ -392,6 +393,9 @@ nav:
             - ProductCode: guide/search/criteria_reference/productcode_criterion.md
             - ProductName: guide/search/criteria_reference/productname_criterion.md
             - ProductType: guide/search/criteria_reference/producttype_criterion.md
+            - RangeMeasurementAttributeMinimum: guide/search/criteria_reference/rangemeasurementattributeminimum_criterion.md
+            - RangeMeasurementAttributeMaximum: guide/search/criteria_reference/rangemeasurementattributemaximum_criterion.md
+            - SimpleMeasurementAttribute: guide/search/criteria_reference/simplemeasurementattribute_criterion.md
             - SelectionAttribute: guide/search/criteria_reference/selectionattribute_criterion.md
         - Sort Clause reference:
             - Sort Clause reference: guide/search/sort_clause_reference/sort_clause_reference.md
@@ -533,7 +537,7 @@ nav:
         - Update from v4.0:
             - Update to v4.1: updating/from_4.0/to_4.1.md
         - Update from v4.1:
-            - Update to v4.1.latest: updating/from_4.1/update_from_4.1.md
+            - Update to v4.2: updating/from_4.1/update_from_4.1.md
         - Migrate to Ibexa DXP:
             - Migrate from eZ Publish Platform: migrating/migrating_from_ez_publish_platform.md
             - Migrate from eZ Publish: migrating/migrating_from_ez_publish.md
@@ -546,6 +550,7 @@ nav:
             - Contribute translations: community_resources/translations.md
             - Package structure: community_resources/package_structure.md
     - Release notes:
+        - Ibexa DXP v4.2: releases/ibexa_dxp_v4.2.md
         - Ibexa DXP v4.1: releases/ibexa_dxp_v4.1.md
         - Ibexa DXP v4.0: releases/ibexa_dxp_v4.0.md
         - Ibexa DXP v4.0 deprecations and BC breaks: releases/ibexa_dxp_v4.0_deprecations.md
@@ -599,6 +604,12 @@ extra:
   product_name_content: 'Ibexa Content'
   product_name_exp: 'Ibexa Experience'
   product_name_com: 'Ibexa Commerce'
+  # Global variables - latest tag versions
+  latest_tag_2_5: '2.5.30'
+  latest_tag_3_3: '3.3.24'
+  latest_tag_4_0: '4.0.8'
+  latest_tag_4_1: '4.1.5'
+  latest_tag_4_2: '4.2.0'
 
   symfony_doc: 'http://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'

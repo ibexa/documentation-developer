@@ -7,12 +7,33 @@ description: Product catalog offers PIM functionalities, with product, product t
 The product catalog enables handling of products offered in the shop,
 including their specifications and pricing.
 
+## Catalogs
+
+You can create multiple catalogs containing subsets of the whole product list.
+
+Use them, for example, to build special catalogs for B2B and B2C uses, for retailers and distributors or for different regions.
+
+When creating a catalog, you can filter the products by:
+
+- price
+- product attributes
+- product type
+- product code
+- availability
+- product category
+- the date when the product was created
+
+![List of filters for selecting products for a catalog](../img/catalogs_filters.png)
+
 ## Products
 
 Products are a special type of content that contains typical content Fields
 as well as additional product information.
 
 Each product belongs to a product type (similar to how a Content item belongs to a Content Type).
+
+Each product has a unique identifying product code.
+Product code can have up to 64 characters. It can contain only letters, numbers, underscores, and dashes.
 
 ## Product types
 
@@ -52,6 +73,8 @@ that have the "Used for product variants" flag enabled in the product type defin
 
 You can create variants for any combination of values of selected attributes.
 In the Back Office you can automatically generate all possible variants for a product.
+
+Codes for product variants are generated automatically based on the [selected strategy](catalog_configuration.md#code-generation-strategy).
 
 Each product variant has separate availability and stock information.
 Each variant can also have separate price rules.

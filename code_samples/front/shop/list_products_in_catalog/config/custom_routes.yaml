@@ -1,0 +1,4 @@
+promo:
+    path: /promo
+    defaults:
+        _controller: App\Controller\PromoController::listPromoProductsAction

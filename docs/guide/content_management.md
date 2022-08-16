@@ -37,9 +37,7 @@ Every Location (aside from the root) has one parent Location and can have any nu
 Top level Locations are direct children of the root of the tree.
 The root has Location ID 1, is not related to any Content items and should not be used directly.
 
-Under this root there are preset top level Locations in each installation which cannot be deleted:
-
-![Content and Media top Locations](img/content_structure_media_library.png)
+Under this root there are preset top level Locations in each installation which cannot be deleted.
 
 #### Content
 
