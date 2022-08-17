@@ -2,7 +2,7 @@
 description: You can enable users to create new content in the Repository by using forms available in the front end of the site.
 ---
 
-# User-Generated Content
+# User-generated content
 
 [[= product_name =]] comes with content edition features via the Symfony stack.
 They are meant to allow the implementation of user-generated content from the front end, without entering the Back Office.

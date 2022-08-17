@@ -2,7 +2,7 @@
 description: Field Types define the Fields that a Content item is built of.
 ---
 
-# Field Type API
+# Field Types
 
 Field Types are the smallest building blocks of content.
 [[= product_name =]] comes with many [built-in Field Types](field_type_reference.md#available-field-types) that cover most common needs e.g. Text line, Email address, Author list, Content relation, Map location, Float, etc.

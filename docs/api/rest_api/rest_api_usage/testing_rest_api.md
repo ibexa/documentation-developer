@@ -2,7 +2,7 @@
 description: You can test operations in the REST API by using command line, PHP or JS code.
 ---
 
-# Testing the API
+# Testing REST API
 
 A standard web browser is not sufficient to fully test the API.
 You can, however, try opening the root resource with it, using the session authentication: `http://example.com/api/ibexa/v2/`.
