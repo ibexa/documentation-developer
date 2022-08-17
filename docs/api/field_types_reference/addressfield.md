@@ -10,6 +10,8 @@ It allows you to customize address Field Types per country.
 The Address Field Type is available via the Address Bundle
 provided by the [ibexa/fieldtype-address](https://github.com/ibexa/fieldtype-address) package.
 
+## PHP API Field Type
+
 ### Inputs:
 
 | Type     | Description                                   | Example           |
