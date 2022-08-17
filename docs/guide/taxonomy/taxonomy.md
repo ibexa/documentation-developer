@@ -30,9 +30,9 @@ The identifiers correspond to Field names defined in the Content Type. The `name
 You can create other taxonomies than the one predefined in the system, for example a Content category.
 To do it, first, create a new Content Type with `content_category` identifier and include the following Field Types:
 
-* `category_identifier` of `ezstring` type
-* `parent` of `ibexa_taxonomy_entry` type
-* `name` of `ezstring` type
+* `category_identifier` of `ezstring` type and required
+* `parent` of `ibexa_taxonomy_entry` type and not required
+* `name` of `ezstring` type and required
 
 Then, create a new container where new taxonomy items will be stored under.
 
