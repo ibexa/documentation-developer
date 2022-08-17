@@ -117,5 +117,5 @@ Next, remove `node_modules` before running `composer run post-update-cmd`,
 otherwise you might encounter errors during compiling.
 
 ``` bash
-git rm -Rf node_modules
+rm -Rf node_modules
 ```
