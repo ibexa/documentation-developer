@@ -1,13 +1,13 @@
-# Add tabs switcher in Content edit
+# Add tab switcher
 
-If you want to separate typical/default Fieldtypes in the Content Type from Fieldtypes that enrich the content with new functionality, you can use a tab switcher.
-
+Tabs switcher allows to separate default Fieldtypes in the Content Type from the Fieldtypes that enrich/enhance the content with new functionalities.
 For example, SEO or Taxonomy, as these are not typical Fieldtypes but a fieldtypes which handle functionality for the whole Content object.
-See the example below to add a Meta tab with the Tags Fieldtype.
+
+The following example shows how to add a Meta tab with automatically assigned Taxonomy Fieldtype.
 
 ## Add Meta tab
 
-First, go to Admin -> Content Types and add the **Taxonomy Entry Assignment** Fieldtype to the Content Type. 
+Before you start adding the Meta tab, make sure the Content Type you want to edit has [Taxonomy Entry Assignment Fieldtype]([[= user_doc =]]/taxonomy/#assign-tag-to-content-from-taxonomy-tree).
 
 Next, provide the semantic configuration:
 
@@ -23,8 +23,9 @@ ibexa:
 
 ```
 
-`ibexa_taxonomy_entry_assignment` - fieldtype identifier
-`meta` - when set to `true`, puts the fieldtype in the Meta tab
+`ibexa_taxonomy_entry_assignment` - identifier for the Fieldtype
+
+`meta` - when set to `true`, puts the declared Fieldtype in the Meta tab
 
 The new tab with Taxonomy field in the Content Type edit mode.
 
@@ -32,12 +33,13 @@ The new tab with Taxonomy field in the Content Type edit mode.
 
 First, create an EventListener in the `src/EventListener/TextAnchorMenuTabListener.php`:
 
-``` php
+``` php hl_lines="20 22"
 [[= include_file('code_samples/back_office/content_type/src/EventListener/TextAnchorMenuTabListener.php') =]]
 ```
 
+A new custom tab is defined in the line 20, line 22 stands for the second level menu.
 
-### Register the service and render
+For new tabs it is also required to render its section in the Content editing form. To do it, register the UI Component:
 
 ```yaml
     app.my_component:
@@ -48,5 +50,8 @@ First, create an EventListener in the `src/EventListener/TextAnchorMenuTabListen
             - { name: ibexa.admin_ui.component, group: 'content-edit-sections' }
 ```
 
-### Add template
+Finally, create the `templates/my_template.html.twig` template file:
 
+``` html+twig
+[[= include_file('code_samples/back_office/content_type/templates/my_template.html.twig') =]]
+```
