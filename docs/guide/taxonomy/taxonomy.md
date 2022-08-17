@@ -34,10 +34,14 @@ To do it, first, create a new Content Type with `content_category` identifier an
 * `parent` of `ibexa_taxonomy_entry` type
 * `name` of `ezstring` type
 
+Then, create a new container where new taxonomy items will be stored under.
+
 Next, in `config/packages/ibexa_taxonomy.yaml` add the following configuration:
 
 ``` yaml
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml')=]]
 ```
+
+Replace `<content_categories_remote_id>` with the remote ID of the new container.
 
 For more information about available functionalities of tags, see [User Documentation]([[= user_doc =]]/taxonomy).
