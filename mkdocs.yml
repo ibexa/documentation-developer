@@ -78,6 +78,7 @@ nav:
             - 'Create custom Field Type comparison': 'api/field_type/create_custom_field_type_comparison.md'
             - 'Field Type reference': 'api/field_type_reference.md'
             - Field Type reference:
+               - 'Address Field Type': 'api/field_types_reference/addressfield.md'
                - 'Author Field Type': 'api/field_types_reference/authorfield.md'
                - 'BinaryFile Field Type': 'api/field_types_reference/binaryfilefield.md'
                - 'Checkbox Field Type': 'api/field_types_reference/checkboxfield.md'
