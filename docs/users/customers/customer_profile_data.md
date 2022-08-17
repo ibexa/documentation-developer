@@ -34,7 +34,7 @@ is located under `SesUser` and contains information about the contact.
 
 ### Profile detail page
 
-![](customer_2.png)
+![](customer.png)
 
 ## Customer profile data services
 

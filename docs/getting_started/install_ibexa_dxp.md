@@ -64,7 +64,7 @@ You must set up authentication tokens to access the site.
 
 Log in to your service portal on [support.ibexa.co](https://support.ibexa.co), go to your **Service Portal**, and look for the following on the **Maintenance and Support agreement details** screen:
 
-![Authentication token](Using_Composer_Auth_token.png)
+![Authentication token](using_composer_auth_token.png)
 
 1. Select **Create token** (this requires the **Portal administrator** access level).
 2. Fill in a label describing the use of the token. This will allow you to revoke access later.

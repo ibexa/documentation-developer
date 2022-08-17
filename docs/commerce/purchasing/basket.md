@@ -6,7 +6,7 @@ description: The basket functionality covers the shopping basket, as well as wis
 
 ## Overview
 
-![](basket_1.png)
+![](basket.png)
 
 Baskets are stored in the database and identified by: 
 
