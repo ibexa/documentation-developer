@@ -494,6 +494,7 @@ nav:
         - Back Office tabs:
             - 'Back Office tabs':  'extending/tabs/back_office_tabs.md'
             - 'Create dashboard tab': 'extending/tabs/add_dashboard_tab.md'
+        - 'Add tab swticher in Content edit': 'extending/content_tabs_switcher.md'
         - Back Office menus:
             - 'Back Office menus': 'extending/menus/back_office_menus.md'
             - 'Add menu item': 'extending/menus/add_menu_item.md'
