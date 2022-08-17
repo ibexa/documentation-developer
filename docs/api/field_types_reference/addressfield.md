@@ -1,14 +1,14 @@
 # Address Field Type
 
 This Field represents and handles address fields.
-It allows you to customize address Field Types per country.
+It allows you to customize address Fields per country.
 
 | Name      | Internal name   | Expected input              |
 |-----------|-----------------|-----------------------------|
 | `Address` | `ibexa_address` | `string`, `string`, `array` |
 
 The Address Field Type is available via the Address Bundle
-provided by the [ibexa/fieldtype-address](https://github.com/ibexa/fieldtype-address) package.
+provided by the `ibexa/fieldtype-address` package.
 
 ## PHP API Field Type
 
@@ -20,7 +20,7 @@ provided by the [ibexa/fieldtype-address](https://github.com/ibexa/fieldtype-add
 | `string` | Country code in ISO 3166-1 alpha-2 format.    | `PL`              |
 | `array`  | Additional fields, defined by address format. | see below         |
 
-### Example input:
+### Example input
 
 ```php
 new FieldType\Value(
@@ -36,11 +36,11 @@ new FieldType\Value(
 
 ### Validation
 
-This Field Type validates whether `Country` and `Name` fields have been field out.
+This Field Type validates whether `Country` and `Name` fields have been filled out.
 
-### Value Object:
+### Value Object
 
-#### Properties:
+#### Properties
 
 | Property   | Type     | Description                                   |
 |------------|----------|-----------------------------------------------|
@@ -48,13 +48,13 @@ This Field Type validates whether `Country` and `Name` fields have been field ou
 | `$country` | `string` | Country code in ISO 3166-1 alpha-2 format.    |
 | `$fields`  | `array`  | Additional fields, defined by address format. |
 
-#### Constructor:
+#### Constructor
 
 See above (Example input).
 
-### Formats:
+### Formats
 
-Default configuration.
+The following default configuration defines default fields for `personal` address type:
 
 ```yaml
 formats:
@@ -67,9 +67,7 @@ formats:
                 - postal_code
 ```
 
-Defines default fields for `personal` address type.
-
-#### Extending:
+#### Modifying Field configuration
 
 ```yaml
 formats:
@@ -84,11 +82,11 @@ formats:
 
 Adds (or alters) an address format for `DE` country of `billing_address` type.
 
-### Field form types:
+### Field form types
 
 By default, each field is a simple text input with a label made of field identifier.
 To change the type of field, you need to listen to a specific event.
-For each field below events are emitted (in order):
+For each field below events are dispatched (in order):
 
 ```
 ibexa.address.field.{FIELD_IDENTIFIER}
@@ -96,7 +94,7 @@ ibexa.address.field.{FIELD_IDENTIFIER}.{ADDRESS_TYPE}
 ibexa.address.field.{FIELD_IDENTIFIER}.{ADDRESS_TYPE}.{COUNTRY_CODE}
 ```
 
-#### Example:
+#### Example
 
 ```
 ibexa.address.field.tax_number
@@ -104,12 +102,13 @@ ibexa.address.field.tax_number.billing_address
 ibexa.address.field.tax_number.billing_address.DE
 ```
 
-#### Example event listener:
+#### Example event listener
 
 ```php
 use Ibexa\Contracts\FieldTypeAddress\Event\MapFieldEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+
 class ExampleAddressSubscriber implements EventSubscriberInterface
 {
     public static function getSubscribedEvents(): array
