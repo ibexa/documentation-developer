@@ -34,7 +34,7 @@ To do it, first, create a new Content Type with `content_category` identifier an
 * `parent` of `ibexa_taxonomy_entry` type and not required
 * `name` of `ezstring` type and required
 
-Then, create a new container where new taxonomy items will be stored under.
+Then, create a new container to store the new taxonomy's items, for example a `folder` named Content categories.
 
 Next, in `config/packages/ibexa_taxonomy.yaml` add the following configuration:
 
