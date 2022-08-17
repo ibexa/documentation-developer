@@ -78,9 +78,9 @@ The operation is transactional and rolls back in case of errors.
 
 !!! caution "Avoid exception when migrating from eZ Publish"
 
-    If you [migrated to v1.13 from eZ Publish](../../migrating/migrating_from_ez_publish.md), and want to upgrade to v2.5, an exception will occur when you run the `bin/console ezplatform:page:migrate` command and the database contains internal drafts of Landing Pages. 
+    If you [migrated to v1.13 from eZ Publish](migrating_from_ez_publish.md), and want to upgrade to v2.5, an exception will occur when you run the `bin/console ezplatform:page:migrate` command and the database contains internal drafts of Landing Pages. 
     
-    To avoid this exception, you must first [remove all internal drafts before you migrate](../../migrating/migrating_from_ez_publish.md#migration_exception). 
+    To avoid this exception, you must first [remove all internal drafts before you migrate](migrating_from_ez_publish.md#migration_exception). 
 
 ##### Block migration
 
@@ -108,17 +108,17 @@ After the migration is finished, you need to clear the cache.
 
 The `ez_block::renderBlockAction` controller used in layout templates has been replaced by `EzPlatformPageFieldTypeBundle:Block:render`. This controller has two additional parameters, `locationId` and `languageCode`. Only `languageCode` is required.
 Also, the HTML class `data-studio-zone` has been replaced with `data-ez-zone-id`
-See [documentation](../../guide/content_rendering/render_content/render_page.md#render-a-layout) for an example on usage of the new controller.
+See [documentation](render_page.md#render-a-layout) for an example on usage of the new controller.
 
 ###### Migrate custom blocks
 
 Landing Page blocks (from v2.1 and earlier) were defined using a class implementing `EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\AbstractBlockType`. 
-In Page Builder (from v2.2 onwards), this interface is no longer present. Instead the logic of your block must be implemented in a [Listener](../../guide/page/page_blocks.md#block-events).
+In Page Builder (from v2.2 onwards), this interface is no longer present. Instead the logic of your block must be implemented in a [Listener](page_blocks.md#block-events).
 Typically, what you previously would do in `getTemplateParameters()`, you'll now do in the `onBlockPreRender()` event handler.
 
-The definition of block parameters has to be moved from `createBlockDefinition()` to the [YAML configuration](../../guide/page/create_custom_page_block.md) for your custom blocks.
+The definition of block parameters has to be moved from `createBlockDefinition()` to the [YAML configuration](create_custom_page_block.md) for your custom blocks.
 
-For more information about how custom blocks are implemented in Page Builder, have a look at [Creating custom Page blocks](../../guide/page/create_custom_page_block.md) for your custom blocks.
+For more information about how custom blocks are implemented in Page Builder, have a look at [Creating custom Page blocks](create_custom_page_block.md) for your custom blocks.
 
 For the migration of blocks from Landing Page to Page Builder, you'll need to provide a converter for attributes of custom blocks. For simple blocks you can use `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\DefaultConverter`.
 Custom converters must implement the `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\ConverterInterface` interface.
@@ -140,7 +140,7 @@ This converter is only needed when running the `ezplatform:page:migrate` script 
 ###### Page migration example
 
 Below is an example how to migrate a Landing Page Layout and Block to new Page Builder. The code is based on the Random block 
-defined in the [Enterprise Beginner tutorial](../../tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md)
+defined in the [Enterprise Beginner tutorial](page_and_form_tutorial.md)
 
 ??? tip "Landing Page code"
 
@@ -774,7 +774,7 @@ php bin/console ezplatform:reindex
 
 #### Changes to database schema
 
-The introduction of [support for PostgreSQL](../../guide/databases.md#using-postgresql) includes a change in the way database schema is generated.
+The introduction of [support for PostgreSQL](databases.md#using-postgresql) includes a change in the way database schema is generated.
 
 It is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml), using the new [`DoctrineSchemaBundle`](https://github.com/ezsystems/doctrine-dbal-schema).
 
@@ -866,7 +866,7 @@ Version v2.5.18 introduces new entity managers.
 To ensure that they work in multi-repository setups, you must update the GraphQL schema.
 You do this manually by following this procedure:
 
-1. Update your project to v2.5.18 and run the `php bin/console cache:clear` command to generate the [service container](../../api/public_php_api.md#service-container).
+1. Update your project to v2.5.18 and run the `php bin/console cache:clear` command to generate the [service container](php_api.md#service-container).
 
 1. Run the following command to discover the names of the new entity managers. 
     Take note of the names that you discover:
@@ -905,4 +905,4 @@ CREATE INDEX idx_workflow_name ON ezeditorialworkflow_workflows(workflow_name);
 
 ## Update to v3.3
 
-It is strongly recommended to also [update to the latest LTS, v3.3](../from_2.5/update_from_2.5.md).
+It is strongly recommended to also [update to the latest LTS, v3.3](update_from_2.5.md).

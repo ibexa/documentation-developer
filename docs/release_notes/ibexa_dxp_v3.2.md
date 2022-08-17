@@ -8,16 +8,16 @@
 
 ## Notable changes
 
-![New login page](img/3.2_new_login_page.png)
+![New login page](3.2_new_login_page.png)
 
 ### New UI
 
 This version offers a completely reworked user interface, covering all of the Back Office,
 including eCommerce administration.
 
-![New Content structure](img/3.2_new_ui_content_structure.png "New Back Office interface")
+![New Content structure](3.2_new_ui_content_structure.png "New Back Office interface")
 
-![Commerce administration](img/3.2_commerce_cockpit.png "Commerce cockpit")
+![Commerce administration](3.2_commerce_cockpit.png "Commerce cockpit")
 
 ### DAM connector
 
@@ -44,7 +44,7 @@ See [Aggregation API](https://doc.ibexa.co/en/latest/api/public_php_api_search/#
 Targeting block for the Page Builder enables you to display different Content items to different users
 depending on the Segments they belong to.
 
-![Targeting block](img/3.2_targeting_block.png)
+![Targeting block](3.2_targeting_block.png)
 
 You can [configure Segments](https://doc.ibexa.co/en/latest/guide/admin_panel/#segments) in the Back Office.
 

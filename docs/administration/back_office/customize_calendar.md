@@ -31,7 +31,7 @@ Line 6 contains the name of the event type, either a built-in custom one.
 `color` defines the color in which events of this type are displayed in the calendar.
 `icon` is the icon used for a button with the relevant event action.
 
-![Bank holiday with custom color](img/extending_calendar_view.png)
+![Bank holiday with custom color](extending_calendar_view.png)
 
 ## Configure custom events
 
@@ -93,7 +93,7 @@ Next, register the event source as a service:
 
 Now you can go to the **Calendar** tab and see the configured holiday.
 
-![Custom events list view](img/extending_calendar_list_view.png)
+![Custom events list view](extending_calendar_list_view.png)
 
 ### Import events from external sources
 

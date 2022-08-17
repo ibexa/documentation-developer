@@ -30,7 +30,7 @@ You can use the following matchers to [match content views](template_configurati
 
 !!! tip
 
-    You can also create [custom view matchers](custom_view_matcher.md).
+    You can also create [custom view matchers](create_custom_view_matcher.md).
 
 ## Id\Content
 

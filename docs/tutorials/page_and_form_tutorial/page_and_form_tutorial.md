@@ -10,7 +10,7 @@ It focuses on creating a front page using a feature called **Page Builder**.
 ### Intended audience
 
 This tutorial is intended for users who have basic knowledge of [[= product_name =]].
-Ideally, you should be familiar with the concepts covered in the [Beginner tutorial](../platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md).
+Ideally, you should be familiar with the concepts covered in the [Beginner tutorial](beginner_tutorial.md).
 
 ### Learning outcomes
 
@@ -31,7 +31,7 @@ You will create a welcome page that will showcase the magazine's three most impo
 
 You will do this by means of a Page, making use of its specific blocks, and crafting your own as well.
 
-![It's a Dog's World - final result](img/enterprise_tut_main_screen.png "It's a Dog's World - final result")
+![It's a Dog's World - final result](enterprise_tut_main_screen.png "It's a Dog's World - final result")
 
 ## Steps
 

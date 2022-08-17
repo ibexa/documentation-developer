@@ -11,7 +11,7 @@ Clustering in [[= product_name =]] refers to setting up your installation with s
 This diagram illustrates how clustering in [[= product_name =]] is typically set up.
 The parts illustrate the different roles needed for a successful cluster setup.
 
-![Server setup for clustering](img/server_setup.png)
+![Server setup for clustering](server_setup.png)
 
 The number of web servers, Memcached/Redis, Solr, Varnish, Database and NFS servers,
 as well as whether some servers play several of these roles (typically running Memcached/Redis across the web server)
@@ -19,20 +19,20 @@ is up to you and your performance needs.
 
 The minimal requirements are:
 
-- [Shared HTTP cache (using Varnish)](cache/symfony_reverse_proxy/#using-varnish-or-fastly)
+- [Shared HTTP cache (using Varnish)](reverse_proxy.md/#using-varnish-or-fastly)
 - [Shared persistence cache](#shared-persistence-cache) and [sessions](#shared-sessions) (using Redis or Memcached)
 - Shared database (using MySQL/MariaDB)
 - [Shared binary files](#shared-binary-files) (using NFS, or S3)
 
-For further details on requirements, see [Requirements page](../getting_started/requirements.md).
+For further details on requirements, see [Requirements page](requirements.md).
 
 It is also recommended to use:
 
-- [Solr](search/solr.md) for better search and performance
+- [Solr](solr_search_engine.md) for better search and performance
 - a CDN for improved performance and faster ping time worldwide
     - you can use Fastly, which has native support as HTTP cache and CDN.
 - active/passive database for failover
-- more recent versions of PHP and MySQL/MariaDB within [what is supported](../getting_started/requirements.md) for your [[= product_name =]] version to get more performance out of each server. Numbers might vary so make sure to test this when upgrading.
+- more recent versions of PHP and MySQL/MariaDB within [what is supported](requirements.md) for your [[= product_name =]] version to get more performance out of each server. Numbers might vary so make sure to test this when upgrading.
 
 ### Shared persistence cache
 
@@ -56,7 +56,7 @@ On Ibexa Cloud (and Platform.sh) Redis is preferred and supported.
 
 ### Shared binary files
 
-[[= product_name =]] supports multi-server setups by means of [custom IO handlers](file_management/file_management.md#the-dfs-cluster-handler).
+[[= product_name =]] supports multi-server setups by means of [custom IO handlers](file_management.md#the-dfs-cluster-handler).
 They make sure that files are correctly synchronized among the multiple clients using the data.
 
 ## DFS IO handler
@@ -184,7 +184,7 @@ ibexa:
 
 !!! tip
 
-    If you are looking to [set up S3](clustering_aws_s3.md) or other [Flysystem](https://flysystem.thephpleague.com/)/third-party adapters like Google Cloud Storage, this needs to be configured as binary handler. The rest here will still stay the same, the DFS metadata handler will take care of caching the lookups to avoid slow IO lookups.
+    If you are looking to [set up S3](clustering_with_aws_s3.md) or other [Flysystem](https://flysystem.thephpleague.com/)/third-party adapters like Google Cloud Storage, this needs to be configured as binary handler. The rest here will still stay the same, the DFS metadata handler will take care of caching the lookups to avoid slow IO lookups.
 
 #### Customizing the storage directory
 
@@ -215,7 +215,7 @@ ibexa:
                 url_prefix: 'http://static.example.com/'
 ```
 
-You can read more about that on [Binary files URL handling](file_management/handling_file_url.md#file-url-handling).
+You can read more about that on [Binary files URL handling](file_url_handling.md#file-url-handling).
 
 ### Web server rewrite rules
 

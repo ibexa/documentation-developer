@@ -24,7 +24,7 @@ class FileController
 
 ## Handling binary files
 
-[[= product_name =]] supports multiple binary file handling mechanisms by means of an `IOHandler` interface. This feature is used by the [BinaryFile](../../api/field_types_reference/binaryfilefield.md), [Media](../../api/field_types_reference/mediafield.md) and [Image](../../api/field_types_reference/imagefield.md) Field Types.
+[[= product_name =]] supports multiple binary file handling mechanisms by means of an `IOHandler` interface. This feature is used by the [BinaryFile](imagefield.md) Field Types.
 
 ### Native IO handler
 
@@ -126,7 +126,7 @@ To learn how to configure other adapters, see the [bundle's online documentation
 ### DFS Cluster handler
 
 For clustering, the platform provides a custom metadata handler that stores metadata about your assets in the database.
-This is faster than accessing the remote NFS or S3 instance to read metadata. For further reading on setting this up, see [Clustering](../clustering.md).
+This is faster than accessing the remote NFS or S3 instance to read metadata. For further reading on setting this up, see [Clustering](clustering.md).
 
 ## Enabling BinaryFile Field indexing
 

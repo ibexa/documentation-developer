@@ -19,7 +19,7 @@ and enable `DoctrineSchemaBundle` in `AppKernel.php`.
 
 ### Provide parameters
 
-When you run `composer install`, you will be asked to [provide installation parameters](../getting_started/install_ez_platform.md#change-installation-parameters).
+When you run `composer install`, you will be asked to [provide installation parameters](install_ibexa_dxp.md#change-installation-parameters).
 
 !!! tip
 

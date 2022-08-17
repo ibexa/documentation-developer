@@ -7,7 +7,7 @@ description: Use document field mappers to add additional data in Solr search en
 You can use document field mappers to index additional data in the search engine.
 
 The additional data can come from external sources (for example, the [Personalization 
-service](../../personalization/personalization.md)), or from internal ones.
+service](personalization.md)), or from internal ones.
 An example of indexing internal data is indexing data through the Location hierarchy: 
 from the parent Location to the child Location, or indexing child data on the parent Location.
 You can use this to find the content with full-text search, or to simplify a search 
@@ -45,7 +45,7 @@ Each mapper implements two methods, by the same name, but accepting different ar
     - `::accept(Location $content)`
     - `::mapFields(Location $content)`
 
-Mappers can be used on the extension points by registering them with the [service container](../../../api/public_php_api.md#service-container) by using service tags, as follows:
+Mappers can be used on the extension points by registering them with the [service container](php_api.md#service-container) by using service tags, as follows:
 
 - All block documents
     - `ContentFieldMapper`
@@ -83,5 +83,5 @@ You index full text data only on the content document, therefore, you would regi
 
     Document field mappers are low-level and expect to be able to index all content 
     regardless of current user permissions.
-    If you use PHP API in your custom document field mappers, apply [`sudo()`](../../../api/public_php_api.md#using-sudo),
+    If you use PHP API in your custom document field mappers, apply [`sudo()`](php_api.md#using-sudo),
     or use the Persistence SPI layer as in the example above.

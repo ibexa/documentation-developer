@@ -5,9 +5,9 @@ description: Customize the login form for new users in your site front end.
 # Create login form
 
 You can create a login form for your users. 
-Follow the instruction below to create a template with login form. If you want to configure more options for example, password expiration, see [other user management templates](../../user_management/user_management.md#other-user-management-templates).
+Follow the instruction below to create a template with login form. If you want to configure more options for example, password expiration, see [other user management templates](user_management.md#other-user-management-templates).
 
-First, make sure you have configured [login methods](../../user_management/user_management.md#login-methods).
+First, make sure you have configured [login methods](user_management.md#login-methods).
 
 If you only want to change a template, in the `config/packages/views.yaml` add the following configuration:
 
@@ -52,7 +52,7 @@ In `templates/themes/<theme_name>/login`, create an `expired_credentials.html.tw
 ## Customize login form
 
 You can use a custom template for example to display information about password expiration
-or to customize [other user management templates](../../user_management/user_management.md#other-user-management-templates).
+or to customize [other user management templates](user_management.md#other-user-management-templates).
 
 In case of more advanced template customization, you can use a subscriber,
 for example in `src/EventSubscriber/LoginFormViewSubscriber.php`:
@@ -132,4 +132,4 @@ Remember to provide a template and point to it in the subscriber
 {%- endblock -%}
 ```
 
-For more information, see [Templates documentation](../templates/templates.md).
+For more information, see [Templates documentation](templates.md).

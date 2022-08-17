@@ -36,7 +36,7 @@ The behavior is configurable:
 
 - `config` - the address is taken from the `sales_email_address` setting
 - `customer` - the address is taken from `salesContactEmail` in the `sesUser` part
-of the [customer's profile data](../customers/customer_api/customer_profile_data.md).
+of the [customer's profile data](customer_profile_data.md).
 If there is no address in the contact data, the configuration parameter below is used as the default.
 
 #### `sales_email_address`

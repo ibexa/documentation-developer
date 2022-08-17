@@ -18,7 +18,7 @@ Depending on the HTTP method used, different actions will be possible on the sam
 | `OPTIONS  /content/objects/2/version/3` | Lists all the methods usable with this resource, the 5 ones above    |
 
 The following list of available methods gives an overview of the kind of action a method triggers on a resource, if available.
-For method action details per resource, see the [REST API reference](rest_api_reference/rest_api_reference.html).
+For method action details per resource, see the [REST API reference](../rest_api_reference/rest_api_reference.html).
 
 | HTTP method                                                | Status   | Description            | Safe |
 |------------------------------------------------------------|----------|------------------------|------|
@@ -117,7 +117,7 @@ This header is also used to specify the response type you want the server to sen
 -   `Accept: application/vnd.ibexa.api.Content+xml` to get `Content` (full data, Fields included) as **[XML](http://www.w3.org/XML/)**
 -   `Accept: application/vnd.ibexa.api.ContentInfo+json` to get `ContentInfo` (metadata only) as **[JSON](http://www.json.org/)**
 
-Media types are also used with the [`Content-Type` header](rest_api_responses.md#content-type-header) to characterize a [request body](#request-body) or a [response body](rest_api_responses.md#response-body).
+Media types are also used with the [`Content-Type` header](rest_responses.md#content-type-header) to characterize a [request body](#request-body) or a [response body](rest_responses.md#response-body).
 See [Creating content with binary attachments](#creating-content-with-binary-attachments) below.
 Also see [Creating session](rest_api_authentication.md#creating-session) examples.
 
@@ -132,19 +132,19 @@ It is used for a `COPY`, `MOVE` or `SWAP` operation to indicate where the resour
 
 Examples of such requests are:
 
-- [copying a Content](rest_api_reference/rest_api_reference.html#managing-content-copy-content);
-- [moving a Location and its subtree](rest_api_reference/rest_api_reference.html#managing-content-move-subtree)
-- [swapping a Location with another](rest_api_reference/rest_api_reference.html#managing-content-swap-location)
+- [copying a Content](../rest_api_reference/rest_api_reference.html#managing-content-copy-content);
+- [moving a Location and its subtree](../rest_api_reference/rest_api_reference.html#managing-content-move-subtree)
+- [swapping a Location with another](../rest_api_reference/rest_api_reference.html#managing-content-swap-location)
 
 ## Request body
 
 You can pass some short scalar parameters in the URIs or as GET parameters, but other resources need heavier structured payloads passed in the request body,
 in particular the ones to create (`POST`) or update (`PATCH`) items.
-In the [REST API reference](rest_api_reference/rest_api_reference.html), request payload examples are given when needed.
+In the [REST API reference](../rest_api_reference/rest_api_reference.html), request payload examples are given when needed.
 
 One example is the [creation of an authentication session](rest_api_authentication.md#establishing-a-session).
 
-When creating a Content item, a special payload is needed if the ContentType has some [Image](field_types_reference/imagefield.md) or [BinaryFile](field_types_reference/binaryfilefield.md) Fields as files need to be attached. See the example of a [script uploading images](#creating-content-with-binary-attachments) below.
+When creating a Content item, a special payload is needed if the ContentType has some [Image](imagefield.md) or [BinaryFile](binaryfilefield.md) Fields as files need to be attached. See the example of a [script uploading images](#creating-content-with-binary-attachments) below.
 
 When searching for Content items (or Locations), the query grammar is also particular. See the [Search section](#search-view) below.
 
@@ -156,8 +156,8 @@ This script:
 
 - receives an image path and optionally a name as command-line arguments,
 - uses the [HTTP basic authentication](rest_api_authentication.md#http-basic-authentication), if it is enabled,
-- creates a draft in the /Media/Images folder by posting (`POST`) data to [`/content/objects`](rest_api_reference/rest_api_reference.html#managing-content-create-content-item),
-- and, publishes (`PUBLISH`) the draft through [`/content/objects/{contentId}/versions/{versionNo}`](rest_api_reference/rest_api_reference.html#managing-content-publish-a-content-version).
+- creates a draft in the /Media/Images folder by posting (`POST`) data to [`/content/objects`](../rest_api_reference/rest_api_reference.html#managing-content-create-content-item),
+- and, publishes (`PUBLISH`) the draft through [`/content/objects/{contentId}/versions/{versionNo}`](../rest_api_reference/rest_api_reference.html#managing-content-publish-a-content-version).
 
 === "XML"
 
@@ -173,13 +173,13 @@ This script:
 
 ### Search (`/views`)
 
-The `/views` route allows you to [search in the repository](../guide/search/search.md). It works similarly to its [PHP API counterpart](public_php_api_search.md).
+The `/views` route allows you to [search in the repository](search.md). It works similarly to its [PHP API counterpart](search_api.md).
 
 The model allows combining criteria using the logical operators `AND`, `OR` and `NOT`.
 
-Almost all [Search Criteria](../guide/search/criteria_reference/search_criteria_reference.md#search-criteria) are available in REST API. The suffix `Criterion` is added when used with REST API.
+Almost all [Search Criteria](search_criteria_reference.md#search-criteria) are available in REST API. The suffix `Criterion` is added when used with REST API.
 
-Almost all [Sort Clauses](../guide/search/sort_clause_reference/sort_clause_reference.md#sort-clauses) are available too. They require no additional prefix or suffix.
+Almost all [Sort Clauses](sort_clause_reference.md#sort-clauses) are available too. They require no additional prefix or suffix.
 
 The search request has a `Content-Type: application/vnd.ibexa.api.ViewInput+xml` or `+json` header to specify the format of its body's payload.
 The root node is `<ViewInput>` and it has two mandatory children: `<identifier>` and `<Query>`.

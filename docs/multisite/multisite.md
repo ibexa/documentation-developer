@@ -18,11 +18,11 @@ You can create a multisite setup with SiteAccesses covering different use cases,
 
 A multisite set-up enables you to configure different things per SiteAccess, for example:
 
-- [templates and designs](../content_rendering/design_engine/design_engine.md)
+- [templates and designs](design_engine.md)
 - [languages](set_up_translation_siteaccess.md)
 - [tree roots](multisite_configuration.md#location-tree)
-- [repositories](../configuration/config_repository.md) and [cache strategies](../persistence_cache.md#multi-repository-setup)
-- [recommendations](../personalization/enabling_personalization.md#configure-personalization)
+- [repositories](persistence_cache.md#multi-repository-setup)
+- [recommendations](enable_personalization.md#configure-personalization)
 
 Many other settings in the application are also configured per SiteAccess (also known as "SiteAccess-aware").
 

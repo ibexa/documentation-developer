@@ -314,7 +314,7 @@ Response:
 ## Getting children of a Location
 
 To get a [Location's](#querying-locations) children,
-it is recommended to use the [Query Field](../guide/content_rendering/queries_and_controllers/content_queries.md#content-query-field).
+it is recommended to use the [Query Field](content_queries.md#content-query-field).
 
 Alternatively, you can query the `children` property of an `item` or `content` object:
 
@@ -832,4 +832,4 @@ children(first: 3, after: "YXJyYXljb25uZWN0aW9uOjM=")
 
 ### Get Matrix Field Type
 
-To get a Matrix Field Type with GraphQL, see [Matrix Field Type reference](field_types_reference/matrixfield.md).
+To get a Matrix Field Type with GraphQL, see [Matrix Field Type reference](matrixfield.md).

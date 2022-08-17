@@ -9,8 +9,8 @@ that rely on the HTTP GET method.
 The result can a list of item IDs that can then be used to call the underlying 
 CMS or shop system and postload the necessary information for the rendering process.
 
-For more information about Personalization, see [Introduction](../personalization.md), 
-[Basic integration](../basic_integration.md) and [Best practices](../best_practices/recommendation_integration.md).
+For more information about Personalization, see [Introduction](personalization.md), 
+[Basic integration](recommendation_integration.md).
 
 !!! note "Authentication"
 
@@ -31,7 +31,7 @@ For the request to return recommendations, you must provide the following parame
 
 |Parameter|Description|Value|
 |---|---|---|
-|`customerid`|A customer ID (for example "00000"), as defined when [enabling Personalization](../enabling_personalization.md#set-up-customer-credentials). Can be used to identify a website in installations that [hosts multiple SiteAccesses]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting).|alphanumeric|
+|`customerid`|A customer ID (for example "00000"), as defined when [enabling Personalization](enable_personalization.md#set-up-customer-credentials). Can be used to identify a website in installations that [hosts multiple SiteAccesses]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting).|alphanumeric|
 |`userid`|An ID of the tracked user in the website (for example, an internal customer code, a session code or a cookie for anonymous users.|alphanumeric|
 |`scenarioid`|An ID of the scenario used for providing recommendations, as defined in the Back Office.|alphanumeric|
 |`extension`|A format of the response (either JSON or JSONP).|`json` or `jsonp`|
@@ -94,7 +94,7 @@ For more information, see inline comments below.
     For more information, see [Previewing scenario results]([[= user_doc =]]/personalization/previewing_scenario).
     
 For more information about integrating recommendations in the web page, 
-see [Best practices](../best_practices/recommendation_integration.md).
+see [Best practices](recommendation_integration.md).
 
 ### Response object format
 

@@ -42,7 +42,7 @@ This ensures that the photo displayed next to each Ride in the list will be scal
 
 Clear cache and refresh the front page. Photos should now have a regular size and fit in the table.
 
-![Ride list with proper image variations](img/bike_tutorial_ride_list.png)
+![Ride list with proper image variations](bike_tutorial_ride_list.png)
 
 ## Separate view configuration
 

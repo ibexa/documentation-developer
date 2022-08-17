@@ -134,7 +134,7 @@ Example host name `www.page.com` matches SiteAccess `event`.
 !!! note
 
     If you encounter problems with the `Map\Host` matcher, make sure that your installation is
-    [properly configured to use token-based authentication](../../releases/ez_platform_v2.4.md#update-ez-enterprise-v24-to-v242).
+    [properly configured to use token-based authentication](ez_platform_v2.4.md#update-ez-enterprise-v24-to-v242).
 
 ### `Map\URI`
 

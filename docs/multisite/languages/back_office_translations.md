@@ -36,7 +36,7 @@ If your browser language is set to French, the Back Office will be displayed in 
 
 ### Contributing Back Office translations
 
-To learn how to contribute to a translation, see [Contributing translations](../community_resources/translations.md).
+To learn how to contribute to a translation, see [Contributing translations](contribute_translations.md).
 
 ### Selecting Back Office language
 

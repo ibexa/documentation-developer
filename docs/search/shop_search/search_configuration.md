@@ -12,7 +12,7 @@ ibexa_commerce_search.default.product_groups: ['product', 'product_list']
 
 `ibexa_commerce_search.default.groups.product_list` configures results in product listing:
 
-![](../../img/search_product_list.png)
+![](search_product_list.png)
 
 ``` yaml
 ibexa_commerce_search.default.groups.product_list:
@@ -116,7 +116,7 @@ ibexa_commerce_search.default.limits:
         64: 64     
 ```
 
-![](../../img/search_limits.png)
+![](search_limits.png)
 
 ### Preferred limit
 

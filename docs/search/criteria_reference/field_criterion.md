@@ -23,7 +23,7 @@ $query->query = new Criterion\Field('name', Criterion\Operator::CONTAINS, 'Platf
 
 ## Limitations
 
-The `Field` Criterion is not available in [Repository filtering](../../../api/public_php_api_search.md#repository-filtering).
+The `Field` Criterion is not available in [Repository filtering](search_api.md#repository-filtering).
 
 ## Use case
 

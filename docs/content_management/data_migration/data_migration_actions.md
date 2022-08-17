@@ -64,7 +64,7 @@ The following migration actions are available out of the box:
 
 In contrast with Kaliop migrations, actions provide you with ability to perform additional operations and extend
 the migration functionality. 
-See [creating your own Actions](create_migration_action.md).
+See [creating your own Actions](create_data_migration_action.md).
 
 ## Action usage examples
 

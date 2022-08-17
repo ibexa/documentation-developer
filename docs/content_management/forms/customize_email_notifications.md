@@ -7,7 +7,7 @@ description: Adapt the form and content of emails sent out from the Form Builder
 Email is one of the Submit button options you can add to a form in the Form Builder.
 Use it to configure a list of email addresses that get notifications about newly filled forms.
 
-![Email notification](../img/email_notification.png)
+![Email notification](email_notification.png)
 
 ## Override email template
 

@@ -6,7 +6,7 @@ description: One-page checkout form covers providing customer information, addre
 
 [[= product_name =]] provides a multi-step checkout process that takes place on one page.
 
-![](../img/checkout_1.png)
+![](checkout_1.png)
 
 ## Email templates
 

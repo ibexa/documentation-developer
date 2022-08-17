@@ -45,12 +45,12 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |[ibexa/content-forms](https://github.com/ibexa/content-forms)|Form-based integration for the Symfony Forms into Content and User objects in kernel|
 |[ibexa/core-extensions](https://github.com/ibexa/core-extensions)|Core system functionalities|
 |[ibexa/cron](https://github.com/ibexa/cron)|Cron package for use with the `ibexa:cron:run` command|
-|[ibexa/design-engine](https://github.com/ibexa/design-engine)|[Design fallback system](content_rendering/design_engine/design_engine.md)|
+|[ibexa/design-engine](https://github.com/ibexa/design-engine)|[Design fallback system](design_engine.md)|
 |[ibexa/graphql](https://github.com/ibexa/graphql)|GraphQL server for [[= product_name =]]|
-|[ibexa/http-cache](https://github.com/ibexa/http-cache)|[HTTP cache handling](../guide/cache/http_cache.md), using multi tagging|
+|[ibexa/http-cache](https://github.com/ibexa/http-cache)|[HTTP cache handling](http_cache.md), using multi tagging|
 |[ibexa/core](https://github.com/ibexa/core)|Core of the [[= product_name =]] application|
-|[ibexa/matrix-fieldtype](https://github.com/ibexa/matrix-fieldtype)|[Matrix Field Type](../api/field_types_reference/matrixfield.md)|
-|[ibexa/query-fieldtype](https://github.com/ibexa/query-fieldtype)|[Query Field Type](../api/field_types_reference/contentqueryfield.md)|
+|[ibexa/matrix-fieldtype](https://github.com/ibexa/matrix-fieldtype)|[Matrix Field Type](matrixfield.md)|
+|[ibexa/query-fieldtype](https://github.com/ibexa/query-fieldtype)|[Query Field Type](contentqueryfield.md)|
 |[ibexa/rest](https://github.com/ibexa/rest)|REST API|
 |[ibexa/richtext](https://github.com/ibexa/richtext)|Field Type for supporting rich-formatted text stored in a structured XML format|
 |[ibexa/search](https://github.com/ibexa/search)|Common search functionalities|
@@ -78,9 +78,9 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |ibexa/version-comparison|Enables comparing between two versions of the same Field|
 |ibexa/workflow|Collaboration feature that enables you to send content draft to any user for a review or rewriting|
 |ibexa/recommendation-client|Client for connecting with the personalization engine|
-|ibexa/image-editor|[Image Editor](images/image_editor.md)|
+|ibexa/image-editor|[Image Editor](configure_image_editor.md)|
 |ibexa/installer|Provides the `ibexa:install` command|
-|ibexa/migrations|[Migration of Repository data](data_migration/data_migration.md)|
+|ibexa/migrations|[Migration of Repository data](data_migration.md)|
 |ibexa/oauth2-client|Integration with [`knpuniversity/oauth2-client-bundle`](https://github.com/knpuniversity/oauth2-client-bundle)|
 
 ## Ibexa Experience packages
@@ -100,6 +100,6 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |---------|-----------|
 |ibexa/commerce-admin-ui|Shop-related Back Office functionalities|
 |ibexa/commerce-erp-admin|ERP connection for the shop|
-|ibexa/commerce-order-history|[Order history](order_history/order_history.md) functionality|
+|ibexa/commerce-order-history|[Order history](order_history.md) functionality|
 |ibexa/commerce-page-builder|Shop-related Page blocks|
 |ibexa/commerce-transaction|Transactional shop functionalities|

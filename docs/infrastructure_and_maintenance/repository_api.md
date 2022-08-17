@@ -6,7 +6,7 @@ description: PHP API enables you to manage Sections, Object states, workflows, b
 
 ## Sections
 
-[Sections](../guide/admin_panel.md#sections) enable you to divide content into groups
+[Sections](admin_panel.md#sections) enable you to divide content into groups
 which can later be used e.g. as basis for permissions.
 
 ### Creating Sections
@@ -28,7 +28,7 @@ You can use `SectionService` to retrieve Section information such as whether it 
 
 ### Listing content in a Section
 
-To list Content items assigned to a Section you need to make a [query](public_php_api_search.md)
+To list Content items assigned to a Section you need to make a [query](search_api.md)
 for content belonging to this section, by applying the [`SearchService`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SearchService.php)
 You can also use the query to get the total number of assigned Content items:
 
@@ -50,7 +50,7 @@ Note that assigning a Section to content does not automatically assign it to the
 
 ## Object states
 
-[Object states](../guide/admin_panel.md#object-states)  enable you to set a custom state to any content.
+[Object states](admin_panel.md#object-states)  enable you to set a custom state to any content.
 States are grouped into Object state groups.
 
 ### Getting Object state information
@@ -97,7 +97,7 @@ Provide it with a `ContentInfo` object of the Content item, the Object state gro
 
 ### Getting workflow information
 
-To get information about a specific [workflow](../guide/workflow/workflow.md) for a Content item, use `WorkflowServiceInterface::loadWorkflowMetadataForContent`:
+To get information about a specific [workflow](workflow.md) for a Content item, use `WorkflowServiceInterface::loadWorkflowMetadataForContent`:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 53, 57) =]]

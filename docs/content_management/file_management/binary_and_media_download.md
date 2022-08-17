@@ -17,12 +17,12 @@ It accepts optional query parameters:
 - `version`: The content version number that the file is downloaded for. Requires the `content / read` permission for a published version and additionally `content / versionread` permission for an unpublished version. If not specified, uses the published version.
 - `inLanguage`: The language the file should be downloaded in. If not specified, the most prioritized language for the SiteAccess is used.
 
-The [`ibexa_render`_field`](../content_rendering/twig_function_reference/field_twig_functions.md#ibexa_render_field) Twig helper by default generates a working link.
+The [`ibexa_render`_field`](field_twig_functions.md#ibexa_render_field) Twig helper by default generates a working link.
 
 ## Download link generation
 
 To generate a direct download link for the `File` Field Type you have to create
-a [RouteReference](../content_rendering/urls_and_routes.md#routereference) with the `ibexa_route` helper, passing `content` and `File` Field identifier as parameters.
+a [RouteReference](urls_and_routes.md#routereference) with the `ibexa_route` helper, passing `content` and `File` Field identifier as parameters.
 Optional parameter `inLanguage` may be used to specify File content translation.
 
 ```twig
@@ -34,4 +34,4 @@ Optional parameter `inLanguage` may be used to specify File content translation.
 
 The `uri` property of Binary Fields in REST contains a valid download URL, of the same format as the Public API, prefixed with the same host as the REST Request.
 
-For [more information about REST API see the documentation](../../api/rest_api_guide).
+For [more information about REST API see the documentation](rest_api_usage.md).

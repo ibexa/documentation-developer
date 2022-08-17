@@ -4,7 +4,7 @@ description: Add links to Content items or specific built-in and custom routes i
 
 # URLs and routes
 
-To link to a [Location](../content_management.md#locations) or [Content item](../content_model.md#content-items), use the [`ibexa_path()`](twig_function_reference/url_twig_functions.md#ibexa_path) Twig function.
+To link to a [Location](url_twig_functions.md#ibexa_path) Twig function.
 You need to provide the function with a Location, Content, ContentInfo or [RouteReference](#routereference) object:
 
 ``` html+twig
@@ -13,7 +13,7 @@ You need to provide the function with a Location, Content, ContentInfo or [Route
 <p><a href="{{ ibexa_path(content.contentInfo) }}">Content Info</a></p>
 ```
 
-Use [`ibexa_url()`](twig_function_reference/url_twig_functions.md#ibexa_url) to get an absolute URL to a Content item or Location:
+Use [`ibexa_url()`](url_twig_functions.md#ibexa_url) to get an absolute URL to a Content item or Location:
 
 ``` html+twig
 <p><a href="{{ ibexa_url(location) }}">Location</a></p>
@@ -21,7 +21,7 @@ Use [`ibexa_url()`](twig_function_reference/url_twig_functions.md#ibexa_url) to 
 
 ## RouteReference
 
-You can use the [`ibexa_route()`](twig_function_reference/url_twig_functions.md#ibexa_route) Twig function
+You can use the [`ibexa_route()`](url_twig_functions.md#ibexa_route) Twig function
 to create a RouteReference object based on the provided information.
 
 A RouteReference contains a route with its parameters and can be modified after it is created.
@@ -90,7 +90,7 @@ The following built-in routes are available for the front of the website.
 
 |Route name|Path|Description|
 |---|---|---|
-|`login` | `/login` | [Login form](layout/add_login_form.md) |
+|`login` | `/login` | [Login form](add_login_form.md) |
 |`logout`</br>`ibexa.commerce.customer.logout` | `/logout`</br>`/profile/logout` | Logging out the current user |
 
 ### Profile
@@ -105,7 +105,7 @@ The following built-in routes are available for the front of the website.
 |Route name|Path|Description|
 |---|---|---|
 | `ibexa.user_profile.change_password`</br>`ibexa.commerce.password_change` | `/user/change-password`</br>`/change_password` | Form for password change|
-| `ibexa.user.forgot_password` | `/user/forgot-password` | [Form for password resetting](layout/add_forgot_password.md) |
+| `ibexa.user.forgot_password` | `/user/forgot-password` | [Form for password resetting](add_forgot_password_option.md) |
 | `ibexa.user.forgot_password.migration` | `/user/forgot-password/migration` | Form for resetting password after expiration|
 | `ibexa.user.forgot_password.login` | `/user/forgot-password/login` | Form for resetting password based on login instead of email address |
 | `ibexa.user.reset_password` | `/user/reset-password/{hashKey}` | Form for resetting password based on a generated link |
@@ -114,7 +114,7 @@ The following built-in routes are available for the front of the website.
 
 |Route name|Path|Description|
 |---|---|---|
-| `ibexa.commerce.bestsellers` | `/bestsellers` | [Bestseller page](../bestsellers.md) |
+| `ibexa.commerce.bestsellers` | `/bestsellers` | [Bestseller page](bestsellers.md) |
 
 | Route          | Controller     | Description |
 | -------------- | -------------- | ----------- |
@@ -128,9 +128,9 @@ The following built-in routes are available for the front of the website.
 |Route name|Path|Description|
 |---|---|---|
 | `ibexa_content_download` | `/content/download/{contentId}/{fieldIdentifier}/{filename}` | Downloading a binary file |
-| `ibexa.content.create_no_draft` | `/content/create/nodraft/{contentTypeIdentifier}/{language}/{parentLocationId}` | [Creating a Content item without using a draft](../user_generated_content.md#creating-a-content-item-without-using-a-draft) |
-| `ibexa.content.draft.edit` | `/content/edit/draft/{contentId}/{versionNo}/{language}/{locationId}` | [Editing a Content item](../user_generated_content.md#editing-a-content-item) |
-| `ibexa.content.draft.create` | `/content/create/draft/{contentId}/{fromVersionNo}/{fromLanguage}` | [Creating a new draft](../user_generated_content.md#creating-a-new-draft) |
+| `ibexa.content.create_no_draft` | `/content/create/nodraft/{contentTypeIdentifier}/{language}/{parentLocationId}` | [Creating a Content item without using a draft](user_generated_content.md#creating-a-content-item-without-using-a-draft) |
+| `ibexa.content.draft.edit` | `/content/edit/draft/{contentId}/{versionNo}/{language}/{locationId}` | [Editing a Content item](user_generated_content.md#editing-a-content-item) |
+| `ibexa.content.draft.create` | `/content/create/draft/{contentId}/{fromVersionNo}/{fromLanguage}` | [Creating a new draft](user_generated_content.md#creating-a-new-draft) |
 
 ### Search
 

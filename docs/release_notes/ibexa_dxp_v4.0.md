@@ -4,7 +4,7 @@
 
 **Release date**: February 4, 2022
 
-**Release type**: [Fast Track](../community_resources/release_process.md#release-process)
+**Release type**: [Fast Track](https://support.ibexa.co/Public/service-life)
 
 ## Notable changes
 
@@ -13,7 +13,7 @@
 The the Back Office has undergone a complete redesign, including revised look and feel,
 simplified navigation and more streamlined workflows.
 
-![New UI](img/4.0_new_ui.png)
+![New UI](4.0_new_ui.png)
 
 !!! tip
 
@@ -27,14 +27,14 @@ Products are now organized into product types, each offering a specific set of a
 that you can use to provide information about a product.
 You can also set VAT rates per product type.
 
-![Product catalog](img/4.0_catalog.png)
+![Product catalog](4.0_catalog.png)
 
 #### Price management
 
 You can now configure prices with discounts per product and per customer group.
 Separate currencies enable you to set different price rules for different currencies.
 
-![Price management](img/4.0_product_price.png "Managing prices in the new product catalog")
+![Price management](4.0_product_price.png "Managing prices in the new product catalog")
 
 ### Taxonomy management
 
@@ -57,14 +57,14 @@ For more information, see [Support for multiple websites](https://doc.ibexa.co/p
 You can now configure and use the locking feature to lock a draft of a Content item, 
 so that only an assigned person can edit it, and no other user can take it over. 
 
-For more information, see the [Draft locking](../guide/workflow/workflow.md#draft-locking)
+For more information, see the [Draft locking](https://doc.ibexa.co/en/latest/guide/workflow/workflow/#draft-locking)
 and the relevant [user documentation](https://doc.ibexa.co/projects/userguide/en/latest/publishing/editorial_workflow/#draft-lock-release).
 
 ### Online Editor is now based on CKEditor
 
 You can now edit content of RichText Fields using CKEditor and extend its functionality with many elements.
 
-For more information, see [Extend Online Editor](../extending/extending_online_editor.md).
+For more information, see [Extend Online Editor](https://doc.ibexa.co/en/latest/extending/extending_online_editor/).
 
 ### Enhanced GraphQL location handling
 
@@ -72,10 +72,10 @@ GraphQL now enables better querying of Locations and URLs.
 
 ### Migration API
 
-You can now manage [data migrations](../guide/data_migration/data_migration.md) by using the PHP API,
+You can now manage [data migrations](https://doc.ibexa.co/en/latest/guide/data_migration/data_migration/) by using the PHP API,
 including getting migration information and running individual migration files.
 
-See [Managing migrations](../api/public_php_api_managing_migrations.md) for more information.
+See [Managing migrations](https://doc.ibexa.co/en/latest/api/public_php_api_managing_migrations/) for more information.
 
 ### Decide whether alternative text for Image field is optional
 
@@ -90,7 +90,7 @@ For more information, see [Working with Page](https://doc.ibexa.co/projects/user
 ### Purge all submissions of given form [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 You can purge all submissions of a given form. 
-For more information, see [Forms](../guide/form_builder/forms.md#form-submission-purging).
+For more information, see [Forms](https://doc.ibexa.co/en/latest/guide/form_builder/forms/#form-submission-purging).
 
 ### External datasource handling
 

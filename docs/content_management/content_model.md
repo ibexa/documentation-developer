@@ -74,7 +74,7 @@ When an item is created, its status is set to *draft*. After publishing the stat
 When a published Content item is moved to Trash, the item becomes *archived*.
 If a published item is removed from the Trash (or removed without being put in the Trash first), it is permanently deleted.
 
-![Diagram of an example Content item](img/content_model_item_diagram.png)
+![Diagram of an example Content item](content_model_item_diagram.png)
 
 The Fields of a Content item are defined by the Content Type to which the Content item belongs.
 
@@ -118,18 +118,18 @@ Each Content Type is characterized by a set of metadata which define the general
 
 <a id="default-content-availability"></a>**Make content available even with missing translations** – a flag which indicates if Content items of this Content Type should be available even without a corresponding language version. See [Content availability](content_management.md#content-availability).
 
-![Creating a new Content Type](img/admin_panel_new_content_type.png)
+![Creating a new Content Type](admin_panel_new_content_type.png)
 
 ### Field definitions
 
 Aside from the metadata, a Content Type may contain any number of Field definitions (but has to contain at least one).
 They determine what Fields of what Field Types will be included in all Content items based on this Content Type.
 
-![Diagram of an example Content Type](img/content_model_type_diagram.png)
+![Diagram of an example Content Type](content_model_type_diagram.png)
 
 !!! note
 
-    You can assign each Field defined in a Content Type to a group by selecting one of the groups in the Category drop-down. [Available groups can be configured in the content repository](config_repository.md).
+    You can assign each Field defined in a Content Type to a group by selecting one of the groups in the Category drop-down. [Available groups can be configured in the content repository](repository_configuration.md).
 
 !!! caution
 
@@ -181,15 +181,15 @@ Aside from the Field Type, the Field definition in a Content Type provides the f
 
     The Required flag is in no way related to Field validation. A Field's value is validated whether the Field is set as required or not.
 
-**[Searchable](search/search.md)** – a flag which indicates if the value of the Field will be indexed for searching.
+**[Searchable](search.md)** – a flag which indicates if the value of the Field will be indexed for searching.
 
 The Searchable flag is not available for some Fields, because some Field Types do not allow searching through their values.
 
-**[Translatable](internationalization.md)** – a flag which indicates if the value of the Field can be translated. This is independent of the Field Type, which means that even Fields such as "Float" or "Image" can be set as translatable.
+**[Translatable](languages.md)** – a flag which indicates if the value of the Field can be translated. This is independent of the Field Type, which means that even Fields such as "Float" or "Image" can be set as translatable.
 
 Depending on the Field Type, there may also be other, specific information to fill in. For example, the "Country" Field Type allows you to select the default country, as well as to allow selecting multiple countries at the same time.
 
-![Diagram of content model](img/content_model_diagram.png)
+![Diagram of content model](content_model_diagram.png)
 
 ## Content versions
 
@@ -204,10 +204,10 @@ When you publish a new version, the previous published version changes its statu
 The number of preserved archived versions is set in `ibexa.repositories.default.options.default_version_archive_limit`.
 By default it is set to 5.
 
-A new version is also created when a new [language](internationalization.md) is added to the Content item.
+A new version is also created when a new [language](languages.md) is added to the Content item.
 
 ## Products
 
 Products are a special type of content that holds products you can manage in the commerce section of the system.
 
-See [Product catalog](catalog/catalog.md) for more information.
+See [Product catalog](catalog.md) for more information.

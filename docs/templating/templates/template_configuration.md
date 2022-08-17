@@ -16,8 +16,8 @@ The following example configuration defines template usage for several cases:
 
 The content view configuration must be placed under `ibexa.system.<scope>`.
 
-Scope defines the [SiteAccesses](../../multisite/multisite.md) for which the configuration is valid.
-It may be a SiteAccess, a SiteAccess group, or one of the [generic configuration scopes](../../multisite/multisite_configuration.md#scope).
+Scope defines the [SiteAccesses](multisite.md) for which the configuration is valid.
+It may be a SiteAccess, a SiteAccess group, or one of the [generic configuration scopes](multisite_configuration.md#scope).
 
 ## Page layout
 
@@ -63,7 +63,7 @@ You can define any other custom views. For each custom view, you must define a c
 
 Each rule must have a name unique per view type.
 For each rule you must define the matching conditions.
-The `match` key can contain one or more [view matchers](view_matcher_reference.md), including [custom ones](custom_view_matcher.md).
+The `match` key can contain one or more [view matchers](view_matcher_reference.md), including [custom ones](create_custom_view_matcher.md).
 
 ``` yaml
 [[= include_file('code_samples/front/render_content/config/packages/views.yaml', 15, 20) =]]
@@ -71,11 +71,11 @@ The `match` key can contain one or more [view matchers](view_matcher_reference.m
 
 `template` indicates which template to use.
 
-`controller` indicates which [controller](../queries_and_controllers/controllers.md) and which method to use when rendering the content.
+`controller` indicates which [controller](controllers.md) and which method to use when rendering the content.
 You can use it together with the `template` key, or without it.
 
 `params` can provide additional parameters to the content view.
-Use them, for example, with [Query types](../queries_and_controllers/content_queries.md#query-types)
+Use them, for example, with [Query types](content_queries.md#query-types)
 or to provide [custom Twig variables](templates.md#custom-template-variables) to the template.
 
 ### Combining matchers

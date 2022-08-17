@@ -35,7 +35,7 @@ Note that both `Media` and `BinaryFile` Value and Type inherit from the `BinaryB
 
 |Property|Type|Description|Example|
 |------|------|------|------|
-|`id`|string|Media file identifier. This ID depends on the [IO Handler](../../guide/clustering.md#dfs-io-handler) that is being used. With the native, default handlers (FileSystem and Legacy), the ID is the file path, relative to the binary file storage root dir (`var/<vardir>/storage/original` by default).|application/63cd472dd7819da7b75e8e2fee507c68.mp4|
+|`id`|string|Media file identifier. This ID depends on the [IO Handler](clustering.md#dfs-io-handler) that is being used. With the native, default handlers (FileSystem and Legacy), the ID is the file path, relative to the binary file storage root dir (`var/<vardir>/storage/original` by default).|application/63cd472dd7819da7b75e8e2fee507c68.mp4|
 |`fileName`|string|	The human-readable file name, as exposed to the outside. Used to name the file when sending it for download.|butterflies.mp4|
 |`fileSize`|int|File size, in bytes.|1077923|
 |`mimeType`|string|The file's MIME type.|video/mp4|

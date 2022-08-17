@@ -15,7 +15,7 @@ Using HTTPS for authenticated traffic is highly recommended.
 
 For other security related subjects, see:
 
-- [Cross-origin requests](rest_api_responses.md#cross-origin)
+- [Cross-origin requests](rest_responses.md#cross-origin)
 - [`access_control`]([[= symfony_doc =]]/security/access_control.html)
 
 ## Session-based authentication
@@ -215,7 +215,7 @@ Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
 ##### CSRF token
 
 It can be important to keep the CSRF token (`csrfToken`) for the duration of the session,
-because you must send this token in every request that uses [unsafe HTTP methods](rest_api_requests.md#request-method) (others than the safe GET or HEAD or OPTIONS) when a session has been established.
+because you must send this token in every request that uses [unsafe HTTP methods](rest_requests.md#request-method) (others than the safe GET or HEAD or OPTIONS) when a session has been established.
 It should be sent with an `X-CSRF-Token` header.
 
 Only three built-in routes can accept unsafe methods without CSRF, the sessions routes starting with `/user/sessions` to create, refresh or delete a session.
@@ -266,11 +266,11 @@ X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
 
 ### Configuration
 
-See [JWT authentication](../guide/security.md#jwt-authentication) to lear how to enable JWT for REST and/or GraphQL.
+See [JWT authentication](#jwt-authentication) or GraphQL.
 
 ### Usage example
 
-After you [configure JWT authentication](../guide/security.md#jwt-authentication) at least for REST,
+After you [configure JWT authentication](development_security.md#jwt-authentication) at least for REST,
 you can get the JWT token through the following request:
 
 === "XML"
@@ -376,7 +376,7 @@ Basic authentication requires the username and password to be sent *(username:pa
 For details, see [RFC 2617](http://tools.ietf.org/html/rfc2617).
 
 Most HTTP client libraries as well as REST libraries support this method.
-[Creating content with binary attachments](rest_api_requests.md#creating-content-with-binary-attachments) has an example using basic authentication with [cURL](https://www.php.net/manual/en/book.curl.php) and its `CURLOPT_USERPWD`. 
+[Creating content with binary attachments](rest_requests.md#creating-content-with-binary-attachments) has an example using basic authentication with [cURL](https://www.php.net/manual/en/book.curl.php) and its `CURLOPT_USERPWD`. 
 
 **Raw HTTP request with basic authentication**
 

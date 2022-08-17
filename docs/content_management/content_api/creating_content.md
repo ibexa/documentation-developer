@@ -7,7 +7,7 @@ description: Create, publish, update and translate Content items by using the PH
 !!! note
 
     Creating most objects will be impossible for an anonymous user.
-    Make sure to [authenticate](public_php_api.md#setting-the-repository-user) as a user with sufficient permissions.
+    Make sure to [authenticate](php_api.md#setting-the-repository-user) as a user with sufficient permissions.
 
 ## Creating Content item draft
 
@@ -54,7 +54,7 @@ For example, to add a simple RichText paragraph, provide the following as input:
 ```
 
 To learn more about the format and how it represents different elements of rich text, see
-[RichText Field Type reference](field_types_reference/richtextfield.md#custom-docbook-format).
+[RichText Field Type reference](richtextfield.md#custom-docbook-format).
 
 ## Publishing a draft
 
@@ -78,7 +78,7 @@ This method works on a draft, so to publish your changes you need to use [`Conte
 
 ## Translating content
 
-Content [translations](../guide/internationalization.md#language-versions) are created per version. By default every version contains all existing translations.
+Content [translations](languages.md#language-versions) are created per version. By default every version contains all existing translations.
 
 To translate a Content item to a new language, you need to update it and provide a new `initialLanguageCode`:
 

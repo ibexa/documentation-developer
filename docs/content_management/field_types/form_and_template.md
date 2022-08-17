@@ -120,7 +120,7 @@ The `fieldType` key has to correspond to the name of your Field Type.
 
 ## Content view templates
 
-To render the Field in content view by using the [`ibexa_render_field()` Twig helper](../guide/content_rendering/twig_function_reference/field_twig_functions.md#ibexa_render_field),
+To render the Field in content view by using the [`ibexa_render_field()` Twig helper](field_twig_functions.md#ibexa_render_field),
 you need to define a template containing a block for the Field.
 
 ``` html+twig
@@ -137,7 +137,7 @@ By convention, your block must be named `<fieldTypeIdentifier>_field`.
     Template blocks for built-in Field Types are available in
     [`Core/Resources/views/content_fields.html.twig`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/views/content_fields.html.twig).
 
-    This template is also exposed as a part of Standard Design, so you can override it with the [design engine](../guide/content_rendering/design_engine/design_engine.md).
+    This template is also exposed as a part of Standard Design, so you can override it with the [design engine](design_engine.md).
     To do so, place the template `themes/standard/content_fields.html.twig` in your `Resources/views`
     (assuming `ibexa_standard_design.override_kernel_templates` is set to true).
 
@@ -166,7 +166,7 @@ You can for example use `simple_block_field`, `simple_inline_field` or `field_at
 
 ### Registering a template
 
-If you don't use the [design engine](../guide/content_rendering/design_engine/design_engine.md) or you want to have separate templates per Field Type and/or SiteAccess,
+If you don't use the [design engine](design_engine.md) or you want to have separate templates per Field Type and/or SiteAccess,
 you can register a template with the following configuration:
 
 ``` yaml

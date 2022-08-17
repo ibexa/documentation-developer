@@ -18,11 +18,11 @@ Order history is available through the `/orderhistory` route.
 
 To access order history, the User must have the `siso_policy/orderhistory_view` Policy.
 
-![](../img/orderhistory.png)
+![](orderhistory.png)
 
 Each document has a detail page, where you can see the detailed information, such as the buyer, delivery address, ordered items, status, delivery and payment information:
 
-![](../img/orderhistory_detail.png)
+![](orderhistory_detail.png)
 
 If a product is still available in the shop, you can add it to the basket again. 
 
@@ -30,7 +30,7 @@ If a product is still available in the shop, you can add it to the basket again.
 
 In the header of the order history details page, there is a link to the invoice page:
 
-![](../img/orderhistory_invoice.png)
+![](orderhistory_invoice.png)
 
 ### Order history list
 

@@ -6,7 +6,7 @@ description: Tabs are used for content view, in dashboard, system information an
 
 Many elements of the Back Office interface, such as content view, dashboard or system information, are built using tabs.
 
-![Tabs in System Information](../img/tabs_system_info.png)
+![Tabs in System Information](tabs_system_info.png)
 
 You can extend existing tab groups with new tabs, or create your own tab groups.
 
@@ -29,7 +29,7 @@ A custom tab can extend one of the following classes:
 
 !!! tip
 
-    For a full example of creating a custom tab, see [Add dashboard tab](add_dashboard_tab.md).
+    For a full example of creating a custom tab, see [Add dashboard tab](create_dashboard_tab.md).
 
 You need to register the tab as a service.
 Tag it with `ibexa.admin_ui.tab` and indicate the group in which it should appear:
@@ -79,4 +79,4 @@ services:
 
 Tag the group with `ibexa.admin_ui.component`.
 `group` indicates where the group is rendered.
-For a list of possible rendering places, see [Injecting custom components](../custom_components.md).
+For a list of possible rendering places, see [Injecting custom components](custom_components.md).

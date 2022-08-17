@@ -6,7 +6,7 @@ description: PHP API enables managing content Locations, Content Types, as well 
 
 ## Locations
 
-You can manage [Locations](../guide/content_management.md#locations) that hold content
+You can manage [Locations](content_management.md#locations) that hold content
 using [`LocationService`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php)
 
 ### Adding a new Location to a Content item
@@ -57,7 +57,7 @@ or [`LocationService::unhideLocation`:](https://github.com/ibexa/core/blob/main/
 [[= include_file('code_samples/api/public_php_api/src/Command/HideLocationCommand.php', 46, 47) =]][[= include_file('code_samples/api/public_php_api/src/Command/HideLocationCommand.php', 49, 50) =]]
 ```
 
-See [Location visibility](../guide/content_management/#location-visibility) for detailed information
+See [Location visibility](#location-visibility) for detailed information
 on the behavior of visible and hidden Locations.
 
 ### Deleting a Location
@@ -102,7 +102,7 @@ but it copies the Location and its subtree instead of moving it.
 
 !!! note
 
-    [Copy subtree limit](../guide/config_back_office/#copy-subtree-limit) only applies to operations in the Back Office.
+    [Copy subtree limit](#copy-subtree-limit) only applies to operations in the Back Office.
     It is ignored when copying subtrees using the PHP API.
 
 ## Trash
@@ -127,7 +127,7 @@ $this->trashService->recover($trashItem, $newParent);
 ```
 
 You can also search through Trash items and sort the results using several public PHP API search criteria and sort clauses that have been exposed for `TrashService` queries.
-For more information, see [Searching in trash](public_php_api_search.md#searching-in-trash).
+For more information, see [Searching in trash](search_api.md#searching-in-trash).
 
 ## Content Types
 

@@ -13,7 +13,7 @@ In this example the controller renders all products that exist in the catalog.
 
 ## Create product list controller
 
-Create a controller file in `src/Controller/ProductListController` that uses the [ProductService](../../../api/public_php_api_managing_catalog.md#products)
+Create a controller file in `src/Controller/ProductListController` that uses the [ProductService](product_api.md#products)
 to query for all products:
 
 ``` php hl_lines="22"
@@ -47,9 +47,9 @@ The following template renders the product name, price, main image, and an "Add 
 
 !!! tip
 
-    For more information about rendering product details, see [Render product](../render_content/render_product.md).
+    For more information about rendering product details, see [Render product](render_product.md).
 
 !!! caution
 
     To enable adding a product to basket, you must first configure all necessary information for the product.
-    See [Enable purchasing products](../../catalog/enable_purchasing_products.md) for more information.
+    See [Enable purchasing products](enable_purchasing_products.md) for more information.

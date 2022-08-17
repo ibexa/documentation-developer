@@ -12,7 +12,7 @@
 
 This version introduces the **Page Builder** which replaces the Landing Page editor from earlier versions.
 
-![Page Builder](img/2.2_page_builder.png)
+![Page Builder](2.2_page_builder.png)
 
 !!! note
 
@@ -27,13 +27,13 @@ This version introduces the **Page Builder** which replaces the Landing Page edi
 
 You can edit the new Page Content Type by adding Fields, as well as create new Content Types with the Page Field Type.
 
-![Editing Fields in Page Builder](img/2.2_page_builder_edit_fields.png)
+![Editing Fields in Page Builder](2.2_page_builder_edit_fields.png)
 
 #### Page block design
 
 In the Page block config you can now specify the CSS class with its own style for the specific block:
 
-![Setting the styling in Block configuration](img/2.2_block_settings_styling.png)
+![Setting the styling in Block configuration](2.2_block_settings_styling.png)
 
 !!! caution "Updating to 2.2"
 
@@ -45,7 +45,7 @@ In the Page block config you can now specify the CSS class with its own style fo
 
 Bookmark service allows you to create bookmarks for Locations by selecting a star located next to the Content Type name as shown in the screenshot below. Each Location can only be bookmarked once, multiple bookmarks on one Location will cause an error.
 
-![Bookmark](img/bookmark.png)
+![Bookmark](bookmark.png)
 
 You can find the list of all bookmarks in *Browse content* section. There, you can manage bookmarks by deleting them or by checking if specific Location has been bookmarked.
 
@@ -53,7 +53,7 @@ You can find the list of all bookmarks in *Browse content* section. There, you c
 
 [Placeholder generator](https://doc.ibexa.co/en/2.5/guide/images/#setting-placeholder-generator) enables you to replace any missing image with downloaded or generated image placeholder. It can be used when you are working on an existing database and you are not able to download uploaded images to your local development environment because of their large size.
 
-![Placeholder GenericProvider](img/placeholder_generic_provider.png)
+![Placeholder GenericProvider](2.2_placeholder_generic_provider.png)
 
 ### Standard design
 
@@ -69,7 +69,7 @@ See [default designs](https://doc.ibexa.co/en/2.5/guide/design_engine/#default-d
 
 When viewing User or User Group Content items you can now preview what permissions are assigned to them.
 
-![Preview of permissions assigned to a User](img/2.2_permissions_in_user_view.png)
+![Preview of permissions assigned to a User](2.2_permissions_in_user_view.png)
 
 You can also [select which Content Types are treated the same way as User of User Group](https://doc.ibexa.co/en/2.5/guide/config_repository/#user-identifiers) for these purposes.
 

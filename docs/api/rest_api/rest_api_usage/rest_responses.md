@@ -7,7 +7,7 @@ description: REST API response code defines the status of the received response.
 ## Response code
 
 The following list of available HTTP response status codes gives an overview of the meaning of each code.
-For code details per resource, see the [REST API reference](rest_api_reference/rest_api_reference.html).
+For code details per resource, see the [REST API reference](../rest_api_reference/rest_api_reference.html).
 
 | Code  | Message                | Description                                                                                                                                                                                                                                                  |
 |-------|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -33,12 +33,12 @@ A resource's response may contain metadata in its HTTP headers.
 
 !!! note
 
-    For information about the `Allow` response header, see the [`OPTIONS` method](rest_api_requests.md#options-method).
+    For information about the `Allow` response header, see the [`OPTIONS` method](rest_requests.md#options-method).
 
 ### Content-Type header
 
 When a response contains an actual HTTP body, the `Content-Type` header specifies what the body contains.
-The `Content-Type` header's value is a [media type](rest_api_requests.md#media-types), like with the request `Accept` and `Content-Type` headers.
+The `Content-Type` header's value is a [media type](rest_requests.md#media-types), like with the request `Accept` and `Content-Type` headers.
 
 For example, the first following request without an `Accept` header returns a default format indicated in the response `Content-Type` header, while the second request shows that the response is in the requested format.
 
@@ -92,7 +92,7 @@ Those example `Accept-Path` headers above indicate that the content could be mod
 
 ### Location header
 
-For example, [creating content](rest_api_reference/rest_api_reference.html#managing-content-create-content-type) and [getting a Content item's current version](rest_api_reference/rest_api_reference.html#managing-content-get-current-version)
+For example, [creating content](../rest_api_reference/rest_api_reference.html#managing-content-create-content-type) and [getting a Content item's current version](../rest_api_reference/rest_api_reference.html#managing-content-get-current-version)
 both send a `Location` header to provide you with the requested resource's ID.
 
 Those particular headers generally match a specific list of HTTP response codes.

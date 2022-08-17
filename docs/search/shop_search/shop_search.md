@@ -4,7 +4,7 @@ The built-in search engine automatically indexes both content and products.
 
 !!! caution
 
-    You can use [all the supported search capabilities](../search.md#search-engine-comparison)
+    You can use [all the supported search capabilities](search.md#search-engine-comparison)
     of either Solr or Elasticsearch with the shop.
     
     You can also run the shop using the Legacy search engine,
@@ -15,7 +15,7 @@ The built-in search engine automatically indexes both content and products.
 
 The search displays the results in different groups. A group can consist of products, videos, downloads, etc.
 
-![](../../img/search_categories.png "Categories in search results")
+![](search_categories.png "Categories in search results")
 
 You can configure groups displayed in tabs such as products and content.
 The products can be shown in a list or gallery view.

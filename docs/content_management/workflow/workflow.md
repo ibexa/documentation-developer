@@ -19,7 +19,7 @@ Each workflow consists of stages and transitions between them.
 
 The following example configuration defines a workflow where you can optionally pass a draft to be checked by the legal team.
 
-![Diagram of custom workflow](../img/workflow_custom_diagram.png)
+![Diagram of custom workflow](workflow_custom_diagram.png)
 
 ``` yaml
 [[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 0, 32) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 37, 50) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 53, 61) =]]
@@ -79,7 +79,7 @@ To ensure that the assigned reviewers get a notification of a transition, config
 
 The notification is displayed in the user menu:
 
-![Notification about content to review](../img/workflow_notification.png)
+![Notification about content to review](workflow_notification.png)
 
 #### Draft locking
 
@@ -87,7 +87,7 @@ You can configure draft assignment in a way that when a user sends a draft to re
 only the assigned reviewer can either edit the draft or unlock it for editing, and no 
 other user can take it over. 
 
-Use the [Version Lock Limitation](../limitation_reference.md#version-lock-limitation), 
+Use the [Version Lock Limitation](limitation_reference.md#version-lock-limitation), 
 set to "Assigned only", together with the `content/edit` and `content/unlock` 
 Policies to prevent users from editing and unlocking drafts that are assigned 
 to other users.
@@ -146,14 +146,14 @@ You can limit access to workflows at stage and transition level.
 
 The `workflow/change_stage` Policy grants permission to change stages in a specific workflow.
 
-You can limit this Policy with the [Workflow Transition Limitation](../limitation_reference.md#workflow-transition-limitation) 
+You can limit this Policy with the [Workflow Transition Limitation](limitation_reference.md#workflow-transition-limitation) 
 to only allow sending content in the selected transition.
 
 For example, by using the example above, a `workflow/change_stage` Policy 
 with `WorkflowTransitionLimitation` set to `Approved by legal` allows a legal team to send content forward
 after they are done with their review.
 
-You can also use the [Workflow Stage Limitation](../limitation_reference.md#workflow-stage-limitation) 
+You can also use the [Workflow Stage Limitation](limitation_reference.md#workflow-stage-limitation) 
 together with the `content/edit` and `content/publish` Policies to limit the ability to edit content in specific stages.
 For example, you can use it to only allow a legal team to edit content in the `legal` stage.
 
@@ -171,7 +171,7 @@ The service implements the following methods:
 The methods `apply` and `can` are the same as in Symfony Workflow,
 but the implementation in workflow service extends them, for example by providing messages.
 
-For examples of using the Workflow Service, see [PHP API documentation](../../api/public_php_api_managing_repository.md#workflow).
+For examples of using the Workflow Service, see [PHP API documentation](repository_api.md#workflow).
 
 ## Validation
 

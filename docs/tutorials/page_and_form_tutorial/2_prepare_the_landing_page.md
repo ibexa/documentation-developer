@@ -10,7 +10,7 @@ In this step you'll prepare and configure your front page, together with its lay
 
 Go to the front page of your website (`<yourdomain>`). You can see that it looks unfinished. (You can, however, still use the menu and look around the existing content in the website).
 
-![It's a Dog's World - Starting point](img/enterprise_tut_starting_point.png "It's a Dog's World - Starting point")
+![It's a Dog's World - Starting point](enterprise_tut_starting_point.png "It's a Dog's World - Starting point")
 
 !!! tip
 
@@ -24,13 +24,13 @@ Log in to the Back Office. Go to **Content Structure**.
 The **Ibexa Digital Experience Platform** Content item is the first page that is shown to the visitor.
 Here you can check what Content Type it belongs to: it is a Landing Page.
 
-![Ibexa Digital Experience Platform is a Landing Page](img/enterprise_tut_home_is_an_lp.png)
+![Ibexa Digital Experience Platform is a Landing Page](enterprise_tut_home_is_an_lp.png)
 
 The page contains one Code block and is displayed without any template.
 Click Edit to enter a mode that enables you to work with Pages.
 You can see that the home Page has only one zone with the block.
 
-![Empty Page with default layout](img/enterprise_tut_empty_single_block.png)
+![Empty Page with default layout](enterprise_tut_empty_single_block.png)
 
 Remove the Tag block. Hover over it and select the trash icon from the menu.
 Click the **Field** button on the left of the top bar to switch to editing Page Fields.
@@ -57,7 +57,7 @@ First create a new file for layout configuration, `config/packages/ibexa_fieldty
 
 !!! tip
 
-    For a detailed description of creating a Page layout, see [Page layouts](../../guide/content_rendering/render_content/render_page.md#render-a-layout).
+    For a detailed description of creating a Page layout, see [Page layouts](render_page.md#render-a-layout).
 
 The `sidebar` (line 3) is the internal key of the layout. `name` (line 5) is displayed in the interface when the user selects a layout.
 The `thumbnail` (line 7) points to an image file that is shown when creating a new Landing Page next to the name.
@@ -96,13 +96,13 @@ Now you can change the Home Page to use the new layout. Edit Home and in the top
 Choose the new layout called "Main section with sidebar on the right".
 The empty zones you defined in the template will be visible in the editor.
 
-![Select layout window](img/enterprise_tut_select_layout.png)
+![Select layout window](enterprise_tut_select_layout.png)
 
 !!! tip
 
     If the new layout is not available when editing the Page, you may need to clear the cache (using `php bin/console cache:clear`) and/or reload the app.
 
-![Empty page with new layout](img/enterprise_tut_new_layout.png)
+![Empty page with new layout](enterprise_tut_new_layout.png)
 
 Publish the Home Page. You will notice that it still has some additional text information.
 This is because the looks of a Page are controlled by two separate template files, and you have only prepared one of those.
@@ -127,4 +127,4 @@ Edit the `config/packages/views.yaml` file and add the following code under the
 After adding this template you can check the new Page.
 The part between menu and footer should be empty, because you have not added any content to it yet.
 
-![Empty Page](img/enterprise_tut_empty_page.png)
+![Empty Page](enterprise_tut_empty_page.png)

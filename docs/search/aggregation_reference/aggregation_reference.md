@@ -4,7 +4,7 @@ description: Aggregations help fine-tune search for content and Locations by gro
 
 # Aggregation reference
 
-[Aggregation](../../../api/public_php_api_search.md#aggregation) is used to group search results into categories.
+[Aggregation](search_api.md#aggregation) is used to group search results into categories.
 
 There are three types of aggregations:
 
@@ -34,15 +34,15 @@ There are three types of aggregations:
 
 |Name | Type | Based on Field|
 |---|---|---|
-|[AuthorTermAggregation](authorterm_aggregation.md) | Term | [Author](../../../api/field_types_reference/authorfield.md) |
-|[CheckboxTermAggregation](checkboxterm_aggregation.md) | Term |[Checkbox](../../../api/field_types_reference/checkboxfield.md)|
-|[CountryTermAggregation](countryterm_aggregation.md) | Term |[Country](../../../api/field_types_reference/countryfield.md)|
-|[DateRangeAggregation](daterange_aggregation.md) | Range |[Date](../../../api/field_types_reference/datefield.md)|
-|[DateTimeRangeAggregation](datetimerange_aggregation.md) | Range |[DateTime](../../../api/field_types_reference/dateandtimefield.md)|
-|[FloatRangeAggregation](floatrange_aggregation.md) | Range |[Float](../../../api/field_types_reference/floatfield.md)|
-|[FloatStatsAggregation](floatstats_aggregation.md) | Stats |[Float](../../../api/field_types_reference/floatfield.md)|
-|[IntegerRangeAggregation](integerrange_aggregation.md) | Range |[Integer](../../../api/field_types_reference/integerfield.md)|
-|[IntegerStatsAggregation](integerstats_aggregation.md) | Stats |[Integer](../../../api/field_types_reference/integerfield.md)|
-|[KeywordTermAggregation](keywordterm_aggregation.md) | Term |[Keyword](../../../api/field_types_reference/keywordfield.md)|
-|[SelectionTermAggregation](selectionterm_aggregation.md) | Term |[Selection](../../../api/field_types_reference/selectionfield.md)|
-|[TimeRangeAggregation](timerange_aggregation.md) | Range |[Time](../../../api/field_types_reference/timefield.md)|
+|[AuthorTermAggregation](authorterm_aggregation.md) | Term | [Author](authorfield.md) |
+|[CheckboxTermAggregation](checkboxterm_aggregation.md) | Term |[Checkbox](checkboxfield.md)|
+|[CountryTermAggregation](countryterm_aggregation.md) | Term |[Country](countryfield.md)|
+|[DateRangeAggregation](daterange_aggregation.md) | Range |[Date](datefield.md)|
+|[DateTimeRangeAggregation](datetimerange_aggregation.md) | Range |[DateTime](dateandtimefield.md)|
+|[FloatRangeAggregation](floatrange_aggregation.md) | Range |[Float](floatfield.md)|
+|[FloatStatsAggregation](floatstats_aggregation.md) | Stats |[Float](floatfield.md)|
+|[IntegerRangeAggregation](integerrange_aggregation.md) | Range |[Integer](integerfield.md)|
+|[IntegerStatsAggregation](integerstats_aggregation.md) | Stats |[Integer](integerfield.md)|
+|[KeywordTermAggregation](keywordterm_aggregation.md) | Term |[Keyword](keywordfield.md)|
+|[SelectionTermAggregation](selectionterm_aggregation.md) | Term |[Selection](selectionfield.md)|
+|[TimeRangeAggregation](timerange_aggregation.md) | Range |[Time](timefield.md)|

@@ -11,7 +11,7 @@ This page explains how to install [[= product_name =]] on macOS or Windows.
     This procedure is **for development purposes only**.
     Installing [[= product_name =]] for production purposes is supported only on Linux.
 
-    For information about installing the product on Linux, see [Install [[= product_name =]]](../getting_started/install_ez_platform.md).  
+    For information about installing the product on Linux, see [Install [[= product_name =]]](install_ibexa_dxp.md).  
 
 ### Prepare work environment
 
@@ -74,7 +74,7 @@ The instructions below assume that you are using Apache.
 ## Install [[= product_name =]]
 
 At this point the installation procedure is the same as when installing on Linux.
-Follow the steps from the main [Install [[= product_name =]]](../getting_started/install_ez_platform.md#install-ibexa-dxp) page.
+Follow the steps from the main [Install [[= product_name =]]](install_ibexa_dxp.md#install-ibexa-dxp) page.
 
 ## Set up virtual host
 
@@ -94,5 +94,5 @@ For more information, see [Setting up or Fixing File Permissions.]([[= symfony_d
 
 !!! note "Security checklist"
 
-    See the [Security checklist](../guide/security_checklist.md) for a list of security-related issues
+    See the [Security checklist](security_checklist.md) for a list of security-related issues
     that you should take care of before going live with a project.

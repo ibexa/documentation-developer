@@ -20,7 +20,7 @@ See [Custom tags](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_e
 
 Object states enable you to create sets of custom states and then assign them to Content.
 
-!["Lock" Object state](img/object_state_lock.png)
+!["Lock" Object state](2.1_object_state_lock.png)
 
 Object states can be used in conjunction with [permissions](https://doc.ibexa.co/en/2.5/guide/limitation_reference/#state-limitation).
 
@@ -28,13 +28,13 @@ Object states can be used in conjunction with [permissions](https://doc.ibexa.co
 
 Content on the fly enables you to create new Content anywhere in the application from the Universal Discovery widget.
 
-![Content on the fly](img/cotf.png)
+![Content on the fly](cotf.png)
 
 ### URL alias management
 
 You can now add custom URL aliases to Content items from the URL tab. Aliases can be set per language of the Content item.
 
-![Custom URL aliases](img/url_aliases.png)
+![Custom URL aliases](url_aliases.png)
 
 ### REST: GET Location that matches URL alias
 
@@ -44,7 +44,7 @@ You can now translate URL aliases into Locations  with `urlAlias` parameter prov
 
 You can now change your password, or request a new one if you forgot it.
 
-![Password recovery](img/forgot_password.png)
+![Password recovery](forgot_password.png)
 
 !!! caution
 
@@ -56,7 +56,7 @@ You can now change your password, or request a new one if you forgot it.
 
 During search you can now filter the results by Content type, Section, Modified and Created dates.
 
-![Simplified filtered search](img/filtered_search.png)
+![Simplified filtered search](filtered_search.png)
 
 ### REST: search with FieldCriterion
 
@@ -68,7 +68,7 @@ You can now perform REST search via `POST /views` using custom `FieldCriterion`.
 - In edit mode you can now preview content as it will look in any SiteAccess it is available in.
 - When you start editing a Content item that already has an open draft, you will see a draft conflict screen:
 
-![Draft conflict window](img/draft_conflict.png)
+![Draft conflict window](draft_conflict.png)
 
 ## Full list of new features, improvements and bug fixes since v2.0.0
 

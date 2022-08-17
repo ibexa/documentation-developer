@@ -26,7 +26,7 @@ Place the icon in `public/assets/images` and run `yarn encore <dev|prod>` after 
 
 If you want to configure icons per SiteAccess, see [Icon sets](#icon-sets).
 
-To see more configuration options, see [icon sizes](../guide/content_rendering/twig_function_reference/other_twig_filters.md).
+To see more configuration options, see [icon sizes](other_twig_filters.md).
 
 ### Access icons in Twig templates
 
@@ -64,7 +64,7 @@ return (
 
 You can use a React component to change icons in Back Office and Page Builder.
 
-The following example from the `alert.js` file shows configuration for icons in the [alert](reusable_back_office_templates.md#alerts) component:
+The following example from the `alert.js` file shows configuration for icons in the [alert](reusable_components.md#alerts) component:
 
 ```jsx hl_lines="2"
 <div className={className} role="alert">

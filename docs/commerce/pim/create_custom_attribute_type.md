@@ -120,4 +120,4 @@ Register the validator as a service and tag it with `ibexa.product_catalog.attri
 
 In the Back Office you can now add a new Percent attribute to your product type and create a product with it.
 
-![Creating a product with a custom Percent attribute](../img/catalog_custom_attribute_type.png)
+![Creating a product with a custom Percent attribute](catalog_custom_attribute_type.png)

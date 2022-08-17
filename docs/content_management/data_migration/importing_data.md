@@ -9,7 +9,7 @@ To import data from YAML migration files into Repository, you run the `ibexa:mig
 The `ibexa:migrations:import` command automatically places migration files in the correct folder.
 
 Alternatively, you can place the files manually in the `src/Migrations/Ibexa/migrations` folder
-or in [a custom folder that you configure](migration_management.md#migration-folders), 
+or in [a custom folder that you configure](managing_migrations.md#migration-folders), 
 and specify the file name within this folder as parameter.
 If you do not specify the file, all files within this directory are used.
 
@@ -128,7 +128,7 @@ When creating a Content item, two metadata keys are required: `contentType` and 
 as well as `parentLocationId`.
 
 To use the Location ID of the folder, which is created automatically by the system,
-you can use a [reference](migration_management.md#references).
+you can use a [reference](managing_migrations.md#references).
 In this case you assign the `parent_folder_location_id` reference name to the Location ID,
 and then use it when creating the article.
 

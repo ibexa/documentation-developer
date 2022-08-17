@@ -13,7 +13,7 @@ Page blocks are configured in YAML files, under the `ibexa_fieldtype_page` key.
 !!! tip
 
     For information on how to create and configure new layouts for the Page,
-    see [Page layouts](../content_rendering/render_content/render_page.md#render-a-layout).
+    see [Page layouts](render_page.md#render-a-layout).
 
 ## Block configuration
 

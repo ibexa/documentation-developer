@@ -4,7 +4,7 @@ description: Integrate recommendation service into your website.
 
 # Integrate Recommendation service
 
-To return recommendations, you must first [enable the Personalization service](enabling_personalization.md).
+To return recommendations, you must first [enable the Personalization service](enable_personalization.md).
 Then, you must integrate the service with [[= product_name =]] by activating 
 event tracking and embedding recommendation results into the website.
 
@@ -27,9 +27,9 @@ A code that includes an image may look like this:
 `<user_ID>` stands either for the user ID or session ID of the user who is currently 
 logged into your website (any URL-encoded string is allowed).
 
-`<content_type_ID>` stands for the [contentTypeId](../content_model.md#content-information) of the Content item or product that you want to track and recommend.
+`<content_type_ID>` stands for the [contentTypeId](content_model.md#content-information) of the Content item or product that you want to track and recommend.
 
-`<content_ID>` stands for the [id](../content_model.md#content-information) of the Content item or product that you want to track and recommend.
+`<content_ID>` stands for the [id](content_model.md#content-information) of the Content item or product that you want to track and recommend.
 
 The following examples show how you can integrate a CLICK event:
 
@@ -157,4 +157,4 @@ and enable additional features.
 
 For more information about available functionalities, see the [User Documentation]([[= user_doc =]]/personalization/personalization).
 
-For more information about integrating the Personalization service, see [Developer guide](developer_guide/tracking_api.md) and [Best practices](best_practices/tracking_integration.md).
+For more information about integrating the Personalization service, see [Developer guide](tracking_api.md) and [Best practices](tracking_integration.md).

@@ -17,12 +17,12 @@ issues that can occur after migration to [[= product_name =]].
 
 !!! caution
 
-    Remember about [**proper backup**](../guide/backup.md) before running any of the commands below.
+    Remember about [**proper backup**](backup.md) before running any of the commands below.
 
 ## Regenerating URL aliases
 
 To regenerate URL aliases, use the `ibexa:urls:regenerate-aliases` command.
-See [Regenerating URL aliases](../guide/url_management.md#regenerating-url-aliases) for more information.
+See [Regenerating URL aliases](url_management.md#regenerating-url-aliases) for more information.
 
 !!! note
 

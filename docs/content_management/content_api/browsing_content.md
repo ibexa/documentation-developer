@@ -6,7 +6,7 @@ description: Use PHP API to get Content items and their information, as well as 
 
 To retrieve a Content item and its information, you need to make use of the [`ContentService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php).
 
-The service should be [injected into the constructor of your command or controller](../api/public_php_api.md#service-container).
+The service should be [injected into the constructor of your command or controller](php_api.md#service-container).
 
 !!! tip "Console commands"
 
@@ -38,7 +38,7 @@ It provides you with basic content metadata such as modification and publication
 
     To retrieve content information in a controller, you also make use of the `ContentService`,
     but rendering specific elements (e.g. content information or Field values)
-    is relegated to [templates](../guide/content_rendering/templates/templates.md).
+    is relegated to [templates](templates.md).
 
 ### Locations
 
@@ -56,7 +56,7 @@ For each Location, the code above prints out its `pathString` (the internal repr
 #### URL Aliases
 
 The [`URLAliasService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/URLAliasService.php)
-additionally enables you to retrieve the human-readable [URL alias](../guide/url_management.md#url-aliases) of each Location.
+additionally enables you to retrieve the human-readable [URL alias](url_management.md#url-aliases) of each Location.
 
 [`URLAliasService::reverseLookup`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/URLAliasService.php#L146)
 gets the Location's main [URL alias](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/URLAlias.php):
@@ -93,7 +93,7 @@ to get only versions of a specific status, e.g.:
 !!! note
 
     Requesting version data may be impossible for an anonymous user.
-    Make sure to [authenticate](public_php_api.md#setting-the-repository-user) as a user with sufficient permissions.
+    Make sure to [authenticate](php_api.md#setting-the-repository-user) as a user with sufficient permissions.
 
 ### Relations
 
@@ -114,7 +114,7 @@ $versionInfo = $this->contentService->loadVersionInfo($contentInfo, 2);
 
 `loadRelations` provides an array of [`Relation`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Relation.php) objects.
 `Relation` has two main properties: `destinationContentInfo`, and `sourceContentInfo`.
-It also holds the [relation type](../guide/content_management.md#content-relations),
+It also holds the [relation type](content_management.md#content-relations),
 and the optional Field this relation is made with.
 
 ### Owning user
@@ -141,11 +141,11 @@ of the ContentInfo object:
 !!! note
 
     Note that requesting Section data may be impossible for an anonymous user.
-    Make sure to [authenticate](public_php_api.md#setting-the-repository-user) as a user with sufficient permissions.
+    Make sure to [authenticate](php_api.md#setting-the-repository-user) as a user with sufficient permissions.
 
 ### Object states
 
-You can retrieve [Object states](../guide/admin_panel.md#object-states) of a Content item
+You can retrieve [Object states](admin_panel.md#object-states) of a Content item
 using [`ObjectStateService::getContentState`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ObjectStateService.php#L176)
 You need to provide it with the Object state group.
 All Object state groups can be retrieved through [`loadObjectStateGroups`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ObjectStateService.php#L59)
@@ -202,7 +202,7 @@ returns a [`LocationList`](https://github.com/ibexa/core/blob/main/src/contracts
 
 !!! note
 
-    Refer to [Searching](public_php_api_search.md) for information on more complex search queries.
+    Refer to [Searching](search_api.md) for information on more complex search queries.
 
 ## Getting parent Location
 

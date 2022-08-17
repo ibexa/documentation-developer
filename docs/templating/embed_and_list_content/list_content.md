@@ -14,20 +14,20 @@ you can use one of two methods:
 
 The following example shows how to render the children of a Folder.
 
-First, in the [content view configuration](../templates/template_configuration.md), add the following view for the Folder Content Type:
+First, in the [content view configuration](template_configuration.md), add the following view for the Folder Content Type:
 
 ``` yaml
 [[= include_file('code_samples/front/list_content/config/packages/views.yaml', 8, 22) =]]
 ```
 
 `controller` defines which controller is used to render the view.
-In this example, it is the default [Query controller](../queries_and_controllers/content_queries.md).
+In this example, it is the default [Query controller](content_queries.md).
 
 ``` yaml
 [[= include_file('code_samples/front/list_content/config/packages/views.yaml', 11, 12) =]]
 ```
 
-`params` define that you want to render the content by using the [`Children` Query type](../queries_and_controllers/built-in_query_types.md#children).
+`params` define that you want to render the content by using the [`Children` Query type](built-in_query_types.md#children).
 This Query type automatically finds the children of the current Content item.
 The results of the query are placed in the `items` variable, which you can use in templates.
 
@@ -37,12 +37,12 @@ Then, place the following template in `templates/themes/<my_theme>/full/folder.h
 [[= include_file('code_samples/front/list_content/templates/themes/my_theme/full/folder.html.twig') =]]
 ```
 
-This template uses the [`ibexa_render()` Twig function](../twig_function_reference/content_twig_functions.md#ibexa_render)
+This template uses the [`ibexa_render()` Twig function](content_twig_functions.md#ibexa_render)
 to render every child of the folder with the default template for the `line` view.
 
 ## List children in Content query Field
 
-A [Content query Field](../../../api/field_types_reference/contentqueryfield.md) is a Field that defines a query.
+A [Content query Field](contentqueryfield.md) is a Field that defines a query.
 The following example shows how to use a Content query Field to render a Blog with its Blog Post children.
 
 First, create a Blog Content Type that contains a Content query Field with the identifier `query`.

@@ -10,7 +10,7 @@ To enable it, you must set up authentication parameters that you receive from Ib
 ## Get authentication parameters
 
 First, either you or another Ibexa user responsible for managing the [[= product_name =]]  
-instance must [request access to the service]([[= user_doc =]]/personalization/enabling_personalization/#request-access-to-the-server).
+instance must [request access to the service]([[= user_doc =]]/personalization/enable_personalization/#request-access-to-the-server).
 
 ## Set up customer credentials
 
@@ -54,7 +54,7 @@ Its job is to track the way visitors use the website and recommend content
 based on their behavior.
 
 For more information about integrating the Personalization service,
-see [Developer guide](developer_guide/tracking_api.md) and [Best practices](best_practices/tracking_integration.md).
+see [Developer guide](tracking_api.md) and [Best practices](tracking_integration.md).
 
 ### Set up item type tracking
 
@@ -144,7 +144,7 @@ Place the following code snippet in the `<head>` section of your header template
 
 !!! tip "How tracking works"
 
-    For more information about tracking in general, see [Tracking API](developer_guide/tracking_api.md) and [Tracking with yct.js](developer_guide/tracking_with_yct.md).
+    For more information about tracking in general, see [Tracking API](tracking_api.md) and [Tracking with yct.js](tracking_with_yct.md).
 
 ### Check whether the bundle provides REST data
 
@@ -247,7 +247,7 @@ and imported in the Personalization server's content store.
 
 The export process can take several minutes.
 
-![Personalization Full Content Export](img/full_content_export.png)
+![Personalization Full Content Export](full_content_export.png)
 
 !!! caution "Re-exporting modified item types"
 
@@ -318,7 +318,7 @@ The username is the customer ID and the password is the license key.
 
 In the Back Office, go to **Personalization** > **Import** and review the list of historical import operations to see whether a full import was successful.
 
-![Item Import tab with full import results](img/reco_full_import.png)
+![Item Import tab with full import results](reco_full_import.png)
 
 #### Subsequent content exports
 
@@ -329,7 +329,7 @@ a notification is sent to https://admin.perso.ibexa.co.
 The personalization service also notifies other components of the Personalization server
 and it eventually fetches the affected content and updates it internally.
 
-![Subsequent content exports](img/incremental_content_export.png)
+![Subsequent content exports](incremental_content_export.png)
 
 ### Display recommendations
 
@@ -350,7 +350,7 @@ To display recommendations on your site, you must include the asset in the templ
 {{ encore_entry_script_tags('ezrecommendation-client-js', null, 'ezplatform') }}
 ```
 
-This file is responsible for sending notifications to the [Recommendation API](developer_guide/recommendation_api.md) after the user clicks a tracking element.
+This file is responsible for sending notifications to the [Recommendation API](recommendation_api.md) after the user clicks a tracking element.
 
 To render recommended content, use a dedicated `showRecommendationsAction()` from the `RecommendationController.php`:
 
@@ -551,7 +551,7 @@ You can replace `info` with `debug` to increase verbosity.
 
 ## Set up user roles and permissions
 
-Depending on your requirements, you may need to set up `edit` and `view` [permissions](../permissions.md) 
+Depending on your requirements, you may need to set up `edit` and `view` [permissions](permissions.md) 
 to grant users access to recommendation settings that relate to different SiteAccesses 
 and results that come from these websites.
 

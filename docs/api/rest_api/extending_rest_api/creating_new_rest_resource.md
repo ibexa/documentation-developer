@@ -32,7 +32,7 @@ The `config/routes_rest.yaml` file imported above is created with the following 
 
 ### CSRF protection
 
-If a REST route is designed to be used with [unsafe methods](rest_api_requests.md#request-method), the CSRF protection is enabled by default like for built-in routes.
+If a REST route is designed to be used with [unsafe methods](rest_requests.md#request-method), the CSRF protection is enabled by default like for built-in routes.
 You can disable it by using the route parameter `csrf_protection`.
 
 ``` yaml
@@ -101,7 +101,7 @@ services:
 [[= include_file('code_samples/api/rest_api/config/services.yaml', 43, 48) =]]
 ```
 
-Here, the media type is `application/vnd.ibexa.api.Greeting` plus a format. To have a different vendor than the default, you could create a new `Output\Generator` or hard-code it in the `ValueObjectVisitor` like in the [`RestLocation` example](rest_api_extension_media_type.md#new-restlocation-valueobjectvisitor).
+Here, the media type is `application/vnd.ibexa.api.Greeting` plus a format. To have a different vendor than the default, you could create a new `Output\Generator` or hard-code it in the `ValueObjectVisitor` like in the [`RestLocation` example](adding_custom_media_type.md#new-restlocation-valueobjectvisitor).
 
 ## InputParser
 

@@ -6,7 +6,7 @@ description: Learn how to create a content model consisting of Content Types and
 
 How your content is structured is a very important part of an [[= product_name =]] project. Think of it as the database design of your application.
 
-To get full information, read the [content model](../../guide/content_model.md) documentation page.
+To get full information, read the [content model](content_model.md) documentation page.
 Below is a short introduction that only covers points needed for this tutorial.
 
 ## Content model overview
@@ -18,7 +18,7 @@ For example, an article could include Fields such as *title*, *image*, *abstract
 
 Fields can belong to one of the installed **Field Types**, about 30 in the default distribution.
 Each Field Type is built to represent a specific type of data: a text line, a block of rich text, an image, a collection of relations to Content items, etc.
-You can find a complete list in the [Field Types reference](../../api/field_type_reference.md) section.
+You can find a complete list in the [Field Types reference](field_type_reference.md) section.
 Every Field Type may have its own options, and comes with its own editing and viewing interfaces.
 
 ## Add a Content Type
@@ -38,7 +38,7 @@ You will see a list of **Content Type groups**. They are used to group Content 
 
 Select **Content** and then click the **Add new** button. 
 
-![Add a Content Type button](img/bike_tutorial_create_content_type.png)
+![Add a Content Type button](bike_tutorial_create_content_type.png)
 
 Fill the form with this basic info: 
 
@@ -70,7 +70,7 @@ Confirm the creation of the Content Type by selecting **Create**.
     To do this, go to "Ibexa Digital Experience Platform", select the **Locations** tab
     and in the **Swap Locations** section navigate to "Ibexa Platform".
     
-    You can learn how to work with Pages in [another tutorial](../enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md).
+    You can learn how to work with Pages in [another tutorial](page_and_form_tutorial.md).
 
 Go back to the content by selecting **Content structure** in the left menu. 
 Then browse the Content tree and create a Folder named *All Rides* using the **Create content** button on the top right of the screen. 
@@ -78,6 +78,6 @@ Publish the Folder.
 
 While in the folder, create a few of Rides using the **Create content** button, add photos and publish them.
 
-![Ready for Step 3](img/bike_tutorial_all_rides_admin.png)
+![Ready for Step 3](bike_tutorial_all_rides_admin.png)
 
 Once you have two or more Rides in the Folder, you are ready to customize the homepage of the website.

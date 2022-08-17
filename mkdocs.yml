@@ -88,7 +88,7 @@ nav:
             - Repository configuration: administration/configuration/repository_configuration.md
         - Back Office:
             - Back Office: administration/back_office/back_office.md
-            - Configuration: administration/back_office/configuration.md
+            - Configuration: administration/back_office/back_office_configuration.md
             - Content Tree: administration/back_office/content_tree.md
             - Back Office elements:
                 - Reusable components: administration/back_office/back_office_elements/reusable_components.md
@@ -208,7 +208,6 @@ nav:
                 - URL Field Type: content_management/field_types/field_type_reference/urlfield.md
                 - User Field Type: content_management/field_types/field_type_reference/userfield.md
     - Templating:
-        - Templating: templating/templating.md
         - Render content:
             - Render content: templating/render_content/render_content.md
             - Render Page: templating/render_content/render_page.md
@@ -305,12 +304,12 @@ nav:
         - Custom Policies: permissions/custom_policies.md
     - Users:
         - User management: users/user_management.md
-        - User API: users/user_api.md
         - Customer groups: users/customer_groups.md
         - Login and registration: users/login_and_registration.md
         - OAuth authentication: users/oauth_authentication.md
         - Add login through external service: users/add_login_through_external_service.md
         - Token: users/token.md
+        - Segment API: users/segment_api.md
         - Customers:
             - Customers: users/customers/customers.md
             - Customer API: users/customers/customer_api.md

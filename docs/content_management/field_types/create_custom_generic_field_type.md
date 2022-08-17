@@ -17,7 +17,7 @@ reduces the number of classes which must be created, and simplifies the tagging 
 
 First, create `Value.php` in the `src/FieldType/HelloWorld` directory.
 The Value class of a Field Type contains only the basic logic of a Field Type, the rest of it is handled by the `Type` class.
-For more information about Field Type Value see [Value handling](../field_type_type_and_value.md#value-handling).
+For more information about Field Type Value see [Value handling](type_and_value.md#value-handling).
 
 The `HelloWorld` Value class should contain:
 
@@ -39,7 +39,7 @@ It provides settings for the Field Type and an implementation of the `Ibexa\Cont
 
 !!! tip
 
-    For more information about the Type class of a Field Type, see [Type class](../field_type_type_and_value.md#type-class).
+    For more information about the Type class of a Field Type, see [Type class](type_and_value.md#type-class).
 
 Next, register the Field Type as a service and tag it with `ibexa.field_type`:
 
@@ -66,7 +66,7 @@ and the required `use` statements to `src/FieldType/HelloWorld/Type.php`:
 
 !!! tip
 
-    For more information about the FormMappers see [Field Type form and template](../field_type_form_and_template.md).
+    For more information about the FormMappers see [Field Type form and template](form_and_template.md).
 
 Next, add the `ibexa.admin_ui.field_type.form.mapper.value` tag to the service definition:
 
@@ -98,14 +98,14 @@ Provide the template mapping in `config/packages/ibexa.yaml`:
 Finally, you should be able to add a new Content Type in the Back Office interface.
 Navigate to **Content Types** tab and under **Content** category create a new Content Type:
 
-![Creating new Content Type](../img/extending_field_type_create.png)
+![Creating new Content Type](extending_field_type_create.png)
 
 Next, define a **Hello World** field:
 
-![Defining Hello World](../img/extending_field_type_definition.png)
+![Defining Hello World](extending_field_type_definition.png)
 
 After saving, your **Hello World** Content Type should be available under **Content** in the sidebar menu.
 
-![Creating Hello World](../img/extending_field_type_hello_world.png)
+![Creating Hello World](extending_field_type_hello_world.png)
 
-For more detailed tutorial on Generic Field Type follow [Creating a Point 2D Field Type ](../../tutorials/generic_field_type/creating_a_point2d_field_type.md).
+For more detailed tutorial on Generic Field Type follow [Creating a Point 2D Field Type ](creating_a_point2d_field_type.md).

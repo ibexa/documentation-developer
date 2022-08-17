@@ -4,7 +4,7 @@ description: Configure image editor to crop, flip, and modify images.
 
 # Configure Image Editor
 
-When a Content item contains Fields of the [ezimage](../../api/field_types_reference/imagefield.md) or [ezimageasset](../../api/field_types_reference/imageassetfield.md) type, users can perform basic image editing functions with the Image Editor.
+When a Content item contains Fields of the [ezimage](imageassetfield.md) type, users can perform basic image editing functions with the Image Editor.
 For more information, see the [user documentation]([[= user_doc =]]/editing_images/).
 
 !!! note
@@ -28,7 +28,7 @@ the following example.
 The settings tree can contain one or more action groups.
 You can control the order of actions within a group by setting the `priority` parameter.
 You can also toggle the visibility of actions within the user interface.
-Image Editor settings are [SiteAccess-aware](../configuration/config_dynamic.md).
+Image Editor settings are [SiteAccess-aware](dynamic_configuration.md).
 
 The following example sets the aspect ratio values and label names for buttons used by the Crop feature. 
 

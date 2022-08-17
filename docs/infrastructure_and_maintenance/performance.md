@@ -16,7 +16,7 @@ If you are in a hurry, the most important recommendations on this page are:
 - Dump optimized Composer autoload classmap
 - Use a full web (Nginx/Apache) server with vhost
 - Avoid shared filesystems for code (Docker for Mac/Win, VirtualBox/*, Vagrant, etc.), or find ways to optimize or work around the issues.
-- For clustering (mainly relevant for production/staging), reduce latency to Redis/Memcached, use Varnish and [Solr](search/solr.md).
+- For clustering (mainly relevant for production/staging), reduce latency to Redis/Memcached, use Varnish and [Solr](solr_search_engine.md).
 
 ## Client
 
@@ -78,12 +78,12 @@ In production setups:
 
 ### Search
 
-- Use [Solr Bundle and Solr](search/solr.md) to greatly offload your database and get more stable performance on your installation.
+- Use [Solr Bundle and Solr](solr_search_engine.md) to greatly offload your database and get more stable performance on your installation.
 
 ## Long-running console commands
 
 Executing long-running console commands can result in running out of memory.
-Two examples of such commands are a custom import command and the indexing command provided by the [Solr Bundle](search/solr.md).
+Two examples of such commands are a custom import command and the indexing command provided by the [Solr Bundle](solr_search_engine.md).
 
 ### Reducing memory usage
 
@@ -91,8 +91,8 @@ To avoid quickly running out of memory while executing such commands you should 
 
 1. Always run in prod environment using: `--env=prod`
 
-    1. See [Environments](../guide/environments.md) for further information on Symfony environments.
-    1. See [Logging and debug configuration](../guide/devops.md#logging-and-debug-configuration)
+    1. See [Environments](environments.md) for further information on Symfony environments.
+    1. See [Logging and debug configuration](devops.md#logging-and-debug-configuration)
     for some of the different features enabled in development environments, which by design use memory.
 
 1. For logging using monolog, if you use either the default `fingers_crossed`, or `buffer` handler, make sure to specify `buffer_size` to limit how large the buffer grows before it gets flushed:

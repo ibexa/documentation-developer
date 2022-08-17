@@ -2,17 +2,13 @@
 description: You can use PHP API to get Segment information, create and manage Segments, and assign users to them.
 ---
 
-# User API [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
-
-The user API enables you to operate on user-related part of the Repository, such a segments.
-
-## Segments
+# Segment API [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 Segments enable you to profile the content displayed to specific users.
 
 To manage Segments, use the `SegmentationService`.
 
-### Getting Segment information
+## Getting Segment information
 
 To load a Segment Group, use `SegmentationService::loadSegmentGroupByIdentifier()`.
 Get all Segments assigned to the group with `SegmentationService::loadSegmentsAssignedToGroup()`:
@@ -27,7 +23,7 @@ Similarly, you can load a Segment in a group by using `SegmentationService::load
 [[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 61, 62) =]]
 ```
 
-### Checking assignment
+## Checking assignment
 
 You can check whether a User is assigned to a Segment with `SegmentationService::isUserAssignedToSegment()`:
 
@@ -35,7 +31,7 @@ You can check whether a User is assigned to a Segment with `SegmentationService:
 [[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 65, 69) =]]
 ```
 
-### Assigning Users
+## Assigning Users
 
 To assign a User to a Segment, use `SegmentationService::assignUserToSegment()`:
 
@@ -43,7 +39,7 @@ To assign a User to a Segment, use `SegmentationService::assignUserToSegment()`:
 [[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 61, 64) =]]
 ```
 
-### Creating Segments
+## Creating Segments
 
 Each Segment must be assigned to a Segment Group.
 
@@ -61,13 +57,13 @@ and provide it with a `SegmentCreateStruct`, which takes an existing group as on
 [[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 45, 52) =]]
 ```
 
-### Updating Segments
+## Updating Segments
 
 To update a Segment or a Segment Group, use `SegmentationService::updateSegment()`
 or `SegmentationService::updateSegmentGroup()` and provide it with `SegmentUpdateStruct`
 or `SegmentGroupUpdateStruct`, respectively.
 
-### Deleting Segments
+## Deleting Segments
 
 To delete a Segment or a Segment Group, use `SegmentationService::removeSegment()`
 or `SegmentationService::removeSegmentGroup()`, respectively:

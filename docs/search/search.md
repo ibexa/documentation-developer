@@ -4,15 +4,15 @@ description: Ibexa DXP search functionalities allow working with three search en
 
 # Search
 
-[[= product_name =]] exposes a very powerful [Search API](../../api/public_php_api_search.md), allowing both full-text search and querying the content Repository using several built-in Search Criteria and Sort Clauses. These are supported across different search engines, allowing you to plug in another search engine without changing your code.
+[[= product_name =]] exposes a very powerful [Search API](search_api.md), allowing both full-text search and querying the content Repository using several built-in Search Criteria and Sort Clauses. These are supported across different search engines, allowing you to plug in another search engine without changing your code.
 
 ## Search engines
 
 Currently, the following search engines exist in their own [[= product_name =]] Bundles:
 
 1.  [Legacy search engine](#legacy-search-engine), a database-powered search engine for basic needs.
-1.  [Solr](solr.md), an integration providing better overall performance, much better scalability and support for more advanced search capabilities.
-1.  [Elasticsearch](elastic.md), available for [[= product_name_exp =]] customers, a document-oriented engine providing even better performance and scalability.
+1.  [Solr](solr_search_engine.md), an integration providing better overall performance, much better scalability and support for more advanced search capabilities.
+1.  [Elasticsearch](elasticsearch_search_engine.md), available for [[= product_name_exp =]] customers, a document-oriented engine providing even better performance and scalability.
 
 ### Legacy search engine
 
@@ -22,8 +22,8 @@ Its connections are defined in the same way as for storage engine, and no furthe
 !!! tip
 
     The features and performance of Legacy search engine are limited.
-    If you have specific search or performance needs you should look towards using [Solr](solr.md)
-    or [Elasticsearch](elastic.md).
+    If you have specific search or performance needs you should look towards using [Solr](solr_search_engine.md)
+    or [Elasticsearch](elasticsearch_search_engine.md).
     
     Using the Legacy search engine disables most shop features, such as product search.
 
@@ -57,7 +57,7 @@ ibexa:
 \* Usage of Criteria and Sort Clauses for Fields does not perform well on medium to larger 
 amount of data with Legacy Search Engine (SQL), use Solr for this.
 
-\*\* For more information about fulltext search syntax support, see [Fulltext Criterion](criteria_reference/fulltext_criterion.md).
+\*\* For more information about fulltext search syntax support, see [Fulltext Criterion](fulltext_criterion.md).
 
 \*\*\* Elasticsearch offers query-time boosting instead.
 
@@ -66,7 +66,7 @@ amount of data with Legacy Search Engine (SQL), use Solr for this.
 Search Criteria and Sort Clauses are value object classes used for building a search query, to define filter criteria and ordering of the result set.
 [[= product_name =]] provides a number of standard Search Criteria and Sort Clauses that you can use out of the box and that should cover the majority of use cases.
 
-For an example of how to use and combine Criteria and Sort Clauses, refer to [Searching in PHP API](../../api/public_php_api_search.md).
+For an example of how to use and combine Criteria and Sort Clauses, refer to [Searching in PHP API](search_api.md).
 
 ### Search engine handling of Search Criteria and Sort Clauses
 
@@ -117,7 +117,7 @@ Content Search explicitly refuses to accept Criteria and Sort Clauses implementi
 
 #### Configuring custom Criterion and Sort Clause handlers
 
-After you have implemented your Criterion / Sort Clause and its handler, you will need to configure the handler for the [service container](../../api/public_php_api.md#service-container) by using dedicated service tags for each type of search. Doing so will automatically register it and handle your Criterion / Search Clause when it is given as a parameter to one of the Search Service methods.
+After you have implemented your Criterion / Sort Clause and its handler, you will need to configure the handler for the [service container](php_api.md#service-container) by using dedicated service tags for each type of search. Doing so will automatically register it and handle your Criterion / Search Clause when it is given as a parameter to one of the Search Service methods.
 
 Available tags for Criterion handlers in Legacy Storage Engine are:
 
@@ -140,7 +140,7 @@ Available tags for Sort Clause handlers in Legacy Storage Engine are:
     - for Criterion handlers: `ibexa.core.trash.search.legacy.gateway.criterion_handler`
     - for Sort Clause handlers: `ibexa.core.trash.search.legacy.gateway.sort_clause_handler`
 
-    For more information about searching for Content items in Trash, see [Searching in trash](../../api/public_php_api_search.md#searching-in-trash).
+    For more information about searching for Content items in Trash, see [Searching in trash](search_api.md#searching-in-trash).
 
     For more information about the Criteria and Sort Clauses that are supported when searching for trashed Content items, see [Searching in trash reference](search_in_trash_reference.md).
 

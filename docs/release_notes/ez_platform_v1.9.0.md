@@ -14,23 +14,23 @@ If you are looking for the Long Term Support (LTS) release, see[ https://ezplat
 
 You can now create collections of content quickly: upload multiple files in bulk and they will be imported directly into the content repository. The files will automatically be imported as content using the Content Type that matches their MIME type. Go to the content view, drag and drop or select multiple files in the sub-items area and you will get direct access for further editing. As ever, this solution can be customized so that you create your own matching rules.
 
-![](img/catsfromtheMET.gif)
+![](catsfromtheMET.gif)
 
 #### Content browser
 
 In version 1.8 we introduced a new Content Browser in the Universal Discovery Widget (UDW). This Content Browser is now used to browse content everywhere, also when accessing the content tree through the left pane in Platform UI. This allows users to reach the entire repository from this toolbar (which was previously limited in terms of number of items per level), it also provides a much more consistent user experience. To reflect this change, the Content tree button has been renamed **Content browse**.
 
-![](img/contentbrowse.gif)
+![](contentbrowse.gif)
 
 #### Miscellaneous
 
 -   The Details tab in content view now provides information about the Section the Content item belongs to.
 
-![Section details in Details tab](img/section-details.png "Section details in Details tab")
+![Section details in Details tab](section-details.png "Section details in Details tab")
 
 -   You can now edit a Content item directly from its parent's Sub-items table, and sort the table:
 
-![Sub-items table with Edit button and sorting](img/sub-items-improved.png "Sub-items table with Edit button and sorting")
+![Sub-items table with Edit button and sorting](sub-items-improved.png "Sub-items table with Edit button and sorting")
 
 -   You can now restore from Trash content whose original Location has been deleted.
 -   Pasted thead/tfood tags are now kept in RichText Field Type, and its Online Editor
@@ -47,7 +47,7 @@ In version 1.8 we introduced a new Content Browser in the Universal Discovery Wi
 
 The eZ Enterprise Demo now uses the [Netgen Tags bundle](https://github.com/netgen/TagsBundle). This bundle was recently ported to eZ Platform and provides a powerful, solid and user-friendly way to categorize content using tags. The solution lets editors and administrators define their taxonomies in a dedicated interface. These taxonomies that are immediately available for editors working on content who want to categorize any content types. 
 
-![](img/eztags.gif)
+![](eztags.gif)
 
 #### Miscellaneous
 

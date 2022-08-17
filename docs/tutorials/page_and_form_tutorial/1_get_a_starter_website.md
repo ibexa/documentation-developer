@@ -10,7 +10,7 @@ To set up the starter website, you need to follow these steps:
 
 To begin the tutorial, you need a clean installation of [[= product_name_exp =]].
 
-Get it by following the [Install [[= product_name =]]](../../getting_started/install_ez_platform.md) guide.
+Get it by following the [Install Ibexa DXP](install_ibexa_dxp.md) guide.
 
 ## Add Content Types
 
@@ -49,13 +49,13 @@ Edit it to remove the Image Field that has a Content Relation (ezobjectrelation)
 |------------|-------|------------|----------|------------|--------------|
 | Image Asset | Image | `image`    |yes       |no          | no           |
 
-![New image Field in the Article Content Type](img/enterprise_tut_image_in_article_ct.png)
+![New image Field in the Article Content Type](enterprise_tut_image_in_article_ct.png)
 
 ## Add template, configuration and style files
 
 !!! tip
 
-    For an introduction on how to use templates in [[= product_name =]], take a look at the [Building a Bicycle Route Tracker in [[= product_name =]] tutorial](../platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md).
+    For an introduction on how to use templates in [[= product_name =]], take a look at the [Beginner tutorial](beginner_tutorial.md).
 
 First, to remove the welcome page, go to `config/packages/` and delete the `ibexa_welcome_page.yaml` file.
 
@@ -91,16 +91,16 @@ php bin/console cache:clear
 
 !!! tip
 
-    Compiling assets with Webpack Encore is explained in [the beginner tutorial](../platform_beginner/3_customize_the_front_page.md#configuring-webpack).
+    Compiling assets with Webpack Encore is explained in [the beginner tutorial](3_customize_the_front_page.md#configuring-webpack).
 
 In the `src` folder create a `QueryType` subfolder and add [`QueryType/MenuQueryType.php`](https://github.com/ezsystems/developer-documentation/blob/master/code_samples/tutorials/page_tutorial_starting_point/src/QueryType/MenuQueryType.php) to it.
 
-This file takes care of displaying the top menu (read up on it [in the documentation](../../guide/content_rendering/queries_and_controllers/content_queries.md#query-types)).
+This file takes care of displaying the top menu (read up on it [in the documentation](content_queries.md#query-types)).
 It is not the scope of this tutorial and we won't go here into detail on how it works.
 
 This is what the structure of the new and modified files should look like:
 
-![File structure](img/enterprise_tut_file_structure.png)
+![File structure](enterprise_tut_file_structure.png)
 
 ## Create content
 
@@ -111,7 +111,7 @@ First, you can hide unneeded Content items from the project root.
 Go to **Content structure** and select "Ibexa Digital Experience Platform".
 In the **Sub-items** section, select all the current sub-items and click the **Hide** icon:
 
-![Hiding Content items you do not need](img/enterprise_tut_hide_content.png)
+![Hiding Content items you do not need](enterprise_tut_hide_content.png)
 
 Next, under "Ibexa Digital Experience Platform", create three Folders. Call them 'All Articles', 'Dog Breed Catalog' and 'All Tips'.
 Remember that you save and close them by using the 'Publish' button.

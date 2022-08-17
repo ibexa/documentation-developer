@@ -27,4 +27,4 @@ in which you need to specify:
 ## URL search reference
 
 For the reference of Search Criteria and Sort Clauses you can use in URL search,
-see [URL search reference](../guide/search/url_search_reference/url_search_reference.md).
+see [URL search reference](url_search_reference.md).

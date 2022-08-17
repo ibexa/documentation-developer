@@ -101,7 +101,7 @@ For details, see [Bundles](https://doc.ibexa.co/en/latest/guide/bundles).
 
     You can now compare two versions of the same Content item and preview changes in their Fields:
 
-    ![Version comparison](img/compare_results.png "Version comparison in one-column view")
+    ![Version comparison](compare_results.png "Version comparison in one-column view")
 
 ### Universal Discovery Widget
 
@@ -145,7 +145,7 @@ for user passwords.
 
 You can now duplicate a role with a single click in the Back Office.
 
-![Duplicate a role](img/3.0_duplicate_roles.png "Duplicate a role icon")
+![Duplicate a role](3.0_duplicate_roles.png "Duplicate a role icon")
 
 ### REST API reference
 

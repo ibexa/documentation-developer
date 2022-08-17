@@ -6,7 +6,7 @@ description: You can use PHP API to get, create and delete form submissions.
 
 ## Form submissions
 
-To manage form submissions created in the [Form Builder](../guide/form_builder/forms.md), use `FormSubmissionServiceInterface`.
+To manage form submissions created in the [Form Builder](forms.md), use `FormSubmissionServiceInterface`.
 
 ### Getting form submissions
 

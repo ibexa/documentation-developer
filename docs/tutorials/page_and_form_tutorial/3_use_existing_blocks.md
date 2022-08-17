@@ -21,7 +21,7 @@ In `config/packages/ibexa_fieldtype_page.yaml` add the following code at the end
 [[= include_file('code_samples/tutorials/page_tutorial/config/packages/ibexa_fieldtype_page.yaml', 13, 19) =]]
 ```
 
-The template makes use of an [image variation](../../guide/images/images.md) (line 10).
+The template makes use of an [image variation](images.md) (line 10).
 It is the thumbnail of the Dog Breed image that will be displayed in the block.
 To configure this variation, open the `config/packages/image_variations.yaml` file and add the following code under the `image_variations` key:
 
@@ -45,11 +45,11 @@ Click the block and fill in the form. Here you name the block and decide what it
 Choose the "Dog Breed Catalog" folder as the Parent, select Dog Breed as the Content Type to be displayed, and choose a limit (3).
 You'll display the first three Dog Breeds from the database.
 
-![Window with Content List options](img/enterprise_tut_content_list_window.png)
+![Window with Content List options](enterprise_tut_content_list_window.png)
 
 Click Submit and you should see a preview of what the block will look like with the dog breed information displayed.
 
-![Content List Styled](img/enterprise_tut_content_list_styled.png "Content List Styled")
+![Content List Styled](enterprise_tut_content_list_styled.png "Content List Styled")
 
 The block is displayed using the new template.
 Built-in blocks have default templates included in a clean installation, but you can override them.
@@ -116,14 +116,14 @@ Select the block and click the Block Settings icon.
 Set the Limit to three and click Select Content.
 Navigate to the "All Articles" folder and select the articles you had created and confirm.
 
-![Selecting Articles for the Schedule Block](img/enterprise_tut_select_articles.png)
+![Selecting Articles for the Schedule Block](enterprise_tut_select_articles.png)
 
 Accept the suggested airtime and click Submit.
 
 Now click the Airtime button next to one of the Articles and choose a time in the future.
 This article will be listed in the queue.
 
-![Content Scheduler with scheduled content](img/enterprise_tut_choosing_airtime.png)
+![Content Scheduler with scheduled content](enterprise_tut_choosing_airtime.png)
 
 Publish the Page.
 
@@ -137,4 +137,4 @@ Content will be shown when you move the slider to the point when it airs.
     If you try to add Content of any other type, you will see an error.
     This is because there is no `featured` view for content other than Articles defined at the moment.
 
-![Front Page after adding Featured Block](img/enterprise_tut_page_with_featured_articles.png "Front Page after adding Featured Block")
+![Front Page after adding Featured Block](enterprise_tut_page_with_featured_articles.png "Front Page after adding Featured Block")

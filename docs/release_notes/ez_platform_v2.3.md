@@ -18,16 +18,16 @@
 
     In the Schedule tab you can define when any block becomes visible and when it disappears from a Page.
 
-    ![Schedule tab](img/2.3_schedule_tab.png)
+    ![Schedule tab](2.3_schedule_tab.png)
 
     Content Scheduler is a special block with a queue of Content items, each with its own airtime.
     The Content becomes available at the airtime, and is replaced with new Content items coming in from the queue.
 
-    ![Content Scheduler](img/2.3_content_scheduler.png)
+    ![Content Scheduler](2.3_content_scheduler.png)
 
     All changes to scheduled content on a Page are visible in the timeline.
 
-    ![Timeline and list of upcoming events](img/2.3_timeline_list.png)
+    ![Timeline and list of upcoming events](2.3_timeline_list.png)
 
     The timeline also shows other events, such a Content published using the date-based publisher.
 
@@ -41,11 +41,11 @@
 
     The new Form Builder enables you to create Form Content items with multiple form fields.
 
-    ![Form Builder](img/2.3_form_builder.png)
+    ![Form Builder](2.3_form_builder.png)
 
     You can preview and download submissions in the Back Office.
 
-    ![Form Builder submissions](img/2.3_form_builder_submissions.png)
+    ![Form Builder submissions](2.3_form_builder_submissions.png)
 
     See [Extending Form Builder](https://doc.ibexa.co/en/2.5/guide/extending/extending_form_builder) for information on how to modify and create Form fields.
 
@@ -59,7 +59,7 @@ You can now create a single source media library with images that can be reused 
 
 See [Reusing images](https://doc.ibexa.co/en/2.5/guide/images/#reusing-images) and [ImageAsset Field Type reference](https://doc.ibexa.co/en/2.5/api/field_types_reference/imageassetfield) for more information.
 
-![Set up multiple relations with image](img/2.3_image_asset.png)
+![Set up multiple relations with image](2.3_image_asset.png)
 
 ### Regenerating URL aliases
 
@@ -72,7 +72,7 @@ See [Regenerating URL aliases](https://doc.ibexa.co/en/2.5/guide/url_management/
 
 You can now access and set user preferences in the user menu.
 
-![User preferences screen with time zone settings](img/2.3_user_preferences.png)
+![User preferences screen with time zone settings](2.3_user_preferences.png)
 
 It is covered by the `user/preferences` Policy.
 
@@ -85,7 +85,7 @@ eZ Platform can now display dates across the system using timezone from User Set
 Selection of content in Universal Discovery Widget has seen improvements,
 in particular when selecting multiple Content items.
 
-![Multiple selection on UDW](img/2.3_udw_selection.png)
+![Multiple selection on UDW](2.3_udw_selection.png)
 
 ### API improvements
 

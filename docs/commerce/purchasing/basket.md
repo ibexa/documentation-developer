@@ -6,7 +6,7 @@ description: The basket functionality covers the shopping basket, as well as wis
 
 ## Overview
 
-![](../img/basket_1.png)
+![](basket_1.png)
 
 Baskets are stored in the database and identified by: 
 
@@ -16,7 +16,7 @@ Baskets are stored in the database and identified by:
 A basket can be of one of the following types:
 
 - `basket`
-- [`quickOrder`](../quick_order/quick_order.md)
+- [`quickOrder`](quick_order.md)
 - [`storedBasket`](wishlist_and_stored_baskets.md)
 - [`wishList`](wishlist_and_stored_baskets.md)
 

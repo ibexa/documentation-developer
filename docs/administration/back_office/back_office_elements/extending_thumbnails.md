@@ -12,7 +12,7 @@ If you do not want to use custom thumbnails, `ContentType` will be used instead.
 The thumbnail mechanism has two layers, and each layer can have many implementations.
 The mechanism checks if any of the implementations returns a field e.g. `ezimage` that has function "Can be a thumbnail" turned on.
 
-![Can be a thumbnail setting](img/extending_thumbnail_can_be.png)
+![Can be a thumbnail setting](extending_thumbnail_can_be.png)
 
 If found, the image is used as a Content Type thumbnail.
 

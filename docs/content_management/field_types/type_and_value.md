@@ -124,7 +124,7 @@ If you need to inject other services into your Type class, skip using the `paren
 Like most API components, Field Types use the [Symfony service tag mechanism]([[= symfony_doc =]]/service_container/tags.html).
 
 A service can be assigned one or several tags, with specific parameters.
-When the [service container](../api/public_php_api.md#service-container) is compiled into a PHP file, 
+When the [service container](php_api.md#service-container) is compiled into a PHP file, 
 tags are read by `CompilerPass` implementations that add extra handling for tagged services.
 Each service tagged as `ibexa.field_type` is added to a [registry](http://martinfowler.com/eaaCatalog/registry.html) using the `alias` key as its unique `fieldTypeIdentifier` e.g. `ezstring`.
 Each Field Type must also inherit from the abstract `ibexa.field_type` service.
@@ -162,7 +162,7 @@ An example schema could look like this:
 ];
 ```
 
-The settings are mapped into Symfony forms via the [FormMapper](field_type_form_and_template.md#formmapper).
+The settings are mapped into Symfony forms via the [FormMapper](form_and_template.md#formmapper).
 
 ## Extensibility points
 

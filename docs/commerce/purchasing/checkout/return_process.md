@@ -9,7 +9,7 @@ The goal is to inform the user about the cancellation policies and give them the
 
 The cancellation process validates the input and sends an email to the shop administrator. 
 
-![](../img/rma_process.png)
+![](rma_process.png)
 
 ## Link to cancellation form
 

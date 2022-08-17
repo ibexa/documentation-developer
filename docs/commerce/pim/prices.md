@@ -4,11 +4,11 @@ description: The price engine calculates product prices taking into account cust
 
 # Prices
 
-The price engine is responsible for calculating prices for products in the [catalog](../catalog/catalog.md).
+The price engine is responsible for calculating prices for products in the [catalog](catalog.md).
 
 ## Custom pricing
 
-You can set up different prices depending on [customer groups](../user_management/customer_groups.md).
+You can set up different prices depending on [customer groups](customer_groups.md).
 
 Each customer group can have a default price discount that applies to all products.
 
@@ -21,5 +21,5 @@ To use currencies in your shop, you need to first enable them in the Back Office
 
 ## VAT
 
-You can [configure VAT rate globally](../catalog/catalog_configuration.md#vat-rates) (per SiteAccess),
+You can [configure VAT rate globally](pim_configuration.md#vat-rates) (per SiteAccess),
 or set it individually for each product type and product.

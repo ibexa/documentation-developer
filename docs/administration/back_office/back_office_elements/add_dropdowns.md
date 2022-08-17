@@ -122,7 +122,7 @@ The following attributes are available:
 |`min_search_items`|number, default 5|Minimum number of options that have to be passed to show the search inside the drop-down.|
 |`selected_item_label`|text|Allows setting constant label for widget. By default the visible label shows the currently selected options.|
 
-![Drop-down expanded state](img/dropdown_expanded_state.png)
+![Drop-down expanded state](dropdown_expanded_state.png)
 
 ## Extend drop-down templates
 

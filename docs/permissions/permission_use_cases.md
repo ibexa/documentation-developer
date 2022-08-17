@@ -87,7 +87,7 @@ Follow the example below to learn how to do that.
 **Cookbook**, **Dinner recipes** and **Dessert recipes** containers are not accessible in the frontend. 
 Edit access to them in the **Admin Panel**. 
 
-![Subtree file structure](img/subtree_usability_notes_1.png)
+![Subtree file structure](subtree_usability_notes_1.png)
 
 To give the vegetarian editors access only to the **Vegetarian** dinner recipes section,
  create a new Role e.g. *EditorVeg*.
@@ -103,7 +103,7 @@ Only then the limitations are combined with `AND`, resulting in an empty set.
 
 The vegetarian editors should now see the following Content Tree:
 
-![Limited subtree file structure](img/subtree_usability_notes_2.png)
+![Limited subtree file structure](subtree_usability_notes_2.png)
 
 When a Policy has more than one Limitation, all of them have to apply, or the Policy does not work.
 For example, a `Location` Limitation on Location `1/2` and `Subtree of Location` Limitation on `1/2/55` cannot work together,

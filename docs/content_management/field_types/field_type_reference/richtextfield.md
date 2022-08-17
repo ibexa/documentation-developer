@@ -70,7 +70,7 @@ The XHTML5 format is used by the Online Editor.
 You can use the Ibexa flavor of the DocBook format in PHP API and in REST API requests
 by providing the DocBook content as a string.
 
-The following example shows how to pass DocBook content to a [create struct](../public_php_api_creating_content.md#creating-content-item-draft):
+The following example shows how to pass DocBook content to a [create struct](creating_content.md#creating-content-item-draft):
 
 ``` php
 $contentCreateStruct = $contentService->newContentCreateStruct( $contentType, "eng-GB" );

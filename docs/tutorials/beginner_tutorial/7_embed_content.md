@@ -39,7 +39,7 @@ Note that you will need pictures (for the Photo Field) to represent them.
 Now edit the Ride Content Type in order to add a Multiple Content Relation between the two Content Types.
 Create a new **Content relations (multiple)** Field called "Landmarks" with identifier `landmarks` and allow Content Type "Landmark" to be added to it:
 
-![Adding Landmarks to the Ride Content Type](img/bike_ride_adding_landmarks_to_the_ride_content_type.png "Adding a relation between the Ride and the Landmark using Content Relations (multiple)")
+![Adding Landmarks to the Ride Content Type](bike_ride_adding_landmarks_to_the_ride_content_type.png "Adding a relation between the Ride and the Landmark using Content Relations (multiple)")
 
 Confirm by clicking **Save**.
 
@@ -199,4 +199,4 @@ You can now check the Ride page again to see all the connected Landmarks.
 
     You can use `dump()` in Twig templates to display all available variables.
 
-![Ride full view with Landmarks](img/bike_tutorial_ride_with_landmarks.png)
+![Ride full view with Landmarks](bike_tutorial_ride_with_landmarks.png)

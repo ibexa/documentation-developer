@@ -14,7 +14,7 @@ between installations by using the migration command.
 
 !!! tip "Public PHP API"
 
-    You can also manage data migrations with the PHP API, see [Managing migrations](../../api/public_php_api_managing_migrations.md).
+    You can also manage data migrations with the PHP API, see [Managing migrations](data_migration_api.md).
 
 !!! caution "Do not enable EzMigrationBundle2"
 

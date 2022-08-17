@@ -13,7 +13,7 @@ description: Events that are triggered when working with URLs, URL aliases and U
 
 ## URL aliases
 
-The following events are dispatched when creating and managing [URL aliases](../../url_management.md#url-aliases).
+The following events are dispatched when creating and managing [URL aliases](url_management.md#url-aliases).
 
 | Event | Dispatched by | Properties |
 |---|---|---|
@@ -28,7 +28,7 @@ The following events are dispatched when creating and managing [URL aliases](../
 
 ## URL wildcards
 
-The following events are dispatched when creating and managing [URL wildcards](../../url_management.md#url-wildcards).
+The following events are dispatched when creating and managing [URL wildcards](url_management.md#url-wildcards).
 
 | Event | Dispatched by | Properties |
 |---|---|---|

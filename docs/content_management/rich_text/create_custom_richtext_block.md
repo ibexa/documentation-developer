@@ -4,7 +4,7 @@ description: Create a custom Page block containing rich text.
 
 # Create custom RichText block [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-A RichText block is a specific example of a [custom block](../guide/page/create_custom_page_block.md) that you can use when 
+A RichText block is a specific example of a [custom block](create_custom_page_block.md) that you can use when 
 you create a Page. 
 To create a custom block, you must define the block's layout, provide templates, add a subscriber 
 and register the subscriber as a service.
@@ -36,7 +36,7 @@ Lines 41-51 handle the conversion of content into an XML string:
 [[= include_file('code_samples/back_office/online_editor/src/event/subscriber/RichTextBlockSubscriber.php') =]]
 ```
 
-Now you can create [templates](../guide/content_rendering/templates/templates.md) that are used 
+Now you can create [templates](templates.md) that are used 
 for displaying and configuring your block.
 
 Create the view template in `templates/blocks/my_block/richtext.html.twig`.
@@ -72,7 +72,7 @@ services:
 You have successfully created a custom RichText block. 
 You can now add your block in the Site tab.
 
-![RichText block](img/extending_richtext_block.png)
+![RichText block](extending_richtext_block.png)
 
 For more information about customizing additional options of the block or creating 
-custom blocks with other attribute types, see [Create custom Page block](../guide/page/create_custom_page_block.md).
+custom blocks with other attribute types, see [Create custom Page block](create_custom_page_block.md).

@@ -59,4 +59,4 @@ Access the block's settings and choose the "All Tips" folder from the menu. Save
 Refresh the home page. The Tip of the Day block will display a random Tip from the "Tips" folder.
 Refresh the page a few more times and you will see the tip change randomly.
 
-![Random Block with a Tip](img/enterprise_tut_random_block.png "Random Block with a Tip")
+![Random Block with a Tip](enterprise_tut_random_block.png "Random Block with a Tip")

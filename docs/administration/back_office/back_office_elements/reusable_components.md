@@ -95,7 +95,7 @@ The table component supports the following variable:
 
 !!! tip
 
-    For an example of using the table component, see [Add menu item](menus/add_menu_item.md).
+    For an example of using the table component, see [Add menu item](add_menu_item.md).
 
 ## Tabs
 

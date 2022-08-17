@@ -6,7 +6,7 @@ description: An Ibexa DXP project follows Symfony's directory structure to organ
 
 [[= product_name =]] is a Symfony application and follows the project structure used by Symfony.
 
-You can see an example of organizing a simple project in the [companion repository](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/tree/v3-master) for the [[[= product_name_exp =]] Beginner tutorial](../tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md).
+You can see an example of organizing a simple project in the [companion repository](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/tree/v3-master) for the [Beginner tutorial](page_and_form_tutorial.md).
 
 ## PHP code
 
@@ -40,7 +40,7 @@ All project assets are accessible through the `assets` path.
 ## Configuration
 
 You project's configuration is placed in the respective files in `config/packages`.
-See [Configuration](configuration/configuration.md) for more information.
+See [Configuration](configuration.md) for more information.
 
 ### Importing configuration from a bundle
 

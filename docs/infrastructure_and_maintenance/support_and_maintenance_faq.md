@@ -28,7 +28,7 @@ related to the code which generates the problem.
 
 #### What are the recommended ways to increase my project's performance?
 
-The most important clues around increasing overall performance of your [[= product_name =]]-based project can be found in [the Performance documentation page](../guide/performance.md).
+The most important clues around increasing overall performance of your [[= product_name =]]-based project can be found in [the Performance documentation page](performance.md).
 
 #### How can I translate my Back Office?
 
@@ -40,8 +40,8 @@ If you do not have a language defined in the browser, it will be selected based 
 
 To read more about language managing in [[= product_name =]], see the following doc pages:
 
-- [Back Office languages](../guide/back_office_translations.md)
-- [Multi-language SiteAccesses and corresponding translations](../guide/multisite/set_up_translation_siteaccess.md)
+- [Back Office languages](back_office_translations.md)
+- [Multi-language SiteAccesses and corresponding translations](set_up_translation_siteaccess.md)
 
 #### How can I apply patches to the installation?
 
@@ -62,7 +62,7 @@ They can be manually removed from `composer.json` now.
 
 #### How to clear the cache properly?
 
-Clearing cache is covered by our [documentation](../guide/devops.md#cache-clearing), it applies to file and content (HTTP/persistence) cache.
+Clearing cache is covered by our [documentation](devops.md#cache-clearing), it applies to file and content (HTTP/persistence) cache.
 
 Useful commands:
 
@@ -114,4 +114,4 @@ You can also place it in `config/landing_page_blocks.yaml`, which should be impo
 #### How can I implement authentication in an [[= product_name =]]-based project?
 
 The best approach is to use Symfony authentication.
-Check [development security](../guide/security.md) page for more detailed instructions.
+Check [development security](development_security.md) page for more detailed instructions.

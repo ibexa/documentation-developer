@@ -9,7 +9,7 @@ meaning AWS S3 will be used to store binary files.
 
 !!! tip
 
-    Before you start, you should be familiar with the [clustering](../guide/clustering.md) documentation.
+    Before you start, you should be familiar with the [clustering](clustering.md) documentation.
 
 ## Set up AWS S3 account
 
@@ -95,5 +95,5 @@ Clear all caches and reload, and that's it.
 
 ## Migrate your existing binary data to S3
 
-You can [migrate existing binary data](../guide/clustering.md#migrating-to-a-cluster-setup) to S3 using the `php bin/console ibexa:io:migrate-files` command
+You can [migrate existing binary data](clustering.md#migrating-to-a-cluster-setup) to S3 using the `php bin/console ibexa:io:migrate-files` command
 which was added in [EZP-25946](https://jira.ez.no/browse/EZP-25946).

@@ -91,7 +91,7 @@ It allows API execution to be performed with full access, sand-boxed.
 
 You can use this method to perform an action that the current User does not have permissions for.
 
-For example, to [hide a Location](public_php_api_managing_content.md#hiding-and-revealing-locations), use:
+For example, to [hide a Location](managing_content.md#hiding-and-revealing-locations), use:
 
 ``` php
 use Ibexa\Contracts\Core\Repository\Repository;

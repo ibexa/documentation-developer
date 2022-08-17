@@ -4,23 +4,23 @@ description: List all products contained in a predefined catalog.
 
 # List products in catalog
 
-To list products from a specific [catalog](../../catalog/catalog.md#catalogs), you can either use the Content query Field,
+To list products from a specific [catalog](catalog.md#catalogs), you can either use the Content query Field,
 or a custom controller.
 
 ## List products with Content query Field
 
-To list products from a catalog in a [Content query Field](../../../api/field_types_reference/contentqueryfield.md),
+To list products from a catalog in a [Content query Field](contentqueryfield.md),
 add this Field to a Content Type definition.
 
-Select the ["Catalog" Query type](../queries_and_controllers/built-in_query_types.md#catalog).
+Select the ["Catalog" Query type](built-in_query_types.md#catalog).
 In parameters, provide the identifier of the catalog.
 
-![Configuration of Content query Type for catalog](../../img/catalog_query_type_field.png)
+![Configuration of Content query Type for catalog](catalog_query_type_field.png)
 
 Save the Content Type definition and create a Content item based on it.
 The contents of the catalog are rendered automatically in the Field.
 
-See [Content query Field](../queries_and_controllers/content_queries.md#pagination) for more information.
+See [Content query Field](content_queries.md#pagination) for more information.
 
 ## List products with custom controller
 
@@ -56,4 +56,4 @@ in the catalog.
 
     The anonymous user does not have permission to view products and catalogs.
     To view the catalog and its products, you need to either log in,
-    or give the anonymous user the [`product/view` and `catalog/view` Policies](../../permissions.md#available-policies).
+    or give the anonymous user the [`product/view` and `catalog/view` Policies](permissions.md#available-policies).

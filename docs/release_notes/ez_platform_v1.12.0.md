@@ -12,7 +12,7 @@ The Rich Text editor now enables you to add both ordered and unordered lists.
 
 You also have new options to format your text using subscript, superscript, quote and strikethrough.
 
-![New text formatting options](img/oe-formatting-new-options.png)
+![New text formatting options](oe-formatting-new-options.png)
 
 See [EZP-28030](https://jira.ez.no/browse/EZP-28030) for more information.
 

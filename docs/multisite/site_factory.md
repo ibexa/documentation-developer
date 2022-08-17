@@ -150,7 +150,7 @@ Your sites should be now visible under:
 - `http://localhost:8080/`
 - `http://test.example.com:8080/`
 
-![Site Factory enabled](../img/site_factory_site_list.png "Site Factory enabled")
+![Site Factory enabled](site_factory_site_list.png "Site Factory enabled")
 
 ### Define site directory
 
@@ -179,7 +179,7 @@ Set the below Policies to allow Users to:
 - `site/change_status` - change status of the public accesses to `Live` or `Offline`
 - `site/delete` - delete sites
 
-For full documentation on how Permissions work and how to set them up, see [the Permissions section](../permissions.md).
+For full documentation on how Permissions work and how to set them up, see [the Permissions section](permissions.md).
 
 To learn how to use Site Factory, see [User documentation.]([[= user_doc =]]/site_organization/site_factory/)
 
@@ -187,7 +187,7 @@ To learn how to use Site Factory, see [User documentation.]([[= user_doc =]]/sit
 
 Enabled Site Factory may cause following performance issues:
 
-- [ConfigResolver](../configuration/config_dynamic.md#configresolver) looks for SiteAccesses in the database
+- [ConfigResolver](dynamic_configuration.md#configresolver) looks for SiteAccesses in the database
 - Site Factory matchers are connected to the database in search for new SiteAccesses
 
 You can disable Site Factory to boost ConfigResolver performance.

@@ -4,7 +4,7 @@
 
 **Release date**: August 9, 2022
 
-**Release type**: [Fast Track](../community_resources/release_process.md#release-process)
+**Release type**: [Fast Track](https://support.ibexa.co/Public/service-life)
 
 ## Notable changes
 
@@ -16,13 +16,13 @@ your shipping information and view your past orders.
 You can invite members to your company, activate or deactivate their accounts,
 assign them specific roles and limitations, such as a buyer, or sales representative, and group them into teams.
 
-![Customer Portal Back Office](img/4.2_customer_portal.png)
+![Customer Portal Back Office](4.2_customer_portal.png)
 
 On their personal accounts in Customer Portal, members of your organisation can view their order history,
 other members of their team and information regarding their company, for example, billing addresses.
 They can also edit their profile information.
 
-![Customer Portal Frontend](img/4.2_customer_center.png)
+![Customer Portal Frontend](4.2_customer_center.png)
 
 ### User management
 
@@ -30,7 +30,7 @@ They can also edit their profile information.
 
 You can invite users to create their account in the frontend as customers or in the Back Office as members of your team.
 
-![Inviting members of your team](img/4.2_invite_users.png)
+![Inviting members of your team](4.2_invite_users.png)
 
 #### Configure register form
 
@@ -42,7 +42,7 @@ You can now create catalogs containing sub-sets of products.
 Choose products for a catalog by applying filters which enable you to select products,
 for example, by product type, price range, availability or category.
 
-![List of products in a catalog](img/4.2_catalogs_product_list.png)
+![List of products in a catalog](4.2_catalogs_product_list.png)
 
 Catalogs are useful when creating special lists for B2B and B2C uses, for retailers and distributors or for different regions,
 or other situations where you need to present a selected set of products.
@@ -53,7 +53,7 @@ To cover use cases of products with variable characteristics (such as colors, te
 you can now create product variants based on selected attributes.
 The system automatically generates variants for the attribute values you select.
 
-![Generating product variants](img/4.2_product_variants_generate.png)
+![Generating product variants](4.2_product_variants_generate.png)
 
 You can set prices, including custom pricing, as well as availability and stock for each variant separately.
 
@@ -63,7 +63,7 @@ To provide your products with images, you can now upload multiple assets to each
 Assets are grouped into collections based on attribute values
  and, in this way, are connected to product variants which have these attributes.
 
-![Asset images in product view](img/4.2_product_assets.png)
+![Asset images in product view](4.2_product_assets.png)
 
 ### Product completeness
 
@@ -72,7 +72,7 @@ attributes, assets, prices, availability, and so on.
 You can use it to get a quick overview of missing parts in the product configuration
 and to instantly move to the proper screen to fill the gaps.
 
-![Product completeness tab](img/4.2_product_completeness.png)
+![Product completeness tab](4.2_product_completeness.png)
 
 ### Product categories
 
@@ -81,7 +81,7 @@ You do it, for example, to assist users in searching for products.
 
 For more information, see [Product categories](https://doc.ibexa.co/projects/userguide/en/latest/shop_administration/product_categories/).
 
-![Product categories](img/4.2_product_categories_rn.png)
+![Product categories](4.2_product_categories_rn.png)
 
 ### Cross-content type (CCT) recommendations
 
@@ -97,7 +97,7 @@ so you can use many Fields to add different taxonomy categories, for example, ta
 
 With the new Address Field Type, you can now customize address Fields and configure them per country.
 
-![Address Field Type](img/4.2_address_field_type.png)
+![Address Field Type](4.2_address_field_type.png)
 
 ### Repeatable migration steps
 
@@ -158,20 +158,20 @@ Images that you upload this way are automatically added to the Media library.
     if several images are added with identical file names, 
     each of them is modified by appending a unique prefix.  
 
-![Drag and drop image into the Online Editor](img/4.2_online_editor_dnd_image.png)
+![Drag and drop image into the Online Editor](4.2_online_editor_dnd_image.png)
 
 ### Content edit tabs
 
 Content editing screen is now enriched with a tab switcher, allowing easy access to metadata such as taxonomies.
 The view can be extended with custom tabs.
 
-![Tabs in content edit view](img/4.2_content_edit_tabs.png)
+![Tabs in content edit view](4.2_content_edit_tabs.png)
 
 ### Grouped attributes in Page block
 
 If a Page block has multiple attributes, you can now group them with the `nested_attribute` parameter.
 
-![Grouped attributes](img/4.2_page_block_nested.png)
+![Grouped attributes](4.2_page_block_nested.png)
 
 ### Search in URL wildcards
 

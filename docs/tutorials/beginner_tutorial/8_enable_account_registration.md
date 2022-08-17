@@ -10,11 +10,11 @@ In this step you will enable other users to create accounts on your site, access
 
 From **Admin** (gear icon) in the left menu, go to the **Roles** management screen and click on the **Anonymous** Role.
 
-![Available Roles](img/step_8_role_mgmt_screen.png)
+![Available Roles](step_8_role_mgmt_screen.png)
 
 Add the `User/Register` Policy to the Anonymous User. This will allow any visitor to the website to access the registration form.
 
-![Policies for the Anynomous Role](img/step8_admin_anonymous_policies.png)
+![Policies for the Anynomous Role](step8_admin_anonymous_policies.png)
 
 Then go to `<yourdomain>/register`. The registration form is unstyled, so you need to add templates to it.
 
@@ -154,7 +154,7 @@ Then create the `templates/user/registration_confirmation.html.twig` template:
 
 Now return to `<yourdomain>/register`:
 
-![Complete Register page with the layout](img/step8_register_page.png)
+![Complete Register page with the layout](step8_register_page.png)
 
 Fill in the form and register a user.
 
@@ -171,7 +171,7 @@ The User you have just created will have the Roles assigned to this group.
 !!! tip
 
     You can change the group in which new Users are placed (but you don't need to do it for this tutorial).
-    See [Registering new users](../../guide/user_management/user_management.md#registering-new-users) for more information.
+    See [Registering new users](user_management.md#registering-new-users) for more information.
 
 At this point you don't want anyone who registers to be able to add content to the website.
 That's why you'll create a new User Group with additional permissions.
@@ -205,7 +205,7 @@ Now add the following Policies to the Contributors Role.
 !!! tip
 
     The Limitations are a powerful tool for fine-tuning the permission management of the Users.
-    See [the documentation about Limitations for more technical details](../../guide/limitation_reference.md#content-type-group-limitation).
+    See [the documentation about Limitations for more technical details](limitation_reference.md#content-type-group-limitation).
 
 Once the Policies are set, go to the "Assignments" tab and assign the Role to the User Group *Go Bike Members*.
 

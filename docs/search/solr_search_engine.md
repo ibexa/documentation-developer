@@ -4,7 +4,7 @@ description: Configure Solr search engine to use with Ibexa DXP.
 
 # Solr search engine
 
-[ibexa/solr](https://github.com/ibexa/solr) aims to be a transparent drop-in replacement for the SQL-based Legacy search engine powering [[= product_name =]] Search API by default. When you enable Solr and re-index your content, all your existing Search queries using `SearchService` will be powered by Solr automatically. This allows you to scale up your [[= product_name =]] installation and be able to continue development locally against SQL engine, and have a test infrastructure, Staging and Prod powered by Solr. This removes considerable load from your database. See [further information on the architecture of [[= product_name =]]](../architecture.md).
+[ibexa/solr](https://github.com/ibexa/solr) aims to be a transparent drop-in replacement for the SQL-based Legacy search engine powering [[= product_name =]] Search API by default. When you enable Solr and re-index your content, all your existing Search queries using `SearchService` will be powered by Solr automatically. This allows you to scale up your [[= product_name =]] installation and be able to continue development locally against SQL engine, and have a test infrastructure, Staging and Prod powered by Solr. This removes considerable load from your database. See [further information on the architecture of Ibexa DXP](architecture.md).
 
 ## Set up Solr search engine
 
@@ -286,7 +286,7 @@ Here are the most common issues you may encounter:
     - Make sure `var_dir` is configured properly in `ibexa.yaml` configuration.
     - If your database is inconsistent in regards to file paths, try to update entries to be correct *(make sure to make a backup first)*.
 - Exception on unsupported Field Types
-    - Make sure to implement all Field Types in your installation, or to configure missing ones as [NullType](../../api/field_types_reference/nullfield.md) if implementation is not needed.
+    - Make sure to implement all Field Types in your installation, or to configure missing ones as [NullType](nullfield.md) if implementation is not needed.
 - Content is not immediately available 
     - Solr Bundle on purpose does not commit changes directly on Repository updates *(on indexing)*, but lets you control this using Solr configuration. Adjust Solr's `autoSoftCommit` (visibility of changes to search index) and/or `autoCommit` (hard commit, for durability and replication) to balance performance and load on your Solr instance against needs you have for "[NRT](https://cwiki.apache.org/confluence/display/solr/Near+Real+Time+Searching)".
 - Running out of memory during indexing
@@ -513,9 +513,9 @@ Next, restart Solr slave.
 
 Connect to the Solr slave interface (http://localhost:8983/solr), go to your core and check the replication status:
 
-![Solr Slave](../img/solr.PNG)
+![Solr Slave](solr.png)
 
 ## Extending Solr
 
 To learn how you can create document field mappers, custom Search Criteria, 
-custom Sort Clauses and Aggregations, see [Search extensibility](extensibility/create_custom_search_criterion.md).
+custom Sort Clauses and Aggregations, see [Search extensibility](create_custom_search_criterion.md).

@@ -11,23 +11,23 @@ When a new Content item is published, it is automatically placed in a new Locati
 All Locations form a tree which is the basic way of organizing content in the system.
 Every published Content item has a Location and, as a consequence, also a place in this tree.
 
-![Content Tree](img/content_management_tree.png "Content Tree")
+![Content Tree](content_management_tree.png "Content Tree")
 
 A Content item receives a Location only once it has been published.
 This means that a new unpublished draft does not have a Location yet.
 Drafts cannot be found in the Content browser. You can find them on the **My dashboard** page, 
 or in your user menu under **Drafts**.
 
-![Drafts](img/content_management_drafts.png "Drafts")
+![Drafts](content_management_drafts.png "Drafts")
 
 A Content item can have more than one Location. It is then present in two or more places in the tree.
 For example, an article can be at the same time under "Local news" and "Sports news".
 Even in such a case, one of these places is always the main Location.
 
 You can change the main Location in the Back Office in the Locations tab,
-or [through the API](../api/public_php_api_managing_content.md#changing-the-main-location).
+or [through the API](managing_content.md#changing-the-main-location).
 
-![Locations](img/content_management_locations.png "Locations")
+![Locations](content_management_locations.png "Locations")
 
 ### Top level Locations
 
@@ -44,10 +44,10 @@ Under this root there are preset top level Locations in each installation which 
 The top level Location for the actual contents of a site
 can be viewed by selecting the **Content structure** tab in the Content mode interface.
 
-![Content structure](img/content_management_tree.png "Content structure")
+![Content structure](content_management_tree.png "Content structure")
 
 This part of the tree is typically used for organizing folders, articles, information pages, etc.
-The default ID number of this Location is 2, but it can be [modified via configuration](configuration/config_repository.md#top-level-locations).
+The default ID number of this Location is 2, but it can be [modified via configuration](repository_configuration.md#top-level-locations).
 It contains a Folder Content item.
 
 #### Media
@@ -55,31 +55,31 @@ It contains a Folder Content item.
 **Media** is the top level Location which stores and organizes information
 that is frequently used by Content items located below the **Content** node.
 
-![Media](img/content_management_media.png "Media")
+![Media](content_management_media.png "Media")
 
 It usually contains images, animations, documents and other files.
-The default ID number of the **Media** Location is 43, but it can be [modified via configuration](configuration/config_repository.md#top-level-locations).
+The default ID number of the **Media** Location is 43, but it can be [modified via configuration](repository_configuration.md#top-level-locations).
 It contains a Folder Content item.
 
 #### Users
 
 **Users** is the top level Location that contains the built-in system for managing User accounts.
 
-![Users in admin panel](img/admin_panel_users.png "Users in admin panel")
+![Users in admin panel](admin_panel_users.png "Users in admin panel")
 
 A User is simply a Content item of the User account Content Type.
 The Users are organized within User Group Content items below this Location.
 
 In other words, the **Users** Location contains the actual Users and User Groups,
 which can be viewed by selecting the **Users** tab in the Admin Panel.
-The default ID number of the **Users** Location is 5, but it can be [modified via configuration](configuration/config_repository.md#top-level-locations).
+The default ID number of the **Users** Location is 5, but it can be [modified via configuration](repository_configuration.md#top-level-locations).
 It contains a User Group Content item.
 
 #### Forms [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 **Forms** is the top level Location that is intended for Forms created using the [Form Builder](https://doc.ibexa.co/projects/userguide/en/latest/creating_forms/).
 
-![Forms](img/content_management_forms.png "Forms")
+![Forms](content_management_forms.png "Forms")
 
 #### Other top level Locations
 
@@ -89,7 +89,7 @@ You should not add any more content directly below Location 1, but instead store
 
 Location visibility allows you to control which parts of the content tree are available on the front page.
 
-![Location visibility](img/content_management_visibility.png "Location visibility")
+![Location visibility](content_management_visibility.png "Location visibility")
 
 Once a Content item is published, it cannot be un-published.
 Limiting visibility is the only way to withdraw content from the website without moving it to Trash.
@@ -110,7 +110,7 @@ A Content item is Hidden by superior only in Locations in which it has a parent 
 
 In the following example, the **Content item 1** is Hidden by superior in the **Location A** while still visible in the **Location B**.
 
-![Visibility in two locations](img/locations_visibility.png)
+![Visibility in two locations](locations_visibility.png)
 
 From the visitor's perspective a Location behaves the same whether its status is Hidden or Hidden by superior –
 it will be unavailable on the front page.
@@ -127,7 +127,7 @@ The way visibility works can be illustrated using the following scenarios:
 
 ##### Hiding a visible Location
 
-![Hiding a visible Location](img/node_visibility_hide.png)
+![Hiding a visible Location](node_visibility_hide.png)
 
 When you hide a Location that was visible before, it will get the status Hidden.
 Its child Locations will be Hidden by superior.
@@ -135,14 +135,14 @@ The visibility status of child Locations that were already Hidden or Hidden by s
 
 ##### Hiding a Location which is Hidden by superior
 
-![Hiding a Location which is Hidden by superior](img/node_visibility_hide_invisible.png)
+![Hiding a Location which is Hidden by superior](node_visibility_hide_invisible.png)
 
 When you explicitly hide a Location which was Hidden by superior, it will get the status Hidden.
 Since the underlying Locations are already either Hidden or Hidden by superior, their visibility status will not be changed.
 
 ##### Revealing a Location with a visible ancestor
 
-![Revealing a Location with a visible ancestor](img/node_visibility_unhide1.png)
+![Revealing a Location with a visible ancestor](node_visibility_unhide1.png)
 
 When you reveal a Location which has a visible ancestor, this Location and its children will become visible.
 However, child Locations that were explicitly hidden by a user will keep their Hidden status
@@ -150,7 +150,7 @@ However, child Locations that were explicitly hidden by a user will keep their H
 
 ##### Revealing a Location with a Hidden ancestor
 
-![Revealing a Location with a Hidden ancestor](img/node_visibility_unhide2.png)
+![Revealing a Location with a Hidden ancestor](node_visibility_unhide2.png)
 
 When you reveal a Location that has a Hidden ancestor, it will **not** become Visible itself.
 Because it still has invisible ancestors, its status will change to Hidden by superior.
@@ -174,7 +174,7 @@ Together, the flags represent the three visibility statuses:
 
 !!! note
 
-    Displaying visible or hidden Locations in governed by the [`Visibility` Search Criterion](../guide/search/criteria_reference/visibility_criterion.md)
+    Displaying visible or hidden Locations in governed by the [`Visibility` Search Criterion](visibility_criterion.md)
 
 !!! caution "Visibility and permissions"
 
@@ -190,7 +190,7 @@ The Default content availability flag enables you to control whether content is 
 You can set the flag in Content Type definition by checking the "Make content available even with missing translations" option.
 It is automatically applied to any new Content item of this Type.
 
-![Default content availability](img/availability_flag.png "Default content availability")
+![Default content availability](availability_flag.png "Default content availability")
 
 A Content item with this flag will be available in its main language
 even if it is not translated into the language of the current SiteAccess.
@@ -203,7 +203,7 @@ corresponding to the current SiteAccess.
     There is currently no way in the Back Office to edit the Content availability flag
     for an already published Content item.
     
-    To do this via [PHP API](../api/public_php_api_creating_content.md#updating-content), set the [`alwaysAvailable` property](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentMetadataUpdateStruct.php#L52) of the Content metadata.
+    To do this via [PHP API](creating_content.md#updating-content), set the [`alwaysAvailable` property](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentMetadataUpdateStruct.php#L52) of the Content metadata.
 
 The Default availability flag is used for the out-of-the box Content Types representing content
 that should always be visible to the user, such as media files or user Content items.
@@ -222,7 +222,7 @@ posts in other languages.
 Content items are located in a tree structure through the Locations they are placed in.
 However, Content items themselves can also be related to one another.
 
-![Content Relations](img/content_management_relations.png "Content Relations")
+![Content Relations](content_management_relations.png "Content Relations")
 
 A **Relation** can exist between any two Content items in the Repository.
 For example, images are linked to news articles they are used in.

@@ -37,7 +37,7 @@ ibexa:
 This tells [[= product_name =]] to use the `template` when rendering content with Location ID `2`.
 `2` is the default Location for the root Content item.
 
-`Id\Location` is one of several [view matchers](../../guide/content_rendering/templates/view_matcher_reference.md) that you can use to customize rendering depending on different criteria.
+`Id\Location` is one of several [view matchers](view_matcher_reference.md) that you can use to customize rendering depending on different criteria.
 
 !!! note "Clear the cache"
 
@@ -187,13 +187,13 @@ Then unpack its contents to the following directories:
 
 Before proceeding, ensure that the structure of the added files looks like this:
 
-![File structure](img/bike_tutorial_listing_web_v3.png)
+![File structure](bike_tutorial_listing_web_v3.png)
 
 ### Configuring Webpack
 
 In [[= product_name =]], you can add assets by using [Symfony Webpack Encore]([[= symfony_doc =]]/frontend.html#webpack-encore)
 — an integration of Webpack that enables you to build bundles of CSS stylesheets and JS scripts and add them to the project.
-For more details, see [importing assets from a bundle](../../guide/project_organization.md#importing-assets-from-a-bundle).
+For more details, see [importing assets from a bundle](project_organization.md#importing-assets-from-a-bundle).
 
 To create bundles, first, indicate which files to include in them.
 
@@ -252,13 +252,13 @@ yarn encore <dev|prod>
 
 !!! tip
 
-    You should run the `yarn encore` command with the [environment](../../guide/environments.md) you are using.
+    You should run the `yarn encore` command with the [environment](environments.md) you are using.
 
     By default, [[= product_name =]] installs in the dev environment.
     If you changed it to prod, use `yarn encore prod`.
 
 Refresh the page and you should see the "Hello world" placed inside a styled layout.
 
-![Homepage with a Hello world](img/bike_tutorial_hello_world.png)
+![Homepage with a Hello world](bike_tutorial_hello_world.png)
 
 At this point, the template is static. It does not render any dynamic data from the Repository.

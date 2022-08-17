@@ -4,7 +4,7 @@ description: You can use the PHP API to run data migrations, add new migration f
 
 # Data migration API
 
-You can use the PHP API to manage and run [data migrations](../guide/data_migration/data_migration.md).
+You can use the PHP API to manage and run [data migrations](data_migration.md).
 
 ## Getting migration information
 

@@ -4,7 +4,7 @@ description: Prepare templates for Page layouts and render Page blocks.
 
 # Render a Page [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-Page is a special Content Type that contains a [Page Field](../../../api/field_types_reference/pagefield.md).
+Page is a special Content Type that contains a [Page Field](pagefield.md).
 
 A Page Field is a layout composed of zones. Each zone can contain multiple blocks.
 
@@ -52,7 +52,7 @@ You can add new block templates by using configuration, for example, for the Con
 
 !!! tip
 
-    Use the same configuration to provide a template for [custom blocks](../../page/create_custom_page_block.md) you create.
+    Use the same configuration to provide a template for [custom blocks](create_custom_page_block.md) you create.
 
 ### Block template
 

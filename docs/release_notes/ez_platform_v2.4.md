@@ -20,7 +20,7 @@
     The workflow mechanism is [permission-aware](https://doc.ibexa.co/en/2.5/guide/workflow/#permissions).
     You can limit access to content in different workflow stages, or the ability to pass content through specific transitions.
 
-    ![Workflow event timeline](img/2.4_workflow_events_timeline.png "Timeline of workflow stages a Content item has gone through")
+    ![Workflow event timeline](2.4_workflow_events_timeline.png "Timeline of workflow stages a Content item has gone through")
 
     Workflow Engine is located in the [ezplatform-workflow bundle](https://github.com/ezsystems/ezplatform-workflow).
 
@@ -40,25 +40,25 @@ See [RichText Field Type Reference](https://doc.ibexa.co/en/2.5/api/field_types_
 In the Page Builder you can make use of the RichText block.
 It enables you to insert text created using the Online Editor with all features of a RichText Field.
 
-![RichText block](img/2.4_rich_text_block.png)
+![RichText block](2.4_rich_text_block.png)
 
 #### Improved styling in Online Editor
 
 Online Editor has been improved with new styling.
 
-![Online Editor menu](img/2.4_oe_menu.png)
+![Online Editor menu](2.4_oe_menu.png)
 
 #### Images in RichText
 
 You can now attach links to images in the Online Editor:
 
-![Adding a link to an image in Online Editor](img/2.4_link_in_image.png)
+![Adding a link to an image in Online Editor](2.4_link_in_image.png)
 
 #### Formatted text in RichText
 
 You can now use formatted text in RichText Fields (provided by means of a `literal` tag).
 
-![Formatted Text in Online Editor](img/2.4_formatted_text.png)
+![Formatted Text in Online Editor](2.4_formatted_text.png)
 
 #### Inline embedding in RichText
 
@@ -76,11 +76,11 @@ You can now translate Content Type names and Field definitions.
 This possibility is available automatically when you have the target language configured
 (in the same way as for translating content, see [Languages](https://doc.ibexa.co/en/2.5/guide/internationalization)).
 
-![Content type with existing translations](img/2.4_content_type_translations.png "Available translation of a Content Type")
+![Content type with existing translations](2.4_content_type_translations.png "Available translation of a Content Type")
 
 When you translate Content of this type, the Content Type information will be displayed in the new language.
 
-![Editing a content translation with translated Field names](img/2.4_translated_ct.png)
+![Editing a content translation with translated Field names](2.4_translated_ct.png)
 
 ### Multi-file management
 
@@ -96,7 +96,7 @@ See [Multi-file content management](https://doc.ibexa.co/projects/userguide/en/2
 
     You can now create Forms on the fly from the Universal Discovery Widget.
 
-    ![Creating a Form on the Fly](img/2.4_form_on_the_fly.png)
+    ![Creating a Form on the Fly](2.4_form_on_the_fly.png)
 
     #### Embedding forms in Pages
 
@@ -106,7 +106,7 @@ See [Multi-file content management](https://doc.ibexa.co/projects/userguide/en/2
 
 The list of all drafts can now be found in the **Administrator User** menu under **Drafts**.
 
-![Administrator User list of all Drafts](img/2.4_drafts_admin_user.png "Administrator User list of all Drafts")
+![Administrator User list of all Drafts](2.4_drafts_admin_user.png "Administrator User list of all Drafts")
 
 See [Reviewing a draft](https://doc.ibexa.co/projects/userguide/en/2.5/publishing/flex_workflow/#reviewing-a-draft) for more information.
 
@@ -120,7 +120,7 @@ See [Simplified Filtered search](https://doc.ibexa.co/projects/userguide/en/2.5/
 
 You can now set a number of items displayed in the table using sub-items from your User Settings.
 
-![Setting for subitems limit in user preferences](img/2.4_subitems_limit_pref.png)
+![Setting for subitems limit in user preferences](2.4_subitems_limit_pref.png)
 
 ### Policy labels update
 
@@ -136,7 +136,7 @@ The outdated Policy labels are now updated:
 |parentowner|Owner of Parent|
 |subtree|Subtree of Location|
 
-![Updated Policy labels](img/2.4_policy_verbs.png)
+![Updated Policy labels](2.4_policy_verbs.png)
 
 ### API improvements
 

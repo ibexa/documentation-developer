@@ -14,7 +14,7 @@ First, add a new language for the whole installation.
 
 !!! tip
 
-    For more details, see [Languages](../internationalization.md).
+    For more details, see [Languages](languages.md).
 
 1. In the Back Office **Admin** section, click the **Languages** tab.
 1. Click **Create a new language** and provide the language name and code (examples below use French with `fre-FR`).

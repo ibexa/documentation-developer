@@ -8,7 +8,7 @@ To customize the template for a product, first, you need to prepare a content vi
 
 [[% include 'snippets/catalog_permissions_note.md' %]]
 
-To match all products, you can use the [`ProductBased\IsProduct`](../templates/view_matcher_reference.md#productbasedisproduct) view matcher.
+To match all products, you can use the [`ProductBased\IsProduct`](view_matcher_reference.md#productbasedisproduct) view matcher.
 
 ``` yaml
 [[= include_file('code_samples/front/shop/render_product/config/packages/views.yaml') =]]
@@ -31,7 +31,7 @@ You can access all attributes of a product with `product.attributes`:
 [[= include_file('code_samples/front/shop/render_product/templates/full/product.html.twig', 19, 24) =]]
 ```
 
-The [`ibexa_format_product_attribute`](../twig_function_reference/product_twig_functions.md#ibexaformatproductattribute) filter formats the attributes, including number formatting.
+The [`ibexa_format_product_attribute`](product_twig_functions.md#ibexaformatproductattribute) filter formats the attributes, including number formatting.
 For example, it renders human-readable labels instead of identifiers and applies correct decimal digit separators for the locale.
 
 ## Price
@@ -46,7 +46,7 @@ You can access the product's price information from the product object:
 
 The `ibexa.commerce.basket.add` route enables you to create an "Add to basket" button.
 To make the button fully functional, you must first configure all necessary information for the product, otherwise the product will not be added to basket.
-See [Enable purchasing products](../../catalog/enable_purchasing_products.md) for more information.
+See [Enable purchasing products](enable_purchasing_products.md) for more information.
 
 ``` html+twig
 [[= include_file('code_samples/front/shop/render_product/templates/full/product.html.twig', 11, 17) =]]

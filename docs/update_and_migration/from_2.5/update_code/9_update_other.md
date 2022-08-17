@@ -3,7 +3,7 @@
 ## HTTP cache
 
 HTTP cache bundle now uses FOS Cache Bundle v2.
-If your code makes use of HTTP cache bundle, see [the list of changes and deprecations](../../../releases/ez_platform_v3.0_deprecations.md#ezplatform-http-cache).
+If your code makes use of HTTP cache bundle, see [the list of changes and deprecations](ez_platform_v3.0_deprecations.md#ezplatform-http-cache).
 
 ## User checker
 
@@ -25,12 +25,12 @@ as a base class, you must rewrite them to use `Symfony\Component\Console\Command
 
 ## Permissions
 
-Some [permission choice loaders](../../../releases/ez_platform_v3.0_deprecations.md#permission-choice-loaders) and [permission-related methods](../../../releases/ez_platform_v3.0_deprecations.md#code-cleanup-in-ez-platform-kernel) have been removed.
+Some [permission choice loaders](ez_platform_v3.0_deprecations.md#code-cleanup-in-ez-platform-kernel) have been removed.
 If your code uses them, you must rewrite it to use the permission resolver.
 
 ## Service container parameters
 
-A number of Symfony [service container](../../../api/public_php_api.md#service-container) parameters [have been dropped](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/bc/1.0/dropped-container-parameters.md).
+A number of Symfony [service container](php_api.md#service-container) parameters [have been dropped](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/doc/bc/1.0/dropped-container-parameters.md).
 
 Check if your code uses such invalid parameters: search for them by using the `ezpublish\..*\.class` regular expression pattern. 
 When found, replace all the occurrences with fully-qualified class names.
@@ -61,7 +61,7 @@ for an example.
 ## Deprecations
 
 Due to a number of compatibility breaks and deprecations introduced in eZ Platform v3.0, the changes that result from the above considerations might not be sufficient. 
-Make sure that you review your code and account for all changes listed in [Deprecations and backwards compatibility breaks](../../../releases/ez_platform_v3.0_deprecations.md).
+Make sure that you review your code and account for all changes listed in [Deprecations and backwards compatibility breaks](ez_platform_v3.0_deprecations.md).
 
 ## Next steps
 

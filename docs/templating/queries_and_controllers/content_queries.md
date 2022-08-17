@@ -8,9 +8,9 @@ With content queries you can find and render specific content according to crite
 
 You can use queries to list or embed Content items, such as:
 
-- [children in a folder](../embed_and_list_content/list_content.md#children-query-type)
+- [children in a folder](list_content.md#children-query-type)
 - related articles
-- [most recent blog posts](custom_query_type.md)
+- [most recent blog posts](create_custom_query_type.md)
 - recommended products
 
 Content queries use the built-in Query controller which simplifies querying.
@@ -21,11 +21,11 @@ For more complex cases, you can build custom [controllers](controllers.md).
 The Query controller offers a set of [built-in Query types](built-in_query_types.md).
 You can use them in the content view configuration, or in the [Content query Field](#content-query-field).
 
-You can also write [custom Query types](custom_query_type.md) for the cases that are not covered by the built-in ones.
+You can also write [custom Query types](create_custom_query_type.md) for the cases that are not covered by the built-in ones.
 
 ### Query type configuration
 
-To use a Query type, select the Query controller (`ibexa_query`) in the [content view configuration](../templates/template_configuration.md)
+To use a Query type, select the Query controller (`ibexa_query`) in the [content view configuration](template_configuration.md)
 and select the Query type under `params.query.query_type`:
 
 ``` yaml hl_lines="2 6"
@@ -49,7 +49,7 @@ Use one of the following Query controller methods:
 - `contentInfoQueryAction` runs a ContentInfo search
 - `pagingQueryAction` returns a `PagerFanta` object and can be used to quickly [paginate query results](#pagination)
 
-See the [Search](../../search/search.md) documentation page for more details about different types of search.
+See the [Search](search.md) documentation page for more details about different types of search.
 
 All Query types take the following parameters:
 
@@ -83,15 +83,15 @@ Use the `pagerfanta` variable to render pagination controls:
 
 ## Content query Field
 
-The [Content query Field](../../../api/field_types_reference/contentqueryfield.md) is a Field that defines a query.
+The [Content query Field](contentqueryfield.md) is a Field that defines a query.
 The results of the query are available in the Field value.
 
-![Content query Field definition](../../img/content_query_field_definition.png)
+![Content query Field definition](content_query_field_definition.png)
 
 ### Query type
 
 When adding the Field to a Content Type definition, select the Query type in the **Query type** dropdown.
-All Query types in the application are available, both [built-in](built-in_query_types.md) and [custom ones](custom_query_type.md).
+All Query types in the application are available, both [built-in](built-in_query_types.md) and [custom ones](create_custom_query_type.md).
 
 ### Returned types
 
@@ -154,4 +154,4 @@ The identifier of the Content query Field must be matched by
 using the `'@Ibexa\FieldTypeQuery\ContentView\FieldDefinitionIdentifierMatcher'` matcher.
 
 Query results are provided to the template in the `items` variable.
-See [List content](../embed_and_list_content/list_content.md#content-query-field) for an example of using the Content query Field.
+See [List content](list_content.md#content-query-field) for an example of using the Content query Field.

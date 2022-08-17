@@ -17,9 +17,9 @@ To test further, you can use browser extensions, like [Advanced REST client for 
 For examples of using `curl`, refer to:
 
 - [REST root](rest_api_usage.md#rest-root)
-- [OPTIONS method](rest_api_requests.md#options-method)
-- [Location header](rest_api_responses.md#location-header)
-- [ContentInfo body](rest_api_responses.md#response-body)
+- [OPTIONS method](rest_requests.md#options-method)
+- [Location header](rest_responses.md#location-header)
+- [ContentInfo body](rest_responses.md#response-body)
 
 ## PHP
 
@@ -45,7 +45,7 @@ var_dump(json_decode(curl_exec($curl), true));
 
 On a freshly installed Ibexa DXP, `52` is the Content ID of the home page. If necessary, substitute `52` with the Content ID of an item from your database.
 
-For a content creation example using PHP, see [Creating content with binary attachments](rest_api_requests.md#creating-content-with-binary-attachments)
+For a content creation example using PHP, see [Creating content with binary attachments](rest_requests.md#creating-content-with-binary-attachments)
 
 ## JS
 
@@ -68,4 +68,4 @@ request.send();
 
 On a freshly installed Ibexa DXP, `52` is the Content ID of the home page. If necessary, substitute `52` with the Content ID of an item from your database.
 
-You can edit the `resource` URI to address another domain, but [cross-origin requests](rest_api_responses.md#cross-origin) must be allowed first.
+You can edit the `resource` URI to address another domain, but [cross-origin requests](rest_responses.md#cross-origin) must be allowed first.

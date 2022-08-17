@@ -24,14 +24,14 @@ You can then proceed with consecutive upgrades to further versions: v1.13 LTS an
     1. Additionally there are some other topics to be aware of for the code migration from eZ Publish to eZ Platform:
 
         - Symfony deprecations. The recommended version to migrate to is eZ Platform v2.5 LTS, which is using Symfony 3.4 LTS.
-        - [Field Types reference](../api/field_type_reference.md) for overview of Field Types that do and don't exist in eZ Platform
+        - [Field Types reference](field_type_reference.md) for overview of Field Types that do and don't exist in eZ Platform
         - API changes. While we have a strict backwards compatibility focus, some deprecated API features were removed and some changes were done to internal parts of the system. See [ezpublish-kernel:doc/bc/changes-6.0.md](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.0/doc/bc/changes-6.0.md)
 
 !!! note
 
     If you are migrating from a legacy eZ Publish version, this page contains the information you need. However, first have a look at an overview of the process in [Migrating from eZ Publish](migrating_from_ez_publish.md).
 
-This section describes how to upgrade your existing  eZ Publish Platform  5.4/2014.11 installation to eZ Platform and eZ Enterprise. Make sure that you have a working [backup](../guide/backup.md) of the site before you do the actual upgrade, and that the installation you are performing the upgrade on is offline.
+This section describes how to upgrade your existing  eZ Publish Platform  5.4/2014.11 installation to eZ Platform and eZ Enterprise. Make sure that you have a working [backup](backup.md) of the site before you do the actual upgrade, and that the installation you are performing the upgrade on is offline.
 
 ### Note on Paths
 
@@ -40,7 +40,7 @@ This section describes how to upgrade your existing  eZ Publish Platform  5.4
 
 ## Check for requirements
 
-- Information regarding system requirements can be found on the [Requirements documentation page](../getting_started/requirements.md); notable changes include:
+- Information regarding system requirements can be found on the [Requirements documentation page](requirements.md); notable changes include:
     - PHP 7.1 or higher
     - MariaDB or MySQL 5.5 or higher _(Postgres possible for upgrades, but not yet supported by the installer for new installations)_
     - Browser from 2017 or newer for use with eZ Platform backend UI
@@ -49,7 +49,7 @@ This section describes how to upgrade your existing  eZ Publish Platform  5.4
 !!! tip "Clearing cache"
 
     If at any point during the migration procedure you encounter problems with the cache,
-    refer to [How to clear the cache properly?](../community_resources/support_maintenance_faq.md#how-to-clear-the-cache-properly).
+    refer to [How to clear the cache properly?](support_and_maintenance_faq.md#how-to-clear-the-cache-properly).
 
 ## Step 1: Extract eZ Platform/Enterprise v1.7
 
@@ -123,7 +123,7 @@ Image aliases defined in legacy must also be defined for eZ Platform. Since imag
 in different `image.ini` files in various extensions, you may find it easier to find all image alias definitions using
 the legacy admin (**Setup** > **Ini settings**).
 
-See [Image documentation page](../../guide/images/) for information about how to define image aliases.
+See [Image documentation page](images.md) for information about how to define image aliases.
 
 For an example, see a legacy image alias defined as follows in `ezpublish_legacy/settings/siteaccess/ezdemo_site/image.ini.append.php`:
 
@@ -416,7 +416,7 @@ When you are ready to migrate your eZ Publish XmlText content to the eZ Platform
 
 eZ Platform now supports custom tags, including inline custom tags, and limited use of custom tag attributes.
 After migrating to RichText, you need to adapt your custom tag config for eZ Platform and rewrite the custom tags in Twig.
-See [Custom tag documentation](../extending/extending_online_editor.md#configure-custom-tags) for more info.
+See [Custom tag documentation](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#custom-tags) for more info.
 
 If you configured custom attributes in legacy in OE using [ezoe_attributes.ini](https://github.com/ezsystems/ezpublish-legacy/blob/master/extension/ezoe/settings/ezoe_attributes.ini#L33-L48), note that not all types are supported.
 
@@ -424,7 +424,7 @@ Below is a table of the tags that are currently supported, and their correspondi
 
 | [XmlText](https://github.com/ezsystems/ezpublish-legacy/blob/2019.03/extension/ezoe/settings/ezoe_attributes.ini#L33-L48) | [RichText](https://github.com/ezsystems/ezplatform-richtext/blob/v1.1.5/src/bundle/DependencyInjection/Configuration.php#L17) | Note  |
 | ------------- | ------------- | ----- |
-| `link`        | [`link`](../extending/extending_online_editor.md#link-tag) |  |
+| `link`        | [`link`](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#link-tag) |  |
 | `number`      | `number`      |  |
 | `int`         | `number`      |  |
 | `checkbox`    | `boolean`     |  |
@@ -454,7 +454,7 @@ For date-based publisher and Form Builder, there are additional tables, you can 
 
 ### Varnish *(optional)*
 
-If you use Varnish, the recommended Varnish (4 or higher) VCL configuration can be found in the [Using Varnish](../guide/cache/symfony_reverse_proxy.md#configure-varnish-or-fastly) page.
+If you use Varnish, the recommended Varnish (4 or higher) VCL configuration can be found in the [Using Varnish](reverse_proxy.md#configure-varnish-or-fastly) page.
 
 ### Web server configuration
 
@@ -555,7 +555,7 @@ bin/console ezflow:migrate <legacy path> —ini=<block definitions> [—ini=<ano
 bin/console ezflow:migrate /var/www/legacy.application.com/ —ini=extension/myapplication/settings/block.ini.append.php
 ```
 
-**5.** You will be warned about the need to create a [backup](../guide/backup.md) of your database. **Proceed only if you are sure you have done it.**
+**5.** You will be warned about the need to create a [backup](backup.md) of your database. **Proceed only if you are sure you have done it.**
 
 A `MigrationBundle` will be generated in the `src/` folder.
 

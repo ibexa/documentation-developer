@@ -56,7 +56,7 @@ You can also query Content Type and Content Type group information through the `
 ### Repository schema
 
 The repository schema, accessed through `_repository`, exposes the [[= product_name =]] Repository
-in a manner similar to the [Public PHP API](public_php_api.md).
+in a manner similar to the [Public PHP API](php_api.md).
 
 The `_repository` field also enables you to query e.g. Object states configured for the Repository.
 
@@ -79,7 +79,7 @@ You can get your session cookie by logging in through the interface or through a
 
 ### JWT authentication
 
-If you have [JWT authentication](../guide/security.md#jwt-authentication) enabled,
+If you have [JWT authentication](development_security.md#jwt-authentication) enabled,
 you can use the following query to get your authentication token:
 
 ```

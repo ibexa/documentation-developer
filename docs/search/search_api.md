@@ -13,7 +13,7 @@ To do this, you can use the [`SearchService`](#searchservice) or [Repository fil
 [`SearchService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SearchService.php)
 enables you to perform search queries using the PHP API.
 
-The service should be [injected into the constructor of your command or controller](../api/public_php_api.md#service-container).
+The service should be [injected into the constructor of your command or controller](php_api.md#service-container).
 
 !!! tip "SearchService in the Back Office"
 
@@ -26,7 +26,7 @@ To search through content you need to create a [`LocationQuery`](https://github.
 and provide your search criteria as a series of Criterion objects.
 
 For example, to search for all content of a selected Content Type, use one Criterion,
-[`Criterion\ContentTypeIdentifier`](../guide/search/criteria_reference/contenttypeidentifier_criterion.md) (line 14).
+[`Criterion\ContentTypeIdentifier`](contenttypeidentifier_criterion.md) (line 14).
 
 The following command takes the Content Type identifier as an argument and lists all results:
 
@@ -51,7 +51,7 @@ $output->writeln($result->getName());
 
 !!! tip
 
-    For full list and details of available Search Criteria, see [Search Criteria reference](../guide/search/criteria_reference/search_criteria_reference.md).
+    For full list and details of available Search Criteria, see [Search Criteria reference](search_criteria_reference.md).
 
 !!! note "Search result limit"
 
@@ -176,8 +176,8 @@ $filter
     and Sort Clauses implementing [`FilteringSortClause`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Filter/FilteringSortClause.php)
     are supported.
 
-    See [Search Criteria](../guide/search/criteria_reference/search_criteria_reference.md)
-    and [Sort Clause reference](../guide/search/sort_clause_reference/sort_clause_reference.md) for details.
+    See [Search Criteria](search_criteria_reference.md)
+    and [Sort Clause reference](sort_clause_reference.md) for details.
 
 !!! tip
 
@@ -195,7 +195,7 @@ For example, in the code below, `locationId` is provided to list all children of
 [[= include_file('code_samples/api/public_php_api/src/Controller/CustomController.php', 18, 34) =]]
 ```
 
-The rendering of results is then relegated to [templates](../guide/content_rendering/templates/templates.md) (lines 20-22).
+The rendering of results is then relegated to [templates](templates.md) (lines 20-22).
 
 When using Repository filtering, provide the results of `ContentService::find()` as parameters to the view:
 
@@ -299,8 +299,8 @@ $query->filter = new Criterion\LogicalAnd([
 ]);
 ```
 
-The query searches for Location B using the [`LocationId` Criterion](../guide/search/criteria_reference/locationid_criterion.md),
-and for visible content using the [`Visibility` Criterion](../guide/search/criteria_reference/visibility_criterion.md).
+The query searches for Location B using the [`LocationId` Criterion](locationid_criterion.md),
+and for visible content using the [`Visibility` Criterion](visibility_criterion.md).
 
 Even though the Location B is hidden, the query will find the content because both conditions are satisfied:
 
@@ -310,7 +310,7 @@ Even though the Location B is hidden, the query will find the content because bo
 
 ## Sorting results
 
-To sort the results of a query, use one of more [Sort Clauses](../guide/search/sort_clause_reference/sort_clause_reference.md).
+To sort the results of a query, use one of more [Sort Clauses](sort_clause_reference.md).
 
 For example, to order search results by their publicationg date, from oldest to newest,
 and then alphabetically by content name, add the following Sort Clauses to the query:
@@ -321,14 +321,14 @@ and then alphabetically by content name, add the following Sort Clauses to the q
 
 !!! tip
 
-    For the full list and details of available Sort Clauses, see [Sort Clause reference](../guide/search/sort_clause_reference/sort_clause_reference.md).
+    For the full list and details of available Sort Clauses, see [Sort Clause reference](sort_clause_reference.md).
 
 ## Searching in trash
 
 In the user interface, on the Trash screen, you can search for Content items, and then sort the results based on different criteria.
 To search the trash with the API, use the `TrashService::findInTrash` method to submit a query for Content items that are held in trash.
 Searching in trash supports a limited set of Criteria and Sort Clauses.
-For a list of supported Criteria and Sort Clauses, see [Search in trash reference](../guide/search/search_in_trash_reference.md).
+For a list of supported Criteria and Sort Clauses, see [Search in trash reference](search_in_trash_reference.md).
 
 !!! note
 
@@ -409,4 +409,4 @@ $query->aggregations[] = new IntegerRangeAggregation('range', 'person', 'age',
     `null` means that a range does not have an end.
     In the example all values above (and including) 60 are included in the last range.
 
-See [Agrregation reference](../guide/search/aggregation_reference/aggregation_reference.md) for details of all available aggregations.
+See [Agrregation reference](aggregation_reference.md) for details of all available aggregations.

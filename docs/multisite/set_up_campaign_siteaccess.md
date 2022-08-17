@@ -34,7 +34,7 @@ they see the `campaign` SiteAccess.
 
 Next, with the following content structure, you need to separate the "Campaign" folder as root for the new site:
 
-![Content structure](../img/config_content_structure.png "Content structure")
+![Content structure](config_content_structure.png "Content structure")
 
 To do it, set the root level for `campaign` to access the "Campaign" Location and its sub-items only:
 
@@ -69,5 +69,5 @@ ibexa:
 Now, when you use the `campaign` SiteAccess, you can reach `<your site>/campaign/Media/Images/Logos`,
 despite the fact that it is not a sub-item of the "Campaign" Location.
 
-As a next step, you can configure different [designs](../content_rendering/design_engine/design_engine.md)
+As a next step, you can configure different [designs](design_engine.md)
 for the two SiteAccesses.

@@ -50,7 +50,7 @@ Finally, create the `templates/list/all_content_list.html.twig` file indicated i
 [[= include_file('code_samples/back_office/menu/menu_item/templates/list/all_content_list.html.twig') =]]
 ```
 
-This template uses the [reusable table template](../reusable_back_office_templates.md#tables)
+This template uses the [reusable table template](reusable_components.md#tables)
 to render a table that fits the style of the Back Office.
 
 You can configure the columns of the table in the `head_cols` variable

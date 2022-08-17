@@ -10,7 +10,7 @@ orders search results randomly.
 
 ## Limitations
 
-The `Random` Sort Clause is not available in [Repository filtering](../../../api/public_php_api_search.md#repository-filtering).
+The `Random` Sort Clause is not available in [Repository filtering](search_api.md#repository-filtering).
 In Elasticsearch engine, you cannot combine the `Random` Sort Clause with any other Sort Clause.
 
 ## Example

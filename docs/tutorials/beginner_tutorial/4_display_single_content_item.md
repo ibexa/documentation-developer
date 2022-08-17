@@ -97,7 +97,7 @@ But you still can see how the template works in two ways:
 
 You can use the preview while editing in the Back Office to see how the content will be rendered in full view.
 
-![Full ride preview in admin](img/bike_tutorial_preview_full_ride.png)
+![Full ride preview in admin](bike_tutorial_preview_full_ride.png)
 
 #### Go to the Ride page
 

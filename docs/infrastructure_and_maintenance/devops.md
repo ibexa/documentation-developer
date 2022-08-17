@@ -8,7 +8,7 @@ description: See various tools that can help you debug your Ibexa DXP installati
 
 ### Clearing file cache using the Symfony cache:clear command
 
-Symfony provides a command for clearing cache. It will delete all file-based caches, which mainly consist of a Twig template, a [service container](../api/public_php_api.md#service-container), and the Symfony route cache, but also everything else stored in the cache folder. Out of the box on a single-server setup this includes Content cache. For further information on the command's use, see its help text:
+Symfony provides a command for clearing cache. It will delete all file-based caches, which mainly consist of a Twig template, a [service container](php_api.md#service-container), and the Symfony route cache, but also everything else stored in the cache folder. Out of the box on a single-server setup this includes Content cache. For further information on the command's use, see its help text:
 
 ``` bash
 php bin/console --env=prod cache:clear -h
@@ -24,24 +24,24 @@ php bin/console --env=prod cache:clear -h
 
 ### Clearing content cache on a cluster setup
 
-For a [cluster](clustering.md) setup, the content cache ([HTTP cache](cache/http_cache.md) and [Persistence cache](persistence_cache.md)) must be set up to be shared among the servers. And while all relevant cache is cleared for you on Repository changes when using the APIs, there might be times where you'll need to clear cache manually: 
+For a [cluster](clustering.md) setup, the content cache ([HTTP cache](http_cache.md) and [Persistence cache](persistence_cache.md)) must be set up to be shared among the servers. And while all relevant cache is cleared for you on Repository changes when using the APIs, there might be times where you'll need to clear cache manually: 
 
-- Varnish: [Cache purge](cache/symfony_reverse_proxy.md#using-varnish-or-fastly)
+- Varnish: [Cache purge](reverse_proxy.md#using-varnish-or-fastly)
 - Persistence Cache: [Using Cache service](persistence_cache.md#using-cache-service)
 
 ## Web Debug Toolbar
 
 When running [[= product_name =]] in the `dev` environment you have access to the standard Symfony Web Debug Toolbar. It is extended with some [[= product_name =]]-specific information:
 
-![[[= product_name =]] info in Web Debug Toolbar](img/web_debug_toolbar.png "[[= product_name =]] info in Web Debug Toolbar")
+![Ibexa DXP info in Web Debug Toolbar](web_debug_toolbar.png "Ibexa DXP info in Web Debug Toolbar")
 
 #### SPI (persistence)
 
-This section provides the number of non-cached [SPI](repository.md#spi) calls and handlers. You can see details of these calls in the [Symfony Profiler]([[= symfony_doc =]]/profiler.html) page.
+This section provides the number of non-cached SPI calls and handlers. You can see details of these calls in the [Symfony Profiler]([[= symfony_doc =]]/profiler.html) page.
 
 #### SiteAccess
 
-Here you can see the name of the current SiteAccess and how it was matched. For reference see the [list of possible SiteAccess matchers](multisite/siteaccess_matching.md#available-siteaccess-matchers).
+Here you can see the name of the current SiteAccess and how it was matched. For reference see the [list of possible SiteAccess matchers](siteaccess_matching.md#available-siteaccess-matchers).
 
 ## Logging and debug configuration
 

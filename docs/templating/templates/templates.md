@@ -14,7 +14,7 @@ Templates use the Twig template engine.
 ## Connecting templates
 
 Templates can inherit from other templates.
-Use this, for example, to inherit a general page layout including a [navigation menu](../layout/add_menu.md) in article templates.
+Use this, for example, to inherit a general page layout including a [navigation menu](add_navigation_menu.md) in article templates.
 
 To inherit from other templates, a template must extend the parent templates
 using the [`extends()`](https://twig.symfony.com/doc/3.x/tags/extends.html) Twig function.
@@ -51,7 +51,7 @@ Main variables include:
 |------|------|
 |`content`|Content item, containing all Fields and version information (VersionInfo). |
 |`location`|Location object. Contains meta information on the Content (ContentInfo). |
-|`ibexa.siteaccess`| Current [SiteAccess](../../multisite/multisite.md). |
+|`ibexa.siteaccess`| Current [SiteAccess](multisite.md). |
 |`ibexa.rootLocation`| Root Location object. |
 |`ibexa.requestedUriString`| Requested URI string. |
 |`ibexa.systemUriString`| System URI string. System URI is the URI for internal content controller. If the current route is not a URL alias, then the current PathInfo is returned. |
@@ -59,12 +59,12 @@ Main variables include:
 |`ibexa.viewParametersString`| View parameters as a string. |
 |`ibexa.translationSiteAccess`| Translation SiteAccess for a given language (null if the SiteAccess cannot be found). |
 |`ibexa.availableLanguages`| List of available languages. |
-|`ibexa.configResolver`| [Config resolver](../../configuration/config_dynamic.md#configresolver). |
+|`ibexa.configResolver`| [Config resolver](dynamic_configuration.md#configresolver). |
 
 ### Custom template variables
 
 You can create custom Twig variables for use in templates.
-Set the variables per SiteAccess or SiteAccess group ([scope](../../multisite/multisite_configuration.md#scope)), or per content view.
+Set the variables per SiteAccess or SiteAccess group ([scope](multisite_configuration.md#scope)), or per content view.
 
 To configure a custom template variable per scope, use the `twig_variables` key:
 

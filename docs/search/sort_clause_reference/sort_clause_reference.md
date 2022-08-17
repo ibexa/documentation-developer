@@ -5,7 +5,7 @@ description: Sort Clauses help fine-tune sorting order when searching for conten
 # Sort Clause reference
 
 Sort Clauses are the sorting options for Content and Location Search and
-[Repository filtering](../../../api/public_php_api_search.md#repository-filtering).
+[Repository filtering](search_api.md#repository-filtering).
 
 Capabilities of individual Sort Clauses can depend on the search engine.
 

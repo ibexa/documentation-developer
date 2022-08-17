@@ -4,7 +4,7 @@ description: Persistence cache caches SPI\Persistence calls used in common page 
 
 # Persistence cache
 
-![SPI cache diagram](img/spi_cache.png)
+![SPI cache diagram](spi_cache.png)
 
 ## Layers
 
@@ -34,7 +34,7 @@ Notes:
   For instance tree operations or changes to Content Types are
   examples of operations that also need to invalidate content cache by tags.
 - Search is not defined as persistence and the queries themselves are not planned to be cached as they are too complex by design (for example, full text).
-  Use [Solr](search/solr.md) which caches this for you to improve scale/performance, and to offload your database.
+  Use [Solr](solr_search_engine.md) which caches this for you to improve scale/performance, and to offload your database.
 
 For further details on which calls are cached or not, see details in the [Symfony Web Debug Toolbar](devops.md#web-debug-toolbar)
 which has info on cache use in two places:
@@ -68,7 +68,7 @@ You can select a different cache backend and configure its parameters in the rel
 
 ### Multi Repository setup
 
-You can [configure multisite to work with multiple Repositories](multisite/multisite_configuration.md#location-id).
+You can [configure multisite to work with multiple Repositories](multisite_configuration.md#location-id).
 Then, in `ibexa.yaml` you can specify which cache pool you want to use on a SiteAccess or SiteAccess group level.
 
 The following example shows use in a SiteAccess group:
@@ -313,7 +313,7 @@ This service is an instance of `Symfony\Component\Cache\Adapter\TagAwareAdapterI
 
 ##### With service container
 
-Like any other service, you can also get the cache service with the [service container](../api/public_php_api.md#service-container) like so:
+Like any other service, you can also get the cache service with the [service container](php_api.md#service-container) like so:
 
 ``` php
 // Getting the cache service in PHP

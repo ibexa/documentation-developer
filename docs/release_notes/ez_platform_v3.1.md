@@ -43,7 +43,7 @@ This release of eZ Platform introduces the following new features:
     
     You can now filter elements in the sidebar during site creation process to get to the desired blocks faster.
 
-    ![](img/3_1_filter_elements.png)
+    ![](3_1_filter_elements.png)
 
     ### Field Group permissions
 
@@ -69,7 +69,7 @@ You can now manage URL addresses and URL wildcards with a comfortable user inter
 
     As of this release, the Link manager is no longer part of the Content panel, and now it belongs to the Admin panel of the Back Office.
 
-![URL Management UI](img/3_1_URL_Management.png "URL Management UI")
+![URL Management UI](3_1_URL_Management.png "URL Management UI")
 
 For more information on how to manage URLs, see [URL management](https://doc.ibexa.co/en/latest/guide/url_management).
 
@@ -79,7 +79,7 @@ The Universal Discovery Widget, referred to as the Content Browser in User Docum
 You can now switch between the Grid, Panels and Tree views to browse and manage user accounts, media files, content items and forms.
 Selections that you make in one view survive when you switch to the other view.
 
-![Tree view in the Content Browser](img/3_1_Content_browser_Tree_view.png "Tree view in Content Browser")
+![Tree view in the Content Browser](3_1_Content_browser_Tree_view.png "Tree view in Content Browser")
 
 For more information about configuring the Universal Discovery Widget, see [Extending Universal Discovery Widget](https://doc.ibexa.co/en/latest/extending/extending_udw).
 
@@ -89,11 +89,11 @@ Display of Field groups has been improved in content preview and editing.
 
 When editing, Field groups are now presented in tabs:
 
-![Field group tabls in Content editing](img/3.1_collapsible_fields_edit.png)
+![Field group tabls in Content editing](3.1_collapsible_fields_edit.png)
 
 In Content preview, the group sections are collapsible:
 
-![Collapsible Field groups in Content view](img/3.1_collapsible_fields.png)
+![Collapsible Field groups in Content view](3.1_collapsible_fields.png)
 
 ### Saving incomplete draft
 

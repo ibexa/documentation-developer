@@ -4,7 +4,7 @@
 
 **Release date**: April 15, 2022
 
-**Release type**: [Fast Track](../community_resources/release_process.md#release-process)
+**Release type**: [Fast Track](https://support.ibexa.co/Public/service-life)
 
 ## Notable changes
 
@@ -25,17 +25,17 @@ The product catalog is now fully integrated with the transactional system integr
 
 With the new Measurement Field Type users can now add a Measurement Field, with different pre-built units, to content:
 
-![Adding a Measurement Field to Content Type definition](img/4.1_measurement_ft.png)
+![Adding a Measurement Field to Content Type definition](4.1_measurement_ft.png)
 
 The new Measurement product attribute enables describing products with different types and units of measurement:
 
-![Adding measurement attribute values to product](img/4.1_measurement_attribute.png)
+![Adding measurement attribute values to product](4.1_measurement_attribute.png)
 
 ### Dynamic targeting block [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 [Dynamic targeting block](https://doc.ibexa.co/projects/userguide/en/4.1/site_organization/working_with_page/#dynamic-targeting-block) for the Page Builder provides recommendation items based on users related to the configured Segments.
 
-![Dynamic targeting block](img/4.1_page_builder_dynamic_targeting.png)
+![Dynamic targeting block](4.1_page_builder_dynamic_targeting.png)
 
 ### User interface improvements
 
@@ -48,7 +48,7 @@ These include:
 
 Several new options have been added to the Content Tree's contextual menu, including Hide/Reveal, Create, Edit and Add translation, Add/Remove from bookmarks.
 
-![New Content Tree options](img/4.1_content_tree.png)
+![New Content Tree options](4.1_content_tree.png)
 
 ## Other changes
 
@@ -60,7 +60,7 @@ Product catalog is now fully covered in GraphQL API.
 
 A language switcher in Taxonomy view enables quick switching between different translations of the tag tree.
 
-![Language switcher in Taxonomy tree](img/4.1_taxonomy_lang_switcher.png)
+![Language switcher in Taxonomy tree](4.1_taxonomy_lang_switcher.png)
 
 ### Image optimization
 
@@ -69,7 +69,7 @@ You can use external libraries to [optimize different image formats](https://doc
 
 ### Expanded data migrations
 
-[Data migration](../guide/data_migration/data_migration.md) now covers additional objects:
+[Data migration](data_migration.md) now covers additional objects:
 
 - [database settings](https://doc.ibexa.co/en/4.1/guide/data_migration/importing_data/#settings)
 - [segments](https://doc.ibexa.co/en/4.1/guide/data_migration/importing_data/#segments)

@@ -21,15 +21,15 @@ ibexa.commerce.site_access.config.core.default.enable_bestsellers: true
 
 - `Eshop/Resources/views/Bestsellers/bestsellers.html.twig` renders a bestseller page, available by default under the `/bestsellers` route.
 
-![Bestseller page](img/bestseller_page.png)
+![Bestseller page](bestseller_page.png)
 
 - `Eshop/Resources/views/Bestsellers/bestsellers_box.html.twig` renders a slider for the Bestseller Page block.
 
-![Bestseller Page block](img/bestseller_block_slider.png)
+![Bestseller Page block](bestseller_block_slider.png)
 
 - `Eshop/Resources/views/Bestsellers/bestsellers_catalog.html.twig` renders a slider for the catalog page.
 
-![Bestsellers in product category](img/bestseller_category.png)
+![Bestsellers in product category](bestseller_category.png)
 
 - `Eshop/Resources/views/Bestsellers/bestsellers_box_esi.html.twig` creates an Edge Side Includes tag and calls the controller for Landing Page bestsellers.
 

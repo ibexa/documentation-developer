@@ -14,7 +14,7 @@ and creating [custom buttons](https://ckeditor.com/docs/ckeditor4/latest/guide/w
 Online Editor is based on the CKEditor5.
 Refer to [CKEditor5 documentation](https://ckeditor.com/docs/ckeditor5/latest/index.html) to learn 
 how you can extend the Online Editor with even more elements.
-For more information about extending the Back Office, see [Extend Back Office](extending_back_office.md).
+For more information about extending the Back Office, see [Extend Back Office](back_office.md).
 
 ## Configure custom tags
 
@@ -61,7 +61,7 @@ Now you can use the tag.
 In the Back Office, create or edit a Content item that has a RichText Field Type.
 In the Online Editor, click **Add**, and from the list of available tags select the FactBox tag icon.
 
-![FactBox Tag](img/custom_tag_factbox.png "FactBox Tag in the Online Editor" )
+![FactBox Tag](custom_tag_factbox.png "FactBox Tag in the Online Editor")
 
 ### Inline custom tags
 
@@ -108,7 +108,7 @@ Now you can use the tag.
 In the Back Office, create or edit a Content item that has a RichText Field Type.
 In the Online Editor's toolbar, click **Show more items**, and from the list of available tags select the Link tag icon.
 
-![Link Tag](img/custom_tag_link.png "Link Tag in the Online Editor") 
+![Link Tag](custom_tag_link.png "Link Tag in the Online Editor") 
 
 #### Acronym
 
@@ -127,7 +127,7 @@ Add labels for the tag by providing translations in `translations/custom_tags.en
 [[= include_file('code_samples/back_office/online_editor/custom_tags/acronym/translations/custom_tags.en.yaml') =]]
 ```
 
-![Adding an explanation to an Acronym custom tag](img/oe_custom_tag_add_acronym.png)
+![Adding an explanation to an Acronym custom tag](oe_custom_tag_add_acronym.png)
 
 In the template file `acronym.html.twig` provide the explanation as attribute value
 to the title of the `abbr` tag:
@@ -136,7 +136,7 @@ to the title of the `abbr` tag:
 <abbr title="{{ params.explanation }}">{{ content }}</abbr>
 ```
 
-![Acronym custom tag](img/oe_custom_tag_acronym.png)
+![Acronym custom tag](oe_custom_tag_acronym.png)
 
 ## Configure custom styles
 
@@ -170,7 +170,7 @@ Add labels for the new styles by providing translations in `translations/custom_
 ### Rendering
 
 The `template` key points to the template that is used to render the custom style. 
-It is recommended that you use the [design engine](../guide/content_rendering/design_engine/design_engine.md).
+It is recommended that you use the [design engine](design_engine.md).
 
 The template files for the front end could look as follows:
 
@@ -194,7 +194,7 @@ Templates for Content View in the Back Office would be `templates/themes/admin/f
 
 You can create a custom style that places a paragraph in a note box:
 
-![Example of a note box custom style](img/oe_custom_style_note_box.png)
+![Example of a note box custom style](oe_custom_style_note_box.png)
 
 ``` yaml
 [[= include_file('code_samples/back_office/online_editor/config/packages/custom_styles_note_box.yaml') =]]
@@ -225,7 +225,7 @@ Add label for the new style by providing a translation in `translations/custom_s
 ezrichtext.custom_styles.note_box.label: 'Note box'
 ```
 
-![Adding a Note box custom style](img/oe_custom_style_note_box_select.png)
+![Adding a Note box custom style](oe_custom_style_note_box_select.png)
 
 !!! tip
 
@@ -235,7 +235,7 @@ ezrichtext.custom_styles.note_box.label: 'Note box'
 
 You can create an inline custom style that highlights a part of a text:
 
-![Example of a custom style highlighting a portion of text](img/oe_custom_style_highlight.png)
+![Example of a custom style highlighting a portion of text](oe_custom_style_highlight.png)
 
 ``` yaml
 [[= include_file('code_samples/back_office/online_editor/config/packages/custom_styles_highlight.yaml') =]]
@@ -261,7 +261,7 @@ Add label for the new style by providing a translation in `translations/custom_s
 ezrichtext.custom_styles.highlight.label: 'Highlight'
 ```
 
-![Adding a Highlight custom style](img/oe_custom_style_highlight_select.png)
+![Adding a Highlight custom style](oe_custom_style_highlight_select.png)
 
 ## Configure custom data attributes and classes
 
@@ -352,7 +352,7 @@ Use the example below to add a class choice to the Paragraph element in the `adm
 You can create a custom class that enables you to place a paragraph element in 
 a note box:
 
-![Example of a note box custom style](img/oe_custom_style_note_box.png)
+![Example of a note box custom style](oe_custom_style_note_box.png)
 
 ``` yaml
 [[= include_file('code_samples/back_office/online_editor/config/packages/custom_classes.yaml', 0, 8) =]] [[= include_file('code_samples/back_office/online_editor/config/packages/custom_classes.yaml', 14, 18) =]]
@@ -363,7 +363,7 @@ With this class you can choose one of the following classes for each paragraph
 element: `regular`, `tip_box`, or `warning_box`.
 You can then style the class by using CSS.
 
-![Selecting a custom style for a paragraph](img/oe_custom_class_note_box_select.png)
+![Selecting a custom style for a paragraph](oe_custom_class_note_box_select.png)
 
 !!! tip
 

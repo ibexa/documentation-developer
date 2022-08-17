@@ -33,7 +33,7 @@ Explore the Extending section in the menu to learn how to extend the new version
 
 The features of eZ Platform remain the same as in 1.x versions. However, the look of the interface has changed significantly.
 
-![v2.0.0 interface](img/v2_general_screen.png)
+![v2.0.0 interface](v2_general_screen.png)
 
 #### Studio
 

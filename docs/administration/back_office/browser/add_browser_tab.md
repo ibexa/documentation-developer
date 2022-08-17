@@ -6,7 +6,7 @@ description: Add a custom tab displaying selected data to the content browser.
 
 The Universal Discovery Widget (UDW) is a separate React module. By default, it contains two tabs: Browse and Bookmarks.
 
-![UDW default tabs](img/udw_tabs.png)
+![UDW default tabs](udw_tabs.png)
 
 Follow the instructions below to create and add a new tab called **Images** which displays all Content items of the type 'Image'.
 
@@ -123,7 +123,7 @@ ibexaConfigManager.add({
 In the Back Office go to **Content** -> **Dashboard**. On the top right, click the **Create content** button.
 In the UDW a new **Images** tab appears, listing all images from the Repository.
 
-![Image tab in UDW](img/udw_image_tab.png)
+![Image tab in UDW](udw_image_tab.png)
 
 !!! tip
 

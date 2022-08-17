@@ -79,9 +79,9 @@ It fetches 8 recommendations for user Smith, who is watching the item 123 and th
 The recommendation request returns a list of item IDs that are JSON, JSONP or XML-formatted.
 The result can be easily integrated into any webpage by using some lines of script code. 
 
-!!! tip
+!!! tips
 
-    See the [Quickstart Guide](../basic_integration.md) for a simple example written in PHP.
+    See the [Quickstart Guide](integrate_recommendation_service.md) for a simple example written in PHP.
 
 The recommendation result list looks like the following:
 

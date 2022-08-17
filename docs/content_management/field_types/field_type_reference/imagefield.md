@@ -75,7 +75,7 @@ The Image Field Type supports one `FieldDefinition` option: the maximum size for
 
 ## Using an Image Field
 
-To read more about handling images and image variations, see the [Images documentation](../../guide/images/images.md).
+To read more about handling images and image variations, see the [Images documentation](images.md).
 
 ### Template Rendering
 
@@ -85,7 +85,7 @@ When displayed using `ibexa_render_field`, an Image Field will output this type
 <img src="var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/image_medium.png" width="844" height="430" alt="Alternative text" />
 ```
 
-The template called by the [`ibexa_render_field()` Twig function](../../guide/content_rendering/twig_function_reference/field_twig_functions.md#ibexa_render_field) while rendering a Image Field accepts the following parameters:
+The template called by the [`ibexa_render_field()` Twig function](field_twig_functions.md#ibexa_render_field) while rendering a Image Field accepts the following parameters:
 
 | Parameter | Type     | Default        | Description |
 |-----------|----------|----------------|-------------|

@@ -9,12 +9,12 @@ You can send two types on notifications to the users.
 [Notification bar](#notification-bars) is displayed in specific situations as a message bar appearing at the bottom of the page.
 It appears to whoever is doing a specific operation in the Back Office.
 
-![Example of an info notification](img/notification2.png "Example of the notification bar")
+![Example of an info notification](notification2.png "Example of the notification bar")
 
 [Custom notifications](#create-custom-notifications) are sent to a specific user.
 They will appear in their profile in the Back Office.
 
-![Notification in profile](img/notification3.png)
+![Notification in profile](notification3.png)
 
 ## Notification bars
 

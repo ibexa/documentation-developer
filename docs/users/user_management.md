@@ -15,10 +15,10 @@ To change password, the user must have the `user/password` permission.
 When the user requests a reset of a forgotten password, an email is sent to them with a token.
 It allows them to create a new password.
 
-For information about how to create and configure the template, see [Add forgot password option](../content_rendering/layout/add_forgot_password.md)
+For information about how to create and configure the template, see [Add forgot password option](add_forgot_password_option.md)
 
 The template for this email is located in `Resources/views/forgot_password/mail/forgot_user_password.html.twig` in `ibexa/user`.
-You can [customize it according to your needs](../content_rendering/layout/add_login_form.md#customize-login-form).
+You can [customize it according to your needs](add_login_form.md#customize-login-form).
 
 The validity of the password recovery token can be set using the `ibexa.system.<siteaccess>.security.token_interval_spec` parameter.
 By default, it is set to `PT1H` (one hour).
@@ -39,7 +39,7 @@ To access the password settings:
 !!! tip
 
     There can be other Content Types that function as users, beyond the built-in User Content Type.
-    For details, see [User Identifiers](../configuration/config_repository.md#user-identifiers).
+    For details, see [User Identifiers](repository_configuration.md#user-identifiers).
 
 ### Password attributes
 
@@ -56,7 +56,7 @@ You can also set the minimum password length.
 
 In the **User account (ezuser)** Field definition, you can set password expiration rules, which will force users to change their passwords periodically.
 
-![Password expiry settings](../img/password_expiry.png)
+![Password expiry settings](password_expiry.png)
 
 You can also decide when the user will be notified that they need to change their password.
 The notification will be displayed in the Back Office after login and in the User Content item's preview.
@@ -128,7 +128,7 @@ The rules are set using regular expressions.
 For example, to ensure that User names can only contain lowercase letters,
 set `[a-z]+$` as **Username pattern**:
 
-![Setting a User name pattern](../img/username_pattern.png)
+![Setting a User name pattern](username_pattern.png)
 
 To check that all existing User accounts have names that fit the current pattern,
 run the `ibexa:user:audit-database` command.

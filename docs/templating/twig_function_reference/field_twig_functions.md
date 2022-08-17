@@ -53,7 +53,7 @@ You can pass the following parameters to `ibexa_render_field()`:
 - `template` - Field template to use
 - `attr` - hash of HTML attributes to add to the tag
 - parameters - arbitrary parameters to pass to the template block.
-Some Field Types, like the [MapLocation Field Type](../../../api/field_types_reference/maplocationfield.md), expect specific parameters.
+Some Field Types, like the [MapLocation Field Type](maplocationfield.md), expect specific parameters.
 
 #### Examples
 

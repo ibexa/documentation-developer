@@ -6,8 +6,8 @@ description: Add and render a breadcrumbs element on your site.
 
 To add breadcrumbs to your website, first prepare a general layout template in a `templates/themes/<theme_name>/pagelayout.html.twig` file.
 
-This template can contain things such as header, menu, footer, as well as [assets](../assets.md) for the whole site,
-and all other templates [extend](../templates/templates.md#connecting-templates) it.
+This template can contain things such as header, menu, footer, as well as [assets](assets.md) for the whole site,
+and all other templates [extend](templates.md#connecting-templates) it.
 
 Then, to render breadcrumbs, create a `BreadcrumbController.php` file in `src/Controller`:
 
@@ -15,7 +15,7 @@ Then, to render breadcrumbs, create a `BreadcrumbController.php` file in `src/Co
 [[= include_file('code_samples/front/layouts/breadcrumbs/src/Controller/BreadcrumbController.php') =]]
 ```
 
-The controller uses the [Ancestor Search Criterion](../../search/criteria_reference/ancestor_criterion.md)
+The controller uses the [Ancestor Search Criterion](ancestor_criterion.md)
 to find all Ancestors of the current Location (line 26).
 It then places the ancestors in the `breadcrumbs` variable that you can use in the template.
 

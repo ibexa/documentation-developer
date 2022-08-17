@@ -14,7 +14,7 @@ You can now navigate through your website with a Content Tree.
 It will allow you to easily browse your content in the Back Office.
 Each Content item has a unique icon that helps you identify it without opening.
 
-![Content Tree in the menu](img/left_menu_tree.png "Content Tree in the menu")
+![Content Tree in the menu](left_menu_tree.png "Content Tree in the menu")
 
 For more information on custom configuration, see [Content Tree](https://doc.ibexa.co/en/2.5/guide/config_back_office/#content-tree) in the developer documentation.
 
@@ -46,7 +46,7 @@ See [GraphQL documentation](https://graphql.org/) for more information about Gra
 The new [Matrix Field Type](https://doc.ibexa.co/en/2.5/api/field_types_reference/matrixfield) enables you to store a table of data.
 Columns in the matrix are defined in the Field definition.
 
-![Configuring a Matrix Field Type](img/2.5_matrix_ft.png)
+![Configuring a Matrix Field Type](2.5_matrix_ft.png)
 
 #### Migration of legacy XML format
 
@@ -67,11 +67,11 @@ all features related to user management, such as user accounts, registering, cha
 
     You can now preview a diagram of the configured workflows in the Admin Panel.
 
-    ![Diagram of a workflow configuration](img/2.5_workflow_diagram.png)
+    ![Diagram of a workflow configuration](2.5_workflow_diagram.png)
 
     After selecting configured workflow administrator, the user is now able to see all Content items under review for it.
 
-    ![Content under review](img/workflow_content_under_review.png)
+    ![Content under review](workflow_content_under_review.png)
 
 ### Online editor improvements
 
@@ -92,13 +92,13 @@ You can now easily use [custom CK Editor plugins](https://doc.ibexa.co/en/2.5/gu
 You can now hide and reveal Content items from the Back Office.
 Hidden content will be unavailable on the front page regardless of permissions or [Location visibility](https://doc.ibexa.co/en/2.5/guide/content_management/#location-visibility).
 
-![Icon for hiding content](img/2.5_hide_content_icon.png)
+![Icon for hiding content](2.5_hide_content_icon.png)
 
 ### Product version preview
 
 The Dashboard now shows the version of eZ Platform you are running.
 
-![eZ Platform version](img/2.5_product_version.png)
+![eZ Platform version](2.5_product_version.png)
 
 ### Expanded User Settings
 
@@ -108,7 +108,7 @@ The User Settings menu has been expanded with the following options:
 - Preferred date format
 - Option to enable or disable a character counter for Rich Text Fields
 
-![User settings screen with new settings](img/2.5_user_settings.png)
+![User settings screen with new settings](2.5_user_settings.png)
 
 ### Various Back Office improvements
 
@@ -120,7 +120,7 @@ This release introduced several Back Office improvements to facilitate editorial
 - Simpler assigning of Object States to content
 
 
-![Back Office improvements](img/2.5_back_office_improvements.png)
+![Back Office improvements](2.5_back_office_improvements.png)
 
 ### Permissions
 
@@ -133,7 +133,7 @@ It will enable or disable (if not set) the **Create** button in your dashboard.
 
 `allowed_content_types` can now limit selection in UDW search and browse sections to specified Content Types.
 
-![Create button in Dashboard](img/2.5_create_button.png)
+![Create button in Dashboard](2.5_create_button.png)
 
 ### API improvements
 

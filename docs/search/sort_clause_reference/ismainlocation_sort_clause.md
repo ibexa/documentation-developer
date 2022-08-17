@@ -11,7 +11,7 @@ Locations that are not main Locations are ranked as lower values (e.g. with asce
 
 ## Limitations
 
-The `Location\IsMainLocation` Sort Clause is not available in [Repository filtering](../../../api/public_php_api_search.md#repository-filtering).
+The `Location\IsMainLocation` Sort Clause is not available in [Repository filtering](search_api.md#repository-filtering).
 
 ## Example
 

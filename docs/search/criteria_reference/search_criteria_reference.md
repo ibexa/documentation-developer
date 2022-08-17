@@ -5,7 +5,7 @@ description: Search Criteria help define and fine-tune search queries for conten
 # Search Criteria reference
 
 Search Criteria are filters for Content and Location Search and
-[Repository filtering](../../../api/public_php_api_search.md#repository-filtering).
+[Repository filtering](search_api.md#repository-filtering).
 
 Criteria can take some of the following arguments:
 

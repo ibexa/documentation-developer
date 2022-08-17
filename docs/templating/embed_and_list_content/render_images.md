@@ -4,7 +4,7 @@ description: Render content images and configure their variations.
 
 # Render images
 
-To render images contained in Image Asset or Image Fields, use the [`ibexa_render_field()`](../twig_function_reference/field_twig_functions.md#ibexa_render_field) Twig function.
+To render images contained in Image Asset or Image Fields, use the [`ibexa_render_field()`](field_twig_functions.md#ibexa_render_field) Twig function.
 
 ``` html+twig
 {{ ibexa_render_field(content, 'image') }}
@@ -27,7 +27,7 @@ If a Content item contains more than one image, you may want to select the first
 This enables you to avoid a situation where, for example, the featured image in an article is missing,
 because the first image Field was left empty.
 
-The [`ibexa_content_field_identifier_first_filled_image()`](../twig_function_reference/image_twig_functions.md#ibexa_content_field_identifier_first_filled_image) Twig function
+The [`ibexa_content_field_identifier_first_filled_image()`](image_twig_functions.md#ibexa_content_field_identifier_first_filled_image) Twig function
 returns the identifier of the first image Field that is not empty.
 
 ``` html+twig
@@ -38,14 +38,14 @@ returns the identifier of the first image Field that is not empty.
 
 !!! caution
 
-    This function works only for [Image](../../../api/field_types_reference/imagefield.md) Fields.
-    It does not work for [ImageAsset](../../../api/field_types_reference/imageassetfield.md) Fields.
+    This function works only for [Image](imagefield.md) Fields.
+    It does not work for [ImageAsset](imageassetfield.md) Fields.
 
 ## Configure image variation
 
 The same image can have multiple variations differing in things such as scale, cropping, or applied filters.
 
-You can use the built-in image variations or [configure your own](../image_variations.md#custom-image-variations).
+You can use the built-in image variations or [configure your own](image_variations.md#custom-image-variations).
 
 The following example creates a custom variation that scales the image down to a 200 x 200 thumbnail
 and renders it in grayscale:
@@ -74,7 +74,7 @@ To use it, select the variation when rendering the image:
 
 ## Use focal point
 
-In the [image editor](../../images/image_editor.md) you can define a focal point for an image.
+In the [image editor](configure_image_editor.md) you can define a focal point for an image.
 The focal point does not have an instant effect when you use the default templates.
 However, you can use it to select the part of the image the view focuses on when the image is cropped.
 
@@ -93,7 +93,7 @@ First, in the main template, render the Image Field with a custom template:
 ```
 
 Then, create the custom Field template in `templates/fields/image.html.twig`,
-[overriding the default `ezimage_field` template block](../render_content/render_content.md#field-templates):
+[overriding the default `ezimage_field` template block](render_content.md#field-templates):
 
 ``` html+twig
 {% block ezimage_field %}

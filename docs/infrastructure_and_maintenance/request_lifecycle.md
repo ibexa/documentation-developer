@@ -9,7 +9,7 @@ description: See the lifecycle of an HTTP request in Ibexa DXP, from request to 
 
 When entering the server infrastructure, the HTTP request can be handled by several component such as a firewall, a load balancer, or a reverse proxy before arriving on the web server itself.
 
-For an overview of what happens on a reverse proxy like Varnish or Fastly, see [Context-aware HTTP cache / Request lifecycle](cache/context_aware_cache.md#request-lifecycle).
+For an overview of what happens on a reverse proxy like Varnish or Fastly, see [Context-aware HTTP cache / Request lifecycle](context_aware_cache.md#request-lifecycle).
 
 When arriving at a web server, the request is filtered by Apache Virtual Host, Nginx Server Blocks or equivalent. There, requests of static resources are separated from requests to PHP interpreter.
 
@@ -28,13 +28,13 @@ The schemas start with a regular `Request` object from a browser that enters Sym
 
 The chart below introduces the logic of the request treatment.
 
-![Simplified request lifecycle flowchart](img/request_lifecycle_concept.png)
+![Simplified request lifecycle flowchart](request_lifecycle_concept.png)
 
 ### Kernel events flowchart
 
 The following chart shows events, listeners and attributes added to the request or its wrapping event object.
 
-![Detailed request lifecycle flowchart organised around kernel events](img/request_lifecycle_events.png){: width="741" height="2061" style="max-height: none;"}
+![Detailed request lifecycle flowchart organised around kernel events](request_lifecycle_events.png){: width="741" height="2061" style="max-height: none;"}
 
 This schema is described below event by event.
 
@@ -74,13 +74,13 @@ This service can be either:
 
 The `ibexa.siteaccess_match_listener` service:
 
-- finds the current SiteAccess using the `SiteAccess\Router` (`Ibexa\Core\MVC\Symfony\SiteAccess\Router`) regarding the [SiteAccess Matching configurations](multisite/siteaccess_matching.md),
+- finds the current SiteAccess using the `SiteAccess\Router` (`Ibexa\Core\MVC\Symfony\SiteAccess\Router`) regarding the [SiteAccess Matching configurations](siteaccess_matching.md),
 - adds the current SiteAccess to the `Request` object's **`siteaccess`** attribute,
 - then dispatches the `Ibexa\Core\MVC\Symfony\SiteAccess` event (`MVCEvents::SITEACCESS`).
 
 The `SiteAccessListener` (`Ibexa\Bundle\Core\EventListener\SiteAccessListener`) subscribes to this `Ibexa\Core\MVC\Symfony\SiteAccess` event with top priority (priority 255).
-The `SiteAccessListener` adds the **`semanticPathinfo`** attribute, the path without SiteAccess indications ([`URIElement`](multisite/siteaccess_matching.md#urielement), [`URIText`](multisite/siteaccess_matching.md#uritext),
-or [`Map\URI`](multisite/siteaccess_matching.md#mapuri) implementing the `URILexer` interface) to the request.
+The `SiteAccessListener` adds the **`semanticPathinfo`** attribute, the path without SiteAccess indications ([`URIElement`](siteaccess_matching.md#urielement), [`URIText`](siteaccess_matching.md#uritext),
+or [`Map\URI`](siteaccess_matching.md#mapuri) implementing the `URILexer` interface) to the request.
 
 ### Routing
 
@@ -142,7 +142,7 @@ First, the `ContentViewBuilder` loads the `Location` and the `Content`, and adds
 Then, the `ContentViewBuilder` passes the `ContentView` to its `View\Configurator` (`Ibexa\Core\MVC\Symfony\View\Configurator\ViewProvider`).
 It's implemented by the `View\Configurator\ViewProvider` and its `View\Provider\Registry`. This registry receives the services tagged `ibexa.view.provider` thanks to the `ViewProviderPass`.
 Among the view providers, the services using the `Ibexa\Bundle\Core\View\Provider\Configured` have an implementation of the `MatcherFactoryInterface` (`ibexa.content_view.matcher_factory`).
-Through service decoration and class inheritance, the `ClassNameMatcherFactory` is responsible for the [view matching](content_rendering/templates/template_configuration.md#view-rules-and-matching).
+Through service decoration and class inheritance, the `ClassNameMatcherFactory` is responsible for the [view matching](template_configuration.md#view-rules-and-matching).
 The `View\Configurator\ViewProvider` uses the matched view rule to add possible **`templateIdentifier`** and **`controllerReference`** to the `ContentView` object.
 
 The `ViewControllerListener` adds the ContentView to the `Request` as the **`view`** attribute.
@@ -160,7 +160,7 @@ As a reminder, the controller and its argument can be:
 
 - A controller set by the matched route and the request as its argument.
 - The default `ibexa_content:viewAction` controller and a `ContentView` as its argument.
-- A [custom controller](content_rendering/queries_and_controllers/controllers.md) set by the matched view rule and a `View` or the request as its argument (most likely a `ContentView` but there is no restriction).
+- A [custom controller](controllers.md) set by the matched view rule and a `View` or the request as its argument (most likely a `ContentView` but there is no restriction).
 
 !!! caution "Permission control"
 

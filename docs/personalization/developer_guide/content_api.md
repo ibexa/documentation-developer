@@ -15,7 +15,7 @@ The following information can be loaded to the recommendation solution:
 - Availability timeframe - Certain products are be recommended only in the specified time window
 - Custom attributes - You can group recommendations and narrow down the results, for example, to non-food products or to news that are related to the end user's city
 
-For more information about personalization, see [Introduction](../personalization.md) and [Best practices](../best_practices/recommendation_integration.md).
+For more information about personalization, see [Introduction](personalization.md) and [Best practices](recommendation_integration.md).
 
 The Personalization client provides a REST interface that accepts items in XML format.
 You can use the interface to post item information within the request's body into the store, 
@@ -61,10 +61,10 @@ The following call attributes are available:
 
 | Parameter name | Description | Value |
 |---|---|---|
-| `customerid` |A customer ID (for example "00000"), as defined when [enabling Personalization](../enabling_personalization.md#set-up-customer-credentials). Can be used to identify a website in installations that [host multiple SiteAccesses]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting).| alphanumeric |
+| `customerid` |A customer ID (for example "00000"), as defined when [enabling Personalization](#multiple-website-hosting).| alphanumeric |
 | `itemid` | A unique ID of the Content item/product. Used to identify the item in the database. | integer |
 | `itemtypeid` | An ID of the type of Content item/product. In most cases, the value is 1 but you might have items/products of more than one type. | integer |
-| `lang` | A [language code](../../internationalization.md) of the Content item/product (for example, "ger-DE"). This parameter is optional. | string |
+| `lang` | A [language code](languages.md) of the Content item/product (for example, "ger-DE"). This parameter is optional. | string |
 
 ### Request object format
 

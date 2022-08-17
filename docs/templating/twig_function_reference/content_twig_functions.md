@@ -29,7 +29,7 @@ You can provide `ibexa_render()` with either a Content item or a Location object
 |------|------|------|
 |`content`</br>or</br>`location`|`Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>or</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`|Content item or its Location.|
 |`method`|`string`|(optional) [Rendering method](#rendering-methods). One of: `direct`, `inline`, `esi`, `ssi`.|
-|`viewType`|`string`|(optional) [View type](../templates/template_configuration.md#view-types).|
+|`viewType`|`string`|(optional) [View type](template_configuration.md#view-types).|
 
 #### Rendering methods
 
@@ -81,7 +81,7 @@ the function returns the name in the main language.
 
 !!! tip
 
-    For an example of using `ibexa_render_content_query`, see [Add navigation menu](../layout/add_menu.md#render-menu-using-a-query).
+    For an example of using `ibexa_render_content_query`, see [Add navigation menu](add_navigation_menu.md#render-menu-using-a-query).
 
 ### `ibexa_render_location_query()`
 

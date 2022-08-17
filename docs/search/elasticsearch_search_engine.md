@@ -463,7 +463,7 @@ Index names use the following pattern:
     `<repository>_<document_type>_<language_code>_<content_type_id>`
 
     By default, repository name is set to `default`, however, in the context of an [[= product_name =]] instance,
-    there can be [several repositories with different names](../configuration/config_repository.md#defining-custom-connection).
+    there can be [several repositories with different names](repository_configuration.md#defining-custom-connection).
     Document type can be either `content` or `location`.
     In a language code, hyphens are replaced with underscores, and all characters must be lowercase.
     An index name can therefore look like this:
@@ -593,4 +593,4 @@ For more information about how Elasticsearch handles settings and mappings from 
 ## Extending Elasticsearch
 
 To learn how you can create document field mappers, custom Search Criteria, 
-custom Sort Clauses and Aggregations, see [Search extensibility](extensibility/create_custom_search_criterion.md).
+custom Sort Clauses and Aggregations, see [Search extensibility](create_custom_search_criterion.md).

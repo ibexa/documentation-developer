@@ -67,7 +67,7 @@ This is specially important for admin accounts and other privileged users.
 
 !!! tip "Password rules"
 
-    See [setting up password rules](user_management/user_management.md#password-rules).
+    See [setting up password rules](user_management.md#password-rules).
 
 ### Secure secrets
 
@@ -101,7 +101,7 @@ If possible, make the Back Office unavailable on the open internet.
 If you are using MySQL/MariaDB, use the UTF8MB4 database character set and related collation.
 The older UTF8 can lead to truncation with 4-byte characters, like some emoji, which may have unpredictable side effects.
 
-See [Change from UTF8 to UTF8MB4](../updating/from_1.x_2.x/update_db_to_2.5.md#change-from-utf8-to-utf8mb4).
+See [Change from UTF8 to UTF8MB4](update_db_to_2.5.md#change-from-utf8-to-utf8mb4).
 
 ### Use secure Roles and Policies
 

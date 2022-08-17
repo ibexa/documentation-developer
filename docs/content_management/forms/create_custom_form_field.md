@@ -64,11 +64,11 @@ Then, register the mapper as a service:
 Now you can go to Back Office and build a new form.
 You should be able to see the new section in the list of available fields:
 
-![Custom form fields](../img/extending_form_builder_custom_form_fields.png)
+![Custom form fields](extending_form_builder_custom_form_fields.png)
 
 And a new Country Form field:
 
-![Country field](../img/extending_form_builder_country_field.png)
+![Country field](extending_form_builder_country_field.png)
 
 ## Modify existing Form fields
 

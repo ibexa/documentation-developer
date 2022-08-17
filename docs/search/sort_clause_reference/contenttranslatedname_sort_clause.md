@@ -9,7 +9,7 @@ sorts search results by the Content items' translated names.
 
 ## Limitations
 
-The `ContentTranslatedName` Sort Clause is not available in [Repository filtering](../../../api/public_php_api_search.md#repository-filtering).
+The `ContentTranslatedName` Sort Clause is not available in [Repository filtering](search_api.md#repository-filtering).
 
 ## Example
 

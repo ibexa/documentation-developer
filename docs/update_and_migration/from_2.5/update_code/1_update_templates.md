@@ -5,11 +5,11 @@
 The naming and location of templates in the Back Office have been changed.
 If you extend or modify these templates, you need to adapt your code.
 
-For the full list of template changes, see [the list of removals and deprecations](../../../releases/ez_platform_v3.0_deprecations.md#template-organization).
+For the full list of template changes, see [the list of removals and deprecations](ez_platform_v3.0_deprecations.md#template-organization).
 
 ## Twig functions and filters
 
-A number of [Twig functions, filters and helpers have been renamed](../../../releases/ez_platform_v3.0_deprecations.md#functions-renamed).
+A number of [Twig functions, filters and helpers have been renamed](ez_platform_v3.0_deprecations.md#functions-renamed).
 If your templates use them, you need to update them.
 
 ## Templating component
@@ -24,9 +24,9 @@ For example:
 
 ## Form templates
 
-Content Type editing has been [moved from `repository-forms` to `ezplatform-admin-ui`](../../../releases/ez_platform_v3.0_deprecations.md#content-type-forms).
+Content Type editing has been [moved from `repository-forms` to `ezplatform-admin-ui`](ez_platform_v3.0_deprecations.md#content-type-forms).
 
-Forms for content creation have been [moved from `repository-forms` to `ezplatform-content-forms`](../../../releases/ez_platform_v3.0_deprecations.md#repository-forms).
+Forms for content creation have been [moved from `repository-forms` to `ezplatform-content-forms`](ez_platform_v3.0_deprecations.md#repository-forms).
 
 If your templates extend any of those built-in templates, you need to update their paths.
 

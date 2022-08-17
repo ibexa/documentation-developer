@@ -18,7 +18,7 @@ Using a different proxy is highly recommended as they provide better performance
 
 !!! note
 
-    Use of Varnish or Fastly is a requirement for a [Clustering](../clustering.md) setup, as Symfony Proxy does not support sharing cache between several application servers.
+    Use of Varnish or Fastly is a requirement for a [Clustering](clustering.md) setup, as Symfony Proxy does not support sharing cache between several application servers.
 
 ## Recommended VCL base files
 
@@ -150,7 +150,7 @@ data-field-id="{{ field.id }}"
 
 As a result, your file should be similar to [this example.](https://github.com/ibexa/form-builder/blob/main/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig)
 
-For more information about configuring Captcha fields, see [Captcha field](../../guide/form_builder/forms.md#captcha-field).
+For more information about configuring Captcha fields, see [Captcha field](forms.md#captcha-field).
 
 ### Use Fastly as HttpCache proxy
 

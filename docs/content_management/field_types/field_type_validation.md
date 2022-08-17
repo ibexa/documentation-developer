@@ -6,7 +6,7 @@ description: Field Type validation allows you to validate if data entered stored
 
 ## Validator schema
 
-The schema for validator configuration should have a similar format to the [settings schema](field_type_type_and_value.md#field-type-settings),
+The schema for validator configuration should have a similar format to the [settings schema](type_and_value.md#field-type-settings),
 except it has an additional level, to group settings for a certain validation mechanism:
 
 - The key on the 1st level is a string, identifying a validator

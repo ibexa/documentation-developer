@@ -5,7 +5,7 @@ description: Add a new design for a special marketing campaign site.
 # Add new design
 
 To create different designs for different version of the website,
-you configure different sites based on the [SiteAccess](../../multisite/multisite.md) content.
+you configure different sites based on the [SiteAccess](multisite.md) content.
 
 This example shows how to prepare a site for a "Summer Sale" marketing campaign
 and provide it with a distinct design.
@@ -28,11 +28,11 @@ ibexa:
         default_siteaccess: site
 ```
 
-Adding the `campaign` SiteAccess to [`site_group`](../../multisite/multisite_configuration.md#siteaccess-groups) enables you to add common configuration for both SiteAccesses at the same time.
+Adding the `campaign` SiteAccess to [`site_group`](multisite_configuration.md#siteaccess-groups) enables you to add common configuration for both SiteAccesses at the same time.
 
 !!! tip
 
-    For details about configuring different site roots and matching SiteAccesses, see [Set up campaign SiteAccess](../../multisite/set_up_campaign_siteaccess.md).
+    For details about configuring different site roots and matching SiteAccesses, see [Set up campaign SiteAccess](set_up_campaign_siteaccess.md).
 
 ## Add themes
 
@@ -54,7 +54,7 @@ Now, create templates for the two sites.
 Templates for the main site should be placed in `templates/themes/standard`,
 and templates for the campaign site in `templates/themes/summersale`.
 
-First, modify the built-in general [page layout](../templates/template_configuration.md#page-layout) template for the standard site in `templates/themes/standard/pagelayout.html.twig`
+First, modify the built-in general [page layout](pagelayout.html.twig`
 by including a header and a footer section:
 
 ``` html+twig hl_lines="3 8"
@@ -74,7 +74,7 @@ Create both the header and the footer template, for example:
 [[= include_file('code_samples/front/add_design/templates/themes/standard/parts/footer.html.twig') =]]
 ```
 
-Now, create templates for content, for example for an article, that [extend the page layout](../templates/templates.md#connecting-templates):
+Now, create templates for content, for example for an article, that [extend the page layout](templates.md#connecting-templates):
 
 ```html+twig
 [[= include_file('code_samples/front/add_design/templates/themes/standard/full/article.html.twig') =]]

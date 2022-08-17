@@ -20,7 +20,7 @@ for a full comparison of old and new bundle names and namespaces.
 !!! tip
 
     To make sure your code is up to date with the new namespaces,
-    you can use the [Ibexa PhpStorm plugin](../community_resources/phpstorm_plugin.md).
+    you can use the [Ibexa PhpStorm plugin](phpstorm_plugin.md).
     The plugin indicates deprecated namespaces and suggests updating them to new ones.
 
 ## Configuration keys

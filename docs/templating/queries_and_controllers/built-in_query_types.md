@@ -36,7 +36,7 @@ params:
 ### Sort order
 
 To provide a sort order to the `sort` parameter, use names of the Sort Clauses.
-To find them, refer to [Sort Clause](../../search/sort_clause_reference/sort_clause_reference.md)
+To find them, refer to [Sort Clause](sort_clause_reference.md)
 and the [relevant Sort Clause class](https://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/config/sort_spec.yml#L29)
 
 ## Children
@@ -56,7 +56,7 @@ params:
 
 !!! tip
 
-    For an example of using the `Children` Query type, see [List content](../embed_and_list_content/list_content.md#list-children-with-query-type).
+    For an example of using the `Children` Query type, see [List content](list_content.md#list-children-with-query-type).
 
 ## Siblings
 
@@ -75,7 +75,7 @@ params:
 
 !!! tip
 
-    For an example of using the `Siblings` Query type, see [Embed related content](../embed_and_list_content/embed_content.md#embed-siblings-with-query-type).
+    For an example of using the `Siblings` Query type, see [Embed related content](embed_content.md#embed-siblings-with-query-type).
 
 ## Ancestors
 
@@ -102,7 +102,7 @@ The `RelatedToContent` Query type retrieves content that is a reverse relation t
     For example, if a blog post contains a link to an article, you can use a `RelatedToContent` query
     to find the blog post from the article.
     To find all relations of a Content item (in this example, all content that the blog post is related to),
-    refer to [Embed content](../embed_and_list_content/embed_content.md#embed-relations-with-a-custom-controller). 
+    refer to [Embed content](embed_content.md#embed-relations-with-a-custom-controller). 
 
 It takes `content` or `field` as required parameters.
 `field` indicates the Relation or RelationList Field that contains the Relations.
@@ -143,7 +143,7 @@ params:
 
 ## Catalog
 
-The `Catalog` Query type retrieves products belonging to a [catalog](../../catalog/catalog.md#catalogs).
+The `Catalog` Query type retrieves products belonging to a [catalog](catalog.md#catalogs).
 
 It takes the following parameters:
 

@@ -9,7 +9,7 @@ description: Install Ibexa DXP on a Linux system and prepare your installation f
     Installation for production is only supported on Linux.
 
     To install [[= product_name =]] for development on macOS or Windows,
-    see the [installation guide for macOS and Windows](install-on-mac-os-and-windows.md).
+    see the [installation guide for macOS and Windows](install_on_mac_os_and_windows.md).
 
 ## Prepare work environment
 
@@ -64,7 +64,7 @@ You must set up authentication tokens to access the site.
 
 Log in to your service portal on [support.ibexa.co](https://support.ibexa.co), go to your **Service Portal**, and look for the following on the **Maintenance and Support agreement details** screen:
 
-![Authentication token](img/Using_Composer_Auth_token.png)
+![Authentication token](Using_Composer_Auth_token.png)
 
 1. Select **Create token** (this requires the **Portal administrator** access level).
 2. Fill in a label describing the use of the token. This will allow you to revoke access later.
@@ -214,11 +214,11 @@ In `DATABASE_VERSION` you can also configure the database server version (for a 
 
 !!! tip "Using PostgreSQL"
 
-    If you want an installation with PostgreSQL instead of MySQL, refer to [Using PostgreSQL](../guide/databases.md#using-postgresql).
+    If you want an installation with PostgreSQL instead of MySQL, refer to [Using PostgreSQL](databases.md#using-postgresql).
 
 #### Install and configure a search engine
 
-You may choose to replace the [default search engine](../guide/search/search.md#legacy-search-engine) with either Solr or Elasticsearch.
+You may choose to replace the [default search engine](search.md#legacy-search-engine) with either Solr or Elasticsearch.
 
 !!! note "Shop front end requirement [[% include 'snippets/commerce_badge.md' %]]"
 
@@ -226,17 +226,17 @@ You may choose to replace the [default search engine](../guide/search/search.md#
 
 === "Solr"
 
-    Follow [How to set up Solr search engine](../guide/search/solr.md#how-to-set-up-solr-search-engine) to install Solr.
+    Follow [How to set up Solr search engine](solr_search_engine.md#how-to-set-up-solr-search-engine) to install Solr.
 
 === "Elasticsearch"
 
     Do the following steps to enable Elasticsearch:
 
-    1. [Download and install Elasticsearch](../guide/search/elastic.md#step-1-download-and-install-elasticsearch)
-    2. [Verify that the Elasticsearch instance is up](../guide/search/elastic.md#step-2-verify-that-the-elasticsearch-instance-is-up)
-    3. [Set the default search engine](../guide/search/elastic.md#step-3-set-the-default-search-engine)
-    4. [Configure the search engine](../guide/search/elastic.md#step-4-configure-the-search-engine)
-    5. [Push the templates](../guide/search/elastic.md#step-5-push-the-templates)
+    1. [Download and install Elasticsearch](elasticsearch_search_engine.md#step-1-download-and-install-elasticsearch)
+    2. [Verify that the Elasticsearch instance is up](elasticsearch_search_engine.md#step-2-verify-that-the-elasticsearch-instance-is-up)
+    3. [Set the default search engine](elasticsearch_search_engine.md#step-3-set-the-default-search-engine)
+    4. [Configure the search engine](elasticsearch_search_engine.md#step-4-configure-the-search-engine)
+    5. [Push the templates](elasticsearch_search_engine.md#step-5-push-the-templates)
 
     Configure the following parameter in the `.env` file:
 
@@ -349,7 +349,7 @@ You should see the welcome page.
 
 !!! note "Security checklist"
 
-    See the [Security checklist](../guide/security_checklist.md) for a list of security-related issues
+    See the [Security checklist](security_checklist.md) for a list of security-related issues
     you should take care of before going live with a project.
 
 ### Enable Date-based Publisher
@@ -375,7 +375,7 @@ Finally, remove the temporary file:
 
 ### Enable the Link manager
 
-To make use of the [Link Manager](../guide/url_management.md), you must [set up cron](../guide/url_management.md#enable-automatic-url-validation).
+To make use of the [Link Manager](url_management.md#enable-automatic-url-validation).
 
 #### JMS payment secret [[% include 'snippets/commerce_badge.md' %]]
 

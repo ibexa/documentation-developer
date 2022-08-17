@@ -25,8 +25,8 @@ The specific incompatibilities
 
 The specific changes that will be migrated and are incompatible with legacy are: 
 
-- XmlText fields have been replaced with a new [RichText](../api/field_types_reference/richtextfield.md) field
-- Page field (ezflow) has been replaced by the [LandingPage](../api/field_types_reference/pagefield.md) field, and is now provided by our commercial product [eZ Platform Enterprise Edition](http://ezstudio.com/)
+- XmlText fields have been replaced with a new [RichText](richtextfield.md) field
+- Page field (ezflow) has been replaced by the [LandingPage](pagefield.md) field, and is now provided by our commercial product [eZ Platform Enterprise Edition](http://ezstudio.com/)
 - Incremental future improvements to the database schema to improve features and scalability of the content repository 
 
 Together these major improvements make it practically impossible to run eZ Platform side by side with eZ Publish legacy, like it was possible in 5.x series. *For these reasons we recommend that you use eZ Publish Enterprise 5.4  ([which is supported until end of 2021](https://support.ez.no/Public/Service-Life)) if you don't have the option to remake your web application yet, or want to do it gradually.*
@@ -37,8 +37,8 @@ Together these major improvements make it practically impossible to run eZ Platf
 
 If you are coming directly from legacy (4.x), you need to follow the best practice 5.x Platform migration path and do the following:
 
-- Rewrite custom Field Types for the new Platform stack. Alternatively you can use Null Field Type as a dummy implementation for the custom Field Types that you don't want to migrate. Using Null Field Type will prevent errors from the Platform Stack, see [Null Field Type Reference](../api/field_types_reference/nullfield.md)
-- Rewrite custom web front end to use the new Platform/Symfony stack, see [Beginner Tutorial](../tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md)
+- Rewrite custom Field Types for the new Platform stack. Alternatively you can use Null Field Type as a dummy implementation for the custom Field Types that you don't want to migrate. Using Null Field Type will prevent errors from the Platform Stack, see [Null Field Type Reference](nullfield.md)
+- Rewrite custom web front end to use the new Platform/Symfony stack, see [Beginner Tutorial](beginner_tutorial.md)
 - Rewrite custom admin modules to use the new Platform/Symfony stack
     - And if you do this while on 5.x, you can use several of the [available legacy migration features](https://doc.ez.no/display/EZP/Legacy+code+and+features) to make the new code appear in legacy admin
 
@@ -57,7 +57,7 @@ See Upgrade documentation on how to perform the actual upgrade: [Upgrade (eZ Pub
 
 As eZ Platform introduced completely new user interfaces with greatly improved user experience, the following custom developments needs to be made if you have customization needs:
 
-- Write UI code for custom Field Types for the new JavaScript-based editorial interface, (see [Page blocks](../guide/content_rendering/render_content/render_page.md)
+- Write UI code for custom Field Types for the new JavaScript-based editorial interface, (see [Page blocks](render_page.md)
 - Adjust custom admin modules for the new Symfony-based admin interface
 
 For a detailed guide through these developments see [Upgrading from 5.4.x and 2014.11 to 16.xx](migrating_from_ez_publish_platform.md#upgrading-from-54x-and-201411-to-16xx) 

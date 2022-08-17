@@ -16,19 +16,19 @@ placeholders for missing ones.
 If your installation is connected to a DAM system, you can use images directly 
 from a DAM system in your content.
 
-Specific [DAM configuration](config_connector.md#dam-configuration) depends on 
+Specific [DAM configuration](add_image_asset_from_dam.md#dam-configuration) depends on 
 the system that the installation uses.
 
 ## Reuse images
 
 You can store images in the media library as independent Content items of 
-a generic Image [Content Type](../content_model.md#content-types) to reuse them across the system.
-You do this by uploading images to an [ImageAsset](../../api/field_types_reference/imageassetfield.md) Field Type.
+a generic Image [Content Type](content_model.md#content-types) to reuse them across the system.
+You do this by uploading images to an [ImageAsset](imageassetfield.md) Field Type.
 
 For an ImageAsset field to be reused, you must publish it. 
 Only then is notification triggered, which states that an image has been published 
 under the Location and can now be reused.
-After you establish a media library, you can create [Relations](../content_management.md#content-relations) between the 
+After you establish a media library, you can create [Relations](content_management.md#content-relations) between the 
 image Content item and the main Content item that uses it.
 
 ## Normalizing image file names
@@ -149,9 +149,9 @@ In [[= product_name =]], there are two implementations of the `PlaceholderProvid
 The [`GenericProvider`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Imagine/PlaceholderProvider.php) package generates placeholders 
 with basic information about the original image (see [example 1](#configuration-examples)).
 
-![Placeholder image GenericProvider](../img/placeholder_info.jpg "Example of a generic placeholder image")
+![Placeholder image GenericProvider](placeholder_info.jpg "Example of a generic placeholder image")
 
-![Placeholder GenericProvider](../img/placeholder_generic_provider.png "Generic placeholder images on a page")
+![Placeholder GenericProvider](placeholder_generic_provider.png "Generic placeholder images on a page")
 
 |Option|Default value|Description|Required?|
 |------|-------------|-----------|-|
@@ -170,7 +170,7 @@ placeholders from:
  - remote sources, for example, <http://placekitten.com> (see [example 2](#configuration-examples))
  - live version of a site (see [example 3](#configuration-examples))
 
-![Placeholder RemoteProvider - placekitten.com](../img/placeholder_remote_provider.jpg "Remote placeholder images on a page")
+![Placeholder RemoteProvider - placekitten.com](placeholder_remote_provider.jpg "Remote placeholder images on a page")
 
 |Option|Default value|Description|
 |------|-------------|-----------|
@@ -179,7 +179,7 @@ placeholders from:
 
 ### Semantic configuration
 
-Placeholder generation can be configured for each [`binary_handler`](../file_management/file_management.md#handling-binary-files) under the 
+Placeholder generation can be configured for each [`binary_handler`](file_management.md#handling-binary-files) under the 
 `ibexa.image_placeholder` key:
  
 ```yaml
@@ -287,7 +287,7 @@ sudo apt-get install optipng
 
 ## Embedding images in Rich Text
 
-The [RichText](../../api/field_types_reference/richtextfield.md) field allows you to embed other 
+The [RichText](richtextfield.md) field allows you to embed other 
 Content items within the field.
 
 Content items that are identified as images are rendered in the Rich Text Field 

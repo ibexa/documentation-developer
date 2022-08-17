@@ -18,7 +18,7 @@ The `distance` argument requires:
 
 ## Limitations
 
-The `MapLocationDistance` Criterion is not available in [Repository filtering](../../../api/public_php_api_search.md#repository-filtering).
+The `MapLocationDistance` Criterion is not available in [Repository filtering](search_api.md#repository-filtering).
 
 ## Example
 

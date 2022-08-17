@@ -91,4 +91,4 @@ An overview of pros and cons for every technique:
     consume (depending on the viewing time of the page), basket (which is usually 
     an in-page event) or custom in-page events that take place on the client side, 
     a JavaScript implementation is strongly encouraged.
-    For a sample script and instructions, see [Track with yct.js](../developer_guide/tracking_with_yct.md).
+    For a sample script and instructions, see [Track with yct.js](tracking_with_yct.md).

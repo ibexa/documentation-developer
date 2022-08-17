@@ -15,7 +15,7 @@ The new Link manager enables you to manage all links to external websites that a
 whether in Rich Text or in URL Field.
 You can edit a link in the manager and it will be updated automatically in all Content items.
 
-![Link Manager](img/link_manager.png)
+![Link Manager](link_manager.png)
 
 ### Copying subtrees in the back office
 
@@ -23,7 +23,7 @@ Following [EZP-27759](https://jira.ez.no/browse/EZP-27759) you can now copy a Co
 
 The maximum number of Content items that can be copied this way can be set in configuration, see [Copy subtree limit](https://doc.ibexa.co/en/1.13/guide/config_back_office/#copy-subtree-limit).
 
-![Copy subtree option in the menu](img/copy_subtree_button.png)
+![Copy subtree option in the menu](copy_subtree_button.png)
 
 ### REST API improvements
 

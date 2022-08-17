@@ -25,7 +25,7 @@ supports asterisks as wildcards located at the beginning or end of a query.
 
 When using the Elasticsearch search engine, a full text query performs an OR query by default, while the OR and AND operators return unexpected results.
 
-The `FullText` Criterion is not available in [Repository filtering](../../../api/public_php_api_search.md#repository-filtering).
+The `FullText` Criterion is not available in [Repository filtering](search_api.md#repository-filtering).
 
 ## Example
 

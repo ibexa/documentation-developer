@@ -2,7 +2,7 @@
 
 ## `ezpublish` configuration key
 
-The main YAML configuration key is now [`ezplatform` instead of `ezpublish`](../../../releases/ez_platform_v3.0_deprecations.md#configuration-through-ezplatform).
+The main YAML configuration key is now [`ezplatform` instead of `ezpublish`](ez_platform_v3.0_deprecations.md#configuration-through-ezplatform).
 You need to change your configuration files to make use of the new key. For example:
 
 **Use:**
@@ -26,7 +26,7 @@ ezpublish:
 ## Resolving settings
 
 If you used dynamic settings (through `$setting$`),
-or got settings from the [ConfigResolver](../../../guide/configuration/config_dynamic.md#configresolver) in a class constructor,
+or got settings from the [ConfigResolver](dynamic_configuration.md#configresolver) in a class constructor,
 you now need to rewrite your code to inject the ConfigResolver and get the relevant setting:
 
 **Use:**

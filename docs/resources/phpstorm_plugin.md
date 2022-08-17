@@ -42,7 +42,7 @@ You can use it to:
 - Enable and disable plugin features for the current project
 - Change product edition and version by the current project
 
-![Intention](img/phpstorm_plugin_settings.png)
+![Intention](phpstorm_plugin_settings.png)
 
 !!! note
 
@@ -68,10 +68,10 @@ In project settings form you can choose:
 - Product edition: Ibexa OSS, Ibexa Content, Ibexa Experience, Ibexa Commerce
 - Authentication token (for Content, Experience and Commerce editions)
 - Product version: Default (latest LTS version), Latest (fast track or LTS), Latest LTS and "Next 3.x" (unstable, based on the 3.x branch) and "Next 4.x" (unstable, based on the 4.x branch)
-- Generate [Ibexa Cloud configuration](getting_started/install_on_ibexa_cloud) 
+- Generate [Ibexa Cloud configuration](install_on_ibexa_cloud) 
 - Composer settings
 
-![Create a project](img/phpstorm_plugin_create_project.png)
+![Create a project](phpstorm_plugin_create_project.png)
 
 If you do not provide credentials for https://updates.ibexa.co/, the plugin uses the installation key and token password stored in global Composer configuration. Otherwise, it creates an `auth.json` file.
 
@@ -115,7 +115,7 @@ For all file templates you can customize:
 - file name
 - directory
 
-![File template](img/phpstorm_plugin_file_template.png)
+![File template](phpstorm_plugin_file_template.png)
 
 To customize file templates, go to **File** > **Settings**/**Preferences** > **Editor** > **File and Code templates**.
 
@@ -232,7 +232,7 @@ or extend the `Ibexa\Core\QueryType\OptionsResolverBasedQueryType` class in the 
 * `Ibexa\Core\QueryType\QueryType::getQuery` method definition
 * `Ibexa\Core\QueryType\OptionsResolverBasedQueryType::doGetQuery` method definition 
 
-![Query Type parameter autocompletion](img/phpstorm_plugin_query_type_params.png)
+![Query Type parameter autocompletion](phpstorm_plugin_query_type_params.png)
 
 ### Intentions and inspections
 
@@ -240,7 +240,7 @@ The plugin also brings several new intentions and inspections (with related quic
 
 For example, when plugin detects deprecated configuration key usage, it marks the key as deprecated and suggests a replacement:
 
-![Intention](img/phpstorm_plugin_intention.png)
+![Intention](phpstorm_plugin_intention.png)
 
 ## Known issues
 

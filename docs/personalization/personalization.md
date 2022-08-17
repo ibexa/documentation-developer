@@ -27,8 +27,8 @@ The idea behind the Personalization service is built upon four main steps.
 3. The Personalization server accumulates the tracked events, categorizes them and calculates recommendations for every product and every user in the shop.
 4. Recommendations can be fetched from the Personalization service and presented to users during their sessions.
 
-![Overview of how recommendation works](img/recommendation_overview.png)
+![Overview of how recommendation works](recommendation_overview.png)
 
 For more information about available functionalities, see [User Documentation]([[= user_doc =]]/personalization/personalization).
 
-For more information about enabling the Personalization service, see [Enable Personalization](enabling_personalization.md).
+For more information about enabling the Personalization service, see [Enable Personalization](enable_personalization.md).

@@ -27,7 +27,7 @@ In the Form Builder, add and configure (using the **Basic** and **Validation** t
 
 The configuration should look like this:
 
-![Adding Fields to Newsletter Form](img/enterprise_tut_form_creation.png "Adding Fields to Newsletter Form")
+![Adding Fields to Newsletter Form](enterprise_tut_form_creation.png "Adding Fields to Newsletter Form")
 
 When you add all the fields, save the form and click **Publish**.
 Now you can edit the Front Page and add a Form block below the Random block.
@@ -35,7 +35,7 @@ Edit the block and select the form you created. Click **Submit**.
 
 The Page should refresh with the Form block.
 
-![Newsletter Form Block](img/enterprise_tut_first_form.png "Raw Newsletter Form Block")
+![Newsletter Form Block](enterprise_tut_first_form.png "Raw Newsletter Form Block")
 
 It clearly differs from the page design, so you also need to customize the block's layout.
 
@@ -86,7 +86,7 @@ Clear the cache by running `bin/console cache:clear` and refresh the Page to see
 
 ### Configure the Form field
 
-Before applying the final styling of the block, you need to configure the [CAPTCHA field](../../guide/form_builder/forms.md#captcha-field).
+Before applying the final styling of the block, you need to configure the [CAPTCHA field](forms.md#captcha-field).
 In `config/packages`, add a `gregwar_captcha.yaml` file with the following configuration:
 
 ``` yaml
@@ -110,7 +110,7 @@ php bin/console cache:clear
 ```
 Your newsletter form block is ready.
 
-![Newsletter Form Block](img/enterprise_tut_final_form.png "Newsletter Form Block")
+![Newsletter Form Block](enterprise_tut_final_form.png "Newsletter Form Block")
 
 Refresh the Page and enter a couple of mock submissions.
 
@@ -121,7 +121,7 @@ Go to **Forms** page. From the Content tree, select the Form and click the **Sub
 There, after selecting submission(s), click **Download submissions** or **Delete submission**.
 To see details about a submission, click the view icon.
 
-![Collect Form Submissions](img/enterprise_tut_form_collect_sub.png "Collect Form Submissions")
+![Collect Form Submissions](enterprise_tut_form_collect_sub.png "Collect Form Submissions")
 
 For more details, see [viewing form results.](https://doc.ezplatform.com/projects/userguide/en/latest/creating_forms/#viewing-results)
 
@@ -138,4 +138,4 @@ You have learned how to:
 - Use Form Builder and configure your form
 - Apply custom styling to blocks
 
-![Final result of the tutorial](img/enterprise_tut_main_screen.png "Final result of the tutorial")
+![Final result of the tutorial](enterprise_tut_main_screen.png "Final result of the tutorial")

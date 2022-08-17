@@ -99,7 +99,7 @@ General configuration for tabs, for example, browse, search, bookmarks.
 
 UDW configuration is SiteAccess-aware. For each defined SiteAccess, you need to be able to use the same configuration tree to define SiteAccess-specific config.
 These settings need to be mapped to SiteAccess-aware internal parameters that 
-you can retrieve with the [ConfigResolver](../guide/configuration/config_dynamic.md#configresolver).
+you can retrieve with the [ConfigResolver](dynamic_configuration.md#configresolver).
 
 ## Add new configuration
 

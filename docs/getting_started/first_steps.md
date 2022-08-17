@@ -10,11 +10,11 @@ These are most common actions you may need to take in a new installation.
 !!! tip "Beginner tutorial"
 
     To go through a full tutorial that leads from a clean installation to creating a full site,
-    see [Building a bicycle route tracker in [[= product_name =]]](../tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md).
+    see [Beginner tutorial](beginner_tutorial.md).
 
 ## Remove welcome page
 
-![Welcome page](img/welcome_page.png)
+![Welcome page](welcome_page.png)
 
 To remove the welcome page and get a completely clean installation to start your project with,
 remove the following files and folders from your installation:
@@ -44,13 +44,13 @@ module.exports = [ IbexaConfig, ...customConfigs ];
 !!! note "Password change"
 
     You will be requested to change your password at first login. 
-    For more information about passwords, see [Passwords](../guide/user_management/user_management.md#passwords).
+    For more information about passwords, see [Passwords](user_management.md#passwords).
 
 2\. Select Admin and go to Content Types.
 
 3\. Enter the Content group and create a new Content Type.
 
-![Creating a Content Type](img/first-steps-create-ct.png)
+![Creating a Content Type](first-steps-create-ct.png)
 
 4\. Input the Content Type's name, for example "Blog Post", and identifier: `blog_post`.
 
@@ -62,7 +62,7 @@ module.exports = [ IbexaConfig, ...customConfigs ];
 
 !!! tip "More information"
 
-    - [Content model](../guide/content_model.md)
+    - [Content model](content_model.md)
 
 ## Create Twig templates and match then with view config
 
@@ -94,21 +94,21 @@ Content view templates use the [Twig templating engine](https://twig.symfony.com
 
 !!! tip "More information"
 
-    - [Templates](../guide/content_rendering/templates/templates.md)
+    - [Templates](templates.md)
     - [Twig documentation](https://twig.symfony.com/doc/2.x/)
 
 ## Create content and test view templates
 
 1\. Go to the Back Office, activate Content/Content structure and create a new Content item using the button in the right menu.
 
-![Creating a Blog Post](img/first-steps-create-content.png)
+![Creating a Blog Post](first-steps-create-content.png)
 
 2\. Select a Blog Post Content Type. Fill in the Content item and publish it.
 
 3\. To preview the new Content item on the front page, go to `<yourdomain>/<Content-item-name>`.
 For example, if the title of the Blog post is "First blog post", the address will be `<yourdomain>/first-blog-post`.
 
-![Previewing Content](img/first-steps-preview-content.png)
+![Previewing Content](first-steps-preview-content.png)
 
 ## Add SiteAccesses
 
@@ -141,8 +141,8 @@ For now the new SiteAccess does not differ from the main site.
 
 !!! tip "More information"
 
-    - [Multisite](../guide/multisite/multisite.md)
-    - [SiteAccess matchers](../guide/multisite/siteaccess_matching.md#available-siteaccess-matchers)
+    - [Multisite](multisite.md)
+    - [SiteAccess matchers](siteaccess_matching.md#available-siteaccess-matchers)
 
 ## Add a language and translate Content
 
@@ -165,24 +165,24 @@ This means that German will be used as the main language for this SiteAccess, an
 2\. Go to the Back Office and select **Admin** > **Languages**. Add a new language called "German", with the language code `ger-DE`.
 Make sure it is enabled.
 
-![Creating a language](img/first-steps-create-language.png)
+![Creating a language](first-steps-create-language.png)
 
 3\. Next, go to the Content structure and open the blog post you had created earlier.
 Switch to the Translations tab and add a new translation.
 
-![Adding a translation](img/first-steps-add-translation.png)
+![Adding a translation](first-steps-add-translation.png)
 
 4\. Select German and base the new translation on the English version. Edit the Content item and publish it.
 
 5\. Go to the front page. The blog post will now display different content, depending on which SiteAccess you enter it from:
 `<yourdomain>/<content-name>` or `<yourdomain>/de/<content-name>`.
 
-![Previewing translated Content](img/first-steps-translated-content.png)
+![Previewing translated Content](first-steps-translated-content.png)
 
 !!! tip "More information"
 
-    - [Languages](../guide/internationalization.md)
-    - [Set up translation SiteAccess](../guide/multisite/set_up_translation_siteaccess.md)
+    - [Languages](languages.md)
+    - [Set up translation SiteAccess](set_up_translation_siteaccess.md)
 
 ## Add a design
 
@@ -229,7 +229,7 @@ Call the group "Bloggers".
 
 2\. In the new group create a User. Remember their username and password. Mark the user as "Enabled".
 
-![Creating a User](img/first-steps-create-user.png)
+![Creating a User](first-steps-create-user.png)
 
 3\. Go to Admin > Roles. Create a new Role called "Blogger".
 
@@ -247,15 +247,15 @@ Call the group "Bloggers".
 - `Content/Edit` with Limitation for Content Type Blog Post
 - `Content/Publish` with Limitation for Content Type Blog Post
 
-![Adding Limitations to a Policy](img/first-steps-policy-limitations.png)
+![Adding Limitations to a Policy](first-steps-policy-limitations.png)
 
 6\. In the Assignments tab assign the "Blogger" Role to the "Bloggers" group.
 
-![Assigning a Role](img/first-steps-assign-roles.png)
+![Assigning a Role](first-steps-assign-roles.png)
 
 You can now log out and log in again as the new User.
 You will be able to create Blog Posts only.
 
 !!! tip  "More information"
 
-    - [Permissions](../guide/permissions.md)
+    - [Permissions](permissions.md)

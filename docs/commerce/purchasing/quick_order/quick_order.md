@@ -9,11 +9,11 @@ The customer can enter a list of SKUs and add them all together to the basket.
 
 Quick order supports autosuggestions and an upload of product data in CSV format.
 
-![](../img/quickorder_2.png)
+![](quickorder_2.png)
 
 If a customer stores items in the quick order, they can see the real prices and availability.
 
-![](../img/quickorder_3.png)
+![](quickorder_3.png)
 
 ## Storage time
 
@@ -24,7 +24,7 @@ and indefinitely for logged-in users.
 
 When entering SKUs, Solr looks up a list of matching results.
 
-![](../img/quickorder_6.png)
+![](quickorder_6.png)
 
 Quick order supports variants in autosuggestion.
 Customers can type the product name or SKU and/or a variant code (or parts of it) into the SKU field.
@@ -54,7 +54,7 @@ To provide SKU, variant code and quantity:
 SE0101,VAR-BLK,3
 ```
 
-You can set a different order of data and add [additional text](../basket/basket.md#basket-configuration)
+You can set a different order of data and add [additional text](basket.md#basket-configuration)
 in [configuration](quick_order_configuration.md#csv-data-order).
 
 The following MIME types are supported:

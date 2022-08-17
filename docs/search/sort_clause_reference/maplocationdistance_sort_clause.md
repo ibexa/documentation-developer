@@ -13,7 +13,7 @@ sorts search results by the distance of the indicated MapLocation Field to the p
 
 ## Limitations
 
-The `MapLocationDistance` Sort Clause is not available in [Repository filtering](../../../api/public_php_api_search.md#repository-filtering).
+The `MapLocationDistance` Sort Clause is not available in [Repository filtering](search_api.md#repository-filtering).
 
 ## Example
 

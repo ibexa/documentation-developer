@@ -109,4 +109,4 @@ ibexa_site_factory:
     update_roles: [Anonymous, Administrator]
 ```
 
-For more information about Roles and Policies, see [Permissions](../permissions.md). 
+For more information about Roles and Policies, see [Permissions](permissions.md). 

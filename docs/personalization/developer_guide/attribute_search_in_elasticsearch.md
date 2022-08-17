@@ -44,4 +44,4 @@ ibexa:
                         
 ```
 
-![Attributes search](../img/perso_attributes_search.png)
+![Attributes search](perso_attributes_search.png)

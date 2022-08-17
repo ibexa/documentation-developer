@@ -42,7 +42,7 @@ You can copy subtree from CLI using the command: `bin/console ibexa:copy-subtree
 
 ## Default Locations
 
-Default Location IDs for [Content structure, Media and Users](../guide/content_management.md#top-level-locations) in the menu are configured using the following settings:
+Default Location IDs for [Content structure, Media and Users](content_management.md#top-level-locations) in the menu are configured using the following settings:
 
 ``` yaml
 ibexa:

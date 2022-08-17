@@ -42,8 +42,8 @@ The predefined `admin` SiteAccess in `admin_group` (configured in `config/packag
 Do not remove this group.
 If you need a multisite setup with multiple Back Offices, add any additional administration SiteAccesses to `admin_group`.
 
-In cases where the sites are on separate databases, each needs its own [repository](../configuration/config_repository.md)
-(including their own storage and search connection), var dir, [cache pool](../persistence_cache.md#persistence-cache-configuration),
+In cases where the sites are on separate databases, each needs its own [repository](repository_configuration.md)
+(including their own storage and search connection), var dir, [cache pool](persistence_cache.md#persistence-cache-configuration),
 and ideally also separate Varnish/Fastly configuration.
 
 !!! caution

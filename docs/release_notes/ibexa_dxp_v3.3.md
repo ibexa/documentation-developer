@@ -4,7 +4,7 @@
 
 **Release date**: January 18, 2021
 
-**Release type**: [Long Term Support](../community_resources/release_process.md#release-process)
+**Release type**: [Long Term Support](https://support.ibexa.co/Public/service-life)
 
 ## Notable changes
 
@@ -12,7 +12,7 @@
 
 This release brings a completely reconstructed user interface of the Personalization feature.
 
-![Personalization dashboard](img/3.3_perso_ui.png "Personalization dashboard")
+![Personalization dashboard](3.3_perso_ui.png "Personalization dashboard")
 
 ### Symfony Flex
 
@@ -85,4 +85,4 @@ See [list of changes in Symfony 5.2.](https://symfony.com/blog/symfony-5-2-curat
 ### Symfony 5.4
 
 The version v3.3.15 moves Ibexa DXP to Symfony 5.4.
-For more information, see [Symfony 5.4 documentation](https://symfony.com/releases/5.4) and [update documentation](../updating/from_3.3/update_from_3.3.md#3315).
+For more information, see [Symfony 5.4 documentation](https://symfony.com/releases/5.4) and [update documentation](update_from_3.3.md#3315).

@@ -25,11 +25,11 @@ available in the [`Ibexa\Core\FieldType`](https://github.com/ibexa/core/tree/mai
 !!! note "Registration"
 
     Remember that all your custom Field Types must be registered in `config/services.yml`.
-    For more information see [Registration](field_type_type_and_value.md#registration).
+    For more information see [Registration](type_and_value.md#registration).
 
 In order to provide custom functionality for a Field Type, the SPI interacts with multiple layers of the [[= product_name =]] architecture:
 
-![Field Type Overview](img/field_type_overview.png)
+![Field Type Overview](field_type_overview.png)
 
 On the top layer, the Field Type needs to provide conversion from and to a simple PHP hash value to support the **REST API**. The generated hash value may only consist of scalar values and hashes. It must not contain objects or arrays with numerical indexes that aren't sequential and/or don't start with zero.
 
@@ -48,7 +48,7 @@ The following sequence diagrams visualize the process of creating and publishing
 
 ## Creating content
 
-![Create content sequence](img/create_content_sequence.png)
+![Create content sequence](create_content_sequence.png)
 
 ## Publishing content
 
@@ -57,12 +57,12 @@ The following sequence diagrams visualize the process of creating and publishing
     For **Solr** Locations are indexed during Content indexing.
     For **Legacy/SQL** indexing is not required as Location data already exists in a database.
 
-![Publish content sequence](img/publish_content_sequence.png)
+![Publish content sequence](publish_content_sequence.png)
 
 ## Updating content
 
-![Update content sequence](img/update_content_sequence.png)
+![Update content sequence](update_content_sequence.png)
 
 ## Loading content
 
-![Load content sequence](img/load_content_sequence.png)
+![Load content sequence](load_content_sequence.png)

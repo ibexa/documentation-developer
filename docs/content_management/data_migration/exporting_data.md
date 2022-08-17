@@ -9,7 +9,7 @@ To see an example of migrations in action, export data already present in your i
 To export Repository content, use the `ibexa:migrations:generate` command.
 This command generates a YAML file with the requested part of the Repository.
 The file is located by default in the `src/Migrations/Ibexa/migrations` folder
-or in [a custom folder that you configure](migration_management.md#migration-folders).
+or in [a custom folder that you configure](managing_migrations.md#migration-folders).
 You can later use this file to import the data.
 
 ``` bash
@@ -68,7 +68,7 @@ Parts of it can be removed or modified.
 You can treat it as a template for another Content item for user group.
 For example, you could:
 
-- Remove `references` if you don't intend to store IDs for future use (see [migration references](migration_management.md#references))
+- Remove `references` if you don't intend to store IDs for future use (see [migration references](managing_migrations.md#references))
 - Remove `publicationDate`, `modificationDate`, `locationRemoteId`,
   as those are generated if not passed (just like in PHP API)
 - Add [`actions`](data_migration_actions.md)

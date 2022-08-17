@@ -18,7 +18,7 @@ To adapt you installation to v3, you need to make a number of modifications to y
 The latest Symfony versions changed the organization of your project into folders and bundles.
 When updating to eZ Platform v3 you need to move your files and modify file paths and namespace references.
 
-![Project structure changes in v3](../img/folder_structure_v3.png "Project folder structure changes between v2 and v3")
+![Project structure changes in v3](folder_structure_v3.png "Project folder structure changes between v2 and v3")
 
 #### Configuration
 
@@ -63,12 +63,12 @@ Content of `app/Resources/assets` has been moved to `assets`.
 !!! note
 
     You also need to update paths that refer to the old location,
-    for example in [`webpack.config.js`](../../guide/project_organization.md#importing-configuration-from-a-bundle).
+    for example in [`webpack.config.js`](project_organization.md#importing-configuration-from-a-bundle).
 
 !!! note "Full list of deprecations"
 
     If you encounter any issue during the upgrade,
-    see [eZ Platform v3.0 deprecations](../../releases/ez_platform_v3.0_deprecations.md#template-organization)
+    see [eZ Platform v3.0 deprecations](ez_platform_v3.0_deprecations.md#template-organization)
     for details of all required changes to your code.
 
 ### Third-party dependencies

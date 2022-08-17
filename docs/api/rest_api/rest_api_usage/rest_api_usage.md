@@ -8,7 +8,7 @@ The REST API in [[= product_name =]] allows you to interact with an [[= product_
 following a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
 
 Each resource (URI) interacts with a part of the system (content, users, search, and so on).
-Every interaction with the Repository than you can do from Back Office or using the [Public PHP API](public_php_api.md) can also be done using the REST API.
+Every interaction with the Repository than you can do from Back Office or using the [Public PHP API](php_api.md) can also be done using the REST API.
 
 The REST API uses HTTP methods (`GET`, `PUBLISH` , and so on), as well as HTTP headers to specify the type of request.
 
@@ -19,11 +19,11 @@ Starting from the [root resource](#rest-root), every response includes further l
 
 ### URI prefix
 
-[REST reference](rest_api_reference/rest_api_reference.html), for the sake of readability, uses no prefixes in the URIs.
+[REST reference](../rest_api_reference/rest_api_reference.html), for the sake of readability, uses no prefixes in the URIs.
 In practice, the `/api/ibexa/v2` prefixes all REST hrefs.
 
-This prefix immediately follows the domain, and you can't use the [`URIElement` SiteAccess matcher](../guide/multisite/siteaccess_matching.md#urielement).
-If you need to the select a SiteAccess, see the [`X-Siteaccess` HTTP header](rest_api_requests#siteaccess).
+This prefix immediately follows the domain, and you can't use the [`URIElement` SiteAccess matcher](siteaccess_matching.md#urielement).
+If you need to the select a SiteAccess, see the [`X-Siteaccess` HTTP header](rest_requests#siteaccess).
 
 ### URI parameters
 

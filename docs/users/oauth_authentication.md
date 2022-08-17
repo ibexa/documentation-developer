@@ -51,7 +51,7 @@ If they do not, the mapper creates a new user in the Repository.
 
 To use `ResourceOwnerToExistingOrNewUserMapper` you need to extend it in your custom mapper.
 
-See [Adding login through external service](login_via_external_service.md) for an example of creating a mapper
+See [Adding login through external service](add_login_through_external_service.md) for an example of creating a mapper
 that extends `ResourceOwnerToExistingOrNewUserMapper`.
 
 !!! tip "OAuth User Content Type"
