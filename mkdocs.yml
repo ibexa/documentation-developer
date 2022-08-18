@@ -5,573 +5,572 @@ repo_url: https://github.com/ezsystems/developer-documentation
 site_url: https://doc.ibexa.co/en/latest/
 copyright: "Copyright 1999-2022 Ibexa AS and others"
 nav:
-    - 'Ibexa Developer Documentation': 'index.md'
+    - Ibexa Developer Documentation: index.md
     - Getting started:
-        - 'Requirements': 'getting_started/requirements.md'
-        - 'Install Ibexa DXP': 'getting_started/install_ez_platform.md'
-        - 'Install on Ibexa Cloud': 'getting_started/install_on_ibexa_cloud.md'
-        - 'Install on MacOS and Windows': 'getting_started/install-on-mac-os-and-windows.md'
-        - 'First steps': 'getting_started/first_steps.md'
-        - 'Troubleshooting': 'getting_started/troubleshooting.md'
+        - Requirements: getting_started/requirements.md
+        - Install Ibexa DXP: getting_started/install_ibexa_dxp.md
+        - Install on Ibexa Cloud: getting_started/install_on_ibexa_cloud.md
+        - Install on MacOS and Windows: getting_started/install_on_mac_os_and_windows.md
+        - First steps: getting_started/first_steps.md
+        - Troubleshooting: getting_started/troubleshooting.md
     - Tutorials:
         - Beginner tutorial:
-            - 'Beginner tutorial': 'tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md'
-            - '1. Get ready': 'tutorials/platform_beginner/1_get_ready.md'
-            - '2. Create the content model': 'tutorials/platform_beginner/2_create_the_content_model.md'
-            - '3. Customize the front page': 'tutorials/platform_beginner/3_customize_the_front_page.md'
-            - '4. Display a single Content item': 'tutorials/platform_beginner/4_display_single_content_item.md'
-            - '5. Display a list of Content items': 'tutorials/platform_beginner/5_display_a_list_of_content_items.md'
-            - '6. Improve configuration': 'tutorials/platform_beginner/6_improve_configuration.md'
-            - '7. Embed content': 'tutorials/platform_beginner/7_embed_content.md'
-            - '8. Enable account registration': 'tutorials/platform_beginner/8_enable_account_registration.md'
+            - Beginner tutorial: tutorials/beginner_tutorial/beginner_tutorial.md
+            - 1. Get ready: tutorials/beginner_tutorial/1_get_ready.md
+            - 2. Create the content model: tutorials/beginner_tutorial/2_create_the_content_model.md
+            - 3. Customize the front page: tutorials/beginner_tutorial/3_customize_the_front_page.md
+            - 4. Display a single Content item: tutorials/beginner_tutorial/4_display_single_content_item.md
+            - 5. Display a list of Content items: tutorials/beginner_tutorial/5_display_a_list_of_content_items.md
+            - 6. Improve configuration: tutorials/beginner_tutorial/6_improve_configuration.md
+            - 7. Embed content: tutorials/beginner_tutorial/7_embed_content.md
+            - 8. Enable account registration: tutorials/beginner_tutorial/8_enable_account_registration.md
         - Page and Form tutorial:
-            - 'Page and Form tutorial': 'tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md'
-            - '1. Get a starter website': 'tutorials/enterprise_beginner/1_get_a_starter_website.md'
-            - '2. Prepare the Landing Page': 'tutorials/enterprise_beginner/2_prepare_the_landing_page.md'
-            - '3. Use existing blocks': 'tutorials/enterprise_beginner/3_use_existing_blocks.md'
-            - '4. Create a custom block': 'tutorials/enterprise_beginner/4_create_a_custom_block.md'
-            - '5. Create a newsletter form': 'tutorials/enterprise_beginner/5_create_newsletter_form.md'
+            - Page and Form tutorial: tutorials/page_and_form_tutorial/page_and_form_tutorial.md
+            - 1. Get a starter website: tutorials/page_and_form_tutorial/1_get_a_starter_website.md
+            - 2. Prepare the Landing Page: tutorials/page_and_form_tutorial/2_prepare_the_landing_page.md
+            - 3. Use existing blocks: tutorials/page_and_form_tutorial/3_use_existing_blocks.md
+            - 4. Create a custom block: tutorials/page_and_form_tutorial/4_create_a_custom_block.md
+            - 5. Create a newsletter form: tutorials/page_and_form_tutorial/5_create_newsletter_form.md
         - Generic Field Type:
-            - 'Creating Point 2D Field Type': 'tutorials/generic_field_type/creating_a_point2d_field_type.md'
-            - '1. Implement Value class': 'tutorials/generic_field_type/1_implement_the_point2d_value_class.md'
-            - '2. Define Field Type': 'tutorials/generic_field_type/2_define_point2d_field_type.md'
-            - '3. Create a form': 'tutorials/generic_field_type/3_create_form_for_point2d.md'
-            - '4. Introduce a template': 'tutorials/generic_field_type/4_introduce_a_template.md'
-            - '5. Add a new Field': 'tutorials/generic_field_type/5_add_a_field.md'
-            - '6. Implement settings': 'tutorials/generic_field_type/6_settings.md'
-            - '7. Add basic validation': 'tutorials/generic_field_type/7_add_a_validation.md'
-            - '8. Data migration': 'tutorials/generic_field_type/8_data_migration.md'
+            - Creating Point 2D Field Type: tutorials/generic_field_type/creating_a_point2d_field_type.md
+            - 1. Implement Value class: tutorials/generic_field_type/1_implement_the_point2d_value_class.md
+            - 2. Define Field Type: tutorials/generic_field_type/2_define_point2d_field_type.md
+            - 3. Create a form: tutorials/generic_field_type/3_create_form_for_point2d.md
+            - 4. Introduce a template: tutorials/generic_field_type/4_introduce_a_template.md
+            - 5. Add a new Field: tutorials/generic_field_type/5_add_a_field.md
+            - 6. Implement settings: tutorials/generic_field_type/6_settings.md
+            - 7. Add basic validation: tutorials/generic_field_type/7_add_a_validation.md
+            - 8. Data migration: tutorials/generic_field_type/8_data_migration.md
     - API:
+        - PHP API: api/php_api/php_api.md
         - REST API:
-            - 'REST API usage':
-              - 'REST API usage': 'api/rest_api_usage.md'
-              - 'REST requests': 'api/rest_api_requests.md'
-              - 'REST responses': 'api/rest_api_responses.md'
-              - 'Testing REST API': 'api/rest_api_testing.md'
-            - 'REST API reference': 'api/rest_api_reference/rest_api_reference.html'
-            - 'Extending REST API':
-              - 'Adding custom media type': 'api/rest_api_extension_media_type.md'
-              - 'Creating new REST resource': 'api/rest_api_extension_resource.md'
-            - 'REST API authentication': 'api/rest_api_authentication.md'
-        - PHP API:
-            - 'PHP API': 'api/public_php_api.md'
-            - 'Browsing content': 'api/public_php_api_browsing.md'
-            - 'Search API': 'api/public_php_api_search.md'
-            - 'Creating content': 'api/public_php_api_creating_content.md'
-            - 'Managing content': 'api/public_php_api_managing_content.md'
-            - 'Catalog API': 'api/public_php_api_managing_catalog.md'
-            - 'Price API': 'api/public_php_api_managing_prices.md'
-            - 'Form API': 'api/public_php_api_managing_forms.md'
-            - 'Repository API': 'api/public_php_api_managing_repository.md'
-            - 'Data migration API': 'api/public_php_api_managing_migrations.md'
-            - 'User API': 'api/public_php_api_managing_users.md'
-            - 'Shop API': 'api/shop_business_api.md'
-            - 'URL API': 'api/public_php_api_url_service.md'
-        - Field Type:
-            - 'Field Type API': 'api/field_type_api.md'
-            - 'Type and Value': 'api/field_type_type_and_value.md'
-            - 'Form and template': 'api/field_type_form_and_template.md'
-            - 'Storage': 'api/field_type_storage.md'
-            - 'Validation': 'api/field_type_validation.md'
-            - 'Searching': 'api/field_type_search.md'
-            - 'Create custom generic Field Type': 'api/field_type/create_custom_generic_field_type.md'
-            - 'Create custom Field Type comparison': 'api/field_type/create_custom_field_type_comparison.md'
-            - 'Field Type reference': 'api/field_type_reference.md'
-            - Field Type reference:
-               - 'Author Field Type': 'api/field_types_reference/authorfield.md'
-               - 'BinaryFile Field Type': 'api/field_types_reference/binaryfilefield.md'
-               - 'Checkbox Field Type': 'api/field_types_reference/checkboxfield.md'
-               - 'Content query Field Type': 'api/field_types_reference/contentqueryfield.md'
-               - 'Country Field Type': 'api/field_types_reference/countryfield.md'
-               - 'CustomerGroup Field Type': 'api/field_types_reference/customergroupfield.md'
-               - 'DateAndTime Field Type': 'api/field_types_reference/dateandtimefield.md'
-               - 'Date Field Type': 'api/field_types_reference/datefield.md'
-               - 'EmailAddress Field Type': 'api/field_types_reference/emailaddressfield.md'
-               - 'Float Field Type': 'api/field_types_reference/floatfield.md'
-               - 'Form Field Type': 'api/field_types_reference/formfield.md'
-               - 'Image Field Type': 'api/field_types_reference/imagefield.md'
-               - 'ImageAsset Field Type': 'api/field_types_reference/imageassetfield.md'
-               - 'Integer Field Type': 'api/field_types_reference/integerfield.md'
-               - 'ISBN Field Type': 'api/field_types_reference/isbnfield.md'
-               - 'Keyword Field Type': 'api/field_types_reference/keywordfield.md'
-               - 'MapLocation Field Type': 'api/field_types_reference/maplocationfield.md'
-               - 'Matrix Field Type': 'api/field_types_reference/matrixfield.md'
-               - 'Measurement Field Type': 'api/field_types_reference/measurementfield.md'
-               - 'Media Field Type': 'api/field_types_reference/mediafield.md'
-               - 'Null Field Type': 'api/field_types_reference/nullfield.md'
-               - 'Page Field Type': 'api/field_types_reference/pagefield.md'
-               - 'Relation Field Type': 'api/field_types_reference/relationfield.md'
-               - 'RelationList Field Type': 'api/field_types_reference/relationlistfield.md'
-               - 'RichText Field Type': 'api/field_types_reference/richtextfield.md'
-               - 'Selection Field Type': 'api/field_types_reference/selectionfield.md'
-               - 'SesExternalData': 'api/field_types_reference/sesexternaldata.md'
-               - 'SesProfileData': 'api/field_types_reference/sesprofiledata.md'
-               - 'SesSelection': 'api/field_types_reference/sesselection.md'
-               - 'SpecificationsType': 'api/field_types_reference/specificationstype.md'
-               - 'TextBlock Field Type': 'api/field_types_reference/textblockfield.md'
-               - 'TextLine Field Type': 'api/field_types_reference/textlinefield.md'
-               - 'Time Field Type': 'api/field_types_reference/timefield.md'
-               - 'URL Field Type': 'api/field_types_reference/urlfield.md'
-               - 'User Field Type': 'api/field_types_reference/userfield.md'
+            - REST API usage:
+                - REST API usage: api/rest_api/rest_api_usage/rest_api_usage.md
+                - REST requests: api/rest_api/rest_api_usage/rest_requests.md
+                - REST responses: api/rest_api/rest_api_usage/rest_responses.md
+                - Testing REST API: api/rest_api/rest_api_usage/testing_rest_api.md
+            - REST API reference: api/rest_api/rest_api_reference/rest_api_reference.html
+            - Extending REST API:
+                - Adding custom media type: api/rest_api/extending_rest_api/adding_custom_media_type.md
+                - Creating new REST resource: api/rest_api/extending_rest_api/creating_new_rest_resource.md
+            - REST API authentication: api/rest_api/rest_api_authentication.md
         - GraphQL:
-            - 'GraphQL': 'api/graphql.md'
-            - 'GraphQL queries': 'api/graphql_queries.md'
-            - 'GraphQL operations': 'api/graphql_operations.md'
-            - 'GraphQL customization': 'api/graphql_customization.md'
-    - Guide:
+            - GraphQL: api/graphql/graphql.md
+            - GraphQL queries: api/graphql/graphql_queries.md
+            - GraphQL operations: api/graphql/graphql_operations.md
+            - GraphQL customization: api/graphql/graphql_customization.md
+        - Event reference:
+            - Event reference: api/event_reference/event_reference.md
+            - Content events: api/event_reference/content_events.md
+            - Content Type events: api/event_reference/content_type_events.md
+            - Location events: api/event_reference/location_events.md
+            - Catalog events: api/event_reference/catalog_events.md
+            - Language events: api/event_reference/language_events.md
+            - Section events: api/event_reference/section_events.md
+            - Object state events: api/event_reference/object_state_events.md
+            - Role events: api/event_reference/role_events.md
+            - User events: api/event_reference/user_events.md
+            - Page events: api/event_reference/page_events.md
+            - Site events: api/event_reference/site_events.md
+            - Shop events: api/event_reference/shop_events.md
+            - URL events: api/event_reference/url_events.md
+            - Trash events: api/event_reference/trash_events.md
+            - Other events: api/event_reference/other_events.md
+    - Administration:
         - Project organization:
-            - 'Project organization': 'guide/project_organization.md'
-            - 'Architecture': 'guide/architecture.md'
-            - 'Bundles': 'guide/bundles.md'
-            - 'Content model': 'guide/content_model.md'
+            - Project organization: administration/project_organization/project_organization.md
+            - Architecture: administration/project_organization/architecture.md
+            - Bundles: administration/project_organization/bundles.md
+        - Admin panel: administration/admin_panel.md
         - Configuration:
-            - 'Configuration': 'guide/configuration/configuration.md'
-            - 'Dynamic configuration': 'guide/configuration/config_dynamic.md'
-            - 'Repository configuration': 'guide/configuration/config_repository.md'
-        - 'Admin panel': 'guide/admin_panel.md'
-        - Content rendering:
-            - Render content:
-                - 'Render content': 'guide/content_rendering/render_content/render_content.md'
-                - 'Render Page': 'guide/content_rendering/render_content/render_page.md'
-                - 'Render product': 'guide/content_rendering/render_content/render_product.md'
-            - Templates:
-                - 'Templates': 'guide/content_rendering/templates/templates.md'
-                - 'Template configuration': 'guide/content_rendering/templates/template_configuration.md'
-                - 'View matcher reference': 'guide/content_rendering/templates/view_matcher_reference.md'
-                - 'Create custom view matcher': 'guide/content_rendering/templates/custom_view_matcher.md'
-            - 'Assets': 'guide/content_rendering/assets.md'
-            - 'Image variations': 'guide/content_rendering/image_variations.md'
-            - Twig functions reference:
-                - 'Twig functions reference': 'guide/content_rendering/twig_function_reference/twig_functions_reference.md'
-                - 'Content Twig functions': 'guide/content_rendering/twig_function_reference/content_twig_functions.md'
-                - 'Field Twig functions': 'guide/content_rendering/twig_function_reference/field_twig_functions.md'
-                - 'Product Twig functions': 'guide/content_rendering/twig_function_reference/product_twig_functions.md'
-                - 'Image Twig functions': 'guide/content_rendering/twig_function_reference/image_twig_functions.md'
-                - 'URL Twig functions': 'guide/content_rendering/twig_function_reference/url_twig_functions.md'
-                - 'Date Twig filters': 'guide/content_rendering/twig_function_reference/date_twig_filters.md'
-                - 'Other Twig filters': 'guide/content_rendering/twig_function_reference/other_twig_filters.md'
-            - URLs and routes:
-                - 'URLs and routes': 'guide/content_rendering/urls_and_routes.md'
-                - 'Custom breadcrumbs': 'guide/content_rendering/custom_breadcrumbs.md'
-            - Design engine:
-                - 'Design engine': 'guide/content_rendering/design_engine/design_engine.md'
-                - 'Add new design': 'guide/content_rendering/design_engine/add_new_design.md'
-            - Queries and controllers:
-                - 'Content queries': 'guide/content_rendering/queries_and_controllers/content_queries.md'
-                - 'Built-in Query types': 'guide/content_rendering/queries_and_controllers/built-in_query_types.md'
-                - 'Create custom Query type': 'guide/content_rendering/queries_and_controllers/custom_query_type.md'
-                - 'Controllers': 'guide/content_rendering/queries_and_controllers/controllers.md'
-            - Embed and list content:
-                - 'List content': 'guide/content_rendering/embed_and_list_content/list_content.md'
-                - 'List products': 'guide/content_rendering/embed_and_list_content/list_products.md'
-                - 'List products in catalog': 'guide/content_rendering/embed_and_list_content/list_products_in_catalog.md'
-                - 'Embed content': 'guide/content_rendering/embed_and_list_content/embed_content.md'
-                - 'Render images': 'guide/content_rendering/embed_and_list_content/render_images.md'
-            - Layout:
-                - 'Add breadcrumbs': 'guide/content_rendering/layout/add_breadcrumbs.md'
-                - 'Add forgot password option': 'guide/content_rendering/layout/add_forgot_password.md'
-                - 'Add login form': 'guide/content_rendering/layout/add_login_form.md'
-                - 'Add navigation menu': 'guide/content_rendering/layout/add_menu.md'
-                - 'Add search form to front page': 'guide/content_rendering/layout/add_search_form.md'
-                - 'Create user registration form': 'guide/content_rendering/layout/add_register_user_template.md'
-                - 'Customize basket': 'guide/content_rendering/layout/customize_basket.md'
-        - Content management:
-            - 'Content management': 'guide/content_management.md'
-            - Images:
-              - 'Images': 'guide/images/images.md'
-              - 'Configure Image Editor': 'guide/images/image_editor.md'
-              - 'Extend Image Editor': 'guide/images/extending_image_editor.md'
-              - 'Add Image Asset': 'guide/images/config_connector.md'
-            - Rich Text:
-                - 'Extend Online Editor': 'extending/extending_online_editor.md'
-                - 'Create custom RichText block': 'extending/richtext_block.md'
-            - File management: 
-                - 'File management': 'guide/file_management/file_management.md'
-                - 'Binary and Media download': 'guide/file_management/binary_media_download.md'
-                - 'File URL handling': 'guide/file_management/handling_file_url.md'
-            - Page:
-                - 'Page blocks': 'guide/page/page_blocks.md'
-                - 'Page block attributes': 'guide/page/page_block_attributes.md'
-                - 'Page block validators': 'guide/page/page_block_validators.md'
-                - 'Create custom Page block': 'guide/page/create_custom_page_block.md'
-            - Forms:
-                - 'Forms': 'guide/form_builder/forms.md'
-                - 'Create custom Form field': 'guide/form_builder/create_custom_form_field.md'
-                - 'Customize email notifications': 'guide/form_builder/customize_email_notifications.md'
-            - Workflow:
-                - 'Workflow': 'guide/workflow/workflow.md'
-                - 'Add custom workflow action': 'guide/workflow/add_custom_workflow_action.md'
-            - 'URL management': 'guide/url_management.md'
-            - 'User-generated content': 'guide/user_generated_content.md'
-        - Permissions:
-            - 'Permissions': 'guide/permissions.md'
-            - 'Permission use cases': 'guide/permission_use_cases.md'
-            - 'Limitations': 'guide/limitations.md'
-            - 'Limitation reference': 'guide/limitation_reference.md'
-            - 'Custom Policies': 'guide/custom_policies.md'
-        - User management:
-            - 'User management': 'guide/user_management/user_management.md'
-            - 'Customer groups': 'guide/user_management/customer_groups.md'
-            - 'Login and registration': 'guide/user_management/login_and_registration.md'
-            - 'OAuth authentication': 'guide/user_management/oauth.md'
-            - 'Add login through external service': 'guide/user_management/login_via_external_service.md'
-            - 'Token': 'guide/user_management/token.md'
-            - Customers:
-                - 'Customers': 'guide/customers/customers.md'
-                - 'Customer API': 'guide/customers/customer_api/customer_api.md'
-                - 'Customer profile data': 'guide/customers/customer_api/customer_profile_data.md'
-                - 'Customer data configuration': 'guide/customers/customer_api/configuration_for_customer_data.md'
-        - Product catalog:
-            - 'Product catalog': 'guide/catalog/catalog.md'
-            - 'Catalog configuration': 'guide/catalog/catalog_configuration.md'
-            - 'Enable purchasing products': 'guide/catalog/enable_purchasing_products.md'
-            - 'Create custom attribute type': 'guide/catalog/create_custom_attribute_type.md'
-            - 'Prices': 'guide/pricing/price_engine.md'
-            - 'Bestsellers': 'guide/bestsellers.md'
-        - Purchasing:
-            - 'Basket': 'guide/basket/basket.md'
-            - 'Wishlist and stored baskets': 'guide/basket/wishlist_and_stored_baskets.md'
-            - Checkout:
-                - 'Checkout': 'guide/checkout/checkout.md'
-                - 'Order confirmation': 'guide/checkout/order_confirmation.md'
-                - 'Return process': 'guide/checkout/return_process.md'
-            - Payment:
-                - 'Payment': 'guide/payment/payment.md'
-                - 'Payment API': 'guide/payment/payment_api.md'
-                - 'Payment troubleshooting': 'guide/payment/payment_troubleshooting.md'
-                - 'Paypal': 'guide/payment/paypal.md'
-            - Quick order:
-                - 'Quick order': 'guide/quick_order/quick_order.md'
-                - 'Quick order configuration': 'guide/quick_order/quick_order_configuration.md'
-            - Order history:
-                - 'Order history': 'guide/order_history/order_history.md'
-                - 'Order history configuration': 'guide/order_history/order_history_configuration.md'
-        - Search:
-            - 'Search': 'guide/search/search.md'
-            - Search Criteria reference:
-                - 'Search Criteria reference': 'guide/search/criteria_reference/search_criteria_reference.md'
-                - 'Ancestor': 'guide/search/criteria_reference/ancestor_criterion.md'
-                - 'ContentId': 'guide/search/criteria_reference/contentid_criterion.md'
-                - 'ContentTypeGroupId': 'guide/search/criteria_reference/contenttypegroupid_criterion.md'
-                - 'ContentTypeId': 'guide/search/criteria_reference/contenttypeid_criterion.md'
-                - 'ContentTypeIdentifier': 'guide/search/criteria_reference/contenttypeidentifier_criterion.md'
-                - 'CurrencyCode': 'guide/search/criteria_reference/currencycode_criterion.md'
-                - 'CustomerGroupId': 'guide/search/criteria_reference/customergroupid_criterion.md'
-                - 'DateMetadata': 'guide/search/criteria_reference/datemetadata_criterion.md'
-                - 'Depth': 'guide/search/criteria_reference/depth_criterion.md'
-                - 'Field': 'guide/search/criteria_reference/field_criterion.md'
-                - 'FieldRelation': 'guide/search/criteria_reference/fieldrelation_criterion.md'
-                - 'FullText': 'guide/search/criteria_reference/fulltext_criterion.md'
-                - 'IsCurrencyEnabled': 'guide/search/criteria_reference/iscurrencyenabled_criterion.md'
-                - 'IsFieldEmpty': 'guide/search/criteria_reference/isfieldempty_criterion.md'
-                - 'IsMainLocation': 'guide/search/criteria_reference/ismainlocation_criterion.md'
-                - 'IsProductBased': 'guide/search/criteria_reference/isproductbased_criterion.md'
-                - 'IsUserBased': 'guide/search/criteria_reference/isuserbased_criterion.md'
-                - 'IsUserEnabled': 'guide/search/criteria_reference/isuserenabled_criterion.md'
-                - 'LanguageCode': 'guide/search/criteria_reference/languagecode_criterion.md'
-                - 'LocationId': 'guide/search/criteria_reference/locationid_criterion.md'
-                - 'LocationRemoteId': 'guide/search/criteria_reference/locationremoteid_criterion.md'
-                - 'MapLocationDistance': 'guide/search/criteria_reference/maplocationdistance_criterion.md'
-                - 'MatchAll': 'guide/search/criteria_reference/matchall_criterion.md'
-                - 'MatchNone': 'guide/search/criteria_reference/matchnone_criterion.md'
-                - 'ObjectStateId': 'guide/search/criteria_reference/objectstateid_criterion.md'
-                - 'ObjectStateIdentifier': 'guide/search/criteria_reference/objectstateidentifier_criterion.md'
-                - 'ParentLocationId': 'guide/search/criteria_reference/parentlocationid_criterion.md'
-                - 'Priority': 'guide/search/criteria_reference/priority_criterion.md'
-                - 'RemoteId': 'guide/search/criteria_reference/remoteid_criterion.md'
-                - 'SectionId': 'guide/search/criteria_reference/sectionid_criterion.md'
-                - 'SectionIdentifier': 'guide/search/criteria_reference/sectionidentifier_criterion.md'
-                - 'Sibling': 'guide/search/criteria_reference/sibling_criterion.md'
-                - 'Subtree': 'guide/search/criteria_reference/subtree_criterion.md'
-                - 'UserEmail': 'guide/search/criteria_reference/useremail_criterion.md'
-                - 'UserId': 'guide/search/criteria_reference/userid_criterion.md'
-                - 'UserLogin': 'guide/search/criteria_reference/userlogin_criterion.md'
-                - 'UserMetadata': 'guide/search/criteria_reference/usermetadata_criterion.md'
-                - 'Visibility': 'guide/search/criteria_reference/visibility_criterion.md'
-                - 'LogicalAnd Criterion': 'guide/search/criteria_reference/logicaland_criterion.md'
-                - 'LogicalNot Criterion': 'guide/search/criteria_reference/logicalnot_criterion.md'
-                - 'LogicalOr Criterion': 'guide/search/criteria_reference/logicalor_criterion.md'
-            - Product Search Criteria:
-                - 'BasePrice': 'guide/search/criteria_reference/baseprice_criterion.md'
-                - 'CheckboxAttribute': 'guide/search/criteria_reference/checkboxattribute_criterion.md'
-                - 'ColorAttribute': 'guide/search/criteria_reference/colorattribute_criterion.md'
-                - 'CreatedAt': 'guide/search/criteria_reference/createdat_criterion.md'
-                - 'CreatedAtRange': 'guide/search/criteria_reference/createdatrange_criterion.md'
-                - 'CustomPrice': 'guide/search/criteria_reference/customprice_criterion.md'
-                - 'FloatAttribute': 'guide/search/criteria_reference/floatattribute_criterion.md'
-                - 'IntegerAttribute': 'guide/search/criteria_reference/integerattribute_criterion.md'
-                - 'ProductAvailability': 'guide/search/criteria_reference/productavailability_criterion.md'
-                - 'ProductCategory': 'guide/search/criteria_reference/productcategory_criterion.md'
-                - 'ProductCode': 'guide/search/criteria_reference/productcode_criterion.md'
-                - 'ProductName': 'guide/search/criteria_reference/productname_criterion.md'
-                - 'ProductType': 'guide/search/criteria_reference/producttype_criterion.md'
-                - 'RangeMeasurementAttributeMinimum': 'guide/search/criteria_reference/rangemeasurementattributeminimum_criterion.md'
-                - 'RangeMeasurementAttributeMaximum': 'guide/search/criteria_reference/rangemeasurementattributemaximum_criterion.md'
-                - 'SimpleMeasurementAttribute': 'guide/search/criteria_reference/simplemeasurementattribute_criterion.md'
-                - 'SelectionAttribute': 'guide/search/criteria_reference/selectionattribute_criterion.md'
-            - Sort Clause reference:
-                - 'Sort Clause reference': 'guide/search/sort_clause_reference/sort_clause_reference.md'
-                - 'ContentId': 'guide/search/sort_clause_reference/contentid_sort_clause.md'
-                - 'ContentName': 'guide/search/sort_clause_reference/contentname_sort_clause.md'
-                - 'ContentTranslatedName': 'guide/search/sort_clause_reference/contenttranslatedname_sort_clause.md'
-                - 'ContentTypeName': 'guide/search/sort_clause_reference/contenttypename_sort_clause.md'
-                - 'CustomField': 'guide/search/sort_clause_reference/customfield_sort_clause.md'
-                - 'DateModified': 'guide/search/sort_clause_reference/datemodified_sort_clause.md'
-                - 'DatePublished': 'guide/search/sort_clause_reference/datepublished_sort_clause.md'
-                - 'DateTrashed': 'guide/search/sort_clause_reference/datetrashed_sort_clause.md'
-                - 'Depth': 'guide/search/sort_clause_reference/depth_sort_clause.md'
-                - 'Field': 'guide/search/sort_clause_reference/field_sort_clause.md'
-                - 'Id': 'guide/search/sort_clause_reference/id_sort_clause.md'
-                - 'IsMainLocation': 'guide/search/sort_clause_reference/ismainlocation_sort_clause.md'
-                - 'MapLocationDistance': 'guide/search/sort_clause_reference/maplocationdistance_sort_clause.md'
-                - 'Path': 'guide/search/sort_clause_reference/path_sort_clause.md'
-                - 'Priority': 'guide/search/sort_clause_reference/priority_sort_clause.md'
-                - 'Random': 'guide/search/sort_clause_reference/random_sort_clause.md'
-                - 'Score': 'guide/search/sort_clause_reference/score_sort_clause.md'
-                - 'SectionIdentifier': 'guide/search/sort_clause_reference/sectionidentifier_sort_clause.md'
-                - 'SectionName': 'guide/search/sort_clause_reference/sectionname_sort_clause.md'
-                - 'UserLogin': 'guide/search/sort_clause_reference/userlogin_sort_clause.md'
-                - 'Visibility': 'guide/search/sort_clause_reference/visibility_sort_clause.md'
-            - Product Sort Clauses:
-                - 'CreatedAt': 'guide/search/sort_clause_reference/createdat_sort_clause.md'
-                - 'ProductAvailability': 'guide/search/sort_clause_reference/productavailability_sort_clause.md'
-                - 'ProductCode': 'guide/search/sort_clause_reference/productcode_sort_clause.md'
-                - 'ProductName': 'guide/search/sort_clause_reference/productname_sort_clause.md'
-            - Aggregation reference:
-                - 'Aggregation reference': 'guide/search/aggregation_reference/aggregation_reference.md'
-                - 'ContentTypeTermAggregation': 'guide/search/aggregation_reference/contenttypeterm_aggregation.md'
-                - 'ContentTypeGroupTermAggregation': 'guide/search/aggregation_reference/contenttypegroupterm_aggregation.md'
-                - 'DateMetadataRangeAggregation': 'guide/search/aggregation_reference/datemetadatarange_aggregation.md'
-                - 'LanguageTermAggregation': 'guide/search/aggregation_reference/languageterm_aggregation.md'
-                - 'LocationChildrenTermAggregation': 'guide/search/aggregation_reference/locationchildrenterm_aggregation.md'
-                - 'ObjectStateTermAggregation': 'guide/search/aggregation_reference/objectstateterm_aggregation.md'
-                - 'RawRangeAggregation': 'guide/search/aggregation_reference/rawrange_aggregation.md'
-                - 'RawStatsAggregation': 'guide/search/aggregation_reference/rawstats_aggregation.md'
-                - 'RawTermAggregation': 'guide/search/aggregation_reference/rawterm_aggregation.md'
-                - 'SectionTermAggregation': 'guide/search/aggregation_reference/sectionterm_aggregation.md'
-                - 'SubtreeTermAggregation': 'guide/search/aggregation_reference/subtreeterm_aggregation.md'
-                - 'UserMetadataTermAggregation': 'guide/search/aggregation_reference/usermetadataterm_aggregation.md'
-                - 'VisibilityTermAggregation': 'guide/search/aggregation_reference/visibilityterm_aggregation.md'
-                - 'AuthorTermAggregation': 'guide/search/aggregation_reference/authorterm_aggregation.md'
-                - 'CheckboxTermAggregation': 'guide/search/aggregation_reference/checkboxterm_aggregation.md'
-                - 'CountryTermAggregation': 'guide/search/aggregation_reference/countryterm_aggregation.md'
-                - 'DateRangeAggregation': 'guide/search/aggregation_reference/daterange_aggregation.md'
-                - 'DateTimeRangeAggregation': 'guide/search/aggregation_reference/datetimerange_aggregation.md'
-                - 'FloatRangeAggregation': 'guide/search/aggregation_reference/floatrange_aggregation.md'
-                - 'FloatStatsAggregation': 'guide/search/aggregation_reference/floatstats_aggregation.md'
-                - 'IntegerRangeAggregation': 'guide/search/aggregation_reference/integerrange_aggregation.md'
-                - 'IntegerStatsAggregation': 'guide/search/aggregation_reference/integerstats_aggregation.md'
-                - 'KeywordTermAggregation': 'guide/search/aggregation_reference/keywordterm_aggregation.md'
-                - 'SelectionTermAggregation': 'guide/search/aggregation_reference/selectionterm_aggregation.md'
-                - 'TimeRangeAggregation': 'guide/search/aggregation_reference/timerange_aggregation.md'
-            - URL search reference:
-                - 'URL search reference': 'guide/search/url_search_reference/url_search_reference.md'
-                - 'Id Sort Clause': 'guide/search/url_search_reference/id_url_sort_clause.md'
-                - 'Url Sort Clause': 'guide/search/url_search_reference/url_url_sort_clause.md'
-                - 'MatchAll Criterion': 'guide/search/url_search_reference/matchall_url_criterion.md'
-                - 'MatchNone Criterion': 'guide/search/url_search_reference/matchnone_url_criterion.md'
-                - 'Pattern Criterion': 'guide/search/url_search_reference/pattern_url_criterion.md'
-                - 'SectionId Criterion': 'guide/search/url_search_reference/sectionid_url_criterion.md'
-                - 'SectionIdentifier Criterion': 'guide/search/url_search_reference/sectionidentifier_url_criterion.md'
-                - 'Validity Criterion': 'guide/search/url_search_reference/validity_url_criterion.md'
-                - 'VisibleOnly Criterion': 'guide/search/url_search_reference/visibleonly_url_criterion.md'
-                - 'LogicalAnd Criterion': 'guide/search/url_search_reference/logicaland_url_criterion.md'
-                - 'LogicalNot Criterion': 'guide/search/url_search_reference/logicalnot_url_criterion.md'
-                - 'LogicalOr Criterion': 'guide/search/url_search_reference/logicalor_url_criterion.md'   
-            - 'Search in trash reference': 'guide/search/search_in_trash_reference.md'
-            - 'Elasticsearch search engine': 'guide/search/elastic.md'
-            - 'Solr search engine': 'guide/search/solr.md'
-            - Extend search:
-                - 'Create custom Search Criterion': 'guide/search/extensibility/create_custom_search_criterion.md'
-                - 'Create custom Sort Clause': 'guide/search/extensibility/create_custom_sort_clause.md'
-                - 'Create custom Aggregation': 'guide/search/extensibility/create_custom_aggregation.md'
-                - 'Solr document field mappers': 'guide/search/extensibility/solr_document_field_mappers.md'
-                - 'Index custom Elasticsearch data': 'guide/search/extensibility/index_custom_elasticsearch_data.md'
-                - 'Manipulate Elasticsearch query': 'guide/search/extensibility/manipulate_elasticsearch_query.md'
-            - Shop search:
-                - 'Shop search': 'guide/search/shop_search/shop_search.md'
-                - 'Search configuration': 'guide/search/shop_search/search_configuration.md'
-                - 'Search API': 'guide/search/shop_search/search_api.md'
-                - 'Search indexing': 'guide/search/shop_search/search_indexing.md'
-                - 'Search synonyms': 'guide/search/shop_search/search_synonyms.md'
-                - 'Autosuggestion': 'guide/search/shop_search/search_autosuggest.md'
+            - Configuration: administration/configuration/configuration.md
+            - Dynamic configuration: administration/configuration/dynamic_configuration.md
+            - Repository configuration: administration/configuration/repository_configuration.md
+        - Back Office:
+            - Back Office: administration/back_office/back_office.md
+            - Configuration: administration/back_office/back_office_configuration.md
+            - Content Tree: administration/back_office/content_tree.md
+            - Back Office elements:
+                - Reusable components: administration/back_office/back_office_elements/reusable_components.md
+                - Add drop-downs: administration/back_office/back_office_elements/add_dropdowns.md
+                - Custom icons: administration/back_office/back_office_elements/custom_icons.md
+                - Add drag and drop: administration/back_office/back_office_elements/add_drag_and_drop.md
+                - Custom components: administration/back_office/back_office_elements/custom_components.md
+                - Formatting date and time: administration/back_office/back_office_elements/formatting_date_and_time.md
+                - Extending thumbnails: administration/back_office/back_office_elements/extending_thumbnails.md
+                - Importing assets from a bundle: administration/back_office/back_office_elements/importing_assets_from_bundle.md
+            - Back Office tabs:
+                - Back Office tabs:  administration/back_office/back_office_tabs/back_office_tabs.md
+                - Create dashboard tab: administration/back_office/back_office_tabs/create_dashboard_tab.md
+            - Back Office menus:
+                - Back Office menus: administration/back_office/back_office_menus/back_office_menus.md
+                - Add menu item: administration/back_office/back_office_menus/add_menu_item.md
+            - Add user setting: administration/back_office/add_user_setting.md
+            - Customize calendar: administration/back_office/customize_calendar.md
+            - Browser:
+                - Browser: administration/back_office/browser/browser.md
+                - Add browser tab: administration/back_office/browser/add_browser_tab.md
+            - Multi-file upload: administration/back_office/multifile_upload.md
+            - Sub-items list: administration/back_office/subitems_list.md
+            - Notifications: administration/back_office/notifications.md
+    - Content management:
+        - Content management: content_management/content_management.md # Split into separate pages or include in Content model, then replace with landing page
+        - Content model: content_management/content_model.md
         - Taxonomy:
-            - 'Taxonomy': 'guide/taxonomy/taxonomy.md'
-        - Multisite:
-            - 'Multisite': 'guide/multisite/multisite.md'
-            - 'Multisite configuration': 'guide/multisite/multisite_configuration.md'
-            - 'Set up campaign SiteAccess': 'guide/multisite/set_up_campaign_siteaccess.md'
-            - 'Set up translation SiteAccess': 'guide/multisite/set_up_translation_siteaccess.md'
-            - 'Site Factory': 'guide/multisite/site_factory.md'
-            - 'Site Factory configuration': 'guide/multisite/site_factory_configuration.md'
-            - 'SiteAccess matching': 'guide/multisite/siteaccess_matching.md'
-            - 'Injecting SiteAccess': 'guide/multisite/injecting_siteaccess.md'
-            - 'SiteAccess-aware configuration': 'guide/multisite/siteaccess_aware_configuration.md'
-        - Languages:
-            - 'Languages': 'guide/internationalization.md'
-            - 'Back Office translations': 'guide/back_office_translations.md'
-            - 'Shop translations': 'guide/shop_translations.md'
-        - Personalization:
-            - 'Personalization': 'guide/personalization/personalization.md'
-            - 'Enable personalization': 'guide/personalization/enabling_personalization.md'
-            - 'Integrate recommendation service': 'guide/personalization/basic_integration.md'
-            - Developer guide:
-                - 'Tracking API': 'guide/personalization/developer_guide/tracking_api.md'
-                - 'Importing historical user tracking data': 'guide/personalization/developer_guide/importing_historical_user_tracking_data.md'
-                - 'Track with yct.js': 'guide/personalization/developer_guide/tracking_with_yct.md'
-                - 'Recommendation API': 'guide/personalization/developer_guide/recommendation_api.md'
-                - 'Content API': 'guide/personalization/developer_guide/content_api.md'
-                - 'User API': 'guide/personalization/developer_guide/user_api.md'
-                - 'Attribute search': 'guide/personalization/developer_guide/attributes_search_elastic.md'
-            - Best practices:
-                - 'Tracking integration': 'guide/personalization/best_practices/tracking_integration.md'
-                - 'Recommendation integration': 'guide/personalization/best_practices/recommendation_integration.md'
+            - Taxonomy: content_management/taxonomy/taxonomy.md
+        - Images:
+            - Images: content_management/images/images.md
+            - Configure Image Editor: content_management/images/configure_image_editor.md
+            - Extend Image Editor: content_management/images/extend_image_editor.md
+            - Add Image Asset from DAM: content_management/images/add_image_asset_from_dam.md
+        - Rich Text:
+            - Extend Online Editor: content_management/rich_text/extend_online_editor.md
+            - Create custom RichText block: content_management/rich_text/create_custom_richtext_block.md
+        - File management:
+            - File management: content_management/file_management/file_management.md
+            - Binary and Media download: content_management/file_management/binary_and_media_download.md
+            - File URL handling: content_management/file_management/file_url_handling.md
+        - Pages:
+            - Page blocks: content_management/pages/page_blocks.md
+            - Page block attributes: content_management/pages/page_block_attributes.md
+            - Page block validators: content_management/pages/page_block_validators.md
+            - Create custom Page block: content_management/pages/create_custom_page_block.md
+        - Forms:
+            - Forms: content_management/forms/forms.md
+            - Form API: content_management/forms/form_api.md
+            - Create custom Form field: content_management/forms/create_custom_form_field.md
+            - Customize email notifications: content_management/forms/customize_email_notifications.md
+        - Workflow:
+            - Workflow: content_management/workflow/workflow.md
+            - Add custom workflow action: content_management/workflow/add_custom_workflow_action.md
+        - URL management:
+            - URL management: content_management/url_management/url_management.md
+            - URL API: content_management/url_management/url_api.md   
+        - User-generated content: content_management/user_generated_content.md
+        - Content API:
+            - Browsing content: content_management/content_api/browsing_content.md
+            - Creating content: content_management/content_api/creating_content.md
+            - Managing content: content_management/content_api/managing_content.md
         - Data migration:
-            - 'Data migration': 'guide/data_migration/data_migration.md'
-            - 'Importing data': 'guide/data_migration/importing_data.md'
-            - 'Exporting data': 'guide/data_migration/exporting_data.md'
-            - 'Managing migrations': 'guide/data_migration/migration_management.md'
-            - 'Data migration actions': 'guide/data_migration/data_migration_actions.md'
-            - 'Create data migration action': 'guide/data_migration/create_migration_action.md'
-            - 'Create data migration step': 'guide/data_migration/create_migration_step.md'
-            - 'Add data migration matcher': 'guide/data_migration/add_data_migration_matcher.md'
-        - Repository:
-            - 'Repository': 'guide/repository.md'
-            - 'Request lifecycle': 'guide/request_lifecycle.md'
-            - 'Databases': 'guide/databases.md'
-            - Event reference:
-                - 'Event reference': 'guide/repository/event_reference/event_reference.md'
-                - 'Content events': 'guide/repository/event_reference/content_events.md'
-                - 'Content Type events': 'guide/repository/event_reference/content_type_events.md'
-                - 'Location events': 'guide/repository/event_reference/location_events.md'
-                - 'Catalog events': 'guide/repository/event_reference/catalog_events.md'
-                - 'Language events': 'guide/repository/event_reference/language_events.md'
-                - 'Section events': 'guide/repository/event_reference/section_events.md'
-                - 'Object state events': 'guide/repository/event_reference/object_state_events.md'
-                - 'Role events': 'guide/repository/event_reference/role_events.md'
-                - 'User events': 'guide/repository/event_reference/user_events.md'
-                - 'Page events': 'guide/repository/event_reference/page_events.md'
-                - 'Site events': 'guide/repository/event_reference/site_events.md'
-                - 'Shop events': 'guide/repository/event_reference/shop_events.md'
-                - 'URL events': 'guide/repository/event_reference/url_events.md'
-                - 'Trash events': 'guide/repository/event_reference/trash_events.md'
-                - 'Other events': 'guide/repository/event_reference/other_events.md'
+            - Data migration: content_management/data_migration/data_migration.md
+            - Importing data: content_management/data_migration/importing_data.md
+            - Exporting data: content_management/data_migration/exporting_data.md
+            - Managing migrations: content_management/data_migration/managing_migrations.md
+            - Data migration actions: content_management/data_migration/data_migration_actions.md
+            - Create data migration action: content_management/data_migration/create_data_migration_action.md
+            - Create data migration step: content_management/data_migration/create_data_migration_step.md
+            - Add data migration matcher: content_management/data_migration/add_data_migration_matcher.md
+            - Data migration API: content_management/data_migration/data_migration_api.md
+        - Field Types:
+            - Field Types: content_management/field_types/field_types.md
+            - Type and Value: content_management/field_types/type_and_value.md
+            - Form and template: content_management/field_types/form_and_template.md
+            - Storage: content_management/field_types/field_type_storage.md
+            - Validation: content_management/field_types/field_type_validation.md
+            - Searching: content_management/field_types/field_type_search.md
+            - Create custom generic Field Type: content_management/field_types/create_custom_generic_field_type.md
+            - Create custom Field Type comparison: content_management/field_types/create_custom_field_type_comparison.md
+            - Field Type reference:
+                - Field Type reference: content_management/field_types/field_type_reference/field_type_reference.md
+                - Author Field Type: content_management/field_types/field_type_reference/authorfield.md
+                - BinaryFile Field Type: content_management/field_types/field_type_reference/binaryfilefield.md
+                - Checkbox Field Type: content_management/field_types/field_type_reference/checkboxfield.md
+                - Content query Field Type: content_management/field_types/field_type_reference/contentqueryfield.md
+                - Country Field Type: content_management/field_types/field_type_reference/countryfield.md
+                - CustomerGroup Field Type: content_management/field_types/field_type_reference/customergroupfield.md
+                - DateAndTime Field Type: content_management/field_types/field_type_reference/dateandtimefield.md
+                - Date Field Type: content_management/field_types/field_type_reference/datefield.md
+                - EmailAddress Field Type: content_management/field_types/field_type_reference/emailaddressfield.md
+                - Float Field Type: content_management/field_types/field_type_reference/floatfield.md
+                - Form Field Type: content_management/field_types/field_type_reference/formfield.md
+                - Image Field Type: content_management/field_types/field_type_reference/imagefield.md
+                - ImageAsset Field Type: content_management/field_types/field_type_reference/imageassetfield.md
+                - Integer Field Type: content_management/field_types/field_type_reference/integerfield.md
+                - ISBN Field Type: content_management/field_types/field_type_reference/isbnfield.md
+                - Keyword Field Type: content_management/field_types/field_type_reference/keywordfield.md
+                - MapLocation Field Type: content_management/field_types/field_type_reference/maplocationfield.md
+                - Matrix Field Type: content_management/field_types/field_type_reference/matrixfield.md
+                - Measurement Field Type: content_management/field_types/field_type_reference/measurementfield.md
+                - Media Field Type: content_management/field_types/field_type_reference/mediafield.md
+                - Null Field Type: content_management/field_types/field_type_reference/nullfield.md
+                - Page Field Type: content_management/field_types/field_type_reference/pagefield.md
+                - Relation Field Type: content_management/field_types/field_type_reference/relationfield.md
+                - RelationList Field Type: content_management/field_types/field_type_reference/relationlistfield.md
+                - RichText Field Type: content_management/field_types/field_type_reference/richtextfield.md
+                - Selection Field Type: content_management/field_types/field_type_reference/selectionfield.md
+                - SesExternalData: content_management/field_types/field_type_reference/sesexternaldata.md
+                - SesProfileData: content_management/field_types/field_type_reference/sesprofiledata.md
+                - SesSelection: content_management/field_types/field_type_reference/sesselection.md
+                - SpecificationsType: content_management/field_types/field_type_reference/specificationstype.md
+                - TextBlock Field Type: content_management/field_types/field_type_reference/textblockfield.md
+                - TextLine Field Type: content_management/field_types/field_type_reference/textlinefield.md
+                - Time Field Type: content_management/field_types/field_type_reference/timefield.md
+                - URL Field Type: content_management/field_types/field_type_reference/urlfield.md
+                - User Field Type: content_management/field_types/field_type_reference/userfield.md
+    - Templating:
+        - Render content:
+            - Render content: templating/render_content/render_content.md
+            - Render Page: templating/render_content/render_page.md
+            - Render product: templating/render_content/render_product.md
+        - Templates:
+            - Templates: templating/templates/templates.md
+            - Template configuration: templating/templates/template_configuration.md
+            - View matcher reference: templating/templates/view_matcher_reference.md
+            - Create custom view matcher: templating/templates/create_custom_view_matcher.md
+        - Assets: templating/assets.md
+        - Image variations: templating/image_variations.md
+        - Twig function reference:
+            - Twig function reference: templating/twig_function_reference/twig_function_reference.md
+            - Content Twig functions: templating/twig_function_reference/content_twig_functions.md
+            - Field Twig functions: templating/twig_function_reference/field_twig_functions.md
+            - Product Twig functions: templating/twig_function_reference/product_twig_functions.md
+            - Image Twig functions: templating/twig_function_reference/image_twig_functions.md
+            - URL Twig functions: templating/twig_function_reference/url_twig_functions.md
+            - Date Twig filters: templating/twig_function_reference/date_twig_filters.md
+            - Other Twig filters: templating/twig_function_reference/other_twig_filters.md
+        - URLs and routes:
+            - URLs and routes: templating/urls_and_routes/urls_and_routes.md
+            - Custom breadcrumbs: templating/urls_and_routes/custom_breadcrumbs.md
+        - Design engine:
+            - Design engine: templating/design_engine/design_engine.md
+            - Add new design: templating/design_engine/add_new_design.md
+        - Queries and controllers:
+            - Content queries: templating/queries_and_controllers/content_queries.md
+            - Built-in Query types: templating/queries_and_controllers/built-in_query_types.md
+            - Create custom Query type: templating/queries_and_controllers/create_custom_query_type.md
+            - Controllers: templating/queries_and_controllers/controllers.md
+        - Embed and list content:
+            - List content: templating/embed_and_list_content/list_content.md
+            - List products: templating/embed_and_list_content/list_products.md
+            - List products in catalog: templating/embed_and_list_content/list_products_in_catalog.md
+            - Embed content: templating/embed_and_list_content/embed_content.md
+            - Render images: templating/embed_and_list_content/render_images.md
+        - Layout:
+            - Add breadcrumbs: templating/layout/add_breadcrumbs.md
+            - Add forgot password option: templating/layout/add_forgot_password_option.md
+            - Add login form: templating/layout/add_login_form.md
+            - Add navigation menu: templating/layout/add_navigation_menu.md
+            - Add search form to front page: templating/layout/add_search_form.md
+            - Create user registration form: templating/layout/create_user_registration_form.md
+            - Customize basket: templating/layout/customize_basket.md
+    - Commerce:
+        - PIM:
+            - PIM (Product catalog): commerce/pim/catalog.md #TODO
+            - PIM configuration: commerce/pim/pim_configuration.md
+            - Product API: commerce/pim/product_api.md
+            - Enable purchasing products: commerce/pim/enable_purchasing_products.md
+            - Create custom attribute type: commerce/pim/create_custom_attribute_type.md
+            - Prices: commerce/pim/prices.md
+            - Price API: commerce/pim/price_api.md
+            - Bestsellers: commerce/pim/bestsellers.md
+        - Purchasing:
+            - Basket: commerce/purchasing/basket.md
+            - Wishlist and stored baskets: commerce/purchasing/wishlist_and_stored_baskets.md
+            - Checkout:
+                - Checkout: commerce/purchasing/checkout/checkout.md
+                - Order confirmation: commerce/purchasing/checkout/order_confirmation.md
+                - Return process: commerce/purchasing/checkout/return_process.md
+            - Payment:
+                - Payment: commerce/purchasing/payment/payment.md
+                - Payment API: commerce/purchasing/payment/payment_api.md
+                - Payment troubleshooting: commerce/purchasing/payment/payment_troubleshooting.md
+                - Paypal: commerce/purchasing/payment/paypal.md
+            - Quick order:
+                - Quick order: commerce/purchasing/quick_order/quick_order.md
+                - Quick order configuration: commerce/purchasing/quick_order/quick_order_configuration.md
+            - Order history:
+                - Order history: commerce/purchasing/order_history/order_history.md
+                - Order history configuration: commerce/purchasing/order_history/order_history_configuration.md
+        - Shop API: commerce/shop_api.md
+    - Multisite:
+        - Multisite: multisite/multisite.md
+        - Multisite configuration: multisite/multisite_configuration.md
+        - Set up campaign SiteAccess: multisite/set_up_campaign_siteaccess.md
+        - Set up translation SiteAccess: multisite/set_up_translation_siteaccess.md
+        - Site Factory: multisite/site_factory.md
+        - Site Factory configuration: multisite/site_factory_configuration.md
+        - SiteAccess matching: multisite/siteaccess_matching.md
+        - Injecting SiteAccess: multisite/injecting_siteaccess.md
+        - SiteAccess-aware configuration: multisite/siteaccess_aware_configuration.md
+        - Languages:
+            - Languages: multisite/languages/languages.md
+            - Back Office translations: multisite/languages/back_office_translations.md
+            - Shop translations: multisite/languages/shop_translations.md
+    - Permissions:
+        - Permissions: permissions/permissions.md
+        - Permission use cases: permissions/permission_use_cases.md
+        - Limitations: permissions/limitations.md
+        - Limitation reference: permissions/limitation_reference.md
+        - Custom Policies: permissions/custom_policies.md
+    - Users:
+        - User management: users/user_management.md
+        - Customer groups: users/customer_groups.md
+        - Login and registration: users/login_and_registration.md
+        - OAuth authentication: users/oauth_authentication.md
+        - Add login through external service: users/add_login_through_external_service.md
+        - Token: users/token.md
+        - Segment API: users/segment_api.md
+        - Customers:
+            - Customers: users/customers/customers.md
+            - Customer API: users/customers/customer_api.md
+            - Customer profile data: users/customers/customer_profile_data.md
+            - Customer data configuration: users/customers/customer_data_configuration.md
+    - Personalization:
+        - Personalization: personalization/personalization.md
+        - Enable personalization: personalization/enable_personalization.md
+        - Integrate recommendation service: personalization/integrate_recommendation_service.md
+        - Developer guide:
+            - Tracking API: personalization/developer_guide/tracking_api.md
+            - Importing historical user tracking data: personalization/developer_guide/importing_historical_user_tracking_data.md
+            - Track with yct.js: personalization/developer_guide/tracking_with_yct.md
+            - Recommendation API: personalization/developer_guide/recommendation_api.md
+            - Content API: personalization/developer_guide/content_api.md
+            - User API: personalization/developer_guide/user_api.md
+            - Attribute search in Elasticsearch: personalization/developer_guide/attribute_search_in_elasticsearch.md
+        - Best practices:
+            - Tracking integration: personalization/best_practices/tracking_integration.md
+            - Recommendation integration: personalization/best_practices/recommendation_integration.md
+    - Search:
+        - Search: search/search.md
+        - Elasticsearch search engine: search/elasticsearch_search_engine.md
+        - Solr search engine: search/solr_search_engine.md
+        - Search API: search/search_api.md
+        - Search Criteria reference:
+            - Search Criteria reference: search/criteria_reference/search_criteria_reference.md
+            - Ancestor: search/criteria_reference/ancestor_criterion.md
+            - ContentId: search/criteria_reference/contentid_criterion.md
+            - ContentTypeGroupId: search/criteria_reference/contenttypegroupid_criterion.md
+            - ContentTypeId: search/criteria_reference/contenttypeid_criterion.md
+            - ContentTypeIdentifier: search/criteria_reference/contenttypeidentifier_criterion.md
+            - CurrencyCode: search/criteria_reference/currencycode_criterion.md
+            - CustomerGroupId: search/criteria_reference/customergroupid_criterion.md
+            - DateMetadata: search/criteria_reference/datemetadata_criterion.md
+            - Depth: search/criteria_reference/depth_criterion.md
+            - Field: search/criteria_reference/field_criterion.md
+            - FieldRelation: search/criteria_reference/fieldrelation_criterion.md
+            - FullText: search/criteria_reference/fulltext_criterion.md
+            - IsCurrencyEnabled: search/criteria_reference/iscurrencyenabled_criterion.md
+            - IsFieldEmpty: search/criteria_reference/isfieldempty_criterion.md
+            - IsMainLocation: search/criteria_reference/ismainlocation_criterion.md
+            - IsProductBased: search/criteria_reference/isproductbased_criterion.md
+            - IsUserBased: search/criteria_reference/isuserbased_criterion.md
+            - IsUserEnabled: search/criteria_reference/isuserenabled_criterion.md
+            - LanguageCode: search/criteria_reference/languagecode_criterion.md
+            - LocationId: search/criteria_reference/locationid_criterion.md
+            - LocationRemoteId: search/criteria_reference/locationremoteid_criterion.md
+            - MapLocationDistance: search/criteria_reference/maplocationdistance_criterion.md
+            - MatchAll: search/criteria_reference/matchall_criterion.md
+            - MatchNone: search/criteria_reference/matchnone_criterion.md
+            - ObjectStateId: search/criteria_reference/objectstateid_criterion.md
+            - ObjectStateIdentifier: search/criteria_reference/objectstateidentifier_criterion.md
+            - ParentLocationId: search/criteria_reference/parentlocationid_criterion.md
+            - Priority: search/criteria_reference/priority_criterion.md
+            - RemoteId: search/criteria_reference/remoteid_criterion.md
+            - SectionId: search/criteria_reference/sectionid_criterion.md
+            - SectionIdentifier: search/criteria_reference/sectionidentifier_criterion.md
+            - Sibling: search/criteria_reference/sibling_criterion.md
+            - Subtree: search/criteria_reference/subtree_criterion.md
+            - UserEmail: search/criteria_reference/useremail_criterion.md
+            - UserId: search/criteria_reference/userid_criterion.md
+            - UserLogin: search/criteria_reference/userlogin_criterion.md
+            - UserMetadata: search/criteria_reference/usermetadata_criterion.md
+            - Visibility: search/criteria_reference/visibility_criterion.md
+            - LogicalAnd Criterion: search/criteria_reference/logicaland_criterion.md
+            - LogicalNot Criterion: search/criteria_reference/logicalnot_criterion.md
+            - LogicalOr Criterion: search/criteria_reference/logicalor_criterion.md
+        - Product Search Criteria:
+            - BasePrice: search/criteria_reference/baseprice_criterion.md
+            - CheckboxAttribute: search/criteria_reference/checkboxattribute_criterion.md
+            - ColorAttribute: search/criteria_reference/colorattribute_criterion.md
+            - CreatedAt: search/criteria_reference/createdat_criterion.md
+            - CreatedAtRange: search/criteria_reference/createdatrange_criterion.md
+            - CustomPrice: search/criteria_reference/customprice_criterion.md
+            - FloatAttribute: search/criteria_reference/floatattribute_criterion.md
+            - IntegerAttribute: search/criteria_reference/integerattribute_criterion.md
+            - ProductAvailability: search/criteria_reference/productavailability_criterion.md
+            - ProductCategory: search/criteria_reference/productcategory_criterion.md
+            - ProductCode: search/criteria_reference/productcode_criterion.md
+            - ProductName: search/criteria_reference/productname_criterion.md
+            - ProductType: search/criteria_reference/producttype_criterion.md
+            - RangeMeasurementAttributeMinimum: search/criteria_reference/rangemeasurementattributeminimum_criterion.md
+            - RangeMeasurementAttributeMaximum: search/criteria_reference/rangemeasurementattributemaximum_criterion.md
+            - SimpleMeasurementAttribute: search/criteria_reference/simplemeasurementattribute_criterion.md
+            - SelectionAttribute: search/criteria_reference/selectionattribute_criterion.md
+        - Sort Clause reference:
+            - Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
+            - ContentId: search/sort_clause_reference/contentid_sort_clause.md
+            - ContentName: search/sort_clause_reference/contentname_sort_clause.md
+            - ContentTranslatedName: search/sort_clause_reference/contenttranslatedname_sort_clause.md
+            - ContentTypeName: search/sort_clause_reference/contenttypename_sort_clause.md
+            - CustomField: search/sort_clause_reference/customfield_sort_clause.md
+            - DateModified: search/sort_clause_reference/datemodified_sort_clause.md
+            - DatePublished: search/sort_clause_reference/datepublished_sort_clause.md
+            - DateTrashed: search/sort_clause_reference/datetrashed_sort_clause.md
+            - Depth: search/sort_clause_reference/depth_sort_clause.md
+            - Field: search/sort_clause_reference/field_sort_clause.md
+            - Id: search/sort_clause_reference/id_sort_clause.md
+            - IsMainLocation: search/sort_clause_reference/ismainlocation_sort_clause.md
+            - MapLocationDistance: search/sort_clause_reference/maplocationdistance_sort_clause.md
+            - Path: search/sort_clause_reference/path_sort_clause.md
+            - Priority: search/sort_clause_reference/priority_sort_clause.md
+            - Random: search/sort_clause_reference/random_sort_clause.md
+            - Score: search/sort_clause_reference/score_sort_clause.md
+            - SectionIdentifier: search/sort_clause_reference/sectionidentifier_sort_clause.md
+            - SectionName: search/sort_clause_reference/sectionname_sort_clause.md
+            - UserLogin: search/sort_clause_reference/userlogin_sort_clause.md
+            - Visibility: search/sort_clause_reference/visibility_sort_clause.md
+        - Product Sort Clauses:
+            - CreatedAt: search/sort_clause_reference/createdat_sort_clause.md
+            - ProductAvailability: search/sort_clause_reference/productavailability_sort_clause.md
+            - ProductCode: search/sort_clause_reference/productcode_sort_clause.md
+            - ProductName: search/sort_clause_reference/productname_sort_clause.md
+        - Aggregation reference:
+            - Aggregation reference: search/aggregation_reference/aggregation_reference.md
+            - ContentTypeTermAggregation: search/aggregation_reference/contenttypeterm_aggregation.md
+            - ContentTypeGroupTermAggregation: search/aggregation_reference/contenttypegroupterm_aggregation.md
+            - DateMetadataRangeAggregation: search/aggregation_reference/datemetadatarange_aggregation.md
+            - LanguageTermAggregation: search/aggregation_reference/languageterm_aggregation.md
+            - LocationChildrenTermAggregation: search/aggregation_reference/locationchildrenterm_aggregation.md
+            - ObjectStateTermAggregation: search/aggregation_reference/objectstateterm_aggregation.md
+            - RawRangeAggregation: search/aggregation_reference/rawrange_aggregation.md
+            - RawStatsAggregation: search/aggregation_reference/rawstats_aggregation.md
+            - RawTermAggregation: search/aggregation_reference/rawterm_aggregation.md
+            - SectionTermAggregation: search/aggregation_reference/sectionterm_aggregation.md
+            - SubtreeTermAggregation: search/aggregation_reference/subtreeterm_aggregation.md
+            - UserMetadataTermAggregation: search/aggregation_reference/usermetadataterm_aggregation.md
+            - VisibilityTermAggregation: search/aggregation_reference/visibilityterm_aggregation.md
+            - AuthorTermAggregation: search/aggregation_reference/authorterm_aggregation.md
+            - CheckboxTermAggregation: search/aggregation_reference/checkboxterm_aggregation.md
+            - CountryTermAggregation: search/aggregation_reference/countryterm_aggregation.md
+            - DateRangeAggregation: search/aggregation_reference/daterange_aggregation.md
+            - DateTimeRangeAggregation: search/aggregation_reference/datetimerange_aggregation.md
+            - FloatRangeAggregation: search/aggregation_reference/floatrange_aggregation.md
+            - FloatStatsAggregation: search/aggregation_reference/floatstats_aggregation.md
+            - IntegerRangeAggregation: search/aggregation_reference/integerrange_aggregation.md
+            - IntegerStatsAggregation: search/aggregation_reference/integerstats_aggregation.md
+            - KeywordTermAggregation: search/aggregation_reference/keywordterm_aggregation.md
+            - SelectionTermAggregation: search/aggregation_reference/selectionterm_aggregation.md
+            - TimeRangeAggregation: search/aggregation_reference/timerange_aggregation.md
+        - URL search reference:
+            - URL search reference: search/url_search_reference/url_search_reference.md
+            - Id Sort Clause: search/url_search_reference/id_url_sort_clause.md
+            - Url Sort Clause: search/url_search_reference/url_url_sort_clause.md
+            - MatchAll Criterion: search/url_search_reference/matchall_url_criterion.md
+            - MatchNone Criterion: search/url_search_reference/matchnone_url_criterion.md
+            - Pattern Criterion: search/url_search_reference/pattern_url_criterion.md
+            - SectionId Criterion: search/url_search_reference/sectionid_url_criterion.md
+            - SectionIdentifier Criterion: search/url_search_reference/sectionidentifier_url_criterion.md
+            - Validity Criterion: search/url_search_reference/validity_url_criterion.md
+            - VisibleOnly Criterion: search/url_search_reference/visibleonly_url_criterion.md
+            - LogicalAnd Criterion: search/url_search_reference/logicaland_url_criterion.md
+            - LogicalNot Criterion: search/url_search_reference/logicalnot_url_criterion.md
+            - LogicalOr Criterion: search/url_search_reference/logicalor_url_criterion.md
+        - Search in trash reference: search/search_in_trash_reference.md
+        - Extend search:
+            - Create custom Search Criterion: search/extensibility/create_custom_search_criterion.md
+            - Create custom Sort Clause: search/extensibility/create_custom_sort_clause.md
+            - Create custom Aggregation: search/extensibility/create_custom_aggregation.md
+            - Solr document field mappers: search/extensibility/solr_document_field_mappers.md
+            - Index custom Elasticsearch data: search/extensibility/index_custom_elasticsearch_data.md
+            - Manipulate Elasticsearch query: search/extensibility/manipulate_elasticsearch_query.md
+        - Shop search:
+            - Shop search: search/shop_search/shop_search.md
+            - Search configuration: search/shop_search/search_configuration.md
+            - Shop Search API: search/shop_search/shop_search_api.md
+            - Search indexing: search/shop_search/search_indexing.md
+            - Search synonyms: search/shop_search/search_synonyms.md
+            - Autosuggestion: search/shop_search/search_autosuggest.md
+    - Infrastructure and maintenance:
+        - Repository API: infrastructure_and_maintenance/repository_api.md # Split, next to relevant topics
+        - Request lifecycle: infrastructure_and_maintenance/request_lifecycle.md
+        - Databases: infrastructure_and_maintenance/databases.md
         - Cache:
-            - 'HTTP cache': 
-              - 'HTTP cache': 'guide/cache/http_cache.md'
-              - 'HTTP cache configuration': 'guide/cache/http_cache_config.md'
-              - 'Reverse proxy': 'guide/cache/symfony_reverse_proxy.md'
-              - 'Context-aware HTTP cache': 'guide/cache/context_aware_cache.md'
-              - 'Content-aware HTTP cache': 'guide/cache/content_aware_cache.md'
-            - 'Persistence cache': 'guide/persistence_cache.md'
-            - 'Shop caching': 'guide/cache/shop_caching.md'
+            - HTTP cache: 
+              - HTTP cache: infrastructure_and_maintenance/cache/http_cache/http_cache.md
+              - HTTP cache configuration: infrastructure_and_maintenance/cache/http_cache/http_cache_configuration.md
+              - Reverse proxy: infrastructure_and_maintenance/cache/http_cache/reverse_proxy.md
+              - Context-aware HTTP cache: infrastructure_and_maintenance/cache/http_cache/context_aware_cache.md
+              - Content-aware HTTP cache: infrastructure_and_maintenance/cache/http_cache/content_aware_cache.md
+            - Persistence cache: infrastructure_and_maintenance/cache/persistence_cache.md
+            - Shop caching: infrastructure_and_maintenance/cache/shop_caching.md
         - Clustering:
-            - 'Clustering': 'guide/clustering.md'
-            - 'AWS S3 clustering': 'guide/clustering_aws_s3.md'
-        - DevOps:
-            - 'DevOps': 'guide/devops.md'
-            - 'Backup': 'guide/backup.md'
-            - 'Performance': 'guide/performance.md'
-            - 'Environments': 'guide/environments.md'
-            - 'Sessions': 'guide/sessions.md'
-            - 'Logging': 'guide/logging/logging.md'
-            - 'Logfile rotation': 'guide/logging/logfile_rotation.md'
+            - Clustering: infrastructure_and_maintenance/clustering/clustering.md
+            - Clustering with AWS S3: infrastructure_and_maintenance/clustering/clustering_with_aws_s3.md
+        - DevOps: infrastructure_and_maintenance/devops.md
+        - Backup: infrastructure_and_maintenance/backup.md
+        - Performance: infrastructure_and_maintenance/performance.md
+        - Environments: infrastructure_and_maintenance/environments.md
+        - Sessions: infrastructure_and_maintenance/sessions.md
+        - Logging: infrastructure_and_maintenance/logging.md
+        - Logfile rotation: infrastructure_and_maintenance/logfile_rotation.md
         - Security:
-            - 'Development security': 'guide/security.md'
-            - 'Security checklist': 'guide/security_checklist.md'
-            - 'Reporting issues': 'guide/reporting_issues.md'
-        - 'Notifications': 'guide/sending_notifications.md'
-    - Extend Back Office:
-        - 'Back Office': 'extending/extending_back_office.md'
-        - 'Configuration': 'extending/config_back_office.md'
-        - 'Content Tree': 'extending/content_tree.md'
-        - Back Office elements:
-            - 'Reusable components': 'extending/reusable_back_office_templates.md'
-            - 'Add drop-downs': 'extending/creating_custom_dropdowns.md'
-            - 'Custom icons': 'extending/custom_icons.md'
-            - 'Add drag and drop': 'extending/drag_and_drop.md'
-            - 'Custom components': 'extending/custom_components.md'
-            - 'Formatting date and time': 'extending/extending_date_and_time.md'
-            - 'Extending thumbnails': 'extending/extending_thumbnails.md'
-            - 'Importing assets from a bundle': 'extending/import_assets_from_bundle.md'
-        - Back Office tabs:
-            - 'Back Office tabs':  'extending/tabs/back_office_tabs.md'
-            - 'Create dashboard tab': 'extending/tabs/add_dashboard_tab.md'
-        - Back Office menus:
-            - 'Back Office menus': 'extending/menus/back_office_menus.md'
-            - 'Add menu item': 'extending/menus/add_menu_item.md'
-        - 'Add user setting': 'extending/add_user_setting.md'
-        - 'Customize calendar': 'extending/customize_calendar.md'
-        - Browser:
-            - 'Browser': 'extending/extending_udw.md'
-            - 'Add browser tab': 'extending/add_udw_tab.md'
-        - 'Multi-file upload': 'extending/extending_multifile_upload.md'
-        - 'Sub-items list': 'extending/extending_subitems_list.md'
-    - Resources and community:
-        - 'Release process and roadmap': 'community_resources/release_process.md'
-        - 'Support and maintenance FAQ': 'community_resources/support_maintenance_faq.md'
-        - 'Ibexa DXP PhpStorm plugin': 'community_resources/phpstorm_plugin.md'
-        - Contributing:
-            - 'Report and follow issues': 'community_resources/report_follow_issues.md'
-            - 'Contribute translations': 'community_resources/translations.md'
-            - 'Package structure': 'community_resources/package_structure.md'
-    - Update and migration:
-        - 'Update Ibexa DXP': 'updating/update_ibexa_dxp.md'
+            - Development security: infrastructure_and_maintenance/security/development_security.md
+            - Security checklist: infrastructure_and_maintenance/security/security_checklist.md
+            - Reporting issues: infrastructure_and_maintenance/security/reporting_issues.md
+        - Support and maintenance FAQ: infrastructure_and_maintenance/support_and_maintenance_faq.md
+    - Update and migration: #TODO
+        - Update Ibexa DXP: update_and_migration/update_ibexa_dxp.md
         - Update from v1.13 and v2.x:
-            - 'Update from v1.13 and v2.x': 'updating/from_1.x_2.x/update_from_1.x_2.x.md'
-            - 'Update app to v2.5': 'updating/from_1.x_2.x/update_app_to_2.5.md'
-            - 'Update database to v2.5': 'updating/from_1.x_2.x/update_db_to_2.5.md'
+            - Update from v1.13 and v2.x: update_and_migration/from_1.x_2.x/update_from_1.x_2.x.md
+            - Update app to v2.5: update_and_migration/from_1.x_2.x/update_app_to_2.5.md
+            - Update database to v2.5: update_and_migration/from_1.x_2.x/update_db_to_2.5.md
         - Update from v2.5:
-            - 'Update from v2.5': 'updating/from_2.5/update_from_2.5.md'
-            - 'Update to v3.2': 'updating/from_2.5/to_3.2.md'
+            - Update from v2.5: update_and_migration/from_2.5/update_from_2.5.md
+            - Update to v3.2: update_and_migration/from_2.5/to_3.2.md
             - Adapt code to v3:
-                - 'Adapt code to v3': 'updating/from_2.5/adapt_code_to_v3.md'
-                - '1. Update templates': 'updating/from_2.5/update_code/1_update_templates.md'
-                - '2. Update configuration': 'updating/from_2.5/update_code/2_update_configuration.md'
-                - '3. Update Field Types': 'updating/from_2.5/update_code/3_update_field_types.md'
-                - '4. Update Signal Slots': 'updating/from_2.5/update_code/4_update_signal_slots.md'
-                - '5. Update Online Editor': 'updating/from_2.5/update_code/5_update_online_editor.md'
-                - '6. Update workflow': 'updating/from_2.5/update_code/6_update_workflow.md'
-                - '7. Update extended code': 'updating/from_2.5/update_code/7_update_extensions.md'
-                - '8. Update REST': 'updating/from_2.5/update_code/8_update_rest.md'
-                - '9. Other code updates': 'updating/from_2.5/update_code/9_update_other.md'
-            - 'Update to v3.3': 'updating/from_2.5/to_3.3.md'
-            - 'Update to latest v3.3': 'updating/from_2.5/to_3.3.latest.md'
+                - Adapt code to v3: update_and_migration/from_2.5/adapt_code_to_v3.md
+                - 1. Update templates: update_and_migration/from_2.5/update_code/1_update_templates.md
+                - 2. Update configuration: update_and_migration/from_2.5/update_code/2_update_configuration.md
+                - 3. Update Field Types: update_and_migration/from_2.5/update_code/3_update_field_types.md
+                - 4. Update Signal Slots: update_and_migration/from_2.5/update_code/4_update_signal_slots.md
+                - 5. Update Online Editor: update_and_migration/from_2.5/update_code/5_update_online_editor.md
+                - 6. Update workflow: update_and_migration/from_2.5/update_code/6_update_workflow.md
+                - 7. Update extended code: update_and_migration/from_2.5/update_code/7_update_extensions.md
+                - 8. Update REST: update_and_migration/from_2.5/update_code/8_update_rest.md
+                - 9. Other code updates: update_and_migration/from_2.5/update_code/9_update_other.md
+            - Update to v3.3: update_and_migration/from_2.5/to_3.3.md
+            - Update to latest v3.3: update_and_migration/from_2.5/to_3.3.latest.md
         - Update from v3.3:
-            - 'Update to v3.3.latest': 'updating/from_3.3/update_from_3.3.md'
-            - 'Update to v4.0': 'updating/from_3.3/to_4.0.md'
+            - Update to v3.3.latest: update_and_migration/from_3.3/update_from_3.3.md
+            - Update to v4.0: update_and_migration/from_3.3/to_4.0.md
         - Update from v4.0:
-            - 'Update to v4.1': 'updating/from_4.0/to_4.1.md'
+            - Update to v4.1: update_and_migration/from_4.0/to_4.1.md
         - Update from v4.1:
-            - 'Update to v4.2': 'updating/from_4.1/update_from_4.1.md'
+            - Update to v4.2: update_and_migration/from_4.1/update_from_4.1.md
         - Migrate to Ibexa DXP:
-            - 'Migrate from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
-            - 'Migrate from eZ Publish': 'migrating/migrating_from_ez_publish.md'
-            - 'Common migration issues': 'migrating/common_issues.md'
-    - Releases:
-        - 'Ibexa DXP v4.2': 'releases/ibexa_dxp_v4.2.md'
-        - 'Ibexa DXP v4.1': 'releases/ibexa_dxp_v4.1.md'
-        - 'Ibexa DXP v4.0': 'releases/ibexa_dxp_v4.0.md'
-        - 'Ibexa DXP v4.0 deprecations and BC breaks': 'releases/ibexa_dxp_v4.0_deprecations.md'
-        - 'Ibexa DXP v3.3 LTS': 'releases/ibexa_dxp_v3.3.md'
-        - 'Ibexa DXP v3.2': 'releases/ibexa_dxp_v3.2.md'
-        - 'eZ Platform v3.1': 'releases/ez_platform_v3.1.md'
-        - 'eZ Platform v3.0': 'releases/ez_platform_v3.0.md'
-        - 'eZ Platform v3.0 deprecations and BC breaks': 'releases/ez_platform_v3.0_deprecations.md'
-        - 'eZ Platform v2.5 LTS': 'releases/ez_platform_v2.5.md'
-        - 'eZ Platform v2.4': 'releases/ez_platform_v2.4.md'
-        - 'eZ Platform v2.3': 'releases/ez_platform_v2.3.md'
-        - 'eZ Platform v2.2.0': 'releases/ez_platform_v2.2.0.md'
-        - 'eZ Platform v2.1.0': 'releases/ez_platform_v2.1.0.md'
-        - 'eZ Platform v2.0.0': 'releases/ez_platform_v2.0.0.md'
-        - 'eZ Platform v1.13.0 LTS': 'releases/ez_platform_v1.13.0_lts.md'
-        - 'eZ Platform v1.12.0': 'releases/ez_platform_v1.12.0.md'
-        - 'eZ Platform v1.11.0': 'releases/ez_platform_v1.11.0.md'
-        - 'eZ Platform v1.10.0': 'releases/ez_platform_v1.10.0.md'
-        - 'eZ Platform v1.9.0': 'releases/ez_platform_v1.9.0.md'
-        - 'eZ Platform v1.8.0': 'releases/ez_platform_v1.8.0.md'
-        - 'eZ Platform v1.7.0 LTS': 'releases/ez_platform_v1.7.0_lts.md'
-    - 'References': 'references.md'
+            - Migrate from eZ Publish Platform: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish_platform.md
+            - Migrate from eZ Publish: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish.md
+            - Common migration issues: update_and_migration/migrate_to_ibexa_dxp/common_issues.md
+    - Resources:
+        - Release process and roadmap: resources/release_process_and_roadmap.md
+        - Ibexa DXP PhpStorm plugin: resources/phpstorm_plugin.md
+        - Contributing:
+            - Report and follow issues: resources/contributing/report_and_follow_issues.md
+            - Contribute translations: resources/contributing/contribute_translations.md
+            - Package structure: resources/contributing/package_structure.md
+    - Release notes:
+        - Ibexa DXP v4.2: release_notes/ibexa_dxp_v4.2.md
+        - Ibexa DXP v4.1: release_notes/ibexa_dxp_v4.1.md
+        - Ibexa DXP v4.0: release_notes/ibexa_dxp_v4.0.md
+        - Ibexa DXP v4.0 deprecations and BC breaks: release_notes/ibexa_dxp_v4.0_deprecations.md
+        - Ibexa DXP v3.3 LTS: release_notes/ibexa_dxp_v3.3.md
+        - Ibexa DXP v3.2: release_notes/ibexa_dxp_v3.2.md
+        - eZ Platform v3.1: release_notes/ez_platform_v3.1.md
+        - eZ Platform v3.0: release_notes/ez_platform_v3.0.md
+        - eZ Platform v3.0 deprecations and BC breaks: release_notes/ez_platform_v3.0_deprecations.md
+        - eZ Platform v2.5 LTS: release_notes/ez_platform_v2.5.md
+        - eZ Platform v2.4: release_notes/ez_platform_v2.4.md
+        - eZ Platform v2.3: release_notes/ez_platform_v2.3.md
+        - eZ Platform v2.2.0: release_notes/ez_platform_v2.2.0.md
+        - eZ Platform v2.1.0: release_notes/ez_platform_v2.1.0.md
+        - eZ Platform v2.0.0: release_notes/ez_platform_v2.0.0.md
+        - eZ Platform v1.13.0 LTS: release_notes/ez_platform_v1.13.0_lts.md
+        - eZ Platform v1.12.0: release_notes/ez_platform_v1.12.0.md
+        - eZ Platform v1.11.0: release_notes/ez_platform_v1.11.0.md
+        - eZ Platform v1.10.0: release_notes/ez_platform_v1.10.0.md
+        - eZ Platform v1.9.0: release_notes/ez_platform_v1.9.0.md
+        - eZ Platform v1.8.0: release_notes/ez_platform_v1.8.0.md
+        - eZ Platform v1.7.0 LTS: release_notes/ez_platform_v1.7.0_lts.md
 
 theme:
     name: material

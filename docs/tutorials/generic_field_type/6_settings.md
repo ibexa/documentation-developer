@@ -102,4 +102,4 @@ Now, you can go to Admin in the Back Office and see the results of your work by 
 
 Add new format `(%x%, %y%)` in the **Format** field as shown in the screen below.
 
-![Point 2D definition with format field](img/field_definition_format_field.png)
+![Point 2D definition with format field](field_definition_format_field.png)
