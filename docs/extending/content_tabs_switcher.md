@@ -1,7 +1,7 @@
 # Add tab switcher
 
-Tabs switcher allows to separate default Fieldtypes in the Content Type from the Fieldtypes that enrich/enhance the content with new functionalities.
-For example, SEO or Taxonomy, as these are not typical Fieldtypes but a fieldtypes which handle functionality for the whole Content object.
+Tabs switcher allows separating the default Fieldtypes in the Content Type from the Fieldtypes that enhance the content with new functionalities.
+The best example of such Fieldtype are SEO or Taxonomy, as these are not typical Fieldtypes but a Fieldtypes that handle functionality for the whole Content object.
 
 The following example shows how to add a Meta tab with automatically assigned Taxonomy Fieldtype.
 
@@ -27,7 +27,7 @@ ibexa:
 
 `meta` - when set to `true`, puts the declared Fieldtype in the Meta tab
 
-The new tab with Taxonomy field in the Content Type edit mode.
+![Meta tab](img/tab_switcher.png)
 
 ## Add custom tab
 
@@ -37,7 +37,7 @@ First, create an EventListener in the `src/EventListener/TextAnchorMenuTabListen
 [[= include_file('code_samples/back_office/content_type/src/EventListener/TextAnchorMenuTabListener.php') =]]
 ```
 
-A new custom tab is defined in the line 20, line 22 stands for the second level menu.
+A new custom tab is defined in the line 20, the line 22 defines items for the second level.
 
 For new tabs it is also required to render its section in the Content editing form. To do it, register the UI Component:
 
