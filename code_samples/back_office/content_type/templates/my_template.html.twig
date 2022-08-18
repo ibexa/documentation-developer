@@ -1,0 +1,12 @@
+{% extends '@ibexadesign/ui/component/anchor_navigation/primary_section.html.twig' %}
+
+{% set data_id = 'ibexa-edit-content-sections-tags' %}
+
+{% block sections %}
+    {% embed '@ibexadesign/ui/component/anchor_navigation/secondary_section.html.twig' %}
+        {% set data_id = 'ibexa-edit-content-sections-item-SEO' %}
+        {% block content %}
+            Contents of 'SEO' secondary section
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
