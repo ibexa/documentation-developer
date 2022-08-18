@@ -1,0 +1,122 @@
+/{baseProductCode}:
+    post:
+        displayName: Create product variant
+        description: Creates a new product variant.
+        headers:
+            Accept:
+                description: If set, the new product variant is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.ProductVariantCreate+json
+            Content-Type:
+                description: The product variant schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.ProductVariantCreate+json
+        body:
+            application/vnd.ibexa.api.ProductVariantCreate+json:
+                type: ProductVariantCreate
+                example: !include examples/product/catalog/product_variants/POST/ProductVariantCreate.json.example
+        responses:
+            201:
+                description: No content - product variant is created.
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to create this product variant.
+            403:
+                description: Error - a product variant with the same name already exists.
+            404:
+                description: Error - no base product with the given code exists.
+/generate/{baseProductCode}:
+    post:
+        displayName: Generate product variants
+        description: Generates new product variants based on selected (discriminator) attributes.
+        headers:
+            Accept:
+                description: If set, the new product variant is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.ProductVariantGenerate+json
+            Content-Type:
+                description: The product variant schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.ProductVariantGenerate+json
+        body:
+            application/vnd.ibexa.api.ProductVariantGenerate+json:
+                type: ProductVariantGenerate
+                example: !include examples/product/catalog/product_variants/POST/ProductVariantGenerate.json.example
+        responses:
+            201:
+                description: No content - product variants are generated.
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to create this product variant.
+            403:
+                description: Error - a product variant with the same name already exists.
+            404:
+                description: Error - no base product with the given code exists.
+/{code}:
+    delete:
+        displayName: Delete product variant
+        description: Deletes the given product variant.
+        responses:
+            204:
+                description: No content - product variant is deleted.
+            401:
+                description: Error - the user is not authorized to delete this product variant.
+    patch:
+        displayName: Update product variant
+        description: Updates product variant.
+        headers:
+            Accept:
+                description: If set, the updated product variant is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.ProductVariantUpdate+json
+            Content-Type:
+                description: If set, the updated product variant is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.ProductVariantUpdate+json
+        body:
+            application/vnd.ibexa.api.ProductVariantUpdate+json:
+                type: ProductUpdate
+                example: !include examples/product/catalog/product_variants/code/PATCH/ProductVariantUpdate.json.example
+        responses:
+            201:
+                body:
+                    application/vnd.ibexa.api.Product+json:
+                        type: ProductUpdate
+                        example: !include examples/product/catalog/product_variants/code/PATCH/ProductVariant.json.example
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to update this product variant.
+            403:
+                description: Error - a product variant with the same code already exists.
+            404:
+                description: Error - no product variant with the given code exists.
+/view:
+    post:
+        displayName: Filter product variants
+        description: Executes a query and returns a View including the results. The View input reflects the criteria model of the public API.
+        headers:
+            Accept:
+                description: The view in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.ProductVariantView+xml
+                    application/vnd.ibexa.api.ProductVariantView+json
+            Content-Type:
+                description: The view input in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.ProductVariantViewInput+xml
+                    application/vnd.ibexa.api.ProductVariantViewInput+json
+        body:
+            application/vnd.ibexa.api.ProductVariantViewInput+json:
+                type: ProductVariantViewInput
+                example: !include examples/product/catalog/product_variants/POST/ProductVariantViewInput.json.example
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.ProductVariantView+json;
+                        type: ProductVariantView
+                        example: !include examples/product/catalog/product_variants/POST/ProductVariantView.json.example
+            400:
+                description: Error - the input does not match the input schema definition.

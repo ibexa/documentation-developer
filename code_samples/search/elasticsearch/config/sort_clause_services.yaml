@@ -1,0 +1,5 @@
+services:
+    App\Query\SortClause\Elasticsearch\ScoreVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.sort_clause.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.sort_clause.visitor }
