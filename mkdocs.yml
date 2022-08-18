@@ -172,7 +172,7 @@ nav:
             - Create custom Field Type comparison: content_management/field_types/create_custom_field_type_comparison.md
             - Field Type reference:
                 - Field Type reference: content_management/field_types/field_type_reference/field_type_reference.md
-                - 'Address Field Type': 'api/field_types_reference/addressfield.md'
+                - Address Field Type: content_management/field_types/field_types_reference/addressfield.md
                 - Author Field Type: content_management/field_types/field_type_reference/authorfield.md
                 - BinaryFile Field Type: content_management/field_types/field_type_reference/binaryfilefield.md
                 - Checkbox Field Type: content_management/field_types/field_type_reference/checkboxfield.md
