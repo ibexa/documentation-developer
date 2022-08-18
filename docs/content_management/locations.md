@@ -2,9 +2,7 @@
 description: Locations hold published Content items and can be used to control visibility.
 ---
 
-# Content management
-
-## Locations
+# Locations
 
 When a new Content item is published, it is automatically placed in a new Location.
 
@@ -29,7 +27,7 @@ or [through the API](managing_content.md#changing-the-main-location).
 
 ![Locations](content_management_locations.png "Locations")
 
-### Top level Locations
+## Top level Locations
 
 The content tree is hierarchical. It has an empty root Location at the top and a structure of dependent Locations below it.
 Every Location (aside from the root) has one parent Location and can have any number of children.
@@ -39,7 +37,7 @@ The root has Location ID 1, is not related to any Content items and should not b
 
 Under this root there are preset top level Locations in each installation which cannot be deleted.
 
-#### Content
+### Content
 
 The top level Location for the actual contents of a site
 can be viewed by selecting the **Content structure** tab in the Content mode interface.
@@ -50,7 +48,7 @@ This part of the tree is typically used for organizing folders, articles, inform
 The default ID number of this Location is 2, but it can be [modified via configuration](repository_configuration.md#top-level-locations).
 It contains a Folder Content item.
 
-#### Media
+### Media
 
 **Media** is the top level Location which stores and organizes information
 that is frequently used by Content items located below the **Content** node.
@@ -61,7 +59,7 @@ It usually contains images, animations, documents and other files.
 The default ID number of the **Media** Location is 43, but it can be [modified via configuration](repository_configuration.md#top-level-locations).
 It contains a Folder Content item.
 
-#### Users
+### Users
 
 **Users** is the top level Location that contains the built-in system for managing User accounts.
 
@@ -75,17 +73,17 @@ which can be viewed by selecting the **Users** tab in the Admin Panel.
 The default ID number of the **Users** Location is 5, but it can be [modified via configuration](repository_configuration.md#top-level-locations).
 It contains a User Group Content item.
 
-#### Forms [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+### Forms [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 **Forms** is the top level Location that is intended for Forms created using the [Form Builder](https://doc.ibexa.co/projects/userguide/en/latest/creating_forms/).
 
 ![Forms](content_management_forms.png "Forms")
 
-#### Other top level Locations
+### Other top level Locations
 
 You should not add any more content directly below Location 1, but instead store any content under one of those top-level Locations.
 
-### Location visibility
+## Location visibility
 
 Location visibility allows you to control which parts of the content tree are available on the front page.
 
@@ -125,7 +123,7 @@ If the ancestor Location is made visible again, the first Location still remains
 
 The way visibility works can be illustrated using the following scenarios:
 
-##### Hiding a visible Location
+#### Hiding a visible Location
 
 ![Hiding a visible Location](node_visibility_hide.png)
 
@@ -133,14 +131,14 @@ When you hide a Location that was visible before, it will get the status Hidden.
 Its child Locations will be Hidden by superior.
 The visibility status of child Locations that were already Hidden or Hidden by superior will not change.
 
-##### Hiding a Location which is Hidden by superior
+#### Hiding a Location which is Hidden by superior
 
 ![Hiding a Location which is Hidden by superior](node_visibility_hide_invisible.png)
 
 When you explicitly hide a Location which was Hidden by superior, it will get the status Hidden.
 Since the underlying Locations are already either Hidden or Hidden by superior, their visibility status will not be changed.
 
-##### Revealing a Location with a visible ancestor
+#### Revealing a Location with a visible ancestor
 
 ![Revealing a Location with a visible ancestor](node_visibility_unhide1.png)
 
@@ -148,7 +146,7 @@ When you reveal a Location which has a visible ancestor, this Location and its c
 However, child Locations that were explicitly hidden by a user will keep their Hidden status
 (and their children will remain Hidden by superior).
 
-##### Revealing a Location with a Hidden ancestor
+#### Revealing a Location with a Hidden ancestor
 
 ![Revealing a Location with a Hidden ancestor](node_visibility_unhide2.png)
 
@@ -159,7 +157,7 @@ Because it still has invisible ancestors, its status will change to Hidden by su
 
     A Location can only be Visible when all of its ancestors are Visible as well.
 
-#### Visibility mechanics
+### Visibility mechanics
 
 The visibility mechanics are controlled by two flags: Hidden flag and Invisible flag.
 The Hidden flag informs whether the node has been hidden by a user or not.
@@ -182,66 +180,3 @@ Together, the flags represent the three visibility statuses:
     **It is not meant to restrict access to content**.
 
     If you need to restrict access to a given Content item, use [**Sections**](admin_panel.md#sections) or other [**Limitations**](limitations.md), which are permission-based.
-
-## Content availability
-
-The Default content availability flag enables you to control whether content is available when its translation is missing.
-
-You can set the flag in Content Type definition by checking the "Make content available even with missing translations" option.
-It is automatically applied to any new Content item of this Type.
-
-![Default content availability](availability_flag.png "Default content availability")
-
-A Content item with this flag will be available in its main language
-even if it is not translated into the language of the current SiteAccess.
-
-Without the flag, a Content item will not be available at all if it does not have a language version
-corresponding to the current SiteAccess.
-
-!!! note
-
-    There is currently no way in the Back Office to edit the Content availability flag
-    for an already published Content item.
-    
-    To do this via [PHP API](creating_content.md#updating-content), set the [`alwaysAvailable` property](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentMetadataUpdateStruct.php#L52) of the Content metadata.
-
-The Default availability flag is used for the out-of-the box Content Types representing content
-that should always be visible to the user, such as media files or user Content items.
-
-You can also use it for organizational Content Types.
-
-For example, you can assign the flag to a Blog Content Type which is intended to contain Blog Posts
-in multiple languages. If the Blog is in English only, it would not be visible for readers
-using the Norwegian or German SiteAcceses.
-However, if you set the default availability flag for the Blog Content Type,
-it will be displayed to them in English (if it is set as a main language) and will enable the users to browse individual
-posts in other languages.
-
-## Content Relations
-
-Content items are located in a tree structure through the Locations they are placed in.
-However, Content items themselves can also be related to one another.
-
-![Content Relations](content_management_relations.png "Content Relations")
-
-A **Relation** can exist between any two Content items in the Repository.
-For example, images are linked to news articles they are used in.
-Instead of using a fixed set of image attributes, the images are stored as separate Content items outside the article.
-
-There are different types of Relations available in the system.
-Content can have Relations on item or on Field level.
-
-*Relations at Field level* are created using one of two special Field Types: Content relation (single) and Content relations (multiple).
-These Fields allow you to select one or more other Content items in the Field value, which will be linked to these Fields.
-
-*Relations at Content item level* can be of three different types:
-
-- *Common Relations* are created between two Content items using the Public API.
-- *RichText linked Relations* are created using a Field of the RichText type.
-When an internal link (a link to another Location or Content item) is placed in a RichText Field,
-the system automatically creates a Relation.
-The Relation is automatically removed from the system when the link is removed from the Content item.
-- *RichText embedded Relations* also use a RichText Field.
-When an Embed element is placed in a RichText Field, the system automatically creates a Relation
-between the embedded Content item and the one with the RichText Field.
-The Relation is automatically removed from the system when the link is removed from the Content item.

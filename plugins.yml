@@ -84,7 +84,7 @@ plugins:
             'extending/extending_subitems_list.md': 'administration/back_office/subitems_list.md'
             'guide/sending_notifications.md': 'administration/back_office/notifications.md'
 
-            'guide/content_management.md': 'content_management/content_management.md'
+            'guide/content_management.md': 'content_management/content_model.md'
             'guide/content_model.md': 'content_management/content_model.md'
             'guide/taxonomy/taxonomy.md': 'content_management/taxonomy/taxonomy.md'
             'guide/images/images.md': 'content_management/images/images.md'

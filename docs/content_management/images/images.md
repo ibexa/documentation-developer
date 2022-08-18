@@ -28,7 +28,7 @@ You do this by uploading images to an [ImageAsset](imageassetfield.md) Field Typ
 For an ImageAsset field to be reused, you must publish it. 
 Only then is notification triggered, which states that an image has been published 
 under the Location and can now be reused.
-After you establish a media library, you can create [Relations](content_management.md#content-relations) between the 
+After you establish a media library, you can create [Relations](content_relations.md) between the 
 image Content item and the main Content item that uses it.
 
 ## Normalizing image file names
