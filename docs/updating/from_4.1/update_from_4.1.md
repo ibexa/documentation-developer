@@ -114,7 +114,7 @@ Apply the following database update scripts:
 ### Remove `node_modules`
 
 Next, remove `node_modules` before running `composer run post-update-cmd`,
-otherwise you might encounter errors during compiling.
+otherwise you can encounter errors during compiling.
 
 ``` bash
 rm -Rf node_modules
