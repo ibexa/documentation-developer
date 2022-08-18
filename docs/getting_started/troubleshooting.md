@@ -59,13 +59,13 @@ To avoid the error, check the stability of packages and avoid using `--prefer-s
 ### Inconsistent cache/session data
 
 If cache or session data inconsistent across web servers in Redis,
-see [Redis clustering](../guide/persistence_cache.md#redis-clustering), and make sure you only read/write to
+see [Redis clustering](persistence_cache.md#redis-clustering), and make sure you only read/write to
 one active master instance at a time.
 
 ### Removed or refused sessions
 
 If Redis sessions are removed or new sessions are refused.
-see info on [Cluster setup](../guide/sessions.md#cluster-setup).
+see info on [Cluster setup](sessions.md#cluster-setup).
 Ideally, use a separated instance of Redis for sessions,
 that either never runs out of memory or uses an eviction policy that suits your needs.
 
