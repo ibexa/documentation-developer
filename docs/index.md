@@ -13,7 +13,7 @@
                         Ibexa DXP v4.2 is now out!
                     </span>
                     <span class="d-flex flex-column flex-xs-row flex-sm-row flex-md-row justify-content-between align-items-center ml-md-4">
-                        <a href="releases/ibexa_dxp_v4.2" class="btn btn-sm btn-announcement-outline mr-4 ml-4 ml-md-0 mb-3 mb-sm-0">
+                        <a href="release_notes/ibexa_dxp_v4.2" class="btn btn-sm btn-announcement-outline mr-4 ml-4 ml-md-0 mb-3 mb-sm-0">
                             See more
                         </a>
                     </span>
@@ -35,7 +35,7 @@
                         <div class="tile-body">
                             <ol>
                                 <li><a href="getting_started/requirements/">Requirements</a></li>
-                                <li><a href="getting_started/install_ez_platform/">Install Ibexa DXP</a></li>
+                                <li><a href="getting_started/install_ibexa_dxp/">Install Ibexa DXP</a></li>
                                 <li><a href="getting_started/first_steps/">First steps</a></li>
                             </ol>
                         </div>
@@ -55,8 +55,8 @@
                         </h5>
                         <div class="tile-body">
                             <ul>
-                                <li><a href="tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform/">Beginner tutorial</a></li>
-                                <li><a href="tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world/">DXP beginner</a></li>
+                                <li><a href="tutorials/beginner_tutorial/beginner_tutorial/">Beginner tutorial</a></li>
+                                <li><a href="tutorials/page_and_form_tutorial/page_and_form_tutorial/">Page and form tutorial</a></li>
                                 <li><a href="tutorials/generic_field_type/creating_a_point2d_field_type/">Generic Field Type</a></li>
                             </ul>
                         </div>
@@ -76,10 +76,10 @@
                         </h5>
                     <div class="tile-body">
                         <ul>
-                            <li><a href="guide/content_rendering/render_content/render_content/">Content rendering</a></li>
-                            <li><a href="guide/search/search/">Search</a></li>
-                            <li><a href="releases/ibexa_dxp_v4.2/">Releases</a></li>
-                            <li><a href="api/public_php_api/">API</a></li>
+                            <li><a href="templating/render_content/render_content/">Content rendering</a></li>
+                            <li><a href="search/search/">Search</a></li>
+                            <li><a href="release_notes/ibexa_dxp_v4.2/">Releases</a></li>
+                            <li><a href="api/php_api/php_api/">API</a></li>
                         </ul>
                     </div>
                 </div>
@@ -96,10 +96,10 @@
                 </svg>
             </h5>
                 <ul>
-                    <li><a href="guide/images/">Images</a></li>
-                    <li><a href="guide/content_rendering/twig_function_reference/twig_functions_reference/">Twig functions</a></li>
-                    <li><a href="guide/search/search_criteria_reference">Search criteria reference</a></li>
-                    <li><a href="guide/search/solr/">Solr search engine</a></li>
+                    <li><a href="content_management/images/images/">Images</a></li>
+                    <li><a href="templating/twig_function_reference/twig_function_reference/">Twig functions</a></li>
+                    <li><a href="search/criteria_reference/search_criteria_reference">Search criteria reference</a></li>
+                    <li><a href="search/solr_search_engine/">Solr search engine</a></li>
                 </ul>
         </div>
         <div class="col-lg-8 mb-5 latest-release">
@@ -108,14 +108,14 @@
                 <span class="pill">v4.2</span>
             </h5>
             <div class="row mt-3">
-                <div class="col-lg-5">The <a href="releases/ibexa_dxp_v4.2/">latest version of Ibexa DXP is v4.2</a>. It is a Fast Track release, and it was released on August 9, 2022.
+                <div class="col-lg-5">The <a href="release_notes/ibexa_dxp_v4.2/">latest version of Ibexa DXP is v4.2</a>. It is a Fast Track release, and it was released on August 9, 2022.
                 </div>
                 <div class="col-sm-7 features">
                     <ul>
-                        <li><a href="releases/ibexa_dxp_v4.2/#customer-portal">Customer portal</a></li>
-                        <li><a href="releases/ibexa_dxp_v4.2/#catalogs">Product catalog enhancements</a></li>
-                        <li><a href="releases/ibexa_dxp_v4.2/#cross-content-type-recommendations">Cross content type recommendations</a></li>
-                        <li><a href="releases/ibexa_dxp_v4.2/#taxonomy-field-type">Taxonomy Field Type</a></li>
-                        <li><a href="releases/ibexa_dxp_v4.2/#repeatable-migration-steps">Repeatable migration steps</a></li>
-                        <li><a href="releases/ibexa_dxp_v4.2/#api-improvements">API improvements</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.2/#customer-portal">Customer portal</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.2/#catalogs">Product catalog enhancements</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.2/#cross-content-type-recommendations">Cross content type recommendations</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.2/#taxonomy-field-type">Taxonomy Field Type</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.2/#repeatable-migration-steps">Repeatable migration steps</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.2/#api-improvements">API improvements</a></li>
 </div>
