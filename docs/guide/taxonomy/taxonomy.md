@@ -42,6 +42,6 @@ Next, in `config/packages/ibexa_taxonomy.yaml` add the following configuration:
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml')=]]
 ```
 
-Replace `<content_categories_remote_id>` with the remote ID of the new container.
+Replace `<content_categories_remote_id>` with the new container's location remote ID.
 
 For more information about available functionalities of tags, see [User Documentation]([[= user_doc =]]/taxonomy).
