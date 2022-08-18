@@ -31,8 +31,8 @@ You can create other taxonomies than the one predefined in the system, for examp
 To do it, first, create a new Content Type with `content_category` identifier and include the following Field Types:
 
 * `category_identifier` of `ezstring` type and required
-* `parent` of `ibexa_taxonomy_entry` type and not required
-* `name` of `ezstring` type and required
+* `parent_category` of `ibexa_taxonomy_entry` type and not required
+* `name_field` of `ezstring` type and required
 
 Then, create a new container to store the new taxonomy's items, for example a `folder` named Content categories.
 
