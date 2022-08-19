@@ -114,8 +114,10 @@ nav:
             - Sub-items list: administration/back_office/subitems_list.md
             - Notifications: administration/back_office/notifications.md
     - Content management:
-        - Content management: content_management/content_management.md # Split into separate pages or include in Content model, then replace with landing page
         - Content model: content_management/content_model.md
+        - Locations: content_management/locations.md
+        - Content Relations: content_management/content_relations.md
+        - Content availability: content_management/content_availability.md
         - Taxonomy:
             - Taxonomy: content_management/taxonomy/taxonomy.md
         - Images:

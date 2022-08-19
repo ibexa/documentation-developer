@@ -114,7 +114,7 @@ $versionInfo = $this->contentService->loadVersionInfo($contentInfo, 2);
 
 `loadRelations` provides an array of [`Relation`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Relation.php) objects.
 `Relation` has two main properties: `destinationContentInfo`, and `sourceContentInfo`.
-It also holds the [relation type](content_management.md#content-relations),
+It also holds the [relation type](content_relations.md),
 and the optional Field this relation is made with.
 
 ### Owning user
