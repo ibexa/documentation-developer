@@ -34,7 +34,7 @@ The following attribute types are available:
 |`locationlist`|Location selection|-|
 |`contenttypelist`|List of Content Types|-|
 |`schedule_events`,</br>`schedule_snapshots`,</br>`schedule_initial_items`,</br>`schedule_slots`,</br>`schedule_loaded_snapshot`|Used in the Content Scheduler block|-|
-|`nested_attribute`|Defines a group of attributes in a block.|-|
+|`nested_attribute`|Defines a group of attributes in a block.|`multiple`, when set to true, new groups are added dynamically with **Add field group** button.
 
 When you define attributes, you can omit most keys as long as you use simple types that do not require additional options:
 
@@ -136,7 +136,7 @@ Now, you can create a block containing your custom attribute:
 
 ### Nested attribute configuration
 
-The `nested_attribute` attribute is used when you want to create a slider using a group containing `string` and `richtext` attributes. Each of these groups represents a one slide. It means that after you define the group, if can be reused in the block.
+The `nested_attribute` attribute is used when you want to create a group of attributes that can be reused in the block.
 
 First, add the following configuration:
 
