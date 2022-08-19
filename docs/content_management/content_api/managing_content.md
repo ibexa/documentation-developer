@@ -6,7 +6,7 @@ description: PHP API enables managing content Locations, Content Types, as well 
 
 ## Locations
 
-You can manage [Locations](content_management.md#locations) that hold content
+You can manage [Locations](locations.md) that hold content
 using [`LocationService`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php)
 
 ### Adding a new Location to a Content item
