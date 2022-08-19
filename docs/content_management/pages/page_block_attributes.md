@@ -34,6 +34,7 @@ The following attribute types are available:
 |`locationlist`|Location selection|-|
 |`contenttypelist`|List of Content Types|-|
 |`schedule_events`,</br>`schedule_snapshots`,</br>`schedule_initial_items`,</br>`schedule_slots`,</br>`schedule_loaded_snapshot`|Used in the Content Scheduler block|-|
+|`nested_attribute`|Defines a group of attributes in a block.|`multiple`, when set to true, new groups are added dynamically with the **Add field group** button.|
 
 When you define attributes, you can omit most keys as long as you use simple types that do not require additional options:
 
@@ -131,4 +132,28 @@ Now, you can create a block containing your custom attribute:
 
 ``` yaml hl_lines="12-16"
 [[= include_file('code_samples/page/custom_attribute/config/packages/page_blocks.yaml') =]]
+```
+
+### Nested attribute configuration
+
+The `nested_attribute` attribute is used when you want to create a group of attributes that can be reused in the block.
+
+First, add the following configuration:
+
+``` yaml
+[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 0,16) =]][[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 20,23) =]]
+```
+
+The `multiple` option indicates that new groups can be added dynamically with the **Add field group** button.
+
+To set validation for each nested attribute:
+
+``` yaml
+[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9,19) =]]
+```
+
+Validators can be also set on a parent attribute (group defining level), it means all validators apply to each nested attribute:
+
+``` yaml
+[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9,16) =]] [[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 20,26) =]]
 ```
