@@ -1,12 +1,12 @@
 {% extends '@ibexadesign/ui/component/anchor_navigation/primary_section.html.twig' %}
 
-{% set data_id = 'ibexa-edit-content-sections-tags' %}
+{% set data_id = 'ibexa-edit-content-sections-new-tab' %}
 
 {% block sections %}
     {% embed '@ibexadesign/ui/component/anchor_navigation/secondary_section.html.twig' %}
-        {% set data_id = 'ibexa-edit-content-sections-item-SEO' %}
+        {% set data_id = 'ibexa-edit-content-sections-new-tab-item_2' %}
         {% block content %}
-            Contents of 'SEO' secondary section
+            Contents of custom secondary section
         {% endblock %}
     {% endembed %}
 {% endblock %}
