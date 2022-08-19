@@ -544,42 +544,37 @@ a.external:after {
 }
 
 /** Cards */
-.cards ul, .cards li, .cards p {
+.cards ul, .cards p {
     margin: 0px !important;
-    padding: 0px !important;
-}
-
-
-.cards.col-1 ul {
-    column-count: 1;
-}
-
-.cards.col-2 ul {
-    column-count: 2;
-}
-
-.cards.col-3 ul {
-    column-count: 3;
-}
-
-.cards.col-4 {
-    column-count: 4;
+    /* padding: 0px !important; */
 }
 
 .cards ul {
+    display: grid !important;
+    justify-content: space-between;
+    column-gap: 6px;
     list-style-type: none;
-    column-gap: 10px;
+}
+
+.cards.col-2 ul {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.cards.col-3 ul {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.cards.col-4 ul {
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .cards li {
-    margin: 0 0 10px 0 !important;
-    border: 2px solid var(--note-border);
-}
-
-.cards p {
-    padding: 0.4rem 0.6rem 0.4rem 0.6rem !important;
+    margin: 0 0 6px 0 !important;
+    background-color: var(--inline-code);
+    padding: 0.4rem;
 }
 
 .cards p.title {
-    border-bottom: 1px solid var(--note-border);
+    font-weight: bolder;
+    padding-bottom: 4px;
 }
