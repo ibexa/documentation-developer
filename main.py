@@ -5,15 +5,11 @@ from mkdocs.structure.pages import Page
 from mkdocs.utils import meta
 
 CARDS_MARKDOWN_TEMPLATE = """
--   __%s__
-{: .title}
+-  [%s](%s)
+{.title}
 
     %s
-{: .description}
-
-
-    [&raquo; %s](%s)
-{: .link}
+{.description}
 """
 
 
@@ -71,14 +67,13 @@ def define_env(env):
                 cards_markdown.append(
                     CARDS_MARKDOWN_TEMPLATE % (
                         doc_meta['short'] or doc_meta['title'],
-                        doc_meta['description'] or doc_meta['title'],
-                        doc_meta['title'],
                         '/'.join((
                             '',
                             language,
                             version,
                             page
-                        ))
+                        )),
+                        doc_meta['description'] or "&nbsp;"
                     )
                 )
 
