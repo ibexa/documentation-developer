@@ -136,15 +136,19 @@ Now, you can create a block containing your custom attribute:
 
 ### Nested attribute configuration
 
-The `nested_attribute` attribute is used when you want to create a group of attributes that can be reused in the block.
+The `nested_attribute` attribute is used when you want to create a group of attributes.
 
-First, add the following configuration:
+First, make sure you have configured the attributes you want to use in the group. 
+
+Next, provide the configuration. See the example:
 
 ``` yaml
 [[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 0,16) =]][[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 20,23) =]]
 ```
 
-The `multiple` option indicates that new groups can be added dynamically with the **Add field group** button.
+`attributes` - a list of attributes in the group. The attributes in the group are [configured](#custom-attribute-configuration) as regular attributes.
+
+`multiple` - new groups are added dynamically
 
 To set validation for each nested attribute:
 
