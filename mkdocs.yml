@@ -403,7 +403,7 @@ nav:
                 - 'Content API': 'guide/personalization/developer_guide/content_api.md'
                 - 'User API': 'guide/personalization/developer_guide/user_api.md'
                 - 'Attribute search': 'guide/personalization/developer_guide/attributes_search_elastic.md'
-                - 'Cross content type recommendations': 'guide/personalization/developer_guide/cross_contenttype_recommendations.md'
+                - 'Cross Content Type recommendations': 'guide/personalization/developer_guide/cross_contenttype_recommendations.md'
             - Best practices:
                 - 'Tracking integration': 'guide/personalization/best_practices/tracking_integration.md'
                 - 'Recommendation integration': 'guide/personalization/best_practices/recommendation_integration.md'
