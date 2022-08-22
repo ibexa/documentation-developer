@@ -18,17 +18,21 @@ assign them specific roles and limitations, such as a buyer, or sales representa
 
 ![Customer Portal Back Office](img/4.2_customer_portal.png)
 
+For more information, see [Back Office comany management documentation](https://doc.ibexa.co/projects/userguide/en/4.2/shop_administration/manage_users).
+
 On their personal accounts in Customer Portal, members of your organisation can view their order history,
 other members of their team and information regarding their company, for example, billing addresses.
 They can also edit their profile information.
 
 ![Customer Portal Frontend](img/4.2_customer_center.png)
 
+For more information, see [Customer Portal documentation](https://doc.ibexa.co/projects/userguide/en/4.2/shop_administration/customer_portal).
+
 ### User management
 
 #### Inviting users
 
-You can invite users to create their account in the frontend as customers or in the Back Office as members of your team.
+You can [invite users to create their account](https://doc.ibexa.co/projects/userguide/en/4.2/users/user_management/#inviting-users) in the frontend as customers or in the Back Office as members of your team.
 
 ![Inviting members of your team](img/4.2_invite_users.png)
 
@@ -95,7 +99,7 @@ so you can use many Fields to add different taxonomy categories, for example, ta
 
 ### Address Field Type
 
-With the new Address Field Type, you can now customize address Fields and configure them per country.
+With the [new Address Field Type](https://doc.ibexa.co/en/4.2/content_management/field_types/field_type_reference/addressfield), you can now customize address Fields and configure them per country.
 
 ![Address Field Type](img/4.2_address_field_type.png)
 
