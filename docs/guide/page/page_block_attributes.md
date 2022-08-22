@@ -34,7 +34,7 @@ The following attribute types are available:
 |`locationlist`|Location selection|-|
 |`contenttypelist`|List of Content Types|-|
 |`schedule_events`,</br>`schedule_snapshots`,</br>`schedule_initial_items`,</br>`schedule_slots`,</br>`schedule_loaded_snapshot`|Used in the Content Scheduler block|-|
-|`nested_attribute`|Defines a group of attributes in a block.|`multiple`, when set to true, new groups are added dynamically with **Add field group** button.
+|`nested_attribute`|Defines a group of attributes in a block.|`multiple`, when set to true, new groups are added dynamically with the **Add field group** button, </br>`attributes` - a list of attributes in the group. The attributes in the group are [configured](#page-block-attributes) as regular attributes. |
 
 When you define attributes, you can omit most keys as long as you use simple types that do not require additional options:
 
@@ -145,10 +145,6 @@ Next, provide the configuration. See the example:
 ``` yaml
 [[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 0,16) =]][[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 20,23) =]]
 ```
-
-`attributes` - a list of attributes in the group. The attributes in the group are [configured](#custom-attribute-configuration) as regular attributes.
-
-`multiple` - new groups are added dynamically
 
 To set validation for each nested attribute:
 
