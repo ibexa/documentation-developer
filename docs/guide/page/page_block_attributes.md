@@ -34,7 +34,7 @@ The following attribute types are available:
 |`locationlist`|Location selection|-|
 |`contenttypelist`|List of Content Types|-|
 |`schedule_events`,</br>`schedule_snapshots`,</br>`schedule_initial_items`,</br>`schedule_slots`,</br>`schedule_loaded_snapshot`|Used in the Content Scheduler block|-|
-|`nested_attribute`|Defines a group of attributes in a block.|`multiple`, when set to true, new groups are added dynamically with the **Add field group** button, </br>`attributes` - a list of attributes in the group. The attributes in the group are [configured](#page-block-attributes) as regular attributes. |
+|`nested_attribute`|Defines a group of attributes in a block.|`attributes` - a list of attributes in the group. The attributes in the group are [configured](#page-block-attributes) as regular attributes, </br>`multiple`, when set to true, new groups are added dynamically with the **Add field group** button.|
 
 When you define attributes, you can omit most keys as long as you use simple types that do not require additional options:
 
