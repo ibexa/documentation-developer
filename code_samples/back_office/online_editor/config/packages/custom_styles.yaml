@@ -8,7 +8,7 @@ ibexa_fieldtype_richtext:
     custom_styles:
         highlighted_word:
             template: '@ibexadesign/field_type/ezrichtext/custom_styles/highlighted_word.html.twig'
-            is_inline: true
+            inline: true
         highlighted_block:
             template: '@ibexadesign/field_type/ezrichtext/custom_styles/highlighted_block.html.twig'
-            is_inline: false
+            inline: false

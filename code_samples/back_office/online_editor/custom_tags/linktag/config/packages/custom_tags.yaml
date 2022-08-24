@@ -14,7 +14,7 @@ ibexa_fieldtype_richtext:
         linktag:
             template: '@ibexadesign/field_type/ezrichtext/custom_tags/linktag.html.twig'
             icon: '/bundles/ibexaicons/img/all-icons.svg#link'
-            is_inline: true
+            inline: true
             attributes:
                 title:
                     type: string

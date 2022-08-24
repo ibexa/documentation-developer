@@ -14,7 +14,7 @@ ibexa_fieldtype_richtext:
         acronym:
             template: '@ibexadesign/field_type/ezrichtext/custom_tags/acronym.html.twig'
             icon: '/bundles/ibexaicons/img/all-icons.svg#edit'
-            is_inline: true
+            inline: true
             attributes:
                 explanation:
                     type: string

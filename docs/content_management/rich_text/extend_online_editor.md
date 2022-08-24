@@ -71,7 +71,7 @@ You can also place custom tags inline with the following configuration:
 [[= include_file('code_samples/back_office/online_editor/custom_tags/acronym/config/packages/custom_tags.yaml', 11, 18) =]]                # ...
 ```
 
-`is_inline` is an optional key.
+`inline` is an optional key.
 The default value is `false`, therefore, if it is not set, the custom tag is 
 treated as a block tag.
 
