@@ -32,6 +32,6 @@ services:
         class: Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\NullConverter
         tags: [{name: ibexa.field_type.legacy_storage.converter, alias: example}]
     ibexa.field_type.example.indexable:
-        class: Ibexa\Core\FieldType\Unindexed
-        tags: [{name: ibexa.field_type.indexable, alias: example}]
+        class: '%ezpublish.fieldType.indexable.unindexed.class%'
+        tags: [{name: ezplatform.field_type.indexable, alias: example}]
 ```
