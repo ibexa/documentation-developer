@@ -2,9 +2,9 @@ ibexa_fieldtype_page:
     blocks:
         block_name:
             category: default
-            thumbnail: ‘path/icons.svg'
+            thumbnail: 'path/icons.svg'
             views:
-                default: { name: 'Default block layout', template: ‘template.html.twig', priority: -255 }
+                default: { name: 'Default block layout', template: 'template.html.twig', priority: -255 }
             attributes:
                 group:
                     name: Group name
