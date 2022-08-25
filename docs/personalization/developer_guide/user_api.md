@@ -77,7 +77,7 @@ For example:
 
 ## DELETE request
 
-Use the following request to delete the user and all data related to this user. After this request the user is deleted from the database.
+Use the following request to delete the user and all data related to this user. After this request, the user is deleted from the database.
  
 `DELETE: https://admin.perso.ibexa.co/api/[customerid]/user/[userid[,userid[...]]]`
 
