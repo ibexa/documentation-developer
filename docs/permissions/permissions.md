@@ -42,6 +42,12 @@ The more Role assignments and complex Policies you add for a given User, the mor
 
 ## Available Policies
 
+### Content
+
+### Commerce
+
+### Experience
+
 | Module        | Function             | Effect                                                                                                                                  |
 |---------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
 | `all modules` | `all functions`      | grant all available permissions                                                                                                         |
@@ -86,6 +92,9 @@ The more Role assignments and complex Policies you add for a given User, the mor
 |               |`edit`|edit sites in the Site Factory</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|
 |               |`delete`|delete sites from the Site Factory</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|
 |               |`change_status`|change status of the public accesses of sites to `Live` or `Offline` in the Site Factory</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|
+| `url`        | `view`              |                                                                                                                                         |
+|| `update`|                                                                                                                                                                   |
+|         | `login`              | log in to the application                                                                                                               |
 | `user`        | `login`              | log in to the application                                                                                                               |
 |               | `password`           | unused                                                                                                                                  |
 |               | `preferences`        | access and set user preferences                                                                                                                                  |
