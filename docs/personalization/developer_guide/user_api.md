@@ -75,6 +75,12 @@ For example:
 | `Customer<12.2014>` | `Customer%3C12.2014%3E` | `Customer&lt;12.2014&gt;` |
 
 
+## DELETE request
+
+Use the following request to run an opt-out option to delete the user and all data related to this user. After this request, the user is deleted from the database.
+ 
+`DELETE: https://admin.perso.ibexa.co/api/[customerid]/user/[userid[,userid[...]]]`
+
 ## Responses
 
 ### Response object format
