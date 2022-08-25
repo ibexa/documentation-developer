@@ -111,11 +111,12 @@ Apply the following database update scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.1.latest-to-4.2.0.sql
     ```
 
-### Remove `node_modules`
+### Remove `node_modules` and `yarn.lock`
 
-Next, remove `node_modules` before running `composer run post-update-cmd`,
+Next, remove `node_modules` and `yarn.lock` before running `composer run post-update-cmd`,
 otherwise you can encounter errors during compiling.
 
 ``` bash
 rm -Rf node_modules
+rm -Rf yarn.lock
 ```
