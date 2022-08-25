@@ -49,7 +49,6 @@ Other package-specific configuration keys have also been updated.
 | `ezplatform_support_tools` | `ibexa_system_info` |
 | `ezrecommendation` | `ibexa_personalization_client` |
 | `ezrichtext` | `ibexa_fieldtype_richtext` |
-| `ezrichtext.custom_tags.<tag_name>.is_inline` | `ibexa_fieldtype_richtext.custom_tags.<tag_name>.inline` |
 | `ezrichtext.custom_styles.<style_name>.is_inline` | `ibexa_fieldtype_richtext.custom_styles.<style_name>.inline` |
 | `ibexa_platform_commerce_field_types` | `ibexa_commerce_field_types` |
 | `one_sky` | `ibexa_commerce_one_sky` |
