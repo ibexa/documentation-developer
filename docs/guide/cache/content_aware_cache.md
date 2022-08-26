@@ -224,15 +224,15 @@ For full content tagging when inline rendering, use the following:
 {{ ibexa_http_cache_tag_location(location) }}
 ```
 
-2\. `ez_http_cache_tag_relation_ids()` or `ez_http_cache_tag_relation_location_ids()`
+2\. `ibexa_http_cache_tag_relation_ids()` or `ibexa_http_cache_tag_relation_location_ids()`
 
 When you want to reduce the amount of tags, or the inline content is rendered using ESI, a minimum set of tags can be set:
 
 ``` html+twig
-{{ ez_http_cache_tag_relation_ids(content.id) }}
+{{ ibexa_http_cache_tag_relation_ids(content.id) }}
 
 {# Or using array for several values #}
-{{ ez_http_cache_tag_relation_ids([field1.value.destinationContentId, field2.value.destinationContentId]) }}
+{{ ibexa_http_cache_tag_relation_location_ids([field1.value.destinationContentId, field2.value.destinationContentId]) }}
 ```
 
 3\. `{{ fos_httpcache_tag(['r33', 'r44']) }}`
