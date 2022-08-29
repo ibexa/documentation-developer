@@ -15,12 +15,12 @@ Use them, for example, to build special catalogs for B2B and B2C uses, for retai
 
 When creating a catalog, you can filter the products by:
 
-- price
+- price (Solr or Elasticsearch only)
 - product attributes
 - product type
 - product code
 - availability
-- product category
+- product category (Solr or Elasticsearch only)
 - the date when the product was created
 
 ![List of filters for selecting products for a catalog](catalogs_filters.png)
