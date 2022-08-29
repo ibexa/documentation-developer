@@ -411,7 +411,7 @@ plugins:
             'guide/search/shop_search/search_synonyms.md': 'search/shop_search/search_synonyms.md'
             'guide/search/shop_search/search_autosuggest.md': 'search/shop_search/search_autosuggest.md'
 
-            'api/public_php_api_managing_repository.md': 'infrastructure_and_maintenance/repository_api.md'
+            'api/public_php_api_managing_repository.md': 'content_management/content_management_api/bookmark_api.md'
             'guide/request_lifecycle.md': 'infrastructure_and_maintenance/request_lifecycle.md'
             'guide/databases.md': 'infrastructure_and_maintenance/databases.md'
             'guide/cache/http_cache.md': 'infrastructure_and_maintenance/cache/http_cache/http_cache.md'
