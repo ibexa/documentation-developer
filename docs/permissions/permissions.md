@@ -94,7 +94,9 @@ The more Role assignments and complex Policies you add for a given User, the mor
 |               |`change_status`|change status of the public accesses of sites to `Live` or `Offline` in the Site Factory</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|
 | `url`        | `view`              |                                                                                                                                         |
 || `update`|                                                                                                                                                                   |
-|         | `login`              | log in to the application                                                                                                               |
+| `setting`|`update`|                                                                                                               |
+||`create`|                                                                                                               |
+||`remove`|                                                                                                               |
 | `user`        | `login`              | log in to the application                                                                                                               |
 |               | `password`           | unused                                                                                                                                  |
 |               | `preferences`        | access and set user preferences                                                                                                                                  |
@@ -102,14 +104,15 @@ The more Role assignments and complex Policies you add for a given User, the mor
 |               | `selfedit`           | unused                                                                                                                                  |
 |               | `activation`         | unused                                                                                                                                  |
 | `workflow`    | `change_stage`       | change stage in the specified workflow                                                                                                  |
-| `comparison` | `view` | view version comparison |
-| `personalization`    | `view`       | view scenario configuration and results for selected SiteAccesses |
+| `comparison`  | `view`               | view version comparison |
+| `personalization`    | `view`        | view scenario configuration and results for selected SiteAccesses |
 || `edit`|modify scenario configuration for selected SiteAccesses|
 | `segment`</br>[[% include 'snippets/commerce_badge.md' %]] | `read`|load Segment information|
 || `create`|create Segments|
 || `update`|update Segments|
 || `remove`|remove Segments|
 || `assign_to_user` |assign Segments to Users|
+|| `view_user_segment_list`|
 | `segment_group`</br>[[% include 'snippets/commerce_badge.md' %]] | `read` |load Segment Group information|
 || `create` |create Segment Groups|
 || `update` |update Segment Groups|
@@ -122,10 +125,6 @@ The more Role assignments and complex Policies you add for a given User, the mor
 || `view` |view product types|
 || `edit` |edit a product type|
 || `delete` |delete a product type|
-| `attribute_group` | `create` |create an attribute group|
-|| `view` |view attribute groups|
-|| `edit` |edit an attribute group|
-|| `delete` |delete an attribute group|
 | `commerce` | `currency` |manage currencies|
 || `region` |manage regions|
 | `customer_group` | `create` |create a customer group|
@@ -141,9 +140,11 @@ The more Role assignments and complex Policies you add for a given User, the mor
 ||`edit_delivery`|edit delivery address|
 ||`delegate`|access delegate screen|
 ||`dashboard_view`|access the Back Office cockpit|
+||`configuration_list`||
 ||`forms_profile_edit`|access the user profile|
 ||`manage_orders`|access Order Management screen|
 ||`manage_prices`|work in Price management tab|
+||`manage_ratings`||
 ||`manage_stock`|work in Stock management tab|
 ||`manage_shipping_costs`|work in Shipping costs management tab|
 ||`manage_config`|access eCommerce configuration settings|
@@ -153,11 +154,16 @@ The more Role assignments and complex Policies you add for a given User, the mor
 ||`orderhistory_view`|view Order history|
 ||`quickorder`|access the quick order|
 ||`read_basket`|see the basket|
+||`read_customers_and_orders`||
+||`update_exchange_rates`|modify |
 ||`write_basket`|modify the basket (add, update, delete)|
-||`see_product_price`|see product prices in the catalog|
-|`siso_customercenter`</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|`approve`|approve baskets in the customer center|
-||`buy`|buy as the customer center user|
-||`view`|access the customer center user management|
+||`translations`||
+||`rating_review`||
+| `taxonomy` | `read` |view the Taxonomy interface|
+||`manage`|create, edit, and delete tags|
+||`assign`|tag or untag content|
+|`corporate_account`<br/> [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|`edit`||
+
 
 ## Permissions for routes
 

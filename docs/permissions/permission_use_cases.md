@@ -155,6 +155,16 @@ that only allows Content items of type **Image**.
 This ensures that only files of type `image` can be uploaded,
 and only to the **Pictures** Folder.
 
+## Taxonomies
+
+You can control what users or user groups can work with taxonomies. If you want users to be able to create and assign tags, use the following permissions:
+
+- `assign` - to allow user to tag and utag content
+- `read` -  to see the Taxonomy interface
+- `manage` - to create, edit and delete tags
+
+With Limitations you can set if the permissions apply only to Tags or to Product categories or to both.
+
 ## Register Users
 
 To allow anonymous users to register through the `/register` route, grant the `user/register` Policy to the Anonymous User Group.
@@ -199,3 +209,4 @@ Additional Policies are needed for each section of the Admin.
 - `content/view` to view the list of Users
 
 Users are treated like other content, so to create and modify them, the User needs to have the same permissions as for managing other Content items.
+
