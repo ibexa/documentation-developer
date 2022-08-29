@@ -18,7 +18,7 @@ assign them specific roles and limitations, such as a buyer, or sales representa
 
 ![Customer Portal Back Office](4.2_customer_portal.png)
 
-For more information, see [Back Office comany management documentation](https://doc.ibexa.co/projects/userguide/en/4.2/shop_administration/manage_users).
+For more information, see [Back Office company management documentation](https://doc.ibexa.co/projects/userguide/en/4.2/shop_administration/manage_users).
 
 On their personal accounts in Customer Portal, members of your organisation can view their order history,
 other members of their team and information regarding their company, for example, billing addresses.
