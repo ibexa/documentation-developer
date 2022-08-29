@@ -7,6 +7,8 @@ description: PHP API enables you to create Sections assign content to them as we
 [Sections](admin_panel.md#sections) enable you to divide content into groups
 which can later be used e.g. as basis for permissions.
 
+You can manage Sections by using the PHP API by using `SectionService`.
+
 ## Creating Sections
 
 To create a new Section, you need to make use of the [`SectionCreateStruct`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/SectionCreateStruct.php)

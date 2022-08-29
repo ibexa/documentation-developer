@@ -7,6 +7,8 @@ description: You can manage Object states via the PHP API, including creating Ob
 [Object states](admin_panel.md#object-states) enable you to set a custom state to any content.
 States are grouped into Object state groups.
 
+You can manage Object states by using the PHP API by using `ObjectStateService`.
+
 ## Getting Object state information
 
 You can use the [`ObjectStateService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ObjectStateService.php)

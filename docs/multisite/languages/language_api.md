@@ -4,6 +4,8 @@ description: You can add languages to the system and get information about exist
 
 # Language API
 
+You can manage languages configured in the system with PHP API by using [`LanguageService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LanguageService.php).
+
 ## Getting language information
 
 To get a list of all languages in the system use [`LanguageService::loadLanguages`:](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LanguageService.php#L79)

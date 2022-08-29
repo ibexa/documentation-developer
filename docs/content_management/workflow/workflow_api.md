@@ -4,9 +4,11 @@ description: PHP API enables you to get workflow information and apply specific 
 
 # Workflow API
 
+You can manage [workflows](workflow.md) with PHP API by using `WorkflowServiceInterface`.
+
 ## Getting workflow information
 
-To get information about a specific [workflow](workflow.md) for a Content item, use `WorkflowServiceInterface::loadWorkflowMetadataForContent`:
+To get information about a specific workflow for a Content item, use `WorkflowServiceInterface::loadWorkflowMetadataForContent`:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/WorkflowCommand.php', 53, 57) =]]
