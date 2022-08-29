@@ -9,6 +9,10 @@ which can later be used e.g. as basis for permissions.
 
 You can manage Sections by using the PHP API by using `SectionService`.
 
+!!! tip "Section REST API"
+
+    To see how to manage Sections using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-get-sections).
+
 ## Creating Sections
 
 To create a new Section, you need to make use of the [`SectionCreateStruct`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/SectionCreateStruct.php)
