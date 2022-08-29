@@ -506,3 +506,5 @@ plugins:
             'tutorials/enterprise_beginner/3_use_existing_blocks.md': 'tutorials/page_and_form_tutorial/3_use_existing_blocks.md'
             'tutorials/enterprise_beginner/4_create_a_custom_block.md': 'tutorials/page_and_form_tutorial/4_create_a_custom_block.md'
             'tutorials/enterprise_beginner/5_create_newsletter_form.md': 'tutorials/page_and_form_tutorial/5_create_newsletter_form.md'
+
+            'infrastructure_and_maintenance/repository_api.md': 'api/php_api/php_api.md'
