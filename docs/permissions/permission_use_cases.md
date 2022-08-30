@@ -163,7 +163,7 @@ You can control what users or user groups can work with taxonomies. If you want 
 - `read` -  to see the Taxonomy interface
 - `manage` - to create, edit and delete tags
 
-With Limitations you can set if the permissions apply only to Tags or to Product categories or to both.
+With Limitations you can set if the permissions apply only to Tags, Product categories or to both.
 
 ## Register Users
 
@@ -210,3 +210,22 @@ Additional Policies are needed for each section of the Admin.
 
 Users are treated like other content, so to create and modify them, the User needs to have the same permissions as for managing other Content items.
 
+## Product catalog
+
+You can control to what extend users can access the Product catalog and its all related parts.
+
+### Product type
+
+To create or edit a product type, a user needs to have access to attributes and attribute groups. You need to set the following permissions:
+
+- `product_type/create`
+- `product_type/view`
+- `product_type/edit`
+
+### Product
+
+After creating a product, a product item and a Content item are also generated. The product catalog permissions override the Content permissions, so a user without Content permissions, can create a product.
+
+- `product/create`
+- `product/view`
+- `product/edit`

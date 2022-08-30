@@ -42,12 +42,6 @@ The more Role assignments and complex Policies you add for a given User, the mor
 
 ## Available Policies
 
-### Content
-
-### Commerce
-
-### Experience
-
 | Module        | Function             | Effect                                                                                                                                  |
 |---------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
 | `all modules` | `all functions`      | grant all available permissions                                                                                                         |
@@ -118,13 +112,13 @@ The more Role assignments and complex Policies you add for a given User, the mor
 || `update` |update Segment Groups|
 || `remove` |remove Segment Groups|
 | `product` | `create` |create a product|
-|| `view` |view products|
+|| `view` |view products listed in the product catalog|
 || `edit` |edit a product|
 || `delete` |delete a product|
-| `product_type` | `create` |create a product type|
-|| `view` |view product types|
-|| `edit` |edit a product type|
-|| `delete` |delete a product type|
+| `product_type` | `create` |create a product type, a new attribute, a new attribute group and add translation to product type and attribute|
+|| `view` |view product types, attributes and attribute groups|
+|| `edit` |edit a product type, attribute, attribute group|
+|| `delete` |delete a product type, attribute, attribute group|
 | `commerce` | `currency` |manage currencies|
 || `region` |manage regions|
 | `customer_group` | `create` |create a customer group|
