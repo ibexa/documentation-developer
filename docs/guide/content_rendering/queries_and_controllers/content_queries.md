@@ -75,7 +75,7 @@ and assign a limit per page in `params.query.limit`:
 [[= include_file('code_samples/front/query_pagination/config/packages/views.yaml', 8, 22) =]]
 ```
 
-Use the `pagerfanta` variable to render pagination controls:
+Use the [`pagerfanta`](https://www.babdev.com/open-source/packages/pagerfanta/docs/2.x/intro) function to render pagination controls:
 
 ``` html+twig hl_lines="5 6 7 8"
 [[= include_file('code_samples/front/query_pagination/templates/themes/my_theme/full/folder.html.twig') =]]
