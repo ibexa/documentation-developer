@@ -20,7 +20,7 @@ When creating a catalog, you can filter the products by:
 - product type
 - product code
 - availability
-- product category (Solr or Elasticsearch only)
+- product category
 - the date when the product was created
 
 ![List of filters for selecting products for a catalog](catalogs_filters.png)
