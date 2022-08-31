@@ -21,7 +21,7 @@ These Policies are necessary for all other cases below that require access to th
 ## Create content without publishing [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 You can use this option together with [[= product_name_exp =]]'s content review options.
-Users assigned with these Policies can create content, but can't publish it.
+Users assigned with these Policies can create content, but cannot publish it.
 To publish, they must send the content for review to another User with proper permissions 
 (for example, senior editor, proofreader, etc.).
 
@@ -90,7 +90,7 @@ Edit access to them in the **Admin Panel**.
 ![Subtree file structure](subtree_usability_notes_1.png)
 
 To give the vegetarian editors access only to the **Vegetarian** dinner recipes section,
- create a new Role e.g. *EditorVeg*.
+ create a new Role, for example, *EditorVeg*.
 Next, add to it a `content/read` Policy with the `Subtree` Limitation for `Cookbook/Dinner recipes/Vegetarian`.
 Assign the Role to the vegetarian editors User Group.
 It allows users from that group to access the **Vegetarian** container but not **Cookbook** and **Dinner recipes**.
@@ -163,7 +163,7 @@ You can control what users or user groups can work with taxonomies. If you want 
 - `read` -  to see the Taxonomy interface
 - `manage` - to create, edit and delete tags
 
-With Limitations you can set if the permissions apply only to Tags, Product categories or to both.
+With Limitations you can configure whether permissions apply only to Tags, Product categories or to both.
 
 ## Register Users
 
