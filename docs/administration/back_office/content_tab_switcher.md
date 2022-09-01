@@ -1,13 +1,13 @@
 # Add tab switcher
 
-Tabs switcher allows separating the default Fieldtypes in the Content Type from the Fieldtypes that enhance the content with new functionalities.
-The best example of such Fieldtype are SEO or Taxonomy, as these are not typical Fieldtypes but a Fieldtypes that handle functionality for the whole Content object.
+Tabs switcher allows separating the default Field Types in the Content Type from the Field Types that enhance the content with new functionalities.
+The best example of such Field Types are SEO or Taxonomy, as these are not typical Field Types but a Field Types that handle functionalities for the whole Content object.
 
-The following example shows how to add a Meta tab with automatically assigned Taxonomy Fieldtype.
+The following example shows how to add a Meta tab with automatically assigned Taxonomy Field Type.
 
 ## Add Meta tab
 
-Before you start adding the Meta tab, make sure the Content Type you want to edit has [Taxonomy Entry Assignment Fieldtype]([[= user_doc =]]/taxonomy/#assign-tag-to-content-from-taxonomy-tree).
+Before you start adding the Meta tab, make sure the Content Type you want to edit has [Taxonomy Entry Assignment Field Type]([[= user_doc =]]/taxonomy/#assign-tag-to-content-from-taxonomy-tree).
 
 Next, provide the semantic configuration:
 
@@ -23,15 +23,15 @@ ibexa:
 
 ```
 
-`ibexa_taxonomy_entry_assignment` - identifier for the Fieldtype
+`ibexa_taxonomy_entry_assignment` - identifier for the Field Type
 
-`meta` - when set to `true`, puts the declared Fieldtype in the Meta tab
+`meta` - when set to `true`, puts the declared Field Type in the Meta tab
 
 ![Meta tab](tab_switcher.png)
 
 ## Add custom tab
 
-First, create an EventListener in the `src/EventListener/TextAnchorMenuTabListener.php`:
+First, create an event listener in the `src/EventListener/TextAnchorMenuTabListener.php`:
 
 ``` php hl_lines="20 22"
 [[= include_file('code_samples/back_office/content_type/src/EventListener/TextAnchorMenuTabListener.php') =]]
@@ -50,7 +50,7 @@ For new tabs it is also required to render its section in the Content editing fo
             - { name: ibexa.admin_ui.component, group: 'content-edit-sections' }
 ```
 
-Finally, create the `templates/my_template.html.twig` template file:
+Finally, create the `templates/my_template.html.twig` file:
 
 ``` html+twig
 [[= include_file('code_samples/back_office/content_type/templates/my_template.html.twig') =]]
