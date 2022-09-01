@@ -1,11 +1,11 @@
 ---
-description: PHP API enables you to create Sections assign content to them as well as get various information about the Section.
+description: PHP API enables you to create Sections, assign content to them as well as get various information about the Section.
 ---
 
 # Section API
 
 [Sections](admin_panel.md#sections) enable you to divide content into groups
-which can later be used e.g. as basis for permissions.
+which can later be used, for example, as basis for permissions.
 
 You can manage Sections by using the PHP API by using `SectionService`.
 
