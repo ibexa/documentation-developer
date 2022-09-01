@@ -9,7 +9,7 @@ enables you to read, add and remove bookmarks from content.
 
 !!! tip "Bookmark REST API"
 
-    To see how to manage bookmarks using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-bookmarks).
+    To learn how to manage bookmarks using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-bookmarks).
 
 To view a list of all bookmarks, use [`BookmarkService::loadBookmarks`:](https://github.com/ibexa/core/blob/main/src/contracts/Repository/BookmarkService.php#L54)
 

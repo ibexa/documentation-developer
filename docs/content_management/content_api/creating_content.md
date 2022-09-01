@@ -11,7 +11,7 @@ description: Create, publish, update and translate Content items by using the PH
 
 !!! tip "Content REST API"
 
-    To see how to create Content items using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-create-content-item).
+    To learn how to create Content items using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-create-content-item).
 
 ## Creating Content item draft
 

@@ -8,7 +8,7 @@ description: Use PHP API to manage products in the catalog, their attributes, av
 
 !!! tip "Product REST API"
 
-    To see how to load products using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#product-catalog-create-product-type).
+    To learn how to load products using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#product-catalog-create-product-type).
 
 To access products from the PHP API, use the `ProductServiceInterface` to request information,
 or `LocalProductServiceInterface` to modify products.

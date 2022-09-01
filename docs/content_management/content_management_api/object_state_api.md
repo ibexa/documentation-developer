@@ -11,7 +11,7 @@ You can manage Object states by using the PHP API by using `ObjectStateService`.
 
 !!! tip "Object state REST API"
 
-    To see how to manage Object states using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-get-object-states-of-content-item).
+    To learn how to manage Object states using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-get-object-states-of-content-item).
 
 ## Getting Object state information
 
