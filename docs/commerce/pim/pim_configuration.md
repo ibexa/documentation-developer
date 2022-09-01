@@ -77,3 +77,20 @@ ibexa_product_catalog:
                 product_type_group_identifier: 'product'
                 variant_code_generator_strategy: 'random'
 ```
+
+## Catalogs
+
+### Catalog filters
+
+You can configure which [catalog filters](catalog.md#catalogs) are applied by default with the following configuration:
+
+``` yaml
+ibexa:
+    system:
+        admin:
+            product_catalog:
+                catalogs:
+                    default_filters:
+                        - product_code
+                        - product_availability
+```
