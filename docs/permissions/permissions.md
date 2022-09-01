@@ -147,7 +147,6 @@ The more Role assignments and complex Policies you add for a given User, the mor
 | `taxonomy` | `read` |view the Taxonomy interface|
 ||`manage`|create, edit, and delete tags|
 ||`assign`|tag or untag content|
-|`corporate_account`<br/> [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|`edit`||
 
 
 ## Permissions for routes
