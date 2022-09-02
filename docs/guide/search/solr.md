@@ -40,13 +40,17 @@ Copy the necessary configuration files. In the example below from the root of yo
 # Make sure to replace the /opt/solr/ path with where you have placed Solr
 cd /opt/solr
 mkdir -p server/ez/template
-cp -R <ezplatform-solr-search-engine>/lib/Resources/config/solr/* server/ez/template
+cp -R <project_root>/vendor/ezsystems/ezplatform-solr-search-engine/lib/Resources/config/solr/* server/ez/template
 cp server/solr/configsets/_default/conf/{solrconfig.xml,stopwords.txt,synonyms.txt} server/ez/template
 cp server/solr/solr.xml server/ez
 
+# If you are using Ibexa Commerce, additionally copy commerce-specific configuration files:
+cat <project_root>/vendor/ezsystems/ezcommerce-shop/src/Siso/Bundle/SearchBundle/Resources/config/solr/custom-fields-types.xml >> server/ez/template/custom-fields-types.xml
+cat <project_root>/vendor/ezsystems/ezcommerce-shop/src/Siso/Bundle/SearchBundle/Resources/config/solr/language-fieldtypes.xml >> server/ez/template/language-fieldtypes.xml
+
 # Modify solrconfig.xml to remove the section that doesn't agree with your schema
 sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema".*/,/<\/updateRequestProcessorChain>/d' server/ez/template/solrconfig.xml
- 
+
 # Start Solr (but apply autocommit settings below first if you need to)
 bin/solr -s ez
 bin/solr create_core -c collection1 -d server/ez/template
