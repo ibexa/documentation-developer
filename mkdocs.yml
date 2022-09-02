@@ -268,6 +268,7 @@ nav:
             - Product API: commerce/pim/product_api.md
             - Enable purchasing products: commerce/pim/enable_purchasing_products.md
             - Create custom attribute type: commerce/pim/create_custom_attribute_type.md
+            - Create custom catalog filter: commerce/pim/create_custom_catalog_filter.md
             - Prices: commerce/pim/prices.md
             - Price API: commerce/pim/price_api.md
             - Bestsellers: commerce/pim/bestsellers.md
