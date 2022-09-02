@@ -6,6 +6,8 @@
 
 **Release type**: [Fast Track](../community_resources/release_process.md#release-process)
 
+**Update**: [v4.1.x to v4.2](https://doc.ibexa.co/en/4.2/update_and_migration/from_4.1/update_from_4.1/)
+
 ## Notable changes
 
 ### Customer Portal
