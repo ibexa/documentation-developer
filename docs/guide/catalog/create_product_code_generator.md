@@ -10,15 +10,15 @@ Besides the [built-in](catalog_configuration.md#code-generation-strategy) strate
 
 A code generator strategy must implement `Ibexa\Contracts\ProductCatalog\Local\CodeGenerator\CodeGeneratorInterface`.
 
-The following example shows how to add a generator strategy that creates code based on the identifier of the type the product belongs to and a incremental index number.
+The following example shows how to add a generator strategy that creates code based on the product base code and an incremental index number.
 
 First, create the generator strategy class:
 
 ``` php
-[[= include_file('code_samples/catalog/custom_code_generator_strategy/src/CodeGenerator/Strategy/ProductTypeCodeGenerator.php') =]]
+[[= include_file('code_samples/catalog/custom_code_generator_strategy/src/CodeGenerator/Strategy/CustomIncrementalCodeGenerator.php') =]]
 ```
 
-This generator uses the provided context to get product information (in this case the identifier of the product type)
+This generator uses the provided context to get product information (in this case the code of the base product)
 and the incremental number.
 
 Then, register the strategy generator as a service and tag it with `ibexa.product_catalog.code_generator`:

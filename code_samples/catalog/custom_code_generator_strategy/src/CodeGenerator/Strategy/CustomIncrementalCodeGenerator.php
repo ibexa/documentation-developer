@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\CodeGenerator\Strategy;
 
@@ -6,7 +8,7 @@ use Ibexa\Contracts\Core\Exception\InvalidArgumentException;
 use Ibexa\Contracts\ProductCatalog\Local\CodeGenerator\CodeGeneratorContext;
 use Ibexa\Contracts\ProductCatalog\Local\CodeGenerator\CodeGeneratorInterface;
 
-class ProductTypeCodeGenerator implements CodeGeneratorInterface
+final class CustomIncrementalCodeGenerator implements CodeGeneratorInterface
 {
     public function generateCode(CodeGeneratorContext $context): string
     {
@@ -18,6 +20,6 @@ class ProductTypeCodeGenerator implements CodeGeneratorInterface
             throw new InvalidArgumentException('$context', 'missing index');
         }
 
-        return $context->getBaseProduct()->getProductType()->getIdentifier() . '-' . $context->getIndex();
+        return $context->getBaseProduct()->getCode() . 'v' . $context->getIndex();
     }
 }
