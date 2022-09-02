@@ -171,7 +171,7 @@ The service implements the following methods:
 The methods `apply` and `can` are the same as in Symfony Workflow,
 but the implementation in workflow service extends them, for example by providing messages.
 
-For examples of using the Workflow Service, see [PHP API documentation](repository_api.md#workflow).
+For examples of using the Workflow Service, see [Workflow API](workflow_api.md).
 
 ## Validation
 
