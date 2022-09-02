@@ -144,6 +144,7 @@ nav:
             - Customize email notifications: content_management/forms/customize_email_notifications.md
         - Workflow:
             - Workflow: content_management/workflow/workflow.md
+            - Workflow API: content_management/workflow/workflow_api.md
             - Add custom workflow action: content_management/workflow/add_custom_workflow_action.md
         - URL management:
             - URL management: content_management/url_management/url_management.md
@@ -153,6 +154,10 @@ nav:
             - Browsing content: content_management/content_api/browsing_content.md
             - Creating content: content_management/content_api/creating_content.md
             - Managing content: content_management/content_api/managing_content.md
+        - Content management API:
+            - Bookmark API: content_management/content_management_api/bookmark_api.md
+            - Section API: content_management/content_management_api/section_api.md
+            - Object state API: content_management/content_management_api/object_state_api.md
         - Data migration:
             - Data migration: content_management/data_migration/data_migration.md
             - Importing data: content_management/data_migration/importing_data.md
@@ -297,6 +302,7 @@ nav:
         - SiteAccess-aware configuration: multisite/siteaccess_aware_configuration.md
         - Languages:
             - Languages: multisite/languages/languages.md
+            - Language API: multisite/languages/language_api.md
             - Back Office translations: multisite/languages/back_office_translations.md
             - Shop translations: multisite/languages/shop_translations.md
     - Permissions:
@@ -485,7 +491,6 @@ nav:
             - Search synonyms: search/shop_search/search_synonyms.md
             - Autosuggestion: search/shop_search/search_autosuggest.md
     - Infrastructure and maintenance:
-        - Repository API: infrastructure_and_maintenance/repository_api.md # Split, next to relevant topics
         - Request lifecycle: infrastructure_and_maintenance/request_lifecycle.md
         - Databases: infrastructure_and_maintenance/databases.md
         - Cache:

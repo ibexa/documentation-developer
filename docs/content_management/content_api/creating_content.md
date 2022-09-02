@@ -9,6 +9,10 @@ description: Create, publish, update and translate Content items by using the PH
     Creating most objects will be impossible for an anonymous user.
     Make sure to [authenticate](php_api.md#setting-the-repository-user) as a user with sufficient permissions.
 
+!!! tip "Content REST API"
+
+    To learn how to create Content items using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-create-content-item).
+
 ## Creating Content item draft
 
 Value objects such as Content items are read-only, so to create or modify them you need to use structs.
