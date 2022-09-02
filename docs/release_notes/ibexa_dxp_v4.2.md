@@ -6,6 +6,8 @@
 
 **Release type**: [Fast Track](https://support.ibexa.co/Public/service-life)
 
+**Update**: [v4.1.x to v4.2](https://doc.ibexa.co/en/4.2/update_and_migration/from_4.1/update_from_4.1/)
+
 ## Notable changes
 
 ### Customer Portal [[% include 'snippets/experience_badge.md' %]]
