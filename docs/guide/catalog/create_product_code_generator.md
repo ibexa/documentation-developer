@@ -4,13 +4,13 @@ description: A custom product code generator enables you to control how product 
 
 # Create custom product code generator strategy
 
-Product code generator strategies control what product variant code are generated.
+Product code generator strategies control what product variant codes are generated.
 
 Besides the [built-in](catalog_configuration.md#code-generation-strategy) strategies, you can create your own ones.
 
 A code generator strategy must implement `Ibexa\Contracts\ProductCatalog\Local\CodeGenerator\CodeGeneratorInterface`.
 
-The following example shows how to add a generator strategy that creates code based on the product base code and an incremental index number.
+The following example shows how to add a generator strategy that creates code, based on the product base code and an incremental index number.
 
 First, create the generator strategy class:
 
