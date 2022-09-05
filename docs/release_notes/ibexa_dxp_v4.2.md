@@ -92,6 +92,8 @@ For more information, see [Product categories](https://doc.ibexa.co/projects/use
 If a recommendation scenario has more than one Content Type configured, with cross-content type (CCT) parameter in the request,
 you can now get recommendations for all these Content Types.
 
+For more information, see [Cross content type recommendations](https://doc.ibexa.co/projects/userguide/en/latest/personalization/cross_content_type_reco/).
+
 ### Taxonomy Field Type
 
 Taxonomy is now [configured with a Field Type](https://doc.ibexa.co/projects/userguide/en/4.2/taxonomy/#add-tag),
@@ -169,11 +171,15 @@ Images that you upload this way are automatically added to the Media library.
 Content editing screen is now enriched with a tab switcher, allowing easy access to metadata such as taxonomies.
 The view can be extended with custom tabs.
 
+For more information, see [Add tab switcher](https://doc.ibexa.co/en/latest/administration/back_office/content_tab_switcher/).
+
 ![Tabs in content edit view](4.2_content_edit_tabs.png)
 
 ### Grouped attributes in Page block
 
 If a Page block has multiple attributes, you can now group them with the `nested_attribute` parameter.
+
+For more information, see [Nested attribute configuration](https://doc.ibexa.co/en/latest/content_management/pages/page_block_attributes/#nested-attribute-configuration).
 
 ![Grouped attributes](4.2_page_block_nested.png)
 
