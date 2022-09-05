@@ -77,3 +77,5 @@ ibexa_product_catalog:
                 product_type_group_identifier: 'product'
                 variant_code_generator_strategy: 'random'
 ```
+
+You can also [create your own custom code generation strategy](create_product_code_generator.md).
