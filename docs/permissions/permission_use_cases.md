@@ -157,7 +157,7 @@ and only to the **Pictures** Folder.
 
 ## Taxonomies
 
-You can control what users or user groups can work with taxonomies. If you want users to be able to create and assign tags, use the following permissions:
+You can control what users or user groups can work with taxonomies. If you want users to be able to create and assign taxonomy entry, use the following permissions:
 
 - `assign` - to allow user to tag and untag content
 - `read` -  to see the Taxonomy interface
@@ -222,7 +222,7 @@ To create or edit a product type, a user needs to have access to attributes and 
 - `product_type/view`
 - `product_type/edit`
 
-### Product
+### Product item
 
 After creating a product, a product item and a Content item are also generated. The product catalog permissions override the Content permissions, so a user without Content permissions, can manage a product.
 
