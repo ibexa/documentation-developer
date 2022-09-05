@@ -263,7 +263,7 @@ nav:
             - Create user registration form: templating/layout/create_user_registration_form.md
             - Customize basket: templating/layout/customize_basket.md
     - PIM (Product management):
-        - PIM: pim/pim.md
+        - PIM (Product management): pim/pim.md
         - PIM configuration: pim/pim_configuration.md
         - Product API: pim/product_api.md
         - Enable purchasing products: pim/enable_purchasing_products.md

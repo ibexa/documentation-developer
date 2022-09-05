@@ -1,10 +1,10 @@
 ---
-description: Product catalog offers PIM functionalities, with product, product type, product variant and attribute management capabilities to manage complex products.
+description: Ibexa DXP offers PIM functionalities, with product, product type, product variant and attribute management capabilities to manage complex products.
 ---
 
-# PIM
+# PIM (Product management)
 
-The product catalog enables handling of products offered in the shop,
+PIM (Product Information Management) enables handling of products offered in the shop,
 including their specifications and pricing.
 
 ## Catalogs
