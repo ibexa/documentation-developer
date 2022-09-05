@@ -542,3 +542,39 @@ a.external:after {
 .md-typeset .headerlink:focus, .md-typeset .headerlink:hover, .md-typeset :target>.headerlink {
   color: var(--ibexa-jazzberry);
 }
+
+/** Cards */
+.cards ul, .cards p {
+    margin: 0px !important;
+    /* padding: 0px !important; */
+}
+
+.cards ul {
+    display: grid !important;
+    justify-content: space-between;
+    column-gap: 6px;
+    list-style-type: none;
+}
+
+.cards.col-2 ul {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.cards.col-3 ul {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.cards.col-4 ul {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.cards li {
+    margin: 0 0 6px 0 !important;
+    background-color: var(--inline-code);
+    padding: 0.4rem;
+}
+
+.cards p.title {
+    font-weight: bolder;
+    padding-bottom: 4px;
+}
