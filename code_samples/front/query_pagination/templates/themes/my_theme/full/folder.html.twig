@@ -2,7 +2,7 @@
     {{ ibexa_render(item.valueObject) }}
 {% endfor %}
 
-{{ pagerfanta(items, 'ez', {
+{{ pagerfanta(items, 'twitter_bootstrap5', {
     'routeName': 'ibexa.url.alias',
     'routeParams': {'location': location }
 }) }}
