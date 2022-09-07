@@ -51,6 +51,10 @@
                 description: The product schema encoded in XML or JSON format.
                 example:  |
                     application/vnd.ibexa.api.ProductGet+json
+        body:
+            application/vnd.ibexa.api.ProductGet+json:
+                type: Product
+                example: !include examples/product/catalog/product/code/GET/ProductGet.json.example
         responses:
             200:
                 body:
