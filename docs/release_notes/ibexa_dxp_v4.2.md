@@ -168,14 +168,14 @@ Images that you upload this way are automatically added to the Media library.
 
 ### Content edit tabs
 
-Content editing screen is now enriched with a tab switcher, allowing easy access to metadata such as taxonomies.
+Content editing screen is now enriched with a [tab switcher](https://doc.ibexa.co/en/latest/administration/back_office/content_tab_switcher/), allowing easy access to metadata such as taxonomies.
 The view can be extended with custom tabs.
 
 ![Tabs in content edit view](4.2_content_edit_tabs.png)
 
 ### Grouped attributes in Page block
 
-If a Page block has multiple attributes, you can now group them with the `nested_attribute` parameter.
+If a Page block has multiple attributes, you can now group them with the [`nested_attribute` parameter](https://doc.ibexa.co/en/latest/content_management/pages/page_block_attributes/#nested-attribute-configuration).
 
 ![Grouped attributes](4.2_page_block_nested.png)
 
