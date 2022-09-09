@@ -1,5 +1,5 @@
 ---
-description: Use PHP API to manage products in the PIM, their attributes, availability and prices.
+description: Use PHP API to manage products in PIM, their attributes, availability and prices.
 ---
 
 # Product API

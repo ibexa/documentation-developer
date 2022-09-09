@@ -4,7 +4,7 @@ description: Configure PIM settings per Repository, with different catalog engin
 
 # PIM configuration
 
-You can configure the PIM per [Repository](repository_configuration.md).
+You can configure PIM per [Repository](repository_configuration.md).
 
 Under `ibexa.repositories.<repository_name>.product_catalog`, indicate the catalog engine to use:
 
