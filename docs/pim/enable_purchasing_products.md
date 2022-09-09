@@ -9,7 +9,7 @@ To enable purchasing from the catalog, the following configuration is required:
 - at least [one region and one currency for the shop](#region-and-currency)
 - [VAT rates for the product type](#vat-rates)
 - at least [one price for the product](prices.md)
-- [availability with positive or infinite stock for the product](catalog.md#product-availability-and-stock)
+- [availability with positive or infinite stock for the product](pim.md#product-availability-and-stock)
 
 !!! tip "Product completeness"
 
@@ -81,5 +81,5 @@ The product must have at least one [price](prices.md) configured.
 
 ## Product availability
 
-To enable adding a product to basket, you must configure product [availability](catalog.md#product-availability-and-stock)
+To enable adding a product to basket, you must configure product [availability](pim.md#product-availability-and-stock)
 with positive or infinite stock.

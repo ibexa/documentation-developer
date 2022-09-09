@@ -4,7 +4,7 @@ description: List all products contained in a predefined catalog.
 
 # List products in catalog
 
-To list products from a specific [catalog](catalog.md#catalogs), you can either use the Content query Field,
+To list products from a specific [catalog](pim.md#catalogs), you can either use the Content query Field,
 or a custom controller.
 
 ## List products with Content query Field

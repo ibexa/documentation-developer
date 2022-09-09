@@ -4,7 +4,7 @@ description: The price engine calculates product prices taking into account cust
 
 # Prices
 
-The price engine is responsible for calculating prices for products in the [catalog](catalog.md).
+The price engine is responsible for calculating prices for products in the [catalog](pim.md).
 
 ## Custom pricing
 
