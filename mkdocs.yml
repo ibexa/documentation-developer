@@ -268,6 +268,7 @@ nav:
         - Product API: pim/product_api.md
         - Enable purchasing products: pim/enable_purchasing_products.md
         - Create custom attribute type: pim/create_custom_attribute_type.md
+        - Create product code generator: pim/create_product_code_generator.md
         - Prices: pim/prices.md
         - Price API: pim/price_api.md
         - Bestsellers: pim/bestsellers.md
@@ -649,6 +650,7 @@ markdown_extensions:
   - def_list
   - footnotes
   - meta
+  - md_in_html
   - toc:
       permalink: true
   - pymdownx.arithmatex
