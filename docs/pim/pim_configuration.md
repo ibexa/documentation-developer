@@ -79,3 +79,20 @@ ibexa_product_catalog:
 ```
 
 You can also [create your own custom code generation strategy](create_product_code_generator.md).
+
+## Catalogs
+
+### Catalog filters
+
+You can configure which [catalog filters](pim.md#catalogs) are applied by default with the following configuration:
+
+``` yaml
+ibexa:
+    system:
+        admin:
+            product_catalog:
+                catalogs:
+                    default_filters:
+                        - product_code
+                        - product_availability
+```
