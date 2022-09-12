@@ -8,6 +8,10 @@ To retrieve a Content item and its information, you need to make use of the [`Co
 
 The service should be [injected into the constructor of your command or controller](php_api.md#service-container).
 
+!!! tip "Content REST API"
+
+    To learn how to load Content items using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-load-content).
+
 !!! tip "Console commands"
 
     To learn more about commands in Symfony, refer to [Console Commands]([[= symfony_doc =]]/console.html).

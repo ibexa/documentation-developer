@@ -143,7 +143,7 @@ params:
 
 ## Catalog
 
-The `Catalog` Query type retrieves products belonging to a [catalog](catalog.md#catalogs).
+The `Catalog` Query type retrieves products belonging to a [catalog](pim.md#catalogs).
 
 It takes the following parameters:
 

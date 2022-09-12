@@ -9,6 +9,10 @@ description: PHP API enables managing content Locations, Content Types, as well 
 You can manage [Locations](locations.md) that hold content
 using [`LocationService`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php)
 
+!!! tip "Location REST API"
+
+    To learn how to manage Locations using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-create-new-location-for-content-item).
+
 ### Adding a new Location to a Content item
 
 Every published Content item must have at least one Location.
@@ -107,6 +111,10 @@ but it copies the Location and its subtree instead of moving it.
 
 ## Trash
 
+!!! tip "Trash REST API"
+
+    To learn how to manage Trash using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-list-trash-items).
+
 To empty the Trash (remove all Locations in Trash), use [`TrashService::emptyTrash`,](https://github.com/ibexa/core/blob/main/src/contracts/Repository/TrashService.php#L75)
 which takes no arguments.
 
@@ -130,6 +138,10 @@ You can also search through Trash items and sort the results using several publi
 For more information, see [Searching in trash](search_api.md#searching-in-trash).
 
 ## Content Types
+
+!!! tip "Content Type REST API"
+
+    To learn how to manage Content Types using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-get-content-type-groups).
 
 ### Adding Content Types
 
@@ -170,6 +182,10 @@ To change the identifier of the copy, use a [`ContentTypeUpdateStruct`:](https:/
 ## Calendar events
 
 You can handle the calendar using `CalendarServiceInterface` (`Ibexa\Contracts\Calendar\CalendarServiceInterface`).
+
+!!! tip "Calendar REST API"
+
+    To learn how to manage the Calendar using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#calendar).
 
 ### Getting events
 
