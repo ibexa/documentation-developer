@@ -1,3 +1,7 @@
+---
+description: Ibexa DXP is an API-first product and provides APIs to handle content and repository information.
+---
+
 # API
 
 [[= product_name =]] is an API-first product and provides APIs to handle content and repository information.

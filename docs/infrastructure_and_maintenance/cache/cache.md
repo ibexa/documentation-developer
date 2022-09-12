@@ -1,5 +1,5 @@
 ---
-description: 
+description: For caching, Ibexa DXP offers both HTTP cache for content views, and persistence cache.
 ---
 
 # Cache

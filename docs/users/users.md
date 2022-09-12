@@ -1,3 +1,7 @@
+---
+description: Users in Ibexa DXP refer to all kinds of user accounts, such as administrators, editors, managers or shop customers.
+---
+
 # Users
 
 Users in [[= product_name =]] refer to all kinds of user accounts: administrators, editors,

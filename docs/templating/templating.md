@@ -1,3 +1,7 @@
+---
+description: To create a website front for your site, you can use the Twig-based templating system. You configure the templates to use by applying content view configuration that covers for different types of content and different parts of your website.
+---
+
 # Templating
 
 To create a website front for your site, you can use the Twig-based templating system.

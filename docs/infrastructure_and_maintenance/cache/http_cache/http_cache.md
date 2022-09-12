@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP's HTTP cache functionalities enable using reverse proxies: Symfony HttpCache Proxy, Varnish or Fastly.
+description: Ibexa DXP's HTTP cache functionalities enable using reverse proxies - Symfony HttpCache Proxy, Varnish or Fastly.
 ---
 
 # HTTP cache

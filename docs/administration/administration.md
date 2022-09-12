@@ -1,3 +1,7 @@
+---
+description: Administer and configure your Ibexa DXP installation.
+---
+
 # Administration
 
 Administer and configure your [[= product_name =]] installation.

@@ -1,6 +1,10 @@
+---
+description: Learn about the latest releases on Ibexa DXP.
+---
+
 # Release notes
 
-The latest stable version or [[= product_name =]] is [Ibexa DXP v4.2](ibexa_dxp_v4.2.md).
+The latest stable version of [[= product_name =]] is [Ibexa DXP v4.2](ibexa_dxp_v4.2.md).
 
 The latest LTS (Long Term Support) version is [Ibexa DXP v3.3](ibexa_dxp_v3.3.md).
 

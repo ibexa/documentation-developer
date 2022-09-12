@@ -1,3 +1,7 @@
+---
+description: Get started working with Ibexa DXP by learning about the requirements and installing the platform.
+---
+
 # Getting started
 
 To get started working with [[= product_name =]], see how you can get an installation and what first steps to take to familiarize yourself with the platform.

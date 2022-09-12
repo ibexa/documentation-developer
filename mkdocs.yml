@@ -139,6 +139,7 @@ nav:
             - Binary and Media download: content_management/file_management/binary_and_media_download.md
             - File URL handling: content_management/file_management/file_url_handling.md
         - Pages:
+            - Pages: content_management/pages/pages.md
             - Page blocks: content_management/pages/page_blocks.md
             - Page block attributes: content_management/pages/page_block_attributes.md
             - Page block validators: content_management/pages/page_block_validators.md
@@ -271,7 +272,9 @@ nav:
     - PIM (Product management):
         - PIM (Product management): pim/pim.md
         - PIM configuration: pim/pim_configuration.md
+        - Products: pim/products.md
         - Product API: pim/product_api.md
+        - Catalogs: pim/catalogs.md
         - Enable purchasing products: pim/enable_purchasing_products.md
         - Create custom attribute type: pim/create_custom_attribute_type.md
         - Create product code generator: pim/create_product_code_generator.md
@@ -301,13 +304,16 @@ nav:
     - Multisite:
         - Multisite: multisite/multisite.md
         - Multisite configuration: multisite/multisite_configuration.md
+        - SiteAccess:
+            - SiteAccess: multisite/siteaccess/siteaccess.md
+            - SiteAccess matching: multisite/siteaccess/siteaccess_matching.md
+            - SiteAccess-aware configuration: multisite/siteaccess/siteaccess_aware_configuration.md
+            - Injecting SiteAccess: multisite/siteaccess/injecting_siteaccess.md
         - Set up campaign SiteAccess: multisite/set_up_campaign_siteaccess.md
         - Set up translation SiteAccess: multisite/set_up_translation_siteaccess.md
-        - Site Factory: multisite/site_factory.md
-        - Site Factory configuration: multisite/site_factory_configuration.md
-        - SiteAccess matching: multisite/siteaccess_matching.md
-        - Injecting SiteAccess: multisite/injecting_siteaccess.md
-        - SiteAccess-aware configuration: multisite/siteaccess_aware_configuration.md
+        - Site Factory:
+            - Site Factory: multisite/site_factory/site_factory.md
+            - Site Factory configuration: multisite/site_factory/site_factory_configuration.md
         - Languages:
             - Languages: multisite/languages/languages.md
             - Language API: multisite/languages/language_api.md
@@ -316,6 +322,7 @@ nav:
     - Permissions:
         - Permissions: permissions/permissions.md
         - Permission use cases: permissions/permission_use_cases.md
+        - Policies: permissions/policies.md
         - Limitations: permissions/limitations.md
         - Limitation reference: permissions/limitation_reference.md
         - Custom Policies: permissions/custom_policies.md
@@ -355,8 +362,10 @@ nav:
         - CDP activation: cdp/cdp_activation.md
     - Search:
         - Search: search/search.md
+        - Search engines: search/search_engines.md
         - Elasticsearch search engine: search/elasticsearch_search_engine.md
         - Solr search engine: search/solr_search_engine.md
+        - Search Criteria and Sort Clauses: search/search_criteria_and_sort_clauses.md
         - Search API: search/search_api.md
         - Search Criteria reference:
             - Search Criteria reference: search/criteria_reference/search_criteria_reference.md
