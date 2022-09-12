@@ -84,7 +84,7 @@ You can also [create your own custom code generation strategy](create_product_co
 
 ### Catalog filters
 
-You can configure which [catalog filters](catalog.md#catalogs) are applied by default with the following configuration:
+You can configure which [catalog filters](pim.md#catalogs) are applied by default with the following configuration:
 
 ``` yaml
 ibexa:
