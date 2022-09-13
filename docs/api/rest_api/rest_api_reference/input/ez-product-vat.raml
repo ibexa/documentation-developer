@@ -16,11 +16,11 @@
             401:
                 description: Error - the user is not authorized to read this object.
             404:
-                description: Error - the vat category region not exists.
+                description: Error - the vat category region does not exist.
     /{identifier}:
         get:
             displayName: Load vat specific region
-            description: Loads a vat category for the given identifier.
+            description: Loads a VAT category for the given identifier.
             headers:
                 Accept:
                     description: If set, the vat category list returned in XML or JSON format.
