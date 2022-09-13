@@ -1,0 +1,25 @@
+{
+    "VatCategoryList": {
+        "_media-type": "application/vnd.ibexa.api.VatCategoryList+json",
+        "VatCategory": [
+            {
+                "_media-type": "application/vnd.ibexa.api.VatCategory+json",
+                "identifier": "standard",
+                "region": "region_1",
+                "vatValue": 18
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.VatCategory+json",
+                "identifier": "reduced",
+                "region": "region_1",
+                "vatValue": 6
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.VatCategory+json",
+                "identifier": "none",
+                "region": "region_1",
+                "vatValue": null
+            }
+        ]
+    }
+}
