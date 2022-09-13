@@ -1,10 +1,10 @@
 /{region}:
     get:
-        displayName: Load vat region
-        description: Loads a vat category for the given region.
+        displayName: Load VAT region
+        description: Loads a VAT category for the given region.
         headers:
             Accept:
-                description: If set, the vat category list returned in XML or JSON format.
+                description: If set, the VAT category list returned in XML or JSON format.
                 example:  |
                     application/vnd.ibexa.api.VatCategoryList+json
         responses:
@@ -16,14 +16,14 @@
             401:
                 description: Error - the user is not authorized to read this object.
             404:
-                description: Error - the vat category region does not exist.
+                description: Error - the VAT category region does not exist.
     /{identifier}:
         get:
-            displayName: Load vat specific region
+            displayName: Load VAT specific region
             description: Loads a VAT category for the given identifier.
             headers:
                 Accept:
-                    description: If set, the vat category list returned in XML or JSON format.
+                    description: If set, the VAT category list returned in XML or JSON format.
                     example: |
                         application/vnd.ibexa.api.VatCategory+json
             responses:
@@ -35,4 +35,4 @@
                 401:
                     description: Error - the user is not authorized to read this object.
                 404:
-                    description: Error - the vat category for the given identifier not exists.
+                    description: Error - the VAT category for the given identifier not exists.
