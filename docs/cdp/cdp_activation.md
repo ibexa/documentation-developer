@@ -75,11 +75,11 @@ php bin/console ibexa:cdp:stream-user-data --draft
 
 There are two versions of this command `--draft/--no-draft`.
 The first one is used to send the test user data to the Data Manager.
-If it passes a validation test, you can use the latter one to send a full version.
+If it passes a validation test in the **Activation** section, you will use the latter one to send a full version.
 
 Next, go back to Ibexa CDP and select **Validate & download**.
 If the file passes, you will see a confirmation message.
-Export data one more time with `--no-draft` option on and move on to the **File mapping** section.
+Now, you can move on to the **File mapping** section.
 
 ### File mapping
 
@@ -95,32 +95,48 @@ If you make any alterations, select the **Parse File** to generate columns with 
 In the **Transform & Map** section you transform data and map it to a schema.
 At this point, you can map **emial** to **email** and **id** to **integer** to get custom columns.
 
+Next, select **Create schema based on the downloaded columns**.
+It will move you to Schema Creator.
+There, choose **PersonalData** as a parent and name the schema. 
 
+![Create new schema](img/cdp_create_new_schema.png)
 
-​
-* Dalszy krok to ustawianie Audience w Builderze:
-  ​
-    * To jest dobrze pokazane na filmie. Należy pamiętać, że na sam koniec Audience musi zostać podpięte do aktywacji. Da się to zrobić z listy Audiences (zdaje się "link to activation") albo z ekranu aktywacji jeżeli dobrze pamiętam.
-      ​
-* Jeżeli to wszystko zostanie zrobione to teoretycznie wszystko powinno już działać i dane w ciągu kilku minut będą eksportowane do DXP. Czasem coś może nawalić i wtedy ciężko ustalić co się stało. Dlatego w dokumentacji należy wspomnieć, że wszystkie requesty z CDP są logowane z severity `debug`
-  ​
-* Jak wszystko mamy gotowe to ostanim krokiem jest podpięcie Trackingu. Póki co nie mamy tego zrobionego automatycznie i należy korzystać z kodu JavaScript, który opisuje Raptor w swojej dokumentacji: https://support.raptorsmartadvisor.com/hc/en-us/articles/115000656909-Client-side-Tracking
-  ​
-  Te snippety, które tam są należy umieścić w swoich szablonach Twig. Są tam dwie główne części: pierwszą umieszczamy między tagami `<head></head>` (The Head Tracking Script, zwróć uwagę że należy tam podać customerId czyli nr konta w dashboardzie Raptora), a drugą gdzieś w body po akceptacji zgody na ciasteczka.
-  ​
-  Jak wstawimy te dwa snippety to jeszcze nic się nie będzie śledziło. Musimy sami zdecydować jakie zachowania będziemy śledzić i robi się to wklejając w odpowiednie miejsce (np. w szablonie dla LP jeżeli chcemy zliczać wejścia na landing page) kod, który pushuje dane do Raptora:
-  ​
-  ```js
-  raptor.trackEvent('visit', ..., ...);
-  ```
-​
-Pełna lista eventów jest w dokumentacji np. tutaj: https://support.raptorsmartadvisor.com/hc/en-us/articles/201912411-Tracking-Events
-​
-Ważne jest też przesłanie ID zalogowanego użytkownika w podobny sposób:
-​
-```js
-raptor.push("setRuid","USER_ID_HERE")
+Next, select all the columns and set Person Identifier as **userid**.
+
+![Person Identifier](img/cdp_person_identifier.png)
+
+If you used PersonData or Catalog type schemas, the system will require
+specifying the Write Mode that will be applied to them.
+
+**Append** (default one) allows new data to overwrite the old one but leaves existing entries unaffected.
+All entries are stored in the dataset, unchanged by updating dataflow.
+For example, if a customer unsubscribes a newsletter, their email will remain in the system.
+**Overwrite** completely removes the original dataset and replaces it with the new one every time the dataflow runs.
+
+Next, select **userid** from a **Schema columns section** on the right and map it to **id**.
+
+![Map userid to id](img/cdp_userid_mapid.png)
+
+### Activation
+
+In this section you will test the dataflow with provided test user data.
+If everything passes, go to your installation and export production data with this command:
+
+```bash
+php bin/console ibexa:cdp:stream-user-data --no-draft
 ```
+
+Now you can run and activate the dataflow.
+
+### Build new Audience/Segment
+
+Go to **Audience Builder** and select **Build new audience**.
+When naming the audience remember, you will need to find it in a drop-down list during activation.
+There, you can choose conditions from `did`, `did not` or `have`.
+The conditions `did` and `did not` allow you to use events like buy, visit or add to a basket from online tracking.
+- `have` conditions are tied to personal characteristics and can be used to track the sum of all buys or top-visited categories.
+
+In the Audience Builder you can also connect created audiences to the activations.
 
 ## Activation
 
@@ -142,9 +158,39 @@ Next, you can fill in **Ibexa information** they must match the ones provided in
 
 ![Ibexa Information - Activation](img/cdp_activation_ibexa_info.png)
 
-Finally, you can specify the audiences.
+Finally, you can specify the audiences you wish to include.
 
+!!! note "CDP requests"
 
+  All CDP requests are logged in with `debug` severity.
 
+## Add Client-side Tracking
 
+The final step is setting up a tracking script.
+It requires a head tracking script between the `<head></head>` tags on your website
+and a main script after the head script, and cookie consent.
+You can do it by following [tutorial in the documentation](https://support.raptorsmartadvisor.com/hc/en-us/articles/115000656909-Client-side-Tracking).
 
+Now, you need to add a tracker to specific places in your website where you want to track users.
+For example, add this tracker to the Landing Page template if you want to track user entrances.
+
+```js
+raptor.trackEvent('visit', ..., ...);
+```
+or buys:
+
+```js
+  //Parameters for Product 1
+raptor.trackEvent('buy', ..., ...);
+  //Parameters for Product 2
+raptor.trackEvent('buy', ..., ...);
+```
+
+For tracing to be effective, you also need to send ID of a logged-in user in the same way.
+Add the user ID information by using below script:
+
+```js
+raptor.push("setRuid","USER_ID_HERE")
+```
+
+For more information on tracking events follow [the documentation]()https://support.raptorsmartadvisor.com/hc/en-us/articles/201912411-Tracking-Events.
