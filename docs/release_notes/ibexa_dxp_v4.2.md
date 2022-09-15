@@ -237,3 +237,7 @@ Now you can share you content on the social networks using OpenGraph and Twitter
 ### Easy configuration of SEO and Taxonomy fields
 
 Now SEO and Taxonomy fields are displayed in the an anchor menu as menu item and have a dynamic enabled-disabled toggle.
+
+### Separate product edition directories
+
+Thanks to splitting SQL upgrade files into separate product editions, the product update is easier.
