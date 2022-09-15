@@ -2,11 +2,19 @@
 
 ## What is Ibexa CDP
 
-With Ibexa CDP you will be able to track and collect data on customer activity on your website.
-It will allow you to create customer profiles that enable you to personlize their customer experience on your platform.
+Ibexa CDP helps you solve one of the hardest challenges facing business world today:
+building unique experiences for your customers.
+With Ibexa CDP you will be able to track and aggregate data on your customers' activity on multiple channels.
+It will allow you to create individual customer profiles that enable you to personalize their experience on your platform.
 
-## How we collect data
+![](img/cdp_control_panel.png)
 
+## How it works
 
+Ibexa CDP unifies customer data across your organization
+to help you activate your users and provide them with real-time engagement.
+With defined audiences you can target your user segments at the right time,
+through the most used channel, with the relevant message, content, or products.
 
-## Segments
+The customer data are collected through the system of trackers embedded in different parts of your page.
+For more information on activation and trackers go to [CDP activation documentation](cdp_activation.md).
