@@ -225,6 +225,8 @@ Ibexa Customer Data Center allows you to collect, connect and organize customer 
 You can use them to build segments that will allow you to create personalized customer
 experience for your brand.
 
+![CDP Control Pandel](img/4.2_cdp_control_panel.png)
+
 Ibexa CDP is also compatible with Ibexa v3.3.
 
 ### SEO
