@@ -10,7 +10,7 @@
 
 ## Notable changes
 
-### Customer Portal [[% include 'snippets/experience_badge.md' %]]
+### Customer Portal [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 The new Customer Portal allows you to create and manage a business account for your company.
 With this new feature, you can easily manage members of your organization,
@@ -219,11 +219,13 @@ a `SegmentGroup` and `Segment` objects respectively, instead of numerical IDs.
 
 ## v4.2.1
 
-### Ibexa CDP
+### Ibexa CDP [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 Ibexa Customer Data Center allows you to collect, connect and organize customer data from multiple sources.
 You can use them to build segments that will allow you to create personalized customer
 experience for your brand.
+
+Ibexa CDP is also compatible with Ibexa v3.3.
 
 ### SEO
 
