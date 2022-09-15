@@ -7,4 +7,6 @@ It will allow you to create customer profiles that enable you to personlize thei
 
 ## How we collect data
 
+
+
 ## Segments

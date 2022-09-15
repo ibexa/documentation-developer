@@ -162,7 +162,7 @@ Finally, you can specify the audiences you wish to include.
 
 !!! note "CDP requests"
 
-  All CDP requests are logged in with `debug` severity.
+    All CDP requests are logged in with `debug` severity.
 
 ## Add Client-side Tracking
 
