@@ -229,3 +229,11 @@ Ibexa CDP is also compatible with Ibexa v3.3.
 
 ### SEO
 
+With Search Engine Optimization (SEO) tool, you can optimize your website or online store for both visitors and search engines.
+The implementation of SEO brings in more organic traffic and improves your website visibility in SERPs. This is a core feature od Digital Experience Platform.
+SEO bundle provides meta tags and meta title with description which help to control search result's appearance of your website on the search engine pages.
+Now you can share you content on the social networks using OpenGraph and Twitter cards.
+
+### Easy configuration of SEO and Taxonomy fields
+
+Now SEO and Taxonomy fields are displayed in the an anchor menu as menu item and have a dynamic enabled-disabled toggle.
