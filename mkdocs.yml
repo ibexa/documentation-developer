@@ -342,6 +342,10 @@ nav:
         - Best practices:
             - Tracking integration: personalization/best_practices/tracking_integration.md
             - Recommendation integration: personalization/best_practices/recommendation_integration.md
+    - CDP (Customer Data Platform):
+        - Customer Data Platform: cdp/cdp.md
+        - CDP installation: cdp/cdp_installation.md
+        - CDP activation: cdp/cdp_activation.md
     - Search:
         - Search: search/search.md
         - Elasticsearch search engine: search/elasticsearch_search_engine.md
