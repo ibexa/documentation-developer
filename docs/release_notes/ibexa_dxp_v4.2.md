@@ -224,6 +224,7 @@ a `SegmentGroup` and `Segment` objects respectively, instead of numerical IDs.
 Ibexa Customer Data Center allows you to collect, connect and organize customer data from multiple sources.
 You can use them to build segments that will allow you to create personalized customer
 experience for your brand.
+This is a standalone package that you can install along every product edition (Content, Experience, Commerce).
 
 ![CDP Control Pandel](img/4.2_cdp_control_panel.png)
 
@@ -239,3 +240,7 @@ Now you can share your content on the social networks using OpenGraph and Twitte
 ### Separate product edition directories
 
 Thanks to splitting SQL upgrade files into separate product editions, the product update is easier.
+
+### Event layer for TaxonomyService
+
+Now, Events are sent while performing operations within Taxonomy, which considerably extends the Taxonomy feature.
