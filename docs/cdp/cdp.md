@@ -1,4 +1,4 @@
-# Customer Data Platform (CDP) [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+# Customer Data Platform (CDP)
 
 ## What is Ibexa CDP
 
