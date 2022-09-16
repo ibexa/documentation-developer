@@ -1,4 +1,4 @@
-# CDP activation  [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+# CDP activation
 
 ## Configuration
 
@@ -142,7 +142,7 @@ In the Audience Builder you can also connect created audiences to the activation
 
 Activation synchronises data from Ibexa CDP to the Ibexa DXP.
 When you specify a segment, you can activate it on multiple communication channels, such as newsletters or commercials.
-You can configure multiple activations based on one user data streaming.
+You can configure multiple activations based data flows.
 
 First, from the menu bar, select **Activations**  and create a new **Ibexa** activation.
 Specify name of your activation, select `userid` as **Person Identifier** and click **Next**.

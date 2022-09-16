@@ -1,4 +1,4 @@
-# Ibexa CDP installation [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+# Ibexa CDP installation
 
 There are three steps required to install Ibexa CDP.
 First, you need to register your Ibexa CDP account, then you can download a CDP package and update the configuration. 
