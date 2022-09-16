@@ -18,7 +18,7 @@ ibexa:
                     segment_group_identifier: example_segment_group_identifier
 ```
 
-All configuration settings are described bellow.
+All configuration settings are described below.
 You can follow them step by step to set up your Ibexa CDP.
 
 ### Segment group
