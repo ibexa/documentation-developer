@@ -478,6 +478,10 @@ nav:
                 - 'Tracking integration': 'guide/personalization/best_practices/tracking_integration.md'
                 - 'Recommendation integration': 'guide/personalization/best_practices/recommendation_integration.md'
             - 'Recommendation client': 'guide/personalization/recommendation_client.md'
+        - CDP (Customer Data Platform):
+            - Customer Data Platform: cdp/cdp.md
+            - CDP installation: cdp/cdp_installation.md
+            - CDP activation: cdp/cdp_activation.md
         - Repository:
             - 'Repository': 'guide/repository.md'
             - 'Request lifecycle': 'guide/request_lifecycle.md'
@@ -556,10 +560,6 @@ nav:
             - 'Add browser tab': 'extending/adding_tab_to_udw.md'
         - 'Multi-file upload': 'extending/extending_multifile_upload.md'
         - 'Sub-items list': 'extending/extending_subitems_list.md'
-    - CDP (Customer Data Platform):
-        - Customer Data Platform: cdp/cdp.md
-        - CDP installation: cdp/cdp_installation.md
-        - CDP activation: cdp/cdp_activation.md
     - Resources and community:
         - 'Release process and roadmap': 'community_resources/release_process.md'
         - 'Support and maintenance FAQ': 'community_resources/support_maintenance_faq.md'
