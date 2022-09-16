@@ -29,7 +29,7 @@ get:
                     type: UserList
                     example: !include examples/user/users/GET/UserList.json.example
         404:
-            description: If there are no visibile Users matching the filter.
+            description: If there are no visible Users matching the filter.
 head:
     displayName: Verify Users
     description: Verifies if there are Users matching given filter.
@@ -46,7 +46,7 @@ head:
         200:
             description: OK - verifies if there are Users matching the given filter.
         404:
-            description: Error - there are no visibile Users matching the filter.
+            description: Error - there are no visible Users matching the filter.
 /{userId}:
     get:
         displayName: Load User
