@@ -193,4 +193,4 @@ Add the user ID information by using below script:
 raptor.push("setRuid","USER_ID_HERE")
 ```
 
-For more information on tracking events, see [the documentation]()https://support.raptorsmartadvisor.com/hc/en-us/articles/201912411-Tracking-Events.
+For more information on tracking events, see [the documentation](https://support.raptorsmartadvisor.com/hc/en-us/articles/201912411-Tracking-Events).
