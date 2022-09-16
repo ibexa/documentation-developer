@@ -244,3 +244,7 @@ Thanks to splitting SQL upgrade files into separate product editions, the produc
 ### Event layer for TaxonomyService
 
 Now, Events are sent while performing operations within Taxonomy, which considerably extends the Taxonomy feature.
+
+### Protected Segment Groups
+
+You can now set existing Segment Groups as protected and make them unable to be modified through the user interface.
