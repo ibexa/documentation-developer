@@ -17,4 +17,4 @@ With defined audiences you can target your user segments at the right time,
 through the most used channel, with the relevant message, content, or products.
 
 The customer data are collected through the system of trackers embedded in different parts of your page.
-For more information on activation and trackers, see[CDP activation documentation](cdp_activation.md).
+For more information on activation and trackers, see [CDP activation documentation](cdp_activation.md).

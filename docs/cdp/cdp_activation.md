@@ -151,7 +151,7 @@ Specify name of your activation, select `userid` as **Person Identifier** and cl
 
 Next, you can fill in **Ibexa information** they must match the ones provided in the YAML configuration:
 
-- **Client secret** and **Client id** - are used to authenticate against Webhook endpoint. In the configuration they are taken from environment variables in `.env` file.
+- **Client Secret** and **Client ID** - are used to authenticate against Webhook endpoint. In the configuration they are taken from environment variables in `.env` file.
 
 - **Segment Group Identifier** - identifier of the segment group in Ibexa DXP. It points to a segment group where all the CDP audiences will be stored.
 - **Base URL** - URL of your instance with added `/cdp/webhook` at the end.
