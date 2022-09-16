@@ -478,6 +478,10 @@ nav:
                 - 'Tracking integration': 'guide/personalization/best_practices/tracking_integration.md'
                 - 'Recommendation integration': 'guide/personalization/best_practices/recommendation_integration.md'
             - 'Recommendation client': 'guide/personalization/recommendation_client.md'
+        - CDP (Customer Data Platform):
+            - Customer Data Platform: cdp/cdp.md
+            - CDP installation: cdp/cdp_installation.md
+            - CDP activation: cdp/cdp_activation.md
         - Repository:
             - 'Repository': 'guide/repository.md'
             - 'Request lifecycle': 'guide/request_lifecycle.md'
