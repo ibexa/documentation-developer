@@ -226,9 +226,11 @@ You can use them to build segments that will allow you to create personalized cu
 experience for your brand.
 This is a standalone package that you can install along every product edition (Content, Experience, Commerce).
 
-![CDP Control Pandel](img/4.2_cdp_control_panel.png)
+![CDP Control Panel](img/4.2_cdp_control_panel.png)
 
 Ibexa CDP is also compatible with Ibexa v3.3.
+
+For more information, see [Customer Data Platform](https://doc.ibexa.co/en/4.2/cdp/cdp/).
 
 ### SEO
 
