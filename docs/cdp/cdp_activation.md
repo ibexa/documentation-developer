@@ -2,7 +2,7 @@
 
 ## Configuration
 
-To configure Ibexa CDP you have to edit the `config/packages/ibexa_cdp.yaml` file:
+To configure Ibexa CDP, edit the `config/packages/ibexa_cdp.yaml` file:
 
 ```yaml
 ibexa:
@@ -35,16 +35,16 @@ Next, add a segment group identifier to the configuration.
 
 !!! caution "Ibexa CDP Segment Group"
 
-    Once you create the Segment Group in the Back Office and connect it to Ibexa CDP you cannot change it in any way, including edit its name.
+    After you create the Segment Group in the Back Office and connect it to Ibexa CDP, you cannot change it in any way, including edit its name.
 
 ## Account number
 
 Now, fill in the account number.
-Log in to Ibexa CDP and select available accounts in the top right corner.
+Log in to Ibexa CDP and in the top right corner, select available accounts.
 
 ![List of available accounts](img/cdp_accounts.png)
 
-A pop-up window will appear with a list of all available accounts and their numbers.
+A pop-up window displays with a list of all available accounts and their numbers.
 
 ![Account number](img/cdp_account_number.png)
 
@@ -56,18 +56,18 @@ It will take you to a Dataflow Creator, where in five steps you will set up a da
 
 ### General Information
 
-In the **General Information** section specify dataflow name,
+In the **General Information** section, specify dataflow name,
 choose **Stream File** as a source of user data and **CDP** as a destination,
 where they will be sent for processing.
 
 ### Download
 
-In the **Download** section select **Stream file**. 
+In the **Download** section, select **Stream file**. 
 Copy generated steam ID and paste it into the `config/packages/ibexa_cdp.yaml` file under `stream_id`.
 It allows you to establish a datastream from the Streaming API into the Data Manager.
 
 Next, you need to export your user data to the CDP.
-Got to your installation and use this command:
+Go to your installation and use this command:
 
 ```bash
 php bin/console ibexa:cdp:stream-user-data --draft
@@ -75,11 +75,11 @@ php bin/console ibexa:cdp:stream-user-data --draft
 
 There are two versions of this command `--draft/--no-draft`.
 The first one is used to send the test user data to the Data Manager.
-If it passes a validation test in the **Activation** section, you will use the latter one to send a full version.
+If it passes a validation test in the **Activation** section, use the latter one to send a full version.
 
 Next, go back to Ibexa CDP and select **Validate & download**.
 If the file passes, you will see a confirmation message.
-Now, you can move on to the **File mapping** section.
+Now, you can go to the **File mapping** section.
 
 ### File mapping
 
@@ -141,10 +141,10 @@ In the Audience Builder you can also connect created audiences to the activation
 ## Activation
 
 Activation synchronises data from Ibexa CDP to the Ibexa DXP.
-When you specify a segment, you can Activate it on multiple communication channels, such as newsletters or commercials.
+When you specify a segment, you can activate it on multiple communication channels, such as newsletters or commercials.
 You can configure multiple activations based on one user data streaming.
 
-First, select **Activations** from the menu bar and create a new **Ibexa** activation.
+First, from the menu bar, select **Activations**  and create a new **Ibexa** activation.
 Specify name of your activation, select `userid` as **Person Identifier** and click **Next**.
 
 ![General Information - Activation](img/cdp_activation_general_info.png)
@@ -193,4 +193,4 @@ Add the user ID information by using below script:
 raptor.push("setRuid","USER_ID_HERE")
 ```
 
-For more information on tracking events follow [the documentation]()https://support.raptorsmartadvisor.com/hc/en-us/articles/201912411-Tracking-Events.
+For more information on tracking events, see [the documentation]()https://support.raptorsmartadvisor.com/hc/en-us/articles/201912411-Tracking-Events.
