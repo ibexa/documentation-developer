@@ -10,7 +10,7 @@
 
 ## Notable changes
 
-### Customer Portal [[% include 'snippets/experience_badge.md' %]]
+### Customer Portal [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 The new Customer Portal allows you to create and manage a business account for your company.
 With this new feature, you can easily manage members of your organization,
@@ -216,3 +216,37 @@ a `SegmentGroup` and `Segment` objects respectively, instead of numerical IDs.
 | Ibexa Content  | Ibexa Experience  | Ibexa Commerce |
 |--------------|------------|------------|
 | [Ibexa Content v4.2](https://github.com/ibexa/content/releases/tag/v4.2.0) | [Ibexa Experience v4.2](https://github.com/ibexa/experience/releases/tag/v4.2.0) | [Ibexa Commerce v4.2](https://github.com/ibexa/commerce/releases/tag/v4.2.0)|
+
+## v4.2.1
+
+### Ibexa CDP [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+Ibexa Customer Data Center allows you to collect, connect and organize customer data from multiple sources.
+You can use them to build segments that will allow you to create personalized customer
+experience for your brand.
+This is a standalone package that you can install along every product edition (Content, Experience, Commerce).
+
+![CDP Control Panel](img/4.2_cdp_control_panel.png)
+
+Ibexa CDP is also compatible with Ibexa v3.3.
+
+For more information, see [Customer Data Platform](https://doc.ibexa.co/en/4.2/cdp/cdp/).
+
+### SEO
+
+With Search Engine Optimization (SEO) tool, you can optimize your website or online store for both visitors and search engines.
+The implementation of SEO brings in more organic traffic and improves your website visibility in SERPs. This is a core feature od Digital Experience Platform.
+SEO bundle provides meta tags and meta titles with a description which helps to control search result's appearance of your website on the search engine pages.
+Now you can share your content on the social networks using OpenGraph and Twitter cards.
+
+### Separate product edition directories
+
+Thanks to splitting SQL upgrade files into separate product editions, the product update is easier.
+
+### Event layer for TaxonomyService
+
+Now, Events are sent while performing operations within Taxonomy, which considerably extends the Taxonomy feature.
+
+### Protected Segment Groups
+
+You can now set existing Segment Groups as protected and make them unable to be modified through the user interface.
