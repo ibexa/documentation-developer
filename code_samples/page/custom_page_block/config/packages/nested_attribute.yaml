@@ -21,6 +21,6 @@ ezplatform_page_fieldtype:
                                 name: Name 2
                                 type: type
                         multiple: true
-                  validators:
-                          not_blank:
-                              message: 'Provide a value'
+                    validators:
+                        not_blank:
+                            message: 'Provide a value'
