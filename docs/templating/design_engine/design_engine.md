@@ -12,8 +12,8 @@ Designs are configured under the `ibexadesign.design_list` key:
 ``` yaml
 ibexa_design_engine:
     design_list:
-        my_design: [theme1, theme2]
-        another_design: [theme3]
+        my_design: [theme2, theme1, theme0]
+        another_design: [theme3, theme0]
 ```
 
 To indicate when to use a design, configure it under `ibexa.system.<scope>`:
