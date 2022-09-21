@@ -1,3 +1,7 @@
+---
+description: Installation of standalone Ibexa CDP package.
+---
+
 # Ibexa CDP installation
 
 There are three steps required to install Ibexa CDP.
