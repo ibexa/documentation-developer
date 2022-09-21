@@ -97,7 +97,7 @@ If you make any alterations, select the **Parse File** to generate columns with 
 ### Transform & Map
 
 In the **Transform & Map** section you transform data and map it to a schema.
-At this point, you can map **email** to **email** and **id** to **integer** to get custom columns.
+At this point, you can map **email** to **email** and **id** to **integer**  fields to get custom columns.
 
 Next, select **Create schema based on the downloaded columns**.
 It will move you to Schema Creator.
