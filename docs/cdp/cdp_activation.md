@@ -1,3 +1,7 @@
+---
+description: Step-by-step activation procedure of Ibexa CDP.
+---
+
 # CDP activation
 
 ## Configuration
@@ -93,7 +97,7 @@ If you make any alterations, select the **Parse File** to generate columns with 
 ### Transform & Map
 
 In the **Transform & Map** section you transform data and map it to a schema.
-At this point, you can map **emial** to **email** and **id** to **integer** to get custom columns.
+At this point, you can map **email** to **email** and **id** to **integer**  fields to get custom columns.
 
 Next, select **Create schema based on the downloaded columns**.
 It will move you to Schema Creator.
@@ -130,13 +134,13 @@ Now you can run and activate the dataflow.
 
 ### Build new Audience/Segment
 
-Go to **Audience Builder** and select **Build new audience**.
+Go to the **Audience Builder** and select **Build new audience**.
 When naming the audience remember, you will need to find it in a drop-down list during activation.
 There, you can choose conditions from `did`, `did not` or `have`.
 The conditions `did` and `did not` allow you to use events like buy, visit or add to a basket from online tracking.
 - `have` conditions are tied to personal characteristics and can be used to track the sum of all buys or top-visited categories.
 
-In the Audience Builder you can also connect created audiences to the activations.
+In the Audience Builder, you can also connect created audiences to the activations.
 
 ## Activation
 
@@ -144,7 +148,7 @@ Activation synchronises data from Ibexa CDP to the Ibexa DXP.
 When you specify a segment, you can activate it on multiple communication channels, such as newsletters or commercials.
 You can configure multiple activations based data flows.
 
-First, from the menu bar, select **Activations**  and create a new **Ibexa** activation.
+First, from the menu bar, select **Activations** and create a new **Ibexa** activation.
 Specify name of your activation, select `userid` as **Person Identifier** and click **Next**.
 
 ![General Information - Activation](img/cdp_activation_general_info.png)
@@ -193,4 +197,4 @@ Add the user ID information by using below script:
 raptor.push("setRuid","USER_ID_HERE")
 ```
 
-For more information on tracking events, see [the documentation]()https://support.raptorsmartadvisor.com/hc/en-us/articles/201912411-Tracking-Events.
+For more information on tracking events, see [the documentation](https://support.raptorsmartadvisor.com/hc/en-us/articles/201912411-Tracking-Events).
