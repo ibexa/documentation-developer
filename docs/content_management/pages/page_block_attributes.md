@@ -157,3 +157,57 @@ Validators can be also set on a parent attribute (group defining level), it mean
 ``` yaml
 [[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9,16) =]] [[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 19,26) =]]
 ```
+
+## Help messages for form fields
+
+With the `help`, `help_attr` and `help_html` field options, you can set help messages for fields in the Page block.
+
+You can set options with the following configuration:
+
+```yaml
+ibexa_fieldtype_page:
+    blocks:
+        block_name:
+            attributes:
+                attribute_name:
+                    options:
+                        help:
+                            text: 'Some text'
+                            html: true|false
+                            attr:
+                                class: 'class1 class2'
+```
+
+- `help` - defines a help message which is rendered below the field.
+- `help_attr` - sets the HTML attributes for the element which displays the help message.
+- `help_html` - default value: `false`, if set to `true`, the help text is rendered.
+
+### Help message in nested attributes
+
+You can set the options for root or nested attribute. To do it, use the following configuration:
+
+```yaml
+ibexa_fieldtype_page:
+    blocks:
+        block_name:
+            attributes:
+                nested_attribute:
+                    name: Group name
+                    type: nested_attribute
+                    options:
+                        help:
+                            text: 'Root class text'
+                            html: true|false
+                            attr:
+                                class: 'root-class-1 root-class-2'
+                        attributes:
+                            attribute_type:
+                                name: Name
+                                type: type
+                                options:
+                                    help:
+                                        text: 'Nested attribute text'
+                                        html: true|false
+                                        attr:
+                                            class: 'nested-1 nested-2'
+```
