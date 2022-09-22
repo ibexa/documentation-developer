@@ -160,7 +160,7 @@ Validators can be also set on a parent attribute (group defining level), it mean
 
 ## Help messages for form fields
 
-With the `help`, `help_attr` and `help_html` field options, you can set help messages for fields in the Page block.
+With the `help`, `help_attr` and `help_html` field options, you can define help messages for fields in the Page block.
 
 You can set options with the following configuration:
 
@@ -172,7 +172,7 @@ ibexa_fieldtype_page:
                 attribute_name:
                     options:
                         help:
-                            text: 'Some text'
+                            text: 'Some exemplary text'
                             html: true|false
                             attr:
                                 class: 'class1 class2'
@@ -184,30 +184,10 @@ ibexa_fieldtype_page:
 
 ### Help message in nested attributes
 
-You can set the options for root or nested attribute. To do it, use the following configuration:
+You can set the options for root or nested attribute, see the exemplary configuration:
 
 ```yaml
-ibexa_fieldtype_page:
-    blocks:
-        block_name:
-            attributes:
-                nested_attribute:
-                    name: Group name
-                    type: nested_attribute
-                    options:
-                        help:
-                            text: 'Root class text'
-                            html: true|false
-                            attr:
-                                class: 'root-class-1 root-class-2'
-                        attributes:
-                            attribute_type:
-                                name: Name
-                                type: type
-                                options:
-                                    help:
-                                        text: 'Nested attribute text'
-                                        html: true|false
-                                        attr:
-                                            class: 'nested-1 nested-2'
+[[= include_file('code_samples/page/custom_attribute/config/packages/help_messages.yaml') =]]
 ```
+
+![Help message](../img/page_block_help_message.png "Help message")
