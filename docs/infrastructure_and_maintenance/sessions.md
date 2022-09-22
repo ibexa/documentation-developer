@@ -65,7 +65,7 @@ framework:
         # handler_id can be set to null (~) like default in Symfony, if it so will use default session handler from php.ini
         # But in order to use %ibexa.session.save_path%, default Ibexa DXP instead sets %ibexa.session.handler_id% to:
         # - session.handler.native_file (default)
-        # - ibexa.core.session.handler.native_redis (recommended value for Cluster usage, using php-redis session handler )
+        # - Ibexa\Bundle\Core\Session\Handler\NativeSessionHandler (recommended value for Cluster usage, using php-redis session handler )
         handler_id: '%ibexa.session.handler_id%'
 ```
 
