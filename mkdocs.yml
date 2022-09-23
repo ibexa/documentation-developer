@@ -102,6 +102,7 @@ nav:
             - Back Office tabs:
                 - Back Office tabs:  administration/back_office/back_office_tabs/back_office_tabs.md
                 - Create dashboard tab: administration/back_office/back_office_tabs/create_dashboard_tab.md
+            - Add tab switcher in Content Type: administration/back_office/content_tab_switcher.md
             - Back Office menus:
                 - Back Office menus: administration/back_office/back_office_menus/back_office_menus.md
                 - Add menu item: administration/back_office/back_office_menus/add_menu_item.md
@@ -261,35 +262,35 @@ nav:
             - Add search form to front page: templating/layout/add_search_form.md
             - Create user registration form: templating/layout/create_user_registration_form.md
             - Customize basket: templating/layout/customize_basket.md
+    - PIM (Product management):
+        - PIM (Product management): pim/pim.md
+        - PIM configuration: pim/pim_configuration.md
+        - Product API: pim/product_api.md
+        - Enable purchasing products: pim/enable_purchasing_products.md
+        - Create custom attribute type: pim/create_custom_attribute_type.md
+        - Create product code generator: pim/create_product_code_generator.md
+        - Create custom catalog filter: pim/create_custom_catalog_filter.md
+        - Prices: pim/prices.md
+        - Price API: pim/price_api.md
+        - Bestsellers: pim/bestsellers.md
     - Commerce:
-        - PIM:
-            - PIM (Product catalog): commerce/pim/catalog.md #TODO
-            - PIM configuration: commerce/pim/pim_configuration.md
-            - Product API: commerce/pim/product_api.md
-            - Enable purchasing products: commerce/pim/enable_purchasing_products.md
-            - Create custom attribute type: commerce/pim/create_custom_attribute_type.md
-            - Create custom catalog filter: commerce/pim/create_custom_catalog_filter.md
-            - Prices: commerce/pim/prices.md
-            - Price API: commerce/pim/price_api.md
-            - Bestsellers: commerce/pim/bestsellers.md
-        - Purchasing:
-            - Basket: commerce/purchasing/basket.md
-            - Wishlist and stored baskets: commerce/purchasing/wishlist_and_stored_baskets.md
-            - Checkout:
-                - Checkout: commerce/purchasing/checkout/checkout.md
-                - Order confirmation: commerce/purchasing/checkout/order_confirmation.md
-                - Return process: commerce/purchasing/checkout/return_process.md
-            - Payment:
-                - Payment: commerce/purchasing/payment/payment.md
-                - Payment API: commerce/purchasing/payment/payment_api.md
-                - Payment troubleshooting: commerce/purchasing/payment/payment_troubleshooting.md
-                - Paypal: commerce/purchasing/payment/paypal.md
-            - Quick order:
-                - Quick order: commerce/purchasing/quick_order/quick_order.md
-                - Quick order configuration: commerce/purchasing/quick_order/quick_order_configuration.md
-            - Order history:
-                - Order history: commerce/purchasing/order_history/order_history.md
-                - Order history configuration: commerce/purchasing/order_history/order_history_configuration.md
+        - Basket: commerce/basket.md
+        - Wishlist and stored baskets: commerce/wishlist_and_stored_baskets.md
+        - Checkout:
+            - Checkout: commerce/checkout/checkout.md
+            - Order confirmation: commerce/checkout/order_confirmation.md
+            - Return process: commerce/checkout/return_process.md
+        - Payment:
+            - Payment: commerce/payment/payment.md
+            - Payment API: commerce/payment/payment_api.md
+            - Payment troubleshooting: commerce/payment/payment_troubleshooting.md
+            - Paypal: commerce/payment/paypal.md
+        - Quick order:
+            - Quick order: commerce/quick_order/quick_order.md
+            - Quick order configuration: commerce/quick_order/quick_order_configuration.md
+        - Order history:
+            - Order history: commerce/order_history/order_history.md
+            - Order history configuration: commerce/order_history/order_history_configuration.md
         - Shop API: commerce/shop_api.md
     - Multisite:
         - Multisite: multisite/multisite.md
@@ -341,6 +342,10 @@ nav:
         - Best practices:
             - Tracking integration: personalization/best_practices/tracking_integration.md
             - Recommendation integration: personalization/best_practices/recommendation_integration.md
+    - CDP (Customer Data Platform):
+        - Customer Data Platform: cdp/cdp.md
+        - CDP installation: cdp/cdp_installation.md
+        - CDP activation: cdp/cdp_activation.md
     - Search:
         - Search: search/search.md
         - Elasticsearch search engine: search/elasticsearch_search_engine.md
@@ -650,6 +655,7 @@ markdown_extensions:
   - def_list
   - footnotes
   - meta
+  - md_in_html
   - toc:
       permalink: true
   - pymdownx.arithmatex

@@ -69,7 +69,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 - ImageMagick
 - GD
 
-Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Editor](images.md#image-optimization):
+Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Editor](images.md#image-optimization), or use it with image variations:
 
 - JpegOptim
 - Optipng

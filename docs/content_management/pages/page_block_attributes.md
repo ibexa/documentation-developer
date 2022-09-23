@@ -143,7 +143,7 @@ First, make sure you have configured the attributes you want to use in the group
 Next, provide the configuration. See the example:
 
 ``` yaml
-[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 0,16) =]][[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 20,23) =]]
+[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 0,16) =]][[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 19,23) =]]
 ```
 
 To set validation for each nested attribute:
@@ -155,5 +155,5 @@ To set validation for each nested attribute:
 Validators can be also set on a parent attribute (group defining level), it means all validators apply to each nested attribute:
 
 ``` yaml
-[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9,16) =]] [[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 20,26) =]]
+[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9,16) =]] [[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 19,26) =]]
 ```
