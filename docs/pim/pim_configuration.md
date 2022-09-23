@@ -1,10 +1,10 @@
 ---
-description: Configure product catalog per Repository, with different catalog engines and VAT configurations.
+description: Configure PIM settings per Repository, with different catalog engines and VAT configurations.
 ---
 
-# Catalog configuration
+# PIM configuration
 
-You can configure the product catalog per [Repository](repository_configuration.md).
+You can configure PIM per [Repository](repository_configuration.md).
 
 Under `ibexa.repositories.<repository_name>.product_catalog`, indicate the catalog engine to use:
 
@@ -76,4 +76,23 @@ ibexa_product_catalog:
                 root_location_remote_id: ibexa_product_catalog_root
                 product_type_group_identifier: 'product'
                 variant_code_generator_strategy: 'random'
+```
+
+You can also [create your own custom code generation strategy](create_product_code_generator.md).
+
+## Catalogs
+
+### Catalog filters
+
+You can configure which [catalog filters](pim.md#catalogs) are applied by default with the following configuration:
+
+``` yaml
+ibexa:
+    system:
+        admin:
+            product_catalog:
+                catalogs:
+                    default_filters:
+                        - product_code
+                        - product_availability
 ```

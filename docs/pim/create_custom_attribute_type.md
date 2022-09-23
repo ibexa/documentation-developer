@@ -4,7 +4,7 @@ description: Enhance product catalog by creating a custom product attribute type
 
 # Create custom attribute type
 
-Besides the [built-in attribute types](catalog.md#product-attributes), you can also create custom ones.
+Besides the [built-in attribute types](pim.md#product-attributes), you can also create custom ones.
 
 The example below shows how to add a Percentage attribute type.
 

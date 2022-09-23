@@ -36,6 +36,7 @@ Each variation takes the following parameters:
 - `reference` - (optional) name of a reference variation to base the variation on. 
 If set to `null` or `~`, the variation takes the original image for reference.
 - `filters` - array of variation filters and their parameters.
+- `post_processors` - used to reduce the final image size and to improve load performance of assets.
 
 ## Available variation filters
 

@@ -1,10 +1,10 @@
 ---
-description: Product catalog offers PIM functionalities, with product, product type, product variant and attribute management capabilities to manage complex products.
+description: Ibexa DXP offers PIM functionalities, with product, product type, product variant and attribute management capabilities to manage complex products.
 ---
 
-# PIM
+# PIM (Product management)
 
-The product catalog enables handling of products offered in the shop,
+PIM (Product Information Management) enables handling of products offered in the shop,
 including their specifications and pricing.
 
 ## Catalogs
@@ -13,14 +13,14 @@ You can create multiple catalogs containing subsets of the whole product list.
 
 Use them, for example, to build special catalogs for B2B and B2C uses, for retailers and distributors or for different regions.
 
-When creating a catalog, you can filter the products by:
+When creating a catalog, all products are included by default, but you can filter the list by:
 
 - price (Solr or Elasticsearch only)
 - product attributes
 - product type
 - product code
 - availability
-- product category (Solr or Elasticsearch only)
+- product category
 - the date when the product was created
 
 ![List of filters for selecting products for a catalog](catalogs_filters.png)

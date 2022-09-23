@@ -210,4 +210,4 @@ A new version is also created when a new [language](languages.md) is added to th
 
 Products are a special type of content that holds products you can manage in the commerce section of the system.
 
-See [Product catalog](catalog.md) for more information.
+See [PIM](pim.md) for more information.
