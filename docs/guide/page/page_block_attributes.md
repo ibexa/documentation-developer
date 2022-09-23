@@ -184,30 +184,10 @@ ezplatform_page_fieldtype:
 
 ### Help message in nested attributes
 
-You can set the options for root or nested attribute. To do it, use the following configuration:
+You can set the options for root or nested attribute, see the exemplary configuration:
 
 ```yaml
-ezplatform_page_fieldtype:
-    blocks:
-        block_name:
-            attributes:
-                nested_attribute:
-                    name: Group name
-                    type: nested_attribute
-                    options:
-                        help:
-                            text: 'Root class text'
-                            html: true|false
-                            attr:
-                                class: 'root-class-1 root-class-2'
-                        attributes:
-                            attribute_type:
-                                name: Name
-                                type: type
-                                options:
-                                    help:
-                                        text: 'Nested attribute text'
-                                        html: true|false
-                                        attr:
-                                            class: 'nested-1 nested-2'
+[[= include_file('code_samples/page/custom_attribute/config/packages/help_messages.yaml') =]]
 ```
+
+![Help message](../img/page_block_help_message.png "Help message")
