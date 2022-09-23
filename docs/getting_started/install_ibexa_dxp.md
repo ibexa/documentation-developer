@@ -185,6 +185,8 @@ or
 
     For more information, see [Encoding database password](troubleshooting.md#encoding-database-password).
 
+### Add entropy to improve cryptographic randomness
+
 Choose a [secret]([[= symfony_doc =]]/reference/configuration/framework.html#secret)
 and provide it in the `APP_SECRET` parameter in `.env`.
 It should be a random string, made up of at least 32 characters, numbers, and symbols.
