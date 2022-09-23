@@ -118,11 +118,11 @@ Register the validator as a service and tag it with `ibexa.product_catalog.attri
 
 ## Storage
 
-To ensure that values of the new attributes are stored correctly, you need to provide a storage converter and storage definition.
+To ensure that values of the new attributes are stored correctly, you need to provide a storage converter and storage definition services.
 
 ### Storage converter
 
-Start with creating a `PercentStorageConverter` class, which implements `Ibexa\Contracts\ProductCatalog\Local\Attribute\StorageConverterInterface`.
+Start by creating a `PercentStorageConverter` class, which implements `Ibexa\Contracts\ProductCatalog\Local\Attribute\StorageConverterInterface`.
 This converter is responsible for converting database results into an attribute type instance:
 
 ``` php
