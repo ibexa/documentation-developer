@@ -116,6 +116,39 @@ Register the validator as a service and tag it with `ibexa.product_catalog.attri
 [[= include_file('code_samples/catalog/custom_attribute_type/config/custom_services.yaml', 25, 30) =]]
 ```
 
+## Storage
+
+To ensure that values of the new attributes are stored correctly, you need to provide a storage converter and storage definition services.
+
+### Storage converter
+
+Start by creating a `PercentStorageConverter` class, which implements `Ibexa\Contracts\ProductCatalog\Local\Attribute\StorageConverterInterface`.
+This converter is responsible for converting database results into an attribute type instance:
+
+``` php
+[[= include_file('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/Storage/PercentStorageConverter.php') =]]
+```
+
+Register the converter as a service and tag it with `ibexa.product_catalog.attribute.storage_converter`:
+
+``` yaml
+[[= include_file('code_samples/catalog/custom_attribute_type/config/custom_services.yaml', 37, 40) =]]
+```
+
+### Storage definition
+
+Next, prepare a `PercentStorageDefinition` class, which implements `Ibexa\Contracts\ProductCatalog\Local\Attribute\StorageDefinitionInterface`.
+
+``` php
+[[= include_file('code_samples/catalog/custom_attribute_type/src/Attribute/Percent/Storage/PercentStorageDefinition.php') =]]
+```
+
+Register the storage definition as a service and tag it with `ibexa.product_catalog.attribute.storage_definition`:
+
+``` yaml
+[[= include_file('code_samples/catalog/custom_attribute_type/config/custom_services.yaml', 41, 44) =]]
+```
+
 ## Use new attribute type
 
 In the Back Office you can now add a new Percent attribute to your product type and create a product with it.
