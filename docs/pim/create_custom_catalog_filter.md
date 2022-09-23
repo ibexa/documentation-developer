@@ -1,6 +1,6 @@
 # Create custom catalog filter
 
-Catalog filters let you narrow down the products from the PIM that are available in the given [catalog](catalog.md#catalogs).
+Catalog filters let you narrow down the products from the PIM that are available in the given [catalog](pim.md#catalogs).
 
 Besides the built-in catalog filters, you can also create custom ones.
 The following example shows how to create a filter that selects products with the entered name.
