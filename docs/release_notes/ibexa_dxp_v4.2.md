@@ -219,16 +219,16 @@ a `SegmentGroup` and `Segment` objects respectively, instead of numerical IDs.
 
 ## v4.2.1
 
-### Ibexa CDP [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+### Ibexa CDP
 
 Ibexa Customer Data Center allows you to collect, connect and organize customer data from multiple sources.
 You can use them to build segments that will allow you to create personalized customer
 experience for your brand.
+
 This is a standalone package that you can install along every product edition (Content, Experience, Commerce).
+Ibexa CDP is also compatible with Ibexa v3.3.
 
 ![CDP Control Panel](img/4.2_cdp_control_panel.png)
-
-Ibexa CDP is also compatible with Ibexa v3.3.
 
 For more information, see [Customer Data Platform](https://doc.ibexa.co/en/4.2/cdp/cdp/).
 
