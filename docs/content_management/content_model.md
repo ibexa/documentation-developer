@@ -164,15 +164,33 @@ Example configuration:
 parameters:
     ibexa.multifile_upload.location.default_mappings:
         # Image
-        ...
-        content_type_identifier: custom_image_contenttype
-        content_field_identifier: image
-        name_field_identifier: name
+        - mime_types:
+            - image/jpeg
+            - image/jpg
+            - image/pjpeg
+            - image/pjpg
+            - image/png
+            - image/bmp
+            - image/gif
+            - image/tiff
+            - image/x-icon
+            - image/webp
+          content_type_identifier: custom_image_contenttype
+          content_field_identifier: image
+          name_field_identifier: name
         # File
-        ...
-        content_type_identifier: custom_file_contenttype
-        content_field_identifier: file
-        name_field_identifier: name
+        - mime_types:
+            - image/svg+xml
+            - application/msword
+            - application/vnd.openxmlformats-officedocument.wordprocessingml.document
+            - application/vnd.ms-excel
+            - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+            - application/vnd.ms-powerpoint
+            - application/vnd.openxmlformats-officedocument.presentationml.presentation
+            - application/pdf
+          content_type_identifier: custom_file_contenttype
+          content_field_identifier: file
+          name_field_identifier: name
     ibexa.multifile_upload.fallback_content_type:
         content_type_identifier: custom_file_contenttype
         content_field_identifier: file
