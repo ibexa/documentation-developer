@@ -1,3 +1,8 @@
+---
+description: Fine-tune product catalogs by adding a custom catalog filter for selecting products from the PIM.
+---
+
+
 # Create custom catalog filter
 
 Catalog filters let you narrow down the products from the PIM that are available in the given [catalog](pim.md#catalogs).
