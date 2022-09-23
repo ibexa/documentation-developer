@@ -238,13 +238,13 @@ nav:
             - 'SignalSlots': 'guide/signalslots.md'
             - 'Signals reference': 'guide/signals_reference.md'
         - Cache:
-            - 'HTTP cache': 
+            - 'HTTP cache':
               - 'HTTP cache': 'guide/cache/http_cache.md'
               - 'HTTP cache configuration': 'guide/cache/http_cache_config.md'
               - 'Reverse proxy': 'guide/cache/symfony_reverse_proxy.md'
               - 'Context-aware HTTP cache': 'guide/cache/context_aware_cache.md'
               - 'Content-aware HTTP cache': 'guide/cache/content_aware_cache.md'
-            
+
             - 'Persistence cache': 'guide/persistence_cache.md'
         - Clustering:
             - 'Clustering': 'guide/clustering.md'
@@ -368,9 +368,10 @@ extra:
       url: '/projects/userguide'
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.30'
-  latest_tag_3_3: '3.3.24'
+  latest_tag_3_3: '3.3.26'
   latest_tag_4_0: '4.0.8'
   latest_tag_4_1: '4.1.5'
+  latest_tag_4_2: '4.2.1'
 
   symfony_doc: 'http://symfony.com/doc/3.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/3.3'
