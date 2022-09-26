@@ -4,7 +4,7 @@ description: Design engine allows you to use different SiteAccess-aware themes i
 
 # Design engine
 
-You can use multiple different designs (themes) in your installation.
+You can use multiple different designs (theme lists) in your installation.
 You can set up different designs per SiteAccess or SiteAccess group.
 
 Designs are configured under the `ibexadesign.design_list` key:
