@@ -29,7 +29,7 @@ Each scope can use only one design.
 
 !!! caution
 
-    After you create a new folder with a design in `templates/themes`,
+    After you create a new folder with a theme in `templates/themes`,
     you must clear the cache (`php bin/console cache:clear`), even if you work in the dev environment.
 
 ## Order of themes
