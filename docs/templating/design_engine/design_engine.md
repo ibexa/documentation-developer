@@ -7,7 +7,7 @@ description: Design engine allows you to use different SiteAccess-aware themes i
 You can use multiple different designs (theme lists) in your installation.
 You can set up different designs per SiteAccess or SiteAccess group.
 
-Designs are configured under the `ibexadesign.design_list` key:
+Designs are configured under the `ibexa_design_engine.design_list` key:
 
 ``` yaml
 ibexa_design_engine:
@@ -27,16 +27,22 @@ ibexa:
 
 Each scope can use only one design.
 
+## Design theme list
+
+A theme is a set of directories to look for templates in. Mainly, theme's templates are placed in a directory under `templates/themes` which name is the theme name.
+For example, `standard` theme's templates can be placed in `templates/themes/standard` directory.
+
 !!! caution
 
-    After you create a new folder with a theme in `templates/themes`,
+    After you create a new directory with a theme in `templates/themes`,
     you must clear the cache (`php bin/console cache:clear`), even if you work in the dev environment.
-
-## Order of themes
 
 The order of themes in a design is important.
 The design engine attempts to apply the first theme in configuration (for example, `theme2`).
 If it cannot find the required template or asset in this theme, it proceeds to the next theme in the list (for example, `theme1` then `theme0` and finally the default `standard`).
+
+`@ibexadesign` keyword in template paths is the way to use this feature. When `@ibexadesign` is met, the design engine loops in the theme list of the current design and look for each theme if the template exists in its paths.
+For example, `@ibexadesign/pagelayout.html.twig` means that this template is searched at locations like `templates/themes/theme2/pagelayout.html.twig`, `templates/themes/theme1/pagelayout.html.twig`, `templates/themes/theme0/pagelayout.html.twig` and then `templates/themes/standard/pagelayout.html.twig`.
 
 You can use this behavior to override only some templates from the main theme of your website.
 Do this, for example, when you create a SiteAccess with a special design for a campaign.
@@ -52,7 +58,7 @@ Do this, for example, when you create a SiteAccess with a special design for a c
 
 ### Additional theme paths
 
-You can add any Twig template folder to the theme configuration.
+You can add any Twig template directory to the theme configuration.
 
 You can use it if you want to define templates from third-party bundles as part of one of your themes.
 
@@ -67,10 +73,10 @@ ibexa_design_engine:
             - '%kernel.project_dir%/vendor/<vendor_name>/<bundle_name>/Resources/views'
 ```
 
-Theme folders that you define have priority over the ones defined in `templates_theme_paths`.
+Theme directories that you define have priority over the ones defined in `templates_theme_paths`.
 This ensures that it is always possible to override a template at the application level.
 
-You can also add a global override folder, by listing paths without assigning them to a theme:
+You can also add a global override directory, by listing paths without assigning them to a theme:
 
 ``` yaml
 ibexa_design_engine:
