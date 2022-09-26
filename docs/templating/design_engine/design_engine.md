@@ -84,6 +84,7 @@ ibexa_design_engine:
     ```shell
     php bin/console debug:container --parameter=ibexa.design.templates.path_map --format=json
     ```
+    `_override` is a theme added at the beginning of the current design theme list at template path resolution time.
 
 ### Asset resolution
 
