@@ -41,6 +41,13 @@ If it cannot find the required template or asset in this theme, it proceeds to t
 You can use this behavior to override only some templates from the main theme of your website.
 Do this, for example, when you create a SiteAccess with a special design for a campaign.
 
+!!! tip
+
+    You can check the final design theme lists with the following command:
+    ```shell
+    php bin/console debug:container --parameter=ibexa.design.list --format=json
+    ```
+
 ## Additional configuration
 
 ### Additional theme paths
@@ -70,6 +77,13 @@ ibexa_design_engine:
     templates_override_paths:
         - '%kernel.project_dir%/src/<an_override_directory>'
 ```
+
+!!! tip
+
+    You can check the final template directory list per theme with the following command:
+    ```shell
+    php bin/console debug:container --parameter=ibexa.design.templates.path_map --format=json
+    ```
 
 ### Asset resolution
 
