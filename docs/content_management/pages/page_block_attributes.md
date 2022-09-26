@@ -180,7 +180,7 @@ ibexa_fieldtype_page:
 
 - `help` - defines a help message which is rendered below the field.
 - `help_attr` - sets the HTML attributes for the element which displays the help message.
-- `help_html` - default value: `false`, if set to `true`, the help text is rendered.
+- `help_html` - set this option to `true` to not to escape the contents of the `help` option from rendering them in the template.
 
 ### Help message in nested attributes
 
