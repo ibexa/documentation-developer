@@ -35,8 +35,8 @@ Each scope can use only one design.
 ## Order of themes
 
 The order of themes in a design is important.
-The design engine attempts to apply the first theme in configuration (for example, `theme1`).
-If it cannot find the required template or asset in this theme, it proceeds to the next theme in the list (for example, `theme2`).
+The design engine attempts to apply the first theme in configuration (for example, `theme2`).
+If it cannot find the required template or asset in this theme, it proceeds to the next theme in the list (for example, `theme1` then `theme0` and finally the default `standard`).
 
 You can use this behavior to override only some templates from the main theme of your website.
 Do this, for example, when you create a SiteAccess with a special design for a campaign.
