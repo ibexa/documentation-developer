@@ -56,7 +56,7 @@ Now, create templates for the two sites.
 Templates for the main site should be placed in `templates/themes/standard`,
 and templates for the campaign site in `templates/themes/summersale`.
 
-First, modify the built-in general [page layout](pagelayout.html.twig`
+First, modify the built-in general [page layout](../../templates/template_configuration/#page-layout) `templates/themes/standard/pagelayout.html.twig`
 by including a header and a footer section:
 
 ``` html+twig hl_lines="3 8"
