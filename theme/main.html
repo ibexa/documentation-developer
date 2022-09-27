@@ -46,6 +46,16 @@
               {% endfor %}
                   <li class="breadcrumb-item breadcrumb-item-current">{{ page.title }}</li>
           </ul>
+          {% if page.meta.edition %}
+          <div class="pills">
+            {% if page.meta.edition == 'commerce' %}
+              <span class="pill commerce-pill"></span>
+            {% elif page.meta.edition == 'experience' %}
+              <span class="pill experience-pill"></span>
+              <span class="pill commerce-pill"></span>
+            {% endif %}
+          </div>
+          {% endif %}
           {{ page.content }}
           {% include "partials/tags.html" %}
         </div>
