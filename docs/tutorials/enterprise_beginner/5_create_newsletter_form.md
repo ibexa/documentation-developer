@@ -1,8 +1,9 @@
 ---
 description: Learn how to create a sign-up form and how to view and manage its submissions.
+edition: experience
 ---
 
-# Step 5 — Create a newsletter form [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+# Step 5 — Create a newsletter form
 
 !!! tip
     You can find all files used and modified in this step on [GitHub.](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/tree/v3-master)

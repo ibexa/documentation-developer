@@ -1,8 +1,9 @@
 ---
 description: Extend a Form with a custom Form field to fit your particular needs.
+edition: experience
 ---
 
-# Create custom Form field [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+# Create custom Form field
 
 You can extend the Form Builder by adding new Form fields or modifying existing ones.
 Define new form fields in configuration.

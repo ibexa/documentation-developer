@@ -1,8 +1,9 @@
 ---
 description: Try creating a custom Page block with specific logic.
+edition: experience
 ---
 
-# Step 4 — Create a custom block [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+# Step 4 — Create a custom block
 
 !!! tip
 

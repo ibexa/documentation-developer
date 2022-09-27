@@ -2,7 +2,7 @@
 description: You can use PHP API to get Segment information, create and manage Segments, and assign users to them.
 ---
 
-# User API [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+# User API
 
 The user API enables you to operate on user-related part of the Repository, such a segments.
 

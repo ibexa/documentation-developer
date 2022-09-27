@@ -2,7 +2,7 @@
 description: 
 ---
 
-# User API
+# User API [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 When generating recommendations, it is useful to have the ability to correlate metadata 
 with user data and combine users into clusters of certain type.

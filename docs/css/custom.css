@@ -510,6 +510,10 @@ a.external:after {
   border-bottom: 2px solid var(--ibexa-dusk-black);
 }
 
+div.pills {
+    float: right;
+}
+
 .pill {
     background-color: var(--ibexa-jazzberry);
     border-radius: 2.18px;

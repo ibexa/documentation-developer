@@ -1,4 +1,8 @@
-# ERP communication [[% include 'snippets/commerce_badge.md' %]]
+---
+edition: commerce
+---
+
+# ERP communication
 
 The shop comes with a predefined set of messages that are used to communicate with ERP:
 

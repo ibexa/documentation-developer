@@ -1,4 +1,8 @@
-# ERP integration [[% include 'snippets/commerce_badge.md' %]]
+---
+edition: commerce
+---
+
+# ERP integration
 
 [[= product_name =]] can communicate with ERP systems. 
 

@@ -1,8 +1,9 @@
 ---
 description: The PHP API exposes a PaymentServiceInterface to access and work with payments.
+edition: commerce
 ---
 
-# Payment API [[% include 'snippets/commerce_badge.md' %]]
+# Payment API
 
 ## Payment bundle
 

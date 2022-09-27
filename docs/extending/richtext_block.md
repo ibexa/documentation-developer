@@ -1,8 +1,9 @@
 ---
 description: Create a custom Page block containing rich text.
+edition: experience
 ---
 
-# Create custom RichText block [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+# Create custom RichText block
 
 A RichText block is a specific example of a [custom block](../guide/page/create_custom_page_block.md) that you can use when 
 you create a Page. 

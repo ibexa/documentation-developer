@@ -1,8 +1,9 @@
 ---
 description: Resolve most common issues with payments in Ibexa DXP shop.
+edition: commerce
 ---
 
-# Payment troubleshooting [[% include 'snippets/commerce_badge.md' %]]
+# Payment troubleshooting
 
 ## Extending the order size limit
 
