@@ -42,6 +42,8 @@ Next, configure a new `summersale` design for this theme, also named `summersale
 [[= include_file('code_samples/front/add_design/config/packages/views.yaml', 0, 3) =]]
 ```
 
+Notice that the `standard` theme will be automatically added at the end of the `summersale` design's theme list.
+
 Ensure that the `campaign` site uses this design (while the default `site` uses the default `standard` design)
 
 ``` yaml
@@ -54,7 +56,7 @@ Now, create templates for the two sites.
 Templates for the main site should be placed in `templates/themes/standard`,
 and templates for the campaign site in `templates/themes/summersale`.
 
-First, modify the built-in general [page layout](pagelayout.html.twig`
+First, modify the built-in general [page layout](template_configuration.md#page-layout) `templates/themes/standard/pagelayout.html.twig`
 by including a header and a footer section:
 
 ``` html+twig hl_lines="3 8"
