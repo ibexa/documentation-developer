@@ -1,8 +1,9 @@
 ---
 description: Configure the setup of the quick order functionality for quickly ordering products in bulk.
+edition: commerce
 ---
 
-# Quick order configuration [[% include 'snippets/commerce_badge.md' %]]
+# Quick order configuration
 
 ## Disabling autosuggestion
 

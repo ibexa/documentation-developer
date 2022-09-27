@@ -1,8 +1,9 @@
 ---
 description: Site Factory allows creating multiple sites (SiteAccesses) from the Back Office.
+edition: experience
 ---
 
-# Site Factory [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+# Site Factory
 
 Site Factory is a site management interface, integrated with the Back Office.
 It enables you to configure new sites without editing [YAML-based SiteAccess configuration](multisite_configuration.md).
