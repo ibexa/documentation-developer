@@ -29,7 +29,7 @@ Each scope can use only one design.
 
 ## Design theme list
 
-A theme is a set of directories to look for templates in. Mainly, theme's templates are placed in a directory under `templates/themes` which name is the theme name.
+A theme is a set of directories to look for templates in. At application level, theme's templates are placed in a directory under `templates/themes` which has the same name as the theme.
 For example, `standard` theme's templates can be placed in `templates/themes/standard` directory.
 
 !!! caution
