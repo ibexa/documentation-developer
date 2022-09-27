@@ -1,8 +1,9 @@
 ---
 description: Form Builder enables creating dynamic forms to use in surveys, questionnaires, sign-up forms and others.
+edition: experience
 ---
 
-# Forms [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+# Forms
 
 You can build forms consisting of different fields in the Form Builder.
 

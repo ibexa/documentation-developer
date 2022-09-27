@@ -1,8 +1,9 @@
 ---
 description: You can use PHP API to get Segment information, create and manage Segments, and assign users to them.
+edition: experience
 ---
 
-# Segment API [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+# Segment API
 
 Segments enable you to profile the content displayed to specific users.
 

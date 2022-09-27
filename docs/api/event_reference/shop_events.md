@@ -1,8 +1,9 @@
 ---
 description: Events that are triggered when working with the basket and checkout.
+edition: commerce
 ---
 
-# Shop events [[% include 'snippets/commerce_badge.md' %]]
+# Shop events
 
 ## BasketLine Events
 
