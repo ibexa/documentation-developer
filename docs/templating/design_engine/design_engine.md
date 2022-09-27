@@ -41,7 +41,8 @@ The order of themes in a design is important.
 The design engine attempts to apply the first theme in configuration (for example, `theme2`).
 If it cannot find the required template or asset in this theme, it proceeds to the next theme in the list (for example, `theme1` then `theme0` and finally the default `standard`).
 
-`@ibexadesign` keyword in template paths is the way to use this feature. When `@ibexadesign` is met, the design engine loops in the theme list of the current design and look for each theme if the template exists in its paths.
+The `@ibexadesign` keyword in template paths is the way to use this feature.
+When the design engine finds `@ibexadesign`, it loops over the theme list of the current design and checks whether the template for the given theme exists in its paths.
 For example, `@ibexadesign/pagelayout.html.twig` means that this template is searched at locations like `templates/themes/theme2/pagelayout.html.twig`, `templates/themes/theme1/pagelayout.html.twig`, `templates/themes/theme0/pagelayout.html.twig` and then `templates/themes/standard/pagelayout.html.twig`.
 
 You can use this behavior to override only some templates from the main theme of your website.
