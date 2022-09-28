@@ -121,6 +121,8 @@ The following attributes are available:
 |`is_ghost`|true</br>false|Changes layout of the widget, removes all borders and backgrounds (similar to buttons modifier).|
 |`min_search_items`|number, default 5|Minimum number of options that have to be passed to show the search inside the drop-down.|
 |`selected_item_label`|text|Allows setting constant label for widget. By default the visible label shows the currently selected options.|
+|`has_select_all_toggler`|true</br>false|Allows showing a "Select all" option if the minimum number of items is reached.|
+|`min_select_all_toggler_items`|number, default 5|Minimum number of items the dropdown must have for the "Select all" option to appear.|
 
 ![Drop-down expanded state](dropdown_expanded_state.png)
 
