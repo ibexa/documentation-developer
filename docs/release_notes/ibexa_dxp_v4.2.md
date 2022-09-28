@@ -235,7 +235,7 @@ For more information, see [Customer Data Platform](https://doc.ibexa.co/en/4.2/c
 ### SEO
 
 With Search Engine Optimization (SEO) tool, you can optimize your website or online store for both visitors and search engines.
-The implementation of SEO brings in more organic traffic and improves your website visibility in SERPs. This is a core feature od Digital Experience Platform.
+The implementation of SEO brings in more organic traffic and improves your website visibility in SERPs. This is a core feature of Digital Experience Platform.
 SEO bundle provides meta tags and meta titles with a description which helps to control search result's appearance of your website on the search engine pages.
 Now you can share your content on the social networks using OpenGraph and Twitter cards.
 
