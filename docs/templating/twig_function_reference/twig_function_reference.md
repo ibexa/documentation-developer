@@ -4,7 +4,7 @@ description: Built-in Twig functions speed up rendering content in Twig template
 
 # Twig function reference
 
-In addition to the [native functions provided by Twig](http://twig.sensiolabs.org/doc/functions/index.html),
+In addition to the [native functions provided by Twig](https://twig.symfony.com/doc/3.x/functions/index.html),
 and [Twig extensions provided by Symfony]([[= symfony_doc =]]/reference/twig_reference.html),
 [[= product_name =]] offers the following custom Twig functions and filters:
 
