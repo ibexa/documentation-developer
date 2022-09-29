@@ -321,6 +321,7 @@ nav:
             - Shop translations: multisite/languages/shop_translations.md
     - Permissions:
         - Permissions: permissions/permissions.md
+        - Permission overview: permissions/permission_overview.md
         - Permission use cases: permissions/permission_use_cases.md
         - Policies: permissions/policies.md
         - Limitations: permissions/limitations.md
@@ -498,6 +499,7 @@ nav:
             - LogicalNot Criterion: search/url_search_reference/logicalnot_url_criterion.md
             - LogicalOr Criterion: search/url_search_reference/logicalor_url_criterion.md
         - Search in trash reference: search/search_in_trash_reference.md
+        - Search reindexing: search/search_reindexing.md
         - Extend search:
             - Create custom Search Criterion: search/extensibility/create_custom_search_criterion.md
             - Create custom Sort Clause: search/extensibility/create_custom_sort_clause.md
