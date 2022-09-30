@@ -160,7 +160,7 @@ Validators can be also set on a parent attribute (group defining level), it mean
 
 ## Help messages for form fields
 
-With the `help`, `help_attr` and `help_html` field options, you can define help messages for fields in the Page block.
+With the `help`, `help_attr`, and `help_html` field options, you can define help messages for fields in the Page block.
 
 You can set options with the following configuration:
 
@@ -172,7 +172,7 @@ ibexa_fieldtype_page:
                 attribute_name:
                     options:
                         help:
-                            text: 'Some exemplary text'
+                            text: 'Some example text'
                             html: true|false
                             attr:
                                 class: 'class1 class2'
@@ -180,11 +180,11 @@ ibexa_fieldtype_page:
 
 - `help` - defines a help message which is rendered below the field.
 - `help_attr` - sets the HTML attributes for the element which displays the help message.
-- `help_html` - set this option to `true` to not escape the contents of the `help` option from rendering them in the template.
+- `help_html` - set this option to `true` to disable escaping the contents of the `help` option when rendering in the template.
 
 ### Help message in nested attributes
 
-You can set the options for root or nested attribute, see the exemplary configuration:
+You can set the options for root or nested attribute, see the example configuration:
 
 ```yaml
 [[= include_file('code_samples/page/custom_attribute/config/packages/help_messages.yaml') =]]
