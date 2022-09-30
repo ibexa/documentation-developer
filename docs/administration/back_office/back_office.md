@@ -18,3 +18,14 @@ is possible without writing your own code, with configuration and templating onl
 
     Refer to [Custom string translations](back_office_translations.md#custom-string-translations)
     to learn how to provide string translations when extending the Back Office.
+
+[[= cards([
+    "administration/back_office/back_office_configuration",
+    "administration/back_office/back_office_menus/back_office_menus",
+    "administration/back_office/back_office_tabs/back_office_tabs",
+    "administration/back_office/back_office_elements/reusable_components",
+    "administration/back_office/notifications",
+    "administration/back_office/browser/browser",
+    "administration/back_office/add_user_setting",
+    "administration/back_office/customize_calendar",
+], columns=4) =]]

@@ -2,7 +2,7 @@
 description: "Ibexa DXP releases new versions periodically in different flavors: Ibexa Content, Ibexa Experience and Ibexa Commerce, plus open-source Ibexa OSS."
 ---
 
-# [[= product_name =]] release process and roadmap
+# Ibexa DXP release process and roadmap
 
 ## Release process
 

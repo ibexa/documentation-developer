@@ -7,6 +7,7 @@ copyright: "Copyright 1999-2022 Ibexa AS and others"
 nav:
     - Ibexa Developer Documentation: index.md
     - Getting started:
+        - Getting started: getting_started/getting_started.md
         - Requirements: getting_started/requirements.md
         - Install Ibexa DXP: getting_started/install_ibexa_dxp.md
         - Install on Ibexa Cloud: getting_started/install_on_ibexa_cloud.md
@@ -14,6 +15,7 @@ nav:
         - First steps: getting_started/first_steps.md
         - Troubleshooting: getting_started/troubleshooting.md
     - Tutorials:
+        - Tutorials: tutorials/tutorials.md
         - Beginner tutorial:
             - Beginner tutorial: tutorials/beginner_tutorial/beginner_tutorial.md
             - 1. Get ready: tutorials/beginner_tutorial/1_get_ready.md
@@ -42,6 +44,7 @@ nav:
             - 7. Add basic validation: tutorials/generic_field_type/7_add_a_validation.md
             - 8. Data migration: tutorials/generic_field_type/8_data_migration.md
     - API:
+        - API: api/api.md
         - PHP API: api/php_api/php_api.md
         - REST API:
             - REST API usage:
@@ -77,6 +80,7 @@ nav:
             - Trash events: api/event_reference/trash_events.md
             - Other events: api/event_reference/other_events.md
     - Administration:
+        - Administration: administration/administration.md
         - Project organization:
             - Project organization: administration/project_organization/project_organization.md
             - Architecture: administration/project_organization/architecture.md
@@ -115,6 +119,7 @@ nav:
             - Sub-items list: administration/back_office/subitems_list.md
             - Notifications: administration/back_office/notifications.md
     - Content management:
+        - Content management: content_management/content_management.md
         - Content model: content_management/content_model.md
         - Locations: content_management/locations.md
         - Content Relations: content_management/content_relations.md
@@ -134,6 +139,7 @@ nav:
             - Binary and Media download: content_management/file_management/binary_and_media_download.md
             - File URL handling: content_management/file_management/file_url_handling.md
         - Pages:
+            - Pages: content_management/pages/pages.md
             - Page blocks: content_management/pages/page_blocks.md
             - Page block attributes: content_management/pages/page_block_attributes.md
             - Page block validators: content_management/pages/page_block_validators.md
@@ -217,6 +223,7 @@ nav:
                 - URL Field Type: content_management/field_types/field_type_reference/urlfield.md
                 - User Field Type: content_management/field_types/field_type_reference/userfield.md
     - Templating:
+        - Templating: templating/templating.md
         - Render content:
             - Render content: templating/render_content/render_content.md
             - Render Page: templating/render_content/render_page.md
@@ -265,7 +272,9 @@ nav:
     - PIM (Product management):
         - PIM (Product management): pim/pim.md
         - PIM configuration: pim/pim_configuration.md
+        - Products: pim/products.md
         - Product API: pim/product_api.md
+        - Catalogs: pim/catalogs.md
         - Enable purchasing products: pim/enable_purchasing_products.md
         - Create custom attribute type: pim/create_custom_attribute_type.md
         - Create product code generator: pim/create_product_code_generator.md
@@ -273,6 +282,7 @@ nav:
         - Price API: pim/price_api.md
         - Bestsellers: pim/bestsellers.md
     - Commerce:
+        - Commerce: commerce/commerce.md
         - Basket: commerce/basket.md
         - Wishlist and stored baskets: commerce/wishlist_and_stored_baskets.md
         - Checkout:
@@ -294,13 +304,16 @@ nav:
     - Multisite:
         - Multisite: multisite/multisite.md
         - Multisite configuration: multisite/multisite_configuration.md
+        - SiteAccess:
+            - SiteAccess: multisite/siteaccess/siteaccess.md
+            - SiteAccess matching: multisite/siteaccess/siteaccess_matching.md
+            - SiteAccess-aware configuration: multisite/siteaccess/siteaccess_aware_configuration.md
+            - Injecting SiteAccess: multisite/siteaccess/injecting_siteaccess.md
         - Set up campaign SiteAccess: multisite/set_up_campaign_siteaccess.md
         - Set up translation SiteAccess: multisite/set_up_translation_siteaccess.md
-        - Site Factory: multisite/site_factory.md
-        - Site Factory configuration: multisite/site_factory_configuration.md
-        - SiteAccess matching: multisite/siteaccess_matching.md
-        - Injecting SiteAccess: multisite/injecting_siteaccess.md
-        - SiteAccess-aware configuration: multisite/siteaccess_aware_configuration.md
+        - Site Factory:
+            - Site Factory: multisite/site_factory/site_factory.md
+            - Site Factory configuration: multisite/site_factory/site_factory_configuration.md
         - Languages:
             - Languages: multisite/languages/languages.md
             - Language API: multisite/languages/language_api.md
@@ -308,11 +321,14 @@ nav:
             - Shop translations: multisite/languages/shop_translations.md
     - Permissions:
         - Permissions: permissions/permissions.md
+        - Permission overview: permissions/permission_overview.md
         - Permission use cases: permissions/permission_use_cases.md
+        - Policies: permissions/policies.md
         - Limitations: permissions/limitations.md
         - Limitation reference: permissions/limitation_reference.md
         - Custom Policies: permissions/custom_policies.md
     - Users:
+        - Users: users/users.md
         - User management: users/user_management.md
         - Customer groups: users/customer_groups.md
         - Invitations: users/invitations.md
@@ -347,8 +363,10 @@ nav:
         - CDP activation: cdp/cdp_activation.md
     - Search:
         - Search: search/search.md
+        - Search engines: search/search_engines.md
         - Elasticsearch search engine: search/elasticsearch_search_engine.md
         - Solr search engine: search/solr_search_engine.md
+        - Search Criteria and Sort Clauses: search/search_criteria_and_sort_clauses.md
         - Search API: search/search_api.md
         - Search Criteria reference:
             - Search Criteria reference: search/criteria_reference/search_criteria_reference.md
@@ -481,6 +499,7 @@ nav:
             - LogicalNot Criterion: search/url_search_reference/logicalnot_url_criterion.md
             - LogicalOr Criterion: search/url_search_reference/logicalor_url_criterion.md
         - Search in trash reference: search/search_in_trash_reference.md
+        - Search reindexing: search/search_reindexing.md
         - Extend search:
             - Create custom Search Criterion: search/extensibility/create_custom_search_criterion.md
             - Create custom Sort Clause: search/extensibility/create_custom_sort_clause.md
@@ -496,9 +515,11 @@ nav:
             - Search synonyms: search/shop_search/search_synonyms.md
             - Autosuggestion: search/shop_search/search_autosuggest.md
     - Infrastructure and maintenance:
+        - Infrastructure and maintenance: infrastructure_and_maintenance/infrastructure_and_maintenance.md
         - Request lifecycle: infrastructure_and_maintenance/request_lifecycle.md
         - Databases: infrastructure_and_maintenance/databases.md
         - Cache:
+            - Cache: infrastructure_and_maintenance/cache/cache.md
             - HTTP cache: 
               - HTTP cache: infrastructure_and_maintenance/cache/http_cache/http_cache.md
               - HTTP cache configuration: infrastructure_and_maintenance/cache/http_cache/http_cache_configuration.md
@@ -522,7 +543,7 @@ nav:
             - Security checklist: infrastructure_and_maintenance/security/security_checklist.md
             - Reporting issues: infrastructure_and_maintenance/security/reporting_issues.md
         - Support and maintenance FAQ: infrastructure_and_maintenance/support_and_maintenance_faq.md
-    - Update and migration: #TODO
+    - Update and migration:
         - Update Ibexa DXP: update_and_migration/update_ibexa_dxp.md
         - Update from v1.13 and v2.x:
             - Update from v1.13 and v2.x: update_and_migration/from_1.x_2.x/update_from_1.x_2.x.md
@@ -556,6 +577,7 @@ nav:
             - Migrate from eZ Publish: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish.md
             - Common migration issues: update_and_migration/migrate_to_ibexa_dxp/common_issues.md
     - Resources:
+        - Resources: resources/resources.md
         - Release process and roadmap: resources/release_process_and_roadmap.md
         - Ibexa DXP PhpStorm plugin: resources/phpstorm_plugin.md
         - Contributing:
@@ -563,6 +585,7 @@ nav:
             - Contribute translations: resources/contributing/contribute_translations.md
             - Package structure: resources/contributing/package_structure.md
     - Release notes:
+        - Release notes: release_notes/release_notes.md
         - Ibexa DXP v4.2: release_notes/ibexa_dxp_v4.2.md
         - Ibexa DXP v4.1: release_notes/ibexa_dxp_v4.1.md
         - Ibexa DXP v4.0: release_notes/ibexa_dxp_v4.0.md
