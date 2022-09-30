@@ -1,3 +1,7 @@
+---
+description: Ibexa DXP v4.2 adds the Customer Portal and user management capabilities, and enriches PIM with catalogs, product variants and product assets.
+---
+
 # Ibexa DXP v4.2
 
 **Version number**: v4.2
