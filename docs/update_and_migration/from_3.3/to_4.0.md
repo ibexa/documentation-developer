@@ -94,7 +94,7 @@ composer require ibexa/compatibility-layer
 composer recipes:install ibexa/compatibility-layer --force
 ```
 
-Please, make sure that `Ibexa\Bundle\CompatibilityLayer\IbexaCompatibilityLayerBundle` is last in your bundle list in `config/bundles.php`.
+Make sure that `Ibexa\Bundle\CompatibilityLayer\IbexaCompatibilityLayerBundle` is last in your bundle list in `config/bundles.php`.
 
 Next, clear the cache:
 
