@@ -1,0 +1,4 @@
+services:
+    App\GroupResolver\ContentTypeGroupGroupResolver:
+        arguments:
+            $contentTypeService: '@ibexa.api.service.content_type'

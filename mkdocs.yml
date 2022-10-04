@@ -506,6 +506,7 @@ nav:
             - Create custom Aggregation: search/extensibility/create_custom_aggregation.md
             - Solr document field mappers: search/extensibility/solr_document_field_mappers.md
             - Index custom Elasticsearch data: search/extensibility/index_custom_elasticsearch_data.md
+            - Customize Elasticsearch index structure: search/extensibility/customize_elasticsearch_index_structure.md
             - Manipulate Elasticsearch query: search/extensibility/manipulate_elasticsearch_query.md
         - Shop search:
             - Shop search: search/shop_search/shop_search.md
