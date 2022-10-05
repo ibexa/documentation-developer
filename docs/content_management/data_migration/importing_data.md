@@ -245,6 +245,26 @@ The following example shows how you can create and update a setting that is stor
 [[= include_file('code_samples/data_migration/examples/create_update_setting.yaml') =]]
 ```
 
+### Taxonomies
+
+The following example shows how you can create a "Car" tag in the main Taxonomy:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_tag.yaml') =]]
+```
+
+You can use the following example to assign tags to a Content (Content Type Article has an additional Field):
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/assign_tag.yaml') =]]
+```
+
+When updating a Content Type, use: 
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/update_tag.yaml') =]]
+```
+
 ## Criteria
 
 When using `update` or `delete` modes, you can use criteria to identify the objects to operate on.
