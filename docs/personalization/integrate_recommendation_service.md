@@ -2,7 +2,7 @@
 description: Integrate recommendation service into your website.
 ---
 
-# Integrate Recommendation service
+# Integrate recommendation service
 
 To return recommendations, you must first [enable the Personalization service](enable_personalization.md).
 Then, you must integrate the service with [[= product_name =]] by activating 

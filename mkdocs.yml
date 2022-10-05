@@ -344,8 +344,10 @@ nav:
             - Customer data configuration: users/customers/customer_data_configuration.md
     - Personalization:
         - Personalization: personalization/personalization.md
+        - How it works: personalization/how_it_works.md
         - Enable personalization: personalization/enable_personalization.md
         - Integrate recommendation service: personalization/integrate_recommendation_service.md
+        - Tracking integration: personalization/best_practices/tracking_integration.md
         - Developer guide:
             - Tracking API: personalization/developer_guide/tracking_api.md
             - Importing historical user tracking data: personalization/developer_guide/importing_historical_user_tracking_data.md
@@ -355,7 +357,6 @@ nav:
             - User API: personalization/developer_guide/user_api.md
             - Attribute search in Elasticsearch: personalization/developer_guide/attribute_search_in_elasticsearch.md
         - Best practices:
-            - Tracking integration: personalization/best_practices/tracking_integration.md
             - Recommendation integration: personalization/best_practices/recommendation_integration.md
     - CDP (Customer Data Platform):
         - Customer Data Platform: cdp/cdp.md
