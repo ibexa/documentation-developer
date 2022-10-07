@@ -11,6 +11,12 @@ description: Install Ibexa DXP on a Linux system and prepare your installation f
     To install [[= product_name =]] for development on macOS or Windows,
     see the [installation guide for macOS and Windows](install-on-mac-os-and-windows.md).
 
+!!! note "Installing Ibexa OSS"
+
+    This installation guide details the steps to install Ibexa DXP for users who have a subscription agreement with Ibexa.
+    If you want to install Ibexa OSS, you do not need authentication tokens or an account on updates.ibexa.co,
+    but must adapt the steps shown here to the product edition and the `ibexa/oss` repository.
+
 ## Prepare work environment
 
 To install [[= product_name =]] you need a stack with your operating system, MySQL and PHP.
