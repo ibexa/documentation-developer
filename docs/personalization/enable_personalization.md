@@ -4,13 +4,13 @@ description: Configure your project files to enable Personalization and set up i
 
 # Enable personalization
 
-The personalization service is based on a client-server architecture.
+The Personalization service is based on a client-server architecture.
 To enable it, you must set up authentication parameters that you receive from Ibexa.
 
 ## Get authentication parameters
 
 First, either you or another Ibexa user responsible for managing the [[= product_name =]]  
-instance must [request access to the service]([[= user_doc =]]/personalization/enable_personalization/#request-access-to-the-server).
+instance must [request access to the service]([[= user_doc =]]/personalization/enabling_personalization/#request-access-to-the-server).
 
 ## Set up customer credentials
 

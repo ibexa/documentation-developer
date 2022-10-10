@@ -347,17 +347,18 @@ nav:
         - How it works: personalization/how_it_works.md
         - Enable personalization: personalization/enable_personalization.md
         - Integrate recommendation service: personalization/integrate_recommendation_service.md
-        - Tracking integration: personalization/best_practices/tracking_integration.md
-        - Developer guide:
+        - Tracking integration: personalization/tracking_integration.md
+        - Recommendation integration: personalization/recommendation_integration.md
+        - API reference:
+            - API reference: personalization/api_reference/api_reference.md
+            - Content API: personalization/api_reference/content_api.md
+            - Recommendation API: personalization/api_reference/recommendation_api.md
+            - Tracking API: personalization/api_reference/tracking_api.md
+            - User API: personalization/api_reference/user_api.md
             - Tracking API: personalization/developer_guide/tracking_api.md
-            - Importing historical user tracking data: personalization/developer_guide/importing_historical_user_tracking_data.md
-            - Track with yct.js: personalization/developer_guide/tracking_with_yct.md
-            - Recommendation API: personalization/developer_guide/recommendation_api.md
-            - Content API: personalization/developer_guide/content_api.md
-            - User API: personalization/developer_guide/user_api.md
-            - Attribute search in Elasticsearch: personalization/developer_guide/attribute_search_in_elasticsearch.md
-        - Best practices:
-            - Recommendation integration: personalization/best_practices/recommendation_integration.md
+        - Importing historical user tracking data: personalization/developer_guide/importing_historical_user_tracking_data.md
+        - Track with yct.js: personalization/tracking_with_yct.md
+        - Attribute search in Elasticsearch: personalization/attribute_search_in_elasticsearch.md
     - CDP (Customer Data Platform):
         - Customer Data Platform: cdp/cdp.md
         - CDP installation: cdp/cdp_installation.md
