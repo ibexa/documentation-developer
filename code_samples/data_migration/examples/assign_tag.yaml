@@ -11,10 +11,10 @@
     fields:
         -   fieldDefIdentifier: title
             languageCode: eng-GB
-            value: Jeden
+            value: Test1
         -   fieldDefIdentifier: short_title
             languageCode: eng-GB
-            value: jeden
+            value: test1
         -   fieldDefIdentifier: author
             languageCode: eng-GB
             value:

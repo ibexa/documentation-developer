@@ -249,9 +249,17 @@ The following example shows how you can create and update a setting that is stor
 
 The following example shows how you can create a "Car" tag in the main Taxonomy:
 
-``` yaml
+``` yaml hl_lines="15 18 21"
 [[= include_file('code_samples/data_migration/examples/create_tag.yaml') =]]
 ```
+
+The field identifiers must match the identifiers used in the `ibexa_taxonomy` configuration file.
+
+If the Content Type associated with the tags is changed, the configuration should be adjusted when creating migrations.
+
+!!! note
+    If there are multiple taxonomies, the `taxonomy` field is then necessary here (line 21).
+
 
 You can use the following example to assign tags to a Content (Content Type Article has an additional Field):
 
