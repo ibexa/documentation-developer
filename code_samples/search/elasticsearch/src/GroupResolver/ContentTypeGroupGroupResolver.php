@@ -4,22 +4,22 @@ declare(strict_types=1);
 
 namespace App\GroupResolver;
 
-use eZ\Publish\API\Repository\ContentTypeService;
+use Ibexa\Contracts\Core\Persistence\Content\Type\Handler;
 use Ibexa\Contracts\Elasticsearch\ElasticSearch\Index\Group\GroupResolverInterface;
 use Ibexa\Contracts\Elasticsearch\Mapping\BaseDocument;
 
 final class ContentTypeGroupGroupResolver implements GroupResolverInterface
 {
-    private $contentTypeService;
+    private Handler $contentTypeHandler;
 
-    public function __construct(ContentTypeService $contentTypeService)
+    public function __construct(Handler $contentTypeHandler)
     {
-        $this->contentTypeService = $contentTypeService;
+        $this->contentTypeHandler = $contentTypeHandler;
     }
 
     public function resolveDocumentGroup(BaseDocument $document): string
     {
-        $index = $this->contentTypeService->loadContentType($document->contentTypeId)->contentTypeGroups[0]->id;
+        $index = $this->contentTypeHandler->load($document->contentTypeId)->groupIds[0];
 
         return (string)$index;
     }
