@@ -46,6 +46,52 @@ To delete a product, use `LocalProductService::deleteProduct()`:
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 115, 116) =]]
 ```
 
+### Product variants
+
+You can access the variants of a product by using `ProductServiceInterface::findProductVariants()`.
+The method takes the product object and a `ProductVariantQuery` object as parameters.
+
+A `ProductVariantQuery` lets you define the offset and limit of the variant query.
+The default offset is 0, and limit is 25.
+
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 51, 54) =]]
+```
+
+From a variant, you can access the attributes that are used to generate the variant
+by using `ProductVariant::getDiscriminatorAttributes()`.
+
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 55, 62) =]]
+```
+
+#### Creating variants
+
+To create a product variant, use `LocalProductService::createProductVariants()`.
+This method takes the product and an array of `ProductVariantCreateStruct` objects as parameters.
+`ProductVariantCreateStruct` specifies the attribute values and the code for the new variant.
+
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductVariantCommand.php', 64, 70) =]]
+```
+
+### Product assets
+
+You can get assets assigned to a product by using `AssetServiceInterface`.
+
+Use `AssetServiceInterface` to get a single asset by providing the product object and the assets's ID as parameters:
+
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductAssetCommand.php', 48, 50) =]]
+```
+
+To get all assets assigned to a product, use `AssetServiceInterface::findAssets()`.
+You can retrieve the tags (corresponding to attribute values) of assets with the `getTags()` method:
+
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductAssetCommand.php', 51, 60) =]]
+```
+
 ## Product types
 
 To work with product types, use `ProductTypeServiceInterface`.
