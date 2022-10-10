@@ -155,7 +155,7 @@ If a Field definition is deleted from the Content Type, all the corresponding Fi
 
 System Content Types are by default used for the File Uploads and removing them will cause errors.
 
-If you decide to remove a `file` or `image` Content Type, or change their identifiers
+If you decide to remove a `file` or `image` Content Type, or change their identifiers,
 you will need to change the configuration, so it reflects the available Content Types.
 
 Example configuration:
