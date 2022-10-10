@@ -124,7 +124,7 @@ Each Content Type is characterized by a set of metadata which define the general
 
 System Content Types are by default used for the File Uploads and removing them will cause errors.
 
-If you decide to remove a `file` or `image` Content Type, or change their identifiers
+If you decide to remove a `file` or `image` Content Type, or change their identifiers,
 you will need to change the configuration, so it reflects the available Content Types.
 
 Example configuration:
