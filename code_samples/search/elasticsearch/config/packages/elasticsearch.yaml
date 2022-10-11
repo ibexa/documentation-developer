@@ -1,0 +1,2 @@
+ibexa_elasticsearch:
+    document_group_resolver: 'App\GroupResolver\ContentTypeGroupGroupResolver'
