@@ -120,6 +120,52 @@ Each Content Type is characterized by a set of metadata which define the general
 
 ![Creating a new Content Type](img/admin_panel_new_content_type.png)
 
+### Removing Content Types
+
+System Content Types are by default used for the File Uploads and removing them will cause errors.
+
+If you decide to remove a `file` or `image` Content Type, or change their identifiers,
+you will need to change the configuration, so it reflects the available Content Types.
+
+Example configuration:
+
+```yaml
+parameters:
+    ezplatform.multifile_upload.location.default_mappings:
+        # Image
+        - mime_types:
+            - image/jpeg
+            - image/jpg
+            - image/pjpeg
+            - image/pjpg
+            - image/png
+            - image/bmp
+            - image/gif
+            - image/tiff
+            - image/x-icon
+            - image/webp
+          content_type_identifier: custom_image_contenttype
+          content_field_identifier: image
+          name_field_identifier: name
+        # File
+        - mime_types:
+            - image/svg+xml
+            - application/msword
+            - application/vnd.openxmlformats-officedocument.wordprocessingml.document
+            - application/vnd.ms-excel
+            - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+            - application/vnd.ms-powerpoint
+            - application/vnd.openxmlformats-officedocument.presentationml.presentation
+            - application/pdf
+          content_type_identifier: custom_file_contenttype
+          content_field_identifier: file
+          name_field_identifier: name   
+    ezplatform.multifile_upload.fallback_content_type:
+        content_type_identifier: custom_file_contenttype
+        content_field_identifier: file
+        name_field_identifier: name
+```
+
 ### Field definitions
 
 Aside from the metadata, a Content Type may contain any number of Field definitions (but has to contain at least one).
