@@ -1,0 +1,2 @@
+ezplatform_elastic_search_engine:
+    document_group_resolver: 'App\GroupResolver\ContentTypeGroupGroupResolver'
