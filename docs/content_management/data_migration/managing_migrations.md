@@ -20,7 +20,7 @@ php bin/console ibexa:migrations:kaliop:convert --input=kaliop_format.yaml --out
 You can also convert multiple files using `ibexa:migrations:kaliop:bulk-convert`:
 
 ``` bash
-php bin/console ibexa:migrations:kaliop:bulk-convert --recursive --input-directory=kaliop_files --output-directory=ibexa_files
+php bin/console ibexa:migrations:kaliop:bulk-convert --recursive kaliop_files ibexa_files
 ```
 
 If you do not specify the output folder, the command overwrites the input files.
