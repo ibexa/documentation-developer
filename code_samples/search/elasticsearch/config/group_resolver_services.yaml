@@ -1,4 +1,4 @@
 services:
     App\GroupResolver\ContentTypeGroupGroupResolver:
         arguments:
-            $contentTypeService: '@ibexa.api.service.content_type'
+            $contentTypeHandler: '@Ibexa\Contracts\Core\Persistence\Content\Type\Handler'
