@@ -42,6 +42,10 @@ The alert component has the following properties:
 } only %}
 ```
 
+## Details
+
+## Modal
+
 ## Tables
 
 The table component consists of the following blocks:
