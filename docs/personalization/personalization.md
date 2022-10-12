@@ -20,6 +20,7 @@ To provide online recommendations, the service must at least:
     "personalization/how_it_works",
     "personalization/enable_personalization",
     "personalization/integrate_recommendation_service",
+    "personalization/api_reference/api_reference",
 ], columns=4) =]]
 
 

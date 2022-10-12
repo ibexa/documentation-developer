@@ -18,9 +18,9 @@ event tracking and embedding recommendation results into the website.
 The service primarily relies on event tracking. 
 For the events to be registered, every Content item or product page must call 
 a special tracking URL.
-The simplest way of embedding the tracking URL is placing a one pixel image on every page, 
+The easiest way of embedding the tracking URL is placing a one pixel image on every page, 
 like in the case of analytical tools or visitor counters.
-A code that includes an image may look like this:
+A code that includes an image looks like this:
 
 `<img href="https://event.perso.ibexa.co/ebl/00000/click/<user_ID>/<content_type_ID>/<content_ID>" width="1" height="1">`
 

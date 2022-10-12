@@ -2,6 +2,8 @@
 description: Correlate metadata with user data and combine users into clusters of certain type.
 ---
 
+# API reference
+
 This secton provides documentation for the Personalization API operations.
 
 [[= cards([

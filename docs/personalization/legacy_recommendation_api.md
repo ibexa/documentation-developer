@@ -20,11 +20,11 @@ number of events must be collected and the model build must finish successfully.
 
     **BASIC Authentication** for fetching recommendations is enabled for some 
     configurations (for example for Gambio Plugin) by default.
-    Use the customerid as username and the license key as password.
+    Use the `customerid` as username and the license key as password.
     The license key is displayed in the upper right in the [Admin GUI](https://admin.yoochoose.net/)) 
     after you log in with your registration credentials.
 
-    If you plan to use [JSONP](https://en.wikipedia.org/wiki/JSONP), authentication 
+    If you plan to use [JSONP](https://www.w3schools.com/js/js_json_jsonp.asp), authentication 
     must be disabled.
     If it is enabled in your solution (can be easily tested with a recommendation request in a browser), please contact the eZ Recommender support (<support@yoochoose.com>) for further information and disabling.
 
@@ -35,7 +35,7 @@ by using the GET method.
 The result is a list of item IDs that can be used to call the underlying CMS 
 or shop system, to retrieve the necessary information for the rendering process.
 
-To allow the customer to retrieve different types of recommendations based on different methods (e.g. Collaborative Filtering, Content Based, Stereotype, etc.) the Recommendation System uses scenario IDs relating to a predefined set of configurations inside the system.
+To allow the customer to retrieve different types of recommendations based on different methods (for example, Collaborative Filtering, Content Based, Stereotype, etc.) the Recommendation System uses scenario IDs relating to a predefined set of configurations inside the system.
 These configurations are a combination of methods and filters that should be applied including possible fallbacks if the requested methods do not deliver a result.
 
 A recommendation request looks like this:

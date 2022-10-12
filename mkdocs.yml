@@ -356,7 +356,7 @@ nav:
             - Tracking API: personalization/api_reference/tracking_api.md
             - User API: personalization/api_reference/user_api.md
             - Tracking API: personalization/developer_guide/tracking_api.md
-        - Importing historical user tracking data: personalization/developer_guide/importing_historical_user_tracking_data.md
+        - Importing historical user tracking data: personalization/importing_historical_user_tracking_data.md
         - Track with yct.js: personalization/tracking_with_yct.md
         - Attribute search in Elasticsearch: personalization/attribute_search_in_elasticsearch.md
     - CDP (Customer Data Platform):
