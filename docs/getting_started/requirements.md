@@ -17,7 +17,7 @@ Using the latest listed version of each product or component is always recommend
 
 ## Operating system
 
-- Debian 10.x "Buster"
+- Debian 10.x "buster" or Debian 11.x "bullseye"
 - Ubuntu 20.04 "Focal Fossa"
 - RHEL / CentOS 8.1+
 
