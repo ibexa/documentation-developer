@@ -20,6 +20,10 @@ description: Ibexa DXP v4.3 adds the improvements to the Customer Portal, PIM an
 
 ## Other changes
 
+### Debian 11
+
+Ibexa DXP now supports Debian 11 "bullseye" operating system.
+
 ### API improvements
 
 ## Full changelog
