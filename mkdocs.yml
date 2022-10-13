@@ -454,7 +454,9 @@ nav:
             - UserLogin: search/sort_clause_reference/userlogin_sort_clause.md
             - Visibility: search/sort_clause_reference/visibility_sort_clause.md
         - Product Sort Clauses:
+            - BasePrice: search/sort_clause_reference/baseprice_sort_clause.md
             - CreatedAt: search/sort_clause_reference/createdat_sort_clause.md
+            - CustomPrice: search/sort_clause_reference/customprice_sort_clause.md
             - ProductAvailability: search/sort_clause_reference/productavailability_sort_clause.md
             - ProductCode: search/sort_clause_reference/productcode_sort_clause.md
             - ProductName: search/sort_clause_reference/productname_sort_clause.md
