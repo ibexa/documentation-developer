@@ -20,11 +20,33 @@ description: Ibexa DXP v4.3 adds the improvements to the Customer Portal, PIM an
 
 ## Other changes
 
+### PIM improvements
+
+When querying for products you can now use one of two price-related Sort Clauses:
+
+- [`BasePrice` Sort Clause] sorts results by the products' base prices
+- [`CustomPrice` Sort Clause] enables sorting by the custom price configured for the provided customer group.
+
+This release also includes a number of usability improvements in PIM,
+such as full information about available attribute values or improved display of Selection attributes.
+
+In catalogs, you can now configure default filters that are always added to a catalog,
+as well as define filter order and group custom filters.
+
+Filtering by the Color attribute is now possible.
+
 ### Debian 11
 
 Ibexa DXP now supports Debian 11 "bullseye" operating system.
 
 ### API improvements
+
+PIMs Catalogs functionality is now covered in REST API, including:
+
+- Getting catalog list
+- Creating, modifying, copying and deleting catalogs
+- Changing catalog status
+- Getting catalog filters and sorting options
 
 ## Full changelog
 
