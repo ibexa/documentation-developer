@@ -48,6 +48,10 @@ PIMs Catalogs functionality is now covered in REST API, including:
 - Changing catalog status
 - Getting catalog filters and sorting options
 
+### Taxonomy improvements
+
+Objects of `\Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry`type, which are returned by `TaxonomyService`, now contains the information about nesting level in the tree.
+
 ## Full changelog
 
 | Ibexa Content  | Ibexa Experience  | Ibexa Commerce |
