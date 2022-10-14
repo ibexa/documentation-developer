@@ -29,7 +29,7 @@ post:
         404:
             description: Error - the product type with the given ID does not exist.
 get:
-    displayName: Load product types
+    displayName: Load product types (deprecated as of Ibexa DXP 4.3, use /view instead)
     description: Returns a list of product types.
     headers:
         Accept:
@@ -70,7 +70,7 @@ get:
         description: Returns the given product type.
         headers:
             Accept:
-                description: ProductTypeListGet - If set, the product type is returned in XML or JSON format.
+                description: ProductTypeGet - If set, the product type is returned in XML or JSON format.
                 example:  |
                     application/vnd.ibexa.api.ProductTypeGet+json
             Content-Type:
