@@ -81,8 +81,6 @@ An overview of pros and cons for every technique:
 | Doesn't delay page rendering. |&#10004;|-|&#10004;|&#10004;|&#10004;|&#10004;|
 | Supports authentication for event tracking (not implemented yet). |-|&#10004;|&#10004;|&#10004;|-| Yes/No |
 
-<!-- still not implemented?-->
-
 !!! tip "The recommended approach"
 
     An Ibexa-recommended solution is to use pixel tracking for non-complex events,
