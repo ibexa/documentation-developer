@@ -4,7 +4,7 @@ description: Use historical user tracking data to build user profiles and genera
 
 # Importing historical user tracking data
 
-We support replaying historical user events by adding a special parameter *overridetimestamp* on the buy event to simulate the event date.
+The recommendation engine supports replaying historical user events by adding a special parameter *overridetimestamp* on the buy event to simulate the event date.
 This is then used as the datetime of an event instead of the current timestamp 
 of the request.
 
