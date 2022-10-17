@@ -6,7 +6,7 @@ description: See the methods of event tracking integration using tracking from s
 
 There are several ways to integrate event reporting into the webpage. 
 The simplest way is to generate code of a tiny image and put it on the webpage 
-where the event must be sent [pixel tracking](integrate_system_service.md#track-events)).
+where the event must be sent [pixel tracking](integrate_recommendation_service.md#track-events).
 
 For example, with HTML: 
 
