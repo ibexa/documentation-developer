@@ -35,6 +35,11 @@ as well as define filter order and group custom filters.
 
 Filtering by the Color attribute is now possible.
 
+#### Integration with recommendation engine
+
+Now, during product creation, edition, or deletion, information about the selected product categories (Taxonomies) is sent to the recommendation engine as an attribute and can
+be used for recommendation engine filtering.
+
 ### Debian 11
 
 Ibexa DXP now supports Debian 11 "bullseye" operating system.
@@ -48,9 +53,14 @@ PIMs Catalogs functionality is now covered in REST API, including:
 - Changing catalog status
 - Getting catalog filters and sorting options
 
+### Personalization improvements
+
+Now, as a Personalization admin, after editing a model in the UI, you can build this model, use the **Trigger model build** button to build this model 
+with your modifications.
+
 ### Taxonomy improvements
 
-Objects of `\Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry`type, which are returned by `TaxonomyService`, now contains the information about nesting level in the tree.
+Objects of `\Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry`type, which are returned by `TaxonomyService`, now contain the information about nesting level in the tree.
 
 ## Full changelog
 
