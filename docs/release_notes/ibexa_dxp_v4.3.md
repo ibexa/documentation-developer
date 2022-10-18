@@ -29,7 +29,17 @@ and give them access to the Customer Portal.
 You can now customize the approval process for company self-registration.
 By adding additional steps and options, you can build a process that perfectly meets your business needs.
 
-### SEO
+### SEO configuration exposed
+
+SEO configuration gains a more prominent place on the Content Type editing screen.
+For example, to enable SEO, you now have to edit the Content Type that you want to modify, 
+scroll down to the SEO section and switch the **Enable SEO for this content type** toggle.
+
+For more information, see [Work with SEO](https://doc.ibexa.co/projects/userguide/en/latest/search_engine_optimization/work_with_seo/).
+
+!!! note
+
+    This change is also implemented in v4.2.
 
 ## Other changes
 
