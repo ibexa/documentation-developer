@@ -8,6 +8,7 @@ description: Content Twig function enable rendering whole Content items and thei
 - [`ibexa_content_name()`](#ibexa_content_name) renders the name of a Content item.
 - [`ibexa_render_content_query()`](#ibexa_render_content_query) renders the results of a non-content related query.
 - [`ibexa_render_location_query()`](#ibexa_render_location_query) renders the results of a non-content related Location query.
+- [`ibexa_seo_is_empty()`](#ibexa_seo_is_empty) returns a Boolean indication of whether SEO data is available for a Content item.
 
 ## Content rendering
 
@@ -67,6 +68,36 @@ the function returns the name in the main language.
 {{ ibexa_content_name(content) }}
 
 {{ ibexa_content_name(content, 'pol-PL') }}
+```
+
+### `ibexa_seo_is_empty()`
+
+`ibexa_seo_is_empty()` returns a Boolean value which indicates whether [SEO](https://doc.ibexa.co/projects/userguide/en/latest/search_engine_optimization/seo/) data is available for the Content item that is passed as an argument.
+
+| Argument | Type | Description |
+|---------------|------|-------------|
+| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>or</br>`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | Content item or its ContentInfo object.|
+
+``` html+twig
+{% if not ibexa_seo_is_empty(content) %}
+    {{ ibexa_seo(content)}}
+{% else %}
+    <title>{{ ibexa_content_name(content) }}</title>
+    {# Generate other tags #}
+{% endif %}
+```
+
+### `ibexa_seo()`
+
+`ibexa_seo()` attaches [SEO](https://doc.ibexa.co/projects/userguide/en/latest/search_engine_optimization/seo/) 
+data to the Content item's HTML code by placing tags in the <HEAD> section of a web page.
+
+| Argument | Type | Description |
+|---------------|------|-------------|
+| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>or</br>`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | Content item or its ContentInfo object.|
+
+``` html+twig
+# Code sample missing
 ```
 
 ## Non-content related queries
