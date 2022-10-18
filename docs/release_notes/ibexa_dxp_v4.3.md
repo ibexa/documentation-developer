@@ -6,7 +6,7 @@ description: Ibexa DXP v4.3 adds the improvements to the Customer Portal, PIM an
 
 **Version number**: v4.3
 
-**Release date**: October 14, 2022
+**Release date**: October 28, 2022
 
 **Release type**: [Fast Track](https://support.ibexa.co/Public/service-life)
 
@@ -16,13 +16,26 @@ description: Ibexa DXP v4.3 adds the improvements to the Customer Portal, PIM an
 
 ### Customer Portal [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
+#### Company self-registration
+
+Now, a prospective buyer can apply to create a company account on a seller's website.
+The application goes through an approval process
+where admin specifies the customer group and sales representative for the new company account.
+Finally, the invitation link is sent back to the applier to finish the registration process
+and give them access to the Customer Portal.
+
+#### Customization of an approval process
+
+You can now customize the approval process for company self-registration.
+By adding additional steps and options, you can build a process that perfectly meets your business needs.
+
 ### SEO
 
 ## Other changes
 
 ### PIM improvements
 
-When querying for products you can now use one of two price-related Sort Clauses:
+When querying for products, you can now use one of two price-related Sort Clauses:
 
 - [`BasePrice` Sort Clause] sorts results by the products' base prices
 - [`CustomPrice` Sort Clause] enables sorting by the custom price configured for the provided customer group.
@@ -40,10 +53,6 @@ Filtering by the Color attribute is now possible.
 Now, during product creation, edition, or deletion, information about the selected product categories (Taxonomies) is sent to the recommendation engine as an attribute and can
 be used for recommendation engine filtering.
 
-### Debian 11
-
-Ibexa DXP now supports Debian 11 "bullseye" operating system.
-
 ### API improvements
 
 PIMs Catalogs functionality is now covered in REST API, including:
@@ -60,7 +69,8 @@ with your modifications.
 
 ### Taxonomy improvements
 
-Objects of `\Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry`type, which are returned by `TaxonomyService`, now contain the information about nesting level in the tree.
+Objects of `\Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry`type,
+which are returned by `TaxonomyService`, now contain the information about nesting level in the tree.
 
 ## Full changelog
 
