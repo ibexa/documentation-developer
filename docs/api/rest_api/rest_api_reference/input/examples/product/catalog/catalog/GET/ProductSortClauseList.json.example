@@ -1,0 +1,23 @@
+{
+    "ProductSortClauseList": {
+        "_media-type": "application/vnd.ibexa.api.ProductSortClauseList+json",
+        "ProductSortClause": [
+            {
+                "_media-type": "application/vnd.ibexa.api.ProductSortClause+json",
+                "name": "ProductName"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ProductSortClause+json",
+                "name": "ProductCode"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ProductSortClause+json",
+                "name": "ProductAvailability"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ProductSortClause+json",
+                "name": "CreatedAt"
+            }
+        ]
+    }
+}

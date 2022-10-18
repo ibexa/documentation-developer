@@ -1,0 +1,11 @@
+{
+    "ViewInput": {
+        "identifier": "TitleView",
+        "ProductQuery": {
+            "Query": {
+                "ProductCodeCriterion": "test",
+                "ProductAvailabilityCriterion": true
+            }
+        }
+    }
+}
