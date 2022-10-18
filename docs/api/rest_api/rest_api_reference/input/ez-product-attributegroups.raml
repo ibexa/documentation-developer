@@ -1,10 +1,10 @@
 get:
-    displayName: Load attribute groups
+    displayName: Load attribute groups (deprecated as of Ibexa DXP 4.3, use /view instead)
     description: Returns a list of attribute groups.
     body:
         application/vnd.ibexa.api.AttributeGroupList+json:
             type: AttributeGroup
-            example: !include examples/product/catalog/attribute_groups/GET/AttributeGroupList.json.example
+            example: !include examples/product/catalog/attribute_groups/GET/AttributeGroupListGet.json.example
     headers:
         Accept:
             description: AttributeGroupListGet - If set, the attribute group list is returned in XML or JSON format.
@@ -57,7 +57,7 @@ post:
         body:
             application/vnd.ibexa.api.AttributeGroup+json:
                 type: AttributeGroup
-                example: !include examples/product/catalog/attribute_groups/id/GET/AttributeGroup.json.example
+                example: !include examples/product/catalog/attribute_groups/id/GET/AttributeGroupGet.json.example
         headers:
             Accept:
                 description: AttributeGroupGet - If set, the attribute group List is returned in XML or JSON format.
