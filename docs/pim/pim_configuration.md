@@ -96,3 +96,5 @@ ibexa:
                         - product_code
                         - product_availability
 ```
+
+The order of filters in this configuration reflects the order in which they are displayed in the Back Office.
