@@ -105,7 +105,7 @@ data to the Content item's HTML code.
         {{ ibexa_seo(content)}}
     {% else %}
         <title>{{ ibexa_content_name(content) }}</title>
-        {# Generate other tags #}
+        # Generate other tags
     {% endif %}
     ```
 
