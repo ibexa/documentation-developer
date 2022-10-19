@@ -86,7 +86,7 @@ the function returns the name in the main language.
 ### `ibexa_seo()`
 
 `ibexa_seo()` attaches [SEO](https://doc.ibexa.co/projects/userguide/en/latest/search_engine_optimization/seo/) 
-data to the Content item's HTML code by placing tags in the <HEAD> section of a web page.
+data to the Content item's HTML code.
 
 | Argument | Type | Description |
 |---------------|------|-------------|
