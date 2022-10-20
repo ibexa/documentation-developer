@@ -1,0 +1,45 @@
+{
+    "Catalog": {
+        "_media-type": "application/vnd.ibexa.api.Catalog+json",
+        "identifier": "test_catalog_copied",
+        "name": "Snow Equipment updated",
+        "description": "Snow Equipment catalog for 2022",
+        "User": {
+            "_media-type": "application/vnd.ibexa.api.User+json",
+            "_href": "/api/ibexa/v2/user/users/14"
+        },
+        "created": 1666091820,
+        "modified": 1666091820,
+        "status": "draft",
+        "Criteria": [
+            {
+                "_media-type": "application/vnd.ibexa.api.ProductCode+json",
+                "ProductCodeCriterion": {
+                    "_media-type": "application/vnd.ibexa.api.ProductCodeCriterion+json",
+                    "codes": [
+                        "ski"
+                    ]
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ProductAvailability+json",
+                "ProductAvailabilityCriterion": {
+                    "_media-type": "application/vnd.ibexa.api.ProductAvailabilityCriterion+json",
+                    "is_available": false
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.CreatedAt+json",
+                "CreatedAtCriterion": {
+                    "_media-type": "application/vnd.ibexa.api.CreatedAtCriterion+json",
+                    "created_at": {
+                        "date": "2022-12-12 00:00:00.000000",
+                        "timezone_type": 3,
+                        "timezone": "Europe/Warsaw"
+                    },
+                    "operator": ">="
+                }
+            }
+        ]
+    }
+}
