@@ -42,7 +42,7 @@ post:
         description: Loads the given catalog.
         headers:
             Accept:
-                description: If set, the catalogs are returned in XML or JSON format.
+                description: If set, the catalog is returned in XML or JSON format.
                 example:  |
                     application/vnd.ibexa.api.CatalogGet+json
             Content-Type:
@@ -61,7 +61,7 @@ post:
                 description: Error - no catalog with the given identifier exists.
     patch:
         displayName: Update catalog
-        description: Updates catalog.
+        description: Updates a catalog.
         headers:
             Accept:
                 description: If set, the updated catalog is returned in XML or JSON format.
@@ -89,10 +89,10 @@ post:
                 description: Error - a catalog with the same identifier already exists.
             404:
                 description: Error - no catalog with the given identifier exists.
-/copy/{identifier}
+/copy/{identifier}:
     post:
         displayName: Copy catalog
-        description: Copies catalog.
+        description: Copies a catalog.
         headers:
             Accept:
                 description: If set, the copied catalog is returned in XML or JSON format.
@@ -148,7 +148,7 @@ post:
             400:
                 description: Error - the input does not match the input schema definition.
 
-/{identifier}/products/view
+/{identifier}/products/view:
     post:
         displayName: Filter catalog products
         description: Executes a query and returns a View including the results. The View input reflects the criteria model of the public API.
@@ -176,10 +176,10 @@ post:
             400:
                 description: Error - the input does not match the input schema definition.
 
-/filters
+/filters:
     get:
-        displayName: Load catalog's product filters
-        description: Loads product filters available for catalogs
+        displayName: Load catalog filters
+        description: Loads product filters available for catalogs.
         headers:
             Accept:
                 description: If set, the filters are returned in XML or JSON format.
@@ -196,10 +196,10 @@ post:
                         type: ProductFilterList
                         example: !include examples/product/catalog/catalog/GET/ProductFilterList.json.example
 
-/sort_clauses
+/sort_clauses:
     get:
-        displayName: Load catalog's product sort clauses
-        description: Loads product sort clauses available for catalogs
+        displayName: Load catalog sort clauses
+        description: Loads product sort clauses available for catalogs.
         headers:
             Accept:
                 description: If set, the clauses are returned in XML or JSON format.
