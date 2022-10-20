@@ -8,6 +8,7 @@ description: Content Twig function enable rendering whole Content items and thei
 - [`ibexa_content_name()`](#ibexa_content_name) renders the name of a Content item.
 - [`ibexa_render_content_query()`](#ibexa_render_content_query) renders the results of a non-content related query.
 - [`ibexa_render_location_query()`](#ibexa_render_location_query) renders the results of a non-content related Location query.
+- [`ibexa_seo()`](#ibexa_seo) attaches SEO tags to Content item's HTML code.
 
 ## Content rendering
 
@@ -67,6 +68,19 @@ the function returns the name in the main language.
 {{ ibexa_content_name(content) }}
 
 {{ ibexa_content_name(content, 'pol-PL') }}
+```
+
+### `ibexa_seo()`
+
+`ibexa_seo()` attaches [SEO](https://doc.ibexa.co/projects/userguide/en/latest/search_engine_optimization/seo/) 
+data to the Content item's HTML code.
+
+| Argument | Type | Description |
+|---------------|------|-------------|
+| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>or</br>`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | Content item or its ContentInfo object.|
+
+``` html+twig
+{{ ibexa_seo(content) }}
 ```
 
 ## Non-content related queries
