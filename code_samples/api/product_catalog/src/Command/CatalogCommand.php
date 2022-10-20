@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Command;
 
@@ -26,8 +28,12 @@ final class CatalogCommand extends Command
 
     private CatalogServiceInterface $catalogService;
 
-    public function __construct(UserService $userService, PermissionResolver $permissionResolver, ProductServiceInterface $productService, CatalogServiceInterface $catalogService)
-    {
+    public function __construct(
+        UserService $userService,
+        PermissionResolver $permissionResolver,
+        ProductServiceInterface $productService,
+        CatalogServiceInterface $catalogService
+    ) {
         $this->userService = $userService;
         $this->permissionResolver = $permissionResolver;
         $this->productService = $productService;

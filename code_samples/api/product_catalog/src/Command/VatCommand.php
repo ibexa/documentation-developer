@@ -21,8 +21,12 @@ final class VatCommand extends Command
 
     private RegionServiceInterface $regionService;
 
-    public function __construct(UserService $userService, PermissionResolver $permissionResolver, VatServiceInterface $vatService, RegionServiceInterface $regionService)
-    {
+    public function __construct(
+        UserService $userService,
+        PermissionResolver $permissionResolver,
+        VatServiceInterface $vatService,
+        RegionServiceInterface $regionService
+    ) {
         $this->userService = $userService;
         $this->permissionResolver = $permissionResolver;
         $this->vatService = $vatService;
@@ -43,7 +47,7 @@ final class VatCommand extends Command
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $region = $this->regionService->getRegion('norway');
+        $region = $this->regionService->getRegion('poland');
 
         $vatCategories = $this->vatService->getVatCategories($region);
 

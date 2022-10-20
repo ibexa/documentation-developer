@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Command;
 
@@ -21,8 +23,12 @@ final class ProductAssetCommand extends Command
 
     private AssetServiceInterface $assetService;
 
-    public function __construct(UserService $userService, PermissionResolver $permissionResolver, ProductServiceInterface $productService, AssetServiceInterface $assetService)
-    {
+    public function __construct(
+        UserService $userService,
+        PermissionResolver $permissionResolver,
+        ProductServiceInterface $productService,
+        AssetServiceInterface $assetService
+    ) {
         $this->userService = $userService;
         $this->permissionResolver = $permissionResolver;
         $this->productService = $productService;

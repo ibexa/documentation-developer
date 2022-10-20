@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Command;
 
@@ -15,16 +17,20 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 final class ProductVariantCommand extends Command
 {
-    private $userService;
+    private UserService $userService;
 
-    private $permissionResolver;
+    private PermissionResolver $permissionResolver;
 
-    private $productService;
+    private ProductServiceInterface $productService;
 
-    private $localProductService;
+    private LocalProductServiceInterface $localProductService;
 
-    public function __construct(UserService $userService, PermissionResolver $permissionResolver, ProductServiceInterface $productService, LocalProductServiceInterface $localProductService)
-    {
+    public function __construct(
+        UserService $userService,
+        PermissionResolver $permissionResolver,
+        ProductServiceInterface $productService,
+        LocalProductServiceInterface $localProductService
+    ) {
         $this->userService = $userService;
         $this->permissionResolver = $permissionResolver;
         $this->productService = $productService;

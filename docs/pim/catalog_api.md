@@ -11,16 +11,17 @@ To get information about product catalogs and manage them, use `CatalogServiceIn
 To get a single catalog, you can use `CatalogServiceInterface::getCatalog()` and provide it with catalog ID, or `CatalogServiceInterface::getCatalogByIdentifier()` and pass the identifier:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/CatalogCommand.php', 70, 72) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/CatalogCommand.php', 76, 78) =]]
 ```
 
 ## Get products in catalog
 
-To get products from a catalog, request the product query from the catalog object  with `catalog::getQuery()`.
+To get products from a catalog, request the product query from the catalog object
+with `Ibexa\Contracts\ProductCatalog\Values\CatalogInterface::getQuery()`.
 Then, create a new `ProductQuery` based on it and run a product search with `ProductServiceInterface::findProduct()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/CatalogCommand.php', 74, 80) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/CatalogCommand.php', 80, 86) =]]
 ```
 
 ## Create catalog
@@ -29,7 +30,7 @@ To create a catalog, you need to prepare a `CatalogCreateStruct`, with the ident
 Then, pass this struct to `CatalogServiceInterface::createCatalog()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/CatalogCommand.php', 53, 68) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/CatalogCommand.php', 66, 74) =]]
 ```
 
 ## Update catalog
@@ -39,5 +40,5 @@ to which you must pass the catalog object and a `CatalogUpdateStruct`.
 In the following example, you update the catalog to publish it:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/CatalogCommand.php', 82, 86) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/CatalogCommand.php', 88, 92) =]]
 ```
