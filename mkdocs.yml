@@ -278,6 +278,7 @@ nav:
         - Enable purchasing products: pim/enable_purchasing_products.md
         - Create custom attribute type: pim/create_custom_attribute_type.md
         - Create product code generator: pim/create_product_code_generator.md
+        - Create custom catalog filter: pim/create_custom_catalog_filter.md
         - Prices: pim/prices.md
         - Price API: pim/price_api.md
         - Bestsellers: pim/bestsellers.md
@@ -453,7 +454,9 @@ nav:
             - UserLogin: search/sort_clause_reference/userlogin_sort_clause.md
             - Visibility: search/sort_clause_reference/visibility_sort_clause.md
         - Product Sort Clauses:
+            - BasePrice: search/sort_clause_reference/baseprice_sort_clause.md
             - CreatedAt: search/sort_clause_reference/createdat_sort_clause.md
+            - CustomPrice: search/sort_clause_reference/customprice_sort_clause.md
             - ProductAvailability: search/sort_clause_reference/productavailability_sort_clause.md
             - ProductCode: search/sort_clause_reference/productcode_sort_clause.md
             - ProductName: search/sort_clause_reference/productname_sort_clause.md
@@ -506,6 +509,7 @@ nav:
             - Create custom Aggregation: search/extensibility/create_custom_aggregation.md
             - Solr document field mappers: search/extensibility/solr_document_field_mappers.md
             - Index custom Elasticsearch data: search/extensibility/index_custom_elasticsearch_data.md
+            - Customize Elasticsearch index structure: search/extensibility/customize_elasticsearch_index_structure.md
             - Manipulate Elasticsearch query: search/extensibility/manipulate_elasticsearch_query.md
         - Shop search:
             - Shop search: search/shop_search/shop_search.md
@@ -643,11 +647,12 @@ extra:
   product_name_com: 'Ibexa Commerce'
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.30'
-  latest_tag_3_3: '3.3.26'
+  latest_tag_3_3: '3.3.27'
   latest_tag_4_0: '4.0.8'
   latest_tag_4_1: '4.1.5'
-  latest_tag_4_2: '4.2.1'
+  latest_tag_4_2: '4.2.2'
   latest_tag_4_3: '4.3.0'
+
 
   symfony_doc: 'http://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'

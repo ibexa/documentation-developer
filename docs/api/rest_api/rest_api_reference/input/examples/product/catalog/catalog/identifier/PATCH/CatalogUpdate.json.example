@@ -1,0 +1,20 @@
+{
+    "CatalogUpdate": {
+        "identifier": "test_catalog_updated",
+        "criteria": {
+            "ProductCodeCriterion": ["ski"],
+            "ProductAvailabilityCriterion": false,
+            "CreatedAtCriterion": {
+                "operator": ">=",
+                "created_at": "12-12-2022"
+            }
+        },
+        "names": {
+            "eng-GB": "Snow Equipment updated"
+        },
+        "descriptions": {
+            "eng-GB": "Snow Equipment catalog for 2022"
+        },
+        "transition": "publish"
+    }
+}

@@ -1,0 +1,74 @@
+{
+    "Catalog": {
+        "_media-type": "application/vnd.ibexa.api.Catalog+json",
+        "identifier": "test_catalog",
+        "name": "Snow Equipment",
+        "description": "",
+        "User": {
+            "_media-type": "application/vnd.ibexa.api.User+json",
+            "_href": "/api/ibexa/v2/user/users/14"
+        },
+        "created": 1666090438,
+        "modified": 1666090438,
+        "status": "draft",
+        "Criteria": [
+            {
+                "_media-type": "application/vnd.ibexa.api.ProductCode+json",
+                "ProductCodeCriterion": {
+                    "_media-type": "application/vnd.ibexa.api.ProductCodeCriterion+json",
+                    "codes": [
+                        "ski",
+                        "snowboard"
+                    ]
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ProductAvailability+json",
+                "ProductAvailabilityCriterion": {
+                    "_media-type": "application/vnd.ibexa.api.ProductAvailabilityCriterion+json",
+                    "is_available": true
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ColorAttribute+json",
+                "ColorAttributeCriterion": {
+                    "_media-type": "application/vnd.ibexa.api.ColorAttributeCriterion+json",
+                    "identifier": "color",
+                    "value": [
+                        "#000000",
+                        "#FFFFFF"
+                    ]
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.CreatedAt+json",
+                "CreatedAtCriterion": {
+                    "_media-type": "application/vnd.ibexa.api.CreatedAtCriterion+json",
+                    "created_at": {
+                        "date": "2022-09-12 00:00:00.000000",
+                        "timezone_type": 3,
+                        "timezone": "Europe/Warsaw"
+                    },
+                    "operator": ">="
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.FloatAttribute+json",
+                "FloatAttributeCriterion": {
+                    "_media-type": "application/vnd.ibexa.api.FloatAttributeCriterion+json",
+                    "identifier": "width",
+                    "value": 16.6
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.IntegerAttributeRange+json",
+                "IntegerAttributeRangeCriterion": {
+                    "_media-type": "application/vnd.ibexa.api.IntegerAttributeRangeCriterion+json",
+                    "identifier": "length",
+                    "min": 180,
+                    "max": 230
+                }
+            }
+        ]
+    }
+}

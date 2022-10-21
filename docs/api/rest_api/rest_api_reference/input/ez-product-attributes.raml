@@ -26,9 +26,9 @@ post:
             description: Error - the user is not authorized to create this attribute.
         403:
             description: Error - an attribute with the same name already exists.
-/{id}:    
+/{id}:
     get:
-        displayName: Load attributes
+        displayName: Load attribute
         description: Loads given attribute.
         headers:
             Accept:
@@ -59,7 +59,7 @@ post:
                 description: No Content.
             401:
                 description: Error - the user is not authorized to delete this attribute.
-/{id}/{group_id}: 
+/{id}/{group_id}:
     patch:
         displayName: Update attribute
         description: Updates an attribute.
@@ -100,7 +100,7 @@ post:
             401:
                 description: Error - the user is not authorized to delete this translation.
 get:
-    displayName: Load attributes
+    displayName: Load attributes (deprecated as of Ibexa DXP 4.3, use /view instead)
     description: Loads list of all attributes.
     headers:
         Accept:
