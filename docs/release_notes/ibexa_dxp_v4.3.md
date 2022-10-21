@@ -71,6 +71,14 @@ Filtering by the Color attribute is now possible.
 Now, during product creation, edition, or deletion, information about the selected product categories (Taxonomies) is sent to the recommendation engine as an attribute and can
 be used for recommendation engine filtering.
 
+### Users
+
+#### New User Content Type
+
+New release brings you a new Content Type for private customers registering from the front page.
+We also prepared a migration command for already existing users to ease your upgrade process.
+For more information, refer to upgrade documentation.
+
 ### API improvements
 
 PIMs Catalogs functionality is now covered in REST API, including:
