@@ -45,13 +45,19 @@ For more information, see [Work with SEO](https://doc.ibexa.co/projects/userguid
 
 ### PIM improvements
 
+#### Price Sort Clauses
+
 When querying for products, you can now use one of two price-related Sort Clauses:
 
 - [`BasePrice` Sort Clause] sorts results by the products' base prices
 - [`CustomPrice` Sort Clause] enables sorting by the custom price configured for the provided customer group.
 
+#### Usability improvements
+
 This release also includes a number of usability improvements in PIM,
 such as full information about available attribute values or improved display of Selection attributes.
+
+#### Catalog filters
 
 In catalogs, you can now configure default filters that are always added to a catalog,
 as well as define filter order and group custom filters.
