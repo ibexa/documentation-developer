@@ -20,7 +20,7 @@ To get all entries in a taxonomy, use `TaxonomyServiceInterface::loadAllEntries(
 [[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 38, 39) =]]
 ```
 
-To get all children of a specific taxonomy entry, use `TaxonomyServiceInterface::loadEntryChildren()`. You provide it with the entry object, and optionally limit or results and their offset:
+To get all children of a specific taxonomy entry, use `TaxonomyServiceInterface::loadEntryChildren()`. You provide it with the entry object, and optionally limit of results and their offset:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 44, 49) =]]
