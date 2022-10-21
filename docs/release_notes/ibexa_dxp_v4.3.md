@@ -57,6 +57,8 @@ When querying for products, you can now use one of two price-related Sort Clause
 This release also includes a number of usability improvements in PIM,
 such as full information about available attribute values or improved display of Selection attributes.
 
+You can now move assets between collections by using drag and drop.
+
 #### Catalog filters
 
 In catalogs, you can now configure default filters that are always added to a catalog,
