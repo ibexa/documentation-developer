@@ -78,7 +78,7 @@
                         <ul>
                             <li><a href="templating/render_content/render_content/">Content rendering</a></li>
                             <li><a href="search/search/">Search</a></li>
-                            <li><a href="release_notes/ibexa_dxp_v4.2/">Releases</a></li>
+                            <li><a href="release_notes/ibexa_dxp_v4.3/">Releases</a></li>
                             <li><a href="api/php_api/php_api/">API</a></li>
                         </ul>
                     </div>
@@ -105,17 +105,17 @@
         <div class="col-lg-8 mb-5 latest-release">
             <h5>
                 The latest release
-                <span class="pill">v4.2</span>
+                <span class="pill">v4.3</span>
             </h5>
             <div class="row mt-3">
-                <div class="col-lg-5">The <a href="release_notes/ibexa_dxp_v4.2/">latest version of Ibexa DXP is v4.3</a>. It is a Fast Track release, and it was released on August 9, 2022. You can now <a href="update_and_migration/from_4.1/update_from_4.1/">update your application to the latest version</a>. 
+                <div class="col-lg-5">The <a href="release_notes/ibexa_dxp_v4.3/">latest version of Ibexa DXP is v4.3</a>. It is a Fast Track release, and it was released on November 3, 2022. You can now <a href="update_and_migration/from_4.2/update_from_4.2/">update your application to the latest version</a>. 
                 </div>
                 <div class="col-sm-7 features">
                     <ul>
-                        <li><a href="release_notes/ibexa_dxp_v4.2/#customer-portal">Customer portal</a></li>
-                        <li><a href="release_notes/ibexa_dxp_v4.2/#catalogs">Product catalog enhancements</a></li>
-                        <li><a href="release_notes/ibexa_dxp_v4.2/#cross-content-type-recommendations">Cross content type recommendations</a></li>
-                        <li><a href="release_notes/ibexa_dxp_v4.2/#taxonomy-field-type">Taxonomy Field Type</a></li>
-                        <li><a href="release_notes/ibexa_dxp_v4.2/#repeatable-migration-steps">Repeatable migration steps</a></li>
-                        <li><a href="release_notes/ibexa_dxp_v4.2/#api-improvements">API improvements</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.3/#customer-portal">Company self-registration</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.3/#customer-portal">Customization of approval process</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.3/#seo-configuration-exposed">SEO improvements</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.3/#pim-improvements">PIM improvements</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.3/#integration-with-recommendation-engine">Integration with recommendation engine</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.3/#api-improvements">API improvements</a></li>
 </div>
