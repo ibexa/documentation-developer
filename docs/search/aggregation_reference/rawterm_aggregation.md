@@ -11,7 +11,7 @@ The [RawTermAggregation](https://github.com/ibexa/core/blob/main/src/contracts/R
 
 !!! caution
 
-    To keep your project search engine independent, do not use the `RawRangeAggregation` Aggregation in production code.
+    To keep your project search engine independent, do not use the `RawTermAggregation` Aggregation in production code.
     Valid use cases are: testing, or temporary (one-off) tools.
 
 ## Example
