@@ -8,7 +8,7 @@ To get information about product catalogs and manage them, use `CatalogServiceIn
 
 ## Get catalog
 
-To get a single catalog, you can use `CatalogServiceInterface::getCatalog()` and provide it with catalog ID, or `CatalogServiceInterface::getCatalogByIdentifier()` and pass the identifier:
+To get a single catalog, use `CatalogServiceInterface::getCatalog()` and provide it with catalog ID, or `CatalogServiceInterface::getCatalogByIdentifier()` and pass the identifier:
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/CatalogCommand.php', 76, 78) =]]
