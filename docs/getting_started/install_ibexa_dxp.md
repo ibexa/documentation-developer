@@ -15,7 +15,7 @@ description: Install Ibexa DXP on a Linux system and prepare your installation f
 
     This installation guide details the steps to install Ibexa DXP for users who have a subscription agreement with Ibexa.
     If you want to install Ibexa OSS, you do not need authentication tokens or an account on updates.ibexa.co,
-    but must adapt the steps shown here to the product edition and the `ibexa/oss` repository.
+    but must adapt the steps shown here to the product edition and the `ibexa/oss-skeleton` repository.
 
 ## Prepare work environment
 
