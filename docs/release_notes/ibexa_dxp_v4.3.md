@@ -49,8 +49,8 @@ For more information, see [Work with SEO](https://doc.ibexa.co/projects/userguid
 
 When querying for products, you can now use one of two price-related Sort Clauses:
 
-- [`BasePrice` Sort Clause] sorts results by the products' base prices
-- [`CustomPrice` Sort Clause] enables sorting by the custom price configured for the provided customer group.
+- [`BasePrice` Sort Clause](https://doc.ibexa.co/en/master/search/sort_clause_reference/baseprice_sort_clause/) sorts results by the products' base prices
+- [`CustomPrice` Sort Clause](https://doc.ibexa.co/en/master/search/sort_clause_reference/customprice_sort_clause/) enables sorting by the custom price configured for the provided customer group.
 
 #### Usability improvements
 
@@ -59,9 +59,11 @@ such as full information about available attribute values or improved display of
 
 You can now move assets between collections by using drag and drop.
 
+![Moving assets between collection with drag and drop](img/4.3_collection_dnd.png)
+
 #### Catalog filters
 
-In catalogs, you can now configure default filters that are always added to a catalog,
+In catalogs, you can now [configure default filters](https://doc.ibexa.co/en/master/pim/pim_configuration/#catalog-filters) that are always added to a catalog,
 as well as define filter order and group custom filters.
 
 Filtering by the Color attribute is now possible.
