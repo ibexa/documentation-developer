@@ -26,7 +26,7 @@ Then, create a new `ProductQuery` based on it and run a product search with `Pro
 
 ## Create catalog
 
-To create a catalog, you need to prepare a `CatalogCreateStruct`, with the identifier, name and description and Criteria for filtering products.
+To create a catalog, you need to prepare a `CatalogCreateStruct` that contains: identifier, name, description and Criteria for filtering products.
 Then, pass this struct to `CatalogServiceInterface::createCatalog()`:
 
 ``` php
@@ -35,8 +35,8 @@ Then, pass this struct to `CatalogServiceInterface::createCatalog()`:
 
 ## Update catalog
 
-You can update an existing catalog by using `CatalogServiceInterface::updateCatalog()`,
-to which you must pass the catalog object and a `CatalogUpdateStruct`.
+Use `CatalogServiceInterface::updateCatalog()` to update an existing catalog.
+You must pass the catalog object and a `CatalogUpdateStruct` to the method.
 In the following example, you update the catalog to publish it:
 
 ``` php
