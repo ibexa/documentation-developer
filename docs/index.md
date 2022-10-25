@@ -13,7 +13,7 @@
                         Ibexa DXP v4.3 is now out!
                     </span>
                     <span class="d-flex flex-column flex-xs-row flex-sm-row flex-md-row justify-content-between align-items-center ml-md-4">
-                        <a href="release_notes/ibexa_dxp_v4.3.md" class="btn btn-sm btn-announcement-outline mr-4 ml-4 ml-md-0 mb-3 mb-sm-0">
+                        <a href="release_notes/ibexa_dxp_v4.3" class="btn btn-sm btn-announcement-outline mr-4 ml-4 ml-md-0 mb-3 mb-sm-0">
                             See more
                         </a>
                     </span>
