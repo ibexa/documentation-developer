@@ -95,7 +95,7 @@ PIMs Catalogs functionality is now covered in REST API, including:
 
 ### Personalization improvements
 
-Now, as a Personalization admin, after editing a model in the UI, you can build this model, use the **Trigger model build** button to build this model 
+Now, as a Personalization admin, after editing a model in the UI, [you can build this model](https://doc.ibexa.co/projects/userguide/en/master/personalization/recommendation_models/#trigger-model-build), use the **Trigger model build** button to build this model 
 with your modifications.
 
 ### Taxonomy improvements
