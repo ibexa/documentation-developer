@@ -275,6 +275,7 @@ nav:
         - Products: pim/products.md
         - Product API: pim/product_api.md
         - Catalogs: pim/catalogs.md
+        - Catalog API: pim/catalog_api.md
         - Enable purchasing products: pim/enable_purchasing_products.md
         - Create custom attribute type: pim/create_custom_attribute_type.md
         - Create product code generator: pim/create_product_code_generator.md
