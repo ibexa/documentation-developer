@@ -57,3 +57,23 @@ For example, to create a new price for a given currency, use `ProductPriceServic
     That is why all amounts are provided [in the smallest unit](https://www.moneyphp.org/en/stable/getting-started.html#instantiation).
     For example, for euro `50000` refers to 50000 cents, equal to 50 euros.
 
+## VAT
+
+To get information about the VAT categories and rates configured in the system, use `VatServiceInterface`.
+VAT is configured per region, so you also need to use `RegionServiceInterface` to get the relevant region object.
+
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/VatCommand.php', 49, 50) =]]
+```
+
+To get information about all VAT categories configured for the selected region, use `VatServiceInterface::getVatCategories()`:
+
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/VatCommand.php', 51, 56) =]]
+```
+
+To get a single VAT category, use `VatServiceInterface::getVatCategoryByIdentifier()` and provide it with the region object and the identifier of the VAT category:
+
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/VatCommand.php', 57, 59) =]]
+```
