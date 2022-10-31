@@ -577,6 +577,8 @@ nav:
             - Update to v4.1: update_and_migration/from_4.0/to_4.1.md
         - Update from v4.1:
             - Update to v4.2: update_and_migration/from_4.1/update_from_4.1.md
+        - Update from v4.2:
+              - Update to v4.3: update_and_migration/from_4.2/update_from_4.2.md
         - Migrate to Ibexa DXP:
             - Migrate from eZ Publish Platform: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish_platform.md
             - Migrate from eZ Publish: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish.md
