@@ -12,7 +12,7 @@
 
 With this release, product catalog brings new PHP APIs, productivity boost from new product search criteria and sort classes, advanced filtering in REST endpoints, auto-generated identifiers, product list sorting, and more.
 
-You can now use [advanced filtering on products, product types, attributes, and others in REST endpoints](https://doc.ibexa.co/en/4.1/api/rest_api_reference/rest_api_reference.html#product-catalog-filter-currencies).
+You can now use [advanced filtering on products, product types, attributes, and others in REST endpoints](https://doc.ibexa.co/en/latest/api/rest_api_reference/rest_api_reference.html#product-catalog-filter-currencies).
 
 Currencies, regions and customer groups can now be resolved automatically in the PHP API
 based on the current context (for example, selected locale).
@@ -33,7 +33,7 @@ The new Measurement product attribute enables describing products with different
 
 ### Dynamic targeting block
 
-[Dynamic targeting block](https://doc.ibexa.co/projects/userguide/en/4.1/site_organization/working_with_page/#dynamic-targeting-block) for the Page Builder provides recommendation items based on users related to the configured Segments.
+[Dynamic targeting block](https://doc.ibexa.co/projects/userguide/en/latest/site_organization/working_with_page/#dynamic-targeting-block) for the Page Builder provides recommendation items based on users related to the configured Segments.
 
 ![Dynamic targeting block](img/4.1_page_builder_dynamic_targeting.png)
 
@@ -65,16 +65,16 @@ A language switcher in Taxonomy view enables quick switching between different t
 ### Image optimization
 
 Images modified in the Image Editor are now optimized for reduced file size.
-You can use external libraries to [optimize different image formats](https://doc.ibexa.co/en/4.1/guide/images/#image-optimization).
+You can use external libraries to [optimize different image formats](https://doc.ibexa.co/en/latest/guide/images/#image-optimization).
 
 ### Expanded data migrations
 
 [Data migration](https://doc.ibexa.co/en/4.1/guide/data_migration/data_migration.md) now covers additional objects:
 
-- [database settings](https://doc.ibexa.co/en/4.1/guide/data_migration/importing_data/#settings)
-- [segments](https://doc.ibexa.co/en/4.1/guide/data_migration/importing_data/#segments)
-- [prices](https://doc.ibexa.co/en/4.1/guide/data_migration/importing_data/#prices) with `create` mode
-- [settings](https://doc.ibexa.co/en/4.1/guide/data_migration/importing_data/#settings)
+- [database settings](https://doc.ibexa.co/en/latest/guide/data_migration/importing_data/#settings)
+- [segments](https://doc.ibexa.co/en/latest/guide/data_migration/importing_data/#segments)
+- [prices](https://doc.ibexa.co/en/latest/guide/data_migration/importing_data/#prices) with `create` mode
+- [settings](https://doc.ibexa.co/en/latest/guide/data_migration/importing_data/#settings)
 
 Data migration now also offers a locking capability,
 which prevents multiple processes from executing the same migration and causing duplicated records.

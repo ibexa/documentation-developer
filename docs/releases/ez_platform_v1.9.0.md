@@ -34,7 +34,7 @@ In version 1.8 we introduced a new Content Browser in the Universal Discovery Wi
 
 -   You can now restore from Trash content whose original Location has been deleted.
 -   Pasted thead/tfood tags are now kept in RichText Field Type, and its Online Editor
--   Solr 6 is now supported in [Solr Bundle](https://doc.ibexa.co/en/1.13/guide/search/solr)
+-   Solr 6 is now supported in [Solr Bundle](https://doc.ibexa.co/en/latest/guide/search/solr)
 
 ### eZ Platform Enterprise Edition - Studio
 
@@ -65,9 +65,9 @@ The eZ Enterprise Demo now uses the [Netgen Tags bundle](https://github.com/netg
 
 ### Installation
 
-[Installation Guide](https://doc.ibexa.co/en/1.13/getting_started/install_ez_platform)
+[Installation Guide](https://doc.ibexa.co/en/latest/getting_started/install_ez_platform)
 
-[Technical Requirements](https://doc.ibexa.co/en/1.13/getting_started/requirements)
+[Technical Requirements](https://doc.ibexa.co/en/latest/getting_started/requirements)
 
 ### Download
 
@@ -84,4 +84,4 @@ If you would like to become familiar with the products, [request a demo](https:/
 
 ### Updating
 
-To update the product, follow the [updating guide](https://doc.ibexa.co/en/1.13/updating/updating/).
+To update the product, follow the [updating guide](https://doc.ibexa.co/en/latest/updating/updating/).
