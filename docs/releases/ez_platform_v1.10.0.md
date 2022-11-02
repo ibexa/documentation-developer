@@ -5,10 +5,6 @@
 
 If you are looking for the Long Term Support (LTS) release, see[ https://ezplatform.com/Blog/Long-Term-Support-is-Here](https://ezplatform.com/Blog/Long-Term-Support-is-Here)
 
-Upgrade notes
-
-This release contains special steps to follow further described in [Updating eZ Platform](https://doc.ibexa.co/en/1.13/updating/updating).
-
 ## Notable changes since v1.9.0
 
 ### eZ Platform
@@ -68,9 +64,9 @@ $value = $content->getFieldValue('body');
 
 #### SOLR: Index time boosting & Improved Facets support
 
-One of the new features in 1.10 *(Solr Bundle 1.4)* is the possibility to [configure index time boosting](https://doc.ibexa.co/en/1.13/guide/search/solr/#boost-configuration), which enables you to properly tune the search results to be relevant for your content architecture.
+One of the new features in 1.10 *(Solr Bundle 1.4)* is the possibility to [configure index time boosting](https://doc.ibexa.co/en/latest/guide/search/solr/#boost-configuration), which enables you to properly tune the search results to be relevant for your content architecture.
 
-In addition to that, we made progress on providing native support for faceted search within eZ Platform when using the Solr Bundle. You can now use facets based on ContentTypes, Sections and Users, see [Performing a Faceted Search](https://doc.ibexa.co/en/1.13/api/public_php_api_search/#faceted-search) page for how to use them. We plan to provide more facets natively in the coming releases.
+In addition to that, we made progress on providing native support for faceted search within eZ Platform when using the Solr Bundle. You can now use facets based on ContentTypes, Sections and Users, see [Performing a Faceted Search](https://doc.ibexa.co/en/latest/api/public_php_api_search/#faceted-search) page for how to use them. We plan to provide more facets natively in the coming releases.
 
 #### Cluster migration script
 
@@ -110,9 +106,9 @@ Kudos to [@emodric](https://twitter.com/emodric) for the Tags bundle, [@pspanja]
 
 ### Installation
 
-[Installation Guide](https://doc.ibexa.co/en/1.13/getting_started/install_ez_platform)
+[Installation Guide](https://doc.ibexa.co/en/latest/getting_started/install_ez_platform)
 
-[Technical Requirements](https://doc.ibexa.co/en/1.13/getting_started/requirements)
+[Technical Requirements](https://doc.ibexa.co/en/latest/getting_started/requirements)
 
 ### Download
 
@@ -126,11 +122,3 @@ Kudos to [@emodric](https://twitter.com/emodric) for the Tags bundle, [@pspanja]
 - Partners: Test & Trial software access (TTL License)
 
 If you would like to become familiar with the products, [request a demo](https://www.ibexa.co/forms/request-a-demo).
-
-### Updating
-
-To update the product, follow the [updating guide](https://doc.ibexa.co/en/1.13/updating/updating/).
-
-**Note:** When updating eZ Platform Enterprise Edition, you need to [add the new EzSystemsPlatformEEAssetsBundle](https://doc.ibexa.co/en/1.13/updating/3_update_app).
-
- 

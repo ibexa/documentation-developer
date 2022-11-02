@@ -57,8 +57,8 @@ For more information, see [Support for multiple websites](https://doc.ibexa.co/p
 You can now configure and use the locking feature to lock a draft of a Content item, 
 so that only an assigned person can edit it, and no other user can take it over. 
 
-For more information, see the [Draft locking](https://doc.ibexa.co/en/4.0/guide/workflow/workflow/#draft-locking)
-and the relevant [user documentation](https://doc.ibexa.co/projects/userguide/en/master/publishing/editorial_workflow/#draft-lock-release).
+For more information, see the [Draft locking](https://doc.ibexa.co/en/latest/guide/workflow/workflow/#draft-locking)
+and the relevant [user documentation](https://doc.ibexa.co/projects/userguide/en/latest/publishing/editorial_workflow/#releasing-locked-drafts).
 
 ### Online Editor is now based on CKEditor
 
@@ -85,7 +85,7 @@ You can set it as required when adding the Image field to a Content Type.
 ### Configure what elements are available in the Page Builder for the Content type [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 You can now select which page blocks, page layout and what edit mode are available in the Editor mode for the Content type.
-For more information, see [Working with Page](https://doc.ibexa.co/projects/userguide/en/latest/site_organization/working_with_page/#configure-blocks-display).
+For more information, see [Working with Page](https://doc.ibexa.co/projects/userguide/en/latest/site_organization/working_with_page/#configure-block-display).
 
 ### Purge all submissions of given form [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 

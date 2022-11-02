@@ -1,16 +1,8 @@
-
-
 # eZ Platform v1.8.0
 
 **The FAST TRACK v1.8.0 release of eZ Platform and eZ Platform Enterprise Edition is available as of February 16, 2017.**
 
 If you are looking for the Long Term Support (LTS) release, see[ https://ezplatform.com/Blog/Long-Term-Support-is-Here](https://ezplatform.com/Blog/Long-Term-Support-is-Here)
-
-Upgrade notes
-
-This release contains special steps to follow further described in [Updating eZ Platform](https://doc.ibexa.co/en/1.13/updating/updating).
-
-
 
 ## Notable Changes Since v1.7.0 LTS
 
@@ -89,9 +81,9 @@ This release contains special steps to follow further described in [Updating eZ 
 
 ### Installation
 
-[Installation Guide](https://doc.ibexa.co/en/1.13/getting_started/install_ez_platform)
+[Installation Guide](https://doc.ibexa.co/en/latest/getting_started/install_ez_platform)
 
-[Technical Requirements](https://doc.ibexa.co/en/1.13/getting_started/requirements)
+[Technical Requirements](https://doc.ibexa.co/en/latest/getting_started/requirements)
 
 ### Download
 
@@ -108,4 +100,4 @@ If you would like to become familiar with the products, [request a demo](https:/
 
 ### Updating
 
-To update the product, follow the [updating guide](https://doc.ibexa.co/en/1.13/updating/updating/).
+To update the product, follow the [updating guide](https://doc.ibexa.co/en/latest/updating/updating/).

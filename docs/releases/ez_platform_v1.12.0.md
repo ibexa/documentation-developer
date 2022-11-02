@@ -24,7 +24,7 @@ See [EZP-26806](https://jira.ez.no/browse/EZP-26806) for more information.
 
 You can now remove translations from Content item Versions through the PHP API.
 
-See the section on [deleting translations](https://doc.ibexa.co/en/1.13/api/public_php_api_creating_content/#deleting-a-translation) for more information.
+See the section on [deleting translations](https://doc.ibexa.co/en/latest/api/public_php_api_creating_content/#deleting-a-translation) for more information.
 
 You also have a new endpoint available for deleting a single Version, see [EZP-27864](https://jira.ez.no/browse/EZP-27864) for more information.
 
@@ -51,9 +51,9 @@ For Varnish users be aware thus change implies new VCL and requriment for varnis
 
 ### Installation
 
-[Installation Guide](https://doc.ibexa.co/en/1.13/getting_started/install_ez_platform)
+[Installation Guide](https://doc.ibexa.co/en/latest/getting_started/install_ez_platform)
 
-[Technical Requirements](https://doc.ibexa.co/en/1.13/getting_started/requirements)
+[Technical Requirements](https://doc.ibexa.co/en/latest/getting_started/requirements)
 
 ### Download
 
@@ -70,7 +70,7 @@ If you would like to become familiar with the products, [request a demo](https:/
 
 ### Updating
 
-To update to this version, follow the [updating guide](https://doc.ibexa.co/en/1.13/updating/updating/).
+To update to this version, follow the [updating guide](https://doc.ibexa.co/en/latest/updating/updating/).
 
 !!! caution "BC: Change for Varnish users"
 
