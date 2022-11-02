@@ -107,11 +107,11 @@ ibexa:
 
 To add a new Measurement type with its own new units, add the following lines to your YAML configuration:
 
-```yaml
+```yaml hl_lines="4"
 ibexa_measurement:
     types:
         my_type:
-            my_unit: { symbol: my }
+            my_unit: { symbol: my, is_base_unit: true }
 ibexa:
     system:
         default:
@@ -121,6 +121,9 @@ ibexa:
                         - my_unit
 ```
 
+The configuration also requires that exactly one unit needs
+to be marked as `is_base_unit` as in highlighted line above.
+
 !!! note
 
     To be available for selection in the Back Office, each new Measurement type or unit must be enabled for the  Back Office SiteAccess.
@@ -128,7 +131,6 @@ ibexa:
 ## Template rendering
 
 The Measurement field is rendered with the [`ibexa_render_field()`](field_twig_functions.md#ibexa_render_field) Twig function.
-
 
 Example:
 
