@@ -21,7 +21,7 @@ You can edit a link in the manager and it will be updated automatically in all C
 
 Following [EZP-27759](https://jira.ez.no/browse/EZP-27759) you can now copy a Content item with all of its sub-items in the back office.
 
-The maximum number of Content items that can be copied this way can be set in configuration, see [Copy subtree limit](https://doc.ibexa.co/en/1.13/guide/config_back_office/#copy-subtree-limit).
+The maximum number of Content items that can be copied this way can be set in configuration, see [Copy subtree limit](https://doc.ibexa.co/en/latest/guide/config_back_office/#copy-subtree-limit).
 
 ![Copy subtree option in the menu](copy_subtree_button.png)
 
@@ -36,7 +36,7 @@ The maximum number of Content items that can be copied this way can be set in co
 
 ### Fastly
 
-Following [EZEE-1781](https://jira.ez.no/browse/EZEE-1781) you can [serve Varnish through Fastly](https://doc.ibexa.co/en/1.13/guide/http_cache/#serving-varnish-through-fastly).
+Following [EZEE-1781](https://jira.ez.no/browse/EZEE-1781) you can [serve Varnish through Fastly](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/cache/http_cache/reverse_proxy/).
 
 ## Full list of new features, improvements and bug fixes since v1.12.0
 
@@ -48,9 +48,9 @@ Following [EZEE-1781](https://jira.ez.no/browse/EZEE-1781) you can [serve Varnis
 
 ### Installation
 
-[Installation Guide](https://doc.ibexa.co/en/1.13/getting_started/install_ez_platform)
+[Installation Guide](https://doc.ibexa.co/en/latest/getting_started/install_ez_platform)
 
-[Technical Requirements](https://doc.ibexa.co/en/1.13/getting_started/requirements)
+[Technical Requirements](https://doc.ibexa.co/en/latest/getting_started/requirements)
 
 ### Download
 
@@ -67,4 +67,4 @@ If you would like to become familiar with the products, [request a demo](https:/
 
 ### Updating
 
-To update the product, follow the [updating guide](https://doc.ibexa.co/en/1.13/updating/updating/).
+To update the product, follow the [updating guide](https://doc.ibexa.co/en/latest/updating/updating/).
