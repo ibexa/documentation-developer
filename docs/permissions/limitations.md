@@ -71,6 +71,7 @@ Beyond that the following Limitations are available:
 - [Content Type of Parent](limitation_reference.md#content-type-of-parent-limitation)
 - [Parent Depth](limitation_reference.md#parent-depth-limitation)
 - [Field Group](limitation_reference.md#field-group-limitation)
+- [Change Owner](limitation_reference.md#change-owner-limitation)
 
 `content/edit`:
 
@@ -83,6 +84,7 @@ Beyond that the following Limitations are available:
 - [Workflow Stage](limitation_reference.md#workflow-stage-limitation)
 - [Field Group](limitation_reference.md#field-group-limitation)
 - [Version Lock](limitation_reference.md#version-lock-limitation)
+- [Change Owner](limitation_reference.md#change-owner-limitation)
 
 `content/publish`:
 
