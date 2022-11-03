@@ -22,12 +22,12 @@ Now, a prospective buyer can apply to create a company account on a seller's web
 
 The application goes through an approval process
 where admin specifies the customer group and sales representative for the new company account.
-Finally, the invitation link is sent back to the applier to finish the registration process
+Finally, the invitation link is sent back to the applicant to finish the registration process
 and give them access to the Customer Portal.
 
 ![Company self-registration](img/4.3_self_registration.png)
 
-#### Customization of an approval process
+#### Customization of approval process
 
 You can now customize the approval process for company self-registration.
 By adding additional steps and options, you can build a process that perfectly meets your business needs.
@@ -78,20 +78,20 @@ Filtering by the Color attribute is now possible.
 
 #### Integration with recommendation engine
 
-Now, during product creation, edition, or deletion, information about the selected product categories (Taxonomies) is sent to the recommendation engine as an attribute and can
-be used for recommendation engine filtering.
+Now, during product creation, edition, or deletion, information about the selected product categories (Taxonomies) is sent to the recommendation engine as an attribute
+and can be used for recommendation engine filtering.
 
 ### Users
 
 #### New User Content Type
 
-New release brings you a new Content Type for private customers registering from the front page.
+This release brings you a new Content Type for private customers registering from the front page.
 We also prepared a migration command for already existing users to ease your upgrade process.
 For more information, refer to upgrade documentation.
 
 ### API improvements
 
-PIMs Catalogs functionality is now covered in REST API, including:
+The catalogs functionality in PIM is now covered in REST API, including:
 
 - Getting catalog list
 - Creating, modifying, copying and deleting catalogs
@@ -100,12 +100,12 @@ PIMs Catalogs functionality is now covered in REST API, including:
 
 ### Personalization improvements
 
-Now, as a Personalization admin, after editing a model in the UI, [you can build this model](https://doc.ibexa.co/projects/userguide/en/master/personalization/recommendation_models/#trigger-model-build), use the **Trigger model build** button to build this model 
-with your modifications.
+Now, as a Personalization admin, after editing a model in the Back Office,
+[you can build this model](https://doc.ibexa.co/projects/userguide/en/master/personalization/recommendation_models/#trigger-model-build), use the **Trigger model build** button to build this model with your modifications.
 
 ### Taxonomy improvements
 
-Objects of `\Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry`type,
+Objects of `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` type,
 which are returned by `TaxonomyService`, now contain the information about nesting level in the tree.
 
 ## Full changelog
