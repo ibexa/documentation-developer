@@ -8,29 +8,44 @@ To manage taxonomies, use `Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInter
 
 ## Getting taxonomy entries
 
-To get a single taxonomy entry, you can use `TaxonomyServiceInterface::loadEntryByIdentifier()`:
+To get a single taxonomy entry, you can use `TaxonomyServiceInterface::loadEntryById()`
+and provide it with the numerical entry ID, or pass entry identifier and use `TaxonomyServiceInterface::loadEntryByIdentifier()`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 40, 43) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 43, 46) =]]
 ```
 
-To get all entries in a taxonomy, use `TaxonomyServiceInterface::loadAllEntries()` and provide it with the taxonomy identifier:
+You can also get a taxonomy entry from the ID of its underlying Content item, by using `TaxonomyServiceInterface::loadEntryByContentId()`.
+
+To get the root (main) entry of a given taxonomy, use `TaxonomyServiceInterface::loadRootEntry()`
+and provide it with the taxonomy name.
+
+To get all entries in a taxonomy, use `TaxonomyServiceInterface::loadAllEntries()`, provide it with the taxonomy identifier,
+and optionally limit of results and their offset:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 38, 39) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 41, 42) =]]
 ```
 
 To get all children of a specific taxonomy entry, use `TaxonomyServiceInterface::loadEntryChildren()`. You provide it with the entry object, and optionally limit of results and their offset:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 44, 49) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 48, 53) =]]
 ```
 
 ## Managing taxonomy entries
 
-You can move a taxonomy entry to a different parent by using `TaxonomyServiceInterface::moveEntry`.
+You can move a taxonomy entry to a different parent by using `TaxonomyServiceInterface::moveEntry()`.
 Provide the method with two objects: the entry that you want to move and the new parent entry:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 50, 54) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 54, 58) =]]
+```
+
+You can also move a taxonomy entry by passing its target sibling entry to `TaxonomyServiceInterface::moveEntry()`.
+The method takes as parameters the entry you want to move, the future sibling,
+and a `position` parameter, which is either `TaxonomyServiceInterface::MOVE_POSITION_NEXT` or `TaxonomyServiceInterface::MOVE_POSITION_PREV`:
+
+``` php
+[[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 59, 61) =]]
 ```

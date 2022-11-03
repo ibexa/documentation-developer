@@ -19,8 +19,11 @@ class TaxonomyCommand extends Command
 
     private UserService $userService;
 
-    public function __construct(TaxonomyServiceInterface $taxonomyService, PermissionResolver $permissionResolver, UserService $userService)
-    {
+    public function __construct(
+        TaxonomyServiceInterface $taxonomyService,
+        PermissionResolver $permissionResolver,
+        UserService $userService
+    ) {
         $this->taxonomyService = $taxonomyService;
         $this->permissionResolver = $permissionResolver;
         $this->userService = $userService;
@@ -36,12 +39,13 @@ class TaxonomyCommand extends Command
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $allEntries = $this->taxonomyService->loadAllEntries('tags');
+        $allEntries = $this->taxonomyService->loadAllEntries('tags', 30, 0);
 
         $entry = $this->taxonomyService->loadEntryByIdentifier('desks');
 
         $output->writeln($entry->name . ' with parent ' . $entry->parent->name);
 
+        // Loads first 10 children
         $entryChildren = $this->taxonomyService->loadEntryChildren($entry, 10, 0);
 
         foreach ($entryChildren as $child) {
@@ -52,6 +56,9 @@ class TaxonomyCommand extends Command
         $newParent = $this->taxonomyService->loadEntryByIdentifier('desks');
 
         $this->taxonomyService->moveEntry($entryToMove, $newParent);
+
+        $sibling = $this->taxonomyService->loadEntryByIdentifier('school_desks');
+        $this->taxonomyService->moveEntryRelativeToSibling($entryToMove, $sibling, TaxonomyServiceInterface::MOVE_POSITION_PREV);
 
         return self::SUCCESS;
     }
