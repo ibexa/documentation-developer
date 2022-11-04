@@ -113,6 +113,7 @@ The `TaxonomyEntryId` Search Criterion is not available in Legacy search Engine.
 ### Other improvements
 
 - You can now [customize Elasticsearch index structure](https://doc.ibexa.co/en/master/search/extensibility/customize_elasticsearch_index_structure/) to manage how documents in the index are grouped.
+- A new [`ibexa_seo_is_empty()` Twig function](https://doc.ibexa.co/en/master/templating/twig_function_reference/content_twig_functions/#ibexa_content_name) checks whether SEO data is available for a Content item.
 
 ## Full changelog
 
