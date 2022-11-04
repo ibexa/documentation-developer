@@ -110,6 +110,10 @@ which are returned by `TaxonomyService`, now contain the information about nesti
 
 The `TaxonomyEntryId` Search Criterion is not available in Legacy search Engine.
 
+### Other improvements
+
+- You can now [customize Elasticsearch index structure](https://doc.ibexa.co/en/master/search/extensibility/customize_elasticsearch_index_structure/) to manage how documents in the index are grouped.
+
 ## Full changelog
 
 | Ibexa Content  | Ibexa Experience  | Ibexa Commerce |
