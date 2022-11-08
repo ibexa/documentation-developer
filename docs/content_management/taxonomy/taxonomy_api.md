@@ -27,7 +27,9 @@ and optionally specify the limit of results and their offset. The default limit 
 [[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 41, 42) =]]
 ```
 
-To get all children of a specific taxonomy entry, use `TaxonomyServiceInterface::loadEntryChildren()`. You provide it with the entry object, and optionally specify the limit of results and their offset. The default limit is 30:
+To get all children of a specific taxonomy entry, use `TaxonomyServiceInterface::loadEntryChildren()`, 
+provide it with the entry object, and optionally specify the limit of results and their offset.
+The default limit is 30:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 48, 53) =]]
