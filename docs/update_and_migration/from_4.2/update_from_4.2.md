@@ -1,4 +1,5 @@
-description: Update your installation to the v4.3.latest version from an earlier v4.2.x version.
+---
+description: Update your installation to the v4.3. latest version from an earlier v4.2.x version.
 ---
 
 # Update from v4.2.x to v4.3
@@ -117,7 +118,16 @@ If you don't have custom User Content Types, use the basic migration.
 
     Please note that this improvement will prevent logged in backend users from making purchases in the frontend store.
 
-### Define base unit in configuration
+#### Execute migration
+
+Run `php bin/console ibexa:migrations:migrate -v --dry-run` to ensure that all migrations are ready to be performed.
+If the dry run is successful, run to execute above migrations:
+
+``` bash
+php bin/console ibexa:migrations:migrate
+```
+
+### Define base unit in configuration - TODO check if merged https://github.com/ibexa/measurement/pull/59 
 
 If your installation has defined measurement units in the configuration, 
 you need to specify one of them as base unit in the `config/packages/ibexa_measurement.yaml` file:
@@ -142,15 +152,15 @@ Apply the following database update scripts:
 === "MySQL"
 
     ``` bash
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.2.latest-to-4.2.0.sql
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.2.1-to-4.2.2.sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.2.2-to-4.2.3.sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.2.2-to-4.2.3.sql
     ```
 
 === "PostgreSQL"
 
     ``` bash
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.1.latest-to-4.2.0.sql
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.2.1-to-4.2.2.sql
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.2.2-to-4.2.3.sql
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.2.2-to-4.2.3.sql
     ```
 
 #### Ibexa Open Source
