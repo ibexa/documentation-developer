@@ -165,19 +165,7 @@ Apply the following database update scripts:
 
 #### Ibexa Open Source
 
-If you have no access to Ibexa DXP's `ibexa/installer package`, apply the following database upgrade script:
-
-=== "MySQL"
-
-    ``` bash
-    
-    ```
-
-=== "PostgreSQL"
-
-    ``` bash
-    
-    ```
+If you have no access to Ibexa DXP's `ibexa/installer` package, database upgrade is not necessary.
 
 ## Finish update
 
