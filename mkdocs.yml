@@ -126,6 +126,7 @@ nav:
         - Content availability: content_management/content_availability.md
         - Taxonomy:
             - Taxonomy: content_management/taxonomy/taxonomy.md
+            - Taxonomy API: content_management/taxonomy/taxonomy_api.md
         - Images:
             - Images: content_management/images/images.md
             - Configure Image Editor: content_management/images/configure_image_editor.md
