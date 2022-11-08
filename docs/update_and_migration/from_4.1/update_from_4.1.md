@@ -113,6 +113,10 @@ Apply the following database update scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.2.1-to-4.2.2.sql
     ```
 
+#### Ibexa Open Source
+
+If you have no access to Ibexa DXP's `ibexa/installer` package, database upgrade is not necessary.
+
 ### Remove `node_modules` and `yarn.lock`
 
 Next, remove `node_modules` and `yarn.lock` before running `composer run post-update-cmd`,

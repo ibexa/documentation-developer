@@ -116,6 +116,10 @@ Apply the following database update scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.0.0-to-4.1.0.sql
     ```
 
+#### Ibexa Open Source
+
+If you have no access to Ibexa DXP's `ibexa/installer` package, database upgrade is not necessary.
+
 ## Update the app to latest version of v4.1
 
 Now, update the application to the latest version of v4.1: [[= latest_tag_4_1 =]].
