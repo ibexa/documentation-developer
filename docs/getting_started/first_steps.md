@@ -41,10 +41,12 @@ module.exports = [ eZConfig, ...customConfigs ];
 
 1\. In your browser, go to the Back Office: `<your_domain>/admin`, and use the default credentials to log in: `admin/publish`.
 
-!!! note "Password change"
+!!! caution "Password change"
 
-    You will be requested to change your password at first login. 
+    Make sure that you change the default password before you switch your installation 
+    from development to production. 
     For more information about passwords, see [Passwords](../guide/user_management/user_management.md#passwords).
+    For more information about production security, see [Security checklist](../guide/security_checklist.md).
 
 2\. Select Admin and go to Content Types.
 
