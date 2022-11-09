@@ -13,7 +13,7 @@ To render images, use the [`ibexa_render_field()`](field_twig_functions.md#ibexa
 with the variation name passed as an argument, for example:
 
 ``` html+twig
-[[= include_file('docs/templating/twig_function_reference/field_twig_functions.md', 34, 41) =]]
+[[= include_file('docs/templating/twig_function_reference/field_twig_functions.md', 38, 45) =]]
 ```
 
 ## Image information
