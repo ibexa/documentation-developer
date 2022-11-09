@@ -1,5 +1,5 @@
 ---
-description: Update your installation to the v4.3. latest version from an earlier v4.2.x version.
+description: Update your installation to the latest v4.3 version from v4.2.x.
 ---
 
 # Update from v4.2.x to v4.3
@@ -66,7 +66,7 @@ Review the old YAML files and move your custom configuration to the relevant new
 
 ### Run data migration
 
-### Customer Portal self-registration
+#### Customer Portal self-registration
 
 If you are using [[= product_name_exp =]] or [[= product_name_com =]],
 run data migration required by the Customer Portal self-registration feature:
@@ -91,7 +91,7 @@ Next, run data migration required by a new User Content Type: `customer`.
 This Content Type is dedicated to registered frontend customers.
 This migration is required for all product versions.
 
-1. Basic migration.
+##### Basic migration
 
 Use this option to define a user group that should be migrated to a new Content Type.
 
@@ -99,37 +99,35 @@ Use this option to define a user group that should be migrated to a new Content 
 php bin/console ibexa:migrate:customers  --input-user-group=3a3beb3d09ae0dacebf1d324f61bbc34 --create-content-type
 ```
 
-- `Hash` represents the `remoteID` of a User Group you want to migrate to a new Content Type.
-After migration, there will also be an ID of a new Private Customer User Group.
-- `--create-content-type` - if you add this parameter the system will create the new Content Type based on the one defined in `--input-user-content-type`
+- `--input-user-group` - represents the remote ID of a User Group you want to migrate to a new Content Type.
+After migration, this will also be the ID of a new Private Customer User Group.
+- `--create-content-type` - if you add this parameter, the system creates the new Content Type based on the one defined in `--input-user-content-type`
 
-1. Additional parameters
+##### Additional parameters
 
-Use below parameters if you need to change a Content Type name during migration because e.g. you already have `customer` Content Type,
+Use the parameters below if you need to change a Content Type name during migration, for example because you already have a `customer` Content Type,
 or you want to define different source Content Type.
 If you don't have custom User Content Types, use the basic migration.
 
 - `--input-user-content-type` - defines input Content Type
 - `--output-user-content-type` - defines output Content Type
-- `—user` - defines as what user this command should be executed, default is Admin
+- `--user` - defines the user that this command should be executed as, default is Admin
 - `--batch-limit` - defines data limit for migration of one batch, default value is 25
 
 !!! caution
 
-    Please note that this improvement will prevent logged in backend users from making purchases in the frontend store.
+    This improvement will prevent logged in backend users from making purchases in the frontend store.
 
-#### Execute migration
+#### Execute migrations
 
 Run `php bin/console ibexa:migrations:migrate -v --dry-run` to ensure that all migrations are ready to be performed.
-If the dry run is successful, run to execute above migrations:
+If the dry run is successful, run the following command to execute the above migrations:
 
 ``` bash
 php bin/console ibexa:migrations:migrate
 ```
 
 ### Update the database
-
-#### Ibexa DXP
 
 Next, update the database.
 
@@ -162,4 +160,3 @@ Finish the update process:
 ``` bash
 composer run post-install-cmd
 ```
-
