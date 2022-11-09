@@ -127,18 +127,6 @@ If the dry run is successful, run to execute above migrations:
 php bin/console ibexa:migrations:migrate
 ```
 
-### Define base unit in configuration - TODO check if merged https://github.com/ibexa/measurement/pull/59 
-
-If your installation has defined measurement units in the configuration, 
-you need to specify one of them as base unit in the `config/packages/ibexa_measurement.yaml` file:
-
-```yaml
-ibexa_measurement:
-    types:
-        my_type:
-            my_unit: { symbol: my, is_base_unit: true }
-```
-
 ### Update the database
 
 #### Ibexa DXP
