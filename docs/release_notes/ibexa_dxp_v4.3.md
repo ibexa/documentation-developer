@@ -6,7 +6,7 @@ description: Ibexa DXP v4.3 adds the improvements to the Customer Portal, PIM an
 
 **Version number**: v4.3
 
-**Release date**: November 3, 2022
+**Release date**: November 10, 2022
 
 **Release type**: [Fast Track](https://support.ibexa.co/Public/service-life)
 
