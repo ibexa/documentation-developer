@@ -26,8 +26,8 @@ By default, it is set to `PT1H` (one hour).
 ### Revoking passwords
 
 In case of a security situation such as a data leakage, you may need to force users to change their passwords.
-You can do it with the help of the `ibexa:user:expire-password`,
-which revokes the passwords for specific users, User Groups or user users belonging to the chosen Content Type.
+You can do it with the help of the `ibexa:user:expire-password` command,
+which revokes the passwords for specific users, User Groups or users belonging to the chosen Content Type.
 
 To select which users to revoke passwords for, use one of the following options with the command:
 
@@ -47,7 +47,7 @@ For example, to revoke the passwords of all users of the `user` Content Type, ru
 php bin/console ibexa:user:expire-password --user-content-type-identifier=user --force
 ```
 
-To perform a dry run (without saving the results) of rovking passwords of all users from User Group 13, run:
+To perform a dry run (without saving the results) of revoking passwords of all users from User Group 13, run:
 
 ``` bash
 php bin/console ibexa:user:expire-password --user-group-id=13
