@@ -39,7 +39,7 @@ You can use the following additional options with the command:
 
 - `--force|-f` - commits the change, otherwise the command only performs a dry run
 - `--iteration-count|-c` - defines how many users are fetched at once. Lowering this value helps with memory issues
-- `--password-ttl|-t` - number of days after which new passwords expire. Used when you update passwords for the whole user Content Type
+- `--password-ttl|-t` - number of days after which new passwords expire. Used when the command enables password expiration for user Content Types that do not use it yet.
 
 For example, to revoke the passwords of all users of the `user` Content Type, run:
 
