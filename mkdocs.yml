@@ -319,6 +319,7 @@ nav:
             - 'Legacy Bridge': 'migrating/legacy_bridge.md'
             - 'Common issues': 'migrating/common_issues.md'
     - Releases:
+        - 'Ibexa DXP v4.3': 'releases/ibexa_dxp_v4.3.md'
         - 'Ibexa DXP v4.2': 'releases/ibexa_dxp_v4.2.md'
         - 'Ibexa DXP v4.1': 'releases/ibexa_dxp_v4.1.md'
         - 'Ibexa DXP v4.0': 'releases/ibexa_dxp_v4.0.md'

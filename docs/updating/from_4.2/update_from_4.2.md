@@ -14,19 +14,19 @@ Before you update to v4.3, you need to go through the following steps to update 
 
 Run:
 
-=== "[[= product_name_content =]]"
+=== "Ibexa Content"
 
     ``` bash
     composer require ibexa/content:[[= latest_tag_4_2 =]] --with-all-dependencies --no-scripts
     ```
 
-=== "[[= product_name_exp =]]"
+=== "Ibexa Experience"
 
     ``` bash
     composer require ibexa/experience:[[= latest_tag_4_2 =]] --with-all-dependencies --no-scripts
     ```
 
-=== "[[= product_name_com =]]"
+=== "Ibexa Commerce"
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_2 =]] --with-all-dependencies --no-scripts
@@ -40,21 +40,21 @@ When you have the latest version of v4.2, you can update to v4.3.
 
 First, run:
 
-=== "[[= product_name_content =]]"
+=== "Ibexa Content"
 
     ``` bash
     composer require ibexa/content:[[= latest_tag_4_3 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/content --force -v
     ```
 
-=== "[[= product_name_exp =]]"
+=== "Ibexa Experience"
 
     ``` bash
     composer require ibexa/experience:[[= latest_tag_4_3 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
     ```
 
-=== "[[= product_name_com =]]"
+=== "Ibexa Commerce"
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_3 =]] --with-all-dependencies --no-scripts
@@ -68,7 +68,7 @@ Review the old YAML files and move your custom configuration to the relevant new
 
 #### Customer Portal self-registration
 
-If you are using [[= product_name_exp =]] or [[= product_name_com =]],
+If you are using Ibexa Experience or Ibexa Commerce,
 run data migration required by the Customer Portal self-registration feature:
 
 ```bash
@@ -79,7 +79,7 @@ php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundl
 php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/corporate_account.yaml --name=012_corporate_account.yaml
 ```
 
-If you are using [[= product_name_com =]], additionally run:
+If you are using Ibexa Commerce, additionally run:
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/corporate_account.yaml --name=012_corporate_account_commerce.yaml
