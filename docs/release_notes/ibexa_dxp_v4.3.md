@@ -93,10 +93,10 @@ For more information, refer to upgrade documentation.
 
 The catalogs functionality in PIM is now covered in REST API, including:
 
-- Getting catalog list
-- Creating, modifying, copying and deleting catalogs
-- Changing catalog status
-- Getting catalog filters and sorting options
+- [Getting catalog list](https://doc.ibexa.co/en/4.3/api/rest_api/rest_api_reference/rest_api_reference.html#product-catalog-filter-catalogs)
+- [Creating, modifying, copying and deleting catalogs](https://doc.ibexa.co/en/4.3/api/rest_api/rest_api_reference/rest_api_reference.html#product-catalog-create-catalog)
+- [Changing catalog status](https://doc.ibexa.co/en/4.3/api/rest_api/rest_api_reference/rest_api_reference.html#product-catalog-update-catalog)
+- [Getting catalog filters and sorting options](https://doc.ibexa.co/en/4.3/api/rest_api/rest_api_reference/rest_api_reference.html#product-catalog-load-catalog-filters)
 
 ### Personalization improvements
 
