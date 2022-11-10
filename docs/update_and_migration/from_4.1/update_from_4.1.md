@@ -104,6 +104,7 @@ Apply the following database update scripts:
     ``` bash
     mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.1.latest-to-4.2.0.sql
     mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.2.1-to-4.2.2.sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.2.2-to-4.2.3.sql
     ```
 
 === "PostgreSQL"
@@ -111,6 +112,7 @@ Apply the following database update scripts:
     ``` bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.1.latest-to-4.2.0.sql
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.2.1-to-4.2.2.sql
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.2.2-to-4.2.3.sql
     ```
 
 ### Remove `node_modules` and `yarn.lock`
