@@ -1,5 +1,5 @@
 ---
-description: Update your installation to the v4.1.latest version from an earlier v4.1.x version.
+description: Update your installation to the v4.2.latest version from an v4.1 version.
 ---
 
 # Update from v4.1.x to v4.2
