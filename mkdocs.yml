@@ -578,6 +578,8 @@ nav:
             - Update to v4.1: update_and_migration/from_4.0/to_4.1.md
         - Update from v4.1:
             - Update to v4.2: update_and_migration/from_4.1/update_from_4.1.md
+        - Update from v4.2:
+              - Update to v4.3: update_and_migration/from_4.2/update_from_4.2.md
         - Migrate to Ibexa DXP:
             - Migrate from eZ Publish Platform: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish_platform.md
             - Migrate from eZ Publish: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish.md
@@ -652,6 +654,7 @@ extra:
   latest_tag_4_0: '4.0.8'
   latest_tag_4_1: '4.1.5'
   latest_tag_4_2: '4.2.2'
+  latest_tag_4_3: '4.3.0'
 
   symfony_doc: 'http://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'
