@@ -594,6 +594,7 @@ nav:
             - Package structure: resources/contributing/package_structure.md
     - Release notes:
         - Release notes: release_notes/release_notes.md
+        - Ibexa DXP v4.3: release_notes/ibexa_dxp_v4.3.md
         - Ibexa DXP v4.2: release_notes/ibexa_dxp_v4.2.md
         - Ibexa DXP v4.1: release_notes/ibexa_dxp_v4.1.md
         - Ibexa DXP v4.0: release_notes/ibexa_dxp_v4.0.md
