@@ -126,6 +126,7 @@ nav:
         - Content availability: content_management/content_availability.md
         - Taxonomy:
             - Taxonomy: content_management/taxonomy/taxonomy.md
+            - Taxonomy API: content_management/taxonomy/taxonomy_api.md
         - Images:
             - Images: content_management/images/images.md
             - Configure Image Editor: content_management/images/configure_image_editor.md
@@ -275,6 +276,7 @@ nav:
         - Products: pim/products.md
         - Product API: pim/product_api.md
         - Catalogs: pim/catalogs.md
+        - Catalog API: pim/catalog_api.md
         - Enable purchasing products: pim/enable_purchasing_products.md
         - Create custom attribute type: pim/create_custom_attribute_type.md
         - Create product code generator: pim/create_product_code_generator.md
@@ -576,6 +578,8 @@ nav:
             - Update to v4.1: update_and_migration/from_4.0/to_4.1.md
         - Update from v4.1:
             - Update to v4.2: update_and_migration/from_4.1/update_from_4.1.md
+        - Update from v4.2:
+              - Update to v4.3: update_and_migration/from_4.2/update_from_4.2.md
         - Migrate to Ibexa DXP:
             - Migrate from eZ Publish Platform: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish_platform.md
             - Migrate from eZ Publish: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish.md
@@ -646,13 +650,12 @@ extra:
   product_name_exp: 'Ibexa Experience'
   product_name_com: 'Ibexa Commerce'
   # Global variables - latest tag versions
-  latest_tag_2_5: '2.5.30'
-  latest_tag_3_3: '3.3.27'
+  latest_tag_2_5: '2.5.31'
+  latest_tag_3_3: '3.3.28'
   latest_tag_4_0: '4.0.8'
   latest_tag_4_1: '4.1.5'
-  latest_tag_4_2: '4.2.2'
+  latest_tag_4_2: '4.2.3'
   latest_tag_4_3: '4.3.0'
-
 
   symfony_doc: 'http://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'

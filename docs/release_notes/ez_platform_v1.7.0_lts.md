@@ -87,9 +87,9 @@ The Enterprise demo site has been significantly improved featuring a new **Produ
 
 ### Installation
 
-[Installation Guide](https://doc.ibexa.co/en/1.13/getting_started/install_ez_platform)
+[Installation Guide](https://doc.ibexa.co/en/latest/getting_started/install_ez_platform)
 
-[Technical Requirements](https://doc.ibexa.co/en/1.13/getting_started/requirements)
+[Technical Requirements](https://doc.ibexa.co/en/latest/getting_started/requirements)
 
 ### Download
 
@@ -106,4 +106,4 @@ If you would like to become familiar with the products, [request a demo](https:/
 
 ### Updating
 
-To update the product, follow the [updating guide](https://doc.ibexa.co/en/1.13/updating/updating/).
+To update the product, follow the [updating guide](https://doc.ibexa.co/en/latest/updating/updating/).
