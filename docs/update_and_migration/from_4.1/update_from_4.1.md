@@ -115,6 +115,12 @@ Apply the following database update scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.2.2-to-4.2.3.sql
     ```
 
+## Ensure password safety
+
+Following [Security advisory: IBEXA-SA-2022-009](https://developers.ibexa.co/security-advisories/ibexa-sa-2022-009-critical-vulnerabilities-in-graphql-role-assignment-ct-editing-and-drafts-tooltips),
+unless you can verify based on your log files that the vulnerability has not been exploited,
+you should [revoke passwords](https://doc.ibexa.co/en/latest/users/user_management/#revoking-passwords) for all affected users.
+
 ### Remove `node_modules` and `yarn.lock`
 
 Next, remove `node_modules` and `yarn.lock` before running `composer run post-update-cmd`,
