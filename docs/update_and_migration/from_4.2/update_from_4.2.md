@@ -82,7 +82,7 @@ php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundl
 If you are using [[= product_name_com =]], additionally run:
 
 ```bash
-php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/corporate_account.yaml --name=012_corporate_account_commerce.yaml
+php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/corporate_account_commerce.yaml --name=012_corporate_account_commerce.yaml
 ```
 
 #### Migration to `customer` Content Type
