@@ -1,0 +1,23 @@
+displayName: Segment Groups
+/{identifier}:
+    get:
+        displayName: Load segment group
+        description: Loads the given segment group
+        headers:
+            Accept:
+                example:  |
+                    application/vnd.ibexa.api.SegmentGroup+json
+                    application/vnd.ibexa.api.SegmentGroup+xml
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.SegmentGroup+json:
+                        type: SegmentGroup
+                        example: !include examples/segment_groups/GET/SegmentGroup.json.example
+                    application/vnd.ibexa.api.SegmentGroup+xml:
+                        type: SegmentGroup
+                        example: !include examples/segment_groups/GET/SegmentGroup.xml.example
+            401:
+                description: Error - the user is not authorized to view this Segment Group.
+            404:
+                description: Error - no segment group with the given identifier exists.

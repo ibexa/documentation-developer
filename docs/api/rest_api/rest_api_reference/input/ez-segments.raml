@@ -1,0 +1,23 @@
+displayName: Segments
+/{segmentIdentifier}:
+    get:
+        displayName: Load segment
+        description: Loads the given segment.
+        headers:
+            Accept:
+                example:  |
+                    application/vnd.ibexa.api.Segment+json
+                    application/vnd.ibexa.api.Segment+xml
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.Segment+json:
+                        type: Segment
+                        example: !include examples/segments/GET/Segment.json.example
+                    application/vnd.ibexa.api.Segment+xml:
+                        type: Segment
+                        example: !include examples/segments/GET/Segment.xml.example
+            401:
+                description: Error - the user is not authorized to view this Segment.
+            404:
+                description: Error - no segment with the given identifier exists.
