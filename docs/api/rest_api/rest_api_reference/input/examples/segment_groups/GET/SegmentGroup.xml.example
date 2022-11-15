@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SegmentGroup media-type="application/vnd.ibexa.api.SegmentGroup+xml" href="/api/ibexa/v2/segment_groups/test">
+    <id>2</id>
+    <identifier>test</identifier>
+    <name>test</name>
+</SegmentGroup>

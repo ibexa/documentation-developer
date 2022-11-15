@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UserSegmentsList media-type="application/vnd.ibexa.api.UserSegmentsList+xml" href="/api/ibexa/v2/user/users/14/segments">
+    <UserSegment media-type="application/vnd.ibexa.api.UserSegment+xml">
+        <id>1</id>
+        <identifier>test</identifier>
+        <name>test</name>
+        <SegmentGroup media-type="application/vnd.ibexa.api.SegmentGroup+xml" href="/api/ibexa/v2/segment_groups/test"/>
+        <User media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+    </UserSegment>
+</UserSegmentsList>
