@@ -324,8 +324,8 @@ head:
                     404:
                         description: If User does not exist.
             post:
-                displayName: Assign Segments to User
-                description: ''
+                displayName: Assign User to Segments
+                description: Assign User to one or more Segments.
                 headers:
                     Content-Type:
                         example:  |
@@ -346,7 +346,7 @@ head:
             /{segmentIdentifier}:
                 delete:
                     displayName: Remove Segment from User
-                    descriptions: ''
+                    descriptions: Unassigns User from a Segment.
                 responses:
                     204:
                         description: No Content
