@@ -270,7 +270,7 @@ plugins:
             'guide/personalization/developer_guide/user_api.md': 'personalization/api_reference/user_api.md'
             'guide/personalization/developer_guide/attributes_search_elastic.md': 'personalization/attribute_search_in_elasticsearch.md'
             'guide/personalization/best_practices/tracking_integration.md': 'personalization/tracking_integration.md'
-            'guide/personalization/best_practices/recommendation_integration.md': 'personalization/recommendation_integration.md'
+            'guide/personalization/best_practices/recommendation_integration.md': 'personalization/integrate_recommendation_results.md'
 
             'guide/search/search.md': 'search/search.md'
             'guide/search/elastic.md': 'search/elasticsearch_search_engine.md'

@@ -2,7 +2,7 @@
 description: Integrate recommendation service into your website.
 ---
 
-# How it works
+# How Personalization works
 
 The idea behind the Personalization service is built upon four main steps.
 

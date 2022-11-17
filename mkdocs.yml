@@ -345,7 +345,7 @@ nav:
     - Personalization:
         - Personalization: personalization/personalization.md
         - How it works: personalization/how_it_works.md
-        - Enable personalization: personalization/enable_personalization.md
+        - Enable Personalization: personalization/enable_personalization.md
         - Integrate recommendation service: personalization/integrate_recommendation_service.md
         - Tracking integration: personalization/tracking_integration.md
         - Recommendation integration: personalization/recommendation_integration.md
