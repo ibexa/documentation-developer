@@ -240,6 +240,38 @@ Run the following SQL commands:
         ON "ibexa_workflow_version_lock" ("content_id", "version");
     ```
 
+### Ibexa Open Source
+
+If you have no access to Ibexa DXP's `ibexa/installer` package, apply the following database upgrade script:
+
+=== "MySQL"
+
+    ``` sql
+    DROP TABLE IF EXISTS `ibexa_setting`;
+    CREATE TABLE `ibexa_setting` (
+      `id` int(11) NOT NULL AUTO_INCREMENT,
+      `group` varchar(128) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+      `identifier` varchar(128) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+      `value` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+      PRIMARY KEY (`id`),
+      UNIQUE KEY `ibexa_setting_group_identifier` (`group`, `identifier`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    DROP TABLE IF EXISTS ibexa_setting;
+    CREATE TABLE ibexa_setting (
+      id SERIAL NOT NULL,
+      "group" varchar(128) NOT NULL,
+      identifier varchar(128) NOT NULL,
+      value json NOT NULL,
+      PRIMARY KEY (id),
+      CONSTRAINT ibexa_setting_group_identifier UNIQUE ("group", identifier)
+    );
+    ```
+
 ### v3.3.9
 
 #### Database update
