@@ -113,6 +113,10 @@ Apply the following database update scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.2.2-to-4.2.3.sql
     ```
 
+#### Ibexa Open Source
+
+If you have no access to Ibexa DXP's `ibexa/installer` package, database upgrade is not necessary.
+
 ## Ensure password safety
 
 Following [Security advisory: IBEXA-SA-2022-009](https://developers.ibexa.co/security-advisories/ibexa-sa-2022-009-critical-vulnerabilities-in-graphql-role-assignment-ct-editing-and-drafts-tooltips),
