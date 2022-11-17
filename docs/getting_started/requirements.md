@@ -82,7 +82,7 @@ Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Edito
 
 - Linux NFS or S3/EFS (for IO, aka binary files stored in content repository, not supported with legacy)
 - Redis 4.0+, 5.0 or higher (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/topics/lru-cache), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
-- [Varnish](http://varnish-cache.org/) 6.5LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the provided bundle](http_cache.md#serving-varnish-through-fastly) (for HttpCache)
+- [Varnish](http://varnish-cache.org/) 6.0LTS or 7.1 with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the provided bundle](http_cache.md#serving-varnish-through-fastly) (for HttpCache)
 
 ## Filesystem
 
