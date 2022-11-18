@@ -4,7 +4,7 @@ description: Correlate metadata with user data and combine users into clusters o
 
 # API reference
 
-This secton provides documentation for the Personalization API operations.
+This section provides documentation for the Personalization API operations.
 
 [[= cards([
     "personalization/api_reference/tracking_api",

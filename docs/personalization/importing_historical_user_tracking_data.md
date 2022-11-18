@@ -27,7 +27,7 @@ Therefore a signature parameter needs to be added, which is calculated like the 
 
 !!! caution "Parameters without a value"
 
-    The order of the  to be signed is crucial.
+    The order of the parameters to be signed is crucial.
     They must be sent in alphabetical order based on the parameter names to create 
     a signature.
     Encodings must always contain capital letters (for example, %3A and not %3a).
