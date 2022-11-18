@@ -4,12 +4,12 @@ description: Integrate tracking with a Google-style JavaScript.
 
 # Track events with yct.js
 
-This is yet another example of how to integrate the tracking with a Google-style 
-JavaScript in your site. 
-It is a very generic approach and should be evaluated if this meets your 
-**requirements and security policy!**
+This is another example of how you can integrate the tracking with a Google-style 
+JavaScript in your site.
+The approach is very generic and evaluate it if it meets your
+**requirements and security policy**.
 
-If you want the `userid` to be generated automatically, just leave out the user 
+If you want the `userid` to be generated automatically, leave out the user 
 params in the `_ycq.push` calls.
 If a predefined cookie already exists, it is used. 
 Otherwise a new one is created.
@@ -50,12 +50,12 @@ the closing `</head>` tag.
 
 The `_ycq` object is what makes the asynchronous syntax possible. 
 It acts as a queue, which is a "first-in, first-out" (FIFO) data structure that 
-collects API calls until `yct.js` is ready to execute them. 
+collects API calls until `yct.js` is ready to run them. 
 To add to the queue, use the `_ycq.push` method.
 
 To push an API call into the queue, you must convert it from the traditional 
 JavaScript syntax to a command array. 
-Command arrays are simply JavaScript arrays that conform to a certain format. 
+Command arrays are JavaScript arrays that conform to a certain format. 
 The first element in a command array is the name of the tracker object method 
 that you want to call. 
 It must be a string. The remaining elements are the arguments you want to pass 
@@ -73,7 +73,7 @@ with the `push(...)` method. 
 
 `push(commandArray)`
 
-Executes the given command array, which is simply a JavaScript array that conforms 
+Executes the command array, which is a JavaScript array that conforms 
 to the following format. 
 The first element of the array must be the name of a tracker object method passed 
 as a string. 
@@ -93,9 +93,9 @@ _ycq.push(['_trackEvent', '1', 'click', 'https://mydoc.pdf', 'user1234']);
 | Object          | Description   | Example  |
 | --------------- | ------------- | ----- |
 | `_setMandator ` | - Executed with one additional parameter: `MandatorId` | `_ycq.push (['_setMandator' , '<YOUR_MANDATOR_ID>']);` |
-| `_trackEvent` | - Executed with 4 additional parameters: `ItemType`, `EventType`, `ItemId`, `UserId`.<br /> - `EventType` can be any of the [described types]([[= user_doc =]]/personalization/event_types/) |  capturing an event: `_ycq.push(['_trackEvent', '1', 'buy', 'https://mydoc.pdf', 'user1234x']);` |
-| `_trackTimedEvent` | - Executed with 5 additional parameters: `ItemType`, `EventType`, `ItemId`, `Timeout`, `UserId`.<br /> - `EventType` can be any of the [described types]([[= user_doc =]]/personalization/event_types/).<br /> - `Timeout` can be any integer greater than than 0 representing time in ms | consume event sent after 20s: `_ycq.push(['_trackTimedEvent', '1', 'consume', 'https://mydoc.pdf', '20000', 'user1234x']);` |
-| `_login` | - Executed with 2 additional parameters: anonymous userId, pseudonymous userId.<br /> - It is to be triggered when a user logs in and the tracking identity is changed.<br /> |-|
+| `_trackEvent` | - Executed with four additional parameters: `ItemType`, `EventType`, `ItemId`, `UserId`.<br /> - `EventType` can be any of the [described types]([[= user_doc =]]/personalization/event_types/) |  capturing an event: `_ycq.push(['_trackEvent', '1', 'buy', 'https://mydoc.pdf', 'user1234x']);` |
+| `_trackTimedEvent` | - Executed with five additional parameters: `ItemType`, `EventType`, `ItemId`, `Timeout`, `UserId`.<br /> - `EventType` can be any of the [described types]([[= user_doc =]]/personalization/event_types/).<br /> - `Timeout` can be any integer greater than than 0 representing time in ms | consume event sent after 20s: `_ycq.push(['_trackTimedEvent', '1', 'consume', 'https://mydoc.pdf', '20000', 'user1234x']);` |
+| `_login` | - Executed with two additional parameters: anonymous userId, pseudonymous userId.<br /> - It is to be triggered when a user logs in and the tracking identity is changed.<br /> |-|
 | `ycreco=true` | - If you want to send a click recommended event you can append the following parameter to the recommended item URLs: | [https://mydomain.com/mypage.html?ycreco=true](https://mydomain.com/mypage.html?ycreco=true) or <br />[https://mydomain.com/mypage.html?myparameter=x&ycreco=true](https://mydomain.com/mypage.html?myparameter=x&ycreco=true) |
 
 ## Tracking with HTML event handlers

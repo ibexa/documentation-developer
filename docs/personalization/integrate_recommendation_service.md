@@ -2,10 +2,10 @@
 description: Integrate recommendation service into your website.
 ---
 
-# Integrate Recommendation service
+# Integrate recommendation service
 
 To return recommendations, you must first [enable the Personalization service](enable_personalization.md).
-Then, you must integrate the service with [[= product_name =]] by activating 
+Next, integrate the service with [[= product_name =]] by activating 
 event tracking and embedding recommendation results into the website.
 
 !!! note
@@ -18,18 +18,20 @@ event tracking and embedding recommendation results into the website.
 The service primarily relies on event tracking. 
 For the events to be registered, every Content item or product page must call 
 a special tracking URL.
-The simplest way of embedding the tracking URL is placing a one pixel image on every page, 
-just like in the case of analytical tools or visitor counters.
-A code that includes an image may look like this:
+The easiest way of embedding the tracking URL is placing a one pixel image on every page, 
+like in the case of analytical tools or visitor counters.
+A code that includes an image looks like this:
 
 `<img href="https://event.perso.ibexa.co/ebl/00000/click/<user_ID>/<content_type_ID>/<content_ID>" width="1" height="1">`
 
-`<user_ID>` stands either for the user ID or session ID of the user who is currently 
+where:
+
+- `<user_ID>` stands either for the user ID or session ID of the user who is currently 
 logged into your website (any URL-encoded string is allowed).
 
-`<content_type_ID>` stands for the [contentTypeId](content_model.md#content-information) of the Content item or product that you want to track and recommend.
+- `<content_type_ID>` stands for the [contentTypeId](content_model.md#content-information) of the Content item or product that you want to track and recommend.
 
-`<content_ID>` stands for the [id](content_model.md#content-information) of the Content item or product that you want to track and recommend.
+- `<content_ID>` stands for the [id](content_model.md#content-information) of the Content item or product that you want to track and recommend.
 
 The following examples show how you can integrate a CLICK event:
 
@@ -82,7 +84,7 @@ To return products that are most probably interesting for users interested in pr
 
 `https://reco.perso.ibexa.co/api/v2/00000/<user_ID>/cross_sell.json?contextitems=123`
 
-A response with two recommendations will resemble the following object:
+A response with two recommendations resembles the following object:
 
 ``` json
 {
@@ -152,9 +154,9 @@ curl_close($curl);
 ## Advanced integration
 
 You can configure integration at a more advanced level to track more events, 
-use additional parameters, apply custom scenario configurations, apply filters, 
+use additional parameters, apply custom scenario configurations, filters, 
 and enable additional features.
 
 For more information about available functionalities, see the [User Documentation]([[= user_doc =]]/personalization/personalization).
 
-For more information about integrating the Personalization service, see [Developer guide](tracking_api.md) and [Best practices](tracking_integration.md).
+For more information about integrating the Personalization service, see [tracking API](tracking_api.md) and [tracking integration](tracking_integration.md) documentation.

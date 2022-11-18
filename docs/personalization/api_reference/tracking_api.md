@@ -31,12 +31,12 @@ For more information, see [Tracking with yct.js](tracking_with_yct.md).
 You can use the tracking API both in eCommerce and content publishing scenarios. 
 eCommerce mostly uses the term "product", whereas the Publisher domain widely 
 uses the terms "content", "article", "images" or "videos". 
-Therefore, a generic term "item" is used instead to cover all the above types. 
+Therefore, a generic term "item" is used instead to cover all the mentioned types. 
 For further segmentation the term "item type" is used, which, in combination 
 with the item ID itself, defines a domain specific object.
 
-For example, an electronic product could be defined by item type "1" and item id "3298", 
-while a textile product could be defined by item type "2" and item id "3298".
+For example, an electronic product can be defined by item type "1" and item id "3298", 
+while a textile product can be defined by item type "2" and item id "3298".
 
 !!! note
 
