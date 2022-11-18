@@ -5,10 +5,10 @@ description: Methods for REST call with Personalization server.
 # Recommendation integration
 
 There are several ways to integrate the REST calls with the Personalization server 
-and to avoid blocking web page rendering, if the communication with the Recommender 
+and to avoid blocking webpage rendering, if the communication with the Recommender 
 is distrusted or interrupted.
 
-## Simple way
+## Easy way
 
 The simplest way to load recommendations is to synchronously request the Personalization 
 server for recommendations as they are needed. This way is sufficient in most cases. 
@@ -21,8 +21,8 @@ it can lock the request.
 
 You can place the code that loads the data from the eZ Recommender at the bottom 
 of the generated document and flush the output buffer to the client 
-just before requesting recommendations. 
-The browser will get a whole page to render and can display it even if the very end 
+before requesting recommendations. 
+The browser gets a whole page to render and can display it even if the very end 
 of the page is still loading. 
 Then the JavaScript code with the recommendation information loaded at the bottom 
 of the page must fill the gaps on the page with recommendations as soon as 
@@ -31,7 +31,7 @@ it is completely loaded.
 ## Non-blocking loading in the background
 
 If the website is implemented in a language that supports multithreading or 
-non-blocking I/O, the recommendation request can start just after the browser 
+non-blocking I/O, the recommendation request can start right after the browser 
 request is received. 
 The page generation and the recommendation requests are accomplished in parallel. 
 By combining this idea with the previous solution and placing the recommendation 
@@ -48,9 +48,9 @@ One of the possible ways to work around this limitation is JSONP.
 
 A better solution than JSONP is to provide the proxy on the server side, which 
 forwards script requests to the Personalization service. 
-It can be implemented as a very simple proxy using the mod\_proxy module of 
+It can be implemented as a basic proxy using the `mod_proxy` module of 
 the Apache Webserver. 
-It just transfers the data and the JavaScript renders the response into HTML itself.
+It transfers the data and the JavaScript renders the response into HTML itself.
 
 An alternative approach is to create the HTML code on the server side for every 
 target page, to simplify the script on the client side.
@@ -60,13 +60,13 @@ the Apache proxy module, an independent daemon like “netcat” or a PHP script
 
 ## Comparison
 
-An overview of pros and cons for each of the above techniques:
+An overview of pros and cons for each of the presented techniques:
 
-|Problem|Simple Way|Bottom loading|Background loading|JSONP|XMLHttpRequest + Proxy|
+|Feature|Easy way|Bottom loading|Background loading|JSONP|XMLHttpRequest + Proxy|
 |---|---|---|---|---|---|
-|Is not blocked by ad blockers or no-track plug-ins|Yes|Yes|Yes|-|Yes|
+|Isn't blocked by ad blockers or no-track plug-ins|&#10004;|&#10004;|&#10004;|-|&#10004;|
 |Works if JavaScript is disabled|Yes|depends|-|-|-|	 	 
-|Works for server without multithreading functionality|Yes|Yes|-|Yes|Yes|
-|Compatible with frontend caching on the server|-|-|-|Yes|Yes|
-|Does not delay page rendering|-|depends|depends|Yes|Yes|
-|Supports authentication for recommendation fetching|Yes|Yes|Yes|-|depends|
+|Works for server without multithreading functionality|&#10004;|&#10004;|-|&#10004;|&#10004;|
+|Compatible with frontend caching on the server|-|-|-|&#10004;|&#10004;|
+|Doesn't delay page rendering|-|depends|depends|&#10004;|&#10004;|
+|Supports authentication for recommendation fetching|&#10004;|&#10004;|&#10004;|-|depends|

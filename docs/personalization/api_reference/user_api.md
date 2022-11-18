@@ -1,5 +1,5 @@
 ---
-description: 
+description: Use HTTP methods to correlate metadata with user data and combine users into clusters of certain type.
 ---
 
 # User API
