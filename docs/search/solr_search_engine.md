@@ -521,7 +521,7 @@ Connect to the Solr slave interface (http://localhost:8983/solr), go to your cor
 
 ## Configuring HTTP Client for Solr queries
 
-Solr uses Symfony HTTP Client to fetch and update Solr index. It's possible to configure timeout and number of max retries for that client using Solr Bundle's Semantic configuration:
+Ibexa Solr Bundle uses Symfony HTTP Client to fetch and update Solr index. It's possible to configure timeout and number of max retries for that client using Solr Bundle's Semantic configuration:
 
 ```yaml
 ibexa_solr:
