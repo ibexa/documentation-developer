@@ -6,7 +6,7 @@ description: See the methods of event tracking integration using tracking from s
 
 There are several ways to integrate event reporting into the webpage. 
 The simplest way is to generate code of a tiny image and put it on the webpage 
-where the event must be sent (so-called pixel tracking).
+where the event must be sent [pixel tracking](integrate_recommendation_service.md#track-events).
 
 For example, with HTML: 
 
@@ -23,6 +23,8 @@ img.src = "https://event.perso.ibexa.co/ebl/00000/click/johndoe/1/100?categorypa
 </script>
 ```
 
+<!-- doubled information from integrate recommendation service-->
+
 The drawback of this option is that such calls can be blocked by ad blockers 
 or do-not-track plugins on the client side.
 
@@ -31,53 +33,53 @@ or do-not-track plugins on the client side.
 Another option is to call the tracker from the server. 
 The most important drawback is that the event request increases the general request time. 
 If the network is overloaded or the Personalization server is not available, 
-the number of requests could grow and lead to a stalled and finally crashing HTTP service. 
-There are several techniques that can help you avoid it.
+the number of requests can grow and lead to a stalled and finally crashing HTTP service. 
+See below the techniques that help avoid these problems.
 
 ### Tracking at the bottom
 
 You can place the code at the very end of the generating script 
-and flush the output buffer to the client just before sending the events. 
-The connection to the browser might remain open for the time of processing, 
-but it will be transparent for the end user.
+and flush the output buffer to the client before sending the events. 
+The connection to the browser can remain open for the time of processing, 
+but it is transparent for the end user.
 
 ### Tracking asynchronously
 
 If the website is implemented in a language that supports multithreading, non-blocking 
-I/O or messaging infrastructure, you can start the event request just after 
+I/O or messaging infrastructure, you can start the event request right after 
 the browser request is received instead of waiting for this process to finish.
 
 ## Client-side tracking
 
 ### Using JSONP
 
-Another solution is to provide a proxy on the server side, which will forward 
+Another solution is to provide a proxy on the server side, which forwards 
 script requests to the Personalization server. 
 In this model, the requests are triggered from the client, when the page is already 
 loaded and rendered. 
 It is impossible to request the recommendation controller server directly from JavaScript 
 (either through the AJAX library or directly over XMLHttpRequest) because of the 
 cross-domain restriction in most browsers. 
-One possible work around this limitation is [JSONP](https://en.wikipedia.org/wiki/JSONP).
+One possible work around this limitation is [JSONP](https://www.w3schools.com/js/js_json_jsonp.asp).
 
-### Using a server proxy
+### Using server proxy
 
 Another option is to tunnel the JavaScript request through the proxy on the same server. 
 The server only forwards requests to the Personalization server. 
-It can be a simple implemented Apache proxy module, an independent daemon 
+It can be an implemented Apache proxy module, an independent daemon 
 (for example, "netcat"), or a PHP script.
 
 ## Comparison
 
 An overview of pros and cons for every technique:
 
-| Problem | Pixel | Server-side | Page bottom | Async. reporting | JSONP | XMLHttpRequest + Proxy |
+| Feature | Pixel | Server-side | Page bottom | Async. reporting | JSONP | XMLHttpRequest + Proxy |
 |----|-----|-----|-----|-----|-----|------|
-| Is not blocked by ad blockers or do-not-track plug-ins. |-| Yes | Yes | Yes |-| Yes |
-| Works if JavaScript is disabled. | Yes | Yes | Yes | Yes |-|-|
-| Is compatible with frontend caching on the server. |-|-|-|-|Yes | Yes |
-| Does not delay page rendering. | Yes |-| Yes | Yes | Yes | Yes |
-| Supports authentication for event tracking (not implemented yet). |-| Yes | Yes | Yes |-| Yes/No |
+| Is not blocked by ad blockers or do-not-track plug-ins. |-|&#10004;|&#10004;|&#10004;|-|&#10004;|
+| Works if JavaScript is disabled. |&#10004;|&#10004;|&#10004;|&#10004;|-|-|
+| Is compatible with frontend caching on the server. |-|-|-|-|&#10004;|&#10004;|
+| Doesn't delay page rendering. |&#10004;|-|&#10004;|&#10004;|&#10004;|&#10004;|
+| Supports authentication for event tracking (not implemented yet). |-|&#10004;|&#10004;|&#10004;|-| Yes/No |
 
 !!! tip "The recommended approach"
 

@@ -20,11 +20,11 @@ number of events must be collected and the model build must finish successfully.
 
     **BASIC Authentication** for fetching recommendations is enabled for some 
     configurations (for example for Gambio Plugin) by default.
-    Use the customerid as username and the license key as password.
+    Use the `customerid` as username and the license key as password.
     The license key is displayed in the upper right in the [Admin GUI](https://admin.yoochoose.net/)) 
     after you log in with your registration credentials.
 
-    If you plan to use [JSONP](https://en.wikipedia.org/wiki/JSONP), authentication 
+    If you plan to use [JSONP](https://www.w3schools.com/js/js_json_jsonp.asp), authentication 
     must be disabled.
     If it is enabled in your solution (can be easily tested with a recommendation request in a browser), please contact the eZ Recommender support (<support@yoochoose.com>) for further information and disabling.
 
@@ -35,7 +35,7 @@ by using the GET method.
 The result is a list of item IDs that can be used to call the underlying CMS 
 or shop system, to retrieve the necessary information for the rendering process.
 
-To allow the customer to retrieve different types of recommendations based on different methods (e.g. Collaborative Filtering, Content Based, Stereotype, etc.) the Recommendation System uses scenario IDs relating to a predefined set of configurations inside the system.
+To allow the customer to retrieve different types of recommendations based on different methods (for example, Collaborative Filtering, Content Based, Stereotype, etc.) the Recommendation System uses scenario IDs relating to a predefined set of configurations inside the system.
 These configurations are a combination of methods and filters that should be applied including possible fallbacks if the requested methods do not deliver a result.
 
 A recommendation request looks like this:
@@ -56,11 +56,11 @@ Using additional query string parameters one can customize the recommendation re
 |Parameter name|Description|Values|
 |---|---|---|
 |`numrecs`|Defines the number of recommendations that should be delivered. Keep this amount as low as possible as this increases the response time of the recommendation call.|1 to 50 (default "10")|
-|`contextitems` (required for context based recommendations)|Comma-separated list of items that the user is currently viewing on the web page. All items must be from the same type. The type is defined in the scenario configuration.|comma separated list of item IDs (1 to 2147483647)|
+|`contextitems` (required for context based recommendations)|Comma-separated list of items that the user is currently viewing on the webpage. All items must be from the same type. The type is defined in the scenario configuration.|comma separated list of item IDs (1 to 2147483647)|
 |`itemid` (deprecated)|A single item to be used as a source for creating recommendations. This parameter is deprecated. Use `contextitems` instead.|1 to 2147483647|
-|`outputtypeid` (required, if the scenario defined multiple output item types, otherwise it is optional)|Item type of the requested recommendations. This can differ from the input item type, e.g. if you want to get recommendations for pictures based on a given article the item type for pictures has to be used here. For a web shop this is probably not needed as only one type of items is tracked. Multiple item types are available only for advanced license.|numeric|
+|`outputtypeid` (required, if the scenario defined multiple output item types, otherwise it is optional)|Item type of the requested recommendations. This can differ from the input item type, for example, if you want to get recommendations for pictures based on an article the item type for pictures has to be used here. For a web shop this is probably not needed as only one type of items is tracked. Multiple item types are available only for advanced license.|numeric|
 |`categorypath`|Base category path for providing recommendations. The format is the same as the category path for the event tracking. It is possible to add this parameter multiple times. The order of recommendations from the different categories is defined by the calculated relevance.|alphanumeric[/alphanumeric]*|
-|`jsonpcallback` (used only for JSONP request)|Function or method name for a JSONP request. It can be a function ("callme"), or a method ("obj.callme").|legal JavaScript function call (by default "jsonpCallback")|
+|`jsonpcallback` (used only for JSONP request)|Function or method name for a JSONP request. It can be a function ("callme"), or a method ("obj.callme").|valid JavaScript function call (by default "jsonpCallback")|
 
 An example of the recommendation request: 
 
@@ -130,7 +130,7 @@ Example XML response:
 ```
 
 The "reason" field string tells the user out of which model the recommendations were provided. The models are preconfigured by the Personalization server.
-For example "*CF\_I2I (context: ITEMS(s))*" means that the model which provides the recommendation is "Collaborative Filtering based on an Item to Item similarity" with the given context item as input.
+For example "*CF\_I2I (context: ITEMS(s))*" means that the model which provides the recommendation is "Collaborative Filtering based on an Item to Item similarity" with the context item as input.
 The human readable explanation is (in this case) "Users who bought this item also bought these items".
 
 The "relevance" defines the similarity to the context item according to internal algorithm and scenario configuration.
@@ -145,10 +145,10 @@ The Following HTTP response codes are used by the recommendation controller.
 |200 OK|Request was successfully processed.|
 |304 Not Modified|Recommendation result was not modified since the time specified in the provided If-Modified-Since header.|
 |400 Bad Request</br>414 Request-URI Too Long|The request is wrongly formatted. See response body for more information.|
-|401 Unauthorized|Illegal authentication credentials.|
+|401 Unauthorized|Not valid authentication credentials.|
 |403 Forbidden|Access denied.|
 |404 Not Found|The requested element was not found. It can be customer ID (a.k.a. mandator ID), model ID, scenario ID etc.|
-|409 Conflict|The combination of used models and given recommendation request parameters doesn't allow to provide recommendations. This could be e.g. if personalized recommendations are requested for a user who has no history at all.|
+|409 Conflict|The combination of used models and the recommendation request parameters doesn't allow to provide recommendations. This could be, for example, if personalized recommendations are requested for a user who has no history at all.|
 |500 Internal Server Error|Unspecified error. Please inform support if you get this error repeatedly.|
 
 The body of the response in case of errors contains human-readable error message.
@@ -160,7 +160,7 @@ There are some additional very special request parameters.
 
 ###### any attribute name (used only if submodels are configured)
 
-Item's attribute, e.g. color, price, etc.
+Item's attribute, for example, color, price, etc.
 These are customer specific and can only be understood by the recommender system if the item attributes are imported by using the YOOCHOOSE content import APIs.
 There can be multiple attributename and attributevalue pairs.
 
@@ -170,7 +170,7 @@ Legacy Recommendation API and [Submodel configuration]([[= user_doc =]]/personal
 
 ###### `usecontextcategorypath`
 
-If set to true, the category path of the given contextitem(s) will be resolved by the recommender engine from the internal store and used as base category path.
+If set to true, the category path of the contextitem(s) will be resolved by the recommender engine from the internal store and used as base category path.
 If more than one category is returned, all categories are used for providing recommendations.
 Avoid setting this parameter to true to minimize the response time.
 Use the parameter categorypath to provide the category to the recommender engine during the request.
