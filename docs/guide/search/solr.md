@@ -536,7 +536,7 @@ Ibexa Solr Bundle uses Symfony HTTP Client to fetch and update Solr index.
 You can configure timeout and maximum number of retries for that client using Solr Bundle's Semantic configuration:
 
 ```yaml
-ibexa_solr:
+ez_search_engine_solr:
     # ...
     http_client:
         # ...
