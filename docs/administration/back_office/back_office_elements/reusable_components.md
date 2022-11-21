@@ -42,6 +42,85 @@ The alert component has the following properties:
 } only %}
 ```
 
+## Details
+
+The details component consists of the following blocks:
+
+- `details_header`
+
+- `details_items`
+
+Variables:
+
+|Name|Type|Values|
+|----|----|-----------|
+|`headline`|string|`@ibexadesign/ui/component/table/table_header.html.twig`|
+|`headline_items`|array|`@ibexadesign/ui/component/table/table_header.html.twig`|
+|`view_mode`|string|`vertical`, default set to `''`|
+|`items`|array|`label`, `content_raw`, `content`|
+
+`headline` and `headline_items` are variables for `@ibexadesign/ui/component/table/table_header.html.twig`
+
+## Modal
+
+The modal component consist of the following blocks:
+
+```html+twig
+{% block dialog %}
+	{% block content_before %}
+	{% block content %}
+		{% block header %}
+		{% block subheader %}
+		{% block body %}
+		{% block footer %}
+	{% block content_after %}
+```
+Variables:
+
+|Name|Type|Values|
+|----|----|-----------|
+|`size`|string|`small`, `large`, `extra-large`, default set to: `''`|
+|`subtitle`|string|default set to `false`|
+|`no_header`|boolean|default set to `false`|
+|`no_header_border`|boolean|default set to `false`|
+|`class`|string|default `''`|
+|`tabindex`|string|default `-1`|
+|`role`|string|default `dialog`|
+|`id`|string||
+|`has_static_backdrop`|boolean|default set to `false`|
+
+`attr`
+
+|Name|Type|Values|
+|----|----|-----------|
+|`class`|string|default `''`|
+
+`attr_dialog`
+
+|Name|Type|Values|
+|----|----|-----------|
+|`class`|string|default set to `''`|
+|`role`|string|default set to `document`|
+
+`attr_content`
+
+|Name|Type|Values|
+|----|----|-----------|
+|`class`|string|default set to `''`|
+
+|Name|Type|Values|
+|----|----|-----------|
+`attr_title`
+|`class`|string|default set to `''`|
+
+`attr_close_btn`
+
+|Name|Type|Values|
+|----|----|-----------|
+|`class`||default set to `''`|
+|`type`||default set to `button`|
+|`title`||default set to `Close`|
+
 ## Tables
 
 The table component consists of the following blocks:
