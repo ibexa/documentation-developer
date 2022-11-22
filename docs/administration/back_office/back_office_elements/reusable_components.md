@@ -54,8 +54,8 @@ Variables:
 
 |Name|Type|Values|
 |----|----|-----------|
-|`headline`|string|`@ibexadesign/ui/component/table/table_header.html.twig`|
-|`headline_items`|array|`@ibexadesign/ui/component/table/table_header.html.twig`|
+|`headline`|string|
+|`headline_items`|array|
 |`view_mode`|string|`vertical`, default set to `''`|
 |`items`|array|`label`, `content_raw`, `content`|
 
