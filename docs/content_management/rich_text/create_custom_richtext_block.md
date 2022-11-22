@@ -20,6 +20,7 @@ It also sets the attribute type to `richtext` (line 15):
 ``` yaml hl_lines="3 15"
 [[= include_file('code_samples/back_office/online_editor/config/packages/ibexa_page_fieldtype.yaml') =]]
 ```
+
 !!! note
 
     Make sure that you provide an icon for the block in the `assets/images/blocks/` folder.
