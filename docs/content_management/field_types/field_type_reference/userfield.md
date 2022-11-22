@@ -30,11 +30,10 @@ This Field Type validates and stores information about a user.
 
 !!! caution
 
-    Using the MD5-based deprecated hash types is a security risk, because if the hashes are leaked, they are too easily broken by brute-force attacks.
-    The plaintext type offers no security. It was only ever intended for testing, and should never be used now.
+    Old password hash types like MD5 have nummerical hash type value from 1 to 5. These were deprecated in v1.13 and removed in v3.0.
+    Between v1.13 and v3.0 it was possible to update hashes automatically when users logged in.
+    Since v3.0, login is only possible with hash type 6 or larger. Automatic updates of older types on login is not possible anymore.
+    A mass migration of all hashes has never been possible, because this would require knowing the passwords, which only the users themselves do.
+    Users who still have an old, unsupported password hash type can request a new, valid password using the "Forgot password" feature.
 
-    We strongly recommend switching to one of the new hash types. If you do, it will be used for new users.
-    Existing users will also have their hashes updated to the new type when they log in.
-    (A mass update of all hashes is not possible, because this requires knowing the passwords, which only the users themselves do.)
-
-    Removal notice: https://doc.ibexa.co/en/latest/releases/ez_platform_v3.0_deprecations/#password-hashes
+    Removal notice: https://doc.ibexa.co/en/latest/release_notes/ez_platform_v3.0_deprecations/#password-hashes
