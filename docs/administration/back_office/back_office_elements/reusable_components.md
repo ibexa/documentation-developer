@@ -57,7 +57,7 @@ Variables:
 |`headline`|string|
 |`headline_items`|array|
 |`view_mode`|string|`vertical`, default set to `''`|
-|`items`|array|`label`, `content_raw`, `content`|
+|`items`|array<object>|{`label`, `content_raw`, `content`}|
 
 `headline` and `headline_items` are variables for `@ibexadesign/ui/component/table/table_header.html.twig`
 
