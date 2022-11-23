@@ -57,7 +57,7 @@ Variables:
 |`headline` (optional)|string|if not defined, `details_header` is empty|
 |`headline_items`|array|
 |`view_mode`|string|`vertical`, default set to `''`|
-|`items`|array<object>|{`label`, `content_raw`, `content`}|
+|`items`|array<hash>|{`label`, `content_raw`, `content`}|
 
 If `headline` is passed, the `table_header` is loaded to `details_header` and then it is possible to pass `headline_items` variable.
 
