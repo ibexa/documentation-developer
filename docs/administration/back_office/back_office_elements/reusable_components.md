@@ -54,10 +54,12 @@ Variables:
 
 |Name|Type|Values|
 |----|----|-----------|
-|`headline` (optional)|string|
+|`headline` (optional)|string|if not defined, `details_header` is empty|
 |`headline_items`|array|
 |`view_mode`|string|`vertical`, default set to `''`|
 |`items`|array<object>|{`label`, `content_raw`, `content`}|
+
+If `headline` is passed, the `table_header` is loaded to `details_header` and then it is possible to pass `headline_items` variable.
 
 `headline` and `headline_items` are variables for `@ibexadesign/ui/component/table/table_header.html.twig`
 
@@ -80,20 +82,24 @@ Variables:
 |Name|Type|Values|
 |----|----|-----------|
 |`size`|string|`small`, `large`, `extra-large`, default set to: `''`|
-|`subtitle`|string|default set to `false`|
+|`subtitle`|string|no default value, if not defined, the `subheader` is not rendered|
 |`no_header`|boolean|default set to `false`|
 |`no_header_border`|boolean|default set to `false`|
 |`class`|string|default `''`|
-|`tabindex`|string|default `-1`|
-|`role`|string|default `dialog`|
+
+
 |`id`|string||
 |`has_static_backdrop`|boolean|default set to `false`|
+
+`attr` and other `attr_*` hold all HTML attributes rendered on their respective elements.
 
 `attr`
 
 |Name|Type|Values|
 |----|----|-----------|
 |`class`|string|default `''`|
+|`role`|string|default `dialog`|
+|`tabindex`|string|default `-1`|
 
 `attr_dialog`
 
@@ -108,9 +114,10 @@ Variables:
 |----|----|-----------|
 |`class`|string|default set to `''`|
 
+`attr_title`
+
 |Name|Type|Values|
 |----|----|-----------|
-`attr_title`
 |`class`|string|default set to `''`|
 
 `attr_close_btn`
