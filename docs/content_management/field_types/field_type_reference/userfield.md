@@ -33,7 +33,7 @@ This Field Type validates and stores information about a user.
     Old password hash types like MD5 have numerical hash type value from 1 to 5. These types were deprecated in v1.13 and removed in v3.0.
     Between v1.13 and v3.0 it was possible to update hashes automatically when users logged in.
     Since v3.0, login is only possible with hash type 6 or larger. Automatic updates of older types on login are not possible anymore.
-    A mass migration of all hashes has never been possible, because this would require knowing the passwords, which only the users themselves do.
+    A mass migration of all hashes has never been possible, because this would require knowing the passwords, which only users themselves do.
     Users who still have an old, unsupported password hash type can request a new, valid password using the "Forgot password" feature.
 
     Removal notice: https://doc.ibexa.co/en/latest/release_notes/ez_platform_v3.0_deprecations/#password-hashes
