@@ -54,7 +54,7 @@ Variables:
 
 |Name|Type|Values|
 |----|----|-----------|
-|`headline`|string|
+|`headline` (optional)|string|
 |`headline_items`|array|
 |`view_mode`|string|`vertical`, default set to `''`|
 |`items`|array<object>|{`label`, `content_raw`, `content`}|
