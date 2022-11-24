@@ -47,7 +47,6 @@ The alert component has the following properties:
 The details component consists of the following blocks:
 
 - `details_header`
-
 - `details_items`
 
 Variables:
@@ -59,13 +58,13 @@ Variables:
 |`view_mode`|string|`vertical`, default set to `''`|
 |`items`|array<hash>|{`label`, `content_raw`, `content`}|
 
-If `headline` is passed, the `table_header` is loaded to `details_header` and then it is possible to pass `headline_items` variable.
+If `headline` is passed, a `table_header` element is loaded in `details_header` and then it is possible to pass a `headline_items` variable.
 
-`headline` and `headline_items` are variables for `@ibexadesign/ui/component/table/table_header.html.twig`
+`headline` and `headline_items` are variables used in `@ibexadesign/ui/component/table/table_header.html.twig`
 
 ## Modal
 
-The modal component consist of the following blocks:
+The modal component consists of the following blocks:
 
 ```html+twig
 {% block dialog %}
