@@ -68,7 +68,7 @@ The modal component consists of the following blocks:
 
 ```html+twig
 {% block dialog %}
-	{% block content_before %}
+    {% block content_before %}
 	{% block content %}
 		{% block header %}
 		{% block subheader %}
@@ -76,6 +76,7 @@ The modal component consists of the following blocks:
 		{% block footer %}
 	{% block content_after %}
 ```
+
 Variables:
 
 |Name|Type|Values|
@@ -85,8 +86,6 @@ Variables:
 |`no_header`|boolean|default set to `false`|
 |`no_header_border`|boolean|default set to `false`|
 |`class`|string|default `''`|
-
-
 |`id`|string||
 |`has_static_backdrop`|boolean|default set to `false`|
 
@@ -123,9 +122,9 @@ Variables:
 
 |Name|Type|Values|
 |----|----|-----------|
-|`class`||default set to `''`|
-|`type`||default set to `button`|
-|`title`||default set to `Close`|
+|`class`|string|default set to `''`|
+|`type`|string|default set to `button`|
+|`title`|string|default set to `Close`|
 
 ## Tables
 
