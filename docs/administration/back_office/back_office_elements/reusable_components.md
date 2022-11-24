@@ -42,6 +42,90 @@ The alert component has the following properties:
 } only %}
 ```
 
+## Details
+
+The details component consists of the following blocks:
+
+- `details_header`
+- `details_items`
+
+Variables:
+
+|Name|Type|Values|
+|----|----|-----------|
+|`headline` (optional)|string|if not defined, `details_header` is empty|
+|`headline_items`|array|
+|`view_mode`|string|`vertical`, default set to `''`|
+|`items`|array<hash>|{`label`, `content_raw`, `content`}|
+
+If `headline` is passed, a `table_header` element is loaded in `details_header` and then it is possible to pass a `headline_items` variable.
+
+`headline` and `headline_items` are variables used in `@ibexadesign/ui/component/table/table_header.html.twig`
+
+## Modal
+
+The modal component consists of the following blocks:
+
+```html+twig
+{% block dialog %}
+    {% block content_before %}
+	{% block content %}
+		{% block header %}
+		{% block subheader %}
+		{% block body %}
+		{% block footer %}
+	{% block content_after %}
+```
+
+Variables:
+
+|Name|Type|Values|
+|----|----|-----------|
+|`size`|string|`small`, `large`, `extra-large`, default set to: `''`|
+|`subtitle`|string|no default value, if not defined, the `subheader` is not rendered|
+|`no_header`|boolean|default set to `false`|
+|`no_header_border`|boolean|default set to `false`|
+|`class`|string|default `''`|
+|`id`|string||
+|`has_static_backdrop`|boolean|default set to `false`|
+
+`attr` and other `attr_*` hold all HTML attributes rendered on their respective elements.
+
+`attr`
+
+|Name|Type|Values|
+|----|----|-----------|
+|`class`|string|default `''`|
+|`role`|string|default `dialog`|
+|`tabindex`|string|default `-1`|
+
+`attr_dialog`
+
+|Name|Type|Values|
+|----|----|-----------|
+|`class`|string|default set to `''`|
+|`role`|string|default set to `document`|
+
+`attr_content`
+
+|Name|Type|Values|
+|----|----|-----------|
+|`class`|string|default set to `''`|
+
+`attr_title`
+
+|Name|Type|Values|
+|----|----|-----------|
+|`class`|string|default set to `''`|
+
+`attr_close_btn`
+
+|Name|Type|Values|
+|----|----|-----------|
+|`class`|string|default set to `''`|
+|`type`|string|default set to `button`|
+|`title`|string|default set to `Close`|
+
 ## Tables
 
 The table component consists of the following blocks:
