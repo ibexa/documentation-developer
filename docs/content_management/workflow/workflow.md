@@ -31,7 +31,11 @@ Matchers define when the workflow is used. Their configuration is optional.
 
 `content_type` contains an array of Content Type identifiers that use this workflow.
 
-`content_status` lists the statuses of Content items which fall under this workflow. The available values are: `draft` and `published`.
+`content_status` lists the statuses of Content items which fall under this workflow. The available values are: `draft` and `published`. 
+
+If set to `draft`, applies for new Content (newly created).
+
+If set to `published`, applies for Content that has already been published (for example, edit after the Content was published).
 
 ``` yaml
 [[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 6, 9) =]]
