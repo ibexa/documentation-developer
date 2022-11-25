@@ -38,6 +38,17 @@ Exposing the dev mode exposes things like `phpinfo`, environment variables and s
     - [Authentication and authorisation]([[= symfony_doc =]]/security.html), and [more on this subject]([[= symfony_doc =]]/security.html#learn-more)
     - Symfony's [secrets management system]([[= symfony_doc =]]/configuration/secrets.html)
 
+## PHP
+
+### Enable `zend.exception_ignore_args` in PHP 7.4 and newer
+
+PHP 7.4 introduced the `zend.exception_ignore_args` setting in `php.ini`.
+The default value is 0 (disabled) for backwards compatibility.
+On production sites this should be set to 1 (enabled), to ensure stack traces do not include arguments passed to functions.
+Such arguments could include passwords or other sensitive information.
+You should also make sure no stack trace is ever visible to end users of production sites,
+though visible arguments are unsafe even if the stack traces only show up in log files.
+
 ## eZ Platform
 
 ### Fully-vetted admin users
