@@ -31,7 +31,7 @@ cd /opt/solr
 mkdir -p server/ibexa/template
 cp -R <project_root>/vendor/ibexa/solr/src/lib/Resources/config/solr/* server/ibexa/template
 cp server/solr/configsets/_default/conf/{solrconfig.xml,stopwords.txt,synonyms.txt} server/ibexa/template
-cp server/solr/solr.xml server/ez
+cp server/solr/solr.xml server/ibexa
 
 # If you are using Ibexa Commerce, additionally copy commerce-specific configuration files:
 cat <project_root>/vendor/ibexa/commerce-shop/src/bundle/Search/Resources/config/solr/custom-fields-types.xml >> server/ibexa/template/custom-fields-types.xml
@@ -41,7 +41,7 @@ cat <project_root>/vendor/ibexa/commerce-shop/src/bundle/Search/Resources/config
 sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema".*/,/<\/updateRequestProcessorChain>/d' server/ibexa/template/solrconfig.xml
 
 # Start Solr (but apply autocommit settings below first if you need to)
-bin/solr -s ez
+bin/solr -s ibexa
 bin/solr create_core -c collection1 -d server/ibexa/template
 ```
 
