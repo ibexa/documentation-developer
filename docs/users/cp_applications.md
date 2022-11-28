@@ -13,6 +13,13 @@ where they can set up their team and manage their account.
 For more information on company self-registration, see [user guide documentation](https://doc.ibexa.co/projects/userguide/en/latest/shop_administration/company_self_registration/).
 If provided options are too limited, you can customize an approval process by yourself.
 
+## Roles and policies
+
+Any user can become application approver, as long as it has `Company Application/Workflow` Policy assigned to its Role.
+There, it can be defined from which states to which states the user may move applications.
+
+![Company Application Policy](img/cp_company_application_policy.png)
+
 ## Customization of an approval process
 
 In this procedure, you will add a new status to the approval process of business account application.
