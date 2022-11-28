@@ -5,7 +5,7 @@ edition: experience
 
 # Customer Portal applications
 
-New business customers can apply for a company by themselves.
+New business customers can apply for a company account by themselves.
 Applications go through the approval process in the Back Office where they can be accepted, rejected or put on hold.
 If they are accepted, the business partner will receive an invitation link to the Customer Portal,
 where they can set up their team and manage their account.
@@ -15,11 +15,11 @@ If provided options are too limited, you can customize an approval process by yo
 
 ## Customization of an approval process
 
-In this procedure, you will add a new status to the approval process of business application.
+In this procedure, you will add a new status to the approval process of business account application.
 
 ### Add new status
 
-First, go to `config/packages/ibexa.yaml` and new `verify` status to the configuration:
+First, go to `config/packages/ibexa.yaml` and add `verify` status to the configuration:
 
 ```yaml
 ibexa:
@@ -33,24 +33,24 @@ ibexa:
 ### Create new Form Type
 
 Next, create a new form type in `src/Form/VerifyType.php`.
-It will be displayed after you select **Verify** in the Back Office **Applications** section.
+It will be displayed in the application review stage.
 
 ``` php
 [[= include_file('code_samples/customer_portal/src/Form/VerifyType.php', 20, 21) =]]
 ```
 
-Line 28 defines where the form should be displayed, line 20 adds **note** field, and line 21 adds the **verify** button.
+Line 28 defines where the form should be displayed, line 20 adds **Note** field, and line 21 adds the **Verify** button.
 
 ### Create event subscriber to pass the form
 
-Add event subscriber that will pass new Form Type to the frontend.
+Add event subscriber that will pass a new form type to the frontend.
 Create `src/Corporate/EventSubscriber/ApplicationDetailsViewSubscriber.php` following below example:
 
 ``` php
 [[= include_file('code_samples/customer_portal/src/Corporate/EventSubscriber/ApplicationDetailsViewSubscriber.php', 39) =]]
 ```
 
-In line 39 you can see `verify_form` parameter that adds new form to the reviewing application view.
+In line 39, you can see `verify_form` parameter that passes the `verify` form to the application review view.
 
 ### Add form template
 
@@ -62,24 +62,25 @@ a new template `templates/themes/admin/corporate_account/application/details.htm
 ```
 
 It will overwrite the default view and add **Verify** button to the review view.
-To check the progress, got to **Members** -> **Applications** -> select one application from the list -> inspect application review view for a new button.
+To check the progress, go to **Members** -> **Applications**.
+Select one application from the list and inspect application review view for a new button.
 
 ![Verify button](img/cp_new_status.png)
 
 ### Create event subscriber to verify state
 
-Now, you need to pass the information that the button has been selected to the list of applications to change the application status.
+Now, you need to pass the information that the button has been selected
+to the list of applications to change the application status.
 Create another event subscriber that will pass the information
-from the created form `src/Corporate/EventSubscriber/VerifyStateEventSubscriber.php`.
+from the created form to the application list `src/Corporate/EventSubscriber/VerifyStateEventSubscriber.php`.
 
 ``` php
 [[= include_file('code_samples/customer_portal/src/Corporate/EventSubscriber/VerifyStateEventSubscriber.php', 46) =]]
 ```
 
 In line 46, you can see that it handles changes to verify status.
-The subscriber only informs that the status has been changed.
-It is visible in line 72.
+The subscriber only informs that the status has been changed (line 72).
 
-Now, if you click **Verify** button in the review application view, the application will get **Verify** status.
+Now, if you click the **Verify** button during application review, the application will get **Verify** status.
 
 ![Verify status](img/cp_verify_status.png)
