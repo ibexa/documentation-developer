@@ -340,6 +340,8 @@ nav:
         - Add login through external service: users/add_login_through_external_service.md
         - Token: users/token.md
         - Segment API: users/segment_api.md
+        - Customer Portal:
+            - Customer Portal Applications: users/cp_applications.md
         - Customers:
             - Customers: users/customers/customers.md
             - Customer API: users/customers/customer_api.md
