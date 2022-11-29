@@ -304,6 +304,8 @@ nav:
             - Order history: commerce/order_history/order_history.md
             - Order history configuration: commerce/order_history/order_history_configuration.md
         - Shop API: commerce/shop_api.md
+    - Customer Portal:
+          - Customer Portal Applications: cp_applications.md
     - Multisite:
         - Multisite: multisite/multisite.md
         - Multisite configuration: multisite/multisite_configuration.md
@@ -340,8 +342,6 @@ nav:
         - Add login through external service: users/add_login_through_external_service.md
         - Token: users/token.md
         - Segment API: users/segment_api.md
-        - Customer Portal:
-            - Customer Portal Applications: users/cp_applications.md
         - Customers:
             - Customers: users/customers/customers.md
             - Customer API: users/customers/customer_api.md

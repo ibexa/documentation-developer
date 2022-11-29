@@ -15,8 +15,9 @@ If provided options are too limited, you can customize an approval process by yo
 
 ## Roles and policies
 
-Any user can become application approver, as long as it has `Company Application/Workflow` Policy assigned to its Role.
+Any user can become application approver, as long as they have `Company Application/Workflow` Policy assigned to their Role.
 There, it can be defined from which states to which states the user may move applications.
+For example, the assistant can put new applications on hold, or reject them, and only the manager can accept them.
 
 ![Company Application Policy](img/cp_company_application_policy.png)
 
