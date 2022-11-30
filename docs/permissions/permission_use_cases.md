@@ -41,6 +41,13 @@ To create and publish content, users must additionally have the following Polici
 
 This also lets the user copy and move content, as well as add new Locations to a Content item (but not remove them).
 
+## Move content
+
+To move content to another Location or move the Subtree, the user must have the following Policy:
+
+- `content/create` - on the source tree
+- `content/manage_locations` - on the target tree
+
 ## Remove content
 
 To send content to Trash, the User needs to have the `content/remove` Policy.
