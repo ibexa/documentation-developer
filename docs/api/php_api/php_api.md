@@ -73,6 +73,16 @@ These objects provide you with lower-level information.
 For instance, `ContentInfo` contains `currentVersionNo` or `remoteId`,
 while `Content` enables you to retrieve Fields, Content Type, or previous versions.
 
+!!! note
+
+    The Public API value objects should not be serialized.
+
+    So, serializing value objects, for example, `eZ\Publish\API\Repository\Values\Content\ContentInfo` /  `eZ\Publish\API\Repository\Values\Content\VersionInfo` 
+    or `eZ\Publish\API\Repository\Values\Content\Location`, results in throwing an error.
+
+
+that PAPI VO's are not meant to be serializable.
+
 ## Authentication
 
 One of the responsibilities of the Repository is user authentication. Every action is executed *as* a user.
