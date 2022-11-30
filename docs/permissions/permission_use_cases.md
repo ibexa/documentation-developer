@@ -45,8 +45,8 @@ This also lets the user copy and move content, as well as add new Locations to a
 
 To move content to another Location or move the Subtree, the user must have the following Policy:
 
-- `content/create` - on the source tree
-- `content/manage_locations` - on the target tree
+- `content/read` - on the source Location
+- `content/create` - on the target Location
 
 ## Remove content
 
