@@ -21,6 +21,38 @@ For example, the assistant can put new applications on hold, or reject them, and
 
 ![Company Application Policy](img/cp_company_application_policy.png)
 
+## Customer Portal applications configuration
+
+Below, you will find possible configurations for Customer Portal applications
+
+## Reasons for rejecting application
+
+To change or add reasons for not accepting Corporate Portal application go to
+`vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`.
+
+```yaml
+parameters:
+    ibexa.site_access.config.default.corporate_accounts.reasons:
+        reject: [Malicious intent / Spam]
+        on_hold: [Verification in progress]
+```
+
+## Timeout
+
+Registration form locks for 5 minutes after unsuccessful registration,
+if the user, for example, tried to use an email address that already exists in a Customer Portal clients database.
+To change that timeframe go to `config/packages/ibexa.yaml`.
+
+```yaml
+framework:
+    rate_limiter:
+        corporate_account_application:
+            policy: 'fixed_window'
+            limit: 1
+            interval: '5 minutes'
+            lock_factory: 'lock.corporate_account_application.factory'
+```
+
 ## Customization of an approval process
 
 In this procedure, you will add a new status to the approval process of business account application.
@@ -92,3 +124,4 @@ The subscriber only informs that the status has been changed (line 72).
 Now, if you click the **Verify** button during application review, the application will get **Verify** status.
 
 ![Verify status](img/cp_verify_status.png)
+
