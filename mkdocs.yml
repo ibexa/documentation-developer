@@ -304,8 +304,8 @@ nav:
             - Order history: commerce/order_history/order_history.md
             - Order history configuration: commerce/order_history/order_history_configuration.md
         - Shop API: commerce/shop_api.md
-    - Customer Portal:
-          - Customer Portal Applications: cp_applications.md
+    - Customer management:
+          - Customer Portal Applications: customer_management/cp_applications.md
     - Multisite:
         - Multisite: multisite/multisite.md
         - Multisite configuration: multisite/multisite_configuration.md
