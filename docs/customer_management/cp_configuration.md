@@ -1,3 +1,8 @@
+---
+description: Configure Customer Portal to fit the needs of your business.
+edition: experience
+---
+
 # Customer Portal configuration
 
 You can overwrite the default configuration of the Customer Portal to fit its capabilities to your unique needs.
@@ -21,12 +26,14 @@ ibexa:
 
 ```
 
-You can override these settings if you have other Content Types that should be treated as a customer in the Back Office and Customer Portal.
+You can override these settings if you have other Content Type
+that should be treated as a customer in the Back Office and Customer Portal.
 When viewing such Content in the Back Office and Customer Portal, you will be able to see e.g. the assigned Policies.
 
 ## Roles and Policies
 
-You can easily add custom roles to your installation by adding them to the configuration file `vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`:
+You can easily add custom roles to your installation
+by adding them to the configuration file `vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`:
 
 ```yaml
 parameters:
@@ -38,7 +45,8 @@ parameters:
 
 ## Content Types names
 
-To change names of default Content Types, you need to define them in configuration `vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`:
+To change names of default Content Types, you need to define them in configuration
+`vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`:
 
 ```yaml
 parameters:
@@ -49,7 +57,7 @@ parameters:
 ## Registration
 
 You can define what fields will be required in the Customer Portal registration form 
-and what Content Type and identifier registered users will get.
+and what Content Type and identifier registered customers will get.
 To do so, go to `vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`.
 
 ```yaml
@@ -66,7 +74,8 @@ parameters:
 ## Templates
 
 You can also define new templates for among others: invitation mail,
-reset password message and all the information screens after user's action in `vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`.
+reset password message and all the information screens after user's action in 
+`vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`.
 
 ```yaml
 parameters:
