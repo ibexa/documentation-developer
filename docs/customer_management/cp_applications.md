@@ -7,7 +7,7 @@ edition: experience
 
 New business customers can apply for a company account by themselves.
 Applications go through the approval process in the Back Office where they can be accepted, rejected or put on hold.
-If they are accepted, the business partner will receive an invitation link to the Customer Portal,
+If they are accepted, the business partner receives an invitation link to the Customer Portal,
 where they can set up their team and manage their account.
 
 For more information on company self-registration, see [user guide documentation](https://doc.ibexa.co/projects/userguide/en/latest/shop_administration/company_self_registration/).
@@ -15,17 +15,17 @@ If provided options are too limited, you can customize an approval process by yo
 
 ## Roles and policies
 
-Any user can become application approver, as long as they have `Company Application/Workflow` Policy assigned to their Role.
-There, it can be defined from which states to which states the user may move applications.
+Any user can become application approver, as long as they have the `Company Application/Workflow` Policy assigned to their Role.
+There, you can define between which states the user may move applications.
 For example, the assistant can put new applications on hold, or reject them, and only the manager can accept them.
 
 ![Company Application Policy](img/cp_company_application_policy.png)
 
-## Customer Portal applications configuration
+## Customer Portal application configuration
 
-Below, you will find possible configurations for Customer Portal applications
+Below, you can find possible configurations for Customer Portal applications.
 
-## Reasons for rejecting application
+### Reasons for rejecting application
 
 To change or add reasons for not accepting Corporate Portal application go to
 `vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`.
@@ -37,11 +37,11 @@ parameters:
         on_hold: [Verification in progress]
 ```
 
-## Timeout
+### Timeout
 
 Registration form locks for 5 minutes after unsuccessful registration,
 if the user, for example, tried to use an email address that already exists in a Customer Portal clients database.
-To change that timeframe go to `config/packages/ibexa.yaml`.
+To change that duration, go to `config/packages/ibexa.yaml`.
 
 ```yaml
 framework:
@@ -55,11 +55,11 @@ framework:
 
 ## Customization of an approval process
 
-In this procedure, you will add a new status to the approval process of business account application.
+In this procedure, you add a new status to the approval process of business account application.
 
 ### Add new status
 
-First, go to `config/packages/ibexa.yaml` and add `verify` status to the configuration:
+First, go to `config/packages/ibexa.yaml` and add a `verify` status to the configuration:
 
 ```yaml
 ibexa:
@@ -75,22 +75,22 @@ ibexa:
 Next, create a new form type in `src/Form/VerifyType.php`.
 It will be displayed in the application review stage.
 
-``` php
-[[= include_file('code_samples/customer_portal/src/Form/VerifyType.php', 28, 20, 21) =]]
+``` php hl_lines="20 21 28"
+[[= include_file('code_samples/customer_portal/src/Form/VerifyType.php') =]]
 ```
 
 Line 28 defines where the form should be displayed, line 20 adds **Note** field, and line 21 adds the **Verify** button.
 
 ### Create event subscriber to pass the form
 
-Add event subscriber that will pass a new form type to the frontend.
-Create `src/Corporate/EventSubscriber/ApplicationDetailsViewSubscriber.php` following below example:
+Add an event subscriber that passes a new form type to the frontend.
+Create `src/Corporate/EventSubscriber/ApplicationDetailsViewSubscriber.php` following the example below:
 
-``` php
-[[= include_file('code_samples/customer_portal/src/Corporate/EventSubscriber/ApplicationDetailsViewSubscriber.php', 39) =]]
+``` php hl_lines="39"
+[[= include_file('code_samples/customer_portal/src/Corporate/EventSubscriber/ApplicationDetailsViewSubscriber.php') =]]
 ```
 
-In line 39, you can see `verify_form` parameter that passes the `verify` form to the application review view.
+In line 39, you can see the `verify_form` parameter that passes the `verify` form to the application review view.
 
 ### Add form template
 
@@ -101,7 +101,7 @@ a new template `templates/themes/admin/corporate_account/application/details.htm
 [[= include_file('code_samples/customer_portal/templates/themes/admin/corporate_account/application/details.html.twig') =]]
 ```
 
-It will overwrite the default view and add **Verify** button to the review view.
+It overrides the default view and adds a **Verify** button to the review view.
 To check the progress, go to **Members** -> **Applications**.
 Select one application from the list and inspect application review view for a new button.
 
@@ -111,11 +111,11 @@ Select one application from the list and inspect application review view for a n
 
 Now, you need to pass the information that the button has been selected
 to the list of applications to change the application status.
-Create another event subscriber that will pass the information
+Create another event subscriber that passes the information
 from the created form to the application list `src/Corporate/EventSubscriber/VerifyStateEventSubscriber.php`.
 
-``` php
-[[= include_file('code_samples/customer_portal/src/Corporate/EventSubscriber/VerifyStateEventSubscriber.php', 46) =]]
+``` php hl_lines="46"
+[[= include_file('code_samples/customer_portal/src/Corporate/EventSubscriber/VerifyStateEventSubscriber.php') =]]
 ```
 
 In line 46, you can see that it handles changes to verify status.
