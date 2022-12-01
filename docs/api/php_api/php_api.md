@@ -75,13 +75,11 @@ while `Content` enables you to retrieve Fields, Content Type, or previous versio
 
 !!! note
 
-    The Public API value objects should not be serialized.
+    From v3.0 the Public API value objects should not be serialized.
 
-    So, serializing value objects, for example, `eZ\Publish\API\Repository\Values\Content\ContentInfo` /  `eZ\Publish\API\Repository\Values\Content\VersionInfo` 
-    or `eZ\Publish\API\Repository\Values\Content\Location`, results in throwing an error.
+    Serialization of value objects, for example, `Ibexa\Publish\API\Repository\Values\Content\ContentInfo` /  `Ibexa\Publish\API\Repository\Values\Content\VersionInfo` 
+    or `Ibexa\Publish\API\Repository\Values\Content\Location` results in memory limit exceeded error.
 
-
-that PAPI VO's are not meant to be serializable.
 
 ## Authentication
 
