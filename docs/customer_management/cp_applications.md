@@ -76,7 +76,7 @@ Next, create a new form type in `src/Form/VerifyType.php`.
 It will be displayed in the application review stage.
 
 ``` php
-[[= include_file('code_samples/customer_portal/src/Form/VerifyType.php', 20, 21) =]]
+[[= include_file('code_samples/customer_portal/src/Form/VerifyType.php', 28, 20, 21) =]]
 ```
 
 Line 28 defines where the form should be displayed, line 20 adds **Note** field, and line 21 adds the **Verify** button.
