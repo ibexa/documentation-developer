@@ -17,7 +17,7 @@ add any additional SiteAccesses to `corporate_group`.
 
 ## Customer identifier
 
-`ibexa_default_settings.yaml` contains setting that indicate which Content Types are treated like customers:
+`ibexa_default_settings.yaml` contains setting that indicate what Content Types should be treated like Users in terms for example usage in `UserService`:
 
 ```yaml
 ibexa:
@@ -26,10 +26,6 @@ ibexa:
             user_content_type_identifier: ['user', 'customer']
 
 ```
-
-You can override these settings if you have other Content Types
-that should be treated as customers in the Back Office and Customer Portal.
-When viewing such Content in the Back Office and Customer Portal, you will be able to see e.g. the assigned Policies.
 
 ## Roles and Policies
 
@@ -46,14 +42,24 @@ parameters:
 
 ## Content Types names
 
-To change names of default Content Types, you need to define them in the configuration
-`vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`:
+You can change names of default Content Types by assigning what
+Content Types should be used to describe `Company` and `Member` in domain layer.
+Proceed only if you already have `Company` Content Type in your system, and you don't want to change its identifier.
+
+Configuration for Content Type names is placed under `ibexa_corporate_account` key,
+like shown in `Ibexa\Bundle\CorporateAccount\DependencyInjection\Configuration`.
+To change Content Types names, adjust corporate account configuration in the following way:
 
 ```yaml
-parameters:
-    ibexa.site_access.config.default.user_content_type_identifier: ['user', 'customer', 'member']
-    ibexa.site_access.config.admin_group.user_content_type_identifier: ['user', 'customer', 'member']
+ibexa_corporate_account:
+    content_type_mappings:
+        company: your_ct_identifier
 ```
+
+!!! caution "Migration"
+
+    If you decide to change deafult names of Content Types, during migration you have to adjust files accordingly.
+
 
 ## Registration
 
