@@ -5,7 +5,7 @@ edition: experience
 
 # Customer Portal applications
 
-New business customers can apply for a company account by themselves.
+New business customers can apply for a company account.
 Applications go through the approval process in the Back Office where they can be accepted, rejected or put on hold.
 If they are accepted, the business partner receives an invitation link to the Customer Portal,
 where they can set up their team and manage their account.
