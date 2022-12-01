@@ -491,6 +491,8 @@ plugins:
 
             'getting_started/install_ez_platform.md': 'getting_started/install_ibexa_dxp.md'
 
+            'templating/layout/create_user_registration_form.md': 'customer_management/create_user_registration_form.md'
+
             'tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md': 'tutorials/beginner_tutorial/beginner_tutorial.md'
             'tutorials/platform_beginner/1_get_ready.md': 'tutorials/beginner_tutorial/1_get_ready.md'
             'tutorials/platform_beginner/2_create_the_content_model.md': 'tutorials/beginner_tutorial/2_create_the_content_model.md'

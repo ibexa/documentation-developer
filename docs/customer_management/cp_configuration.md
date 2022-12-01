@@ -5,7 +5,8 @@ edition: experience
 
 # Customer Portal configuration
 
-You can overwrite the default configuration of the Customer Portal to fit its capabilities to your unique needs.
+You can overwrite the default configuration of the Customer Portal
+to fit its capabilities to the unique needs of your business.
 
 ## `corporate` SiteAccess
 
@@ -26,8 +27,8 @@ ibexa:
 
 ```
 
-You can override these settings if you have other Content Type
-that should be treated as a customer in the Back Office and Customer Portal.
+You can override these settings if you have other Content Types
+that should be treated as customers in the Back Office and Customer Portal.
 When viewing such Content in the Back Office and Customer Portal, you will be able to see e.g. the assigned Policies.
 
 ## Roles and Policies
@@ -45,7 +46,7 @@ parameters:
 
 ## Content Types names
 
-To change names of default Content Types, you need to define them in configuration
+To change names of default Content Types, you need to define them in the configuration
 `vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`:
 
 ```yaml
@@ -56,8 +57,8 @@ parameters:
 
 ## Registration
 
-You can define what fields will be required in the Customer Portal registration form 
-and what Content Type and identifier registered customers will get.
+You can define what fields are required in the Customer Portal registration form 
+and what Content Type and what identifier customers get after registering.
 To do so, go to `vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`.
 
 ```yaml
@@ -71,10 +72,15 @@ parameters:
         - user
 ```
 
+## Address
+
+With the Address Field Type, you can customize address Fields and configure them per country.
+To lern more see [Address Field Type documentation](../content_management/field_types/field_type_reference/addressfield.md).
+
 ## Templates
 
-You can also define new templates for among others: invitation mail,
-reset password message and all the information screens after user's action in 
+You can also define new templates for among others: invitation email,
+reset password message and the information screens after any of the user's action in 
 `vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`.
 
 ```yaml
