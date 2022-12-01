@@ -75,11 +75,11 @@ ibexa:
 Next, create a new form type in `src/Form/VerifyType.php`.
 It will be displayed in the application review stage.
 
-``` php hl_lines="20 21 28"
+``` php hl_lines="21 22 29"
 [[= include_file('code_samples/customer_portal/src/Form/VerifyType.php') =]]
 ```
 
-Line 28 defines where the form should be displayed, line 20 adds **Note** field, and line 21 adds the **Verify** button.
+Line 29 defines where the form should be displayed, line 21 adds **Note** field, and line 22 adds the **Verify** button.
 
 ### Create event subscriber to pass the form
 
@@ -114,7 +114,7 @@ to the list of applications to change the application status.
 Create another event subscriber that passes the information
 from the created form to the application list `src/Corporate/EventSubscriber/VerifyStateEventSubscriber.php`.
 
-``` php hl_lines="46"
+``` php hl_lines="46 72"
 [[= include_file('code_samples/customer_portal/src/Corporate/EventSubscriber/VerifyStateEventSubscriber.php') =]]
 ```
 
