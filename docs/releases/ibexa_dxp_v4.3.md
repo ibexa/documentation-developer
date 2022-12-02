@@ -18,18 +18,20 @@ description: Ibexa DXP v4.3 adds the improvements to the Customer Portal, PIM an
 
 #### Company self-registration
 
-Now, a prospective buyer can apply to create a company account on a seller's website.
+Now, a prospective buyer can apply to [create a company account](https://doc.ibexa.co/projects/userguide/en/latest/shop_administration/company_self_registration/) on a seller's website.
 
 The application goes through an approval process
 where admin specifies the customer group and sales representative for the new company account.
 Finally, the invitation link is sent back to the applicant to finish the registration process
 and give them access to the Customer Portal.
 
+For more information, see [Customer Portal applications documentation](cp_applications.md).
+
 ![Company self-registration](img/4.3_self_registration.png)
 
 #### Customization of approval process
 
-You can now customize the approval process for company self-registration.
+You can now [customize the approval process](cp_applications.md#customization-of-an-approval-process) for company self-registration.
 By adding additional steps and options, you can build a process that perfectly meets your business needs.
 
 ### SEO configuration exposed
