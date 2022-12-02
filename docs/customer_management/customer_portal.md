@@ -14,8 +14,8 @@ invite and view members and check their order history.
 
 [[= cards([
 "customer_management/cp_configuration",
-"customer_management/cp_applications.md",
-"users/invitations.md",
-"customer_management/create_user_registration_form.md"
+"customer_management/cp_applications",
+"users/invitations",
+"customer_management/create_user_registration_form"
 ], columns=4) =]]
 
