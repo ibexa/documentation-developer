@@ -25,13 +25,13 @@ where admin specifies the customer group and sales representative for the new co
 Finally, the invitation link is sent back to the applicant to finish the registration process
 and give them access to the Customer Portal.
 
-For more information, see [Customer Portal applications documentation](cp_applications.md).
+For more information, see [Customer Portal applications documentation](https://doc.ibexa.co/en/latest/customer_management/cp_applications/).
 
 ![Company self-registration](img/4.3_self_registration.png)
 
 #### Customization of approval process
 
-You can now [customize the approval process](cp_applications.md#customization-of-an-approval-process) for company self-registration.
+You can now [customize the approval process](https://doc.ibexa.co/en/latest/customer_management/cp_applications/#customization-of-an-approval-process) for company self-registration.
 By adding additional steps and options, you can build a process that perfectly meets your business needs.
 
 ### SEO configuration exposed
