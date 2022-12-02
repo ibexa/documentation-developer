@@ -75,7 +75,7 @@ while `Content` enables you to retrieve Fields, Content Type, or previous versio
 
 !!! note
 
-    From v3.0 the Public API value objects should not be serialized.
+    The Public API value objects should not be serialized.
 
     Serialization of value objects, for example, `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` /  `Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo` 
     or `Ibexa\Contracts\Core\Repository\Values\Content\Location` results in memory limit exceeded error.
