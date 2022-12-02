@@ -7,13 +7,13 @@ description: Customize the registration form for new users in your site front en
 You can create a registration form for users to your website by creating a Twig template or editing the existing registration form in YAML file.
 Follow the instructions below to create and customize templates for a registration form, and a registration confirmation page.
 
-First, make sure you [enabled user registration](../permissions/permission_use_cases.md#register-users).
+First, make sure you [enabled user registration](permission_use_cases.md#register-users).
 
 ## Configure existing form
 
 In the `config/packages/views.yaml` file, under `allowed_field_definitions_identifiers`, specify the fields that should be part of your registration form.
 You can also define what kind of user you want to create under `user_type_identifier` e.g. frontend user.
-To learn more about available users, see [user types documentation](../users/user_management.md#user-types). 
+To learn more about available users, see [user types documentation](user_management.md#user-types). 
 
 ``` yaml
 ibexa:

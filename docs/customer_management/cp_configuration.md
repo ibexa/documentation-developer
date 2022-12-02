@@ -24,7 +24,6 @@ ibexa:
     system:
         default:
             user_content_type_identifier: ['user', 'customer']
-
 ```
 
 ## Roles and Policies
