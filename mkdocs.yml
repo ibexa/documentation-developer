@@ -268,7 +268,6 @@ nav:
             - Add login form: templating/layout/add_login_form.md
             - Add navigation menu: templating/layout/add_navigation_menu.md
             - Add search form to front page: templating/layout/add_search_form.md
-            - Create user registration form: templating/layout/create_user_registration_form.md
             - Customize basket: templating/layout/customize_basket.md
     - PIM (Product management):
         - PIM (Product management): pim/pim.md
@@ -305,7 +304,10 @@ nav:
             - Order history configuration: commerce/order_history/order_history_configuration.md
         - Shop API: commerce/shop_api.md
     - Customer management:
-          - Customer Portal Applications: customer_management/cp_applications.md
+        - Customer Portal: customer_management/customer_portal.md
+        - Customer Portal configuration: customer_management/cp_configuration.md
+        - Customer Portal Applications: customer_management/cp_applications.md
+        - Create registration form: customer_management/create_user_registration_form.md
     - Multisite:
         - Multisite: multisite/multisite.md
         - Multisite configuration: multisite/multisite_configuration.md
