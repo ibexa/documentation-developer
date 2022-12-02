@@ -202,7 +202,7 @@ plugins:
             'guide/content_rendering/layout/add_login_form.md': 'templating/layout/add_login_form.md'
             'guide/content_rendering/layout/add_menu.md': 'templating/layout/add_navigation_menu.md'
             'guide/content_rendering/layout/add_search_form.md': 'templating/layout/add_search_form.md'
-            'guide/content_rendering/layout/add_register_user_template.md': 'templating/layout/create_user_registration_form.md'
+            'guide/content_rendering/layout/add_register_user_template.md': 'customer_management/create_user_registration_form.md'
             'guide/content_rendering/layout/customize_basket.md': 'templating/layout/customize_basket.md'
 
             'guide/catalog/catalog.md': 'pim/pim.md'
@@ -491,7 +491,7 @@ plugins:
 
             'getting_started/install_ez_platform.md': 'getting_started/install_ibexa_dxp.md'
 
-            'customer_management/create_user_registration_form.md': 'templating/layout/create_user_registration_form.md'
+            'templating/layout/create_user_registration_form.md': 'customer_management/create_user_registration_form.md'
 
             'tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform.md': 'tutorials/beginner_tutorial/beginner_tutorial.md'
             'tutorials/platform_beginner/1_get_ready.md': 'tutorials/beginner_tutorial/1_get_ready.md'
