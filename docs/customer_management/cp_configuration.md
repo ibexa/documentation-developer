@@ -17,7 +17,7 @@ add any additional SiteAccesses to `corporate_group`.
 
 ## Customer identifier
 
-`ibexa_default_settings.yaml` contains setting that indicate what Content Types should be treated like Users in terms for example usage in `UserService`:
+`ibexa_default_settings.yaml` contains a setting that indicates what Content Types should be treated like Users in terms of, for example, usage in `UserService`:
 
 ```yaml
 ibexa:
@@ -29,7 +29,7 @@ ibexa:
 
 ## Roles and Policies
 
-You can easily add custom roles to your installation
+You can add custom roles to your installation
 by adding them to the configuration file `vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`:
 
 ```yaml
@@ -40,15 +40,15 @@ parameters:
         custom_role: Company Assistant
 ```
 
-## Content Types names
+## Content Type names
 
 You can change names of default Content Types by assigning what
-Content Types should be used to describe `Company` and `Member` in domain layer.
-Proceed only if you already have `Company` Content Type in your system, and you don't want to change its identifier.
+Content Types should be used to describe `Company` and `Member` in the Back Office.
+Proceed only if you already have a `Company` Content Type in your system, and you don't want to change its identifier.
 
-Configuration for Content Type names is placed under `ibexa_corporate_account` key,
+Configuration for Content Type names is placed under the `ibexa_corporate_account` key,
 like shown in `Ibexa\Bundle\CorporateAccount\DependencyInjection\Configuration`.
-To change Content Types names, adjust corporate account configuration in the following way:
+To change Content Type names, adjust corporate account configuration in the following way:
 
 ```yaml
 ibexa_corporate_account:
@@ -81,12 +81,12 @@ parameters:
 ## Address
 
 With the Address Field Type, you can customize address Fields and configure them per country.
-To lern more see [Address Field Type documentation](../content_management/field_types/field_type_reference/addressfield.md).
+To learn more, see [Address Field Type documentation](addressfield.md).
 
 ## Templates
 
-You can also define new templates for among others: invitation email,
-reset password message and the information screens after any of the user's action in 
+You can also define new templates for, among others: invitation email,
+reset password message and the information screens after any of the user's actions in 
 `vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`.
 
 ```yaml
