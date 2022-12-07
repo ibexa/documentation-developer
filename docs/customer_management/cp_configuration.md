@@ -29,7 +29,7 @@ ibexa:
 ## Roles and Policies
 
 You can add custom roles to your installation
-by adding them to the configuration file `vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`:
+by adding them to the configuration file `config/packages/ibexa.yaml`:
 
 ```yaml
 parameters:
@@ -64,17 +64,19 @@ ibexa_corporate_account:
 
 You can define what fields are required in the Customer Portal registration form 
 and what Content Type and what identifier customers get after registering.
-To do so, go to `vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`.
+To do so, go to  `config/packages/views.yaml` and add or remove fields under `allowed_field_definitions_identifiers`:
 
 ```yaml
-parameters:
-    ibexa.site_access.config.corporate_group.user_content_type_identifier: [ 'member' ]
-    ibexa.site_access.config.corporate_group.user_registration.user_type_identifier: 'member'
-    ibexa.site_access.config.corporate_group.user_registration.form.allowed_field_definitions_identifiers:
-        - first_name
-        - last_name
-        - phone_number
-        - user
+ibexa:
+    system:
+        <scope>:
+            user_registration:
+                user_type_identifier: user
+                form:
+                    allowed_field_definitions_identifiers:
+                        - first_name
+                        - last_name
+                        - user_account
 ```
 
 ## Address
@@ -86,7 +88,7 @@ To learn more, see [Address Field Type documentation](addressfield.md).
 
 You can also define new templates for, among others: invitation email,
 reset password message and the information screens after any of the user's actions in 
-`vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`.
+`config/packages/ibexa.yaml`.
 
 ```yaml
 parameters:
