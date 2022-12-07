@@ -18,7 +18,7 @@ Using the latest listed version of each product or component is always recommend
 ## Operating system
 
 - Debian 10.x "buster" or Debian 11.x "bullseye"
-- Ubuntu 20.04 "Focal Fossa"
+- Ubuntu 20.04 "Focal Fossa" or newer
 - RHEL / CentOS 8.1+
 
 ## Web server
@@ -29,7 +29,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 
 ## DBMS
 
-- MariaDB 10.3, 10.4, 10.5
+- MariaDB 10.3+
 - MySQL 8.0
 - PostgreSQL 10+
 
@@ -94,7 +94,7 @@ Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Edito
 
 ## Asset manager
 
-- `Node.js` 14
+- `Node.js` 14 or higher
 - `yarn` 1.15.2 or higher
 
 ## Browser
