@@ -18,7 +18,7 @@ Using the latest listed version of each product or component is always recommend
 ## Operating system
 
 - Debian 10.x "buster" or Debian 11.x "bullseye"
-- Ubuntu 20.04 "Focal Fossa" or newer
+- Ubuntu 20.04 "Focal Fossa"
 - RHEL / CentOS 8.1+
 
 ## Web server
@@ -29,7 +29,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 
 ## DBMS
 
-- MariaDB 10.3+
+- MariaDB 10.3, 10.4, 10.5
 - MySQL 8.0
 - PostgreSQL 10+
 
