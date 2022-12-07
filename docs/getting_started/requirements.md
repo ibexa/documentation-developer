@@ -10,7 +10,7 @@ The following server requirements cover both running the software on-premise and
 
     For running on [Ibexa Cloud](https://www.ibexa.co/products/ibexa-cloud), where recommended configuration and support is provided out of the box, see separate [Ibexa Cloud section](#ibexa-cloud-requirements-and-setup) for further reading on its requirements.
 
-The minimal setup requires PHP,  MySQL/MariaDB, Apache/Nginx, Node.js and `yarn`.
+The minimal setup requires PHP, MySQL/MariaDB, Apache/Nginx, Node.js and `yarn`.
 Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, NFS/EFS/S3 and Solr/Elasticsearch in a [clustered setup](clustering.md).
 
 Using the latest listed version of each product or component is always recommended.
@@ -18,12 +18,12 @@ Using the latest listed version of each product or component is always recommend
 ## Operating system
 
 - Debian 10.x "buster" or Debian 11.x "bullseye"
-- Ubuntu 20.04 "Focal Fossa" or newer
+- Ubuntu 20.04 "Focal Fossa" or higher
 - RHEL / CentOS 8.1+
 
 ## Web server
 
-- Nginx 1.18 or higher
+- Nginx 1.18+
 - Apache 2.4 (with required modules `mod_rewrite`, `mod_env` and recommended: `mod_setenvif`, `mod_expires`;
 event MPM is recommended, if you need to use prefork you also need the `mod_php` module)
 
@@ -94,8 +94,8 @@ Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Edito
 
 ## Asset manager
 
-- `Node.js` 14 or higher
-- `yarn` 1.15.2 or higher
+- `Node.js` 14+
+- `yarn` 1.15.2+
 
 ## Browser
 
