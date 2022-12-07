@@ -13,7 +13,9 @@ The following server requirements cover both running the software on-premise and
 The minimal setup requires PHP, MySQL/MariaDB, Apache/Nginx, Node.js and `yarn`.
 Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, NFS/EFS/S3 and Solr/Elasticsearch in a [clustered setup](clustering.md).
 
-Using the latest listed version of each product or component is always recommended.
+!!! note "Recommended versions"
+
+    Using the latest listed version of each product or component is always recommended. Review all the recommended versions carefully. If you see a "+" next to the product version it means that we recommend this version or higher within the same major release for example "Nginx 1.18+" means any 1.x version higher or equal to 1.18, but not 2.x.
 
 ## Operating system
 
