@@ -556,7 +556,7 @@ div.pills {
 .cards ul {
     display: grid !important;
     justify-content: space-between;
-    column-gap: 6px;
+    column-gap: 10px;
     list-style-type: none;
 }
 
@@ -574,11 +574,20 @@ div.pills {
 
 .cards li {
     margin: 0 0 6px 0 !important;
-    background-color: var(--inline-code);
-    padding: 0.4rem;
+    background: white;
+    padding: 1.75em 1.5em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
-
 .cards p.title {
-    font-weight: bolder;
-    padding-bottom: 4px;
+    color: #131C26;
+    font-size: 1em;
+    min-height: 1,3em;
+    font-weight: 550;
+    line-height: 1;
+    padding-bottom: .5em;
+    margin: 0 0 0.142857143em;
+    border-bottom: 2px solid #AE1164;
+}
+.card-header h1 {
+    color: #131C26;
 }
