@@ -92,25 +92,6 @@ Each Role you assign to  user or user group consists of Policies which define, w
 || `view` |view catalogs|
 || `edit` |edit a catalog|
 || `delete` |delete a catalog|
-|`siso_policy`</br>[[% include 'snippets/commerce_badge.md' %]]|`checkout`|access the checkout process|
-||`edit_invoice`|edit invoice address|
-||`edit_delivery`|edit delivery address|
-||`delegate`|access delegate screen|
-||`dashboard_view`|access the Back Office cockpit|
-||`forms_profile_edit`|access the user profile|
-||`manage_orders`|access Order Management screen|
-||`manage_prices`|work in Price management tab|
-||`manage_stock`|work in Stock management tab|
-||`manage_shipping_costs`|work in Shipping costs management tab|
-||`manage_config`|access eCommerce configuration settings|
-||`lostorder_list`|access the lost orders in the Back Office|
-||`lostorder_manage`|manage lost orders|
-||`lostorder_process`|process lost orders|
-||`orderhistory_view`|view Order history|
-||`quickorder`|access the quick order|
-||`read_basket`|see the basket|
-||`update_exchange_rates`|modify |
-||`write_basket`|modify the basket (add, update, delete)|
 | `taxonomy` | `read` |view the Taxonomy interface|
 ||`manage`|create, edit, and delete tags|
 ||`assign`|tag or untag content|

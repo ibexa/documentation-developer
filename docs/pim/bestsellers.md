@@ -45,4 +45,4 @@ ibexa.commerce.site_access.config.core.default.enable_bestsellers: true
 
 ### `EcontentBestsellerIndexerPlugin`
 
-`Ibexa\Bundle\Commerce\Search\Service\EcontentBestsellerIndexerPlugin.php` adds an additional search index field with a sum of basket lines.
+`Ibexa\Bundle\Commerce\Search\Service\EcontentBestsellerIndexerPlugin.php` adds an additional search index field with a sum of cart lines.

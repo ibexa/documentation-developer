@@ -63,12 +63,6 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |Bundle|Description|
 |---------|-----------|
 |ibexa/date-based-publisher|Date-based publishing functionality|
-|ibexa/commerce-base-design|Standard design and theme for the shop|
-|ibexa/commerce-checkout|Shop checkout functionality|
-|ibexa/commerce-fieldtypes|Shop-specific Field Types|
-|ibexa/commerce-price-engine|Engine for handling prices|
-|ibexa/commerce-shop-ui|UI for the shop front page|
-|ibexa/commerce-shop|Main shop functionalities|
 |ibexa/calendar|Calendar tab with a calendar widget|
 |ibexa/connector-dam|Connector for DAM (Digital Asset Management) systems|
 |ibexa/elastic-search-engine|Integration with Elasticsearch search engine|
@@ -93,13 +87,3 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |ibexa/permissions|Additional permission functionalities|
 |ibexa/segmentation|Segment functionality for profiling the content displayed to specific users|
 |ibexa/site-factory|Enables configuration of sites from UI|
-
-## Ibexa Commerce packages
-
-|Bundle|Description|
-|---------|-----------|
-|ibexa/commerce-admin-ui|Shop-related Back Office functionalities|
-|ibexa/commerce-erp-admin|ERP connection for the shop|
-|ibexa/commerce-order-history|[Order history](order_history.md) functionality|
-|ibexa/commerce-page-builder|Shop-related Page blocks|
-|ibexa/commerce-transaction|Transactional shop functionalities|
