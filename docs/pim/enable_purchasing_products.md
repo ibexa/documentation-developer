@@ -37,10 +37,11 @@ ibexa:
                 currencies:
                     - EUR
                     - USD
+                    - PLN
                 regions:
-                    - france
                     - germany
-                    - norway
+                    - usa
+                    - poland
 ```
 
 ### Configuring other regions and currencies
@@ -62,7 +63,7 @@ ibexa:
             product_catalog:
                 engine: default
                 regions:
-                    region_1:
+                    germany:
                         vat_categories:
                             standard: 18
                             reduced: 6
