@@ -11,7 +11,7 @@ In most cases, two events are dispatched for every action,
 one before the action is completed, and one after.
 
 For example, copying a Content item is connected with two events:
-`BeforeCopyContentEvent` and `CreateContentEvent`.
+`BeforeCopyContentEvent` and `CopyContentEvent`.
 
 ``` php
 <?php
