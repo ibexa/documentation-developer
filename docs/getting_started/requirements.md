@@ -15,7 +15,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 !!! note "Recommended versions"
 
-    Using the latest listed version of each product or component is always recommended. Review all the recommended versions carefully. If you see a "+" next to the product version it means that we recommend this version or higher within the same major release. For example "Nginx 1.18+" means any 1.x version higher or equal to 1.18, but not 2.x.
+    Using the latest listed version of each product or component is always recommended. Review all the recommended versions carefully. If you see a "+" next to the product version, it means that we recommend this version or higher within the same major release. For example, "Nginx 1.18+" means any 1.x version higher or equal to 1.18, but not 2.x.
 
 ## Operating system
 
@@ -96,7 +96,7 @@ Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Edito
 
 ## Asset manager
 
-- `Node.js` 14+
+- `Node.js` 14+, 16+
 - `yarn` 1.15.2+
 
 ## Browser
