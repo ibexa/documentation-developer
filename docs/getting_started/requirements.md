@@ -15,12 +15,12 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 !!! note "Recommended versions"
 
-    Using the latest listed version of each product or component is always recommended. Review all the recommended versions carefully. If you see a "+" next to the product version it means that we recommend this version or higher within the same major release for example "Nginx 1.18+" means any 1.x version higher or equal to 1.18, but not 2.x.
+    Using the latest listed version of each product or component is always recommended. Review all the recommended versions carefully. If you see a "+" next to the product version it means that we recommend this version or higher within the same major release. For example "Nginx 1.18+" means any 1.x version higher or equal to 1.18, but not 2.x.
 
 ## Operating system
 
 - Debian 10.x "buster" or Debian 11.x "bullseye"
-- Ubuntu 20.04 "Focal Fossa" or higher
+- Ubuntu 20.04 "Focal Fossa"
 - RHEL / CentOS 8.1+
 
 ## Web server
