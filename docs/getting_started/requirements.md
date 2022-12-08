@@ -39,7 +39,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 
 - 8.1
 - 8.0
-- 7.4 (PHP 7.4 is EOL. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.)
+- 7.4 (PHP 7.4 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.)
 
 ### PHP packages
 
