@@ -63,7 +63,7 @@ ibexa_corporate_account:
 ## Registration
 
 You can define what fields are required in the Customer Portal registration form.
-To do so, go to [create and configure user registration form](add_register_user_template.md).
+To do so, go to [create and configure user registration form](create_user_registration_form.md).
 
 ## Address
 
