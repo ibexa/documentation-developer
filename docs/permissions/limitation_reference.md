@@ -42,6 +42,24 @@ Out of the box FunctionList uses it in the following way:
             - {name: ibexa.permissions.limitation_type, alias: FunctionList}
 ```
 
+## Change Owner Limitation
+
+A Limitation to specify whether the user can change the owner of a Content item.
+
+|                 |                                                                                                |
+|-----------------|------------------------------------------------------------------------------------------------|
+| Identifier      | `ChangeOwner`                                                                                  |
+| Value Class     | `Ibexa\Contracts\Core\Repository\Values\User\Limitation\ChangeOwnerLimitation`                 |
+| Type Class      | `Ibexa\Core\Limitation\ChangeOwnerLimitationType`                                              |
+| Criterion used  | `Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\UserMetadata(UserMetadata::OWNER )` |
+| Role Limitation | no                                                                                             |
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|`1`|"Forbid"|The user cannot change owner of a Content item|
+
 ## Content Type Group Limitation
 
 A Limitation to specify that only Users with at least one common *direct* User 
