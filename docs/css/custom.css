@@ -575,7 +575,7 @@ div.pills {
 .cards li {
     margin: 0 0 6px 0 !important;
     background: white;
-    #padding: 1.75em 1.5em;
+    padding: 1.75em 1.5em;
     #box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 25px;
     border: 1px solid #E0E0E8;
@@ -583,6 +583,7 @@ div.pills {
     width: 230px;
     height: 260px;
     box-sizing: border-box;
+    overflow: auto;
 }
 .cards p.title {
     color: #131C26;
@@ -595,7 +596,7 @@ div.pills {
     box-sizing: border-box;
     margin-bottom: 2em;
 }
-.card-header h1 {
-    color: #131C26;
+
 }
+
 
