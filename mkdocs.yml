@@ -75,7 +75,6 @@ nav:
             - User events: api/event_reference/user_events.md
             - Page events: api/event_reference/page_events.md
             - Site events: api/event_reference/site_events.md
-            - Shop events: api/event_reference/shop_events.md
             - URL events: api/event_reference/url_events.md
             - Trash events: api/event_reference/trash_events.md
             - Other events: api/event_reference/other_events.md
@@ -513,7 +512,6 @@ nav:
               - Context-aware HTTP cache: infrastructure_and_maintenance/cache/http_cache/context_aware_cache.md
               - Content-aware HTTP cache: infrastructure_and_maintenance/cache/http_cache/content_aware_cache.md
             - Persistence cache: infrastructure_and_maintenance/cache/persistence_cache.md
-            - Shop caching: infrastructure_and_maintenance/cache/shop_caching.md
         - Clustering:
             - Clustering: infrastructure_and_maintenance/clustering/clustering.md
             - Clustering with AWS S3: infrastructure_and_maintenance/clustering/clustering_with_aws_s3.md
