@@ -129,25 +129,3 @@ To learn how to configure other adapters, see the [bundle's online documentation
 
 For clustering, the platform provides a custom metadata handler that stores metadata about your assets in the database.
 This is faster than accessing the remote NFS or S3 instance to read metadata. For further reading on setting this up, see [Clustering](clustering.md).
-
-## Enabling BinaryFile Field indexing
-
-The indexing of all BinaryFile Fields is disabled by default.
-To enable it, first, make sure you have installed Oracle Java/Open JDK 8 or higher and Apache Tika 1.20.
-Next, in the `config/packages` folder create a `binary_files.yaml` file with the following configuration:
-
-``` yaml
-ibexa_commerce_field_types:
-    binary_file_indexing:
-        enabled: true
-```
-
-To check what types are indexed, check the `ibexa.commerce.site_access.config.search.default.index_content` service container parameter. You can override this parameter for a specific SiteAccess by replacing `default` by its name
-The following file types are indexed by default:
-
-``` yaml
-- application/pdf
-- application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-```
-
-The default path to the Tika jar is specified with the `apache_tika_path` parameter in `config/packages/commerce/commerce_parameters.yaml`.

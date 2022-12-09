@@ -480,7 +480,7 @@ User "Js79009234YU7" has watched 60 percent of a video 466:
 
 `GET https://event.perso.ibexa.co/api/00000/consume/Js79009234YU7/3/452?percentage=60`
 
-User "Js79009234YU7" puts products 128 and 129 into the shopping basket.
+User "Js79009234YU7" puts products 128 and 129 into the cart.
 
 `GET https://event.perso.ibexa.co/api/00000/basket/Js79009234YU7/1/128`
 
@@ -491,9 +491,8 @@ identifier (for example, the registration ID) "johndoe" from the site.
 
 `GET https://event.perso.ibexa.co/api/00000/login/Js79009234YU7/johndoe`
 
-The user buys two products from the shopping basket: product 128 (one piece for 
-the price of EUR 19.99) 
-and product 129 (2 pieces for the price of EUR 4.44 each).
+The user buys two products from the cart: product 128 (one piece for the price 
+  of EUR 19.99) and product 129 (2 pieces for the price of EUR 4.44 each).
 
 `GET https://event.perso.ibexa.co/api/00000/buy/johndoe/1/128?quantity=1&fullprice=19.99EUR`
 `GET https://event.perso.ibexa.co/api/00000/buy/johndoe/1/129?quantity=2&fullprice=4.44EUR`
