@@ -29,7 +29,7 @@ ibexa:
 ## Roles and Policies
 
 You can add custom roles to your installation
-by adding them to the configuration file `config/packages/ibexa.yaml`:
+by adding them to the configuration file `vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`:
 
 ```yaml
 parameters:
