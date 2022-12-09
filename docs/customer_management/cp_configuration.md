@@ -62,20 +62,8 @@ ibexa_corporate_account:
 
 ## Registration
 
-You can define what fields are required in the Customer Portal registration form 
-and what Content Type and what identifier customers get after registering.
-To do so, go to `vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`.
-
-```yaml
-parameters:
-    ibexa.site_access.config.corporate_group.user_content_type_identifier: [ 'member' ]
-    ibexa.site_access.config.corporate_group.user_registration.user_type_identifier: 'member'
-    ibexa.site_access.config.corporate_group.user_registration.form.allowed_field_definitions_identifiers:
-        - first_name
-        - last_name
-        - phone_number
-        - user
-```
+You can define what fields are required in the Customer Portal registration form.
+To do so, [create and configure user registration form](create_user_registration_form.md).
 
 ## Address
 
@@ -86,20 +74,16 @@ To learn more, see [Address Field Type documentation](addressfield.md).
 
 You can also define new templates for, among others: invitation email,
 reset password message and the information screens after any of the user's actions in 
-`vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`.
+`config/packages/ibexa.yaml`.
 
 ```yaml
-parameters:
-    ibexa.site_access.config.corporate_group.user_settings.templates.list: "@@ibexadesign/customer_portal/account/settings/list.html.twig"
-    ibexa.site_access.config.corporate_group.user_settings.templates.update: "@@ibexadesign/customer_portal/account/settings/update.html.twig"
-    ibexa.site_access.config.corporate_group.user_change_password.templates.form: "@@ibexadesign/customer_portal/account/change_password/index.html.twig"
-    ibexa.site_access.config.corporate_group.user_forgot_password.templates.form: "@@ibexadesign/customer_portal/account/forgot_password/index.html.twig"
-    ibexa.site_access.config.corporate_group.user_forgot_password_success.templates.form: "@@ibexadesign/customer_portal/account/forgot_password/confirmation_page.html.twig"
-    ibexa.site_access.config.corporate_group.user_forgot_password_login.templates.form: "@@ibexadesign/customer_portal/account/forgot_password/index_with_login.html.twig"
-    ibexa.site_access.config.corporate_group.user_forgot_password.templates.mail: "@@ibexadesign/customer_portal/account/forgot_password/mail.html.twig"
-    ibexa.site_access.config.corporate_group.user_reset_password.templates.form: "@@ibexadesign/customer_portal/account/reset_password/index.html.twig"
-    ibexa.site_access.config.corporate_group.user_reset_password.templates.invalid_link: "@@ibexadesign/customer_portal/account/reset_password/invalid_link_page.html.twig"
-    ibexa.site_access.config.corporate_group.user_reset_password.templates.success: "@@ibexadesign/customer_portal/account/reset_password/confirmation_page.html.twig"
-    ibexa.site_access.config.corporate_group.user_registration.templates.form: "@@ibexadesign/customer_portal/account/register/index.html.twig"
-    ibexa.site_access.config.corporate_group.user_registration.templates.confirmation: "@@ibexadesign/customer_portal/account/register/register_confirmation.html.twig"
+ibexa:
+    system:
+        site_group:
+            content_view:
+                full:
+                  confirmation_page:
+                        template: "@@ibexadesign/customer_portal/account/forgot_password/confirmation_page.html.twig"
+                        match:
+                            Identifier\ContentType: confirmation_page
 ```
