@@ -579,7 +579,7 @@ div.pills {
     #box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 25px;
     border: 1px solid #E0E0E8;
-    padding: 20px;
+    padding: 15px;
     width: 230px;
     height: 260px;
     box-sizing: border-box;
@@ -587,13 +587,13 @@ div.pills {
 .cards p.title {
     color: #131C26;
     font-size: 1em;
-    min-height: 1em;
+    min-height: 2em;
     font-weight: 550;
     line-height: 1;
-    padding-bottom: .5em;
-    border-bottom: 2px solid #AE1164;
+    padding-bottom: 0.5em;
+    #border-bottom: 1px solid #AE1164;
     box-sizing: border-box;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
 }
 .card-header h1 {
     color: #131C26;
