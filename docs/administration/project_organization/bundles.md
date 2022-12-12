@@ -107,6 +107,6 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |---------|-----------|
 |ibexa/commerce-admin-ui|Shop-related Back Office functionalities|
 |ibexa/commerce-erp-admin|ERP connection for the shop|
-|ibexa/commerce-order-history|[Order history](order_history.md) functionality|
+|ibexa/commerce-order-history|Order history functionality|
 |ibexa/commerce-page-builder|Shop-related Page blocks|
 |ibexa/commerce-transaction|Transactional shop functionalities|
