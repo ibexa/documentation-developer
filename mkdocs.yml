@@ -71,6 +71,7 @@ nav:
             - Language events: api/event_reference/language_events.md
             - Section events: api/event_reference/section_events.md
             - Object state events: api/event_reference/object_state_events.md
+            - Taxonomy events: api/event_reference/taxonomy_events.md
             - Role events: api/event_reference/role_events.md
             - User events: api/event_reference/user_events.md
             - Page events: api/event_reference/page_events.md
