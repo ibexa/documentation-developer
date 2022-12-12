@@ -441,7 +441,7 @@ plugins:
             'guide/cache/context_aware_cache.md': 'infrastructure_and_maintenance/cache/http_cache/context_aware_cache.md'
             'guide/cache/content_aware_cache.md': 'infrastructure_and_maintenance/cache/http_cache/content_aware_cache.md'
             'guide/persistence_cache.md': 'infrastructure_and_maintenance/cache/persistence_cache.md'
-            'guide/cache/shop_caching.md': 'infrastructure_and_maintenance/cache.md'
+            'guide/cache/shop_caching.md': 'infrastructure_and_maintenance/cache/cache.md'
             'guide/clustering.md': 'infrastructure_and_maintenance/clustering/clustering.md'
             'guide/clustering_aws_s3.md': 'infrastructure_and_maintenance/clustering/clustering_with_aws_s3.md'
             'guide/devops.md': 'infrastructure_and_maintenance/devops.md'
