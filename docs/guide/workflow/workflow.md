@@ -84,7 +84,7 @@ The notification is displayed in the user menu:
 #### Draft locking
 
 You can configure draft assignment in a way that when a user sends a draft to review, 
-only the first editor editing the draft can either edit the draft or unlock it for editing, and no 
+only the first editor of the draft can either edit the draft or unlock it for editing, and no 
 other user can take it over. 
 
 Use the [Version Lock Limitation](../limitation_reference.md#version-lock-limitation), 
