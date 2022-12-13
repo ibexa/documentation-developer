@@ -88,9 +88,9 @@ only the first editor editing the draft can either edit the draft or unlock it f
 other user can take it over. 
 
 Use the [Version Lock Limitation](../limitation_reference.md#version-lock-limitation), 
-set to "Assigned only", together with the `content/edit` and `content/unlock` 
+set to "Assigned only", together with the `content/edit` and `content/unlock`
 Policies to prevent users from editing and unlocking drafts that are locked 
-to other users.
+by another user.
 
 ### Content publishing
 
