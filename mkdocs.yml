@@ -644,6 +644,8 @@ extra:
       url: '/'
     - title: 'User Documentation'
       url: '/projects/userguide'
+    - title: 'Connect Documentation'
+      url: '/projects/connect'
   # Global variables
   site_display_name: 'Ibexa Documentation'
   product_name: 'Ibexa DXP'
