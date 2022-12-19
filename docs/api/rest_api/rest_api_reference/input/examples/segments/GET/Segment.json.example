@@ -1,0 +1,13 @@
+{
+    "Segment": {
+        "_media-type": "application\/vnd.ibexa.api.Segment+json",
+        "_href": "\/api\/ibexa\/v2\/segments\/test",
+        "id": 1,
+        "identifier": "test",
+        "name": "test",
+        "SegmentGroup": {
+            "_media-type": "application\/vnd.ibexa.api.SegmentGroup+json",
+            "_href": "\/api\/ibexa\/v2\/segment_groups\/test"
+        }
+    }
+}

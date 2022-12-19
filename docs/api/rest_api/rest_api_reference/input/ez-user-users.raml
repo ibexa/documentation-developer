@@ -303,3 +303,50 @@ head:
                                 example: !include examples/user/users/user_id/roles/role_id/DELETE/RoleAssignmentList.json.example
                     401:
                         description: Error - the user is not authorized to delete this Content Type.
+        /segments:
+            get:
+                displayName: List User Segments
+                description: Load Segments for a given User.
+                headers:
+                    Accept:
+                        example:  |
+                            application/vnd.ibexa.api.UserSegmentList+xml
+                            application/vnd.ibexa.api.UserSegmentList+json
+                responses:
+                    200:
+                        body:
+                            application/vnd.ibexa.api.UserSegmentList+json:
+                                type: UserSegmentList
+                                example: !include examples/user/users/user_id/segments/GET/UserSegmentsList.json.example
+                            application/vnd.ibexa.api.UserSegmentList+xml:
+                                type: UserSegmentList
+                                example: !include examples/user/users/user_id/segments/GET/UserSegmentsList.xml.example
+                    404:
+                        description: If User does not exist.
+            post:
+                displayName: Assign User to Segments
+                description: Assign User to one or more Segments.
+                headers:
+                    Content-Type:
+                        example:  |
+                            application/vnd.ibexa.api.UserSegmentAssignInput+json
+                            application/vnd.ibexa.api.UserSegmentAssignInput+xml
+                body:
+                    application/vnd.ibexa.api.UserSegmentAssignInput+xml:
+                        type: UserSegmentAssignInput
+                        example: !include examples/user/users/user_id/segments/POST/UserSegmentAssignInput.xml.example
+                    application/vnd.ibexa.api.UserSegmentAssignInput+json:
+                        type: UserSegmentAssignInput
+                        example: !include examples/user/users/user_id/segments/POST/UserSegmentAssignInput.json.example
+                responses:
+                    204:
+                        description: No Content.
+                    404:
+                        description: If Segment does not exist.
+            /{segmentIdentifier}:
+                delete:
+                    displayName: Remove Segment from User
+                    descriptions: Unassigns User from a Segment.
+                responses:
+                    204:
+                        description: No Content

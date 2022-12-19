@@ -1587,6 +1587,12 @@ SectionStruct:
 SectionUpdateStruct:
     description: 'This class is used to provide data for updating a Section. At least one property has to be set.'
     type: object
+Segment:
+    description: 'Segment that a user can be assigned to'
+    type: object
+SegmentGroup:
+    description: 'Segment Group that a Segment can belong to'
+    type: object
 Session:
     description: 'Value for session.'
     type: BaseObject
@@ -1996,6 +2002,15 @@ UserTokenUpdateStruct:
         time:
             description: 'Time to which the token is valid.'
             type: datetime
+
+UserSegmentList:
+    description: 'List of Segments that a User is assigned to'
+    type: object
+
+UserSegmentAssignInput:
+    description: 'Input for User Segment assignment operation'
+    type: object
+
 UserUpdateStruct:
     description: 'This class is used to update a User in the Repository.'
     type: object

@@ -1,0 +1,5 @@
+{
+    "UserSegmentAssignInput": {
+        "segments": ["segment_test_bar"]
+    }
+}
