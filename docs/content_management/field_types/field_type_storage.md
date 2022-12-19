@@ -199,31 +199,15 @@ to external storage.
     Another benefit of an external storage is that there can be database relations to 
     other objects/entities, and the database itself can maintain the integrity of data.
     
-First, implement the `FieldConstraintsStorage` interface:
+First, create a class that implements the 
+`Ibexa\Contracts\Core\FieldType\FieldConstraintsStorage` interface.
     
-```php
-interface FieldConstraintsStorage
-    {
-        public function storeFieldConstraintsData(
-            int $fieldDefinitionId,
-            FieldTypeConstraints $fieldTypeConstraints
-        );
-    
-        public function getFieldConstraintsData(
-            int $fieldDefinitionId
-        ): FieldTypeConstraints;
-    
-        public function deleteFieldConstraintsData(
-            int $fieldDefinitionId
-        ): void;
-    }
-```
-    
-Then, register the External Storage as a service and tag it with `ibexa.field_type.external_constraints_storage`:
+Then, register the External Storage as a service and tag it with `ibexa.field_type.external_constraints_storage`. 
+Make sure that the alias you use matches the identifier of the new Field Type:
     
 ``` yaml
 services:
     App\FieldType\Example\ExternalStorage:
         tags:
-            - { name: ibexa.field_type.external_constraints_storage, alias: example }
+            - { name: ibexa.field_type.external_constraints_storage, alias: <field_type_identifier> }
 ```
