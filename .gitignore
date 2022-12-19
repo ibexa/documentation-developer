@@ -2,10 +2,4 @@
 **/.DS_Store
 __pycache__/*
 /site/
-.idea/**/tasks.xml
-.idea/**/workspace.xml
-.idea/**/vcs.xml
-.idea/**/*.iml
-.idea/**/modules.xml
-.idea/**/php.xml
-.idea/**/.gitignore
+**/.idea/
