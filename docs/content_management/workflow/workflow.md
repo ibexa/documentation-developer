@@ -88,13 +88,13 @@ The notification is displayed in the user menu:
 #### Draft locking
 
 You can configure draft assignment in a way that when a user sends a draft to review, 
-only the assigned reviewer can either edit the draft or unlock it for editing, and no 
+only the first editor of the draft can either edit the draft or unlock it for editing, and no 
 other user can take it over. 
 
 Use the [Version Lock Limitation](limitation_reference.md#version-lock-limitation), 
-set to "Assigned only", together with the `content/edit` and `content/unlock` 
-Policies to prevent users from editing and unlocking drafts that are assigned 
-to other users.
+set to "Assigned only", together with the `content/edit` and `content/unlock`
+Policies to prevent users from editing and unlocking drafts that are locked 
+by another user.
 
 ### Content publishing
 
@@ -126,20 +126,20 @@ You can also use it to render custom entries in the timeline, for example system
 
 ### Custom entry type
 
-To add a custom entry type, create a custom class extending `Ibexa\Workflow\WorkflowTimeline\Value\AbstractEntry`.
-Use an `Ibexa\Contracts\Workflow\Event\TimelineEvents::COLLECT_ENTRIES` event to add your entries to the timeline.
+To add a custom entry type, create a custom class extending `EzSystems\EzPlatformWorkflow\WorkflowTimeline\Value\AbstractEntry`.
+Use an `EzSystems\EzPlatformWorkflow\Event\TimelineEvents::COLLECT_ENTRIES` event to add your entries to the timeline.
 
 ### Custom templates
 
 To provide custom templates for new event timeline entries, use the following configuration:
 
 ``` yaml
-ibexa:
+ezplatform:
     system:
         default:
             workflows_config:
                 timeline_entry_templates:
-                    - { template: '@IbexaWorkflow/ibexa_workflow/timeline/entries.html.twig', priority: 10 }
+                    - { template: '@EzPlatformWorkflow/ezplatform_workflow/timeline/entries.html.twig', priority: 10 }
 ```
 
 The template has to provide a block named `ez_workflow_timeline_entry_{ENTRY_IDENTIFIER}`.
@@ -150,14 +150,14 @@ You can limit access to workflows at stage and transition level.
 
 The `workflow/change_stage` Policy grants permission to change stages in a specific workflow.
 
-You can limit this Policy with the [Workflow Transition Limitation](limitation_reference.md#workflow-transition-limitation) 
+You can limit this Policy with the [Workflow Transition Limitation](../limitation_reference.md#workflow-transition-limitation) 
 to only allow sending content in the selected transition.
 
 For example, by using the example above, a `workflow/change_stage` Policy 
 with `WorkflowTransitionLimitation` set to `Approved by legal` allows a legal team to send content forward
 after they are done with their review.
 
-You can also use the [Workflow Stage Limitation](limitation_reference.md#workflow-stage-limitation) 
+You can also use the [Workflow Stage Limitation](../limitation_reference.md#workflow-stage-limitation) 
 together with the `content/edit` and `content/publish` Policies to limit the ability to edit content in specific stages.
 For example, you can use it to only allow a legal team to edit content in the `legal` stage.
 
@@ -175,7 +175,7 @@ The service implements the following methods:
 The methods `apply` and `can` are the same as in Symfony Workflow,
 but the implementation in workflow service extends them, for example by providing messages.
 
-For examples of using the Workflow Service, see [Workflow API](workflow_api.md).
+For examples of using the Workflow Service, see [PHP API documentation](../../api/public_php_api_managing_repository.md#workflow).
 
 ## Validation
 
