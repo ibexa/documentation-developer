@@ -456,6 +456,11 @@ a.external:after {
     cursor: pointer;
 }
 
+.md-content img.inline-image {
+    display: inline;
+    max-height: 1rem;
+}
+
 /* UI guidelines */
 
 .ez-code-example {
