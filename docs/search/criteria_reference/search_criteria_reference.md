@@ -55,6 +55,7 @@ Due to this storage limitation, searching content using the Country Field Type o
 |[SectionIdentifier](sectionidentifier_criterion.md)|Identifier of the Section content is assigned to|Content and Location Search; Filtering|
 |[Sibling](sibling_criterion.md)|Locations that are children of the same parent|Content and Location Search; Filtering|
 |[Subtree](subtree_criterion.md)|Location subtree|Content and Location Search; Filtering|
+|[TaxonomyEntryId](taxonomy_entry_id.md)|Content tagged with Entry ID|Content and Tag Search; Filtering|
 |[UserEmail](useremail_criterion.md)|Email address of a User account|Content and Location Search; Filtering|
 |[UserId](userid_criterion.md)|User ID|Content and Location Search; Filtering|
 |[UserLogin](userlogin_criterion.md)|User login|Content and Location Search; Filtering|
