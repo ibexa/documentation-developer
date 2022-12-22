@@ -126,20 +126,20 @@ You can also use it to render custom entries in the timeline, for example system
 
 ### Custom entry type
 
-To add a custom entry type, create a custom class extending `EzSystems\EzPlatformWorkflow\WorkflowTimeline\Value\AbstractEntry`.
-Use an `EzSystems\EzPlatformWorkflow\Event\TimelineEvents::COLLECT_ENTRIES` event to add your entries to the timeline.
+To add a custom entry type, create a custom class extending `Ibexa\Workflow\WorkflowTimeline\Value\AbstractEntry`.
+Use an `Ibexa\Contracts\Workflow\Event\TimelineEvents::COLLECT_ENTRIES` event to add your entries to the timeline.
 
 ### Custom templates
 
 To provide custom templates for new event timeline entries, use the following configuration:
 
 ``` yaml
-ezplatform:
+ibexa:
     system:
         default:
             workflows_config:
                 timeline_entry_templates:
-                    - { template: '@EzPlatformWorkflow/ezplatform_workflow/timeline/entries.html.twig', priority: 10 }
+                    - { template: '@IbexaWorkflow/ibexa_workflow/timeline/entries.html.twig', priority: 10 }
 ```
 
 The template has to provide a block named `ez_workflow_timeline_entry_{ENTRY_IDENTIFIER}`.
@@ -150,14 +150,14 @@ You can limit access to workflows at stage and transition level.
 
 The `workflow/change_stage` Policy grants permission to change stages in a specific workflow.
 
-You can limit this Policy with the [Workflow Transition Limitation](../limitation_reference.md#workflow-transition-limitation) 
+You can limit this Policy with the [Workflow Transition Limitation](limitation_reference.md#workflow-transition-limitation) 
 to only allow sending content in the selected transition.
 
 For example, by using the example above, a `workflow/change_stage` Policy 
 with `WorkflowTransitionLimitation` set to `Approved by legal` allows a legal team to send content forward
 after they are done with their review.
 
-You can also use the [Workflow Stage Limitation](../limitation_reference.md#workflow-stage-limitation) 
+You can also use the [Workflow Stage Limitation](limitation_reference.md#workflow-stage-limitation)
 together with the `content/edit` and `content/publish` Policies to limit the ability to edit content in specific stages.
 For example, you can use it to only allow a legal team to edit content in the `legal` stage.
 
@@ -175,7 +175,7 @@ The service implements the following methods:
 The methods `apply` and `can` are the same as in Symfony Workflow,
 but the implementation in workflow service extends them, for example by providing messages.
 
-For examples of using the Workflow Service, see [PHP API documentation](../../api/public_php_api_managing_repository.md#workflow).
+For examples of using the Workflow Service, see [Workflow API](workflow_api.md).
 
 ## Validation
 
