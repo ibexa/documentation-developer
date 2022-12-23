@@ -1,11 +1,8 @@
 # TaxonomyEntry Field Type
 
-This Field Type represents one or multiple countries.
-
-| Name      | Internal name | Expected input |
-|-----------|---------------|----------------|
-| `Taxonomy`| `taxonomy`    | `TaxonomyEntry`|
-
+| Name           | Internal name         | Expected input |
+|----------------|-----------------------|----------------|
+| `TaxonomyEntry`| `ibexa_taxonomy_entry`| `TaxonomyEntry`|
 
 ## PHP API Field Type 
 

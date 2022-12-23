@@ -1,10 +1,8 @@
 # TaxonomyEntryAssignment Field Type
 
-This Field Type represents one or multiple countries.
-
-| Name           | Internal name  | Expected input |
-|----------------|----------------|----------------|
-| `TaxonomyEntry`| `taxonomyentry`| `mixed`        |
+| Name                     | Internal name                    | Expected input |
+|--------------------------|----------------------------------|----------------|
+| `TaxonomyEntryAssignment`| `ibexa_taxonomy_entry_assignment`| mixed          |
 
 ## PHP API Field Type 
 
