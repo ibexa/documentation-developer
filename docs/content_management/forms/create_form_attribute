@@ -1,0 +1,37 @@
+---
+description: Create Form Builder form attribute 
+edition: experience
+---
+
+# Create Form Builder Form attribute 
+
+You can create Form attribute for the new Form fields or existing ones.
+Define new Form attribute in configuration.
+
+## Configure Form attribute
+
+For example, to create a "richtext_description" attribute,
+provide the following configuration, `config/packages/ezplatform.yaml`:
+
+``` yaml
+[[= include_file('code_samples/forms/custom_form_field/config/packages/form_attribute.yaml') =]]
+```
+You can edit Form attribute in the Form Builder's editor. 
+Make sure that the value of the attribute is passed on the the Field once that is rendered.
+
+## Create mapper
+
+New Form attributes require a mapper which implements the `Ibexa\Contracts\FormBuilder\FieldType\Field\FieldMapperInterface` in `config/services.yaml`:
+
+``` php
+
+```
+
+Then, register the mapper as a service:
+
+``` yaml
+
+```
+
+Now you can go to Back Office and build a new form.
+You should be able to see the new section in the list of available fields:
