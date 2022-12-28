@@ -638,6 +638,28 @@ version: 2.5
                             description: Error - The input contains multiple Object states of the same Object state group.
                         412:
                             description: Error - The current ETag does not match the one provided in the If-Match header.
+            /hide:
+                post:
+                    displayName: Hide Content item
+                    description: Makes or keep the Content item invisible
+                    responses:
+                        204:
+                            description: OK - Object item is hidden.
+                        401:
+                            description: Error - The user has no permission to change Object item visibility.
+                        404:
+                            description: Error - The Content item was not found.
+            /reveal:
+                post:
+                    displayName: Reveal Content item
+                    description: Makes or keep the Content item visible
+                    responses:
+                        204:
+                            description: OK - Object item is revealed.
+                        401:
+                            description: Error - The user has no permission to change Object item visibility.
+                        404:
+                            description: Error - The Content item was not found.
     /objectstategroups:
         get:
             displayName: List Object state groups
