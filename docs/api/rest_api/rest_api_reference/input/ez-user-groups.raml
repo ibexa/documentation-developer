@@ -127,6 +127,36 @@ get:
             404:
                 description: Error - the User Group does not exist.
     /users:
+        get:
+            displayName: Load Users of Group
+            description: Loads the Users of the Group with the given ID.
+            queryParameters:
+                limit:
+                    description: Only 'limit' items will be returned started by offset.
+                offset:
+                    description: Offset of the result set.
+            headers:
+                Accept:
+                    description: UserList - If set, the User list returned in XML or JSON format. UserRefList - If set, the link list of Users returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.UserList+xml
+                        application/vnd.ibexa.api.UserList+json
+                        application/vnd.ibexa.api.UserRefList+xml
+                        application/vnd.ibexa.api.UserRefList+json
+            responses:
+                200:
+                    description: OK - the Users of the Group with the given ID.
+                    body:
+                        application/vnd.ibexa.api.UserRefList+xml:
+                            type: UserRefList
+                            example: !include examples/user/groups/id/users/GET/UserRefList.xml.example
+                        application/vnd.ibexa.api.UserRefList+json:
+                            type: UserRefList
+                            example: !include examples/user/groups/id/users/GET/UserRefList.json.example
+                401:
+                    description: Error - the user has no permission to read User Groups.
+                404:
+                    description: Error - the User Group does not exist.
         post:
             displayName: Create User
             description: Creates a new User in the given Group.
@@ -298,37 +328,6 @@ get:
                                 example: !include examples/user/groups/path/roles/role_id/DELETE/RoleAssignmentList.json.example
                     401:
                         description: Error - the user is not authorized to delete this Role assignment.
-/{id}/users:
-    get:
-        displayName: Load Users of Group
-        description: Loads the Users of the Group with the given ID.
-        queryParameters:
-            limit:
-                description: Only 'limit' items will be returned started by offset.
-            offset:
-                description: Offset of the result set.
-        headers:
-            Accept:
-                description: UserList - If set, the User list returned in XML or JSON format. UserRefList - If set, the link list of Users returned in XML or JSON format.
-                example: |
-                    application/vnd.ibexa.api.UserList+xml
-                    application/vnd.ibexa.api.UserList+json
-                    application/vnd.ibexa.api.UserRefList+xml
-                    application/vnd.ibexa.api.UserRefList+json
-        responses:
-            200:
-                description: OK - the Users of the Group with the given ID.
-                body:
-                    application/vnd.ibexa.api.UserRefList+xml:
-                        type: UserRefList
-                        example: !include examples/user/groups/id/users/GET/UserRefList.xml.example
-                    application/vnd.ibexa.api.UserRefList+json:
-                        type: UserRefList
-                        example: !include examples/user/groups/id/users/GET/UserRefList.json.example
-            401:
-                description: Error - the user has no permission to read User Groups.
-            404:
-                description: Error - the User Group does not exist.
 /{id}/subgroups:
     get:
         displayName: Load subgroups
