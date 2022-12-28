@@ -9,7 +9,15 @@ It is used as a parent while creating a tag or category.
 
 ## PHP API Field Type 
 
-### Properties
+### Input expectations
+
+| Type    | Example         |
+|---------|-----------------|
+| `object` | `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry`|
+
+### Value object
+
+#### Properties
 
 |Property|Type|Description|
 |--------|----|-----------|
