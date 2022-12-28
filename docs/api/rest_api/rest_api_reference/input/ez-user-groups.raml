@@ -196,6 +196,36 @@ get:
                 404:
                     description: Error - the Group with the given ID does not exist.
     /subgroups:
+        get:
+            displayName: Load subgroups
+            description: Returns a list of the subgroups.
+            queryParameters:
+                limit:
+                    description: The number of Locations returned.
+                offset:
+                    description: The offset of the result set.
+            headers:
+                Accept:
+                    description: UserGroupList - If set, the User Group list is returned in XML or JSON format. UserGroupRefList - If set, the link list of User Groups is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.UserGroupList+xml
+                        application/vnd.ibexa.api.UserGroupList+json
+                        application/vnd.ibexa.api.UserGroupRefList+xml
+                        application/vnd.ibexa.api.UserGroupRefList+json
+            responses:
+                200:
+                    description: OK - list of the subgroups.
+                    body:
+                        application/vnd.ibexa.api.UserGroupRefList+xml:
+                            type: UserGroupRefList
+                            example: !include examples/user/groups/id/subgroups/GET/UserGroupRefList.xml.example
+                        application/vnd.ibexa.api.UserGroupRefList+json:
+                            type: UserGroupRefList
+                            example: !include examples/user/groups/id/subgroups/GET/UserGroupRefList.json.example
+                401:
+                    description: Error - the user has no permission to read User Groups.
+                404:
+                    description: Error - the User Group does not exist.
         post:
             displayName: Create User Group
             description: Creates a new User Group under the given parent. To create a top level group use '/user/groups/subgroups'.
@@ -328,34 +358,3 @@ get:
                                 example: !include examples/user/groups/path/roles/role_id/DELETE/RoleAssignmentList.json.example
                     401:
                         description: Error - the user is not authorized to delete this Role assignment.
-/{id}/subgroups:
-    get:
-        displayName: Load subgroups
-        description: Returns a list of the subgroups.
-        queryParameters:
-            limit:
-                description: The number of Locations returned.
-            offset:
-                description: The offset of the result set.
-        headers:
-            Accept:
-                description: UserGroupList - If set, the User Group list is returned in XML or JSON format. UserGroupRefList - If set, the link list of User Groups is returned in XML or JSON format.
-                example: |
-                    application/vnd.ibexa.api.UserGroupList+xml
-                    application/vnd.ibexa.api.UserGroupList+json
-                    application/vnd.ibexa.api.UserGroupRefList+xml
-                    application/vnd.ibexa.api.UserGroupRefList+json
-        responses:
-            200:
-                description: OK - list of the subgroups.
-                body:
-                    application/vnd.ibexa.api.UserGroupRefList+xml:
-                        type: UserGroupRefList
-                        example: !include examples/user/groups/id/subgroups/GET/UserGroupRefList.xml.example
-                    application/vnd.ibexa.api.UserGroupRefList+json:
-                        type: UserGroupRefList
-                        example: !include examples/user/groups/id/subgroups/GET/UserGroupRefList.json.example
-            401:
-                description: Error - the user has no permission to read User Groups.
-            404:
-                description: Error - the User Group does not exist.
