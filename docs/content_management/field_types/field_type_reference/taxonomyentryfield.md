@@ -23,7 +23,7 @@ It is used as a parent while creating a tag or category.
 |--------|----|-----------|
 |`$taxonomyEntry`|`null`|Stores selected taxonomy entry.|
 
-### Example input
+#### Example input
 
 ``` php
 new FieldType\TaxonomyEntry\Value(
@@ -41,11 +41,11 @@ new FieldType\TaxonomyEntry\Value(
         )
 );
 ```
-### String representation
+#### String representation
 
 An ISBN's string representation is the `$taxonomyEntry` property's value, as a string.
 
-### Constructor
+#### Constructor
 
 Constructor accepts `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object.
 
@@ -57,15 +57,15 @@ use Ibexa\Core\FieldType\Checkbox\Type;
 $checkboxValue = new Checkbox\Value( true );
 ```
 
-### Hash format
+#### Hash format
 
 An array with `taxonomy_entry` key containing Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry object or null.
 
-### Validation
+#### Validation
 
 No validation.
 
-### Settings
+#### Settings
 
 The Field definition of this Field Type can be configured with the following options:
 
@@ -73,6 +73,6 @@ The Field definition of this Field Type can be configured with the following opt
 |------|------|------|------|
 |`taxonomy`|`string`|`null`|Taxonomy from which you choose an entry.|
 
-## Template rendering
+#### Template rendering
 
 The Measurement field is rendered with the [`ibexa_render_field()`](field_twig_functions.md#ibexa_render_field) Twig function.
