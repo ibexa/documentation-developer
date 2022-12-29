@@ -122,6 +122,11 @@ get:
         get:
             displayName: Get Field definition list
             description: Returns all Field definitions of the provided Content Type.
+            responses:
+                200:
+                    description: OK - return a list of Field definitions.
+                404:
+                    description: Error - The Content Type does not exist.
         /{fieldDefinitionId}:
             get:
                 displayName: Get Field definition
@@ -217,6 +222,11 @@ get:
             get:
                 displayName: Get Draft Field definition list
                 description: Returns all Field definitions of the provided Content Type Draft.
+                responses:
+                    200:
+                        description: OK - return a list of Field definitions.
+                    404:
+                        description: Error - The Content Type draft does not exist.
             post:
                 displayName: Add Content Type Draft Field definition
                 description: Creates a new Field definition for the given Content Type.
