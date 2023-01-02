@@ -15,7 +15,7 @@ For example, for Ibexa Content, see the [JSON file on GitHub](https://github.com
 
 !!! caution "Legacy Commerce bundles"
 
-    As of [[= product_name =]] v4.4 all `ibexa/commerce` are deprecated. 
+    As of [[= product_name =]] v4.4 all `ibexa/commerce` packages are deprecated. 
     They are gradually replaced by their revamped counterparts and removed 
     completely from the product in version v5.0.
 
