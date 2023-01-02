@@ -13,6 +13,12 @@ You can see the bundles that are automatically installed with [[= product_name =
 in the respective `composer.json` files.
 For example, for Ibexa Content, see the [JSON file on GitHub](https://github.com/ibexa/content/blob/master/composer.json).
 
+!!! caution "Legacy Commerce bundles"
+
+    As of [[= product_name =]] v4.4 all `ibexa/commerce` packages are deprecated. 
+    They are gradually replaced by their revamped counterparts and removed 
+    completely from the product in version v5.0.
+
 ## Working with bundles
 
 All bundles containing built-in [[= product_name =]] functionalities are installed automatically.
@@ -94,12 +100,13 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |ibexa/segmentation|Segment functionality for profiling the content displayed to specific users|
 |ibexa/site-factory|Enables configuration of sites from UI|
 
+
 ## Ibexa Commerce packages
 
 |Bundle|Description|
 |---------|-----------|
 |ibexa/commerce-admin-ui|Shop-related Back Office functionalities|
 |ibexa/commerce-erp-admin|ERP connection for the shop|
-|ibexa/commerce-order-history|[Order history](order_history.md) functionality|
+|ibexa/commerce-order-history|Order history functionality|
 |ibexa/commerce-page-builder|Shop-related Page blocks|
 |ibexa/commerce-transaction|Transactional shop functionalities|

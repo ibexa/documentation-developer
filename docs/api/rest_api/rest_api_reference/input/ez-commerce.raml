@@ -1,8 +1,8 @@
-displayName: eCommerce API
+displayName: eCommerce API  (deprecated as of Ibexa DXP 4.4)
 
 /basket:
     get:
-        displayName: Read list of baskets
+        displayName: Read list of baskets (deprecated as of Ibexa DXP 4.4)
         description: |
             Returns baskets for the current user. Only "storedBasket" and "wishList" types are handled. Others will return validation error.
         queryParameters:
@@ -21,7 +21,7 @@ displayName: eCommerce API
 
     /current:
         get:
-            displayName: Get current basket
+            displayName: Get current basket (deprecated as of Ibexa DXP 4.4)
             description: |
                 Returns a Basket instance for the current session. If there isn't one, a new one will be created.
             headers:
@@ -36,7 +36,7 @@ displayName: eCommerce API
 
         /{basketId}:
             copy:
-                displayName: Copy basket to user session
+                displayName: Copy basket to user session (deprecated as of Ibexa DXP 4.4)
                 description: |-
                     Adds basket lines into current basket in user session, if any, using basket stored in permanent
                     storage.
@@ -54,15 +54,15 @@ displayName: eCommerce API
 
         /referencenumber:
             patch:
-                displayName: Save the external reference number in basket
+                displayName: Save the external reference number in basket (deprecated as of Ibexa DXP 4.4)
 
         /remark:
             patch:
-                displayName: Save the remark in basket
+                displayName: Save the remark in basket (deprecated as of Ibexa DXP 4.4)
 
         /party/{partyType}:
             patch:
-                displayName: Update party information in the basket
+                displayName: Update party information in the basket (deprecated as of Ibexa DXP 4.4) 
                 description: Updates party (buyer, delivery, invoice) information in the basket.
                 body:
                     application/vnd.ibexa.api.PartyInvoice+json:
@@ -81,7 +81,7 @@ displayName: eCommerce API
 
         /shippingmethod:
             patch:
-                displayName: Update shipping information in current basket
+                displayName: Update shipping information in current basket (deprecated as of Ibexa DXP 4.4)
                 description: Updates shipping information in the current basket.
                 body:
                     application/vnd.ibexa.api.ShippingMethodData+json:
@@ -100,7 +100,7 @@ displayName: eCommerce API
 
         /paymentmethod:
             patch:
-                displayName: Update payment information in current basket
+                displayName: Update payment information in current basket (deprecated as of Ibexa DXP 4.4)
                 description: Updates payment information in the current basket.
                 body:
                     application/vnd.ibexa.api.PaymentMethodData.json:
@@ -119,7 +119,7 @@ displayName: eCommerce API
 
         /voucher:
             patch:
-                displayName: Update and check voucher in current basket
+                displayName: Update and check voucher in current basket (deprecated as of Ibexa DXP 4.4)
                 description: Updates and checks voucher in current basket.
                 body:
                     application/vnd.ibexa.api.VoucherData.json:
@@ -138,7 +138,7 @@ displayName: eCommerce API
 
         /line:
             post:
-                displayName: Add products to current basket
+                displayName: Add products to current basket (deprecated as of Ibexa DXP 4.4)
                 description: Adds products to the current basket.
                 body:
                     application/vnd.ibexa.api.BasketLineData+json:
@@ -158,7 +158,7 @@ displayName: eCommerce API
 
     /{basketId}:
         get:
-            displayName: Get Basket by ID
+            displayName: Get Basket by ID (deprecated as of Ibexa DXP 4.4)
             description: Gets basket by ID.
             responses:
                 200:
@@ -169,7 +169,7 @@ displayName: eCommerce API
 
         /name:
             patch:
-                displayName: Update the name of the stored basket
+                displayName: Update the name of the stored basket (deprecated as of Ibexa DXP 4.4)
                 description: |
                     Updates the name of the stored basket.
                 body:
@@ -185,7 +185,7 @@ displayName: eCommerce API
 
         /note:
             patch:
-                displayName: Update the note of the stored basket
+                displayName: Update the note of the stored basket (deprecated as of Ibexa DXP 4.4)
                 description: |
                     Updates the note of the stored basket.
                 body:
@@ -201,7 +201,7 @@ displayName: eCommerce API
 
         /line:
             post:
-                displayName: Add products to stored basket
+                displayName: Add products to stored basket (deprecated as of Ibexa DXP 4.4)
                 description: Adds products to the stored basket.
                 body:
                     application/vnd.ibexa.api.BasketLineData+json:
@@ -221,7 +221,7 @@ displayName: eCommerce API
 
         /line/{lineId}:
             delete:
-                displayName: Delete a line from a stored basket
+                displayName: Delete a line from a stored basket (deprecated as of Ibexa DXP 4.4)
                 responses:
                     200:
                         body:
@@ -236,7 +236,7 @@ displayName: eCommerce API
 
     /{basketName}:
         post:
-            displayName: Create a new persisted basket
+            displayName: Create a new persisted basket (deprecated as of Ibexa DXP 4.4)
             description: Creates a new persisted basket.
             responses:
                 200:
@@ -253,7 +253,7 @@ displayName: eCommerce API
 /checkout:
     /paymentmethods:
         get:
-            displayName: Get list of payment methods
+            displayName: Get list of payment methods (deprecated as of Ibexa DXP 4.4)
             responses:
                 200:
                     body:
@@ -263,7 +263,7 @@ displayName: eCommerce API
 
     /shippingmethods:
         get:
-            displayName: Get list of shipping methods
+            displayName: Get list of shipping methods (deprecated as of Ibexa DXP 4.4)
             responses:
                 200:
                     body:
@@ -273,7 +273,7 @@ displayName: eCommerce API
 
 /customer/addresses/shipping:
     get:
-        displayName: Get list of shipping addresses
+        displayName: Get list of shipping addresses (deprecated as of Ibexa DXP 4.4)
         responses:
             200:
                 body:
@@ -283,7 +283,7 @@ displayName: eCommerce API
 
 /customerprice:
     post:
-        displayName: Get customer prices for products
+        displayName: Get customer prices for products (deprecated as of Ibexa DXP 4.4)
         description: Gets customer prices for the requested products.
         body:
             application/json:
@@ -299,12 +299,12 @@ displayName: eCommerce API
 
 /common/check_sku_file:/{mode}:
     post:
-        displayName: Add to basket from CSV or Excel
+        displayName: Add to basket from CSV or Excel (deprecated as of Ibexa DXP 4.4)
         description: Adds to basket a line from a CSV or Excel file.
 
 /country:
     get:
-        displayName: Gets list of countries.
+        displayName: Get list of countries  (deprecated as of Ibexa DXP 4.4)
         responses:
             200:
                 body:

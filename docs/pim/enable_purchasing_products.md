@@ -82,5 +82,5 @@ The product must have at least one [price](prices.md) configured.
 
 ## Product availability
 
-To enable adding a product to basket, you must configure product [availability](pim.md#product-availability-and-stock)
+To enable adding a product to cart, you must configure product [availability](pim.md#product-availability-and-stock)
 with positive or infinite stock.

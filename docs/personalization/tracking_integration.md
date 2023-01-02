@@ -90,7 +90,7 @@ An overview of pros and cons for every technique:
     or without them (`&lt;img src="uri"... /&gt;`), see [How to Preload Images](https://www.mediacollege.com/internet/javascript/image/preload.html).
 
     If you plan to implement caching mechanisms and more complex events like 
-    consume (depending on the viewing time of the page), basket (which is usually 
+    Consume (depending on the viewing time of the page), Basket (which is usually 
     an in-page event) or custom in-page events that take place on the client side, 
     a JavaScript implementation is strongly encouraged.
     For a sample script and instructions, see [Track with yct.js](tracking_with_yct.md).
