@@ -10,6 +10,11 @@
 
 ### Input expectations
 
+| Type | Description | Example|
+|------|-------------|--------|
+| `array` | array of `Ibexa\Taxonomy\FieldType\TaxonomyEntryAssignment\Value`| See below.|
+| `string` | $taxonomy | See below. |
+
 Example array:
 
 ``` php
@@ -31,3 +36,12 @@ new FieldType\TaxonomyEntryAssignment\Value(
 	'tags'
 );
 ```
+### Value object
+
+#### Validation
+
+No validation.
+
+#### Template rendering
+
+The Measurement field is rendered with the [`ibexa_render_field()`](field_twig_functions.md#ibexa_render_field) Twig function.

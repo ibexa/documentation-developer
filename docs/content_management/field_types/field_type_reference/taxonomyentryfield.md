@@ -1,6 +1,6 @@
 # TaxonomyEntry Field Type
 
-TaxonomyEntry is a general purpose Field Type that can select only one taxonomy entry (tag or product type). 
+TaxonomyEntry is a general purpose Field Type that can store only one taxonomy entry (tag or product type). 
 It is used as a parent while creating a tag or category.
 
 | Name           | Internal name         | Expected input |
@@ -11,19 +11,13 @@ It is used as a parent while creating a tag or category.
 
 ### Input expectations
 
-| Type    | Example         |
-|---------|-----------------|
-| `object` | `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry`|
+Field type `TaxonomyEntry` accepts Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry object.
 
-### Value object
+| Type            | Example         |
+|-----------------|-----------------|
+| `TaxonomyEntry` | See below. |
 
-#### Properties
-
-|Property|Type|Description|
-|--------|----|-----------|
-|`$taxonomyEntry`|`null`|Stores selected taxonomy entry.|
-
-#### Example input
+Example array:
 
 ``` php
 new FieldType\TaxonomyEntry\Value(
@@ -41,9 +35,14 @@ new FieldType\TaxonomyEntry\Value(
         )
 );
 ```
-#### String representation
 
-An ISBN's string representation is the `$taxonomyEntry` property's value, as a string.
+### Value object
+
+#### Properties
+
+|Property|Type|Description|
+|--------|----|-----------|
+|`$taxonomyEntry`|`null`|Stores selected taxonomy entry.|
 
 #### Constructor
 
@@ -56,6 +55,9 @@ use Ibexa\Core\FieldType\Checkbox\Type;
 // Instantiates a checkbox value with a checked state
 $checkboxValue = new Checkbox\Value( true );
 ```
+#### String representation
+
+An ISBN's string representation is the `$taxonomyEntry` property's value, as a string.
 
 #### Hash format
 
