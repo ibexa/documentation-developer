@@ -237,6 +237,10 @@ Depending on the Field Type, there may also be other, specific information to fi
 
 ![Diagram of content model](content_model_diagram.png)
 
+!!! tip
+
+    You can disable editing specific Field details per Field Type by [listening to a subscriber](customize_field_type_metadata.md).
+
 ## Content versions
 
 Each Content item can have multiple versions.
