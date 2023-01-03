@@ -571,7 +571,8 @@ div.path {
 }
 
 .cards div.card-wrapper div div,
-.path div.card-wrapper div div {
+.cards div.card-wrapper div div{
+
     border-radius: 5px;
     background-color: #FFFFFF;
     padding: 0.7rem;
@@ -582,6 +583,16 @@ div.path {
     box-sizing: border-box;
     overflow: auto;
     justify-content: center;
+}
+
+.cards div.card-wrapper div div,
+.path div.card-wrapper div div {
+    border: 1px solid #D4D4D4;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    padding: 0.7rem;
+    margin-bottom: 0.4rem;
+    overflow: auto;
 }
 
 .cards div.card-wrapper div div:hover,
