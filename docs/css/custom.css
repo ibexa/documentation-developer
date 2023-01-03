@@ -607,10 +607,7 @@ div.path {
     content:url(../images/arrow_down.svg);
     display: block;
     width: 100%;
-    height: 260px;
     text-align: center;
-    box-sizing: border-box;
-    overflow: auto;
 }
 .cards p.title,
 .path p.title {
