@@ -2,13 +2,15 @@
 
 namespace EzSystems\Raml2Html\Test;
 
+use Symfony\Component\Console\Output\Output;
+
 class ReferenceTester
 {
-    const TEST_REFERENCE_ROUTES = 1;
-    const TEST_CONFIG_ROUTES = 2;
-    const TEST_ALL_ROUTES = 3;
+    public const TEST_REFERENCE_ROUTES = 1;
+    public const TEST_CONFIG_ROUTES = 2;
+    public const TEST_ALL_ROUTES = 3;
 
-    const DEFAULT_FILE_LIST = [
+    public const DEFAULT_FILE_LIST = [
         'vendor/ibexa/rest/src/bundle/Resources/config/routing.yml',
         'vendor/ibexa/commerce-rest/src/bundle/Resources/config/routing.yaml',
         // `find $dxpRoot/vendor/ibexa -name "routing_rest.y*ml"`
@@ -21,7 +23,23 @@ class ReferenceTester
         'vendor/ibexa/taxonomy/src/bundle/Resources/config/routing_rest.yaml',
     ];
 
-    private $apiUri = '/api/ibexa/v2';
+    public const METHOD_LIST = [
+        'OPTIONS',
+        'GET',
+        'HEAD',
+        'POST',
+        'PATCH',
+        'COPY',
+        'MOVE',
+        'SWAP',
+        'PUBLISH',
+        'DELETE',
+    ];
+
+    public $apiUri = '/api/ibexa/v2';
+
+    private const REF_METHOD_NOT_IN_CONF = 'ref_route_method_missing_from_conf';
+    private const CONF_METHOD_NOT_IN_REF = 'conf_route_method_missing_from_ref';
 
     private $restApiReference;
     private $dxpRoot;
@@ -29,7 +47,10 @@ class ReferenceTester
     private $refRoutes;
     private $confRoutes;
 
-    public function __construct($restApiReference, $dxpRoot, $consolePath = 'bin/console', $routingFiles = null)
+    /** @var Output */
+    private $output;
+
+    public function __construct($restApiReference, $dxpRoot, $consolePath = 'bin/console', $routingFiles = null, Output $output = null)
     {
         if (!is_file($restApiReference)) {
             user_error("$restApiReference doesn't exist or is not a file", E_USER_ERROR);
@@ -42,6 +63,8 @@ class ReferenceTester
             user_error("$dxpRoot doesn't exist or is not a directory", E_USER_ERROR);
             exit(2);
         }
+
+        $this->output = $output;
 
         $this->restApiReference = $restApiReference;
         $this->dxpRoot = $dxpRoot;
@@ -144,8 +167,7 @@ class ReferenceTester
             foreach ($parsedRoutingFile as $routeId => $routeDef) {
                 $line = (int)explode(':', `grep -n '^$routeId:$' {$this->dxpRoot}/$routingFile`)[0];
                 if (!array_key_exists('methods', $routeDef)) {
-                    user_error("$routeId ($routingFile@$line) matches every methods by default; skipped", E_USER_WARNING);
-                    continue;
+                    $routeDef['methods'] = self::METHOD_LIST;
                 }
                 if (!array_key_exists($routeDef['path'], $confRoutes)) {
                     $confRoutes[$routeDef['path']] = [
@@ -170,45 +192,54 @@ class ReferenceTester
         $refRoutes = $this->refRoutes;
         $confRoutes = $this->confRoutes;
 
+        // Check methods from routes found in both reference and configuration
         foreach (array_intersect(array_keys($refRoutes), array_keys($confRoutes)) as $commonRoute) {
             $missingMethods = $this->compareMethods($commonRoute, $commonRoute, $testedRoutes);
             if (!array_key_exists('GET', $refRoutes[$commonRoute]['methods']) && array_key_exists('HEAD', $refRoutes[$commonRoute]['methods'])
                 && array_key_exists('GET', $confRoutes[$commonRoute]['methods']) && array_key_exists('HEAD', $confRoutes[$commonRoute]['methods'])
                 && !is_null($confRoutes[$commonRoute]['methods']['HEAD']['id']) && $confRoutes[$commonRoute]['methods']['GET']['id'] === $confRoutes[$commonRoute]['methods']['HEAD']['id']) {
-                echo "\t$commonRoute has no GET reference but has a HEAD reference, HEAD and GET share the same route id ({$confRoutes[$commonRoute]['methods']['GET']['id']}) so GET might be just a fallback for HEAD.\n";
+                $this->output("\t$commonRoute has no GET reference but has a HEAD reference, HEAD and GET share the same configuration route id ({$confRoutes[$commonRoute]['methods']['GET']['id']}) so GET might be just a fallback for HEAD.");
             }
-            if ($missingMethods && false !== strpos($commonRoute, '{')) {
-                $similarRefRoutes = $this->getSimilarRoutes($commonRoute, $refRoutes);
-                $similarConfRoutes = $this->getSimilarRoutes($commonRoute, $confRoutes);
-                foreach (['highly', 'poorly'] as $similarityLevel) {
-                    foreach ($similarRefRoutes[$similarityLevel] as $refRoute) {
-                        if ($refRoute === $commonRoute) {
-                            continue;
-                        }
-                        $stillMissingMethod = $this->compareMethods($refRoute, $commonRoute, $testedRoutes, $missingMethods);
-                        $foundMethods = array_diff($missingMethods, $stillMissingMethod);
-                        if (!empty($foundMethods)) {
-                            foreach ($foundMethods as $foundMethod) {
-                                if ('highly' === $similarityLevel) {
-                                    echo "\t$refRoute has $foundMethod and is highly similar to $commonRoute\n";
-                                } else {
-                                    echo "\t$refRoute has $foundMethod and is a bit similar to $commonRoute\n";
+            if (false !== strpos($commonRoute, '{')) {
+                if (self::TEST_REFERENCE_ROUTES & $testedRoutes && $missingMethods[self::REF_METHOD_NOT_IN_CONF]) {
+                    // Check reference route's methods not found in the configuration against similar routes from configuration
+                    $similarConfRoutes = $this->getSimilarRoutes($commonRoute, $confRoutes);
+                    foreach (['highly', 'poorly'] as $similarityLevel) {
+                        foreach ($similarConfRoutes[$similarityLevel] as $confRoute) {
+                            if ($confRoute === $commonRoute) {
+                                continue;
+                            }
+                            $stillMissingMethod = $this->compareMethods($commonRoute, $confRoute, self::TEST_REFERENCE_ROUTES, $missingMethods[self::REF_METHOD_NOT_IN_CONF]);
+                            $foundMethods = array_diff($missingMethods[self::REF_METHOD_NOT_IN_CONF], $stillMissingMethod[self::REF_METHOD_NOT_IN_CONF]);
+                            if (!empty($foundMethods)) {
+                                foreach ($foundMethods as $foundMethod) {
+                                    if ('highly' === $similarityLevel) {
+                                        $this->output("\t{$this->getConfRoutePrompt($confRoute)} has $foundMethod and is highly similar to $commonRoute");
+                                    } else {
+                                        $this->output("\t{$this->getConfRoutePrompt($confRoute)} has $foundMethod and is a bit similar to $commonRoute");
+                                    }
                                 }
                             }
                         }
                     }
-                    foreach ($similarConfRoutes[$similarityLevel] as $confRoute) {
-                        if ($confRoute === $commonRoute) {
-                            continue;
-                        }
-                        $stillMissingMethod = $this->compareMethods($commonRoute, $confRoute, $testedRoutes, $missingMethods);
-                        $foundMethods = array_diff($missingMethods, $stillMissingMethod);
-                        if (!empty($foundMethods)) {
-                            foreach ($foundMethods as $foundMethod) {
-                                if ('highly' === $similarityLevel) {
-                                    echo "\t{$this->getConfRoutePrompt($confRoute)} has $foundMethod and is highly similar to $commonRoute\n";
-                                } else {
-                                    echo "\t{$this->getConfRoutePrompt($confRoute)} has $foundMethod and is a bit similar to $commonRoute\n";
+                }
+                if (self::TEST_CONFIG_ROUTES & $testedRoutes) {
+                    // Check configuration route's methods not found in the reference against similar routes from reference
+                    $similarRefRoutes = $this->getSimilarRoutes($commonRoute, $refRoutes);
+                    foreach (['highly', 'poorly'] as $similarityLevel) {
+                        foreach ($similarRefRoutes[$similarityLevel] as $refRoute) {
+                            if ($refRoute === $commonRoute) {
+                                continue;
+                            }
+                            $stillMissingMethod = $this->compareMethods($refRoute, $commonRoute, self::TEST_CONFIG_ROUTES, $missingMethods[self::CONF_METHOD_NOT_IN_REF]);
+                            $foundMethods = array_diff($missingMethods[self::CONF_METHOD_NOT_IN_REF], $stillMissingMethod[self::CONF_METHOD_NOT_IN_REF]);
+                            if (!empty($foundMethods)) {
+                                foreach ($foundMethods as $foundMethod) {
+                                    if ('highly' === $similarityLevel) {
+                                        $this->output("\t$refRoute has $foundMethod and is highly similar to $commonRoute");
+                                    } else {
+                                        $this->output("\t$refRoute has $foundMethod and is a bit similar to $commonRoute");
+                                    }
                                 }
                             }
                         }
@@ -218,76 +249,92 @@ class ReferenceTester
         }
 
         if (self::TEST_REFERENCE_ROUTES & $testedRoutes) {
+            // Check reference routes not found in the configuration
             foreach (array_diff(array_keys($refRoutes), array_keys($confRoutes)) as $refRouteWithoutConf) {
+                $this->output("$refRouteWithoutConf not found in config files.");
                 if (false !== strpos($refRouteWithoutConf, '{')) {
                     $similarConfRoutes = $this->getSimilarRoutes($refRouteWithoutConf, $confRoutes);
                     if (!empty($similarConfRoutes['highly'])) {
-                        echo "$refRouteWithoutConf not found in config files but\n";
                         foreach ($similarConfRoutes['highly'] as $confRoute) {
-                            echo "\t$refRouteWithoutConf is highly similar to $confRoute\n";
-                            $this->compareMethods($refRouteWithoutConf, $confRoute, $testedRoutes);
+                            $this->output("\t$refRouteWithoutConf is highly similar to $confRoute");
+                            $this->compareMethods($refRouteWithoutConf, $confRoute, self::TEST_REFERENCE_ROUTES);
                         }
                         continue;
                     }
                     if (!empty($similarConfRoutes['poorly'])) {
-                        echo "$refRouteWithoutConf not found in config files but\n";
                         foreach ($similarConfRoutes['poorly'] as $confRoute) {
-                            echo "\t$refRouteWithoutConf is a bit similar to $confRoute\n";
-                            $this->compareMethods($refRouteWithoutConf, $confRoute, $testedRoutes);
+                            $this->output("\t$refRouteWithoutConf is a bit similar to $confRoute");
+                            $this->compareMethods($refRouteWithoutConf, $confRoute, self::TEST_REFERENCE_ROUTES);
                         }
-                        continue;
                     }
                 }
-                echo "$refRouteWithoutConf not found in config files.\n";
             }
         }
 
         if (self::TEST_CONFIG_ROUTES & $testedRoutes) {
+            // Check configuration routes not found in the reference
             foreach (array_diff(array_keys($confRoutes), array_keys($refRoutes)) as $confRouteWithoutRef) {
+                $this->output("{$this->getConfRoutePrompt($confRouteWithoutRef)} not found in reference.");
                 if (false !== strpos($confRouteWithoutRef, '{')) {
                     $similarRefRoutes = $this->getSimilarRoutes($confRouteWithoutRef, $refRoutes);
                     if (!empty($similarRefRoutes['highly'])) {
-                        echo "{$this->getConfRoutePrompt($confRouteWithoutRef)} not found in reference but\n";
                         foreach ($similarRefRoutes['highly'] as $refRoute) {
-                            echo "\t$confRouteWithoutRef is highly similar to $refRoute\n";
-                            $this->compareMethods($refRoute, $confRouteWithoutRef, $testedRoutes);
+                            $this->output("\t$confRouteWithoutRef is highly similar to $refRoute");
+                            $this->compareMethods($refRoute, $confRouteWithoutRef, self::TEST_CONFIG_ROUTES);
                         }
                         continue;
                     }
                     if (!empty($similarRefRoutes['poorly'])) {
-                        echo "{$this->getConfRoutePrompt($confRouteWithoutRef)} not found in reference but\n";
                         foreach ($similarRefRoutes['poorly'] as $refRoute) {
-                            echo "\t$confRouteWithoutRef is a bit similar to $refRoute\n";
-                            $this->compareMethods($refRoute, $confRouteWithoutRef, $testedRoutes);
+                            $this->output("\t$confRouteWithoutRef is a bit similar to $refRoute");
+                            $this->compareMethods($refRoute, $confRouteWithoutRef, self::TEST_CONFIG_ROUTES);
                         }
-                        continue;
                     }
                 }
-                echo "{$this->getConfRoutePrompt($confRouteWithoutRef)} not found in reference.\n";
             }
         }
     }
 
-    private function compareMethods(string $refRoute, string $confRoute, int $testedRoutes = self::TEST_ALL_ROUTES, ?array $testedMethods = null): array
+    /**
+     * Compare reference route methods and configuration route methods, output methods missing on one side or the other.
+     * @param array|null $testedMethods A list of methods to search for and compare; if null, all existing methods are compared
+     * @return array A list of missing methods
+     */
+    private
+    function compareMethods(string $refRoute, string $confRoute, int $testedRoutes = self::TEST_ALL_ROUTES, ?array $testedMethods = null): array
     {
         $refRoutes = $this->refRoutes;
         $confRoutes = $this->confRoutes;
-        $missingMethods = [];
+        $missingMethods = [
+            self::REF_METHOD_NOT_IN_CONF => [],
+            self::CONF_METHOD_NOT_IN_REF => [],
+
+        ];
 
         if (self::TEST_REFERENCE_ROUTES & $testedRoutes) {
+            // Check reference route's methods missing from configuration route
             foreach (array_diff(array_keys($refRoutes[$refRoute]['methods']), array_keys($confRoutes[$confRoute]['methods'])) as $refMethodWithoutConf) {
                 if (null === $testedMethods || in_array($refMethodWithoutConf, $testedMethods)) {
-                    echo "$refRoute: $refMethodWithoutConf method not found in conf files" . ($refRoute === $confRoute ? '' : " (while comparing to $confRoute)") . ".\n";
-                    $missingMethods[] = $refMethodWithoutConf;
+                    if ($refRoute === $confRoute) {
+                        $this->output("$refRoute: $refMethodWithoutConf not found in configuration.");
+                    } else {
+                        $this->output("\t$refMethodWithoutConf not found in configuration while comparing to $confRoute.");
+                    }
+                    $missingMethods[self::REF_METHOD_NOT_IN_CONF][] = $refMethodWithoutConf;
                 }
             }
         }
 
         if (self::TEST_CONFIG_ROUTES & $testedRoutes) {
+            // Check configuration route's methods missing from reference route
             foreach (array_diff(array_keys($confRoutes[$confRoute]['methods']), array_keys($refRoutes[$refRoute]['methods'])) as $confMethodWithoutRef) {
                 if (null === $testedMethods || in_array($confMethodWithoutRef, $testedMethods)) {
-                    echo "{$this->getConfRoutePrompt($confRoute, $confMethodWithoutRef)}: $confMethodWithoutRef not found in reference" . ($refRoute === $confRoute ? '' : " (while comparing to $refRoute)") . ".\n";
-                    $missingMethods[] = $confMethodWithoutRef;
+                    if ($refRoute === $confRoute) {
+                        $this->output("{$this->getConfRoutePrompt($confRoute, $confMethodWithoutRef)}: $confMethodWithoutRef not found in reference.");
+                    } else {
+                        $this->output("\t$confMethodWithoutRef not found in reference while comparing to $refRoute.");
+                    }
+                    $missingMethods[self::CONF_METHOD_NOT_IN_REF][] = $confMethodWithoutRef;
                 }
             }
         }
@@ -295,7 +342,8 @@ class ReferenceTester
         return $missingMethods;
     }
 
-    private function getSimilarRoutes(string $path, array $routeCollection): array
+    private
+    function getSimilarRoutes(string $path, array $routeCollection): array
     {
         $routePattern = $this->getRoutePattern($path);
         $highlySimilarRoutes = [];
@@ -315,17 +363,20 @@ class ReferenceTester
         ];
     }
 
-    private function getSimplifiedRoute(string $path): string
+    private
+    function getSimplifiedRoute(string $path): string
     {
         return str_replace(['identifier', 'number', '_', '-'], ['id', 'no', ''], strtolower($path));
     }
 
-    private function getRoutePattern(string $path): string
+    private
+    function getRoutePattern(string $path): string
     {
         return '@^' . preg_replace('@\{[^}]+\}@', '\{[^}]+\}', $path) . '$@';
     }
 
-    private function getConfRoutePrompt(string $path, $method = null): string
+    private
+    function getConfRoutePrompt(string $path, $method = null): string
     {
         $prompt = $path;
 
@@ -368,5 +419,15 @@ class ReferenceTester
         }
 
         return $prompt;
+    }
+
+    private
+    function output($message)
+    {
+        if ($this->output) {
+            $this->output->writeln($message);
+        } else {
+            echo strip_tags($message) . "\n";
+        }
     }
 }
