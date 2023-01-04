@@ -2,7 +2,7 @@
 
 namespace EzSystems\Raml2Html\Test;
 
-use Symfony\Component\Console\Output\Output;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class ReferenceTester
 {
@@ -47,10 +47,10 @@ class ReferenceTester
     private $refRoutes;
     private $confRoutes;
 
-    /** @var Output */
+    /** @var OutputInterface */
     private $output;
 
-    public function __construct($restApiReference, $dxpRoot, $consolePath = 'bin/console', $routingFiles = null, Output $output = null)
+    public function __construct($restApiReference, $dxpRoot, $consolePath = 'bin/console', $routingFiles = null, OutputInterface $output = null)
     {
         if (!is_file($restApiReference)) {
             user_error("$restApiReference doesn't exist or is not a file", E_USER_ERROR);

@@ -6,7 +6,6 @@ namespace EzSystems\Raml2Html\Command;
 
 use EzSystems\Raml2Html\Test\ReferenceTester;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Formatter\OutputFormatterStyle;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
@@ -67,26 +66,5 @@ final class TestCommand extends Command
         $referenceTester->run($testedRoutes);
 
         return 0;
-    }
-
-    private function createParserConfigurationFromInput(InputInterface $input): ParserConfiguration
-    {
-        $configuration = new ParserConfiguration();
-
-        $nonStandardHTTPMethods = $input->getOption(self::OPTION_NON_STANDARD_HTTP_METHODS);
-        if ($nonStandardHTTPMethods !== null) {
-            $configuration->setNonStandardHttpMethods(explode(',', $nonStandardHTTPMethods));
-        }
-
-        return $configuration;
-    }
-
-    private function createGeneratorOptionsFromInput(InputInterface $input): GeneratorOptions
-    {
-        $generatorOptions = new GeneratorOptions();
-        $generatorOptions->setOutputDir($input->getOption(self::OPTION_OUTPUT_DIR));
-        $generatorOptions->setTheme($input->getOption(self::OPTION_THEME));
-
-        return $generatorOptions;
     }
 }
