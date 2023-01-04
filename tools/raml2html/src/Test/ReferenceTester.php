@@ -80,7 +80,7 @@ class ReferenceTester
         $restApiRefDoc->loadHTMLFile($restApiReference, LIBXML_NOERROR);
         $restApiRefXpath = new \DOMXpath($restApiRefDoc);
 
-        /** @var DOMElement $urlElement */
+        /** @var \DOMElement $urlElement */
         foreach ($restApiRefXpath->query('//*[@data-field="url"]') as $urlElement) {
             if (!array_key_exists($urlElement->nodeValue, $refRoutes)) {
                 $refRoutes[$urlElement->nodeValue] = [
