@@ -166,6 +166,16 @@ displayName: eCommerce API  (deprecated as of Ibexa DXP 4.4)
                         application/vnd.ibexa.api.Basket+json:
                             type: Basket
                             example: !include examples/commerce/basket/_id_/GET/Basket.json.example
+        delete:
+            displayName: Delete Basket by ID
+            description: Deletes basket by ID.
+            responses:
+                200:
+                    description: OK - The basket has been deleted
+                400:
+                    description: Error - The basket does not exist
+                403:
+                    description: Error - Access denied
 
         /name:
             patch:
