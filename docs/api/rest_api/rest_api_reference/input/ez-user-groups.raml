@@ -35,6 +35,16 @@ get:
         responses:
             301:
                 description: Moved permanently.
+/subgroups:
+    post:
+        displayName: Create a top level User Group
+        description: Creates a top level User Group under the root. To create a child group under a parent group use '/user/groups/{path}/subgroups'.
+        headers:
+            Content-Type:
+                description: TODO
+        responses:
+            200:
+                description: TODO
 /{path}:
     get:
         displayName: Load User Group
