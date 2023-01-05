@@ -40,12 +40,37 @@ get:
         displayName: Create a top level User Group
         description: Creates a top level User Group under the root. To create a child group under a parent group use '/user/groups/{path}/subgroups'.
         headers:
+            Accept:
+                description: If set, the new User Group is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.UserGroup+xml
+                    application/vnd.ibexa.api.UserGroup+json
             Content-Type:
-                description: TODO
+                description: The UserGroupCreate schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.UserGroupCreate+json
+                    application/vnd.ibexa.api.UserGroupCreate+xml
+        body:
+            application/vnd.ibexa.api.UserGroupCreate+xml:
+                type: UserGroupCreate
+                example: !include examples/user/groups/path/subgroups/POST/UserGroupCreate.xml.example
+            application/vnd.ibexa.api.UserGroupCreate+json:
+                type: UserGroupCreate
+                example: !include examples/user/groups/path/subgroups/POST/UserGroupCreate.json.example
         responses:
-            200:
-                description: TODO
-/{path}:
+            201:
+                description: Created - the User Group has been created
+                body:
+                    application/vnd.ibexa.api.UserGroup+xml:
+                        type: UserGroup
+                        example: !include examples/user/groups/path/subgroups/POST/UserGroup.xml.example
+                    application/vnd.ibexa.api.UserGroup+json:
+                        type: UserGroup
+                        example: !include examples/user/groups/path/subgroups/POST/UserGroup.json.example
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to create this User Group./{path}:
     get:
         displayName: Load User Group
         description: Loads User Groups for the given {path}.
