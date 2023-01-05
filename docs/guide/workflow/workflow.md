@@ -65,8 +65,8 @@ or be `reverse` to a different transition (line 9).
 When moving a Content item through a transition, the user can select a reviewer.
 Assigning a reviewer is mandatory if you set `reviewers.required` to `true` for this transition.
 
-In order to be able to search for users for review, the user must have policy content/read without limitation or with a limitation that will allow reading users, 
-that is, in addition to your own settings for this policy, you must add to limitation subtree /Users and add Users in the content type limitation.
+In order to be able to search for users for review, the user must have policy content/read without limitation or with a limitation that will allow reading users,
+This means that, in addition to your own settings for this Policy, you must add the /Users subtree to the Limitation and add Users in the [Content Type Limitation](limitation_reference.md#content-type-limitation).
 
 ``` yaml hl_lines="8 9"
 [[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 23, 32) =]]
