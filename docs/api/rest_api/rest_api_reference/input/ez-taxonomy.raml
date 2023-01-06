@@ -1,45 +1,202 @@
 displayName: Taxonomy
-/{taxonomyName}/entry-assignments/assign-to-content:
-    post:
-        displayName: Assign entry
-        description: Assigns taxonomy entry to a Content item.
-        headers:
-            Accept:
-                example:  |
-                    application/vnd.ibexa.api.TaxonomyEntryAssignToContent+json
-            Content-Type:
-                example:  |
-                    application/vnd.ibexa.api.TaxonomyEntryAssignToContent+json
-        body:
-            application/vnd.ibexa.api.TaxonomyEntryAssignToContent+json:
-                type: TaxonomyEntryAssignToContent
-                example: !include examples/taxonomy/POST/TaxonomyEntryAssignToContent.json.example
-        responses:
-            201:
-                description: No Content.
-            400:
-                description: Error - the input does not match the input schema definition.
-            401:
-                description: Error - the user is not authorized to assign this Entry.
-/{taxonomyName}/entry-assignments/unassign-from-content:
-    post:
-        displayName: Unassign entry
-        description: Unassigns taxonomy entry from a Content item.
-        headers:
-            Accept:
-                example:  |
-                    aapplication/vnd.ibexa.api.TaxonomyEntryUnassignFromContent+json
-            Content-Type:
-                example:  |
-                    application/vnd.ibexa.api.TaxonomyEntryUnassignFromContent+json
-        body:
-            application/vnd.ibexa.api.TaxonomyEntryAssignToContent+json:
-                type: TaxonomyEntryUnassignFromContent
-                example: !include examples/taxonomy/POST/TaxonomyEntryUnassignFromContent.json.example
-        responses:
-            201:
-                description: No Content.
-            400:
-                description: Error - the input does not match the input schema definition.
-            401:
-                description: Error - the user is not authorized to unassign this entry.
+/{taxonomyName}:
+    /entry:
+        /{id}:
+            get:
+                displayName: Get Entry by ID
+                description: Loads taxonomy Entry by its Entry ID.
+                headers:
+                    Accept:
+                        description: If set, the Taxonomy Entry is returned in XML or JSON format.
+                        example:  |
+                            application/vnd.ibexa.api.TaxonomyEntry+json
+                responses:
+                    200:
+                        description: OK - returns the taxonomy Entry.
+                        body:
+                            application/vnd.ibexa.api.TaxonomyEntry+xml:
+                                type: TaxonomyEntry
+                            application/vnd.ibexa.api.TaxonomyEntry+json:
+                                type: TaxonomyEntry
+                    401:
+                        description: Error - the user is not authorized to read this Entry.
+                    404:
+                        description: Error - the Entry does not exists.
+        /identifier/{identifier}:
+            get:
+                displayName: Get Entry by identifier
+                description: Loads taxonomy Entry by its Entry identifier.
+                headers:
+                    Accept:
+                        description: If set, the Taxonomy Entry is returned in XML or JSON format.
+                        example:  |
+                            application/vnd.ibexa.api.TaxonomyEntry+json
+                responses:
+                    200:
+                        description: OK - returns the taxonomy Entry.
+                        body:
+                            application/vnd.ibexa.api.TaxonomyEntry+xml:
+                                type: TaxonomyEntry
+                            application/vnd.ibexa.api.TaxonomyEntry+json:
+                                type: TaxonomyEntry
+                    401:
+                        description: Error - the user is not authorized to read this Entry.
+                    404:
+                        description: Error - the Entry does not exists.
+        /content-id/{contentId}:
+            get:
+                displayName: Get Entry by Content ID
+                description: Loads taxonomy Entry by its Content ID.
+                headers:
+                    Accept:
+                        description: If set, the Taxonomy Entry is returned in XML or JSON format.
+                        example:  |
+                            application/vnd.ibexa.api.TaxonomyEntry+json
+                responses:
+                    200:
+                        description: OK - returns the taxonomy Entry.
+                        body:
+                            application/vnd.ibexa.api.TaxonomyEntry+xml:
+                                type: TaxonomyEntry
+                            application/vnd.ibexa.api.TaxonomyEntry+json:
+                                type: TaxonomyEntry
+                    401:
+                        description: Error - the user is not authorized to read this Entry.
+                    404:
+                        description: Error - the Entry does not exists.
+    /entries:
+        delete:
+            displayName: Delete Entries
+            description: Bulk removes several taxonomy entries.
+            headers:
+                Content-Type:
+                    description: Target Entries schema encoded in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.TaxonomyEntryBulkRemove+xml
+                        application/vnd.ibexa.api.TaxonomyEntryBulkRemove+json
+            body:
+                application/vnd.ibexa.api.TaxonomyEntryBulkRemove+xml:
+                    type: TaxonomyEntryBulkRemove
+                application/vnd.ibexa.api.TaxonomyEntryBulkRemove+json:
+                    type: TaxonomyEntryBulkRemove
+                    example: !include examples/taxonomy/entries/DELETE/TaxonomyEntryBulkRemove.json.example
+            responses:
+                204:
+                    description: No Content - The entries have been deleted.
+                400:
+                    description: Error - The input does not match the input schema definition.
+                401:
+                    description: Error - The user is not authorized to delete some of the entries.
+        /move:
+            post:
+                displayName: Move Entries
+                description: Bulk move several taxonomy entries relative to sibling.
+                headers:
+                    Content-Type:
+                        description: The Entry moves schema encoded in XML or JSON format.
+                        example: |
+                            application/vnd.ibexa.api.TaxonomyEntryBulkMove+xml
+                            application/vnd.ibexa.api.TaxonomyEntryBulkMove+json
+                body:
+                    application/vnd.ibexa.api.TaxonomyEntryBulkMove+xml:
+                        type: TaxonomyEntryBulkRemove
+                    application/vnd.ibexa.api.TaxonomyEntryBulkMove+json:
+                        type: TaxonomyEntryBulkRemove
+                        example: !include examples/taxonomy/entries/move/POST/TaxonomyEntryBulkMove.json.example
+                responses:
+                    204:
+                        description: No Content - The entries have been moved.
+                    400:
+                        description: Error - The input does not match the input schema definition.
+                    401:
+                        description: Error - The user is not authorized to move some of the entries.
+                    404:
+                        description: Error - Some to-be-moved or sibling entries do not exist.
+    /entry-assignment/{id}:
+        get:
+            displayName: Get Assignment by ID
+            description: Gets taxonomy entry Assignment by its ID.
+            headers:
+                Accept:
+                    description: If set, the Assignment is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.TaxonomyEntryAssignment+json
+            responses:
+                200:
+                    description: OK - returns the taxonomy entry Assignment.
+                    body:
+                        application/vnd.ibexa.api.TaxonomyEntryAssignment+xml:
+                            type: TaxonomyEntryAssignment
+                        application/vnd.ibexa.api.TaxonomyEntryAssignment+json:
+                            type: TaxonomyEntryAssignment
+                404:
+                    description: Error - the assignment does not exist.
+    /entry-assignments:
+        /assign-to-content:
+            post:
+                displayName: Assign entry
+                description: Assigns taxonomy entry to a Content item.
+                headers:
+                    Accept:
+                        example:  |
+                            application/vnd.ibexa.api.TaxonomyEntryAssignToContent+json
+                    Content-Type:
+                        example:  |
+                            application/vnd.ibexa.api.TaxonomyEntryAssignToContent+json
+                body:
+                    application/vnd.ibexa.api.TaxonomyEntryAssignToContent+json:
+                        type: TaxonomyEntryAssignToContent
+                        example: !include examples/taxonomy/POST/TaxonomyEntryAssignToContent.json.example
+                responses:
+                    201:
+                        description: No Content.
+                    400:
+                        description: Error - the input does not match the input schema definition.
+                    401:
+                        description: Error - the user is not authorized to assign this Entry.
+        /unassign-from-content:
+            post:
+                displayName: Unassign entry
+                description: Unassigns taxonomy entry from a Content item.
+                headers:
+                    Accept:
+                        example:  |
+                            aapplication/vnd.ibexa.api.TaxonomyEntryUnassignFromContent+json
+                    Content-Type:
+                        example:  |
+                            application/vnd.ibexa.api.TaxonomyEntryUnassignFromContent+json
+                body:
+                    application/vnd.ibexa.api.TaxonomyEntryAssignToContent+json:
+                        type: TaxonomyEntryUnassignFromContent
+                        example: !include examples/taxonomy/POST/TaxonomyEntryUnassignFromContent.json.example
+                responses:
+                    201:
+                        description: No Content.
+                    400:
+                        description: Error - the input does not match the input schema definition.
+                    401:
+                        description: Error - the user is not authorized to unassign this entry.
+        /content-id/{contentId}:
+            get:
+                displayName: Get Assignments to a Content
+                description: Gets taxonomy entries assigned to a Content item by its ID.
+                headers:
+                    Accept:
+                        description: If set, the assignments are returned in XML or JSON format.
+                        example:  |
+                            application/vnd.ibexa.api.EntryAssignmentCollection+xml
+                            application/vnd.ibexa.api.EntryAssignmentCollection+json
+                responses:
+                    200:
+                        description: OK - returns the assigment collection.
+                        body:
+                            application/vnd.ibexa.api.EntryAssignmentCollection+xml:
+                                description: Contains metadata about the content itself and a list of taxonomy entry assignments to this content, in XML format.
+                                type: EntryAssignmentCollection
+                                example: !include examples/taxonomy/GET/EntryAssignmentCollection.xml.example
+                            application/vnd.ibexa.api.EntryAssignmentCollection+json:
+                                description: Contains metadata about the content itself and a list of taxonomy entry assignments to this content, in JSON format.
+                                type: EntryAssignmentCollection
+                                example: !include examples/taxonomy/GET/EntryAssignmentCollection.json.example
+                    404:
+                        description: Error - the Content does not exists.
