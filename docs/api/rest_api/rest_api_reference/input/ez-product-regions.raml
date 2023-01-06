@@ -15,8 +15,16 @@ get:
                     example: !include examples/product/catalog/regions/GET/RegionList.json.example
         401:
             description: Error - the user has no permission to read regions.
-        404:
-            description: Error - the region does not exist.
+
+/{identifier}:
+    get:
+        displayName: Load region
+        description: Loads a region by its identifier
+        responses:
+            200:
+                description: OK - loads region.
+            404:
+                description: Error - the region does not exist.
 
 /view:
     post:
