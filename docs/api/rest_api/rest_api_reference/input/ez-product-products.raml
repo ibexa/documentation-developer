@@ -96,8 +96,8 @@
             404:
                 description: Error - no product with the given code exists.
 get:
-    displayName: Load products list (deprecated as of Ibexa DXP 4.3, use /view instead)
-    description: Returns a list of products.
+    displayName: Load products list (deprecated, use /view instead)
+    description: Returns a list of products. Deprecated as of Ibexa DXP 4.3, use POST /product/catalog/products/view instead.
     headers:
         Accept:
             description: If set, the products are returned in XML or JSON format.
