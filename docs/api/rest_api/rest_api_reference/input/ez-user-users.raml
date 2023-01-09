@@ -303,3 +303,23 @@ head:
                                 example: !include examples/user/users/user_id/roles/role_id/DELETE/RoleAssignmentList.json.example
                     401:
                         description: Error - the user is not authorized to delete this Content Type.
+    /drafts:
+        get:
+            displayName: Load user drafts
+            description: Loads user's drafts
+            headers:
+                Accept:
+                    description: If set, the version list is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.VersionList+xml
+                        application/vnd.ibexa.api.VersionList+json
+            responses:
+                200:
+                    description: OK - List the draft versions
+                    body:
+                        application/vnd.ibexa.api.VersionList+xml:
+                            type: VersionList
+                        application/vnd.ibexa.api.VersionList+json:
+                            type: VersionList
+                401:
+                    description: Error - the current user is not authorized to list the drafts of the given user.
