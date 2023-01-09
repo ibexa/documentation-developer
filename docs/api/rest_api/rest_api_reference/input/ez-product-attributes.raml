@@ -100,8 +100,8 @@ post:
             401:
                 description: Error - the user is not authorized to delete this translation.
 get:
-    displayName: Load attributes (deprecated as of Ibexa DXP 4.3, use /view instead)
-    description: Loads list of all attributes.
+    displayName: Load attributes (deprecated, use /view instead)
+    description: Loads list of all attributes. Deprecated as of Ibexa DXP 4.3, use POST /product/catalog/attributes/view instead.
     headers:
         Accept:
             description: AttributeList - If set, the attributes list is returned in XML or JSON format.
