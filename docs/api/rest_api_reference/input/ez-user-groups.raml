@@ -127,6 +127,36 @@ get:
             404:
                 description: Error - the User Group does not exist.
     /users:
+        get:
+            displayName: Load Users of Group
+            description: Loads the Users of the Group with the given ID.
+            queryParameters:
+                limit:
+                    description: Only 'limit' items will be returned started by offset.
+                offset:
+                    description: Offset of the result set.
+            headers:
+                Accept:
+                    description: UserList - If set, the User list returned in XML or JSON format. UserRefList - If set, the link list of Users returned in XML or JSON format.
+                    example: |
+                        application/vnd.ez.api.UserList+xml
+                        application/vnd.ez.api.UserList+json
+                        application/vnd.ez.api.UserRefList+xml
+                        application/vnd.ez.api.UserRefList+json
+            responses:
+                200:
+                    description: OK - the Users of the Group with the given ID.
+                    body:
+                        application/vnd.ez.api.UserRefList+xml:
+                            type: UserRefList
+                            example: !include examples/user/groups/id/users/GET/UserRefList.xml.example
+                        application/vnd.ez.api.UserRefList+json:
+                            type: UserRefList
+                            example: !include examples/user/groups/id/users/GET/UserRefList.json.example
+                401:
+                    description: Error - the user has no permission to read User Groups.
+                404:
+                    description: Error - the User Group does not exist.
         post:
             displayName: Create User
             description: Creates a new User in the given Group.
@@ -166,6 +196,36 @@ get:
                 404:
                     description: Error - the Group with the given ID does not exist.
     /subgroups:
+        get:
+            displayName: Load subgroups
+            description: Returns a list of the subgroups.
+            queryParameters:
+                limit:
+                    description: The number of Locations returned.
+                offset:
+                    description: The offset of the result set.
+            headers:
+                Accept:
+                    description: UserGroupList - If set, the User Group list is returned in XML or JSON format. UserGroupRefList - If set, the link list of User Groups is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ez.api.UserGroupList+xml
+                        application/vnd.ez.api.UserGroupList+json
+                        application/vnd.ez.api.UserGroupRefList+xml
+                        application/vnd.ez.api.UserGroupRefList+json
+            responses:
+                200:
+                    description: OK - list of the subgroups.
+                    body:
+                        application/vnd.ez.api.UserGroupRefList+xml:
+                            type: UserGroupRefList
+                            example: !include examples/user/groups/id/subgroups/GET/UserGroupRefList.xml.example
+                        application/vnd.ez.api.UserGroupRefList+json:
+                            type: UserGroupRefList
+                            example: !include examples/user/groups/id/subgroups/GET/UserGroupRefList.json.example
+                401:
+                    description: Error - the user has no permission to read User Groups.
+                404:
+                    description: Error - the User Group does not exist.
         post:
             displayName: Create User Group
             description: Creates a new User Group under the given parent. To create a top level group use '/user/groups/subgroups'.
@@ -298,65 +358,3 @@ get:
                                 example: !include examples/user/groups/path/roles/role_id/DELETE/RoleAssignmentList.json.example
                     401:
                         description: Error - the user is not authorized to delete this Role assignment.
-/{id}/users:
-    get:
-        displayName: Load Users of Group
-        description: Loads the Users of the Group with the given ID.
-        queryParameters:
-            limit:
-                description: Only 'limit' items will be returned started by offset.
-            offset:
-                description: Offset of the result set.
-        headers:
-            Accept:
-                description: UserList - If set, the User list returned in XML or JSON format. UserRefList - If set, the link list of Users returned in XML or JSON format.
-                example: |
-                    application/vnd.ez.api.UserList+xml
-                    application/vnd.ez.api.UserList+json
-                    application/vnd.ez.api.UserRefList+xml
-                    application/vnd.ez.api.UserRefList+json
-        responses:
-            200:
-                description: OK - the Users of the Group with the given ID.
-                body:
-                    application/vnd.ez.api.UserRefList+xml:
-                        type: UserRefList
-                        example: !include examples/user/groups/id/users/GET/UserRefList.xml.example
-                    application/vnd.ez.api.UserRefList+json:
-                        type: UserRefList
-                        example: !include examples/user/groups/id/users/GET/UserRefList.json.example
-            401:
-                description: Error - the user has no permission to read User Groups.
-            404:
-                description: Error - the User Group does not exist.
-/{id}/subgroups:
-    get:
-        displayName: Load subgroups
-        description: Returns a list of the subgroups.
-        queryParameters:
-            limit:
-                description: The number of Locations returned.
-            offset:
-                description: The offset of the result set.
-        headers:
-            Accept:
-                description: UserGroupList - If set, the User Group list is returned in XML or JSON format. UserGroupRefList - If set, the link list of User Groups is returned in XML or JSON format.
-                example: |
-                    application/vnd.ez.api.UserGroupList+xml
-                    application/vnd.ez.api.UserGroupList+json
-                    application/vnd.ez.api.UserGroupRefList+xml
-                    application/vnd.ez.api.UserGroupRefList+json
-        responses:
-            200:
-                description: OK - list of the subgroups.
-                body:
-                    application/vnd.ez.api.UserGroupRefList+xml:
-                        type: UserGroupRefList
-                        example: !include examples/user/groups/id/subgroups/GET/UserGroupRefList.xml.example
-                    application/vnd.ez.api.UserGroupRefList+json:
-                        type: UserGroupRefList
-                        example: !include examples/user/groups/id/subgroups/GET/UserGroupRefList.json.example
-            401:
-                description: Error - the user has no permission to read User Groups.
-            404:
-                description: Error - the User Group does not exist.
