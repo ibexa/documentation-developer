@@ -197,7 +197,7 @@ ibexa:
             '@App\Matcher\MySiteaccessMatcher': ~
 ```
 
-The service must be tagged with `ibexa.siteaccess.matcher`
+The service must be tagged with `ibexa.site_access.matcher`
 and must implement `Ibexa\Bundle\Core\SiteAccess\Matcher`
 (and `Ibexa\Core\MVC\Symfony\SiteAccess\VersatileMatcher` if you want to use compound logical matchers).
 
