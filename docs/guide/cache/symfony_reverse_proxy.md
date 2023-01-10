@@ -25,7 +25,7 @@ Using a different proxy is highly recommended as they provide better performance
 For reverse proxies to work properly with your installation, you need to install the corresponding VCL files for your
 HTTP Cache.
 
-- [Varnish VCL xkey example](https://github.com/ezsystems/ezplatform-http-cache/blob/2.0/docs/varnish/vcl)
+- [Varnish VCL xkey example](https://github.com/ezsystems/ezplatform-http-cache/tree/2.3/docs/varnish/vcl)
 - Fastly VCLs can be found in `vendor/ezsystems/ezplatform-http-cache-fastly/fastly`
   - `ez_main.vcl` needs to installed as the main custom vcl
   - `ez_user_hash.vcl` also needs to be installed as custom vcl
