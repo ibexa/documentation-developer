@@ -22,7 +22,7 @@ Using a different proxy is highly recommended as they provide better performance
 
 ## VCL base files
 
-For reverse proxies to work properly with your installation, you need to install the corresponding VCL files for your
+For reverse proxies to work properly with your installation, you need to add the corresponding VCL files for your
 HTTP Cache.
 
 - [Varnish VCL xkey example](https://github.com/ezsystems/ezplatform-http-cache/tree/2.3/docs/varnish/vcl)
