@@ -268,7 +268,6 @@ nav:
             - Add login form: templating/layout/add_login_form.md
             - Add navigation menu: templating/layout/add_navigation_menu.md
             - Add search form to front page: templating/layout/add_search_form.md
-            - Customize basket: templating/layout/customize_basket.md
     - PIM (Product management):
         - PIM (Product management): pim/pim.md
         - PIM configuration: pim/pim_configuration.md

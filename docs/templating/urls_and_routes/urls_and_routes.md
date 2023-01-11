@@ -110,19 +110,6 @@ The following built-in routes are available for the front of the website.
 | `ibexa.user.forgot_password.login` | `/user/forgot-password/login` | Form for resetting password based on login instead of email address |
 | `ibexa.user.reset_password` | `/user/reset-password/{hashKey}` | Form for resetting password based on a generated link |
 
-### Shop [[% include 'snippets/commerce_badge.md' %]]
-
-|Route name|Path|Description|
-|---|---|---|
-| `ibexa.commerce.bestsellers` | `/bestsellers` | [Bestseller page](bestsellers.md) |
-
-| Route          | Controller     | Description |
-| -------------- | -------------- | ----------- |
-| `/basket/show`   | `showAction()`   | Shows a basket with all basket lines |
-| `/basket/add`    | `addAction()`    | Adds a product (product list) to the basket |
-| `/basket/update` | `updateAction()` | Changes attributes (for example, quantity) of a basket line in the basket |
-| `/basket/delete` | `deleteAction()` | Removes a basket line from the basket by the given basket line ID |
-
 ### Content
 
 |Route name|Path|Description|
