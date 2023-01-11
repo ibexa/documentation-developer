@@ -31,8 +31,11 @@ HTTP Cache.
   - `ez_user_hash.vcl` also needs to be installed as custom VCL
   - `snippet_re_enable_shielding.vcl` needs to be installed as snippet. See comments in the .vcl file itself for
     instructions on how to install it.
-  - As of Ibexa DXP v3.3.24 and V4.1.6 [Fastly Shielding](https://docs.fastly.com/en/guides/shielding) is supported. The
-    provided .vcl files will work with both shielding enabled or not.
+
+The provided .vcl files will work both with [Fastly Shielding](https://docs.fastly.com/en/guides/shielding) enabled and without it.
+
+!!! tip
+    Support for Fastly Shielding was added in Ibexa DXP v3.3.24 and V4.1.6
 
 !!! tip
 
