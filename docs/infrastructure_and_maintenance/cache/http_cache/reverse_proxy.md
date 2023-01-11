@@ -20,12 +20,22 @@ Using a different proxy is highly recommended as they provide better performance
 
     Use of Varnish or Fastly is a requirement for a [Clustering](clustering.md) setup, as Symfony Proxy does not support sharing cache between several application servers.
 
-## Recommended VCL base files
+## VCL base files
 
-For reverse proxies to work properly with your installation, you need to adapt one of the provided VCL files as the basis:
+For reverse proxies to work properly with your installation, you need to add the corresponding VCL files for your
+HTTP Cache.
 
 - [Varnish VCL xkey example](https://github.com/ibexa/http-cache/blob/main/docs/varnish/vcl/varnish5.vcl)
 - Fastly VCL can be found in `vendor/ibexa/fastly/fastly`
+  - `ez_main.vcl` needs to installed as the main custom VCL
+  - `ez_user_hash.vcl` also needs to be installed as custom VCL
+  - `snippet_re_enable_shielding.vcl` needs to be installed as snippet. See comments in the .vcl file itself for
+    instructions on how to install it.
+
+The provided .vcl files will work both with [Fastly Shielding](https://docs.fastly.com/en/guides/shielding) enabled and without it.
+
+!!! tip
+    Support for Fastly Shielding was added in Ibexa DXP v3.3.24 and V4.1.6
 
 !!! tip
 
