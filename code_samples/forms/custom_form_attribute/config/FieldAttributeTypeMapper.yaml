@@ -1,0 +1,21 @@
+App\FormBuilder\FieldType\Field\Mapper\CheckboxWithRichtextDescriptionFieldMapper:
+    arguments:
+        $fieldIdentifier: checkbox_with_richtext_description
+          formType: 'App\FormBuilder\Form\Type\CheckboxWithRichtextDescriptionType'
+    tags:
+        - { name: ezplatform.form_builder.field_mapper }
+
+ezplatform.form_builder.attribute_form_type_mapper.richtext_description:
+    class: EzSystems\EzPlatformFormBuilder\Form\Mapper\FieldAttribute\GenericFieldAttributeTypeMapper
+    arguments:
+        $formTypeClass: App\FormBuilder\Form\Type\FieldAttribute\AttributeRichtextDescriptionType
+        $typeIdentifier: 'richtext_description'
+    tags:
+        - { name: ezplatform.form_builder.attribute_form_type_mapper }
+
+App\FormBuilder\FormSubmission\Converter\RichtextDescriptionFieldSubmissionConverter:
+    arguments:
+        $typeIdentifier: 'checkbox_with_richtext_description'
+        $twig: '@twig'
+    tags:
+            - { name: ezplatform.form_builder.field_submission_converter }

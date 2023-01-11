@@ -1,0 +1,49 @@
+{% extends "@!EzPlatformFormBuilder/fields/config/form_fields.html.twig" %}
+
+{# Unfortunately, there is no way of adding custom templates for custom form attributes in FormBuilder
+Therefore, we are using this symfony feature :
+https://symfony.com/doc/3.3/templating/overriding.html
+
+The use of "!" in the extends is documented here :
+https://symfony.com/doc/current/bundles/override.html#templates
+#}
+
+{% block _field_configuration_attributes_richtext_description_row %}
+    <fieldset class="fb-config-field fb-config-field--action form-group" data-field-value="{{form.vars.value.value}}">
+        <section class="ez-fieldgroup container">
+            <div class="ez-content-field">
+                <div class="ez-content-field-value">
+                    <div class="col-12">
+                        <div class="ez-data-source">
+                            {% set udw_context = {
+                                'languageCode': 'en',
+                            } %}
+
+                            {#
+                            - The richtext editor will look for a textarea below 'ez-data-source'
+                            - The value of this textarea will automaticly be set by the richtext editor as the user changes content in the editor
+                            - this textarea is typically hidden but you may remove d-none and see the fields value be changed on-the-fly by the editor
+
+                            #}
+                            {{ form_errors(form) }}
+                            {{ form_widget(form, {'attr': {'class': 'vidar-textarea d-none'}}) }}
+                            <div class="hidden" data-udw-config-name="richtext_embed" data-udw-config="{{ ez_udw_config('richtext_embed', udw_context) }}"></div>
+                            <div class="hidden" data-udw-config-name="richtext_embed_image" data-udw-config="{{ ez_udw_config('richtext_embed_image', udw_context) }}"></div>
+                            {# The richtext editor itself must be rendered inside a div. The class here(ez-data-source__richtext) is used in the js in order when initalizing the editor ( richtext.init([container]) ) #}
+                            {# This div should also be placed under ez-data-source so that the editor can find the corresponding textarea #}
+                            <div class="ez-data-source__richtext border px-3 py-3" id="rich_text_content_vl1__editable"></div>
+
+
+                            {{ form_rest(form) }}
+
+                        </div>
+                        {{ encore_entry_link_tags('ezplatform-richtext-onlineeditor-css', null, 'ezplatform') }}
+
+                        {{ encore_entry_script_tags('ezplatform-richtext-onlineeditor-js', null, 'ezplatform') }}
+                        {{ encore_entry_script_tags('formbuilder-richtext-checkbox-js') }}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </fieldset>
+{% endblock %}

@@ -1,0 +1,18 @@
+ez_platform_form_builder:
+    fields:
+        checkbox_with_richtext_description:
+            name: Checkbox with RichtextDescription
+            category: Default
+            thumbnail: '/bundles/ezplatformadminui/img/ez-icons.svg#input-line'
+            attributes:
+                label:
+                    name: Label
+                    type: string
+                    validators:
+                        not_blank:
+                            message: You must provide label of the field
+                richtext_description:
+                    name: 'Description'
+                    type: 'richtext_description'
+            validators:
+                required: ~
