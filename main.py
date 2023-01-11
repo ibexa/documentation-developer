@@ -4,12 +4,17 @@ import re
 from mkdocs.structure.pages import Page
 from mkdocs.utils import meta
 
-CARDS_MARKDOWN_TEMPLATE = """
--  [%s](%s)
-{.title}
-
-    %s
-{.description}
+CARDS_TEMPLATE = """
+<div class="card-wrapper">
+    <div>
+        <a href="/%s" class="card">
+            <div>
+                <p class="title">%s</p>
+                <p class="description">%s</p>
+            </div>
+        </a>
+    </div>
+</div>
 """
 
 
@@ -38,15 +43,16 @@ def define_env(env):
         return glue.join(line_range)
 
     @env.macro
-    def cards(pages, columns=1):
+    def cards(pages, columns=1, style="cards"):
         current_page = env.variables.page
         absolute_url = current_page.abs_url
-        url_parts = re.search("^/([^/]+)/([^/]+)/", absolute_url)
-        (language, version) = url_parts.groups()
+        canonical = current_page.canonical_url
+        url_parts = re.search("//([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/", canonical)
+        (site, project, edition, language, version) = url_parts.groups()
 
         if isinstance(pages, str):
             pages = [pages]
-        cards_markdown = []
+        cards = []
         for page in pages:
             with open("docs/%s.md" % page, "r") as doc_file:
                 doc = doc_file.read()
@@ -64,17 +70,21 @@ def define_env(env):
                     **default_meta,
                     **meta.get_data(doc)[1]
                 }
-                cards_markdown.append(
-                    CARDS_MARKDOWN_TEMPLATE % (
-                        doc_meta['short'] or doc_meta['title'],
+                cards.append(
+                    CARDS_TEMPLATE % (
                         '/'.join((
                             '',
+                            site,
+                            project,
+                            edition,
                             language,
                             version,
                             page
                         )),
+                        doc_meta['short'] or doc_meta['title'],
                         doc_meta['description'] or "&nbsp;"
+                        # site_url
                     )
                 )
 
-        return """<div class="cards col-%s" markdown>%s</div>""" % (columns, "\n".join(cards_markdown))
+        return """<div class="%s col-%s">%s</div>""" % (style, columns, "\n".join(cards))
