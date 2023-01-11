@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace App\Command;
 
@@ -28,8 +28,7 @@ class SegmentCommand extends Command
     }
 
     protected function configure()
-    {
-    }
+    {}
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
@@ -52,7 +51,7 @@ class SegmentCommand extends Command
 
         $newSegment = $this->segmentationService->createSegment($segmentCreateStruct);
 
-        $segmentGroup = $this->segmentationService->loadSegmentGroupByIdentifier('custom_group');
+        $segmentGroup = $this->segmentationService->loadSegmentGroup(1);
 
         $segments = $this->segmentationService->loadSegmentsAssignedToGroup($segmentGroup);
 
@@ -60,14 +59,13 @@ class SegmentCommand extends Command
             $output->writeln('Segment ID: ' . $segment->id . ', name: ' . $segment->name);
         }
 
-        $segment = $this->segmentationService->loadSegmentByIdentifier('segment_1');
+        $segment = $this->segmentationService->loadSegment(1);
 
         $this->segmentationService->assignUserToSegment($user, $segment);
 
-        $output->writeln((
-            $this->segmentationService->isUserAssignedToSegment($user, $segment)
-            ? 'The user is assigned to the segment.'
-            : 'The user is not assigned to the segment.'
+        $output->writeln(($this->segmentationService->isUserAssignedToSegment($user, $segment)
+            ? "The user is assigned to the segment."
+            : "The user is not assigned to the segment."
         ));
 
         return self::SUCCESS;
