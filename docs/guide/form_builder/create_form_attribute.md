@@ -33,7 +33,7 @@ The attribute needs to be editable for the form creator, so it needs to have a s
 You must provide your own file `AttributeRichtextDescriptionType.php` in the `src/FormBuilder/Form/Type/FieldAttribute/` directory:
 
 ``` php
-[[= include_file('code_samples/forms/custom_form_field/src/FormBuilder/Form/Type/FieldAttribute/FormAttribute/php/AttributeRichtextDescriptionType.php') =]]
+[[= include_file('code_samples/forms/custom_form_attribute/src/FormBuilder/Form/Type/FieldAttribute/AttributeRichtextDescriptionType.php') =]]
 ```
 
 ## Customize Form templates
