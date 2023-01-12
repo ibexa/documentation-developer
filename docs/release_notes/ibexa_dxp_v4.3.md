@@ -122,3 +122,33 @@ The `TaxonomyEntryId` Search Criterion is not available in Legacy search Engine.
 | Ibexa Content  | Ibexa Experience  | Ibexa Commerce |
 |--------------|------------|------------|
 | [Ibexa Content v4.3](https://github.com/ibexa/content/releases/tag/v4.3.0) | [Ibexa Experience v4.3](https://github.com/ibexa/experience/releases/tag/v4.3.0) | [Ibexa Commerce v4.3](https://github.com/ibexa/commerce/releases/tag/v4.3.0)|
+
+## v4.3.1
+
+### New REST API endpoints 
+
+You can now use new REST API routes that confirm whether the User is logged in,
+without invoking any other route:
+
+- GET `/user/current` - redirects to current User API load.
+- GET `/user/sessions/current` - returns a current User Session object.
+
+You can retrieve, add and remove users from a Segment with:
+
+- GET `/user/users/{userId}/segments` - retrieves Segments for a given User.
+- POST `/user/users/{userId}/segments` - assigns User to one or more Segments.
+- DELETE `/user/users/{userId}/segments/{segmentIdentifier}` - unassigns User from a Segment.
+
+You can retrieve the defined languages with:
+
+- GET `/languages`- returns a defined language list.
+- GET `/languages/{languageCode}` - returns a single language.
+
+### New service for token-based authentication
+
+The new release adds `Ibexa\Contracts\Rest\Security\AuthorizationHeaderRESTRequestMatcher` service that can be used instead of `Ibexa\AdminUi\REST\Security\NonAdminRESTRequestMatcher`.
+It allows REST API endpoints to work with cookie-based authentication.
+
+### PIM improvement
+
+You can now retrieve Customer Group by implementing the `Ibexa\Contracts\ProductCatalog\CustomerGroupResolverInterface` interface and tagging it with `ibexa.product_catalog.customer_group.resolver`.
