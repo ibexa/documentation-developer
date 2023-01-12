@@ -127,17 +127,17 @@ The `TaxonomyEntryId` Search Criterion is not available in Legacy search Engine.
 
 ### New REST API endpoints 
 
-You can now use new routes to REST API that confirm if the User is logged in,
+You can now use new REST API routes that confirm whether the User is logged in,
 without invoking any other route:
 
-- GET `/user/current` - redirects to current User load API.
+- GET `/user/current` - redirects to current User API load.
 - GET `/user/sessions/current` - returns a current User Session object.
 
-You can retrieve, add and remove users from a segment with:
+You can retrieve, add and remove users from a Segment with:
 
-- GET `/user/users/:userId/segments` - retrieves Segments for a given User.
-- POST `/user/users/:userId/segments` - assigns User to one or more Segments.
-- DELETE `/user/users/:userId/segments/:segmentIdentifier` - unassigns User from a Segment.
+- GET `/user/users/{userId}/segments` - retrieves Segments for a given User.
+- POST `/user/users/{userId}/segments` - assigns User to one or more Segments.
+- DELETE `/user/users/{userId}/segments/{segmentIdentifier}` - unassigns User from a Segment.
 
 You can retrieve the defined languages with:
 
@@ -146,6 +146,6 @@ You can retrieve the defined languages with:
 
 ### New service for token-based authentication
 
-The new release adds `Ibexa\Contracts\Rest\Security\AuthorizationHeaderRESTRequestMatcher` service that can be used instead of `Ibexa\AdminUi\REST\Security\NonAdminRESTRequestMatcher` service.
-It allows our REST API endpoints to work with cookie based authentication.
+The new release adds `Ibexa\Contracts\Rest\Security\AuthorizationHeaderRESTRequestMatcher` service that can be used instead of `Ibexa\AdminUi\REST\Security\NonAdminRESTRequestMatcher`.
+It allows REST API endpoints to work with cookie-based authentication.
 
