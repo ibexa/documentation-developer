@@ -55,7 +55,7 @@ The template files for the front end should look as follows:
 
 ## Add scripts
 
-Now you need to enable the RichText editor. Provide the required script in new `src/Resources/public/js/formbuilder-richtext-checkbox.js` file:
+Now you need to enable the RichText editor. Provide the required script in new `src/Resources/public/formbuilder-richtext-checkbox.js` file:
 
 ``` js
 [[= include_file('code_samples/forms/custom_form_attribute/src/Resources/public/formbuilder-richtext-checkbox.js') =]]
@@ -63,7 +63,7 @@ Now you need to enable the RichText editor. Provide the required script in new `
 
 Then, paste the highlighted part of the code into the `webpack.config.js` file:
 
-``` js hl_lines="37-42"
+``` js hl_lines="39-42"
 [[= include_file('code_samples/forms/custom_form_attribute/webpack.config.js') =]]
 ```
 
@@ -79,7 +79,7 @@ Create a `src/FormBuilder/Form/Type/CheckboxWithRichtextDescriptionType.php` fil
 
 ## Implement FieldMapper
 
-To implement FieldMapper, create a `src/AppBundle/FormBuilder/FieldType/Field/Mapper/CheckboxWithRichtextDescriptionFieldMapper.php` file.
+To implement FieldMapper, create a `src/FormBuilder/FieldType/Field/Mapper/CheckboxWithRichtextDescriptionFieldMapper.php` file.
 
 ```php
 [[= include_file('code_samples/forms/custom_form_attribute/src/FormBuilder/FormSubmission/Converter/RichtextDescriptionFieldSubmissionConverter.php') =]]
