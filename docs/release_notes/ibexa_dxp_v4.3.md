@@ -147,5 +147,5 @@ You can retrieve the defined languages with:
 ### New service for token-based authentication
 
 The new release adds `Ibexa\Contracts\Rest\Security\AuthorizationHeaderRESTRequestMatcher` service that can be used instead of `Ibexa\AdminUi\REST\Security\NonAdminRESTRequestMatcher` service.
-It allows our REST API endpoint to work with cookie based authentication.
+It allows our REST API endpoints to work with cookie based authentication.
 
