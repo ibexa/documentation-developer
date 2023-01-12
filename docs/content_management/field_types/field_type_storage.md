@@ -183,7 +183,7 @@ Also note that there can be several gateways per Field Type (one per storage eng
 
 Just like in the case of data, storing [Field Type settings](type_and_value.md#field-type-settings) 
 in Content Item tables may prove insufficient. 
-It is not a problem if your setting specifies the allowed number of characters 
+It is not a problem if your setting specifies, for example, just the allowed number of characters 
 in a text field. 
 However, the Field Type may represent a more complex object, for example, it may 
 consist of two or more other fields, such as the name, SKU and price, and there 
