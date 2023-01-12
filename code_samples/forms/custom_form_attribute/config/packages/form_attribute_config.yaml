@@ -1,7 +1,7 @@
 ez_platform_form_builder:
     fields:
         checkbox_with_richtext_description:
-            name: Checkbox with RichtextDescription
+            name: Checkbox with Text
             category: Default
             thumbnail: '/bundles/ezplatformadminui/img/ez-icons.svg#input-line'
             attributes:

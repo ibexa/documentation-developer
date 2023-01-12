@@ -8,29 +8,30 @@ edition: experience
 You can create Form attribute for the new Form fields or existing ones.
 To do it, you have to define a new Form attribute in the configuration.
 
+In the following example you can create new Form with `richtext_description` attribute that allows you to add formatted
+description to the Form.
+
 ## Configure Form attribute
 
-For example, to create a `richtext_description` attribute,
+To create a `richtext_description` attribute,
 provide the following configuration in `config/packages/ezplatform.yaml`:
 
 ``` yaml
 [[= include_file('code_samples/forms/custom_form_attribute/config/packages/form_attribute_config.yaml') =]]
 ```
 
-You can edit Form attribute at any time in the Form Builder's editor.
-
 ## Create mapper
 
-New Form attribute requires a FieldAttributeTypeMapper. Register the mapper as a service: in `config/services.yaml`:
+The new Form attribute requires a FieldAttributeTypeMapper. Register the mapper as a service: in `config/services.yaml`:
 
 ``` yaml
 [[= include_file('code_samples/forms/custom_form_attribute/config/custom_services.yaml') =]]
 ```
 
-## Add symfony form type
+## Add Symfony form type
 
-The attribute needs to be editable for the form creator, so it needs to have a symfony form type. 
-You must provide your own file `AttributeRichtextDescriptionType.php` in the `src/FormBuilder/Form/Type/FieldAttribute/` directory:
+The attribute needs to be editable for the form creator, so it needs to have a Symfony form type. 
+Add a `AttributeRichtextDescriptionType.php` file with the form type in the `src/FormBuilder/Form/Type/FieldAttribute/` directory:
 
 ``` php
 [[= include_file('code_samples/forms/custom_form_attribute/src/FormBuilder/Form/Type/FieldAttribute/AttributeRichtextDescriptionType.php') =]]
@@ -38,9 +39,7 @@ You must provide your own file `AttributeRichtextDescriptionType.php` in the `sr
 
 ## Customize Form templates
 
-To customize the templates for the form, use a symfony feature.
-
-The template files for the front end must look as follows:
+The template files for the front end should look as follows:
 
 - `templates/bundles/EzPlatformFormBuilderBundle/fields/config/form_fields.html.twig`:
 
@@ -56,29 +55,21 @@ The template files for the front end must look as follows:
 
 ## Add scripts
 
-The richtext editor needs to be enabled using scripts snippets. Provide your own files:
-
-- `src/Resources/encore/ez.config.js`:
-
-``` js
-[[= include_file('code_samples/forms/custom_form_attribute/src/Resources/encore/ez.config.js') =]]
-```
-
-- `src/Resources/public/js/formbuilder-richtext-checkbox.js`:
+Now you need to enable the RichText editor. Provide the required script in new `src/Resources/public/js/formbuilder-richtext-checkbox.js` file:
 
 ``` js
 [[= include_file('code_samples/forms/custom_form_attribute/src/Resources/public/formbuilder-richtext-checkbox.js') =]]
 ```
 
-Then, paste the following code into `webpack.config.js` file:
+Then, paste the highlighted part of the code into the `webpack.config.js` file:
 
-``` js hl_lines="38 41"
-[[= include_file('code_samples/app/webpack.config.js') =]]
+``` js hl_lines="37-42"
+[[= include_file('code_samples/forms/custom_form_attribute/webpack.config.js') =]]
 ```
 
 ## Implement Field
 
-Now you have to implement the Field, and make sure the value from the richtext attribute is passed on to the field form.
+Now you have to implement the Field, and make sure the value from the RichText attribute is passed on to the field form.
 
 Create a `src/FormBuilder/Form/Type/CheckboxWithRichtextDescriptionType.php` file.
 
@@ -86,7 +77,19 @@ Create a `src/FormBuilder/Form/Type/CheckboxWithRichtextDescriptionType.php` fil
 [[= include_file('code_samples/forms/custom_form_attribute/src/FormBuilder/Form/Type/CheckboxWithRichtextDescriptionType.php') =]]
 ```
 
-New Field is based on checkbox, so to display the submissions of this field, you can use the BooleanFieldSubmissionConverter. 
+## Implement FieldMapper
+
+To implement FieldMapper, create a `src/AppBundle/FormBuilder/FieldType/Field/Mapper/CheckboxWithRichtextDescriptionFieldMapper.php` file.
+
+```php
+[[= include_file('code_samples/forms/custom_form_attribute/src/FormBuilder/FormSubmission/Converter/RichtextDescriptionFieldSubmissionConverter.php') =]]
+```
+
+Now, the attribute value can be stored in the new Form.
+
+## Create SubmissionConverter
+
+The new Field is based on checkbox, so to display the submissions of this field, you can use the `BooleanFieldSubmissionConverter`. 
 
 Create a `src/FormBuilder/FormSubmission/Converter/RichtextDescriptionFieldSubmissionConverter.php` file.
 
