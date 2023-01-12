@@ -149,6 +149,6 @@ You can retrieve the defined languages with:
 The new release adds `Ibexa\Contracts\Rest\Security\AuthorizationHeaderRESTRequestMatcher` service that can be used instead of `Ibexa\AdminUi\REST\Security\NonAdminRESTRequestMatcher`.
 It allows REST API endpoints to work with cookie-based authentication.
 
-### Customer management
+### PIM improvement
 
 You can now retrieve Customer Group by implementing `Ibexa\Contracts\ProductCatalog\CustomerGroupResolverInterface` interface and tagging it with `ibexa.product_catalog.customer_group.resolver`.
