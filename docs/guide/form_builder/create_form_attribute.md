@@ -6,15 +6,15 @@ edition: experience
 # Create Form Builder Form attribute 
 
 You can create Form attribute for the new Form fields or existing ones.
-To do it, you have to define new Form attribute in the configuration.
+To do it, you have to define a new Form attribute in the configuration.
 
 ## Configure Form attribute
 
-For example, to create a "richtext_description" attribute,
+For example, to create a `richtext_description` attribute,
 provide the following configuration in `config/packages/ezplatform.yaml`:
 
 ``` yaml
-[[= include_file('code_samples/forms/custom_form_attribute/config/packages/FormAttributeConfig.yaml') =]]
+[[= include_file('code_samples/forms/custom_form_attribute/config/packages/form_attribute_config.yaml') =]]
 ```
 
 You can edit Form attribute at any time in the Form Builder's editor.
@@ -24,7 +24,7 @@ You can edit Form attribute at any time in the Form Builder's editor.
 New Form attribute requires a FieldAttributeTypeMapper. Register the mapper as a service: in `config/services.yaml`:
 
 ``` yaml
-[[= include_file('code_samples/forms/custom_form_attribute/config/FieldAttributeTypeMapper.yaml') =]]
+[[= include_file('code_samples/forms/custom_form_attribute/config/custom_services.yaml') =]]
 ```
 
 ## Add symfony form type
@@ -91,11 +91,11 @@ New Field is based on checkbox, so to display the submissions of this field, you
 Create a `src/FormBuilder/FormSubmission/Converter/RichtextDescriptionFieldSubmissionConverter.php` file.
 
 ```php
-[[= include_file('code_samples/forms/custom_form_attribute/src/FormBuilder/FormSubmission/Converter/RichtextDescriptionFieldSubmissionConverter.php`') =]]
+[[= include_file('code_samples/forms/custom_form_attribute/src/FormBuilder/FormSubmission/Converter/RichtextDescriptionFieldSubmissionConverter.php') =]]
 ```
 
 Now you can go to Back Office and build a new form.
 
 You should be able to see the new section in the list of available fields:
 
-![New form](img/new_form.png)
+![New form](new_form.png)
