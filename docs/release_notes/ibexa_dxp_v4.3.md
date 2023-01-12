@@ -151,4 +151,4 @@ It allows REST API endpoints to work with cookie-based authentication.
 
 ### PIM improvement
 
-You can now retrieve Customer Group by implementing `Ibexa\Contracts\ProductCatalog\CustomerGroupResolverInterface` interface and tagging it with `ibexa.product_catalog.customer_group.resolver`.
+You can now retrieve Customer Group by implementing the `Ibexa\Contracts\ProductCatalog\CustomerGroupResolverInterface` interface and tagging it with `ibexa.product_catalog.customer_group.resolver`.
