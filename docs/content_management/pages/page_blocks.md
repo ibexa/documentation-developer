@@ -14,6 +14,12 @@ Page blocks are configured in YAML files, under the `ibexa_fieldtype_page` key.
 
     For information on how to create and configure new layouts for the Page,
     see [Page layouts](render_page.md#render-a-layout).
+    
+!!! note 
+
+    [[= product_name =]] ships with a number of page blocks.
+    For a list of all page blocks that are available out-of-the-box, 
+    see [Page block reference]([[= user_doc =]]/content_management/block_reference/).
 
 ## Block configuration
 
