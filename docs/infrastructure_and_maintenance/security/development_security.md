@@ -125,7 +125,7 @@ It is already provided in `config/packages/security.yaml`, you only need to unco
 security:
     firewalls:
         ibexa_jwt_rest:
-            request_matcher: Ibexa\AdminUi\REST\Security\NonAdminRESTRequestMatcher
+            request_matcher: Ibexa\Contracts\Rest\Security\AuthorizationHeaderRESTRequestMatcher
             user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
             anonymous: ~
             guard:
