@@ -85,7 +85,7 @@ The tag has the following attribute:
 
     Converter configuration for built-in Field Types is located in [`ibexa/core/src/lib/Resources/settings/fieldtype_external_storages.yml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/fieldtype_external_storages.yml).
 
-## Storing external data
+## Storing data externally
 
 A Field Type may store arbitrary data in external data sources.
 External storage can be e.g. a web service, a file in the file system, another database
@@ -178,3 +178,36 @@ Also note that there can be several gateways per Field Type (one per storage eng
 !!! tip
 
     Gateway configuration for built-in Field Types is located in [`core/src/lib/Resources/settings/storage_engines/`](https://github.com/ibexa/core/tree/main/src/lib/Resources/settings/storage_engines).
+
+## Storing Field Type settings externally
+
+Just like in the case of data, storing [Field Type settings](type_and_value.md#field-type-settings) 
+in Content Item tables may prove insufficient. 
+It is not a problem if your setting specifies, for example, just the allowed number of characters 
+in a text field. 
+However, the Field Type may represent a more complex object, for example, it may 
+consist of two or more other fields, such as the name, SKU and price, and there 
+can be a set of default values instead of just one. 
+Once you add validation rules for these field values, then it becomes an issue.
+    
+You can overcome this obstacle: 
+When you create a new Field Type, you can move Field Type settings 
+to external storage.
+    
+!!! note
+    
+    Another benefit of an external storage is that there can be database relations to 
+    other objects/entities, and the database itself can maintain the integrity of data.
+    
+First, create a class that implements the 
+`Ibexa\Contracts\Core\FieldType\FieldConstraintsStorage` interface.
+    
+Then, register the External Storage as a service and tag it with `ibexa.field_type.external_constraints_storage`. 
+Make sure that the alias you use matches the identifier of the new Field Type:
+    
+``` yaml
+services:
+    App\FieldType\Example\ExternalStorage:
+        tags:
+            - { name: ibexa.field_type.external_constraints_storage, alias: <field_type_identifier> }
+```
