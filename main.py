@@ -47,8 +47,8 @@ def define_env(env):
         current_page = env.variables.page
         absolute_url = current_page.abs_url
         canonical = current_page.canonical_url
-        url_parts = re.search("//([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/", canonical)
-        (site, project, edition, language, version) = url_parts.groups()
+        url_parts = re.search("//([^/]+)/([^/]+)/([^/]+)/", canonical)
+        (site, language, version) = url_parts.groups()
 
         if isinstance(pages, str):
             pages = [pages]
@@ -75,8 +75,6 @@ def define_env(env):
                         '/'.join((
                             '',
                             site,
-                            project,
-                            edition,
                             language,
                             version,
                             page
