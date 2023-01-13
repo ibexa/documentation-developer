@@ -86,11 +86,11 @@ First, define DFS folder path as a variable in `.env` file:
 Next, if you are using a separate DFS database, configure it via the `DATABASE_URL` in the `.env` file.
 Depending on which database you are using:
 
-`DFS_DATABASE_URL=mysql://root:rootpassword@127.0.0.1:3306/ibexa_dfs?serverVersion=8.0`.
+`DFS_DATABASE_URL=mysql://root:rootpassword@127.0.0.1:3306/ibexa_dfs?serverVersion=8.0`
 
 or
 
-`DATABASE_URL=postgresql://root:rootpassword@127.0.0.1:3306/ibexa_dfs?serverVersion=8.0`.
+`DATABASE_URL=postgresql://root:rootpassword@127.0.0.1:3306/ibexa_dfs?serverVersion=8.0`
 
 For production, it is recommended to create the DFS table in its own database,
 manually importing its schema definition:
