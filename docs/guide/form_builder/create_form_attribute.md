@@ -31,7 +31,7 @@ The new Form attribute requires a FieldAttributeTypeMapper. Register the mapper 
 ## Add Symfony form type
 
 The attribute needs to be editable for the form creator, so it needs to have a Symfony form type. 
-Add a `AttributeRichtextDescriptionType.php` file with the form type in the `src/FormBuilder/Form/Type/FieldAttribute/` directory:
+Add a `AttributeRichtextDescriptionType.php` file with the form type in the `src/FormBuilder/Form/Type/FieldAttribute` directory:
 
 ``` php
 [[= include_file('code_samples/forms/custom_form_attribute/src/FormBuilder/Form/Type/FieldAttribute/AttributeRichtextDescriptionType.php') =]]
@@ -55,16 +55,24 @@ The template files for the front end should look as follows:
 
 ## Add scripts
 
-Now you need to enable the RichText editor. Provide the required script in new `src/Resources/public/formbuilder-richtext-checkbox.js` file:
+Now you need to enable the RichText editor. Provide the required script in new `src/Resources/public/js/formbuilder-richtext-checkbox.js` file:
 
 ``` js
-[[= include_file('code_samples/forms/custom_form_attribute/src/Resources/public/formbuilder-richtext-checkbox.js') =]]
+[[= include_file('code_samples/forms/custom_form_attribute/src/Resources/public/js/formbuilder-richtext-checkbox.js') =]]
 ```
 
 Then, paste the highlighted part of the code into the `webpack.config.js` file:
 
 ``` js hl_lines="39-42"
 [[= include_file('code_samples/forms/custom_form_attribute/webpack.config.js') =]]
+```
+
+Clear the cache and regenerate the assets by running the following commands:
+
+``` bash
+php bin/console cache:clear
+php bin/console assets:install
+yarn encore dev
 ```
 
 ## Implement Field
@@ -82,7 +90,7 @@ Create a `src/FormBuilder/Form/Type/CheckboxWithRichtextDescriptionType.php` fil
 To implement FieldMapper, create a `src/FormBuilder/FieldType/Field/Mapper/CheckboxWithRichtextDescriptionFieldMapper.php` file.
 
 ```php
-[[= include_file('code_samples/forms/custom_form_attribute/src/FormBuilder/FormSubmission/Converter/RichtextDescriptionFieldSubmissionConverter.php') =]]
+[[= include_file('code_samples/forms/custom_form_attribute/src/FieldType/Field/Mapper/CheckboxWithRichtextDescriptionFieldMapper.php') =]]
 ```
 
 Now, the attribute value can be stored in the new Form.

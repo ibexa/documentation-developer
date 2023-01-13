@@ -37,8 +37,8 @@ Encore.addEntry('welcome_page', [
 Encore.addEntry('app', './assets/app.js');
 
 Encore.addEntry('formbuilder-richtext-checkbox-js', [
-            path.resolve('./src/Resources/public/js/formbuilder-richtext-checkbox.js')
-        ]);
+    path.resolve(__dirname, './src/Resources/public/js/formbuilder-richtext-checkbox.js')
+]);
 //    .autoProvidejQuery();
 
 const projectConfig = Encore.getWebpackConfig();
