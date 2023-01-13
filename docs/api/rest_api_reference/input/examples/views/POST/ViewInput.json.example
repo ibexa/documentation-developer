@@ -1,0 +1,16 @@
+{
+    "ViewInput": {
+        "identifier": "TitleView",
+        "ContentQuery": {
+            "Filter": {
+                "ContentTypeIdentifierCriterion": "image",
+                "SectionIdentifierCriterion": "media"
+            },
+            "limit": 10,
+            "offset": 0,
+            "SortClauses": {
+                "ContentName": "ascending"
+            }
+        }
+    }
+}
