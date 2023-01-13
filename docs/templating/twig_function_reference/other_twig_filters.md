@@ -2,7 +2,7 @@
 
 ### `ibexa_user_get_current()`
 
-`ibexa_user_get_current()` returns the User object of the current user.
+`ibexa_user_get_current()` returns the User object (`Ibexa\Core\Repository\Values\User\User`) of the current user.
 
 ``` html+twig
 {{ ibexa_user_get_current().login }}
