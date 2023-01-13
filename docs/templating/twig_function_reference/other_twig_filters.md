@@ -8,7 +8,7 @@
 {{ ibexa_user_get_current().login }}
 ```
 
-You can get the underlying Content item, including among other the user's name,
+You can get the underlying Content item, for example the user's name,
 by accessing the `content` property:
 
 ``` html+twig
