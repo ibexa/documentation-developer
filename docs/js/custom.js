@@ -97,6 +97,16 @@ $(document).ready(function() {
                     }
                 }
             });
+            let href = '/en/' + branchName + '/instantsearch.html#' + $(/*this.inputSelector*/'#search_input').val();
+            let link = $('.ds-dropdown-menu a.search-page-link');
+            if (!link.length) {
+                link = $('.ds-dropdown-menu').append('<a class="search-page-link" href="" style="position:absolute; bottom: 0px;">See all results</a>');
+            }
+            if (hits.length) {
+                link.attr('href', href).show();
+            } else {
+                link.hide();
+            }
         },
         algoliaOptions: {
             facetFilters: ['lang:en', 'version:' + branchName],
