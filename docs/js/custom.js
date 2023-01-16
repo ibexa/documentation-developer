@@ -102,7 +102,7 @@ $(document).ready(function() {
             if (!link.length) {
                 link = $('.ds-dropdown-menu').append('<a class="search-page-link" href="" style="position:absolute; bottom: 0px;">See all results</a>');
             }
-            if (hits.length) {
+            if (hits.length >= 10/*hitsPerPage*/) {
                 link.attr('href', href).show();
             } else {
                 link.hide();
