@@ -18,6 +18,34 @@
             overflow: hidden;
             margin: 0 auto;
         }
+        .ais-Hits-item div:not(:first-child):before {
+            content: ' > ';
+        }
+        .ais-Hits-item div:not(:first-child):empty:before {
+            content: '';
+        }
+        .ais-Hits-item div:nth-child(1) {
+            font-size: 1.4em;
+        }
+        .ais-Hits-item div:nth-child(2) {
+            font-size: 1.2em;
+        }
+        .ais-Hits-item div:nth-child(3) {
+            font-size: 1.0em;
+        }
+        .ais-Hits-item div:nth-child(4) {
+            font-size: 0.8em;
+        }
+        .ais-Hits-item div:nth-child(5) {
+            font-size: 0.6em;
+        }
+        }
+        .ais-Hits-item div:nth-child(6) {
+            font-size: 0.4em;
+        }
+        .ais-Hits-item div .ais-Highlight-highlighted {
+            font-size: 1.0em;
+        }
     </style>
 </head>
 
@@ -77,25 +105,25 @@
       },
       templates: {
         item: `
-        <div>
-          <div><a href="{{url}}">{{#helpers.highlight}}{ "attribute": "hierarchy.lvl1", "highlightedTagName": "strong" }{{/helpers.highlight}}</a></div>
+        <a href="{{url}}">
+          <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl1", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
           <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl2", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
-          <div><small>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl3", "highlightedTagName": "strong" }{{/helpers.highlight}}</smaller></div>
-          <div><small>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl4", "highlightedTagName": "strong" }{{/helpers.highlight}}</smaller></div>
-          <div><small>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl5", "highlightedTagName": "strong" }{{/helpers.highlight}}</smaller></div>
-          <div><small>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl6", "highlightedTagName": "strong" }{{/helpers.highlight}}</smaller></div>
-        </div>
+          <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl3", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
+          <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl4", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
+          <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl5", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
+          <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl6", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
+        </a>
       ` ,
       },
     }),
 
-    instantsearch.widgets.refinementList({
-      container: document.querySelector('#version'),
-      attribute: 'version',
-      sortBy: ['name:desc'],
-    }),
+      instantsearch.widgets.refinementList({
+          container: document.querySelector('#version'),
+          attribute: 'version',
+          sortBy: ['name:desc'],
+      }),
 
-    instantsearch.widgets.pagination({
+      instantsearch.widgets.pagination({
       container: '#pagination',
     }),
   ]);
