@@ -3,13 +3,27 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta name="theme-color" content="#000000" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css"/>
+    <link rel="shortcut icon" type="image/x-icon" href="api/rest_api/rest_api_reference/favicon.ico">
+    <title>Ibexa Documentation Search</title>
+    <style>
+        .left-panel {
+            float: left;
+            width: 150px;
+        }
+        .right-panel {
+            margin-left: 160px;
+        }
+        .ais-InstantSearch {
+            overflow: hidden;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 
 <body>
 <div class="ais-InstantSearch">
-    <h1>InstantSearch.js ibexa demo</h1>
+    <h1>Ibexa Documentation Search</h1>
 
     <div class="left-panel">
         <h2>Versions</h2>
@@ -27,8 +41,6 @@
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
 
 <script>
-  let branchName = '4.1';
-
   const search = instantsearch({
     indexName: 'ezplatform',
     searchClient: algoliasearch('2DNYOU6YJZ', '21ce3e522455e18e7ee16cf7d66edb4b'),
@@ -98,4 +110,5 @@
 https://www.algolia.com/doc/api-reference/api-parameters/filters/#examples
 https://www.algolia.com/doc/api-reference/api-methods/multiple-queries/#method-param-indexname
 https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/
+https://codesandbox.io/s/github/algolia/doc-code-samples/tree/master/instantsearch.js/getting-started
 -->
