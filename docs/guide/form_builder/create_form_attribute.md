@@ -5,7 +5,7 @@ edition: experience
 
 # Create Form Builder Form attribute 
 
-You can create Form attribute for the new Form fields or existing ones.
+You can create a Form attribute for new Form fields or existing ones.
 To do it, you have to define a new Form attribute in the configuration.
 
 In the following example you can create new Form with `richtext_description` attribute that allows you to add formatted
@@ -22,7 +22,7 @@ provide the following configuration in `config/packages/ezplatform.yaml`:
 
 ## Create mapper
 
-The new Form attribute requires a FieldAttributeTypeMapper. Register the mapper as a service: in `config/services.yaml`:
+The new Form attribute requires a `FieldAttributeTypeMapper`. Register the mapper as a service in `config/services.yaml`:
 
 ``` yaml
 [[= include_file('code_samples/forms/custom_form_attribute/config/custom_services.yaml') =]]
@@ -31,7 +31,7 @@ The new Form attribute requires a FieldAttributeTypeMapper. Register the mapper 
 ## Add Symfony form type
 
 The attribute needs to be editable for the form creator, so it needs to have a Symfony form type. 
-Add a `AttributeRichtextDescriptionType.php` file with the form type in the `src/FormBuilder/Form/Type/FieldAttribute` directory:
+Add an `AttributeRichtextDescriptionType.php` file with the form type in the `src/FormBuilder/Form/Type/FieldAttribute` directory:
 
 ``` php
 [[= include_file('code_samples/forms/custom_form_attribute/src/FormBuilder/Form/Type/FieldAttribute/AttributeRichtextDescriptionType.php') =]]
@@ -55,7 +55,7 @@ The template files for the front end should look as follows:
 
 ## Add scripts
 
-Now you need to enable the RichText editor. Provide the required script in new `src/Resources/public/js/formbuilder-richtext-checkbox.js` file:
+Now you need to enable the RichText editor. Provide the required script in a new `src/Resources/public/js/formbuilder-richtext-checkbox.js` file:
 
 ``` js
 [[= include_file('code_samples/forms/custom_form_attribute/src/Resources/public/js/formbuilder-richtext-checkbox.js') =]]
@@ -87,10 +87,10 @@ Create a `src/FormBuilder/Form/Type/CheckboxWithRichtextDescriptionType.php` fil
 
 ## Implement FieldMapper
 
-To implement FieldMapper, create a `src/FormBuilder/FieldType/Field/Mapper/CheckboxWithRichtextDescriptionFieldMapper.php` file.
+To implement a FieldMapper, create a `src/FormBuilder/FieldType/Field/Mapper/CheckboxWithRichtextDescriptionFieldMapper.php` file.
 
 ```php
-[[= include_file('code_samples/forms/custom_form_attribute/src/FieldType/Field/Mapper/CheckboxWithRichtextDescriptionFieldMapper.php') =]]
+[[= include_file('code_samples/forms/custom_form_attribute/src/FormBuilder/FieldType/Field/Mapper/CheckboxWithRichtextDescriptionFieldMapper.php') =]]
 ```
 
 Now, the attribute value can be stored in the new Form.
