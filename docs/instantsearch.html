@@ -34,27 +34,45 @@
   const search = instantsearch({
     indexName: 'ezplatform',
     searchClient: algoliasearch('2DNYOU6YJZ', '21ce3e522455e18e7ee16cf7d66edb4b'),
+    initialUiState: {
+      ezplatform: {
+        query: document.location.hash.replace('#', '').replace('+', ' '),
+        refinementList: { version: [document.location.href.split('/')[4]] },
+        page: 1
+      },
+    },
   });
 
   search.addWidgets([
     instantsearch.widgets.searchBox({
       container: '#searchbox',
     }),
+
     instantsearch.widgets.hits({
       container: '#hits',
-      transformItems: function (items) {
-        console.log(items);
-
+      transformItems(items) {
+        let removedPattern = '¶';
+        for (let index=0; index<items.length; index++) {
+          let item = items[index];
+          for (let lvl=2; lvl<=6; lvl++) {
+            if (null !== item.hierarchy['lvl'+lvl]) {
+              items[index].hierarchy['lvl' + lvl] = item.hierarchy['lvl' + lvl].replace(removedPattern, '');
+            }
+            if ('undefined' !== typeof item._highlightResult.hierarchy['lvl'+lvl]) {
+              items[index]._highlightResult.hierarchy['lvl'+lvl].value = item._highlightResult.hierarchy['lvl'+lvl].value.replace(removedPattern, '');
+            }
+          }
+        }
         return items;
       },
       templates: {
         item: `
         <div>
-        <a href="{{url}}">{{_highlightResult.hierarchy.lvl1.value}}</a>
-        {{_highlightResult.hierarchy.lvl2.value:h}}
-
+          <div><a href="{{url}}">{{#helpers.highlight}}{ "attribute": "hierarchy.lvl1", "highlightedTagName": "strong" }{{/helpers.highlight}}</a></div>
+          <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl2", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
+          <div><small>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl3", "highlightedTagName": "strong" }{{/helpers.highlight}}</smaller></div>
         </div>
-      `,
+      ` ,
       },
     }),
 
