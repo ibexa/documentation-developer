@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="theme-color" content="#000000" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css"/>
+</head>
+
+<body>
+<div class="ais-InstantSearch">
+    <h1>InstantSearch.js ibexa demo</h1>
+
+    <div class="left-panel">
+        <div id="clear-refinements"></div>
+
+        <h2>Versions</h2>
+        <div id="version"></div>
+    </div>
+
+    <div class="right-panel">
+        <div id="searchbox" class="ais-SearchBox"></div>
+        <div id="hits"></div>
+        <div id="pagination"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
+
+<script>
+  let branchName = '4.1';
+
+  const search = instantsearch({
+    indexName: 'ezplatform',
+    searchClient: algoliasearch('2DNYOU6YJZ', '21ce3e522455e18e7ee16cf7d66edb4b'),
+  });
+
+  search.addWidgets([
+    instantsearch.widgets.searchBox({
+      container: '#searchbox',
+    }),
+    instantsearch.widgets.hits({
+      container: '#hits',
+      transformItems: function (items) {
+        console.log(items);
+
+        return items;
+      },
+      templates: {
+        item: `
+        <div>
+        <a href="{{url}}">{{_highlightResult.hierarchy.lvl1.value}}</a>
+        {{_highlightResult.hierarchy.lvl2.value:h}}
+
+        </div>
+      `,
+      },
+    }),
+
+    instantsearch.widgets.refinementList({
+      container: document.querySelector('#version'),
+      attribute: 'version',
+    }),
+
+    instantsearch.widgets.pagination({
+      container: '#pagination',
+    }),
+  ]);
+
+  search.start();
+</script>
+
+</body>
+</html>
+
+<!--
+https://www.algolia.com/doc/api-reference/api-parameters/filters/#examples
+https://www.algolia.com/doc/api-reference/api-methods/multiple-queries/#method-param-indexname
+https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/
+-->
