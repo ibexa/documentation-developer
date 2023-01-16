@@ -46,7 +46,7 @@
     searchClient: algoliasearch('2DNYOU6YJZ', '21ce3e522455e18e7ee16cf7d66edb4b'),
     initialUiState: {
       ezplatform: {
-        query: document.location.hash.replace('#', '').replace('+', ' '),
+        query: decodeURI(document.location.hash.replace('#', '').replace('+', ' ')),
         refinementList: { version: [document.location.href.split('/')[4]] },
         page: 1
       },
