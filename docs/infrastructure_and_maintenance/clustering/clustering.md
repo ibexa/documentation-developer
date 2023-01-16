@@ -83,7 +83,7 @@ First, define DFS folder path as a variable in `.env` file:
 
 `DFS_NFS_PATH=/tmp/ibx_1439_nfs`
 
-Next, if you are using a separate DFS database, configure it via the `DATABASE_URL` in the `.env` file.
+Next, if you are using a separate DFS database, configure it via the `DATABASE_URL` variable in the `.env` file.
 Depending on which database you are using:
 
 `DFS_DATABASE_URL=mysql://root:rootpassword@127.0.0.1:3306/ibexa_dfs?serverVersion=8.0`
