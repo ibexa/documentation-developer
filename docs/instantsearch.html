@@ -12,8 +12,6 @@
     <h1>InstantSearch.js ibexa demo</h1>
 
     <div class="left-panel">
-        <div id="clear-refinements"></div>
-
         <h2>Versions</h2>
         <div id="version"></div>
     </div>
@@ -71,6 +69,9 @@
           <div><a href="{{url}}">{{#helpers.highlight}}{ "attribute": "hierarchy.lvl1", "highlightedTagName": "strong" }{{/helpers.highlight}}</a></div>
           <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl2", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
           <div><small>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl3", "highlightedTagName": "strong" }{{/helpers.highlight}}</smaller></div>
+          <div><small>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl4", "highlightedTagName": "strong" }{{/helpers.highlight}}</smaller></div>
+          <div><small>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl5", "highlightedTagName": "strong" }{{/helpers.highlight}}</smaller></div>
+          <div><small>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl6", "highlightedTagName": "strong" }{{/helpers.highlight}}</smaller></div>
         </div>
       ` ,
       },
@@ -79,6 +80,7 @@
     instantsearch.widgets.refinementList({
       container: document.querySelector('#version'),
       attribute: 'version',
+      sortBy: ['name:desc'],
     }),
 
     instantsearch.widgets.pagination({
