@@ -69,9 +69,9 @@ It will use a database to manipulate metadata, making up for the potential incon
 You need to configure both metadata and binarydata handlers.
 
 [[= product_name =]] ships with a custom local adapter (`ibexa.io.nfs.adapter.site_access_aware`), 
-which decorates the Flysystem local adapter to enable support for SiteAccess-aware settings.
+which decorates the Flysystem v2 local adapter to enable support for SiteAccess-aware settings.
 If an NFS path relies on SiteAccess-aware dynamic parameters, you must use the custom local adapter 
-instead of the Flysystem local adapter.
+instead of the Flysystem v2 local adapter.
 Configure the custom local adapter to read/write to the NFS mount point on each local server.
 As metadata handler, create a DFS one, configured with a Doctrine connection.
 
@@ -200,7 +200,7 @@ ibexa:
 
 !!! tip
 
-    If you are looking to [set up S3](clustering_with_aws_s3.md) or other [Flysystem](https://flysystem.thephpleague.com/)/third-party adapters like Google Cloud Storage, this needs to be configured as binary handler. The rest here will still stay the same, the DFS metadata handler will take care of caching the lookups to avoid slow IO lookups.
+    If you are looking to [set up S3](clustering_with_aws_s3.md) or other [Flysystem v2](https://flysystem.thephpleague.com/)/third-party adapters like Google Cloud Storage, this needs to be configured as binary handler. The rest here will still stay the same, the DFS metadata handler will take care of caching the lookups to avoid slow IO lookups.
 
 #### Customizing the storage directory
 

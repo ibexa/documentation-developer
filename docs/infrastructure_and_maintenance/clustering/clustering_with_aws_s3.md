@@ -49,7 +49,7 @@ services:
                     secret: abc123... # Your AWS secret key
 ```
 
-In the same [[= product_name =]] configuration, set up the Flysystem adapter that uses the S3 client:
+In the same [[= product_name =]] configuration, set up the Flysystem v2 adapter that uses the S3 client:
 
 ``` yaml
 oneup_flysystem:
