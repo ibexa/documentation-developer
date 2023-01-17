@@ -81,6 +81,10 @@
     },
   });
 
+  document.getElementById('searchbox').addEventListener('keyup', function(event) {
+      window.location.hash = '#' + event.target.value;
+  })
+
   search.addWidgets([
     instantsearch.widgets.searchBox({
       container: '#searchbox',
