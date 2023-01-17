@@ -1,0 +1,25 @@
+ibexa:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    custom_tags: [factbox]
+                    toolbar:
+                        custom_tags_group:
+                            buttons:
+                                factbox:
+                                    priority: 5
+ibexa_fieldtype_richtext:
+    custom_tags:
+        factbox:
+            template: '@ibexadesign/field_type/ezrichtext/custom_tags/factbox.html.twig'
+            icon: '/bundles/ibexaicons/img/all-icons.svg#information'
+            attributes:
+                name:
+                    type: string
+                    required: true
+                style:
+                    type: choice
+                    required: true
+                    default_value: light
+                    choices: [light, dark]

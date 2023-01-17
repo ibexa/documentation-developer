@@ -1,0 +1,385 @@
+displayName: Managing Content Types
+get:
+    displayName: List Content Types
+    description: Returns a list of Content Types.
+    queryParameters:
+        identifier:
+            description: Retrieves the Content Type for the given identifer.
+        remoteId:
+            description: Retrieves the Content Type for the given remote ID.
+        limit:
+            description: Only 'limit' items will be returned, starting with the offset.
+        offset:
+            description: Offset of the result set.
+        orderby:
+            description: One of (name|lastmodified).
+        sort:
+            description: One of (asc|desc).
+    headers:
+        Accept:
+            description: If set, the list of Content Type info objects or Content Types (including Field definitions) is returned in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.ContentTypeInfoList+xml
+                application/vnd.ibexa.api.ContentTypeInfoList+json
+                application/vnd.ibexa.api.ContentTypeList+xml
+                application/vnd.ibexa.api.ContentTypeList+json
+    responses:
+        200:
+            body:
+                application/vnd.ibexa.api.ContentTypeInfoList+xml:
+                    type: ContentTypeInfoList
+                    example: !include examples/content/types/GET/ContentTypeInfoList.xml.example
+                application/vnd.ibexa.api.ContentTypeInfoList+json:
+                    type: ContentTypeInfoList
+                    example: !include examples/content/types/GET/ContentTypeInfoList.json.example
+            description: OK - returns a list of Content Types.
+        401:
+            description: Error - The user has no permission to read the Content Types.
+/{contentTypeId}:
+    get:
+        displayName: Get Content Type
+        description: Returns the Content Type with the provided ID.
+        headers:
+            Accept:
+                description: If set, the Content Type is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.ContentType+xml
+                    application/vnd.ibexa.api.ContentType+json
+            If-None-Match:
+                description: ETag
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.ContentType+xml:
+                        type: ContentType
+                        example: !include examples/content/types/content_type_id/GET/ContentType.xml.example
+                    application/vnd.ibexa.api.ContentType+json:
+                        type: ContentType
+                        example: !include examples/content/types/content_type_id/GET/ContentType.json.example
+                description: OK - returns the Content Type.
+            401:
+                description: Error - The user is not authorized to read this Content Type.
+            404:
+                description: Error - The Content Type does not exist.
+    copy:
+        displayName: Copy Content Type
+        description: Copies a Content Type. A new remote ID is generated, and the identifier of the copy is set to 'copy_of_originalBaseIdentifier_newTypeId' (or another random string). COPY or POST with header X-HTTP-Method-Override COPY.
+        responses:
+            201:
+                description: Copy of the Content Type created.
+            401:
+                description: Error - The user is not authorized to copy this Content Type.
+    post:
+        displayName: Create Draft
+        description: Creates a draft and updates it with the given data.
+        headers:
+            Accept:
+                description: If set, the new Content Type draft is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.ContentTypeInfo+xml
+                    application/vnd.ibexa.api.ContentTypeInfo+json
+            Content-Type:
+                description: The Content Type Update schema encoded in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.ContentTypeUpdate+xml
+                    application/vnd.ibexa.api.ContentTypeUpdate+json
+        body:
+            application/vnd.ibexa.api.ContentTypeUpdate+xml:
+                type: ContentTypeUpdate
+                example: !include examples/content/types/content_type_id/POST/ContentTypeUpdate.xml.example
+            application/vnd.ibexa.api.ContentTypeUpdate+json:
+                type: ContentTypeUpdate
+                example: !include examples/content/types/content_type_id/POST/ContentTypeUpdate.json.example
+        responses:
+            201:
+                description: Draft created.
+                body:
+                    application/vnd.ibexa.api.ContentTypeInfo+xml:
+                        type: ContentTypeInfo
+                        example: !include examples/content/types/content_type_id/POST/ContentTypeInfo.xml.example
+                    application/vnd.ibexa.api.ContentTypeInfo+json:
+                        type: ContentTypeInfo
+                        example: !include examples/content/types/content_type_id/POST/ContentTypeInfo.json.example
+            400:
+                description: Error - The input does not match the input schema definition.
+            401:
+                description: Error - The user is not authorized to create the draft.
+            403:
+                description: Error - A Content Type with the given new identifier already exists. A draft already exists.
+    delete:
+        displayName: Delete Content Type
+        description: Deletes the provided Content Type.
+        responses:
+            204:
+                description: No Content - Content Type deleted.
+            401:
+                description: Error - The user is not authorized to delete this Content Type.
+            403:
+                description: Error - There are object instances of this Content Type.
+            404:
+                description: Error - The Content Type does not exist.
+    /fieldDefinitions:
+        /{fieldDefinitionId}:
+            get:
+                displayName: Get Field definition
+                description: Returns the Field definition by the given ID.
+                headers:
+                    Accept:
+                        description: If set, the Field definition is returned in XML or JSON format.
+                        example: |
+                            application/vnd.ibexa.api.FieldDefinition+xml
+                            application/vnd.ibexa.api.FieldDefinition+json
+                responses:
+                    200:
+                        description: OK - returns the Field definition.
+                        body:
+                            application/vnd.ibexa.api.FieldDefinition+xml:
+                                type: FieldDefinition
+                                example: !include examples/content/types/content_type_id/field_definition_id/GET/FieldDefinition.xml.example
+                            application/vnd.ibexa.api.FieldDefinition+json:
+                                type: FieldDefinition
+                                example: !include examples/content/types/content_type_id/field_definition_id/GET/FieldDefinition.json.example
+                    401:
+                        description: Error - The user is not authorized to read the Content Type.
+                    404:
+                        description: Error - The Content Type does not exist.
+    /draft:
+        patch:
+            displayName: Update Content Type draft
+            description: Updates metadata of a draft. This method does not handle Field definitions. PATCH or POST with header X-HTTP-Method-Override PATCH.
+            headers:
+                Accept:
+                    description: If set, the new Content Type draft is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.ContentTypeInfo+xml
+                        application/vnd.ibexa.api.ContentTypeInfo+json
+                Content-Type:
+                    description: The Content Type update schema encoded in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.ContentTypeUpdate+xml
+                        application/vnd.ibexa.api.ContentTypeUpdate+json
+            body:
+                application/vnd.ibexa.api.ContentTypeUpdate+xml:
+                    type: ContentTypeUpdate
+                    example: !include examples/content/types/content_type_id/draft/PATCH/ContentTypeUpdate.xml.example
+                application/vnd.ibexa.api.ContentTypeUpdate+json:
+                    type: ContentTypeUpdate
+                    example: !include examples/content/types/content_type_id/draft/PATCH/ContentTypeUpdate.json.example
+            responses:
+                200:
+                    description: Draft metadata updated.
+                    body:
+                        application/vnd.ibexa.api.ContentTypeInfo+xml:
+                            type: ContentTypeInfo
+                            example: !include examples/content/types/content_type_id/draft/PATCH/ContentTypeInfo.xml.example
+                        application/vnd.ibexa.api.ContentTypeInfo+json:
+                            type: ContentTypeInfo
+                            example: !include examples/content/types/content_type_id/draft/PATCH/ContentTypeInfo.json.example
+
+                400:
+                    description: Error - The input does not match the input schema definition.
+                401:
+                    description: Error - The user is not authorized to update the draft.
+                403:
+                    description: Error - A Content Type with the given new identifier already exists.
+                404:
+                    description: Error - There is no draft for this Content Type.
+        publish:
+            displayName: Publish Content Type draft
+            description: Publishes a Content Type draft. PUBLISH or POST with header X-HTTP-Method-Override PUBLISH.
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.ContentType+xml:
+                            type: ContentType
+                            example: !include examples/content/types/content_type_id/draft/PUBLISH/ContentType.xml.example
+                    description: Content Type draft published.
+                401:
+                    description: Error - The user is not authorized to publish this Content Type draft.
+                403:
+                    description: Error - The Content Type draft is not complete, e.g. there is no Field definition provided.
+                404:
+                    description: Error - If there is no draft or Content Type with the given ID.
+        delete:
+            displayName: Delete Content Type draft
+            description: Deletes the provided Content Type draft.
+            responses:
+                204:
+                    description: No Content - Content Type draft deleted.
+                401:
+                    description: Error - The user is not authorized to delete this Content Type draft.
+                404:
+                    description: Error - The Content Type draft does not exist.
+        /fieldDefinitions:
+            post:
+                displayName: Add Content Type Draft Field definition
+                description: Creates a new Field definition for the given Content Type.
+                headers:
+                    Accept:
+                        description: If set, the new Field definition is returned in XML or JSON format.
+                        example: |
+                            application/vnd.ibexa.api.FieldDefinition+xml
+                            application/vnd.ibexa.api.FieldDefinition+json
+                    Content-Type:
+                        description: The Field Definition Create schema encoded in XML or JSON format.
+                        example: |
+                            application/vnd.ibexa.api.FieldDefinitionCreate+xml
+                            application/vnd.ibexa.api.FieldDefinitionCreate+json
+                body:
+                    application/vnd.ibexa.api.FieldDefinitionCreate+xml:
+                        type: FieldDefinitionCreate
+                        example: !include examples/content/types/content_type_id/draft/field_definitions/POST/FieldDefinitionCreate.xml.example
+                responses:
+                    201:
+                        description: Field definition created.
+                        body:
+                            application/vnd.ibexa.api.FieldDefinition+xml:
+                                type: FieldDefinition
+                                example: !include examples/content/types/content_type_id/draft/field_definitions/POST/FieldDefinition.xml.example
+                    400:
+                        description: Error - The input does not match the input schema definition or validation on the Field definition fails.
+                    401:
+                        description: Error - The user is not authorized to add a Field definition.
+                    403:
+                        description: Error - A Field definition with the same identifier already exists in the given Content Type. The Field definition is of singular type, already existing in the given Content Type. The Field definition you want to add is of a type that can't be added to a Content Type that already has content instances.
+            /{fieldDefinitionId}:
+                get:
+                    displayName: Get Content Type Draft Field definition
+                    description: Returns the Field definition by the given ID.
+                    headers:
+                        Accept:
+                            description: If set, the Field definition is returned in XML or JSON format.
+                            example: |
+                                application/vnd.ibexa.api.FieldDefinition+xml
+                                application/vnd.ibexa.api.FieldDefinition+json
+                    responses:
+                        200:
+                            description: OK - returns the Field definition.
+                            body:
+                                application/vnd.ibexa.api.FieldDefinition+xml:
+                                    type: FieldDefinition
+                                    example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/GET/FieldDefinition.xml.example
+                                application/vnd.ibexa.api.FieldDefinition+json:
+                                    type: FieldDefinition
+                                    example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/GET/FieldDefinition.json.example
+                        401:
+                            description: Error - The user is not authorized to read the Content Type draft.
+                        404:
+                            description: Error - The Content Type or draft does not exist.
+                patch:
+                    displayName: Update Content Type Draft Field definition
+                    description: Updates the attributes of a Field definition.
+                    headers:
+                        Accept:
+                            description: If set, the updated Field definition is returned in XML or JSON format.
+                            example: |
+                                application/vnd.ibexa.api.FieldDefinition+xml
+                                application/vnd.ibexa.api.FieldDefinition+json
+                        Content-Type:
+                            description: The Field definition update schema encoded in XML or JSON format.
+                            example: |
+                                application/vnd.ibexa.api.FieldDefinitionUpdate+xml
+                                application/vnd.ibexa.api.FieldDefinitionUpdate+json
+                    body:
+                        application/vnd.ibexa.api.FieldDefinitionUpdate+xml:
+                            type: FieldDefinitionUpdate
+                            example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/PATCH/FieldDefinitionUpdate.xml.example
+                    responses:
+                        200:
+                            description: OK - attributes updated.
+                            body:
+                                application/vnd.ibexa.api.FieldDefinition+xml:
+                                    type: FieldDefinition
+                                    example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/PATCH/FieldDefinition.xml.example
+                        400:
+                            description: Error - The input does not match the input schema definition.
+                        401:
+                            description: Error - The user is not authorized to update the Field definition.
+                        403:
+                            description: Error - A Field definition with the given identifier already exists in the given Content Type.
+                delete:
+                    displayName: Delete Content Type Draft Field definition
+                    description: Deletes the provided Field definition.
+                    responses:
+                        204:
+                            description: No Content - Field definition deleted.
+                        401:
+                            description: Error - The user is not authorized to delete this Content Type.
+                        403:
+                            description: Error - There is no draft of the Content Type assigned to the authenticated user.
+    /groups:
+        get:
+            displayName: Get groups of Content Type
+            description: Returns the Content Type group to which Content Type belongs to.
+            headers:
+                Accept:
+                    description: If set, the Content Type group list is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.ContentTypeGroupRefList+xml
+                        application/vnd.ibexa.api.ContentTypeGroupRefList+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.ContentTypeGroupRefList+xml:
+                            type: ContentTypeGroupRefList
+                            example: !include examples/content/types/content_type_id/groups/GET/ContentTypeGroupRefList.xml.example
+                        application/vnd.ibexa.api.ContentTypeGroupRefList+json:
+                            type: ContentTypeGroupRefList
+                            example: !include examples/content/types/content_type_id/groups/GET/ContentTypeGroupRefList.json.example
+                401:
+                    description: Error - The user is not authorized to read this Content Type.
+                404:
+                    description: Error - The Content Type does not exist.
+        post:
+            displayName: Link group to Content Type
+            description: Links a Content Type group to the Content Type and returns the updated group list.
+            queryParameters:
+                group:
+                    description: The URI of the group to which the Content Type should be linked to.
+                    type: string
+            headers:
+                Accept:
+                    description: If set, the updated Content Type group list is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.ContentTypeGroupRefList+xml
+                        application/vnd.ibexa.api.ContentTypeGroupRefList+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.ContentTypeGroupRefList+xml:
+                            type: ContentTypeGroupRefList
+                            example: !include examples/content/types/content_type_id/groups/POST/ContentTypeGroupRefList.xml.example
+                        application/vnd.ibexa.api.ContentTypeGroupRefList+json:
+                            type: ContentTypeGroupRefList
+                            example: !include examples/content/types/content_type_id/groups/POST/ContentTypeGroupRefList.json.example
+                400:
+                    description: Error - The input does not match the input schema definition.
+                401:
+                    description: Error - The user is not authorized to add a group.
+                403:
+                    description: Error - The Content Type is already assigned to the group.
+        /{id}:
+            delete:
+                displayName: Unlink group from Content Type
+                description: Removes the given group from the Content Type and returns the updated group list.
+                headers:
+                    Accept:
+                        description: If set, the updated Content Type group list is returned in XML or JSON format.
+                        example: |
+                            application/vnd.ibexa.api.ContentTypeGroupRefList+xml
+                            application/vnd.ibexa.api.ContentTypeGroupRefList+json
+                responses:
+                    200:
+                        body:
+                            application/vnd.ibexa.api.ContentTypeGroup+xml:
+                                type: ContentTypeGroup
+                                example: !include examples/content/types/content_type_id/groups/id/DELETE/ContentTypeGroup.xml.example
+                            application/vnd.ibexa.api.ContentTypeGroup+json:
+                                type: ContentTypeGroup
+                                example: !include examples/content/types/content_type_id/groups/id/DELETE/ContentTypeGroup.json.example
+                    401:
+                        description: Error - The user is not authorized to delete this Content Type.
+                    403:
+                        description: Error - Content Type cannot be unlinked from the only remaining group.
+                    404:
+                        description: Error - The resource does not exist.

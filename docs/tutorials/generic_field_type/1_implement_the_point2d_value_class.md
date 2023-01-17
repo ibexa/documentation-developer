@@ -1,11 +1,15 @@
+---
+description: Learn how to create a Value class that stores the value of the Field.
+---
+
 # Step 1 - Implement the Point 2D Value class
 
 ## Project installation
 
 To start the tutorial, you need to make a clean [[= product_name =]] installation.
-Follow the guide for your system to [install [[= product_name =]]](../../getting_started/install_ez_platform.md),
-[configure a server](../../getting_started/requirements.md),
-and [start the web server](../../getting_started/install_ez_platform.md#use-phps-built-in-server).
+Follow the guide for your system to [install Ibexa DXP](install_ibexa_dxp.md),
+[configure a server](requirements.md),
+and [start the web server](install_ibexa_dxp.md#use-phps-built-in-server).
 Remember to install using the `dev` environment.
 
 Open your project with a clean installation and create the base directory for a new Point 2D Field Type in `src/FieldType/Point2D`.
@@ -15,7 +19,7 @@ Open your project with a clean installation and create the base directory for a 
 The Value class of a Field Type is by design very simple.
 It is used to represent an instance of the Field Type within a Content item.
 Each Field presents its data using an instance of the Type's Value class.
-For more information about Field Type Value, see [Value handling](../../api/field_type_type_and_value.md#value-handling).
+For more information about Field Type Value, see [Value handling](type_and_value.md#value-handling).
 
 !!! tip
 

@@ -1,0 +1,184 @@
+{
+    "ProductView": {
+        "_media-type": "application/vnd.ibexa.api.ProductView+json",
+        "identifier": "TitleView",
+        "ProductQuery": {
+            "_media-type": "application/vnd.ibexa.api.ProductQuery+json"
+        },
+        "Result": {
+            "_media-type": "application/vnd.ibexa.api.ViewResult+json",
+            "count": 1,
+            "ProductList": {
+                "_media-type": "application/vnd.ibexa.api.ProductList+json",
+                "Product": [
+                    {
+                        "_media-type": "application/vnd.ibexa.api.Product+json",
+                        "code": "test",
+                        "name": "test",
+                        "ProductType": {
+                            "_media-type": "application/vnd.ibexa.api.ProductType+json",
+                            "identifier": "quickdraw",
+                            "name": "Quickdraw",
+                            "AttributeAssignmentList": []
+                        },
+                        "Content": {
+                            "_media-type": "application/vnd.ibexa.api.Content+json",
+                            "_href": "/api/ibexa/v2/content/objects/187",
+                            "_remoteId": "b0608be4ef4dc978ad603d02ac3c9ad1",
+                            "_id": 187,
+                            "ContentType": {
+                                "_media-type": "application/vnd.ibexa.api.ContentType+json",
+                                "_href": "/api/ibexa/v2/content/types/55"
+                            },
+                            "Name": "test",
+                            "TranslatedName": "test",
+                            "Versions": {
+                                "_media-type": "application/vnd.ibexa.api.VersionList+json",
+                                "_href": "/api/ibexa/v2/content/objects/187/versions"
+                            },
+                            "CurrentVersion": {
+                                "_media-type": "application/vnd.ibexa.api.Version+json",
+                                "_href": "/api/ibexa/v2/content/objects/187/currentversion",
+                                "Version": {
+                                    "_media-type": "application/vnd.ibexa.api.Version+json",
+                                    "_href": "/api/ibexa/v2/content/objects/187/versions/1",
+                                    "VersionInfo": {
+                                        "id": 665,
+                                        "versionNo": 1,
+                                        "status": "PUBLISHED",
+                                        "modificationDate": "2022-08-26T11:16:49+02:00",
+                                        "Creator": {
+                                            "_media-type": "application/vnd.ibexa.api.User+json",
+                                            "_href": "/api/ibexa/v2/user/users/14"
+                                        },
+                                        "creationDate": "2022-08-26T11:16:49+02:00",
+                                        "initialLanguageCode": "eng-GB",
+                                        "languageCodes": "eng-GB",
+                                        "VersionTranslationInfo": {
+                                            "_media-type": "application/vnd.ibexa.api.VersionTranslationInfo+json",
+                                            "Language": [
+                                                {
+                                                    "languageCode": "eng-GB"
+                                                }
+                                            ]
+                                        },
+                                        "names": {
+                                            "value": [
+                                                {
+                                                    "_languageCode": "eng-GB",
+                                                    "#text": "test"
+                                                }
+                                            ]
+                                        },
+                                        "Content": {
+                                            "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+                                            "_href": "/api/ibexa/v2/content/objects/187"
+                                        }
+                                    },
+                                    "Fields": {
+                                        "field": [
+                                            {
+                                                "id": 915,
+                                                "fieldDefinitionIdentifier": "name",
+                                                "languageCode": "eng-GB",
+                                                "fieldTypeIdentifier": "ezstring",
+                                                "fieldValue": "test"
+                                            },
+                                            {
+                                                "id": 916,
+                                                "fieldDefinitionIdentifier": "product_specification",
+                                                "languageCode": "eng-GB",
+                                                "fieldTypeIdentifier": "ibexa_product_specification",
+                                                "fieldValue": {
+                                                    "id": 60,
+                                                    "code": "test
+                                                    "attributes": []
+                                                }
+                                            },
+                                            {
+                                                "id": 917,
+                                                "fieldDefinitionIdentifier": "description",
+                                                "languageCode": "eng-GB",
+                                                "fieldTypeIdentifier": "ezrichtext",
+                                                "fieldValue": {
+                                                    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n",
+                                                    "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ibexa.co/namespaces/ezpublish5/xhtml5/edit\"/>\n"
+                                                }
+                                            },
+                                            {
+                                                "id": 918,
+                                                "fieldDefinitionIdentifier": "image",
+                                                "languageCode": "eng-GB",
+                                                "fieldTypeIdentifier": "ezimageasset",
+                                                "fieldValue": {
+                                                    "destinationContentId": null,
+                                                    "alternativeText": null,
+                                                    "source": null
+                                                }
+                                            },
+                                            {
+                                                "id": 919,
+                                                "fieldDefinitionIdentifier": "category",
+                                                "languageCode": "eng-GB",
+                                                "fieldTypeIdentifier": "ibexa_taxonomy_entry_assignment",
+                                                "fieldValue": {
+                                                    "taxonomy_entries": [],
+                                                    "taxonomy": null
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "Relations": {
+                                        "_media-type": "application/vnd.ibexa.api.RelationList+json",
+                                        "_href": "/api/ibexa/v2/content/objects/187/versions/1/relations",
+                                        "Relation": []
+                                    },
+                                    "Thumbnail": {
+                                        "_media-type": "application/vnd.ibexa.api.Thumbnail+json",
+                                        "resource": "/bundles/ibexaadminui/img/ibexa-icons.svg#file",
+                                        "width": null,
+                                        "height": null,
+                                        "mimeType": "image/svg+xml"
+                                    }
+                                }
+                            },
+                            "Section": {
+                                "_media-type": "application/vnd.ibexa.api.Section+json",
+                                "_href": "/api/ibexa/v2/content/sections/1"
+                            },
+                            "Locations": {
+                                "_media-type": "application/vnd.ibexa.api.LocationList+json",
+                                "_href": "/api/ibexa/v2/content/objects/187/locations"
+                            },
+                            "Owner": {
+                                "_media-type": "application/vnd.ibexa.api.User+json",
+                                "_href": "/api/ibexa/v2/user/users/14"
+                            },
+                            "lastModificationDate": "2022-08-26T11:16:49+02:00",
+                            "publishedDate": "2022-08-26T11:16:49+02:00",
+                            "mainLanguageCode": "eng-GB",
+                            "currentVersionNo": 1,
+                            "alwaysAvailable": true,
+                            "isHidden": false,
+                            "status": "PUBLISHED",
+                            "ObjectStates": {
+                                "_media-type": "application/vnd.ibexa.api.ContentObjectStates+json",
+                                "_href": "/api/ibexa/v2/content/objects/187/objectstates"
+                            }
+                        },
+                        "Thumbnail": {
+                            "_media-type": "application/vnd.ibexa.api.Thumbnail+json",
+                            "resource": "/bundles/ibexaadminui/img/ibexa-icons.svg#file",
+                            "width": null,
+                            "height": null,
+                            "mimeType": "image/svg+xml"
+                        },
+                        "created_at": 1661505409,
+                        "updated_at": 1661505409,
+                        "AttributesList": []
+                    }
+                ]
+            }
+        }
+    }
+}

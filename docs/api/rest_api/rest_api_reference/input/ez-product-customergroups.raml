@@ -1,0 +1,132 @@
+get:
+    displayName: Load customer groups
+    description: Returns a list of customer groups
+    headers:
+        Accept:
+            description: If set, the customer groups list is returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.CustomerGroupListGet+json
+        Content-Type:
+            description: The CustomerGroupList schema encoded in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.CustomerGroupListGet+json
+    responses:
+        200:
+            body:
+                application/vnd.ibexa.api.CustomerGroupList+json:
+                    type: CustomerGroupList
+                    example: !include examples/product/catalog/customer_groups/GET/CustomerGroupList.json.example
+        401:
+            description: Error - the user has no permission to read customer groups.
+post:
+    displayName: Create customer group
+    description: Creates a new customer group.
+    headers:
+        Accept:
+            description: If set, the new customer group is returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.CustomerGroupCreate+json
+        Content-Type:
+            description: The CustomerGroupCreate schema encoded in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.CustomerGroupCreate+json
+    body:
+        application/vnd.ibexa.api.CustomerGroupCreate+json:
+            type: CustomerGroupCreate
+            example: !include examples/product/catalog/customer_groups/POST/CustomerGroupCreate.json.example
+    responses:
+        201:
+            body:
+                application/vnd.ibexa.api.CustomerGroup+json:
+                    type: CustomerGroup
+                    example: !include examples/product/catalog/customer_groups/POST/CustomerGroup.json.example
+        400:
+            description: Error - the input does not match the input schema definition.
+        401:
+            description: Error - the user is not authorized to create this Customer Group.
+        403:
+            description: Error - a customer group with the same name already exists.
+
+/{identifier}:
+    get:
+        displayName: Load customer group
+        description: Returns a customer group
+        headers:
+            Accept:
+                description: If set, the customer group is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CustomerGroupGet+json
+            Content-Type:
+                description: The CustomerGroup schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CustomerGroupGet+json
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.CustomerGroup+json:
+                        type: CustomerGroup
+                        example: !include examples/product/catalog/customer_groups/identifier/GET/CustomerGroup.json.example
+            401:
+                description: Error - the user has no permission to read customer groups.
+    patch:
+        displayName: Update customer group
+        description: Updates the given customer group.
+        headers:
+            Accept:
+                description: If set, the updated customer group is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CustomerGroupUpdate+json
+            Content-Type:
+                description: The CustomerGroupUpdate schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CustomerGroupUpdate+json
+        body:
+            application/vnd.ibexa.api.CustomerGroupUpdate+json:
+                type: CustomerGroupUpdate
+                example: !include examples/product/catalog/customer_groups/identifier/PATCH/CustomerGroupUpdate.json.example
+        responses:
+            201:
+                body:
+                    application/vnd.ibexa.api.CustomerGroup+json:
+                        type: CustomerGroup
+                        example: !include examples/product/catalog/customer_groups/identifier/PATCH/CustomerGroup.json.example
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to update a customer group.
+    delete:
+        displayName: Delete customer group
+        description: Deletes the given customer group.
+        responses:
+            204:
+                description: No content - the given customer group is deleted.
+            401:
+                description: Error - the user is not authorized to delete this customer group.
+
+/view:
+    post:
+        displayName: Filter customer groups
+        description: Executes a query and returns a View including the results. The View input reflects the criteria model of the public API.
+        headers:
+            Accept:
+                description: The view in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CustomerGroupView+xml
+                    application/vnd.ibexa.api.CustomerGroupView+json
+            Content-Type:
+                description: The view input in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CustomerGroupViewInput+xml
+                    application/vnd.ibexa.api.CustomerGroupViewInput+json
+        body:
+            application/vnd.ibexa.api.CustomerGroupViewInput+json:
+                type: CustomerGroupViewInput
+                example: !include examples/product/catalog/customer_groups/POST/CustomerGroupViewInput.json.example
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.CustomerGroupView+json;
+                        type: CustomerGroupView
+                        example: !include examples/product/catalog/customer_groups/POST/CustomerGroupView.json.example
+            400:
+                description: Error - the input does not match the input schema definition.

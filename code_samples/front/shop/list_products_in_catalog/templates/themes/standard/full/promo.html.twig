@@ -1,0 +1,17 @@
+<h1>Special offer</h1>
+
+<table>
+    {% for product in products %}
+        <tr>
+            <td><a href="{{  path('ibexa.url.alias', {'contentId': product.content.contentInfo.id}) }}">{{ (product.name) }}</a></td>
+            <td>{{ product.price }}</td>
+            <td>
+                <form method="POST" action="{{ path('ibexa.commerce.basket.add') }}">
+                <input type="hidden" name="ses_basket[0][sku]" value="{{ product.code }}"/>
+                <input type="hidden" name="ses_basket[0][quantity]" value="1"/>
+                <button>Add to basket</button>
+                </form>
+            </td>
+        </tr>
+    {% endfor %}
+</table>

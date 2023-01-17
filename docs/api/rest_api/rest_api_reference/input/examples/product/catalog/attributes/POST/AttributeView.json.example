@@ -1,0 +1,28 @@
+{
+    "AttributeView": {
+        "_media-type": "application/vnd.ibexa.api.AttributeView+json",
+        "identifier": "TitleView",
+        "AttributeQuery": {
+            "_media-type": "application/vnd.ibexa.api.AttributeQuery+json"
+        },
+        "Result": {
+            "_media-type": "application/vnd.ibexa.api.ViewResult+json",
+            "count": 1,
+            "AttributeList": {
+                "_media-type": "application/vnd.ibexa.api.AttributeList+json",
+                "Attribute": [
+                    {
+                        "_media-type": "application/vnd.ibexa.api.Attribute+json",
+                        "identifier": "measure",
+                        "name": "measure",
+                        "description": "",
+                        "type": "Measurement",
+                        "group": "Test Attribute group",
+                        "position": 0,
+                        "options": "{\"type\":\"length\",\"unit\":\"millimeter\",\"inputType\":0,\"sign\":\"lte\",\"measurementRange\":{\"minimum\":-2,\"maximum\":2},\"defaultValue\":0,\"measurementDefaultRange\":{\"defaultRangeMinimumValue\":4,\"defaultRangeMaximumValue\":5}}"
+                    }
+                ]
+            }
+        }
+    }
+}

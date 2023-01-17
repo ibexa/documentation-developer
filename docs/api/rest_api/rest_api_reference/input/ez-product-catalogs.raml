@@ -1,0 +1,217 @@
+post:
+    displayName: Create catalog
+    description: Creates a new catalog.
+    headers:
+        Accept:
+            description: If set, the new catalog is returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.CatalogCreate+json
+        Content-Type:
+            description: The catalog schema encoded in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.CatalogCreate+json
+    body:
+        application/vnd.ibexa.api.CatalogCreate+json:
+            type: CatalogCreate
+            example: !include examples/product/catalog/catalog/POST/CatalogCreate.json.example
+    responses:
+        201:
+            body:
+                application/vnd.ibexa.api.CatalogCreate+json:
+                    type: Catalog
+                    example: !include examples/product/catalog/catalog/identifier/GET/Catalog.json.example
+        400:
+            description: Error - the input does not match the input schema definition.
+        401:
+            description: Error - the user is not authorized to update this catalog.
+        403:
+            description: Error - a catalog with the same name already exists.
+        404:
+            description: Error - no catalog with the given code exists.
+/{identifier}:
+    delete:
+        displayName: Delete catalog
+        description: Deletes the given catalog.
+        responses:
+            204:
+                description: No content - the given catalog is deleted.
+            401:
+                description: Error - the user is not authorized to delete this catalog.
+    get:
+        displayName: Load catalog
+        description: Loads the given catalog.
+        headers:
+            Accept:
+                description: If set, the catalog is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CatalogGet+json
+            Content-Type:
+                description: The catalog schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CatalogGet+json
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.Catalog+json:
+                        type: Catalog
+                        example: !include examples/product/catalog/catalog/identifier/GET/Catalog.json.example
+            401:
+                description: Error - the user is not authorized to view this catalog.
+            404:
+                description: Error - no catalog with the given identifier exists.
+    patch:
+        displayName: Update catalog
+        description: Updates a catalog.
+        headers:
+            Accept:
+                description: If set, the updated catalog is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CatalogUpdate+json
+            Content-Type:
+                description: If set, the updated catalog is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CatalogUpdate+json
+        body:
+            application/vnd.ibexa.api.CatalogUpdate+json:
+                type: CatalogUpdate
+                example: !include examples/product/catalog/catalog/identifier/PATCH/CatalogUpdate.json.example
+        responses:
+            201:
+                body:
+                    application/vnd.ibexa.api.Catalog+json:
+                        type: CatalogUpdate
+                        example: !include examples/product/catalog/catalog/identifier/PATCH/Catalog.json.example
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to update this catalog.
+            403:
+                description: Error - a catalog with the same identifier already exists.
+            404:
+                description: Error - no catalog with the given identifier exists.
+/copy/{identifier}:
+    post:
+        displayName: Copy catalog
+        description: Copies a catalog.
+        headers:
+            Accept:
+                description: If set, the copied catalog is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CatalogCopy+json
+            Content-Type:
+                description: If set, the copied catalog is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CatalogCopy+json
+        body:
+            application/vnd.ibexa.api.CatalogCopy+json:
+                type: CatalogCopy
+                example: !include examples/product/catalog/catalog/identifier/POST/CatalogCopy.json.example
+        responses:
+            201:
+                body:
+                    application/vnd.ibexa.api.Catalog+json:
+                        type: CatalogCopy
+                        example: !include examples/product/catalog/catalog/identifier/POST/Catalog.json.example
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to copy this catalog.
+            403:
+                description: Error - a catalog with the same identifier already exists.
+            404:
+                description: Error - no catalog with the given identifier exists.
+/view:
+    post:
+        displayName: Filter catalogs
+        description: Executes a query and returns a View including the results. The View input reflects the criteria model of the public API.
+        headers:
+            Accept:
+                description: The view in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CatalogView+xml
+                    application/vnd.ibexa.api.CatalogView+json
+            Content-Type:
+                description: The view input in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CatalogViewInput+xml
+                    application/vnd.ibexa.api.CatalogViewInput+json
+        body:
+            application/vnd.ibexa.api.CatalogViewInput+json:
+                type: CatalogViewInput
+                example: !include examples/product/catalog/catalog/POST/CatalogViewInput.json.example
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.CatalogView+json;
+                        type: ProductView
+                        example: !include examples/product/catalog/catalog/POST/CatalogView.json.example
+            400:
+                description: Error - the input does not match the input schema definition.
+
+/{identifier}/products/view:
+    post:
+        displayName: Filter catalog products
+        description: Executes a query and returns a View including the results. The View input reflects the criteria model of the public API.
+        headers:
+            Accept:
+                description: The view in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.ProductView+xml
+                    application/vnd.ibexa.api.ProductView+json
+            Content-Type:
+                description: The view input in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.ProductViewInput+xml
+                    application/vnd.ibexa.api.ProductViewInput+json
+        body:
+            application/vnd.ibexa.api.ProductViewInput+json:
+                type: ProductViewInput
+                example: !include examples/product/catalog/catalog/POST/CatalogProductsViewInput.json.example
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.ProductView+json;
+                        type: ProductView
+                        example: !include examples/product/catalog/catalog/POST/CatalogProductsView.json.example
+            400:
+                description: Error - the input does not match the input schema definition.
+
+/filters:
+    get:
+        displayName: Load catalog filters
+        description: Loads product filters available for catalogs.
+        headers:
+            Accept:
+                description: If set, the filters are returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CatalogFilters+json
+            Content-Type:
+                description: The filters schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CatalogFilters+json
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.ProductFilterList+json:
+                        type: ProductFilterList
+                        example: !include examples/product/catalog/catalog/GET/ProductFilterList.json.example
+
+/sort_clauses:
+    get:
+        displayName: Load catalog sort clauses
+        description: Loads product sort clauses available for catalogs.
+        headers:
+            Accept:
+                description: If set, the clauses are returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CatalogSortClauses+json
+            Content-Type:
+                description: The clauses schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CatalogSortClauses+json
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.ProductSortClauseList+json:
+                        type: ProductSortClauseList
+                        example: !include examples/product/catalog/catalog/GET/ProductSortClauseList.json.example

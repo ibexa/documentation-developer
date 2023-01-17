@@ -1,0 +1,10 @@
+services:
+    App\Query\Aggregation\Solr\PriorityRangeAggregationVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.visitor }
+            - { name: ibexa.search.solr.query.content.aggregation.visitor }
+
+    App\Query\Aggregation\Solr\PriorityAggregationResultExtractor:
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.result.extractor }
+            - { name: ibexa.search.solr.query.content.aggregation.result.extractor }

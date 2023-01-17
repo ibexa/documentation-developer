@@ -1,0 +1,305 @@
+get:
+    displayName: List Users
+    description: Load Users either for a given remote ID or Role.
+    queryParameters:
+        roleId:
+            description: Lists Users assigned to the given Role (e.g. GET /user/users?roleId=/user/roles/1).
+        remoteId:
+            description: Retrieves the User for the given remote ID (e.g. GET /user/users?remoteId=55dd9713db75145f374bbd0b4f60ad29).
+        login:
+            description: Retrieves the User for the given login (e.g. GET /user/users?login=editor).
+        email:
+            description: Lists Users with the given email (e.g. GET /user/users?email=editor@example.com).
+    headers:
+        Accept:
+            description: UserList - If set, the User list is returned in XML or JSON format. UserRefList - If set, the link list of Users is returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.UserList+xml
+                application/vnd.ibexa.api.UserList+json
+                application/vnd.ibexa.api.UserRefList+xml
+                application/vnd.ibexa.api.UserRefList+json
+    responses:
+        200:
+            description: OK - Loads Users either for a given remote ID or Role.
+            body:
+                application/vnd.ibexa.api.UserRefList+xml:
+                    type: UserRefList
+                    example: !include examples/user/users/GET/UserRefList.xml.example
+                application/vnd.ibexa.api.UserList+json:
+                    type: UserList
+                    example: !include examples/user/users/GET/UserList.json.example
+        404:
+            description: If there are no visibile Users matching the filter.
+head:
+    displayName: Verify Users
+    description: Verifies if there are Users matching given filter.
+    queryParameters:
+        roleId:
+            description: Checks if there are Users directly assigned to the given Role (e.g. HEAD /user/users?roleId=/user/roles/1).
+        remoteId:
+            description: Checks if there is a User for the given remote ID (e.g. HEAD /user/users?remoteId=55dd9713db75145f374bbd0b4f60ad29).
+        login:
+            description: Checks if there is a User for the given login (e.g. HEAD /user/users?login=editor).
+        email:
+            description: Checks if there is a User with the given email (e.g. HEAD /user/users?email=editor@example.com).
+    responses:
+        200:
+            description: OK - verifies if there are Users matching the given filter.
+        404:
+            description: Error - there are no visibile Users matching the filter.
+/{userId}:
+    get:
+        displayName: Load User
+        description: Loads User with the given ID.
+        headers:
+            Accept:
+                description: If set, the User is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.User+xml
+                    application/vnd.ibexa.api.User+json
+            If-None-Match:
+                description: ETag
+        responses:
+            200:
+                description: OK - the User with the given ID.
+                body:
+                    application/vnd.ibexa.api.User+xml:
+                        type: UserList
+                        example: !include examples/user/users/user_id/GET/User.xml.example
+                    application/vnd.ibexa.api.User+json:
+                        type: UserList
+                        example: !include examples/user/users/user_id/GET/User.json.example
+            401:
+                description: Error - the user has no permission to read Users.
+            404:
+                description: Error - the User does not exist.
+    patch:
+        displayName: Update User
+        description: Updates a User.
+        headers:
+            Accept:
+                description: If set, the updated User is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.User+xml
+                    application/vnd.ibexa.api.User+json
+            Content-Type:
+                description: The UserUpdate schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.UserUpdate+json
+                    application/vnd.ibexa.api.UserUpdate+xml
+            If-Match:
+                description: Performs a PATCH only if the specified ETag is the current one.
+                example: ETag
+        body:
+            application/vnd.ibexa.api.UserUpdate+xml:
+                type: UserUpdate
+                example: !include examples/user/users/user_id/PATCH/UserUpdate.xml.example
+            application/vnd.ibexa.api.UserUpdate+json:
+                type: UserUpdate
+                example: !include examples/user/users/user_id/PATCH/UserUpdate.json.example
+        responses:
+            200:
+                description: OK - User updated.
+                body:
+                    application/vnd.ibexa.api.User+xml:
+                        type: User
+                        example: !include examples/user/users/user_id/PATCH/User.xml.example
+                    application/vnd.ibexa.api.User+json:
+                        type: User
+                        example: !include examples/user/users/user_id/PATCH/User.json.example
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to update the User.
+            404:
+                description: Error - the User does not exist.
+            412:
+                description: Error - the current ETag does not match with the provided one in the If-Match header.
+    delete:
+        displayName: Delete User
+        description: Deletes the given User.
+        responses:
+            204:
+                description: No Content.
+            401:
+                description: Error - the user is not authorized to delete this User.
+            403:
+                description: Error - the user is the same as the authenticated User.
+            404:
+                description: Error - the User does not exist.
+    /groups:
+        get:
+            displayName: Load Groups of User
+            description: Returns a list of User Groups the User belongs to. The returned list includes the resources for unassigning a User Group if the User is in multiple groups.
+            queryParameters:
+                offset:
+                    description: The offset of the result set.
+                    type: integer
+                limit:
+                    description: The number of Locations returned.
+                    type: integer
+            headers:
+                Accept:
+                    description: If set, the link list of User Groups is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.UserGroupRefList+xml
+                        application/vnd.ibexa.api.UserGroupRefList+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.UserGroupRefList+xml:
+                            type: UserGroupRefList
+                            example: !include examples/user/users/user_id/groups/GET/UserGroupRefList.xml.example
+                        #application/vnd.ibexa.api.UserGroupRefList+json:
+                            #type: UserGroupRefList
+                            #example: !include examples/user/users/user_id/groups/GET/UserGroupRefList.json.example
+                401:
+                    description: Error - the user has no permission to read User Groups.
+                404:
+                  description: Error - the user does not exist.
+        post:
+            displayName: Assign User Group
+            description: Assigns the User to a User Group.
+            queryParameters:
+                group:
+                    description: The new parent group resource of the User.
+            headers:
+                Accept:
+                    description: If set, the link list of User Groups is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.UserGroupRefList+xml
+                        application/vnd.ibexa.api.UserGroupRefList+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.UserGroupRefList+xml:
+                            type: UserGroupRefList
+                            example: !include examples/user/users/user_id/groups/POST/UserGroupRefList.xml.example
+                        application/vnd.ibexa.api.UserGroupRefList+json:
+                            type: UserGroupRefList
+                            example: !include examples/user/users/user_id/groups/POST/UserGroupRefList.json.example
+                401:
+                    description: Error - the user is not authorized to assign User Groups.
+                403:
+                    description: Error - the new User Group does not exist or the User is already in this group.
+                404:
+                    description: Error - the User does not exist.
+        /{groupId}:
+            delete:
+                displayName: Unassign User Group
+                description: Unassigns the User from a User Group.
+                headers:
+                    Accept:
+                        description: If set, the link list of User Groups is returned in XML or JSON format.
+                        example: |
+                            application/vnd.ibexa.api.UserGroupRefList+xml
+                            application/vnd.ibexa.api.UserGroupRefList+json
+                responses:
+                    200:
+                        body:
+                            application/vnd.ibexa.api.UserGroupRefList+xml:
+                                type: UserGroupRefList
+                                example: !include examples/user/users/user_id/groups/group_id/DELETE/UserGroupRefList.xml.example
+                    401:
+                        description: Error - the user is not authorized to unassign User Groups.
+                    403:
+                        description: Error - the User is not in the given group.
+                    404:
+                        description: Error - the User does not exist.
+    /roles:
+        get:
+            displayName: Load Roles for User
+            description: Returns a list of all Roles assigned to the given User.
+            headers:
+                Accept:
+                    description: If set, the Role assignment list is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.RoleAssignmentList+xml
+                        application/vnd.ibexa.api.RoleAssignmentList+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.RoleAssignmentList+xml:
+                            type: RoleAssignmentList
+                            example: !include examples/user/users/user_id/roles/GET/RoleAssignmentList.xml.example
+                        application/vnd.ibexa.api.RoleAssignmentList+json:
+                            type: RoleAssignmentList
+                            example: !include examples/user/users/user_id/roles/GET/RoleAssignmentList.json.example
+                400:
+                    description: Error - the user has no permission to read Roles.
+        post:
+            displayName: Assign Role to User
+            description: Assigns a Role to a user.
+            headers:
+                Accept:
+                    description: If set, the updated Role assignment list is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.RoleAssignmentList+xml
+                        application/vnd.ibexa.api.RoleAssignmentList+json
+                Content-Type:
+                    description: The RoleAssignInput schema encoded in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.RoleAssignInput+json
+                        application/vnd.ibexa.api.RoleAssignInput+xml
+            body:
+                application/vnd.ibexa.api.RoleAssignInput+xml:
+                    type: RoleAssignInput
+                    example: !include examples/user/users/user_id/roles/POST/RoleAssignInput.xml.example
+                application/vnd.ibexa.api.RoleAssignInput+json:
+                    type: RoleAssignInput
+                    example: !include examples/user/users/user_id/roles/POST/RoleAssignInput.json.example
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.RoleAssignmentList+xml:
+                            type: RoleAssignmentList
+                            example: !include examples/user/users/user_id/roles/POST/RoleAssignmentList.xml.example
+                        application/vnd.ibexa.api.RoleAssignmentList+json:
+                            type: RoleAssignmentList
+                            example: !include examples/user/users/user_id/roles/POST/RoleAssignmentList.json.example
+                400:
+                    description: Error - validation of limitation in RoleAssignInput fails.
+                401:
+                    description: Error - the user is not authorized to assign this Role.
+        /{roleId}:
+            get:
+                displayName: Load User Role Assignment
+                description: Returns a Role assignment to the given User.
+                headers:
+                    Accept:
+                        description: If set, the Role assignment list is returned in XML or JSON format.
+                        example:  |
+                            application/vnd.ibexa.api.RoleAssignment+xml
+                            application/vnd.ibexa.api.RoleAssignment+json
+                responses:
+                    200:
+                        description: OK - Role assignment to the given User Group.
+                        body:
+                            application/vnd.ibexa.api.RoleAssignment+xml:
+                                type: RoleAssignment
+                                example: !include examples/user/users/user_id/roles/role_id/GET/RoleAssignment.xml.example
+                            application/vnd.ibexa.api.RoleAssignment+json:
+                                type: RoleAssignment
+                                example: !include examples/user/users/user_id/roles/role_id/GET/RoleAssignment.json.example
+                    401:
+                        description: Error - the user has no permission to read Roles.
+            delete:
+                displayName: Unassign Role from User
+                description: The given Role is removed from the user.
+                headers:
+                    Accept:
+                        description: If set, the updated Role assignment list is returned in XML or JSON format.
+                        example:  |
+                            application/vnd.ibexa.api.RoleAssignmentList+xml
+                            application/vnd.ibexa.api.RoleAssignmentList+json
+                responses:
+                    200:
+                        body:
+                            application/vnd.ibexa.api.RoleAssignmentList+xml:
+                                type: RoleAssignmentList
+                                example: !include examples/user/users/user_id/roles/role_id/DELETE/RoleAssignmentList.xml.example
+                            application/vnd.ibexa.api.RoleAssignmentList+json:
+                                type: RoleAssignmentList
+                                example: !include examples/user/users/user_id/roles/role_id/DELETE/RoleAssignmentList.json.example
+                    401:
+                        description: Error - the user is not authorized to delete this Content Type.

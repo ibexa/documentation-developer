@@ -1,6 +1,10 @@
+---
+description: Go through a Field Type tutorial to learn how to create a custom Field Type based on the built-in Generic Field Type.
+---
+
 # Creating a Point 2D Field Type 
 
-This tutorial covers the creation and development of a custom [[= product_name =]] [Field Type](../../api/field_type_reference.md) based on a [Generic Field Type](../../api/field_type/create_custom_generic_field_type.md).
+This tutorial covers the creation and development of a custom [[= product_name =]] [Field Type](create_custom_generic_field_type.md).
 The Generic Field Type is a very powerful extension point. It enables you to easily build complex solutions on a ready-to-go Field Type template.
 
 Field Types are responsible for:
@@ -10,7 +14,7 @@ Field Types are responsible for:
 - Making the data searchable (if applicable)
 - Displaying Fields
 
-You can find more information in [Field Type documentation](../../api/field_type_api.md).
+You can find more information in [Field Type documentation](field_types.md).
 It describes how each component of a Field Type interacts with the various layers of the system, and how to implement them.
 
 ## Intended audience

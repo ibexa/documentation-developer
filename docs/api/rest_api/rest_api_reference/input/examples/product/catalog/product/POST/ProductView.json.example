@@ -1,0 +1,228 @@
+{
+    "ProductView": {
+        "_media-type": "application/vnd.ibexa.api.ProductView+json",
+        "identifier": "TitleView",
+        "ProductQuery": {
+            "_media-type": "application/vnd.ibexa.api.ProductQuery+json"
+        },
+        "Result": {
+            "_media-type": "application/vnd.ibexa.api.ViewResult+json",
+            "count": 1,
+            "ProductList": {
+                "_media-type": "application/vnd.ibexa.api.ProductList+json",
+                "Product": [
+                    {
+                        "_media-type": "application/vnd.ibexa.api.Product+json",
+                        "code": "solution",
+                        "name": "LaSportiva Solution",
+                        "ProductType": {
+                            "_media-type": "application/vnd.ibexa.api.ProductType+json",
+                            "identifier": "climbing_shoe",
+                            "name": "New Product Type",
+                            "AttributeAssignmentList": [
+                                {
+                                    "_media-type": "application/vnd.ibexa.api.AttributeAssignment+json",
+                                    "is_required": false,
+                                    "is_discriminator": false,
+                                    "Attribute": {
+                                        "_media-type": "application/vnd.ibexa.api.Attribute+json",
+                                        "identifier": "measure",
+                                        "name": "measure",
+                                        "description": "",
+                                        "type": "Measurement",
+                                        "group": "Test Attribute group",
+                                        "position": 0,
+                                        "options": "{\"type\":\"length\",\"unit\":\"millimeter\",\"inputType\":0,\"sign\":\"lte\",\"measurementRange\":{\"minimum\":-2,\"maximum\":2},\"defaultValue\":0,\"measurementDefaultRange\":{\"defaultRangeMinimumValue\":4,\"defaultRangeMaximumValue\":5}}"
+                                    }
+                                },
+                                {
+                                    "_media-type": "application/vnd.ibexa.api.AttributeAssignment+json",
+                                    "is_required": false,
+                                    "is_discriminator": false,
+                                    "Attribute": {
+                                        "_media-type": "application/vnd.ibexa.api.Attribute+json",
+                                        "identifier": "leather_color",
+                                        "name": "leather color",
+                                        "description": "",
+                                        "type": "Color",
+                                        "group": "Test Attribute group",
+                                        "position": 0,
+                                        "options": "[]"
+                                    }
+                                }
+                            ]
+                        },
+                        "Content": {
+                            "_media-type": "application/vnd.ibexa.api.Content+json",
+                            "_href": "/api/ibexa/v2/content/objects/141",
+                            "_remoteId": "86fdab24802923a9c30994858165ba9b",
+                            "_id": 141,
+                            "ContentType": {
+                                "_media-type": "application/vnd.ibexa.api.ContentType+json",
+                                "_href": "/api/ibexa/v2/content/types/54"
+                            },
+                            "Name": "LaSportiva Solution",
+                            "TranslatedName": "LaSportiva Solution",
+                            "Versions": {
+                                "_media-type": "application/vnd.ibexa.api.VersionList+json",
+                                "_href": "/api/ibexa/v2/content/objects/141/versions"
+                            },
+                            "CurrentVersion": {
+                                "_media-type": "application/vnd.ibexa.api.Version+json",
+                                "_href": "/api/ibexa/v2/content/objects/141/currentversion",
+                                "Version": {
+                                    "_media-type": "application/vnd.ibexa.api.Version+json",
+                                    "_href": "/api/ibexa/v2/content/objects/141/versions/2",
+                                    "VersionInfo": {
+                                        "id": 618,
+                                        "versionNo": 2,
+                                        "status": "PUBLISHED",
+                                        "modificationDate": "2022-05-27T09:29:33+00:00",
+                                        "Creator": {
+                                            "_media-type": "application/vnd.ibexa.api.User+json",
+                                            "_href": "/api/ibexa/v2/user/users/14"
+                                        },
+                                        "creationDate": "2022-05-27T09:29:33+00:00",
+                                        "initialLanguageCode": "eng-GB",
+                                        "languageCodes": "eng-GB",
+                                        "VersionTranslationInfo": {
+                                            "_media-type": "application/vnd.ibexa.api.VersionTranslationInfo+json",
+                                            "Language": [
+                                                {
+                                                    "languageCode": "eng-GB"
+                                                }
+                                            ]
+                                        },
+                                        "names": {
+                                            "value": [
+                                                {
+                                                    "_languageCode": "eng-GB",
+                                                    "#text": "LaSportiva Solution"
+                                                }
+                                            ]
+                                        },
+                                        "Content": {
+                                            "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+                                            "_href": "/api/ibexa/v2/content/objects/141"
+                                        }
+                                    },
+                                    "Fields": {
+                                        "field": [
+                                            {
+                                                "id": 612,
+                                                "fieldDefinitionIdentifier": "name",
+                                                "languageCode": "eng-GB",
+                                                "fieldTypeIdentifier": "ezstring",
+                                                "fieldValue": "LaSportiva Solution"
+                                            },
+                                            {
+                                                "id": 613,
+                                                "fieldDefinitionIdentifier": "product_specification",
+                                                "languageCode": "eng-GB",
+                                                "fieldTypeIdentifier": "ibexa_product_specification",
+                                                "fieldValue": {
+                                                    "id": 25,
+                                                    "code": "solution",
+                                                    "attributes": [
+                                                        10
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "id": 614,
+                                                "fieldDefinitionIdentifier": "description",
+                                                "languageCode": "eng-GB",
+                                                "fieldTypeIdentifier": "ezrichtext",
+                                                "fieldValue": {
+                                                    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n",
+                                                    "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ibexa.co/namespaces/ezpublish5/xhtml5/edit\"/>\n"
+                                                }
+                                            },
+                                            {
+                                                "id": 615,
+                                                "fieldDefinitionIdentifier": "image",
+                                                "languageCode": "eng-GB",
+                                                "fieldTypeIdentifier": "ezimageasset",
+                                                "fieldValue": {
+                                                    "destinationContentId": null,
+                                                    "alternativeText": null,
+                                                    "source": null
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "Relations": {
+                                        "_media-type": "application/vnd.ibexa.api.RelationList+json",
+                                        "_href": "/api/ibexa/v2/content/objects/141/versions/2/relations",
+                                        "Relation": []
+                                    },
+                                    "Thumbnail": {
+                                        "_media-type": "application/vnd.ibexa.api.Thumbnail+json",
+                                        "resource": "/bundles/ibexaadminui/img/ibexa-icons.svg#file",
+                                        "width": null,
+                                        "height": null,
+                                        "mimeType": "image/svg+xml"
+                                    }
+                                }
+                            },
+                            "Section": {
+                                "_media-type": "application/vnd.ibexa.api.Section+json",
+                                "_href": "/api/ibexa/v2/content/sections/1"
+                            },
+                            "Locations": {
+                                "_media-type": "application/vnd.ibexa.api.LocationList+json",
+                                "_href": "/api/ibexa/v2/content/objects/141/locations"
+                            },
+                            "Owner": {
+                                "_media-type": "application/vnd.ibexa.api.User+json",
+                                "_href": "/api/ibexa/v2/user/users/14"
+                            },
+                            "lastModificationDate": "2022-05-27T09:29:33+00:00",
+                            "publishedDate": "2022-05-27T06:51:36+00:00",
+                            "mainLanguageCode": "eng-GB",
+                            "currentVersionNo": 2,
+                            "alwaysAvailable": true,
+                            "isHidden": false,
+                            "status": "PUBLISHED",
+                            "ObjectStates": {
+                                "_media-type": "application/vnd.ibexa.api.ContentObjectStates+json",
+                                "_href": "/api/ibexa/v2/content/objects/141/objectstates"
+                            }
+                        },
+                        "Thumbnail": {
+                            "_media-type": "application/vnd.ibexa.api.Thumbnail+json",
+                            "resource": "/bundles/ibexaadminui/img/ibexa-icons.svg#file",
+                            "width": null,
+                            "height": null,
+                            "mimeType": "image/svg+xml"
+                        },
+                        "created_at": 1649841034,
+                        "updated_at": 1649841034,
+                        "AttributesList": [
+                            {
+                                "_media-type": "application/vnd.ibexa.api.Attribute+json",
+                                "identifier": "measure",
+                                "name": "measure",
+                                "description": "",
+                                "type": "Measurement",
+                                "group": "Test Attribute group",
+                                "position": 0,
+                                "options": "{\"type\":\"length\",\"unit\":\"millimeter\",\"inputType\":0,\"sign\":\"lte\",\"measurementRange\":{\"minimum\":-2,\"maximum\":2},\"defaultValue\":0,\"measurementDefaultRange\":{\"defaultRangeMinimumValue\":4,\"defaultRangeMaximumValue\":5}}"
+                            },
+                            {
+                                "_media-type": "application/vnd.ibexa.api.Attribute+json",
+                                "identifier": "leather_color",
+                                "name": "leather color",
+                                "description": "",
+                                "type": "Color",
+                                "group": "Test Attribute group",
+                                "position": 0,
+                                "options": "[]"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

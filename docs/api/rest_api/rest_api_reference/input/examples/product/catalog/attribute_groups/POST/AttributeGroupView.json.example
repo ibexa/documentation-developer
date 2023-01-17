@@ -1,0 +1,24 @@
+{
+    "AttributeGroupView": {
+        "_media-type": "application/vnd.ibexa.api.AttributeGroupView+json",
+        "identifier": "TitleView",
+        "AttributeGroupQuery": {
+            "_media-type": "application/vnd.ibexa.api.AttributeGroupQuery+json"
+        },
+        "Result": {
+            "_media-type": "application/vnd.ibexa.api.ViewResult+json",
+            "count": 1,
+            "AttributeGroupList": {
+                "_media-type": "application/vnd.ibexa.api.AttributeGroupList+json",
+                "AttributeGroup": [
+                    {
+                        "_media-type": "application/vnd.ibexa.api.AttributeGroup+json",
+                        "name": "Test Attribute group",
+                        "identifier": "test_attribute_group",
+                        "position": 0
+                    }
+                ]
+            }
+        }
+    }
+}

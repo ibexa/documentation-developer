@@ -1,3 +1,7 @@
+---
+description: Install and configure Ibexa DXP to run in cloud using Ibexa Cloud.
+---
+
 # Install on Ibexa Cloud
 
 Ibexa Cloud enables you to host your application in the cloud by using the [Platform.sh](https://platform.sh/) service.
@@ -66,7 +70,7 @@ You can set this token as an environment variable.
 When you do, make sure the **Visible during runtime** box in Platform.sh configuration is unchecked.
 This ensures that the token is not exposed.
 
-![Setting token to be invisible during runtime](img/psh_addvariable.png)
+![Setting token to be invisible during runtime](psh_addvariable.png)
 
 ## 4. Push the project
 

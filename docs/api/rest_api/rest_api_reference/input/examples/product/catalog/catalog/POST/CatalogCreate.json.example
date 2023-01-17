@@ -1,0 +1,30 @@
+{
+    "CatalogCreate": {
+        "identifier": "test_catalog",
+        "criteria": {
+            "ProductCodeCriterion": ["ski", "snowboard"],
+            "ProductAvailabilityCriterion": true,
+            "ColorAttributeCriterion": {
+                "identifier": "color",
+                "value": ["#000000", "#FFFFFF"]
+            },
+            "CreatedAtCriterion": {
+                "operator": ">=",
+                "created_at": "12-09-2022"
+            },
+            "FloatAttributeCriterion": {
+                "identifier": "width",
+                "value": 16.6
+            },
+            "IntegerAttributeRangeCriterion": {
+                "identifier": "length",
+                "min": 180,
+                "max": 230
+            }
+        },
+        "names": {
+            "eng-GB": "Snow Equipment"
+        },
+        "status": "draft"
+    }
+}

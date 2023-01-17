@@ -1,0 +1,23 @@
+post:
+    displayName: Create View
+    description: Executes a query and returns View including the results. The View input reflects the criteria model of the public API. Will respond with a 301, as the resource has been moved to /views (Platform 1.0) - DEPRECATED.
+    headers:
+        Accept:
+            description: The View in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.View+xml
+                application/vnd.ibexa.api.View+json
+                application/vnd.ibexa.api.View+xml; version=1.1
+                application/vnd.ibexa.api.View+json; version=1.1
+        Content-Type:
+            description: The View input in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.ViewInput+xml
+                application/vnd.ibexa.api.ViewInput+json
+                application/vnd.ibexa.api.ViewInput+xml; version=1.1
+                application/vnd.ibexa.api.ViewInput+json; version=1.1
+    responses:
+        301:
+            description: Moved permanently.
+        400:
+            description: Error - the input does not match the input schema definition.

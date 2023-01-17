@@ -18,14 +18,11 @@ class SvgController extends Controller
 {
     private const CONTENT_TYPE_HEADER = 'image/svg+xml';
 
-    /** @var \Ibexa\Contracts\Core\Repository\ContentService */
-    private $contentService;
+    private ContentService $contentService;
 
-    /** @var \Ibexa\Core\IO\IOServiceInterface */
-    private $ioService;
+    private IOServiceInterface $ioService;
 
-    /** @var \Ibexa\Core\Helper\TranslationHelper */
-    private $translationHelper;
+    private TranslationHelper $translationHelper;
 
     public function __construct(
         ContentService $contentService,

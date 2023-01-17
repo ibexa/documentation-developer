@@ -1,0 +1,135 @@
+post:
+    displayName: Create currency
+    description: Creates a new currency.
+    headers:
+        Accept:
+            description: If set, the new currency is returned in JSON format.
+            example:  |
+                application/vnd.ibexa.api.CurrencyCreate+json
+        Content-Type:
+            description: The Currency schema encoded in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.CurrencyCreate+json
+    body:
+        application/vnd.ibexa.api.CurrencyCreate+json:
+            type: CurrencyCreate
+            example: !include examples/product/catalog/currency/POST/CurrencyCreate.json.example
+    responses:
+        200:
+            body:
+                application/vnd.ibexa.api.Currency+json:
+                    type: CurrencyCreate
+                    example: !include examples/product/catalog/currency/POST/Currency.json.example
+        400:
+            description: Error - the input does not match the input schema definition.
+        401:
+            description: Error - the user is not authorized to create this currency.
+        406:
+            description: Error - a currency with this code already exists.
+get:
+    displayName: Load currencies
+    description: Loads the list of currencies.
+    headers:
+        Accept:
+            description: CurrencyList - If set, the currency list returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.CurrencyList+json
+        Content-Type:
+            description: The CurrencyList schema encoded in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.CurrencyList+json
+    responses:
+        200:
+            description: OK - loads currencies.
+            body:
+                application/vnd.ibexa.api.CurrencyList+json:
+                    type: CurrencyList
+                    example: !include examples/product/catalog/currency/GET/CurrencyList.json.example
+        401:
+            description: Error - the user has no permission to read currencies.
+/{id}:
+    get:
+        displayName: Load currency
+        description: Loads a currency.
+        headers:
+            Accept:
+                description: Currency - If set, the currency returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.Currency+json
+        responses:
+            200:
+                description: OK - loads the currency.
+                body:
+                    application/vnd.ibexa.api.Currency+json:
+                        type: Currency
+                        example: !include examples/product/catalog/currency/currency_id/GET/Currency.json.example
+            401:
+                description: Error - the user has no permission to read currencies.
+            404:
+                description: Error - the currency does not exist.
+    patch:
+        displayName: Update currency
+        description: Updates a currency.
+        body:
+            application/vnd.ibexa.api.CurrencyUpdate+json:
+                type: CurrencyUpdate
+                example: !include examples/product/catalog/currency/currency_id/PATCH/CurrencyUpdate.json.example
+        headers:
+            Accept:
+                description: If set, the updated currency is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CurrencyUpdate+json
+            Content-Type:
+                description: The CurrencyUpdate schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CurrencyUpdate+json
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.Currency+json:
+                        type: CurrencyUpdate
+                        example: !include examples/product/catalog/currency/currency_id/PATCH/Currency.json.example
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to create this User.
+            403:
+                description: Error - a currency with the same ID already exists.
+            404:
+                description: Error - the currency with the given ID does not exist.
+    delete:
+        displayName: Delete currency
+        description: Deletes the given currency.
+        responses:
+            200:
+                description: No content - the given currency is deleted.
+            401:
+                description: Error - the user is not authorized to delete this currency.
+
+/view:
+    post:
+        displayName: Filter currencies
+        description: Executes a query and returns a View including the results. The View input reflects the criteria model of the public API.
+        headers:
+            Accept:
+                description: The view in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CurrencyView+xml
+                    application/vnd.ibexa.api.CurrencyView+json
+            Content-Type:
+                description: The view input in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.CurrencyViewInput+xml
+                    application/vnd.ibexa.api.CurrencyViewInput+json
+        body:
+            application/vnd.ibexa.api.CurrencyViewInput+json:
+                type: CurrencyViewInput
+                example: !include examples/product/catalog/currency/POST/CurrencyViewInput.json.example
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.CurrencyView+json;
+                        type: CurrencyView
+                        example: !include examples/product/catalog/currency/POST/CurrencyView.json.example
+            400:
+                description: Error - the input does not match the input schema definition.

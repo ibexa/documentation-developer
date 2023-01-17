@@ -45,7 +45,7 @@ h5.tile-title {
     padding-left: 0;
 }
 
-.tile-body ul li {
+.md-typeset .tile-body ul li {
     list-style-type: none;
     background: url(../images/page.svg) no-repeat left top;
     background-size: 15px 18px;
@@ -53,7 +53,7 @@ h5.tile-title {
     margin-left: 0.25rem;
 }
 
-.tile-body ol, .tile-body ul {
+.md-typeset .tile-body ol, .md-typeset .tile-body ul {
     margin-left: 0;
 }
 
@@ -66,12 +66,13 @@ h5.tile-title {
     margin-bottom: 1rem;
 }
 
-.most-popular ul {
+.md-typeset .most-popular ul {
     list-style-position: inside;
+    padding-left: 0;
     margin-left: 0px;
 }
 
-.most-popular ul li {
+.md-typeset .most-popular ul li {
     border-bottom: 1px solid #D8D8D8;
     margin-left: 0px;
     padding-left: 0.5rem;
