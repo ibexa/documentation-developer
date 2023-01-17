@@ -37,6 +37,16 @@ To do it, first, create a new Content Type with `content_category` identifier an
 Next, in `config/packages/ibexa_taxonomy.yaml` add the following configuration:
 
 ``` yaml
+[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 1,16 )=]]
+```
+
+### Hide Content tab
+
+For objects which are taxonomy objects, for example, tags and categories, you can hide the **Content** tab in the **Categories** view.
+
+In the `config/packages/ibexa_taxonomy.yaml` add `assigned_content_tab` with the flag `false`:
+
+``` yaml
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml')=]]
 ```
 

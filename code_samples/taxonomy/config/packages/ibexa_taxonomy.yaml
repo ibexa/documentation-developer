@@ -14,3 +14,4 @@ ibexa_taxonomy:
                 identifier: category_identifier
                 parent: parent_category
                 name: name_field
+            assigned_content_tab: false
