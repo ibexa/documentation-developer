@@ -16,6 +16,12 @@ description: Ibexa DXP v4.4 adds the improvements to the Customer Portal, PIM an
 
 ## Other changes
 
+### Dedicated migration type for companies
+
+To simplify data migration, you can now create a company with underling objects such as members group and address book.
+You can also extract those objects as references. 
+For more information on data migration actions, see [documentation](data_migration_actions.md).
+
 ### API improvements
 
 ## Full changelog
