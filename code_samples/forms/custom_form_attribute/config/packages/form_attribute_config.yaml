@@ -3,7 +3,7 @@ ibexa_form_builder:
         checkbox_with_richtext_description:
             name: Checkbox with Text
             category: Default
-            thumbnail: '/bundles/ezplatformadminui/img/ez-icons.svg#input-line'
+            thumbnail: '/bundles/ibexaadminui/img/icons.svg#input-line'
             attributes:
                 label:
                     name: Label

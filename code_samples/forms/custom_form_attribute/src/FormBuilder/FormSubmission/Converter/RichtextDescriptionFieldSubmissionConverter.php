@@ -1,9 +1,10 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace App\FormBuilder\FormSubmission\Converter;
 
-use EzSystems\EzPlatformFormBuilder\FormSubmission\Converter\BooleanFieldSubmissionConverter;
+use Ibexa\FormBuilder\FormSubmission\Converter\BooleanFieldSubmissionConverter;
 
 class RichtextDescriptionFieldSubmissionConverter extends BooleanFieldSubmissionConverter
 {
+
 }

@@ -2,7 +2,7 @@
 
 namespace App\FormBuilder\Form\Type\FieldAttribute;
 
-use EzSystems\EzPlatformRichText\Form\Type\RichTextType;
+use Ibexa\RichText\Form\Type\RichTextType;
 use Symfony\Component\Form\AbstractType;
 
 class AttributeRichtextDescriptionType extends AbstractType

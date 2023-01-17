@@ -1,9 +1,9 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace App\FormBuilder\FieldType\Field\Mapper;
 
-use EzSystems\EzPlatformFormBuilder\FieldType\Field\Mapper\GenericFieldMapper;
-use EzSystems\EzPlatformFormBuilder\FieldType\Model\Field;
+use Ibexa\FormBuilder\FieldType\Field\Mapper\GenericFieldMapper;
+use Ibexa\FormBuilder\FieldType\Model\Field;
 
 class CheckboxWithRichtextDescriptionFieldMapper extends GenericFieldMapper
 {

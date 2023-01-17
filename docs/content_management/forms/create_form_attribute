@@ -44,7 +44,7 @@ The template files for the front end should look as follows:
 - `templates/bundles/IbexaFormBuilderBundle/fields/config/form_fields.html.twig`:
 
 ``` html+twig
-[[= include_file('code_samples/templates/bundles/EzPlatformFormBuilderBundle/fields/config/form_fields.html.twig') =]]
+[[= include_file('code_samples/templates/bundles/IbexaFormBuilderBundle/fields/config/form_fields.html.twig') =]]
 ```
 
 - `templates/formtheme/formbuilder_checkbox_with_richtext_description.html.twig`:
@@ -58,7 +58,7 @@ The template files for the front end should look as follows:
 Now you need to enable the RichText editor. Provide the required script in a new `src/public/js/formbuilder-richtext-checkbox.js` file:
 
 ``` js
-[[= include_file('code_samples/forms/custom_form_attribute/src/Resources/public/js/formbuilder-richtext-checkbox.js') =]]
+[[= include_file('code_samples/forms/custom_form_attribute/src/public/js/formbuilder-richtext-checkbox.js') =]]
 ```
 
 Then, paste the highlighted part of the code into the `webpack.config.js` file:
