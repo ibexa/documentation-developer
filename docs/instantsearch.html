@@ -121,13 +121,13 @@
       },
     }),
 
-      instantsearch.widgets.refinementList({
-          container: document.querySelector('#version'),
-          attribute: 'version',
-          sortBy: ['name:desc'],
-      }),
+    instantsearch.widgets.refinementList({
+      container: document.querySelector('#version'),
+      attribute: 'version',
+      sortBy: ['name:desc'],
+    }),
 
-      instantsearch.widgets.pagination({
+    instantsearch.widgets.pagination({
       container: '#pagination',
     }),
   ]);
