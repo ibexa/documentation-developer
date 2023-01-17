@@ -69,15 +69,28 @@ It will use a database to manipulate metadata, making up for the potential incon
 You need to configure both metadata and binarydata handlers.
 
 [[= product_name =]] ships with a custom local adapter (`ibexa.io.nfs.adapter.site_access_aware`), 
-which decorates the Flysystem local adapter to enable support for SiteAccess-aware settings.
+which decorates the Flysystem v2 local adapter to enable support for SiteAccess-aware settings.
 If an NFS path relies on SiteAccess-aware dynamic parameters, you must use the custom local adapter 
-instead of the Flysystem local adapter.
+instead of the Flysystem v2 local adapter.
 Configure the custom local adapter to read/write to the NFS mount point on each local server.
 As metadata handler, create a DFS one, configured with a Doctrine connection.
 
 !!! tip
 
     The default database install will now include the dfs table *in the same database*
+
+First, define DFS folder path as a variable in `.env` file:
+
+`DFS_NFS_PATH=/tmp/ibx_1439_nfs`
+
+Next, if you are using a separate DFS database, configure it via the `DATABASE_URL` variable in the `.env` file.
+Depending on which database you are using:
+
+`DFS_DATABASE_URL=mysql://root:rootpassword@127.0.0.1:3306/ibexa_dfs?serverVersion=8.0`
+
+or
+
+`DATABASE_URL=postgresql://root:rootpassword@127.0.0.1:3306/ibexa_dfs?serverVersion=8.0`
 
 For production, it is recommended to create the DFS table in its own database,
 manually importing its schema definition:
@@ -134,6 +147,9 @@ This example uses Doctrine connection named `dfs`:
 
 ``` yaml
 parameters:
+    env(DFS_DATABASE_URL): '%env(resolve:DATABASE_URL)%'
+    dfs_nfs_path: '%env(resolve:DFS_NFS_PATH)%'
+    dfs_database_url: '%env(resolve:DFS_DATABASE_URL)%'
     ibexa.io.nfs.adapter.config:
         root: '%dfs_nfs_path%'
         path: '$var_dir$/$storage_dir$/'
@@ -146,13 +162,13 @@ doctrine:
     dbal:
         connections:
             dfs:
-                # configure these settings to match your database server
-                driver: pdo_mysql
-                charset: utf8mb4
+                # configure these for your database server
+                driver: '%dfs_database_driver%'
+                charset: '%dfs_database_charset%'
                 default_table_options:
-                    charset: utf8mb4
-                    collate: utf8mb4_unicode_520_ci
-                url: mysql://root:rootpassword@127.0.0.1:3306/ezdfs
+                    charset: '%dfs_database_charset%'
+                    collate: '%dfs_database_collation%'
+                url: '%dfs_database_url%'
 
 # define the Flysystem handler
 oneup_flysystem:
@@ -184,7 +200,7 @@ ibexa:
 
 !!! tip
 
-    If you are looking to [set up S3](clustering_with_aws_s3.md) or other [Flysystem](https://flysystem.thephpleague.com/)/third-party adapters like Google Cloud Storage, this needs to be configured as binary handler. The rest here will still stay the same, the DFS metadata handler will take care of caching the lookups to avoid slow IO lookups.
+    If you are looking to [set up S3](clustering_with_aws_s3.md) or other [Flysystem v2](https://flysystem.thephpleague.com/)/third-party adapters like Google Cloud Storage, this needs to be configured as binary handler. The rest here will still stay the same, the DFS metadata handler will take care of caching the lookups to avoid slow IO lookups.
 
 #### Customizing the storage directory
 
