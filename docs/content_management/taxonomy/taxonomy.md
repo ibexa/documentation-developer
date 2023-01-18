@@ -37,7 +37,7 @@ To do it, first, create a new Content Type with `content_category` identifier an
 Next, in `config/packages/ibexa_taxonomy.yaml` add the following configuration:
 
 ``` yaml
-[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0,16 )=]]
+[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml')=]]
 ```
 
 ### Hide Content tab
@@ -48,7 +48,7 @@ You can hide the **Content** tab in the **Categories** view.
 In the `config/packages/ibexa_taxonomy.yaml` add `assigned_content_tab` with the flag `false` (for other taxonomies this flag is by default set to `true`):
 
 ``` yaml
-[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0,2 )=]][[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 10,17 )=]]
+[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0,2 )=]][[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 9,17 )=]]
 ```
 
 For more information about available functionalities of tags, see [User Documentation]([[= user_doc =]]/taxonomy).
