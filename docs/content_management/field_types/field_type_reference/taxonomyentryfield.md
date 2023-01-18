@@ -1,17 +1,17 @@
 # TaxonomyEntry Field Type
 
-TaxonomyEntry is a general purpose Field Type that can store only one taxonomy entry (tag or product type). 
+TaxonomyEntry is a general purpose Field Type that can store only one taxonomy entry (for example, tag or product category). 
 It is used as a parent while creating a tag or category.
 
 | Name           | Internal name         | Expected input |
 |----------------|-----------------------|----------------|
-| `TaxonomyEntry`| `ibexa_taxonomy_entry`| `TaxonomyEntry`|
+| `TaxonomyEntry`| `ibexa_taxonomy_entry`| `array`|
 
 ## PHP API Field Type 
 
 ### Input expectations
 
-Field type `TaxonomyEntry` accepts Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry object.
+Field type `TaxonomyEntry` accepts an array with Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry object.
 
 | Type            | Example         |
 |-----------------|-----------------|
@@ -22,16 +22,7 @@ Example array:
 ``` php
 new FieldType\TaxonomyEntry\Value(
 	new TaxonomyEntry(
-            1,
-            'foobar',
-            'Foobar',
-            'eng-GB',
-            [
-                'eng-GB' => 'Foobar',
-            ],
-            null,
-            new Content(),
-            'tags',
+            ...
         )
 );
 ```
@@ -42,7 +33,7 @@ new FieldType\TaxonomyEntry\Value(
 
 |Property|Type|Description|
 |--------|----|-----------|
-|`$taxonomyEntry`|`null`|Stores selected taxonomy entry.|
+|`$taxonomyEntry`|`Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry|null`|Stores selected taxonomy entry.|
 
 #### Constructor
 
@@ -50,14 +41,17 @@ Constructor accepts `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object.
 
 ``` php
 // Constructor example
-use Ibexa\Core\FieldType\Checkbox\Type;
+use Ibexa\Taxonomy\FieldType\TaxonomyEntry;
+
+// Fetches TaxonomyEntry from TaxonomyService
+$taxonomyEntry = $this->taxonomyService->loadEntryByIdentifier('example_entry', 'tags');
  
 // Instantiates a checkbox value with a checked state
-$checkboxValue = new Checkbox\Value( true );
+$taxonomyEntryFieldTypeValue = new TaxonomyEntry\Value($taxonomyEntry);
 ```
 #### String representation
 
-An ISBN's string representation is the `$taxonomyEntry` property's value, as a string.
+`$taxonomyEntry` string identifier or empty string if no Taxonomy Entry is selected.
 
 #### Hash format
 
@@ -77,4 +71,4 @@ The Field definition of this Field Type can be configured with the following opt
 
 #### Template rendering
 
-The Measurement field is rendered with the [`ibexa_render_field()`](field_twig_functions.md#ibexa_render_field) Twig function.
+The `TaxonomyEntry field` is rendered with the [`ibexa_render_field()`](field_twig_functions.md#ibexa_render_field) Twig function.
