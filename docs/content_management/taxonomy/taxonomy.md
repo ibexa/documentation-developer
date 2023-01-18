@@ -42,7 +42,8 @@ Next, in `config/packages/ibexa_taxonomy.yaml` add the following configuration:
 
 ### Hide Content tab
 
-For objects which are taxonomy objects, for example, tags and categories, you can hide the **Content** tab in the **Categories** view.
+The **Content** tab in taxonomy objects, for example, tags and categories, lists all Content assigned to the current category. 
+You can hide the **Content** tab in the **Categories** view.
 
 In the `config/packages/ibexa_taxonomy.yaml` add `assigned_content_tab` with the flag `false`:
 
