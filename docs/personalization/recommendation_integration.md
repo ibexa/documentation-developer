@@ -8,7 +8,16 @@ There are several ways to integrate the REST calls with the Personalization serv
 and to avoid blocking webpage rendering, if the communication with the Recommender 
 is distrusted or interrupted.
 
-## Easy way
+## Use page blocks
+
+[[= product_name =]] ships with a number of page blocks that editors can place on
+landing pages and configure to present scenario results.
+To work, these blocks require that Personalization and scenarios are properly 
+configured.
+For a list of all page blocks that are available out-of-the-box, 
+see [Page block reference]([[= user_doc =]]/content_management/block_reference/).
+
+## Request recommendations synchronously
 
 The simplest way to load recommendations is to synchronously request the Personalization 
 server for recommendations as they are needed. This way is sufficient in most cases. 
@@ -28,7 +37,7 @@ Then the JavaScript code with the recommendation information loaded at the botto
 of the page must fill the gaps on the page with recommendations as soon as 
 it is completely loaded.
 
-## Non-blocking loading in the background
+## Non-blocking load in the background
 
 If the website is implemented in a language that supports multithreading or 
 non-blocking I/O, the recommendation request can start right after the browser 
@@ -37,14 +46,14 @@ The page generation and the recommendation requests are accomplished in parallel
 By combining this idea with the previous solution and placing the recommendation 
 results at the bottom of the page you can avoid any interruption in the processing.
 
-## Loading from JavaScript using JSONP
+## Load from JavaScript using JSONP
 
 You cannot request the recommendation controller server directly from the JavaScript 
 (over AJAX library or directly over XMLHttpRequest) because of the cross-domain 
 restriction in most browsers. 
 One of the possible ways to work around this limitation is JSONP.
 
-## Loading over proxy
+## Load over proxy
 
 A better solution than JSONP is to provide the proxy on the server side, which 
 forwards script requests to the Personalization service. 
@@ -62,7 +71,7 @@ the Apache proxy module, an independent daemon like “netcat” or a PHP script
 
 An overview of pros and cons for each of the presented techniques:
 
-|Feature|Easy way|Bottom loading|Background loading|JSONP|XMLHttpRequest + Proxy|
+|Feature|Synchronous loading|Bottom loading|Background loading|JSONP|XMLHttpRequest + Proxy|
 |---|---|---|---|---|---|
 |Isn't blocked by ad blockers or no-track plug-ins|&#10004;|&#10004;|&#10004;|-|&#10004;|
 |Works if JavaScript is disabled|Yes|depends|-|-|-|	 	 
