@@ -12,14 +12,16 @@ class ReferenceTester
 
     public const DEFAULT_FILE_LIST = [
         'vendor/ibexa/rest/src/bundle/Resources/config/routing.yml',
-        'vendor/ibexa/commerce-rest/src/bundle/Resources/config/routing.yaml',
+        //'vendor/ibexa/commerce-rest/src/bundle/Resources/config/routing.yaml', // Removed as of 4.4
         // `find $dxpRoot/vendor/ibexa -name "routing_rest.y*ml"`
         //'vendor/ibexa/admin-ui/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/calendar/src/bundle/Resources/config/routing_rest.yaml',
+        'vendor/ibexa/cart/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/connector-dam/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/personalization/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/product-catalog/src/bundle/Resources/config/routing_rest.yaml',
-        //'vendor/ibexa/scheduler/src/bundle/Resources/config/routing_rest.yaml', // prefixed /api/datebasedpublisher/v1
+        'vendor/ibexa/scheduler/src/bundle/Resources/config/routing_rest.yaml', // prefixed /api/datebasedpublisher/v1
+        'vendor/ibexa/segmentation/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/taxonomy/src/bundle/Resources/config/routing_rest.yaml',
     ];
 
