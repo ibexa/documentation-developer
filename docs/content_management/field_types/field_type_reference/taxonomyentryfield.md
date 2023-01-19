@@ -1,6 +1,6 @@
 # TaxonomyEntry Field Type
 
-TaxonomyEntry is a general purpose Field Type that can store only one taxonomy entry (for example, tag or product category). 
+`TaxonomyEntry` is a general purpose Field Type that can store only one taxonomy entry (for example, tag or product category). 
 It is used as a parent while creating a tag or category.
 
 | Name           | Internal name         | Expected input |
@@ -13,18 +13,24 @@ It is used as a parent while creating a tag or category.
 
 Field type `TaxonomyEntry` accepts an array with Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry object.
 
-| Type            | Example         |
-|-----------------|-----------------|
-| `TaxonomyEntry` | See below. |
+| Type     | Description | Example         |
+|--------|-----------------|-----------------|
+| `array` | array with `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object under `taxonomy_entry` key | see below |
 
-Example array:
-
+Example using `Ibexa\Taxonomy\FieldType\TaxonomyEntry\Value` object:
 ``` php
-new FieldType\TaxonomyEntry\Value(
-	new TaxonomyEntry(
-            ...
+$taxonomyEntry = $this->taxonomyService->loadEntryByIdentifier('example_entry', 'tags');
+new \Ibexa\Taxonomy\FieldType\TaxonomyEntry\Value(
+    new \Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry(
+            $taxonomyEntry
         )
 );
+```
+Example using array:
+``` php
+[
+    'taxonomy_entry' => $taxonomyEntry, // load Entry using TaxonomyService
+]
 ```
 
 ### Value object
@@ -55,7 +61,7 @@ $taxonomyEntryFieldTypeValue = new TaxonomyEntry\Value($taxonomyEntry);
 
 #### Hash format
 
-An array with `taxonomy_entry` key containing Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry object or null.
+An array with `taxonomy_entry` key containing `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object or `null`.
 
 #### Validation
 

@@ -10,10 +10,31 @@
 
 ### Input expectations
 
-| Type | Description |
-|------|-------------|
-|`taxonomyEntries`| `\Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` objects|
-|`taxonomy`|`string`|
+| Type     | Description | Example         |
+|--------|-----------------|-----------------|
+| `array` | array with `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` objects under `taxonomy_entries` key and Taxonomy identifier under `taxonomy` key | see below |
+
+Example using `Ibexa\Taxonomy\FieldType\TaxonomyEntryAssignment\Value` object:
+``` php
+$taxonomyEntry1 = $this->taxonomyService->loadEntryByIdentifier('example_entry', 'tags');
+$taxonomyEntry2 = $this->taxonomyService->loadEntryByIdentifier('example_entry_2', 'tags');
+new \Ibexa\Taxonomy\FieldType\TaxonomyEntryAssignment\Value(
+    [
+        $taxonomyEntry1,
+        $taxonomyEntry2,
+        // ...
+    ],
+    'tags', 
+);
+```
+
+Example using array:
+``` php
+[
+    'taxonomy_entries' => [$taxonomyEntry, $taxonomyEntry2], // load entries using TaxonomyService
+    'taxonomy' => 'tags',
+]
+```
 
 ### Value object
 
@@ -22,7 +43,7 @@
 |Property|Type|Description|
 |--------|----|-----------|
 |`$taxonomyEntry`|array of `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry`|Stores selected taxonomy entry.|
-|`&taxonomy`|`string`|Stores taxonomy identifier, all `&taxonomyEntries` have to be assigned to this taxonomy and the in=dentifier has to match to the settings of the Field Type in Content Type configuration.|
+|`$taxonomy`|`string`|Stores taxonomy identifier, all `&taxonomyEntries` have to be assigned to this taxonomy and the identifier has to match to the settings of the Field Type in Content Type configuration.|
 
 #### Constructor
 
@@ -32,11 +53,11 @@ Constructor accepts `$taxonomyEntries` and `$taxonomy` as described above.
 
 If has no entries: empty string
 With entries: "Cars and 5 more" - a string displaying first taxonomy entry and number of rest of the entries
-`$taxonomyEntry` string identifier or empty string if no Taxonomy Entry is selected.
 
 #### Hash format
 
 An array of:
+
 - `taxonomy_entries` with numerical IDs of entries.
 - `taxonomy` string identifier of a taxonomy.
 
@@ -52,4 +73,4 @@ Name|Type|Default value|Description|
 
 #### Template rendering
 
-The Measurement field is rendered with the [`ibexa_render_field()`](field_twig_functions.md#ibexa_render_field) Twig function.
+The `TaxonomyEntryAssignment` field is rendered with the [`ibexa_render_field()`](field_twig_functions.md#ibexa_render_field) Twig function.
