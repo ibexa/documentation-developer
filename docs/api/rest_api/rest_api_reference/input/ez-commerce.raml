@@ -171,8 +171,8 @@ displayName: eCommerce API (removed as of Ibexa DXP 4.4)
                             type: Basket
                             example: !include examples/commerce/basket/_id_/GET/Basket.json.example
         delete:
-            displayName: Delete Basket by ID
-            description: Deletes basket by ID.
+            displayName: Delete Basket by ID (removed)
+            description: Deletes basket by ID. Removed as of Ibexa DXP 4.4, use DELETE /cart/{identifier} instead.
             responses:
                 200:
                     description: OK - The basket has been deleted
@@ -186,7 +186,7 @@ displayName: eCommerce API (removed as of Ibexa DXP 4.4)
                 displayName: Update the name of the stored basket (removed)
                 description: |
                     Updates the name of the stored basket.
-                    Removed as of Ibexa DXP 4.4.
+                    Removed as of Ibexa DXP 4.4, use PATCH /cart/{identifier} instead.
                 body:
                     application/vnd.ibexa.api.BasketHeaderData+json:
                         type: BasketHeaderData
