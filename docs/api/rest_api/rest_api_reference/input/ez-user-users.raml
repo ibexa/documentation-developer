@@ -303,6 +303,29 @@ head:
                                 example: !include examples/user/users/user_id/roles/role_id/DELETE/RoleAssignmentList.json.example
                     401:
                         description: Error - the user is not authorized to delete this Content Type.
+    /segments:
+        get:
+            displayName: View user segments
+            description: TODO
+            headers:
+                Accept:
+                    description: If set, the user's segment list is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.UserSegmentList+xml
+                        application/vnd.ibexa.api.UserSegmentList+json
+        post:
+            displayName: Assign Segments to User
+            description: Assigns Segments from payload to User given by ID.
+            headers:
+                Content-Type:
+                    description: The UserSegmentAssignInput schema encoded in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.UserSegmentAssignInput+xml
+                        application/vnd.ibexa.api.UserSegmentAssignInput+json
+        /{segmentIdentifier}:
+            delete:
+                displayName: Unassign Segment from User
+                description: The Segment designated by its identifier is unassigned from the User given by ID.
     /drafts:
         get:
             displayName: Load user drafts
