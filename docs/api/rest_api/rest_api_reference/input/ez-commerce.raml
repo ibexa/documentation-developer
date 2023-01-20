@@ -218,7 +218,7 @@ displayName: eCommerce API (removed as of Ibexa DXP 4.4)
         /line:
             post:
                 displayName: Add products to stored basket (removed)
-                description: Adds products to the stored basket. Removed as of Ibexa DXP 4.4.
+                description: Adds products to the stored basket. Removed as of Ibexa DXP 4.4, use POST /cart/{identifier}/entry instead.
                 body:
                     application/vnd.ibexa.api.BasketLineData+json:
                         type: BasketLineData
@@ -238,7 +238,7 @@ displayName: eCommerce API (removed as of Ibexa DXP 4.4)
         /line/{lineId}:
             delete:
                 displayName: Delete a line from a stored basket (removed)
-                description: Removed as of Ibexa DXP 4.4.
+                description: Removed as of Ibexa DXP 4.4, use DELETE /cart/{identifier}/entry/{entryId} instead.
                 responses:
                     200:
                         body:
