@@ -1,0 +1,66 @@
+{
+    "CartSummary": {
+        "_media-type": "application/vnd.ibexa.api.CartSummary+json",
+        "_href": "/api/ibexa/v2/cart/123/summary",
+        "id": 1,
+        "identifier": "my_cart",
+        "name": "My Cart",
+        "createdAt": "2023-01-01T00:00:00",
+        "updatedAt": "2023-01-01T00:00:00",
+        "Owner": {
+            "_media-type": "application/vnd.ibexa.api.User+json",
+            "_href": "/api/ibexa/v2/user/users/79"
+        },
+        "SummaryEntryCollection": {
+            "count": 1,
+            "SummaryEntry": [
+                {
+                    "CartSummaryEntry": {
+                        "identifier": "my_entry",
+                        "id": 1,
+                        "quantity": 1,
+                        "Price": {
+                            "_media-type": "application/vnd.ibexa.api.Price+json",
+                            "TODO": "TODO"
+                        },
+                        "PriceInclVat": {
+                            "_media-type": "application/vnd.ibexa.api.Price+json",
+                            "TODO": "TODO"
+                        },
+                        "SubtotalPrice": {
+                            "_media-type": "application/vnd.ibexa.api.Price+json",
+                            "TODO": "TODO"
+                        },
+                        "SubtotalPriceInclVat": {
+                            "_media-type": "application/vnd.ibexa.api.Price+json",
+                            "TODO": "TODO"
+                        },
+                        "Product": {
+                            "TODO": "TODO"
+                        }
+                    }
+                }
+            ]
+        },
+        "TotalPrice": {
+            "_media-type": "application/vnd.ibexa.api.Price+json",
+            "TODO": "TODO"
+        },
+        "TotalPriceInclVat": {
+            "_media-type": "application/vnd.ibexa.api.Price+json",
+            "TODO": "TODO"
+        },
+        "vatCategorySummary": [
+            {
+                "TODO": "TODO"
+            }
+        ],
+        "Currency": {
+            "_media-type": "application/vnd.ibexa.api.Currency+json",
+            "id": 1,
+            "code": "EUR",
+            "subunits": 2,
+            "enabled": true
+        }
+    }
+}

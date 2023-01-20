@@ -19,6 +19,17 @@ post:
     #                example: !include examples/cart/POST/Cart.json.example
     #    400:
     #        description: Error - The input does not match the input schema definition.
+/view:
+    post:
+        displayName: Filter carts
+        description: Executes a query and returns a View including the results.
+        #TODO: The View input reflects the criteria model of the public API.
+        #headers:
+        #    Accept:
+        #        description: The CartView schema is returned in XML or JSON format.
+        #    Content-Type:
+        #        description: The CartViewInput schema is posted in XML or JSON format.
+        #body:
 /{identifier}:
     get:
         displayName: Get Cart
@@ -60,13 +71,44 @@ post:
         /{entryId}:
             delete:
                 displayName: Remove Entry from Cart
-                description: Removes the given entry from the given cart
+                description: Removes the given entry from the given Cart.
             patch:
                 displayName: Update Entry from Cart
-                description: Updates the given entry from the given cart
+                description: Updates the given entry from the given Cart.
                 headers:
                     Content-Type:
                         description: The EntryUpdateStruct schema encoded in XML or JSON format.
                         example: |
                             application/vnd.ibexa.api.EntryUpdateStruct+xml
                             application/vnd.ibexa.api.EntryUpdateStruct+json
+    /empty:
+        post:
+            displayName: Empty Cart
+            description: Empties the given Cart.
+            responses:
+                204:
+                    description: No Content - Cart emptied.
+                401:
+                    description: Error - The user is not authorized to empty this Cart.
+                404:
+                    description: Error - Cart not found.
+    /summary:
+        get:
+            displayName: Cart Summary
+            description: Gets a summary of the given Cart.
+            headers:
+                Accept:
+                    description: If set, the Cart Summary is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.CartSummary+xml
+                        application/vnd.ibexa.api.CountriesLis+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.CountriesLis+json:
+                            type: CartSummary
+                            example: !include examples/cart/summary/CartSummary.json.example
+                401:
+                    description: Error - The user is not authorized to read this Cart.
+                404:
+                    description: Error - Cart not found.
