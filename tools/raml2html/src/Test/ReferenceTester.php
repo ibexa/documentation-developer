@@ -20,7 +20,7 @@ class ReferenceTester
         'vendor/ibexa/connector-dam/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/personalization/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/product-catalog/src/bundle/Resources/config/routing_rest.yaml',
-        'vendor/ibexa/scheduler/src/bundle/Resources/config/routing_rest.yaml', // prefixed /api/datebasedpublisher/v1
+        //'vendor/ibexa/scheduler/src/bundle/Resources/config/routing_rest.yaml', // prefixed /api/datebasedpublisher/v1
         'vendor/ibexa/segmentation/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/taxonomy/src/bundle/Resources/config/routing_rest.yaml',
     ];
