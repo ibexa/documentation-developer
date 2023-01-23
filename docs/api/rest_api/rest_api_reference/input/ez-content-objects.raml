@@ -349,44 +349,6 @@ get:
                         description: Error - the version is not a draft.
                     404:
                         description: Error - the Content item or version were not found.
-            /schedule:
-                get:
-                    displayName: Get scheduled publication
-                    description: Gets the scheduled version publication.
-                    responses:
-                        200:
-                            description: OK - return the scheduled version publication.
-                            body:
-                                application/vnd.ibexa.api.ScheduledVersion+xml:
-                                    type: ScheduledVersion
-                                application/vnd.ibexa.api.ScheduledVersion+json:
-                                    type: ScheduledVersion
-                                    example: !include examples/content/objects/schedule/ScheduledVersion.json.example
-                        401:
-                            description: Error - the user is not authorized to access this scheduled entry.
-                        404:
-                            description: Error - the Content item, the version or its scheduled publication were not found.
-                /{publicationTimestamp}:
-                   put:
-                       displayName: Schedule publication
-                       description: Schedules version publication to a given date and time.
-                       responses:
-                           204:
-                               description: No Content - Version publication has been rescheduled.
-                           401:
-                               description: Error - the user is not authorized to schedule this version.
-                           404:
-                               description: Error - the Content item or version number were not found.
-                   patch:
-                       displayName: Reschedule publication
-                       description: Reschedules version publication to a given new date and time.
-                       responses:
-                           204:
-                               description: No Content - Version publication has been rescheduled.
-                           401:
-                               description: Error - the user is not authorized to schedule this version.
-                           404:
-                               description: Error - the Content item, version number or its scheduled publication were not found.
             /translations/{languageCode}:
                 delete:
                     displayName: Delete translation from version draft
