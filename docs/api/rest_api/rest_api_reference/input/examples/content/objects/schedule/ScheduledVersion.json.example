@@ -1,0 +1,35 @@
+{
+    "ScheduledVersion": {
+        "_id": 1,
+        "_href": "/api/ibexa/v2/content/objects/123/versions/1/schedule",
+        "publicationDate": "2023-01-01T00:00:00+00:00",
+        "version": {
+            "_href": "/api/ibexa/v2/content/objects/123/versions/1",
+            "_id": 1,
+            "name": "Happy New Year!",
+            "number": 1,
+            "modificationDate": "2022-12-16T10:00:00+00:00",
+            "initialLanguageCode": "eng-GB"
+        },
+        "content": {
+            "_id": 123,
+            "_href": "/api/ibexa/v2/content/objects/123"
+        },
+        "contentType": {
+            "_href": "/content/types/1",
+            "_id": 1,
+            "urlRoot": null,
+            "name": "Folder",
+            "identifier": "folder"
+        },
+        "publisher": {
+            "_id": 14,
+            "_href": "/api/ibexa/v2/user/users/14",
+            "login": "admin",
+            "email": "admin@link.invalid",
+            "firstName": "Administrator",
+            "lastName": "User",
+            "fullName": "Administrator User"
+        }
+    }
+}
