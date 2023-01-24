@@ -157,6 +157,3 @@ You can select defined image variations during Content item creation in the imag
 Variations can include different sizing options and other filters that are applied to the image.
 
 ![Fastly Image Variations](img/fastly_variations.png)
-
-
-
