@@ -79,6 +79,13 @@ ibexa:
             variation_handler_identifier: 'fastly'
 ```
 
+You can also use environmental variables to configure specific handler for a SiteAccess.
+See the example below to configure it with the `.env` file:
+
+```
+IBEXA_VARIATION_HANDLER_IDENTIFIER="fastly"
+```
+
 ## Image configuration
 
 When you define image variation keys for Fastly IO keep in mind
