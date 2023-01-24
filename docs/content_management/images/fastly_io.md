@@ -70,6 +70,7 @@ Fastly IO configuration is SiteAccess aware.
 You can define what handler should be used for a specific SiteAccess under `variation_handler_identifier`.
 You need to set it up as `fastly`, so Fastly IO can generate all image links.
 By default, it is set as `alias`, and it points to a built-in image optimizer.
+You can also set up a custom handler if your setup requires it.
 
 ```yaml
 ibexa:
