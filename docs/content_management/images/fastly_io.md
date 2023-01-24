@@ -14,17 +14,19 @@ To be able to configure this feature you need:
 
 ## Enable shielding
 
-To use Fastly Image Optimizer, you need shielding, for more details
-see [Enabling and disabling shielding](https://developer.fastly.com/learning/concepts/shielding/).
+To use Fastly Image Optimizer, you need shielding,
+to enable it follow steps in Fastly documentation, [Enabling and disabling shielding](https://developer.fastly.com/learning/concepts/shielding/).
 
-To enable shielding, add [`snippet_re_enable_shielding.vcl`](https://github.com/ibexa/fastly/blob/main/fastly/snippet_re_enable_shielding.vcl) snippet to your config.
+Before proceeding, make sure that you have the [`snippet_re_enable_shielding.vcl`](https://github.com/ibexa/fastly/blob/main/fastly/snippet_re_enable_shielding.vcl) added.
 
-Next, use command below in Fastly CLI: 
+You can add it using Fastly CLI: 
  
 ```bash
 - fastly vcl snippet create --name="Re-Enable shielding on restart" --version=active --autoclone --priority 100 --type recv --content=vendor/ibexa/fastly/fastly/snippet_re_enable_shielding.vcl
 - fastly service-version activate --version=latest
 ```
+
+Next, you need to choose the [Shield location](https://developer.fastly.com/learning/concepts/shielding/#choosing-a-shield-location) from the Shielding menu in Fastly web interface as specified in [Fastly IO documentation](https://docs.fastly.com/en/guides/shielding#enabling-shielding).
 
 ## VCL configuration
 
@@ -77,8 +79,8 @@ ibexa:
 
 When you define image variation keys for Fastly IO keep in mind
 that they should reflect variations in your original setup.
-The built-in image optimiser serves as backup to Fastly IO,
-and in case of system failure it needs to be able to serve the same image variations.
+The built-in image optimiser serves as backup to Fastly IO in case of misconfiguration,
+because of that it needs to be able to serve the same image variations.
 
 Fastly IO image filters are not compatible with our built-in filters,
 because of that you will not be able to reflect your original filters accurately with Fastly.
@@ -94,49 +96,50 @@ php bin/console ibexa:fastly:migrate-configuration
 Paste the configuration to `config/packages/ibexa.yaml` to define the same variations for Fastly IO:
 
 ```yaml
-system:
-    default:
-        fastly_variations:
-            reference:
-                reference: original
-                configuration:
-                    width: 600
-                    height: 600
-                    fit: bounds
-            small:
-                reference: reference
-                configuration:
-                    width: 100
-                    height: 100
-                    fit: bounds
-            tiny:
-                reference: reference
-                configuration:
-                    width: 30
-                    height: 30
-                    fit: bounds
-            medium:
-                reference: reference
-                configuration:
-                    width: 200
-                    height: 200
-                    fit: bounds
-            large:
-                reference: reference
-                configuration:
-                    width: 300
-                    height: 300
-                    fit: bounds
-            gallery:
-                reference: original
-                configuration: { }
-            ezplatform_admin_ui_profile_picture_user_menu:
-                reference: reference
-                configuration:
-                    width: 30
-                    height: 30
-                    fit: bounds
-                    crop: '30,30,x0,y0'
+ibexa:
+    system:
+        default:
+            fastly_variations:
+                reference:
+                    reference: original
+                    configuration:
+                        width: 600
+                        height: 600
+                        fit: bounds
+                small:
+                    reference: reference
+                    configuration:
+                        width: 100
+                        height: 100
+                        fit: bounds
+                tiny:
+                    reference: reference
+                    configuration:
+                        width: 30
+                        height: 30
+                        fit: bounds
+                medium:
+                    reference: reference
+                    configuration:
+                        width: 200
+                        height: 200
+                        fit: bounds
+                large:
+                    reference: reference
+                    configuration:
+                        width: 300
+                        height: 300
+                        fit: bounds
+                gallery:
+                    reference: original
+                    configuration: { }
+                ezplatform_admin_ui_profile_picture_user_menu:
+                    reference: reference
+                    configuration:
+                        width: 30
+                        height: 30
+                        fit: bounds
+                        crop: '30,30,x0,y0'
 ```
 
 You can select defined image variations during Content item creation in the image options.
