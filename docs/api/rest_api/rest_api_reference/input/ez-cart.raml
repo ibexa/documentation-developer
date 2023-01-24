@@ -24,25 +24,41 @@ post:
     post:
         displayName: Filter carts
         description: Executes a query and returns a View including the results.
-        #TODO: The View input reflects the criteria model of the public API.
-        #headers:
-        #    Accept:
-        #        description: The CartView schema is returned in XML or JSON format.
-        #    Content-Type:
-        #        description: The CartViewInput schema is posted in XML or JSON format.
-        #body:
+        headers:
+            Accept:
+                description: The CartView schema is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.CartView+xml
+                    application/vnd.ibexa.api.CartView+json
+            Content-Type:
+                description: The CartViewInput schema is posted in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.CartViewInput+xml
+                    application/vnd.ibexa.api.CartViewInput+json
+        body:
+            application/vnd.ibexa.api.CartViewInput+json:
+                example: !include examples/cart/view/CartViewInput.json.example
+        responses:
+            200:
+                description: OK - returns a view and its results
+                #body:
+                #    application/vnd.ibexa.api.CartView+xml:
+                #    application/vnd.ibexa.api.CartView+json:
 /{identifier}:
     get:
         displayName: Get Cart
         description: Gets Cart by its identifier.
-        #responses:
-        #    200:
-        #        body:
-        #            application/vnd.ibexa.api.Cart+json:
-        #                type: Cart
-        #                example: !include examples/cart/POST/Cart.json.example
-        #    404:
-        #        description: Error - The identifier do not match any Cart.
+        responses:
+            200:
+                description: OK - return the cart
+                #body:
+                #    application/vnd.ibexa.api.Cart+json:
+                #        type: Cart
+                #        example: !include examples/cart/POST/Cart.json.example
+            401:
+                description: Error - the user is not authorized to get this cart.
+            404:
+                description: Error - The identifier do not match any Cart.
     delete:
         displayName: Delete Cart
         description: Deletes Cart by its identifier.
@@ -102,7 +118,7 @@ post:
                     description: If set, the Cart Summary is returned in XML or JSON format.
                     example: |
                         application/vnd.ibexa.api.CartSummary+xml
-                        application/vnd.ibexa.api.CountriesLis+json
+                        application/vnd.ibexa.api.CartSummary+json
             responses:
                 200:
                     body:
