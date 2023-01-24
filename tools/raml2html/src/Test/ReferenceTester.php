@@ -79,17 +79,53 @@ class ReferenceTester
         $refRoutes = [];
 
         $restApiRefDoc = new \DOMDocument();
+        $restApiRefDoc->preserveWhiteSpace = false;
         $restApiRefDoc->loadHTMLFile($restApiReference, LIBXML_NOERROR);
         $restApiRefXpath = new \DOMXpath($restApiRefDoc);
 
         /** @var \DOMElement $urlElement */
         foreach ($restApiRefXpath->query('//*[@data-field="url"]') as $urlElement) {
-            if (!array_key_exists($urlElement->nodeValue, $refRoutes)) {
-                $refRoutes[$urlElement->nodeValue] = [
+            $route = $urlElement->nodeValue;
+            if (!array_key_exists($route, $refRoutes)) {
+                $refRoutes[$route] = [
                     'methods' => [],
                 ];
             }
-            $refRoutes[$urlElement->nodeValue]['methods'][$urlElement->previousSibling->previousSibling->nodeValue] = true;
+            $method = $urlElement->previousSibling->previousSibling->nodeValue;
+            $displayName = trim(str_replace('¶', '', $urlElement->parentNode->parentNode->previousSibling->previousSibling->nodeValue));
+            $removed = '(removed)' === substr($displayName, -strlen('(removed)'));
+            $deprecated = '(deprecated)' === substr($displayName, -strlen('(deprecated)'));
+            $substitute = null;
+            if ($removed || $deprecated) {
+                $matches = [];
+                if (preg_match('/use (?<method>[A-Z]+) (?<route>[{}\/a-zA-Z]+) instead./', $urlElement->parentNode->nextSibling->nextSibling->nodeValue, $matches)) {
+                    $substitute = array_intersect_key($matches, array_flip(array('method', 'route')));
+                    if (!array_key_exists($substitute['route'], $refRoutes)) {
+                        $refRoutes[$substitute['route']] = [
+                            'methods' => [],
+                        ];
+                    }
+                    if (!array_key_exists($substitute['method'], $refRoutes[$substitute['route']]['methods'])) {
+                        $refRoutes[$substitute['route']]['methods'][$substitute['method']] = [
+                            'replace' => [],
+                        ];
+                    }
+                    $refRoutes[$substitute['route']]['methods'][$substitute['method']]['replace'][] = [
+                        'method' => $method,
+                        'route' => $route,
+                    ];
+                }
+            }
+            $replace = [];
+            if (array_key_exists($method, $refRoutes[$route]['methods'])) {
+                $replace = $refRoutes[$route]['methods'][$method]['replace'];
+            }
+            $refRoutes[$route]['methods'][$method] = [
+                'removed' => $removed,
+                'deprecated' => $deprecated,
+                'substitute' => $substitute,
+                'replace' => $replace,
+            ];
         }
 
         $this->refRoutes = $refRoutes;
@@ -267,6 +303,23 @@ class ReferenceTester
                         foreach ($similarConfRoutes['poorly'] as $confRoute) {
                             $this->output("\t$refRouteWithoutConf is a bit similar to $confRoute");
                             $this->compareMethods($refRouteWithoutConf, $confRoute, self::TEST_REFERENCE_ROUTES);
+                        }
+                        continue;
+                    }
+                }
+                foreach ($refRoutes[$refRouteWithoutConf]['methods'] as $method=>$methodStatus) {
+                    if ($methodStatus['removed']) {
+                        $this->output("\t$method $refRouteWithoutConf is flagged as removed");
+                    } else if ($methodStatus['deprecated']) {
+                        $this->output("\t$method $refRouteWithoutConf is flagged as deprecated and can now be flagged as removed");
+                    } else {
+                        $this->output("\t$method $refRouteWithoutConf is not flagged.");
+                    }
+                    if ($methodStatus['removed'] || $methodStatus['deprecated']) {
+                        if ($methodStatus['substitute']) {
+                            $this->output("\tand the substitute {$methodStatus['substitute']['method']} {$methodStatus['substitute']['route']} is proposed.");
+                        } else {
+                            $this->output("\twithout substitute proposal.");
                         }
                     }
                 }
