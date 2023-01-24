@@ -152,6 +152,27 @@ get:
                     404:
                         description: Error - The Content Type does not exist.
     /draft:
+        get:
+            displayName: Get Content Type draft
+            description: Returns the draft of the Content Type with the provided ID.
+            headers:
+                Accept:
+                    description: If set, the Content Type is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.ContentType+xml
+                        application/vnd.ibexa.api.ContentType+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.ContentType+xml:
+                            type: ContentType
+                        application/vnd.ibexa.api.ContentType+json:
+                            type: ContentType
+                    description: OK - returns the Content Type.
+                401:
+                    description: Error - The user is not authorized to read this Content Type.
+                404:
+                    description: Error - The Content Type does not exist or does not have a draft.
         patch:
             displayName: Update Content Type draft
             description: Updates metadata of a draft. This method does not handle Field definitions. PATCH or POST with header X-HTTP-Method-Override PATCH.
