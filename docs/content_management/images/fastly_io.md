@@ -1,8 +1,8 @@
 ---
-description: Configure Fastly Image Optimiser.
+description: Configure Fastly Image Optimizer.
 ---
 
-# Fastly Image Optimiser (Fastly IO)
+# Fastly Image Optimizer (Fastly IO)
 
 The Fastly Image Optimizer (Fastly IO) is an external service that provides real-time image optimisation for multiple input and output formats.
 It serves and caches image requests from your origin server, making your website faster and more efficient.
@@ -82,7 +82,7 @@ ibexa:
 
 When you define image variation keys for Fastly IO keep in mind
 that they should reflect variations in your original setup.
-The built-in image optimiser serves as backup to Fastly IO in case of misconfiguration,
+The built-in image optimizer serves as backup to Fastly IO in case of misconfiguration,
 because of that it needs to be able to serve the same image variations.
 
 Fastly IO image filters are not compatible with our built-in filters,
