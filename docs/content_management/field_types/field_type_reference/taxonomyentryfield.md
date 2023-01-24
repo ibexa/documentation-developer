@@ -1,7 +1,7 @@
 # TaxonomyEntry Field Type
 
 `TaxonomyEntry` is a general purpose Field Type that can store only one taxonomy entry (for example, tag or product category). 
-It is used as a parent while creating a tag or category.
+It is used as a parent for a tag or category.
 
 | Name           | Internal name         | Expected input |
 |----------------|-----------------------|----------------|
@@ -11,13 +11,13 @@ It is used as a parent while creating a tag or category.
 
 ### Input expectations
 
-Field type `TaxonomyEntry` accepts an array with Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry object.
+A `TaxonomyEntry` Field accepts an array with an `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object.
 
 | Type     | Description | Example         |
 |--------|-----------------|-----------------|
-| `array` | array with `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object under `taxonomy_entry` key | see below |
+| `array` | array with an `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object under the `taxonomy_entry` key | see below |
 
-Example using `Ibexa\Taxonomy\FieldType\TaxonomyEntry\Value` object:
+Example using an `Ibexa\Taxonomy\FieldType\TaxonomyEntry\Value` object:
 ``` php
 $taxonomyEntry = $this->taxonomyService->loadEntryByIdentifier('example_entry', 'tags');
 new \Ibexa\Taxonomy\FieldType\TaxonomyEntry\Value(
@@ -39,11 +39,11 @@ Example using array:
 
 |Property|Type|Description|
 |--------|----|-----------|
-|`$taxonomyEntry`|`Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry|null`|Stores selected taxonomy entry.|
+|`taxonomyEntry`|`Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry|null`|Stores selected taxonomy entry.|
 
 #### Constructor
 
-Constructor accepts `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object.
+The constructor accepts an `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object.
 
 ``` php
 // Constructor example
@@ -57,7 +57,7 @@ $taxonomyEntryFieldTypeValue = new TaxonomyEntry\Value($taxonomyEntry);
 ```
 #### String representation
 
-`$taxonomyEntry` string identifier or empty string if no Taxonomy Entry is selected.
+`taxonomyEntry` string identifier or empty string if no Taxonomy Entry is selected.
 
 #### Hash format
 
