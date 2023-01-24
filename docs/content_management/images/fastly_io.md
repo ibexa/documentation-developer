@@ -31,8 +31,10 @@ Next, you need to choose the [Shield location](https://developer.fastly.com/lear
 ## VCL configuration
 
 To manipulate your Fastly VCL configuration directly from the command line,
-you need to [install Fastly CLI](https://developer.fastly.com/learning/tools/cli#installing)
-and define `FASTLY_SERVICE_ID` and `FASTLY_KEY` environmental variables. 
+you need to:
+- [install Fastly CLI](https://developer.fastly.com/learning/tools/cli#installing),
+- define `FASTLY_SERVICE_ID` and `FASTLY_KEY` environmental variables,
+- set restrictions on optimiser by using [ibexa_image_optimizer.vcl](https://github.com/ibexa/fastly/blob/main/fastly/ibexa_image_optimizer.vcl). 
 
 This is an example VCL snippet uploaded by using `vcl_recv` hook:
 
@@ -53,7 +55,8 @@ if (req.url.ext ~ "(?i)^(gif|png|jpe?g|webp)$") {
 ```
 
 You can define what image formats will be included, for example: `gif|png|jpe?g|webp`
-and which paths should be used as a source of images, for example: `^/var/([a-zA-Z0-9_-]+)/storage/images`. For more configuration options, see [Enabling image optimization](https://developer.fastly.com/reference/io/#enabling-image-optimization).
+and which paths should be used as a source of images, for example: `^/var/([a-zA-Z0-9_-]+)/storage/images`.
+For more configuration options, see [Enabling image optimization](https://developer.fastly.com/reference/io/#enabling-image-optimization).
 
 After you save this snippet or create your own, you can upload it from the command line using:
 
