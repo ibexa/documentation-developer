@@ -14,6 +14,16 @@ description: Ibexa DXP v4.4 adds the improvements to the Customer Portal, PIM an
 
 ## Notable changes
 
+### Create account in Personalization service in automated way
+
+The Personalization service has been enhanced to speed up the process of creating new customer account. Now,  what you have to do to create an account in the new, automated way, is to fill out the form, select an account type, and send request to the Personalization endpoint.  In a few moments you receive the credentials.
+
+For more information, see [documentation](https://doc.ibexa.co/projects/userguide/en/latest/personalization/enable_personalization/).
+### New models in Personalization engine
+
+Personalization engine introduces two new recommendation models: [predictive](personalization/recommendation_model.md#predictive) and [recurring purchase](personalization/recommendation_model.md#recurring-purchase). These two new models, based on mathematical approach, help to predict clients behavior and
+provide the best recommendations. 
+
 ## Other changes
 
 ### Flysystem v2
@@ -34,6 +44,9 @@ You can also extract those objects as references.
 For more information on data migration actions, see [documentation](data_migration_actions.md).
 
 ### API improvements
+
+### Item age in random model
+
 
 ### Deprecations
 
