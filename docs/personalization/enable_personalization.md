@@ -14,7 +14,7 @@ instance must [request access to the service]([[= user_doc =]]/personalization/e
 
 ## Set up customer credentials
 
-When you receive the confirmation email, add the credentials to your configuration.
+When you receive the credentials, add them to your configuration.
 In the root folder of your project, edit either the `.env` or `.env.local` file 
 by adding the following lines with your customer ID and license key: 
 
