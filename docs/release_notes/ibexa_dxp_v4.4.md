@@ -14,7 +14,7 @@ description: Ibexa DXP v4.4 adds the improvements to the Customer Portal, PIM an
 
 ## Notable changes
 
-### Automated way of creating Personalization service account
+### Create account in Personalization service in automated way
 
 The Personalization service has been enhanced to speed up the process of creating new customer account. Now,  what you have to do to create an account in the new, automated way, is to fill out the form, select an account type, and send request to the Personalization endpoint.  In a few moments you receive the credentials.
 
@@ -47,7 +47,6 @@ For more information on data migration actions, see [documentation](data_migrati
 
 ### Item age in random model
 
-Now, in a Recently added model (previously Random model), you can manually set the age of items which are displayed in recommendations.
 
 ### Deprecations
 
