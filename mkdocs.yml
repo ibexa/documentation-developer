@@ -193,6 +193,7 @@ nav:
             - Forms:
                 - 'Forms': 'guide/form_builder/forms.md'
                 - 'Create custom Form field': 'guide/form_builder/create_custom_form_field.md'
+                - 'Create Form attribute': 'guide/form_builder/create_form_attribute.md'
                 - 'Customize email notifications': 'guide/form_builder/customize_email_notifications.md'
             - Workflow:
                 - 'Workflow': 'guide/workflow/workflow.md'
