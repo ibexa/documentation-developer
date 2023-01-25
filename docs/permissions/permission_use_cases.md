@@ -240,3 +240,28 @@ users without permissions for content can still manage products.
 - `product/create`
 - `product/view`
 - `product/edit`
+
+## Commerce [[% include 'snippets/commerce_badge.md' %]]
+
+You can control the extent of functionalities that are available to store users, 
+by component.
+
+### Cart 
+
+Set the following permissions to decide what actions are available when users 
+interact with carts: 
+
+- `cart/view` - to allow user to view their cart 
+- `cart/delete` - to delete cart, for example, after successful checkout
+- `cart/create` - to create a new cart, for example, after successful checkout
+- `cart/edit` - to allow user to add products to their cart
+
+### Checkout 
+
+Set the following permissions to decide what actions are available when users 
+interact with checkout: 
+
+- `cart/view` - to allow user to view checkout, for example, to block guest buyers access to checkout
+- `cart/create` - to create a new checkout, for example, after workflow completes
+- `cart/update` - to allow user to change product quantity
+- `cart/delete` - to delete checkout, for example, after workflow completes
