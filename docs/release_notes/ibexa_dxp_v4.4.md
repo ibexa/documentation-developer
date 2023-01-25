@@ -38,16 +38,6 @@ to let editors visually organize products on a page:
 - [Last viewed](https://doc.ibexa.co/projects/userguide/en/master/content_management/block_reference/#last-viewed-block) displays a list of products that were recently viewed.
 - [Product collection](https://doc.ibexa.co/projects/userguide/en/master/content_management/block_reference/#product-collection-block) displays a collection of specifically selected products.
 
-### New page blocks
-
-This release introduces new page blocks that rely on Personalization and PIM features 
-to let editors visually organize products on a page: 
-
-- [Catalog block](https://doc.ibexa.co/projects/userguide/en/latest/content_management/block_reference/#catalog-block) displays products from a specific catalog to a selected customer group.
-- [Last purchased](https://doc.ibexa.co/projects/userguide/en/latest/content_management/block_reference/#last-purchased-block) displays a list of products that were recently purchased, either generally, or by a specific user.
-- [Last viewed](https://doc.ibexa.co/projects/userguide/en/master/content_management/block_reference/#last-viewed-block) displays a list of products that were recently viewed.
-- [Product collection](https://doc.ibexa.co/projects/userguide/en/master/content_management/block_reference/#product-collection-block) displays a collection of specifically selected products.
-
 ### Automated way of creating Personalization service account
 
 The Personalization service has been enhanced to speed up the process of creating new customer account. Now,  what you have to do to create an account in the new, automated way, is to fill out the form, select an account type, and send request to the Personalization endpoint.  In a few moments you receive the credentials.
@@ -75,7 +65,7 @@ See [Ibexa Connect documentation](https://doc.ibexa.co/projects/connect/en/lates
 We have made significant upgrades to the codebase to rely on Flysystem v2.
 Our Flysystem Adapter implementation now supports dynamic paths
 described by complex settings resolvable for the SiteAccess context.
-For more information, see [Configuring the DFS IO handler](clustering.md#configuring-the-dfs-io-handler).
+For more information, see [Configuring the DFS IO handler](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/clustering/clustering/#configuring-the-dfs-io-handler).
 
 If your custom project relies directly on a Flysystem features instead of using our IO abstraction,
 it will require an upgrade as well, 
@@ -85,7 +75,7 @@ using [these instructions](https://flysystem.thephpleague.com/docs/upgrade-from-
 
 To simplify data migration, you can now create a company with underling objects such as members group and address book.
 You can also extract those objects as references. 
-For more information on data migration actions, see [documentation](data_migration_actions.md).
+For more information on data migration actions, see [documentation](https://doc.ibexa.co/en/latest/content_management/data_migration/data_migration_actions/#data-migration-actions).
 
 ### API improvements
 
