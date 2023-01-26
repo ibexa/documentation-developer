@@ -59,6 +59,17 @@ For more information, see [documentation](https://doc.ibexa.co/projects/userguid
 Personalization engine introduces two new recommendation models: [predictive](https://doc.ibexa.co/projects/userguide/en/4.4/personalization/recommendation_models/#predictive) and [recurring purchase](https://doc.ibexa.co/projects/userguide/en/4.4/personalization/recommendation_models/#recurring-purchase). These two new models, based on mathematical approach, help to predict clients behavior and
 provide the best recommendations. 
 
+## Ibexa Connect
+
+You can now take advantage of [Ibexa Connect](https://www.ibexa.co/products/ibexa-connect),
+an iPaaS (integration platform-as-a-service) which allows you to connect Ibexa DXP with different third-party applications.
+Ibexa Connect features a low-code drag-and-drop interface and hundreds of connectors to different services
+that help you automate business processes.
+
+See [Ibexa Connect documentation](https://doc.ibexa.co/projects/connect/en/latest/).
+
+![Example of an Ibexa Connect scenario](4.4_connect_scenario_example.png)
+
 ## Other changes
 
 ### Flysystem v2
