@@ -11,10 +11,10 @@ To be able to configure this feature, you need [Fastly IO subscription](https://
 
 ## Enable shielding
 
-To use Fastly Image Optimizer, you need shielding,
-to enable it follow steps in Fastly documentation, [Enabling and disabling shielding](https://developer.fastly.com/learning/concepts/shielding/).
+To use Fastly Image Optimizer, you need shielding.
+To enable it, follow steps in Fastly documentation, [Enabling and disabling shielding](https://developer.fastly.com/learning/concepts/shielding/).
 
-Before proceeding, make sure that you have the [`snippet_re_enable_shielding.vcl`](https://github.com/ibexa/fastly/blob/main/fastly/snippet_re_enable_shielding.vcl) added.
+Before proceeding, make sure that you have the [`snippet_re_enable_shielding.vcl`](https://github.com/ibexa/fastly/blob/main/fastly/snippet_re_enable_shielding.vcl) configuration file added to your project.
 
 You can add it using Fastly CLI: 
  
@@ -29,11 +29,12 @@ Next, you need to choose the [Shield location](https://developer.fastly.com/lear
 
 To manipulate your Fastly VCL configuration directly from the command line,
 you need to:
+
 - [install Fastly CLI](https://developer.fastly.com/learning/tools/cli#installing),
 - define `FASTLY_SERVICE_ID` and `FASTLY_KEY` environmental variables,
-- set restrictions on optimiser by using [ibexa_image_optimizer.vcl](https://github.com/ibexa/fastly/blob/main/fastly/ibexa_image_optimizer.vcl). 
+- set restrictions on the optimiser by using [`ibexa_image_optimizer.vcl`](https://github.com/ibexa/fastly/blob/main/fastly/ibexa_image_optimizer.vcl). 
 
-This is an example VCL snippet uploaded by using `vcl_recv` hook:
+This is an example VCL snippet uploaded by using the `vcl_recv` hook:
 
 ```bash
 fastly vcl custom create --name="Ibexa VCL" --main --version=latest --autoclone  --content=vendor/ibexa/fastly/fastly/ez_main.vcl
@@ -41,7 +42,7 @@ fastly vcl snippet create --name="Shielding" --version=active --autoclone --type
 ```
 
 Fastly passes requests through the image optimizer by adding the `x-fastly-imageopto-api` header in `vcl_recv`.
-You need to restrict optimizer by file path and extension to only apply to image requests:
+You need to restrict the optimizer by file path and extension to only apply to image requests:
 
 ```vcl
 if (req.url.ext ~ "(?i)^(gif|png|jpe?g|webp)$") {
@@ -76,7 +77,7 @@ ibexa:
             variation_handler_identifier: 'fastly'
 ```
 
-You can also use environmental variables to configure specific handler for a SiteAccess.
+You can also use environmental variables to configure a specific handler for a SiteAccess.
 See the example below to configure it with the `.env` file:
 
 ```
@@ -85,13 +86,13 @@ IBEXA_VARIATION_HANDLER_IDENTIFIER="fastly"
 
 ## Image configuration
 
-When you define image variation keys for Fastly IO keep in mind
+When you define image variation keys for Fastly IO, keep in mind
 that they should reflect variations in your original setup.
 The built-in image optimizer serves as backup to Fastly IO in case of misconfiguration,
-because of that it needs to be able to serve the same image variations.
+so it needs to be able to serve the same image variations.
 
 Fastly IO image filters are not compatible with our built-in filters,
-because of that you will not be able to reflect your original filters accurately with Fastly.
+so you will not be able to reflect your original filters accurately with Fastly.
 The script below will help you find replacement filters within Fastly configuration for the basic filters.
 For more optimization options on Fastly side, see [Fastly IO reference](https://developer.fastly.com/reference/io/).
 
