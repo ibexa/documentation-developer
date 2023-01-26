@@ -40,7 +40,7 @@ to let editors visually organize products on a page:
 
 ### Automated way of creating Personalization service account
 
-The Personalization service has been enhanced to speed up the process of creating new customer account. Now,  what you have to do to create an account in the new, automated way, is to fill out the form, select an account type, and send request to the Personalization endpoint.  In a few moments you receive the credentials.
+The Personalization service has been enhanced to speed up the process of creating new customer account. Now, what you have to do to create an account in the new, automated way, is to fill out the form, select an account type, and send request to the Personalization endpoint. In a few moments you receive the credentials.
 For more information, see [documentation](https://doc.ibexa.co/projects/userguide/en/latest/personalization/enable_personalization/).
 
 ### New models in Personalization engine
@@ -82,10 +82,12 @@ For more information on data migration actions, see [documentation](https://doc.
 ### Item age in random model
 
 Now, in a Recently added model (previously Random model), you can manually set the age of items which are displayed in recommendations.
+
 ### Deprecations
 
 - Support for overwriting existing files has been dropped (catch block of `\Ibexa\Core\IO\IOBinarydataHandler\Flysystem::create` and test). The new native Flysystem v2 Local Adapter performs this out of the box.
 - Support for no last modified timestamp has been dropped (in the form of a test case). The new Flysystem v2 throws `UnableToRetrieveMetadata` exception in such case.
+
 ## Full changelog
 | Ibexa Content          | Ibexa Experience          | Ibexa Commerce          |
 |------------------------|---------------------------|-------------------------|
