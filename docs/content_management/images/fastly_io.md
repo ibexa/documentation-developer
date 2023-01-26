@@ -7,10 +7,7 @@ description: Configure Fastly Image Optimizer.
 The Fastly Image Optimizer (Fastly IO) is an external service that provides real-time image optimisation for multiple input and output formats.
 It serves and caches image requests from your origin server, making your website faster and more efficient.
 
-To be able to configure this feature you need:
-
-- [Platform.sh project](https://docs.platform.sh/guides/ibexa/deploy.html)
-- [Fastly IO subscription](https://docs.fastly.com/en/guides/about-fastly-image-optimizer)
+To be able to configure this feature, you need [Fastly IO subscription](https://docs.fastly.com/en/guides/about-fastly-image-optimizer).
 
 ## Enable shielding
 
