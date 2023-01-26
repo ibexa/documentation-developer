@@ -112,10 +112,10 @@
                 </div>
                 <div class="col-sm-7 features">
                     <ul>
-                        <li><a href="release_notes/ibexa_dxp_v4.3/#customer-portal">Company self-registration</a></li>
-                        <li><a href="release_notes/ibexa_dxp_v4.3/#customer-portal">Customization of approval process</a></li>
-                        <li><a href="release_notes/ibexa_dxp_v4.3/#seo-configuration-exposed">SEO improvements</a></li>
-                        <li><a href="release_notes/ibexa_dxp_v4.3/#pim-improvements">PIM improvements</a></li>
-                        <li><a href="release_notes/ibexa_dxp_v4.3/#integration-with-recommendation-engine">Integration with recommendation engine</a></li>
-                        <li><a href="release_notes/ibexa_dxp_v4.3/#api-improvements">API improvements</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.4/#fastly-image-optimizer-fastly-io">Fastly Image Optimizer (Fastly IO)</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.4/#new-page-blocks">New page blocks</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.4/#new-welcome-page">New welcome page</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.4/#personalization-improvements">Personalization improvements</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.4/#flysystem-v2">Flysystem v2</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.4/#api-improvements">API improvements</a></li>
 </div>

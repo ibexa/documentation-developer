@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP v4.4 adds the improvements to the Customer Portal, PIM and SEO.
+description: Ibexa DXP v4.4 adds the improvements to the Welcome Page, PIM and Fastly.
 ---
 # Ibexa DXP v4.4
 
@@ -44,7 +44,9 @@ to let editors visually organize products on a page:
 - [Last viewed](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#last-viewed-block) displays a list of products that were recently viewed.
 - [Product collection](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#product-collection-block) displays a collection of specifically selected products.
 
-### Automated way of creating Personalization service account
+### Personalization improvements
+
+#### Automated way of creating Personalization service account
 
 The Personalization service has been enhanced to speed up the process of creating new customer account.
 Now, what you have to do to create an account in the new, automated way, is to fill out the form, select an account type, and send request to the Personalization endpoint. 
@@ -52,7 +54,7 @@ Shortly after, you receive the credentials.
 
 For more information, see [documentation](https://doc.ibexa.co/projects/userguide/en/4.4/personalization/enable_personalization/#request-access-to-the-server).
 
-### New models in Personalization engine
+#### New models in Personalization engine
 
 Personalization engine introduces two new recommendation models: [predictive](https://doc.ibexa.co/projects/userguide/en/4.4/personalization/recommendation_models/#predictive) and [recurring purchase](https://doc.ibexa.co/projects/userguide/en/4.4/personalization/recommendation_models/#recurring-purchase). These two new models, based on mathematical approach, help to predict clients behavior and
 provide the best recommendations. 
