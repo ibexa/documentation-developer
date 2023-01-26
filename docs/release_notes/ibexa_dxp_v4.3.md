@@ -149,13 +149,6 @@ You can retrieve the defined languages with:
 The new release adds `Ibexa\Contracts\Rest\Security\AuthorizationHeaderRESTRequestMatcher` service that can be used instead of `Ibexa\AdminUi\REST\Security\NonAdminRESTRequestMatcher`.
 It allows REST API endpoints to work with cookie-based authentication.
 
-### PIM improvements
-
-#### HTTP cache support for product-related responses
-
-Customer group is now part of user context, which enables HTTP cache to support 
-product-related responses.
-
 #### Ability to retrieve a customer group
 
-You can now retrieve customer group by implementing the `Ibexa\Contracts\ProductCatalog\CustomerGroupResolverInterface` interface and tagging it with `ibexa.product_catalog.customer_group.resolver`.
+You can now retrieve Customer Group by implementing the `Ibexa\Contracts\ProductCatalog\CustomerGroupResolverInterface` interface and tagging it with `ibexa.product_catalog.customer_group.resolver`.

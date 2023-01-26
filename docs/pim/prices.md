@@ -14,17 +14,6 @@ Each customer group can have a default price discount that applies to all produc
 
 You can also set different prices for specific products or product variants for different customer groups.
 
-### Assign prices dynamically
-
-You could create a customer group resolver that provides custom price logic, 
-for example, by retrieving user address from the customer profile, and assigning 
-a customer group to the customer based on the address. 
-
-Such resolver must implement the `Ibexa\Contracts\ProductCatalog\CustomerGroupResolverInterface` 
-interface. 
-
-You must then register it as a service with the `ibexa.product_catalog.customer_group.resolver` tag.
-
 ## Currency
 
 [[= product_name =]] ships with a list of available currencies, and you can also add custom currencies.
