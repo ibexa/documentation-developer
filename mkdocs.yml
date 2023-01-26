@@ -132,6 +132,7 @@ nav:
             - Configure Image Editor: content_management/images/configure_image_editor.md
             - Extend Image Editor: content_management/images/extend_image_editor.md
             - Add Image Asset from DAM: content_management/images/add_image_asset_from_dam.md
+            - Fastly Image Optimizer: content_management/images/fastly_io.md
         - Rich Text:
             - Extend Online Editor: content_management/rich_text/extend_online_editor.md
             - Create custom RichText block: content_management/rich_text/create_custom_richtext_block.md
