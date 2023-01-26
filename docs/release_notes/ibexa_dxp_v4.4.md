@@ -40,12 +40,13 @@ to let editors visually organize products on a page:
 
 ### Automated way of creating Personalization service account
 
-The Personalization service has been enhanced to speed up the process of creating new customer account. Now,  what you have to do to create an account in the new, automated way, is to fill out the form, select an account type, and send request to the Personalization endpoint.  In a few moments you receive the credentials.
-For more information, see [documentation](https://doc.ibexa.co/projects/userguide/en/latest/personalization/enable_personalization/).
+The Personalization service has been enhanced to speed up the process of creating new customer account. Now,  what you have to do to create an account in the new, automated way, is to fill out the form, select an account type, and send request to the Personalization endpoint. In a few moments you receive the credentials.
+
+For more information, see [documentation](https://doc.ibexa.co/projects/userguide/en/4.4/personalization/enable_personalization/#request-access-to-the-server).
 
 ### New models in Personalization engine
 
-Personalization engine introduces two new recommendation models: [predictive](personalization/recommendation_model.md#predictive) and [recurring purchase](personalization/recommendation_model.md#recurring-purchase). These two new models, based on mathematical approach, help to predict clients behavior and
+Personalization engine introduces two new recommendation models: [predictive](https://doc.ibexa.co/projects/userguide/en/4.4/personalization/recommendation_models/#predictive) and [recurring purchase](https://doc.ibexa.co/projects/userguide/en/4.4/personalization/recommendation_models/#recurring-purchase). These two new models, based on mathematical approach, help to predict clients behavior and
 provide the best recommendations. 
 
 ## Other changes
@@ -70,7 +71,7 @@ For more information on data migration actions, see [documentation](data_migrati
 
 ### Item age in random model
 
-Now, in a Recently added model (previously Random model), you can manually set the age of items which are displayed in recommendations.
+Now, in a Recently added model (previously Random model), you can manually [set the age of items](https://doc.ibexa.co/projects/userguide/en/4.4/personalization/recommendation_models/#recently-added) which are displayed in recommendations.
 ### Deprecations
 
 - Support for overwriting existing files has been dropped (catch block of `\Ibexa\Core\IO\IOBinarydataHandler\Flysystem::create` and test). The new native Flysystem v2 Local Adapter performs this out of the box.
