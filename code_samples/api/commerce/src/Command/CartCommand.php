@@ -115,8 +115,9 @@ final class CartCommand extends Command
         $cart = $this->cartService->removeEntry($cart, $entry); // updated Cart object
 
         // Update entry in a cart
-        $entryUpdateStruct = new EntryUpdateStruct(5);
-
+        $entryUpdateStruct = new EntryUpdateStruct();
+        $entryUpdateStruct->setQuantity(5);
+        
         $cart = $this->cartService->updateEntry(
             $cart,
             $entry,
