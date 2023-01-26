@@ -26,7 +26,7 @@ and a basis for your customization and extension.
 
 ![The new cart view](img/new_cart.png "The new cart view")
 
-For more information, see [Commerce](https://doc.ibexa.co/en/latest/commerce/commerce/).
+For more information, see [Commerce](https://doc.ibexa.co/en/4.4/commerce/commerce/).
 
 ### Fastly Image Optimizer (Fastly IO)
 
@@ -48,10 +48,10 @@ For example, you can define formats or source path for images.
 This release introduces new page blocks that rely on Personalization and PIM features 
 to let editors visually organize products on a page: 
 
-- [Catalog block](https://doc.ibexa.co/projects/userguide/en/latest/content_management/block_reference/#catalog-block) displays products from a specific catalog to a selected customer group.
-- [Last purchased](https://doc.ibexa.co/projects/userguide/en/latest/content_management/block_reference/#last-purchased-block) displays a list of products that were recently purchased, either generally, or by a specific user.
-- [Last viewed](https://doc.ibexa.co/projects/userguide/en/master/content_management/block_reference/#last-viewed-block) displays a list of products that were recently viewed.
-- [Product collection](https://doc.ibexa.co/projects/userguide/en/master/content_management/block_reference/#product-collection-block) displays a collection of specifically selected products.
+- [Catalog block](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#catalog-block) displays products from a specific catalog to a selected customer group.
+- [Last purchased](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#last-purchased-block) displays a list of products that were recently purchased, either generally, or by a specific user.
+- [Last viewed](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#last-viewed-block) displays a list of products that were recently viewed.
+- [Product collection](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#product-collection-block) displays a collection of specifically selected products.
 
 ## Other changes
 
