@@ -11,7 +11,7 @@
             $formTypeClass: App\FormBuilder\Form\Type\FieldAttribute\AttributeRichtextDescriptionType
             $typeIdentifier: 'richtext_description'
         tags:
-            - { name: ibexa.form_builder.attribute_form_type_mapper }
+            - { name: ibexa.form_builder.form.type.attribute.mapper }
 
     App\FormBuilder\FormSubmission\Converter\RichtextDescriptionFieldSubmissionConverter:
         arguments:

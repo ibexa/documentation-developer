@@ -2,8 +2,8 @@
 
 namespace App\FormBuilder\FieldType\Field\Mapper;
 
+use Ibexa\Contracts\FormBuilder\FieldType\Model\Field;
 use Ibexa\FormBuilder\FieldType\Field\Mapper\GenericFieldMapper;
-use Ibexa\FormBuilder\FieldType\Model\Field;
 
 class CheckboxWithRichtextDescriptionFieldMapper extends GenericFieldMapper
 {
