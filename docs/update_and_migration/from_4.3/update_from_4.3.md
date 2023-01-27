@@ -4,7 +4,7 @@ description: Update your installation to the latest v4.4 version from v4.3.x.
 
 # Update from v4.3.x to v4.4
 
-This update procedure applies if you are using a v4.2 installation.
+This update procedure applies if you are using a v4.3 installation.
 
 ## Update from v4.3.x to v4.3.latest
 
