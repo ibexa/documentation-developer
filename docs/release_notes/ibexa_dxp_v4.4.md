@@ -18,7 +18,7 @@ You will be welcomed to the Ibexa Digital Experience Platform by a newly designe
 
 ![New Welcome Page](4.4_welcome_page.png)
 
-### All-new Ibexa Commerce packages
+### All-new Ibexa Commerce packages [[% include 'snippets/commerce_badge.md' %]]
 
 This release deprecates all Commerce packages that you've known from previous releases 
 and brings a completely redesigned and reconstructed Commerce offering.
@@ -47,7 +47,7 @@ If you already have Fastly IO subscription, you can move to Fastly IO configurat
 With this release, you can manipulate your Fastly VCL configuration directly from the command line.
 For example, you can define formats or source path for images.
 
-### New page blocks
+### New page blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 This release introduces new page blocks that rely on Personalization and PIM features 
 to let editors visually organize products on a page: 
