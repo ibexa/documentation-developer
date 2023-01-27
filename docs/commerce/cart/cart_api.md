@@ -1,14 +1,15 @@
 ---
 description: Use PHP API to work with carts in Commerce, manage cart entries, or validate products.
+edition: commerce
 ---
 
 # Cart API
 
 !!! tip "Cart REST API"
 
-    To learn how to manage carts with the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html).
+    To learn how to manage carts with the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-ecommerce-carts).
 
-To get cart and work with the, use the `\Ibexa\Contracts\Cart\CartServiceInterface` interface.
+To get carts and work with them, use the `\Ibexa\Contracts\Cart\CartServiceInterface` interface.
 
 `CartService` uses two storage methods and handles switching between storages:
 
@@ -21,7 +22,6 @@ Numeric ID is used internally with database access optimization in mind but it i
 ## Get single cart by identifier
 
 To access a single cart, use the `CartServiceInterface::getCart` method:
-
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 66, 69) =]]
@@ -53,8 +53,8 @@ it with `Ibexa\Contracts\Cart\Value\CartCreateStruct` that contains metadata (na
 
 ## Update cart metadata
 
-You can update the cart metadata even after the cart is created. 
-You could do it support a scenario when, for example, the user changes a currency 
+You can update cart metadata after the cart is created. 
+You could do it to support a scenario when, for example, the user changes a currency 
 and the cart should recalculate all item prices to a new currency. 
 To update cart metadata, use the `CartServiceInterface::updateCartMetadata` method:
 
