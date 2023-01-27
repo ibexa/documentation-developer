@@ -30,7 +30,7 @@ that you can use to build your own e-commerce presence.
 Another addition is the Storefront component that serves as a proof-of-concept 
 and a basis for your customization and extension.
 
-![The new cart view](img/new_cart.png "The new cart view")
+![The new cart view](img/4.4_new_cart.png "The new cart view")
 
 For more information, see [Commerce](https://doc.ibexa.co/en/4.4/commerce/commerce/).
 
