@@ -106,7 +106,7 @@ For more information on data migration actions, see [documentation](https://doc.
 
 ### API improvements
 
-### Item age in random model
+### Item age in Recently added model
 
 Now, in a Recently added model (previously Random model), you can manually [set the age of items](https://doc.ibexa.co/projects/userguide/en/4.4/personalization/recommendation_models/#recently-added) which are displayed in recommendations.
 

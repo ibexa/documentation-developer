@@ -112,10 +112,10 @@
                 </div>
                 <div class="col-sm-7 features">
                     <ul>
+                        <li><a href="release_notes/ibexa_dxp_v4.4/#all-new-ibexa-commerce-packages">All-new Ibexa Commerce packages</a></li>
                         <li><a href="release_notes/ibexa_dxp_v4.4/#fastly-image-optimizer-fastly-io">Fastly Image Optimizer (Fastly IO)</a></li>
-                        <li><a href="release_notes/ibexa_dxp_v4.4/#new-page-blocks">New page blocks</a></li>
                         <li><a href="release_notes/ibexa_dxp_v4.4/#new-welcome-page">New welcome page</a></li>
                         <li><a href="release_notes/ibexa_dxp_v4.4/#personalization-improvements">Personalization improvements</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.4/#ibexa-connect">Ibexa Connect</a></li>
                         <li><a href="release_notes/ibexa_dxp_v4.4/#flysystem-v2">Flysystem v2</a></li>
-                        <li><a href="release_notes/ibexa_dxp_v4.4/#api-improvements">API improvements</a></li>
 </div>

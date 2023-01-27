@@ -218,8 +218,6 @@ nav:
                 - SesProfileData: content_management/field_types/field_type_reference/sesprofiledata.md
                 - SesSelection: content_management/field_types/field_type_reference/sesselection.md
                 - SpecificationsType: content_management/field_types/field_type_reference/specificationstype.md
-                - TaxonomyEntry Field Type: content_management/field_types/field_type_reference/taxonomyentryfield.md
-                - TaxonomyEntryAssignment Field Type: content_management/field_types/field_type_reference/taxonomyentryassignmentfield.md
                 - TextBlock Field Type: content_management/field_types/field_type_reference/textblockfield.md
                 - TextLine Field Type: content_management/field_types/field_type_reference/textlinefield.md
                 - Time Field Type: content_management/field_types/field_type_reference/timefield.md
