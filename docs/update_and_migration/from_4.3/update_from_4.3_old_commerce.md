@@ -8,8 +8,7 @@ This update procedure applies if you have a v4.3 installation, and you use comme
 
 Note, that all commerce packages as of v4.4 are deprecated.
 They will be maintained by Ibexa with fixes including security fixes, but they won't be further developed.
-Old packages are replaced by [the all-new Ibexa Commerce packages](ibexa_dxp_v4.4.md
-##all-new-ibexa-commerce-packages).
+Old packages are replaced by [the all-new Ibexa Commerce packages](ibexa_dxp_v4.4.md#all-new-ibexa-commerce-packages).
 
 ## Update from v4.3.x to v4.3.latest
 
