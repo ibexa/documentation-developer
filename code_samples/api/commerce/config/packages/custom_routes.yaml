@@ -1,0 +1,4 @@
+custom_checkout:
+    path: /custom_checkout
+    defaults:
+        _controller: App\Controller\CustomCheckoutController::showContentAction
