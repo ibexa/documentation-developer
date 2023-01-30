@@ -287,7 +287,10 @@ nav:
         - Bestsellers: pim/bestsellers.md
     - Commerce:
         - Commerce: commerce/commerce.md
-        - Checkout API: commerce/checkout/checkout_api.md
+        - Checkout: 
+            - Checkout: commerce/checkout/checkout.md
+            - Configure checkout: commerce/checkout/configure_checkout.md
+            - Checkout API: commerce/checkout/checkout_api.md
     - Customer management:
         - Customer Portal: customer_management/customer_portal.md
         - Customer Portal configuration: customer_management/cp_configuration.md

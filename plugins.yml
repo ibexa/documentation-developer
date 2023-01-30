@@ -220,7 +220,6 @@ plugins:
             'commerce/wishlist_and_stored_baskets.md': 'commerce/commerce.md'
             'commerce/basket.md': 'commerce/commerce.md'
             'guide/checkout/checkout.md': 'commerce/commerce.md'
-            'commerce/checkout/checkout.md': 'commerce/commerce.md'
             'guide/checkout/order_confirmation.md': 'commerce/commerce.md'
             'commerce/checkout/order_confirmation.md': 'commerce/commerce.md'
             'guide/checkout/return_process.md': 'commerce/commerce.md'
