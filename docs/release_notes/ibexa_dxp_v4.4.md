@@ -21,14 +21,17 @@ You will be welcomed to the Ibexa Digital Experience Platform by a newly designe
 ### All-new Ibexa Commerce packages [[% include 'snippets/commerce_badge.md' %]]
 
 This release deprecates all Commerce packages that you've known from previous releases 
-and brings a completely redesigned and reconstructed Commerce offering.
+and brings a redesigned and reconstructed Commerce offering.
 
 As part of this effort, two all-new components have been created: Cart and Checkout, 
 that you can use to build your own e-commerce presence. 
-Another addition is the Storefront component that serves as a proof-of-concept 
-and a basis for your customization and extension.
 
 ![The new cart view](img/4.4_new_cart.png "The new cart view")
+
+Another addition is the Storefront component that provides a set of basic components 
+and adds a basis for your customization and extension.
+
+![The new checkout](img/4.4_new_checkout.png "The new checkout")
 
 For more information, see [Commerce](https://doc.ibexa.co/en/4.4/commerce/commerce/).
 
