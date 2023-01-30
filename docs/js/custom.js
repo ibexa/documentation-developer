@@ -102,7 +102,7 @@ $(document).ready(function() {
                 link = $('.ds-dropdown-menu').append('<a class="search-page-link" href="" style="position:absolute; bottom: 0px;">See all results</a>');
             }
             if (hits.length >= 10/*hitsPerPage*/) {
-                let href = '/en/' + branchName + '/instantsearch.html#' + $(/*this.inputSelector*/'#search_input').val();
+                let href = '/en/' + branchName + '/instantsearch.html#q=' + encodeURI($(/*this.inputSelector*/'#search_input').val()) + '&p=1';
                 link.attr('href', href).show();
             } else {
                 link.hide();

@@ -68,20 +68,41 @@
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
 
 <script>
+  let query = '', page = 1;
+  for (let hashPart of document.location.hash.replace('#', '').split('&')) {
+    let paramParts = hashPart.split('=');
+    switch(paramParts[0]) {
+      case 'q':
+        query = decodeURI(paramParts[1].replace('+', ' '));
+        break;
+      case 'p':
+        page = parseInt(paramParts[1]);
+        if (isNaN(page)) {
+            page = 1;
+        }
+        break;
+    }
+  }
+
   const search = instantsearch({
     indexName: 'ezplatform',
     searchClient: algoliasearch('2DNYOU6YJZ', '21ce3e522455e18e7ee16cf7d66edb4b'),
     initialUiState: {
       ezplatform: {
-        query: decodeURI(document.location.hash.replace('#', '').replace('+', ' ')),
+        query: query,
         refinementList: { version: [document.location.href.split('/')[4]] },
-        page: 1
+        page: page
       },
     },
   });
 
   document.getElementById('searchbox').addEventListener('keyup', function(event) {
-      window.location.hash = '#' + event.target.value;
+    window.location.hash = '#q=' + encodeURI(event.target.value) + '&p=1';
+  })
+
+  document.getElementById('pagination').addEventListener('click', function(event) {
+    let page = document.getElementsByClassName('ais-Pagination-item--selected').length ? parseInt(document.getElementsByClassName('ais-Pagination-item--selected')[0].innerText) : 1
+    window.location.hash = window.location.hash.includes('p=') ? window.location.hash.replace(/p=\d*/, 'p='+page) : window.location.hash + '&p='+page;
   })
 
   search.addWidgets([
