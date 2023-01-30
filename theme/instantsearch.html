@@ -1,177 +1,198 @@
 {% extends "main.html" %}
 
+{% block extrahead %}
+  {{ super() }}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css"/>
+  <style>
+    .md-search {
+      visibility: hidden;
+    }
+
+    .left-panel {
+      float: left;
+      width: 150px;
+    }
+
+    .right-panel {
+      margin-left: 160px;
+    }
+
+    .ais-InstantSearch {
+      overflow: hidden;
+      margin: 0 auto;
+    }
+
+    .md-typeset ul.ais-RefinementList-list {
+      list-style: none;
+      margin: 0;
+    }
+
+    .md-typeset ul.ais-RefinementList-list li {
+      margin: 0;
+    }
+
+    .md-typeset ol.ais-Hits-list:not([hidden]), .md-typeset ul.ais-Pagination-list:not([hidden]) {
+      display: flex;
+      list-style: none;
+      margin: 0;
+    }
+
+    .md-typeset ol.ais-Hits-list li {
+      margin: 0.5rem;
+    }
+
+    .md-typeset ol.ais-Hits-list li a.external:after {
+      content: '';
+    }
+
+    .ais-Hits-item div:not(:first-child):before {
+      content: ' > ';
+    }
+
+    .ais-Hits-item div:not(:first-child):empty:before {
+      content: '';
+    }
+
+    .ais-Hits-item div:nth-child(1) {
+      font-size: 1.2em;
+    }
+
+    .ais-Hits-item div:nth-child(2) {
+      font-size: 1.1em;
+    }
+
+    .ais-Hits-item div:nth-child(3) {
+      font-size: 1.0em;
+    }
+
+    .ais-Hits-item div:nth-child(4) {
+      font-size: 0.9em;
+    }
+
+    .ais-Hits-item div:nth-child(5) {
+      font-size: 0.8em;
+    }
+
+    .ais-Hits-item div:nth-child(6) {
+      font-size: 0.7em;
+    }
+
+    .ais-Hits-item div .ais-Highlight-highlighted {
+      font-size: 1.0em;
+    }
+
+    .md-typeset ul.ais-Pagination-list li {
+      margin: 0;
+    }
+  </style>
+{% endblock %}
+
 {% block content %}
-{% raw %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css"/>
-    <style>
-        .md-search {
-            visibility: hidden;
-        }
-        .left-panel {
-            float: left;
-            width: 150px;
-        }
-        .right-panel {
-            margin-left: 160px;
-        }
-        .ais-InstantSearch {
-            overflow: hidden;
-            margin: 0 auto;
-        }
-        .md-typeset ul.ais-RefinementList-list {
-            list-style: none;
-            margin: 0;
-        }
-        .md-typeset ul.ais-RefinementList-list li {
-            margin: 0;
-        }
-        .md-typeset ol.ais-Hits-list:not([hidden]), .md-typeset ul.ais-Pagination-list:not([hidden]) {
-            display: flex;
-            list-style: none;
-            margin: 0;
-        }
-        .md-typeset ol.ais-Hits-list li {
-            margin: 0.5rem;
-        }
-        .md-typeset ol.ais-Hits-list li a.external:after {
-            content: '';
-        }
-        .ais-Hits-item div:not(:first-child):before {
-            content: ' > ';
-        }
-        .ais-Hits-item div:not(:first-child):empty:before {
-            content: '';
-        }
-        .ais-Hits-item div:nth-child(1) {
-            font-size: 1.2em;
-        }
-        .ais-Hits-item div:nth-child(2) {
-            font-size: 1.1em;
-        }
-        .ais-Hits-item div:nth-child(3) {
-            font-size: 1.0em;
-        }
-        .ais-Hits-item div:nth-child(4) {
-            font-size: 0.9em;
-        }
-        .ais-Hits-item div:nth-child(5) {
-            font-size: 0.8em;
-        }
-        .ais-Hits-item div:nth-child(6) {
-            font-size: 0.7em;
-        }
-        .ais-Hits-item div .ais-Highlight-highlighted {
-            font-size: 1.0em;
-        }
-        .md-typeset ul.ais-Pagination-list li {
-            margin: 0;
-        }
-    </style>
+  {% raw %}
+    <div class="ais-InstantSearch">
+      <h1>Ibexa Documentation Search</h1>
 
-<div class="ais-InstantSearch">
-    <h1>Ibexa Documentation Search</h1>
-
-    <div class="left-panel">
+      <div class="left-panel">
         <h2>Versions</h2>
         <div id="version"></div>
-    </div>
+      </div>
 
-    <div class="right-panel">
+      <div class="right-panel">
         <div id="searchbox" class="ais-SearchBox"></div>
         <div id="hits"></div>
         <div id="pagination"></div>
+      </div>
     </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
 
-<script>
-  let search_query = '', search_page = 1;
-  for (let hashPart of document.location.hash.replace('#', '').split('&')) {
-    let paramParts = hashPart.split('=');
-    switch(paramParts[0]) {
-      case 'q':
-        search_query = decodeURI(paramParts[1].replace('+', ' '));
-        break;
-      case 'p':
-        search_page = parseInt(paramParts[1]);
-        if (isNaN(search_page)) {
-          search_page = 1;
-        }
-        break;
-    }
-  }
-
-  const search = instantsearch({
-    indexName: 'ezplatform',
-    searchClient: algoliasearch('2DNYOU6YJZ', '21ce3e522455e18e7ee16cf7d66edb4b'),
-    initialUiState: {
-      ezplatform: {
-        query: search_query,
-        refinementList: { version: [document.location.href.split('/')[4]] },
-        page: search_page
-      },
-    },
-  });
-
-  document.getElementById('searchbox').addEventListener('keyup', function(event) {
-    window.location.hash = '#q=' + encodeURI(event.target.value) + '&p=1';
-  })
-
-  document.getElementById('pagination').addEventListener('click', function(event) {
-    let page = document.getElementsByClassName('ais-Pagination-item--selected').length ? parseInt(document.getElementsByClassName('ais-Pagination-item--selected')[0].innerText) : 1
-    window.location.hash = window.location.hash.includes('p=') ? window.location.hash.replace(/p=\d*/, 'p='+page) : window.location.hash + '&p='+page;
-  })
-
-  search.addWidgets([
-    instantsearch.widgets.searchBox({
-      container: '#searchbox',
-    }),
-
-    instantsearch.widgets.hits({
-      container: '#hits',
-      transformItems(items) {
-        let removedPattern = '¶';
-        for (let index=0; index<items.length; index++) {
-          let item = items[index];
-          for (let lvl=2; lvl<=6; lvl++) {
-            if (null !== item.hierarchy['lvl'+lvl]) {
-              items[index].hierarchy['lvl' + lvl] = item.hierarchy['lvl' + lvl].replace(removedPattern, '');
+    <script>
+      let search_query = '', search_page = 1;
+      for (let hashPart of document.location.hash.replace('#', '').split('&')) {
+        let paramParts = hashPart.split('=');
+        switch (paramParts[0]) {
+          case 'q':
+            search_query = decodeURI(paramParts[1].replace('+', ' '));
+            break;
+          case 'p':
+            search_page = parseInt(paramParts[1]);
+            if (isNaN(search_page)) {
+              search_page = 1;
             }
-            if ('undefined' !== typeof item._highlightResult.hierarchy['lvl'+lvl]) {
-              items[index]._highlightResult.hierarchy['lvl'+lvl].value = item._highlightResult.hierarchy['lvl'+lvl].value.replace(removedPattern, '');
-            }
-          }
+            break;
         }
-        return items;
-      },
-      templates: {
-        item: `
-        <a href="{{url}}">
-          <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl1", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
-          <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl2", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
-          <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl3", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
-          <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl4", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
-          <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl5", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
-          <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl6", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
-        </a>
-      ` ,
-      },
-    }),
+      }
 
-    instantsearch.widgets.refinementList({
-      container: document.querySelector('#version'),
-      attribute: 'version',
-      sortBy: ['name:desc'],
-    }),
+      const search = instantsearch({
+        indexName: 'ezplatform',
+        searchClient: algoliasearch('2DNYOU6YJZ', '21ce3e522455e18e7ee16cf7d66edb4b'),
+        initialUiState: {
+          ezplatform: {
+            query: search_query,
+            refinementList: {version: [document.location.href.split('/')[4]]},
+            page: search_page
+          },
+        },
+      });
 
-    instantsearch.widgets.pagination({
-      container: '#pagination',
-    }),
-  ]);
+      document.getElementById('searchbox').addEventListener('keyup', function (event) {
+        window.location.hash = '#q=' + encodeURI(event.target.value) + '&p=1';
+      })
 
-  search.start();
-</script>
-{% endraw %}
+      document.getElementById('pagination').addEventListener('click', function (event) {
+        let page = document.getElementsByClassName('ais-Pagination-item--selected').length ? parseInt(document.getElementsByClassName('ais-Pagination-item--selected')[0].innerText) : 1
+        window.location.hash = window.location.hash.includes('p=') ? window.location.hash.replace(/p=\d*/, 'p=' + page) : window.location.hash + '&p=' + page;
+      })
+
+      search.addWidgets([
+        instantsearch.widgets.searchBox({
+          container: '#searchbox',
+        }),
+
+        instantsearch.widgets.hits({
+          container: '#hits',
+          transformItems(items) {
+            let removedPattern = '¶';
+            for (let index = 0; index < items.length; index++) {
+              let item = items[index];
+              for (let lvl = 2; lvl <= 6; lvl++) {
+                if (null !== item.hierarchy['lvl' + lvl]) {
+                  items[index].hierarchy['lvl' + lvl] = item.hierarchy['lvl' + lvl].replace(removedPattern, '');
+                }
+                if ('undefined' !== typeof item._highlightResult.hierarchy['lvl' + lvl]) {
+                  items[index]._highlightResult.hierarchy['lvl' + lvl].value = item._highlightResult.hierarchy['lvl' + lvl].value.replace(removedPattern, '');
+                }
+              }
+            }
+            return items;
+          },
+          templates: {
+            item: `
+  <a href="{{url}}">
+    <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl1", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
+    <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl2", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
+    <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl3", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
+    <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl4", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
+    <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl5", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
+    <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl6", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
+  </a>
+  `,
+          },
+        }),
+
+        instantsearch.widgets.refinementList({
+          container: document.querySelector('#version'),
+          attribute: 'version',
+          sortBy: ['name:desc'],
+        }),
+
+        instantsearch.widgets.pagination({
+          container: '#pagination',
+        }),
+      ]);
+
+      search.start();
+    </script>
+  {% endraw %}
 {% endblock %}
