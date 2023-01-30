@@ -27,7 +27,7 @@ From the developer's perspective, checkouts are referenced with the UUID identif
 To access a single checkout, use the `CheckoutServiceInterface::getCheckout` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/CheckoutCommand.php', 53, 56) =]]
+[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 29, 30) =]]
 ```
 
 ## Get single checkout for specific cart
@@ -37,9 +37,7 @@ It can come in handy when you want to initiate the checkout process right after
 products are completed within a cart.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/CheckoutCommand.php', 45, 48) =]]
-
-[[= include_file('code_samples/api/commerce/src/Command/CheckoutCommand.php', 50, 51) =]]
+[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 23, 27) =]]
 ```
 
 ## Create checkout
@@ -48,10 +46,7 @@ To create a cart, use the `CheckoutServiceInterface::createCheckout` method and
 provide it with `Ibexa\Contracts\Checkout\Value\CheckoutCreateStruct` that contains  `Ibexa\Contracts\Cart\Value\CartInterface`.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/CheckoutCommand.php', 6, 7) =]]
-// ...
-
-[[= include_file('code_samples/api/commerce/src/Command/CheckoutCommand.php', 58, 64) =]]
+[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 32, 38) =]]
 ```
 
 ## Update checkout
@@ -67,10 +62,7 @@ step of the workflow, as well as a transition name to identify what step will fo
 All data is placed in session storage.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/CheckoutCommand.php', 7, 8) =]]
-// ...
-
-[[= include_file('code_samples/api/commerce/src/Command/CheckoutCommand.php', 66, 70) =]]
+[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 40, 42) =]]
 ```
 
 ## Delete checkout
@@ -78,7 +70,5 @@ All data is placed in session storage.
 To delete a checkout from the session, use the `CheckoutServiceInterface::deleteCheckout` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/CheckoutCommand.php', 53, 54) =]]
-
-[[= include_file('code_samples/api/commerce/src/Command/CheckoutCommand.php', 72, 73) =]]
+[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 44, 45) =]]
 ```
