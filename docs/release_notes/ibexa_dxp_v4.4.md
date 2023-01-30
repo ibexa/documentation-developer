@@ -96,9 +96,9 @@ If your custom project relies directly on a Flysystem features instead of using 
 it will require an upgrade as well,
 using [these instructions](https://flysystem.thephpleague.com/docs/upgrade-from-1.x/).
 
-### Dedicated migration type for companies
+### Dedicated migration type for Corporate Accounts
 
-To simplify data migration, you can now create a company with underling objects such as members group and address book.
+To simplify data migration, you can now create a corporate account with underling objects such as members group and address book.
 You can also extract those objects as references. 
 For more information on data migration actions, see [documentation](https://doc.ibexa.co/en/4.4/content_management/data_migration/data_migration_actions/#data-migration-actions).
 
