@@ -4,6 +4,8 @@ namespace App\Command;
 
 use Ibexa\Contracts\Cart\CartServiceInterface;
 use Ibexa\Contracts\Checkout\CheckoutServiceInterface;
+use Ibexa\Contracts\Checkout\Value\CheckoutCreateStruct;
+use Ibexa\Contracts\Checkout\Value\CheckoutUpdateStruct;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Core\Repository\Permission\PermissionResolver;
 use Symfony\Component\Console\Command\Command;
@@ -46,8 +48,12 @@ final class CheckoutCommand extends Command
         $checkoutForCart = $this->checkoutService->getCheckoutForCart($cart);
         $checkoutId = $checkoutForCart->getIdentifier();
 
+        $output->writeln($checkoutForCart->getStatus());
+
         // Get checkout by checkout ID
         $checkout = $this->checkoutService->getCheckout($checkoutId);
+        
+        $output->writeln($checkout->getStatus());
 
         // Create a new checkout
         $newCart = $this->cartService->getCart('1844450e-61da-4814-8d82-9301a3df0054');
