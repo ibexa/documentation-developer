@@ -99,7 +99,7 @@ $(document).ready(function() {
             });
             let link = $('.ds-dropdown-menu a.search-page-link');
             if (!link.length) {
-                link = $('.ds-dropdown-menu').append('<a class="search-page-link" href="" style="position:absolute; bottom: 0px;">See all results</a>');
+                link = $('.ds-dropdown-menu').append('<a class="search-page-link" href="" style="position: absolute; bottom: 0px; z-index: 1000;">See all results</a>');
             }
             if (hits.length >= 10/*hitsPerPage*/) {
                 let href = '/en/' + branchName + '/search_results/#q=' + encodeURI($(/*this.inputSelector*/'#search_input').val()) + '&p=1';
