@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+{% extends "main.html" %}
+
+{% block content %}
+{% raw %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css"/>
-    <link rel="shortcut icon" type="image/x-icon" href="api/rest_api/rest_api_reference/favicon.ico">
-    <title>Ibexa Documentation Search</title>
     <style>
+        .md-search {
+            visibility: hidden;
+        }
         .left-panel {
             float: left;
             width: 150px;
@@ -17,6 +17,16 @@
         .ais-InstantSearch {
             overflow: hidden;
             margin: 0 auto;
+        }
+        .md-typeset ul.ais-RefinementList-list {
+            list-style: none;
+            margin: 0;
+        }
+        .md-typeset ul.ais-RefinementList-list li {
+            margin: 0;
+        }
+        .md-typeset ol.ais-Hits-list:not([hidden]) {
+            display: flex;
         }
         .ais-Hits-item div:not(:first-child):before {
             content: ' > ';
@@ -46,9 +56,7 @@
             font-size: 1.0em;
         }
     </style>
-</head>
 
-<body>
 <div class="ais-InstantSearch">
     <h1>Ibexa Documentation Search</h1>
 
@@ -68,17 +76,17 @@
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
 
 <script>
-  let query = '', page = 1;
+  let search_query = '', search_page = 1;
   for (let hashPart of document.location.hash.replace('#', '').split('&')) {
     let paramParts = hashPart.split('=');
     switch(paramParts[0]) {
       case 'q':
-        query = decodeURI(paramParts[1].replace('+', ' '));
+        search_query = decodeURI(paramParts[1].replace('+', ' '));
         break;
       case 'p':
-        page = parseInt(paramParts[1]);
-        if (isNaN(page)) {
-            page = 1;
+        search_page = parseInt(paramParts[1]);
+        if (isNaN(search_page)) {
+          search_page = 1;
         }
         break;
     }
@@ -89,9 +97,9 @@
     searchClient: algoliasearch('2DNYOU6YJZ', '21ce3e522455e18e7ee16cf7d66edb4b'),
     initialUiState: {
       ezplatform: {
-        query: query,
+        query: search_query,
         refinementList: { version: [document.location.href.split('/')[4]] },
-        page: page
+        page: search_page
       },
     },
   });
@@ -154,13 +162,5 @@
 
   search.start();
 </script>
-
-</body>
-</html>
-
-<!--
-https://www.algolia.com/doc/api-reference/api-parameters/filters/#examples
-https://www.algolia.com/doc/api-reference/api-methods/multiple-queries/#method-param-indexname
-https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/
-https://codesandbox.io/s/github/algolia/doc-code-samples/tree/master/instantsearch.js/getting-started
--->
+{% endraw %}
+{% endblock %}
