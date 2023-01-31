@@ -67,7 +67,27 @@ The `\Ibexa\Contracts\Storefront\Repository\CatalogResolverInterface` service al
 
 ### Configure user account
 
-The `ibexa\user` settings mechanism can be reused in the `ibexa\storefront`.
+The following User settings mechanisms used in `ibexa/storefront` are reused from `ibexa/user` package:
 
-Available settigns for a storefront user
+- change password feature
+- user avatar
+
+Settings for a storefront user are configured under the `ibexa.system.<scope>.storefront.user_settings_groups:
+
+```yaml
+ibexa:
+    system:
+        site_group:
+            user_settings_groups:
+                - location
+                - custom_group       
+```
+
+By default, the `location` is provided:
+
+- Currency (provided by `ibexa/storefront`)
+- Time zone
+- Short date and time format
+- Long date and time format
+- Language
 
