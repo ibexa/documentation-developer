@@ -403,4 +403,4 @@ module.exports = (ibexaConfig, ibexaConfigManager) => {
 };
 ```
 
-For more information, see [CKEditor plugins documentation](https://ckeditor.com/docs/ckeditor4/latest/guide/plugin_sdk_intro.html).
+For more information, see [CKEditor plugins documentation](https://ckeditor.com/docs/ckeditor5/latest/installation/advanced/plugins.html).
