@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Controller;
 
@@ -24,7 +26,7 @@ class CustomCheckoutController extends Controller
         $cart = $this->cartService->getCart('d7424b64-7dc1-474c-82c8-1700f860d55e');
 
         $checkoutForCart = $this->checkoutService->getCheckoutForCart($cart);
-        $checkoutId = $checkoutForCart->getIdentifier();
+        $checkoutIdentifier = $checkoutForCart->getIdentifier();
 
         // Get checkout by checkout ID
         $checkout = $this->checkoutService->getCheckout($checkoutId);
@@ -35,7 +37,7 @@ class CustomCheckoutController extends Controller
         $checkoutCreateStruct = $this->checkoutService->newCheckoutCreateStruct($newCart);
         $newCheckout = $this->checkoutService->createCheckout($checkoutCreateStruct);
 
-        $newCheckoutId = $newCheckout->getIdentifier();
+        $newCheckoutIdentifier = $newCheckout->getIdentifier();
 
         // Update a checkout
         $checkoutUpdateStruct = $this->checkoutService->newCheckoutUpdateStruct('select_address');
@@ -45,8 +47,8 @@ class CustomCheckoutController extends Controller
         $this->checkoutService->deleteCheckout($newCheckout);
 
         return $this->render('custom_checkout.html.twig', [
-            'checkout_id' => $checkoutId,
-            'new_checkout_id' => $newCheckoutId,
+            'checkout_id' => $checkoutIdentifier,
+            'new_checkout_id' => $newCheckoutIdentifier,
         ]);
     }
 }
