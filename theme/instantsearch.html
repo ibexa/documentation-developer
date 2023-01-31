@@ -107,6 +107,10 @@
     {
       font-size: 20px;
     }
+
+    #pagination-stats {
+      text-align: center;
+    }
   </style>
 {% endblock %}
 
@@ -114,9 +118,11 @@
   {% raw %}
     <div class="ais-InstantSearch">
       <h1>Ibexa Documentation Search</h1>
-      <div id="searchbox" class="ais-SearchBox"></div>
+      <div id="stats"></div>
+      <div id="searchbox"></div>
       <div id="hits"></div>
       <div id="pagination"></div>
+      <div id="pagination-stats"></div>
       <div id="version"></div>
     </div>
 
@@ -162,6 +168,22 @@
       })
 
       search.addWidgets([
+        instantsearch.widgets.configure({
+          hitsPerPage: 10,
+        }),
+
+        instantsearch.widgets.stats({
+          container: '#stats',
+          templates: {
+            text: `
+              {{#hasNoResults}}No results{{/hasNoResults}}
+              {{#hasOneResult}}1 result{{/hasOneResult}}
+              {{#hasManyResults}}{{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber}} results{{/hasManyResults}}
+              found
+            `,
+          },
+        }),
+
         instantsearch.widgets.searchBox({
           container: '#searchbox',
         }),
@@ -185,27 +207,37 @@
           },
           templates: {
             item: `
-  <a href="{{url}}">
-    <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl0", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
-    <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl1", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
-    <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl2", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
-    <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl3", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
-    <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl4", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
-    <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl5", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
-    <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl6", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
-    <div>{{#helpers.highlight}}{ "attribute": "content", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
-  </a>
-  `,
+              <a href="{{url}}">
+                <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl0", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
+                <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl1", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
+                <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl2", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
+                <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl3", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
+                <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl4", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
+                <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl5", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
+                <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl6", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
+                <div>{{#helpers.highlight}}{ "attribute": "content", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
+              </a>
+            `,
+          },
+        }),
+
+        instantsearch.widgets.pagination({
+          container: '#pagination',
+        }),
+
+        instantsearch.widgets.stats({
+          container: '#pagination-stats',
+          templates: {
+            text(data, {html}) {
+              let page = 1 + data.page;
+              return html`<span>${page} / ${data.nbPages}</span>`;
+            },
           },
         }),
 
         instantsearch.widgets.refinementList({
           container: document.querySelector('#version'),
           attribute: 'version',
-        }),
-
-        instantsearch.widgets.pagination({
-          container: '#pagination',
         }),
       ]);
 
