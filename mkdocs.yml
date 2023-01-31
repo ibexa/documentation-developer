@@ -287,6 +287,9 @@ nav:
         - Bestsellers: pim/bestsellers.md
     - Commerce:
         - Commerce: commerce/commerce.md
+        - Storefront:
+            - Storefront: commerce/storefront/storefront.md
+            - Configure storefront: commerce/storefront/configure_storefront.md
     - Customer management:
         - Customer Portal: customer_management/customer_portal.md
         - Customer Portal configuration: customer_management/cp_configuration.md
