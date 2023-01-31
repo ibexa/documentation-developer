@@ -244,6 +244,7 @@ nav:
             - Content Twig functions: templating/twig_function_reference/content_twig_functions.md
             - Field Twig functions: templating/twig_function_reference/field_twig_functions.md
             - Product Twig functions: templating/twig_function_reference/product_twig_functions.md
+            - Storefront Twig functions: templating/twig_function_reference/storefront_twig_functions.md
             - Image Twig functions: templating/twig_function_reference/image_twig_functions.md
             - URL Twig functions: templating/twig_function_reference/url_twig_functions.md
             - Date Twig filters: templating/twig_function_reference/date_twig_filters.md
