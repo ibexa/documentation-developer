@@ -24,7 +24,7 @@
     }
 
     .md-typeset ol.ais-Hits-list li.ais-Hits-item {
-      padding: 5px 0;
+      padding: 5px 0 10px;
       width: auto;
       margin: 0;
       border: 1px solid grey;
@@ -91,7 +91,16 @@
 
     .ais-Pagination-link {
       border: none;
-      font-size: small;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .ais-Pagination-item--firstPage .ais-Pagination-link,
+    .ais-Pagination-item--previousPage .ais-Pagination-link,
+    .ais-Pagination-item--nextPage .ais-Pagination-link,
+    .ais-Pagination-item--lastPage .ais-Pagination-link
+    {
+      font-size: 20px;
     }
   </style>
 {% endblock %}
