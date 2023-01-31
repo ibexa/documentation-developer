@@ -8,27 +8,13 @@
       visibility: hidden;
     }
 
-    .left-panel {
-      float: left;
-      width: 150px;
-    }
-
-    .right-panel {
-      margin-left: 160px;
-    }
-
     .ais-InstantSearch {
       overflow: hidden;
       margin: 0 auto;
     }
 
-    .md-typeset ul.ais-RefinementList-list {
-      list-style: none;
-      margin: 0;
-    }
-
-    .md-typeset ul.ais-RefinementList-list li {
-      margin: 0;
+    #version {
+      display: none
     }
 
     .md-typeset ol.ais-Hits-list:not([hidden]), .md-typeset ul.ais-Pagination-list:not([hidden]) {
@@ -95,17 +81,10 @@
   {% raw %}
     <div class="ais-InstantSearch">
       <h1>Ibexa Documentation Search</h1>
-
-      <div class="left-panel">
-        <h2>Versions</h2>
-        <div id="version"></div>
-      </div>
-
-      <div class="right-panel">
-        <div id="searchbox" class="ais-SearchBox"></div>
-        <div id="hits"></div>
-        <div id="pagination"></div>
-      </div>
+      <div id="searchbox" class="ais-SearchBox"></div>
+      <div id="hits"></div>
+      <div id="pagination"></div>
+      <div id="version"></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
@@ -188,7 +167,6 @@
         instantsearch.widgets.refinementList({
           container: document.querySelector('#version'),
           attribute: 'version',
-          sortBy: ['name:desc'],
         }),
 
         instantsearch.widgets.pagination({
