@@ -1,8 +1,8 @@
 ---
-description: Update procedure to v4.4 for people who don't use Commerce packages.
+description: Update procedure to v4.4 for people who don't use Commerce packages and can remove them.
 ---
 
-# Update for new Commerce packages
+# Update with new Commerce packages
 
 This update procedure applies if you have a v4.3 installation, and you do not use commerce packages.
 
