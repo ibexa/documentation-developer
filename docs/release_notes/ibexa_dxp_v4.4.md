@@ -28,8 +28,8 @@ that you can use to build your own e-commerce presence.
 
 ![The new cart view](img/4.4_new_cart.png "The new cart view")
 
-Another addition is the Storefront component that provides a set of basic components 
-and adds a basis for your customization and extension.
+Another addition is Storefront that provides a set of basic components and adds 
+a basis for your customization and extension.
 
 ![The new checkout](img/4.4_new_checkout.png "The new checkout")
 
@@ -59,6 +59,7 @@ to let editors visually organize products on a page:
 - [Last purchased](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#last-purchased-block) displays a list of products that were recently purchased, either generally, or by a specific user.
 - [Last viewed](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#last-viewed-block) displays a list of products that were recently viewed.
 - [Product collection](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#product-collection-block) displays a collection of specifically selected products.
+- [Recently added](https://doc.ibexa.co/projects/userguide/en/4.4/content_management/block_reference/#recently-added-block) displays a list of products that were recently added to PIM.
 
 ### Personalization improvements
 
