@@ -1,12 +1,12 @@
 ---
-description: Ibexa DXP v4.4 adds the improvements to the Welcome Page, PIM and Fastly.
+description: Ibexa DXP v4.4 adds the improvements to the Welcome Page, All-new Ibexa Commerce packages and Fastly.
 ---
 
 # Ibexa DXP v4.4
 
 **Version number**: v4.4
 
-**Release date**: January 27, 2023
+**Release date**: January 31, 2023
 
 **Release type**: [Fast Track](https://support.ibexa.co/Public/service-life)
 
