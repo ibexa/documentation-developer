@@ -36,11 +36,11 @@
       content: none;
     }
 
-    .ais-Hits-item div:not(:first-child):before {
+    .ais-Hits-item div:not(:first-child):not(:nth-child(2)):before {
       content: ' > ';
     }
 
-    .ais-Hits-item div:not(:first-child):empty:before {
+    .ais-Hits-item div:not(:first-child):not(:nth-child(2)):empty:before {
       content: none;
     }
 
@@ -49,35 +49,40 @@
     }
 
     .ais-Hits-item div:nth-child(1) {
-      font-size: 1.0em;
+      font-size: 0.8em;
+      color: var(--ibexa-dusk-black);
     }
 
     .ais-Hits-item div:nth-child(2) {
-      font-size: 0.95em;
+      font-size: 1.0em;
     }
 
     .ais-Hits-item div:nth-child(3) {
-      font-size: 0.90em;
+      font-size: 0.95em;
     }
 
     .ais-Hits-item div:nth-child(4) {
-      font-size: 0.85em;
+      font-size: 0.90em;
     }
 
     .ais-Hits-item div:nth-child(5) {
-      font-size: 0.80em;
+      font-size: 0.85em;
     }
 
     .ais-Hits-item div:nth-child(6) {
-      font-size: 0.75em;
+      font-size: 0.80em;
     }
 
     .ais-Hits-item div:nth-child(7) {
+      font-size: 0.75em;
+    }
+
+    .ais-Hits-item div:nth-child(8) {
       font-size: 0.70em;
       color: var(--ibexa-dusk-black);
     }
 
-    .ais-Hits-item div:nth-child(7):before {
+    .ais-Hits-item div:not(:first-child):not(:nth-child(2)):nth-child(8):before {
       content: none;
     }
 
@@ -181,6 +186,7 @@
           templates: {
             item: `
   <a href="{{url}}">
+    <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl0", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
     <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl1", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
     <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl2", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
     <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl3", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
