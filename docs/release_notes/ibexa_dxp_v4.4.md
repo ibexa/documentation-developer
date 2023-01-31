@@ -43,7 +43,7 @@ for example, cropping, resizing and trimming before serving it to end user.
 Fastly is an external service that requires a separate subscription,
 to learn more see, [Fastly Image Optimizer website](https://docs.fastly.com/en/guides/about-fastly-image-optimizer).
 
-If you already have Fastly IO subscription, you can move to Fastly IO configuration in Ibexa DXP.
+If you already have Fastly IO subscription, you can move to [Fastly IO configuration in Ibexa DXP](https://doc.ibexa.co/en/4.4/content_management/images/fastly_io/).
 
 #### Fastly VCL upload
 
@@ -112,6 +112,29 @@ For more information on data migration actions, see [documentation](https://doc.
 Now, in a Recently added model (previously Random model), you can manually [set the age of items](https://doc.ibexa.co/projects/userguide/en/4.4/personalization/recommendation_models/#recently-added) which are displayed in recommendations.
 
 ### Deprecations
+
+### Commerce packages
+
+All Commerce packages as of this release are deprecated:
+
+- `ibexa/commerce-admin-ui`
+- `ibexa/commerce-erp-admin`
+- `ibexa/commerce-order-history`
+- `ibexa/commerce-page-builder`
+- `ibexa/commerce-rest`
+- `ibexa/commerce-transaction`
+- `ibexa/commerce-base-design`
+- `ibexa/commerce-checkout`
+- `ibexa/commerce-fieldtypes`
+- `ibexa/commerce-price-engine`
+- `ibexa/commerce-shop`
+- `ibexa/commerce-shop-ui`
+
+They will be maintained by Ibexa with fixes including security fixes, but they won't be further developed.
+Old packages are replaced by [the all-new Ibexa Commerce packages](#all-new-ibexa-commerce-packages--include-snippetscommerce_badgemd-) with more
+to come in the upcoming releases.
+
+### Flysystem
 
 - Support for overwriting existing files has been dropped (catch block of `\Ibexa\Core\IO\IOBinarydataHandler\Flysystem::create` and test). The new native Flysystem v2 Local Adapter performs this out of the box.
 - Support for no last modified timestamp has been dropped (in the form of a test case). The new Flysystem v2 throws `UnableToRetrieveMetadata` exception in such case.
