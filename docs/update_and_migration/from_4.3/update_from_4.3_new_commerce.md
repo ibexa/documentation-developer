@@ -4,7 +4,7 @@ description: Update procedure to v4.4 for people who don't use Commerce packages
 
 # Update with new Commerce packages
 
-This update procedure applies if you have a v4.3 installation, and you do not use commerce packages.
+This update procedure applies if you have a v4.3 installation, and you do not use Commerce packages.
 
 ## Update from v4.3.x to v4.3.latest
 

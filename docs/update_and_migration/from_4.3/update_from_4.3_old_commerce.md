@@ -1,5 +1,5 @@
 ---
-description: Update procedure to v4.4 for people who use deprecated Commerce packages and want them to stay.
+description: Update procedure to v4.4 for people who use deprecated Commerce packages and want them to remain.
 ---
 
 # Update with old Commerce packages
