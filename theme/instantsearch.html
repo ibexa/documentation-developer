@@ -17,18 +17,23 @@
       display: none
     }
 
-    .md-typeset ol.ais-Hits-list:not([hidden]), .md-typeset ul.ais-Pagination-list:not([hidden]) {
+    .md-typeset ul.ais-Pagination-list:not([hidden]) {
       display: flex;
       list-style: none;
       margin: 0;
     }
 
-    .md-typeset ol.ais-Hits-list li {
-      margin: 0.5rem;
+    .md-typeset ol.ais-Hits-list li.ais-Hits-item {
+      padding: 5px 0;
+      width: auto;
+      margin: 0;
+      border: 1px solid grey;
+      border-width: 0 0 1px;
+      box-shadow: none;
     }
 
     .md-typeset ol.ais-Hits-list li a.external:after {
-      content: '';
+      content: none;
     }
 
     .ais-Hits-item div:not(:first-child):before {
@@ -36,11 +41,11 @@
     }
 
     .ais-Hits-item div:not(:first-child):empty:before {
-      content: '';
+      content: none;
     }
 
     .ais-Hits-item a {
-      font-size: 18px;
+      font-size: 20px;
     }
 
     .ais-Hits-item div:nth-child(1) {
@@ -48,23 +53,32 @@
     }
 
     .ais-Hits-item div:nth-child(2) {
-      font-size: 0.9em;
+      font-size: 0.95em;
     }
 
     .ais-Hits-item div:nth-child(3) {
-      font-size: 0.8em;
+      font-size: 0.90em;
     }
 
     .ais-Hits-item div:nth-child(4) {
-      font-size: 0.7em;
+      font-size: 0.85em;
     }
 
     .ais-Hits-item div:nth-child(5) {
-      font-size: 0.6em;
+      font-size: 0.80em;
     }
 
     .ais-Hits-item div:nth-child(6) {
-      font-size: 0.5em;
+      font-size: 0.75em;
+    }
+
+    .ais-Hits-item div:nth-child(7) {
+      font-size: 0.70em;
+      color: var(--ibexa-dusk-black);
+    }
+
+    .ais-Hits-item div:nth-child(7):before {
+      content: none;
     }
 
     .ais-Hits-item div .ais-Highlight-highlighted {
@@ -73,6 +87,11 @@
 
     .md-typeset ul.ais-Pagination-list li {
       margin: 0;
+    }
+
+    .ais-Pagination-link {
+      border: none;
+      font-size: small;
     }
   </style>
 {% endblock %}
@@ -159,6 +178,7 @@
     <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl4", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
     <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl5", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
     <div>{{#helpers.highlight}}{ "attribute": "hierarchy.lvl6", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
+    <div>{{#helpers.highlight}}{ "attribute": "content", "highlightedTagName": "strong" }{{/helpers.highlight}}</div>
   </a>
   `,
           },
