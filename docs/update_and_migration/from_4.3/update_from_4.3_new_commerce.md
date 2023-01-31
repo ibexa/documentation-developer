@@ -92,57 +92,99 @@ Removal of third party bundles (`FOS\` to `JMS\`) is optional, you can leave the
 === "[[= product_name_content =]]"
 
     ``` php
-    
+    FOS\CommentBundle\FOSCommentBundle
+    Tedivm\StashBundle\TedivmStashBundle
+    WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle
+    Nelmio\SolariumBundle\NelmioSolariumBundle
+    JMS\Payment\CoreBundle\JMSPaymentCoreBundle	
+    Joli\ApacheTikaBundle\ApacheTikaBundle
+    JMS\JobQueueBundle\JMSJobQueueBundle
+    FOS\RestBundle\FOSRestBundle	
+    JMS\SerializerBundle\JMSSerializerBundle
+    Ibexa\Bundle\Commerce\Eshop\IbexaCommerceEshopBundle
+    Ibexa\Bundle\Commerce\ShopTools\IbexaCommerceShopToolsBundle
+    Ibexa\Bundle\Commerce\Translation\IbexaCommerceTranslationBundle
+    Ibexa\Bundle\Commerce\Payment\IbexaCommercePaymentBundle	
+    Ibexa\Bundle\Commerce\Price\IbexaCommercePriceBundle	
+    Ibexa\Bundle\Commerce\Tools\IbexaCommerceToolsBundle	
+    Ibexa\Bundle\Commerce\Search\IbexaCommerceSearchBundle
+    Ibexa\Bundle\Commerce\PriceEngine\IbexaCommercePriceEngineBundle	
+    Ibexa\Bundle\Commerce\SpecificationsType\IbexaCommerceSpecificationsTypeBundle
+    Ibexa\Bundle\Commerce\BaseDesign\IbexaCommerceBaseDesignBundle	
+    Ibexa\Bundle\Commerce\FieldTypes\IbexaCommerceFieldTypesBundle	
+    Ibexa\Bundle\Commerce\Checkout\IbexaCommerceCheckoutBundle	
+    Ibexa\Bundle\Commerce\ShopUi\IbexaCommerceShopUiBundle
     ```
 
 === "[[= product_name_exp =]]"
 
     ``` php
-    
+    FOS\CommentBundle\FOSCommentBundle
+    Tedivm\StashBundle\TedivmStashBundle
+    WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle
+    Nelmio\SolariumBundle\NelmioSolariumBundle
+    JMS\Payment\CoreBundle\JMSPaymentCoreBundle	
+    Joli\ApacheTikaBundle\ApacheTikaBundle
+    JMS\JobQueueBundle\JMSJobQueueBundle
+    FOS\RestBundle\FOSRestBundle	
+    JMS\SerializerBundle\JMSSerializerBundle
+    Ibexa\Bundle\Commerce\Eshop\IbexaCommerceEshopBundle
+    Ibexa\Bundle\Commerce\ShopTools\IbexaCommerceShopToolsBundle
+    Ibexa\Bundle\Commerce\Translation\IbexaCommerceTranslationBundle
+    Ibexa\Bundle\Commerce\Payment\IbexaCommercePaymentBundle	
+    Ibexa\Bundle\Commerce\Price\IbexaCommercePriceBundle	
+    Ibexa\Bundle\Commerce\Tools\IbexaCommerceToolsBundle	
+    Ibexa\Bundle\Commerce\Search\IbexaCommerceSearchBundle
+    Ibexa\Bundle\Commerce\PriceEngine\IbexaCommercePriceEngineBundle	
+    Ibexa\Bundle\Commerce\SpecificationsType\IbexaCommerceSpecificationsTypeBundle
+    Ibexa\Bundle\Commerce\BaseDesign\IbexaCommerceBaseDesignBundle	
+    Ibexa\Bundle\Commerce\FieldTypes\IbexaCommerceFieldTypesBundle	
+    Ibexa\Bundle\Commerce\Checkout\IbexaCommerceCheckoutBundle	
+    Ibexa\Bundle\Commerce\ShopUi\IbexaCommerceShopUiBundle
     ```
 
 === "[[= product_name_com =]]"
 
     ``` php
-    FOS\CommentBundle\FOSCommentBundle::class => ['all' => true],
-    Tedivm\StashBundle\TedivmStashBundle::class => ['all' => true],
-    WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle::class => ['all' => true],
-    Nelmio\SolariumBundle\NelmioSolariumBundle::class => ['all' => true],
-    JMS\Payment\CoreBundle\JMSPaymentCoreBundle::class => ['all' => true],
-    Joli\ApacheTikaBundle\ApacheTikaBundle::class => ['all' => true],
-    JMS\JobQueueBundle\JMSJobQueueBundle::class => ['all' => true],
-    FOS\RestBundle\FOSRestBundle::class => ['all' => true],
-    JMS\SerializerBundle\JMSSerializerBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\Eshop\IbexaCommerceEshopBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\ShopTools\IbexaCommerceShopToolsBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\Translation\IbexaCommerceTranslationBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\Payment\IbexaCommercePaymentBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\Price\IbexaCommercePriceBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\Tools\IbexaCommerceToolsBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\Search\IbexaCommerceSearchBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\PriceEngine\IbexaCommercePriceEngineBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\SpecificationsType\IbexaCommerceSpecificationsTypeBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\BaseDesign\IbexaCommerceBaseDesignBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\FieldTypes\IbexaCommerceFieldTypesBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\Checkout\IbexaCommerceCheckoutBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\ShopUi\IbexaCommerceShopUiBundle::class => ['all' => true],
+    FOS\CommentBundle\FOSCommentBundle
+    Tedivm\StashBundle\TedivmStashBundle
+    WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle
+    Nelmio\SolariumBundle\NelmioSolariumBundle
+    JMS\Payment\CoreBundle\JMSPaymentCoreBundle
+    Joli\ApacheTikaBundle\ApacheTikaBundle
+    JMS\JobQueueBundle\JMSJobQueueBundle
+    FOS\RestBundle\FOSRestBundle
+    JMS\SerializerBundle\JMSSerializerBundle
+    Ibexa\Bundle\Commerce\Eshop\IbexaCommerceEshopBundle
+    Ibexa\Bundle\Commerce\ShopTools\IbexaCommerceShopToolsBundle
+    Ibexa\Bundle\Commerce\Translation\IbexaCommerceTranslationBundle
+    Ibexa\Bundle\Commerce\Payment\IbexaCommercePaymentBundle
+    Ibexa\Bundle\Commerce\Price\IbexaCommercePriceBundle
+    Ibexa\Bundle\Commerce\Tools\IbexaCommerceToolsBundle
+    Ibexa\Bundle\Commerce\Search\IbexaCommerceSearchBundle
+    Ibexa\Bundle\Commerce\PriceEngine\IbexaCommercePriceEngineBundle
+    Ibexa\Bundle\Commerce\SpecificationsType\IbexaCommerceSpecificationsTypeBundle
+    Ibexa\Bundle\Commerce\BaseDesign\IbexaCommerceBaseDesignBundle
+    Ibexa\Bundle\Commerce\FieldTypes\IbexaCommerceFieldTypesBundle
+    Ibexa\Bundle\Commerce\Checkout\IbexaCommerceCheckoutBundle
+    Ibexa\Bundle\Commerce\ShopUi\IbexaCommerceShopUiBundle
     # ...
-    Ibexa\Bundle\Commerce\OneSky\IbexaCommerceOneSkyBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\EzStudio\IbexaCommerceEzStudioBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\Comparison\IbexaCommerceComparisonBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\QuickOrder\IbexaCommerceQuickOrderBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\TestTools\IbexaCommerceTestToolsBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\Voucher\IbexaCommerceVoucherBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\LocalOrderManagement\IbexaCommerceLocalOrderManagementBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\Newsletter\IbexaCommerceNewsletterBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\OrderHistory\IbexaCommerceOrderHistoryBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\ErpAdmin\IbexaCommerceErpAdminBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\ShopFrontend\IbexaCommerceShopFrontendBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\Basket\IbexaCommerceBasketBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\Rest\IbexaCommerceRestBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\AdminUi\IbexaCommerceAdminUiBundle::class => ['all' => true],
-    Ibexa\Bundle\Commerce\PageBuilder\IbexaCommercePageBuilderBundle::class => ['all' => true],
-    EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle::class => ['all' => true],
+    Ibexa\Bundle\Commerce\OneSky\IbexaCommerceOneSkyBundle
+    Ibexa\Bundle\Commerce\EzStudio\IbexaCommerceEzStudioBundle
+    Ibexa\Bundle\Commerce\Comparison\IbexaCommerceComparisonBundle
+    Ibexa\Bundle\Commerce\QuickOrder\IbexaCommerceQuickOrderBundle
+    Ibexa\Bundle\Commerce\TestTools\IbexaCommerceTestToolsBundle
+    Ibexa\Bundle\Commerce\Voucher\IbexaCommerceVoucherBundle
+    Ibexa\Bundle\Commerce\LocalOrderManagement\IbexaCommerceLocalOrderManagementBundle
+    Ibexa\Bundle\Commerce\Newsletter\IbexaCommerceNewsletterBundle
+    Ibexa\Bundle\Commerce\OrderHistory\IbexaCommerceOrderHistoryBundle
+    Ibexa\Bundle\Commerce\ErpAdmin\IbexaCommerceErpAdminBundle
+    Ibexa\Bundle\Commerce\ShopFrontend\IbexaCommerceShopFrontendBundle
+    Ibexa\Bundle\Commerce\Basket\IbexaCommerceBasketBundle::class
+    Ibexa\Bundle\Commerce\Rest\IbexaCommerceRestBundle::class
+    Ibexa\Bundle\Commerce\AdminUi\IbexaCommerceAdminUiBundle::class
+    Ibexa\Bundle\Commerce\PageBuilder\IbexaCommercePageBuilderBundle::class
+    EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle::class
     ```
 
 
