@@ -9,9 +9,7 @@ The built-in storefront offers a set of templates covering all functionalities o
 divided into smaller components.
 
 To customize your shop, you can override either whole templates, or specific components.
-
 The built-in templates belong to the `storefront` [theme](design_engine.md).
-
 To override any of them, copy its directory structure in your template directory.
 
 ## Template customization example

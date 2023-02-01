@@ -5,9 +5,11 @@ edition: commerce
 
 # Storefront Twig functions
 
+You can use storefront Twig functions to control the rendering of storefront elements.
+
 ## `ibexa_storefront_get_logo()`
 
-`ibexa_storefront_get_logo() returns current shop logo (configured in `ibexa.system.<scope>.storefront.logo`):
+`ibexa_storefront_get_logo()` returns current shop logo (configured in `ibexa.system.<scope>.storefront.logo`):
 
 ``` html+twig
 {% block logo %}
@@ -27,7 +29,7 @@ edition: commerce
 
 ## `ibexa_storefront_get_main_menu_alias()` / `ibexa_storefront_get_main_menu_options()`
 
-`ibexa_storefront_get_main_menu_alias()` returns the main menu alias
+`ibexa_storefront_get_main_menu_alias()` returns the main menu alias.
 
 `ibexa_storefront_get_main_menu_options()` returns the main menu's options (configured in `ibexa.system.<scope>.storefront.main_menu` / `ibexa.system.<scope>.storefront.main_menu_options`).
 
@@ -65,7 +67,7 @@ then the main category for "Office" is "Furniture".
 
 ## `ibexa_storefront_get_active_currency()`
 
-`ibexa_storefront_get_active_currency()` returns the active currency object (`Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface`)
+`ibexa_storefront_get_active_currency()` returns the active currency object (`Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface`).
 
 ``` html+twig
 {% set currency = ibexa_storefront_get_active_currency() %}
@@ -75,9 +77,7 @@ then the main category for "Office" is "Furniture".
 
 ## `ibexa_storefront_is_basket_available()`
 
-`ibexa_storefront_is_basket_available()` returns true if the cart is available in the current Ibexa DXP instance.
-
-Usage example:
+`ibexa_storefront_is_basket_available()` returns true if the cart is available in the current Ibexa DXP instance:
 
 ``` html+twig
 {% if (ibexa_storefront_is_basket_available()) %}
