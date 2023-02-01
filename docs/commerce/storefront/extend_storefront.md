@@ -1,3 +1,8 @@
+---
+description: Extend Storefront configuration
+edition: commerce
+---
+
 # Extend storefront
 
 ## Built-in menus
@@ -23,16 +28,25 @@ Usage example:
 
 ### Breadcrumbs menu
 
-```html+twig
-{% set menu = knp_menu_get('ibexa_storefront.menu.breadcrumbs.product', [], {
-    'product': product
-}) %}
+To add breadcrumbs menu to the product, you need to use an event subscriber.
 
-{{ knp_menu_render(menu, {
-    template: '@ibexadesign/storefront/knp_menu/breadcrumbs.html.twig',
-}) }}
+Create an event subscriber in the `src/EventSubscriber/BreadcrumbsMenuSubscriber.php`:
+
+``` php
+[[= include_file('code_samples/front/shop/storefront/src/EventSubscriber/BreadcrumbsMenuSubscriber.php') =]]
 ```
 
+Next, create the `templates/themes/storefront/storefront/knp_menu/breadcrumbs.html.twig` template:
+
+```html+twig
+[[= include_file('code_samples/front/shop/storefront/templates/themes/storefront/storefront/knp_menu/breadcrumbs.html.twig') =]]
+```
+
+Next, extend the `templates/themes/storefront/storefront/product.html.twig` template:
+
+```html+twig hl_lines="6-12"
+[[= include_file('code_samples/front/shop/storefront/templates/themes/storefront/storefront/product.html.twig') =]]
+```
 
 ### Taxonomy menu
 
