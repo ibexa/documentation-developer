@@ -23,17 +23,23 @@ A new welcome page greets you when opening Ibexa Digital Experience Platform.
 This release deprecates all Commerce packages that you've known from previous releases 
 and brings a redesigned and reconstructed Commerce offering.
 
-As part of this effort, two all-new components have been created: Cart and Checkout, 
-that you can use to build your own e-commerce presence. 
-
 ![The new cart view](img/4.4_new_cart.png "The new cart view")
 
-Another addition is Storefront that provides a set of basic components and adds 
-a basis for your customization and extension.
+As part of this effort, two all-new components have been created: Cart and Checkout, 
+that you can use to build your own e-commerce presence. 
 
 ![The new checkout](img/4.4_new_checkout.png "The new checkout")
 
 For more information, see [Commerce](https://doc.ibexa.co/en/4.4/commerce/commerce/).
+
+#### Storefront
+
+Another addition is the Storefront package that provides a starting kit 
+for the developers.
+It is a working set of components, which you can use to test the new capabilities, 
+and then customize and extend to create your own implementation of a web store.
+
+For more information, see [Storefront](https://doc.ibexa.co/en/4.4/commerce/storefront/storefront).
 
 ### Fastly Image Optimizer (Fastly IO)
 
