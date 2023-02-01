@@ -286,8 +286,8 @@ nav:
     - Commerce:
         - Commerce: commerce/commerce.md
         - Cart:
-            - Cart: cart/cart.md
-            - Cart API: cart/cart_api.md
+            - Cart: commerce/cart/cart.md
+            - Cart API: commerce/cart/cart_api.md
     - Customer management:
         - Customer Portal: customer_management/customer_portal.md
         - Customer Portal configuration: customer_management/cp_configuration.md
