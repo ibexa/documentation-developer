@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP v4.4 adds the improvements to the Welcome Page, All-new Ibexa Commerce packages and Fastly.
+description: Ibexa DXP v4.4 adds the improvements to the Welcome Page, All-new Ibexa Commerce packages and Fastly IO.
 ---
 
 # Ibexa DXP v4.4
@@ -114,9 +114,9 @@ In a Recently added model (previously Random model), you can now manually [set t
 
 ### Deprecations
 
-### Commerce packages
+#### Commerce packages
 
-The following Commerce packages are deprecated as of this release:
+The following Commerce packages are deprecated as of this release and will be removed in v5:
 
 - `ibexa/commerce-admin-ui`
 - `ibexa/commerce-erp-admin`
@@ -135,7 +135,7 @@ They will be maintained by Ibexa with fixes, including security fixes, but they 
 Old packages are replaced by [the all-new Ibexa Commerce packages](#all-new-ibexa-commerce-packages--include-snippetscommerce_badgemd-) with more
 to come in the upcoming releases.
 
-### Flysystem
+#### Flysystem
 
 - Support for overwriting existing files has been dropped (catch block of `\Ibexa\Core\IO\IOBinarydataHandler\Flysystem::create` and test). The new native Flysystem v2 Local Adapter performs this out of the box.
 - Support for no last modified timestamp has been dropped (in the form of a test case). The new Flysystem v2 throws `UnableToRetrieveMetadata` exception in such case.
