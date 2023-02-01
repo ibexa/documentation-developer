@@ -78,7 +78,7 @@ oneup_flysystem:
 ```
 
 If you haven't applied custom changes to that file,
-you can simply reset third party `oneup/flysystem-bundle` recipe by executing:
+you can reset the third-party `oneup/flysystem-bundle` recipe by executing:
 
 ```bash
 composer recipe:install --force --reset -- oneup/flysystem-bundle
@@ -87,7 +87,7 @@ composer recipe:install --force --reset -- oneup/flysystem-bundle
 ### Remove `ibexa/commerce-*` packages with dependencies
 
 Remove the following bundles from `config/bundles.php`.
-Removal of third party bundles (`FOS\` to `JMS\`) is optional, you can leave them if they are used by your installation.
+You do not have to remove third-party bundles (`FOS\` to `JMS\`) if they are used by your installation.
 
 === "[[= product_name_content =]]"
 
@@ -189,7 +189,7 @@ Removal of third party bundles (`FOS\` to `JMS\`) is optional, you can leave the
 
 
 Next, remove related extensions' configuration.
-Removal of related extensions' for third party bundles (for example `config/packages/fos_rest.yaml`) is optional, you can leave them if they are used by your installation.
+You do not have to remove third-party bundles (for example `config/packages/fos_rest.yaml`) if they are used by your installation.
 
 === "[[= product_name_content =]]"
 
@@ -238,12 +238,12 @@ Removal of related extensions' for third party bundles (for example `config/pack
     config/packages/prod/jms_serializer.yaml
     ```
 
-Finally, removed related routes from `config/routes/ibexa_commerce.yaml`.
+Finally, remove related routes from `config/routes/ibexa_commerce.yaml`.
 
 ### Update the database
 
-Next, update the database in you have a Commerce version of Ibexa DXP.
-Ibexa DXP Content and Ibexa DXP Experience do not require database update.
+Next, update the database if you are using Ibexa Commerce.
+Ibexa Content and Ibexa Experience do not require the database update.
 
 [[% include 'snippets/update/db/db_backup_warning.md' %]]
 
@@ -283,7 +283,7 @@ composer run post-install-cmd
 
 ### Customer Portal self-registration
 
-If you are using [[= product_name_exp =]] or [[= product_name_com =]],
+If you are using Ibexa Experience or Ibexa Commerce,
 run data migration required by the Customer Portal applications feature:
 
 ```bash

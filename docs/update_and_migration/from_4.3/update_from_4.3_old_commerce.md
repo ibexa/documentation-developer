@@ -4,7 +4,7 @@ description: Update procedure to v4.4 for people who use deprecated Commerce pac
 
 # Update with old Commerce packages
 
-This update procedure applies if you have a v4.3 installation, and you use commerce packages and would like to continue to use them.
+This update procedure applies if you have a v4.3 installation, you use Commerce packages and would like to continue to use them.
 
 Note that all commerce packages as of v4.4 are deprecated and will be removed in v5.
 Until that time, they will be maintained by Ibexa with fixes, including security fixes, but they won't be further developed.
@@ -82,7 +82,7 @@ oneup_flysystem:
 ```
 
 If you haven't applied custom changes to that file,
-you can simply reset third party `oneup/flysystem-bundle` recipe by executing:
+you can reset third-party `oneup/flysystem-bundle` recipe by executing:
 
 ```bash
 composer recipe:install --force --reset -- oneup/flysystem-bundle
@@ -161,8 +161,8 @@ Next, remove the entries with new packages alongside with routing and configurat
 
 ### Update the database
 
-Next, update the database in you have a Commerce version of Ibexa DXP.
-Ibexa DXP Content and Ibexa DXP Experience do not require database update.
+Next, update the database if you are using Ibexa Commerce.
+Ibexa Content and Ibexa Experience do not require the database update.
 
 [[% include 'snippets/update/db/db_backup_warning.md' %]]
 
@@ -202,7 +202,7 @@ composer run post-install-cmd
 
 ### Customer Portal self-registration
 
-If you are using [[= product_name_exp =]] or [[= product_name_com =]],
+If you are using Ibexa Experience or Ibexa Commerce,
 run data migration required by the Customer Portal applications feature:
 
 ```bash
