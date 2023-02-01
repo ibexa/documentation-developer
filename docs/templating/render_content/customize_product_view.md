@@ -68,6 +68,12 @@ The most important templates related to product rendering are:
 |`storefront/component/product_search_query.html.twig`|search box|
 |`storefront/component/product_search_sort.html.twig`|sorting drop-down|
 
+### Images
+
+|Template|Component|
+|---|---|
+|`storefront/component/image_placeholder.svg.twig`|product image placeholder|
+
 !!! tip
 
     For templates related to general storefront layout, cart and checkout, see [Customize storefront layout](customize_storefront_layout.md#available-templates).
