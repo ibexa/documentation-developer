@@ -238,6 +238,7 @@ nav:
         - Image variations: templating/image_variations.md
         - Twig function reference:
             - Twig function reference: templating/twig_function_reference/twig_function_reference.md
+            - Cart Twig functions: templating/twig_function_reference/cart_twig_functions.md
             - Content Twig functions: templating/twig_function_reference/content_twig_functions.md
             - Field Twig functions: templating/twig_function_reference/field_twig_functions.md
             - Product Twig functions: templating/twig_function_reference/product_twig_functions.md
@@ -284,7 +285,9 @@ nav:
         - Bestsellers: pim/bestsellers.md
     - Commerce:
         - Commerce: commerce/commerce.md
-        - Cart API: commerce/cart/cart_api.md
+        - Cart:
+            - Cart: cart/cart.md
+            - Cart API: cart/cart_api.md
     - Customer management:
         - Customer Portal: customer_management/customer_portal.md
         - Customer Portal configuration: customer_management/cp_configuration.md
