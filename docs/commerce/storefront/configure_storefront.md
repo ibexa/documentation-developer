@@ -1,18 +1,18 @@
 ---
-description: Configure Storefront
+description: Configure Storefront, including catalogs used, customer groups and user accounts.
 edition: commerce
 ---
 # Configure Storefront
 
-The Storefront is accesible under the `<yourdomain>/product-catalog`.
+The Storefront is accessible under the `<yourdomain>/product-catalog`.
 
 ## Catalog configuration
 
 With the `ibexa/storefront` package, you can configure the product catalog and make it available to your shop users. 
 
-Before you start configuring the Storefront, make sure you have cerated and configured [catalogs](https://doc.ibexa.co/projects/userguide/en/latest/pim/work_with_catalogs/#create-catalogs) in the Back Office.
+Before you start configuring the Storefront, make sure you have created and configured [catalogs](https://doc.ibexa.co/projects/userguide/en/latest/pim/work_with_catalogs/#create-catalogs) in the Back Office.
 
-The configuration is avaible under the `ibexa.system.<scope>.storefront.catalog` key.
+The configuration is available under the `ibexa.system.<scope>.storefront.catalog` key.
 It accepts the following values:
 
 1\. All products available for all users:
@@ -24,9 +24,10 @@ ibexa:
             storefront:
                 catalog: ~
 ```
-If the `null` as a key value is provided, the Storefront makes the main product catalog (with all products) visibile for all users.
 
-2\. To expose a single catalog with an identifier to all users only a catalog, provide a `string` value under the key:
+If `null`is provided as the value, the Storefront makes the main product catalog (with all products) visible for all users.
+
+2\. To expose a single catalog with an identifier to all users, provide a string value of the catalog identifier:
 
 ```yaml
 ibexa:
@@ -38,11 +39,10 @@ ibexa:
 
 3\. Specific catalog for the defined customer group
 
-First, create catalogs in the Back Office.
 
 You can expose different catalogs based on a customer group assigned to the current user.
 
-Next, provide the following configuration:
+To do it, provide the following configuration:
 
 ```yaml
 ibexa:
@@ -56,7 +56,7 @@ ibexa:
                         wholesale: wholesaler_catalog
 ```
 
-The basic configuration of the Storefront can look as the following:
+The basic configuration of the Storefront can look as follows:
 
 ``` yaml
 [[= include_file('code_samples/front/shop/storefront/config/packages/ibexa.yaml') =]]
@@ -64,9 +64,8 @@ The basic configuration of the Storefront can look as the following:
 
 ## Retrieve catalog assigned to user
 
-`null` stands for the current user
 
-The `\Ibexa\Contracts\Storefront\Repository\CatalogResolverInterface` service allows to retrieve product catalog available for a specific user.
+The `\Ibexa\Contracts\Storefront\Repository\CatalogResolverInterface` interface allows retrieving the product catalog available for a specific user.
 
 ```php
 
@@ -80,12 +79,13 @@ interface CatalogResolverInterface
     public function resolveCatalog(?User $user = null): ?CatalogInterface;
 }
 ```
+`null` stands for the current user.
 
 ### Configure user account
 
 The following user settings mechanisms used in `ibexa/storefront` are reused from `ibexa/user` package:
 
-- [change password feature](../../users/user_management.md)
+- [change password feature](user_management.md)
 - user avatar
 
 Settings for a Storefront user are configured under the `ibexa.system.<scope>.storefront.user_settings_groups:

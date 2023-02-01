@@ -1,5 +1,5 @@
 ---
-description: Extend Storefront configuration
+description: Extend Storefront with new menus
 edition: commerce
 ---
 
@@ -14,9 +14,8 @@ With the `ibexa\storefront` package come the following built-in menus:
 | [Breadcrumbs](#breadcrumbs-menu)| - | Renders breadcrumbs for Content Tree Root, Taxonomy Entry, Product, User settings and User settings group | 
 | [Taxonomy](#taxonomy-menu)| - | Renders a menu to change the active currency |               
 | Currency| `currency_menu` | Renders a menu to change the active currency |               
-| Currency| `currency_menu` | Renders a menu to change the active currency |               
-| Language| `langauge_menu` | Renders a menu to change the active language |
-| Region  | `region_menu`  | Renders a menu to change thr active region |
+| Language| `language_menu` | Renders a menu to change the active language |
+| Region  | `region_menu`  | Renders a menu to change the active region |
 
 Usage example:
 
@@ -30,7 +29,7 @@ Usage example:
 
 To add breadcrumbs menu to the product, you need to use an event subscriber.
 
-Create an event subscriber in the `src/EventSubscriber/BreadcrumbsMenuSubscriber.php`:
+Create an event subscriber in `src/EventSubscriber/BreadcrumbsMenuSubscriber.php`:
 
 ``` php
 [[= include_file('code_samples/front/shop/storefront/src/EventSubscriber/BreadcrumbsMenuSubscriber.php') =]]
@@ -42,7 +41,7 @@ Next, create the `templates/themes/storefront/storefront/knp_menu/breadcrumbs.ht
 [[= include_file('code_samples/front/shop/storefront/templates/themes/storefront/storefront/knp_menu/breadcrumbs.html.twig') =]]
 ```
 
-Next, extend the `templates/themes/storefront/storefront/product.html.twig` template:
+Next, extend the `templates/themes/storefront/storefront/product.html.twig` template to include the breadcrumbs:
 
 ```html+twig hl_lines="6-12"
 [[= include_file('code_samples/front/shop/storefront/templates/themes/storefront/storefront/product.html.twig') =]]

@@ -5,7 +5,7 @@ edition: commerce
 
 # Storefront
 
-Storefront package provides a starting kit for the developers.
+The Storefront package provides a starting kit for the developers.
 It is a set of components that serves as a basis, which developers can 
 customize and extend to create their own implementation of a web store.
 
@@ -25,4 +25,4 @@ Storefront package contains the following functionalities:
 
 !!!note
 
-    For information about roles and permissions that control access to various components of the purchase process, see [Permission use cases](../../permissions/permission_use_cases.md#commerce).
+    For information about roles and permissions that control access to various components of the purchase process, see [Permission use cases](permission_use_cases.md#commerce).
