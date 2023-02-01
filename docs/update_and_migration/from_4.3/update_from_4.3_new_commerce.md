@@ -258,7 +258,7 @@ Apply the following database update scripts:
 === "PostgreSQL"
 
     ``` bash
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/commerce/ibexa-4.3.latest-to-4.4.0.sqll
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/commerce/ibexa-4.3.latest-to-4.4.0.sql
     ```
 
 #### Ibexa Open Source
