@@ -28,6 +28,7 @@ Usage example:
 ### Breadcrumbs menu
 
 To modify the items in the menu, you need to use an event subscriber.
+This subscriber replaces the URI under the `Home` link.
 
 Create an event subscriber in `src/EventSubscriber/BreadcrumbsMenuSubscriber.php`:
 
