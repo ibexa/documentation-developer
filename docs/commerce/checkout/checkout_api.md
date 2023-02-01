@@ -42,7 +42,7 @@ products are completed within a cart.
 
 ## Create checkout
 
-To create a cart, use the `CheckoutServiceInterface::createCheckout` method and 
+To create a checkout, use the `CheckoutServiceInterface::createCheckout` method and 
 provide it with `Ibexa\Contracts\Checkout\Value\CheckoutCreateStruct` that contains  `Ibexa\Contracts\Cart\Value\CartInterface`.
 
 ``` php

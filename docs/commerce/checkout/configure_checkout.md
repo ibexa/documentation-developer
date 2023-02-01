@@ -10,7 +10,7 @@ the checkout configuration.
 
 !!! note "Permissions" 
 
-    When you modufy the workflow configuration, make sure you properly set user [permissions](../permission_use_cases.md#commerce) to the checkout component.
+    When you modify the workflow configuration, make sure you properly set user [permissions](../permission_use_cases.md#commerce) to the checkout component.
 
 ## Checkout workflow
 
@@ -35,7 +35,7 @@ The system can then identify which of your configured workflows handles the chec
 
 Each step configuration includes the following settings:
 
-- `controller` - A mandatory setting pointing to a library that governs the bahavior of the process. It contains all the required business logic and submits the whole step, so that a transition can happen.
+- `controller` - A mandatory setting pointing to a library that governs the behavior of the process. It contains all the required business logic and submits the whole step, so that a transition can happen.
 - `next_step` - An optional name of next workflow transition. If not provided, the next workflow-enabled transition is processed.
 - `label` - An optional name of the step that can be displayed in the Twig helper.
 - `translation_domain` - A optional setting that defines the domain for a site with translated content. By default it is set to `checkout`.
@@ -151,5 +151,3 @@ You can configure these addresses by modifying the following code under `../ibex
               ->defaultValue('shipping')
           ->end()
 ```
-
-## Checkout extension points 

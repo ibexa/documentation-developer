@@ -41,10 +41,11 @@ As far as shipping details are concerned, checkout can behave differently, depen
 on whether the buyer is a corporate account member, a registered customer, or 
 an individual:
 
-- Corporate account members will see a billing address predefined in a corporate profile, and several shipping addresses to pick from.
+- Corporate account members will see a company's billing address, and several shipping addresses to pick from, as predefined in the commpany profile.
 - Registered customers will be able see and modify the addresses that they defined at registration
 - Individuals will be able to enter both addresses at checkout
 
 !!! note "Address field information"
 
     Field formats for the billing and shipping addresses comply with the [FieldType Address](../../content_management/field_types/field_type_reference/addressfield.md#formats) specification and can be controlled with the `billing_address_format` and `shipping_address_format` flags, respectively.
+    They fallback to `billing` and `shipping` predefined formats by default.
