@@ -12,6 +12,7 @@ customize and extend to create their own implementation of a web store.
 Storefront package contains the following functionalities:
 
 | Feature | Description |
+|------------|----------|
 | Product listing page | Allows for browsing through products, displays product name, code, price, and image |
 | Product details page | Allows for displaying product details, product name, description, images, attributes, variants, price, and image|
 | Product category page | Allows for displaying products that belong to a specific category |
