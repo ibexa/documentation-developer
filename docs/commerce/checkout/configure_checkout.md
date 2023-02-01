@@ -10,7 +10,7 @@ the checkout configuration.
 
 !!! note "Permissions" 
 
-    When you modify the workflow configuration, make sure you properly set user [permissions](../permission_use_cases.md#commerce) to the checkout component.
+    When you modify the workflow configuration, make sure you properly set user [permissions](../../permission_use_cases.md#commerce) to the checkout component.
 
 ## Checkout workflow
 
