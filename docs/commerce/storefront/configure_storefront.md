@@ -1,3 +1,7 @@
+---
+description: Configure Storefront
+edition: commerce
+---
 # Configure Storefront
 
 The Storefront is accesible under the `<yourdomain>/product-catalog`.
