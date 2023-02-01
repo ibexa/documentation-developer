@@ -1,4 +1,17 @@
 {
+    "name": "ibexa/raml2html",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adam Wójs",
+            "email": "adam@wojs.pl"
+        },
+        {
+            "name": "Adrien Dupuis",
+            "email": "adrien.dupuis@ibexa.co"
+        }
+    ],
     "require": {
         "raml-org/raml-php-parser": "^4.8",
         "twig/twig": "^3.5",
