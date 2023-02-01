@@ -27,7 +27,7 @@ Usage example:
 
 ### Breadcrumbs menu
 
-To add breadcrumbs menu to the product, you need to use an event subscriber.
+To modify the items in the menu, you need to use an event subscriber.
 
 Create an event subscriber in `src/EventSubscriber/BreadcrumbsMenuSubscriber.php`:
 
