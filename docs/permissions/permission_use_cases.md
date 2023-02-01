@@ -243,8 +243,32 @@ users without permissions for content can still manage products.
 
 ## Commerce [[% include 'snippets/commerce_badge.md' %]]
 
-You can control the extent of functionalities that are available to store users, 
-by component.
+For the purpose of your storefront implementation, you can control the extent 
+of functionalities that are available to store users, more or less by granting 
+or preventing them access to individual components.
+
+At the very least, you can define the following store user roles: *Visitor* 
+and *Registered buyer*.
+
+You might use the *Visitor* role to prevent anonymous users from being able 
+to purchase products.  
+You can do this by granting `product/view`, `product_type/view` and `catalog/view` permissions only.
+
+The *Registered buyer* role would then be used to allow users who have logged in 
+to view products, see product prices, add products to a cart and proceed with 
+the checkout process. 
+You do this by granting this role the following set of permissions:
+
+- `user/register`, `user/login`, to control access to registration and login 
+- `product/view`, `product_type/view` and `catalog/view`, to allow viewing a product 
+list and product details
+- `cart/view`, `cart/create` and `cart/edit`, to allow adding items to a shopping cart and 
+modifying cart contents, for example, by removing items
+- `checkout/view`, `checkout/create`, `checkout/update` and `checkout/delete`, to allow 
+proceeding to checkout and interacting with the checkout process
+
+See below for a detailed listing of permissions that apply to Commerce, together 
+with their meaning, 
 
 ### Cart 
 
@@ -256,12 +280,16 @@ interact with carts:
 - `cart/create` - to create a new cart, for example, after successful checkout
 - `cart/edit` - to allow user to add products to their cart
 
+To further control the access to a cart, you can use the `CartOwner` limitation 
+and set its value to `self`. 
+This way users can only interact with their own carts.
+
 ### Checkout 
 
 Set the following permissions to decide what actions are available when users 
 interact with checkout: 
 
-- `cart/view` - to allow user to view checkout, for example, to block guest buyers access to checkout
-- `cart/create` - to create a new checkout, for example, after workflow completes
-- `cart/update` - to allow user to change product quantity
-- `cart/delete` - to delete checkout, for example, after workflow completes
+- `checkout/view` - to control user access to checkout
+- `checkout/create` - to allow starting the checkout process, by proceeding from cart
+- `checkout/update` - to allow users to modify existing information, for example item quantity
+- `checkout/delete` - to delete checkout, for example, when the user abandons the process
