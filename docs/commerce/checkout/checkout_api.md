@@ -27,7 +27,7 @@ From the developer's perspective, checkouts are referenced with the UUID identif
 To access a single checkout, use the `CheckoutServiceInterface::getCheckout` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 29, 30) =]]
+[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 31, 32) =]]
 ```
 
 ## Get single checkout for specific cart
@@ -37,7 +37,7 @@ It can come in handy when you want to initiate the checkout process right after
 products are completed within a cart.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 23, 27) =]]
+[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 25, 29) =]]
 ```
 
 ## Create checkout
@@ -46,7 +46,7 @@ To create a checkout, use the `CheckoutServiceInterface::createCheckout` method 
 provide it with `Ibexa\Contracts\Checkout\Value\CheckoutCreateStruct` that contains  `Ibexa\Contracts\Cart\Value\CartInterface`.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 32, 38) =]]
+[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 34, 40) =]]
 ```
 
 ## Update checkout
@@ -62,7 +62,7 @@ step of the workflow, as well as a transition name to identify what step will fo
 All data is placed in session storage.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 40, 42) =]]
+[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 42, 44) =]]
 ```
 
 ## Delete checkout
@@ -70,5 +70,5 @@ All data is placed in session storage.
 To delete a checkout from the session, use the `CheckoutServiceInterface::deleteCheckout` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 44, 45) =]]
+[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 46, 47) =]]
 ```
