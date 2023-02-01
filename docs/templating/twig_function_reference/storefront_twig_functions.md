@@ -1,5 +1,6 @@
 ---
 description: Storefront Twig function enable controlling the rendering of storefront elements.
+edition: commerce
 ---
 
 # Storefront Twig functions
