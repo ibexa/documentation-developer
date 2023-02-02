@@ -33,7 +33,7 @@ they have to log in and transition into an authenticated user.
 !!! note 
 
     For information about roles and permissions that control access to the cart, 
-    see [Permission use cases](../../permissions/permission_use_cases.md#commerce)
+    see [Permission use cases](../../permissions/permission_use_cases.md#commerce).
 
 ### Cart data merging
 
@@ -70,7 +70,6 @@ Users who visit the Main cart page can change cart line quantities, remove indiv
 ### Add to cart
 
 By default, the Add to cart component consists of a quantity input field and a button.
-You counAdding variant selectors etc. requires extending the twig and JS component.
 
 ### Minicart
 
