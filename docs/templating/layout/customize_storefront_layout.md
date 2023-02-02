@@ -55,6 +55,7 @@ The most important templates are:
 |---|---|
 |`component/logo.html.twig`|shop logo|
 |`component/region_switcher.html.twig`|switcher for regions|
+|`component/language_switcher.html.twig`|switcher for regions|
 |`component/currency_switcher.html.twig`|switcher for currencies|
 
 ### Cart
