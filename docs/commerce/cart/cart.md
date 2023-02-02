@@ -58,6 +58,9 @@ From the front-end perspective, the Cart consists of a main component
 and several widgets.
 Each of these components consists of JavaScript code and accompanying Twig templates.
 
+To customize your store, you can override the Twig templates and extend their logic.
+For more information, see [ Customize storefront layout](../../docs/templating/layout/customize_storefront_layout.md).
+
 ### Main cart
 
 Main cart is the main UI component of the Cart module.

@@ -51,8 +51,8 @@ A Limitation to specify whether the user can modify a cart.
 | Identifier      | `CartOwner`                                                                                  |
 | Value Class     | `Ibexa\Contracts\Core\Repository\Values\User\Limitation\CartOwnerLimitation`                 |
 | Type Class      | `Ibexa\Core\Limitation\CartOwnerLimitationType`                                              |
-| Criterion used  | `Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\UserMetadata(UserMetadata::OWNER )` |
-| Role Limitation | no                                                                                             |
+| Criterion used  | |
+| Role Limitation | no |
 
 ### Possible values
 

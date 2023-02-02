@@ -7,7 +7,7 @@ edition: commerce
 
 !!! tip "Cart REST API"
 
-    To learn how to manage carts with the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-ecommerce-carts).
+    To learn how to manage carts with the REST API, see the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-ecommerce-carts).
 
 To get carts and work with them, use the `\Ibexa\Contracts\Cart\CartServiceInterface` interface.
 
@@ -90,7 +90,7 @@ To remove all products from the cart in a single operation, use the
 Items in cart can become invalid, for example, when item price is unavailable 
 in cart currency, or the product is no longer available. 
 To prevent checking out cart with invalid items, check cart validity first. 
-To  validate the cart, use the `CartServiceInterface::validateCart` method. 
+To validate the cart, use the `CartServiceInterface::validateCart` method. 
 Validation is done with help from the `symfony/validator` component, and the method 
 returns the `Symfony\Component\Validator\ConstraintViolationListInterface` object.
 

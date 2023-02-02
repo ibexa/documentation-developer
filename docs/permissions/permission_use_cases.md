@@ -277,7 +277,7 @@ interact with carts:
 
 - `cart/view` - to allow user to view their cart 
 - `cart/delete` - to delete cart, for example, after successful checkout
-- `cart/create` - to create a new cart, for example, after successful checkout
+- `cart/create` - to create a new cart
 - `cart/edit` - to allow user to add products to their cart
 
 To further control the access to a cart, you can use the `CartOwner` limitation 
@@ -292,4 +292,4 @@ interact with checkout:
 - `checkout/view` - to control user access to checkout
 - `checkout/create` - to allow starting the checkout process, by proceeding from cart
 - `checkout/update` - to allow users to modify existing information, for example item quantity
-- `checkout/delete` - to delete checkout, for example, when the user abandons the process
+- `checkout/delete` - to delete checkout
