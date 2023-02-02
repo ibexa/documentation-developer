@@ -243,21 +243,20 @@ users without permissions for content can still manage products.
 
 ## Commerce [[% include 'snippets/commerce_badge.md' %]]
 
-For the purpose of your storefront implementation, you can control the extent 
-of functionalities that are available to store users, more or less by granting 
-or preventing them access to individual components.
+To control which commerce functionalities are available to store users, you can grant 
+or prevent them access to individual components.
 
-At the very least, you can define the following store user roles: *Visitor* 
+A minimal use case would be defining the following store user Roles: *Visitor* 
 and *Registered buyer*.
 
-You might use the *Visitor* role to prevent anonymous users from being able 
+You can use the *Visitor* Role to prevent anonymous users from being able 
 to purchase products.  
 You can do this by granting `product/view`, `product_type/view` and `catalog/view` permissions only.
 
-The *Registered buyer* role would then be used to allow users who have logged in 
+The *Registered buyer* Role can then be used to allow users who have logged in 
 to view products, see product prices, add products to a cart and proceed with 
 the checkout process. 
-You do this by granting this role the following set of permissions:
+You do this by granting this Role the following set of permissions:
 
 - `user/register`, `user/login`, to control access to registration and login 
 - `product/view`, `product_type/view` and `catalog/view`, to allow viewing a product 
@@ -280,7 +279,7 @@ interact with carts:
 - `cart/create` - to create a new cart
 - `cart/edit` - to allow user to add products to their cart
 
-To further control the access to a cart, you can use the `CartOwner` limitation 
+To further control the access to a cart, you can use the `CartOwner` Limitation 
 and set its value to `self`. 
 This way users can only interact with their own carts.
 

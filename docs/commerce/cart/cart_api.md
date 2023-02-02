@@ -9,15 +9,14 @@ edition: commerce
 
     To learn how to manage carts with the REST API, see the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-ecommerce-carts).
 
-To get carts and work with them, use the `\Ibexa\Contracts\Cart\CartServiceInterface` interface.
+To get carts and work with them, use the `Ibexa\Contracts\Cart\CartServiceInterface` interface.
 
 `CartService` uses two storage methods and handles switching between storages:
 
 - carts of registered users use database-based storage
 - anonymous user carts are stored in the PHP session
 
-From the developer's perspective, carts and entries are referenced with the UUID identifier. 
-Numeric ID is used internally with database access optimization in mind but it is not used by the public API.
+From the developer's perspective, carts and entries are referenced with a UUID identifier. 
 
 ## Get single cart by identifier
 
@@ -89,10 +88,10 @@ To remove all products from the cart in a single operation, use the
 
 Items in cart can become invalid, for example, when item price is unavailable 
 in cart currency, or the product is no longer available. 
-To prevent checking out cart with invalid items, check cart validity first. 
+To prevent checking out a cart with invalid items, check cart validity first. 
 To validate the cart, use the `CartServiceInterface::validateCart` method. 
 Validation is done with help from the `symfony/validator` component, and the method 
-returns the `Symfony\Component\Validator\ConstraintViolationListInterface` object.
+returns a `Symfony\Component\Validator\ConstraintViolationListInterface` object.
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 66, 67) =]]
@@ -101,7 +100,8 @@ returns the `Symfony\Component\Validator\ConstraintViolationListInterface` objec
 
 ## Add entry to cart
 
-To add entries (products) to the cart, encapsulate the product in `Ibexa\Contracts\Cart\Value\EntryAddStruct`, where you specify the requested quantity.
+To add entries (products) to the cart, create an `Ibexa\Contracts\Cart\Value\EntryAddStruct`, 
+where you specify the requested quantity of the product.
 Then pass it to the `CartServiceInterface::addEntry` method: 
 
 ``` php

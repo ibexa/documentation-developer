@@ -15,7 +15,7 @@ The Cart component exposes the following:
 
 - [PHP API](cart_api.md) that allows for managing carts and cart entries, or validating products
 - [REST API](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-ecommerce-carts) that helps get cart and products information over HTTP
-- [Twig functions](../../templating/twig_function_reference/cart_twig_functions.md) that enable checking whether product can be added to cart and formatting the price
+- [Twig functions](cart_twig_functions.md) that enable checking whether product can be added to cart and formatting the price
 
 There is no specific configuration related to the Cart component.
 All configuration is done at the Checkout and Storefront level.
@@ -54,46 +54,47 @@ When a buyer tries to add products to the cart, increase cart item quantity or p
 
 ## Front-end perspective
 
-From the front-end perspective, the Cart consists of a main component 
+From the front-end perspective, the cart consists of a main `Cart` object 
 and several widgets.
-Each of these components consists of JavaScript code and accompanying Twig templates.
+`Cart` is a standalone JavaScript object that manages cart data and has no user interface, 
+while widgets consist of JavaScript code and accompanying Twig templates.
+
+### Cart object
+
+The `Cart` object stores cart entry data and a cart summary, which contains additional entry data, like, for example, formatted gross price or validation errors.
+The object exposes several methods, which you can use to get and modify cart entries.
+Only one instance of a `Cart` object can be created.
+
+### Widgets
 
 To customize your store, you can override the Twig templates and extend their logic.
 For more information, see [ Customize storefront layout](../../docs/templating/layout/customize_storefront_layout.md).
 
-### Main cart
+#### Main cart
 
-Main cart is the main UI component of the Cart module.
-Among other things, it lists all items selected for purchase, displays 
-product/variant images, availability information, requested cart item quantities, 
-cart item net prices and subtotals for each cart line. 
+Main cart is the main user interface component of the cart.
+By defaault. it lists items selected for purchase and requested cart item quantities. 
 
-Users who visit the Main cart page can change cart line quantities, remove individual items, remove all items and see the total number of products in cart.
+Users who visit the Main cart can remove individual items.
 
-### Add to cart
+#### Add to cart
 
 By default, the Add to cart component consists of a quantity input field and a button.
 
-### Minicart
+#### Minicart
 
-By default, the Minicart component consists of a counter that displays a total number of cart lines.
+By default, the Minicart component consists of a counter that displays a total number of cart items.
 
-### Cart summary 
+#### Cart summary 
 
-The Cart Summary component displays a subtotal net value of cart lines, a shipping 
-cost disclaimer, a series of tax values applicable to products 
-added in cart, different taxes composition, and a total cart value (gross, shipping 
-  and taxes included) in the selected currency.
+By default, the Cart Summary component displays a subtotal net value of cart lines, 
+a shipping cost disclaimer, a series of tax values applicable to products 
+added in cart, a composition of different taxes, and a total cart value (gross, shipping 
+and taxes included) in the selected currency.
 
-Users who visit the Cart summary widget can proceed to checkout or continue shopping 
-by clicking one of the buttons.
+You could extend the Cart summary widget to let buyers navigate from this view, 
+for example, to checkout, or back to shopping, by adding respective buttons.
 
-## Cart object
+### Cart service 
 
-The `Cart` object stores cart entry data and a cart summary, which contains data from additional entries, like, for example, formatted gross price or validation errors.
-The object exposes several methods, which you can use to get and modify cart entries.
-Only one instance of a `Cart` object can be created.
-
-## Cart service 
-
-The Cart package provides a cart service, which is a module with functions used for calling the backend API. 
+The Cart package provides a cart service, which is a module with functions used for calling the [backend API](cart_api.md). 
