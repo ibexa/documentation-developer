@@ -23,7 +23,7 @@ make sure that your setup is secure.
     
     The following command will generate a 64-character-long secure random value:
     
-    `print bin2hex(random_bytes(32));`
+    `php -r "print bin2hex(random_bytes(32));"`
 
 ### Symfony production mode
 
