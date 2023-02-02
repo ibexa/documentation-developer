@@ -108,7 +108,7 @@
                 <span class="pill">v4.4</span>
             </h5>
             <div class="row mt-3">
-                <div class="col-lg-5">The <a href="release_notes/ibexa_dxp_v4.4/">latest version of Ibexa DXP is v4.4</a>. It is a Fast Track release, and it was released on February 2, 2023</a>.
+                <div class="col-lg-5">The <a href="release_notes/ibexa_dxp_v4.4/">latest version of Ibexa DXP is v4.4</a>. It is a Fast Track release, and it was released on February 2, 2023. You can now <a href="update_and_migration/from_4.3/update_from_4.3/">update your application to the latest version</a>. 
                 </div>
                 <div class="col-sm-7 features">
                     <ul>
@@ -117,5 +117,5 @@
                         <li><a href="release_notes/ibexa_dxp_v4.4/#new-welcome-page">New welcome page</a></li>
                         <li><a href="release_notes/ibexa_dxp_v4.4/#personalization-improvements">Personalization improvements</a></li>
                         <li><a href="release_notes/ibexa_dxp_v4.4/#ibexa-connect">Ibexa Connect</a></li>
-                        <li><a href="release_notes/ibexa_dxp_v4.4/#flysystem-v2">Flysystem v2</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.4/#new-page-blocks">New page blocks</a></li>
 </div>
