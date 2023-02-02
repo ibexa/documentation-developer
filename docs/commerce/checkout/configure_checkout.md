@@ -149,38 +149,7 @@ They fall back to `billing` and `shipping` predefined formats by default:
 - `billing` is part of the `ibexa/corporate-accounts` repository 
 - `shipping` is part of the `ibexa/checkout` bundle's default configuration 
 
-To modify address formats you can either override the existing formats or create 
-custom ones.
-
-### Override existing Address Field Type formats 
-
-To override the existing `billing` and `shipping` address Field Type formats, under `ibexa.repositories.<repository_name>.checkout`, define the address format, 
-that has been modified, for example, by adding a tax identifier to the `billing` address:
-
-``` yaml 
-ibexa_field_type_address:
-    formats:
-        shipping:
-            country:
-                default:
-                    - region
-                    - locality
-                    - street
-                    - postal_code
-                    - email
-                    - phone_number
-                    
-        billing:
-            country:
-                default:
-                    - region
-                    - locality
-                    - street
-                    - postal_code
-                    - email
-                    - phone_number
-                    - tax_number
-```
+To modify address formats you create custom ones.
 
 ### Define custom Address Field Type formats 
 
