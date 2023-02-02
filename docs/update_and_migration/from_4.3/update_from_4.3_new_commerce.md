@@ -32,10 +32,10 @@ Run:
 ## Remove deprecated Field Types
 
 By default, every v4.3 installation has a set of built-in Content Types.
-Some of them use Field Types deprecated in v4.4, and they need to be removed manually.
+Some of them use Field Types deprecated in v4.4, which need to be removed manually.
 Make sure to remove all occurrences of `sesspecificationstype`, `uivarvarianttype`, `sesselection`, `sesprofiledata` Field Types from your Content Types.
 
-This step should be performed on working installation, passing it over will result in an error during update:
+This step should be performed on the working installation, omitting it will result in an error during update:
 
 ```
   [Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\Exception\NotFound (404)]
