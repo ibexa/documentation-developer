@@ -10,7 +10,7 @@ description: Ibexa DXP v4.4 adds the improvements to the Welcome Page, All-new I
 
 **Release type**: [Fast Track](https://support.ibexa.co/Public/service-life)
 
-**Update**: [v4.3.x to v4.4](https://doc.ibexa.co/en/4.4/update_and_migration/from_4.3/update_from_4.3/)
+**Update**: v4.3.x to v4.4
 
 ## Notable changes
 
