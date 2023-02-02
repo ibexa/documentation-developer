@@ -1,4 +1,4 @@
-// tmp fix for read-the-docs embeded versions injection
+// tmp fix for read-the-docs embedded versions injection
 let jquery = jQuery;
 
 $(document).ready(function() {
@@ -101,10 +101,9 @@ $(document).ready(function() {
             if (!link.length) {
                 link = $('.ds-dropdown-menu').append('<a class="search-page-link" href="" style="position: absolute; bottom: 0px; z-index: 1000;">See all results</a>');
             }
-            if (hits.length >= 10/*hitsPerPage*/) {
-                let href = '/en/' + branchName + '/search_results/#q=' + encodeURI($(/*this.inputSelector*/'#search_input').val()) + '&p=1';
-                link.attr('href', href).show();
-            } else {
+            let href = '/en/' + branchName + '/search_results/#q=' + encodeURI($(/*this.inputSelector*/'#search_input').val()) + '&p=1';
+            link.attr('href', href).show();
+            if (hits.length < 10/*hitsPerPage*/) {
                 link.hide();
             }
         },
@@ -112,21 +111,30 @@ $(document).ready(function() {
             facetFilters: ['lang:en', 'version:' + branchName],
             hitsPerPage: 10,
         },
+        handleSelected: function (input, event, suggestion, datasetNumber, context) {
+            console.log(suggestion, context);
+            if ('click' == context.selectionMethod) {
+                window.location = suggestion.url;
+            } else if ('enterKey' == context.selectionMethod) {
+                window.location = $('.ds-dropdown-menu a.search-page-link').attr('href');
+            }
+        },
         debug: false,
     });
 
-    $(document).on('keypress', '#search_input', function(event) {
+    $(document).on('keydown keypress', 'form.md-search__form', function(event) {
         if (event.keyCode == 13) {
             event.preventDefault();
+            return false
         }
     });
-
+/*
     $(document).on('blur', '#search_input', function(event) {
         setTimeout(() => {
             $('#search_input').val('');
         }, 0);
     });
-
+*/
     $('#search_input, label.md-search__icon').on('click', function() {
         var toggle = document.querySelector('[data-md-toggle=search]');
         toggle.checked = true;
