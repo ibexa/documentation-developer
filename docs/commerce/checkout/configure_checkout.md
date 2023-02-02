@@ -10,11 +10,11 @@ the checkout configuration.
 
 !!! note "Permissions" 
 
-    When you modify the workflow configuration, make sure you properly set user [permissions](../../permissions/permission_use_cases.md#commerce) to the checkout component.
+    When you modify the workflow configuration, make sure you properly set user [permissions](permission_use_cases.md#commerce) to the checkout component.
 
 ## Checkout workflow
 
-Checkout workflow is configured like other [workflows](../../content_management/workflow/workflow.md), and each 
+Checkout workflow is configured like other [workflows](workflow.md), and each 
 transition represents a separate checkout step. 
 
 By default, the checkout process is configured to render each step based on a separate 
@@ -31,7 +31,7 @@ The system can then identify which of your configured workflows handles the chec
 
 !!! note 
 
-    When you modify or create a controller, to ensure that no user-data is lost, extend the `Ibexa\Bundle\Checkout\Controller\AbstractStep` controller and call the `advance()` method.
+    When you modify or create a controller, to ensure that no user data is lost, extend the `Ibexa\Bundle\Checkout\Controller\AbstractStep` controller and call the `advance()` method.
 
 Each step configuration includes the following settings:
 
@@ -143,95 +143,84 @@ In your implementation, you may need to create custom format configurations
 for the shipping or billing address fields, for example, to use different address 
 formats based on the buyer's geographical location.
 
-Field formats for the billing and shipping addresses comply with the [FieldType Address](../../content_management/field_types/field_type_reference/addressfield.md#formats) specification and can be controlled with the `billing_address_format` and `shipping_address_format` flags, respectively.
-They fallback to `billing` and `shipping` predefined formats by default:
+Field formats for the billing and shipping addresses comply with the [FieldType Address](addressfield.md#formats) specification and can be controlled with the `billing_address_format` and `shipping_address_format` flags, respectively.
+They fall back to `billing` and `shipping` predefined formats by default:
 
-- `billing` is sourced from the `corporate-accounts` bundle 
-- `shipping` is part of the `checkout` bundle's default configuration 
+- `billing` is part of the `ibexa/corporate-accounts` repository 
+- `shipping` is part of the `ibexa/checkout` bundle's default configuration 
 
 To modify address formats you can either override the existing formats or create 
 custom ones.
 
 ### Override existing Address Field Type formats 
 
-To override the existing `billing` and `shipping` address Field Type formats, edit 
-the `../vendor/ibexa/checkout/src/bundle/Resources/config/fieldtype_address.yaml` 
-file, and modify the address format, for example, by adding a tax identifier 
-to the `billing` address:
+To override the existing `billing` and `shipping` address Field Type formats, under `ibexa.repositories.<repository_name>.checkout`, define the address format, 
+that has been modified, for example, by adding a tax identifier to the `billing` address:
 
 ``` yaml 
-formats:
-    shipping:
-        country:
-            default:
-                - region
-                - locality
-                - street
-                - postal_code
-                - email
-                - phone_number
-                
-    billing:
-        country:
-            default:
-                - region
-                - locality
-                - street
-                - postal_code
-                - email
-                - phone_number
-                - tax_number
+ibexa_field_type_address:
+    formats:
+        shipping:
+            country:
+                default:
+                    - region
+                    - locality
+                    - street
+                    - postal_code
+                    - email
+                    - phone_number
+                    
+        billing:
+            country:
+                default:
+                    - region
+                    - locality
+                    - street
+                    - postal_code
+                    - email
+                    - phone_number
+                    - tax_number
 ```
-
-!!! note
-
-    If you are overriding the default formats and not changing their default names, 
-    there is no need to modify the keys under `ibexa.repositories.<repository_name>.checkout`.
 
 ### Define custom Address Field Type formats 
 
-To create custom Address Field Type formats to be used in Checkout, make the following changes in the configuration files. 
+To create custom Address Field Type formats to be used in checkout, make the following changes in the project configuration files. 
 
-First, under under `ibexa.repositories.<repository_name>.checkout`, define custom 
-format configuration keys for `billing_address_format` and `shipping_address_format`:
+First, define custom format configuration keys for `billing_address_format` and `shipping_address_format`:
 
 ``` yaml 
 ibexa:
     repositories:
         <repository_name>:
             checkout:
-                billing_address_format: <custom_billing_fieldtype_address_format_identifier> #coming from Corporate Account "billing" by default
-                shipping_address_format: <custom_shipping_fieldtype_address_format_identifier> #coming from Corporate Account "shipping" by default 
-                customer_content_type: <your_ct_identifier_for_customer> #customer by default, it is used in registration and uses given shipping/billing addresses to pre-populate address forms in "Select Address" checkout step
+                #coming from Corporate Account, "billing" by default
+                billing_address_format: <custom_billing_fieldtype_address_format> 
+                #coming from Corporate Account, "shipping" by default 
+                shipping_address_format: <custom_shipping_fieldtype_address_format> 
+                #used in registration, uses given shipping/billing addresses to pre-populate address forms in select_address checkout step, "customer" by default
+                customer_content_type: <your_ct_identifier_for_customer> 
 ```
 
-Then, edit the `../vendor/ibexa/checkout/src/bundle/Resources/config/fieldtype_address.yaml` 
-file, and define custom address formats, which, for example, do not include the `locality` field:
+Then, define custom address formats, which, for example, do not include the `locality` field:
 
 ``` yaml 
-formats:
-    <custom_shipping_fieldtype_address_format_identifier>:
-        country:
-            default:
-                - region
-                - street
-                - postal_code
-                - email
-                - phone_number
-                
-    <custom_billing_fieldtype_address_format_identifier>:
-        country:
-            default:
-                - region
-                - street
-                - postal_code
-                - email
-                - phone_number
+ibexa_field_type_address:
+    formats:
+        <custom_shipping_fieldtype_address_format>:
+            country:
+                default:
+                    - region
+                    - street
+                    - postal_code
+                    - email
+                    - phone_number
+                    
+        <custom_billing_fieldtype_address_format>:
+            country:
+                default:
+                    - region
+                    - street
+                    - postal_code
+                    - email
+                    - phone_number
 ```
-
-!!! note 
-
-    The `IbexaCheckoutExtension.php` library prepends configuration keys from the 
-    `fieldtype_address.yaml` file with `ibexa_field_type_address`.
-    In your project, you may need to precede the `formats:` key with the 
-    `ibexa_field_type_address:` parent key.
