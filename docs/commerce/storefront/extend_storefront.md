@@ -75,13 +75,9 @@ It takes the following parameters:
 | `depth` | `int` | Default: 1   |
 | `taxonomy_name`  | `string`  | product_categories |
 
-## Add menu items
+## Create menu items
 
-Storefront menus are easily extensible.
-
-You can build menu items based on repository objects with the `\Ibexa\Contracts\Storefront\Menu\ItemFactoryInterface` methods.
-
-The following items are available:
+`\Ibexa\Contracts\Storefront\Menu\ItemFactoryInterface` provides convenient methods to build menu item based on repository objects, including:
 
 - Content
 - Content ID
