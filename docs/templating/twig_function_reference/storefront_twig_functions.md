@@ -75,12 +75,3 @@ then the main category for "Office" is "Furniture".
 <p>Active currency code: {{ currency.code }}</p>
 ```
 
-## `ibexa_storefront_is_basket_available()`
-
-`ibexa_storefront_is_basket_available()` returns true if the cart is available in the current Ibexa DXP instance:
-
-``` html+twig
-{% if (ibexa_storefront_is_basket_available()) %}
-    {# render cart #}
-{% endif %}
-```
