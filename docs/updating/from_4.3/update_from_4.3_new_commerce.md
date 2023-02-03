@@ -13,17 +13,17 @@ Before you update to v4.4, you need to go through the following steps to update 
 
 Run:
 
-=== "[[= product_name_content =]]"
+=== "Ibexa Content"
 
     ``` bash
     composer require ibexa/content:[[= latest_tag_4_3 =]] --with-all-dependencies --no-scripts
     ```
-=== "[[= product_name_exp =]]"
+=== "Ibexa Experience"
 
     ``` bash
     composer require ibexa/experience:[[= latest_tag_4_3 =]] --with-all-dependencies --no-scripts
     ```
-=== "[[= product_name_com =]]"
+=== "Ibexa Commerce"
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_3 =]] --with-all-dependencies --no-scripts
@@ -99,19 +99,19 @@ When you have the latest version of v4.3, you can update to v4.4.
 
 First, run:
 
-=== "[[= product_name_content =]]"
+=== "Ibexa Content"
 
     ``` bash
     composer require ibexa/content:[[= latest_tag_4_4 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/content --force -v
     ```
-=== "[[= product_name_exp =]]"
+=== "Ibexa Experience"
 
     ``` bash
     composer require ibexa/experience:[[= latest_tag_4_4 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
     ```
-=== "[[= product_name_com =]]"
+=== "Ibexa Commerce"
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_4 =]] --with-all-dependencies --no-scripts
@@ -145,7 +145,7 @@ composer recipe:install --force --reset -- oneup/flysystem-bundle
 Remove the following bundles from `config/bundles.php`.
 You do not have to remove third-party bundles (`FOS\` to `JMS\`) if they are used by your installation.
 
-=== "[[= product_name_content =]]"
+=== "Ibexa Content"
 
 ``` php
 FOS\CommentBundle\FOSCommentBundle
@@ -171,7 +171,7 @@ Ibexa\Bundle\Commerce\FieldTypes\IbexaCommerceFieldTypesBundle
 Ibexa\Bundle\Commerce\Checkout\IbexaCommerceCheckoutBundle
 Ibexa\Bundle\Commerce\ShopUi\IbexaCommerceShopUiBundle
 ```
-=== "[[= product_name_exp =]]"
+=== "Ibexa Experience"
 
 ``` php
 FOS\CommentBundle\FOSCommentBundle
@@ -197,7 +197,7 @@ Ibexa\Bundle\Commerce\FieldTypes\IbexaCommerceFieldTypesBundle
 Ibexa\Bundle\Commerce\Checkout\IbexaCommerceCheckoutBundle
 Ibexa\Bundle\Commerce\ShopUi\IbexaCommerceShopUiBundle
 ```
-=== "[[= product_name_com =]]"
+=== "Ibexa Commerce"
 
 ``` php
 FOS\CommentBundle\FOSCommentBundle
@@ -244,7 +244,7 @@ EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle::class
 Next, remove related extensions' configuration.
 You do not have to remove third-party bundles (for example `config/packages/fos_rest.yaml`) if they are used by your installation.
 
-=== "[[= product_name_content =]]"
+=== "Ibexa Content"
 
 ``` 
 config/packages/commerce.yaml
@@ -256,7 +256,7 @@ config/packages/commerce/commerce_demo.yaml
 config/packages/commerce/commerce_parameters.yaml
 config/packages/nelmio_solarium.yaml
 ```
-=== "[[= product_name_exp =]]"
+=== "Ibexa Experience"
 
 ```
 config/packages/commerce.yaml
@@ -268,7 +268,7 @@ config/packages/commerce/commerce_demo.yaml
 config/packages/commerce/commerce_parameters.yaml
 config/packages/nelmio_solarium.yaml
 ```
-=== "[[= product_name_com =]]"
+=== "Ibexa Commerce"
 
 ```
 config/packages/commerce.yaml

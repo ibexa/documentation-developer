@@ -18,19 +18,19 @@ Before you update to v4.4, you need to go through the following steps to update 
 
 Run:
 
-=== "[[= product_name_content =]]"
+=== "Ibexa Content"
 
     ``` bash
     composer require ibexa/content:[[= latest_tag_4_3 =]] --with-all-dependencies --no-scripts
     ```
 
-=== "[[= product_name_exp =]]"
+=== "Ibexa Experience"
 
     ``` bash
     composer require ibexa/experience:[[= latest_tag_4_3 =]] --with-all-dependencies --no-scripts
     ```
 
-=== "[[= product_name_com =]]"
+=== "Ibexa Commerce"
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_3 =]] --with-all-dependencies --no-scripts
@@ -44,21 +44,21 @@ When you have the latest version of v4.3, you can update to v4.4.
 
 First, run:
 
-=== "[[= product_name_content =]]"
+=== "Ibexa Content"
 
     ``` bash
     composer require ibexa/content:[[= latest_tag_4_4 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/content --force -v
     ```
 
-=== "[[= product_name_exp =]]"
+=== "Ibexa Experience"
 
     ``` bash
     composer require ibexa/experience:[[= latest_tag_4_4 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
     ```
 
-=== "[[= product_name_com =]]"
+=== "Ibexa Commerce"
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_4 =]] --with-all-dependencies --no-scripts
@@ -92,7 +92,7 @@ composer recipe:install --force --reset -- oneup/flysystem-bundle
 
 Add the following dependencies in the `require` section in `composer.json`:
 
-=== "[[= product_name_content =]]"
+=== "Ibexa Content"
 
     ``` json
     "require":{
@@ -110,7 +110,7 @@ Add the following dependencies in the `require` section in `composer.json`:
     }
     ```
 
-=== "[[= product_name_exp =]]"
+=== "Ibexa Experience"
 
     ``` json
     "require":{
@@ -128,7 +128,7 @@ Add the following dependencies in the `require` section in `composer.json`:
     }
     ```
 
-=== "[[= product_name_com =]]"
+=== "Ibexa Commerce"
 
     ``` json
     "require":{
