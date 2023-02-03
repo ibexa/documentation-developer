@@ -152,7 +152,7 @@ Add the following dependencies in the `require` section in `composer.json`:
     }
     ```
 
-Next, remove the entries with new packages alongside with routing and configuration in `config/routes/ibexa_cart.yaml`, `config/routes/ibexa_checkout.yaml` `config/routes/ibexa_storefront.yaml`:
+Next, remove the entries with new packages alongside with routing and configuration in `config/routes/ibexa_cart.yaml`, `config/routes/ibexa_checkout.yaml` and `config/routes/ibexa_storefront.yaml`:
 
 ```php
     Ibexa\Bundle\Cart\IbexaCartBundle::class => ['all' => true],
@@ -160,7 +160,7 @@ Next, remove the entries with new packages alongside with routing and configurat
     Ibexa\Bundle\Storefront\IbexaStorefrontBundle::class => ['all' => true],
 ```
 
-Remove also the new `storefront_group` SiteAccess from `config/packages/ibexa.yaml`:
+Finally, remove the new `storefront_group` SiteAccess from `config/packages/ibexa.yaml`:
 
 ```yaml
 ibexa:
