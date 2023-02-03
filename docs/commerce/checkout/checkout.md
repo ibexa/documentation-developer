@@ -19,7 +19,7 @@ Depending on the model of shopping process that you need to use, the checkout
 process can range between a straightforward and extremely complicated one. 
 To allow for this variation, the component is highly configurable and extensible:
 
-- Like the editorial workflow, it relies on [Symfony Workflow](workflow.md) 
+- Like the editorial workflow, it relies on [Symfony Workflow](http://symfony.com/doc/5.4/components/workflow.html) 
 - It exposes [PHP API](checkout_api.md) that allows for workflow manipulation
 - It exposes Twig functions used for checkout rendering
 
@@ -46,7 +46,4 @@ an individual.
 - Registered customers will be able see and modify the addresses that they defined at registration
 - Individuals will be able to enter both addresses at checkout
 
-!!! note "Address field information"
-
-    Field formats for the billing and shipping addresses comply with the [FieldType Address](addressfield.md#formats) specification and can be controlled with the `billing_address_format` and `shipping_address_format` flags, respectively.
-    They fall back to `billing` and `shipping` predefined formats by default.
+For more information about shipping and billing addresses, see [Configure checkout](configure_checkout.md#shipping-and-billing-address-field-format-configuration).
