@@ -14,8 +14,8 @@ the checkout configuration.
 
 ## Checkout workflow
 
-Checkout workflow is configured like other [workflows](workflow.md), and each 
-transition represents a separate checkout step. 
+Checkout workflow relies on [Symfony Workflow](http://symfony.com/doc/5.4/components/workflow.html).
+Each transition represents a separate checkout step. 
 
 By default, the checkout process is configured to render each step based on a separate 
 set of libraries and templates.
@@ -47,6 +47,7 @@ The default checkout workflow configuration looks as follows:
 ``` yaml
 framework:
     workflows:
+      workflow: <your_workflow_identifier> #optional, "ibexa_checkout" is used by default
         ibexa_checkout:
             type: state_machine
             audit_trail:
@@ -117,7 +118,6 @@ ibexa:
     repositories:
         <repository_name>:
             checkout:
-                workflow: <your_workflow_identifier> #optional, "ibexa_checkout" is used by default
                 shipping_methods:
                     courier:
                         name: "Courier"
