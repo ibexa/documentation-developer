@@ -150,6 +150,7 @@ nav:
             - Forms: content_management/forms/forms.md
             - Form API: content_management/forms/form_api.md
             - Create custom Form field: content_management/forms/create_custom_form_field.md
+            - Create Form attribute: content_management/forms/create_form_attribute.md'
             - Customize email notifications: content_management/forms/customize_email_notifications.md
         - Workflow:
             - Workflow: content_management/workflow/workflow.md
