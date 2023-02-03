@@ -109,7 +109,7 @@
                 <span class="pill">v4.4</span>
             </h5>
             <div class="row mt-3">
-                <div class="col-lg-5">The <a href="releases/ibexa_dxp_v4.4/">latest version of Ibexa DXP is v4.4</a>. It is a Fast Track release, and it was released on February 2, 2023. You can now update your application to the latest version</a>. 
+                <div class="col-lg-5">The <a href="releases/ibexa_dxp_v4.4/">latest version of Ibexa DXP is v4.4</a>. It is a Fast Track release, and it was released on February 2, 2023. You can now <a href="updating/from_4.3/update_from_4.3/">update your application to the latest version</a>. 
                 </div>
                 <div class="col-sm-7 features">
                     <ul>
