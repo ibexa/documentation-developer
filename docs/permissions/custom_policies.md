@@ -16,9 +16,9 @@ A `PolicyProvider` object provides a hash containing declared modules, functio
 - Each module can provide *functions* (e.g. in `content/read` "content" is the module, "read" is the function)
 - Each function can provide a collection of Limitations.
 
-First level key is the module name, value is a hash of available functions, with function name as key.
-Function value is an array of available Limitations, identified by the alias declared in `LimitationType` service tag.
-If no Limitation is provided, value can be `null` or an empty array.
+First level key is the module name which is limited to characters within the set `A-Za-z0-9_`, value is a hash of
+available functions, with function name as key. Function value is an array of available Limitations, identified
+by the alias declared in `LimitationType` service tag. If no Limitation is provided, value can be `null` or an empty array.
 
 ``` php
 [
