@@ -42,6 +42,25 @@ Out of the box FunctionList uses it in the following way:
             - {name: ibexa.permissions.limitation_type, alias: FunctionList}
 ```
 
+## CartOwner Limitation
+
+A Limitation to specify whether the user can modify a cart.
+
+|                 |                                                                                                |
+|-----------------|------------------------------------------------------------------------------------------------|
+| Identifier      | `CartOwner`                                                                                  |
+| Value Class     | `Ibexa\Contracts\Core\Repository\Values\User\Limitation\CartOwnerLimitation`                 |
+| Type Class      | `Ibexa\Core\Limitation\CartOwnerLimitationType`                                              |
+| Criterion used  | |
+| Role Limitation | no |
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|"self"|"self"|Only the User who is the owner of the cart gets access|
+|`null`|"null"|User can access all carts|
+
 ## Change Owner Limitation
 
 A Limitation to specify whether the user can change the owner of a Content item.
