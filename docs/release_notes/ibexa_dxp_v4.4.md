@@ -10,7 +10,7 @@ description: Ibexa DXP v4.4 adds the improvements to the Welcome Page, All-new I
 
 **Release type**: [Fast Track](https://support.ibexa.co/Public/service-life)
 
-**Update**: v4.3.x to v4.4
+**Update**: [v4.3.x to v4.4](https://doc.ibexa.co/en/latest/update_and_migration/from_4.3/update_from_4.3/)
 
 ## Notable changes
 
@@ -23,12 +23,16 @@ A new welcome page greets you when opening Ibexa Digital Experience Platform.
 ### All-new Ibexa Commerce packages [[% include 'snippets/commerce_badge.md' %]]
 
 This release deprecates all Commerce packages that you've known from previous releases 
-and brings a redesigned and reconstructed Commerce offering.
+and brings a redesigned and reconstructed Commerce offering:
 
-![The new cart view](img/4.4_new_cart.png "The new cart view")
+- `ibexa/cart`
+- `ibexa/checkout`
+- `ibexa/storefront`
 
 As part of this effort, two all-new components have been created: Cart and Checkout, 
 that you can use to build your own e-commerce presence. 
+
+![The new cart view](img/4.4_new_cart.png "The new cart view")
 
 ![The new checkout](img/4.4_new_checkout.png "The new checkout")
 
@@ -140,7 +144,7 @@ The following Commerce packages are deprecated as of this release and will be re
 - `ibexa/commerce-shop-ui`
 
 They will be maintained by Ibexa with fixes, including security fixes, but they won't be further developed.
-Old packages are replaced by [the all-new Ibexa Commerce packages](#all-new-ibexa-commerce-packages--include-snippetscommerce_badgemd-) with more
+Old packages are replaced by [the all-new Ibexa Commerce packages](#all-new-ibexa-commerce-packages) with more
 to come in the upcoming releases.
 
 #### Flysystem
