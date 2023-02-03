@@ -179,9 +179,9 @@ nav:
             - Rich Text:
                 - 'Extend Online Editor': 'extending/extending_online_editor.md'
                 - 'Create Online Editor button': 'extending/online_editor_button.md'
-                - 'Create Online Editor plugin': 'extending/online_editor_plugin.md'            
+                - 'Create Online Editor plugin': 'extending/online_editor_plugin.md'
                 - 'Create custom RichText block': 'extending/richtext_block.md'
-            - File management: 
+            - File management:
                 - 'File management': 'guide/file_management/file_management.md'
                 - 'Binary and Media download': 'guide/file_management/binary_media_download.md'
                 - 'File URL handling': 'guide/file_management/handling_file_url.md'
@@ -429,7 +429,7 @@ nav:
                 - 'VisibleOnly Criterion': 'guide/search/url_search_reference/visibleonly_url_criterion.md'
                 - 'LogicalAnd Criterion': 'guide/search/url_search_reference/logicaland_url_criterion.md'
                 - 'LogicalNot Criterion': 'guide/search/url_search_reference/logicalnot_url_criterion.md'
-                - 'LogicalOr Criterion': 'guide/search/url_search_reference/logicalor_url_criterion.md'   
+                - 'LogicalOr Criterion': 'guide/search/url_search_reference/logicalor_url_criterion.md'
             - 'Search in trash reference': 'guide/search/search_in_trash_reference.md'
             - 'Elasticsearch search engine': 'guide/search/elastic.md'
             - 'Solr search engine': 'guide/search/solr.md'
@@ -508,7 +508,7 @@ nav:
                 - 'Trash events': 'guide/repository/event_reference/trash_events.md'
                 - 'Other events': 'guide/repository/event_reference/other_events.md'
         - Cache:
-            - 'HTTP cache': 
+            - 'HTTP cache':
               - 'HTTP cache': 'guide/cache/http_cache.md'
               - 'HTTP cache configuration': 'guide/cache/http_cache_config.md'
               - 'Reverse proxy': 'guide/cache/symfony_reverse_proxy.md'
@@ -601,6 +601,10 @@ nav:
             - 'Update to v4.2': 'updating/from_4.1/update_from_4.1.md'
         - Update from v4.2:
             - 'Update to v4.3': 'updating/from_4.2/update_from_4.2.md'
+        - Update from v4.3:
+              - Update to v4.4: 'updating/from_4.3/update_from_4.3.md'
+              - Use new Commerce packages: 'updating/from_4.3/update_from_4.3_new_commerce.md'
+              - Keep old Commerce packages: 'updating/from_4.3/update_from_4.3_old_commerce.md'
         - Migrate to Ibexa DXP:
             - 'Migrate from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
             - 'Migrate from eZ Publish': 'migrating/migrating_from_ez_publish.md'
