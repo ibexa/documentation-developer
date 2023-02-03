@@ -3,7 +3,7 @@ INHERIT: plugins.yml
 site_name: Developer Documentation
 repo_url: https://github.com/ezsystems/developer-documentation
 site_url: https://doc.ibexa.co/en/latest/
-copyright: "Copyright 1999-2022 Ibexa AS and others"
+copyright: "Copyright 1999-2023 Ibexa AS and others"
 nav:
     - Ibexa Developer Documentation: index.md
     - Getting started:
@@ -132,6 +132,7 @@ nav:
             - Configure Image Editor: content_management/images/configure_image_editor.md
             - Extend Image Editor: content_management/images/extend_image_editor.md
             - Add Image Asset from DAM: content_management/images/add_image_asset_from_dam.md
+            - Fastly Image Optimizer: content_management/images/fastly_io.md
         - Rich Text:
             - Extend Online Editor: content_management/rich_text/extend_online_editor.md
             - Create custom RichText block: content_management/rich_text/create_custom_richtext_block.md
@@ -149,6 +150,7 @@ nav:
             - Forms: content_management/forms/forms.md
             - Form API: content_management/forms/form_api.md
             - Create custom Form field: content_management/forms/create_custom_form_field.md
+            - Create Form attribute: content_management/forms/create_form_attribute.md
             - Customize email notifications: content_management/forms/customize_email_notifications.md
         - Workflow:
             - Workflow: content_management/workflow/workflow.md
@@ -218,6 +220,8 @@ nav:
                 - SesProfileData: content_management/field_types/field_type_reference/sesprofiledata.md
                 - SesSelection: content_management/field_types/field_type_reference/sesselection.md
                 - SpecificationsType: content_management/field_types/field_type_reference/specificationstype.md
+                - TaxonomyEntry Field Type: content_management/field_types/field_type_reference/taxonomyentryfield.md
+                - TaxonomyEntryAssignment Field Type: content_management/field_types/field_type_reference/taxonomyentryassignmentfield.md
                 - TextBlock Field Type: content_management/field_types/field_type_reference/textblockfield.md
                 - TextLine Field Type: content_management/field_types/field_type_reference/textlinefield.md
                 - Time Field Type: content_management/field_types/field_type_reference/timefield.md
@@ -228,7 +232,7 @@ nav:
         - Render content:
             - Render content: templating/render_content/render_content.md
             - Render Page: templating/render_content/render_page.md
-            - Render product: templating/render_content/render_product.md
+            - Customize product view: templating/render_content/customize_product_view.md
         - Templates:
             - Templates: templating/templates/templates.md
             - Template configuration: templating/templates/template_configuration.md
@@ -242,6 +246,7 @@ nav:
             - Content Twig functions: templating/twig_function_reference/content_twig_functions.md
             - Field Twig functions: templating/twig_function_reference/field_twig_functions.md
             - Product Twig functions: templating/twig_function_reference/product_twig_functions.md
+            - Storefront Twig functions: templating/twig_function_reference/storefront_twig_functions.md
             - Image Twig functions: templating/twig_function_reference/image_twig_functions.md
             - URL Twig functions: templating/twig_function_reference/url_twig_functions.md
             - Date Twig filters: templating/twig_function_reference/date_twig_filters.md
@@ -259,11 +264,10 @@ nav:
             - Controllers: templating/queries_and_controllers/controllers.md
         - Embed and list content:
             - List content: templating/embed_and_list_content/list_content.md
-            - List products: templating/embed_and_list_content/list_products.md
-            - List products in catalog: templating/embed_and_list_content/list_products_in_catalog.md
             - Embed content: templating/embed_and_list_content/embed_content.md
             - Render images: templating/embed_and_list_content/render_images.md
         - Layout:
+            - Customize storefront layout: templating/layout/customize_storefront_layout.md
             - Add breadcrumbs: templating/layout/add_breadcrumbs.md
             - Add forgot password option: templating/layout/add_forgot_password_option.md
             - Add login form: templating/layout/add_login_form.md
@@ -288,6 +292,10 @@ nav:
         - Cart:
             - Cart: commerce/cart/cart.md
             - Cart API: commerce/cart/cart_api.md
+        - Storefront:
+            - Storefront: commerce/storefront/storefront.md
+            - Configure Storefront: commerce/storefront/configure_storefront.md
+            - Extend Storefront: commerce/storefront/extend_storefront.md
     - Customer management:
         - Customer Portal: customer_management/customer_portal.md
         - Customer Portal configuration: customer_management/cp_configuration.md
@@ -561,7 +569,11 @@ nav:
         - Update from v4.1:
             - Update to v4.2: update_and_migration/from_4.1/update_from_4.1.md
         - Update from v4.2:
-              - Update to v4.3: update_and_migration/from_4.2/update_from_4.2.md
+            - Update to v4.3: update_and_migration/from_4.2/update_from_4.2.md
+        - Update from v4.3:
+              - Update to v4.4: update_and_migration/from_4.3/update_from_4.3.md
+              - Use new Commerce packages: update_and_migration/from_4.3/update_from_4.3_new_commerce.md
+              - Keep old Commerce packages: update_and_migration/from_4.3/update_from_4.3_old_commerce.md
         - Migrate to Ibexa DXP:
             - Migrate from eZ Publish Platform: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish_platform.md
             - Migrate from eZ Publish: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish.md
@@ -576,6 +588,7 @@ nav:
             - Package structure: resources/contributing/package_structure.md
     - Release notes:
         - Release notes: release_notes/release_notes.md
+        - Ibexa DXP v4.4: release_notes/ibexa_dxp_v4.4.md
         - Ibexa DXP v4.3: release_notes/ibexa_dxp_v4.3.md
         - Ibexa DXP v4.2: release_notes/ibexa_dxp_v4.2.md
         - Ibexa DXP v4.1: release_notes/ibexa_dxp_v4.1.md
@@ -635,11 +648,12 @@ extra:
   product_name_com: 'Ibexa Commerce'
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.31'
-  latest_tag_3_3: '3.3.28'
+  latest_tag_3_3: '3.3.29'
   latest_tag_4_0: '4.0.8'
   latest_tag_4_1: '4.1.5'
   latest_tag_4_2: '4.2.3'
-  latest_tag_4_3: '4.3.0'
+  latest_tag_4_3: '4.3.2'
+  latest_tag_4_4: '4.4.0'
 
   symfony_doc: 'http://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'

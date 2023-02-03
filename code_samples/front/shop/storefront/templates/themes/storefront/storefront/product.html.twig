@@ -1,0 +1,19 @@
+{% extends no_layout == true ? view_base_layout : page_layout %}
+
+{% trans_default_domain 'storefront' %}
+
+{% block content %}
+    {% set breadcrumbs_menu = knp_menu_get('ibexa_storefront.menu.breadcrumbs.product', [], {
+        'product': product        
+    }) %}
+    
+    {{ knp_menu_render(breadcrumbs_menu, {
+        template: '@ibexadesign/storefront/knp_menu/breadcrumbs.html.twig',
+    }) }}
+    
+    {% include '@ibexadesign/storefront/component/product_view.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
