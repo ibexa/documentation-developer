@@ -658,7 +658,7 @@ extra_css:
   - css/navigation.css
   - css/docs.switcher.css
   - css/jquery-ui.min.css
-  - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css'
+  - '//cdn.jsdelivr.net/npm/@docsearch/css@3'
 
 extra_javascript:
   - js/jquery.min.js
@@ -668,7 +668,7 @@ extra_javascript:
   - js/ez-guidelines-switchers.js
   - js/ez-guidelines-modals.js
   - js/ez-guidelines-tooltips.js
-  - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
+  - '//cdn.jsdelivr.net/npm/@docsearch/js@3'
 
 markdown_extensions:
   - admonition
