@@ -12,6 +12,6 @@ Old packages are replaced by [the all-new Ibexa Commerce packages](ibexa_dxp_v4.
 
 For that reason, there are two update routes you can take.
 
-A. [If you do not use Commerce functionalities, you can proceed with removing them.](update_from_4.3_new_commerce)
+A. [If you do not use Commerce functionalities, you can proceed with removing them.](update_from_4.3_new_commerce.md)
 
-B. [If you use Commerce functionalities based on the deprecated packages, you can continue to use them for the time being.](update_from_4.3_old_commerce)
+B. [If you use Commerce functionalities based on the deprecated packages, you can continue to use them for the time being.](update_from_4.3_old_commerce.md)
