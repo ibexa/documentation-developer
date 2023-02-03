@@ -10,10 +10,9 @@ of [[= product_name =]].
 It covers actions related to the creation and handling of a list of products 
 that the buyer intends to purchase.
 
-
 The Cart component exposes the following:
 
-- [PHP API](cart_api.md) that allows for managing carts and cart entries, or validating products
+- [PHP API](cart_api.md) that allows for managing carts and cart entries, or checking cart validity
 - [REST API](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-ecommerce-carts) that helps get cart and products information over HTTP
 - [Twig functions](cart_twig_functions.md) that enable checking whether product can be added to cart and formatting the price
 
@@ -59,11 +58,11 @@ and several widgets.
 `Cart` is a standalone JavaScript object that manages cart data and has no user interface, 
 while widgets consist of JavaScript code and accompanying Twig templates.
 
-### Cart object
+### Cart service object
 
-The `Cart` object stores cart entry data and a cart summary, which contains additional entry data, like, for example, formatted gross price or validation errors.
+The `Cart` service object stores cart entry data and a cart summary, which contains additional entry data, like, for example, formatted gross price or validation errors.
 The object exposes several methods, which you can use to get and modify cart entries.
-Only one instance of a `Cart` object can be created.
+Only one instance of a `Cart` service object can be created.
 
 ### Widgets
 
@@ -97,4 +96,5 @@ for example, to checkout, or back to shopping, by adding respective buttons.
 
 ### Cart service 
 
-The Cart package provides a cart service, which is a module with functions used for calling the [backend API](cart_api.md). 
+The Cart package provides `Ibexa\Contracts\Cart\CartServiceInterface` Symfony service, 
+which is the entrypoint for calling the [backend API](cart_api.md).
