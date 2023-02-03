@@ -291,6 +291,10 @@ nav:
         - Cart:
             - Cart: commerce/cart/cart.md
             - Cart API: commerce/cart/cart_api.md
+        - Checkout: 
+            - Checkout: commerce/checkout/checkout.md
+            - Configure checkout: commerce/checkout/configure_checkout.md
+            - Checkout API: commerce/checkout/checkout_api.md
         - Storefront:
             - Storefront: commerce/storefront/storefront.md
             - Configure Storefront: commerce/storefront/configure_storefront.md

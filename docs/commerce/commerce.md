@@ -11,6 +11,9 @@ from adding products to a wishlist or to cart, through checkout and payment, to 
 [[= cards([
 "commerce/cart/cart",
 "commerce/cart/cart_api",
+"commerce/checkout/checkout",
+"commerce/checkout/configure_checkout",
+"commerce/checkout/checkout_api",
 "commerce/storefront/storefront",
 "commerce/storefront/configure_storefront",
 "commerce/storefront/extend_storefront"
