@@ -1,9 +1,9 @@
 ---
-description: Extend Storefront with new menus
+description: Extend Storefront with new menus.
 edition: commerce
 ---
 
-# Extend storefront
+# Extend Storefront
 
 ## Built-in menus
 

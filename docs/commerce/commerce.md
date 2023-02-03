@@ -9,4 +9,7 @@ The commerce component of [[= product_name =]] covers all steps or making a tran
 from adding products to a wishlist or to cart, through checkout and payment, to accessing transactional documents afterwards.
 
 [[= cards([
-], columns=4) =]]
+"commerce/storefront/storefront",
+"commerce/storefront/configure_storefront",
+"commerce/storefront/extend_storefront",
+], columns=3) =]]
