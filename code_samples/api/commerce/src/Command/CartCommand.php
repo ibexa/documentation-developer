@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php 
+
+declare(strict_types=1);
 
 namespace App\Command;
 
@@ -28,8 +30,13 @@ final class CartCommand extends Command
 
     private ProductServiceInterface $productService;
 
-    public function __construct(PermissionResolver $permissionResolver, UserService $userService, CartServiceInterface $cartService, CurrencyServiceInterface $currencyService, ProductServiceInterface $productService)
-    {
+    public function __construct(
+      PermissionResolver $permissionResolver, 
+      UserService $userService, 
+      CartServiceInterface $cartService, 
+      CurrencyServiceInterface $currencyService, 
+      ProductServiceInterface $productService
+      ) {
         $this->cartService = $cartService;
         $this->permissionResolver = $permissionResolver;
         $this->userService = $userService;

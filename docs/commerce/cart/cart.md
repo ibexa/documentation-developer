@@ -33,7 +33,7 @@ they have to log in and transition into an authenticated user.
 !!! note 
 
     For information about roles and permissions that control access to the cart, 
-    see [Permission use cases](../../permissions/permission_use_cases.md#commerce).
+    see [Permission use cases](permission_use_cases.md#commerce).
 
 ### Cart data merging
 
@@ -68,12 +68,12 @@ Only one instance of a `Cart` object can be created.
 ### Widgets
 
 To customize your store, you can override the Twig templates and extend their logic.
-For more information, see [ Customize storefront layout](../../docs/templating/layout/customize_storefront_layout.md).
+For more information, see [Customize storefront layout](customize_storefront_layout.md).
 
 #### Main cart
 
 Main cart is the main user interface component of the cart.
-By defaault. it lists items selected for purchase and requested cart item quantities. 
+By default, it lists items selected for purchase and requested cart item quantities. 
 
 Users who visit the Main cart can remove individual items.
 
