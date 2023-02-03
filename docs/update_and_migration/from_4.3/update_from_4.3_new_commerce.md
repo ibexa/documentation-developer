@@ -288,7 +288,7 @@ config/packages/jms_serializer.yaml
 config/packages/nelmio_solarium.yaml
 config/packages/prod/jms_serializer.yaml
 ```
-Finally, remove related routes from `config/routes/ibexa_commerce.yaml`.
+Finally, remove related routes by deleting `config/routes/ibexa_commerce.yaml` file.
 
 ### Update the database
 
