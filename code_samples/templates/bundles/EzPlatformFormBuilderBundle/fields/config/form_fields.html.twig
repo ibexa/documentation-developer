@@ -1,0 +1,27 @@
+{% extends "@!IbexaFormBuilder/fields/config/form_fields.html.twig" %}
+{% block _field_configuration_attributes_richtext_description_row %}
+    <fieldset class="fb-config-field fb-config-field--action form-group" data-field-value="{{form.vars.value.value}}">
+        <section class="ibexa-fieldgroup container">
+            <div class="ibexa-content-field">
+                <div class="ibexa-content-field-value">
+                    <div class="col-12">
+                        <div class="ibexa-data-source">
+                            {% set udw_context = {
+                                'languageCode': 'en',
+                            } %}
+                            {{ form_errors(form) }}
+                            {{ form_widget(form, {'attr': {'class': 'vidar-textarea d-none'}}) }}
+                            <div class="hidden" data-udw-config-name="richtext_embed" data-udw-config="{{ ibexa_udw_config('richtext_embed', udw_context) }}"></div>
+                            <div class="hidden" data-udw-config-name="richtext_embed_image" data-udw-config="{{ ibexa_udw_config('richtext_embed_image', udw_context) }}"></div>
+                            <div class="ibexa-data-source__richtext border px-3 py-3" id="rich_text_content_vl1__editable"></div>
+                            {{ form_rest(form) }}
+                        </div>
+                        {{ encore_entry_link_tags('ibexa-richtext-onlineeditor-css', null, 'richtext') }}
+                        {{ encore_entry_script_tags('ibexa-richtext-onlineeditor-js', null, 'richtext') }}
+                        {{ encore_entry_script_tags('formbuilder-richtext-checkbox-js') }}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </fieldset>
+{% endblock %}

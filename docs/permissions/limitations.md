@@ -217,6 +217,24 @@ Beyond that the following Limitations are available:
 
 - [Product Type](limitation_reference.md#product-type-limitation)
 
+#### Cart
+
+`cart/create`:
+
+- [CartOwner](limitation_reference.md#cartowner-limitation)
+
+`cart/view`:
+
+- [CartOwner](limitation_reference.md#cartowner-limitation)
+
+`cart/edit`:
+
+- [CartOwner](limitation_reference.md#cartowner-limitation)
+
+`cart/delete`:
+
+- [CartOwner](limitation_reference.md#cartowner-limitation)
+
 ## Limitation reference
 
 See [Limitation reference](limitation_reference.md) for detailed information about individual Limitations.
