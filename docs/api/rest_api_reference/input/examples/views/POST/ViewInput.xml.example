@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ViewInput>
   <identifier>TitleView</identifier>
-  <ContentQuery>
+  <Query>
     <Filter>
       <ContentTypeIdentifierCriterion>image</ContentTypeIdentifierCriterion>
       <SectionIdentifierCriterion>media</SectionIdentifierCriterion>
@@ -12,7 +12,7 @@
       <ContentName>ascending</ContentName>
     </SortClauses>
     <FacetBuilders>
-      <contentTypeFacetBuilder/>
+      <ContentType />
     </FacetBuilders>
-  </ContentQuery>
+  </Query>
 </ViewInput>
