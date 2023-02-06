@@ -10,9 +10,6 @@
             "offset": 0,
             "SortClauses": {
                 "ContentName": "ascending"
-            },
-            "FacetBuilders": {
-                "ContentType": {}
             }
         }
     }

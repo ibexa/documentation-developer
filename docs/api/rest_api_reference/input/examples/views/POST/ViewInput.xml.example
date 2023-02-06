@@ -11,8 +11,5 @@
     <SortClauses>
       <ContentName>ascending</ContentName>
     </SortClauses>
-    <FacetBuilders>
-      <ContentType />
-    </FacetBuilders>
   </Query>
 </ViewInput>
