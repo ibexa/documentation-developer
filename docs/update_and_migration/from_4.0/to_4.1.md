@@ -300,3 +300,9 @@ php bin/console ibexa:graphql:generate-schema
 ```
 
 YAML files with the schema are located in `config/graphql/types/ibexa`.
+
+### v4.1.6
+
+#### VCL configuration for Fastly
+
+[[% include 'snippets/update/vcl_configuration_for_fastly.md_v4' %]]

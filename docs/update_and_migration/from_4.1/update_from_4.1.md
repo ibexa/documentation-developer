@@ -32,6 +32,12 @@ Run:
     composer require ibexa/commerce:[[= latest_tag_4_1 =]] --with-all-dependencies --no-scripts
     ```
 
+### VCL configuration for Fastly
+
+You can omit this step if you already performed it during update to v4.1.6.
+
+[[% include 'snippets/update/vcl_configuration_for_fastly.md_v4' %]]
+
 ## Update from v4.1.latest to v4.2
 
 When you have the latest version of v4.1, you can update to v4.2.
