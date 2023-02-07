@@ -4,13 +4,25 @@
         "Query": {
             "Filter": {
                 "ContentTypeIdentifierCriterion": "image",
-                "SectionIdentifierCriterion": "media"
+                "SectionIdentifierCriterion": "media",
+                "DateMetadataCriterion": {
+                    "Target": "modified",
+                    "Value": 1675681020,
+                    "Operator": "gte"
+                }
             },
             "limit": 10,
             "offset": 0,
             "SortClauses": {
                 "ContentName": "ascending"
-            }
+            },
+            "Aggregations": [
+                {
+                    "ContentTypeTermAggregation": {
+                        "name": "some name"
+                    }
+                }
+            ]
         }
     }
 }
