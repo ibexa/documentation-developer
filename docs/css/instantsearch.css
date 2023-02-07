@@ -61,6 +61,20 @@
     line-height: 21px;
 }
 
+.md-content .ais-InstantSearch .instantsearch__entry {
+    display: block;
+    color: var(--ibexa-dusk-black);
+}
+
+.md-content .ais-InstantSearch .instantsearch__entry:hover {
+    color: var(--ibexa-jazzberry);
+}
+
+.md-content .ais-InstantSearch .instantsearch__entry:hover .instantsearch__entry-header,
+.md-content .ais-InstantSearch .instantsearch__entry:hover .instantsearch__entry-content {
+    color: var(--ibexa-jazzberry)
+}
+
 .md-content .ais-InstantSearch .instantsearch__entry + .instantsearch__entry {
     border-top: 1px solid #E0E0E8;
     margin-top: 16px;

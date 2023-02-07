@@ -26,9 +26,9 @@
             },
         }
     }
-    const search_query = document.location.hash.match(/q=(.*)(&|$)/)[1] ?? '';
+    const search_query = document.location.hash.match(/q=(.*?)(&|$)/)[1] ?? '';
     const parsed_search_query = decodeURI(search_query.replace('+', ' '));
-    const search_page = document.location.hash.match(/p=(\d*)(&|$)/)[1] ?? 1;
+    const search_page = document.location.hash.match(/p=(\d*?)(&|$)/)[1] ?? 1;
     const parsed_search_page = parseInt(search_page);
     const version = document.location.pathname.split('/')[2];
     const search = instantsearch({
@@ -122,7 +122,7 @@
                             </span>`
                         });
 
-                        const childHTML = `<div class="instantsearch__entry">
+                        const childHTML = `<a class="instantsearch__entry" href="${childHit.url}">
                             ${headerHTML}
                             ${contentHTML}
                             <div class="instantsearch__entry-breadcrumbs">
