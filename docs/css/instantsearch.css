@@ -1,0 +1,108 @@
+.md-content .ais-InstantSearch {
+    letter-spacing: 0.12px;
+}
+
+.md-content .ais-InstantSearch h1 {
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: 0.17px;
+    margin: 8px 0 40px;
+}
+
+.md-content .ais-InstantSearch .ais-SearchBox .ais-SearchBox-submit {
+    left: 16px;
+}
+
+.md-content .ais-InstantSearch .ais-SearchBox .ais-SearchBox-submitIcon {
+    width: 16px;
+}
+
+.md-content .ais-InstantSearch .ais-SearchBox .ais-SearchBox-input {
+    font-size: 14px;
+    line-height: 21px;
+    height: 48px;
+    padding-left: 48px;
+    border-color: #A0A4A8;
+}
+
+.md-content .ais-InstantSearch .ais-Hits-list {
+    margin-left: 0;
+}
+
+.md-content .ais-InstantSearch .ais-Hits-item {
+    padding: 5px 0 10px;
+    width: initial;
+    margin: 0;
+    border: 0;
+    box-shadow: none;
+}
+
+.md-content .ais-InstantSearch .ais-Highlight-highlighted {
+    background-color: #ECF4FF;
+    color: #4191FF;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.md-content .ais-InstantSearch .instantsearch__group-header {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.12px;
+    height: 40px;
+    margin: 0;
+    padding: 0 16px;
+    background-color: #F2F2F5;
+}
+
+.md-content .ais-InstantSearch .instantsearch__group-header .ais-Highlight-highlighted {
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.md-content .ais-InstantSearch .instantsearch__entry + .instantsearch__entry {
+    border-top: 1px solid #E0E0E8;
+    margin-top: 16px;
+}
+
+.md-content .ais-InstantSearch .instantsearch__entry-header {
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: 0.12px;
+    margin: 24px 0 4px;
+}
+
+.md-content .ais-InstantSearch .instantsearch__entry-header .ais-Highlight-highlighted {
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.md-content .ais-InstantSearch .instantsearch__entry-content {
+    color: #3B424A;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.12px;
+}
+
+.md-content .ais-InstantSearch .instantsearch__entry-content .ais-Highlight-highlighted {
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.md-content .ais-InstantSearch .instantsearch__entry-breadcrumbs {
+    font-size: 12px;
+    line-height: 21px;
+    letter-spacing: 0.12px;
+    margin-top: 16px;
+}
+
+.md-content .ais-InstantSearch .instantsearch__entry-breadcrumbs-item + .instantsearch__entry-breadcrumbs-item {
+    margin-left: 12px;
+}
+
+.md-content .ais-InstantSearch .instantsearch__entry-breadcrumbs-item + .instantsearch__entry-breadcrumbs-item:before {
+    content: '>';
+    display: inline-block;
+    padding-right: 12px;
+}
