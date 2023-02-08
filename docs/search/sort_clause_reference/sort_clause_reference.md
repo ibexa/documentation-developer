@@ -35,14 +35,3 @@ All Sort Clauses can take the following optional argument:
 |[SectionIdentifier](sectionidentifier_sort_clause.md)|ID of the Section content is assigned to|Content and Location Search, and Filtering|
 |[SectionName](sectionname_sort_clause.md)|Name of the Section content is assigned to|Content and Location Search, and Filtering|
 |[Visibility](visibility_sort_clause.md)|Whether the Location is visible or not|Location Search, Filtering|
-
-### Product search
-
-| Sort Clause | Sorting based on | Supported by |
-|-----|-----|-----|
-|[BasePrice](baseprice_sort_clause.md)|Base product price|Product search|
-|[CreatedAt](createdat_sort_clause.md)|Date and time of the creation of a product.|Product search|
-|[CustomPrice](customprice_sort_clause.md)|Custom product price|Product search|
-|[ProductAvailability](productavailability_sort_clause.md)|Product's availability|Content and Location Search; Filtering|
-|[ProductCode](productcode_sort_clause.md)|Product's code|Content and Location Search; Filtering|
-|[ProductName](productname_sort_clause.md)|Product's name|Content and Location Search; Filtering|
