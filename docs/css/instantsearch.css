@@ -1,3 +1,7 @@
+.md-content {
+    margin: 0 auto;
+}
+
 .md-content .ais-InstantSearch {
     letter-spacing: 0.12px;
 }
@@ -120,3 +124,44 @@
     display: inline-block;
     padding-right: 12px;
 }
+
+.md-content .ais-InstantSearch .ais-Pagination .ais-Pagination-list:not([hidden]) {
+    display: flex;
+    list-style: none;
+    margin: 15px 0 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.md-content .ais-InstantSearch .ais-Pagination .ais-Pagination-list .ais-Pagination-item {
+    margin: 0;
+}
+
+.md-content .ais-InstantSearch .ais-Pagination .ais-Pagination-link {
+    border: none;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.12px;
+    color: var(--ibexa-dusk-black);
+    height: 40px;
+    min-width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.md-content .ais-InstantSearch .ais-Pagination .ais-Pagination-item--selected .ais-Pagination-link,
+.md-content .ais-InstantSearch .ais-Pagination .ais-Pagination-link:hover {
+    background-color: #F3F3F6;
+    border-radius: 5px;
+}
+
+
+
+  /* .ais-Pagination-item--firstPage .ais-Pagination-link,
+  .ais-Pagination-item--previousPage .ais-Pagination-link,
+  .ais-Pagination-item--nextPage .ais-Pagination-link,
+  .ais-Pagination-item--lastPage .ais-Pagination-link
+  {
+    font-size: 20px;
+  } */

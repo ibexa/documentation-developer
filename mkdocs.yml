@@ -648,7 +648,6 @@ extra_css:
   - css/page-not-found.css
   - css/navigation.css
   - css/docs.switcher.css
-  - css/instantsearch.css
   - css/jquery-ui.min.css
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css'
 
@@ -657,7 +656,6 @@ extra_javascript:
   - js/jquery-ui.min.js
   - js/custom.js
   - js/docs.switcher.js
-  - js/instantsearch.js
   - js/ez-guidelines-switchers.js
   - js/ez-guidelines-modals.js
   - js/ez-guidelines-tooltips.js

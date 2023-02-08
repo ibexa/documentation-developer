@@ -1,10 +1,23 @@
 {% extends "main.html" %}
 
-{% block extrahead %}
+{% block styles %}
   {{ super() }}
+  {% set site_url = config.site_url | default(nav.homepage.url, true) | url %}
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css"/>
-  <style>
-  </style>
+  <link rel="stylesheet" href="{{ site_url }}/css/instantsearch.css"/>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  {% set site_url = config.site_url | default(nav.homepage.url, true) | url %}
+
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
+  <script src="{{ site_url }}/js/instantsearch.js"></script>
+{% endblock %}
+
+{% block site_nav %}
 {% endblock %}
 
 {% block content %}
@@ -16,14 +29,9 @@
       </ul>
       <div id="stats"></div>
       <div id="searchbox"></div>
+      <div id="version"></div>
       <div id="hits"></div>
       <div id="pagination"></div>
-      <div id="pagination-stats"></div>
-      <div id="version"></div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
-
   {% endraw %}
 {% endblock %}

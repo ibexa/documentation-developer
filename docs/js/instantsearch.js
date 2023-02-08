@@ -102,6 +102,8 @@
                     </h2>`;
                     let groupContentHTML = '';
 
+                    console.log(children);
+
                     children.forEach((childHit) => {
                         const { breadcrumbsKeys, entryNameKey, item: entryItem } = childHit;
                         const headerHTML = `<h3 class="instantsearch__entry-header">
@@ -122,7 +124,7 @@
                             </span>`
                         });
 
-                        const childHTML = `<a class="instantsearch__entry" href="${childHit.url}">
+                        const childHTML = `<a class="instantsearch__entry" href="${childHit.item.url}">
                             ${headerHTML}
                             ${contentHTML}
                             <div class="instantsearch__entry-breadcrumbs">
@@ -144,14 +146,20 @@
         }),
         instantsearch.widgets.pagination({
             container: '#pagination',
-        }),
-        instantsearch.widgets.stats({
-            container: '#pagination-stats',
+            padding: 2,
             templates: {
-            text(data, {html}) {
-                let page = 1 + data.page;
-                return html`<span>${page} / ${data.nbPages}</span>`;
-            },
+                first: `<svg class="tile-icon" width="16" height="16">
+                    <use fill="var(--ibexa-dusk-black)" xlink:href="../images/ez-icons.svg#caret-double-back"></use>
+                </svg>`,
+                previous: `<svg class="tile-icon" width="20" height="20">
+                    <use fill="var(--ibexa-dusk-black)" xlink:href="../images/ez-icons.svg#caret-back"></use>
+                </svg>`,
+                next: `<svg class="tile-icon" width="20" height="20">
+                    <use fill="var(--ibexa-dusk-black)" xlink:href="../images/ez-icons.svg#caret-next"></use>
+                </svg>`,
+                last: `<svg class="tile-icon" width="16" height="16">
+                    <use fill="var(--ibexa-dusk-black)" xlink:href="../images/ez-icons.svg#caret-double-next"></use>
+                </svg>`,
             },
         }),
         instantsearch.widgets.refinementList({
