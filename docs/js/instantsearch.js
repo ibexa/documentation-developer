@@ -76,7 +76,7 @@
                     const hierarchy = Object.entries(item.hierarchy).filter(([, value]) => value);
                     const breadcrumbsKeys = hierarchy.map(([key]) => key);
                     const groupNameKey = breadcrumbsKeys.shift();
-                    const entryNameKey = breadcrumbsKeys.pop();
+                    const entryNameKey = breadcrumbsKeys.shift();
                     const newItem = {
                         entryNameKey,
                         breadcrumbsKeys,
@@ -130,7 +130,7 @@
                             <div class="instantsearch__entry-breadcrumbs">
                                 ${breadcrumbsHTML}
                             </div>
-                        </div>`;
+                        </a>`;
 
                         groupContentHTML += childHTML;
                     });
