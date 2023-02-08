@@ -26,11 +26,11 @@
             },
         }
     }
-    const search_query = document.location.hash.match(/q=(.*?)(&|$)/)[1] ?? '';
+    const search_query = doc.location.hash.match(/q=(.*?)(&|$)/)[1] ?? '';
     const parsed_search_query = decodeURI(search_query.replace('+', ' '));
-    const search_page = document.location.hash.match(/p=(\d*?)(&|$)/)[1] ?? 1;
+    const search_page = doc.location.hash.match(/p=(\d*?)(&|$)/)[1] ?? 1;
     const parsed_search_page = parseInt(search_page);
-    const version = document.location.pathname.split('/')[2];
+    const version = doc.location.pathname.split('/')[2];
     const search = instantsearch({
         indexName: 'ezplatform',
         searchClient: algoliasearch('2DNYOU6YJZ', '21ce3e522455e18e7ee16cf7d66edb4b'),
@@ -43,12 +43,12 @@
         },
     });
 
-    document.getElementById('searchbox').addEventListener('keyup', function (event) {
+    doc.getElementById('searchbox').addEventListener('keyup', function (event) {
         window.location.hash = '#q=' + encodeURI(event.target.value) + '&p=1';
     })
 
-    document.getElementById('pagination').addEventListener('click', function (event) {
-        let page = document.getElementsByClassName('ais-Pagination-item--selected').length ? parseInt(document.getElementsByClassName('ais-Pagination-item--selected')[0].innerText) : 1
+    doc.getElementById('pagination').addEventListener('click', function (event) {
+        let page = doc.getElementsByClassName('ais-Pagination-item--selected').length ? parseInt(doc.getElementsByClassName('ais-Pagination-item--selected')[0].innerText) : 1
         window.location.hash = window.location.hash.includes('p=') ? window.location.hash.replace(/p=\d*/, 'p=' + page) : window.location.hash + '&p=' + page;
     })
 
@@ -101,8 +101,6 @@
                         (${children.length})
                     </h2>`;
                     let groupContentHTML = '';
-
-                    console.log(children);
 
                     children.forEach((childHit) => {
                         const { breadcrumbsKeys, entryNameKey, item: entryItem } = childHit;
@@ -163,7 +161,7 @@
             },
         }),
         instantsearch.widgets.refinementList({
-            container: document.querySelector('#version'),
+            container: doc.querySelector('#version'),
             attribute: 'version',
         }),
     ]);

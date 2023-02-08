@@ -647,6 +647,7 @@ extra_css:
   - css/custom.css
   - css/page-not-found.css
   - css/navigation.css
+  - css/search.css
   - css/docs.switcher.css
   - css/jquery-ui.min.css
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css'

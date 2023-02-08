@@ -86,7 +86,8 @@ $(document).ready(function() {
         indexName: 'ezplatform',
         inputSelector: '#search_input',
         transformData: function(hits) {
-            let removedPattern = '¶';
+            const hitsPerPage = 10;
+            const removedPattern = '¶';
             $.each(hits, function(index, hit) {
                 for (let lvl=2; lvl<=6; lvl++) {
                     if (null !== hit.hierarchy['lvl'+lvl]) {
@@ -97,13 +98,19 @@ $(document).ready(function() {
                     }
                 }
             });
+
             let link = $('.ds-dropdown-menu a.search-page-link');
+            const href = '/en/' + branchName + '/search_results/#q=' + encodeURI($('#search_input').val()) + '&p=1';
+
             if (!link.length) {
-                link = $('.ds-dropdown-menu').append('<a class="search-page-link" href="" style="position: absolute; bottom: 0px; z-index: 1000;">See all results</a>');
+                link = $('.ds-dropdown-menu').append(`<div class="search-page-link-wrapper">
+                    <a class="search-page-link" href="">See all results</a>
+                </div>`);
             }
-            let href = '/en/' + branchName + '/search_results/#q=' + encodeURI($(/*this.inputSelector*/'#search_input').val()) + '&p=1';
+
             link.attr('href', href).show();
-            if (hits.length < 10/*hitsPerPage*/) {
+
+            if (hits.length < hitsPerPage) {
                 link.hide();
             }
         },
