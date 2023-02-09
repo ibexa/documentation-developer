@@ -20,7 +20,9 @@
         "raml-org/raml-php-parser": "dev-master",
         "twig/twig": "^2.0",
         "symfony/filesystem": "^4.2",
-        "ramsey/uuid": "^3.9"
+        "ramsey/uuid": "^3.9",
+        "twig/markdown-extra": "^3.5",
+        "league/commonmark": "^2.3"
     },
     "require-dev": {
         "symfony/var-dumper": "^4.2",
