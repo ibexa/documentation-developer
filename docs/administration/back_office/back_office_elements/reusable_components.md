@@ -137,6 +137,149 @@ The table component consists of the following blocks:
 - `thead` - table header content
 - `tbody` - table body content
 
+
+### Override specific cell
+
+For the `twig` table component to have full control over rendering the rows of specific/individual cells, only data are passed to it.
+Data rows are passed in an array - one row per one array element.
+It is a good practice to make each array an object with the columns data.
+
+There are a few types of table columns:
+
+- normal content column `{ content: col_name }`
+- an icon column `{ has_icon: true, content: col_icon }`
+- a checkbox column `{ has_checkbox: true, content: col_checkbox }`
+- action buttons column `{ has_action_btns: true, content: col_action_btns }`
+
+If you want to prevent this component from the untrusted user-generated content.
+Each column has the `raw` parameter which prevents the component from the escaping content (untrusted user-generated content).
+
+Create an empty array and fill it with rows inside for each loop:
+
+```html+twig
+{% set body_rows = [] %}
+{% for article in pager.currentPageResults %}
+{# we may render checkbox using form_widget and just put HTML #}
+{% set col_checkbox %}
+    {{ form_widget(form_remove.articles[article.id]) }}
+{% endset %}
+
+{% set col_icon %}
+    <svg class="ibexa-icon ibexa-icon--small">
+        <use xlink:href="{{ ibexa_content_type_icon(article.contentType.identifier) }}"></use>
+    </svg>
+{% endset %}
+```
+
+### Render hyperlink
+
+The case below shows how to render both text and hyperlink which redirects to the content.
+
+```html+twig
+{% set col_name %}
+    <a href="{{ path('ibexa.content.view', { contentId: article.contentInfo.id, locationId: article.id }) }}">
+        {{ ibexa_content_name(article.contentInfo) }}
+    </a>
+{% endset %}
+
+{% set col_action_btns %}
+    {% if article.userCanEdit %}
+        <a
+            href="#"
+            class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text"
+            title="{{ 'article.list.content.edit'|trans|desc('Edit content') }}"
+        >
+            <svg class="ibexa-icon ibexa-icon--small ibexa-icon--edit">
+                <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+            </svg>
+        </a>
+    {% endif %}
+{% endset %}
+
+{% set body_rows = body_rows|merge([{ cols: [
+    { has_checkbox: true, content: col_checkbox },
+    { has_icon: true, content: col_icon },
+    { content: col_name },
+    { content: article.contentType.name },
+    { has_action_btns: true, content: col_action_btns },
+]}]) %}
+{% endfor %}
+```
+
+### Actions
+
+See the example to learn how to create an action button which removes the article in the table.
+The table component is wrapped into the remove article form.
+
+To enable any checkbox to be selected, ad the `ibexa-toggle-btn-state` css class to the form with `data-toggle-button-id` data-form attribute.
+
+This is a built-in mechanism, the system renders the button (by default, disabled) and passes it under the `action` parameter.
+
+Action buttons are rendered in the right side of the table headline (do not confuse with the table header)
+tu dodac screen!
+
+
+
+
+You can set headline title using the `results_headline` macro, and generates different headlines based on the three parameters:
+
+- `count` - 
+- `has_filters` 
+- `phrase` 
+- `results_headline` - ensures the headlines consistency across the platform
+- `head_cols` - an array for table header (not headline), corresponds with consecutive column
+
+For body rows there are the following column types:
+
+- normal content column `{ content: col_name }` (content is the title of the column)
+- icon column `{ has_icon: true }`
+- checkbox column `{ has_checkbox: true }`
+- action buttons column ` {  }` with additional parameters:
+ 
+    - class (CSS class)
+    - attr (HTML attributes)
+
+See the example:
+
+```html+twig
+{
+    content: 'foo',
+    class: 'bar',
+    attr: {
+        colspan: 2,
+    },
+
+```
+
+- `empty_table_info_text` and `empty_table_action_text` specify texts which are displayed when the table is empty.
+
+
+```html+twig
+{{ form_start(form_remove, {
+    action: path('ibexa.article.remove'),
+    attr: { class: 'ibexa-toggle-btn-state', 'data-toggle-button-id': '#article_remove_remove' }
+}) }}
+{% include '@ibexadesign/ui/component/table/table.html.twig' with {
+    headline: results_headline(pager.getNbResults()),
+    head_cols: [
+        { has_checkbox: true },
+        { has_icon: true },
+        { content: 'article.list.name'|trans|desc('Name') },
+        { content: 'article.list.content_type'|trans|desc('Content Type') },
+        { },
+    ],
+    body_rows,
+    actions: form_widget(form_remove.remove, { attr:
+        {
+            class: 'btn ibexa-btn ibexa-btn--ghost ibexa-btn--small',
+            disabled: true,
+        }}),
+    empty_table_info_text: 'article.list.empty'|trans|desc('You have no articles yet. Your articles will show up here.'),
+    empty_table_action_text: 'article.list.empty_desc'|trans|desc('Articles you create will show up here.'),
+} %}
+{{ form_end(form_remove) }}
+```
+
 The table component supports the following variable:
 
 - `table_class` - additional CSS classes attached to the `<table>` tag
