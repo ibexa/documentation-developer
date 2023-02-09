@@ -1,0 +1,6 @@
+{
+    "CatalogCopy": {
+        "identifier": "test_catalog_copied",
+        "creator_id": 14 //optional
+    }
+}

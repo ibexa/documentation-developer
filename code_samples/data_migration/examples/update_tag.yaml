@@ -1,0 +1,24 @@
+-   type: content_type
+    mode: update
+    match:
+        field: content_type_identifier
+        value: article
+    fields:
+        -   identifier: field_631b169ec8035
+            type: ibexa_taxonomy_entry_assignment
+            position: 7
+            translations:
+                eng-GB:
+                    name: tag
+                    description: 'Tagi'
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: content
+            defaultValue:
+                taxonomy_entries: {  }
+                taxonomy: null
+            fieldSettings:
+                taxonomy: tags
+            validatorConfiguration: {  }

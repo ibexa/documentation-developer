@@ -1,0 +1,12 @@
+{
+    "ProductVariantGenerate": {
+        "attributes": {
+            "width": [
+                123
+            ],
+            "colors": [
+                "#000000", "#ffffff", "#d4d400", "#ff0000"
+            ]
+        }
+    }
+}

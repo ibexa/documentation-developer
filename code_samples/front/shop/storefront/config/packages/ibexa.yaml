@@ -1,0 +1,33 @@
+ibexa:
+    system:
+        site_group:
+            translation_siteaccesses:
+                - site
+                - site_pl
+                - site_fr
+                - site_de
+            page_layout: '@ibexadesign/storefront/layout.html.twig'
+            product_catalog:
+                currencies:
+                    - EUR
+                    - PLN
+                    - USD
+                regions:
+                    - poland
+                    - france
+                    - germany
+                    - norway
+            storefront:
+                name: Ibexa
+                logo: 'bundles/ibexaadminui/img/ibexa-logo.svg'
+                catalog:
+                    default: main
+                    customer_group:
+                        vip: vip
+                product_list_limit: 9
+                product_list_filters:
+                    - product_type
+                    - product_availability
+                    - product_price
+                user_settings_groups:
+                    - location

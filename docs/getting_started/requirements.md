@@ -10,26 +10,28 @@ The following server requirements cover both running the software on-premise and
 
     For running on [Ibexa Cloud](https://www.ibexa.co/products/ibexa-cloud), where recommended configuration and support is provided out of the box, see separate [Ibexa Cloud section](#ibexa-cloud-requirements-and-setup) for further reading on its requirements.
 
-The minimal setup requires PHP,  MySQL/MariaDB, Apache/Nginx, Node.js and `yarn`.
-Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, NFS/EFS/S3 and Solr/Elasticsearch in a [clustered setup](../guide/clustering.md).
+The minimal setup requires PHP, MySQL/MariaDB, Apache/Nginx, Node.js and `yarn`.
+Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, NFS/EFS/S3 and Solr/Elasticsearch in a [clustered setup](clustering.md).
 
-Using the latest listed version of each product or component is always recommended.
+!!! note "Recommended versions"
+
+    Using the latest listed version of each product or component is always recommended. Review all the recommended versions carefully. If you see a "+" next to the product version, it means that we recommend this version or higher within the same major release. For example, "Nginx 1.18+" means any 1.x version higher or equal to 1.18, but not 2.x.
 
 ## Operating system
 
-- Debian 10.x "Buster"
+- Debian 10.x "buster" or Debian 11.x "bullseye"
 - Ubuntu 20.04 "Focal Fossa"
 - RHEL / CentOS 8.1+
 
 ## Web server
 
-- Nginx 1.18 or higher
+- Nginx 1.18+
 - Apache 2.4 (with required modules `mod_rewrite`, `mod_env` and recommended: `mod_setenvif`, `mod_expires`;
 event MPM is recommended, if you need to use prefork you also need the `mod_php` module)
 
 ## DBMS
 
-- MariaDB 10.3, 10.4
+- MariaDB 10.3+
 - MySQL 8.0
 - PostgreSQL 10+
 
@@ -37,7 +39,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 
 - 8.1
 - 8.0
-- 7.4
+- 7.4 (PHP 7.4 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
 
 ### PHP packages
 
@@ -69,7 +71,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 - ImageMagick
 - GD
 
-Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Editor](../guide/images.md#image-optimization):
+Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Editor](images.md#image-optimization), or use it with image variations:
 
 - JpegOptim
 - Optipng
@@ -78,11 +80,11 @@ Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Edito
 - Gifsicle
 - cwebp
 
-## [Clustering](../guide/clustering.md)
+## [Clustering](clustering.md)
 
 - Linux NFS or S3/EFS (for IO, aka binary files stored in content repository, not supported with legacy)
 - Redis 4.0+, 5.0 or higher (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/topics/lru-cache), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
-- [Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the bundle provided with [[= product_name_exp =]]](../guide/cache/http_cache.md#serving-varnish-through-fastly) (for HttpCache)
+- [Varnish](http://varnish-cache.org/) 6.0LTS or 7.1 with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the provided bundle](http_cache.md#serving-varnish-through-fastly) (for HttpCache)
 
 ## Filesystem
 
@@ -94,8 +96,8 @@ Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Edito
 
 ## Asset manager
 
-- `Node.js` 14
-- `yarn` 1.15.2 or higher
+- `Node.js` 14+, 16+
+- `yarn` 1.15.2+
 
 ## Browser
 

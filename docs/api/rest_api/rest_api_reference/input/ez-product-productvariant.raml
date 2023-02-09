@@ -1,0 +1,23 @@
+/{code}:
+    get:
+        displayName: Load product variant
+        description: Loads the given product variant.
+        headers:
+            Accept:
+                description: If set, the product variant is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.ProductVariantGet+json
+            Content-Type:
+                description: The product variant schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.ProductVariantGet+json
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.ProductVariant+json:
+                        type: ProductVariant
+                        example: !include examples/product/catalog/product_variants/code/GET/ProductVariant.json.example
+            401:
+                description: Error - the user is not authorized to view this product variant.
+            404:
+                description: Error - no product variant with the given code exists.

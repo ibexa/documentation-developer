@@ -1,0 +1,42 @@
+-   type: content
+    mode: create
+    metadata:
+        contentType: article
+        mainTranslation: eng-GB
+        alwaysAvailable: false
+        section:
+            identifier: standard
+    location:
+        parentLocationId: 42
+    fields:
+        -   fieldDefIdentifier: title
+            languageCode: eng-GB
+            value: Test1
+        -   fieldDefIdentifier: short_title
+            languageCode: eng-GB
+            value: test1
+        -   fieldDefIdentifier: author
+            languageCode: eng-GB
+            value:
+                -
+                    id: '1'
+                    name: 'Administrator User'
+                    email: admin@link.invalid
+        -   fieldDefIdentifier: intro
+            languageCode: eng-GB
+            value:
+                xml: |
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml" xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom" 
+                    version="5.0-variant ezpublish-1.0"><para>test</para></section>
+        -   fieldDefIdentifier: enable_comments
+            languageCode: eng-GB
+            value: false
+        -   fieldDefIdentifier: field_631b169ec8035
+            languageCode: eng-GB
+            value:
+                taxonomy_entries_identifiers:
+                    - car
+                    - plane
+                taxonomy: tags

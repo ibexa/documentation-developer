@@ -59,13 +59,13 @@ To avoid the error, check the stability of packages and avoid using `--prefer-s
 ### Inconsistent cache/session data
 
 If cache or session data inconsistent across web servers in Redis,
-see [Redis clustering](../guide/persistence_cache.md#redis-clustering), and make sure you only read/write to
+see [Redis clustering](persistence_cache.md#redis-clustering), and make sure you only read/write to
 one active master instance at a time.
 
 ### Removed or refused sessions
 
 If Redis sessions are removed or new sessions are refused.
-see info on [Cluster setup](../guide/sessions.md#cluster-setup).
+see info on [Cluster setup](sessions.md#cluster-setup).
 Ideally, use a separated instance of Redis for sessions,
 that either never runs out of memory or uses an eviction policy that suits your needs.
 
@@ -96,24 +96,3 @@ configure the following variables in your Platform.sh environment:
 
 - `HTTPCACHE_USERNAME`
 - `HTTPCACHE_PASSWORD`
-
-## Unconverted images in shop
-
-Make sure that you have set up correct rights for the image folder:
-
-``` bash
-sudo chmod -R g+w web/var/ecommerce/storage/
-```
-
-## `BadFormatException` after installation
-
-If you see the following error after installation:
-
-`[Defuse\Crypto\Exception\BadFormatException] Encoding::hexToBin() input is not a hex string`
-
-Generate a secret using `./vendor/defuse/php-encryption/bin/generate-defuse-key` and
-configure it in `parameters.yml`:
-
-```
-env(JMS_PAYMENT_SECRET): 'def000004cb9c9f5edb77182df64b3d572162a47ec971a9a8beb00459b49fd9a1f9df6991ffc817c8585f59b8c5a032b796ab520eae126c77d8a304b36af0c9acdbfa9b9'
-```

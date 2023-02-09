@@ -1,0 +1,24 @@
+{% extends 'knp_menu.html.twig' %}
+
+{% block item %}
+    {% if item.displayed %}
+        {%- set attributes = item.attributes %}
+        {% import _self as knp_menu %}
+        <li{{ knp_menu.attributes(attributes) }}>
+            {%- if item.uri is not empty and (not matcher.isCurrent(item) or options.currentAsLink) %}
+                {{ block('linkElement') }}
+            {%- else %}
+                {{ block('spanElement') }}
+            {%- endif %}
+        </li>
+    {% endif %}
+{% endblock %}
+
+{% block linkElement %}
+    {%- set classes = ['breadcrumb_link'] -%}
+
+    <a href="{{ item.uri }}" {{ _self.attributes({ class: classes|join(' ') }) }}>
+        {{ block('label') }}
+    </a>
+
+{% endblock %}

@@ -1,0 +1,8 @@
+{
+    "AttributeGroup": {
+        "_media-type": "application/vnd.ibexa.api.AttributeGroup+json",
+        "name": "Attribute Group Test",
+        "identifier": "attr_group_test",
+        "position": 0
+    }
+}

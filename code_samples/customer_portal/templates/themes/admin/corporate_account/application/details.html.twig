@@ -1,0 +1,18 @@
+{% extends "@IbexaCorporateAccount/themes/admin/corporate_account/application/details.html.twig" %}
+
+{% block content %}
+    {{ form_start(verify_form, { action: path('ibexa.corporate_account.application.workflow.state', {
+        state: 'verify',
+        applicationId: application.id,
+    }), method: 'POST'}) }}
+    {{ form_row(verify_form.notes) }}
+
+    <div class="ibexa-ca-application-workflow-extra-actions__btns">
+        {{ form_widget(verify_form.verify, { attr: {
+            class: 'ibexa-btn ibexa-btn--primary ibexa-ca-application-workflow-extra-actions__btn',
+        }}) }}
+    </div>
+    {{ form_end(verify_form) }}
+
+    {{ parent() }}
+{% endblock %}

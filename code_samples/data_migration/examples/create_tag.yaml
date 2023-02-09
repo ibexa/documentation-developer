@@ -1,0 +1,21 @@
+-   type: content
+    mode: create
+    metadata:
+        contentType: tag
+        mainTranslation: eng-GB
+        alwaysAvailable: true
+        section:
+            identifier: taxonomy
+    location:
+        parentLocationRemoteId: taxonomy_tags_folder
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: Car
+        -   fieldDefIdentifier: identifier
+            languageCode: eng-GB
+            value: car
+        -   fieldDefIdentifier: parent
+            languageCode: eng-GB
+            value:
+                taxonomy_entry_identifier: root

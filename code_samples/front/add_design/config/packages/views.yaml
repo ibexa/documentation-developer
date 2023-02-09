@@ -1,6 +1,6 @@
 ibexa_design_engine:
     design_list:
-        summersale: [summersale, standard]
+        summersale: [summersale]
 
 ibexa:
     system:

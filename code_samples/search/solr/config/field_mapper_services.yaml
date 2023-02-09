@@ -1,0 +1,7 @@
+services:
+    App\Search\Mapper\WebinarEventTitleFulltextFieldMapper:
+        arguments:
+            - '@Ibexa\Contracts\Core\Persistence\Content\Handler'
+            - '@Ibexa\Contracts\Core\Persistence\Content\Location\Handler'
+        tags:
+            - {name: ibexa.solr.field_mapper.content}
