@@ -5,7 +5,7 @@
   {% set site_url = config.site_url | default(nav.homepage.url, true) | url %}
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css"/>
-  <link rel="stylesheet" href="/en/search-page-front/css/instantsearch.css"/>
+  <link rel="stylesheet" href="{{ site_url }}/css/instantsearch.css"/>
 {% endblock %}
 
 {% block scripts %}
@@ -14,7 +14,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
-  <script src="/en/search-page-front/js/instantsearch.js"></script>
+  <script src="{{ site_url }}/js/instantsearch.js"></script>
 {% endblock %}
 
 {% block site_nav %}
@@ -29,7 +29,6 @@
       </ul>
       <div id="stats"></div>
       <div id="searchbox"></div>
-      <div id="version"></div>
       <div id="hits"></div>
       <div id="pagination"></div>
     </div>

@@ -2,6 +2,10 @@
     margin: 0 auto;
 }
 
+footer.md-footer {
+    left: 0;
+}
+
 .md-content .ais-InstantSearch {
     letter-spacing: 0.12px;
 }
@@ -155,13 +159,3 @@
     background-color: #F3F3F6;
     border-radius: 5px;
 }
-
-
-
-  /* .ais-Pagination-item--firstPage .ais-Pagination-link,
-  .ais-Pagination-item--previousPage .ais-Pagination-link,
-  .ais-Pagination-item--nextPage .ais-Pagination-link,
-  .ais-Pagination-item--lastPage .ais-Pagination-link
-  {
-    font-size: 20px;
-  } */
