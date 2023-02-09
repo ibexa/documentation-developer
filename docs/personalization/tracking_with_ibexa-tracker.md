@@ -2,7 +2,7 @@
 description: Integrate tracking with a Google-style JavaScript.
 ---
 
-# Track events with yct.js
+# Track events with ibexa-tracker.js
 
 This is another example of how you can integrate the tracking with a Google-style 
 JavaScript in your site.
@@ -50,7 +50,7 @@ the closing `</head>` tag.
 
 The `_ycq` object is what makes the asynchronous syntax possible. 
 It acts as a queue, which is a "first-in, first-out" (FIFO) data structure that 
-collects API calls until `yct.js` is ready to run them. 
+collects API calls until `ibexa-tracker.js` is ready to run them. 
 To add to the queue, use the `_ycq.push` method.
 
 To push an API call into the queue, you must convert it from the traditional 
@@ -107,5 +107,5 @@ For example, the following button generates an event when it is clicked:
 <button onclick = "_ycq.push(['_trackEvent', '2', 'click', 'itemId1', 'user1234x'])"/><button>
 ```
 
-Even if this button is clicked before the browser has finished loading `yct.js`, 
+Even if this button is clicked before the browser has finished loading `ibexa-tracker.js`, 
 the event is captured and eventually executed.
