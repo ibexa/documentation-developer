@@ -17,8 +17,6 @@ If you want to contribute to the documentation, you can open PR in this reposito
 
 If you'd like to see Ibexa DXP in your language, you can [contribute to the translations](https://doc.ibexa.co/en/master/resources/contributing/contribute_translations/).
 
-Invite yourself to [the community Slack](https://ezcommunity.slack.com/) and join `#documentation-contrib`
-
 ### Contribute to API reference
 
 REST API Reference is located in the `docs/api/rest_api/rest_api_reference/rest_api_reference.html`
