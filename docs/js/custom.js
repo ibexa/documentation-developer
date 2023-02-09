@@ -119,10 +119,9 @@ $(document).ready(function() {
             hitsPerPage: 10,
         },
         handleSelected: function (input, event, suggestion, datasetNumber, context) {
-            console.log(suggestion, context);
-            if ('click' == context.selectionMethod) {
+            if (context.selectionMethod == 'click') {
                 window.location = suggestion.url;
-            } else if ('enterKey' == context.selectionMethod) {
+            } else if (context.selectionMethod == 'enterKey') {
                 window.location = $('.ds-dropdown-menu a.search-page-link').attr('href');
             }
         },
@@ -132,16 +131,11 @@ $(document).ready(function() {
     $(document).on('keydown keypress', 'form.md-search__form', function(event) {
         if (event.keyCode == 13) {
             event.preventDefault();
+
             return false
         }
     });
-/*
-    $(document).on('blur', '#search_input', function(event) {
-        setTimeout(() => {
-            $('#search_input').val('');
-        }, 0);
-    });
-*/
+
     $('#search_input, label.md-search__icon').on('click', function() {
         var toggle = document.querySelector('[data-md-toggle=search]');
         toggle.checked = true;
