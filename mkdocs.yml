@@ -286,7 +286,6 @@ nav:
         - Create custom catalog filter: pim/create_custom_catalog_filter.md
         - Prices: pim/prices.md
         - Price API: pim/price_api.md
-        - Bestsellers: pim/bestsellers.md
     - Commerce:
         - Commerce: commerce/commerce.md
         - Cart:
