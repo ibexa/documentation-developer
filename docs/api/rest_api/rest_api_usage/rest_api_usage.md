@@ -32,7 +32,7 @@ They usually serve as options or filters for the requested resource.
 
 As an example, the request below would paginate the results and return the first 5 relations for version 3 of the Content item 59:
 
-```
+```http
 GET /content/objects/59/versions/3/relations?limit=5 HTTP/1.1
 Accept: application/vnd.ibexa.api.RelationList+xml
 ```
@@ -42,7 +42,7 @@ Accept: application/vnd.ibexa.api.RelationList+xml
 Resources that accept a reference to another resource expect the reference to be given as a REST URI, not a single ID.
 For example, the URI requesting a list of user groups assigned to the role with ID 1 is:
 
-```http
+```
 GET /api/ibexa/v2/user/groups?roleId=/api/ibexa/v2/user/roles/1
 ```
 
