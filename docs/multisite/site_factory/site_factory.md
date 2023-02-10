@@ -40,11 +40,13 @@ Add the groups in `config/packages/ibexa.yaml`:
 ``` yaml
 ibexa:
     siteaccess:
-        list: [site]
+        # ...
         groups:
-            site_group: [site]
-            example_site_factory_group_1: []
-            example_site_factory_group_2: []
+            site_group: [import, site]
+            storefront_group: [site]
+            corporate_group: [corporate]
+            example_site_factory_group_1: [ ]
+            example_site_factory_group_2: [ ]
 
     system:
         example_site_factory_group_1:
