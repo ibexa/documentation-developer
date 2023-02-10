@@ -10,7 +10,7 @@ The Storefront is accessible under the `<yourdomain>/product-catalog`.
 
 With the `ibexa/storefront` package, you can configure the product catalog and make it available to your shop users. 
 
-Before you start configuring the Storefront, make sure you have created and configured [catalogs](https://doc.ibexa.co/projects/userguide/en/latest/pim/work_with_catalogs/#create-catalogs) in the Back Office.
+Before you start configuring the Storefront, make sure you have created, configured and published [catalogs](https://doc.ibexa.co/projects/userguide/en/latest/pim/work_with_catalogs/#create-catalogs) in the Back Office.
 
 The configuration is available under the `ibexa.system.<scope>.storefront.catalog` key.
 It accepts the following values:

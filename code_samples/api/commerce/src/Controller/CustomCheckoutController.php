@@ -29,7 +29,7 @@ class CustomCheckoutController extends Controller
         $checkoutIdentifier = $checkoutForCart->getIdentifier();
 
         // Get checkout by checkout ID
-        $checkout = $this->checkoutService->getCheckout($checkoutId);
+        $checkout = $this->checkoutService->getCheckout($checkoutIdentifier);
 
         // Create a new checkout
         $newCart = $this->cartService->getCart('1844450e-61da-4814-8d82-9301a3df0054');
