@@ -30,6 +30,8 @@ After you modify relevant files in the input folder, you can generate an HTML fi
 In case of errors, look for mistakes in RAML file, for example, double apostrophes.
 Move `rest_api_reference.html`  from the output folder to `docs/api/rest_api/rest_api_reference/` root.
 
+See `tools/raml2html/README.md` for more information.
+
 ## Build and preview documentation
 
 To build and preview your changes locally, you need to install Python along with its package manager (`pip`).
