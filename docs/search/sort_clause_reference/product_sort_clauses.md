@@ -1,8 +1,13 @@
 ---
-description: Product Sort clauses
+description: Product Sort Clauses
 ---
 
-# Product search
+# Product Sort Clauses
+
+Product Sort Clauses are part of [Sort Clauses](sort_clause_reference.md) and they are supported by
+Content and Location Search, Product Search and [Repository filtering](search_api.md#repository-filtering).
+
+By using Sort Clause you can filter product by specific attributes, for example: price, code, availability, etc.
 
 | Sort Clause | Sorting based on | Supported by |
 |-----|-----|-----|

@@ -4,8 +4,9 @@ description: Product Search Criteria
 
 # Product Search Criteria reference
 
-Product Search Criteria are part of [Search Criteria}(search_criteria_reference.md) and they are supported by
+Product Search Criteria are part of [Search Criteria](search_criteria_reference.md) and they are supported by
 Content and Location Search and [Repository filtering](search_api.md#repository-filtering).
+
 Search Criterion let you to filter product by specific attributes, for example: color, availability, price, etc.
 
 ## Product Search Criteria
