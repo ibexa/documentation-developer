@@ -19,8 +19,8 @@ If you'd like to see Ibexa DXP in your language, you can [contribute to the tran
 
 ### Contribute to API reference
 
-REST API Reference is located in the `docs/api/rest_api/rest_api_reference/rest_api_reference.html`
-and is generated automatically by the RAML2HTML tool.
+The REST API Reference is located in the `docs/api/rest_api/rest_api_reference/rest_api_reference.html` 
+file, which is generated automatically by the RAML2HTML tool.
 It is based on `*.raml` files located in the `docs/api/rest_api/rest_api_reference/input` directory that you can edit in your editor/IDE.
 
 After you modify relevant files in the input folder, you can generate an HTML file from repository root (this step can also be performed by one of the Tech Writers during PR review): 
