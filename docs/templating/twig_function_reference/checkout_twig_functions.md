@@ -5,7 +5,7 @@ edition: commerce
 
 # Checkout Twig functions
 
-You can use Checkout Twig functions to get information about the checkout process, 
+You can use checkout Twig functions to get information about the checkout process, 
 as well as total values related to cart and cart items.
 
 ### `ibexa_checkout_step_label()`
