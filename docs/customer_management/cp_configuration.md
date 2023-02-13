@@ -29,15 +29,16 @@ ibexa:
 ## Roles and Policies
 
 You can add custom roles to your installation
-by adding them to the configuration file `vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`:
+by adding them to `ibexa.site_access.config.default.corporate_accounts.roles`
+(to the default already set in `vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`):
 
 ```yaml
 parameters:
     ibexa.site_access.config.default.corporate_accounts.roles:
-        admin: Company Admin
-        buyer: Company Buyer
         custom_role: Company Assistant
 ```
+
+You can do it per Site Access or Site Access grup by using [SiteAccess-aware configuration](multisite/siteaccess_aware_configuration.md).
 
 ## Content Type names
 
