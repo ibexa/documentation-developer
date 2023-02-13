@@ -1,23 +1,23 @@
 ---
-description: The Cart component covers adding items to the shopping cart, as well as previewing and modifying the cart information.
+description: The cart component covers adding items to the shopping cart, as well as previewing and modifying the cart information.
 edition: commerce
 ---
 
 # Cart
 
-The Cart component is a foundation of the Commerce offering delivered as part 
+The cart component is a foundation of the Commerce offering delivered as part 
 of [[= product_name =]].
 It covers actions related to the creation and handling of a list of products 
 that the buyer intends to purchase.
 
-The Cart component exposes the following:
+The component exposes the following:
 
 - [PHP API](cart_api.md) that allows for managing carts and cart entries, or checking cart validity
 - [REST API](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-ecommerce-carts) that helps get cart and products information over HTTP
 - [Twig functions](cart_twig_functions.md) that enable checking whether product can be added to cart and formatting the price
 
-There is no specific configuration related to the Cart component.
-All configuration is done at the Checkout and Storefront level.
+There is no specific configuration related to the cart component.
+All configuration is done at the checkout and storefront level.
 
 ## Cart data handling
 
@@ -45,7 +45,7 @@ If no previous cart data exists, a new cart is created.
 
 ### Cart data validation
 
-When a buyer tries to add products to the cart, increase cart item quantity or proceed to checkout, the Cart component performs cart item validation and checks whether:
+When a buyer tries to add products to the cart, increase cart item quantity or proceed to checkout, the cart component performs cart item validation and checks whether:
 
 - the product is available 
 - the requested quantity of product is available 
@@ -86,7 +86,7 @@ By default, the Minicart component consists of a counter that displays a total n
 
 #### Cart summary 
 
-By default, the Cart Summary component displays a subtotal net value of cart lines, 
+By default, the Cart summary component displays a subtotal net value of cart lines, 
 a shipping cost disclaimer, a series of tax values applicable to products 
 added in cart, a composition of different taxes, and a total cart value (gross, shipping 
 and taxes included) in the selected currency.
