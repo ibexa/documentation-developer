@@ -41,7 +41,7 @@ The `ibexa_checkout_step_path()` function returns a path to the step.
 The `ibexa_checkout_step_url()` function returns a URL address of the step. 
 By setting the optional argument to `true` you can decide whether the function 
 returns a relative or absolute URL of the checkout step.
-The default value of the optional argument is `false`.
+The default value of the optional argument is `false`, which stands for the absolute URL.
 
 ``` html+twig 
 <a href="{{ ibexa_checkout_step_url(checkout, step, true) }}">{{ <target_page_label> }}</a>
