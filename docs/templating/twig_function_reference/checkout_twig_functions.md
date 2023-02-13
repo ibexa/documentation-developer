@@ -1,5 +1,5 @@
 ---
-description: Checkout Twig return information about the checkout process, and total values related to cart and cart items.
+description: Checkout Twig functions return information about the checkout process, and total values related to cart and cart items.
 edition: commerce
 ---
 
@@ -38,10 +38,13 @@ The `ibexa_checkout_step_path()` function returns a path to the step.
 
 ### `ibexa_checkout_step_url()`
 
-The `ibexa_checkout_step_url()` function returns a URL address of the step.
+The `ibexa_checkout_step_url()` function returns a URL address of the step. 
+By setting the optional argument to `true` you can decide whether the function 
+returns a relative or absolute URL of the checkout step.
+The default value of the optional argument is `false`.
 
 ``` html+twig 
-<a href="{{ ibexa_checkout_step_url(checkout, step) }}">{{ <target_page_label> }}</a>
+<a href="{{ ibexa_checkout_step_url(checkout, step, true) }}">{{ <target_page_label> }}</a>
 ```
 
 ### `ibexa_checkout_step_number()`
