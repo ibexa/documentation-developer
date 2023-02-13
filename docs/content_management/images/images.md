@@ -294,10 +294,10 @@ Content items that are identified as images are rendered in the Rich Text Field
 by using a dedicated template.
 
 You can determine Content Types that will be treated as images and rendered.
-You do this in `ibexa/core/bundle/Core/Resources/config/default_settings.yml`. 
+You do this by overriding the `ibexa.content_view.image_embed_content_types_identifiers` parameter 
 By default, the `ibexa.content_view.image_embed_content_types_identifiers` 
-parameter is set to cover the Image Content Type, but you can add other types 
-that you want to be treated as images, for example:
+parameter is set in `ibexa/core/src/bundle/Core/Resources/config/default_settings.yml` to cover the Image Content Type,
+but you can add other types that you want to be treated as images, for example:
 
 ``` yaml
 [[= include_file('code_samples/back_office/images/config/default_settings.yaml', 0, 2) =]]
