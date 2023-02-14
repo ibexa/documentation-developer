@@ -109,7 +109,7 @@ You do this manually by following this procedure:
 
 #### VCL configuration for Fastly
 
-[[% include 'snippets/update/vcl_configuration_for_fastly.md_v3' %]]
+[[% include 'snippets/update/vcl_configuration_for_fastly_v3.md' %]]
 
 #### Optimize workflow queries
 
