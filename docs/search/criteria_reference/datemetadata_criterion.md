@@ -5,7 +5,7 @@ searches for content based on the date when it was created or last modified.
 
 ## Arguments
 
-- `target` - indicated if creation or modification date should be queried, either `DateMetadata::CREATED` or `DateMetadata::MODIFIED`
+- `target` - indicated if creation or modification date should be queried, either `DateMetadata::CREATED` or `DateMetadata::PUBLISHED` (both with the same functionality), or `DateMetadata::MODIFIED`
 - `operator` - Operator constant (IN, EQ, GT, GTE, LT, LTE, BETWEEN)
 - `value` - indicating the date(s) that should be matched, provided as a UNIX timestamp (or array of timestamps)
 
