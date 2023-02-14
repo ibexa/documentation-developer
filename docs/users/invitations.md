@@ -42,7 +42,7 @@ For example, use the following configuration:
                  hash_expiration_time: P7D
                  templates:
                      mail: "@@App/invitation/mail.html.twig"
- ```
+```
 
 Here, you can specify which template should be used for the invitation mail,
 and what should be the expiration time for the invitation link included in that mail.
