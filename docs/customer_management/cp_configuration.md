@@ -38,7 +38,7 @@ parameters:
         custom_role: Company Assistant
 ```
 
-You can do it per Site Access or Site Access grup by using [SiteAccess-aware configuration](multisite/siteaccess_aware_configuration.md).
+You can do it per SiteAccess or SiteAccess group by using [SiteAccess-aware configuration](siteaccess_aware_configuration.md).
 
 ## Content Type names
 
