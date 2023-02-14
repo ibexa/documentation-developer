@@ -14,7 +14,14 @@ To be able to configure this feature, you need [Fastly IO subscription](https://
 To use Fastly Image Optimizer, you need shielding.
 To enable it, follow steps in Fastly documentation, [Enabling and disabling shielding](https://developer.fastly.com/learning/concepts/shielding/).
 
-Before proceeding, make sure that you have the [`snippet_re_enable_shielding.vcl`](https://github.com/ibexa/fastly/blob/main/fastly/snippet_re_enable_shielding.vcl) configuration file added to your project.
+Before proceeding, make sure that you have the `snippet_re_enable_shielding.vcl` configuration file added to your project:
+
+```vcl
+set var.fastly_req_do_shield = (req.restarts <= 2);
+
+# set var.fastly_req_do_shield = (req.restarts > 0 && req.http.accept == "application/vnd.fos.user-context-hash");
+set req.http.X-Snippet-Loaded = "v1";
+```
 
 You can add it using Fastly CLI: 
  
@@ -32,7 +39,16 @@ you need to:
 
 - [install Fastly CLI](https://developer.fastly.com/learning/tools/cli#installing),
 - define `FASTLY_SERVICE_ID` and `FASTLY_KEY` environmental variables,
-- set restrictions on the optimiser by using [`ibexa_image_optimizer.vcl`](https://github.com/ibexa/fastly/blob/main/fastly/ibexa_image_optimizer.vcl). 
+- set restrictions on the optimiser by using `ibexa_image_optimizer.vcl`:
+
+```vcl
+# Restrict optimizer by file path and extension
+if (req.url.ext ~ "(?i)^(gif|png|jpe?g|webp)$") {
+    if (req.url.path ~ "^/var/([a-zA-Z0-9_-]+)/storage/images") {
+        set req.http.x-fastly-imageopto-api = "fastly";
+    }
+}
+```
 
 This is an example VCL snippet uploaded by using the `vcl_recv` hook:
 
