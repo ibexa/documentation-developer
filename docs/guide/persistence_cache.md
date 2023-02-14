@@ -160,7 +160,7 @@ Out of the box in `config/packages/cache_pool/cache.redis.yaml` you'll find a de
 
 !!! note "Ibexa Cloud"
 
-    For Ibexa Cloud/Platform.sh: This is automatically configured in `vendor/platformsh/symfonyflex-bridge/platformsh-flex-env.php` if you have enabled Redis as `rediscache` Platform.sh service.
+    For Ibexa Cloud/Platform.sh: This is automatically configured in `vendor/ezsystems/ezplatform-core/src/EzPlatformCoreBundle/bundle/DependencyInjection/EzPlatformCoreExtension.php` if you have enabled Redis as `rediscache` Platform.sh service.
 
 For anything else, you can enable it with environment variables.
 For instance, if you set the following environment variables `export CACHE_POOL="cache.redis" CACHE_DSN="secret@example.com:1234/13"`, it will result in config like this:
