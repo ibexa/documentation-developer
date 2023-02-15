@@ -147,147 +147,152 @@ You do not have to remove third-party bundles (`FOS\` to `JMS\`) if they are use
 
 === "[[= product_name_content =]]"
 
-``` php
-FOS\CommentBundle\FOSCommentBundle
-Tedivm\StashBundle\TedivmStashBundle
-WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle
-Nelmio\SolariumBundle\NelmioSolariumBundle
-JMS\Payment\CoreBundle\JMSPaymentCoreBundle
-Joli\ApacheTikaBundle\ApacheTikaBundle
-JMS\JobQueueBundle\JMSJobQueueBundle
-FOS\RestBundle\FOSRestBundle
-JMS\SerializerBundle\JMSSerializerBundle
-Ibexa\Bundle\Commerce\Eshop\IbexaCommerceEshopBundle
-Ibexa\Bundle\Commerce\ShopTools\IbexaCommerceShopToolsBundle
-Ibexa\Bundle\Commerce\Translation\IbexaCommerceTranslationBundle
-Ibexa\Bundle\Commerce\Payment\IbexaCommercePaymentBundle
-Ibexa\Bundle\Commerce\Price\IbexaCommercePriceBundle
-Ibexa\Bundle\Commerce\Tools\IbexaCommerceToolsBundle
-Ibexa\Bundle\Commerce\Search\IbexaCommerceSearchBundle
-Ibexa\Bundle\Commerce\PriceEngine\IbexaCommercePriceEngineBundle
-Ibexa\Bundle\Commerce\SpecificationsType\IbexaCommerceSpecificationsTypeBundle
-Ibexa\Bundle\Commerce\BaseDesign\IbexaCommerceBaseDesignBundle
-Ibexa\Bundle\Commerce\FieldTypes\IbexaCommerceFieldTypesBundle
-Ibexa\Bundle\Commerce\Checkout\IbexaCommerceCheckoutBundle
-Ibexa\Bundle\Commerce\ShopUi\IbexaCommerceShopUiBundle
-```
+    ``` php
+    FOS\CommentBundle\FOSCommentBundle
+    Tedivm\StashBundle\TedivmStashBundle
+    WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle
+    Nelmio\SolariumBundle\NelmioSolariumBundle
+    JMS\Payment\CoreBundle\JMSPaymentCoreBundle
+    Joli\ApacheTikaBundle\ApacheTikaBundle
+    JMS\JobQueueBundle\JMSJobQueueBundle
+    FOS\RestBundle\FOSRestBundle
+    JMS\SerializerBundle\JMSSerializerBundle
+    Ibexa\Bundle\Commerce\Eshop\IbexaCommerceEshopBundle
+    Ibexa\Bundle\Commerce\ShopTools\IbexaCommerceShopToolsBundle
+    Ibexa\Bundle\Commerce\Translation\IbexaCommerceTranslationBundle
+    Ibexa\Bundle\Commerce\Payment\IbexaCommercePaymentBundle
+    Ibexa\Bundle\Commerce\Price\IbexaCommercePriceBundle
+    Ibexa\Bundle\Commerce\Tools\IbexaCommerceToolsBundle
+    Ibexa\Bundle\Commerce\Search\IbexaCommerceSearchBundle
+    Ibexa\Bundle\Commerce\PriceEngine\IbexaCommercePriceEngineBundle
+    Ibexa\Bundle\Commerce\SpecificationsType\IbexaCommerceSpecificationsTypeBundle
+    Ibexa\Bundle\Commerce\BaseDesign\IbexaCommerceBaseDesignBundle
+    Ibexa\Bundle\Commerce\FieldTypes\IbexaCommerceFieldTypesBundle
+    Ibexa\Bundle\Commerce\Checkout\IbexaCommerceCheckoutBundle
+    Ibexa\Bundle\Commerce\ShopUi\IbexaCommerceShopUiBundle
+    ```
+
 === "[[= product_name_exp =]]"
 
-``` php
-FOS\CommentBundle\FOSCommentBundle
-Tedivm\StashBundle\TedivmStashBundle
-WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle
-Nelmio\SolariumBundle\NelmioSolariumBundle
-JMS\Payment\CoreBundle\JMSPaymentCoreBundle
-Joli\ApacheTikaBundle\ApacheTikaBundle
-JMS\JobQueueBundle\JMSJobQueueBundle
-FOS\RestBundle\FOSRestBundle
-JMS\SerializerBundle\JMSSerializerBundle
-Ibexa\Bundle\Commerce\Eshop\IbexaCommerceEshopBundle
-Ibexa\Bundle\Commerce\ShopTools\IbexaCommerceShopToolsBundle
-Ibexa\Bundle\Commerce\Translation\IbexaCommerceTranslationBundle
-Ibexa\Bundle\Commerce\Payment\IbexaCommercePaymentBundle
-Ibexa\Bundle\Commerce\Price\IbexaCommercePriceBundle
-Ibexa\Bundle\Commerce\Tools\IbexaCommerceToolsBundle
-Ibexa\Bundle\Commerce\Search\IbexaCommerceSearchBundle
-Ibexa\Bundle\Commerce\PriceEngine\IbexaCommercePriceEngineBundle
-Ibexa\Bundle\Commerce\SpecificationsType\IbexaCommerceSpecificationsTypeBundle
-Ibexa\Bundle\Commerce\BaseDesign\IbexaCommerceBaseDesignBundle
-Ibexa\Bundle\Commerce\FieldTypes\IbexaCommerceFieldTypesBundle
-Ibexa\Bundle\Commerce\Checkout\IbexaCommerceCheckoutBundle
-Ibexa\Bundle\Commerce\ShopUi\IbexaCommerceShopUiBundle
-```
+    ``` php
+    FOS\CommentBundle\FOSCommentBundle
+    Tedivm\StashBundle\TedivmStashBundle
+    WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle
+    Nelmio\SolariumBundle\NelmioSolariumBundle
+    JMS\Payment\CoreBundle\JMSPaymentCoreBundle
+    Joli\ApacheTikaBundle\ApacheTikaBundle
+    JMS\JobQueueBundle\JMSJobQueueBundle
+    FOS\RestBundle\FOSRestBundle
+    JMS\SerializerBundle\JMSSerializerBundle
+    Ibexa\Bundle\Commerce\Eshop\IbexaCommerceEshopBundle
+    Ibexa\Bundle\Commerce\ShopTools\IbexaCommerceShopToolsBundle
+    Ibexa\Bundle\Commerce\Translation\IbexaCommerceTranslationBundle
+    Ibexa\Bundle\Commerce\Payment\IbexaCommercePaymentBundle
+    Ibexa\Bundle\Commerce\Price\IbexaCommercePriceBundle
+    Ibexa\Bundle\Commerce\Tools\IbexaCommerceToolsBundle
+    Ibexa\Bundle\Commerce\Search\IbexaCommerceSearchBundle
+    Ibexa\Bundle\Commerce\PriceEngine\IbexaCommercePriceEngineBundle
+    Ibexa\Bundle\Commerce\SpecificationsType\IbexaCommerceSpecificationsTypeBundle
+    Ibexa\Bundle\Commerce\BaseDesign\IbexaCommerceBaseDesignBundle
+    Ibexa\Bundle\Commerce\FieldTypes\IbexaCommerceFieldTypesBundle
+    Ibexa\Bundle\Commerce\Checkout\IbexaCommerceCheckoutBundle
+    Ibexa\Bundle\Commerce\ShopUi\IbexaCommerceShopUiBundle
+    ```
+
 === "[[= product_name_com =]]"
 
-``` php
-FOS\CommentBundle\FOSCommentBundle
-Tedivm\StashBundle\TedivmStashBundle
-WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle
-Nelmio\SolariumBundle\NelmioSolariumBundle
-JMS\Payment\CoreBundle\JMSPaymentCoreBundle
-Joli\ApacheTikaBundle\ApacheTikaBundle
-JMS\JobQueueBundle\JMSJobQueueBundle
-FOS\RestBundle\FOSRestBundle
-JMS\SerializerBundle\JMSSerializerBundle
-Ibexa\Bundle\Commerce\Eshop\IbexaCommerceEshopBundle
-Ibexa\Bundle\Commerce\ShopTools\IbexaCommerceShopToolsBundle
-Ibexa\Bundle\Commerce\Translation\IbexaCommerceTranslationBundle
-Ibexa\Bundle\Commerce\Payment\IbexaCommercePaymentBundle
-Ibexa\Bundle\Commerce\Price\IbexaCommercePriceBundle
-Ibexa\Bundle\Commerce\Tools\IbexaCommerceToolsBundle
-Ibexa\Bundle\Commerce\Search\IbexaCommerceSearchBundle
-Ibexa\Bundle\Commerce\PriceEngine\IbexaCommercePriceEngineBundle
-Ibexa\Bundle\Commerce\SpecificationsType\IbexaCommerceSpecificationsTypeBundle
-Ibexa\Bundle\Commerce\BaseDesign\IbexaCommerceBaseDesignBundle
-Ibexa\Bundle\Commerce\FieldTypes\IbexaCommerceFieldTypesBundle
-Ibexa\Bundle\Commerce\Checkout\IbexaCommerceCheckoutBundle
-Ibexa\Bundle\Commerce\ShopUi\IbexaCommerceShopUiBundle
-# ...
-Ibexa\Bundle\Commerce\OneSky\IbexaCommerceOneSkyBundle
-Ibexa\Bundle\Commerce\EzStudio\IbexaCommerceEzStudioBundle
-Ibexa\Bundle\Commerce\Comparison\IbexaCommerceComparisonBundle
-Ibexa\Bundle\Commerce\QuickOrder\IbexaCommerceQuickOrderBundle
-Ibexa\Bundle\Commerce\TestTools\IbexaCommerceTestToolsBundle
-Ibexa\Bundle\Commerce\Voucher\IbexaCommerceVoucherBundle
-Ibexa\Bundle\Commerce\LocalOrderManagement\IbexaCommerceLocalOrderManagementBundle
-Ibexa\Bundle\Commerce\Newsletter\IbexaCommerceNewsletterBundle
-Ibexa\Bundle\Commerce\OrderHistory\IbexaCommerceOrderHistoryBundle
-Ibexa\Bundle\Commerce\ErpAdmin\IbexaCommerceErpAdminBundle
-Ibexa\Bundle\Commerce\ShopFrontend\IbexaCommerceShopFrontendBundle
-Ibexa\Bundle\Commerce\Basket\IbexaCommerceBasketBundle::class
-Ibexa\Bundle\Commerce\Rest\IbexaCommerceRestBundle::class
-Ibexa\Bundle\Commerce\AdminUi\IbexaCommerceAdminUiBundle::class
-Ibexa\Bundle\Commerce\PageBuilder\IbexaCommercePageBuilderBundle::class
-EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle::class
-```
+    ``` php
+    FOS\CommentBundle\FOSCommentBundle
+    Tedivm\StashBundle\TedivmStashBundle
+    WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle
+    Nelmio\SolariumBundle\NelmioSolariumBundle
+    JMS\Payment\CoreBundle\JMSPaymentCoreBundle
+    Joli\ApacheTikaBundle\ApacheTikaBundle
+    JMS\JobQueueBundle\JMSJobQueueBundle
+    FOS\RestBundle\FOSRestBundle
+    JMS\SerializerBundle\JMSSerializerBundle
+    Ibexa\Bundle\Commerce\Eshop\IbexaCommerceEshopBundle
+    Ibexa\Bundle\Commerce\ShopTools\IbexaCommerceShopToolsBundle
+    Ibexa\Bundle\Commerce\Translation\IbexaCommerceTranslationBundle
+    Ibexa\Bundle\Commerce\Payment\IbexaCommercePaymentBundle
+    Ibexa\Bundle\Commerce\Price\IbexaCommercePriceBundle
+    Ibexa\Bundle\Commerce\Tools\IbexaCommerceToolsBundle
+    Ibexa\Bundle\Commerce\Search\IbexaCommerceSearchBundle
+    Ibexa\Bundle\Commerce\PriceEngine\IbexaCommercePriceEngineBundle
+    Ibexa\Bundle\Commerce\SpecificationsType\IbexaCommerceSpecificationsTypeBundle
+    Ibexa\Bundle\Commerce\BaseDesign\IbexaCommerceBaseDesignBundle
+    Ibexa\Bundle\Commerce\FieldTypes\IbexaCommerceFieldTypesBundle
+    Ibexa\Bundle\Commerce\Checkout\IbexaCommerceCheckoutBundle
+    Ibexa\Bundle\Commerce\ShopUi\IbexaCommerceShopUiBundle
+    # ...
+    Ibexa\Bundle\Commerce\OneSky\IbexaCommerceOneSkyBundle
+    Ibexa\Bundle\Commerce\EzStudio\IbexaCommerceEzStudioBundle
+    Ibexa\Bundle\Commerce\Comparison\IbexaCommerceComparisonBundle
+    Ibexa\Bundle\Commerce\QuickOrder\IbexaCommerceQuickOrderBundle
+    Ibexa\Bundle\Commerce\TestTools\IbexaCommerceTestToolsBundle
+    Ibexa\Bundle\Commerce\Voucher\IbexaCommerceVoucherBundle
+    Ibexa\Bundle\Commerce\LocalOrderManagement\IbexaCommerceLocalOrderManagementBundle
+    Ibexa\Bundle\Commerce\Newsletter\IbexaCommerceNewsletterBundle
+    Ibexa\Bundle\Commerce\OrderHistory\IbexaCommerceOrderHistoryBundle
+    Ibexa\Bundle\Commerce\ErpAdmin\IbexaCommerceErpAdminBundle
+    Ibexa\Bundle\Commerce\ShopFrontend\IbexaCommerceShopFrontendBundle
+    Ibexa\Bundle\Commerce\Basket\IbexaCommerceBasketBundle::class
+    Ibexa\Bundle\Commerce\Rest\IbexaCommerceRestBundle::class
+    Ibexa\Bundle\Commerce\AdminUi\IbexaCommerceAdminUiBundle::class
+    Ibexa\Bundle\Commerce\PageBuilder\IbexaCommercePageBuilderBundle::class
+    EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle::class
+    ```
 
 Next, remove related extensions' configuration.
 You do not have to remove third-party bundles (for example `config/packages/fos_rest.yaml`) if they are used by your installation.
 
 === "[[= product_name_content =]]"
 
-``` 
-config/packages/commerce.yaml
-config/packages/commerce/autogenerated/.gitkeep
-config/packages/commerce/commerce.yaml
-config/packages/commerce/commerce_advanced.yaml
-config/packages/commerce/commerce_common.yaml
-config/packages/commerce/commerce_demo.yaml
-config/packages/commerce/commerce_parameters.yaml
-config/packages/nelmio_solarium.yaml
-```
+    ``` 
+    config/packages/commerce.yaml
+    config/packages/commerce/autogenerated/.gitkeep
+    config/packages/commerce/commerce.yaml
+    config/packages/commerce/commerce_advanced.yaml
+    config/packages/commerce/commerce_common.yaml
+    config/packages/commerce/commerce_demo.yaml
+    config/packages/commerce/commerce_parameters.yaml
+    config/packages/nelmio_solarium.yaml
+    ```
+
 === "[[= product_name_exp =]]"
 
-```
-config/packages/commerce.yaml
-config/packages/commerce/autogenerated/.gitkeep
-config/packages/commerce/commerce.yaml
-config/packages/commerce/commerce_advanced.yaml
-config/packages/commerce/commerce_common.yaml
-config/packages/commerce/commerce_demo.yaml
-config/packages/commerce/commerce_parameters.yaml
-config/packages/nelmio_solarium.yaml
-```
+    ```
+    config/packages/commerce.yaml
+    config/packages/commerce/autogenerated/.gitkeep
+    config/packages/commerce/commerce.yaml
+    config/packages/commerce/commerce_advanced.yaml
+    config/packages/commerce/commerce_common.yaml
+    config/packages/commerce/commerce_demo.yaml
+    config/packages/commerce/commerce_parameters.yaml
+    config/packages/nelmio_solarium.yaml
+    ```
+
 === "[[= product_name_com =]]"
 
-```
-config/packages/commerce.yaml
-config/packages/commerce/autogenerated/.gitkeep
-config/packages/commerce/commerce.yaml
-config/packages/commerce/commerce_advanced.yaml
-config/packages/commerce/commerce_common.yaml
-config/packages/commerce/commerce_demo.yaml
-config/packages/commerce/commerce_parameters.yaml
-config/packages/dev/ewz_recaptcha.yaml
-config/packages/dev/jms_serializer.yaml
-config/packages/ewz_recaptcha.yaml
-config/packages/ezcommerce/autogenerated/commerce_repository_parameters.yaml
-config/packages/fos_rest.yaml
-config/packages/google_recaptcha.yaml
-config/packages/jms_serializer.yaml
-config/packages/nelmio_solarium.yaml
-config/packages/prod/jms_serializer.yaml
-```
+    ```
+    config/packages/commerce.yaml
+    config/packages/commerce/autogenerated/.gitkeep
+    config/packages/commerce/commerce.yaml
+    config/packages/commerce/commerce_advanced.yaml
+    config/packages/commerce/commerce_common.yaml
+    config/packages/commerce/commerce_demo.yaml
+    config/packages/commerce/commerce_parameters.yaml
+    config/packages/dev/ewz_recaptcha.yaml
+    config/packages/dev/jms_serializer.yaml
+    config/packages/ewz_recaptcha.yaml
+    config/packages/ezcommerce/autogenerated/commerce_repository_parameters.yaml
+    config/packages/fos_rest.yaml
+    config/packages/google_recaptcha.yaml
+    config/packages/jms_serializer.yaml
+    config/packages/nelmio_solarium.yaml
+    config/packages/prod/jms_serializer.yaml
+    ```
+
 Finally, remove related routes by deleting `config/routes/ibexa_commerce.yaml` file.
 
 ### Update the database
