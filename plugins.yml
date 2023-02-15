@@ -264,7 +264,7 @@ plugins:
             'guide/personalization/basic_integration.md': 'personalization/integrate_recommendation_service.md'
             'guide/personalization/developer_guide/tracking_api.md': 'personalization/api_reference/tracking_api.md'
             'guide/personalization/developer_guide/importing_historical_user_tracking_data.md': 'personalization/importing_historical_user_tracking_data.md'
-            'guide/personalization/developer_guide/tracking_with_yct.md': 'personalization/tracking_with_yct.md'
+            'guide/personalization/developer_guide/tracking_with_ibexa-tracker.md': 'personalization/tracking_with_ibexa-tracker.md'
             'guide/personalization/developer_guide/recommendation_api.md': 'personalization/api_reference/recommendation_api.md'
             'guide/personalization/developer_guide/content_api.md': 'personalization/api_reference/content_api.md'
             'guide/personalization/developer_guide/user_api.md': 'personalization/api_reference/user_api.md'

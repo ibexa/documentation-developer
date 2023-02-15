@@ -24,7 +24,7 @@ For more information, see [Importing historical user tracking data](importing_hi
 
 Apart from the tracking API, you can add tracking to the website by integrating 
 a JavaScript library.
-For more information, see [Tracking with yct.js](tracking_with_yct.md).
+For more information, see [Tracking with ibexa-tracker.js](tracking_with_ibexa-tracker.md).
 
 ## Definitions
 
