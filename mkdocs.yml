@@ -357,9 +357,8 @@ nav:
             - Recommendation API: personalization/api_reference/recommendation_api.md
             - Tracking API: personalization/api_reference/tracking_api.md
             - User API: personalization/api_reference/user_api.md
-            - Tracking API: personalization/api_reference/tracking_api.md
         - Importing historical user tracking data: personalization/importing_historical_user_tracking_data.md
-        - Track with yct.js: personalization/tracking_with_yct.md
+        - Track with ibexa-tracker.js: personalization/tracking_with_ibexa-tracker.md
         - Attribute search in Elasticsearch: personalization/attribute_search_in_elasticsearch.md
     - CDP (Customer Data Platform):
         - Customer Data Platform: cdp/cdp.md
