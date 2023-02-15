@@ -232,7 +232,7 @@ First, enable adding SVG files to content by removing them from the blacklist
 of allowed MIME types.
 
 To do it, overwrite `ibexa.site_access.config.default.io.file_storage.file_type_blacklist` defined in `Core/Resources/config/default_settings.yml` so that `svg` is removed from the blacklist.
-You can do it per SiteAccess or SiteAccess group by using [SiteAccess-aware configuration](multisite/siteaccess_aware_configuration.md).
+You can do it per SiteAccess or SiteAccess group by using [SiteAccess-aware configuration](siteaccess_aware_configuration.md).
 
 Then, add a download route to the `config/routes.yaml` file:
 
