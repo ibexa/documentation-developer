@@ -31,6 +31,9 @@ class RenderExtension extends AbstractExtension
 
                 return $output;
             }),
+            new TwigFunction('hash', function (string ...$values): string {
+                return hash('sha256', json_encode($values));
+            }),
             new TwigFunction('method_types', function (TypeCollection $typeCollection, Method $method) {
                 $types = [];
                 $methodTypes = $this->getTypes($method);
