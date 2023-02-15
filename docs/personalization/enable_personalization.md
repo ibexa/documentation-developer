@@ -144,7 +144,7 @@ Place the following code snippet in the `<head>` section of your header template
 
 !!! tip "How tracking works"
 
-    For more information about tracking in general, see [Tracking API](tracking_api.md) and [Tracking with yct.js](tracking_with_yct.md).
+    For more information about tracking in general, see [Tracking API](tracking_api.md) and [Tracking with ibexa-tracker.js](tracking_with_ibexa-tracker.md).
 
 ### Check whether the bundle provides REST data
 
