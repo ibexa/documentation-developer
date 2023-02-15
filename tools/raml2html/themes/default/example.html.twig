@@ -10,7 +10,7 @@
                         {% set margin = example|length > 1 and loop.index ==  1 ? 'mb-4' : '' %}
                         {% set border = loop.index > 1 ? 'border-top' : '' %}
                         <div class="position-relative {{ margin }} {{ border }}">
-                            {% set clipboardId = hash(type, loop.index) %}
+                            {% set clipboardId = hash(type, tabId, loop.index) %}
                             <p class="mb-0 icon icon--copy-clipboard">
                                 <i class="material-icons-outlined clipboard"
                                    data-toggle="tooltip"
