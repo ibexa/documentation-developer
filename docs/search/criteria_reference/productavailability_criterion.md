@@ -4,7 +4,7 @@ The `ProductAvailability` Search Criterion searches for products by their availa
 
 ## Arguments
 
-- `available` - (optional) bool representing whether the product is available (default `true`).
+- (optional) `productAvailability` - bool representing whether the product is available (default `true`)
 
 ## Example
 

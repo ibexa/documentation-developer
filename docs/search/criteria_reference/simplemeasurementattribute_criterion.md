@@ -4,8 +4,8 @@ The `SimpleMeasurementAttribute` Search Criterion searches for products by the v
 
 ## Arguments
 
--  `identifier` - string representing the attribute.
--  `value` - `\Ibexa\Contracts\Measurement\Value\SimpleValueInterface` object representing the attribute value.
+- `identifier` - string representing the attribute
+- `value` - `\Ibexa\Contracts\Measurement\Value\SimpleValueInterface` object representing the attribute value
 
 ## Example
 

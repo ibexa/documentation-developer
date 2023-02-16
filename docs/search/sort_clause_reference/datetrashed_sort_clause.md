@@ -5,7 +5,7 @@ sorts the results of searching in Trash by the date and time when the Content it
 
 ## Arguments
 
-- `sortDirection` (optional) - Query constant, either `Query::SORT_ASC` or `Query::SORT_DESC`.
+- (optional) `sortDirection` - Query constant, either `Query::SORT_ASC` or `Query::SORT_DESC`
 
 ## Example
 

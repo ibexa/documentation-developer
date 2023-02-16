@@ -5,8 +5,8 @@ searches for content based on the User ID.
 
 ## Arguments
 
-- `value` - string(s) representing the User logins(s).
-- `operator` - operator constant (IN, EQ, LIKE).
+- `value` - string(s) representing the User logins(s)
+- (optional) `operator` - operator constant (IN, EQ, LIKE)
 
 ## Limitations
 

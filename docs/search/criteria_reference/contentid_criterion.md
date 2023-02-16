@@ -5,7 +5,7 @@ searches for content by its ID.
 
 ## Arguments
 
-- `value` - int(s) representing the Content ID(s).
+- `value` - int(s) representing the Content ID(s)
 
 ## Example
 

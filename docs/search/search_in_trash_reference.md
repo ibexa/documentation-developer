@@ -16,7 +16,7 @@ They can be used by `Ibexa\Contracts\Core\Repository\TrashService::findTrashItem
 - [SectionId](sectionid_criterion.md)
 - [UserMetadata](usermetadata_criterion.md)
 
-## logical operators
+## Logical operators
 
 - [LogicalAnd](logicaland_criterion.md)
 - [LogicalNot](logicalor_criterion.md)

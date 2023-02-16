@@ -4,8 +4,8 @@ The `RangeMeasurementAttributeMaximum` Search Criterion searches for products by
 
 ## Arguments
 
--  `identifier` - string representing the attribute.
--  `value` - `\Ibexa\Contracts\Measurement\Value\SimpleValueInterface` object representing the maximum attribute value.
+- `identifier` - string representing the attribute
+- `value` - `\Ibexa\Contracts\Measurement\Value\SimpleValueInterface` object representing the maximum attribute value
 
 ## Example
 
