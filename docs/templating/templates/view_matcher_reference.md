@@ -27,6 +27,7 @@ You can use the following matchers to [match content views](template_configurati
 | [`ProductBased\ProductType`](#productbasedproducttype) | Product type. |
 | [`ProductBased\IsAvailable`](#productbasedisavailable) | Product availability. |
 | [`ProductBased\IsProduct`](#productbasedisproduct) | Whether the object is a product. |
+| [`LocationBased\RootLocation`](#locationbasedrootlocation) | Whether the Location is the root of a product catalog. |
 
 !!! tip
 
@@ -203,4 +204,13 @@ Matches when the object is a product.
 ``` yaml
 match:
     '@Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\IsProduct': ~
+```
+
+## LocationBased\RootLocation
+
+Matches depending on whether the Location is the root of a product catalog.
+
+``` yaml
+match:
+    '@Ibexa\Contracts\ProductCatalog\ViewMatcher\LocationBased\RootLocation': true
 ```
