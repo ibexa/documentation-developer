@@ -69,7 +69,7 @@ class RenderExtension extends AbstractExtension
         /** @var \Raml\Body $body */
         foreach ($responseBodies as $body) {
 
-            if (!empty($body->getExample())) {
+            if (!empty($body->getExamples())) {
                 $tabs[] = $this->getSchemaFormat($body->getMediaType());
             }
         }
@@ -85,7 +85,7 @@ class RenderExtension extends AbstractExtension
         foreach ($responseBodies as $body) {
             $schemaFormat = $this->getSchemaFormat($body->getMediaType());
 
-            if (!empty($body->getExample())) {
+            if (!empty($body->getExamples())) {
                 $examples[$schemaFormat][] = $body->getExample();
             }
         }

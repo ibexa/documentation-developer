@@ -22,8 +22,7 @@
         "symfony/filesystem": "^4.2",
         "ramsey/uuid": "^3.9",
         "twig/markdown-extra": "^3.5",
-        "league/commonmark": "^2.3",
-        "cweagans/composer-patches": "^1.7"
+        "league/commonmark": "^2.3"
     },
     "require-dev": {
         "symfony/var-dumper": "^4.2",
@@ -34,19 +33,7 @@
             "EzSystems\\Raml2Html\\": "src"
         }
     },
-    "extra": {
-        "patches": {
-            "raml-org/raml-php-parser": {
-                "Fix warnings and depreciations for PHP 7.4": "patches/php_7.4.patch"
-            }
-        }
-    },
     "scripts": {
         "fix-cs": "php-cs-fixer fix -v --show-progress=estimating"
-    },
-    "config": {
-        "allow-plugins": {
-            "cweagans/composer-patches": true
-        }
     }
 }
