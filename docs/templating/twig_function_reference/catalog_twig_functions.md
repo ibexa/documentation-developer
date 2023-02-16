@@ -10,7 +10,7 @@ With the catalog Twig functions you can get catalog location, render catalog sta
 
 The `ibexa_get_filter_preview_templates()` function gets a list of filter preview Twig templates 
 (configured in `ibexa.repositories.product_catalog.filter_preview_templates`). 
-Thjen it sorts the list by priority and renders the filter templates.
+Then it sorts the list by priority and renders the filter templates.
 
 ``` html+twig
         {% for template in ibexa_get_filter_preview_templates() %}
@@ -24,7 +24,7 @@ Thjen it sorts the list by priority and renders the filter templates.
 
 ### `ibexa_get_product_catalog_root`
 
-The `ibexa_get_product_catalog_root()` function gets an ID of a location of the product catalog (configured in `ibexa_product_catalog.engines.default.type.options.root_location_remote_id`).
+The `ibexa_get_product_catalog_root()` function gets a remote ID of a location of the product catalog (configured in `ibexa_product_catalog.engines.default.type.options.root_location_remote_id`).
 
 
 ``` html+twig
