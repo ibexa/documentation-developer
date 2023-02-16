@@ -14,7 +14,7 @@ composer install;
 
 ## Usage
 
-Note: If PHP 7.2 is not the default PHP, please, adapt.
+Note: If PHP 7.4 is not the default PHP, please, adapt.
 
 To generate static HTML from RAML definitions, use the following code from project root:
 
@@ -28,7 +28,7 @@ To test static HTML against an Ibexa DXP to find route removed and missing route
 php tools/raml2html/raml2html.php test docs/api/rest_api/rest_api_reference/rest_api_reference.html ~/ibexa-dxp
 ```
 
-Note: The Ibexa DXP doesn't need to run
+Note: The Ibexa DXP doesn't need to run.
 
 ```shell
 mkdir ~/ibexa-dxp;
