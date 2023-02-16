@@ -175,13 +175,13 @@ Because this template will be rendered inside a table, it starts with a `<tr>` t
 ```
 ### Add Media permission
 
-To be able to visualise the `photo` field you have to add `read` permission to `Media` section.
+To be able to view the `photo` Field you have to add a `read` permission to `Media` section.
 
-From **Admin** (gear icon) in the left menu, go to the **Roles** management screen and click on the **Anonymous** Role.
+From **Admin** (gear icon) in the left menu, go to the **Roles** management screen and click the **Anonymous** Role.
 
 ![Policies for the Anonymous Role without Media section](step5_admin_anonymous_policies_without_media_section.png)
 
-Edit the **Content/Read** policy line to add `Media` section to **Limitation** along with the `Standard` section.
+Edit the **Content/Read** Policy line to add the `Media` section to **Limitation** along with the `Standard` section.
 
 ![Policies for the Anonymous Role with Media section](step5_admin_anonymous_policies_with_media_section.png)
 
