@@ -16,6 +16,10 @@
     ],
     "require": {
         "php": "^7.4",
+        "ext-json": "*",
+        "ext-yaml": "*",
+        "ext-dom": "*",
+        "ext-libxml": "*",
         "symfony/console": "^4.2",
         "raml-org/raml-php-parser": "dev-master",
         "twig/twig": "^2.0",
