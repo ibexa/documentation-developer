@@ -14,8 +14,6 @@ composer install;
 
 ## Usage
 
-Note: If PHP 7.4 is not the default PHP, please, adapt.
-
 To generate static HTML from RAML definitions, use the following code from project root:
 
 ```sh
