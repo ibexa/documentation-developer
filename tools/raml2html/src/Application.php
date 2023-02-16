@@ -9,6 +9,7 @@ use EzSystems\Raml2Html\Command\ClearCacheCommand;
 use EzSystems\Raml2Html\Command\LintTypesCommand;
 use EzSystems\Raml2Html\Generator\Generator;
 use EzSystems\Raml2Html\RAML\ParserFactory;
+use EzSystems\Raml2Html\Twig\Extension\HashExtension;
 use EzSystems\Raml2Html\Twig\Extension\RenderExtension;
 use Symfony\Component\Console\Application as BaseApplication;
 use Twig as Twig;
@@ -63,6 +64,7 @@ final class Application extends BaseApplication
                     return null;
                 }
             });
+            $this->twig->addExtension(new HashExtension());
         }
 
         return $this->twig;
