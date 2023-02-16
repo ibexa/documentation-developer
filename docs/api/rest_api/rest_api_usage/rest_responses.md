@@ -42,21 +42,21 @@ The `Content-Type` header's value is a [media type](rest_requests.md#media-types
 
 For example, the first following request without an `Accept` header returns a default format indicated in the response `Content-Type` header, while the second request shows that the response is in the requested format.
 
-```
+```http
 GET /content/objects/52 HTTP/1.1
 ```
 
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/vnd.ibexa.api.ContentInfo+xml
 ```
 
-```
+```http
 GET /content/objects/52 HTTP/1.1
 Accept: application/vnd.ibexa.api.Content+json
 ```
 
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/vnd.ibexa.api.Content+json
 ```
@@ -67,22 +67,22 @@ When available, the `Accept-Patch` tells how the received item could be modified
 
 The following examples also shows that the format (XML or JSON) is adapted:
 
-```
+```http
 GET /content/objects/52 HTTP/1.1
 ```
 
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/vnd.ibexa.api.ContentInfo+xml
 Accept-Patch: application/vnd.ibexa.api.ContentUpdate+xml
 ```
 
-```
+```http
 GET /content/objects/52 HTTP/1.1
 Accept: application/vnd.ibexa.api.Content+json
 ```
 
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/vnd.ibexa.api.Content+json
 Accept-Patch: application/vnd.ibexa.api.ContentUpdate+json
@@ -100,22 +100,22 @@ Those particular headers generally match a specific list of HTTP response codes.
 
 In the following example, the Content item's remote ID 34720ff636e1d4ce512f762dc638e4ac corresponds to the ID 52:
 
-```
+```http
 GET /content/objects?remoteId=34720ff636e1d4ce512f762dc638e4ac" HTTP/1.1
 ```
 
-```
+```http
 HTTP/1.1 307 Temporary Redirect
 Location: /content/objects/52
 ```
 
 In the following example, an erroneous slash has been added to demonstrate the 301 case:
 
-```
+```http
 GET /content/objects?remoteId=34720ff636e1d4ce512f762dc638e4ac" HTTP/1.1
 ```
 
-```
+```http
 HTTP/1.1 301 Moved Permanently
 Location: /content/objects?remoteId=34720ff636e1d4ce512f762dc638e4ac
 ```
@@ -128,7 +128,7 @@ The following command-line example follows the two redirections above and the `A
 curl --head --location --header "Accept: application/vnd.ibexa.api.Content+json" "https://api.example.com/api/ibexa/v2/content/objects/?remoteId=34720ff636e1d4ce512f762dc638e4ac"
 ```
 
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/vnd.ibexa.api.Content+json
 ```

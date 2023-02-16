@@ -15,7 +15,7 @@
                 <span data-field="method" class="badge badge--sm badge--{{ method.type|lower }}">{{ method.type }}</span>
                 <span data-field="url">{{ resource.uri }}</span>
             </p>
-            <p data-field="body">{{ method.description }}</p>
+            <p data-field="body">{{ method.description|default('')|markdown_to_html }}</p>
             {% include theme ~ "/method-headers.html.twig" %}
 
             {% include theme ~ "/method-query-parameters.html.twig" %}

@@ -10,7 +10,7 @@ This update procedure applies if you are using v2.5.
 
 Go through the following steps to update to the latest v3.3 LTS (v[[= latest_tag =]]).
 
-1. [Check out a version](to_3.2.md#1-check-out-a-version)
+1. [Check out a version](to_3.2.md)
 1. [Resolve conflicts](to_3.2.md#2-resolve-conflicts)
 1. [Update the app](to_3.2.md#3-update-the-app)
 1. [Update code to v3](adapt_code_to_v3.md)
