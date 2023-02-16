@@ -198,7 +198,7 @@ class ReferenceTester
                 user_error("$routingFilePath doesn't exist or is not a file", E_USER_WARNING);
                 continue;
             }
-            $parsedRoutingFiles[$routingFile] = yaml_parse_file($routingFilePath);
+            $parsedRoutingFiles[$routingFile] = \yaml_parse_file($routingFilePath);
         }
 
         foreach ($parsedRoutingFiles as $routingFile => $parsedRoutingFile) {
