@@ -87,17 +87,6 @@
      {
          return isset($this->collection[$this->position]);
      }
---- /src/Body.php	2023-01-27 15:49:58
-+++ /src/Body.php	2023-01-27 15:51:03
-@@ -228,7 +228,7 @@
-      */
-     public function getExample()
-     {
--        return $this->examples[0];
-+        return $this->examples[0] ?? '';
-     }
- 
-     /**
 --- /src/Parser.php	2023-01-27 15:47:44
 +++ /src/Parser.php	2023-01-27 15:48:50
 @@ -693,7 +693,7 @@
