@@ -57,7 +57,7 @@ final class TestCommand extends Command
 
         $referenceTester = new ReferenceTester($restApiReference, $dxpRoot, $consolePath, $routingFiles, $output);
 
-        $testedRoutes = @[
+        $testedRoutes = [
             'ref' => ReferenceTester::TEST_REFERENCE_ROUTES,
             'conf' => ReferenceTester::TEST_CONFIG_ROUTES,
             'both' => ReferenceTester::TEST_ALL_ROUTES,
