@@ -54,18 +54,6 @@ class ReferenceTester
 
     public function __construct($restApiReference, $dxpRoot, $consolePath = 'bin/console', $routingFiles = null, OutputInterface $output = null)
     {
-        if (!is_file($restApiReference)) {
-            user_error("$restApiReference doesn't exist or is not a file", E_USER_ERROR);
-            exit(1);
-        }
-        if ('~' === $dxpRoot[0]) {
-            $dxpRoot = trim(shell_exec("echo $dxpRoot"));
-        }
-        if (!is_dir($dxpRoot)) {
-            user_error("$dxpRoot doesn't exist or is not a directory", E_USER_ERROR);
-            exit(2);
-        }
-
         $this->output = $output;
 
         $this->restApiReference = $restApiReference;
