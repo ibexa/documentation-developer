@@ -1,3 +1,3 @@
-- `name` - name of the Aggregation object
+- `name` - name of the Aggregation
 - `contentTypeIdentifier` - string representing the Content Type identifier
-- `fieldDefinitionIdentifier` - string representing the Field identifier
+- `fieldDefinitionIdentifier` - string representing the Field Definition identifier
