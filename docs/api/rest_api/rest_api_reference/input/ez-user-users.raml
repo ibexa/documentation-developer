@@ -61,7 +61,8 @@ head:
             307:
                 description: OK.
                 headers:
-                    Location: REST endpoint for current user.
+                    Location:
+                        description: REST endpoint for current user.
             401:
                 description: User is not currently logged in.
 /{userId}:
