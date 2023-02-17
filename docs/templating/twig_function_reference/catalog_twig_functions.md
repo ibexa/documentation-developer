@@ -1,10 +1,10 @@
 ---
-description: Catalog Twig functions enable getting and rendering certain catalog information and listing filter templates.
+description: Catalog Twig functions enable getting and rendering certain catalog information.
 ---
 
 # Catalog Twig functions
 
-With the catalog Twig functions you can get catalog location, render catalog status and list filter templates.
+With the catalog Twig functions you can get catalog location and render catalog status.
 
 ### `ibexa_get_product_catalog_root`
 
