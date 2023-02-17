@@ -242,6 +242,7 @@ nav:
         - Twig function reference:
             - Twig function reference: templating/twig_function_reference/twig_function_reference.md
             - Cart Twig functions: templating/twig_function_reference/cart_twig_functions.md
+            - Catalog Twig functions: templating/twig_function_reference/catalog_twig_functions.md
             - Checkout Twig functions: templating/twig_function_reference/checkout_twig_functions.md
             - Content Twig functions: templating/twig_function_reference/content_twig_functions.md
             - Field Twig functions: templating/twig_function_reference/field_twig_functions.md
