@@ -160,6 +160,10 @@
                 </svg>`,
             },
         }),
+        instantsearch.widgets.refinementList({
+            container: document.querySelector('#version'),
+            attribute: 'version',
+        }),
     ]);
 
     search.start();

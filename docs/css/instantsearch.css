@@ -159,3 +159,7 @@ footer.md-footer {
     background-color: #F3F3F6;
     border-radius: 5px;
 }
+
+#version {
+    display: none;
+}
