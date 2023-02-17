@@ -901,7 +901,7 @@ JWTInput:
             type: string
 Language:
     description: 'This class represents a language in the Repository.'
-    type: object
+    type: BaseObject
     properties:
         ALL:
             description: "Constant for use in API's to specify that you want to load all languages."
@@ -924,6 +924,12 @@ LanguageCode:
     properties:
         languageCode:
             type: string
+LanguageList:
+    description: 'List of languages.'
+    type: BaseObject
+    properties:
+        Language:
+            type: Language[]
 LanguageCreateStruct:
     description: 'This class represents a value for creating a language.'
     type: object
