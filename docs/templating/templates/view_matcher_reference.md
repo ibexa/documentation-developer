@@ -22,11 +22,11 @@ You can use the following matchers to [match content views](template_configurati
 | [`Identifier\Section`](#identifiersection) | Identifier of the Section that the Content item belongs to. |
 | [`Depth`](#depth) | Depth of the Location. The depth of a top level Location is 1. |
 | [`UrlAlias`](#urlalias) | Virtual URL of the Location. |
-| [`ProductBased\AttributeValue`](#productbasedattributevalue) | Value of product attributes. |
-| [`ProductBased\ProductCode`](#productbasedproductcode) | Product code. |
-| [`ProductBased\ProductType`](#productbasedproducttype) | Product type. |
-| [`ProductBased\IsAvailable`](#productbasedisavailable) | Product availability. |
-| [`ProductBased\IsProduct`](#productbasedisproduct) | Whether the object is a product. |
+| [Product attribute value](#product-attribute-value) | Value of product attributes. |
+| [Product code](#product-code) | Product code. |
+| [Product type](#product-type) | Product type. |
+| [Product availability](#product-availability) | Product availability. |
+| [Product](#product) | Whether the object is a product. |
 
 !!! tip
 
@@ -159,36 +159,36 @@ match:
     UrlAlias: 'terms-and-conditions'
 ```
 
-## ProductBased\AttributeValue
+## Product attribute value
 
-Matches the value of product attributes.
+`Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\AttributeValue` matches the value of product attributes.
 
 ``` yaml
 match:
     '@Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\AttributeValue': { width: 20, height: 10 }
 ```
 
-## ProductBased\ProductCode
+## Product code
 
-Matches the product code.
+`Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\ProductCode` matches the product code.
 
 ``` yaml
 match:
     '@Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\ProductCode': ['DRE1536SF']
 ```
 
-## ProductBased\ProductType
+## Product type
 
-Matches the product type.
+`Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\ProductType` matches the product type.
 
 ``` yaml
 match:
     '@Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\ProductType': ['dress']
 ```
 
-## ProductBased\IsAvailable
+## Product availability
 
-Matches the availability of a product.
+`Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\IsAvailable` matches the availability of a product.
 Refers to the existence of availability, not to whether the product is in stock.
 
 ``` yaml
@@ -196,9 +196,9 @@ match:
     '@Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\IsAvailable': true
 ```
 
-## ProductBased\IsProduct
+## Product
 
-Matches when the object is a product.
+`Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\IsProduct` matches when the object is a product.
 
 ``` yaml
 match:
