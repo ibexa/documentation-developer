@@ -47,6 +47,24 @@ head:
             description: OK - verifies if there are Users matching the given filter.
         404:
             description: Error - there are no visibile Users matching the filter.
+/current:
+    get:
+        displayName: Load current User
+        description: Redirects to current User, if available.
+        headers:
+            Accept:
+                description: If set, the User is returned in XML or JSON format (after redirection).
+                example:  |
+                    application/vnd.ibexa.api.User+xml
+                    application/vnd.ibexa.api.User+json
+        responses:
+            307:
+                description: OK.
+                headers:
+                    Location:
+                        description: REST endpoint for current user.
+            401:
+                description: User is not currently logged in.
 /{userId}:
     get:
         displayName: Load User
