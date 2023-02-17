@@ -22,7 +22,7 @@
     {% endfor %}
 {% endif %}
 {% for subresource in resource.resources %}
-    {% if isFirstLevel and resource.resources|length > 1 and subresource.resources|length > 1 %}
+    {% if isFirstLevel and resource.resources|length > 1 %}
         <div class="px-3">
             <h3 class="heading text-gray py-5 border-top">{{ subresource.uri }}</h3>
         </div>
