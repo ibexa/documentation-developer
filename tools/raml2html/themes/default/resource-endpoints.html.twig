@@ -27,5 +27,5 @@
             <h3 class="heading text-gray py-5 border-top">{{ subresource.uri }}</h3>
         </div>
     {% endif %}
-    {% include theme ~ "/resource-endpoints.html.twig" with {'resource': subresource} %}
+    {% include theme ~ "/resource-endpoints.html.twig" with {'resource': subresource, 'isFirstLevel': false} %}
 {% endfor %}
