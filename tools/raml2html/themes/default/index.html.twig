@@ -61,7 +61,7 @@
                             {{ rootParentName }}
                             <a href="#{{ rootElemId }}" class="heading__link">¶</a>
                         </h2>
-                        {% include theme ~ "/resource-endpoints.html.twig" with {'isFirstLevel': true}%}
+                        {% include theme ~ "/resource-endpoints.html.twig" with {'isFirstLevel': true} %}
                     </section>
                 {% endfor %}
                 {% if api.types is not empty %}
