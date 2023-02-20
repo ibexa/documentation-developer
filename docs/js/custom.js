@@ -100,7 +100,7 @@ $(document).ready(function() {
             });
 
             let link = $('.ds-dropdown-menu a.search-page-link');
-            const href = '/en/' + branchName + '/search_results/#q=' + encodeURI($('#search_input').val()) + '&p=1';
+            const href = '/en/' + branchName + '/search_results/?sq=' + encodeURI($('#search_input').val()) + '&p=1';
 
             if (!link.length) {
                 link = $('.ds-dropdown-menu').append(`<div class="search-page-link-wrapper">

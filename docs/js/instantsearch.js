@@ -27,9 +27,9 @@
         }
     }
     let match = null;
-    const search_query = (match = doc.location.hash.match(/q=(.*?)(&|$)/)) ? match[1] : '';
+    const search_query = (match = doc.location.search.match(/sq=(.*?)(&|$)/)) ? match[1] : '';
     const parsed_search_query = decodeURI(search_query.replace('+', ' '));
-    const search_page = (match = doc.location.hash.match(/p=(\d*?)(&|$)/)) ? match[1] : 1;
+    const search_page = (match = doc.location.search.match(/p=(\d*?)(&|$)/)) ? match[1] : 1;
     const parsed_search_page = parseInt(search_page);
     const version = doc.location.pathname.split('/')[2];
     const search = instantsearch({
@@ -45,12 +45,17 @@
     });
 
     doc.getElementById('searchbox').addEventListener('keyup', function (event) {
-        window.location.hash = '#q=' + encodeURI(event.target.value) + '&p=1';
+        const url = new URL(window.location);
+        url.searchParams.set('sq', encodeURI(event.target.value));
+        url.searchParams.set('p', 1);
+        window.history.pushState({}, '', url);
     })
 
     doc.getElementById('pagination').addEventListener('click', function (event) {
-        let page = doc.getElementsByClassName('ais-Pagination-item--selected').length ? parseInt(doc.getElementsByClassName('ais-Pagination-item--selected')[0].innerText) : 1
-        window.location.hash = window.location.hash.includes('p=') ? window.location.hash.replace(/p=\d*/, 'p=' + page) : window.location.hash + '&p=' + page;
+        const page = doc.getElementsByClassName('ais-Pagination-item--selected').length ? parseInt(doc.getElementsByClassName('ais-Pagination-item--selected')[0].innerText) : 1
+        const url = new URL(window.location);
+        url.searchParams.set('p', page);
+        window.history.pushState({}, '', url);
     })
 
     search.addWidgets([
