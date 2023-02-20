@@ -29,8 +29,8 @@ ibexa:
 ## Roles and Policies
 
 You can add custom roles to your installation
-by listing them under the `ibexa.site_access.config.default.corporate_accounts.roles` key
-(it overwrites the default list set in `vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml`, the following example keep them by redeclaring them):
+by listing them under the `ibexa.site_access.config.default.corporate_accounts.roles` key.
+This key overwrites the default list set in `vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml` (the following example redeclares them for clarity):
 
 ```yaml
 parameters:
