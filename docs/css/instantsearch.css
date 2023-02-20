@@ -74,12 +74,15 @@ footer.md-footer {
     color: var(--ibexa-dusk-black);
 }
 
-.md-content .ais-InstantSearch .instantsearch__entry:hover {
-    color: var(--ibexa-jazzberry);
-}
-
+.md-content .ais-InstantSearch .instantsearch__entry:hover,
 .md-content .ais-InstantSearch .instantsearch__entry:hover .instantsearch__entry-header,
 .md-content .ais-InstantSearch .instantsearch__entry:hover .instantsearch__entry-content {
+    color: var(--ibexa-jazzberry)
+}
+
+.md-content .ais-InstantSearch .instantsearch__entry:hover mark,
+.md-content .ais-InstantSearch .instantsearch__entry:hover .instantsearch__entry-header mark,
+.md-content .ais-InstantSearch .instantsearch__entry:hover .instantsearch__entry-content mark {
     color: var(--ibexa-jazzberry)
 }
 
