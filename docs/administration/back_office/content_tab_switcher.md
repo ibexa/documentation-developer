@@ -1,4 +1,4 @@
-# Add tab switcher
+# Tab switcher in Content Type
 
 Tabs switcher allows separating the default Field Types in the Content Type from the Field Types that enhance the content with new functionalities.
 The best example of such Field Types are SEO or Taxonomy, as these are not typical Field Types but a Field Types that handle functionalities for the whole Content object.
@@ -29,6 +29,58 @@ ibexa:
 
 ![Meta tab](tab_switcher.png)
 
+
+### Configure Field groups for Meta tab
+
+The default configuration causes that the `ibexa_taxonomy_entry_assignment` Field is always shown in the Meta tab in the Content form. 
+With this new feature, you can indicate what Field types, previously set in the Back Office Content Type, are located in the Meta tab section in the Content form. 
+
+
+
+You can automatically move all Field types from Metadata group to the Meta tab in the Content form.
+To do it, use the following configuration:
+
+```yaml
+    system:
+        admin_group:
+            admin_ui_forms:
+                content_edit:
+                    meta_field_groups_list:
+                       - metadata
+
+```
+
+![Meta tab](tab_switcher_meta.png)
+
+
+
+If you want to automatically move all Field types from Content group to the Meta tab, use the following configuration:
+
+```yaml
+    system:
+        admin_group:
+            admin_ui_forms:
+                content_edit:
+                    meta_field_groups_list:
+                       - content
+```
+
+![Meta tab](tab_switcher_content.png)
+
+
+To disable the feature:
+
+```yaml
+    system:
+        admin_group:
+            admin_ui_forms:
+                content_edit:
+                    meta_field_groups_list: []
+```
+
+
+The `meta_field_groups_list` configuration can be easily overriden.
+
 ## Add custom tab
 
 First, create an event listener in the `src/EventListener/TextAnchorMenuTabListener.php`:
@@ -55,3 +107,6 @@ Finally, create the `templates/my_template.html.twig` file:
 ``` html+twig
 [[= include_file('code_samples/back_office/content_type/templates/my_template.html.twig') =]]
 ```
+
+
+
