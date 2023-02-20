@@ -76,7 +76,7 @@
                     const hierarchy = Object.entries(item.hierarchy).filter(([, value]) => value);
                     const breadcrumbsKeys = hierarchy.map(([key]) => key);
                     const groupNameKey = breadcrumbsKeys.shift();
-                    const entryNameKey = breadcrumbsKeys.shift();
+                    const entryNameKey = breadcrumbsKeys.pop();
                     const newItem = {
                         entryNameKey,
                         breadcrumbsKeys,
