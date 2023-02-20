@@ -26,9 +26,10 @@
             },
         }
     }
-    const search_query = doc.location.hash.match(/q=(.*?)(&|$)/)[1] ?? '';
+    let match = null;
+    const search_query = (match = doc.location.hash.match(/q=(.*?)(&|$)/)) ? match[1] : '';
     const parsed_search_query = decodeURI(search_query.replace('+', ' '));
-    const search_page = doc.location.hash.match(/p=(\d*?)(&|$)/)[1] ?? 1;
+    const search_page = (match = doc.location.hash.match(/p=(\d*?)(&|$)/)) ? match[1] : 1;
     const parsed_search_page = parseInt(search_page);
     const version = doc.location.pathname.split('/')[2];
     const search = instantsearch({
