@@ -87,14 +87,3 @@
      {
          return isset($this->collection[$this->position]);
      }
---- /src/Parser.php	2023-01-27 15:47:44
-+++ /src/Parser.php	2023-01-27 15:48:50
-@@ -693,7 +693,7 @@
-             return $this->loadAndParseFile($structure->getValue(), $rootDir);
-         }
- 
--        if (\mb_strpos($structure, '!include') === 0) {
-+        if (null !== $structure && \mb_strpos($structure, '!include') === 0) {
-             return $this->loadAndParseFile(\str_replace('!include ', '', $structure), $rootDir);
-         }
- 
