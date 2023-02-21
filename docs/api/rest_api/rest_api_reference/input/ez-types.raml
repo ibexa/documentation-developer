@@ -559,9 +559,11 @@ ContentTypeUpdateStruct:
         names:
             description: 'If set this array of names with languageCode keys replace the complete name collection.'
             type: array
+            items: string
         descriptions:
             description: 'If set this array of descriptions with languageCode keys replace the complete description collection.'
             type: array
+            items: string
 ContentUpdateStruct:
     description: 'This class is used for updating the fields of a Content item draft.'
     type: object
@@ -613,6 +615,7 @@ CreateStruct:
         data:
             description: 'Notification data.'
             type: array
+            items: object
 Criterion:
     description: 'Criterion implementations.'
     type: object
@@ -623,6 +626,7 @@ Criterion:
         value:
             description: 'The value(s) matched by the Criteria.'
             type: array
+            items: object
         target:
             description: 'The target used by the Criteria (field, metadata...).'
             type: string
@@ -812,9 +816,11 @@ FieldDefinitionCreateStruct:
         names:
             description: 'An array of names with languageCode keys.'
             type: array
+            items: string
         descriptions:
             description: 'An array of descriptions with languageCode keys.'
             type: array
+            items: string
         fieldGroup:
             description: 'Field group name.'
             type: string
@@ -852,9 +858,11 @@ FieldDefinitionUpdateStruct:
         names:
             description: 'If set this array of names with languageCode keys replace the complete name collection.'
             type: array
+            items: string
         descriptions:
             description: 'If set this array of descriptions with languageCode keys replace the complete description collection.'
             type: array
+            items: string
         fieldGroup:
             description: 'If set the field group is changed to this name.'
             type: string
@@ -906,6 +914,8 @@ Language:
         ALL:
             description: "Constant for use in API's to specify that you want to load all languages."
             type: array
+            items: string
+            maxItems: 0
         id:
             description: 'The language ID (auto generated).'
             type: integer
@@ -1065,6 +1075,7 @@ Message:
         values:
             description: 'Translation value objects. May not contain any numbers, which might result in requiring plural forms. Use Plural for that.'
             type: array
+            items: object
 Notification:
     description: 'This class represents a notification value.'
     type: object
@@ -1087,6 +1098,7 @@ Notification:
         data:
             description: 'This class represents data.'
             type: array
+            items: mixed
 NotificationList:
     description: 'This class represents a notifications list.'
     type: object
@@ -1283,6 +1295,7 @@ Plural:
         values:
             description: 'Translation value objects. May not contain any numbers, which might result in requiring plural forms. Use MessagePlural for that.'
             type: array
+            items: object
 Policy:
     description: 'This class represents a policy value.'
     type: BaseObject
@@ -2035,6 +2048,7 @@ ValueObject:
         Properties:
             description: 'Function where list of properties are returned.'
             type: array
+            items: mixed
 Version:
     description: 'Returns the VersionInfo for this version.'
     type: BaseObject
@@ -2180,6 +2194,7 @@ BasketLineData:
             required: true
         dataMap:
             type: array
+            items: mixed
             required: false
 
 PartyTypeInput:
@@ -2188,8 +2203,8 @@ PartyTypeInput:
 Party:
     type: object
     properties:
-        PartyIdentification: array
-        PartyName: array
+        PartyIdentification: mixed[]
+        PartyName: mixed[]
         PostalAddress: object
         Contact: object
         Person: object
@@ -2200,7 +2215,7 @@ ShippingMethodDataResponse:
     properties:
         shippingMethods: object
         defaultMethod: string
-        shippingMethodsSorted: array
+        shippingMethodsSorted: mixed[]
 
 PaymentMethodDataResponse:
     type: BaseCommerceResponse
@@ -2217,7 +2232,7 @@ ValidationResponse:
     type: BaseCommerceResponse
     properties:
         _media_type: string
-        messages: array
+        messages: mixed[]
 
 CountrySelectionResponse:
     type: BaseCommerceResponse
@@ -2244,7 +2259,7 @@ CustomerPriceData:
         Meta:
             type: object
             required: false
-        Items: array
+        Items: mixed[]
 
 BasketHeaderData:
     type: object
