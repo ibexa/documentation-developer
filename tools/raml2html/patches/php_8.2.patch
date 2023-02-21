@@ -27,17 +27,6 @@
      {
          return isset($this->collection[$this->position]);
      }
---- /src/Type.php	2023-01-27 15:24:04
-+++ /src/Type.php	2023-01-27 15:47:09
-@@ -82,7 +82,7 @@
-         if (isset($data['enum'])) {
-             $class->setEnum($data['enum']);
-         }
--        if (\mb_substr($name, -1) === '?') {
-+        if (null !== $name && \mb_substr($name, -1) === '?') {
-             $class->setRequired(false);
-             $class->setName(\mb_substr($name, 0, -1));
-         }
 --- /src/SecurityScheme/SecuritySettings/DefaultSecuritySettings.php	2023-01-27 15:16:38
 +++ /src/SecurityScheme/SecuritySettings/DefaultSecuritySettings.php	2023-01-27 15:23:24
 @@ -70,7 +70,7 @@
