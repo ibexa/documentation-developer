@@ -1,4 +1,4 @@
-# Tab switcher in Content Type
+# Tab switcher in Content edit page
 
 Tabs switcher allows separating the default Field Types in the Content Type from the Field Types that enhance the content with new functionalities.
 The best example of such Field Types are SEO or Taxonomy, as these are not typical Field Types but a Field Types that handle functionalities for the whole Content object.
@@ -51,22 +51,6 @@ To do it, use the following configuration:
 ```
 
 ![Meta tab](tab_switcher_meta.png)
-
-
-
-If you want to automatically move all Field types from Content group to the Meta tab, use the following configuration:
-
-```yaml
-    system:
-        admin_group:
-            admin_ui_forms:
-                content_edit:
-                    meta_field_groups_list:
-                       - content
-```
-
-![Meta tab](tab_switcher_content.png)
-
 
 To disable the feature:
 
