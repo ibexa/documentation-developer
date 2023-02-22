@@ -4,8 +4,8 @@ The `ColorAttribute` Search Criterion searches for products by the value of thei
 
 ## Arguments
 
--  `identifier` - string representing the attribute.
--  `value` - string representing the attribute value.
+- `identifier` - string representing the attribute
+- `value` - string representing the attribute value
 
 ## Example
 

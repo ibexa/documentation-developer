@@ -5,8 +5,8 @@ searches for content under the same parent as the indicated Location.
 
 ## Arguments
 
-- `locationId` - int representing the Location ID.
-- `parentLocationId` - int representing the parent Location ID.
+- `locationId` - int representing the Location ID
+- `parentLocationId` - int representing the parent Location ID
 
 ## Example
 

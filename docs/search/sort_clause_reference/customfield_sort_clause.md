@@ -5,8 +5,8 @@ sorts search results by raw search index fields.
 
 ## Arguments
 
-- `field` - string representing the search index field name.
-- `sortDirection` (optional) - Query or LocationQuery constant, either `Query::SORT_ASC` or `Query::SORT_DESC`.
+- `field` - string representing the search index field name
+[[= include_file('docs/snippets/sort_direction.md') =]]
 
 ## Limitations
 

@@ -4,7 +4,7 @@ The `ProductName` Search Criterion searches for products by theis names.
 
 ## Arguments
 
-- `name` - string representing the Product name, with `*` as wildcard.
+- `productName` - string representing the Product name, with `*` as wildcard
 
 ## Example
 

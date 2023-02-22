@@ -4,9 +4,7 @@ The Field-based [DateRangeAggregation](https://github.com/ibexa/core/blob/main/s
 
 ## Arguments
 
-- `name` - name of the Aggregation object
-- `contentTypeIdentifier` - string representing the Content Type identifier
-- `fieldDefinitionIdentifier` - string representing the Field identifier
+[[= include_file('docs/snippets/aggregation_arguments.md') =]]
 - `ranges` - array of Range objects that define the borders of the specific range sets
 
 ## Example

@@ -7,7 +7,7 @@ Locations that are not main Locations are ranked as lower values (e.g. with asce
 
 ## Arguments
 
-- `sortDirection` (optional) - Query or LocationQuery constant, either `Query::SORT_ASC` or `Query::SORT_DESC`.
+[[= include_file('docs/snippets/sort_direction.md') =]]
 
 ## Limitations
 
