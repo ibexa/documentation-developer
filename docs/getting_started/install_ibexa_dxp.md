@@ -345,24 +345,20 @@ for information on how to do it on different systems.
 
 ### Set up virtual host
 
-Prepare a [virtual host configuration](https://httpd.apache.org/docs/2.4/vhosts/) for your site.
+Prepare a [virtual host configuration](https://en.wikipedia.org/wiki/Virtual_hosting) for your site.
 
-You can copy [the example vhost file](https://github.com/ezsystems/developer-documentation/tree/master/code_samples/install/vhost_template/vhost.template)
+#### Apache
+
+You can copy [the example vhost file](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/apache2/vhost.template)
 to `/etc/apache2/sites-available` as a `.conf` file and modify it to fit your project.
 
-!!! note "Nginx"
-
-    If you are using Nginx instead of Apache, use [this example vhost file](https://github.com/ezsystems/developer-documentation/tree/master/code_samples/install/vhost_template/nginx-vhost.template) and modify it to fit your project. Also modify the instructions below accordingly.
-
-Specify `/<your installation directory>/public` as the `DocumentRoot` and `Directory`.
-Uncomment the line that starts with `#if [APP_ENV]` and set the value to `prod` or `dev`,
-depending on the environment that you are configuring:
+Specify `/<your installation directory>/public` as the `DocumentRoot` and `Directory`, or ensure `BASEDIR` is set in the environment.
+Uncomment the line that starts with `#if [APP_ENV]` and set the value to `prod` or `dev`, depending on the environment that you are configuring,
+or ensure `APP_ENV` is set in the environment.
 
 ```
 SetEnvIf Request_URI ".*" APP_ENV=prod
 ```
-
-#### Enable virtual host
 
 When the virtual host file is ready, enable the virtual host and disable the default:
 
@@ -378,6 +374,23 @@ For example, on Ubuntu use:
 ``` bash
 service apache2 restart
 ```
+
+Open your project in the browser by visiting the domain address, for example `http://localhost:8080`.
+You should see the welcome page.
+
+#### nginx
+
+You can use [this example vhost file](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/nginx/vhost.template)
+and modify it to fit your project. You will also need the `ibexa_params.d` files that should reside in a subdirectory below where the main file is,
+[as is shown here](https://github.com/ibexa/post-install/tree/main/resources/templates/nginx).
+
+
+Specify `/<your installation directory>/public` as the `root`, or ensure `BASEDIR` is set in the environment.
+Ensure `APP_ENV` is set to `prod` or `dev` in the environment, depending on the environment that you are configuring, and uncomment the line that starts with `#if[APP_ENV`.
+
+When the virtual host file is ready, enable the virtual host and disable the default.
+Finally, restart the nginx server.
+The command may vary depending on your Linux distribution.
 
 Open your project in the browser by visiting the domain address, for example `http://localhost:8080`.
 You should see the welcome page.
