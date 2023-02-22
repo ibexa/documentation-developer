@@ -4,7 +4,7 @@ The `ProductName` Sort Clause sorts search results by the Product code.
 
 ## Arguments
 
-- `sortDirection` (optional) - Query or LocationQuery constant, either `Query::SORT_ASC` or `Query::SORT_DESC`.
+[[= include_file('docs/snippets/sort_direction.md') =]]
 
 ## Example
 

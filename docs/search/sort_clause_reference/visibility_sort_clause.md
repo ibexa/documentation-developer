@@ -7,7 +7,7 @@ Locations that are not visible are ranked as higher values (e.g. with ascending 
 
 ## Arguments
 
-- `sortDirection` (optional) - Query or LocationQuery constant, either `Query::SORT_ASC` or `Query::SORT_DESC`.
+[[= include_file('docs/snippets/sort_direction.md') =]]
 
 ## Example
 

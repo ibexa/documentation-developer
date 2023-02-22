@@ -4,8 +4,8 @@ The `SelectionAttribute` Search Criterion searches for products by the value of 
 
 ## Arguments
 
--  `identifier` - string representing the attribute.
--  `value` - string representing the attribute value.
+- `identifier` - string representing the attribute
+- `value` - string representing the attribute value
 
 ## Example
 

@@ -5,7 +5,7 @@ matches content if at least one of the provided Criteria matches.
 
 ## Arguments
 
-- `criterion` - a set of Criteria combined by the logical operator.
+- `criterion` - a set of Criteria combined by the logical operator
 
 ## Example
 

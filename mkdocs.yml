@@ -417,6 +417,7 @@ nav:
             - LogicalNot Criterion: search/criteria_reference/logicalnot_criterion.md
             - LogicalOr Criterion: search/criteria_reference/logicalor_criterion.md
         - Product Search Criteria:
+            - ProductSearchCriteria: search/criteria_reference/product_search_criteria.md
             - BasePrice: search/criteria_reference/baseprice_criterion.md
             - CheckboxAttribute: search/criteria_reference/checkboxattribute_criterion.md
             - ColorAttribute: search/criteria_reference/colorattribute_criterion.md
@@ -458,6 +459,7 @@ nav:
             - UserLogin: search/sort_clause_reference/userlogin_sort_clause.md
             - Visibility: search/sort_clause_reference/visibility_sort_clause.md
         - Product Sort Clauses:
+            - ProductSortClauses: search/sort_clause_reference/product_sort_clauses.md
             - BasePrice: search/sort_clause_reference/baseprice_sort_clause.md
             - CreatedAt: search/sort_clause_reference/createdat_sort_clause.md
             - CustomPrice: search/sort_clause_reference/customprice_sort_clause.md

@@ -4,7 +4,7 @@ The `CreatedAt` Sort Clause sorts search results by the date and time of the cre
 
 ## Arguments
 
-- `sortDirection` (optional) - `CreatedAt` constant, either `CreatedAt::SORT_ASC` or `CreatedAt::SORT_DESC`.
+- (optional) `sortDirection` - `CreatedAt` constant, either `CreatedAt::SORT_ASC` or `CreatedAt::SORT_DESC`
 
 ## Example
 
