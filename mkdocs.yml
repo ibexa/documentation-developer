@@ -106,7 +106,7 @@ nav:
             - Back Office tabs:
                 - Back Office tabs:  administration/back_office/back_office_tabs/back_office_tabs.md
                 - Create dashboard tab: administration/back_office/back_office_tabs/create_dashboard_tab.md
-            - Add tab switcher in Content Type: administration/back_office/content_tab_switcher.md
+            - Tab switcher in Content edit page: administration/back_office/content_tab_switcher.md
             - Back Office menus:
                 - Back Office menus: administration/back_office/back_office_menus/back_office_menus.md
                 - Add menu item: administration/back_office/back_office_menus/add_menu_item.md
