@@ -13,7 +13,7 @@ You can configure several environments, such as production, development or stagi
     
 ## Web server configuration
 
-For example, using Apache, in the `VirtualHost` example in [doc/apache2/](https://github.com/ezsystems/ezplatform/tree/master/doc/apache2) in your installation, the required `VirtualHost` configurations have been already included. You can switch to the desired environment by setting the `ENVIRONMENT` variable to `prod`, `dev` or another custom value, like in the following example:
+For example, using Apache, in the [`VirtualHost` example](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/apache2/vhost.template) in your installation, the required `VirtualHost` configurations have been already included. You can switch to the desired environment by setting the `ENVIRONMENT` variable to `prod`, `dev` or another custom value, like in the following example:
 
 ```
 # Environment.

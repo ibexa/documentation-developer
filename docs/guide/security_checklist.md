@@ -97,7 +97,8 @@ See [Security advisory: EZSA-2020-002.](https://developers.ibexa.co/security-adv
 ### Block execution of scripts in `var` directory
 
 Make sure the web server blocks the execution of PHP files and other scripts in the `var` directory.
-See [vhost.template.](https://github.com/ezsystems/ezplatform/blob/master/doc/apache2/vhost.template#L80)
+See the line below `# Disable .php(3) and other executable extensions in the var directory` in the
+[virtual host configuration](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/apache2/vhost.template).
 
 ### Use secure password hashing
 
