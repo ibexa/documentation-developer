@@ -32,15 +32,13 @@ ibexa:
 
 ### Configure Field groups for Meta tab
 
-The default configuration causes that the `ibexa_taxonomy_entry_assignment` Field is always shown in the Meta tab in the Content form. 
-With this new feature, you can indicate what Field types, previously set in the Back Office Content Type, are located in the Meta tab section in the Content form. 
-
-
-
+The default configuration makes the `ibexa_taxonomy_entry_assignment` Field always visible in the Meta tab in the Content form. 
+With this new feature, you can indicate what Field types, previously set in the Back Office Content Type, are shown in the Meta tab section in the Content form. 
 You can automatically move all Field types from Metadata group to the Meta tab in the Content form.
 To do it, use the following configuration:
 
 ```yaml
+ibexa:
     system:
         admin_group:
             admin_ui_forms:
@@ -55,6 +53,7 @@ To do it, use the following configuration:
 To disable the feature:
 
 ```yaml
+ibexa:
     system:
         admin_group:
             admin_ui_forms:
@@ -91,6 +90,4 @@ Finally, create the `templates/my_template.html.twig` file:
 ``` html+twig
 [[= include_file('code_samples/back_office/content_type/templates/my_template.html.twig') =]]
 ```
-
-
 
