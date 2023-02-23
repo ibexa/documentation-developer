@@ -45,7 +45,9 @@ nav:
             - 8. Data migration: tutorials/generic_field_type/8_data_migration.md
     - API:
         - API: api/api.md
-        - PHP API: api/php_api/php_api.md
+        - PHP API:
+            - PHP API usage: api/php_api/php_api.md
+            - PHP API reference: api/php_api/php_api_reference/index.html
         - REST API:
             - REST API usage:
                 - REST API usage: api/rest_api/rest_api_usage/rest_api_usage.md
