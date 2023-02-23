@@ -1,0 +1,9 @@
+{
+    "Language": {
+        "_media-type": "application/vnd.ibexa.api.Language+json",
+        "_href": "/api/ibexa/v2/languages/eng-GB",
+        "languageId": 2,
+        "languageCode": "eng-GB",
+        "name": "English (United Kingdom)"
+    }
+}

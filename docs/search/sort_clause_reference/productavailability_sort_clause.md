@@ -4,7 +4,7 @@ The `ProductAvailability` Sort Clause sorts search results by whether they have 
 
 ## Arguments
 
-- `sortDirection` (optional) - Query or LocationQuery constant, either `Query::SORT_ASC` or `Query::SORT_DESC`.
+[[= include_file('docs/snippets/sort_direction.md') =]]
 
 ## Example
 

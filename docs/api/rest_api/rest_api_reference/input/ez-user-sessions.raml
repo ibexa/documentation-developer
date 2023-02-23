@@ -48,6 +48,31 @@ post:
             description: Error - the authorization failed.
         409:
             description: Error - header contained a session cookie but different user was authorized.
+/current:
+    get:
+        displayName: Get current session
+        description: Get current user session, if any.
+        headers:
+            Cookie:
+                description: Only needed for session's checking {sessionName}={sessionID}.
+            Accept:
+                description: If set, the session is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.Session+xml
+                    application/vnd.ibexa.api.Session+json
+        responses:
+            200:
+                description: User is currently logged in and has a valid session.
+                body:
+                    application/vnd.ibexa.api.Session+xml:
+                        type: Session
+                        example: !include examples/user/sessions/POST/Session.xml.example
+                    application/vnd.ibexa.api.Session+json:
+                        type: Session
+                        example: !include examples/user/sessions/POST/Session.json.example
+            404:
+                description: User does not have a valid session, or it has expired.
+
 /{sessionId}:
     delete:
         displayName: Delete session (logout a User)

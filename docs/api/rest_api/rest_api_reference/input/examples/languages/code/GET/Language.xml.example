@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Language media-type="application/vnd.ibexa.api.Language+xml" href="/api/ibexa/v2/languages/eng-GB">
+ <languageId>2</languageId>
+ <languageCode>eng-GB</languageCode>
+ <name>English (United Kingdom)</name>
+</Language>

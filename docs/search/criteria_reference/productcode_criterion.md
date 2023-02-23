@@ -4,7 +4,7 @@ The `ProductCode` Search Criterion searches for products by their codes.
 
 ## Arguments
 
-- `codes` - int(s) representing the Product codes(s).
+- `productCode` - int(s) representing the Product codes(s)
 
 ## Example
 
