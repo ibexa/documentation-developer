@@ -615,7 +615,7 @@ CreateStruct:
         data:
             description: 'Notification data.'
             type: array
-            items: object
+            items: mixed
 Criterion:
     description: 'Criterion implementations.'
     type: object
@@ -1731,7 +1731,7 @@ UrlAlias:
             type: any
         path:
             description: 'The full path of the alias.'
-            #type:
+            type: string
         languageCodes:
             description: 'The languageCodes for which this path is valid.'
             type: string[]
