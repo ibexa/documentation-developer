@@ -132,7 +132,7 @@ The table component consists of the following blocks:
 
 - `header` - headline for the table section
 - `headline` - table name
-- `actions` - action buttons, for example create, bulk delete
+- `actions` - action buttons, for example, create, bulk delete
 - `table` - the table itself
 - `thead` - table header content
 - `tbody` - table body content
@@ -140,18 +140,17 @@ The table component consists of the following blocks:
 
 ### Override specific cell
 
-For the `twig` table component to have full control over rendering the rows of specific/individual cells, only data are passed to it.
+For the `twig` table component to have full control over rendering the rows of specific cells, only data are passed to it.
 Data rows are passed in an array - one row per one array element.
 It is a good practice to make each array an object with the columns data.
 
 There are a few types of table columns:
 
-- normal content column `{ content: col_name }`
-- an icon column `{ has_icon: true, content: col_icon }`
-- a checkbox column `{ has_checkbox: true, content: col_checkbox }`
-- action buttons column `{ has_action_btns: true, content: col_action_btns }`
+- normal content column - `{ content: col_name }`
+- a column icon - `{ has_icon: true, content: col_icon }`
+- a checkbox column - `{ has_checkbox: true, content: col_checkbox }`
+- action buttons column - `{ has_action_btns: true, content: col_action_btns }`
 
-If you want to prevent this component from the untrusted user-generated content.
 Each column has the `raw` parameter which prevents the component from the escaping content (untrusted user-generated content).
 
 Create an empty array and fill it with rows inside for each loop:
@@ -173,7 +172,7 @@ Create an empty array and fill it with rows inside for each loop:
 
 ### Render hyperlink
 
-The case below shows how to render both text and hyperlink which redirects to the content.
+The following example shows how to render both text and hyperlink which redirect to the specified content.
 
 ```html+twig
 {% set col_name %}
@@ -208,24 +207,21 @@ The case below shows how to render both text and hyperlink which redirects to th
 
 ### Actions
 
-See the example to learn how to create an action button which removes the article in the table.
+See the example below to learn how to create an action button which removes the article in the table.
 The table component is wrapped into the remove article form.
 
-To enable any checkbox to be selected, ad the `ibexa-toggle-btn-state` css class to the form with `data-toggle-button-id` data-form attribute.
+Adding the `ibexa-toggle-btn-state` CSS class to the form with `data-toggle-button-id` data-form attribute causes that button with `#article_remove_remove` id is enabled whenever any chceckbox is selected.
 
-This is a built-in mechanism, the system renders the button (by default, disabled) and passes it under the `action` parameter.
+This is a built-in mechanism, the system renders the button (disabled by default) and passes it under the `action` parameter.
 
-Action buttons are rendered in the right side of the table headline (do not confuse with the table header)
-tu dodac screen!
-
+Action buttons are rendered on the right side of the table headline (do not confuse it with the table header).
 
 
+You can set headline title using the `results_headline` macro, and generate different headlines based on three parameters:
 
-You can set headline title using the `results_headline` macro, and generates different headlines based on the three parameters:
-
-- `count` - 
-- `has_filters` 
-- `phrase` 
+- `count` - of all results, not only displayed on the first page
+- `has_filters` - when using filters
+- `phrase` - filtering phrase
 - `results_headline` - ensures the headlines consistency across the platform
 - `head_cols` - an array for table header (not headline), corresponds with consecutive column
 
@@ -280,45 +276,32 @@ See the example:
 {{ form_end(form_remove) }}
 ```
 
-The table component supports the following variable:
+Other table component parameters include:
 
-- `table_class` - additional CSS classes attached to the `<table>` tag
+- `class` - (CSS table class)
+- `attr` - (other HTML attributes applied on the HTML table element)
+    for example:
+    `attr: { 'data-some-data-attribute-you-need': 'foo' }`
+- `table_body_class` and `table_body_attr` are the same as above, but applied on the table element
+- `show_head_cols_if_empty` - (by default set to false), by default when `body_rows` is empty, the table component will not show table header, but sometimes you want it, for example, when rows are rendered dynamically with JavaScript on the browser side.
 
-``` html+twig
-{% embed '@ibexadesign/ui/component/table/table.html.twig' %}
-    {% block headline %}
-        Headline
-    {% endblock %}
+To avoid wrapping headline inside the form, as it's done in the earlier example, you can `embed` table and override the `between_header_and_table` block:
 
-    {% block actions %}
-        <a href="#" class="btn btn-icon">
-            <svg class="ibexa-icon ibexa-icon--small ibexa-icon--create">
-                <use xlink:href="{{ ez_icon_path('create') }}"></use>
-            </svg>
-        </a>
-    {% endblock %}
-    
-    {% block thead %}
-        <tr>
-            <th></th>
-            <th>Column A</th>
-            <th>Column B</th>
-            <th>Column C</th>
-        </tr>
-    {% endblock %}
-
-    {% block tbody %}
-        {% for i in 1..10 %}
-            <tr>
-                <td></td>
-                <td>A{{ i }}</td>
-                <td>B{{ i }}</td>
-                <td>C{{ i }}</td>
-            </tr>
-        {% endfor %}
-    {% endblock %}
-{% endembed %}
+```html+twig
+{% block between_header_and_table %}
+    {{ form_start(form_remove, {
+        action: path('ibexa.article.remove'),
+        attr: { class: 'ibexa-toggle-btn-state', 'data-toggle-button-id': '#article_remove_remove' }
+    }) }}
+{% endblock %}
 ```
+
+This method is useful in case of having another form inside headline actions or to avoid interferences with the form such as button triggering its sumbmission.
+
+By default, tables are wrapped in a scrollable wrapper which prevents them being too long.
+To disable it, set the `is_scrollable` parameter to `false`.
+
+
 
 !!! tip
 
