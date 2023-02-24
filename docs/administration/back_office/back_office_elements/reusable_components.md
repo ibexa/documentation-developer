@@ -279,11 +279,10 @@ See the example:
 Other table component parameters include:
 
 - `class` - (CSS table class)
-- `attr` - (other HTML attributes applied on the HTML table element)
-    for example:
-    `attr: { 'data-some-data-attribute-you-need': 'foo' }`
-- `table_body_class` and `table_body_attr` are the same as above, but applied on the table element
-- `show_head_cols_if_empty` - (by default set to false), by default when `body_rows` is empty, the table component will not show table header, but sometimes you want it, for example, when rows are rendered dynamically with JavaScript on the browser side.
+- `attr` - (other HTML attributes applied on the HTML table element), for example:
+    - `attr: { 'data-some-data-attribute-you-need': 'foo' }`
+- `table_body_class` and `table_body_attr` are the same as mentioned earlier, but applied on the table element
+- `show_head_cols_if_empty` - (default: `false`), by default, when `body_rows` is empty, the table component does not show the table header,it can be useful, for example, when rows are rendered dynamically with JavaScript on the browser side.
 
 To avoid wrapping headline inside the form, as it's done in the earlier example, you can `embed` table and override the `between_header_and_table` block:
 
@@ -296,9 +295,9 @@ To avoid wrapping headline inside the form, as it's done in the earlier example,
 {% endblock %}
 ```
 
-This method is useful in case of having another form inside headline actions or to avoid interferences with the form such as button triggering its sumbmission.
+This method is useful in case of another form inside headline actions or to avoid interferences with the form like button triggering its sumbmission.
 
-By default, tables are wrapped in a scrollable wrapper which prevents them being too long.
+By default, tables are wrapped in a scrollable wrapper which prevents them from being too long.
 To disable it, set the `is_scrollable` parameter to `false`.
 
 
