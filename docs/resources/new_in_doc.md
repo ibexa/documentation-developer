@@ -1,3 +1,7 @@
+---
+description: Overview of major recent additions to Ibexa DXP documentation.
+---
+
 # New in documentation
 
 This page contains recent highlights and notable changes in Ibexa DXP documentation.
