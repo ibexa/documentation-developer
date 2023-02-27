@@ -46,7 +46,7 @@ taxonomy.content_categories: 'Content categories'
 
 Then, create a Content Type with `content_category` identifier and include the following Field definitions:
 
-* `name_field` of `ezstring` type and required
+* `name_field` of `ezstring` type and required. Use this Field, as `<name_field>`, for content name pattern.
 * `category_identifier` of `ezstring` type and required
 * `parent_category` of `ibexa_taxonomy_entry` type and not required. In its Taxonomy drop-down menu, select Content categories (or `taxonomy.content_categories` if no translation has been provided).
 
