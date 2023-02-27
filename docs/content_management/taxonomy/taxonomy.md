@@ -29,7 +29,7 @@ The identifiers correspond to Field names defined in the Content Type. The `name
 
 You can create other taxonomies than the one predefined in the system, for example a Content category.
 
-To do it, first, create a new container to store the new taxonomy's items, for example a `folder` named Content categories.
+To do it, first, create a new container to store the new taxonomy's items, for example a folder named "Content categories".
 
 Next, in `config/packages/ibexa_taxonomy.yaml` add the following configuration:
 
