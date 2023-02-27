@@ -37,21 +37,21 @@ Next, in `config/packages/ibexa_taxonomy.yaml` add the following configuration:
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml')=]]
 ```
 
-Replace `<content_categories_remote_id>` with the new container's location remote ID.
+Replace `<content_categories_remote_id>` with the new container's Location remote ID.
 
 Translate the configuration identifier in the `ibexa_taxonomy` domain by, for example, creating a `translations/ibexa_taxonomy.en.yaml` file containing the following:
 ```yaml
 taxonomy.content_categories: 'Content categories'
 ```
 
-Then, create a Content Type with `content_category` identifier and include the following Field Types:
+Then, create a Content Type with `content_category` identifier and include the following Field definitions:
 
 * `name_field` of `ezstring` type and required
 * `category_identifier` of `ezstring` type and required
-* `parent_category` of `ibexa_taxonomy_entry` type and not required, in its Taxonomy drop-down menu, select Content categories (or `taxonomy.content_categories` if no translation has been provided).
+* `parent_category` of `ibexa_taxonomy_entry` type and not required. In its Taxonomy drop-down menu, select Content categories (or `taxonomy.content_categories` if no translation has been provided).
 
 Finish taxonomy set-up by creating a new Content category named Root with identifier `content_categories_root` under the previously created container folder named Content categories.
 
-To use this new taxonomy, add an `ibexa_taxonomy_entry_assignement` field to a Content Type and select Content categories (or `taxonomy.content_categories`) in its Taxonomy drop-down setting.
+To use this new taxonomy, add an `ibexa_taxonomy_entry_assignement` Field to a Content Type and select Content categories (or `taxonomy.content_categories`) in its Taxonomy drop-down setting.
 
 For more information about available functionalities of tags, see [User Documentation]([[= user_doc =]]/taxonomy).
