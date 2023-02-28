@@ -15,7 +15,7 @@ To override any of them, copy its directory structure in your template directory
 ## Template customization example
 
 As an example, to change the cart display when it contains no products,
-you need to override [`vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart_empty_cart.html.twig`](https://github.com/ibexa/storefront/blob/4.4.0/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart_empty_cart.html.twig) template.
+you need to override [`vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart_empty_cart.html.twig`](https://github.com/ibexa/storefront/blob/main/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart_empty_cart.html.twig) template.
 
 To do it, create your own template in `templates/theme/storefront/cart/component/maincart/maincart_empty_cart.html.twig`.
 
@@ -66,6 +66,21 @@ The most important templates are:
 |`cart/component/minicart/minicart.html.twig`|minicart (cart icon displayed at the top of the page)|
 |`cart/component/add_to_cart/add_to_cart.html.twig`|"add to cart" element|
 |`cart/component/summary/summary.html.twig`|cart summary|
+
+#### Extend twig template
+
+```html+twig
+{% extends '@IbexaCart/themes/standard/cart/component/minicart/minicart.html.twig' %}
+
+{% block content %}
+    <img
+        class="ibexa-store-minicart__image"
+        src="{{ asset('bundles/ibexastorefront/img/icons/cart.svg') }}"
+        alt="{{ 'minicart.icon.alt'|trans|desc('Cart') }}"
+    />
+    {{ parent() }}
+{% endblock %}
+```
 
 ### Checkout
 

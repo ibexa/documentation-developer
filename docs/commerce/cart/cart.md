@@ -98,3 +98,41 @@ for example, to checkout, or back to shopping, by adding respective buttons.
 
 The Cart package provides `Ibexa\Contracts\Cart\CartServiceInterface` Symfony service, 
 which is the entrypoint for calling the [backend API](cart_api.md).
+
+You can import services using the following code:
+
+```js
+import * as cartService from '@ibexa-cart/src/bundle/Resources/public/js/service/cart';
+```
+
+Next, use in the code as following example:
+
+```js
+cartService.deleteCartEntry(cartIdentifier, entryIdentifier);
+```
+
+Every cart service function returns a Promise with a parsed response.
+When the request is not `OK`, it can throw an error with the response statusText.
+
+- `loadUserCarts(ownerId)` - loads 10 user carts
+- `loadCartSummary(cartIdentifier)` - load cart summary data
+- `createCart(currencyCode)` - creates a new cart
+- `deleteCart(cartIdentifier)` - deletes the cart
+- `createCartEntry(cartIdentifier, productCode, quantity)` - creates a new cart entry for the specified product
+- `updateProductQuantity(cartIdentifier, entryIdentifier, quantity)` - updates product quantity to a new value
+- `deleteCartEntry(cartIdentifier, entryIdentifier)` - deletes cart entry
+- `emptyCart(cartIdentifier)` - empties cart by removing all entries
+
+### Change request before sending
+
+Before the request `ibexa-cart:prepare-request` is sent, an event is triggered on `document`, so you can interchange request objects:
+
+```js
+document.addEventListener(
+    'ibexa-cart:prepare-request',
+    (event) => {
+        event.detail.request = modifiedRequest;
+    },
+    false,
+);
+```
