@@ -53,14 +53,14 @@ Variables:
 
 |Name|Type|Values|
 |----|----|-----------|
-|`headline` (optional)|string|if not defined, `details_header` is empty|
+|`headline` (optional)|string|if not specified, the header is not rendered|
 |`headline_items`|array|
 |`view_mode`|string|`vertical`, default set to `''`|
-|`items`|array<hash>|{`label`, `content_raw`, `content`}|
+|`items`|hash|{`label`, `content_raw`, `content`}|
 
-If `headline` is passed, a `table_header` element is loaded in `details_header` and then it is possible to pass a `headline_items` variable.
+If `headline` is not specified, the `headline_items` is not rendered.
 
-`headline` and `headline_items` are variables used in `@ibexadesign/ui/component/table/table_header.html.twig`
+`headline` and `headline_items` have `action` variable used in `@ibexadesign/ui/component/table/table_header.html.twig`
 
 ## Modal
 
@@ -142,7 +142,7 @@ The table component consists of the following blocks:
 
 For the `twig` table component to have full control over rendering the rows of specific cells, only data are passed to it.
 Data rows are passed in an array - one row per one array element.
-It is a good practice to make each array an object with the columns data.
+It is neccessary to make each array an object with the columns data.
 
 There are a few types of table columns:
 
@@ -153,21 +153,21 @@ There are a few types of table columns:
 
 Each column has the `raw` parameter which prevents the component from the escaping content (untrusted user-generated content).
 
-Create an empty array and fill it with rows inside for each loop:
+If you want to create an array based on some data from the backend, create an empty array and fill it with items (which corresponds to table rows) inside for loop:
 
 ```html+twig
 {% set body_rows = [] %}
 {% for article in pager.currentPageResults %}
-{# we may render checkbox using form_widget and just put HTML #}
-{% set col_checkbox %}
-    {{ form_widget(form_remove.articles[article.id]) }}
-{% endset %}
-
-{% set col_icon %}
-    <svg class="ibexa-icon ibexa-icon--small">
-        <use xlink:href="{{ ibexa_content_type_icon(article.contentType.identifier) }}"></use>
-    </svg>
-{% endset %}
+    {# we may render checkbox using form_widget and just put HTML #}
+    {% set col_checkbox %}
+        {{ form_widget(form_remove.articles[article.id]) }}
+    {% endset %}
+    ​
+    {% set col_icon %}
+        <svg class="ibexa-icon ibexa-icon--small">
+            <use xlink:href="{{ ibexa_content_type_icon(article.contentType.identifier) }}"></use>
+        </svg>
+    {% endset %}
 ```
 
 ### Render hyperlink
@@ -208,16 +208,17 @@ The following example shows how to render both text and hyperlink which redirect
 ### Actions
 
 See the example below to learn how to create an action button which removes the article in the table.
-The table component is wrapped into the remove article form.
+The table component has to be wrapped into the remove article form.
 
-Adding the `ibexa-toggle-btn-state` CSS class to the form with `data-toggle-button-id` data-form attribute causes that button with `#article_remove_remove` id is enabled whenever any chceckbox is selected.
+Adding the `ibexa-toggle-btn-state` CSS class to the form with `data-toggle-button-id` data-attribute causes that button with `#article_remove_remove` id is enabled whenever any chceckbox is selected.
 
-This is a built-in mechanism, the system renders the button (disabled by default) and passes it under the `action` parameter.
+This is a built-in mechanism, you have to tell the system to render the button, make it disabled by default. 
+Next, pass it under the `action` parameter to the table headline.
 
 Action buttons are rendered on the right side of the table headline (do not confuse it with the table header).
+You can also specify the table headline element with table title above it.
 
-
-You can set headline title using the `results_headline` macro, and generate different headlines based on three parameters:
+You can set headline title using the `results_headline` macro, and generate different headlines based on parameters:
 
 - `count` - of all results, not only displayed on the first page
 - `has_filters` - when using filters
@@ -225,12 +226,12 @@ You can set headline title using the `results_headline` macro, and generate diff
 - `results_headline` - ensures the headlines consistency across the platform
 - `head_cols` - an array for table header (not headline), corresponds with consecutive column
 
-For body rows there are the following column types:
+For table header there are the following column types:
 
 - normal content column `{ content: col_name }` (content is the title of the column)
 - icon column `{ has_icon: true }`
 - checkbox column `{ has_checkbox: true }`
-- action buttons column ` {  }` with additional parameters:
+- action buttons column ` {  }` with additional parameters available for all of the objects mentioned earlier:
  
     - class (CSS class)
     - attr (HTML attributes)
