@@ -77,6 +77,8 @@ interface CatalogResolverInterface
 {
     public function resolveCatalog(?User $user = null): ?CatalogInterface;
 }
+```
+
 `null` stands for the current user.
 
 ### Configure user account
