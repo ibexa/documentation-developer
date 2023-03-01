@@ -566,6 +566,7 @@ nav:
         - 'Release process and roadmap': 'community_resources/release_process.md'
         - 'Support and maintenance FAQ': 'community_resources/support_maintenance_faq.md'
         - 'Ibexa DXP PhpStorm plugin': 'community_resources/phpstorm_plugin.md'
+        - New in documentation: community_resources/new_in_doc.md
         - Contributing:
             - 'Report and follow issues': 'community_resources/report_follow_issues.md'
             - 'Contribute translations': 'community_resources/translations.md'
