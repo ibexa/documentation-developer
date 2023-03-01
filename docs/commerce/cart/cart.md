@@ -68,7 +68,7 @@ Cart constructor takes a few options:
 
 - `userId` - by default, read from the header's meta element with `name="UserId"`, where variable type must be integer
 - `currencyCode` - by default, read from the header's meta element with `name="ActiveCurrencyCode"`
-- 
+- `lang` - by default, read from the document element `lang` attribute
 
 ### Widgets
 
