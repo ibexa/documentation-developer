@@ -64,6 +64,12 @@ The `Cart` service object stores cart entry data and a cart summary, which conta
 The object exposes several methods, which you can use to get and modify cart entries.
 Only one instance of a `Cart` service object can be created.
 
+Cart constructor takes a few options:
+
+- `userId` - by default, read from the header's meta element with `name="UserId"`, where variable type must be integer
+- `currencyCode` - by default, read from the header's meta element with `name="ActiveCurrencyCode"`
+- 
+
 ### Widgets
 
 To customize your store, you can override the Twig templates and extend their logic.
@@ -76,13 +82,15 @@ By default, it lists items selected for purchase and requested cart item quantit
 
 Users who visit the Main cart can remove individual items.
 
+For more information, see [Customize storefront layout](customize_storefront_layout.md#main-cart).
 #### Add to cart
 
 By default, the Add to cart component consists of a quantity input field and a button.
-
+To add, for example, variant selectors, you have to [extend the twig and JavaScript](customize_storefront_layout.md#add-to-cart) component.
 #### Minicart
 
-By default, the Minicart component consists of a counter that displays a total number of cart items.
+By default, the Minicart component consists of a counter that displays a total number of cart items with `div` wrappers.
+The Minicart icon, titles and other [elements](customize_storefront_layout.md#mini-cart) must be customized for individual projects.
 
 #### Cart summary 
 
