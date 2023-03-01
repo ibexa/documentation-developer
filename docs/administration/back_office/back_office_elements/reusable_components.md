@@ -60,8 +60,6 @@ Variables:
 
 If `headline` is not specified, the `headline_items` is not rendered.
 
-`headline` and `headline_items` have `action` variable used in `@ibexadesign/ui/component/table/table_header.html.twig`
-
 ## Modal
 
 The modal component consists of the following blocks:
@@ -142,7 +140,7 @@ The table component consists of the following blocks:
 
 For the `twig` table component to have full control over rendering the rows of specific cells, only data are passed to it.
 Data rows are passed in an array - one row per one array element.
-It is neccessary to make each array an object with the columns data.
+It is necessary to put objects with the columns data in an array.
 
 There are a few types of table columns:
 
@@ -158,7 +156,7 @@ If you want to create an array based on some data from the backend, create an em
 ```html+twig
 {% set body_rows = [] %}
 {% for article in pager.currentPageResults %}
-    {# we may render checkbox using form_widget and just put HTML #}
+    {# we may render checkbox using form_widget or just put HTML #}
     {% set col_checkbox %}
         {{ form_widget(form_remove.articles[article.id]) }}
     {% endset %}
@@ -175,33 +173,33 @@ If you want to create an array based on some data from the backend, create an em
 The following example shows how to render both text and hyperlink which redirect to the specified content.
 
 ```html+twig
-{% set col_name %}
-    <a href="{{ path('ibexa.content.view', { contentId: article.contentInfo.id, locationId: article.id }) }}">
-        {{ ibexa_content_name(article.contentInfo) }}
-    </a>
-{% endset %}
-
-{% set col_action_btns %}
-    {% if article.userCanEdit %}
-        <a
-            href="#"
-            class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text"
-            title="{{ 'article.list.content.edit'|trans|desc('Edit content') }}"
-        >
-            <svg class="ibexa-icon ibexa-icon--small ibexa-icon--edit">
-                <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
-            </svg>
+    {% set col_name %}
+        <a href="{{ path('ibexa.content.view', { contentId: article.contentInfo.id, locationId: article.id }) }}">
+            {{ ibexa_content_name(article.contentInfo) }}
         </a>
-    {% endif %}
-{% endset %}
+    {% endset %}
 
-{% set body_rows = body_rows|merge([{ cols: [
-    { has_checkbox: true, content: col_checkbox },
-    { has_icon: true, content: col_icon },
-    { content: col_name },
-    { content: article.contentType.name },
-    { has_action_btns: true, content: col_action_btns },
-]}]) %}
+    {% set col_action_btns %}
+        {% if article.userCanEdit %}
+            <a
+                href="#"
+                class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text"
+                title="{{ 'article.list.content.edit'|trans|desc('Edit content') }}"
+            >
+                <svg class="ibexa-icon ibexa-icon--small ibexa-icon--edit">
+                    <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+                </svg>
+            </a>
+        {% endif %}
+    {% endset %}
+
+    {% set body_rows = body_rows|merge([{ cols: [
+        { has_checkbox: true, content: col_checkbox },
+        { has_icon: true, content: col_icon },
+        { content: col_name },
+        { content: article.contentType.name },
+        { has_action_btns: true, content: col_action_btns },
+    ]}]) %}
 {% endfor %}
 ```
 
@@ -210,7 +208,8 @@ The following example shows how to render both text and hyperlink which redirect
 See the example below to learn how to create an action button which removes the article in the table.
 The table component has to be wrapped into the remove article form.
 
-Adding the `ibexa-toggle-btn-state` CSS class to the form with `data-toggle-button-id` data-attribute causes that button with `#article_remove_remove` id is enabled whenever any chceckbox is selected.
+Adding the `ibexa-toggle-btn-state` CSS class to the form with the id from this `data-toggle-button-id` 
+causes the button with the assigned id is enabled whenever any checkbox is selected.
 
 This is a built-in mechanism, you have to tell the system to render the button, make it disabled by default. 
 Next, pass it under the `action` parameter to the table headline.
