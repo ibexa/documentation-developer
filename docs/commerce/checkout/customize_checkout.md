@@ -72,7 +72,7 @@ It can reuse fields and functions that come from the checkout component, for exa
 after you check whether the form is valid, use the `advance` method to go to the next stage 
 of the process.
 
-``` php hl_lines="27 28"
+``` php hl_lines="23 24"
 [[= include_file('code_samples/front/shop/checkout/src/Controller/SelectSeatStepController.php') =]]
 ```
 
@@ -103,7 +103,7 @@ ibexa:
 
 You are now ready to see the results of your work.
 Shut down the application, clear browser cache, and restart the application.
-You should be able to see a different checkout applied when you add products to a cart.
+You should be able to see a different checkout applied after you have added products to a cart.
 
 ## Create a single-form checkout
 
@@ -115,8 +115,8 @@ The single form's basic advantage is simplified navigation with less clicks to c
 
 To create a single-form checkout, define a workflow that has two stages, `initialized` and `completed`, and one transition, from `initialized` or `completed` to `completed`.
 
-``` yaml hl_lines="3 15"
-[[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 25, 27) =]] [[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 84, 103) =]]
+``` yaml hl_lines="3 18 19"
+[[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 25, 27) =]] [[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 84, 103) =]] [[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 23, 24) =]]
 ```
 
 ### Create controller

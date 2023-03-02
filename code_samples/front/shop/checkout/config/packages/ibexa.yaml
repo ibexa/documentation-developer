@@ -168,5 +168,3 @@ framework:
                     metadata:
                         controller: Ibexa\Bundle\Checkout\Controller\CheckoutStep\CompleteStepController::renderCompleteView
                         label: 'Order confirmation'
-
-                workflow: one_page_checkout                        
