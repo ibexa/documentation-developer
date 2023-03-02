@@ -50,7 +50,7 @@ Mappers can be used on the extension points by registering them with the [servic
 - All block documents
     - `ibexa.search.solr.field.mapper.block`
 - All block documents per translation
-    - `ibexa.solr.field_mapper.block_translation`
+    - `ibexa.search.solr.field.mapper.block.translation`
 - Content documents
     - `ibexa.search.solr.field.mapper.content`
 - Content documents per translation
