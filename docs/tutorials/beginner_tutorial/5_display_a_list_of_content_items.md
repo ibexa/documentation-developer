@@ -173,6 +173,17 @@ Because this template will be rendered inside a table, it starts with a `<tr>` t
     </td>
 </tr>
 ```
+### Add Media permission
+
+To be able to view the `photo` Field you have to add a `read` permission to `Media` section.
+
+From **Admin** (gear icon) in the left menu, go to the **Roles** management screen and click the **Anonymous** Role.
+
+![Policies for the Anonymous Role without Media section](step5_admin_anonymous_policies_without_media_section.png)
+
+Edit the **Content/Read** Policy line to add the `Media` section to **Limitation** along with the `Standard` section.
+
+![Policies for the Anonymous Role with Media section](step5_admin_anonymous_policies_with_media_section.png)
 
 Now go to the homepage of your website and you will see the list of Rides.
 However, the Ride photos are too large and stretch the table.

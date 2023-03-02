@@ -4,8 +4,8 @@ The `RangeMeasurementAttributeMinimum` Search Criterion searches for products by
 
 ## Arguments
 
--  `identifier` - string representing the attribute.
-- `value` - `\Ibexa\Contracts\Measurement\Value\SimpleValueInterface` object representing the minimum attribute value.
+- `identifier` - string representing the attribute
+- `value` - `\Ibexa\Contracts\Measurement\Value\SimpleValueInterface` object representing the minimum attribute value
 
 ## Example
 

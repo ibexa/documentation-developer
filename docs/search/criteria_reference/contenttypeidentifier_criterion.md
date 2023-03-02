@@ -5,7 +5,7 @@ searches for content based on the identifier of its Content Type.
 
 ## Arguments
 
-- `value` - string(s) representing the Content Type identifier(s).
+- `value` - string(s) representing the Content Type identifier(s)
 
 ## Example
 

@@ -6,7 +6,7 @@ searches for content based on whether it is translated into the selected languag
 ## Arguments
 
 - `value` - string(s) representing the language codes to search for
-- `matchAlwaysAvailable` - bool representing whether content with the `alwaysAvailable` flag
+- (optional) `matchAlwaysAvailable` - bool representing whether content with the `alwaysAvailable` flag
 should be returned even if it does not contain the selected language (default `true`)
 
 ## Example

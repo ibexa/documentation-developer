@@ -1,11 +1,11 @@
 # BasePrice Criterion
 
-The `BasePrice` Search Criterion searches for products by their base price.
+The [`BasePrice` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/Ancestor.php) searches for products by their base price.
 
 ## Arguments
 
-- `value` - a `Money` object representing the price in a specific currency.
-- (optional) `operator` - Operator constant (EQ, GT, GTE, LT, LTE, default EQ).
+- `value` - a `Money` object representing the price in a specific currency
+- (optional) `operator` - Operator constant (EQ, GT, GTE, LT, LTE, default EQ)
 
 ## Limitations
 

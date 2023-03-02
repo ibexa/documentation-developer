@@ -14,7 +14,7 @@ From **Admin** (gear icon) in the left menu, go to the **Roles** management scre
 
 Add the `User/Register` Policy to the Anonymous User. This will allow any visitor to the website to access the registration form.
 
-![Policies for the Anynomous Role](step8_admin_anonymous_policies.png)
+![Policies for the Anonymous Role](step8_admin_anonymous_policies.png)
 
 Then go to `<yourdomain>/register`. The registration form is unstyled, so you need to add templates to it.
 

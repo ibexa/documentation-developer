@@ -7,7 +7,7 @@ searches for content based on whether a specified Field is empty or not.
 
 - `fieldDefinitionIdentifier` - string representing the identifier of the Field
 - (optional) `value` - bool representing whether to search for empty (default `true`),
-or non-empty Fields (`false`).
+or non-empty Fields (`false`)
 
 ## Limitations
 
