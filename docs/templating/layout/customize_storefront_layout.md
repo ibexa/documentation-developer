@@ -84,9 +84,9 @@ The most important templates are:
 
 To avoid self-reference, ``@IbexaCart` is used instead of `@ibexadesign`.
 
-Components out-of-the-box are not styled as you can freely customized them according to your needs.
-CSS classes can be easily added like every element from the base twig has its onw attr object.
-For example, if you want to add custom CSS classes to quantity input in Add to cart component, use the following:
+Components out-of-the-box are not styled as you can freely customize them according to your needs.
+CSS classes can be easily added like every element from the base Twig which has its own attr object.
+For example, if you want to add custom CSS classes to quantity input in Add to Cart component, use the following:
 
 ```html+twig
 {% set quantity_input_attr = {
@@ -134,7 +134,7 @@ export default class StorefrontMaincart extends Maincart {
 
 The base widget for the main cart view must be customized as out-of-the-box it consists only of the container with items. Each item consists of `<div>` wrappers with quantity input and remove item button. With customization you can add layout containers and items' data such as title, or price.
 
-Available twigs:
+Available Twigs:
 
 - `@IbexaCart/themes/standard/cart/component/maincart/maincart.html.twig`
 
@@ -162,17 +162,17 @@ JavaScript class:
 
 ### Add to Cart
 
-Available twig:
+Available Twig:
 
 - `@IbexaCart/themes/standard/cart/component/add_to_cart/add_to_cart.html.twig`
 
 with parameters:
 
-    - is_disabled
-    - attr
-    - product_code,
-    - quantity_input_attr
-    - add_to_cart_btn_attr
+    - `is_disabled`
+    - `attr`
+    - `product_code`
+    - `quantity_input_attr`
+    - `add_to_cart_btn_attr`
 
 JavaScript class:
 
@@ -181,15 +181,15 @@ JavaScript class:
 
 ### Mini cart
 
-Available twig:
+Available Twig:
 
 - `@IbexaCart/themes/standard/cart/component/minicart/minicart.html.twig`
 
 with parameters:
 
-- `count`
-- `attr`
-- `counter_attr`
+    - `count`
+    - `attr`
+    - `counter_attr`
 
 ### Checkout
 
