@@ -1,0 +1,187 @@
+get:
+    displayName: Load Locations by id/remoteId/urlAlias
+    description: Loads the Location for a given ID (x), remote ID or URL alias.
+    queryParameters:
+        id:
+            description: The ID of the Location. If present, the Location with the given ID is returned.
+        remoteId:
+            description: The remote ID of the Location. If present, the Location with the given remote ID is returned.
+        urlAlias:
+            description: One of the URL aliases of the Location. If present, the Location with given URL Alias is returned.
+    responses:
+        307:
+            description: Temporary redirect to the main resource URL.
+        200:
+            body:
+                application/vnd.ibexa.api.LocationList+xml:
+                    type: Location
+                    example: !include examples/content/locations/GET/LocationList.xml.example
+                application/vnd.ibexa.api.LocationList+json:
+                    type: Location
+                    example: !include examples/content/locations/GET/LocationList.json.example
+        404:
+            description: Error - the Location with the given ID (remote ID or URL  Alias) does not exist.
+/{path}:
+    get:
+        displayName: Load Location
+        description: Loads the Location for the given path e.g. '/content/locations/1/2/61'.
+        headers:
+            Accept:
+                description: If set, the new Location is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.Location+xml
+                    application/vnd.ibexa.api.Location+json
+            If-None-Match:
+                description: ETag
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.Location+xml:
+                        type: Location
+                        example: !include examples/content/locations/path/GET/Location.xml.example
+                    application/vnd.ibexa.api.Location+json:
+                        type: Location
+                        example: !include examples/content/locations/path/GET/Location.json.example
+            401:
+                description: Error - the user is not authorized to read this Location.
+            404:
+                description: Error - the Location with the given path does not exist.
+    move:
+        displayName: Move subtree
+        description: Moves Location to a different parent. The destination can also be '/content/trash' where the Location is put into the trash. (NOTE - Be aware that the user might lose access to the item after it has been moved, for example when read access is limited by a subtree). MOVE or POST with header X-HTTP-Method-Override MOVE.
+        headers:
+            Destination:
+                description: A parent Location resource to which the Location is moved e.g. '/api/ibexa/v2/content/locations/1/63'.
+        responses:
+            201:
+                description: Created. If destination is '/api/ibexa/v2/content/trash' and content only has one Location (NOTE - Like on normal subtree moves, be aware that the user might lose access to the item after it has been moved to Trash.)
+            204:
+                description: No Content. If destination is '/api/ibexa/v2/content/trash' and content still has other Locations (no trash item is created).
+            401:
+                description: Error - the user is not authorized to move this Location.
+            404:
+                description: Error - the Location with the given ID does not exist.
+    copy:
+        displayName: Copy subtree
+        description: Copies the subtree to a different parent. COPY or POST with header X-HTTP-Method-Override COPY.
+        headers:
+            Destination:
+                description: A parent Location resource to which the Location is moved e.g. '/api/ibexa/v2/content/locations/1/63'.
+        responses:
+            201:
+                description: Created. Copied the subtree to a different parent.
+            401:
+                description: Error - the user is not authorized to move this Location.
+            404:
+                description: Error - the Location with the given ID does not exist.
+    delete:
+        displayName: Delete subtree
+        description: Deletes the complete subtree for the given path. Every Content item which does not have any other Location is deleted. Otherwise the deleted Location is removed from the Content item. The children are recursively deleted.
+        responses:
+            204:
+                description: No Content - deleted.
+            401:
+                description: Error - the user is not authorized to delete this subtree.
+            404:
+                description: Error - the Location with the given ID does not exist.
+    patch:
+        displayName: Update Location
+        description: Updates the Location. This method can also be used to hide/reveal a Location via the hidden field in the LocationUpdate. PATCH or POST with header X-HTTP-Method-Override PATCH.
+        headers:
+            Accept:
+                description: If set, the Location is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.Location+xml
+                    application/vnd.ibexa.api.Location+json
+            Content-Type:
+                description: The LocationUpdate schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.LocationUpdate+xml
+                    application/vnd.ibexa.api.LocationUpdate+json
+            If-Match:
+                description: ETag
+        body:
+            application/vnd.ibexa.api.LocationUpdate+xml:
+                type: LocationUpdateStruct
+                example: !include examples/content/locations/location_id/PATCH/LocationUpdate.xml.example
+            application/vnd.ibexa.api.LocationUpdate+json:
+                type: LocationUpdateStruct
+                example: !include examples/content/locations/location_id/PATCH/LocationUpdate.json.example
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.Location+xml:
+                        type: Location
+                        example: !include examples/content/locations/location_id/PATCH/Location.xml.example
+                    application/vnd.ibexa.api.Location+json:
+                        type: Location
+                        example: !include examples/content/locations/location_id/PATCH/Location.json.example
+            401:
+                description: Error - the user is not authorized to update this Location.
+            404:
+                description: Error - the Location with the given ID does not exist.
+    swap:
+        displayName: Swap Location
+        description: Swaps the Location of a Content item with the given Location of another Content item. SWAP or POST with header X-HTTP-Method-Override SWAP.
+        headers:
+            Destination:
+                description: A parent Location resource to which the Location is moved e.g. '/api/ibexa/v2/content/locations/1/63'.
+        responses:
+            204:
+                description: No Content. Swapped the Location of a Content item with the given Location of another Content item.
+            401:
+                description: Error - the user is not authorized to swap this Location.
+            404:
+                description: Error - the Location with the given ID does not exist.
+    /children:
+        get:
+            displayName: Get child Locations.
+            description: Loads all child Locations for the given parent Location.
+            queryParameters:
+                offset:
+                    description: The offset of the result set.
+                    type: integer
+                limit:
+                    description: The number of Locations returned.
+                    type: integer
+            headers:
+                Accept:
+                    description: If set, the new Location list is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.LocationList+xml
+                        application/vnd.ibexa.api.LocationList+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.LocationList+xml:
+                            type: LocationList
+                            example: !include examples/content/locations/path/children/GET/LocationList.xml.example
+                401:
+                    description: Error - the user is not authorized to read this Content item.
+                404:
+                    description: Error - the Content item with the given ID does not exist.
+    /urlaliases:
+        get:
+            displayName: List URL aliases for Location
+            description: Returns the list of URL aliases for a Location.
+            queryParameters:
+                custom:
+                    description: Indicates whether autogenerated (false) or manual URL aliases (true) should be returned (default true).
+                    type: boolean
+            headers:
+                Accept:
+                    description: If set, the URL alias list contains only references and is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.UrlAliasRefList+xml
+                        application/vnd.ibexa.api.UrlAliasRefList+json
+            responses:
+                200:
+                    description: OK - returns the list of URL aliases.
+                    body:
+                        application/vnd.ibexa.api.UrlAliasRefList+xml:
+                            type: UrlAliasRefList
+                            exammple: examples/content/locations/path/urlaliases/GET/UrlAliasRefList.xml.example
+                400:
+                    description: Error - The user has no permission to read URL aliases.
+                401:
+                    description: Error - The Location was not found.

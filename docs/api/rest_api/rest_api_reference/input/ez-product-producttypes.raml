@@ -29,8 +29,8 @@ post:
         404:
             description: Error - the product type with the given ID does not exist.
 get:
-    displayName: Load product types (deprecated as of Ibexa DXP 4.3, use /view instead)
-    description: Returns a list of product types.
+    displayName: Load product types (deprecated)
+    description: Returns a list of product types. Deprecated as of Ibexa DXP 4.3, use POST /product/catalog/product_types/view instead.
     headers:
         Accept:
             description: ProductTypeListGet - If set, the product type list is returned in XML or JSON format.
@@ -143,7 +143,7 @@ get:
         responses:
             200:
                 body:
-                    application/vnd.ibexa.api.ProductTypeView+json;
+                    application/vnd.ibexa.api.ProductTypeView+json:
                         type: ProductTypeView
                         example: !include examples/product/catalog/product_types/POST/ProductTypeView.json.example
             400:
