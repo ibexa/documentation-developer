@@ -242,6 +242,70 @@ Import to your database the changes provided in one of the following files. It's
 
 Steps here should only be done once you are ready to move away from legacy and Legacy Bridge, as the following Field Types are not supported by legacy. In other words, content you have migrated will not be editable in legacy admin interface anymore, but rather in the more modern eZ Platform back-end UI, allowing you to take full advantage of what the Platform has to offer.
 
+The Field Types unsupported in eZ Platform are:
+
+- [XmlText](#321-migrate-xmltext-content-to-richtext)
+- [Page](#322-migrate-page-field-to-page-ez-enterprise-only)
+- Star Rating
+- Matrix
+
+For Field Types which do not have specific procedures below, you must either:
+
+- implement them yourself in eZ Platform, or
+- remove them from all Content Types that use them.
+
+!!! tip
+
+    To find out which Content Types use a specific Field Type,
+    you can run the following SQL query on your database (in this case, for the Star Rating Field Type):
+
+    ``` sql
+    select contentclass_id from ezcontentclass_attribute where data_type_string='ezsrrating' group by contentclass_id;
+    ```
+
+??? tip "`defaultLayout` setting not available"
+
+    If you want to remove a Page Field from your Content Type definition, you can encounter an issue
+    where the **Default layout** dropdown is disabled with an "Layout '' for setting 'defaultLayout' is not available" error message.
+    
+    If this happens, add the following configuration to `app/config/ezplatform.yml`:
+
+    ``` yaml
+    ezpublish:
+        system:
+            global:
+                ezpage:
+                    layouts:
+                        GlobalZoneLayout:
+                            name: Global zone layout
+                            template: globalzonelayout.tpl
+                        2ZonesLayout1:
+                            name: 2 zones (layout 1)
+                            template: 2zoneslayout1.tpl
+                        2ZonesLayout2:
+                            name: 2 zones (layout 2)
+                            template: 2zoneslayout2.tpl
+                        2ZonesLayout3:
+                            name: 2 zones (layout 3)
+                            template: 2zoneslayout3.tpl
+                        3ZonesLayout1:
+                            name: 3 zones (layout 1)
+                            template: 3zoneslayout1.tpl
+                        3ZonesLayout2:
+                            name: 3 zones (layout 2)
+                            template: 3zoneslayout2.tpl
+                        CallForActionLayout:
+                            name: Call For Action zone layout
+                            template: callforactionlayout.tpl
+    ```
+
+    Clear and refresh the page, which should activate the dropdown.
+    Select any option in the dropdown and save the Content Type.
+
+    You should now be able to remove the Field definition from the Content Type.
+
+    Afterwards, you can remove the configuration above from `ezplatform.yml`.
+
 #### 3.2.1 Migrate XmlText content to RichText
 
 You should test the XmlText to RichText conversion before you apply it to a production database. RichText has a stricter validation compared to XmlText and you may have to fix some of your XmlText before you are able to convert it to RichText.
