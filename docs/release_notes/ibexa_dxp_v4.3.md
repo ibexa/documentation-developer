@@ -159,3 +159,13 @@ product-related responses.
 #### Ability to retrieve a customer group
 
 You can now retrieve customer group by implementing the `Ibexa\Contracts\ProductCatalog\CustomerGroupResolverInterface` interface and tagging it with `ibexa.product_catalog.customer_group.resolver`.
+
+## v4.3.5
+
+- The `UserService::updateUserPassword` method now throws `ContentFieldValidationException`
+with array format accessible via `ContentFieldValidationException::getFieldErrors`.
+The format of the returned array is:
+
+```
+array<<int fieldId>, array<<string language code>, array<ValidationError>>
+```
