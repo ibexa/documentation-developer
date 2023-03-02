@@ -1,0 +1,16 @@
+{
+    "TaxonomyEntryBulkMove": {
+        "entries": [
+            [
+                entry: 2,
+                sibling: 1,
+                position: 'next'
+            ],
+            [
+                entry: 3,
+                sibling: 1,
+                position: 'prev'
+            ],
+        ]
+    }
+}
