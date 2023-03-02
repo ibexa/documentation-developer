@@ -1,0 +1,21 @@
+get:
+    displayName: Load current User
+    description: Loads the current user.
+    headers:
+        Accept:
+            description: If set, the User is returned in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.User+xml
+                application/vnd.ibexa.api.User+json
+    responses:
+        200:
+            description: OK - the User with the given ID.
+            body:
+                application/vnd.ibexa.api.User+xml:
+                    type: UserList
+                    example: !include examples/user/users/user_id/GET/User.xml.example
+                application/vnd.ibexa.api.User+json:
+                    type: UserList
+                    example: !include examples/user/users/user_id/GET/User.json.example
+        401:
+            description: Error - the user has no permission to read Users. For example, Anonymous user can't load oneself.
