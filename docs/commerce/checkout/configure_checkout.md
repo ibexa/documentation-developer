@@ -47,7 +47,7 @@ The default checkout workflow configuration looks as follows:
 ``` yaml
 framework:
     workflows:
-      workflow: <your_workflow_identifier> #optional, "ibexa_checkout" is used by default
+      <your_workflow_identifier>: #optional, "ibexa_checkout" is used by default
         ibexa_checkout:
             type: state_machine
             audit_trail:
