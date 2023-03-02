@@ -162,10 +162,9 @@ You can now retrieve customer group by implementing the `Ibexa\Contracts\Product
 
 ## v4.3.5
 
-- The `UserService::updateUserPassword` method now throws `ContentFieldValidationException`
-with array format accessible via `ContentFieldValidationException::getFieldErrors`.
-The format of the returned array is:
+- When `UserService::updateUserPassword` method throws `ContentFieldValidationException`,
+it now uses the format accessible via `ContentFieldValidationException::getFieldErrors`:
 
 ```
-array<<int fieldId>, array<<string language code>, array<ValidationError>>
+array<<int fieldId>, array<<string language code>, array<\Ibexa\Contracts\Core\FieldType\ValidationError>>>
 ```
