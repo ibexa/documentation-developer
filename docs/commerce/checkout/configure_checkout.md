@@ -1,5 +1,5 @@
 ---
-description: Configure the default checkouts process and build custom ones.
+description: Configure the default checkout process.
 edition: commerce
 ---
 
