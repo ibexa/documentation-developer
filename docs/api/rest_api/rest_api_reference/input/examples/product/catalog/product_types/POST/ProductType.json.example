@@ -14,9 +14,10 @@
                     "name": "testAttr",
                     "description": "",
                     "type": "Checkbox",
+                    "type_identifier": "checkbox",
                     "group": "Test Attribute group",
                     "position": 0,
-                    "options": ""
+                    "options": []
                 }
             }
         ]

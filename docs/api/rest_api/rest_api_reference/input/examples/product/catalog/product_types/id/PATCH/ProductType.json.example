@@ -14,9 +14,10 @@
                     "name": "Size",
                     "description": "",
                     "type": "Integer",
+                    "type_identifier": "integer",
                     "group": "Hat",
                     "position": 0,
-                    "options": ""
+                    "options": []
                 }
             }
         ]

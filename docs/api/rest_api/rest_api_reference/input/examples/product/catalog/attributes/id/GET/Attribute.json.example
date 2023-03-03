@@ -5,8 +5,9 @@
         "name": "Attrib2",
         "description": "",
         "type": "Checkbox",
+        "type_identifier": "checkbox",
         "group": "Attribute Group Test",
         "position": 0,
-        "options": ""
+        "options": []
     }
 }
