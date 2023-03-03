@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntryAssignmentCollection media-type="application/vnd.ibexa.api.EntryAssignmentCollection+xml">
+    <content media-type="application/vnd.ibexa.api.Content+xml">
+        <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/1" remoteId="9459d3c29e15006e45197295722c7ade" id="1">
+            <ContentType media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ibexa/v2/content/types/1"/>
+            <Name>Ibexa Platform</Name>
+            <TranslatedName>Ibexa Platform</TranslatedName>
+            <Versions media-type="application/vnd.ibexa.api.VersionList+xml" href="/api/ibexa/v2/content/objects/1/versions"/>
+            <CurrentVersion media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/1/currentversion"/>
+            <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ibexa/v2/content/sections/1"/>
+            <Locations media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ibexa/v2/content/objects/1/locations"/>
+            <Owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+            <lastModificationDate>2023-01-01T00:00:00+00:00</lastModificationDate>
+            <publishedDate>2015-11-30T13:10:46+00:00</publishedDate>
+            <mainLanguageCode>eng-GB</mainLanguageCode>
+            <currentVersionNo>10</currentVersionNo>
+            <alwaysAvailable>true</alwaysAvailable>
+            <isHidden>false</isHidden>
+            <status>PUBLISHED</status>
+            <ObjectStates media-type="application/vnd.ibexa.api.ContentObjectStates+xml" href="/api/ibexa/v2/content/objects/1/objectstates"/>
+        </Content>
+    </content>
+    <TaxonomyEntryAssignment media-type="application/vnd.ibexa.api.TaxonomyEntryAssignment+xml">
+        <id>1</id>
+        <content media-type="application/vnd.ibexa.api.Content+xml">
+            <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/1" remoteId="9459d3c29e15006e45197295722c7ade" id="1">
+                <ContentType media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ibexa/v2/content/types/1"/>
+                <Name>Ibexa Platform</Name>
+                <TranslatedName>Ibexa Platform</TranslatedName>
+                <Versions media-type="application/vnd.ibexa.api.VersionList+xml" href="/api/ibexa/v2/content/objects/1/versions"/>
+                <CurrentVersion media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/1/currentversion"/>
+                <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ibexa/v2/content/sections/1"/>
+                <Locations media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ibexa/v2/content/objects/1/locations"/>
+                <Owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+                <lastModificationDate>2023-01-01T00:00:00+00:00</lastModificationDate>
+                <publishedDate>2015-11-30T13:10:46+00:00</publishedDate>
+                <mainLanguageCode>eng-GB</mainLanguageCode>
+                <currentVersionNo>10</currentVersionNo>
+                <alwaysAvailable>true</alwaysAvailable>
+                <isHidden>false</isHidden>
+                <status>PUBLISHED</status>
+                <ObjectStates media-type="application/vnd.ibexa.api.ContentObjectStates+xml" href="/api/ibexa/v2/content/objects/1/objectstates"/>
+            </Content>
+        </content>
+        <entry media-type="application/vnd.ibexa.api.TaxonomyEntry+xml">
+            <TaxonomyEntry media-type="application/vnd.ibexa.api.TaxonomyEntry+xml">
+                <id>3</id>
+                <identifier>example</identifier>
+                <name>Example</name>
+                <contentId>65</contentId>
+                <content media-type="application/vnd.ibexa.api.Content+xml" href="/api/ibexa/v2/content/objects/65"/>
+                <taxonomy>tags</taxonomy>
+            </TaxonomyEntry>
+        </entry>
+    </TaxonomyEntryAssignment>
+</EntryAssignmentCollection>

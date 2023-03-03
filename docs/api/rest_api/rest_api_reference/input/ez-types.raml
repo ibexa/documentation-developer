@@ -2283,6 +2283,12 @@ BasketLinesData:
 PriceResponse:
     type: BaseCommerceResponse
 
+CartSummary:
+    type: object
+
+CartViewInput:
+    type: object
+
 Catalog:
     type: object
 
@@ -2377,6 +2383,14 @@ AttributeViewInput:
     description: ''
 
 AttributeView:
+    type: object
+    description: ''
+
+AttributeType:
+    type: object
+    description: ''
+
+AttributeTypeList:
     type: object
     description: ''
 
@@ -2497,6 +2511,21 @@ ProductTypeList:
     type: object
     description: ''
 
+TaxonomyEntry:
+    type: object
+
+TaxonomyEntryAssignment:
+    type: object
+
+EntryAssignmentCollection:
+    type: object
+
+TaxonomyEntryBulkRemove:
+    type: object
+
+TaxonomyEntryBulkMove:
+    type: object
+
 TaxonomyEntryAssignToContent:
     type: object
     description: ''
@@ -2508,6 +2537,7 @@ TaxonomyEntryUnassignFromContent:
 VatCategoryList:
     type: object
     description: ''
+
 VatCategory:
     type: object
     description: ''

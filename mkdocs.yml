@@ -106,7 +106,7 @@ nav:
             - Back Office tabs:
                 - Back Office tabs:  administration/back_office/back_office_tabs/back_office_tabs.md
                 - Create dashboard tab: administration/back_office/back_office_tabs/create_dashboard_tab.md
-            - Add tab switcher in Content Type: administration/back_office/content_tab_switcher.md
+            - Tab switcher in Content edit page: administration/back_office/content_tab_switcher.md
             - Back Office menus:
                 - Back Office menus: administration/back_office/back_office_menus/back_office_menus.md
                 - Add menu item: administration/back_office/back_office_menus/add_menu_item.md
@@ -588,6 +588,7 @@ nav:
         - Resources: resources/resources.md
         - Release process and roadmap: resources/release_process_and_roadmap.md
         - Ibexa DXP PhpStorm plugin: resources/phpstorm_plugin.md
+        - New in documentation: resources/new_in_doc.md
         - Contributing:
             - Report and follow issues: resources/contributing/report_and_follow_issues.md
             - Contribute translations: resources/contributing/contribute_translations.md
