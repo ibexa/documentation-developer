@@ -296,8 +296,8 @@ nav:
         - Checkout: 
             - Checkout: commerce/checkout/checkout.md
             - Configure checkout: commerce/checkout/configure_checkout.md
+            - Customize checkout: commerce/checkout/customize_checkout.md
             - Checkout API: commerce/checkout/checkout_api.md
-            - Customize Checkout: commerce/checkout/customize_checkout.md
         - Storefront:
             - Storefront: commerce/storefront/storefront.md
             - Configure Storefront: commerce/storefront/configure_storefront.md

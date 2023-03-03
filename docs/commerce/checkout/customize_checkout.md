@@ -157,3 +157,46 @@ ibexa:
 
 To see the results of your work, shut down the application, clear browser cache, and restart the application.
 You should be able to see a single-page checkout applied after you add products to a cart.
+
+## Define custom Address Field Type formats 
+
+To create custom Address Field Type formats to be used in checkout, make the following changes in the project configuration files. 
+
+First, define custom format configuration keys for `billing_address_format` and `shipping_address_format`:
+
+``` yaml 
+ibexa:
+    repositories:
+        <repository_name>:
+            checkout:
+                #coming from Corporate Account, "billing" by default
+                billing_address_format: <custom_billing_fieldtype_address_format> 
+                #coming from Corporate Account, "shipping" by default 
+                shipping_address_format: <custom_shipping_fieldtype_address_format> 
+                #used in registration, uses given shipping/billing addresses to pre-populate address forms in select_address checkout step, "customer" by default
+                customer_content_type: <your_ct_identifier_for_customer> 
+```
+
+Then, define custom address formats, which, for example, do not include the `locality` field:
+
+``` yaml 
+ibexa_field_type_address:
+    formats:
+        <custom_shipping_fieldtype_address_format>:
+            country:
+                default:
+                    - region
+                    - street
+                    - postal_code
+                    - email
+                    - phone_number
+                    
+        <custom_billing_fieldtype_address_format>:
+            country:
+                default:
+                    - region
+                    - street
+                    - postal_code
+                    - email
+                    - phone_number
+```
