@@ -48,20 +48,15 @@ Each mapper implements two methods, by the same name, but accepting different ar
 Mappers can be used on the extension points by registering them with the [service container](php_api.md#service-container) by using service tags, as follows:
 
 - All block documents
-    - `ContentFieldMapper`
-    - `ibexa.solr.field_mapper.block`
+    - `ibexa.search.solr.field.mapper.block`
 - All block documents per translation
-    - `ContentTranslationFieldMapper`
-    - `ibexa.solr.field_mapper.block_translation`
+    - `ibexa.search.solr.field.mapper.block.translation`
 - Content documents
-    - `ContentFieldMapper`
-    - `ibexa.solr.field_mapper.content`
+    - `ibexa.search.solr.field.mapper.content`
 - Content documents per translation
-    - `ContentTranslationFieldMapper`
-    - `ibexa.solr.field_mapper.content_translation`
+    - `ibexa.search.solr.field.mapper.content.translation`
 - Location documents
-    - `LocationFieldMapper`
-    - `Ibexa\Solr\FieldMapper\LocationFieldMapper\Aggregate`
+    - `ibexa.search.solr.field.mapper.location`
 
 The following example shows how you can index data from the parent Location content, 
 to make it available for full-text search on the child content.
