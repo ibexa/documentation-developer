@@ -247,7 +247,6 @@ The Field Types unsupported in eZ Platform are:
 - [XmlText](#321-migrate-xmltext-content-to-richtext)
 - [Page](#322-migrate-page-field-to-page-ez-enterprise-only)
 - Star Rating
-- Matrix
 
 For Field Types which do not have specific procedures below, you must either:
 
