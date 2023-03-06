@@ -247,6 +247,11 @@
     font-family: "Noto Sans", sans-serif;
 }
 
+[dir=ltr] .md-sidebar__inner {
+    padding-right: 0;
+}
+
+
 .md-header__button {
     height: 100%;
 }
