@@ -23,6 +23,7 @@
                             "description": "",
                             "type": "Float",
                             "type_identifier": "float",
+                            "value": 1.5,
                             "group": "test",
                             "position": 0,
                             "options": {
@@ -42,6 +43,7 @@
                             "description": "",
                             "type": "Integer",
                             "type_identifier": "integer",
+                            "value": 5,
                             "group": "test",
                             "position": 0,
                             "options": {

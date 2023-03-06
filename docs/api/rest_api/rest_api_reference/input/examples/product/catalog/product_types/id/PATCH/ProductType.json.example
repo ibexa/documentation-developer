@@ -15,6 +15,7 @@
                     "description": "",
                     "type": "Integer",
                     "type_identifier": "integer",
+                    "value": 5,
                     "group": "Hat",
                     "position": 0,
                     "options": []

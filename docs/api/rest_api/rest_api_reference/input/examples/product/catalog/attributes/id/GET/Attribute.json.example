@@ -6,6 +6,7 @@
         "description": "",
         "type": "Checkbox",
         "type_identifier": "checkbox",
+        "value": true,
         "group": "Attribute Group Test",
         "position": 0,
         "options": []

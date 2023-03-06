@@ -54,6 +54,7 @@
                                     "description": "",
                                     "type": "Color",
                                     "type_identifier": "color",
+                                    "value": "#000000",
                                     "group": "Test Attribute group",
                                     "position": 0,
                                     "options": []

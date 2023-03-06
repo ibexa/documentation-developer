@@ -19,6 +19,7 @@
                         "description": "",
                         "type": "Checkbox",
                         "type_identifier": "checkbox",
+                        "value": true,
                         "group": "Test Attribute group",
                         "position": 0,
                         "options": []
@@ -180,6 +181,7 @@
                 "description": "",
                 "type": "Checkbox",
                 "type_identifier": "checkbox",
+                "value": true,
                 "group": "Test Attribute group",
                 "position": 0,
                 "options": []
@@ -191,6 +193,7 @@
                 "description": "",
                 "type": "Checkbox",
                 "type_identifier": "checkbox",
+                "value": true,
                 "group": "Test Attribute group",
                 "position": 0,
                 "options": []
