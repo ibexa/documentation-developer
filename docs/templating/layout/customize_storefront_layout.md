@@ -67,7 +67,7 @@ The most important templates are:
 |`cart/component/add_to_cart/add_to_cart.html.twig`|"add to cart" element|
 |`cart/component/summary/summary.html.twig`|cart summary|
 
-#### Extend twig template
+#### Extend Twig template
 
 ```html+twig
 {% extends '@IbexaCart/themes/standard/cart/component/minicart/minicart.html.twig' %}
@@ -82,10 +82,10 @@ The most important templates are:
 {% endblock %}
 ```
 
-To avoid self-reference, ``@IbexaCart` is used instead of `@ibexadesign`.
+To avoid self-reference, `@IbexaCart` is used instead of `@ibexadesign`.
 
-Components out-of-the-box are not styled as you can freely customize them according to your needs.
-CSS classes can be easily added like every element from the base Twig which has its own attr object.
+Built-in components are not styled, so you can freely customize them according to your needs.
+You can add CSS classes from the base Twig which has its own `attr` object.
 For example, if you want to add custom CSS classes to quantity input in Add to Cart component, use the following:
 
 ```html+twig
@@ -94,11 +94,11 @@ For example, if you want to add custom CSS classes to quantity input in Add to C
 } %}
 ```
 
-Every element is also inside its own block so that it is easy to override it.
+Every element is also inside its own block so you can override the whole block.
 
 #### Extending JavaScript
 
-In case of the JavaScript component, you should import original class and extend it:
+In case of the JavaScript component, you should import the original class and extend it:
 
 ```js
 import Minicart from '@ibexa-cart/src/bundle/Resources/public/js/component/minicart';
@@ -106,7 +106,7 @@ import Minicart from '@ibexa-cart/src/bundle/Resources/public/js/component/minic
 export default class StorefrontMinicart extends Minicart {}
 ```
 
-The example below shows how to add a clear button support to the maincart:
+The example below shows how to add a "Clear" button support to the maincart:
 
 ```js
 import Maincart from '@ibexa-cart/src/bundle/Resources/public/js/component/maincart';
@@ -132,7 +132,8 @@ export default class StorefrontMaincart extends Maincart {
 
 ### Main cart
 
-The base widget for the main cart view must be customized as out-of-the-box it consists only of the container with items. Each item consists of `<div>` wrappers with quantity input and remove item button. With customization you can add layout containers and items' data such as title, or price.
+You must customize the base widget for the main cart view, because out-of-the-box it consists only of the container with items.
+Each item consists of `<div>` wrappers with quantity input and remove item button. With customization you can add layout containers and items' data such as title or price.
 
 Available Twigs:
 
@@ -140,21 +141,21 @@ Available Twigs:
 
 with parameters:
 
-    - `attr`
-    - `item_template_attr`
-    - `items_container_attr`
-    - `item_template_params`
-    - `item_template_path`
-    - `net_price_template`
+- `attr`
+- `item_template_attr`
+- `items_container_attr`
+- `item_template_params`
+- `item_template_path`
+- `net_price_template`
 
 - `@IbexaCart/themes/standard/cart/component/maincart/maincart_item.html.twig`
 
 with parameters:
 
-    - `cart_entry_quantity`
-    - `item_attr`
-    - `quantity_input_attr`
-    - `remove_item_btn_attr`
+- `cart_entry_quantity`
+- `item_attr`
+- `quantity_input_attr`
+- `remove_item_btn_attr`
 
 JavaScript class:
 
