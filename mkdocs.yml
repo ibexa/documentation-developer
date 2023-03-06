@@ -624,6 +624,7 @@ theme:
     name: material
     features:
         - content.code.annotate 
+        - content.code.copy
         - navigation.tracking
         - navigation.top
         - content.tabs.link
