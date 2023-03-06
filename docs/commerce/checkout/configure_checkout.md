@@ -1,5 +1,5 @@
 ---
-description: Configure the default checkouts process and build custom ones.
+description: Configure the default checkout process.
 edition: commerce
 ---
 
@@ -42,82 +42,25 @@ Each step configuration includes the following settings:
 
 ### Default checkout workflow configuration
 
-The default checkout workflow configuration looks as follows:
+The default checkout workflow configuration looks as follows. `ibexa_checkout` key is used by default, you can replace it with your custom workflow identifier if needed.
 
 ``` yaml
-framework:
-    workflows:
-      workflow: <your_workflow_identifier> #optional, "ibexa_checkout" is used by default
-        ibexa_checkout:
-            type: state_machine
-            audit_trail:
-                enabled: false
-            marking_store:
-                type: method
-                property: status
-            supports:
-                - Ibexa\Contracts\Checkout\Value\CheckoutInterface
-            initial_marking: initialized
-            places:
-                - initialized
-                - address_selected
-                - shipping_selected
-                - summarized
-                - completed
-            transitions:
-                select_address:
-                    from:
-                        - initialized
-                        - address_selected
-                        - shipping_selected
-                        - summarized
-                    to: address_selected
-                    metadata:
-                        next_step: select_shipping
-                        controller: Ibexa\Bundle\Checkout\Controller\CheckoutStep\AddressStepController::renderStepView
-                        label: 'Billing & shipping address'
-                        translation_domain: checkout
-                select_shipping:
-                    from:
-                        - address_selected
-                        - shipping_selected
-                        - summarized
-                    to: shipping_selected
-                    metadata:
-                        next_step: summary
-                        controller: Ibexa\Bundle\Checkout\Controller\CheckoutStep\ShippingStepController::renderStepView
-                        label: 'Shipping & payment method'
-                        translation_domain: checkout
-                summary:
-                    from:
-                        - shipping_selected
-                        - summarized
-                    to: summarized
-                    metadata:
-                        next_step: complete
-                        controller: Ibexa\Bundle\Checkout\Controller\CheckoutStep\SummaryStepController::renderStepView
-                        label: 'Payment & summary'
-                        translation_domain: checkout
-                complete:
-                    from: summarized
-                    to: completed
-                    metadata:
-                        controller: Ibexa\Bundle\Checkout\Controller\CheckoutStep\CompleteStepController::renderCompleteView
-                        label: 'Order confirmation'
-                        translation_domain: checkout
+[[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml')=]]
 ```
 
 ## Configure shipping and payment methods
 
 You can define the shipping and payment methods.
 Under `ibexa.repositories.<repository_name>.checkout`, create entries that resemble 
-the following example:
+the following example.
+If you do not set a value for the `workflow` key, `ibexa_checkout` is used by default.
 
 ``` yaml 
 ibexa:
     repositories:
         <repository_name>:
-            checkout:
+            checkout: 
+            workflow: <workflow_name>
                 shipping_methods:
                     courier:
                         name: "Courier"
