@@ -10,11 +10,11 @@ version: v3.3.2
 
 /content:
     displayName: Managing content
-    /objects: !include ez-content-object.raml
+    /objects: !include ez-content-objects.raml
     /objectstategroups: !include ez-objectstategroups.raml
-    /locations:  !include ez-content-location.raml
+    /locations:  !include ez-content-locations.raml
     /views: !include ez-content-views.raml
-    /sections: !include ez-content-section.raml
+    /sections: !include ez-content-sections.raml
     /trash: !include ez-content-trash.raml
     /urlaliases: !include ez-content-urlaliases.raml
     /urlwildcards: !include ez-content-urlwildcards.raml
@@ -28,6 +28,7 @@ version: v3.3.2
 
 /user:
     displayName: Managing users
+    /current: !include ez-user-current.raml
     /groups: !include ez-user-groups.raml
     /users: !include ez-user-users.raml
     /roles: !include ez-user-roles.raml
@@ -46,6 +47,7 @@ version: v3.3.2
     /catalogs: !include ez-product-catalogs.raml
     /currencies: !include ez-product-currency.raml
     /regions: !include ez-product-regions.raml
+    /attribute_types: !include ez-product-attributetypes.raml
     /attribute_groups: !include ez-product-attributegroups.raml
     /attributes: !include ez-product-attributes.raml
     /customer_groups: !include ez-product-customergroups.raml
@@ -58,5 +60,3 @@ version: v3.3.2
 /taxonomy: !include ez-taxonomy.raml
 
 types: !include ez-types.raml
-
-

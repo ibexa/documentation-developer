@@ -1,0 +1,33 @@
+get:
+    displayName: List Attribute Types
+    description: Lists all Attribute Types.
+    headers:
+        Accept:
+            description: If set, the list is returned in XML or JSON format.
+            example: application/vnd.ibexa.api.AttributeTypeList+json
+    responses:
+        200:
+            description: OK - returns a list of Attribute Types
+            body:
+                application/vnd.ibexa.api.AttributeTypeList+xml:
+                    type: AttributeTypeList
+                application/vnd.ibexa.api.AttributeTypeList+json:
+                    type: AttributeTypeList
+/{identifier}:
+    get:
+        displayName: Get Attribute Type
+        description: Gets an Attribute Type by its identifier.
+        headers:
+            Accept:
+                description: If set, the Attribute Type is returned in XML or JSON format.
+                example: application/vnd.ibexa.api.AttributeType+json
+        responses:
+            200:
+                description: OK - returns the Attribute Type
+                body:
+                    application/vnd.ibexa.api.AttributeType+xml:
+                        type: AttributeType
+                    application/vnd.ibexa.api.AttributeType+json:
+                        type: AttributeType
+            404:
+                description: Error - The Attribute Type does not exist.
