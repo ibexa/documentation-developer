@@ -269,7 +269,7 @@ plugins:
             'guide/user_management/login_and_registration.md': 'users/login_and_registration.md'
             'guide/user_management/oauth.md': 'users/oauth_authentication.md'
             'guide/user_management/login_via_external_service.md': 'users/add_login_through_external_service.md'
-            'guide/user_management/token.md': 'users/token.md'
+            'guide/user_management/token.md': 'users/users.md'
             'users/token.md': 'users/users.md'
             'guide/customers/customers.md': 'users/users.md'
             'users/customers/customers.md': 'users/users.md'
