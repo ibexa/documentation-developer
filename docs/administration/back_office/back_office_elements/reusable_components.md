@@ -208,7 +208,7 @@ The following example shows how to render both text and hyperlink which redirect
 See the example below to learn how to create an action button which removes the article in the table.
 The table component has to be wrapped into the remove article form.
 
-As in many cases we want a button to be disabled when no item in a table is selected and enabled otherwise, we have a built-in mechanism for this. 
+As in many cases you want a button to be disabled when no item in a table is selected and enabled otherwise, there is a built-in mechanism for this. 
 To enable it you need to add the `ibexa-toggle-btn-state` CSS class to the form element alongside `data-toggle-button-id` data-attribute which holds the id of the button which should be enabled/disabled after a checkbox state change.
 
 Next, pass a button under the `action` parameter to the table headline.
@@ -283,7 +283,7 @@ Other table component parameters include:
 - `attr` - (other HTML attributes applied on the HTML table element), for example:
     - `attr: { 'data-some-data-attribute-you-need': 'foo' }`
 - `table_body_class` and `table_body_attr` are the same as mentioned earlier, but applied on the table element
-- `show_head_cols_if_empty` - (default: `false`), by default, when `body_rows` is empty, the table component does not show the table header, but we may want to have it because for example rows are rendered dynamically with JavaScript on the browser side.
+- `show_head_cols_if_empty` - (default: `false`), by default, when `body_rows` is empty, the table component does not show the table header, but you may want to have it because for example rows are rendered dynamically with JavaScript on the browser side.
 
 To avoid wrapping headline inside the form, as it's done in the earlier example, you can `embed` table and override the `between_header_and_table` block:
 
