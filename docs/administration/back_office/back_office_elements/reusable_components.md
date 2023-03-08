@@ -208,16 +208,15 @@ The following example shows how to render both text and hyperlink which redirect
 See the example below to learn how to create an action button which removes the article in the table.
 The table component has to be wrapped into the remove article form.
 
-Adding the `ibexa-toggle-btn-state` CSS class to the form with the id from this `data-toggle-button-id` 
-causes the button with the assigned id is enabled whenever any checkbox is selected.
+As in many cases we want a button to be disabled when no item in a table is selected and enabled otherwise, we have a built-in mechanism for this. 
+To enable it you need to add the `ibexa-toggle-btn-state` CSS class to the form element alongside `data-toggle-button-id` data-attribute which holds the id of the button which should be enabled/disabled after a checkbox state change.
 
-This is a built-in mechanism, you have to tell the system to render the button, make it disabled by default. 
-Next, pass it under the `action` parameter to the table headline.
+Next, pass a button under the `action` parameter to the table headline.
 
 Action buttons are rendered on the right side of the table headline (do not confuse it with the table header).
-You can also specify the table headline element with table title above it.
+You can also specify headline text, which is a table title displayed above, by passing it under `headline` parameter. 
 
-You can set headline title using the `results_headline` macro, and generate different headlines based on parameters:
+You can generate various headline texts using the `results_headline` macro with a few parameters:
 
 - `count` - of all results, not only displayed on the first page
 - `has_filters` - when using filters
@@ -230,7 +229,9 @@ For table header there are the following column types:
 - normal content column `{ content: col_name }` (content is the title of the column)
 - icon column `{ has_icon: true }`
 - checkbox column `{ has_checkbox: true }`
-- action buttons column ` {  }` with additional parameters available for all of the objects mentioned earlier:
+- action buttons column `{  }` 
+
+with additional parameters available for all of the objects mentioned earlier:
  
     - class (CSS class)
     - attr (HTML attributes)
@@ -282,7 +283,7 @@ Other table component parameters include:
 - `attr` - (other HTML attributes applied on the HTML table element), for example:
     - `attr: { 'data-some-data-attribute-you-need': 'foo' }`
 - `table_body_class` and `table_body_attr` are the same as mentioned earlier, but applied on the table element
-- `show_head_cols_if_empty` - (default: `false`), by default, when `body_rows` is empty, the table component does not show the table header,it can be useful, for example, when rows are rendered dynamically with JavaScript on the browser side.
+- `show_head_cols_if_empty` - (default: `false`), by default, when `body_rows` is empty, the table component does not show the table header, but we may want to have it because for example rows are rendered dynamically with JavaScript on the browser side.
 
 To avoid wrapping headline inside the form, as it's done in the earlier example, you can `embed` table and override the `between_header_and_table` block:
 
