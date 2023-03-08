@@ -92,7 +92,7 @@ For example, to add variant selectors, you have to [extend the Twig and JavaScri
 #### Minicart
 
 By default, the Minicart component consists of a counter that displays a total number of cart items with `div` wrappers.
-The Minicart icon, titles and other [elements](customize_storefront_layout.md#mini-cart) must be customized for individual projects.
+The Minicart icon, titles and other [elements](customize_storefront_layout.md#mini-cart) can be customized for individual projects.
 
 #### Cart summary 
 
@@ -124,7 +124,7 @@ document.body.addEventListener(
 The Cart package provides `Ibexa\Contracts\Cart\CartServiceInterface` Symfony service, 
 which is the entrypoint for calling the [backend API](cart_api.md).
 
-You can import services using the following code:
+You can import service using the following code:
 
 ```js
 import * as cartService from '@ibexa-cart/src/bundle/Resources/public/js/service/cart';
@@ -159,7 +159,7 @@ new Cart();
 
 ### Change request before sending
 
-Before the request `ibexa-cart:prepare-request` is sent, an event is triggered on `document`, so you can interchange request objects:
+Before every request is sent by `cartService`, the `ibexa-cart:prepare-request` event is triggered on `document`, so you can change request object by assigning a new one to `detail.request`:
 
 ```js
 document.addEventListener(
