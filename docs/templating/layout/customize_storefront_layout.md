@@ -130,6 +130,8 @@ export default class StorefrontMaincart extends Maincart {
 }
 ```
 
+Next, add the button in the Twig file.
+
 ### Main cart
 
 You must customize the base widget for the main cart view, because out-of-the-box it consists only of the container with items.
@@ -180,7 +182,7 @@ JavaScript class:
 - `@ibexa-cart/src/bundle/Resources/public/js/component/summary`
 
 
-### Mini cart
+### Minicart
 
 Available Twig:
 

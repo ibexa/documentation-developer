@@ -136,7 +136,7 @@ Use the the service in your code as follows:
 cartService.deleteCartEntry(cartIdentifier, entryIdentifier);
 ```
 
-Every cart service function returns a Promise with a parsed response.
+Every cart service function returns a `Promise` with a parsed response.
 When the request is not `OK`, it can throw an error with the response `statusText`.
 
 - `loadUserCarts(ownerId)` - loads 10 user carts
