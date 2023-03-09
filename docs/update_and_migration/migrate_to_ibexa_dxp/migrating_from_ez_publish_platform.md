@@ -248,10 +248,10 @@ The Field Types unsupported in eZ Platform are:
 - [Page](#322-migrate-page-field-to-page-ez-enterprise-only)
 - Star Rating
 
-For Field Types which do not have specific procedures below, you must either:
+For Field Types which do not have specific procedures below, you must take one of the following actions:
 
-- implement them yourself in eZ Platform, or
-- remove them from all Content Types that use them.
+- implement them yourself in eZ Platform
+- remove them from all Content Types that use them
 
 !!! tip
 
@@ -261,49 +261,6 @@ For Field Types which do not have specific procedures below, you must either:
     ``` sql
     select contentclass_id from ezcontentclass_attribute where data_type_string='ezsrrating' group by contentclass_id;
     ```
-
-??? tip "`defaultLayout` setting not available"
-
-    If you want to remove a Page Field from your Content Type definition, you can encounter an issue
-    where the **Default layout** dropdown is disabled with an "Layout '' for setting 'defaultLayout' is not available" error message.
-    
-    If this happens, add the following configuration to `app/config/ezplatform.yml`:
-
-    ``` yaml
-    ezpublish:
-        system:
-            global:
-                ezpage:
-                    layouts:
-                        GlobalZoneLayout:
-                            name: Global zone layout
-                            template: globalzonelayout.tpl
-                        2ZonesLayout1:
-                            name: 2 zones (layout 1)
-                            template: 2zoneslayout1.tpl
-                        2ZonesLayout2:
-                            name: 2 zones (layout 2)
-                            template: 2zoneslayout2.tpl
-                        2ZonesLayout3:
-                            name: 2 zones (layout 3)
-                            template: 2zoneslayout3.tpl
-                        3ZonesLayout1:
-                            name: 3 zones (layout 1)
-                            template: 3zoneslayout1.tpl
-                        3ZonesLayout2:
-                            name: 3 zones (layout 2)
-                            template: 3zoneslayout2.tpl
-                        CallForActionLayout:
-                            name: Call For Action zone layout
-                            template: callforactionlayout.tpl
-    ```
-
-    Clear and refresh the page, which should activate the dropdown.
-    Select any option in the dropdown and save the Content Type.
-
-    You should now be able to remove the Field definition from the Content Type.
-
-    Afterwards, you can remove the configuration above from `ezplatform.yml`.
 
 #### 3.2.1 Migrate XmlText content to RichText
 
