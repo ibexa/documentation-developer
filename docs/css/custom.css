@@ -248,6 +248,7 @@ ul li li li {
 .md-typeset :is(.admonition,details):is(.tip,.note,.enterprise)
 {
     border: 0.1rem solid var(--note-border);
+    border-radius: 0.1rem;
 }
 
 .md-typeset :is(.admonition,details):is(.tip,.note,.enterprise)>:is(.admonition-title,summary) {
@@ -281,7 +282,6 @@ ul li li li {
 .md-typeset details.tip, .md-typeset details.tip>summary,
 .md-typeset details.note, .md-typeset details.note>summary,
 .md-typeset .admonition.caution>.admonition-title {
-    background-color: #ffffff;
     border-color: var(--caution-border);    
 }
 
