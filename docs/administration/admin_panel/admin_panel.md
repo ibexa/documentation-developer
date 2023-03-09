@@ -8,14 +8,14 @@ Once you set up your environment you can start your work as an administrator.
 Your most useful tools can be found in **Admin Panel**.
 
 [[= cards([
-    "administration/admin_panel/users",
-    "administration/admin_panel/roles",
-    "administration/admin_panel/url_management",
-    "administration/admin_panel/languages",
-    "administration/admin_panel/segments",
-    "administration/admin_panel/corporate",
-    "administration/admin_panel/workflow",
-    "administration/admin_panel/system_information",
+    "administration/admin_panel/users_admin_panel",
+    "administration/admin_panel/roles_admin_panel",
+    "administration/admin_panel/url_management_admin_panel",
+    "administration/admin_panel/languages_admin_panel",
+    "administration/admin_panel/segments_admin_panel",
+    "administration/admin_panel/corporate_admin_panel",
+    "administration/admin_panel/workflow_admin_panel",
+    "administration/admin_panel/system_information_admin_panel",
 ], columns=4) =]]
 
 ![Admin Panel](admin_panel.png "Admin Panel")
