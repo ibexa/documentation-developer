@@ -1,3 +1,4 @@
+{# https://docs.phpdoc.org/guide/features/theming/custom-styling.html#adding-your-own-overrides #}
 :root {
     --primary-color-hue: 355;
     --primary-color-saturation: 70%;
@@ -5,4 +6,9 @@
 
 .phpdocumentor-table-of-contents .phpdocumentor-table-of-contents__entry:before {
     background: transparent url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="%23AE1164"/></svg>') no-repeat center center;
+}
+
+.phpdocumentor-title__link img {
+    width: 100%;
+    max-width: 40px;
 }
