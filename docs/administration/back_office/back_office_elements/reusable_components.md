@@ -209,7 +209,8 @@ See the example below to learn how to create an action button which removes the 
 The table component has to be wrapped into the remove article form.
 
 As in many cases you want a button to be disabled when no item in a table is selected and enabled otherwise, there is a built-in mechanism for this. 
-To enable it you need to add the `ibexa-toggle-btn-state` CSS class to the form element alongside `data-toggle-button-id` data-attribute which holds the id of the button which should be enabled/disabled after a checkbox state change.
+To enable it you need to add the `ibexa-toggle-btn-state` CSS class to the form element alongside `data-toggle-button-id` data-attribute
+which holds the id of the button that should be enabled/disabled after a checkbox state change.
 
 Next, pass a button under the `action` parameter to the table headline.
 
@@ -224,14 +225,14 @@ You can generate various headline texts using the `results_headline` macro with 
 - `results_headline` - ensures the headlines consistency across the platform
 - `head_cols` - an array for table header (not headline), corresponds with consecutive column
 
-For table header there are the following column types:
+Column types available for the table header :
 
 - normal content column `{ content: col_name }` (content is the title of the column)
 - icon column `{ has_icon: true }`
 - checkbox column `{ has_checkbox: true }`
 - action buttons column `{  }` 
 
-with additional parameters available for all of the objects mentioned earlier:
+Additional parameters available for all of the objects mentioned earlier:
  
     - class (CSS class)
     - attr (HTML attributes)
@@ -296,13 +297,10 @@ To avoid wrapping headline inside the form, as it's done in the earlier example,
 {% endblock %}
 ```
 
-This method is useful in case of another form inside headline actions or to avoid interferences with the form like button triggering its sumbmission.
+This method is useful in case of another form inside headline actions or to avoid interferences with the form like button triggering its submission.
 
 By default, tables are wrapped in a scrollable wrapper which prevents them from being too long.
 To disable it, set the `is_scrollable` parameter to `false`.
-
-
-
 !!! tip
 
     For an example of using the table component, see [Add menu item](add_menu_item.md).
