@@ -16,12 +16,10 @@
     <div class="md-header__switcher">
       {% include "partials/version_switcher.html" %}
     </div>
-    {% if "search" in config["plugins"] %}
-      <label class="md-header__button md-icon" for="__search">
+    <label class="md-header__button md-icon" for="__search">
         {% include ".icons/material/magnify.svg" %}
-      </label>
-      {% include "partials/search.html" %}
-    {% endif %}
+    </label>
+    {% include "partials/search.html" %}
     {% if config.repo_url %}
       <div class="md-header__source">
         {% include "partials/source.html" %}
