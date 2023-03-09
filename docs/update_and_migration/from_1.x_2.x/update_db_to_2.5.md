@@ -940,7 +940,7 @@ CREATE INDEX idx_workflow_name ON ezeditorialworkflow_workflows(workflow_name);
                             template: callforactionlayout.tpl
     ```
 
-    Clear the cache and refresh the page. The the dropdown should now be active.
+    Clear the cache and refresh the page. The dropdown should now be active.
     Select any option in the dropdown and save the Content Type.
 
     You should now be able to remove the Field definition from the Content Type.
