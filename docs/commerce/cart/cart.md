@@ -19,7 +19,7 @@ The component exposes the following:
 There is no specific configuration related to the cart component.
 All configuration is done at the checkout and storefront level.
 
-Cart constructor takes the following argument:
+Cart constructor takes the following arguments:
 
 - `userId` - by default, read from the header's meta element with `name="UserId"`, where variable type must be integer
 - `currencyCode` - by default, read from the header's meta element with `name="ActiveCurrencyCode"`
@@ -124,19 +124,19 @@ document.body.addEventListener(
 The Cart package provides `Ibexa\Contracts\Cart\CartServiceInterface` Symfony service, 
 which is the entrypoint for calling the [backend API](cart_api.md).
 
-You can import service using the following code:
+You can import the service using the following code:
 
 ```js
 import * as cartService from '@ibexa-cart/src/bundle/Resources/public/js/service/cart';
 ```
 
-Use the the service in your code as follows:
+Use the service in your code as follows:
 
 ```js
 cartService.deleteCartEntry(cartIdentifier, entryIdentifier);
 ```
 
-Every cart service function returns a `Promise` with a parsed response.
+Every cart service function returns a `Promise` object with a parsed response.
 When the request is not `OK`, it can throw an error with the response `statusText`.
 
 - `loadUserCarts(ownerId)` - loads 10 user carts
