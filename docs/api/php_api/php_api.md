@@ -26,27 +26,27 @@ Those services are obtained using `get[ServiceName]()` methods: `getContentServi
 The full list of available services covers:
 
 - CompanyService
-- [ContentService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php)
-- [ContentTypeService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentTypeService.php)
-- [FieldTypeService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/FieldTypeService.php)
-- [InvitationService](https://github.com/ibexa/user/blob/main/src/contracts/Invitation/InvitationService.php)
-- [LanguageService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LanguageService.php)
-- [LocationService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php)
-- MemberService
-- [NotificationService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/NotificationService.php)
-- [ObjectStateService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ObjectStateService.php)
-- [RoleService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/RoleService.php)
-- [SearchService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SearchService.php)
-- [SectionService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SectionService.php)
-- ShippingAddressService
-- TaxonomyService
-- [TranslationService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/TranslationService.php)
-- [TrashService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/TrashService.php)
-- [URLAliasService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/URLAliasService.php)
-- [URLService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/URLService.php)
-- [URLWildcardService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/URLWildcardService.php)
-- [UserPreferenceService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/UserPreferenceService.php)
-- [UserService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/UserService.php)
+- [ContentService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html)
+- [ContentTypeService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentTypeService.html)
+- [FieldTypeService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-FieldTypeService.html)
+- [InvitationService](php_api_reference/classes/Ibexa-Contracts-User-Invitation-InvitationService.html)
+- [LanguageService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-LanguageService.html)
+- [LocationService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html)
+- [MemberService](php_api_reference/classes/Ibexa-Contracts-CorporateAccount-Service-MemberService.html)
+- [NotificationService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-NotificationService.html)
+- [ObjectStateService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-ObjectStateService.html)
+- [RoleService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-RoleService.html)
+- [SearchService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html)
+- [SectionService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-SectionService.html)
+- [ShippingAddressService](php_api_reference/classes/Ibexa-Contracts-CorporateAccount-Service-ShippingAddressService.html)
+- [TaxonomyService](php_api_reference/classes/Ibexa-Contracts-Taxonomy-Service-TaxonomyServiceInterface.html)
+- [TranslationService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-TranslationService.html)
+- [TrashService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-TrashService.html)
+- [URLAliasService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-URLAliasService.html)
+- [URLService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-URLService.html)
+- [URLWildcardService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-URLWildcardService.html)
+- [UserPreferenceService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-UserPreferenceService.html)
+- [UserService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-UserService.html)
 
 ## Value objects
 
