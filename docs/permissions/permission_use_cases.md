@@ -248,15 +248,17 @@ or prevent them access to individual components.
 
 Out of the box, [[= product_name_com =]] comes with the *Storefront User* Role that is assigned to anonymous users and grants them the following permissions:
 
-- `product/view`, `product_type/view` and `catalog/view`, to allow them viewing a product 
+- `product/view`, `product_type/view` and `catalog/view`, to allow them to view a product 
 list and product details
-- `cart/view`, `cart/create` and `cart/edit` with the `CartOwner` Limitation set to `self`, to allow them adding items to their own shopping cart, modifying their cart, and deleting it
+- `cart/view`, `cart/create` and `cart/edit` with the `CartOwner` Limitation set to `self`, to allow them to add items to their own shopping cart, modify their cart, and delete it
 - `checkout/view`, `checkout/create`, `checkout/update` and `checkout/delete`, to allow 
-them proceeding to checkout and interacting with the checkout process
+them to proceed to checkout and interact with the checkout process
 
-You can modify the default Roles by preventing anonymous users from being able to proceed with the checkout process, and creating the *Registered Buyer* Role that enables logged-in users to purchase products. 
+You can modify the default Roles by preventing anonymous users from being able to proceed with the checkout process,
+and creating the *Registered Buyer* Role that enables logged-in users to purchase products. 
 
-You could do this by moving permissions that relate to checkout from the *Storefront User* Role to the *Registered Buyer* Role, as well granting the latter with the `user/register` and `user/login` permissions which control access to registration and login.
+You could do this by moving permissions that relate to checkout from the *Storefront User* Role to the *Registered Buyer* Role,
+and granting *Registered Buyer* with the `user/register` and `user/login` permissions which control access to registration and login.
 
 See below for a detailed listing of permissions that apply to Commerce, together 
 with their meaning.
