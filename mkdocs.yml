@@ -618,6 +618,7 @@ theme:
     name: material
     features:
         - content.code.annotate 
+        - content.code.copy
         - navigation.tracking
         - navigation.top
         - content.tabs.link
@@ -675,9 +676,6 @@ extra_javascript:
   - js/jquery-ui.min.js
   - js/custom.js
   - js/docs.switcher.js
-  - js/ez-guidelines-switchers.js
-  - js/ez-guidelines-modals.js
-  - js/ez-guidelines-tooltips.js
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
 
 markdown_extensions:
