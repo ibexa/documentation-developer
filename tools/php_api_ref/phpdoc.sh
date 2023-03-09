@@ -1,9 +1,10 @@
 AUTH_JSON=$1;
 OUTPUT_DIR=$2;
 
-FLAVOR=commerce;
+FLAVOR='commerce';
 VERSION='4.4.*';
 TMP_DXP_DIR=/tmp/ibexa-dxp-phpdoc;
+PHPDOC_CONF="$(pwd)/tools/php_api_ref/.phpdoc";
 if [ -z "$OUPUT_DIR" ]; then
   OUTPUT_DIR="$(pwd)/docs/api/php_api/php_api_reference";
 fi;
@@ -17,7 +18,7 @@ if [ -n "$AUTH_JSON" ]; then
   cp $AUTH_JSON ./;
 fi;
 composer install --no-interaction --ignore-platform-reqs --no-scripts;
-
+cp -R $PHPDOC_CONF ./;
 curl -LO "https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.3.1/phpDocumentor.phar";
 php phpDocumentor.phar -t $OUTPUT_DIR -d ./vendor/ibexa/ -d ./vendor/ezsystems/ -d ./vendor/silversolutions/ -i tests/;
 
