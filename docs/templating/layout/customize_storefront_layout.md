@@ -15,7 +15,7 @@ To override any of them, copy its directory structure in your template directory
 ## Template customization example
 
 As an example, to change the cart display when it contains no products,
-you need to override [`vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart_empty_cart.html.twig`](https://github.com/ibexa/storefront/blob/4.4.0/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart_empty_cart.html.twig) template.
+you need to override [`vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart_empty_cart.html.twig`](https://github.com/ibexa/storefront/blob/main/src/bundle/Resources/views/themes/storefront/cart/component/maincart/maincart_empty_cart.html.twig) template.
 
 To do it, create your own template in `templates/theme/storefront/cart/component/maincart/maincart_empty_cart.html.twig`.
 
@@ -67,6 +67,133 @@ The most important templates are:
 |`cart/component/add_to_cart/add_to_cart.html.twig`|"add to cart" element|
 |`cart/component/summary/summary.html.twig`|cart summary|
 
+#### Extend Twig template
+
+```html+twig
+{% extends '@IbexaCart/themes/standard/cart/component/minicart/minicart.html.twig' %}
+
+{% block content %}
+    <img
+        class="ibexa-store-minicart__image"
+        src="{{ asset('bundles/ibexastorefront/img/icons/cart.svg') }}"
+        alt="{{ 'minicart.icon.alt'|trans|desc('Cart') }}"
+    />
+    {{ parent() }}
+{% endblock %}
+```
+
+To avoid self-reference, `@IbexaCart` is used instead of `@ibexadesign`.
+
+Built-in components are not styled, so you can freely customize them according to your needs.
+You can add CSS classes to the base Twig using attributes' objects.
+For example, if you want to add custom CSS classes to quantity input in Add to Cart component, use the following:
+
+```html+twig
+{% set quantity_input_attr = {
+    class: 'ibexa-store-input ibexa-store-input--number ibexa-store-add-to-cart__quantity-input',
+} %}
+```
+
+Every element is also inside its own block so you can override the whole block.
+
+#### Extending JavaScript
+
+In case of the JavaScript component, you should import the original class and extend it:
+
+```js
+import Minicart from '@ibexa-cart/src/bundle/Resources/public/js/component/minicart';
+
+export default class StorefrontMinicart extends Minicart {}
+```
+
+The example below shows how to add a "Clear" button support to the maincart:
+
+```js
+import Maincart from '@ibexa-cart/src/bundle/Resources/public/js/component/maincart';
+
+export default class StorefrontMaincart extends Maincart {
+    constructor(options) {
+        super(options);
+
+        this.clearCartBtn = this.container.querySelector('.ibexa-store-maincart__clear-cart-btn');
+
+        this.onCartClear = this.onCartClear.bind(this);
+    }
+
+    attachStorefrontMaincartListeners() {
+        this.clearCartBtn.addEventListener('click', this.onCartClear, false);
+    }
+
+    onCartClear() {
+        this.cart.empty();
+    }
+}
+```
+
+Next, add the button in the Twig file.
+
+### Main cart
+
+You must customize the base widget for the main cart view, because out-of-the-box it consists only of the container with items.
+Each item consists of `<div>` wrappers with quantity input and remove item button. With customization you can add layout containers and items' data such as title or price.
+
+Available Twigs:
+
+- `@IbexaCart/themes/standard/cart/component/maincart/maincart.html.twig`
+
+with parameters:
+
+- `attr`
+- `item_template_attr`
+- `items_container_attr`
+- `item_template_params`
+- `item_template_path`
+- `net_price_template`
+
+- `@IbexaCart/themes/standard/cart/component/maincart/maincart_item.html.twig`
+
+with parameters:
+
+- `cart_entry_quantity`
+- `item_attr`
+- `quantity_input_attr`
+- `remove_item_btn_attr`
+
+JavaScript class:
+
+- `@ibexa-cart/src/bundle/Resources/public/js/component/maincart`
+
+### Add to Cart
+
+Available Twig:
+
+- `@IbexaCart/themes/standard/cart/component/add_to_cart/add_to_cart.html.twig`
+
+with parameters:
+
+    - `is_disabled`
+    - `attr`
+    - `product_code`
+    - `quantity_input_attr`
+    - `add_to_cart_btn_attr`
+
+JavaScript class:
+
+- `@ibexa-cart/src/bundle/Resources/public/js/component/summary`
+
+
+### Minicart
+
+Available Twig:
+
+- `@IbexaCart/themes/standard/cart/component/minicart/minicart.html.twig`
+
+with parameters:
+
+    - `count`
+    - `attr`
+    - `counter_attr`
+
 ### Checkout
 
 |Template|Component|
@@ -78,3 +205,12 @@ The most important templates are:
 !!! tip
 
     For templates related to product rendering, see [Customize product view](customize_product_view.md#available-templates).
+
+
+### Summary
+
+|Template|Component|
+|---|---|
+|`cart/component/summary/summary.html.twig`|main summary layout|
+|`cart/component/summary/summary_item.html.twig`|item summary layout|
+
