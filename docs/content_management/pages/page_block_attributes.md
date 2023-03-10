@@ -5,6 +5,9 @@ description: Page blocks can contain multiple attributes, of both built-in and c
 # Page block attributes
 
 A block has attributes that the editor fills in when adding th block to a Page.
+
+[[% include 'snippets/page_block_cache_clear.md' %]]
+
 Each block can have the following properties:
 
 |Attribute|Description|
