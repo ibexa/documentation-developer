@@ -15,7 +15,7 @@ Your most useful tools can be found in **Admin Panel**.
     "administration/admin_panel/segments_admin_panel",
     "administration/admin_panel/corporate_admin_panel",
     "administration/admin_panel/workflow_admin_panel",
-    "administration/admin_panel/system_information_admin_panel",
+    "administration/admin_panel/system_information_admin_panel",                
 ], columns=4) =]]
 
 ![Admin Panel](admin_panel.png "Admin Panel")
