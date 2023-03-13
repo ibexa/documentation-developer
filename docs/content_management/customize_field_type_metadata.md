@@ -8,7 +8,7 @@ When creating a Content Type definition, you add Fields and configure their meta
 such as whether they are required, translatable, and so on.
 
 If needed, you can customize that some of those options are disabled in the Back Office for specific Field Types.
-You do this by listening to `ModifyFieldDefinitionFieldsSubscriber`.
+You do this by adding custom service definition for `ModifyFieldDefinitionsCollectionTypeExtension` 
 
 For example, this configuration means that no Image Field can be set as required in the definition of a Content Type:
 
