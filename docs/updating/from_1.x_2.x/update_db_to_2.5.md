@@ -904,6 +904,50 @@ CREATE INDEX idx_workflow_name ON ezeditorialworkflow_workflows(workflow_name);
 
 [[% include 'snippets/update/notify_support.md' %]]
 
+??? tip "`defaultLayout` setting not available"
+
+    If you migrated you installation from eZ Publish Platform,
+    in Page Builder you can encounter an issue where the **Default layout** dropdown is disabled
+    with a "Layout '' for setting 'defaultLayout' is not available" error message.
+    
+    If this happens, add the following temporary configuration to `app/config/ezplatform.yml`:
+
+    ``` yaml
+    ezpublish:
+        system:
+            global:
+                ezpage:
+                    layouts:
+                        GlobalZoneLayout:
+                            name: Global zone layout
+                            template: globalzonelayout.tpl
+                        2ZonesLayout1:
+                            name: 2 zones (layout 1)
+                            template: 2zoneslayout1.tpl
+                        2ZonesLayout2:
+                            name: 2 zones (layout 2)
+                            template: 2zoneslayout2.tpl
+                        2ZonesLayout3:
+                            name: 2 zones (layout 3)
+                            template: 2zoneslayout3.tpl
+                        3ZonesLayout1:
+                            name: 3 zones (layout 1)
+                            template: 3zoneslayout1.tpl
+                        3ZonesLayout2:
+                            name: 3 zones (layout 2)
+                            template: 3zoneslayout2.tpl
+                        CallForActionLayout:
+                            name: Call For Action zone layout
+                            template: callforactionlayout.tpl
+    ```
+
+    Clear the cache and refresh the page. The dropdown should now be active.
+    Select any option in the dropdown and save the Content Type.
+
+    You should now be able to remove the Field definition from the Content Type.
+
+    Afterwards, you can remove the configuration above from `ezplatform.yml`.
+
 ## Update to v3.3
 
 It is strongly recommended to also [update to the latest LTS, v3.3](../from_2.5/update_from_2.5.md).
