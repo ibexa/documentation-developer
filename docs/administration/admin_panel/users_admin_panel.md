@@ -1,5 +1,5 @@
 ---
-description: Users
+description: All User Groups and Users can be accessed in the Users tab.
 ---
 
 # Users

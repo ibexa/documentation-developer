@@ -1,5 +1,5 @@
 ---
-description: System information
+description: System information provides basic system information such as versions of all installed packages.
 ---
 
 # System Information

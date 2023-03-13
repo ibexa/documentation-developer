@@ -95,6 +95,10 @@ nav:
             - Corporate: administration/admin_panel/corporate_admin_panel.md
             - Workflow: administration/admin_panel/workflow_admin_panel.md
             - System Information: administration/admin_panel/system_information_admin_panel.md
+        - Content organization:
+            - Sections: administration/content_organization/sections.md
+            - Content Types: administration/content_organization/content_types.md
+            - Object States: administration/content_organization/object_states.md
         - Configuration:
             - Configuration: administration/configuration/configuration.md
             - Dynamic configuration: administration/configuration/dynamic_configuration.md

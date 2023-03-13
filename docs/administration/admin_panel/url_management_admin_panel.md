@@ -1,5 +1,5 @@
 ---
-description: URL
+description: URL Management let you manage external URL addresses and URL wildcards.
 ---
 
 # URL Management

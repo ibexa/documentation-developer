@@ -1,5 +1,5 @@
 ---
-description: Workflow
+description: The workflow functionality passes a Content item version through a series of stages.
 ---
 
 # Workflow

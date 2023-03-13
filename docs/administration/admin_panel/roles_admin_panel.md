@@ -1,5 +1,5 @@
 ---
-description: Roles
+description: To give users an access to your website you need to assign them Roles in the Admin Panel.
 ---
 
 # Roles

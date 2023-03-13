@@ -1,12 +1,12 @@
 ---
-description: Languages
+description: Ibexa DXP offers the ability to create multiple translations of your website.
 ---
 
 # Languages
 
 [[= product_name =]] offers the ability to create multiple translations of your website.
 Which version is shown to a visitor depends on the way your installation is set up.
-A new language version for the website can be added in the Admin Panel in the Languages tab.
+A new language version for the website can be added in the [Admin Panel](admin_panel.md) in the Languages] tab.
 Every new language must have a name and a language code, written in the `xxx-XX` format, for example `eng-GB` etc.
 
 ![Languages](admin_panel_languages.png "Languages")

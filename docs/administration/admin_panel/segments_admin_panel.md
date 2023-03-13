@@ -1,5 +1,5 @@
 ---
-description: Segments
+description: You can use Segments to display specific content to specific Users.
 ---
 
 # Segments
