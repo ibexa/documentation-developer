@@ -7,7 +7,7 @@ description: Ibexa DXP Back Office contains managements options for permissions,
 Once you set up your environment you can start your work as an administrator.
 Your most useful tools can be found in **Admin Panel**.
 
-To access Admin Panel, click the icon: ![Admin Panel Icon](admin_panel_icon.png "Admin Panel").
+To access Admin Panel, click the icon: ![Admin Panel Icon](admin_panel_icon.png){.inline-image}.
 
 [[= cards([
     "administration/admin_panel/users_admin_panel",

@@ -4,7 +4,7 @@ description: You can use Segments to display specific content to specific Users.
 
 # Segments
 
-You can use Segments to display specific content to specific Users.
+You can use Segments to display specific content to specific [Users](users.md).
 They are used out of the box in the Targeting and Dynamic targeting blocks in the Page.
 
 Segments are collected in Segment Groups:
