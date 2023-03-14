@@ -14,7 +14,7 @@ use Ibexa\Contracts\OrderManagement\Value\OrderUpdateStruct;
 use Ibexa\Contracts\Security\Permission\PermissionResolver;
 use Ibexa\Contracts\Security\User\UserService;
 
-private class OrderCommand extends Command 
+final class OrderCommand extends Command 
 {
     private PermissionResolver $permissionResolver;
 
@@ -56,12 +56,6 @@ private class OrderCommand extends Command
 
         $output->writeln(sprintf('Order %d has status %s', $orderId, $order->getStatus()));
 
-        // Query for orders
-        $orderQuery = 'status:pending';
-        $orders = $this->orderService->findOrders($orderQuery);
-        
-        $output->writeln(sprintf('Found %d orders with status pending', count($orders)));
-
         // Create order
         $orderCreateStruct = new OrderCreateStruct();
 
@@ -76,6 +70,13 @@ private class OrderCommand extends Command
         $orderUpdateStruct->setStatus('processed');
         $this->orderService->updateOrder($order, $orderUpdateStruct);
         
-        $output->writeln(sprintf('Updated order to status %s', $order->getStatus()));
-    }
+        $output->writeln(sprintf('Changed order status to %s', $order->getStatus()));
+
+        // Query for orders
+        $orderQuery = 'status:pending';
+        $orders = $this->orderService->findOrders($orderQuery);
+     
+        $output->writeln(sprintf('Found %d orders with status pending', count($orders)));
+
+}
 }

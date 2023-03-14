@@ -18,19 +18,15 @@ To get orders and manage them, use the `Ibexa\Contracts\OrderManagement\OrderSer
 To access a single order by using its string identifier, use the `OrderService::getOrderByIdentifier` method:
 
 ``` php
-        $order = $this->getOrderByIdentifier('4ac4b8a0-eed8-496d-87d9-32a960a10629');
-
-        $output->writeln($order->getName());
+[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 46, 50) =]]
 ```
 
-## Get single order by id
+### Get single order by id
 
 To access a single order by using its numerical id, use the `OrderService::getOrder` method:
 
 ``` php
-        $order = $this->getOrder(2);
-
-        $output->writeln($order->getName());
+[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 52, 57) =]]
 ```
 
 ## Get multiple orders
@@ -42,15 +38,7 @@ It follows the same search Query pattern as other APIs:
 use Ibexa\Contracts\OrderManagement\Value\OrderQuery;
 
 // ...
-
-        $orderQuery = new OrderQuery();
-        $orderQuery->setSource('local_shop'); // orders that originate from a source called 'local_shop' 
-        $orderQuery->setLimit(20); // fetch 20 orders
-
-        $ordersList = $this->orderService->findOrders($orderQuery);
-
-        $ordersList->getOrders(); // array of OrderInterface objects
-        $ordersList->getTotalCount(); // number of returned orders
+[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 75, 79) =]]
 ```
 
 ## Create order
@@ -59,7 +47,7 @@ To create an order, use the `orderServiceInterface::createOrder` method and prov
 it with the `Ibexa\Contracts\OrderManagement\Value\OrderCreateStruct` that contains a list of products, purchased quantities, product and total prices, as well as tax amounts.
 
 ``` php
-// snippet
+[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 59, 66) =]]
 ```
 
 ## Update order
@@ -69,5 +57,5 @@ You could do it to support a scenario when, for example, the order is processed 
 To update order information, use the `OrderServiceInterface::updateOrder` method:
 
 ``` php
-// snippet
+[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 68, 73) =]]
 ```
