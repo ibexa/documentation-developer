@@ -85,7 +85,20 @@ nav:
             - Project organization: administration/project_organization/project_organization.md
             - Architecture: administration/project_organization/architecture.md
             - Bundles: administration/project_organization/bundles.md
-        - Admin panel: administration/admin_panel.md
+        - Admin panel:
+            - Admin panel: administration/admin_panel/admin_panel.md
+            - Users: administration/admin_panel/users_admin_panel.md
+            - Roles: administration/admin_panel/roles_admin_panel.md
+            - URL Management: administration/admin_panel/url_management_admin_panel.md
+            - Languages: administration/admin_panel/languages_admin_panel.md
+            - Segments: administration/admin_panel/segments_admin_panel.md
+            - Corporate: administration/admin_panel/corporate_admin_panel.md
+            - Workflow: administration/admin_panel/workflow_admin_panel.md
+            - System Information: administration/admin_panel/system_information_admin_panel.md
+        - Content organization:
+            - Sections: administration/content_organization/sections.md
+            - Content Types: administration/content_organization/content_types.md
+            - Object States: administration/content_organization/object_states.md
         - Configuration:
             - Configuration: administration/configuration/configuration.md
             - Dynamic configuration: administration/configuration/dynamic_configuration.md
