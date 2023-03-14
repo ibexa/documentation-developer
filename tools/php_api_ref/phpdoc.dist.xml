@@ -6,7 +6,7 @@
         xmlns="https://www.phpdoc.org"
 >
     <title>PHP API Reference</title>
-    <version number="4.4.1">
+    <version number="4.4">
         <api>
             <source dsn=".">
                 <path>vendor/ibexa/</path>
@@ -15,6 +15,7 @@
             </source>
             <ignore hidden="true" symlinks="true">
                 <path>vendor/**/tests/**/*</path>
+                <path>vendor/**/spec/**/*</path>
 
                 <!-- SebastianBergmann\Diff -->
                 <path>vendor/ezsystems/diff/**/*</path>
