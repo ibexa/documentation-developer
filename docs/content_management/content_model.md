@@ -77,7 +77,7 @@ If a published item is removed from the Trash (or removed without being put in t
 ![Diagram of an example Content item](content_model_item_diagram.png)
 
 The Fields of a Content item are defined by the Content Type to which the Content item belongs.
-
+s
 ## Fields
 
 A Field is the smallest unit of storage in the content model and the building block of all Content items. Every Field belongs to a Field Type.

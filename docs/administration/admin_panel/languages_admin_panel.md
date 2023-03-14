@@ -12,8 +12,10 @@ Every new language must have a name and a language code, written in the `xxx-XX`
 
 ![Languages](admin_panel_languages.png "Languages")
 
-The multilanguage system operates based on a global translation list that contains all languages available in the installation.
+The multilanguage system operates based on a global translation list 
+that contains all languages available in the installation.
 After adding a language you may have to reload the application to be able to use it.
-Depending on your set up, additional configuration may be necessary for the new language to work properly, especially with SiteAccesses.
+Depending on your set up, additional configuration may be necessary 
+for the new language to work properly, especially with SiteAccesses.
 
 See [Languages](languages.md) for further information.
