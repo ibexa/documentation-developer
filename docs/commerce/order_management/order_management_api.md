@@ -36,7 +36,7 @@ To access a single order by using its numerical id, use the `OrderService::getOr
 ## Get multiple orders
 
 To fetch multiple orders, use the `OrderService::findOrders` method. 
-It fsollows the same earch Query pattern as other APIs:
+It follows the same search Query pattern as other APIs:
 
 ``` php
 use Ibexa\Contracts\OrderManagement\Value\OrderQuery;
