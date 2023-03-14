@@ -19,9 +19,10 @@ if [ -n "$AUTH_JSON" ]; then
   cp $AUTH_JSON ./;
 fi;
 composer install --no-interaction --ignore-platform-reqs --no-scripts;
+
 cp $PHPDOC_CONF ./;
 cp -R $PHPDOC_DIR ./;
 curl -LO "https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.3.1/phpDocumentor.phar";
-php phpDocumentor.phar -t $OUTPUT_DIR -d ./vendor/ibexa/ -d ./vendor/ezsystems/ -d ./vendor/silversolutions/ -i tests/;
+php phpDocumentor.phar -t $OUTPUT_DIR;
 
 rm -rf $TMP_DXP_DIR;

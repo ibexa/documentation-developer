@@ -6,4 +6,28 @@
         xmlns="https://www.phpdoc.org"
 >
     <title>PHP API Reference</title>
+    <version number="4.4.1">
+        <api>
+            <source dsn=".">
+                <path>vendor/ibexa/</path>
+                <path>vendor/ezsystems/</path>
+                <path>vendor/silversolutions/</path>
+            </source>
+            <ignore hidden="true" symlinks="true">
+                <path>vendor/**/tests/**/*</path>
+
+                <!-- SebastianBergmann\Diff -->
+                <path>vendor/ezsystems/diff/**/*</path>
+
+                <!-- App\QueryType\NearbyPlacesQueryType -->
+                <path>vendor/ibexa/fieldtype-query/doc/examples/nearby_places/NearbyPlacesQueryType.php</path>
+
+                <!-- Hautelook\TemplatedUriBundle -->
+                <path>vendor/ibexa/templated-uri-bundle/Hautelook/**/*</path>
+
+                <!-- Hautelook\TemplatedUriRouter -->
+                <path>vendor/ibexa/templated-uri-router/**/*</path>
+            </ignore>
+        </api>
+    </version>
 </phpdocumentor>
