@@ -131,7 +131,7 @@ In order to identify as a different user, you need to use the `UserService` toge
 
 !!! tip
 
-    `Ibexa\Contracts\Core\Repository\PermissionService` can be injected to have a Service which provides both `PermissionResolver` and `PermissionCriterionResolver`. It supports auto-wiring.    
+    [`Ibexa\Contracts\Core\Repository\PermissionService`](../php_api_reference/classes/Ibexa-Contracts-Core-Repository-PermissionService.html) can be injected to have a Service which provides both `PermissionResolver` and `PermissionCriterionResolver`. It supports auto-wiring.    
 
 This is not required in template functions or controller code,
 as the HTTP layer takes care of identifying the user, and automatically sets it in the repository.
