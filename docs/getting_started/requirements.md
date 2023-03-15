@@ -18,7 +18,7 @@ Using the latest listed version of each product or component is always recommend
 ## Operating system
 
 - Debian 10.x "Buster"
-- Ubuntu 20.04 "Focal Fossa"
+- Ubuntu 20.04 "Focal Fossa" or Ubuntu 22.04 "Jammy Jellyfish"
 - RHEL / CentOS 8.1+
 
 ## Web server
