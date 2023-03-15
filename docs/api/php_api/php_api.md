@@ -71,7 +71,7 @@ for example [`ContentInfo`](../php_api_reference/classes/Ibexa-Contracts-Core-Re
 for [`Content`](../php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html).
 These objects provide you with lower-level information.
 For instance, `ContentInfo` contains `currentVersionNo` or `remoteId`,
-while `Content` enables you to retrieve Fields, Content Type, or previous versions.
+while `Content` enables you to retrieve Fields or Content Type.
 
 !!! note
 
