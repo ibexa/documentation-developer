@@ -12,17 +12,9 @@ content and related objects such as Sections, Locations, Content Types, language
 The PHP API is built on top of a layered architecture, including a persistence SPI that abstracts storage.
 Using the API ensures that your code will be forward compatible with future releases based on other storage engines.
 
-!!! tip
-
-    For more information see a [presentation about [[= product_name =]] API.](https://alongosz.github.io/ezconf2018-api/)
-
 ## Using API services
 
-You can access the PHP API by injecting relevant services into your code.
-
 The API provides access to Content, User, Content Types and other features through various services.
-
-Those services can be obtained using Repository's `get[ServiceName]()` methods: [`Repository::getContentService()`](../php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getContentService), [`getUserService()`](../php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getUserService), etc.
 
 The full list of available services covers:
 
@@ -48,6 +40,11 @@ The full list of available services covers:
 - [URLWildcardService](../php_api_reference/classes/Ibexa-Contracts-Core-Repository-URLWildcardService.html)
 - [UserPreferenceService](../php_api_reference/classes/Ibexa-Contracts-Core-Repository-UserPreferenceService.html)
 - [UserService](../php_api_reference/classes/Ibexa-Contracts-Core-Repository-UserService.html)
+
+You can access the PHP API by injecting relevant services into your code:
+- using auto-wiring or service argument, and, the service classname in the Ibexa\Contracts\ namespace or the service alias
+- using Repository's `get[ServiceName]()` methods: [`Repository::getContentService()`](../php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getContentService), [`getUserService()`](../php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getUserService), etc.
+- using [`Controller::getRepository`](../php_api_reference/classes/Ibexa-Bundle-Core-Controller.html#method_getRepository) by extending it from 
 
 ## Value objects
 
