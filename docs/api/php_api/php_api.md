@@ -68,7 +68,7 @@ To create and modify Repository values you need to use structs, such as `getCont
 
 Some complex value objects have an `Info` counterpart,
 for example [`ContentInfo`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php)
-for [`Content`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Content.php)
+for [`Content`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Content.php).
 These objects provide you with lower-level information.
 For instance, `ContentInfo` contains `currentVersionNo` or `remoteId`,
 while `Content` enables you to retrieve Fields, Content Type, or previous versions.
