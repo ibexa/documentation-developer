@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 AUTH_JSON=$1;
 OUTPUT_DIR=$2;
 
