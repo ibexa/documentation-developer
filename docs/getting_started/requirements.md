@@ -20,7 +20,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 ## Operating system
 
 - Debian 10.x "buster" or Debian 11.x "bullseye"
-- Ubuntu 20.04 "Focal Fossa" or Ubuntu 22.04 LTS "Jammy Jellyfish"
+- Ubuntu 20.04 "Focal Fossa" or Ubuntu 22.04 "Jammy Jellyfish"
 - RHEL / CentOS 8.1+
 
 ## Web server
