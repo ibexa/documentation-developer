@@ -175,7 +175,7 @@ try {
 
 Symfony service container uses service tags to dedicate services to a specific purpose. They are usually used for extension points.
 
-[[= product_name =]] exposes multiple features using service tags, for example, Field Types.
+[[= product_name =]] exposes multiple features using service tags. For example, Field Types are tagged `ibexa.field_type`.
 
 !!! tip
 
