@@ -21,7 +21,8 @@ Using the API ensures that your code will be forward compatible with future rele
 You can access the PHP API by injecting relevant services into your code.
 
 The API provides access to Content, User, Content Types and other features through various services.
-Those services are obtained using `get[ServiceName]()` methods: `getContentService()`, `getUserService()`, etc.
+
+Those services can be obtained using Repository's `get[ServiceName]()` methods: [`Repository::getContentService()`](../php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getContentService), [`getUserService()`](../php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getUserService), etc.
 
 The full list of available services covers:
 
