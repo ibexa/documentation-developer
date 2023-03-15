@@ -53,7 +53,7 @@ The full list of available services covers:
 The services provide interaction with read-only value objects from the `Ibexa\Contracts\Core\Repository\Values` namespace.
 Those objects are divided into sub-namespaces, such as `Content`, `User` or `ObjectState`.
 Each sub-namespace contains a set of value objects,
-such as [`Content\Content`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Content.php) or [`User\Role`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/User/Role.php).
+such as [`Content\Content`](../php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) or [`User\Role`](../php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-User-Role.html).
 
 Value objects come with their own properties, such as `$content->id` or `$location->hidden`,
 as well as with methods that provide access to more related information,
@@ -67,8 +67,8 @@ To create and modify Repository values you need to use structs, such as `getCont
 ### Value info objects
 
 Some complex value objects have an `Info` counterpart,
-for example [`ContentInfo`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php)
-for [`Content`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Content.php).
+for example [`ContentInfo`](../php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html)
+for [`Content`](../php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html).
 These objects provide you with lower-level information.
 For instance, `ContentInfo` contains `currentVersionNo` or `remoteId`,
 while `Content` enables you to retrieve Fields, Content Type, or previous versions.
