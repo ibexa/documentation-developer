@@ -21,9 +21,9 @@ To access a single order by using its string identifier, use the `OrderService::
 [[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 50, 54) =]]
 ```
 
-### Get single order by id
+### Get single order by ID
 
-To access a single order by using its numerical id, use the `OrderService::getOrder` method:
+To access a single order by using its numerical ID, use the `OrderService::getOrder` method:
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 56, 61) =]]
@@ -32,7 +32,7 @@ To access a single order by using its numerical id, use the `OrderService::getOr
 ## Get multiple orders
 
 To fetch multiple orders, use the `OrderService::findOrders` method. 
-It follows the same search Query pattern as other APIs:
+It follows the same search query pattern as other APIs:
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 10, 15) =]]
@@ -43,8 +43,8 @@ It follows the same search Query pattern as other APIs:
 
 ## Create order
 
-To create an order, use the `orderServiceInterface::createOrder` method and provide 
-it with the `Ibexa\Contracts\OrderManagement\Value\OrderCreateStruct` that contains a list of products, purchased quantities, product and total prices, as well as tax amounts.
+To create an order, use the `OrderService::createOrder` method and provide 
+it with the `Ibexa\Contracts\OrderManagement\Value\OrderCreateStruct` object that contains a list of products, purchased quantities, product and total prices, as well as tax amounts.
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 63, 70) =]]
@@ -52,9 +52,9 @@ it with the `Ibexa\Contracts\OrderManagement\Value\OrderCreateStruct` that conta
 
 ## Update order
 
-You can update order after the order is created. 
+You can update the order after it is created. 
 You could do it to support a scenario when, for example, the order is processed manually and its status has to be changed in the system. 
-To update order information, use the `OrderServiceInterface::updateOrder` method:
+To update order information, use the `OrderService::updateOrder` method:
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 72, 77) =]]
