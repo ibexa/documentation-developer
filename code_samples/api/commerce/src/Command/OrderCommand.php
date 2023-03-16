@@ -9,6 +9,10 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Ibexa\Contracts\OrderManagement\OrderServiceInterface;
 use Ibexa\Contracts\OrderManagement\Value\OrderQuery;
+use Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\CompanyNameCriterion;
+use Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\CustomerNameCriterion;
+use Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\IdentifierCriterion;
+use Ibexa\Contracts\ProductCatalog\Values\Common\Query\Criterion\LogicalOr;
 use Ibexa\Contracts\OrderManagement\Value\OrderCreateStruct;
 use Ibexa\Contracts\OrderManagement\Value\OrderUpdateStruct;
 use Ibexa\Contracts\Security\Permission\PermissionResolver;
@@ -73,10 +77,17 @@ final class OrderCommand extends Command
         $output->writeln(sprintf('Changed order status to %s', $order->getStatus()));
 
         // Query for orders
-        $orderQuery = 'status:pending';
+        $orderCriterions = [
+            new IdentifierCriterion('c328773e-8daa-4465-86d5-4d7890f3aa86'),
+            new CompanyNameCriterion('IBM'),
+            new CustomerNameCriterion('foo_user'),
+        ];
+        $orderQuery = new OrderQuery(new LogicalOr(...$orderCriterions));
         $orders = $this->orderService->findOrders($orderQuery);
-     
-        $output->writeln(sprintf('Found %d orders with status pending', count($orders)));
+        
+        $output->writeln(sprintf('Found %d orders with provided criteria', count($orders)));
+
+
 
 }
 }

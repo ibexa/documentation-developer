@@ -18,7 +18,7 @@ To get orders and manage them, use the `Ibexa\Contracts\OrderManagement\OrderSer
 To access a single order by using its string identifier, use the `OrderService::getOrderByIdentifier` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 46, 50) =]]
+[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 50, 54) =]]
 ```
 
 ### Get single order by id
@@ -26,7 +26,7 @@ To access a single order by using its string identifier, use the `OrderService::
 To access a single order by using its numerical id, use the `OrderService::getOrder` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 52, 57) =]]
+[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 56, 61) =]]
 ```
 
 ## Get multiple orders
@@ -35,10 +35,10 @@ To fetch multiple orders, use the `OrderService::findOrders` method.
 It follows the same search Query pattern as other APIs:
 
 ``` php
-use Ibexa\Contracts\OrderManagement\Value\OrderQuery;
+[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 10, 15) =]]
 
 // ...
-[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 75, 79) =]]
+[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 79, 88) =]]
 ```
 
 ## Create order
@@ -47,7 +47,7 @@ To create an order, use the `orderServiceInterface::createOrder` method and prov
 it with the `Ibexa\Contracts\OrderManagement\Value\OrderCreateStruct` that contains a list of products, purchased quantities, product and total prices, as well as tax amounts.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 59, 66) =]]
+[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 63, 70) =]]
 ```
 
 ## Update order
@@ -57,5 +57,5 @@ You could do it to support a scenario when, for example, the order is processed 
 To update order information, use the `OrderServiceInterface::updateOrder` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 68, 73) =]]
+[[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 72, 77) =]]
 ```
