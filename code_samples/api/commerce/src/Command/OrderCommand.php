@@ -28,7 +28,7 @@ final class OrderCommand extends Command
 
     public function __construct(
         PermissionResolver $permissionResolver,
-        UserService $userService
+        UserService $userService,
         OrderServiceInterface $orderService,
     ) {
         $this->orderService = $orderService;
