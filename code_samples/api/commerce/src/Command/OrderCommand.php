@@ -86,8 +86,5 @@ final class OrderCommand extends Command
         $orders = $this->orderService->findOrders($orderQuery);
         
         $output->writeln(sprintf('Found %d orders with provided criteria', count($orders)));
-
-
-
-}
+    }
 }
