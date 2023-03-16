@@ -43,6 +43,8 @@ Every built-in Page block has a default template, [which you can override](#over
 Every Page block can also have multiple other templates.
 The editor chooses a template when creating a block in the Page Builder.
 
+[[% include 'snippets/page_block_cache_clear.md' %]]
+
 ### Block configuration
 
 You can add new block templates by using configuration, for example, for the Content List block:
