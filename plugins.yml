@@ -238,11 +238,12 @@ plugins:
             'guide/quick_order/quick_order_configuration.md': 'commerce/commerce.md'
             'commerce/quick_order/quick_order_configuration.md': 'commerce/commerce.md'
             'guide/order_history/order_history.md': 'commerce/order_management/order_management.md'
-            'commerce/order_history/order_history.md': commerce/order_management/order_management.md'
-            'guide/order_history/order_history_configuration.md': commerce/order_management/order_management.md'
-            'commerce/order_history/order_history_configuration.md': commerce/order_management/order_management.md'
+            'commerce/order_history/order_history.md': 'commerce/order_management/order_management.md'
+            'guide/order_history/order_history_configuration.md': 'commerce/order_management/order_management.md'
+            'commerce/order_history/order_history_configuration.md': 'commerce/order_management/order_management.md'
             'api/shop_business_api.md': 'commerce/commerce.md'
             'commerce/shop_api.md': 'commerce/commerce.md'
+            
 
             'guide/multisite/multisite.md': 'multisite/multisite.md'
             'guide/multisite/multisite_configuration.md': 'multisite/multisite_configuration.md'
