@@ -158,7 +158,7 @@ Validators can be also set on a parent attribute (group defining level), it mean
 [[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9,16) =]] [[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 19,26) =]]
 ```
 
-!!! caution "Moving attributes between groups
+!!! caution "Moving attributes between groups"
 
     If you move an attribute between groups or add an ungrouped attribute to a group,
     the block values are removed.
