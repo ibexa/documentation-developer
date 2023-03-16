@@ -26,5 +26,6 @@ cp $PHPDOC_CONF ./;
 cp -R $PHPDOC_DIR ./;
 curl -LO "https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.3.1/phpDocumentor.phar";
 php phpDocumentor.phar -t $OUTPUT_DIR;
+rm -rf $OUTPUT_DIR/files $OUTPUT_DIR/indices
 
 rm -rf $TMP_DXP_DIR;
