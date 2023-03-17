@@ -29,7 +29,7 @@ final class OrderCommand extends Command
     public function __construct(
         PermissionResolver $permissionResolver,
         UserService $userService,
-        OrderServiceInterface $orderService,
+        OrderServiceInterface $orderService
     ) {
         $this->orderService = $orderService;
         $this->permissionResolver = $permissionResolver;
@@ -64,16 +64,16 @@ final class OrderCommand extends Command
         $orderCreateStruct = new OrderCreateStruct();
 
             // Set properties of $orderCreateStruct here
-        
+
         $order = $this->orderService->createOrder($orderCreateStruct);
-        
+
         $output->writeln(sprintf('Created order with identifier %s', $order->getIdentifier()));
 
         // Update order
         $orderUpdateStruct = new OrderUpdateStruct();
         $orderUpdateStruct->setStatus('processed');
         $this->orderService->updateOrder($order, $orderUpdateStruct);
-        
+
         $output->writeln(sprintf('Changed order status to %s', $order->getStatus()));
 
         // Query for orders
@@ -84,7 +84,7 @@ final class OrderCommand extends Command
         ];
         $orderQuery = new OrderQuery(new LogicalOr(...$orderCriterions));
         $orders = $this->orderService->findOrders($orderQuery);
-        
+
         $output->writeln(sprintf('Found %d orders with provided criteria', count($orders)));
     }
 }
