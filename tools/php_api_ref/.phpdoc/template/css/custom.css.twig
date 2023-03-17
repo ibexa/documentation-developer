@@ -1,15 +1,17 @@
 {# https://docs.phpdoc.org/guide/features/theming/custom-styling.html#adding-your-own-overrides #}
+
+{% set disk_color='#AE1164' %}
 :root {
     --primary-color-hue: 355;
     --primary-color-saturation: 70%;
 }
 
 .phpdocumentor-table-of-contents .phpdocumentor-table-of-contents__entry:before {
-    background: transparent url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="%23AE1164"/></svg>') no-repeat center center;
+    background: transparent url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="{{ disk_color|url_encode }}"/></svg>') no-repeat center center;
 }
 .phpdocumentor-table-of-contents .phpdocumentor-table-of-contents__entry.-method:before,
 .phpdocumentor-table-of-contents .phpdocumentor-table-of-contents__entry.-function:before {
-    background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="%23AE1164"/></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="{{ disk_color|url_encode }}"/></svg>');
 }
 
 .phpdocumentor-title__link img {
