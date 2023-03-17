@@ -227,6 +227,7 @@ The following Twig functions and filter have been renamed, including:
     | `unserialize` | `ibexa_commerce_unserialize` |
     | `youtube_video_id` | `ibexa_commerce_youtube_video_id` |
 
+
 ## URL Alias route name
 URL Alias route name has changed from `ez_urlalias` to `ibexa.url.alias`.
 
