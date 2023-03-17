@@ -26,7 +26,13 @@ cp $PHPDOC_CONF ./;
 cp -R $PHPDOC_DIR ./;
 curl -LO "https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.3.1/phpDocumentor.phar";
 php phpDocumentor.phar -t php_api_reference;
-rm -rf php_api_reference/files php_api_reference/indices;
-cp -rf php_api_reference/* $OUTPUT_DIR;
+rm -rf ./php_api_reference/files ./php_api_reference/indices;
+cp -rf ./php_api_reference/* $OUTPUT_DIR;
+while IFS= read -r line; do
+  file="$(echo $line | sed -r 's/Only in (.*): (.*)/\1\/\2/')";
+  if [[ $file = $OUTPUT_DIR/* ]]; then
+    rm -rf $file;
+  fi;
+done <<< "$(diff -qr ./php_api_reference $OUTPUT_DIR | grep 'Only in ')";
 
 rm -rf $TMP_DXP_DIR;
