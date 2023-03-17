@@ -104,6 +104,8 @@ You are now ready to see the results of your work.
 Shut down the application, clear browser cache, and restart the application.
 You should be able to see a different checkout applied after you have added products to a cart.
 
+![Additional checkout step](img/additional_checkout_step.png "Additional checkout step")
+
 ## Create a single-form checkout
 
 Another way of customizing the process would be to implement a single-form checkout.
@@ -157,6 +159,8 @@ ibexa:
 
 To see the results of your work, shut down the application, clear browser cache, and restart the application.
 You should be able to see a single-page checkout applied after you add products to a cart.
+
+![Single page checkout](img/single_page_checkout.png "Single page checkout")
 
 ## Define custom Address Field Type formats 
 
