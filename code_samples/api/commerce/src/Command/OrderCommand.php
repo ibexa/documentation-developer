@@ -15,8 +15,8 @@ use Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\IdentifierCriter
 use Ibexa\Contracts\ProductCatalog\Values\Common\Query\Criterion\LogicalOr;
 use Ibexa\Contracts\OrderManagement\Value\OrderCreateStruct;
 use Ibexa\Contracts\OrderManagement\Value\OrderUpdateStruct;
-use Ibexa\Contracts\Security\Permission\PermissionResolver;
-use Ibexa\Contracts\Security\User\UserService;
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Core\Repository\UserService;
 
 final class OrderCommand extends Command 
 {

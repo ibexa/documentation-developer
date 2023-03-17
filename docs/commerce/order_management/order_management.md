@@ -5,7 +5,7 @@ edition: commerce
 
 # Order management
 
-The order management component enables users to search for orders,and filter search results. 
+The order management component enables users to search for orders and filter search results. 
 Depending on their role, users can also track the status of their orders, review order details, cancel orders, issue invoices for orders, and generate aggregate reports.
 
 From the development perspective, the component enables customization of the order management workflow and integration with external systems to exchange order information.
@@ -17,5 +17,5 @@ The component exposes the following:
 
 ### Order management service 
 
-The Cart package provides the `Ibexa\Contracts\OrderManagement\OrderServiceInterface` service, 
+The Order Management package provides the `Ibexa\Contracts\OrderManagement\OrderServiceInterface` service, 
 which is the entrypoint for calling the [backend API](order_management_api.md).
