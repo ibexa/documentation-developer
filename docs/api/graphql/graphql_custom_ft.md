@@ -20,8 +20,12 @@ There are two ways to map a custom Field Type:
 - configuration
 - custom `FieldDefinitionMapper`
 
-If the mapping of your Field Type depends on the field definition, you need to write a custom `FieldDefinitionMapper`.
-Otherwise, you can map with configuration.
+You need to write a custom `FieldDefinitionMapper` if the field definition settings and constraints impact how it is mapped to GraphQL.
+For example, the selection Field Type has a "multiple" option. 
+If set to false, it will accept and return a single value, 
+but if set to true, it will accept and return an array of values.
+
+If your field definition doesn't require additional clarifications, you can map with configuration.
 
 ### Map with configuration
 
@@ -29,9 +33,9 @@ To map a custom Field Type with configuration use a compiler pass to modify a co
 
 It is a hash that maps a Field Type identifier (`ezstring`) to the following entries:
 
-- `value_type` - the GraphQL type values of custom field. It can be a native type (string, int), or a custom type. If none is specified, string will be used.
+- `value_type` - the GraphQL type values of the custom field. It can be a native type (string, int), or a custom type. If none is specified, string will be used.
 - `value_resolver` - how values of this field are resolved and passed to the defined value type. If not specified, it will receive the `Field` object for the field type: `field`.
-- `definition_type` - the GraphQL type field definitions. If not specified, it will use `FieldDefinition`.
+- `definition_type` - the GraphQL type the field definitions is mapped to. If not specified, it will use `FieldDefinition`.
 
 Compiler pass example that should be placed in `src/DependencyInjection/Compiler`:
 
@@ -63,7 +67,7 @@ Add `MyCustomFieldDefinitionMapper.php` mapper to `src/GraphQL/Schema`:
 [[= include_file('code_samples/api/graphql/src/GraphQL/Schema/MyCustomFieldDefinitionMapper.php') =]]
 ```
 
-The `FieldDefinitionMapper` interface defines three methods:
+The `FieldDefinitionMapper` interface defines following methods:
 
 - `mapToFieldValueType` - returns the GraphQL type value for the defined field
 - `mapToFieldValueInputType` - returns the GraphQL type value for the field input value
@@ -71,10 +75,20 @@ The `FieldDefinitionMapper` interface defines three methods:
 - `mapToFieldDefinitionType`- returns the GraphQL type field definitions of the mapped type
 
 Only implement methods that you need, the rest will be handled by other mappers (configuration or default).
+When the mapper method is decorated, you need to block the if statement for unsupported types (if (notasupportedtype) call parent method).
+To do that, you need to replace "mapXXX` by the method it is in:
+
+```php
+        if (!$this->canMap($fieldDefinition)) {
+             return parent::mapToFieldValueType($fieldDefinition);
+         }
+```
+
+It is required for every method that is implemented, so that other mappers are called for other Field Types.
 
 The [`RelationFieldDefinitionMapper`](https://github.com/ibexa/graphql/blob/main/src/lib/Schema/Domain/Content/Mapper/FieldDefinition/RelationFieldDefinitionMapper.php) example:
 
-```php
+```php hl_lines="14"
 class RelationFieldDefinitionMapper extends DecoratingFieldDefinitionMapper implements FieldDefinitionMapper
 {
     public function mapToFieldValueType(FieldDefinition $fieldDefinition): ?string
@@ -121,14 +135,12 @@ class RelationFieldDefinitionMapper extends DecoratingFieldDefinitionMapper impl
 
 The value type depends on the field definition allowed Content Types setting:
 
-- if only one Content Type is allowed, the value will be of this type
-- if there are no restrictions, or several types are allowed, the value will be an `Item`
+- for types that return content items if there are no restrictions, or several types are allowed, the value will be an `Item`
 
 The cardinality (single or collection) depends on the selection limit setting:
 
 - if only one item is allowed, the value is unique: `ArticleItem`, `FolderItem`
 - if there are no limits, or the limit is larger than 1, the value is a collection: `"[ArticleItem]", "[FolderItem]"`.
-
 
 #### Field input mapping
 

@@ -6,8 +6,8 @@ use Ibexa\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\FieldDefinitionMa
 
 class MyCustomFieldDefinitionMapper extends DecoratingFieldDefinitionMapper implements FieldDefinitionMapper
 {
-protected function getFieldTypeIdentifier(): string
-{
-return 'my_custom_field_type';
-}
+    protected function getFieldTypeIdentifier(): string
+    {
+        return 'my_custom_field_type';
+    }
 }
