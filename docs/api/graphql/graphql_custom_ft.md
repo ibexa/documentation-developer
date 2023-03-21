@@ -75,7 +75,7 @@ The `FieldDefinitionMapper` interface defines following methods:
 - `mapToFieldDefinitionType`- returns the GraphQL type field definitions of the mapped type
 
 Only implement methods that you need, the rest will be handled by other mappers (configuration or default).
-When the mapper method is decorated, you need to block the if statement for unsupported types (if (notasupportedtype) call parent method).
+When the mapper method is decorated, you need to block the if statement for unsupported types, e.g. if (notasupportedtype) call parent method.
 To do that, you need to replace "mapXXX` by the method it is in:
 
 ```php
@@ -170,6 +170,6 @@ Below variables are available in the resolver's expression:
 - `field` is the current field, as an extension of the API's Field object that proxies properties requests to the Field Value
 - `content` is the resolved content item's `Content`
 - `location` is the content item's resolved location, for more information, see [Querying Locations](graphql_queries.md#querying-locations)
-- `item` is the content together with its location (`\Ibexa\GraphQL\Value\Item`)
+- `item` is the content together with its location `\Ibexa\GraphQL\Value\Item`
 
 `RelationFieldValueBuilder` or `SelectionFieldValueBuilder` can be used as examples.
