@@ -1,0 +1,55 @@
+displayName: corporate/
+
+/companies:
+    get:
+        displayName: Read list of companies
+        description: |
+            Here put description
+        queryParameters:
+            type:
+                description: Here put description
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api
+                        type:
+                        example: !include examples/corporate/companies/GET/
+            400:
+                body:
+                    application/vnd.ibexa.api.ValidationResponse:
+                        type: ValidationResponse
+    post:
+        post: Create a company
+            displayName: Create a company
+            description:
+            headers:
+                Accept:
+                    description: If set, the new company is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.Company+xml
+                        application/vnd.ibexa.api.Company+json
+                Content-Type:
+                    description: The UserGroupCreate schema encoded in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.CompanyCreate+json
+                        application/vnd.ibexa.api.CompanyCreate+xml
+            body:
+                application/vnd.ibexa.api.CompanyCreate+xml:
+                    type: CompanyCreate
+                    example: !include examples/corporate/companies/POST/CompanyCreate.xml.example
+                application/vnd.ibexa.api.CompanyCreate+json:
+                    type: CompanyCreate
+                    example: !include examples/corporate/companies/POST/CompanyCreate.json.example
+            responses:
+                201:
+                    body:
+                        application/vnd.ibexa.api.Company+xml:
+                            type: Company
+                            example: !include examples/corporate/companies/POST/Company.xml.example
+                        application/vnd.ibexa.api.UserGroup+json:
+                            type: Company
+                            example: !include examples/corporate/companies/POST/Company.json.example
+                400:
+                    description: Error - the input does not match the input schema definition.
+                401:
+                    description: Error - the user is not authorized to create this Company.
