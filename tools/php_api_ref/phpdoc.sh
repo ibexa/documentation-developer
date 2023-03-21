@@ -28,16 +28,19 @@ if [[ "$VERSION" == *".*" ]]; then
 fi;
 
 map=$PHPDOC_DIR/template/edition-package-map.twig;
+editions=(oss content experience commerce);
 if [[ -f $map ]]; then
   rm $map;
 fi;
 echo "{% set package_edition_map = {" >> $map;
-for edition in oss content experience commerce; do
+for edition in ${editions[@]}; do
   while IFS= read -r line; do
     package=$(echo $line | cut -d '"' -f 2);
-    echo "'$package': '$edition'," >> $map;
-  done <<< "$(curl "https://raw.githubusercontent.com/ibexa/$edition/v$VERSION/composer.json" | jq .require | grep ibexa)";
-  if [ "$edition" == "$flavor" ]; then
+    if [[ ! "${editions[*]}" =~ "${package/ibexa\//}" ]]; then
+      echo "'$package': '$edition'," >> $map;
+    fi;
+  done <<< "$(curl "https://raw.githubusercontent.com/ibexa/$edition/v$VERSION/composer.json" | jq .require | grep -E "(ibexa|ezsystems)")";
+  if [ "$edition" == "$FLAVOR" ]; then
     break;
   fi;
 done;
