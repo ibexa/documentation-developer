@@ -22,6 +22,27 @@ if [ -n "$AUTH_JSON" ]; then
 fi;
 composer install --no-interaction --ignore-platform-reqs --no-scripts;
 
+if [[ "$VERSION" == *".*" ]]; then
+  VERSION=$(composer -n show ibexa/core | grep -E "^version" | cut -d 'v' -f 3);
+  echo "Obtained version: $VERSION";
+fi;
+
+map=$PHPDOC_DIR/template/edition-package-map.twig;
+if [[ -f $map ]]; then
+  rm $map;
+fi;
+echo "{% set package_edition_map = {" >> $map;
+for edition in oss content experience commerce; do
+  while IFS= read -r line; do
+    package=$(echo $line | cut -d '"' -f 2);
+    echo "'$package': '$edition'," >> $map;
+  done <<< "$(curl "https://raw.githubusercontent.com/ibexa/$edition/v$VERSION/composer.json" | jq .require | grep ibexa)";
+  if [ "$edition" == "$flavor" ]; then
+    break;
+  fi;
+done;
+echo "} %}{% block content %}{% endblock %}" >> $map;
+
 cp $PHPDOC_CONF ./;
 cp -R $PHPDOC_DIR ./;
 curl -LO "https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.3.1/phpDocumentor.phar";

@@ -1,0 +1,18 @@
+{% macro edition_tag(node, package_edition_map) %}
+
+  {% set edition_name_map = {
+    'oss': '<abbr title="Open-source software">OSS</abbr>',
+    'content' :'Content',
+    'experience' : 'Experience',
+    'commerce': 'Commerce',
+  } %}
+
+  {% set package = node.file.path|split('/')|slice(1, 2)|join('/') %}
+
+  {% if package_edition_map[package] is defined and edition_name_map[package_edition_map[package]] is defined %}
+    <div class="edition-tag {{ package_edition_map[package] }}">
+      <span>{{ edition_name_map[package_edition_map[package]]|raw }}</span>
+    </div>
+  {% endif %}
+
+{% endmacro %}

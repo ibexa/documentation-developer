@@ -1,22 +1,32 @@
 {# https://docs.phpdoc.org/guide/features/theming/custom-styling.html#adding-your-own-overrides #}
 
-{% set disk_color='#AE1164' %}
+{% set dark_color='#AE1164' %}
+{% set light_color='#FF4713' %}
 :root {
-    --primary-color-hue: 355;
-    --primary-color-saturation: 70%;
+    --primary-color-hue: 328;
+    --primary-color-saturation: 82%;
+    --title-text-color: var(--primary-color-darken);
 }
 
 .phpdocumentor-table-of-contents .phpdocumentor-table-of-contents__entry:before {
-    background: transparent url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="{{ disk_color|url_encode }}"/></svg>') no-repeat center center;
+    background: transparent url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="{{ dark_color|url_encode }}"/></svg>') no-repeat center center;
 }
 .phpdocumentor-table-of-contents .phpdocumentor-table-of-contents__entry.-method:before,
 .phpdocumentor-table-of-contents .phpdocumentor-table-of-contents__entry.-function:before {
-    background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="{{ disk_color|url_encode }}"/></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="{{ dark_color|url_encode }}"/></svg>');
 }
 
 .phpdocumentor-title__link img {
     width: 100%;
     max-width: 40px;
+}
+
+.phpdocumentor-content__title .edition-tag span {
+    font-size: small;
+    color: white;
+    background: {{ light_color }};
+    border-radius: 3px;
+    padding: 1px 3px;
 }
 
 .phpdocumentor-element-found-in__file[onclick]::before {
