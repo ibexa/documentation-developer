@@ -21,6 +21,20 @@ ibexa:
                     money_transfer:
                         name: "Money transfer"                        
 
+    system:
+        storefront_group:
+            design: custom
+            product_catalog:
+                currencies:
+                    - EUR
+                    - PLN
+                    - CZK
+                regions:
+                    - Germany
+                    - Poland
+                    - Czechia        
+
+
 // ...
 
 framework:
@@ -168,3 +182,8 @@ framework:
                     metadata:
                         controller: Ibexa\Bundle\Checkout\Controller\CheckoutStep\CompleteStepController::renderCompleteView
                         label: 'Order confirmation'
+
+ibexa_design_engine:
+    design_list:
+        custom: [ custom, storefront, standard ]
+

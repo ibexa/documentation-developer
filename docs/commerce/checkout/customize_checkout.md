@@ -50,14 +50,14 @@ Each workflow definition consists of a series of steps as well as a series of tr
 To create a new workflow, for example, `seat_selection_checkout`, modify the default workflow that comes with the storefront module, by adding a  `seat_selected` step.
 
 ``` yaml hl_lines="3 15"
-[[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 25, 27) =]] [[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 103, 120) =]] [[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 23, 24) =]]
+[[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 39, 41) =]] [[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 117, 134) =]] [[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 37, 38) =]]
 ```
 
 Then, modify a list of transitions. 
 When defining a new transition, within its metadata, map the transition to its controller, and set other necessary details, such as the next step and label.
 
 ``` yaml hl_lines="2 12"
-[[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 120, 133) =]] [[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 23, 24) =]]
+[[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 134, 147) =]] [[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 37, 38) =]]
 ```
 
 ### Create controller
@@ -82,6 +82,12 @@ In `templates/themes/custom/storefront/checkout/step`, create a layout that uses
 
 ```html+twig
 [[= include_file('code_samples/front/shop/checkout/templates/themes/storefront/checkout/step/select_seat.html.twig') =]]
+```
+
+In `assets/styles/app.css`, add styles required to properly display your template.
+
+```css
+[[= include_file('code_samples/front/shop/checkout/assets/styles/app.css', 25, 63) =]]
 ```
 
 ### Select supported workflow 
@@ -131,7 +137,7 @@ In the `src/Controller/Checkout` folder, create a file that resembles the follow
 [[= include_file('code_samples/front/shop/checkout/src/Controller/SinglePageCheckout.php') =]]
 ```
 
-IThe controller can reuse fields and functions that come from the checkout component, for example, 
+The controller can reuse fields and functions that come from the checkout component, for example, 
 after you check whether the form is valid, use the `AbstractStepController::advance` method to go to the next step of the process.
 
 ### Create Twig template
