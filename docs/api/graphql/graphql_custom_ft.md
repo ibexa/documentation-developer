@@ -75,8 +75,8 @@ The `FieldDefinitionMapper` interface defines following methods:
 - `mapToFieldDefinitionType`- returns the GraphQL type field definitions of the mapped type
 
 Only implement methods that you need, the rest will be handled by other mappers (configuration or default).
-When the mapper method is decorated, you need to block the if statement for unsupported types, e.g. if (notasupportedtype) call parent method.
-To do that, you need to replace "mapXXX` by the method it is in:
+When the mapper method is decorated, you need to block the `if` statement for unsupported types, e.g. if (notasupportedtype) call parent method.
+To do that, you need to replace `mapXXX` by the method it is in:
 
 ```php
         if (!$this->canMap($fieldDefinition)) {
@@ -84,7 +84,7 @@ To do that, you need to replace "mapXXX` by the method it is in:
          }
 ```
 
-It is required for every method that is implemented, so that other mappers are called for other Field Types.
+It is required for every method that is implemented, so that other mappers are called for the other Field Types.
 
 The [`RelationFieldDefinitionMapper`](https://github.com/ibexa/graphql/blob/main/src/lib/Schema/Domain/Content/Mapper/FieldDefinition/RelationFieldDefinitionMapper.php) example:
 
