@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Controller\Checkout;
 
-use App\Form\Type\OnePageCheckoutType;
+use App\Form\Type\SinglePageCheckoutType;
 use Ibexa\Bundle\Checkout\Controller\AbstractStepController;
 use Ibexa\Contracts\Checkout\Value\CheckoutInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-final class OnePageCheckout extends AbstractStepController
+final class SinglePageCheckout extends AbstractStepController
 {
     public function __invoke(
         Request $request,
@@ -18,7 +18,7 @@ final class OnePageCheckout extends AbstractStepController
         string $step
     ): Response {
         $form = $this->createForm(
-            OnePageCheckoutType::class,
+            SinglePageCheckoutType::class,
             $checkout->getContext()->toArray(),
             [
                 'cart' => $this->getCart($checkout->getCartIdentifier()),

@@ -75,6 +75,14 @@ after you check whether the form is valid, use the `AbstractStepController::adva
 [[= include_file('code_samples/front/shop/checkout/src/Controller/SelectSeatStepController.php') =]]
 ```
 
+#### Create a form
+
+In the `src/Form/Type` folder, create a corresponding form:
+
+``` php hl_lines="23 24"
+[[= include_file('code_samples/front/shop/checkout/src/Form/Type/SelectSeatType.php') =]]
+```
+
 ### Create Twig template
 
 You also need a Twig template to render the Symfony form.
@@ -123,7 +131,7 @@ The single form's basic advantage is simplified navigation with less clicks to c
 To create a single-form checkout, define a workflow that has two steps, `initialized` and `completed`, and one transition, from `initialized` or `completed` to `completed`.
 
 ``` yaml hl_lines="3 18 19"
-[[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 25, 27) =]] [[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 84, 103) =]] [[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 23, 24) =]]
+[[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 39, 41) =]] [[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 98, 117) =]]
 ```
 
 ### Create controller
@@ -139,6 +147,14 @@ In the `src/Controller/Checkout` folder, create a file that resembles the follow
 
 The controller can reuse fields and functions that come from the checkout component, for example, 
 after you check whether the form is valid, use the `AbstractStepController::advance` method to go to the next step of the process.
+
+#### Create a form
+
+In the `src/Form/Type` folder, create a corresponding form:
+
+``` php hl_lines="23 24"
+[[= include_file('code_samples/front/shop/checkout/src/Form/Type/SinglePageCheckoutType.php') =]]
+```
 
 ### Create Twig template
 
