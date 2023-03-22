@@ -5,8 +5,8 @@ edition: experience
 
 # Customer Portal
 
-Customer Portal enables [creating and handling of business accounts](https://doc.ibexa.co/projects/userguide/en/latest/shop_administration/manage_customers/).
-With this feature, your customers can [self-register](https://doc.ibexa.co/projects/userguide/en/latest/shop_administration/company_self_registration/),
+Customer Portal enables [creating and handling of business accounts](https://doc.ibexa.co/projects/userguide/en/master/customer_management/manage_customers/).
+With this feature, your customers can [self-register](https://doc.ibexa.co/projects/userguide/en/master/customer_management/customer_portal/),
 [edit their organization information](https://doc.ibexa.co/projects/userguide/en/latest/shop_administration/customer_portal/),
 invite and view members and check their order history.
 

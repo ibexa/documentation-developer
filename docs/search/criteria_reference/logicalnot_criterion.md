@@ -7,7 +7,7 @@ It takes only one Criterion in the array parameter.
 
 ## Arguments
 
-- `criterion` - represents the Criterion that should be negated.
+- `criterion` - represents the Criterion that should be negated
 
 ## Example
 

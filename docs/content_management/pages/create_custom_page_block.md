@@ -9,6 +9,8 @@ In addition to existing blocks which you can use in a Page, you can also create 
 To do this, add block configuration in a YAML file, under the `ibexa_fieldtype_page` key,
 for example in `config/packages/ibexa_page_builder.yaml`.
 
+[[% include 'snippets/page_block_cache_clear.md' %]]
+
 The following example shows how to create a block that showcases an event.
 
 ## Configure block

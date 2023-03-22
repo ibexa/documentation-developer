@@ -186,4 +186,3 @@ framework:
 ibexa_design_engine:
     design_list:
         custom: [ custom, storefront, standard ]
-

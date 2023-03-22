@@ -4,9 +4,7 @@ The Field-based [SelectionTermAggregation](https://github.com/ibexa/core/blob/ma
 
 ## Arguments
 
-- `name` - name of the Aggregation object
-- `contentTypeIdentifier` - string representing the Content Type identifier
-- `fieldDefinitionIdentifier` - string representing the Field identifier
+[[= include_file('docs/snippets/aggregation_arguments.md') =]]
 
 ## Example
 

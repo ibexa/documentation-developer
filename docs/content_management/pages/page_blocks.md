@@ -5,21 +5,16 @@ description: Use blocks to customize the content of a Page with dynamic content.
 # Page blocks
 
 Page blocks are configured in YAML files, under the `ibexa_fieldtype_page` key.
+Keep in mind that Page block configuration is not SiteAccess-aware.
 
-!!! caution
+[[= product_name =]] ships with a number of page blocks.
+For a list of all page blocks that are available out-of-the-box,
+see [Page block reference]([[= user_doc =]]/content_management/block_reference/).
 
-    Page block configuration is not SiteAccess-aware.
+For information on how to create and configure new layouts for the Page,
+see [Page layouts](render_page.md#render-a-layout).
 
-!!! tip
-
-    For information on how to create and configure new layouts for the Page,
-    see [Page layouts](render_page.md#render-a-layout).
-    
-!!! note 
-
-    [[= product_name =]] ships with a number of page blocks.
-    For a list of all page blocks that are available out-of-the-box, 
-    see [Page block reference]([[= user_doc =]]/content_management/block_reference/).
+[[% include 'snippets/page_block_cache_clear.md' %]]
 
 ## Block configuration
 

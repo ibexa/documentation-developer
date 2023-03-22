@@ -15,6 +15,8 @@ from listing available products, through adding products to a cart, to checkout 
 "commerce/checkout/configure_checkout",
 "commerce/checkout/checkout_api",
 "commerce/checkout/customize_checkout",
+"commerce/order_management/order_management",
+"commerce/order_management/order_management_api",
 "commerce/storefront/storefront",
 "commerce/storefront/configure_storefront",
 "commerce/storefront/extend_storefront"

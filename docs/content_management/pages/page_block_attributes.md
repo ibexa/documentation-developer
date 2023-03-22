@@ -5,6 +5,9 @@ description: Page blocks can contain multiple attributes, of both built-in and c
 # Page block attributes
 
 A block has attributes that the editor fills in when adding th block to a Page.
+
+[[% include 'snippets/page_block_cache_clear.md' %]]
+
 Each block can have the following properties:
 
 |Attribute|Description|
@@ -157,6 +160,11 @@ Validators can be also set on a parent attribute (group defining level), it mean
 ``` yaml
 [[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9,16) =]] [[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 19,26) =]]
 ```
+
+!!! caution "Moving attributes between groups"
+
+    If you move an attribute between groups or add an ungrouped attribute to a group,
+    the block values are removed.
 
 ## Help messages for form fields
 

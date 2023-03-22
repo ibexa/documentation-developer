@@ -85,7 +85,20 @@ nav:
             - Project organization: administration/project_organization/project_organization.md
             - Architecture: administration/project_organization/architecture.md
             - Bundles: administration/project_organization/bundles.md
-        - Admin panel: administration/admin_panel.md
+        - Admin panel:
+            - Admin panel: administration/admin_panel/admin_panel.md
+            - Users: administration/admin_panel/users_admin_panel.md
+            - Roles: administration/admin_panel/roles_admin_panel.md
+            - URL Management: administration/admin_panel/url_management_admin_panel.md
+            - Languages: administration/admin_panel/languages_admin_panel.md
+            - Segments: administration/admin_panel/segments_admin_panel.md
+            - Corporate: administration/admin_panel/corporate_admin_panel.md
+            - Workflow: administration/admin_panel/workflow_admin_panel.md
+            - System Information: administration/admin_panel/system_information_admin_panel.md
+        - Content organization:
+            - Sections: administration/content_organization/sections.md
+            - Content Types: administration/content_organization/content_types.md
+            - Object States: administration/content_organization/object_states.md
         - Configuration:
             - Configuration: administration/configuration/configuration.md
             - Dynamic configuration: administration/configuration/dynamic_configuration.md
@@ -106,7 +119,7 @@ nav:
             - Back Office tabs:
                 - Back Office tabs:  administration/back_office/back_office_tabs/back_office_tabs.md
                 - Create dashboard tab: administration/back_office/back_office_tabs/create_dashboard_tab.md
-            - Add tab switcher in Content Type: administration/back_office/content_tab_switcher.md
+            - Tab switcher in Content edit page: administration/back_office/content_tab_switcher.md
             - Back Office menus:
                 - Back Office menus: administration/back_office/back_office_menus/back_office_menus.md
                 - Add menu item: administration/back_office/back_office_menus/add_menu_item.md
@@ -298,6 +311,9 @@ nav:
             - Configure checkout: commerce/checkout/configure_checkout.md
             - Customize checkout: commerce/checkout/customize_checkout.md
             - Checkout API: commerce/checkout/checkout_api.md
+        - Order management:
+            - Order management: commerce/order_management/order_management.md
+            - Order management API: commerce/order_management/order_management_api.md
         - Storefront:
             - Storefront: commerce/storefront/storefront.md
             - Configure Storefront: commerce/storefront/configure_storefront.md
@@ -340,13 +356,7 @@ nav:
         - Login and registration: users/login_and_registration.md
         - OAuth authentication: users/oauth_authentication.md
         - Add login through external service: users/add_login_through_external_service.md
-        - Token: users/token.md
         - Segment API: users/segment_api.md
-        - Customers:
-            - Customers: users/customers/customers.md
-            - Customer API: users/customers/customer_api.md
-            - Customer profile data: users/customers/customer_profile_data.md
-            - Customer data configuration: users/customers/customer_data_configuration.md
     - Personalization:
         - Personalization: personalization/personalization.md
         - How Personalization works: personalization/how_it_works.md
@@ -419,6 +429,7 @@ nav:
             - LogicalNot Criterion: search/criteria_reference/logicalnot_criterion.md
             - LogicalOr Criterion: search/criteria_reference/logicalor_criterion.md
         - Product Search Criteria:
+            - ProductSearchCriteria: search/criteria_reference/product_search_criteria.md
             - BasePrice: search/criteria_reference/baseprice_criterion.md
             - CheckboxAttribute: search/criteria_reference/checkboxattribute_criterion.md
             - ColorAttribute: search/criteria_reference/colorattribute_criterion.md
@@ -460,6 +471,7 @@ nav:
             - UserLogin: search/sort_clause_reference/userlogin_sort_clause.md
             - Visibility: search/sort_clause_reference/visibility_sort_clause.md
         - Product Sort Clauses:
+            - ProductSortClauses: search/sort_clause_reference/product_sort_clauses.md
             - BasePrice: search/sort_clause_reference/baseprice_sort_clause.md
             - CreatedAt: search/sort_clause_reference/createdat_sort_clause.md
             - CustomPrice: search/sort_clause_reference/customprice_sort_clause.md
@@ -587,6 +599,7 @@ nav:
         - Resources: resources/resources.md
         - Release process and roadmap: resources/release_process_and_roadmap.md
         - Ibexa DXP PhpStorm plugin: resources/phpstorm_plugin.md
+        - New in documentation: resources/new_in_doc.md
         - Contributing:
             - Report and follow issues: resources/contributing/report_and_follow_issues.md
             - Contribute translations: resources/contributing/contribute_translations.md
@@ -622,6 +635,7 @@ theme:
     name: material
     features:
         - content.code.annotate 
+        - content.code.copy
         - navigation.tracking
         - navigation.top
         - content.tabs.link
@@ -653,12 +667,12 @@ extra:
   product_name_com: 'Ibexa Commerce'
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.31'
-  latest_tag_3_3: '3.3.29'
+  latest_tag_3_3: '3.3.31'
   latest_tag_4_0: '4.0.8'
   latest_tag_4_1: '4.1.5'
-  latest_tag_4_2: '4.2.3'
-  latest_tag_4_3: '4.3.2'
-  latest_tag_4_4: '4.4.0'
+  latest_tag_4_2: '4.2.4'
+  latest_tag_4_3: '4.3.5'
+  latest_tag_4_4: '4.4.1'
 
   symfony_doc: 'http://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'
@@ -679,9 +693,6 @@ extra_javascript:
   - js/jquery-ui.min.js
   - js/custom.js
   - js/docs.switcher.js
-  - js/ez-guidelines-switchers.js
-  - js/ez-guidelines-modals.js
-  - js/ez-guidelines-tooltips.js
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
 
 markdown_extensions:

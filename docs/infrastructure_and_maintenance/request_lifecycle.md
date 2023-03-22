@@ -175,23 +175,6 @@ The `ViewRendererListener` (`Ibexa\Bundle\Core\EventListener\ViewRendererListene
 The `HttpKernel` retrieves the response attached to the event and continues.
 
 
-## Kernel's response event and `Response` sending
-
-The `HttpKernel` sends a `kernel.response` event (`KernelEvents::RESPONSE`). For example, if HTTP cache is used, response's headers may be enhanced.
-
-The `HttpKernel` sends a `kernel.finish_request` event (`KernelEvents::FINISH_REQUEST`). The `VerifyUserPoliciesRequestListener` (`Ibexa\Bundle\Commerce\Eshop\EventListener\VerifyUserPoliciesRequestListener`) (priority 100) filters routes on its policy configuration.
-
-!!! caution "Permission control"
- 
-     See [Permissions for routes](permissions.md#permissions-for-routes).
-
-Finally, the `HttpKernel` send the response.
-
-If an exception occurs during this chain of events, the `HttpKernel` sends a `kernel.exception` and tries to get a `Response` from its listeners.
-
-The `HttpKernel` sends the last `kernel.terminate` event (`KernelEvents::TERMINATE`). For example, the `BackgroundIndexingTerminateListener` (`Ibexa\Bundle\Core\EventListener\BackgroundIndexingTerminateListener`) (priority 0) removes from the `SearchService` index possible content existing in the index but not in the database.
-
-
 ## Summary
 
 ### Summary of events and services
@@ -220,8 +203,6 @@ The `HttpKernel` sends the last `kernel.terminate` event (`KernelEvents::TERMINA
     - 0:`Ibexa\Bundle\Core\EventListener\ViewRendererListener`
         - `Ibexa\Core\MVC\Symfony\View\Renderer\TemplateRenderer`
 * event=`kernel.response`
-* event=`kernel.finish_request`
-    - 100:`Ibexa\Bundle\Commerce\Eshop\EventListener\VerifyUserPoliciesRequestListener`
 * event=`kernel.terminate`
     - 0:`Ibexa\Bundle\Core\EventListener\BackgroundIndexingTerminateListener`
 

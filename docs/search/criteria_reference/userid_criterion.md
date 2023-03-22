@@ -5,7 +5,7 @@ searches for content based on the User ID.
 
 ## Arguments
 
-- `value` - int(s) representing the User ID(s).
+- `value` - int(s) representing the User ID(s)
 
 ## Example
 

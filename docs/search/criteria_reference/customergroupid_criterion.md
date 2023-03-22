@@ -5,7 +5,7 @@ searches for content based on the ID of its customer group.
 
 ## Arguments
 
-- `value` - int(s) representing the customer group ID(s).
+- `value` - int(s) representing the customer group ID(s)
 
 ## Example
 
