@@ -8,11 +8,11 @@ With the anchor menu you can increase visibility of certain [Field Types](field_
 The two examples of such Field Types would be [SEO]([[= user_doc =]]/search_engine_optimization/work_with_seo/) or [Taxonomy Entry Assignment]([[= user_doc =]]/content_management/taxonomy/work_with_tags/), because they handle functionalities that apply to all Content items of the Content Type, but you can use this feature with [custom Field Types](create_custom_generic_field_type.md).
 
 The SEO Field Type is promoted on the Content Type edit screen by default.
-See the following example to learn how you can add a Field Types ss an anchor menu.
+See the following example to learn how you can add a Field Type as an anchor menu.
 
 ## Modify YAML configuration
 
-In a YAML configuration file, for example, in `config/packages/ibexa_admin_ui.yaml`, the following configuration is made:
+In a YAML configuration file, for example, in `config/packages/ibexa_admin_ui.yaml`, add:
 
 ```yaml
 ibexa:
