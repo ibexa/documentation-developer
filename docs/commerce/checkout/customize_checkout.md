@@ -79,7 +79,7 @@ after you check whether the form is valid, use the `AbstractStepController::adva
 
 In the `src/Form/Type` folder, create a corresponding form:
 
-``` php hl_lines="23 24"
+``` php
 [[= include_file('code_samples/front/shop/checkout/src/Form/Type/SelectSeatType.php') =]]
 ```
 
@@ -152,7 +152,7 @@ after you check whether the form is valid, use the `AbstractStepController::adva
 
 In the `src/Form/Type` folder, create a corresponding form:
 
-``` php hl_lines="23 24"
+``` php
 [[= include_file('code_samples/front/shop/checkout/src/Form/Type/SinglePageCheckoutType.php') =]]
 ```
 
