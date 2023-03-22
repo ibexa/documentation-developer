@@ -164,6 +164,8 @@ In `templates/themes/custom/storefront/checkout`, create a layout that iterates 
 ```html+twig
 [[= include_file('code_samples/front/shop/checkout/templates/themes/storefront/checkout/checkout.html.twig') =]]
 ```
+In `assets/styles/app.css`, add styles required to properly display your template.
+
 ### Select supported workflow 
 
 Then you have to map the single-step workflow to the repository, 
