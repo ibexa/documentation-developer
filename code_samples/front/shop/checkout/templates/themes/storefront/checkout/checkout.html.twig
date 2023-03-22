@@ -1,0 +1,38 @@
+{% extends '@ibexadesign/storefront/layout.html.twig' %}
+
+{% form_theme form '@ibexadesign/storefront/form_fields.html.twig' %}
+
+{% block content %}
+    {{ form_start(form) }}
+        {{ form_widget(form._token) }}
+
+        <header class="checkout-header">
+            <h1>Single-page checkout</h1>
+            <p>A single-page checkout uses one page to display all the elements of a standard checkout process, 
+                including payment details, billing and shipping addresses, and shipping options.</p>
+        </header>
+
+        {% for child in form %}
+            {% if not child.rendered %}
+                <fieldset class="checkout-field-group">
+                    <header class="checkout-field-group-header">
+                        <span class="checkout-field-group-step">
+                            {{ loop.index }}
+                        </span>
+                        <span class="checkout-field-group-label">
+                            {{ child.vars.label }}
+                        </span>
+                    </header>
+
+                    <div class="checkout-field-group-form">
+                        {{ form_widget(child) }}
+                    </div>
+                </fieldset>
+            {% endif %}
+        {% endfor %}
+
+        <button class="ibexa-store-btn ibexa-store-btn--primary">
+            Complete purchase
+        </button>
+    {{ form_end(form) }}
+{% endblock %}

@@ -1,3 +1,42 @@
+ibexa:
+    repositories:
+        default: 
+            checkout:
+                workflow: ibexa_checkout
+                shipping_methods:
+                    courier:
+                        name: "Courier"
+                        translation_domain: "checkout"
+                    parcel_machine:
+                        name: "Parcel machine"
+                    self_pickup:
+                        name: "Self pickup"
+                    express_delivery:
+                        name: "Express delivery"
+                payment_methods:
+                    credit_card:
+                        name: "Credit card"
+                    paypal:
+                        name: "Paypal"
+                    money_transfer:
+                        name: "Money transfer"                        
+
+    system:
+        storefront_group:
+            design: custom
+            product_catalog:
+                currencies:
+                    - EUR
+                    - PLN
+                    - CZK
+                regions:
+                    - Germany
+                    - Poland
+                    - Czechia        
+
+
+// ...
+
 framework:
     workflows:
         ibexa_checkout:
@@ -57,3 +96,93 @@ framework:
                         controller: Ibexa\Bundle\Checkout\Controller\CheckoutStep\CompleteStepController::renderCompleteView
                         label: 'Order confirmation'
                         translation_domain: checkout
+        single_page_checkout:
+            type: state_machine
+            audit_trail:
+                enabled: false
+            marking_store:
+                type: method
+                property: status
+            supports:
+                - Ibexa\Contracts\Checkout\Value\CheckoutInterface
+            initial_marking: initialized
+            places:
+                - initialized
+                - completed
+            transitions:
+                checkout_data:
+                    from: [ initialized, completed ]
+                    to: completed
+                    metadata:
+                        controller: App\Controller\Checkout\OnePageCheckout
+        seat_selection_checkout:
+            type: state_machine
+            audit_trail:
+                enabled: false
+            marking_store:
+                type: method
+                property: status
+            supports:
+                - Ibexa\Contracts\Checkout\Value\CheckoutInterface
+            initial_marking: initialized
+            places:
+                - initialized
+                - seat_selected
+                - address_selected
+                - shipping_selected
+                - summarized
+                - completed
+            transitions:
+                select_seat:
+                    from:
+                        - initialized
+                        - seat_selected
+                        - address_selected
+                        - shipping_selected
+                        - summarized
+                    to: seat_selected
+                    metadata:
+                        next_step: select_address
+                        controller: App\Controller\Checkout\Step\SelectSeatStepController
+                        label: 'Select your seats'
+                select_address:
+                    from:
+                        - seat_selected
+                        - address_selected
+                        - shipping_selected
+                        - summarized
+                    to: address_selected
+                    metadata:
+                        next_step: select_shipping
+                        controller: Ibexa\Bundle\Checkout\Controller\CheckoutStep\AddressStepController::renderStepView
+                        label: 'Billing & shipping address'
+                select_shipping:
+                    from:
+                        - address_selected
+                        - seat_selected
+                        - shipping_selected
+                        - summarized
+                    to: shipping_selected
+                    metadata:
+                        next_step: summary
+                        controller: Ibexa\Bundle\Checkout\Controller\CheckoutStep\ShippingStepController::renderStepView
+                        label: 'Shipping & payment method'
+                summary:
+                    from:
+                        - shipping_selected
+                        - summarized
+                    to: summarized
+                    metadata:
+                        next_step: complete
+                        controller: Ibexa\Bundle\Checkout\Controller\CheckoutStep\SummaryStepController::renderStepView
+                        label: 'Payment & summary'
+                complete:
+                    from: summarized
+                    to: completed
+                    metadata:
+                        controller: Ibexa\Bundle\Checkout\Controller\CheckoutStep\CompleteStepController::renderCompleteView
+                        label: 'Order confirmation'
+
+ibexa_design_engine:
+    design_list:
+        custom: [ custom, storefront, standard ]
