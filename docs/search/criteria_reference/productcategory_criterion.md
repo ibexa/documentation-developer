@@ -4,7 +4,7 @@ The `ProductCategory` Search Criterion searches for products by the category the
 
 ## Arguments
 
-- `taxonomyEntries` - array of ints representing category IDs.
+- `taxonomyEntries` - array of ints representing category IDs
 
 ## Example
 

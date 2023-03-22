@@ -1,3 +1,7 @@
+---
+description: Ibexa DXP v3.3 is a Long Term Support release that offers a new Personalization UI, Image Editor and a data migration bundle.
+---
+
 # Ibexa DXP v3.3
 
 **Version number**: v3.3

@@ -43,8 +43,10 @@ ibexa:
             io:
                 metadata_handler: dfs
                 binarydata_handler: nfs
-The adapter is the *driver* used by Flysystem to read/write files. Adapters are declared using `oneup_flysystem`. 
-Metadata and binary data handlers are configured under `ibexa_io`. See below the configuration for the default handlers. It declares a metadata handler and a binary data handler, both labeled `default`. Both handlers are of type `flysystem`, and use the same Flysystem adapter, labeled `default` as well.
+```
+
+The adapter is the *driver* used by Flysystem v2 to read/write files. Adapters are declared using `oneup_flysystem`. 
+Metadata and binary data handlers are configured under `ibexa_io`. See below the configuration for the default handlers. It declares a metadata handler and a binary data handler, both labeled `default`. Both handlers are of type `flysystem`, and use the same Flysystem v2 adapter, labeled `default` as well.
 
 ``` yaml
 ibexa_io:
@@ -86,7 +88,7 @@ Default values:
 
 !!! note
 
-    As SiteAccess configuration Flysystem's native Local NFS adapter is not supported, the following
+    As SiteAccess configuration Flysystem's v2 native Local NFS adapter is not supported, the following
     configuration should be used:
 
     ``` yaml
@@ -98,9 +100,9 @@ Default values:
     ```
 
 
-### Native Flysystem handler
+### Native Flysystem v2 handler
 
-[[= product_name =]] uses it as the default way to read and write content in form of binary files. Flysystem can use the `local` filesystem, but is also able to read/write to `sftp`, `zip` or cloud filesystems (`azure`, `rackspace`, `S3`).
+[[= product_name =]] uses it as the default way to read and write content in form of binary files. Flysystem v2 can use the `local` filesystem, but is also able to read/write to `sftp`, `zip` or cloud filesystems (`azure`, `rackspace`, `S3`).
 [league/flysystem](http://flysystem.thephpleague.com/) (along with [FlysystemBundle](https://github.com/1up-lab/OneupFlysystemBundle/)) is an abstract file handling library.
 
 #### Handler options
@@ -127,25 +129,3 @@ To learn how to configure other adapters, see the [bundle's online documentation
 
 For clustering, the platform provides a custom metadata handler that stores metadata about your assets in the database.
 This is faster than accessing the remote NFS or S3 instance to read metadata. For further reading on setting this up, see [Clustering](clustering.md).
-
-## Enabling BinaryFile Field indexing
-
-The indexing of all BinaryFile Fields is disabled by default.
-To enable it, first, make sure you have installed Oracle Java/Open JDK 8 or higher and Apache Tika 1.20.
-Next, in the `config/packages` folder create a `binary_files.yaml` file with the following configuration:
-
-``` yaml
-ibexa_commerce_field_types:
-    binary_file_indexing:
-        enabled: true
-```
-
-To check what types are indexed, check the `ibexa.commerce.site_access.config.search.default.index_content` service container parameter. You can override this parameter for a specific SiteAccess by replacing `default` by its name
-The following file types are indexed by default:
-
-``` yaml
-- application/pdf
-- application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-```
-
-The default path to the Tika jar is specified with the `apache_tika_path` parameter in `config/packages/commerce/commerce_parameters.yaml`.

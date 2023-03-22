@@ -4,7 +4,7 @@ The `CurrencyCodeCriterion` Search Criterion searches for currencies by their co
 
 ## Arguments
 
-- `code` - string representing the currency code.
+- `code` - string representing the currency code
 
 ## Limitations
 

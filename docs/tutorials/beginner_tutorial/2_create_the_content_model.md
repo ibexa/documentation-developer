@@ -67,7 +67,7 @@ Confirm the creation of the Content Type by selecting **Create**.
     
     For this tutorial, swap it with its child, a Folder called "Ibexa Platform".
     
-    To do this, go to "Ibexa Digital Experience Platform", select the **Locations** tab
+    To do this, go to the left side menu and choose **Content structure** -> **Ibexa Digital Experience Platform**, select the **Locations** tab
     and in the **Swap Locations** section navigate to "Ibexa Platform".
     
     You can learn how to work with Pages in [another tutorial](page_and_form_tutorial.md).

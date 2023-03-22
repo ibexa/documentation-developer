@@ -54,4 +54,15 @@ Finish taxonomy set-up by creating a new Content category named Root with identi
 
 To use this new taxonomy, add an `ibexa_taxonomy_entry_assignement` Field to a Content Type and select Content categories (or `taxonomy.content_categories`) in its Taxonomy drop-down setting.
 
+### Hide Content tab
+
+The **Content** tab in taxonomy objects, for example, tags and categories, lists all Content assigned to the current taxonomy. 
+You can hide the **Content** tab in the **Categories** view.
+
+In the `config/packages/ibexa_taxonomy.yaml` add `assigned_content_tab` with the flag `false` (for other taxonomies this flag is by default set to `true`):
+
+``` yaml
+[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0,2 )=]][[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 9,17 )=]]
+```
+
 For more information about available functionalities of tags, see [User Documentation]([[= user_doc =]]/taxonomy).

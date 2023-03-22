@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ViewInput>
   <identifier>TitleView</identifier>
-  <ContentQuery>
+  <Query>
     <Filter>
       <ContentTypeIdentifierCriterion>image</ContentTypeIdentifierCriterion>
       <SectionIdentifierCriterion>media</SectionIdentifierCriterion>
+      <DateMetadataCriterion>
+        <Target>modified</Target>
+        <Value>1675681020</Value>
+        <Operator>gte</Operator>
+      </DateMetadataCriterion>
     </Filter>
     <limit>10</limit>
     <offset>0</offset>
     <SortClauses>
       <ContentName>ascending</ContentName>
     </SortClauses>
-    <FacetBuilders>
-      <contentTypeFacetBuilder/>
-    </FacetBuilders>
-  </ContentQuery>
+    <Aggregations>
+      <Aggregation>
+        <ContentTypeTermAggregation>
+          <name>some name</name>
+        </ContentTypeTermAggregation>
+      </Aggregation>
+    </Aggregations>
+  </Query>
 </ViewInput>

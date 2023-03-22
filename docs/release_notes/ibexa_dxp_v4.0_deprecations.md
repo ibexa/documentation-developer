@@ -49,6 +49,7 @@ Other package-specific configuration keys have also been updated.
 | `ezplatform_support_tools` | `ibexa_system_info` |
 | `ezrecommendation` | `ibexa_personalization_client` |
 | `ezrichtext` | `ibexa_fieldtype_richtext` |
+| `ezrichtext.custom_styles.<style_name>.is_inline` | `ibexa_fieldtype_richtext.custom_styles.<style_name>.inline` |
 | `ibexa_platform_commerce_field_types` | `ibexa_commerce_field_types` |
 | `one_sky` | `ibexa_commerce_one_sky` |
 | `ses_specificationstypefieldtype` | `ibexa_commerce_specifications_type` |
@@ -225,6 +226,10 @@ The following Twig functions and filter have been renamed, including:
     | `truncate` | `ibexa_commerce_truncate` |
     | `unserialize` | `ibexa_commerce_unserialize` |
     | `youtube_video_id` | `ibexa_commerce_youtube_video_id` |
+
+
+## URL Alias route name
+URL Alias route name has changed from `ez_urlalias` to `ibexa.url.alias`.
 
 ## Configuration file names
 

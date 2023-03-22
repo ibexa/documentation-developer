@@ -2,19 +2,19 @@
 description: Configure your project files to enable Personalization and set up items you want to track.
 ---
 
-# Enable personalization
+# Enable Personalization
 
-The personalization service is based on a client-server architecture.
+The Personalization service is based on a client-server architecture.
 To enable it, you must set up authentication parameters that you receive from Ibexa.
 
 ## Get authentication parameters
 
 First, either you or another Ibexa user responsible for managing the [[= product_name =]]  
-instance must [request access to the service]([[= user_doc =]]/personalization/enable_personalization/#request-access-to-the-server).
+instance must [request access to the service]([[= user_doc =]]/personalization/enabling_personalization/#request-access-to-the-server).
 
 ## Set up customer credentials
 
-When you receive the confirmation email, add the credentials to your configuration.
+When you receive the credentials, add them to your configuration.
 In the root folder of your project, edit either the `.env` or `.env.local` file 
 by adding the following lines with your customer ID and license key: 
 
@@ -144,7 +144,7 @@ Place the following code snippet in the `<head>` section of your header template
 
 !!! tip "How tracking works"
 
-    For more information about tracking in general, see [Tracking API](tracking_api.md) and [Tracking with yct.js](tracking_with_yct.md).
+    For more information about tracking in general, see [Tracking API](tracking_api.md) and [Tracking with ibexa-tracker.js](tracking_with_ibexa-tracker.md).
 
 ### Check whether the bundle provides REST data
 
@@ -386,6 +386,7 @@ render(controller('ibexa_personalization::showRecommendationsAction', {
 | `contextItems`   | int    | ID of the content you want to get recommendations for. |
 | `scenario`       | string | Scenario used to display recommendations. You can create custom scenarios in the Back Office. |
 | `outputTypeId`   | string | Item type that you expect in response, for example, `blog_post`. |
+| `crossContentType`| bool | If set to `true`, returns recommendations for all Content Types specified in the scenario. |
 | `limit`          | int    | Number of recommendations to fetch. |
 | `template`       | string | Template name. |
 | `attributes`     | array  | Fields that are required and are requested from the Personalization server. These Field names are also used inside Handlebars templates. |

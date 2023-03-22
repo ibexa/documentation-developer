@@ -1,0 +1,9 @@
+services:
+    App\CatalogFilter\ProductNameFilter:
+        tags:
+            - name: ibexa.product_catalog.catalog_filter
+              alias: product_name
+
+    App\CatalogFilter\ProductNameFilterFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.catalog_filter.form_mapper

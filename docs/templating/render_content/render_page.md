@@ -1,8 +1,9 @@
 ---
 description: Prepare templates for Page layouts and render Page blocks.
+edition: experience
 ---
 
-# Render a Page [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+# Render a Page
 
 Page is a special Content Type that contains a [Page Field](pagefield.md).
 
@@ -41,6 +42,8 @@ To render the "Right sidebar" layout, add the following template to `templates/t
 Every built-in Page block has a default template, [which you can override](#override-default-block-templates).
 Every Page block can also have multiple other templates.
 The editor chooses a template when creating a block in the Page Builder.
+
+[[% include 'snippets/page_block_cache_clear.md' %]]
 
 ### Block configuration
 

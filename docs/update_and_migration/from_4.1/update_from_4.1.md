@@ -1,5 +1,5 @@
 ---
-description: Update your installation to the v4.1.latest version from an earlier v4.1.x version.
+description: Update your installation to the v4.2.latest version from an v4.1 version.
 ---
 
 # Update from v4.1.x to v4.2
@@ -31,6 +31,20 @@ Run:
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_1 =]] --with-all-dependencies --no-scripts
     ```
+
+### VCL configuration for Fastly
+
+You can omit this step if you already performed it during update to v4.1.6.
+
+The Fastly `.vcl` configuration files have changed.
+Follow the upgrade steps below to update them:
+
+1. Locate the `vendor/ibexa/fastly/fastly/ez_main.vcl` file and update your VCL file with the recent changes.
+2. Do the same with `vendor/ibexa/fastly/fastly/ez_user_hash.vcl`.
+3. Upload a new `snippet_re_enable_shielding.vcl` snippet file, based on `vendor/ibexa/fastly/fastly/snippet_re_enable_shielding.vcl`.
+
+Once the VCL configuration has been updated,
+you may enable [Fastly Shielding](https://docs.fastly.com/en/guides/shielding) if you prefer.
 
 ## Update from v4.1.latest to v4.2
 
@@ -103,19 +117,32 @@ Apply the following database update scripts:
 
     ``` bash
     mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.1.latest-to-4.2.0.sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.2.2-to-4.2.3.sql
     ```
 
 === "PostgreSQL"
 
     ``` bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.1.latest-to-4.2.0.sql
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.2.2-to-4.2.3.sql
     ```
 
-### Remove `node_modules`
+#### Ibexa Open Source
 
-Next, remove `node_modules` before running `composer run post-update-cmd`,
+If you have no access to Ibexa DXP's `ibexa/installer` package, database upgrade is not necessary.
+
+## Ensure password safety
+
+Following [Security advisory: IBEXA-SA-2022-009](https://developers.ibexa.co/security-advisories/ibexa-sa-2022-009-critical-vulnerabilities-in-graphql-role-assignment-ct-editing-and-drafts-tooltips),
+unless you can verify based on your log files that the vulnerability has not been exploited,
+you should [revoke passwords](https://doc.ibexa.co/en/latest/users/user_management/#revoking-passwords) for all affected users.
+
+### Remove `node_modules` and `yarn.lock`
+
+Next, remove `node_modules` and `yarn.lock` before running `composer run post-update-cmd`,
 otherwise you can encounter errors during compiling.
 
 ``` bash
 rm -Rf node_modules
+rm -Rf yarn.lock
 ```

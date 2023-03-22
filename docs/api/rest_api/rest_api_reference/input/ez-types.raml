@@ -2,7 +2,7 @@ Asset:
     type: object
     description: 'Asset value object'
     properties:
-        uri: 
+        uri:
             type: string
             description: Asset's URI address.
         assetId:
@@ -901,7 +901,7 @@ JWTInput:
             type: string
 Language:
     description: 'This class represents a language in the Repository.'
-    type: object
+    type: BaseObject
     properties:
         ALL:
             description: "Constant for use in API's to specify that you want to load all languages."
@@ -924,6 +924,12 @@ LanguageCode:
     properties:
         languageCode:
             type: string
+LanguageList:
+    description: 'List of languages.'
+    type: BaseObject
+    properties:
+        Language:
+            type: Language[]
 LanguageCreateStruct:
     description: 'This class represents a value for creating a language.'
     type: object
@@ -2262,6 +2268,37 @@ BasketLinesData:
 PriceResponse:
     type: BaseCommerceResponse
 
+CartSummary:
+    type: object
+
+CartViewInput:
+    type: object
+
+Catalog:
+    type: object
+
+CatalogList:
+    type: object
+
+CatalogCreate:
+    type: object
+    description: ''
+
+CatalogUpdate:
+    type: object
+
+CatalogCopy:
+    type: object
+
+CatalogViewInput:
+    type: object
+
+ProductFilterList:
+    type: object
+
+ProductSortClauseList:
+    type: object
+
 Currency:
     type: object
 
@@ -2273,6 +2310,9 @@ CurrencyCreate:
     description: ''
 
 CurrencyUpdate:
+    type: object
+
+CurrencyView:
     type: object
 
 Region:
@@ -2303,6 +2343,10 @@ AttributeGroupViewInput:
     type: object
     description: ''
 
+AttributeGroupView:
+    type: object
+    description: ''
+
 Attribute:
     type: object
     description: ''
@@ -2320,6 +2364,18 @@ AttributeList:
     description: ''
 
 AttributeViewInput:
+    type: object
+    description: ''
+
+AttributeView:
+    type: object
+    description: ''
+
+AttributeType:
+    type: object
+    description: ''
+
+AttributeTypeList:
     type: object
     description: ''
 
@@ -2343,6 +2399,9 @@ CustomerGroupViewInput:
     type: object
     description: ''
 
+CustomerGroupView:
+    type: object
+
 CurrencyViewInput:
     type: object
     description: ''
@@ -2364,6 +2423,10 @@ ProductTypeUpdate:
     description:
 
 ProductTypeViewInput:
+    type: object
+    description: ''
+
+ProductTypeView:
     type: object
     description: ''
 
@@ -2395,6 +2458,10 @@ ProductViewInput:
     type: object
     description: ''
 
+ProductView:
+    type: object
+    description: ''
+
 ProductVariant:
     type: object
     description: ''
@@ -2415,18 +2482,47 @@ ProductVariantViewInput:
     type: object
     description: ''
 
+ProductVariantView:
+    type: object
+
 RegionViewInput:
     type: object
     description: ''
 
+RegionView:
+    type: object
+
 ProductTypeList:
     type: object
     description:
+
+TaxonomyEntry:
+    type: object
+
+TaxonomyEntryAssignment:
+    type: object
+
+EntryAssignmentCollection:
+    type: object
+
+TaxonomyEntryBulkRemove:
+    type: object
+
+TaxonomyEntryBulkMove:
+    type: object
 
 TaxonomyEntryAssignToContent:
     type: object
     description: ''
 
 TaxonomyEntryUnassignFromContent:
+    type: object
+    description: ''
+
+VatCategoryList:
+    type: object
+    description: ''
+
+VatCategory:
     type: object
     description: ''

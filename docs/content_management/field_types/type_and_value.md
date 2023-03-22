@@ -164,6 +164,11 @@ An example schema could look like this:
 
 The settings are mapped into Symfony forms via the [FormMapper](form_and_template.md#formmapper).
 
+!!! note
+
+    You can store Field Type settings internally, or, when the schema becomes 
+    too complex, move them to [external storage](field_type_storage.md#storing-field-type-settings-externally).
+
 ## Extensibility points
 
 Some Field Types will require additional processing, for example a Field Type storing a binary file, or one having more complex settings or validator configuration. For this purpose specific implementations of an abstract class `Ibexa\Contracts\Rest\FieldTypeProcessor` are used.

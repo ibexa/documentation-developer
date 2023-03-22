@@ -31,7 +31,11 @@ Matchers define when the workflow is used. Their configuration is optional.
 
 `content_type` contains an array of Content Type identifiers that use this workflow.
 
-`content_status` lists the statuses of Content items which fall under this workflow. The available values are: `draft` and `published`.
+`content_status` lists the statuses of Content items which fall under this workflow. The available values are: `draft` and `published`. 
+
+If set to `draft`, applies for new Content (newly created).
+
+If set to `published`, applies for Content that has already been published (for example, edit after the Content was published).
 
 ``` yaml
 [[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 6, 9) =]]
@@ -65,6 +69,11 @@ or be `reverse` to a different transition (line 9).
 When moving a Content item through a transition, the user can select a reviewer.
 Assigning a reviewer is mandatory if you set `reviewers.required` to `true` for this transition.
 
+To be able to search for users for review, the user must have the content/read Policy without any Limitation,
+or with a Limitation that allows reading users.
+This means that, in addition to your own settings for this Policy, 
+you must add the /Users subtree to the Limitation and add Users in the [Content Type Limitation](limitation_reference.md#content-type-limitation).
+
 ``` yaml hl_lines="8 9"
 [[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 23, 32) =]]
 ```
@@ -83,14 +92,14 @@ The notification is displayed in the user menu:
 
 #### Draft locking
 
-You can configure draft assignment in a way that when a user sends a draft to review, 
-only the assigned reviewer can either edit the draft or unlock it for editing, and no 
+You can configure draft assignment in a way that when a user sends a draft to review,
+only the first editor of the draft can either edit the draft or unlock it for editing, and no
 other user can take it over. 
 
-Use the [Version Lock Limitation](limitation_reference.md#version-lock-limitation), 
-set to "Assigned only", together with the `content/edit` and `content/unlock` 
-Policies to prevent users from editing and unlocking drafts that are assigned 
-to other users.
+Use the [Version Lock Limitation](limitation_reference.md#version-lock-limitation),
+set to "Assigned only", together with the `content/edit` and `content/unlock`
+Policies to prevent users from editing and unlocking drafts that are locked
+by another user.
 
 ### Content publishing
 
@@ -171,7 +180,7 @@ The service implements the following methods:
 The methods `apply` and `can` are the same as in Symfony Workflow,
 but the implementation in workflow service extends them, for example by providing messages.
 
-For examples of using the Workflow Service, see [PHP API documentation](repository_api.md#workflow).
+For examples of using the Workflow Service, see [Workflow API](workflow_api.md).
 
 ## Validation
 

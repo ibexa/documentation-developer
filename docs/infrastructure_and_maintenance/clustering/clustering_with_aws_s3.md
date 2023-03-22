@@ -34,7 +34,7 @@ The secret key cannot be retrieved again after the key has been created, so don'
     
 ## Set up [[= product_name =]] for AWS S3
 
-In your [[= product_name =]] root directory, run `php composer.phar require league/flysystem-aws-s3-v3:^1.0`.
+In your [[= product_name =]] root directory, run `php composer require league/flysystem-aws-s3-v3:^2.0`.
 In your [[= product_name =]] configuration, e.g. `config/packages/ibexa.yaml`, set up the AWS S3 client:
 
 ``` yaml
@@ -49,7 +49,7 @@ services:
                     secret: abc123... # Your AWS secret key
 ```
 
-In the same [[= product_name =]] configuration, set up the Flysystem adapter that uses the S3 client:
+In the same [[= product_name =]] configuration, set up the Flysystem v2 adapter that uses the S3 client:
 
 ``` yaml
 oneup_flysystem:

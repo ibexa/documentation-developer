@@ -1,8 +1,9 @@
 ---
 description: Events that are triggered when working with Pages and Page blocks.
+edition: experience
 ---
 
-# Page events [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+# Page events
 
 | Event | Dispatched by | Properties |
 |---|---|---|

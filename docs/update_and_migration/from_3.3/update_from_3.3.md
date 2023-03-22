@@ -113,7 +113,7 @@ You do this manually by following this procedure:
 
 #### VCL configuration for Fastly
 
-[[% include 'snippets/update/vcl_configuration_for_fastly.md' %]]
+[[% include 'snippets/update/vcl_configuration_for_fastly_v3.md' %]]
 
 #### Optimize workflow queries
 
@@ -244,6 +244,38 @@ Run the following SQL commands:
         ON "ibexa_workflow_version_lock" ("content_id", "version");
     ```
 
+### Ibexa Open Source
+
+If you have no access to Ibexa DXP's `ibexa/installer` package, apply the following database upgrade script:
+
+=== "MySQL"
+
+    ``` sql
+    DROP TABLE IF EXISTS `ibexa_setting`;
+    CREATE TABLE `ibexa_setting` (
+      `id` int(11) NOT NULL AUTO_INCREMENT,
+      `group` varchar(128) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+      `identifier` varchar(128) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+      `value` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+      PRIMARY KEY (`id`),
+      UNIQUE KEY `ibexa_setting_group_identifier` (`group`, `identifier`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    DROP TABLE IF EXISTS ibexa_setting;
+    CREATE TABLE ibexa_setting (
+      id SERIAL NOT NULL,
+      "group" varchar(128) NOT NULL,
+      identifier varchar(128) NOT NULL,
+      value json NOT NULL,
+      PRIMARY KEY (id),
+      CONSTRAINT ibexa_setting_group_identifier UNIQUE ("group", identifier)
+    );
+    ```
+
 ### v3.3.9
 
 #### Database update
@@ -322,3 +354,11 @@ Ibexa DXP now supports Fastly shielding. If you are using Fastly and want to use
 1. Locate the `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_main.vcl` file and update your VCL file with the recent changes.
 2. Do the same with `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_user_hash.vcl`.
 3. Upload a new `snippet_re_enable_shielding.vcl` snippet file, based on `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/snippet_re_enable_shielding.vcl`.
+
+### v3.3.28
+
+#### Ensure password safety
+
+Following [Security advisory: IBEXA-SA-2022-009](https://developers.ibexa.co/security-advisories/ibexa-sa-2022-009-critical-vulnerabilities-in-graphql-role-assignment-ct-editing-and-drafts-tooltips),
+unless you can verify based on your log files that the vulnerability has not been exploited,
+you should [revoke passwords](https://doc.ibexa.co/en/latest/users/user_management/#revoking-passwords) for all affected users.

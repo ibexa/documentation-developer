@@ -2,3 +2,6 @@
 **/.DS_Store
 __pycache__/*
 /site/
+**/.idea/
+.php-cs-fixer.cache
+composer.lock

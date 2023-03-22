@@ -1,0 +1,118 @@
+{
+  "EntryAssignmentCollection": {
+    "_media-type": "application/vnd.ibexa.api.EntryAssignmentCollection+json",
+    "content": {
+      "_media-type": "application/vnd.ibexa.api.Content+json",
+      "Content": {
+        "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+        "_href": "/api/ibexa/v2/content/objects/1",
+        "_remoteId": "9459d3c29e15006e45197295722c7ade",
+        "_id": 1,
+        "ContentType": {
+          "_media-type": "application/vnd.ibexa.api.ContentType+json",
+          "_href": "/api/ibexa/v2/content/types/1"
+        },
+        "Name": "Ibexa Platform",
+        "TranslatedName": "Ibexa Platform",
+        "Versions": {
+          "_media-type": "application/vnd.ibexa.api.VersionList+json",
+          "_href": "/api/ibexa/v2/content/objects/1/versions"
+        },
+        "CurrentVersion": {
+          "_media-type": "application/vnd.ibexa.api.Version+json",
+          "_href": "/api/ibexa/v2/content/objects/1/currentversion"
+        },
+        "Section": {
+          "_media-type": "application/vnd.ibexa.api.Section+json",
+          "_href": "/api/ibexa/v2/content/sections/1"
+        },
+        "Locations": {
+          "_media-type": "application/vnd.ibexa.api.LocationList+json",
+          "_href": "/api/ibexa/v2/content/objects/1/locations"
+        },
+        "Owner": {
+          "_media-type": "application/vnd.ibexa.api.User+json",
+          "_href": "/api/ibexa/v2/user/users/14"
+        },
+        "lastModificationDate": "2023-01-01T00:00:00+00:00",
+        "publishedDate": "2015-11-30T13:10:46+00:00",
+        "mainLanguageCode": "eng-GB",
+        "currentVersionNo": 10,
+        "alwaysAvailable": true,
+        "isHidden": false,
+        "status": "PUBLISHED",
+        "ObjectStates": {
+          "_media-type": "application/vnd.ibexa.api.ContentObjectStates+json",
+          "_href": "/api/ibexa/v2/content/objects/1/objectstates"
+        }
+      }
+    },
+    "assignments": [
+      {
+        "_media-type": "application/vnd.ibexa.api.TaxonomyEntryAssignment+json",
+        "id": 1,
+        "content": {
+          "_media-type": "application/vnd.ibexa.api.Content+json",
+          "Content": {
+            "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+            "_href": "/api/ibexa/v2/content/objects/1",
+            "_remoteId": "9459d3c29e15006e45197295722c7ade",
+            "_id": 1,
+            "ContentType": {
+              "_media-type": "application/vnd.ibexa.api.ContentType+json",
+              "_href": "/api/ibexa/v2/content/types/1"
+            },
+            "Name": "Ibexa Platform",
+            "TranslatedName": "Ibexa Platform",
+            "Versions": {
+              "_media-type": "application/vnd.ibexa.api.VersionList+json",
+              "_href": "/api/ibexa/v2/content/objects/1/versions"
+            },
+            "CurrentVersion": {
+              "_media-type": "application/vnd.ibexa.api.Version+json",
+              "_href": "/api/ibexa/v2/content/objects/1/currentversion"
+            },
+            "Section": {
+              "_media-type": "application/vnd.ibexa.api.Section+json",
+              "_href": "/api/ibexa/v2/content/sections/1"
+            },
+            "Locations": {
+              "_media-type": "application/vnd.ibexa.api.LocationList+json",
+              "_href": "/api/ibexa/v2/content/objects/1/locations"
+            },
+            "Owner": {
+              "_media-type": "application/vnd.ibexa.api.User+json",
+              "_href": "/api/ibexa/v2/user/users/14"
+            },
+            "lastModificationDate": "2023-01-01T00:00:00+00:00",
+            "publishedDate": "2015-11-30T13:10:46+00:00",
+            "mainLanguageCode": "eng-GB",
+            "currentVersionNo": 10,
+            "alwaysAvailable": true,
+            "isHidden": false,
+            "status": "PUBLISHED",
+            "ObjectStates": {
+              "_media-type": "application/vnd.ibexa.api.ContentObjectStates+json",
+              "_href": "/api/ibexa/v2/content/objects/1/objectstates"
+            }
+          }
+        },
+        "entry": {
+          "_media-type": "application/vnd.ibexa.api.TaxonomyEntry+json",
+          "TaxonomyEntry": {
+            "_media-type": "application/vnd.ibexa.api.TaxonomyEntry+json",
+            "id": 3,
+            "identifier": "example",
+            "name": "Example",
+            "contentId": 65,
+            "content": {
+              "_media-type": "application/vnd.ibexa.api.Content+json",
+              "_href": "/api/ibexa/v2/content/objects/65"
+            },
+            "taxonomy": "tags"
+          }
+        }
+      }
+    ]
+  }
+}

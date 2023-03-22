@@ -4,14 +4,20 @@ description: Built-in Twig functions speed up rendering content in Twig template
 
 # Twig function reference
 
-In addition to the [native functions provided by Twig](http://twig.sensiolabs.org/doc/functions/index.html),
+In addition to the [native functions provided by Twig](https://twig.symfony.com/doc/3.x/functions/index.html),
 and [Twig extensions provided by Symfony]([[= symfony_doc =]]/reference/twig_reference.html),
 [[= product_name =]] offers the following custom Twig functions and filters:
 
-- [Content Twig functions](content_twig_functions.md)
-- [Field Twig functions](field_twig_functions.md)
-- [Product Twig functions](product_twig_functions.md)
-- [Image Twig functions](image_twig_functions.md)
-- [URL Twig functions](url_twig_functions.md)
-- [Date Twig filters](date_twig_filters.md)
-- [Other Twig filters](other_twig_filters.md)
+[[= cards([
+  "templating/twig_function_reference/cart_twig_functions",
+  "templating/twig_function_reference/catalog_twig_functions",
+  "templating/twig_function_reference/checkout_twig_functions",
+  "templating/twig_function_reference/content_twig_functions",
+  "templating/twig_function_reference/field_twig_functions",
+  "templating/twig_function_reference/product_twig_functions",
+  "templating/twig_function_reference/storefront_twig_functions",
+  "templating/twig_function_reference/image_twig_functions",
+  "templating/twig_function_reference/url_twig_functions",
+  "templating/twig_function_reference/date_twig_filters",
+  "templating/twig_function_reference/other_twig_filters"
+], columns=4) =]]

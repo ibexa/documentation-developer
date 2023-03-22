@@ -25,20 +25,21 @@ Those services are obtained using `get[ServiceName]()` methods: `getContentServi
 
 The full list of available services covers:
 
-- [CompanyService](https://github.com/ibexa/corporate-account/blob/main/src/contracts/Service/CompanyService.php)
+- CompanyService
 - [ContentService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php)
 - [ContentTypeService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentTypeService.php)
 - [FieldTypeService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/FieldTypeService.php)
 - [InvitationService](https://github.com/ibexa/user/blob/main/src/contracts/Invitation/InvitationService.php)
 - [LanguageService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LanguageService.php)
 - [LocationService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php)
-- [MemberService](https://github.com/ibexa/corporate-account/blob/main/src/contracts/Service/MemberService.php)
+- MemberService
 - [NotificationService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/NotificationService.php)
 - [ObjectStateService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ObjectStateService.php)
 - [RoleService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/RoleService.php)
 - [SearchService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SearchService.php)
 - [SectionService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SectionService.php)
-- [ShippingAddressService](https://github.com/ibexa/corporate-account/blob/main/src/contracts/Service/ShippingAddressService.php)
+- ShippingAddressService
+- TaxonomyService
 - [TranslationService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/TranslationService.php)
 - [TrashService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/TrashService.php)
 - [URLAliasService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/URLAliasService.php)
@@ -71,6 +72,14 @@ for [`Content`.](https://github.com/ibexa/core/blob/main/src/contracts/Repositor
 These objects provide you with lower-level information.
 For instance, `ContentInfo` contains `currentVersionNo` or `remoteId`,
 while `Content` enables you to retrieve Fields, Content Type, or previous versions.
+
+!!! note
+
+    The Public API value objects should not be serialized.
+
+    Serialization of value objects, for example, `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` /  `Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo` 
+    or `Ibexa\Contracts\Core\Repository\Values\Content\Location` results in memory limit exceeded error.
+
 
 ## Authentication
 

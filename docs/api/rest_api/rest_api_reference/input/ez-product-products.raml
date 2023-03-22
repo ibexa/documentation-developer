@@ -51,6 +51,10 @@
                 description: The product schema encoded in XML or JSON format.
                 example:  |
                     application/vnd.ibexa.api.ProductGet+json
+        body:
+            application/vnd.ibexa.api.ProductGet+json:
+                type: Product
+                example: !include examples/product/catalog/product/code/GET/ProductGet.json.example
         responses:
             200:
                 body:
@@ -86,14 +90,14 @@
             400:
                 description: Error - the input does not match the input schema definition.
             401:
-                description: Error - the user is not authorized to create this product.
+                description: Error - the user is not authorized to update this product.
             403:
                 description: Error - a product with the same code already exists.
             404:
                 description: Error - no product with the given code exists.
 get:
-    displayName: Load products list
-    description: Returns a list of products.
+    displayName: Load products list (deprecated)
+    description: Returns a list of products. Deprecated as of Ibexa DXP 4.3, use POST /product/catalog/products/view instead.
     headers:
         Accept:
             description: If set, the products are returned in XML or JSON format.
@@ -137,7 +141,7 @@ get:
         responses:
             200:
                 body:
-                    application/vnd.ibexa.api.ProductView+json;
+                    application/vnd.ibexa.api.ProductView+json:
                         type: ProductView
                         example: !include examples/product/catalog/product/POST/ProductView.json.example
             400:

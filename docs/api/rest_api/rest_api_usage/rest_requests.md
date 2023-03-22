@@ -53,12 +53,12 @@ The response contains an [`Allow` header](https://www.w3.org/Protocols/rfc2616/r
 curl -IX OPTIONS https://api.example.com/api/ibexa/v2/content/objects/1
 ```
 
-```
+```http
 OPTIONS /content/objects/1 HTTP/1.1
 Host: api.example.com
 ```
 
-```
+```http
 HTTP/1.1 200 OK
 Allow: PATCH,GET,DELETE,COPY
 ```
@@ -67,12 +67,12 @@ Allow: PATCH,GET,DELETE,COPY
 curl -IX OPTIONS https://api.example.com/api/ibexa/v2/content/locations/1/2
 ```
 
-```
+```http
 OPTIONS /content/locations/1/2 HTTP/1.1
 Host: api.example.com
 ```
 
-```
+```http
 HTTP/1.1 200 OK
 Allow: GET,PATCH,DELETE,COPY,MOVE,SWAP
 ```
@@ -96,7 +96,7 @@ Otherwise, the default SiteAccess is used.
 
 The following example shows what could be a SiteAccess called `restapi` dedicated to REST API accesses:
 
-```
+```http
 GET / HTTP/1.1
 Host: api.example.com
 Accept: application/vnd.ibexa.api.Root+json
@@ -190,7 +190,8 @@ The following examples search for `article` and `news` typed Content items every
 
 === "XML"
 
-    ```
+    ``` http
+    POST /views HTTP/1.1
     Content-Type: application/vnd.ibexa.api.ViewInput+xml
     ```
 
@@ -220,7 +221,8 @@ The following examples search for `article` and `news` typed Content items every
 
 === "XML; 1.1"
 
-    ```
+    ``` http
+    POST /views HTTP/1.1
     Content-Type: application/vnd.ibexa.api.ViewInput+xml; version=1.1
     ```
 
@@ -250,7 +252,8 @@ The following examples search for `article` and `news` typed Content items every
 
 === "JSON"
 
-    ```
+    ```http
+    POST /views HTTP/1.1
     Content-Type: application/vnd.ibexa.api.ViewInput+json
     ```
 
@@ -281,7 +284,8 @@ The following examples search for `article` and `news` typed Content items every
 
 === "JSON; 1.1"
 
-    ```
+    ``` http
+    POST /views HTTP/1.1
     Content-Type: application/vnd.ibexa.api.ViewInput+json
     ```
 

@@ -1,0 +1,42 @@
+{
+    "CatalogView": {
+        "_media-type": "application/vnd.ibexa.api.CatalogView+json",
+        "identifier": "TitleView",
+        "CatalogQuery": {
+            "_media-type": "application/vnd.ibexa.api.CatalogQuery+json"
+        },
+        "Result": {
+            "_media-type": "application/vnd.ibexa.api.ViewResult+json",
+            "count": 1,
+            "CatalogList": {
+                "_media-type": "application/vnd.ibexa.api.CatalogList+json",
+                "Catalog": [
+                    {
+                        "_media-type": "application/vnd.ibexa.api.Catalog+json",
+                        "identifier": "test",
+                        "name": "test",
+                        "description": "",
+                        "User": {
+                            "_media-type": "application/vnd.ibexa.api.User+json",
+                            "_href": "/api/ibexa/v2/user/users/14"
+                        },
+                        "created": 1665479475,
+                        "modified": 1665479475,
+                        "status": "draft",
+                        "Criteria": [
+                            {
+                                "_media-type": "application/vnd.ibexa.api.ProductCode+json",
+                                "ProductCodeCriterion": {
+                                    "_media-type": "application/vnd.ibexa.api.ProductCodeCriterion+json",
+                                    "codes": [
+                                        "test"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

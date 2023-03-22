@@ -21,7 +21,7 @@ These Policies are necessary for all other cases below that require access to th
 ## Create content without publishing [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 You can use this option together with [[= product_name_exp =]]'s content review options.
-Users assigned with these Policies can create content, but can't publish it.
+Users assigned with these Policies can create content, but cannot publish it.
 To publish, they must send the content for review to another User with proper permissions 
 (for example, senior editor, proofreader, etc.).
 
@@ -40,6 +40,13 @@ To create and publish content, users must additionally have the following Polici
 - `content/publish`
 
 This also lets the user copy and move content, as well as add new Locations to a Content item (but not remove them).
+
+## Move content
+
+To move a Content item or a Subtree to another Location, the user must have the following Policies:
+
+- `content/read` - on the source Location
+- `content/create` - on the target Location
 
 ## Remove content
 
@@ -90,7 +97,7 @@ Edit access to them in the **Admin Panel**.
 ![Subtree file structure](subtree_usability_notes_1.png)
 
 To give the vegetarian editors access only to the **Vegetarian** dinner recipes section,
- create a new Role e.g. *EditorVeg*.
+ create a new Role, for example, *EditorVeg*.
 Next, add to it a `content/read` Policy with the `Subtree` Limitation for `Cookbook/Dinner recipes/Vegetarian`.
 Assign the Role to the vegetarian editors User Group.
 It allows users from that group to access the **Vegetarian** container but not **Cookbook** and **Dinner recipes**.
@@ -155,6 +162,17 @@ that only allows Content items of type **Image**.
 This ensures that only files of type `image` can be uploaded,
 and only to the **Pictures** Folder.
 
+## Taxonomies
+
+You can control which users or user groups can work with taxonomies. 
+To let users create and assign taxonomy entries, set the following permissions:
+
+- `assign` - to allow user to tag and untag content
+- `read` -  to see the Taxonomy interface
+- `manage` - to create, edit and delete tags
+
+With Limitations you can configure whether permissions apply to Tags, Product categories or both.
+
 ## Register Users
 
 To allow anonymous users to register through the `/register` route, grant the `user/register` Policy to the Anonymous User Group.
@@ -199,3 +217,72 @@ Additional Policies are needed for each section of the Admin.
 - `content/view` to view the list of Users
 
 Users are treated like other content, so to create and modify them, the User needs to have the same permissions as for managing other Content items.
+
+## Product catalog
+
+You can control to what extend users can access the Product catalog and all its related parts.
+
+### Product type
+
+To create or edit product types, a user needs to have access to attributes and attribute groups. 
+Set the following permissions to allow such access:
+
+- `product_type/create`
+- `product_type/view`
+- `product_type/edit`
+
+### Product item
+
+When a product is created, a product item and a Content item are also generated. 
+Permissions for the product catalog override permissions for content, therefore, 
+users without permissions for content can still manage products.
+
+- `product/create`
+- `product/view`
+- `product/edit`
+
+## Commerce [[% include 'snippets/commerce_badge.md' %]]
+
+To control which commerce functionalities are available to store users, you can grant 
+or prevent them access to individual components.
+
+Out of the box, [[= product_name_com =]] comes with the *Storefront User* Role that is assigned to anonymous users and grants them the following permissions:
+
+- `product/view`, `product_type/view` and `catalog/view`, to allow them to view a product 
+list and product details
+- `cart/view`, `cart/create` and `cart/edit` with the `CartOwner` Limitation set to `self`, to allow them to add items to their own shopping cart, modify their cart, and delete it
+- `checkout/view`, `checkout/create`, `checkout/update` and `checkout/delete`, to allow 
+them to proceed to checkout and interact with the checkout process
+
+You can modify the default Roles by preventing anonymous users from being able to proceed with the checkout process,
+and creating the *Registered Buyer* Role that enables logged-in users to purchase products. 
+
+You could do this by moving permissions that relate to checkout from the *Storefront User* Role to the *Registered Buyer* Role,
+and granting *Registered Buyer* with the `user/register` and `user/login` permissions which control access to registration and login.
+
+See below for a detailed listing of permissions that apply to Commerce, together 
+with their meaning.
+
+### Cart 
+
+Set the following permissions to decide what actions are available when users 
+interact with carts: 
+
+- `cart/view` - to allow user to view their cart 
+- `cart/delete` - to delete cart, for example, after successful checkout
+- `cart/create` - to create a new cart
+- `cart/edit` - to allow user to add products to their cart
+
+To further control the access to a cart, you can use the `CartOwner` Limitation 
+and set its value to `self`. 
+This way users can only interact with their own carts.
+
+### Checkout 
+
+Set the following permissions to decide what actions are available when users 
+interact with checkout: 
+
+- `checkout/view` - to control user access to checkout
+- `checkout/create` - to allow starting the checkout process, by proceeding from cart
+- `checkout/update` - to allow users to modify existing information, for example item quantity
+- `checkout/delete` - to delete checkout

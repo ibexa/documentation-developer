@@ -1,0 +1,36 @@
+ibexa_fieldtype_page:
+    blocks:
+        slider:
+            category: default
+            thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg'
+            views:
+                default: { name: 'Default block layout', template: 'themes/blocks/slider.html.twig', priority: -255 }
+            attributes:
+                group:
+                    name: Group name
+                    type: nested_attribute
+                    options:
+                        help:
+                            text: 'Root class text'
+                            html: true # true|false
+                            attr:
+                                class: 'root-class-1 root-class-2'
+                        attributes:
+                            integer:
+                                name: Age
+                                type: integer
+                                validators:
+                                    not_blank:
+                                        message: 'Provide a value'
+                                options:
+                                    help:
+                                        text: 'Nested attribute text'
+                                        html: true
+                                        attr:
+                                            class: 'nested-1 nested-2'
+                            string:
+                                name: Name
+                                type: string
+                                validators:
+                                    not_blank:
+                                        message: 'Provide a value'

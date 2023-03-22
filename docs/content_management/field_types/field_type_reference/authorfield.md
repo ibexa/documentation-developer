@@ -5,6 +5,7 @@ This Field Type allows the storage and retrieval of one or more authors. For eac
 | Name     | Internal name | Expected input | Output   |
 |----------|---------------|----------------|----------|
 | `Author` | `ezauthor`    | mixed        | `string` |
+
 ## PHP API Field Type
 
 ### Value Object

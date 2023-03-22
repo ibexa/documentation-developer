@@ -20,7 +20,7 @@ To remove the welcome page and get a completely clean installation to start your
 remove the following files and folders from your installation:
 
 - Delete the file `config/packages/ibexa_welcome_page.yaml`
-- Delete the `templates/themes/standard` folder
+- Delete the `templates/themes/standard/full/welcome_page.html.twig` file
 - Delete the `assets/scss` folder
 - Delete all `translations/ibexa_platform_welcome_page.*` files
 - In `webpack.config.js` remove the `Encore.addEntry` section and uncomment the last line,
@@ -41,10 +41,12 @@ module.exports = [ IbexaConfig, ...customConfigs ];
 
 1\. In your browser, go to the Back Office: `<your_domain>/admin`, and use the default credentials to log in: `admin/publish`.
 
-!!! note "Password change"
+!!! caution "Password change"
 
-    You will be requested to change your password at first login. 
+    Make sure that you change the default password before you switch your installation 
+    from development to production. 
     For more information about passwords, see [Passwords](user_management.md#passwords).
+    For more information about production security, see [Security checklist](security_checklist.md).
 
 2\. Select Admin and go to Content Types.
 

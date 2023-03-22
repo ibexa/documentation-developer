@@ -268,11 +268,11 @@ ezrichtext.custom_styles.highlight.label: 'Highlight'
 You can add custom data attributes and CSS classes to the following elements 
 in the Online Editor:
 
-- `embedinline`
+- `embedInline`
 - `embed`
 - `formatted`
 - `heading`
-- `embedimage`
+- `embedImage`
 - `ul`
 - `ol`
 - `li`
@@ -283,7 +283,7 @@ in the Online Editor:
 
 !!! caution "Overriding embed templates"
 
-    If you override the default templates for `embedinline`, `embed` or `embedimage` 
+    If you override the default templates for `embedInline`, `embed` or `embedImage` 
     elements, for example, `@IbexaCore/default/content/embed.html.twig`,
     the data attributes and classes will not be rendered automatically.
 
@@ -403,4 +403,4 @@ module.exports = (ibexaConfig, ibexaConfigManager) => {
 };
 ```
 
-For more information, see [CKEditor plugins documentation](https://ckeditor.com/docs/ckeditor4/latest/guide/plugin_sdk_intro.html).
+For more information, see [CKEditor plugins documentation](https://ckeditor.com/docs/ckeditor5/latest/installation/advanced/plugins.html).

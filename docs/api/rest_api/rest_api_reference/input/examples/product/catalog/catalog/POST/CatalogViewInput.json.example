@@ -1,0 +1,11 @@
+{
+    "ViewInput": {
+        "identifier": "TitleView",
+        "CatalogQuery": {
+            "Query": {
+                "CatalogIdentifierCriterion": "test",
+                "CatalogNameCriterion": "test"
+            }
+        }
+    }
+}

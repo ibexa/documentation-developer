@@ -1,8 +1,9 @@
 ---
 description: Create a custom Page block containing rich text.
+edition: experience
 ---
 
-# Create custom RichText block [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+# Create custom RichText block
 
 A RichText block is a specific example of a [custom block](create_custom_page_block.md) that you can use when 
 you create a Page. 
@@ -19,6 +20,7 @@ It also sets the attribute type to `richtext` (line 15):
 ``` yaml hl_lines="3 15"
 [[= include_file('code_samples/back_office/online_editor/config/packages/ibexa_page_fieldtype.yaml') =]]
 ```
+
 !!! note
 
     Make sure that you provide an icon for the block in the `assets/images/blocks/` folder.

@@ -11,9 +11,7 @@ and provides statistical information for the values. You can use the provided ge
 
 ## Arguments
 
-- `name` - name of the Aggregation object
-- `contentTypeIdentifier` - string representing the Content Type identifier
-- `fieldDefinitionIdentifier` - string representing the Field identifier
+[[= include_file('docs/snippets/aggregation_arguments.md') =]]
 
 ## Example
 

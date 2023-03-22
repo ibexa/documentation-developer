@@ -28,17 +28,21 @@ Copy the necessary configuration files. In the example below from the root of yo
 ``` bash
 # Make sure to replace the /opt/solr/ path with where you have placed Solr
 cd /opt/solr
-mkdir -p server/ez/template
-cp -R ./vendor/ibexa/solr/src/lib/Resources/config/solr/* server/ez/template
-cp server/solr/configsets/_default/conf/{solrconfig.xml,stopwords.txt,synonyms.txt} server/ez/template
-cp server/solr/solr.xml server/ez
+mkdir -p server/ibexa/template
+cp -R <project_root>/vendor/ibexa/solr/src/lib/Resources/config/solr/* server/ibexa/template
+cp server/solr/configsets/_default/conf/{solrconfig.xml,stopwords.txt,synonyms.txt} server/ibexa/template
+cp server/solr/solr.xml server/ibexa
+
+# If you are using Ibexa Commerce, additionally copy commerce-specific configuration files:
+cat <project_root>/vendor/ibexa/commerce-shop/src/bundle/Search/Resources/config/solr/custom-fields-types.xml >> server/ibexa/template/custom-fields-types.xml
+cat <project_root>/vendor/ibexa/commerce-shop/src/bundle/Search/Resources/config/solr/language-fieldtypes.xml >> server/ibexa/template/language-fieldtypes.xml
 
 # Modify solrconfig.xml to remove the section that doesn't agree with your schema
-sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema".*/,/<\/updateRequestProcessorChain>/d' server/ez/template/solrconfig.xml
+sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema".*/,/<\/updateRequestProcessorChain>/d' server/ibexa/template/solrconfig.xml
 
 # Start Solr (but apply autocommit settings below first if you need to)
-bin/solr -s ez
-bin/solr create_core -c collection1 -d server/ez/template
+bin/solr -s ibexa
+bin/solr create_core -c collection1 -d server/ibexa/template
 ```
 
 ##### SolrCloud
@@ -442,7 +446,7 @@ ibexa_solr:
 
 #### Configuring Master for replication
 
-First you need to change the core configuration in `solrconfig.xml` (for example `*/opt/solr/server/ez/collection1/conf/solrconfig.xml`).
+First you need to change the core configuration in `solrconfig.xml` (for example `*/opt/solr/server/ibexa/collection1/conf/solrconfig.xml`).
 You can copy and paste the code below before any other `requestHandler` section.
 
 ```xml
@@ -514,6 +518,20 @@ Next, restart Solr slave.
 Connect to the Solr slave interface (http://localhost:8983/solr), go to your core and check the replication status:
 
 ![Solr Slave](solr.png)
+
+## Configuring HTTP Client for Solr queries
+
+Ibexa Solr Bundle uses Symfony HTTP Client to fetch and update Solr index.
+You can configure timeout and maximum number of retries for that client using Solr Bundle's Semantic configuration:
+
+```yaml
+ibexa_solr:
+    # ...
+    http_client:
+        # ...
+        timeout: 30
+        max_retries: 5
+```
 
 ## Extending Solr
 

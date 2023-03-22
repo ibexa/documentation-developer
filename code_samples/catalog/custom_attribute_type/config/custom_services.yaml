@@ -34,3 +34,11 @@ services:
         tags:
             -   name: ibexa.product_catalog.attribute.validator.options
                 type: percent
+
+    App\Attribute\Percent\Storage\PercentStorageConverter:
+        tags:
+            - { name: 'ibexa.product_catalog.attribute.storage_converter', type: 'percent' }
+
+    App\Attribute\Percent\Storage\PercentStorageDefinition:
+        tags:
+            - { name: 'ibexa.product_catalog.attribute.storage_definition', type: 'percent' }
