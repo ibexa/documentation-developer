@@ -42,7 +42,7 @@
             "raml-org/raml-php-parser": {
                 "Array of scalars": "https://github.com/raml-org/raml-php-parser/commit/d2e58eac1705a8cf2be43ed3d482006e67e4ef2d.patch",
                 "No available type list in type not found exception": "https://github.com/raml-org/raml-php-parser/commit/d54af98b9bd6d2400bbdd1c186e9b86c2dd88c83.patch",
-                "Fix warnings and depreciations for PHP 8.1": "patches/php_8.1.patch"
+                "Fix warnings and depreciations for PHP 8.1": "https://patch-diff.githubusercontent.com/raw/raml-org/raml-php-parser/pull/180.patch"
             }
         }
     }
