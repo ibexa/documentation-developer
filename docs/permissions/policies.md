@@ -103,6 +103,10 @@ Each Role you assign to  user or user group consists of Policies which define, w
 || `create` | create new checkout, for example, after workflow fails to complete |
 || `update` | change currency, quantity |
 || `delete` | delete checkout, for example, after workflow completes successfully |
+| `order`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create an order |
+|| `view` |view orders|
+|| `update` | change status of an order |
+|| `cancel` | cancel an order |
 
 ## Combining Policies
 
