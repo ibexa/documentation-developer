@@ -97,7 +97,7 @@ Each Role you assign to  user or user group consists of Policies which define, w
 ||`assign`|tag or untag content|
 | `cart`</br>[[% include 'snippets/commerce_badge.md' %]] | `view` | view a cart |
 || `create` | create a cart |
-|| `edit`   | change cart metadata (name, currency), add/remove cart items |
+|| `edit`   | change cart metadata (name, currency, owner), add/remove cart items |
 || `delete` | delete cart, for example, after successful checkout |
 | `checkout`</br>[[% include 'snippets/commerce_badge.md' %]] | `view` | access checkout |
 || `create` | create new checkout, for example, after workflow fails to complete |
