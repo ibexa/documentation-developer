@@ -286,3 +286,13 @@ interact with checkout:
 - `checkout/create` - to allow starting the checkout process, by proceeding from cart
 - `checkout/update` - to allow users to modify existing information, for example item quantity
 - `checkout/delete` - to delete checkout
+
+### Order management
+
+Set the following permissions to decide what actions are available when users 
+interact with orders:
+
+- `order/create` - to allow the user to create a new order
+- `order/view` - to allow the user to view orders
+- `order/update` - to allow the user to change status of an existing order 
+- `order/cancel` - to allow the user to cancel an existing order 
