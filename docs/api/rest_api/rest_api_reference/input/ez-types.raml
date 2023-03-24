@@ -122,7 +122,7 @@ ContentCreateStruct:
     type: object
     properties:
         contentType:
-            descritpion: 'The Content Type for which the new Content item is created.'
+            description: 'The Content Type for which the new Content item is created.'
             required: true
             type: ContentType
         sectionId:
@@ -255,7 +255,7 @@ ContentStruct:
             description: 'Adds a field to the field collection. This method could also be implemented by a magic setter so that $fields[$fieldDefIdentifier][$language] = $value or without language $fields[$fieldDefIdentifier] = $value is an equivalent call.'
             type: string
 ContentType:
-    descritpion: 'This class represents a Content Type.'
+    description: 'This class represents a Content Type.'
     type: BaseObject
     properties:
         id:
@@ -472,7 +472,7 @@ ContentTypeInfo:
             description: 'Modification date of the Content Type.'
             type: datetime
         Creator:
-            descritpion: 'Creator User of the Content Type.'
+            description: 'Creator User of the Content Type.'
             type: BaseObject
         Modifier:
             description: 'Modifier User of the Content Type.'
@@ -502,7 +502,7 @@ ContentTypeInfo:
             description: 'If an instance of a Content Type is created the always available flag is set by default to this value.'
             type: boolean
         defaultSortField:
-            descritpion: 'Specifies which property the child Locations should be sorted on by default when created. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: const SORT_FIELD_PATH = 1; const SORT_FIELD_PUBLISHED = 2; const SORT_FIELD_MODIFIED = 3; const SORT_FIELD_SECTION = 4; const SORT_FIELD_DEPTH = 5; const SORT_FIELD_PRIORITY = 8; const SORT_FIELD_NAME = 9; const SORT_FIELD_NODE_ID = 11; const SORT_FIELD_CONTENTOBJECT_ID = 12.'
+            description: 'Specifies which property the child Locations should be sorted on by default when created. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: const SORT_FIELD_PATH = 1; const SORT_FIELD_PUBLISHED = 2; const SORT_FIELD_MODIFIED = 3; const SORT_FIELD_SECTION = 4; const SORT_FIELD_DEPTH = 5; const SORT_FIELD_PRIORITY = 8; const SORT_FIELD_NAME = 9; const SORT_FIELD_NODE_ID = 11; const SORT_FIELD_CONTENTOBJECT_ID = 12.'
             enum: []
         defaultSortOrder:
             description: 'Specifies whether the sort order should be ascending or descending by default when created. Map for Location sort order to their respective Query SORT constants. Possible values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1.'
@@ -512,6 +512,7 @@ ContentTypeInfoList:
     type: BaseObject
     properties:
         ContentType:
+            description: 'This class stores Content Type information.'
             type: ContentTypeInfo[]
 ContentTypeList:
     description: 'List of Content Types.'
@@ -2163,88 +2164,63 @@ SessionInput:
     type: BaseObject
 
 BaseCommerceResponse:
+    description: removed
     type: object
-    properties:
-        _media-type:
-            type: string
 
 Basket:
+    description: removed
     type: BaseCommerceResponse
 
 BasketLineData:
+    description: removed
     type: object
-    properties:
-        quantity:
-            type: string
-            required: true
-        isVariant:
-            type: string
-        variantCode:
-            type: string
-        sku:
-            type: string
-            required: true
-        dataMap:
-            type: array
-            required: false
 
 PartyTypeInput:
+    description: removed
     type: object
 
 Party:
+    description: removed
     type: object
-    properties:
-        PartyIdentification: array
-        PartyName: array
-        PostalAddress: object
-        Contact: object
-        Person: object
-        SesExtension: object
 
 ShippingMethodDataResponse:
+    description: removed
     type: BaseCommerceResponse
-    properties:
-        shippingMethods: object
-        defaultMethod: string
-        shippingMethodsSorted: array
 
 PaymentMethodDataResponse:
+    description: removed
     type: BaseCommerceResponse
 
 ShippingAddressesResponse:
+    description: removed
     type: BaseCommerceResponse
 
 BasketListResponse:
+    description: removed
     type: BaseCommerceResponse
-    properties:
-        Parties: Party[]
 
 ValidationResponse:
+    description: removed
     type: BaseCommerceResponse
-    properties:
-        _media_type: string
-        messages: array
 
 CountrySelectionResponse:
+    description: removed
     type: BaseCommerceResponse
-    properties:
-        _media_type: string
-        countryOptions: object
 
 ShippingMethodData:
+    description: removed
     type: object
-    properties:
-        shippingMethod:
-            type: string
-            required: true
 
 PaymentMethodData:
+    description: removed
     type: object
 
 VoucherData:
+    description: removed
     type: object
 
 CustomerPriceData:
+    description: removed
     type: object
     properties:
         Meta:
@@ -2253,11 +2229,13 @@ CustomerPriceData:
         Items: array
 
 BasketHeaderData:
+    description: removed
     type: object
     properties:
         value: string
 
 BasketLinesData:
+    description: removed
     type: object
     properties:
         sku: string
@@ -2266,6 +2244,7 @@ BasketLinesData:
         lineNumber: integer
 
 PriceResponse:
+    description: removed
     type: BaseCommerceResponse
 
 CartSummary:
@@ -2497,13 +2476,74 @@ ProductTypeList:
     description:
 
 TaxonomyEntry:
-    type: object
+    type: BaseObject
+    properties:
+        id:
+            type: integer
+        identifier:
+            type: string
+        name:
+            type: string
+        mainLanguageCode:
+            type: string
+        names:
+            type: array
+        Parent:
+            type: BaseObject
+        Content:
+            type: BaseObject
+        taxonomy:
+            type: string
+        level:
+            type: integer
 
 TaxonomyEntryAssignment:
     type: object
+    properties:
+        id:
+            type: integer
+        Content:
+            type: BaseObject
+        Entry:
+            type: object
 
-EntryAssignmentCollection:
+TaxonomyEntryAssignmentCollection:
     type: object
+    properties:
+        Content:
+            type: BaseObject
+        assignments
+            type: TaxonomyEntryAssignment[]
+
+TaxonomyEntryCreateStruct"
+    type: BaseObject
+    properties:
+        identifier:
+            type: string
+        taxonomy:
+            type: string
+        Parent:
+            type: BaseObject
+        Content:
+            type: BaseObject
+
+TaxonomyEntryUpdateStruct
+    type: BaseObject
+    properties:
+        identifier:
+            type: string
+        name:
+            type: string
+        names:
+            type: array
+        languageCode:
+            type: string
+        mainLanguageCode:
+            type: string
+        Parent:
+            type: BaseObject
+        Content:
+            type: BaseObject
 
 TaxonomyEntryBulkRemove:
     type: object
@@ -2513,17 +2553,14 @@ TaxonomyEntryBulkMove:
 
 TaxonomyEntryAssignToContent:
     type: object
-    description: ''
 
 TaxonomyEntryUnassignFromContent:
     type: object
-    description: ''
 
 VatCategoryList:
     type: object
-    description: ''
 
 VatCategory:
     type: object
-    description: ''
+
 ContentDraftListItem:
