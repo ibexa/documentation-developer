@@ -2304,98 +2304,276 @@ RegionList:
 
 AttributeGroup:
     type: object
-    description: ''
+    properties:
+        name:
+            type: string
+        identifier:
+            type: string
+        position:
+            type: integer
 
 AttributeGroupCreate:
     type: object
-    description: ''
+    properties:
+        identifier:
+            type: string
+        names:
+            type: array
+        position:
+            type: integer
+        languages:
+            type: array
 
 AttributeGroupUpdate:
     type: object
-    description:
+    properties:
+        identifier:
+            type: string
+        names:
+            type: array
+        position:
+            type: integer
+        languages:
+            type: array
 
 AttributeGroupList:
     type: object
-    description: ''
+    properties:
+        attributeGroups: AttributeGroup[]
 
 AttributeGroupViewInput:
     type: object
-    description: ''
 
 AttributeGroupView:
     type: object
-    description: ''
+    properties:
+        identifier:
+            type: string
+        AttributeGroupList
+            type: object
 
 Attribute:
     type: object
-    description: ''
+    properties:
+        name:
+            type: string
+        identifier:
+             type: string
+        description:
+             type: string
+        type:
+            type: string
+        type_identifier:
+            type: string
+        value:
+            type: boolean
+        group:
+            type: AttributeGroup
+        position:
+            type: integer
+        options:
+            type: array
+
 
 AttributeCreate:
     type: object
-    description: ''
+    properties:
+        identifier:
+             type: string
+        type:
+            type: string
+        group:
+            type: string
+        names:
+            type: array
+        descriptions:
+             type: array
+        positions:
+            type: integer
+        options:
+             type: array
 
 AttributeUpdate:
     type: object
-    description: ''
+    properties:
+        identifier:
+             type: string
+        names:
+            type: array
+        descriptions:
+             type: array
+        positions:
+            type: integer
+        options:
+             type: array
 
 AttributeList:
     type: object
-    description: ''
+    properties:
+        attributes: Attribute[]
 
 AttributeViewInput:
     type: object
-    description: ''
+    properties:
+        identifier:
+            type: string
+        AttributeQuery:
+            type: object
 
 AttributeView:
     type: object
-    description: ''
+    properties:
+        identifier:
+            type: string
+        AttributeQuery:
+            type: object
+        Result:
+            type: object
 
 AttributeType:
     type: object
-    description: ''
+    properties:
+        identifier:
+             type: string
+        name:
+            type: string
 
 AttributeTypeList:
     type: object
-    description: ''
+    properties:
+        attributeTypes
+            type: AttributeType[]
 
 CustomerGroup:
     type: object
-    description: ''
+    properties:
+        id:
+            type: integer
+        name:
+            type: string
+        identifier:
+             type: string
+        description:
+             type: string
+        users:
+            description: 'A list of users attached to the Customer Group.'
+            type: User[]
+        global_price_rate:
+            type: numeric-string
 
 CustomerGroupList:
     type: object
-    description: ''
+    properties:
+        customerGroups:
+            type: CustomerGroup[]
 
 CustomerGroupCreate:
     type: object
-    description: ''
+    properties:
+        identifier:
+             type: string
+        names:
+            type: array
+        descriptions:
+             type: array
+        global_price_rate:
+            type: numeric-string
 
 CustomerGroupUpdate:
     type: object
-    description: ''
+    properties:
+        names:
+            type: array
+        identifier:
+             type: string
+        position:
+             type: integer
+        languages:
+            type: array
 
 CustomerGroupViewInput:
     type: object
-    description: ''
+    properties:
+        CustomerGroupQuery:
+            type: object
 
 CustomerGroupView:
     type: object
+    properties:
+        CurrencyView:
+            type: object
+        identifier:
+            type: string
+        CurrencyQuery:
+            type: object
+        Result:
+            type: object
+
+Currency:
+    type: object
+    properties:
+        id:
+            type: integer
+        code:
+            type: non-empty-string
+        subunits:
+            type: integer
+        enabled:
+            type: boolean
+
+CurrencyView:
+    type: object
+    properties:
+        identifier:
+            type: string
+        currencyList:
+            type: object
+
+CurrencyList:
+    type: object
+    properties:
+        currencies:
+            type: Currency[]
+
 
 CurrencyViewInput:
     type: object
-    description: ''
+    properties:
+        CurrencyQuery:
+            type: object
 
 ProductType:
     type: object
-    description: ''
+    properties:
+        identifier:
+            type: string
+        name:
+            type: string
+        AttributeAssignmentList:
+            type: AttributeAssignment[]
 
 ProductTypeUsage:
     type: object
-    description: ''
+    properties:
+        isUsed:
+            type: boolean
 
 ProductTypeCreate:
     type: object
-    description:
+    properties:
+        ContentTypeCreateStruct
+        type: object
+        main_language_code:
+            type: string
+        assigned_attributes:
+            type: object
+            properties:
+                identifier:
+                    type: string
+                is_required:
+                    type: boolean
+                is_discriminator:
+                    type: boolean
 
 ProductTypeUpdate:
     type: object
