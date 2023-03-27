@@ -15,17 +15,17 @@ For example:
 
 ## Map a custom Field Type
 
-There are two ways to map a custom Field Type:
+There are two ways of mapping a custom Field Type:
 
 - configuration
 - custom `FieldDefinitionMapper`
 
 You need to write a custom `FieldDefinitionMapper` if the field definition settings and constraints impact how it is mapped to GraphQL.
 For example, the selection Field Type has a "multiple" option. 
-If set to false, it will accept and return a single value, 
-but if set to true, it will accept and return an array of values.
+If set to false, it accepts and returns a single value, 
+but if set to true, it accepts and returns an array of values.
 
-If your field definition doesn't require additional clarifications, you can map with configuration.
+If your field definition doesn't require additional clarifications, you can map it with configuration.
 
 ### Map with configuration
 
@@ -57,7 +57,7 @@ services:
             $innerMapper: '@.inner'
 ```
 
-The `$innerMapper` argument will pass the decorated mapper to the constructor.
+The `$innerMapper` argument passes the decorated mapper to the constructor.
 You can use the `DecoratingFieldDefinitionMapper` from the `graphql` package.
 It requires that you implement the `getFieldTypeIdentifier` method to tell which Field Type is covered by the mapper.
 
@@ -84,7 +84,7 @@ To do that, you need to replace `mapXXX` by the method it is in:
          }
 ```
 
-It is required for every method that is implemented, so that other mappers are called for the other Field Types.
+It is required for every implemented method, so that other mappers are called for the other Field Types.
 
 The [`RelationFieldDefinitionMapper`](https://github.com/ibexa/graphql/blob/main/src/lib/Schema/Domain/Content/Mapper/FieldDefinition/RelationFieldDefinitionMapper.php) example:
 
@@ -135,7 +135,7 @@ class RelationFieldDefinitionMapper extends DecoratingFieldDefinitionMapper impl
 
 The value type depends on the field definition allowed Content Types setting:
 
-- for types that return content items if there are no restrictions, or several types are allowed, the value will be an `Item`
+- for types that return Content items if there are no restrictions, or several types are allowed, the value will be an `Item`
 
 The cardinality (single or collection) depends on the selection limit setting:
 
@@ -145,7 +145,7 @@ The cardinality (single or collection) depends on the selection limit setting:
 #### Field input mapping
 
 The `mapToFieldValueInputType` method is used to document what input type is expected by Field Types that require a more complex input value.
-For instance, `ezmatrix` generates its own input types depending on the configured columns.
+For example, `ezmatrix` generates its own input types depending on the configured columns.
 
 Example of a `MyCustomFieldDefinitionMapper` mapper for a complex Field Type:
 
@@ -165,11 +165,11 @@ class MyFieldDefinitionMapper extends DecoratingFieldDefinitionMapper implements
 
 ## Resolver expressions
 
-Below variables are available in the resolver's expression:
+The following variables are available in the resolver's expression:
 
 - `field` is the current field, as an extension of the API's Field object that proxies properties requests to the Field Value
-- `content` is the resolved content item's `Content`
-- `location` is the content item's resolved location, for more information, see [Querying Locations](graphql_queries.md#querying-locations)
+- `content` is the resolved Content item's `Content`
+- `location` is the Content item's resolved location, for more information, see [Querying Locations](graphql_queries.md#querying-locations)
 - `item` is the content together with its location `\Ibexa\GraphQL\Value\Item`
 
 `RelationFieldValueBuilder` or `SelectionFieldValueBuilder` can be used as examples.
