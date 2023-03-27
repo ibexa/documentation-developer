@@ -1,11 +1,11 @@
 ---
-description: Add custom Field Types to GraphQL.
+description: Add GraphQL support to custom Field Types.
 ---
 
-# Add custom Field Types to GraphQL
+# Add GraphQL support to custom Field Types
 
 If you want to use custom Field Types in GraphQL, you need to map them.
-Their values and field definition structure, need to be defined, for GraphQL to read them.
+Their values and field definition structure, need to be defined, to interact with them using GraphQL.
 For example:
 
 | Name | Possible field value      | Resolver| Field definition|
@@ -75,7 +75,7 @@ The `FieldDefinitionMapper` interface defines following methods:
 - `mapToFieldDefinitionType`- returns the GraphQL type field definitions of the mapped type
 
 Only implement methods that you need, the rest will be handled by other mappers (configuration or default).
-When the mapper method is decorated, you need to block the `if` statement for unsupported types, e.g. if (notasupportedtype) call parent method.
+When a mapper method is decorated, you need to call the decorated service method for unsupported types.
 To do that, you need to replace `mapXXX` by the method it is in:
 
 ```php
