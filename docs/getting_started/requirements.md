@@ -54,6 +54,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 - `php-curl`
 - `php-pear` (optional, provides pecl)
 - `php-gd` or `php-imagick` (via pecl on RHEL/CentOS)
+- `php-sodium`
 
 ### Cluster PHP packages
 
