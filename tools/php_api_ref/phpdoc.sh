@@ -57,6 +57,6 @@ while IFS= read -r line; do
   if [[ $file = $OUTPUT_DIR/* ]]; then
     rm -rf $file;
   fi;
-done <<< "$(diff -qr ./php_api_reference $OUTPUT_DIR | grep 'Only in ')";
+done <<< "$(diff -qr ./php_api_reference $OUTPUT_DIR | grep 'Only in ' | grep -v ': images')";
 
 rm -rf $TMP_DXP_DIR;
