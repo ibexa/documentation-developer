@@ -62,6 +62,7 @@ nav:
             - GraphQL queries: api/graphql/graphql_queries.md
             - GraphQL operations: api/graphql/graphql_operations.md
             - GraphQL customization: api/graphql/graphql_customization.md
+            - GraphQL custom Field Type: api/graphql/graphql_custom_ft.md
         - Event reference:
             - Event reference: api/event_reference/event_reference.md
             - Content events: api/event_reference/content_events.md
