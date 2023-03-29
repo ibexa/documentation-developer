@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- https://docs.phpdoc.org/guide/getting-started/configuration.html#configuration -->
+<!-- https://docs.phpdoc.org/guide/references/configuration.html -->
 <phpdocumentor
         configVersion="3"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -8,6 +8,7 @@
     <title>PHP API Reference</title>
     <version number="4.4">
         <api>
+            <default-package-name>Ibexa</default-package-name>
             <source dsn=".">
                 <path>vendor/ibexa/</path>
                 <path>vendor/ezsystems/</path>
@@ -29,6 +30,9 @@
                 <!-- Hautelook\TemplatedUriRouter -->
                 <path>vendor/ibexa/templated-uri-router/**/*</path>
             </ignore>
+            <!-- Hide private elements -->
+            <visibility>public</visibility>
+            <visibility>protected</visibility>
         </api>
     </version>
 </phpdocumentor>
