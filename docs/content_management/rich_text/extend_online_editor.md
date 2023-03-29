@@ -1,5 +1,5 @@
 ---
-description: Add custom tags and styles to enrich the functionality of the Online Editor.
+description: Add custom tags, styles and data attributes to enrich the functionality of the Online Editor. Change Online Editor configuration.
 ---
 
 # Extend Online Editor
