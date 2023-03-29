@@ -239,7 +239,7 @@ Depending on the Field Type, there may also be other, specific information to fi
 
 !!! tip
 
-    You can disable editing specific Field details per Field Type by [adding custom service definition for `ModifyFieldDefinitionsCollectionTypeExtension`](customize_field_type_metadata.md).
+    You can disable the possibility to edit specific Field details per Field Type by [adding custom service definition for `ModifyFieldDefinitionsCollectionTypeExtension`](customize_field_type_metadata.md).
 
 ## Content versions
 
