@@ -77,9 +77,10 @@ php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundl
 
 #### Migration to `customer` Content Type
 
-Next, run data migration required by a new User Content Type: `customer`.
+This step is required if you have users in your installation that need to be transferred to a new User Content Type: `customer`.
 This Content Type is dedicated to registered frontend customers.
-This migration is required for all product versions.
+This migration is intended for all product versions.
+If there are no users that are customers in your platform, you can skip this step and move on to [executing migrations](#execute-migrations).
 
 ##### Basic migration
 
