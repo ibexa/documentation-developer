@@ -164,6 +164,7 @@ Apply the following database update scripts:
     ``` bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.1.0-to-4.1.1.sql
     ```
+
 ## Configure the product catalog
 
 !!! caution
