@@ -34,8 +34,6 @@ Run:
 
 ### VCL configuration for Fastly
 
-You can omit this step if you already performed it during update to v4.1.6.
-
 The Fastly `.vcl` configuration files have changed.
 Follow the upgrade steps below to update them:
 
