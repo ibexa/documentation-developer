@@ -46,7 +46,7 @@ for edition in ${editions[@]}; do
 done;
 echo "} %}{% block content %}{% endblock %}" >> $map;
 
-cp $PHPDOC_CONF ./;
+sed "s/version number=\".*\"/version number=\"$VERSION\"/" $PHPDOC_CONF > ./phpdoc.dist.xml;
 cp -R $PHPDOC_DIR ./;
 curl -LO "https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.3.1/phpDocumentor.phar";
 php phpDocumentor.phar -t php_api_reference;

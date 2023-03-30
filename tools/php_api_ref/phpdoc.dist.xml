@@ -6,7 +6,7 @@
         xmlns="https://www.phpdoc.org"
 >
     <title>PHP API Reference</title>
-    <version number="4.4">
+    <version number="*">
         <api>
             <default-package-name>Ibexa</default-package-name>
             <source dsn=".">
