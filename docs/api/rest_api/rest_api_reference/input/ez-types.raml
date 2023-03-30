@@ -1820,10 +1820,10 @@ User:
     description: 'This class represents a User value.'
     type: BaseObject
     properties:
-        _id:
+        id:
             description: 'Unique ID of the Content Type.'
             type: integer
-        _remoteId:
+        remoteId:
             description: 'Remote ID of the Content Type.'
             type: string
         ContentType:
@@ -2197,10 +2197,10 @@ ContentTypeUpdate:
         isContainer:
             type: boolean
         defaultSortField:
-            description: 'Specifies which property the child locations should be sorted on by default when created.'
+            description: 'Specifies which property the child locations should be sorted on by default when updated.'
             type: mixed
         defaultSortOrder:
-            description: 'Specifies whether the sort order should be ascending or descending by default when created.'
+            description: 'Specifies whether the sort order should be ascending or descending by default when updated.'
             type: mixed
         defaultAlwaysAvailable:
             type: boolean
@@ -2211,7 +2211,7 @@ ContentTypeUpdate:
         modifierId:
             description: 'If set this value overrides the current user as creator.'
             type: mixed
-        $modificationDate:
+        modificationDate:
             type: DateTime
 
 ViewInput:
@@ -2223,26 +2223,88 @@ ViewInput:
         FilterQuery:
             type: object
 
-UserCreate: TODO
+UserCreate:
     type: BaseObject
+    properties:
+        mainLanguageCode:
+            type: string
+        remoteId:
+            type: string
+        login:
+            type: string
+        email:
+            type: string
+        password:
+            type: string
+        enabled:
+            type: boolean
 
-UserGroupCreate: TODO
+UserGroupCreate:
     type: BaseObject
+    properties:
+        mainLanguageCode:
+            type: string
+        remoteId:
+            type: string
+        fields:
+            type: Field[]
 
-RoleAssignInput: TODO
+RoleAssignInput:
     type: BaseObject
+    properties:
+        id:
+            description: 'The unique ID of the role assignment.'
+            type: integer
+        Role:
+            description: 'Returns the role to which the user or user group is assigned to.'
+            type: Role
+        Limitation:
+            description: 'Returns the limitation of the role assignment.'
+            type: Limitation
 
-UserUpdate: TODO
+UserUpdate:
     type: BaseObject
+    properties:
+        login:
+            type: string
+        email:
+            type: string
+        password:
+            type: string
+        enabled:
+            type: boolean
+        maxLogin:
+            type: integer
+        ContentUpdate:
+            description: 'The update structure for the profile content.'
+            type: ContentUpdate
+        ContentMetadataUpdate:
+            description: 'The update structure for the profile meta data.'
+            type: ContentMetadataUpdate
 
-RoleInput: TODO
+RoleInput:
     type: BaseObject
+    properties:
+        identifier:
+            type: string
 
-PolicyCreate: TODO
+PolicyCreate:
     type: BaseObject
+    properties:
+        module:
+            description: 'Name of module, associated with the Policy. For example, content.'
+            type: string
+        function:
+            description: 'Name of the module function Or all functions with '*'. For example, read.'
+            type: string
+        Limitations:
+            type: Limitation[]
 
-PolicyUpdate: TODO
+PolicyUpdate:
     type: BaseObject
+    properties:
+        Limitations:
+            type: Limitation[]
 
 SessionInput:
     type: BaseObject
