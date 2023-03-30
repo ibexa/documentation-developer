@@ -2121,6 +2121,13 @@ VersionTranslationInfo:
 
 VersionUpdate:
     type: BaseObject
+    properties:
+        modificationDate:
+            type: datetime
+        initialLanguageCode:
+            type: string
+        fields:
+            type: Field[]
 
 View: #TODO outdated example
     description: 'View.'
@@ -2129,39 +2136,121 @@ View: #TODO outdated example
         identifier:
             description: 'Content identifier.'
             type: string
+        User:
+            type: User
+        public:
+            type: boolean
+        LocationQuery:
+            type: object
+        Result:
+            type: object
 
 ContentTypeCreate:
     type: BaseObject
+    properties:
+        identifier:
+            type: string
+        mainLanguageCode:
+            type: string
+        remoteId:
+            type: string
+        urlAliasSchema:
+            type: string
+        nameSchema:
+            type: string
+        isContainer:
+            type: boolean
+        defaultSortField:
+            description: 'Specifies which property the child locations should be sorted on by default when created.'
+            type: mixed
+        defaultSortOrder:
+            description: 'Specifies whether the sort order should be ascending or descending by default when created.'
+            type: mixed
+        defaultAlwaysAvailable:
+            type: boolean
+        names:
+            type: array
+        descriptions:
+            type: array
+        FieldDefinition:
+            type: FieldDefinition
+        creatorId:
+            description: 'If set this value overrides the current user as creator.'
+            type: mixed
+        creationDate:
+            type: DateTime
+
 
 ContentTypeUpdate:
     type: BaseObject
+    properties:
+        identifier:
+            type: string
+        mainLanguageCode:
+            type: string
+        remoteId:
+            type: string
+        urlAliasSchema:
+            type: string
+        nameSchema:
+            type: string
+        isContainer:
+            type: boolean
+        defaultSortField:
+            description: 'Specifies which property the child locations should be sorted on by default when created.'
+            type: mixed
+        defaultSortOrder:
+            description: 'Specifies whether the sort order should be ascending or descending by default when created.'
+            type: mixed
+        defaultAlwaysAvailable:
+            type: boolean
+        names:
+            type: array
+        descriptions:
+            type: array
+        modifierId:
+            description: 'If set this value overrides the current user as creator.'
+            type: mixed
+        $modificationDate:
+            type: DateTime
 
 ViewInput:
     type: BaseObject
+    properties:
+        identifier:
+            description: 'Content identifier.'
+            type: string
+        FilterQuery:
+            type: object
 
-UserCreate:
+UserCreate: TODO
     type: BaseObject
 
-UserGroupCreate:
+UserGroupCreate: TODO
     type: BaseObject
 
-RoleAssignInput:
+RoleAssignInput: TODO
     type: BaseObject
 
-UserUpdate:
+UserUpdate: TODO
     type: BaseObject
 
-RoleInput:
+RoleInput: TODO
     type: BaseObject
 
-PolicyCreate:
+PolicyCreate: TODO
     type: BaseObject
 
-PolicyUpdate:
+PolicyUpdate: TODO
     type: BaseObject
 
 SessionInput:
     type: BaseObject
+        properties:
+            login:
+                type: string
+            password:
+                type: string
 
 BaseCommerceResponse:
     description: removed
@@ -2249,58 +2338,176 @@ PriceResponse:
 
 CartSummary:
     type: object
+    properties:
+        id:
+            type: integer
+        identifier:
+            type: string
+        name:
+            type: string
+        createdAt:
+            type: datetime
+        updatedAt:
+            type: datetime
+        Owner:
+            type: User
+        SummaryEntryCollection:
+            type: SummaryEntryCollection
+        TotalPrice:
+            type: Price
+        TotalPriceInclVat:
+            type: Price
+        vatCategorySummary:
+            type: VatCategorySummary
+        Currency:
+            type: Currency
 
 CartViewInput:
     type: object
+    properties:
+        identifier:
+            type: string
+        CartQuery:
+            type: object
 
 Catalog:
     type: object
+    properties:
+        identifier:
+            type: string
+        name:
+            type: string
+        description:
+            type: string
+        created:
+            type: integer
+        modified:
+            type: integer
+        status:
+            type: string
+        User:
+            type: User
+        Criteria:
+            type: Criterion
 
 CatalogList:
     type: object
+    properties:
+        Catalogs:
+            type: Catalog[]
 
 CatalogCreate:
     type: object
-    description: ''
+    properties:
+        identifier:
+            type: string
+        Criteria:
+            type: Criterion
+        names:
+            type: array
+        descriptions:
+            type: array
+        status:
+            type: string
+        creator_id:
+            type: integer
 
 CatalogUpdate:
     type: object
+    properties:
+        identifier:
+            type: string
+        transition:
+            type: string
+        Criteria:
+            type: Criterion
+        names:
+            type: array
+        descriptions:
+            type: array
 
 CatalogCopy:
     type: object
+    properties:
+        identifier:
+            type: string
+        creator_id:
+            description: 'Optional'
+            type: integer
 
 CatalogViewInput:
     type: object
+    properties:
+        CatalogQuery:
+            type: object
 
 ProductFilterList:
     type: object
+    properties:
+        productFilters:
+            type: ProductFilter[]
 
 ProductSortClauseList:
     type: object
+    properties:
+        productSortClauses:
+            type: ProductSortClause[]
 
 Currency:
     type: object
+    properties:
+        code:
+            type: string
+        subunits:
+            type: integer
+        enabled:
+            type: boolean
 
 CurrencyList:
     type: object
+    properties:
+        Currencies:
+            type: Currency[]
 
 CurrencyCreate:
     type: object
-    description: ''
+    properties:
+        code:
+            type: string
+        subunits:
+            type: integer
+        enabled:
+            type: boolean
 
 CurrencyUpdate:
     type: object
+    properties:
+        subunits:
+            type: integer
+        enabled:
+            type: boolean
 
 CurrencyView:
     type: object
+    properties:
+        identifier:
+            type: string
+        CurrencyQuery:
+            type: object
+        Result:
+            type: object
 
 Region:
     type: object
-    description: ''
+    properties:
+        identifier:
+            type: string
 
 RegionList:
     type: object
-    description: ''
+    properties:
+        Regions:
+            type: Region[]
 
 AttributeGroup:
     type: object
@@ -2349,8 +2556,8 @@ AttributeGroupView:
     properties:
         identifier:
             type: string
-        AttributeGroupList
-            type: object
+        AttributeGroupList:
+            type: AttributeGroupList
 
 Attribute:
     type: object
@@ -2367,7 +2574,7 @@ Attribute:
             type: string
         value:
             type: boolean
-        group:
+        Group:
             type: AttributeGroup
         position:
             type: integer
@@ -2501,40 +2708,13 @@ CustomerGroupView:
     type: object
     properties:
         CurrencyView:
-            type: object
+            type: CurrencyView
         identifier:
             type: string
         CurrencyQuery:
             type: object
         Result:
             type: object
-
-Currency:
-    type: object
-    properties:
-        id:
-            type: integer
-        code:
-            type: non-empty-string
-        subunits:
-            type: integer
-        enabled:
-            type: boolean
-
-CurrencyView:
-    type: object
-    properties:
-        identifier:
-            type: string
-        currencyList:
-            type: object
-
-CurrencyList:
-    type: object
-    properties:
-        currencies:
-            type: Currency[]
-
 
 CurrencyViewInput:
     type: object
@@ -2561,8 +2741,8 @@ ProductTypeUsage:
 ProductTypeCreate:
     type: object
     properties:
-        ContentTypeCreateStruct
-        type: object
+        ContentTypeCreateStruct:
+            type: object
         main_language_code:
             type: string
         assigned_attributes:
@@ -2577,81 +2757,190 @@ ProductTypeCreate:
 
 ProductTypeUpdate:
     type: object
-    description:
+    properties:
+        ContentTypeUpdateStruct:
+            type: object
+        assigned_attributes:
+            type: object
+            properties:
+                identifier:
+                    type: string
+                is_required:
+                    type: boolean
+                is_discriminator:
+                    type: boolean
+
 
 ProductTypeViewInput:
     type: object
-    description: ''
+        properties:
+            ProductTypeQuery:
+                type: object
 
 ProductTypeView:
     type: object
-    description: ''
+    properties:
+        identifier:
+            type: string
+        ProductTypeQuery:
+            type: object
+        Result:
+            type: object
 
 Product:
     type: object
-    description: ''
+    properties:
+        isVariant:
+            type: boolean
+        isBaseProduct:
+            type: boolean
+        code:
+            type: string
+        name:
+            type: string
+        ProductType:
+            type: ProductType
+        Content:
+            type: Content
+        Thumbnail:
+            type: Thumbnail
+        created_at:
+            type: datetime
+        updated_at:
+            type: datetime
+        AttributesList:
+            type: AttributesList
 
 ProductList:
     type: object
-    description: ''
+    properties:
+        Products:
+            type: Product[]
+
 
 ProductListGet:
     type: object
-    description: ''
+    properties:
+        offset:
+            type: integer
+        limit:
+            type: integer
+        languages:
+            type: array
 
 ProductGet:
     type: object
-    description: ''
+    properties:
+        languages:
+            type: array
 
 ProductCreate:
     type: object
-    description: ''
+    properties:
+        ContentCreate:
+            type: ContentCreate
+        code:
+            type: string
+        attributes:
+            type: array
 
 ProductUpdate:
     type: object
-    description: ''
+    properties:
+        ContentUpdate:
+            type: ContentUpdate
+        code:
+            type: string
+        attributes:
+            type: array
 
 ProductViewInput:
     type: object
-    description: ''
+    properties:
+        ProductQuery:
+            type: object
 
 ProductView:
     type: object
-    description: ''
+    properties:
+        identifier:
+            type: string
+        ProductQuery:
+            type: object
+        Result:
+            type: object
 
 ProductVariant:
     type: object
-    description: ''
+    properties:
+        code:
+            type: string
+        name:
+            type: string
+        Product:
+            type: Product
+        DiscriminatorAttributesList:
+            type: array
 
 ProductVariantCreate:
     type: object
-    description: ''
+    properties:
+        code:
+            type: string
+        attributes:
+            type: array<int|string,mixed>
 
 ProductVariantGenerate:
     type: object
-    description: ''
+    properties:
+        attributes:
+            type: array<int|string,mixed>
 
 ProductVariantUpdate:
     type: object
-    description: ''
+    properties:
+        code:
+            type: string
+        attributes:
+            type: array<int|string,mixed>
 
 ProductVariantViewInput:
     type: object
-    description: ''
+    properties:
+        ProductVariantQuery:
+            type: object
 
 ProductVariantView:
     type: object
+    properties:
+        identifier:
+            type: string
+        ProductVariantQuery:
+            type: object
+        Result:
+            type: object
 
 RegionViewInput:
     type: object
-    description: ''
+    properties:
+        RegionQuery:
+            type: object
 
 RegionView:
     type: object
+    properties:
+        identifier:
+            type: string
+        RegionQuery:
+            type: object
+        Result:
+            type: object
 
 ProductTypeList:
     type: object
-    description:
+    properties:
+        ProductTypes:
+            type: ProductType[]
 
 TaxonomyEntry:
     type: BaseObject
@@ -2667,9 +2956,9 @@ TaxonomyEntry:
         names:
             type: array
         Parent:
-            type: BaseObject
+            type: Parent
         Content:
-            type: BaseObject
+            type: Content
         taxonomy:
             type: string
         level:
@@ -2681,15 +2970,15 @@ TaxonomyEntryAssignment:
         id:
             type: integer
         Content:
-            type: BaseObject
+            type: Content
         Entry:
-            type: object
+            type: Entry
 
 TaxonomyEntryAssignmentCollection:
     type: object
     properties:
         Content:
-            type: BaseObject
+            type: Content
         assignments
             type: TaxonomyEntryAssignment[]
 
@@ -2701,9 +2990,9 @@ TaxonomyEntryCreateStruct"
         taxonomy:
             type: string
         Parent:
-            type: BaseObject
+            type: Parent
         Content:
-            type: BaseObject
+            type: Content
 
 TaxonomyEntryUpdateStruct
     type: BaseObject
@@ -2719,26 +3008,51 @@ TaxonomyEntryUpdateStruct
         mainLanguageCode:
             type: string
         Parent:
-            type: BaseObject
+            type: Parent
         Content:
-            type: BaseObject
+            type: Content
 
 TaxonomyEntryBulkRemove:
     type: object
+    properties:
+        entries:
+            type: TaxonomyEntry[]
 
 TaxonomyEntryBulkMove:
     type: object
+    properties:
+        entries:
+            type: TaxonomyEntryMove[]
 
 TaxonomyEntryAssignToContent:
     type: object
+    properties:
+        content:
+            type: integer
+        entries:
+            type: TaxonomyEntry[]
 
 TaxonomyEntryUnassignFromContent:
     type: object
+    properties:
+        content:
+            type: integer
+        entries:
+            type: TaxonomyEntry[]
 
 VatCategoryList:
     type: object
+    properties:
+        VatCategories:
+            type: VatCategory[]
 
 VatCategory:
     type: object
+    properties:
+        identifier:
+            type: string
+        region:
+            type: string
+        vatValue:
+            type: number
 
-ContentDraftListItem:
