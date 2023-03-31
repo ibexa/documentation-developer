@@ -118,6 +118,10 @@ Depending on the Field Type, there may also be other, specific information to fi
 
 ![Diagram of content model](content_model_diagram.png)
 
+!!! tip
+
+    You can disable the possibility to edit specific Field details per Field Type by [adding custom service definition for `ModifyFieldDefinitionsCollectionTypeExtension`](customize_field_type_metadata.md).
+
 ## Content versions
 
 Each Content item can have multiple versions.
