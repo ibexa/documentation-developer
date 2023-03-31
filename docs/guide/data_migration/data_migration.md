@@ -4,17 +4,25 @@ description: Data migration enables you to import and export Repository data by 
 
 # Data migration
 
+Data migration allows exporting and importing selected data from an Ibexa DXP installation.
+
+*Exporting* data consists in saving selected Repository information in YAML format.
+*Importing* reads migration YAML files and creates or modifies Repository content based on them.
+You can migrate your Repository data, that is Content items, as well as Content Types, languages, Object states, Sections, and so on,
+between installations.
+
 You can use migrations in projects that require the same data to be present across multiple instances.
 They can be useful for project templates. Migrations are able to store shared data, so they can be applied for each new project you start,
 or incrementally upgrade older projects to your new standard, if needed.
 They are a developer-friendly tool that allows you to share data without writing code.
 
-You can migrate your Repository data, that is Content items, as well as Content Types, languages, Object states, Sections, and so on,
-between installations by using the migration command.
+You can run data migrations either with a command, or with the [PHP API](public_php_api_managing_migrations.md).
 
-!!! tip "Public PHP API"
-
-    You can also manage data migrations with the PHP API, see [Managing migrations](../../api/public_php_api_managing_migrations.md).
+[[= cards([
+    "guide/data_migration/exporting_and_importing_data",
+    "guide/data_migration/data_migration_actions",
+    "guide/data_migration/migration_management",
+]) =]]
 
 !!! caution "Do not enable EzMigrationBundle2"
 
@@ -22,9 +30,3 @@ between installations by using the migration command.
     
     As of v3.3.3, the `ezmigrationbundle` package has been removed to mitigate this issue. 
     It is recommended that you use the default `ibexa/migrations` package to migrate your data. 
-
-
-## Examples of using migration
-
-You can find examples of using migrations in [Migration file content](exporting_and_importing_data.md#migration-file-content),
-and in your project's `vendor/ibexa/migrations/tests/bundle/Command/MigrateCommand/migrate-command-fixtures` folder.
