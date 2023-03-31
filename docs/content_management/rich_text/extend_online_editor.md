@@ -1,5 +1,5 @@
 ---
-description: Add custom tags and styles to enrich the functionality of the Online Editor.
+description: Add custom tags, styles and data attributes to enrich the functionality of the Online Editor. Change Online Editor configuration.
 ---
 
 # Extend Online Editor
@@ -404,3 +404,14 @@ module.exports = (ibexaConfig, ibexaConfigManager) => {
 ```
 
 For more information, see [CKEditor plugins documentation](https://ckeditor.com/docs/ckeditor5/latest/installation/advanced/plugins.html).
+
+## Change CKEditor configuration
+
+You can add or override CKEditor configuration to set one of the [available properties](https://ckeditor.com/docs/ckeditor5/latest/api/module_core_editor_editorconfig-EditorConfig.html).
+
+To do it, add a custom config object to the `window.ibexa.richText.CKEditor.extraConfig` key
+by using the `addConfig` method:
+
+```js
+window.ibexa.addConfig('richText.CKEditor.extraConfig', {{your_custom_config_object}}, true);
+```
