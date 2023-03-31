@@ -2123,7 +2123,7 @@ VersionTranslationInfo:
             type: LanguageCode[]
 
 VersionUpdate:
-    description: 'This class is used to update a version.'
+    description: 'This class is used to update a content version.'
     type: BaseObject
     properties:
         modificationDate:
@@ -2166,7 +2166,7 @@ ContentTypeCreate:
         isContainer:
             type: boolean
         defaultSortField:
-            description: 'Specifies which property the child locations should be sorted on by default when created.'
+            description: 'Specifies which property the child Locations should be sorted on by default when created.'
             type: mixed
         defaultSortOrder:
             description: 'Specifies whether the sort order should be ascending or descending by default when created.'
@@ -2180,7 +2180,7 @@ ContentTypeCreate:
         FieldDefinition:
             type: FieldDefinition
         creatorId:
-            description: 'If set this value overrides the current user as creator.'
+            description: 'If set, this value overrides the current user as creator.'
             type: mixed
         creationDate:
             type: DateTime
@@ -2203,7 +2203,7 @@ ContentTypeUpdate:
         isContainer:
             type: boolean
         defaultSortField:
-            description: 'Specifies which property the child locations should be sorted on by default when updated.'
+            description: 'Specifies which property the child Locations should be sorted on by default when updated.'
             type: mixed
         defaultSortOrder:
             description: 'Specifies whether the sort order should be ascending or descending by default when updated.'
@@ -2215,7 +2215,7 @@ ContentTypeUpdate:
         descriptions:
             type: array
         modifierId:
-            description: 'If set this value overrides the current user as creator.'
+            description: 'If set, this value overrides the current user as creator.'
             type: mixed
         modificationDate:
             type: DateTime
@@ -2263,13 +2263,13 @@ RoleAssignInput:
     type: BaseObject
     properties:
         id:
-            description: 'The unique ID of the role assignment.'
+            description: 'The unique ID of the Role assignment.'
             type: integer
         Role:
-            description: 'Returns the role to which the user or user group is assigned to.'
+            description: 'Returns the Role to which the user or user group is assigned to.'
             type: Role
         Limitation:
-            description: 'Returns the limitation of the role assignment.'
+            description: 'Returns the Limitation of the Role assignment.'
             type: Limitation
 
 UserUpdate:
@@ -2290,7 +2290,7 @@ UserUpdate:
             description: 'The update structure for the profile content.'
             type: ContentUpdate
         ContentMetadataUpdate:
-            description: 'The update structure for the profile meta data.'
+            description: 'The update structure for the profile metadata.'
             type: ContentMetadataUpdate
 
 RoleInput:
@@ -2305,10 +2305,10 @@ PolicyCreate:
     type: BaseObject
     properties:
         module:
-            description: 'Name of module, associated with the Policy. For example, content.'
+            description: 'Name of module associated with the Policy. For example, content.'
             type: string
         function:
-            description: 'Name of the module function Or all functions with '*'. For example, read.'
+            description: 'Name of the module function, or all functions with '*'. For example, read.'
             type: string
         Limitations:
             type: Limitation[]
@@ -2603,7 +2603,7 @@ AttributeGroup:
             type: integer
 
 AttributeGroupCreate:
-    description: 'This class is used to creat an attribute group.'
+    description: 'This class is used to create an attribute group.'
     type: object
     properties:
         identifier:
@@ -2826,7 +2826,7 @@ CurrencyViewInput:
             type: object
 
 ProductType:
-    description: 'This class represents a Product type.'
+    description: 'This class represents a product type.'
     type: object
     properties:
         identifier:
@@ -2844,7 +2844,7 @@ ProductTypeUsage:
             type: boolean
 
 ProductTypeCreate:
-    description: 'This class is used to creat a product type.'
+    description: 'This class is used to create a product type.'
     type: object
     properties:
         ContentTypeCreateStruct:
@@ -3158,7 +3158,7 @@ TaxonomyEntryBulkMove:
             type: TaxonomyEntryMove[]
 
 TaxonomyEntryAssignToContent:
-    description: 'This class is used to assign taxonomy entry to Content.'
+    description: 'This class is used to assign taxonomy entry to content.'
     type: object
     properties:
         content:
@@ -3167,7 +3167,7 @@ TaxonomyEntryAssignToContent:
             type: TaxonomyEntry[]
 
 TaxonomyEntryUnassignFromContent:
-    description: 'This class is used to unassign taxonomy entry to Content.'
+    description: 'This class is used to unassign taxonomy entry from content.'
     type: object
     properties:
         content:
