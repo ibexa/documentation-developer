@@ -46,3 +46,13 @@ There are three types of aggregations:
 |[KeywordTermAggregation](keywordterm_aggregation.md) | Term |[Keyword](keywordfield.md)|
 |[SelectionTermAggregation](selectionterm_aggregation.md) | Term |[Selection](selectionfield.md)|
 |[TimeRangeAggregation](timerange_aggregation.md) | Range |[Time](timefield.md)|
+
+## Product aggregations
+
+Product aggregations are not available in the Legacy Search engine.
+
+|Name | Type | Based on|
+|---|---|---|
+|[ProductAvailabilityTerm](productavailabilityterm_aggregation.md) | Term | Product availability |
+|[ProductPriceRange](productpricerange_aggregation.md) | Range | Product price |
+|[ProductTypeTerm](producttypeterm_aggregation.md) | Term | Product type |

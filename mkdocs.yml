@@ -506,6 +506,9 @@ nav:
             - IntegerRangeAggregation: search/aggregation_reference/integerrange_aggregation.md
             - IntegerStatsAggregation: search/aggregation_reference/integerstats_aggregation.md
             - KeywordTermAggregation: search/aggregation_reference/keywordterm_aggregation.md
+            - ProductAvailabilityTermAggregation: search/aggregation_reference/productavailabilityterm_aggregation.md
+            - ProductPriceRangeAggregation: search/aggregation_reference/productpricerange_aggregation.md
+            - ProductTypeTermAggregation: search/aggregation_reference/producttypeterm_aggregation.md
             - SelectionTermAggregation: search/aggregation_reference/selectionterm_aggregation.md
             - TimeRangeAggregation: search/aggregation_reference/timerange_aggregation.md
         - URL search reference:
