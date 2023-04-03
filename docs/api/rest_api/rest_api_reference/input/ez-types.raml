@@ -2167,10 +2167,10 @@ ContentTypeCreate:
             type: boolean
         defaultSortField:
             description: 'Specifies which property the child Locations should be sorted on by default when created.'
-            type: mixed
+            type: any
         defaultSortOrder:
             description: 'Specifies whether the sort order should be ascending or descending by default when created.'
-            type: mixed
+            type: any
         defaultAlwaysAvailable:
             type: boolean
         names:
@@ -2181,7 +2181,7 @@ ContentTypeCreate:
             type: FieldDefinition
         creatorId:
             description: 'If set, this value overrides the current user as creator.'
-            type: mixed
+            type: any
         creationDate:
             type: DateTime
 
@@ -2204,10 +2204,10 @@ ContentTypeUpdate:
             type: boolean
         defaultSortField:
             description: 'Specifies which property the child Locations should be sorted on by default when updated.'
-            type: mixed
+            type: any
         defaultSortOrder:
             description: 'Specifies whether the sort order should be ascending or descending by default when updated.'
-            type: mixed
+            type: any
         defaultAlwaysAvailable:
             type: boolean
         names:
@@ -2216,7 +2216,7 @@ ContentTypeUpdate:
             type: array
         modifierId:
             description: 'If set, this value overrides the current user as creator.'
-            type: mixed
+            type: any
         modificationDate:
             type: DateTime
 
@@ -2784,7 +2784,8 @@ CustomerGroupCreate:
         descriptions:
              type: array
         global_price_rate:
-            type: numeric-string
+            description: 'numeric-string'
+            type: string
 
 CustomerGroupUpdate:
     description: 'This class is used to update a customer group.'
@@ -3008,14 +3009,16 @@ ProductVariantCreate:
         code:
             type: string
         attributes:
-            type: array<int|string,mixed>
+            description: 'array<int|string,mixed>'
+            type: array
 
 ProductVariantGenerate:
     description: 'This class is used to generate a product variant.'
     type: object
     properties:
         attributes:
-            type: array<int|string,mixed>
+            description: 'array<int|string,mixed>'
+            type: array
 
 ProductVariantUpdate:
     description: 'This class is used to update a product variant.'
@@ -3024,7 +3027,8 @@ ProductVariantUpdate:
         code:
             type: string
         attributes:
-            type: array<int|string,mixed>
+            description: 'array<int|string,mixed>'
+            type: array
 
 ProductVariantViewInput:
     description: 'This class represents a product variant view input.'
@@ -3121,7 +3125,7 @@ TaxonomyEntryCreateStruct:
         taxonomy:
             type: string
         Parent:
-            type: Parent
+            type: TaxonomyEntry
         Content:
             type: Content
 
@@ -3140,7 +3144,7 @@ TaxonomyEntryUpdateStruct:
         mainLanguageCode:
             type: string
         Parent:
-            type: Parent
+            type: TaxonomyEntry
         Content:
             type: Content
 
@@ -3219,7 +3223,7 @@ ContentMetadataUpdate:
     type: object
     properties:
         ownerId:
-            type: mixed
+            type: any
         publishedDate:
             type: DateTime
         modificationDate:
@@ -3231,13 +3235,12 @@ ContentMetadataUpdate:
         remoteId:
             type: string
         mainLocationId:
-            type: mixed
+            type: any
         name:
             type: string
 
 SummaryEntryCollection:
     description: 'This class represents a summary entry collection.'
-    description: SummaryEntry
     type: object
     properties:
         count:
