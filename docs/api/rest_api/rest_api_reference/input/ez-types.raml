@@ -3193,4 +3193,98 @@ VatCategory:
             type: string
         vatValue:
             type: number
+DateTime:
+    description: https://www.php.net/manual/en/class.datetime.php
+    type: object
 
+ContentUpdate:
+    description: 'This class is used to update a Content.'
+    type: object
+    properties:
+        mainLanguageCode:
+            type: string
+        Section:
+            type: Section
+        MainLocation:
+            type: Location
+        Owner:
+            type: User
+        alwaysAvailable:
+            type: boolean
+        remoteId:
+            type: string
+
+ContentMetadataUpdate:
+    description: 'This class is used to update a Content metadata.'
+    type: object
+    properties:
+        ownerId:
+            type: mixed
+        publishedDate:
+            type: DateTime
+        modificationDate:
+            type: DateTime
+        mainLanguageCode:
+            type: string
+        alwaysAvailable:
+            type: boolean
+        remoteId:
+            type: string
+        mainLocationId:
+            type: mixed
+        name:
+            type: string
+
+SummaryEntryCollection:
+    description: 'This class represents a summary entry collection.'
+    description: SummaryEntry
+    type: object
+    properties:
+        count:
+            type: integer
+        SummaryEntry:
+            type: SummaryEntry[]
+
+Price:
+    description: 'This class represents a price.'
+    type: object
+    properties:
+        amount:
+            type: string
+        base_amount:
+            type: string
+        Currency:
+            type: Currency
+        money:
+            type: object
+        base_money:
+            type: object
+
+VatCategorySummary:
+    description: 'This class represents a VAT category summary.'
+    type: object
+    properties:
+        subtotal:
+            type: Price
+        vatCategory:
+            type: VatCategory
+
+Thumbnail:
+    description: 'This class represents a thumbnail that can be a target URL or a Base64 data.'
+    type: object
+    properties:
+        resource:
+            type: string
+        width:
+            type: integer
+        height:
+            type: integer
+        mimeType:
+            type: string
+
+AttributesList:
+    description: 'This class represents a attribute list.'
+    type: object
+    properties:
+        Attributes:
+            type: Attribute[]
