@@ -2308,7 +2308,7 @@ PolicyCreate:
             description: 'Name of module associated with the Policy. For example, content.'
             type: string
         function:
-            description: 'Name of the module function, or all functions with '*'. For example, read.'
+            description: 'Name of the module function, or all functions with ''*''. For example, read.'
             type: string
         Limitations:
             type: Limitation[]
@@ -2323,11 +2323,11 @@ PolicyUpdate:
 SessionInput:
     description: 'This class represents a session input.'
     type: BaseObject
-        properties:
-            login:
-                type: string
-            password:
-                type: string
+    properties:
+        login:
+            type: string
+        password:
+            type: string
 
 BaseCommerceResponse:
     description: 'Removed'
@@ -2744,7 +2744,7 @@ AttributeTypeList:
     description: 'This class represents an attribute type list.'
     type: object
     properties:
-        attributeTypes
+        attributeTypes:
             type: AttributeType[]
 
 CustomerGroup:
@@ -2763,7 +2763,8 @@ CustomerGroup:
             description: 'A list of users attached to the customer group.'
             type: User[]
         global_price_rate:
-            type: numeric-string
+            description: 'A numeric string'
+            type: string
 
 CustomerGroupList:
     description: 'This class represents a customer group list.'
@@ -2881,9 +2882,9 @@ ProductTypeUpdate:
 ProductTypeViewInput:
     description: 'This class represents a product type view input.'
     type: object
-        properties:
-            ProductTypeQuery:
-                type: object
+    properties:
+        ProductTypeQuery:
+            type: object
 
 ProductTypeView:
     description: 'This class represents a product type view.'
@@ -3083,7 +3084,7 @@ TaxonomyEntry:
         names:
             type: array
         Parent:
-            type: Parent
+            type: TaxonomyEntry
         Content:
             type: Content
         taxonomy:
@@ -3100,7 +3101,7 @@ TaxonomyEntryAssignment:
         Content:
             type: Content
         Entry:
-            type: Entry
+            type: TaxonomyEntry
 
 EntryAssignmentCollection:
     description: 'This class represents a taxonomy assignment collection.'
@@ -3108,7 +3109,7 @@ EntryAssignmentCollection:
     properties:
         Content:
             type: Content
-        assignments
+        assignments:
             type: TaxonomyEntryAssignment[]
 
 TaxonomyEntryCreateStruct:
@@ -3124,7 +3125,7 @@ TaxonomyEntryCreateStruct:
         Content:
             type: Content
 
-TaxonomyEntryUpdateStruct
+TaxonomyEntryUpdateStruct:
     description: 'This class is used to update a taxonomy entry.'
     type: BaseObject
     properties:
