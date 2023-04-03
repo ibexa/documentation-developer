@@ -29,7 +29,7 @@ A layout template renders all the zones of the layout.
 Each zone must have a `data-ibexa-zone-id` attribute with the number of the zone.
 
 The best way to display blocks in the zone is to iterate over a blocks array and render the blocks in a loop.
-Each block must have the `landing-page__block block_{{ block.type }}` classes and the `data-ibexa-block-id="{{ block.id }}` attribute.
+Each block must have the `landing-page__block block_{{ block.type }}` classes and the `data-ez-block-id="{{ block.id }}` attribute.
 
 To render the "Right sidebar" layout, add the following template to `templates/themes/my_theme/layouts/sidebar.html.twig`:
 
