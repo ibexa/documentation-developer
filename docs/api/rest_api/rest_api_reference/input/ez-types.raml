@@ -638,8 +638,8 @@ Criterion:
             description: 'Returns a callback that checks the values types depending on the operator specifications.'
             type: integer
 DateRange:
-  description: 'Representation of date range.'
-  type: object
+    description: 'Representation of date range.'
+    type: object
 datetime:
     description: 'Representation of date and time.'
     type: object
@@ -1009,7 +1009,7 @@ Location:
             type: Ref
 
 LocationCreate:
-  type: BaseObject
+    type: BaseObject
 
 LocationCreateStruct:
     description: 'This class is used to create a new Location for a Content item.'
@@ -1099,10 +1099,10 @@ NotificationList:
     description: 'This class represents a notifications list.'
     type: object
     properties:
-       totalCount:
+        totalCount:
             description: 'Number of notifications.'
             type: integer
-       items:
+        items:
             description: 'List of notifications.'
             type: Notification[]
 ObjectState:
@@ -1375,9 +1375,9 @@ Ref:
     type: object
     properties:
         _media-type:
-          type: string
+            type: string
         _href:
-          type: string
+            type: string
 Relation:
     description: 'Class representing a relation between content.'
     type: BaseObject
@@ -1405,7 +1405,7 @@ RelationList:
             type: Relation[]
 Role:
     description: 'This class represents a role.'
-    type:  BaseObject
+    type: BaseObject
     peoperties:
         identifier:
             description: 'Readable string identifier of a role.'
@@ -1415,7 +1415,7 @@ Role:
             type: BaseObject
 RoleAssignment:
     description: 'This value object represents an assignment of a User or User group to a role including a limitation.'
-    type:  BaseObject
+    type: BaseObject
     properties:
         Limitation:
             description: 'Returns the limitation of the role assignment.'
@@ -1425,13 +1425,13 @@ RoleAssignment:
             type: Ref
 RoleAssignmentList:
     description: 'This value object represents a list of assignments of a User or User group to a role including a limitation.'
-    type:  BaseObject
+    type: BaseObject
     properties:
         RoleAssignment:
             type: RoleAssignment[]
 RoleCreateStruct:
     description: 'This class is used to create a new role.'
-    type:  object
+    type: object
     properties:
         identifier:
             description: 'Readable string identifier of a role.'
@@ -1444,14 +1444,14 @@ RoleCreateStruct:
             type: PolicyCreateStruct
 RoleDraft:
     description: 'This class represents a draft of a role, extends Role.'
-    type:  Role
+    type: Role
 RoleLimitation:
     description: 'Role limitation extends Limitation.'
-    type:  Limitation
+    type: Limitation
 
 RoleUpdateStruct:
     description: 'This class is used to update a role.'
-    type:  object
+    type: object
     properties:
         identifier:
             description: 'Readable string identifier of a role.'
@@ -1547,7 +1547,7 @@ Root:
             type: BaseObject
 SearchResult:
     description: 'The total number of URLs.'
-    type:  object
+    type: object
     properties:
         totalCount:
             description: 'The total number of URLs.'
@@ -1557,7 +1557,7 @@ SearchResult:
             type: URL[]
 Section:
     description: 'This class represents a Section.'
-    type:  BaseObject
+    type: BaseObject
     properties:
         sectionId:
             description: 'ID of the Section.'
@@ -2655,9 +2655,9 @@ Attribute:
         name:
             type: string
         identifier:
-             type: string
+            type: string
         description:
-             type: string
+            type: string
         type:
             type: string
         type_identifier:
@@ -2695,7 +2695,7 @@ AttributeUpdate:
     type: object
     properties:
         identifier:
-             type: string
+            type: string
         names:
             type: array
         descriptions:
@@ -2736,7 +2736,7 @@ AttributeType:
     type: object
     properties:
         identifier:
-             type: string
+            type: string
         name:
             type: string
 
@@ -2756,9 +2756,9 @@ CustomerGroup:
         name:
             type: string
         identifier:
-             type: string
+            type: string
         description:
-             type: string
+            type: string
         users:
             description: 'A list of users attached to the customer group.'
             type: User[]
@@ -2778,7 +2778,7 @@ CustomerGroupCreate:
     type: object
     properties:
         identifier:
-             type: string
+            type: string
         names:
             type: array
         descriptions:
@@ -2794,9 +2794,9 @@ CustomerGroupUpdate:
         names:
             type: array
         identifier:
-             type: string
+            type: string
         position:
-             type: integer
+            type: integer
         languages:
             type: array
 
