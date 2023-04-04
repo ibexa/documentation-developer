@@ -307,7 +307,7 @@ ContentType:
             description: 'If an instance of a Content Type is created the always available flag is set by default to this value.'
             type: boolean
         defaultSortField:
-            descritpion: 'Specifies which property the child Locations should be sorted on by default when created. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: const SORT_FIELD_PATH = 1; const SORT_FIELD_PUBLISHED = 2; const SORT_FIELD_MODIFIED = 3; const SORT_FIELD_SECTION = 4; const SORT_FIELD_DEPTH = 5; const SORT_FIELD_PRIORITY = 8; const SORT_FIELD_NAME = 9; const SORT_FIELD_NODE_ID = 11; const SORT_FIELD_CONTENTOBJECT_ID = 12.'
+            description: 'Specifies which property the child Locations should be sorted on by default when created. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: const SORT_FIELD_PATH = 1; const SORT_FIELD_PUBLISHED = 2; const SORT_FIELD_MODIFIED = 3; const SORT_FIELD_SECTION = 4; const SORT_FIELD_DEPTH = 5; const SORT_FIELD_PRIORITY = 8; const SORT_FIELD_NAME = 9; const SORT_FIELD_NODE_ID = 11; const SORT_FIELD_CONTENTOBJECT_ID = 12.'
             enum: []
         defaultSortOrder:
             description: 'Specifies whether the sort order should be ascending or descending by default when created. Map for Location sort order to their respective Query SORT constants. Possible values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1.'
@@ -399,7 +399,7 @@ ContentTypeGroup:
             type: BaseObject
 
 ContentTypeGroupInput:
-  type: BaseObject
+    type: BaseObject
 
 ContentTypeGroupCreateStruct:
     description: 'This class is used for creating a Content Type group.'
@@ -560,11 +560,10 @@ ContentTypeUpdateStruct:
         names:
             description: 'If set this array of names with languageCode keys replace the complete name collection.'
             type: array
-            items: aType
         descriptions:
             description: 'If set this array of descriptions with languageCode keys replace the complete description collection.'
             type: array
-            items: aType
+
 ContentUpdateStruct:
     description: 'This class is used for updating the fields of a Content item draft.'
     type: object
@@ -616,7 +615,6 @@ CreateStruct:
         data:
             description: 'Notification data.'
             type: array
-            items: aType
 Criterion:
     description: 'Criterion implementations.'
     type: object
@@ -627,7 +625,6 @@ Criterion:
         value:
             description: 'The value(s) matched by the Criteria.'
             type: array
-            items: aType
         target:
             description: 'The target used by the Criteria (field, metadata...).'
             type: string
@@ -817,11 +814,9 @@ FieldDefinitionCreateStruct:
         names:
             description: 'An array of names with languageCode keys.'
             type: array
-            items: aType
         descriptions:
             description: 'An array of descriptions with languageCode keys.'
             type: array
-            items: aType
         fieldGroup:
             description: 'Field group name.'
             type: string
@@ -859,11 +854,9 @@ FieldDefinitionUpdateStruct:
         names:
             description: 'If set this array of names with languageCode keys replace the complete name collection.'
             type: array
-            items: aType
         descriptions:
             description: 'If set this array of descriptions with languageCode keys replace the complete description collection.'
             type: array
-            items: aType
         fieldGroup:
             description: 'If set the field group is changed to this name.'
             type: string
@@ -915,7 +908,6 @@ Language:
         ALL:
             description: "Constant for use in API's to specify that you want to load all languages."
             type: array
-            items: aType
         id:
             description: 'The language ID (auto generated).'
             type: integer
@@ -1081,7 +1073,6 @@ Message:
         values:
             description: 'Translation value objects. May not contain any numbers, which might result in requiring plural forms. Use Plural for that.'
             type: array
-            items: aType
 Notification:
     description: 'This class represents a notification value.'
     type: object
@@ -1104,7 +1095,6 @@ Notification:
         data:
             description: 'This class represents data.'
             type: array
-            items: aType
 NotificationList:
     description: 'This class represents a notifications list.'
     type: object
@@ -1301,7 +1291,6 @@ Plural:
         values:
             description: 'Translation value objects. May not contain any numbers, which might result in requiring plural forms. Use MessagePlural for that.'
             type: array
-            items: aType
 Policy:
     description: 'This class represents a policy value.'
     type: BaseObject
@@ -2057,7 +2046,6 @@ ValueObject:
         Properties:
             description: 'Function where list of properties are returned.'
             type: array
-            items: aType
 Version:
     description: 'Returns the VersionInfo for this version.'
     type: BaseObject
@@ -2188,10 +2176,8 @@ ContentTypeCreate:
             type: boolean
         names:
             type: array
-            items: aType
         descriptions:
             type: array
-            items: aType
         FieldDefinition:
             type: FieldDefinition
         creatorId:
@@ -2227,10 +2213,8 @@ ContentTypeUpdate:
             type: boolean
         names:
             type: array
-            items: aType
         descriptions:
             type: array
-            items: aType
         modifierId:
             description: 'If set, this value overrides the current user as creator.'
             type: any
@@ -2492,10 +2476,8 @@ CatalogCreate:
             type: Criterion
         names:
             type: array
-            items: aType
         descriptions:
             type: array
-            items: aType
         status:
             type: string
         creator_id:
@@ -2513,10 +2495,8 @@ CatalogUpdate:
             type: Criterion
         names:
             type: array
-            items: aType
         descriptions:
             type: array
-            items: aType
 
 CatalogCopy:
     description: 'This class is used to copy a catalog.'
@@ -2631,12 +2611,10 @@ AttributeGroupCreate:
             type: string
         names:
             type: array
-            items: aType
         position:
             type: integer
         languages:
             type: array
-            items: aType
 
 AttributeGroupUpdate:
     description: 'This class is used to update an attribute group.'
@@ -2646,12 +2624,10 @@ AttributeGroupUpdate:
             type: string
         names:
             type: array
-            items: aType
         position:
             type: integer
         languages:
             type: array
-            items: aType
 
 AttributeGroupList:
     description: 'This class represents an attribute group list.'
@@ -2694,30 +2670,25 @@ Attribute:
             type: integer
         options:
             type: array
-            items: aType
-
 
 AttributeCreate:
     description: 'This class is used to create an attribute.'
     type: object
     properties:
         identifier:
-             type: string
+            type: string
         type:
             type: string
         group:
             type: string
         names:
             type: array
-            items: aType
         descriptions:
             type: array
-            items: aType
         positions:
             type: integer
         options:
             type: array
-            items: aType
 
 AttributeUpdate:
     description: 'This class is used to update an attribute.'
@@ -2727,15 +2698,12 @@ AttributeUpdate:
              type: string
         names:
             type: array
-            items: aType
         descriptions:
             type: array
-            items: aType
         positions:
             type: integer
         options:
             type: array
-            items: aType
 
 AttributeList:
     description: 'This class represents an attribute list.'
@@ -2813,10 +2781,8 @@ CustomerGroupCreate:
              type: string
         names:
             type: array
-            items: aType
         descriptions:
             type: array
-            items: aType
         global_price_rate:
             description: 'numeric-string'
             type: string
@@ -2827,14 +2793,12 @@ CustomerGroupUpdate:
     properties:
         names:
             type: array
-            items: aType
         identifier:
              type: string
         position:
              type: integer
         languages:
             type: array
-            items: aType
 
 CustomerGroupViewInput:
     description: 'This class represents a customer group view input.'
@@ -2977,7 +2941,6 @@ ProductListGet:
             type: integer
         languages:
             type: array
-            items: aType
 
 ProductGet:
     description: 'This class represents a product GET.'
@@ -2985,7 +2948,6 @@ ProductGet:
     properties:
         languages:
             type: array
-            items: aType
 
 ProductCreate:
     description: 'This class is used to create a product.'
@@ -2997,7 +2959,6 @@ ProductCreate:
             type: string
         attributes:
             type: array
-            items: aType
 
 ProductUpdate:
     description: 'This class is used to create a product.'
@@ -3009,7 +2970,6 @@ ProductUpdate:
             type: string
         attributes:
             type: array
-            items: aType
 
 ProductViewInput:
     description: 'This class represents a product view input.'
@@ -3041,7 +3001,6 @@ ProductVariant:
             type: Product
         DiscriminatorAttributesList:
             type: array
-            items: aType
 
 ProductVariantCreate:
     description: 'This class is used to create a product variant.'
@@ -3052,7 +3011,6 @@ ProductVariantCreate:
         attributes:
             description: 'array<int|string,mixed>'
             type: array
-            items: aType
 
 ProductVariantGenerate:
     description: 'This class is used to generate a product variant.'
@@ -3061,7 +3019,6 @@ ProductVariantGenerate:
         attributes:
             description: 'array<int|string,mixed>'
             type: array
-            items: aType
 
 ProductVariantUpdate:
     description: 'This class is used to update a product variant.'
@@ -3072,7 +3029,6 @@ ProductVariantUpdate:
         attributes:
             description: 'array<int|string,mixed>'
             type: array
-            items: aType
 
 ProductVariantViewInput:
     description: 'This class represents a product variant view input.'
@@ -3131,7 +3087,6 @@ TaxonomyEntry:
             type: string
         names:
             type: array
-            items: aType
         Parent:
             type: TaxonomyEntry
         Content:
@@ -3184,7 +3139,6 @@ TaxonomyEntryUpdateStruct:
             type: string
         names:
             type: array
-            items: aType
         languageCode:
             type: string
         mainLanguageCode:
