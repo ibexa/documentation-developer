@@ -12,6 +12,10 @@ There are three types of aggregations:
 - Range aggregations count values in specified ranges
 - Stats aggregations compute stats over numeric fields: minimum, average and maximum value, count and sum of values
 
+!!! tip
+
+    Aggregations are not available in the Legacy Search engine.
+
 ## Content aggregations
 
 |Name | Type | Based on|
@@ -48,8 +52,6 @@ There are three types of aggregations:
 |[TimeRangeAggregation](timerange_aggregation.md) | Range |[Time](timefield.md)|
 
 ## Product aggregations
-
-Product aggregations are not available in the Legacy Search engine.
 
 |Name | Type | Based on|
 |---|---|---|

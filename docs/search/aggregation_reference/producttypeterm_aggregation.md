@@ -6,10 +6,6 @@ The ProductTypeTermAggregation aggregates search results by the product type.
 
 - `name` - name of the Aggregation object
 
-## Limitations
-
-`ProductTypeTermAggregation` is not available in the Legacy Search engine.
-
 ## Example
 
 ``` php

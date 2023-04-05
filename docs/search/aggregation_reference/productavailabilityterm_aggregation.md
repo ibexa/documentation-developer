@@ -6,10 +6,6 @@ The ProductAvailabilityTermAggregation aggregates search results by product avai
 
 - `name` - name of the Aggregation object
 
-## Limitations
-
-`ProductAvailabilityTermAggregation` is not available in the Legacy Search engine.
-
 ## Example
 
 ``` php

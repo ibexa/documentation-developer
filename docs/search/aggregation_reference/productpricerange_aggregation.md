@@ -8,10 +8,6 @@ The ProductPriceRangeAggregation aggregates search results by the value of the p
 - `currencyCode` - code of the currency to get the price in
 - `ranges` - array of Range objects that define the borders of the specific range sets
 
-## Limitations
-
-`ProductPriceRangeAggregation` is not available in the Legacy Search engine.
-
 ## Example
 
 ``` php
