@@ -42,7 +42,18 @@ Each configured React app block has an identifier and the following settings:
 For example:
 
 ``` yaml
-[= include_file('code_samples/page/custom_page_block/config/packages/react_app_page_blocks.yaml')]
+ibexa_fieldtype_page:
+    react_blocks:
+        calculator:
+          name: Calculator (React)
+          category: Demo
+          thumbnail: /bundles/ibexaicons/img/all-icons.svg#date
+          component: Calculator
+          attributes:
+            a:
+              type: integer
+            b: integer
+    }
 ```
 
 ## Create React App block
@@ -53,12 +64,33 @@ In the following example you will learn how to create the new `Calculator` React
 
 First, add the following `calculator.jsx` configuration in `/assets/react/controllers/` folder:
 
-``` yaml
-[= include_file('code_samples/page/react_app_block/assets/react/controllers/calculator.jsx')]
+``` js
+import React from 'react';
+
+export default function (props) {
+    // a + b = ...
+    console.log("Hello React!");
+    return <div>{props.a} * {props.b} = {parseInt(props.a) * parseInt(props.b)}!</div>;
+}
 ```
 
 Next, add `blocks.json` file in the `/assets/styles/` directory:
 
-``` yaml
-[= include_file('code_samples/page/react_app_block/assets/styles/blocks.json')]
+``` json
+{
+    "calculator": {
+      "name": "Calculator (React)",
+      "category": "Demo",
+      "thumbnail": "/bundles/ibexaicons/img/all-icons.svg#date",
+      "component": "Calculator",
+      "attributes": {
+        "a": {
+          "type": "integer"
+        },
+        "b": {
+          "type": "integer"
+        }
+      }
+    }
+  }
 ```
