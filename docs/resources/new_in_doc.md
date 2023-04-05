@@ -6,6 +6,14 @@ description: Overview of major recent additions to Ibexa DXP documentation.
 
 This page contains recent highlights and notable changes in Ibexa DXP documentation.
 
+## March 2023
+
+- [Order management API](https://doc.ibexa.co/en/master/commerce/order_management/order_management_api/)
+- [Customizing checkout](https://doc.ibexa.co/en/master/commerce/checkout/customize_checkout/)
+- Extended [table reusable component documentation](https://doc.ibexa.co/en/master/administration/back_office/back_office_elements/reusable_components/#tables)
+- How to [add GraphQL support to custom Field Types](https://doc.ibexa.co/en/master/api/graphql/graphql_custom_ft/)
+- How to [customize Field Type metadata](https://doc.ibexa.co/en/master/content_management/customize_field_type_metadata/)
+
 ## February 2023
 
 ### Storefront
