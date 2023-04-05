@@ -94,3 +94,34 @@ Next, add `blocks.json` file in the `/assets/styles/` directory:
     }
   }
 ```
+
+Each entry below `react_blocks` adds one block to the Page Builder with the defined name, category and thumbnail.
+Both name and attributes support a short syntax and a long one for specifics.
+
+Both name and attributes support a short syntax and a long one for specifics.
+
+`Attributes` defined without sub-keys will use the key as the identifier and name, and the value as the type:
+
+```
+attributes:
+  b: integer
+```
+
+Sub-keys can be used to specify any of the usual [attributes configuration](page_block_attributes/#page-block-attributes) keys:
+
+```
+attributes:
+  a:
+    name: Attribute A
+    type: string
+    options:
+      ...
+```
+
+Apps that are used as blocks are defined by default in `react/controllers` direction.
+The `assets/apps.js` file is pre-configured with this path.
+
+Apps that are registered this way must be configured and referenced in the 
+semantic configuration to be registered as blocks.
+
+Parameters passed as props must be converted so that they can be used as the configured type in the app.
