@@ -432,7 +432,7 @@ nav:
             - LogicalNot Criterion: search/criteria_reference/logicalnot_criterion.md
             - LogicalOr Criterion: search/criteria_reference/logicalor_criterion.md
         - Product Search Criteria:
-            - ProductSearchCriteria: search/criteria_reference/product_search_criteria.md
+            - Product Search Criteria: search/criteria_reference/product_search_criteria.md
             - BasePrice: search/criteria_reference/baseprice_criterion.md
             - CheckboxAttribute: search/criteria_reference/checkboxattribute_criterion.md
             - ColorAttribute: search/criteria_reference/colorattribute_criterion.md
@@ -450,6 +450,17 @@ nav:
             - RangeMeasurementAttributeMaximum: search/criteria_reference/rangemeasurementattributemaximum_criterion.md
             - SimpleMeasurementAttribute: search/criteria_reference/simplemeasurementattribute_criterion.md
             - SelectionAttribute: search/criteria_reference/selectionattribute_criterion.md
+        - Order Search Criteria: 
+            - Order Search Criteria: search/criteria_reference/order_search_criteria.md
+            - CompanyName: search/criteria_reference/order_company_name_criterion.md
+            - CreatedAt: search/criteria_reference/order_created_criterion.md
+            - CurrencyCode: search/criteria_reference/order_currency_code_criterion.md
+            - CustomerName: search/criteria_reference/order_customer_name_criterion.md
+            - Identifier: search/criteria_reference/order_identifier_criterion.md
+            - IsCompanyAssociated: search/criteria_reference/order_company_associated_criterion.md
+            - Price: search/criteria_reference/order_price_criterion.md
+            - Source: search/criteria_reference/order_source_criterion.md
+            - Status: search/criteria_reference/order_status_criterion.md
         - Sort Clause reference:
             - Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
             - ContentId: search/sort_clause_reference/contentid_sort_clause.md
@@ -474,13 +485,19 @@ nav:
             - UserLogin: search/sort_clause_reference/userlogin_sort_clause.md
             - Visibility: search/sort_clause_reference/visibility_sort_clause.md
         - Product Sort Clauses:
-            - ProductSortClauses: search/sort_clause_reference/product_sort_clauses.md
+            - Product Sort Clauses: search/sort_clause_reference/product_sort_clauses.md
             - BasePrice: search/sort_clause_reference/baseprice_sort_clause.md
             - CreatedAt: search/sort_clause_reference/createdat_sort_clause.md
             - CustomPrice: search/sort_clause_reference/customprice_sort_clause.md
             - ProductAvailability: search/sort_clause_reference/productavailability_sort_clause.md
             - ProductCode: search/sort_clause_reference/productcode_sort_clause.md
             - ProductName: search/sort_clause_reference/productname_sort_clause.md
+        - Order Sort Clauses:
+            - Order Sort Clauses: search/sort_clause_reference/order_sort_clauses.md
+            - Id: search/sort_clause_reference/order_id_sort_clause.md
+            - Created: search/sort_clause_reference/order_created_sort_clause.md
+            - Updated: search/sort_clause_reference/order_updated_sort_clause.md
+            - Status: search/sort_clause_reference/order_status_sort_clause.md
         - Aggregation reference:
             - Aggregation reference: search/aggregation_reference/aggregation_reference.md
             - ContentTypeTermAggregation: search/aggregation_reference/contenttypeterm_aggregation.md
