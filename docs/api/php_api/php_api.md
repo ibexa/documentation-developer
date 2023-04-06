@@ -43,25 +43,25 @@ The full list of available services covers:
 
 You can access the PHP API by injecting relevant services into your code:
 
-- using [auto-wiring]([[=symfony_doc=]]/service_container/autowiring.html) or service argument, and, the service classname in the Ibexa\Contracts\ namespace or the service alias
+- using [auto-wiring]([[=symfony_doc=]]/service_container/autowiring.html) or service argument, and, the service classname in the `Ibexa\Contracts\ namespace or the service alias
 - using Repository's `get[ServiceName]()` methods: [`Repository::getContentService()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getContentService), [`getUserService()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getUserService), etc.
-- using [`Controller::getRepository`](php_api_reference/classes/Ibexa-Bundle-Core-Controller.html#method_getRepository) by extending it from 
+- using [`Controller::getRepository()`](php_api_reference/classes/Ibexa-Bundle-Core-Controller.html#method_getRepository) by extending it from your [custom controller](../../templating/queries_and_controllers/controllers.md#controllers).
 
 ## Value objects
 
-The services provide interaction with read-only value objects from the `Ibexa\Contracts\Core\Repository\Values` namespace.
-Those objects are divided into sub-namespaces, such as `Content`, `User` or `ObjectState`.
+The services provide interaction with read-only value objects from the [`Ibexa\Contracts\Core\Repository\Values`](php_api_reference/namespaces/ibexa-contracts-core-repository-values.html) namespace.
+Those objects are divided into sub-namespaces, such as [`Content`](php_api_reference/namespaces/ibexa-contracts-core-repository-values-content.html), [`User`](php_api_reference/namespaces/ibexa-contracts-core-repository-values-user.html) or [`ObjectState`](php_api_reference/namespaces/ibexa-contracts-core-repository-values-objectstate.html).
 Each sub-namespace contains a set of value objects,
 such as [`Content\Content`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) or [`User\Role`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-User-Role.html).
 
 Value objects come with their own properties, such as `$content->id` or `$location->hidden`,
 as well as with methods that provide access to more related information,
-such as `Relation::getSourceContentInfo()` or `Role::getPolicies()`.
+such as [`Content\Relation::getSourceContentInfo()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html#method_getSourceContentInfo) or [`User\Role::getPolicies()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-User-Role.html#method_getPolicies).
 
 ### Creating and updating objects
 
 Value objects fetch data from the Repository and are read-only.
-To create and modify Repository values you need to use data structures, such as [`ContentService::newContentCreateStruct()`](php_api_reference/classes/Ibexa-Core-Repository-ContentService.html#method_newContentCreateStruct) or [`LocationService::newLocationUpdateStruct()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html#method_newLocationUpdateStruct).
+To create and modify Repository values you need to use data structures, such as [`ContentService::newContentCreateStruct()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_newContentCreateStruct) or [`LocationService::newLocationUpdateStruct()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html#method_newLocationUpdateStruct).
 
 ### Value info objects
 
