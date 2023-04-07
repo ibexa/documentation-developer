@@ -1,0 +1,46 @@
+ibexa:
+    repositories:
+        default: 
+            shipment:
+                workflow: ibexa_shipment
+                shipping_methods:
+                    flat_rate:
+                        name: "Flat rate"
+                        translation_domain: "shipment"
+                    free:
+                        name: "Free"
+                        translation_domain: "shipment"
+
+// ...
+
+framework:
+    workflows:
+        ibexa_shipment:
+            type: state_machine
+            audit_trail:
+                enabled: false
+            marking_store:
+                type: method
+                property: status
+            supports:
+                - Ibexa\Contracts\Checkout\Shipment\ShipmentInterface
+                - Ibexa\Contracts\Checkout\Shipment\ShipmentCreateStruct
+            initial_marking: pending
+            places:
+                - pending
+                - ready_to_ship
+                - shipped
+                - delivered
+            transitions:
+                prepare:
+                    from:
+                        - pending
+                    to: ready_to_ship
+                send:
+                    from:
+                        - ready_to_ship
+                    to: shipped
+                deliver:
+                    from:
+                        - shipped
+                    to: delivered

@@ -6,7 +6,7 @@ edition: commerce
 # Order management
 
 The order management component enables users to search for orders and filter search results. 
-Depending on their role, users can also track the status of their orders, review order details, cancel orders, issue invoices for orders, and generate aggregate reports.
+Depending on their role, users can also track the status of their orders, review order details, and cancel orders.
 
 From the development perspective, the component enables customization of the order management workflow and integration with external systems to exchange order information.
 
