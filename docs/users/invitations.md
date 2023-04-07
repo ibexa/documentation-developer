@@ -16,7 +16,7 @@ such as Editors, or to the specific Roles within the group, for example: Admin, 
 
 ## Creating and sending invitations
 
-Invitations are created with [InvitationService](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Invitation-InvitationService.html),
+Invitations are created with [InvitationService](../api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Invitation-InvitationService.html),
 but sending them requires additional setup.
 [[= product_name =]] provides you with `Ibexa\User\Invitation\MailSender` implementation of
 `InvitationSender` interface for sending invitations via email.
