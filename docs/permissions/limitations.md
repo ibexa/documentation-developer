@@ -17,7 +17,7 @@ Certain Limitations also serve as Role Limitations, which means they can be used
 Currently this covers [Subtree of Location](limitation_reference.md#subtree-of-location-limitation), [Section](limitation_reference.md#section-limitation) and [Personalization access](limitation_reference.md#personalization-access-limitation) Limitations.
 
 `Limitation` represents the value, while `LimitationType` deals with the business logic surrounding how it actually works and is enforced.
-`LimitationTypes` have two modes of operation in regards to permission logic (see [`Ibexa\Contracts\Core\Limitation`](https://github.com/ibexa/core/blob/main/src/contracts/Limitation/Type.php) interface for more info):
+`LimitationTypes` have two modes of operation in regards to permission logic (see [`Ibexa\Contracts\Core\Limitation`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Limitation-Type.html) interface for more info):
 
 | Method | Use |
 |--------|-----|
