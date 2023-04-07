@@ -9,7 +9,7 @@ The `IsCompanyAssociatedCriterion` Search Criterion searches for orders based on
 
 ## Arguments
 
-- `value` - bool that represents whether the customer represents a business company
+- `value` - boolean that shows whether the customer represents a business company
 
 ## Example
 

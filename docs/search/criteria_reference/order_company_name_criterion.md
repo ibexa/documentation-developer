@@ -9,7 +9,7 @@ The `CompanyNameCriterion` Search Criterion searches for orders based on the nam
 
 ## Arguments
 
-- `company_name` - string that represents a name of the company, with `*` as wildcard
+- `company_name` - string that represents a name of the company
 
 ## Example
 
