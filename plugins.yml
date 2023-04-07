@@ -61,7 +61,7 @@ plugins:
             'administration/back_office/back_office.md': 'extending/extending_back_office.md'
             'administration/back_office/back_office_configuration.md': 'extending/config_back_office.md'
             'administration/back_office/content_tree.md': 'extending/content_tree.md'
-            'administration/back_office/back_office_elements/reusable_components.md': 'extending/reusable_back_office_templates.md'
+            'administration/back_office/back_office_elements/reusable_components.md': 'extending/extending_back_office.md'
             'administration/back_office/back_office_elements/add_dropdowns.md': 'extending/creating_custom_dropdowns.md'
             'administration/back_office/back_office_elements/custom_icons.md': 'extending/custom_icons.md'
             'administration/back_office/back_office_elements/add_drag_and_drop.md': 'extending/drag_and_drop.md'
