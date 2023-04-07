@@ -537,7 +537,6 @@ nav:
         - 'Configuration': 'extending/config_back_office.md'
         - 'Content Tree': 'extending/content_tree.md'
         - Back Office elements:
-            - 'Reusable components': 'extending/reusable_back_office_templates.md'
             - 'Add drop-downs': 'extending/creating_custom_dropdowns.md'
             - 'Custom icons': 'extending/custom_icons.md'
             - 'Add drag and drop': 'extending/drag_and_drop.md'

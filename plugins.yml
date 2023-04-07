@@ -11,6 +11,7 @@ plugins:
         redirect_maps:
             'api/field_types_reference/xmltextfield.md': 'api/field_type_reference.md'
             'extending/extending_image_editor.md': 'guide/images/extending_image_editor.md'
+            'extending/reusable_back_office_templates.md': 'extending/extending_back_office.md'
             'guide/configuration/config_connector.md': 'guide/images/config_connector.md'
             'guide/image_editor.md': 'guide/images/image_editor.md'
             'guide/images.md': 'guide/images/images.md'
