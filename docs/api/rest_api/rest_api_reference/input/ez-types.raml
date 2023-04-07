@@ -3439,3 +3439,57 @@ OrderItemProduct:
             type: string
         name:
             type: string
+
+Company:
+    description: 'This class represents a company.'
+    type: object
+    properties:
+        id:
+            type: string
+        name:
+            type: string
+        Content:
+            type: Content
+        billingAddress:
+            type: string
+        contactId:
+            type: string
+        salesRepresentativeId:
+            type: string
+        defaultAddressId:
+            type: string
+        addressBookId:
+            type: string
+        membersId:
+            type: string
+        locationPath:
+            type: Location
+        isActive:
+            type: boolean
+
+CompanyCreate:
+    description: 'This class is used to create a company.'
+    type: object
+    properties:
+        remoteId:
+            type: string
+        modificationDate:
+            type: string
+        User:
+            description: 'Mixed'
+            type: array
+        fields:
+            description: 'array<array{field: RESTContentFieldValueInputArray}>'
+            type: array
+
+CompanyUpdate:
+    description: 'This class is used to update a company.'
+    type: object
+    properties:
+
+CompanyList:
+    description: 'This class represents a list of companies.'
+    type: object
+    properties:
+        Companies:
+            type: Company[]

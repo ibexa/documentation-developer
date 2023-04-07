@@ -53,3 +53,85 @@ displayName: corporate/
                     description: Error - the input does not match the input schema definition.
                 401:
                     description: Error - the user is not authorized to create this Company.
+    /{companyId}:
+        get:
+            displayName: Get company
+            description: Returns the company by given company ID.
+            headers:
+                Accept:
+                    description: If set, the company is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.Company+xml
+                        application/vnd.ibexa.api.Company+json
+                If-None-match:
+                    description: ETag
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.TODO+xml:
+                            type: TODO
+                            example: !include TODO
+                        application/vnd.ibexa.api.TODO+json:
+                            type: TODO
+                            example: !include TODO
+                401:
+                    description: Error - The user is not authorized to read this company.
+                404:
+                    description: Error - The company does not exist.
+        delete:
+            displayName: Delete company
+            description: The given company is deleted.
+                headers:
+            Accept:
+                description: If set, in the case of an error the error message is returned in XML or JSON format
+            example:  |
+                application/vnd.ibexa.api.ErrorMessage+xml
+                application/vnd.ibexa.api.ErrorMessage+json
+            responses:
+                204:
+                    description: No Content - given company is deleted.
+                401:
+                    description: Error - the user is not authorized to delete this company.
+                404:
+                    description: Error - the company does not exist.
+        patch:
+            displayName: Update a company
+            description: Updates a company. PATCH or POST with header X-HTTP-Method-Override PATCH.
+            headers:
+                Accept:
+                    description: If set, the updated company is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.Company+xml
+                        application/vnd.ibexa.api.Company+json
+                Content-Type:
+                    description: The company input schema encoded in XML or JSON.
+                    example:  |
+                        application/vnd.ibexa.api.CompanyInput+xml
+                        application/vnd.ibexa.api.CompanyInput+json
+                If-Match:
+                    description: ETag
+            body:
+                application/vnd.ibexa.api.TODO+xml:
+                    type: CompanyInput
+                    example: TODO
+                application/vnd.ibexa.api.Company+json:
+                    type: CompanyInput
+                    example: TODO
+            responses:
+                200:
+                    description: OK - company updated.
+                    body:
+                        application/vnd.ibexa.api.Company+xml:
+                            type: Company
+                            example: TODO
+                        application/vnd.ibexa.api.Company+json:
+                            type: Company
+                            example: TODO
+                400:
+                    description: Error - the input does not match the input schema definition.
+                401:
+                    description: Error - the user is not authorized to create this company.
+                403:
+                    description: Error - a company with the given identifier already exists.
+                412:
+                    description: Error - the current ETag does not match with the one provided in the If-Match header.
