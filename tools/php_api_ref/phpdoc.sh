@@ -27,7 +27,7 @@ if [[ "$VERSION" == *".*" ]]; then
   echo "Obtained version: $VERSION";
 fi;
 
-map=$PHPDOC_DIR/template/edition-package-map.twig;
+map=$PHPDOC_DIR/template/package-edition-map.twig;
 editions=(oss content experience commerce);
 if [[ -f $map ]]; then
   rm $map;
