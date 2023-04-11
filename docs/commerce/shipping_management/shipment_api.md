@@ -11,35 +11,61 @@ edition: commerce
 
 To get shipments and manage them, use the `Ibexa\Contracts\ShippingManagement\ShipmentServiceInterface` interface.
 
+ShipmentCreateStruct passes two parameters, the `shippingMethod` string and `Money::EUR('100')`.
+ShipmentUpdateStruct passes new status string, new identifier string and new ArrayMap object.
+
+{ id: 1, identifier: 'foo', amount: 100, currency: 'EUR', method_id: 1, status: 'pending', context: '{ "foo": "bar" }', created_at: "2023-03-24 15:09:16", updated_at: "2023-03-24 15:09:16" }
+
 ## Get single shipment 
 
-    /**
-     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException
-     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException
-     */
-    public function getShipment(int $id): ShipmentInterface;
+### Get single shipment by identifier
 
-    /**
-     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException
-     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException
-     */
-    public function getShipmentByIdentifier(string $identifier): ShipmentInterface;
+To access a single shipment by using its string identifier, use the `ShipmentService::getShipmentByIdentifier` method:
 
-    public function findShipments(?ShipmentQuery $query = null): ShipmentListInterface;
+``` php
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 46, 47) =]]
+```
 
-    /**
-     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\BadStateException
-     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException
-     */
-    public function createShipment(ShipmentCreateStruct $createStruct): ShipmentInterface;
+### Get single shipment by id
 
-    /**
-     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\BadStateException
-     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException
-     */
-    public function updateShipment(ShipmentInterface $shipment, ShipmentUpdateStruct $updateStruct): ShipmentInterface;
+To access a single shipment by using its numerical id, use the `ShipmentService::getShipment` method:
 
-    /**
-     * @throws \Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException
-     */
-    public function deleteShipment(ShipmentInterface $shipment): void;
+``` php
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 46, 47) =]]
+```
+
+ ## Get multiple shipments
+
+To fetch multiple shipments, use the `ShipmentService::findShipments` method. 
+It follows the same search query pattern as other APIs:
+
+``` php
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 46, 47) =]]
+```
+
+## Create shipment
+
+To create a shipment, use the `ShipmentService::createShipment` method and provide it with 
+the `Ibexa\Contracts\Checkout\Value\ShipmentCreateStruct` object that passes two parameters, the `shippingMethod` string and `Money` object.
+
+``` php
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 46, 47) =]]
+```
+
+## Update shipment
+
+You can update the shipment after it is created. 
+You could do it to support a scenario when, for example, the shipment is processed offline and its status has to be updated in the system. 
+To update shipment information, use the `ShipmentService::updateShipment` method:
+
+``` php
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 46, 47) =]]
+```
+## Delete shipment
+
+To delete a shipment from the system, use the ``ShipmentService::deleteShipment` method:
+
+
+``` php
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 46, 47) =]]
+```
