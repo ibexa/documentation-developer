@@ -8,15 +8,8 @@ React App block allows an editor to embed a preconfigured React application into
 It is configured in YAML files, under the `ibexa_fieldtype_page` key.
 Keep in mind that Page block configuration is not SiteAccess-aware.
 
-Solution is based on `symfony/ux-react` package which allows to render React App with given name and properties
-using Twig function.
-See [Symfony UX React Documentation](https://symfony.com/bundles/ux-react/current/index.html) for more details.
-
-React App block has additional source of the Page Builder block definitions which is `assets/blocks.json` file.
-It is done by decorating `\Ibexa\FieldTypePage\FieldType\Page\Block\Definition\BlockDefinitionFactoryInterface` service.
-
-Another element of React App Block is `\Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\BlockRenderEvents::GLOBAL_BLOCK_RENDER_PRE` subscriber 
-which expose `component_name` and `component_props` variables in block template for React App blocks.
+Another element of React App Block is `\Ibexa\FieldTypePage\FieldType\Page\Block\Event\Listener\ReactBlock` Listener which adds component and props variables.
+It is general for all the blocks.
 
 [[% include 'snippets/page_block_cache_clear.md' %]]
 
@@ -27,7 +20,7 @@ File have exactly the same structure as regular YAML blocks configuration
 (see [Configure block](create_custom_page_block/#configure-block)), except:
 
 - additional `component` property which binds Page Builder block with React App
-- `configuration_template` and `views` properties are removed
+- `views` property is removed
 
 Each configured React app block has an identifier and the following settings:
 
@@ -54,45 +47,6 @@ ibexa_fieldtype_page:
               type: integer
             b: integer
     }
-```
-
-## Create React App block
-
-In the following example you will learn how to create the new `Calculator` React App block.
-
-### Configure React App Block
-
-First, add the following `calculator.jsx` configuration in `/assets/react/controllers/` folder:
-
-``` js
-import React from 'react';
-
-export default function (props) {
-    // a + b = ...
-    console.log("Hello React!");
-    return <div>{props.a} * {props.b} = {parseInt(props.a) * parseInt(props.b)}!</div>;
-}
-```
-
-Next, add `blocks.json` file in the `/assets/styles/` directory:
-
-``` json
-{
-    "calculator": {
-      "name": "Calculator (React)",
-      "category": "Demo",
-      "thumbnail": "/bundles/ibexaicons/img/all-icons.svg#date",
-      "component": "Calculator",
-      "attributes": {
-        "a": {
-          "type": "integer"
-        },
-        "b": {
-          "type": "integer"
-        }
-      }
-    }
-  }
 ```
 
 Each entry below `react_blocks` adds one block to the Page Builder with the defined name, category and thumbnail.
@@ -125,3 +79,40 @@ Apps that are registered this way must be configured and referenced in the
 semantic configuration to be registered as blocks.
 
 Parameters passed as props must be converted so that they can be used as the configured type in the app.
+
+## Create React App block
+
+In the following example you will learn how to create `Calculator` React App block.
+
+### Configure React App Block
+
+First, create a .jsx file which describes your component.
+You can create the file in any location.
+
+In the following example, create `Calculator.jsx` file in `../../../vendor/ibexa/page-builder/components/` directory:
+
+``` js
+import React from 'react';
+
+export default function (props) {
+    // a + b = ...
+    console.log("Hello React!");
+    return <div>{props.a} * {props.b} = {parseInt(props.a) * parseInt(props.b)}!</div>;
+}
+```
+
+Then, create a .js file in `/page-builder/react/blocks` directory.
+This file imports and exports the component: 
+
+``` js
+import Calculator from "../../../vendor/ibexa/page-builder/components/Calculator";
+
+export default {
+    Calculator: Calculator,
+
+};
+```
+
+Now, you should see new `Calculator` block in the Page Builder blocks list:
+
+![Calculator](calculator.png "Calculator - React App Block")
