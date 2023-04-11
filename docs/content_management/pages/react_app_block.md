@@ -1,5 +1,5 @@
 ---
-description: Create a block that allows an editor to embed a preconfigured React application into a page.
+description: Create a block that allows an editor to embed a preconfigured React component into a page.
 ---
 
 # React App block
@@ -102,14 +102,15 @@ export default function (props) {
 ```
 
 Then, create a .js file in `/page-builder/react/blocks` directory.
-This file imports and exports the component: 
+
+Files in this directory create a map of Components which then are imported to `react.blocks.js` file.
+As a result, the components are rendered on the page. 
 
 ``` js
 import Calculator from "../../../vendor/ibexa/page-builder/components/Calculator";
 
 export default {
     Calculator: Calculator,
-
 };
 ```
 
