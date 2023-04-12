@@ -115,6 +115,14 @@ Each Role you assign to  user or user group consists of Policies which define, w
 || `view` |view shipments|
 || `update` | change status of a shipment |
 || `delete` | delete a shipment |
+| `payment_method`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create a payment method |
+|| `view` |view payment methods|
+|| `edit` | modify a payment method |
+|| `delete` | delete a payment method |
+| `payment`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create a payment |
+|| `view` |view payments|
+|| `edit` | change status of a payment |
+|| `delete` | delete a payment |
 
 ## Combining Policies
 

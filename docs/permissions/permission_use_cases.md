@@ -315,3 +315,22 @@ interact with shipping methods and shipments.
 - `shipment/view` - to allow the user to view shipments
 - `shipment/update` - to allow the user to change status of an existing shipment 
 - `shipment/delete` - to allow the user to cancel an existing shipment 
+
+### Payment management
+
+Set the following permissions to decide what actions are available when users 
+interact with payment methods and payments.
+
+#### Payment methods
+
+- `payment_method/create` - to allow the user to create a new payment method
+- `payment_method/view` - to allow the user to view payment methods
+- `payment_method/edit` - to allow the user to modify an existing payment method 
+- `payment_method/delete` - to allow the user to delete an existing payment method 
+
+#### Payments
+
+- `payment/create` - to allow the user to create a new payment
+- `payment/view` - to allow the user to view payments
+- `payment/edit` - to allow the user to change status of an existing payment 
+- `payment/delete` - to allow the user to cancel an existing payment 
