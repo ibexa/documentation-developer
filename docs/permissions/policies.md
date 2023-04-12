@@ -107,6 +107,14 @@ Each Role you assign to  user or user group consists of Policies which define, w
 || `view` |view orders|
 || `update` | change status of an order |
 || `cancel` | cancel an order |
+| `shipping_method`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create a shipping method |
+|| `view` |view shipping methods|
+|| `update` | modify a shipping method |
+|| `delete` | delete a shipping method |
+| `shipment`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create a shipment |
+|| `view` |view shipments|
+|| `update` | change status of a shipment |
+|| `delete` | delete a shipment |
 
 ## Combining Policies
 

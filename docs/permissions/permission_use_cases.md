@@ -296,3 +296,22 @@ interact with orders:
 - `order/view` - to allow the user to view orders
 - `order/update` - to allow the user to change status of an existing order 
 - `order/cancel` - to allow the user to cancel an existing order 
+
+### Shipping management
+
+Set the following permissions to decide what actions are available when users 
+interact with shipping methods and shipments.
+
+#### Shipping methods
+
+- `shipping_method/create` - to allow the user to create a new shipping method
+- `shipping_method/view` - to allow the user to view shipping methods
+- `shipping_method/edit` - to allow the user to modify an existing shipping method 
+- `shipping_method/delete` - to allow the user to delete an existing shipping method 
+
+#### Shipments
+
+- `shipment/create` - to allow the user to create a new shipment
+- `shipment/view` - to allow the user to view shipments
+- `shipment/update` - to allow the user to change status of an existing shipment 
+- `shipment/delete` - to allow the user to cancel an existing shipment 
