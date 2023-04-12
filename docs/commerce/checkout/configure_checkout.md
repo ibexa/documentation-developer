@@ -60,7 +60,7 @@ ibexa:
     repositories:
         <repository_name>:
             checkout: 
-            workflow: <workflow_name>
+                workflow: <workflow_name>
                 shipping_methods:
                     courier:
                         name: "Courier"
