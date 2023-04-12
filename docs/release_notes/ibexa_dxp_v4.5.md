@@ -14,6 +14,32 @@ description: Ibexa DXP v4.5...
 
 ## Notable changes
 
+### Translation comparison
+
+With this release, you can compare different versions of the translations of the Content item, including comparison between different languages. 
+
+You can now choose between two new options of the view:
+
+- Split - default, side by side view to compare versions of the same or different languages
+- Unified - single column view to compare versions of the same language
+
+Now, when you compare different versions within the same language, the system highlights the changes using the colors:
+
+- yellow - content updated
+- blue - content added
+- red - content deleted
+
+![Translation comparison](img/4.5_comparison_view.png "Translation comparison")
+
+For more information, see [Translation comparison](https://doc.ibexa.co/projects/userguide/en/master/content_management/translate_content/#translation-comparison).
+
+### New page blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+This release introduces new page blocks:
+
+- [Bestsellers block](https://doc.ibexa.co/projects/userguide/en/4.5/content_management/block_reference/#bestsellers-block) displays a list of products from PIM that were recently a bestseller.
+- [React app block](https://doc.ibexa.co/projects/userguide/en/4.5/content_management/pages/#react-app-block) allows an editor to embed a preconfigured React application into a page. React app block requires configuration. For more information, see [React App Block configuration](https://doc.ibexa.co/projects/userguide/en/4.5/content_management/pages/react_app_block/#react-app-block-configuration).
+
 ## Other changes
 
 ### Deprecations
