@@ -5,13 +5,23 @@
             "limit": "10",
             "offset": "0",
             "Filter": {
-                "ProductNameCriterion": "LaSportiva Solution",
-                "ProductCodeCriterion": "solution",
+                "ProductTypeCriterion": "desk",
                 "ProductAvailabilityCriterion": false
             },
             "SortClauses": {
                 "ProductName": "descending"
-            }
+            },
+            "Aggregations": [
+                {
+                    "ProductPriceRange": {
+                        "name": "price",
+                        "currencyCode": "EUR",
+                        "ranges": [
+                            {"from": 0, "to": 10000}
+                        ]
+                    }
+                }
+            ]
         }
     }
 }
