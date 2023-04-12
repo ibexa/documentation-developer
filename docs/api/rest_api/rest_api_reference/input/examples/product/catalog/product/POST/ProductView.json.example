@@ -21,7 +21,62 @@
                             "_media-type": "application/vnd.ibexa.api.ProductType+json",
                             "identifier": "desk",
                             "name": "Desk",
-                            "AttributeAssignmentList": []
+                            "AttributeAssignmentList": [
+                                {
+                                    "_media-type": "application/vnd.ibexa.api.AttributeAssignment+json",
+                                    "is_required": false,
+                                    "is_discriminator": false,
+                                    "Attribute": {
+                                        "_media-type": "application/vnd.ibexa.api.Attribute+json",
+                                        "identifier": "color",
+                                        "name": "Color",
+                                        "description": "",
+                                        "type": "Selection",
+                                        "type_identifier": "selection",
+                                        "group": "Desk",
+                                        "position": 0,
+                                        "options": {
+                                            "choices": [
+                                                {
+                                                    "label": {
+                                                        "eng-GB": "Black"
+                                                    },
+                                                    "value": "black"
+                                                },
+                                                {
+                                                    "label": {
+                                                        "eng-GB": "White"
+                                                    },
+                                                    "value": "white"
+                                                }
+                                            ]
+                                        },
+                                        "value": null
+                                    }
+                                },
+                                {
+                                    "_media-type": "application/vnd.ibexa.api.AttributeAssignment+json",
+                                    "is_required": false,
+                                    "is_discriminator": false,
+                                    "Attribute": {
+                                        "_media-type": "application/vnd.ibexa.api.Attribute+json",
+                                        "identifier": "width",
+                                        "name": "Width",
+                                        "description": "",
+                                        "type": "Measurement (single)",
+                                        "type_identifier": "measurement_single",
+                                        "group": "Desk",
+                                        "position": 0,
+                                        "options": {
+                                            "sign": "none",
+                                            "type": "length",
+                                            "unit": "centimeter",
+                                            "defaultValue": null
+                                        },
+                                        "value": null
+                                    }
+                                }
+                            ]
                         },
                         "Content": {
                             "_media-type": "application/vnd.ibexa.api.Content+json",
@@ -43,17 +98,17 @@
                                 "_href": "/api/ibexa/v2/content/objects/67/currentversion",
                                 "Version": {
                                     "_media-type": "application/vnd.ibexa.api.Version+json",
-                                    "_href": "/api/ibexa/v2/content/objects/67/versions/1",
+                                    "_href": "/api/ibexa/v2/content/objects/67/versions/2",
                                     "VersionInfo": {
-                                        "id": 527,
-                                        "versionNo": 1,
+                                        "id": 529,
+                                        "versionNo": 2,
                                         "status": "PUBLISHED",
-                                        "modificationDate": "2023-04-12T11:59:17+00:00",
+                                        "modificationDate": "2023-04-12T14:06:25+00:00",
                                         "Creator": {
                                             "_media-type": "application/vnd.ibexa.api.User+json",
                                             "_href": "/api/ibexa/v2/user/users/14"
                                         },
-                                        "creationDate": "2023-04-12T11:59:17+00:00",
+                                        "creationDate": "2023-04-12T14:06:25+00:00",
                                         "initialLanguageCode": "eng-GB",
                                         "languageCodes": "eng-GB",
                                         "VersionTranslationInfo": {
@@ -92,9 +147,12 @@
                                                 "languageCode": "eng-GB",
                                                 "fieldTypeIdentifier": "ibexa_product_specification",
                                                 "fieldValue": {
-                                                    "id": 2,
+                                                    "id": 4,
                                                     "code": "OTHER",
-                                                    "attributes": []
+                                                    "attributes": [
+                                                        "white",
+                                                        []
+                                                    ]
                                                 }
                                             },
                                             {
@@ -139,7 +197,7 @@
                                     },
                                     "Relations": {
                                         "_media-type": "application/vnd.ibexa.api.RelationList+json",
-                                        "_href": "/api/ibexa/v2/content/objects/67/versions/1/relations",
+                                        "_href": "/api/ibexa/v2/content/objects/67/versions/2/relations",
                                         "Relation": []
                                     },
                                     "Thumbnail": {
@@ -163,10 +221,10 @@
                                 "_media-type": "application/vnd.ibexa.api.User+json",
                                 "_href": "/api/ibexa/v2/user/users/14"
                             },
-                            "lastModificationDate": "2023-04-12T11:59:53+00:00",
+                            "lastModificationDate": "2023-04-12T14:06:25+00:00",
                             "publishedDate": "2023-04-12T11:59:17+00:00",
                             "mainLanguageCode": "eng-GB",
-                            "currentVersionNo": 1,
+                            "currentVersionNo": 2,
                             "alwaysAvailable": true,
                             "isHidden": false,
                             "status": "PUBLISHED",
@@ -182,9 +240,54 @@
                             "height": null,
                             "mimeType": "image/svg+xml"
                         },
-                        "created_at": 1681300757,
-                        "updated_at": 1681300793,
-                        "AttributesList": [],
+                        "created_at": 1681308385,
+                        "updated_at": 1681308385,
+                        "AttributesList": [
+                            {
+                                "_media-type": "application/vnd.ibexa.api.Attribute+json",
+                                "identifier": "color",
+                                "name": "Color",
+                                "description": "",
+                                "type": "Selection",
+                                "type_identifier": "selection",
+                                "group": "Desk",
+                                "position": 0,
+                                "options": {
+                                    "choices": [
+                                        {
+                                            "label": {
+                                                "eng-GB": "Black"
+                                            },
+                                            "value": "black"
+                                        },
+                                        {
+                                            "label": {
+                                                "eng-GB": "White"
+                                            },
+                                            "value": "white"
+                                        }
+                                    ]
+                                },
+                                "value": "white"
+                            },
+                            {
+                                "_media-type": "application/vnd.ibexa.api.Attribute+json",
+                                "identifier": "width",
+                                "name": "Width",
+                                "description": "",
+                                "type": "Measurement (single)",
+                                "type_identifier": "measurement_single",
+                                "group": "Desk",
+                                "position": 0,
+                                "options": {
+                                    "sign": "none",
+                                    "type": "length",
+                                    "unit": "centimeter",
+                                    "defaultValue": null
+                                },
+                                "value": null
+                            }
+                        ],
                         "Price": {
                             "_media-type": "application/vnd.ibexa.api.Price+json",
                             "amount": "160.00",
@@ -210,7 +313,62 @@
                             "_media-type": "application/vnd.ibexa.api.ProductType+json",
                             "identifier": "desk",
                             "name": "Desk",
-                            "AttributeAssignmentList": []
+                            "AttributeAssignmentList": [
+                                {
+                                    "_media-type": "application/vnd.ibexa.api.AttributeAssignment+json",
+                                    "is_required": false,
+                                    "is_discriminator": false,
+                                    "Attribute": {
+                                        "_media-type": "application/vnd.ibexa.api.Attribute+json",
+                                        "identifier": "color",
+                                        "name": "Color",
+                                        "description": "",
+                                        "type": "Selection",
+                                        "type_identifier": "selection",
+                                        "group": "Desk",
+                                        "position": 0,
+                                        "options": {
+                                            "choices": [
+                                                {
+                                                    "label": {
+                                                        "eng-GB": "Black"
+                                                    },
+                                                    "value": "black"
+                                                },
+                                                {
+                                                    "label": {
+                                                        "eng-GB": "White"
+                                                    },
+                                                    "value": "white"
+                                                }
+                                            ]
+                                        },
+                                        "value": null
+                                    }
+                                },
+                                {
+                                    "_media-type": "application/vnd.ibexa.api.AttributeAssignment+json",
+                                    "is_required": false,
+                                    "is_discriminator": false,
+                                    "Attribute": {
+                                        "_media-type": "application/vnd.ibexa.api.Attribute+json",
+                                        "identifier": "width",
+                                        "name": "Width",
+                                        "description": "",
+                                        "type": "Measurement (single)",
+                                        "type_identifier": "measurement_single",
+                                        "group": "Desk",
+                                        "position": 0,
+                                        "options": {
+                                            "sign": "none",
+                                            "type": "length",
+                                            "unit": "centimeter",
+                                            "defaultValue": null
+                                        },
+                                        "value": null
+                                    }
+                                }
+                            ]
                         },
                         "Content": {
                             "_media-type": "application/vnd.ibexa.api.Content+json",
@@ -232,17 +390,17 @@
                                 "_href": "/api/ibexa/v2/content/objects/66/currentversion",
                                 "Version": {
                                     "_media-type": "application/vnd.ibexa.api.Version+json",
-                                    "_href": "/api/ibexa/v2/content/objects/66/versions/1",
+                                    "_href": "/api/ibexa/v2/content/objects/66/versions/2",
                                     "VersionInfo": {
-                                        "id": 526,
-                                        "versionNo": 1,
+                                        "id": 528,
+                                        "versionNo": 2,
                                         "status": "PUBLISHED",
-                                        "modificationDate": "2023-04-12T11:58:00+00:00",
+                                        "modificationDate": "2023-04-12T14:06:14+00:00",
                                         "Creator": {
                                             "_media-type": "application/vnd.ibexa.api.User+json",
                                             "_href": "/api/ibexa/v2/user/users/14"
                                         },
-                                        "creationDate": "2023-04-12T11:58:00+00:00",
+                                        "creationDate": "2023-04-12T14:06:14+00:00",
                                         "initialLanguageCode": "eng-GB",
                                         "languageCodes": "eng-GB",
                                         "VersionTranslationInfo": {
@@ -281,9 +439,12 @@
                                                 "languageCode": "eng-GB",
                                                 "fieldTypeIdentifier": "ibexa_product_specification",
                                                 "fieldValue": {
-                                                    "id": 1,
+                                                    "id": 3,
                                                     "code": "ERGO",
-                                                    "attributes": []
+                                                    "attributes": [
+                                                        "black",
+                                                        []
+                                                    ]
                                                 }
                                             },
                                             {
@@ -328,7 +489,7 @@
                                     },
                                     "Relations": {
                                         "_media-type": "application/vnd.ibexa.api.RelationList+json",
-                                        "_href": "/api/ibexa/v2/content/objects/66/versions/1/relations",
+                                        "_href": "/api/ibexa/v2/content/objects/66/versions/2/relations",
                                         "Relation": []
                                     },
                                     "Thumbnail": {
@@ -352,10 +513,10 @@
                                 "_media-type": "application/vnd.ibexa.api.User+json",
                                 "_href": "/api/ibexa/v2/user/users/14"
                             },
-                            "lastModificationDate": "2023-04-12T12:21:02+00:00",
+                            "lastModificationDate": "2023-04-12T14:06:14+00:00",
                             "publishedDate": "2023-04-12T11:58:00+00:00",
                             "mainLanguageCode": "eng-GB",
-                            "currentVersionNo": 1,
+                            "currentVersionNo": 2,
                             "alwaysAvailable": true,
                             "isHidden": false,
                             "status": "PUBLISHED",
@@ -371,9 +532,54 @@
                             "height": null,
                             "mimeType": "image/svg+xml"
                         },
-                        "created_at": 1681300680,
-                        "updated_at": 1681302062,
-                        "AttributesList": [],
+                        "created_at": 1681308374,
+                        "updated_at": 1681308374,
+                        "AttributesList": [
+                            {
+                                "_media-type": "application/vnd.ibexa.api.Attribute+json",
+                                "identifier": "color",
+                                "name": "Color",
+                                "description": "",
+                                "type": "Selection",
+                                "type_identifier": "selection",
+                                "group": "Desk",
+                                "position": 0,
+                                "options": {
+                                    "choices": [
+                                        {
+                                            "label": {
+                                                "eng-GB": "Black"
+                                            },
+                                            "value": "black"
+                                        },
+                                        {
+                                            "label": {
+                                                "eng-GB": "White"
+                                            },
+                                            "value": "white"
+                                        }
+                                    ]
+                                },
+                                "value": "black"
+                            },
+                            {
+                                "_media-type": "application/vnd.ibexa.api.Attribute+json",
+                                "identifier": "width",
+                                "name": "Width",
+                                "description": "",
+                                "type": "Measurement (single)",
+                                "type_identifier": "measurement_single",
+                                "group": "Desk",
+                                "position": 0,
+                                "options": {
+                                    "sign": "none",
+                                    "type": "length",
+                                    "unit": "centimeter",
+                                    "defaultValue": null
+                                },
+                                "value": null
+                            }
+                        ],
                         "Price": {
                             "_media-type": "application/vnd.ibexa.api.Price+json",
                             "amount": "99.00",
