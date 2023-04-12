@@ -6,21 +6,22 @@ description: Create a block that allows an editor to embed a preconfigured React
 
 React App block allows an editor to embed a preconfigured React application into a page.
 It is configured in YAML files, under the `ibexa_fieldtype_page` key.
-Keep in mind that Page block configuration is not SiteAccess-aware.
+Page block configuration is not SiteAccess-aware.
 
-Another element of React App Block is `\Ibexa\FieldTypePage\FieldType\Page\Block\Event\Listener\ReactBlock` Listener which adds component and props variables.
+Another element of React App Block is `\Ibexa\FieldTypePage\FieldType\Page\Block\Event\Listener\ReactBlock` Listener 
+which adds component and props variables.
+
 It is general for all the blocks.
 
 [[% include 'snippets/page_block_cache_clear.md' %]]
 
 ## React App Block configuration
 
-React App blocks are regular [Page blocks](page_blocks.md). and can be confirgured on field definition level as any other block.
-File have exactly the same structure as regular YAML blocks configuration 
-(see [Configure block](create_custom_page_block/#configure-block)), except:
+React App blocks are regular [Page blocks](page_blocks.md) and can be confirgured on field definition level as any other block.
+File has exactly the same structure as regular YAML [block configuration](create_custom_page_block/#configure-block), except:
 
-- additional `component` property which binds Page Builder block with React App
-- `views` property is removed
+- additional `component` attribute which binds Page Builder block with React App
+- `views` attribute is removed
 
 Each configured React app block has an identifier and the following settings:
 
@@ -52,16 +53,14 @@ ibexa_fieldtype_page:
 Each entry below `react_blocks` adds one block to the Page Builder with the defined name, category and thumbnail.
 Both name and attributes support a short syntax and a long one for specifics.
 
-Both name and attributes support a short syntax and a long one for specifics.
-
-`Attributes` defined without sub-keys will use the key as the identifier and name, and the value as the type:
+`Attributes` defined without sub-keys use the key as the identifier and name, and the value as the type:
 
 ```
 attributes:
   b: integer
 ```
 
-Sub-keys can be used to specify any of the usual [attributes configuration](page_block_attributes/#page-block-attributes) keys:
+Sub-keys can be used to specify any of the usual [attributes configuration](page_block_attributes/#page-block-attributes) key:
 
 ```
 attributes:
