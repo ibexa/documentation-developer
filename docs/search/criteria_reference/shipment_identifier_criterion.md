@@ -1,5 +1,5 @@
 ---
-description: Identifier Criterion
+description: Shipment Identifier Criterion
 edition: commerce
 ---
 

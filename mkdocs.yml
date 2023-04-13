@@ -461,6 +461,17 @@ nav:
             - Price: search/criteria_reference/order_price_criterion.md
             - Source: search/criteria_reference/order_source_criterion.md
             - Status: search/criteria_reference/order_status_criterion.md
+        - Shipment Search Criteria:
+            - Shipment Search Criteria: search/criteria_reference/shipment_search_criteria.md
+            - CreatedAt: search/criteria_reference/shipment_created_criterion.md
+            - Currency: search/criteria_reference/shipment_currency_criterion.md
+            - Id: search/criteria_reference/shipment_id_criterion.md
+            - Identifier: search/criteria_reference/shipment_identifier_criterion.md
+            - LogicalAnd: shipment_logicaland_criterion.md
+            - LogicalOr: shipment_logicalor_criterion.md
+            - ShippingMethod: shipment_shipping_method_criterion.md
+            - StatusCriterion: shipping_status_criterion.md
+            - UpdatedAtCriterion: shipment_updatedat_criterion.md
         - Sort Clause reference:
             - Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
             - ContentId: search/sort_clause_reference/contentid_sort_clause.md

@@ -9,7 +9,7 @@ Shipment Search Criteria are part of [Search Criteria](search_criteria_reference
 
 With these criteria you can filter shipments by their shipment identifier, shipment creation date, shipment status, shipping method, etc.
 
-## Order search criteria
+## Shipment search criteria
 
 |Search Criterion|Search based on|
 |-----|-----|

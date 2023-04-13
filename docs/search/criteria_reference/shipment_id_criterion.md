@@ -1,5 +1,5 @@
 ---
-description: Id Criterion
+description: Shipment Id Criterion
 edition: commerce
 ---
 
@@ -9,7 +9,7 @@ The `IdCriterion` Search Criterion searches for shipments based on the shipment 
 
 ## Arguments
 
-- `id` - integer that represents the order ID
+- `id` - integer that represents the shipment ID
 
 ## Example
 
