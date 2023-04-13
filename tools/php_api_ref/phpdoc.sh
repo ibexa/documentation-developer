@@ -23,7 +23,7 @@ fi;
 composer install --no-interaction --ignore-platform-reqs --no-scripts;
 
 if [[ "$VERSION" == *".*" ]]; then
-  VERSION=$(composer -n show ibexa/core | grep -E "^version" | cut -d 'v' -f 3);
+  VERSION=$(composer -n show ibexa/$FLAVOR | grep -E "^version" | cut -d 'v' -f 3);
   echo "Obtained version: $VERSION";
 fi;
 
