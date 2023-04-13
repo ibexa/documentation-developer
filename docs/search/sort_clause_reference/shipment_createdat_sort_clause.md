@@ -3,7 +3,7 @@ description: Shipment CreatedAt Sort Clause
 edition: commerce
 ---
 
-# Shipment Created Sort Clause
+# Shipment CreatedAt Sort Clause
 
 The `CreatedAt` Sort Clause sorts search results by the date and time when the shipment was created.
 
