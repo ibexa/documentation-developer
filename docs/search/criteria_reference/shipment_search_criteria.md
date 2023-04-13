@@ -20,5 +20,5 @@ With these criteria you can filter shipments by their shipment identifier, shipm
 |[LogicalAndCriterion](shipment_logicaland_criterion.md)|Logical AND criterion that matches if all the provided Criteria match|
 |[LogicalOrCriterion](shipment_logicalor_criterion.md)|Logical OR criterion that matches if at least one of the provided Criteria matches|
 |[ShippingMethodCriterion](shipment_shipping_method_criterion.md)|Shipping method applied to the shipment|
-|[StatusCriterion](shipping_status_criterion.md)|Status of the shipment|
+|[StatusCriterion](shipment_status_criterion.md)|Status of the shipment|
 |[UpdatedAtCriterion](shipment_updatedat_criterion.md)|Date and time when status of the shipment was updated|
