@@ -16,6 +16,7 @@ rm -rf $TMP_DXP_DIR;
 mkdir $TMP_DXP_DIR;
 cd $TMP_DXP_DIR;
 
+echo "Creating ibexa/$FLAVOR-skeleton:$VERSION project in ${TMP_DXP_DIR}…";
 composer create-project ibexa/$FLAVOR-skeleton:$VERSION . --no-interaction --no-install --ignore-platform-reqs --no-scripts;
 if [ -n "$AUTH_JSON" ]; then
   cp $AUTH_JSON ./;
@@ -27,6 +28,7 @@ if [[ "$VERSION" == *".*" ]]; then
   echo "Obtained version: $VERSION";
 fi;
 
+echo -n 'Building package → edition map…';
 map=$PHPDOC_DIR/template/package-edition-map.twig;
 editions=(oss content experience commerce);
 if [[ -f $map ]]; then
@@ -34,22 +36,25 @@ if [[ -f $map ]]; then
 fi;
 echo "{% set package_edition_map = {" >> $map;
 for edition in ${editions[@]}; do
+  echo -n " ${edition}…";
   while IFS= read -r line; do
     package=$(echo $line | cut -d '"' -f 2);
     if [[ ! "${editions[*]}" =~ "${package/ibexa\//}" ]]; then
       echo "'$package': '$edition'," >> $map;
     fi;
-  done <<< "$(curl "https://raw.githubusercontent.com/ibexa/$edition/v$VERSION/composer.json" | jq .require | grep -E "(ibexa|ezsystems)")";
+  done <<< "$(curl --no-progress-meter "https://raw.githubusercontent.com/ibexa/$edition/v$VERSION/composer.json" | jq .require | grep -E "(ibexa|ezsystems|silversolutions)")";
   if [ "$edition" == "$FLAVOR" ]; then
     break;
   fi;
 done;
 echo "} %}{% block content %}{% endblock %}" >> $map;
+echo ' OK';
 
 sed "s/version number=\".*\"/version number=\"$VERSION\"/" $PHPDOC_CONF > ./phpdoc.dist.xml;
 cp -R $PHPDOC_DIR ./;
 curl -LO "https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.3.1/phpDocumentor.phar";
 php phpDocumentor.phar -t php_api_reference;
+echo -n "Clean up and copy phpDocumentor output to ${OUTPUT_DIR}…";
 rm -rf ./php_api_reference/files ./php_api_reference/indices;
 cp -rf ./php_api_reference/* $OUTPUT_DIR;
 while IFS= read -r line; do
@@ -58,5 +63,6 @@ while IFS= read -r line; do
     rm -rf $file;
   fi;
 done <<< "$(diff -qr ./php_api_reference $OUTPUT_DIR | grep 'Only in ' | grep -v ': images')";
+echo ' OK';
 
 rm -rf $TMP_DXP_DIR;
