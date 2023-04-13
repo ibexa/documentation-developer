@@ -36,12 +36,12 @@ The following command takes the Content Type identifier as an argument and lists
 [[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 31, 47) =]]
 ```
 
-[`SearchService::findContentInfo`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SearchService.php#L144) (line 16)
-retrieves [`ContentInfo`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php) objects of the found Content items.
-You can also use [`SearchService::findContent`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SearchService.php#L124) to get full Content objects, together with their Field information.
+[`SearchService::findContentInfo`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findContentInfo) (line 16)
+retrieves [`ContentInfo`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html) objects of the found Content items.
+You can also use [`SearchService::findContent`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findContent) to get full Content objects, together with their Field information.
 
 To query for a single result, for example by providing a Content ID,
-use the [`SearchService::findSingle`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SearchService.php#L161) method:
+use the [`SearchService::findSingle`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findSingle) method:
 
 ``` php
 $criterion = new Criterion\ContentId($contentId);
@@ -74,11 +74,11 @@ With the Legacy search engine both properties will give identical results.
 
 #### Processing large result sets
 
-To process a large result set, use `Ibexa\Contracts\Core\Repository\Iterator\BatchIterator`.
+To process a large result set, use [`Ibexa\Contracts\Core\Repository\Iterator\BatchIterator`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Iterator-BatchIterator.html).
 `BatchIterator` divides the results of search or filtering into smaller batches.
 This enables iterating over results that are too large to handle due to memory constraints.
 
-`BatchIterator` takes one of the available adapters (`\Ibexa\Contracts\Core\Repository\Iterator\BatchIteratorAdapter` ) and optional batch size. For example: 
+`BatchIterator` takes one of the available adapters ([`\Ibexa\Contracts\Core\Repository\Iterator\BatchIteratorAdapter`](../api/php_api/php_api_reference/namespaces/ibexa-contracts-core-repository-iterator-batchiteratoradapter.html)) and optional batch size. For example: 
 
 ``` php
 $query = new LocationQuery;
