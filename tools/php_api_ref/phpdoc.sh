@@ -10,10 +10,24 @@ PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dist.xml";
 PHPDOC_DIR="$(pwd)/tools/php_api_ref/.phpdoc";
 if [ -z "$OUTPUT_DIR" ]; then
   OUTPUT_DIR="$(pwd)/docs/api/php_api/php_api_reference";
+else
+  if [ ! -d $OUTPUT_DIR ]; then
+    echo -n "Creating ${OUTPUT_DIR}… ";
+    mkdir -p $OUTPUT_DIR;
+    if [ $? -eq 0 ]; then
+      echo 'OK';
+    else
+      exit 1;
+    fi;
+  fi;
+  OUTPUT_DIR=$(readlink -f $OUTPUT_DIR);
 fi;
 
 rm -rf $TMP_DXP_DIR;
-mkdir $TMP_DXP_DIR;
+mkdir -p $TMP_DXP_DIR;
+if [ $? -ne 0 ]; then
+  exit 2;
+fi;
 cd $TMP_DXP_DIR;
 
 echo "Creating ibexa/$FLAVOR-skeleton:$VERSION project in ${TMP_DXP_DIR}…";
@@ -28,7 +42,7 @@ if [[ "$VERSION" == *".*" ]]; then
   echo "Obtained version: $VERSION";
 fi;
 
-echo -n 'Building package → edition map…';
+echo -n 'Building package→edition map… ';
 map=$PHPDOC_DIR/template/package-edition-map.twig;
 editions=(oss content experience commerce);
 if [[ -f $map ]]; then
@@ -36,7 +50,7 @@ if [[ -f $map ]]; then
 fi;
 echo "{% set package_edition_map = {" >> $map;
 for edition in ${editions[@]}; do
-  echo -n " ${edition}…";
+  echo -n "${edition}… ";
   while IFS= read -r line; do
     package=$(echo $line | cut -d '"' -f 2);
     if [[ ! "${editions[*]}" =~ "${package/ibexa\//}" ]]; then
@@ -48,13 +62,13 @@ for edition in ${editions[@]}; do
   fi;
 done;
 echo "} %}{% block content %}{% endblock %}" >> $map;
-echo ' OK';
+echo 'OK';
 
 sed "s/version number=\".*\"/version number=\"$VERSION\"/" $PHPDOC_CONF > ./phpdoc.dist.xml;
 cp -R $PHPDOC_DIR ./;
 curl -LO "https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.3.1/phpDocumentor.phar";
 php phpDocumentor.phar -t php_api_reference;
-echo -n "Clean up and copy phpDocumentor output to ${OUTPUT_DIR}…";
+echo -n "Clean up and copy phpDocumentor output to ${OUTPUT_DIR}… ";
 rm -rf ./php_api_reference/files ./php_api_reference/indices;
 cp -rf ./php_api_reference/* $OUTPUT_DIR;
 while IFS= read -r line; do
@@ -63,6 +77,6 @@ while IFS= read -r line; do
     rm -rf $file;
   fi;
 done <<< "$(diff -qr ./php_api_reference $OUTPUT_DIR | grep 'Only in ' | grep -v ': images')";
-echo ' OK';
+echo 'OK';
 
 rm -rf $TMP_DXP_DIR;
