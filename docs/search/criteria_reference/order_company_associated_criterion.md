@@ -1,5 +1,5 @@
 ---
-description: IsCompanyAssociated Criterion
+description: Order IsCompanyAssociated Criterion
 edition: commerce
 ---
 

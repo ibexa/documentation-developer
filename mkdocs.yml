@@ -509,6 +509,13 @@ nav:
             - Created: search/sort_clause_reference/order_created_sort_clause.md
             - Updated: search/sort_clause_reference/order_updated_sort_clause.md
             - Status: search/sort_clause_reference/order_status_sort_clause.md
+        - Shipment Sort Clauses:
+            - Shipment Sort Clauses: search/sort_clause_reference/shipment_sort_clauses.md
+            - Id: search/sort_clause_reference/shipment_id_sort_clause.md
+            - Identifier: search/sort_clause_reference/shipment_identifier_sort_clause.md
+            - CreatedAt: search/sort_clause_reference/shipment_createdat_sort_clause.md
+            - UpdatedAt: search/sort_clause_reference/shipment_updatedat_sort_clause.md
+            - Status: search/sort_clause_reference/shipment_status_sort_clause.md
         - Aggregation reference:
             - Aggregation reference: search/aggregation_reference/aggregation_reference.md
             - ContentTypeTermAggregation: search/aggregation_reference/contenttypeterm_aggregation.md
