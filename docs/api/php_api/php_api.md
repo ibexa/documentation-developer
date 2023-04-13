@@ -43,9 +43,9 @@ The full list of available services covers:
 
 You can access the PHP API by injecting relevant services into your code:
 
-- using [auto-wiring]([[=symfony_doc=]]/service_container/autowiring.html) or service argument, and, the service classname in the `Ibexa\Contracts\ namespace or the service alias
+- using [auto-wiring]([[=symfony_doc=]]/service_container/autowiring.html) or service argument, and, the service classname in the `Ibexa\Contracts\ namespace or the service alias.
 - using Repository's `get[ServiceName]()` methods: [`Repository::getContentService()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getContentService), [`getUserService()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getUserService), etc.
-- using [`Controller::getRepository()`](php_api_reference/classes/Ibexa-Bundle-Core-Controller.html#method_getRepository) by extending it from your [custom controller](../../templating/queries_and_controllers/controllers.md#controllers).
+- (not recommended) using [`Controller::getRepository()`](php_api_reference/classes/Ibexa-Bundle-Core-Controller.html#method_getRepository) by extending it from your [custom controller](../../templating/queries_and_controllers/controllers.md#controllers).
 
 ## Value objects
 
