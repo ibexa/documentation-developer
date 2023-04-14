@@ -1,0 +1,18 @@
+---
+description: Payment Identifier Criterion
+edition: commerce
+---
+
+# Payment Identifier Criterion
+
+The `IdentifierCriterion` Search Criterion searches for payments based on the payment identifier.
+
+## Arguments
+
+- `identifier` - string that represents the payment identifier
+
+## Example
+
+``` php
+$query->query = new Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\IdentifierCriterion('f7578972-e7f4-4cae-85dc-a7c74610204e');
+```

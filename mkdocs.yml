@@ -461,6 +461,18 @@ nav:
             - Price: search/criteria_reference/order_price_criterion.md
             - Source: search/criteria_reference/order_source_criterion.md
             - Status: search/criteria_reference/order_status_criterion.md
+        - Payment Search Criteria: 
+            - Payment Search Criteria: search/criteria_reference/payment_search_criteria.md
+            - CreatedAt: search/criteria_reference/payment_createdat_criterion.md
+            - Currency: search/criteria_reference/payment_currency_criterion.md
+            - Id: search/criteria_reference/payment_id_criterion.md
+            - Identifier: search/criteria_reference/payment_identifier_criterion.md
+            - LogicalAnd: search/criteria_reference/payment_logicaland_criterion.md
+            - LogicalOr: search/criteria_reference/payment_logicalor_criterion.md
+            - Order: search/criteria_reference/payment_order_criterion.md
+            - PaymentMethod: search/criteria_reference/payment_payment_method_criterion.md
+            - Status: search/criteria_reference/payment_status_criterion.md
+            - UpdatedAt: search/criteria_reference/payment_updatedat_criterion.md
         - Sort Clause reference:
             - Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
             - ContentId: search/sort_clause_reference/contentid_sort_clause.md
