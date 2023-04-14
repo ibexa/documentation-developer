@@ -27,7 +27,7 @@ Each configured React app block has an identifier and the following settings:
 
 |Setting|Description|
 |---|---|
-| `name` | Name of the block used in the Page Builder interface. |
+| `name` | Name of the block used in the Page Builder interface. It has to be the same as Component name used in `/page-builder/react/blocks` directory.|
 | `category` | Category in the Page Builder elements menu that the block is shown in. |
 | `thumbnail` | Thumbnail used in the Page Builder elements menu. |
 | `visible` | (Optional) Toggles the block's visibility in the Page Builder elements menu. Remove the block from the layout before you publish another version of the page. |
@@ -39,7 +39,7 @@ For example:
 ibexa_fieldtype_page:
     react_blocks:
         calculator:
-          name: Calculator (React)
+          name: Calculator
           category: Demo
           thumbnail: /bundles/ibexaicons/img/all-icons.svg#date
           component: Calculator
@@ -71,7 +71,6 @@ attributes:
       ...
 ```
 
-Apps that are used as blocks are defined by default in `react/controllers` direction.
 The `assets/apps.js` file is pre-configured with this path.
 
 Apps that are registered this way must be configured and referenced in the 
@@ -86,9 +85,9 @@ In the following example you will learn how to create `Calculator` React App blo
 ### Configure React App Block
 
 First, create a .jsx file which describes your component.
-You can create the file in any location.
+You can create the file at any location.
 
-In the following example, create `Calculator.jsx` file in `../../../vendor/ibexa/page-builder/components/` directory:
+In the following example, create `Calculator.jsx` file in `../../../page-builder/components/` directory:
 
 ``` js
 import React from 'react';
@@ -106,7 +105,7 @@ Files in this directory create a map of Components which then are imported to `r
 As a result, the components are rendered on the page. 
 
 ``` js
-import Calculator from "../../../vendor/ibexa/page-builder/components/Calculator";
+import Calculator from "../../../page-builder/components/Calculator";
 
 export default {
     Calculator: Calculator,
