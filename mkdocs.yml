@@ -471,6 +471,7 @@ nav:
             - LogicalOr: search/criteria_reference/payment_logicalor_criterion.md
             - Order: search/criteria_reference/payment_order_criterion.md
             - PaymentMethod: search/criteria_reference/payment_payment_method_criterion.md
+            - Price: search/criteria_reference/payment_price_criterion.md
             - Status: search/criteria_reference/payment_status_criterion.md
             - UpdatedAt: search/criteria_reference/payment_updatedat_criterion.md
         - Sort Clause reference:
