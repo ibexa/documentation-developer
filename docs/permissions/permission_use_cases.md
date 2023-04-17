@@ -273,7 +273,7 @@ interact with carts:
 - `cart/create` - to create a new cart
 - `cart/edit` - to allow user to add products to their cart
 
-To further control the access to a cart, you can use the `CartOwner` Limitation 
+To further control access to a cart, you can use the `CartOwner` Limitation 
 and set its value to `self`. 
 This way users can only interact with their own carts.
 
@@ -334,3 +334,7 @@ interact with payment methods and payments.
 - `payment/view` - to allow the user to view payments
 - `payment/edit` - to allow the user to change status of an existing payment 
 - `payment/delete` - to allow the user to cancel an existing payment 
+
+To further control access to a payment, you can use the `PaymentOwner` Limitation 
+and set its value to `self`. 
+This way users can only interact with their own payments.
