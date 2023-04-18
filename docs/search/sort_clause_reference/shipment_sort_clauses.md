@@ -9,7 +9,7 @@ edition: commerce
 
 Shipment Sort Clauses are part of [Sort Clauses](sort_clause_reference.md) and they are supported only by Shipment Search.
 
-By using Sort Clauses you can filter shipments by specific attributes, for example: creation date, status, etc.
+By using Sort Clauses you can filter shipments by specific attributes, for example: creation date, status, and so on.
 
 | Sort Clause | Sorting based on |
 |-----|-----|
