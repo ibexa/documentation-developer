@@ -1,0 +1,49 @@
+post:
+    displayName: Create order
+    description: Creates a new order.
+    headers:
+        Accept:
+            description: If set, the new order is returned in JSON format.
+            example:  |
+                application/vnd.ibexa.api.OrderCreate+json
+        Content-Type:
+            description: The Order schema encoded in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.OrderCreate+json
+    body:
+        application/vnd.ibexa.api.OrderCreate+json:
+            type: OrderCreate
+            example: !include examples/orders/POST/OrderCreate.json.example
+    responses:
+        200:
+            body:
+                application/vnd.ibexa.api.Order+json:
+                    type: Order
+                    example: !include examples/orders/POST/Order.json.example
+        400:
+            description: Error - the input does not match the input schema definition.
+        401:
+            description: Error - the user is not authorized to create this order.
+        406:
+            description: Error - a order with this identifier already exists.
+get:
+    displayName: Load orders
+    description: Loads the list of orders.
+    headers:
+        Accept:
+            description: OrderList - If set, the orders list returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.OrderList+json
+        Content-Type:
+            description: The OrderList schema encoded in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.OrderList+json
+    responses:
+        200:
+            description: OK - loads orders.
+            body:
+                application/vnd.ibexa.api.OrderList+json:
+                    type: OrderList
+                    example: !include examples/orders/GET/OrderList.json.example
+        401:
+            description: Error - the user has no permission to read orders.
