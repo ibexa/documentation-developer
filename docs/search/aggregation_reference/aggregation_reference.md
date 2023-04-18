@@ -55,6 +55,7 @@ There are three types of aggregations:
 
 |Name | Type | Based on|
 |---|---|---|
+|[Product attribute](product_attribute_aggregations.md) | Term / Range | Product attribute values |
 |[ProductAvailabilityTerm](productavailabilityterm_aggregation.md) | Term | Product availability |
 |[ProductPriceRange](productpricerange_aggregation.md) | Range | Product price |
 |[ProductTypeTerm](producttypeterm_aggregation.md) | Term | Product type |
