@@ -5,7 +5,7 @@ edition: commerce
 
 # Payment Order Criterion
 
-The `IdCriterion` Search Criterion searches for payments based on an ID of an associated order.
+The `Order` Search Criterion searches for payments based on an ID of an associated order.
 
 ## Arguments
 
@@ -14,5 +14,5 @@ The `IdCriterion` Search Criterion searches for payments based on an ID of an as
 ## Example
 
 ``` php
-$query->query = new Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\OrderCriterion(4);
+$query->query = new Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\Order(4);
 ```

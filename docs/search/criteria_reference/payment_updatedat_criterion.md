@@ -5,7 +5,7 @@ edition: commerce
 
 # Payment UpdatedAt Criterion
 
-The `UpdatedAtCriterion` Search Criterion searches for payments based on the date when their status was updated.
+The `UpdatedAt` Search Criterion searches for payments based on the date when their status was updated.
 
 ## Arguments
 
@@ -15,7 +15,7 @@ The `UpdatedAtCriterion` Search Criterion searches for payments based on the dat
 ## Example
 
 ``` php
-$criteria = new Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\UpdatedAtCriterion(
+$criteria = new Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\UpdatedAt(
     '2022-07-11T00:00:00+02:00',
     Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\Operator::GTE
 );

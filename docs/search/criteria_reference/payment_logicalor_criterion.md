@@ -5,7 +5,7 @@ edition: commerce
 
 # Payment LogicalOr Criterion
 
-The `LogicalOrCriterion` Search Criterion matches payments if at least one of the provided Criteria matches.
+The `LogicalOr` Search Criterion matches payments if at least one of the provided Criteria matches.
 
 ## Arguments
 
@@ -14,9 +14,9 @@ The `LogicalOrCriterion` Search Criterion matches payments if at least one of th
 ## Example
 
 ``` php
-$query->query = new Criterion\LogicalOrCriterion([
-        new Criterion\CreatedAtCriterion(['2022-07-11T00:00:00+02:00', GT]),
-        new Criterion\PaymentMethodCriterion(2);
+$query->query = new Criterion\LogicalOr([
+        new Criterion\CreatedAt(['2022-07-11T00:00:00+02:00', GT]),
+        new Criterion\PaymentMethod(2);
     ]
 );
 ```

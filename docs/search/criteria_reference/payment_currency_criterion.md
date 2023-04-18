@@ -5,7 +5,7 @@ edition: commerce
 
 # Payment Currency Criterion
 
-The `CurrencyCriterion` Search Criterion searches for payments based on the currency code.
+The `Currency` Search Criterion searches for payments based on the currency code.
 
 ## Arguments
 
@@ -14,5 +14,5 @@ The `CurrencyCriterion` Search Criterion searches for payments based on the curr
 ## Example
 
 ``` php
-$query->query = new Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\CurrencyCriterion('EUR');
+$query->query = new Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\Currency('EUR');
 ```

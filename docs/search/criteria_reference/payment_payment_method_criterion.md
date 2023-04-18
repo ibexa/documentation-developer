@@ -5,7 +5,7 @@ edition: commerce
 
 # Payment PaymentMethod Criterion
 
-The `PaymentMethodCriterion` Search Criterion searches for payments based on a payment method applied to them.
+The `PaymentMethod` Search Criterion searches for payments based on a payment method applied to them.
 
 ## Arguments
 
@@ -14,5 +14,5 @@ The `PaymentMethodCriterion` Search Criterion searches for payments based on a p
 ## Example
 
 ``` php
-$query->query = new Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\PaymentMethodCriterion(2);
+$query->query = new Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\PaymentMethod(2);
 ```

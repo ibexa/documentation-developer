@@ -5,7 +5,7 @@ edition: commerce
 
 # Payment Status Criterion
 
-The `StatusCriterion` Search Criterion searches for payments based on payment status.
+The `Status` Search Criterion searches for payments based on payment status.
 
 ## Arguments
 
@@ -14,5 +14,5 @@ The `StatusCriterion` Search Criterion searches for payments based on payment st
 ## Example
 
 ``` php
-$query->query = new Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\StatusCriterion('failed');
+$query->query = new Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\Status('failed');
 ```

@@ -5,7 +5,7 @@ edition: commerce
 
 # Payment Price Criterion
 
-The `PriceCriterion` searches for payments by their total value.
+The `Price` searches for payments by their total value.
 
 ## Arguments
 
@@ -15,7 +15,7 @@ The `PriceCriterion` searches for payments by their total value.
 ## Example
 
 ``` php
-$criteria = new Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\PriceCriterion(124, 
+$criteria = new Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\Price(124, 
     Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\Operator::EQ);
 $paymentQuery = new PaymentQuery(null, $criteria);
 ```

@@ -5,7 +5,7 @@ edition: commerce
 
 # Payment Identifier Criterion
 
-The `IdentifierCriterion` Search Criterion searches for payments based on the payment identifier.
+The `Identifier` Search Criterion searches for payments based on the payment identifier.
 
 ## Arguments
 
@@ -14,5 +14,5 @@ The `IdentifierCriterion` Search Criterion searches for payments based on the pa
 ## Example
 
 ``` php
-$query->query = new Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\IdentifierCriterion('f7578972-e7f4-4cae-85dc-a7c74610204e');
+$query->query = new Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\Identifier('f7578972-e7f4-4cae-85dc-a7c74610204e');
 ```

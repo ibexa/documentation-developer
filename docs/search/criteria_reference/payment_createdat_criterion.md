@@ -5,7 +5,7 @@ edition: commerce
 
 # Payment CreatedAt Criterion
 
-The `CreatedAtCriterion` Search Criterion searches for payments based on the date when they were initiated.
+The `CreatedAt` Search Criterion searches for payments based on the date when they were initiated.
 
 ## Arguments
 
@@ -15,7 +15,7 @@ The `CreatedAtCriterion` Search Criterion searches for payments based on the dat
 ## Example
 
 ``` php
-$criteria = new Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\CreatedAtCriterion(
+$criteria = new Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\CreatedAt(
     '2022-07-11T00:00:00+02:00',
     Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\Operator::GTE
 );

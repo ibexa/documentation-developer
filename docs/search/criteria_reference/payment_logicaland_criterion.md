@@ -5,7 +5,7 @@ edition: commerce
 
 # Payment LogicalAnd Criterion
 
-The `LogicalAndCriterion` Search Criterion matches payments if all provided Criteria match.
+The `LogicalAnd` Search Criterion matches payments if all provided Criteria match.
 
 ## Arguments
 
@@ -14,9 +14,9 @@ The `LogicalAndCriterion` Search Criterion matches payments if all provided Crit
 ## Example
 
 ``` php
-$query->query = new Criterion\LogicalAndCriterion([
-        new Criterion\CreatedAtCriterion(['2022-07-11T00:00:00+02:00', LT]),
-        new Criterion\PaymentMethodCriterion(1);
+$query->query = new Criterion\LogicalAnd([
+        new Criterion\CreatedAt(['2022-07-11T00:00:00+02:00', LT]),
+        new Criterion\PaymentMethod(1);
     ]
 );
 ```

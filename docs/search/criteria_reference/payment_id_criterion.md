@@ -5,7 +5,7 @@ edition: commerce
 
 # Payment Id Criterion
 
-The `IdCriterion` Search Criterion searches for payments based on the payment ID.
+The `Id` Search Criterion searches for payments based on the payment ID.
 
 ## Arguments
 
@@ -14,5 +14,5 @@ The `IdCriterion` Search Criterion searches for payments based on the payment ID
 ## Example
 
 ``` php
-$query->query = new Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\IdCriterion(2);
+$query->query = new Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\Id(2);
 ```
