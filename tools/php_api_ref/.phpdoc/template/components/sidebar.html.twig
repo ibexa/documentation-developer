@@ -6,12 +6,14 @@
 <aside class="phpdocumentor-column -four phpdocumentor-sidebar">
   {% for version in project.versions %}
     {% for toc in version.tableOfContents %}
+      {% if 'Packages' != toc.name %}
       <section class="phpdocumentor-sidebar__category">
         <h2 class="phpdocumentor-sidebar__category-header">{{ toc.name }}</h2>
         {% for root in toc.roots %}
           {{ toc(root, 'components/menu.html.twig', 1) }}
         {% endfor %}
       </section>
+      {% endif %}
     {% endfor %}
   {% endfor %}
 
