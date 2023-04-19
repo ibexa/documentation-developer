@@ -69,15 +69,21 @@ sed "s/version number=\".*\"/version number=\"$VERSION\"/" $PHPDOC_CONF > ./phpd
 cp -R $PHPDOC_DIR ./;
 curl -LO "https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.3.1/phpDocumentor.phar";
 php phpDocumentor.phar -t php_api_reference;
-echo -n "Clean up and copy phpDocumentor output to ${OUTPUT_DIR}… ";
-rm -rf ./php_api_reference/files ./php_api_reference/indices;
-cp -rf ./php_api_reference/* $OUTPUT_DIR;
-while IFS= read -r line; do
-  file="$(echo $line | sed -r 's/Only in (.*): (.*)/\1\/\2/')";
-  if [[ $file = $OUTPUT_DIR/* ]]; then
-    rm -rf $file;
-  fi;
-done <<< "$(diff -qr ./php_api_reference $OUTPUT_DIR | grep 'Only in ' | grep -v ': images')";
-echo 'OK';
+if [ $? -eq 0 ]; then
+  echo -n "Remove unneeded from phpDocumentor output… ";
+  rm -rf ./php_api_reference/files ./php_api_reference/indices;
+  echo -n "Copy phpDocumentor output to ${OUTPUT_DIR}… ";
+  cp -rf ./php_api_reference/* $OUTPUT_DIR;
+  echo -n "Remove surplus… ";
+  while IFS= read -r line; do
+    file="$(echo $line | sed -r 's/Only in (.*): (.*)/\1\/\2/')";
+    if [[ $file = $OUTPUT_DIR/* ]]; then
+      rm -rf $file;
+    fi;
+  done <<< "$(diff -qr ./php_api_reference $OUTPUT_DIR | grep 'Only in ' | grep -v ': images')";
+  echo 'OK.';
+else
+  echo 'A phpDocumentor error prevents reference update.';
+fi;
 
 rm -rf $TMP_DXP_DIR;
