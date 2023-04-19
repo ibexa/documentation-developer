@@ -1,6 +1,8 @@
 {# https://github.com/phpDocumentor/phpDocumentor/blob/v3.3.1/data/templates/default/components/tags.html.twig #}
 {% set tags = node.tags|filter((v,k) => k not in ['todo', 'var', 'param', 'property', 'property-read', 'property-write', 'method', 'return', 'package', 'api']) %}
 
+{% set tags = tags|filter((seriesOfTag, name) => name not in ['see', 'uses'] or seriesOfTag|filter(tag => '<a ' in tag.reference|route('class:short'))|length) %}
+
 {% if tags|length > 0 %}
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
@@ -8,6 +10,10 @@
     </h5>
     <dl class="phpdocumentor-tag-list">
         {% for name,seriesOfTag in tags %}
+            {% if name in ['see', 'uses'] %}
+                {%  set seriesOfTag = seriesOfTag|filter(tag => '<a ' in tag.reference|route('class:short')) %}
+            {% endif %}
+            {% if seriesOfTag|length %}
             <dt class="phpdocumentor-tag-list__entry">
                 <span class="phpdocumentor-tag__name">{{ name }}</span>
             </dt>
@@ -31,6 +37,7 @@
                     {% endif %}
                 </dd>
             {% endfor %}
+            {% endif %}
         {% endfor %}
     </dl>
 {% endif %}
