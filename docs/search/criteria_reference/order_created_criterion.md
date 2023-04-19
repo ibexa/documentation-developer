@@ -10,15 +10,15 @@ The `CreatedAtCriterion` Search Criterion searches for orders based on the date 
 ## Arguments
 
 - `createdAt` - date to be matched, provided as a `DateTimeInterface` object
-- `operator` - optional operator constant (EQ, GT, GTE, LT, LTE)
+- `operator` - optional operator string (EQ, GT, GTE, LT, LTE)
 
 ## Example
 
 ``` php
-$criteria = new Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\CreatedAtCriterion(
-    '2022-07-11T00:00:00+02:00',
-    Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\Operator::GTE
+$criteria = new \Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\CreatedAtCriterion(
+    new DateTime('2023-03-01'),
+    'GTE'
 );
 
-$orderQuery = new OrderQuery(null, $criteria);
+$orderQuery = new OrderQuery($criteria);
 ```

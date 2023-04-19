@@ -14,5 +14,7 @@ The `CompanyNameCriterion` Search Criterion searches for orders based on the nam
 ## Example
 
 ``` php
-$query->query = new Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\CompanyNameCriterion('IBM');
+$query = new OrderQuery(
+    new \Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\CompanyNameCriterion('IBM')
+);
 ```
