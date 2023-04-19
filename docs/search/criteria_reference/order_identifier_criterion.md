@@ -1,5 +1,5 @@
 ---
-description: Order Identifier Criterion
+description: Identifier Criterion
 edition: commerce
 ---
 

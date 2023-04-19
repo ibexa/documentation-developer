@@ -1,5 +1,5 @@
 ---
-description: Order Source Criterion
+description: Source Criterion
 edition: commerce
 ---
 

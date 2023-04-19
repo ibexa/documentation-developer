@@ -1,5 +1,5 @@
 ---
-description: Order CustomerName Criterion
+description: CustomerName Criterion
 edition: commerce
 ---
 

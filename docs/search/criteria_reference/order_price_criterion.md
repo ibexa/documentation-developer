@@ -1,5 +1,5 @@
 ---
-description: Order Price Criterion
+description: Price Criterion
 edition: commerce
 ---
 
