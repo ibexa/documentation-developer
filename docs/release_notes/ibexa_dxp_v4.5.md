@@ -42,6 +42,22 @@ This release introduces new page blocks:
 
 ## Other changes
 
+### API improvements
+
+#### REST API for company accounts
+
+This release adds new endpoints that will allow you to manage companies in your platform with REST API:
+
+- GET  `/corporate/companies/{companyId}/members` - supports filtering, sorting, and pagination
+- POST `/corporate/companies/{companyId}/members` - creates new member in a company
+- GET `/corporate/companies/{companyId}/members/{memberId}` - loads a member from a company
+- DELETE  `/corporate/companies/{companyId}/members/{memberId}` - deletes a member from a company
+- PATCH `/corporate/companies/{companyId}/members/{memberId}` - updates member data
+
+To create a Company with proper structure and shipping address, we recommend to use
+`\Ibexa\Contracts\CorporateAccount\Service\CorporateAccountService::createCompany` instead of
+`\Ibexa\Contracts\CorporateAccount\Service\CompanyService::createCompany`.
+
 ### Deprecations
 
 ## Full changelog
