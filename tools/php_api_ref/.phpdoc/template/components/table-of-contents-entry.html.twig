@@ -1,3 +1,4 @@
+{# https://github.com/phpDocumentor/phpDocumentor/blob/v3.3.1/data/templates/default/components/table-of-contents-entry.html.twig #}
 <dt class="phpdocumentor-table-of-contents__entry -{{ type }} -{{ node.visibility }}">
     <a href="{{ link(node) }}">{{ type == 'property' ? '$' }}{{ node.name }}{{ type == 'method' or type == 'function' ? '()' }}</a>
     <span>

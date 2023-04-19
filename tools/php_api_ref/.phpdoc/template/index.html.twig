@@ -2,29 +2,29 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-  <h2>Public PHP API Reference</h2>
+    <h2>Public PHP API Reference</h2>
 
-  <p>
-    Ibexa DXP's Public PHP API is defined in the <a href="namespaces/ibexa-contracts.html"><code>Ibexa\Contracts</code> namespace</a>
-    where consumption backward compatibility is promised.
-  </p>
-  <p>
-    If those <code>Contracts</code> are used for type hinting (including auto-wiring),
-    the received objects will always respect the <code>Contracts</code> in the next minor versions, following <a href="https://semver.org/">SemVer</a>.
-  </p>
+    <p>
+        Ibexa DXP's Public PHP API is defined in the <a href="namespaces/ibexa-contracts.html"><code>Ibexa\Contracts</code> namespace</a>
+        where consumption backward compatibility is promised.
+    </p>
+    <p>
+        If those <code>Contracts</code> are used for type hinting (including auto-wiring),
+        the received objects will always respect the <code>Contracts</code> in the next minor versions, following <a href="https://semver.org/">SemVer</a>.
+    </p>
 
-  {% set node = project.namespace %}
+    {% set node = project.namespace %}
 
-  {{
-  include(
-    'components/table-of-contents.html.twig',
-    {
-      'node': node,
-      'namespaces': usesNamespaces or not usesPackages ? node.children : [],
-      'packages': usesPackages ? project.package.children : []
-    }
-  )
-  }}
-  {{ include('components/constants.html.twig', {'node': node}) }}
-  {{ include('components/functions.html.twig', {'node': node}) }}
+    {{
+    include(
+        'components/table-of-contents.html.twig',
+        {
+            'node': project.namespace,
+            'namespaces': usesNamespaces or not usesPackages ? node.children : [],
+            'packages': usesPackages ? project.package.children : []
+        }
+    )
+    }}
+    {{ include('components/constants.html.twig', {'node': project.namespace}) }}
+    {{ include('components/functions.html.twig', {'node': project.namespace}) }}
 {% endblock %}
