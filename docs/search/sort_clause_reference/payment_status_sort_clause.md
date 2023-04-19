@@ -15,10 +15,10 @@ The `Status` Sort Clause sorts search results by payment status.
 
 ``` php
 $paymentQuery = new PaymentQuery(
-    null,
     $criteria,
     [
-        new Status(Status::SORT_ASC)
+        new \Ibexa\Contracts\Payment\Payment\Query\SortClause\Status(
+            \Ibexa\Contracts\Payment\Payment\Query\SortClause\Status::SORT_ASC)
     ]
 );
 ```

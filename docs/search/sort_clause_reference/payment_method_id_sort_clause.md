@@ -15,10 +15,10 @@ The `Id` Sort Clause sorts search results by payment method ID.
 
 ``` php
 $paymentMethodQuery = new PaymentMethodQuery(
-    null,
     $criteria,
     [
-        new Id(Id::SORT_ASC)
+        new \Ibexa\Contracts\Payment\PaymentMethod\Query\SortClause\Id(
+            \Ibexa\Contracts\Payment\PaymentMethod\Query\SortClause\Id::SORT_ASC)
     ]
 );
 ```

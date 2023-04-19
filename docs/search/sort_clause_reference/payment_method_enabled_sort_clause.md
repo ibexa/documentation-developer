@@ -15,10 +15,10 @@ The `Enabled` Sort Clause sorts search results by payment method status.
 
 ``` php
 $paymentMethodQuery = new PaymentMethodQuery(
-    null,
     $criteria,
     [
-        new Enabled(Enabled::SORT_DESC)
+        new \Ibexa\Contracts\Payment\PaymentMethod\Query\SortClause\Enabled(
+            \Ibexa\Contracts\Payment\PaymentMethod\Query\SortClause\Enabled::SORT_DESC)
     ]
 );
 ```
