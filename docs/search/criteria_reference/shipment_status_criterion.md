@@ -14,5 +14,5 @@ The `StatusCriterion` Search Criterion searches for shipments based on shipment 
 ## Example
 
 ``` php
-$query->query = new Ibexa\Contracts\ShippingManagement\Value\Shipment\Query\Criterion\StatusCriterion('pending');
+$query->query = new \Ibexa\Contracts\Checkout\Shipment\Query\Criterion\Status('pending');
 ```

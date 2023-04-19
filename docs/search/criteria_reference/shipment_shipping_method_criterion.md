@@ -9,10 +9,10 @@ The `ShippingMethodCriterion` Search Criterion searches for shipments based on a
 
 ## Arguments
 
-- `method_id` - integer that represents an ID of the shipping method that you want to match
+- `value` - one or an array of `ShippingMethodInterface` objects that indicate the shipping methods
 
 ## Example
 
 ``` php
-$query->query = new Ibexa\Contracts\ShippingManagement\Value\Shipment\Query\Criterion\ShippingMethodCriterion(2);
+$query->query = new \Ibexa\Contracts\Checkout\Shipment\Query\Criterion\ShippingMethod($shippingMethod);
 ```

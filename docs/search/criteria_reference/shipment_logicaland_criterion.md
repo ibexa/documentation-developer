@@ -14,9 +14,9 @@ The `LogicalAndCriterion` Search Criterion matches shipments if all provided Cri
 ## Example
 
 ``` php
-$query->query = new Criterion\LogicalAndCriterion([
-        new Criterion\CreatedAtCriterion(['2022-07-11T00:00:00+02:00', LT]),
-        new Criterion\ShippingMethodCriterion(1);
+$query->query = new \Ibexa\Contracts\Checkout\Shipment\Query\Criterion\LogicalAnd([
+    new \Ibexa\Contracts\Checkout\Shipment\Query\Criterion\CreatedAt(new DateTime('2023-03-01')),
+    new \Ibexa\Contracts\Checkout\Shipment\Query\Criterion\ShippingMethod($shippingMethod)
     ]
 );
 ```

@@ -15,10 +15,10 @@ The `UpdatedAtCriterion` Search Criterion searches for shipments based on the da
 ## Example
 
 ``` php
-$criteria = new Ibexa\Contracts\ShippingManagement\Value\Shipment\Query\Criterion\UpdatedAtCriterion(
-    '2021-12-06T13:00:00+00:00',
-    Ibexa\Contracts\ShippingManagement\Value\Shipment\Query\Criterion\Operator::GTE
+$criteria = new \Ibexa\Contracts\Checkout\Shipment\Query\Criterion\UpdatedAt(
+    new DateTime('2023-03-01'),
+    'GTE'
 );
 
-$query = new ShipmentQuery(null, $criteria);
+$query = new ShipmentQuery($criteria);
 ```

@@ -14,5 +14,5 @@ The `CurrencyCriterion` Search Criterion searches for shipments based on the cur
 ## Example
 
 ``` php
-$query->query = new Ibexa\Contracts\ShippingManagement\Value\Shipment\Query\Criterion\CurrencyCriterion('USD');
+$query->query = new \Ibexa\Contracts\Checkout\Shipment\Query\Criterion\Currency('USD');
 ```

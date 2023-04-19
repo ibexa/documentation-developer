@@ -14,9 +14,9 @@ The `LogicalOrCriterion` Search Criterion matches shipments if at least one of t
 ## Example
 
 ``` php
-$query->query = new Criterion\LogicalOrCriterion([
-        new Criterion\CreatedAtCriterion(['2022-07-11T00:00:00+02:00', GT]),
-        new Criterion\ShippingMethodCriterion(2);
+$query->query = new \Ibexa\Contracts\Checkout\Shipment\Query\Criterion\LogicalOr([
+    new \Ibexa\Contracts\Checkout\Shipment\Query\Criterion\CreatedAt(new DateTime('2023-03-01')),
+    new \Ibexa\Contracts\Checkout\Shipment\Query\Criterion\ShippingMethod($shippingMethod)
     ]
 );
 ```
