@@ -75,6 +75,15 @@ To create a company with proper structure and shipping address by using PHP API,
 `\Ibexa\Contracts\CorporateAccount\Service\CompanyService::createCompany`.
 
 
+### Product aggregations
+
+Product search now supports aggregations, with the following aggregations available:
+
+- [Product attribute](https://doc.ibexa.co/en/4.5/search/aggregation_reference/product_attribute_aggregations/) - based on product attribute values
+- [ProductAvailabilityTerm](https://doc.ibexa.co/en/4.5/search/aggregation_reference/productavailabilityterm_aggregation/) - based on product availability
+- [ProductPriceRange](https://doc.ibexa.co/en/4.5/search/aggregation_reference/productpricerange_aggregation/) - based on product price
+- [ProductTypeTerm](https://doc.ibexa.co/en/4.5/search/aggregation_reference/producttypeterm_aggregation/) - based on product type
+
 ### Ibexa Connect
 
 For list of changes in Ibexa Connect, see [Ibexa app release notes](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_app_release_notes/).
