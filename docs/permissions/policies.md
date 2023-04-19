@@ -121,7 +121,7 @@ Each Role you assign to  user or user group consists of Policies which define, w
 || `delete` | delete a payment method |
 | `payment`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create a payment |
 || `view` |view payments|
-|| `edit` | change status of a payment |
+|| `edit` | modify a payment |
 || `delete` | delete a payment |
 
 ## Combining Policies

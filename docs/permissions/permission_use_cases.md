@@ -332,7 +332,7 @@ interact with payment methods and payments.
 
 - `payment/create` - to allow the user to create a new payment
 - `payment/view` - to allow the user to view payments
-- `payment/edit` - to allow the user to change status of an existing payment 
+- `payment/edit` - to allow the user to modify an existing payment 
 - `payment/delete` - to allow the user to cancel an existing payment 
 
 To further control access to a payment, you can use the `PaymentOwner` Limitation 

@@ -360,14 +360,14 @@ A Limitation to specify whether the user can modify a payment.
 | Identifier      | `PaymentOwner`                                              |
 | Value Class     | `Ibexa\Payment\Security\Policy\Limitation\PaymentOwner`     |
 | Type Class      | `Ibexa\Payment\Security\Policy\Limitation\PaymentOwnerType` | 
-| Criterion used  |                                                             |
+| Criterion used  | n/a                                                            |
 | Role Limitation | no                                                          |
 
 ### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
-|"self"|"self"|Users can access only those payments, of which they are owners. |
+|"self"|"self"|Users can access only their own payments. |
 |"all"| none |Users can access all payments.|
 
 ## Personalization access Limitation
