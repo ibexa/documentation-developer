@@ -1,5 +1,5 @@
 ---
-description: CurrencyCode Criterion
+description: Order CurrencyCode Criterion
 edition: commerce
 ---
 
