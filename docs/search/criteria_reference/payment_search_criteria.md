@@ -21,6 +21,5 @@ With these criteria you can filter payments by their payment identifier, payment
 |[LogicalOr](payment_logicalor_criterion.md)|Logical OR criterion that matches if at least one of the provided Criteria matches|
 |[Order](payment_order_criterion.md)|ID of an associated order|
 |[PaymentMethod](payment_payment_method_criterion.md)|Payment method applied to the payment|
-|[Price](payment_price_criterion.md)|Total value of the payment|
 |[Status](payment_status_criterion.md)|Status of the payment|
 |[UpdatedAt](payment_updatedat_criterion.md)|Date and time when payment status was updated|
