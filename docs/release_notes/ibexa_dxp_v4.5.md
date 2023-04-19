@@ -74,6 +74,11 @@ To create a company with proper structure and shipping address by using PHP API,
 `\Ibexa\Contracts\CorporateAccount\Service\CorporateAccountService::createCompany` service instead of
 `\Ibexa\Contracts\CorporateAccount\Service\CompanyService::createCompany`.
 
+
+### Ibexa Connect
+
+For list of changes in Ibexa Connect, see [Ibexa app release notes](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_app_release_notes/).
+
 ### Deprecations
 
 #### `ibexa/admin-ui`
