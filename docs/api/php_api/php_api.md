@@ -25,6 +25,7 @@ Those services are obtained using `get[ServiceName]()` methods: `getContentServi
 
 The full list of available services covers:
 
+- CorporateAccountService (recommended for company creation)
 - CompanyService
 - [ContentService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php)
 - [ContentTypeService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentTypeService.php)
