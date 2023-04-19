@@ -14,9 +14,9 @@ The `LogicalOr` Search Criterion matches payment methods if at least one of the 
 ## Example
 
 ``` php
-$query->query = new Criterion\LogicalOr([
-        new Criterion\CreatedAt(['2022-07-11T00:00:00+02:00', GT]),
-        new Criterion\Enabled(1);
+$query->query = new \Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\LogicalOr([
+        new \Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\CreatedAt(new DateTime('2023-03-01'));
+        new \Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\CreatedAt(new DateTime('2023-05-01'));
     ]
 );
 ```

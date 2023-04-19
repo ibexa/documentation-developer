@@ -14,5 +14,5 @@ The `Status` Search Criterion searches for payments based on payment status.
 ## Example
 
 ``` php
-$query->query = new Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\Status('failed');
+$query->query = new \Ibexa\Contracts\Payment\Payment\Query\Criterion\Status('failed');
 ```

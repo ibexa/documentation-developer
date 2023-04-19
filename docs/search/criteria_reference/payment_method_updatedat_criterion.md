@@ -9,15 +9,14 @@ The `UpdatedAt` Search Criterion searches for payment methods based on the date 
 
 ## Arguments
 
-- `UpdatedAt` - date to be matched, provided as a `DateTimeInterface` object
+- `updatedAt` - date to be matched, provided as a `DateTimeInterface` object
 - `operator` - optional operator constant (EQ, GT, GTE, LT, LTE)
 
 ## Example
 
 ``` php
-$criteria = new Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\UpdatedAt(
-    '2022-07-11T00:00:00+02:00',
-    Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\Operator::GTE
+$criteria = new \Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\UpdatedAt(
+    new DateTime('2023-03-01')
 );
-$query = new PaymentMethodQuery(null, $criteria);
+$query = new PaymentMethodQuery($criteria);
 ```

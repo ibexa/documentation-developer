@@ -14,9 +14,9 @@ The `LogicalAnd` Search Criterion matches payment methods if all provided Criter
 ## Example
 
 ``` php
-$query->query = new Criterion\LogicalAnd([
-        new Criterion\CreatedAt(['2022-07-10T00:00:00+02:00', GT]),
-        new Criterion\CreatedAt(['2022-07-15T00:00:00+02:00', LT]);
+$query->query = new \Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\LogicalAnd([
+        new \Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\CreatedAt(new DateTime('2023-03-01'));
+        new \Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\Enabled(true);
     ]
 );
 ```

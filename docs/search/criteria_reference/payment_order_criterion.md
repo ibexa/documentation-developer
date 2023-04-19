@@ -9,10 +9,10 @@ The `Order` Search Criterion searches for payments based on an ID of an associat
 
 ## Arguments
 
-- `Order_id` - integer that represents an ID of an associated order
+- `order_id` - integer that represents an ID of an associated order
 
 ## Example
 
 ``` php
-$query->query = new Ibexa\Contracts\Payment\Value\Payment\Query\Criterion\Order(4);
+$query->query = new \Ibexa\Contracts\Payment\Payment\Query\Criterion\Order(4);
 ```
