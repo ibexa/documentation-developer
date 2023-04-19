@@ -31,7 +31,7 @@ displayName: Orders
                 description: Error - a order with this identifier already exists.
     get:
         displayName: Load orders
-        description: Loads the list of orders.
+        description: Loads a list of orders.
         headers:
             Accept:
                 description: OrderList - If set, the orders list returned in XML or JSON format.
@@ -102,7 +102,7 @@ displayName: Orders
                     description: Error - the order does not exist.
         patch:
             displayName: Update order
-            description: Updates a order.
+            description: Updates an order.
             body:
                 application/vnd.ibexa.api.OrderUpdate+json:
                     type: OrderUpdate
