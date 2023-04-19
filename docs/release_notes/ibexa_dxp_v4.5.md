@@ -47,11 +47,20 @@ This release introduces new page blocks:
 
 ## Other changes
 
+### Customer Data Platform (CDP) configuration
+ 
+In this release, the CDP configuration becomes more generic
+and allows us to support other transport types accepted by CDP.
+Currently, only `stream_file` transport is supported and can be initialized from the configuration.
+
+Ibexa v4.5 adds the abstraction that allows you to implement other transport types from third parties.
+For more information, see [CDP configuration](https://doc.ibexa.co/en/4.5/cdp/cdp_activation/#configuration).
+
 ### API improvements
 
 #### REST API for company accounts
 
-This release adds new endpoints that will allow you to manage companies in your platform with REST API:
+This release, adds new endpoints that will allow you to manage companies in your platform with REST API:
 
 - GET  `/corporate/companies/{companyId}/members` - supports filtering, sorting, and pagination
 - POST `/corporate/companies/{companyId}/members` - creates new member in a company
