@@ -10,7 +10,7 @@ The `CreatedAt` Search Criterion searches for payment methods based on the date 
 ## Arguments
 
 - `createdAt` - date to be matched, provided as a `DateTimeInterface` object
-- `operator` - optional operator constant (EQ, GT, GTE, LT, LTE)
+- `operator` - optional operator string (EQ, GT, GTE, LT, LTE)
 
 ## Example
 
