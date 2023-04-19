@@ -54,11 +54,25 @@ This release adds new endpoints that will allow you to manage companies in your 
 - DELETE  `/corporate/companies/{companyId}/members/{memberId}` - deletes a member from a company
 - PATCH `/corporate/companies/{companyId}/members/{memberId}` - updates member data
 
-To create a Company with proper structure and shipping address, we recommend to use
-`\Ibexa\Contracts\CorporateAccount\Service\CorporateAccountService::createCompany` instead of
+#### PHP API for company accounts
+
+To create a company with proper structure and shipping address by using PHP API, we recommend new
+`\Ibexa\Contracts\CorporateAccount\Service\CorporateAccountService::createCompany` service instead of
 `\Ibexa\Contracts\CorporateAccount\Service\CompanyService::createCompany`.
 
 ### Deprecations
+
+#### `ibexa/admin-ui`
+
+Changes:
+
+- `\Ibexa\PageBuilder\Siteaccess\SiteaccessService::resolveSiteAccessForContent` moved to `\Ibexa\AdminUi\Siteaccess\SiteaccessResolverInterface`
+
+Deprecations:
+
+- `\Ibexa\AdminUi\Siteaccess\SiteaccessResolverInterface::getSiteaccessesForLocation`
+  replaced by: `\Ibexa\AdminUi\Siteaccess\SiteaccessResolverInterface::getSiteAccessesList`
+- `\Ibexa\AdminUi\Siteaccess\SiteaccessResolverInterface::getSiteaccesses` replaced by `\Ibexa\AdminUi\Siteaccess\SiteaccessResolverInterface::getSiteAccessesListForLocation`
 
 ## Full changelog
 
