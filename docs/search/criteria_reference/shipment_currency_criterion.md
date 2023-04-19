@@ -5,7 +5,7 @@ edition: commerce
 
 # Shipment Currency Criterion
 
-The `CurrencyCriterion` Search Criterion searches for shipments based on the currency code.
+The `Currency` Search Criterion searches for shipments based on the currency code.
 
 ## Arguments
 
@@ -14,5 +14,7 @@ The `CurrencyCriterion` Search Criterion searches for shipments based on the cur
 ## Example
 
 ``` php
-$query->query = new \Ibexa\Contracts\Checkout\Shipment\Query\Criterion\Currency('USD');
+$query = new ShipmentQuery( 
+    new \Ibexa\Contracts\Checkout\Shipment\Query\Criterion\Currency('USD')
+);
 ```

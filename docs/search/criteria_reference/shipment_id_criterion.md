@@ -5,7 +5,7 @@ edition: commerce
 
 # Shipment Id Criterion
 
-The `IdCriterion` Search Criterion searches for shipments based on the shipment ID.
+The `Id` Search Criterion searches for shipments based on the shipment ID.
 
 ## Arguments
 
@@ -14,5 +14,7 @@ The `IdCriterion` Search Criterion searches for shipments based on the shipment 
 ## Example
 
 ``` php
-$query->query = new \Ibexa\Contracts\Checkout\Shipment\Query\Criterion\Id(2);
+$query = new ShipmentQuery( 
+    new \Ibexa\Contracts\Checkout\Shipment\Query\Criterion\Id(2)
+);
 ```
