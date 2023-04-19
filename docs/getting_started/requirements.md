@@ -17,7 +17,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     Review all the recommended versions carefully. If you see a "+" next to the product version, it means that we recommend this version or higher within the same major release. For example, "Nginx 1.18+" means any 1.x version higher or equal to 1.18, but not 2.x.
 
-    Using the latest listed version of each product or component is recommended. Always use a version that receives security updates, either by the vendor themselves or by a trusted third party for example, the distribution vendor.
+    Using the latest listed version of each product or component is recommended. Always use a version that receives security updates, either by the vendor themselves or by a trusted third party, such as the distribution vendor.
 
 ## Operating system
 
