@@ -45,7 +45,7 @@ This release introduces new page blocks:
 
 ![React app block](img/4.5_react_app_block.png "React app block")
 
-### Page Builder for B2B portals
+### Page Builder for B2B portalss [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 With this release, you will be able to use Page Builder to create custom Customer Portals for your clients. 
 With dedicated page blocks such as Sales rep and using all available blocks in original Page Builder, you can create unique experience for each customer group.
@@ -82,7 +82,7 @@ For more information, see [CDP configuration](https://doc.ibexa.co/en/4.5/cdp/cd
 
 ### API improvements
 
-#### REST API for company accounts
+#### REST API for company accounts [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 This release, adds new endpoints that will allow you to manage companies in your platform with REST API:
 
@@ -92,7 +92,7 @@ This release, adds new endpoints that will allow you to manage companies in your
 - DELETE  `/corporate/companies/{companyId}/members/{memberId}` - deletes a member from a company
 - PATCH `/corporate/companies/{companyId}/members/{memberId}` - updates member data
 
-#### PHP API for company accounts
+#### PHP API for company accounts [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 To create a company with proper structure and shipping address by using PHP API, we recommend new
 `\Ibexa\Contracts\CorporateAccount\Service\CorporateAccountService::createCompany` service instead of
