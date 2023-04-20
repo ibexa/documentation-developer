@@ -11,14 +11,14 @@ Page block configuration is not SiteAccess-aware.
 Another element of React App Block is `\Ibexa\FieldTypePage\FieldType\Page\Block\Event\Listener\ReactBlock` Listener 
 which adds component and props variables.
 
-It is general for all the blocks.
+It is common to all the blocks.
 
 [[% include 'snippets/page_block_cache_clear.md' %]]
 
 ## React App Block configuration
 
-React App blocks are regular [Page blocks](page_blocks.md) and can be confirgured on field definition level as any other block.
-File has exactly the same structure as regular YAML [block configuration](create_custom_page_block/#configure-block), except:
+React App blocks are regular [Page blocks](page_blocks.md) and can be configured on field definition level as any other block.
+File has exactly the same structure as regular YAML [block configuration](create_custom_page_block.md#configure-block), except:
 
 - additional `component` attribute which binds Page Builder block with React App
 - `views` attribute is removed
@@ -46,8 +46,7 @@ ibexa_fieldtype_page:
           attributes:
             a:
               type: integer
-            b: integer
-    }
+            b: integer 
 ```
 
 Each entry below `react_blocks` adds one block to the Page Builder with the defined name, category and thumbnail.
@@ -60,7 +59,7 @@ attributes:
   b: integer
 ```
 
-Sub-keys can be used to specify any of the usual [attributes configuration](page_block_attributes/#page-block-attributes) key:
+Sub-keys can be used to specify any of the usual [attributes configuration](page_block_attributes.md) key:
 
 ```
 attributes:
@@ -83,7 +82,7 @@ In the following example you will learn how to create `Calculator` React App blo
 ### Configure React App Block
 
 First, create a .jsx file which describes your component.
-You can create the file at any location.
+You can place it in any location.
 
 In the following example, create `Calculator.jsx` file in `../../../page-builder/components/` directory:
 
