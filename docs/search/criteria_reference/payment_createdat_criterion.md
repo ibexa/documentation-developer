@@ -5,7 +5,7 @@ edition: commerce
 
 # Payment CreatedAt Criterion
 
-The `CreatedAt` Search Criterion searches for payments based on the date when they were initiated.
+The `CreatedAt` Search Criterion searches for payments based on the date when they were created.
 
 ## Arguments
 

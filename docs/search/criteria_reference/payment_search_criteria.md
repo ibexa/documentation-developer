@@ -13,7 +13,7 @@ With these Criteria you can filter payments by their payment identifier, payment
 
 |Search Criterion|Search based on|
 |-----|-----|
-|[CreatedAt](payment_createdat_criterion.md)|Date and time when payment was initiated|
+|[CreatedAt](payment_createdat_criterion.md)|Date and time when payment was created|
 |[Currency](payment_currency_criterion.md)|Currency code|
 |[Id](payment_id_criterion.md)|Payment ID|
 |[Identifier](payment_identifier_criterion.md)|Payment identifier|

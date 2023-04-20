@@ -5,7 +5,7 @@ edition: commerce
 
 # Payment CreatedAt Sort Clause
 
-The `CreatedAt` Sort Clause sorts search results by the date and time when the payment was initiated.
+The `CreatedAt` Sort Clause sorts search results by the date and time when the payment was created.
 
 ## Arguments
 

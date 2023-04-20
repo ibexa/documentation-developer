@@ -14,6 +14,6 @@ By using Sort Clauses you can filter payments by specific attributes, for exampl
 |-----|-----|
 |[Id](payment_id_sort_clause.md)|Payment ID|
 |[Identifier](payment_identifier_sort_clause.md)|Payment identifier|
-|[CreatedAt](payment_createdat_sort_clause.md)|Date and time when payment was initiated|
+|[CreatedAt](payment_createdat_sort_clause.md)|Date and time when payment was created|
 |[UpdatedAt](payment_updatedat_sort_clause.md)|Date and time when payment status was updated|
 |[Status](payment_status_sort_clause.md)|Payment status|
