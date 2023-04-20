@@ -5,7 +5,7 @@ edition: commerce
 
 # Shipment LogicalAnd Criterion
 
-The `LogicalAndCriterion` Search Criterion matches shipments if all provided Criteria match.
+The `LogicalAnd` Search Criterion matches shipments if all provided Criteria match.
 
 ## Arguments
 

@@ -15,10 +15,10 @@ The `CreatedAt` Sort Clause sorts search results by the date and time when the s
 
 ``` php
 $shipmentQuery = new ShipmentQuery(
-    null,
     $criteria,
     [
-        new CreatedAt(CreatedAt::SORT_ASC)
+        new \Ibexa\Contracts\Checkout\Shipment\Query\SortClause\CreatedAt(
+            \Ibexa\Contracts\Checkout\Shipment\Query\SortClause\CreatedAt::SORT_ASC)
     ]
 );
 ```

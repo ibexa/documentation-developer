@@ -5,12 +5,12 @@ edition: commerce
 
 # Shipment CreatedAt Criterion
 
-The `CreatedAtCriterion` Search Criterion searches for shipments based on the date when they were created.
+The `CreatedAt` Search Criterion searches for shipments based on the date when they were created.
 
 ## Arguments
 
 - `createdAt` - date to be matched, provided as a `DateTimeInterface` object
-- `operator` - optional operator constant (EQ, GT, GTE, LT, LTE)
+- `operator` - optional operator string (EQ, GT, GTE, LT, LTE)
 
 ## Example
 

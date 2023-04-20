@@ -5,7 +5,7 @@ edition: commerce
 
 # Shipment UpdatedAt Criterion
 
-The `UpdatedAtCriterion` Search Criterion searches for shipments based on the date when their status was updated.
+The `UpdatedAt` Search Criterion searches for shipments based on the date when their status was updated.
 
 ## Arguments
 

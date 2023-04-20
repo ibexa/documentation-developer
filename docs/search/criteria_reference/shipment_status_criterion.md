@@ -5,7 +5,7 @@ edition: commerce
 
 # Shipment Status Criterion
 
-The `StatusCriterion` Search Criterion searches for shipments based on shipment status.
+The `Status` Search Criterion searches for shipments based on shipment status.
 
 ## Arguments
 
@@ -14,5 +14,7 @@ The `StatusCriterion` Search Criterion searches for shipments based on shipment 
 ## Example
 
 ``` php
-$query->query = new \Ibexa\Contracts\Checkout\Shipment\Query\Criterion\Status('pending');
+$query = new ShipmentQuery( 
+    new \Ibexa\Contracts\Checkout\Shipment\Query\Criterion\Status('pending')
+);
 ```

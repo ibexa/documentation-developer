@@ -5,7 +5,7 @@ edition: commerce
 
 # Shipment ShippingMethod Criterion
 
-The `ShippingMethodCriterion` Search Criterion searches for shipments based on a shipping method applied to them.
+The `ShippingMethod` Search Criterion searches for shipments based on a shipping method applied to them.
 
 ## Arguments
 
@@ -14,5 +14,7 @@ The `ShippingMethodCriterion` Search Criterion searches for shipments based on a
 ## Example
 
 ``` php
-$query->query = new \Ibexa\Contracts\Checkout\Shipment\Query\Criterion\ShippingMethod($shippingMethod);
+$query = new ShipmentQuery( 
+    new \Ibexa\Contracts\Checkout\Shipment\Query\Criterion\ShippingMethod($shippingMethod)
+);
 ```

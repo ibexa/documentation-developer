@@ -5,7 +5,7 @@ edition: commerce
 
 # Shipment LogicalOr Criterion
 
-The `LogicalOrCriterion` Search Criterion matches shipments if at least one of the provided Criteria matches.
+The `LogicalOr` Search Criterion matches shipments if at least one of the provided Criteria matches.
 
 ## Arguments
 

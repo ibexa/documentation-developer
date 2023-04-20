@@ -15,10 +15,10 @@ The `UpdatedAt` Sort Clause sorts search results by the date and time when shipm
 
 ``` php
 $shipmentQuery = new ShipmentQuery(
-    null,
     $criteria,
     [
-        new UpdatedAt(UpdatedAt::SORT_ASC)
+        new \Ibexa\Contracts\Checkout\Shipment\Query\SortClause\UpdatedAt(
+            \Ibexa\Contracts\Checkout\Shipment\Query\SortClause\UpdatedAt::SORT_ASC)
     ]
 );
 ```
