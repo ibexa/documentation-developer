@@ -7,9 +7,9 @@ edition: commerce
 
 Payment Search Criteria are part of [Search Criteria](search_criteria_reference.md) and they are supported only by Payment Search.
 
-With these criteria you can filter payments by their payment identifier, payment creation date, payment status, payment method, order, and so on.
+With these Criteria you can filter payments by their payment identifier, payment creation date, payment status, payment method, order, and so on.
 
-## Payment search criteria
+## Payment Search Criteria
 
 |Search Criterion|Search based on|
 |-----|-----|

@@ -7,9 +7,9 @@ edition: commerce
 
 Payment Method Search Criteria are part of [Search Criteria](search_criteria_reference.md) and they are supported only by Payment Method Search.
 
-With these criteria you can filter payment methods by their payment method identifier, payment method creation date, payment method type, status, and so on.
+With these Criteria you can filter payment methods by their payment method identifier, payment method creation date, payment method type, status, and so on.
 
-## Payment method search criteria
+## Payment method Search Criteria
 
 |Search Criterion|Search based on|
 |-----|-----|

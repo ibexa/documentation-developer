@@ -3,7 +3,6 @@ description: Payment Sort Clauses
 edition: commerce
 ---
 
----
 
 # Payment Sort Clauses
 
