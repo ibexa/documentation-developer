@@ -13,12 +13,12 @@ With these criteria you can filter shipments by their shipment identifier, shipm
 
 |Search Criterion|Search based on|
 |-----|-----|
-|[CreatedAtCriterion](shipment_createdat_criterion.md)|Date and time when shipment was created|
-|[CurrencyCriterion](shipment_currency_criterion.md)|Currency code|
-|[IdCriterion](shipment_id_criterion.md)|Shipment ID|
-|[IdentifierCriterion](shipment_identifier_criterion.md)|Shipment identifier|
-|[LogicalAndCriterion](shipment_logicaland_criterion.md)|Logical AND criterion that matches if all the provided Criteria match|
-|[LogicalOrCriterion](shipment_logicalor_criterion.md)|Logical OR criterion that matches if at least one of the provided Criteria matches|
-|[ShippingMethodCriterion](shipment_shipping_method_criterion.md)|Shipping method applied to the shipment|
-|[StatusCriterion](shipment_status_criterion.md)|Status of the shipment|
-|[UpdatedAtCriterion](shipment_updatedat_criterion.md)|Date and time when status of the shipment was updated|
+|[CreatedAt](shipment_createdat_criterion.md)|Date and time when shipment was created|
+|[Currency](shipment_currency_criterion.md)|Currency code|
+|[Id](shipment_id_criterion.md)|Shipment ID|
+|[Identifier](shipment_identifier_criterion.md)|Shipment identifier|
+|[LogicalAnd](shipment_logicaland_criterion.md)|Logical AND criterion that matches if all the provided Criteria match|
+|[LogicalOr](shipment_logicalor_criterion.md)|Logical OR criterion that matches if at least one of the provided Criteria matches|
+|[ShippingMethod](shipment_shipping_method_criterion.md)|Shipping method applied to the shipment|
+|[Status](shipment_status_criterion.md)|Status of the shipment|
+|[UpdatedAt](shipment_updatedat_criterion.md)|Date and time when status of the shipment was updated|
