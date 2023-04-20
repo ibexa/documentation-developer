@@ -3291,3 +3291,151 @@ AttributesList:
     properties:
         Attributes:
             type: Attribute[]
+
+OrderList:
+    description: 'This class represents an orders list.'
+    type: object
+    properties:
+        Orders:
+            type: Order[]
+
+Order:
+    description: 'This class represents order.'
+    type: object
+    properties:
+        id:
+            type: integer
+        identifier:
+            type: integer
+        created:
+            type: datetime
+        modified:
+            type: datetime
+        status:
+            type: string
+        source:
+            type: string
+        OrderUser:
+            type: OrderUser
+        OrderCurrency:
+            type: OrderCurrency
+        OrderValue:
+            type: OrderValue
+        OrderCompany:
+            type: OrderCompany
+        OrderItemsList:
+            type: OrderItem[]
+        context:
+            type: array
+
+OrderUser:
+    description: 'This class represents order user.'
+    type: object
+    properties:
+        id:
+            type: integer
+        name:
+            type: string
+        email:
+            type: string
+
+OrderCurrency:
+    description: 'This class represents order currency.'
+    type: object
+    properties:
+        id:
+            type: integer
+        code:
+            type: string
+
+OrderValue:
+    description: 'This class represents order value.'
+    type: object
+    properties:
+        vat:
+            type: string
+        total_gross:
+            type: string
+        total_net:
+            type: string
+
+OrderCompany:
+    description: 'This class represents order company.'
+    type: object
+    properties:
+        id:
+            type: integer
+        name:
+            type: string
+
+OrderCreate:
+    description: 'This class is used to create order.'
+    type: object
+    properties:
+        source:
+            type: string
+        OrderUser:
+            type: OrderUser
+        OrderCurrency:
+            type: OrderCurrency
+        OrderValue:
+            type: OrderValue
+        OrderCompany:
+            type: OrderCompany
+        items:
+            type: OrderItem[]
+
+OrderUpdate:
+    description: 'This class is used to update order.'
+    type: object
+    properties:
+        status:
+            type: string
+        transition:
+            type: string
+
+OrderItemsList:
+    description: 'This class represents an order items list.'
+    type: object
+    properties:
+        OrderItems:
+            type: OrderItem[]
+
+OrderItem:
+    description: 'This class represents order item.'
+    type: object
+    properties:
+        OrderItemValue:
+            type: OrderItemValue
+        OrderItemProduct:
+            type: OrderItemProduct
+        quantity:
+            type: integer
+        context:
+            type: array
+
+OrderItemValue:
+    description: 'This class represents order item value.'
+    type: object
+    properties:
+        unit_price_gross:
+            type: string
+        unit_price_net:
+            type: string
+        vat_rate:
+            type: string
+        subtotal_price_gross:
+            type: string
+        subtotal_price_net:
+            type: string
+
+OrderItemProduct:
+    description: 'This class represents order item product.'
+    type: object
+    properties:
+        id:
+            type: integer
+        code:
+            type: string
+        name:
+            type: string
