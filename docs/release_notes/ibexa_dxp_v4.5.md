@@ -45,6 +45,14 @@ This release introduces new page blocks:
 
 ![React app block](img/4.5_react_app_block.png "React app block")
 
+### Page Builder for B2B portals
+
+With this release, you will be able to use Page Builder to create custom Customer Portals for your clients. 
+With dedicated page blocks such as Sales rep and using all available blocks in original Page Builder, you can create unique experience for each customer group.
+Additionally, you can assign each customer group to a specific Customer Portal or create an availability hierarchy based on rules and configuration.
+
+![Page Builder for B2B portals](img/4.5_page_builder_b2b.png "Page Builder for B2B portals")
+
 ### Personalization improvements
 
 #### New B2B models in Personalization engine
@@ -115,7 +123,7 @@ Changes:
 Deprecations:
 
 - `\Ibexa\AdminUi\Siteaccess\SiteaccessResolverInterface::getSiteaccessesForLocation`
-  replaced by: `\Ibexa\AdminUi\Siteaccess\SiteaccessResolverInterface::getSiteAccessesList`
+  replaced by `\Ibexa\AdminUi\Siteaccess\SiteaccessResolverInterface::getSiteAccessesList`
 - `\Ibexa\AdminUi\Siteaccess\SiteaccessResolverInterface::getSiteaccesses` replaced by `\Ibexa\AdminUi\Siteaccess\SiteaccessResolverInterface::getSiteAccessesListForLocation`
 
 ## Full changelog
