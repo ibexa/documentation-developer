@@ -7,9 +7,9 @@ edition: commerce
 
 Order Search Criteria are part of [Search Criteria](search_criteria_reference.md) and they are supported only by Order Search.
 
-With these criteria you can filter orders by their order identifier, order creation date, order status, customer name, customer status, etc.
+With these Criteria you can filter orders by their order identifier, order creation date, order status, customer name, customer status, etc.
 
-## Order search criteria
+## Order Search Criteria
 
 |Search Criterion|Search based on|
 |-----|-----|

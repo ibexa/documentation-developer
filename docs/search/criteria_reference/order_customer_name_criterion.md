@@ -1,5 +1,5 @@
 ---
-description: CustomerName Criterion
+description: Order CustomerName Criterion
 edition: commerce
 ---
 
@@ -14,5 +14,7 @@ The `CustomerNameCriterion` Search Criterion searches for orders based on the na
 ## Example
 
 ``` php
-$query->query = new Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\CustomerNameCriterion('john');
+$query = new OrderQuery(
+    new \Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\CustomerNameCriterion('john')
+);
 ```

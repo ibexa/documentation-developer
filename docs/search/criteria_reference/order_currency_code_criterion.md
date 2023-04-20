@@ -1,5 +1,5 @@
 ---
-description: CurrencyCode Criterion
+description: Order CurrencyCode Criterion
 edition: commerce
 ---
 
@@ -14,5 +14,7 @@ The `CurrencyCodeCriterion` Search Criterion searches for orders based on the cu
 ## Example
 
 ``` php
-$query->query = new Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\CurrencyCodeCriterion('USD');
+$query = new OrderQuery(
+    new \Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\CurrencyCodeCriterion('USD')
+);
 ```
