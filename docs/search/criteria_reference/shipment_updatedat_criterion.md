@@ -10,7 +10,7 @@ The `UpdatedAt` Search Criterion searches for shipments based on the date when t
 ## Arguments
 
 - `updatedAt` - date to be matched, provided as a `DateTimeInterface` object
-- `operator` - optional operator constant (EQ, GT, GTE, LT, LTE)
+- `operator` - optional operator string (EQ, GT, GTE, LT, LTE)
 
 ## Example
 

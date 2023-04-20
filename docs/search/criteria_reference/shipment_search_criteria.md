@@ -7,9 +7,9 @@ edition: commerce
 
 Shipment Search Criteria are part of [Search Criteria](search_criteria_reference.md) and they are supported only by Shipment Search.
 
-With these criteria you can filter shipments by their shipment identifier, shipment creation date, shipment status, shipping method, and so on.
+With these Criteria you can filter shipments by their shipment identifier, shipment creation date, shipment status, shipping method, and so on.
 
-## Shipment search criteria
+## Shipment Search Criteria
 
 |Search Criterion|Search based on|
 |-----|-----|
