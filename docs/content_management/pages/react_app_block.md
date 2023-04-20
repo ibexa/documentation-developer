@@ -71,12 +71,8 @@ attributes:
       ...
 ```
 
-The `assets/apps.js` file is pre-configured with this path.
-
 Apps that are registered this way must be configured and referenced in the 
 semantic configuration to be registered as blocks.
-
-Apps that are used as blocks are defined by default in `react/controllers` direction.
 
 Parameters passed as props must be converted so that they can be used as the configured type in the app.
 
