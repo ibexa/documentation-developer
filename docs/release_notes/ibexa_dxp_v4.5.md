@@ -49,7 +49,7 @@ This release introduces new page blocks:
 
 #### New B2B models in Personalization engine
 
-Personalization engine introduces two new types of models: last clicked and last purchased B2B, and B2B recurring purchase models, dedicated to B2B users.
+Personalization engine introduces two new types of models: [last clicked and last purchased B2B, and B2B recurring purchase models](https://doc.ibexa.co/projects/userguide/en/master/personalization/recommendation_models/#b2b-model), dedicated to B2B users.
 Built on the fly, and based on segment groups models return actual items clicked by user with the same segment ID and actual bought items.
 B2B recurring purchase modelanticipates and predicts purchase of products that were bought recursively within the same segment ID.
 
@@ -58,6 +58,8 @@ B2B recurring purchase modelanticipates and predicts purchase of products that w
 Now you can use segmantation logic with operators to can build complex segment groupswhich enable precise filtering.
 With intuitive drag-and-drop interface, define rules, add logic operators and nest segments in segment 
 groups to get the most accurate, precise and targeted recommendations for your customers.
+
+![Segment management](img/4.5_segment_management.png "Segment management logic")
 
 ## Other changes
 
