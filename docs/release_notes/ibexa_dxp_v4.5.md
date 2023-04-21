@@ -1,12 +1,12 @@
 ---
-description: Ibexa DXP v4.5...
+description: Ibexa DXP v4.5 adds translation comparison, improvements to Customer Portal, Ibexa Commerce and Personalization.
 ---
 
 # Ibexa DXP v4.5
 
 **Version number**: v4.5
 
-**Release date**: 
+**Release date**: April 27, 2023
 
 **Release type**: [Fast Track](https://support.ibexa.co/Public/service-life)
 
@@ -48,7 +48,7 @@ This release introduces new page blocks:
 ### Page Builder for B2B portalss [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 With this release, you will be able to use Page Builder to create custom Customer Portals for your clients. 
-With dedicated page blocks such as Sales rep and using all available blocks in original Page Builder, you can create unique experience for each customer group.
+With new Sales rep page block and using all available blocks from original Page Builder, you can create unique experience for each customer group.
 Additionally, you can assign each customer group to a specific Customer Portal or create an availability hierarchy based on rules and configuration.
 
 ![Page Builder for B2B portals](img/4.5_page_builder_b2b.png "Page Builder for B2B portals")
@@ -59,11 +59,11 @@ Additionally, you can assign each customer group to a specific Customer Portal o
 
 Personalization engine introduces two new types of models: [last clicked and last purchased B2B, and B2B recurring purchase models](https://doc.ibexa.co/projects/userguide/en/master/personalization/recommendation_models/#b2b-model), dedicated to B2B users.
 Built on the fly, and based on segment groups models return actual items clicked by user with the same segment ID and actual bought items.
-B2B recurring purchase modelanticipates and predicts purchase of products that were bought recursively within the same segment ID.
+B2B recurring purchase model anticipates and predicts purchase of products that were bought recursively within the same segment ID.
 
 ### Segment management
 
-Now you can use segmantation logic with operators to can build complex segment groupswhich enable precise filtering.
+Now you can use segmentation logic with operators to can build complex segment groups which enable precise filtering.
 With intuitive drag-and-drop interface, define rules, add logic operators and nest segments in segment 
 groups to get the most accurate, precise and targeted recommendations for your customers.
 
