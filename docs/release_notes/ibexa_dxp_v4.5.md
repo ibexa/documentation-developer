@@ -28,7 +28,7 @@ Modules can interact with each other, for example, to decrease stock as a result
 #### Order management
 
 With order management in place, users can now search for orders and filter search results. 
-They also review order details and completion status, as well as cancel orders.
+They can also review order details and completion status, as well as cancel orders.
 
 ![The order list screen](img/4.5_order_list.png "The order list screen")
 
