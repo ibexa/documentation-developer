@@ -86,6 +86,11 @@ For more information, see [CDP configuration](https://doc.ibexa.co/en/4.5/cdp/cd
 
 This release, adds new endpoints that will allow you to manage companies in your platform with REST API:
 
+- GET `/corporate/companies` - supports pagination and existing Content Criteria and Sort Clauses but via query parameters
+- POST `/corporate/companies` - creates a company by using `CorporateAccount::createCompany` PAPI
+- GET `/corporate/companies/{companyId}` - loads a company
+- DELETE `/corporate/companies/{companyId}` - deletes a company
+- PATCH `/corporate/companies/{companyId}` - updates company data
 - GET  `/corporate/companies/{companyId}/members` - supports filtering, sorting, and pagination
 - POST `/corporate/companies/{companyId}/members` - creates new member in a company
 - GET `/corporate/companies/{companyId}/members/{memberId}` - loads a member from a company
