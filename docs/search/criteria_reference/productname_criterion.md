@@ -9,5 +9,8 @@ The `ProductName` Search Criterion searches for products by theis names.
 ## Example
 
 ``` php
-$query->query = new Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductName('sofa*');
+$query = new ProductQuery(
+    null,
+    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductName('sofa*')
+);
 ```
