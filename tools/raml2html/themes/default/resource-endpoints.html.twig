@@ -21,6 +21,11 @@
         {% include theme ~ "/resource.html.twig" %}
     {% endfor %}
 {% endif %}
-{% for resource in resource.resources %}
-    {% include theme ~ "/resource-endpoints.html.twig" %}
+{% for subresource in resource.resources %}
+    {% if isFirstLevel and resource.resources|length > 1 %}
+        <div class="px-3">
+            <h3 class="heading text-gray py-5 border-top">{{ subresource.uri }}</h3>
+        </div>
+    {% endif %}
+    {% include theme ~ "/resource-endpoints.html.twig" with {'resource': subresource, 'isFirstLevel': false} %}
 {% endfor %}

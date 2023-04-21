@@ -20,7 +20,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 ## Operating system
 
 - Debian 10.x "buster" or Debian 11.x "bullseye"
-- Ubuntu 20.04 "Focal Fossa"
+- Ubuntu 20.04 "Focal Fossa" or Ubuntu 22.04 "Jammy Jellyfish"
 - RHEL / CentOS 8.1+
 
 ## Web server
@@ -54,6 +54,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 - `php-curl`
 - `php-pear` (optional, provides pecl)
 - `php-gd` or `php-imagick` (via pecl on RHEL/CentOS)
+- `php-sodium`
 
 ### Cluster PHP packages
 

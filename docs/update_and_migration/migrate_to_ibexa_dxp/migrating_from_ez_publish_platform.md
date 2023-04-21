@@ -242,6 +242,26 @@ Import to your database the changes provided in one of the following files. It's
 
 Steps here should only be done once you are ready to move away from legacy and Legacy Bridge, as the following Field Types are not supported by legacy. In other words, content you have migrated will not be editable in legacy admin interface anymore, but rather in the more modern eZ Platform back-end UI, allowing you to take full advantage of what the Platform has to offer.
 
+The Field Types unsupported in eZ Platform are:
+
+- [XmlText](#321-migrate-xmltext-content-to-richtext)
+- [Page](#322-migrate-page-field-to-page-ez-enterprise-only)
+- Star Rating
+
+For Field Types which do not have specific procedures below, you must take one of the following actions:
+
+- implement them yourself in eZ Platform
+- remove them from all Content Types that use them
+
+!!! tip
+
+    To find out which Content Types use a specific Field Type,
+    you can run the following SQL query on your database (in this case, for the Star Rating Field Type):
+
+    ``` sql
+    select contentclass_id from ezcontentclass_attribute where data_type_string='ezsrrating' group by contentclass_id;
+    ```
+
 #### 3.2.1 Migrate XmlText content to RichText
 
 You should test the XmlText to RichText conversion before you apply it to a production database. RichText has a stricter validation compared to XmlText and you may have to fix some of your XmlText before you are able to convert it to RichText.

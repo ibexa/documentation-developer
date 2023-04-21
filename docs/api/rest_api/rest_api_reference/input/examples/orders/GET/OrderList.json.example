@@ -1,0 +1,181 @@
+{
+    "OrderList": {
+        "_media-type": "application/vnd.ibexa.api.OrderList+json",
+        "Order": [
+            {
+                "_media-type": "application/vnd.ibexa.api.Order+json",
+                "id": 2,
+                "identifier": "2d9c73cd-ea10-4459-b20e-96710c8d3898",
+                "created": {
+                    "date": "2023-04-18 09:06:02.000000",
+                    "timezone_type": 3,
+                    "timezone": "UTC"
+                },
+                "modified": {
+                    "date": "2023-04-18 09:06:02.000000",
+                    "timezone_type": 3,
+                    "timezone": "UTC"
+                },
+                "status": "pending",
+                "OrderUser": {
+                    "_media-type": "application/vnd.ibexa.api.OrderUser+json",
+                    "id": 14,
+                    "name": "Administrator",
+                    "email": "aa@aa.aa"
+                },
+                "OrderCurrency": {
+                    "_media-type": "application/vnd.ibexa.api.OrderCurrency+json",
+                    "id": 1,
+                    "code": "EUR"
+                },
+                "OrderValue": {
+                    "_media-type": "application/vnd.ibexa.api.OrderValue+json",
+                    "vat": {
+                        "amount": "10",
+                        "currency": "EUR"
+                    },
+                    "total_gross": {
+                        "amount": "10",
+                        "currency": "EUR"
+                    },
+                    "total_net": {
+                        "amount": "10",
+                        "currency": "EUR"
+                    }
+                },
+                "OrderCompany": {
+                    "_media-type": "application/vnd.ibexa.api.OrderCompany+json",
+                    "id": 68,
+                    "name": "Apple"
+                },
+                "OrderItemsList": [
+                    {
+                        "_media-type": "application/vnd.ibexa.api.OrderItem+json",
+                        "quantity": 10,
+                        "OrderItemValue": {
+                            "_media-type": "application/vnd.ibexa.api.OrderItemValue+json",
+                            "unit_price_gross": {
+                                "amount": "110",
+                                "currency": "EUR"
+                            },
+                            "unit_price_net": {
+                                "amount": "100",
+                                "currency": "EUR"
+                            },
+                            "vat_rate": "10.00",
+                            "subtotal_price_gross": {
+                                "amount": "1100",
+                                "currency": "EUR"
+                            },
+                            "subtotal_price_net": {
+                                "amount": "1000",
+                                "currency": "EUR"
+                            }
+                        },
+                        "OrderItemProduct": {
+                            "_media-type": "application/vnd.ibexa.api.OrderItemProduct+json",
+                            "id": 1,
+                            "code": "test",
+                            "name": "Test"
+                        },
+                        "context": {
+                            "foo": "bar",
+                            "baz": true
+                        }
+                    }
+                ],
+                "context": {
+                    "foo": "bar",
+                    "baz": 123
+                }
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.Order+json",
+                "id": 3,
+                "identifier": "79b20ac4-fe23-4566-a9c2-b81966431026",
+                "created": {
+                    "date": "2023-04-18 09:44:34.000000",
+                    "timezone_type": 3,
+                    "timezone": "UTC"
+                },
+                "modified": {
+                    "date": "2023-04-18 09:44:34.000000",
+                    "timezone_type": 3,
+                    "timezone": "UTC"
+                },
+                "status": "pending",
+                "OrderUser": {
+                    "_media-type": "application/vnd.ibexa.api.OrderUser+json",
+                    "id": 14,
+                    "name": "Administrator",
+                    "email": "aa@aa.aa"
+                },
+                "OrderCurrency": {
+                    "_media-type": "application/vnd.ibexa.api.OrderCurrency+json",
+                    "id": 1,
+                    "code": "EUR"
+                },
+                "OrderValue": {
+                    "_media-type": "application/vnd.ibexa.api.OrderValue+json",
+                    "vat": {
+                        "amount": "10",
+                        "currency": "EUR"
+                    },
+                    "total_gross": {
+                        "amount": "10",
+                        "currency": "EUR"
+                    },
+                    "total_net": {
+                        "amount": "10",
+                        "currency": "EUR"
+                    }
+                },
+                "OrderCompany": {
+                    "_media-type": "application/vnd.ibexa.api.OrderCompany+json",
+                    "id": 68,
+                    "name": "Apple"
+                },
+                "OrderItemsList": [
+                    {
+                        "_media-type": "application/vnd.ibexa.api.OrderItem+json",
+                        "quantity": 10,
+                        "OrderItemValue": {
+                            "_media-type": "application/vnd.ibexa.api.OrderItemValue+json",
+                            "unit_price_gross": {
+                                "amount": "110",
+                                "currency": "EUR"
+                            },
+                            "unit_price_net": {
+                                "amount": "100",
+                                "currency": "EUR"
+                            },
+                            "vat_rate": "10.00",
+                            "subtotal_price_gross": {
+                                "amount": "1100",
+                                "currency": "EUR"
+                            },
+                            "subtotal_price_net": {
+                                "amount": "1000",
+                                "currency": "EUR"
+                            }
+                        },
+                        "OrderItemProduct": {
+                            "_media-type": "application/vnd.ibexa.api.OrderItemProduct+json",
+                            "id": 1,
+                            "code": "test",
+                            "name": "Test"
+                        },
+                        "context": {
+                            "foo": "bar",
+                            "baz": true
+                        }
+                    }
+                ],
+                "context": {
+                    "foo": "bar",
+                    "baz": 123
+                }
+            }
+        ]
+    }
+}

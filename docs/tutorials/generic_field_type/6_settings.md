@@ -76,7 +76,7 @@ Create `templates/point2d_field_type_definition.html.twig`:
 
 ### Add configuration for the format field
 
-Next, provide the template mapping in `config/packages/ezplatform.yaml`:
+Next, provide the template mapping in `config/packages/ibexa.yaml`:
 
 ```yaml hl_lines="6 7"
 [[= include_file('code_samples/field_types/2dpoint_ft/config/packages/field_templates.yaml') =]]

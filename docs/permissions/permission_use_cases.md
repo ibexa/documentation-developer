@@ -246,28 +246,22 @@ users without permissions for content can still manage products.
 To control which commerce functionalities are available to store users, you can grant 
 or prevent them access to individual components.
 
-A minimal use case would be defining the following store user Roles: *Visitor* 
-and *Registered buyer*.
+Out of the box, [[= product_name_com =]] comes with the *Storefront User* Role that is assigned to anonymous users and grants them the following permissions:
 
-You can use the *Visitor* Role to prevent anonymous users from being able 
-to purchase products.  
-You can do this by granting `product/view`, `product_type/view` and `catalog/view` permissions only.
-
-The *Registered buyer* Role can then be used to allow users who have logged in 
-to view products, see product prices, add products to a cart and proceed with 
-the checkout process. 
-You do this by granting this Role the following set of permissions:
-
-- `user/register`, `user/login`, to control access to registration and login 
-- `product/view`, `product_type/view` and `catalog/view`, to allow viewing a product 
+- `product/view`, `product_type/view` and `catalog/view`, to allow them to view a product 
 list and product details
-- `cart/view`, `cart/create` and `cart/edit`, to allow adding items to a shopping cart and 
-modifying cart contents, for example, by removing items
+- `cart/view`, `cart/create` and `cart/edit` with the `CartOwner` Limitation set to `self`, to allow them to add items to their own shopping cart, modify their cart, and delete it
 - `checkout/view`, `checkout/create`, `checkout/update` and `checkout/delete`, to allow 
-proceeding to checkout and interacting with the checkout process
+them to proceed to checkout and interact with the checkout process
+
+You can modify the default Roles by preventing anonymous users from being able to proceed with the checkout process,
+and creating the *Registered Buyer* Role that enables logged-in users to purchase products. 
+
+You could do this by moving permissions that relate to checkout from the *Storefront User* Role to the *Registered Buyer* Role,
+and granting *Registered Buyer* with the `user/register` and `user/login` permissions which control access to registration and login.
 
 See below for a detailed listing of permissions that apply to Commerce, together 
-with their meaning, 
+with their meaning.
 
 ### Cart 
 
@@ -279,7 +273,7 @@ interact with carts:
 - `cart/create` - to create a new cart
 - `cart/edit` - to allow user to add products to their cart
 
-To further control the access to a cart, you can use the `CartOwner` Limitation 
+To further control access to a cart, you can use the `CartOwner` Limitation 
 and set its value to `self`. 
 This way users can only interact with their own carts.
 
@@ -292,3 +286,55 @@ interact with checkout:
 - `checkout/create` - to allow starting the checkout process, by proceeding from cart
 - `checkout/update` - to allow users to modify existing information, for example item quantity
 - `checkout/delete` - to delete checkout
+
+### Order management
+
+Set the following permissions to decide what actions are available when users 
+interact with orders:
+
+- `order/create` - to allow the user to create a new order
+- `order/view` - to allow the user to view orders
+- `order/update` - to allow the user to change status of an existing order 
+- `order/cancel` - to allow the user to cancel an existing order 
+
+### Shipping management
+
+Set the following permissions to decide what actions are available when users 
+interact with shipping methods and shipments.
+
+#### Shipping methods
+
+- `shipping_method/create` - to allow the user to create a new shipping method
+- `shipping_method/view` - to allow the user to view shipping methods
+- `shipping_method/edit` - to allow the user to modify an existing shipping method 
+- `shipping_method/delete` - to allow the user to delete an existing shipping method 
+
+#### Shipments
+
+- `shipment/create` - to allow the user to create a new shipment
+- `shipment/view` - to allow the user to view shipments
+- `shipment/update` - to allow the user to change status of an existing shipment 
+- `shipment/delete` - to allow the user to cancel an existing shipment 
+
+### Payment management
+
+Set the following permissions to decide what actions are available when users 
+interact with payment methods and payments.
+
+#### Payment methods
+
+- `payment_method/create` - to allow the user to create a new payment method
+- `payment_method/view` - to allow the user to view payment methods
+- `payment_method/edit` - to allow the user to modify an existing payment method 
+- `payment_method/delete` - to allow the user to delete an existing payment method 
+
+#### Payments
+
+- `payment/create` - to allow the user to create a new payment
+- `payment/view` - to allow the user to view payments
+- `payment/edit` - to allow the user to modify an existing payment 
+- `payment/delete` - to allow the user to cancel an existing payment 
+
+To further control access to a payment, you can use the `PaymentOwner` Limitation 
+and set its value to `self`. 
+This way users can only interact with their own payments.

@@ -64,6 +64,7 @@ nav:
             - GraphQL queries: api/graphql/graphql_queries.md
             - GraphQL operations: api/graphql/graphql_operations.md
             - GraphQL customization: api/graphql/graphql_customization.md
+            - GraphQL custom Field Type: api/graphql/graphql_custom_ft.md
         - Event reference:
             - Event reference: api/event_reference/event_reference.md
             - Content events: api/event_reference/content_events.md
@@ -87,7 +88,20 @@ nav:
             - Project organization: administration/project_organization/project_organization.md
             - Architecture: administration/project_organization/architecture.md
             - Bundles: administration/project_organization/bundles.md
-        - Admin panel: administration/admin_panel.md
+        - Admin panel:
+            - Admin panel: administration/admin_panel/admin_panel.md
+            - Users: administration/admin_panel/users_admin_panel.md
+            - Roles: administration/admin_panel/roles_admin_panel.md
+            - URL Management: administration/admin_panel/url_management_admin_panel.md
+            - Languages: administration/admin_panel/languages_admin_panel.md
+            - Segments: administration/admin_panel/segments_admin_panel.md
+            - Corporate: administration/admin_panel/corporate_admin_panel.md
+            - Workflow: administration/admin_panel/workflow_admin_panel.md
+            - System Information: administration/admin_panel/system_information_admin_panel.md
+        - Content organization:
+            - Sections: administration/content_organization/sections.md
+            - Content Types: administration/content_organization/content_types.md
+            - Object States: administration/content_organization/object_states.md
         - Configuration:
             - Configuration: administration/configuration/configuration.md
             - Dynamic configuration: administration/configuration/dynamic_configuration.md
@@ -108,7 +122,8 @@ nav:
             - Back Office tabs:
                 - Back Office tabs:  administration/back_office/back_office_tabs/back_office_tabs.md
                 - Create dashboard tab: administration/back_office/back_office_tabs/create_dashboard_tab.md
-            - Add tab switcher in Content Type: administration/back_office/content_tab_switcher.md
+            - Tab switcher in Content edit page: administration/back_office/content_tab_switcher.md
+            - Add anchor menu to Content Type edit screen: administration/back_office/content_type_anchor_menu.md
             - Back Office menus:
                 - Back Office menus: administration/back_office/back_office_menus/back_office_menus.md
                 - Add menu item: administration/back_office/back_office_menus/add_menu_item.md
@@ -126,6 +141,7 @@ nav:
         - Locations: content_management/locations.md
         - Content Relations: content_management/content_relations.md
         - Content availability: content_management/content_availability.md
+        - Customize Field Type metadata: content_management/customize_field_type_metadata.md
         - Taxonomy:
             - Taxonomy: content_management/taxonomy/taxonomy.md
             - Taxonomy API: content_management/taxonomy/taxonomy_api.md
@@ -148,6 +164,7 @@ nav:
             - Page block attributes: content_management/pages/page_block_attributes.md
             - Page block validators: content_management/pages/page_block_validators.md
             - Create custom Page block: content_management/pages/create_custom_page_block.md
+            - React App page block: content_management/pages/react_app_block.md
         - Forms:
             - Forms: content_management/forms/forms.md
             - Form API: content_management/forms/form_api.md
@@ -298,7 +315,11 @@ nav:
         - Checkout: 
             - Checkout: commerce/checkout/checkout.md
             - Configure checkout: commerce/checkout/configure_checkout.md
+            - Customize checkout: commerce/checkout/customize_checkout.md
             - Checkout API: commerce/checkout/checkout_api.md
+        - Order management:
+            - Order management: commerce/order_management/order_management.md
+            - Order management API: commerce/order_management/order_management_api.md
         - Storefront:
             - Storefront: commerce/storefront/storefront.md
             - Configure Storefront: commerce/storefront/configure_storefront.md
@@ -341,13 +362,7 @@ nav:
         - Login and registration: users/login_and_registration.md
         - OAuth authentication: users/oauth_authentication.md
         - Add login through external service: users/add_login_through_external_service.md
-        - Token: users/token.md
         - Segment API: users/segment_api.md
-        - Customers:
-            - Customers: users/customers/customers.md
-            - Customer API: users/customers/customer_api.md
-            - Customer profile data: users/customers/customer_profile_data.md
-            - Customer data configuration: users/customers/customer_data_configuration.md
     - Personalization:
         - Personalization: personalization/personalization.md
         - How Personalization works: personalization/how_it_works.md
@@ -420,7 +435,7 @@ nav:
             - LogicalNot Criterion: search/criteria_reference/logicalnot_criterion.md
             - LogicalOr Criterion: search/criteria_reference/logicalor_criterion.md
         - Product Search Criteria:
-            - ProductSearchCriteria: search/criteria_reference/product_search_criteria.md
+            - Product Search Criteria: search/criteria_reference/product_search_criteria.md
             - BasePrice: search/criteria_reference/baseprice_criterion.md
             - CheckboxAttribute: search/criteria_reference/checkboxattribute_criterion.md
             - ColorAttribute: search/criteria_reference/colorattribute_criterion.md
@@ -438,6 +453,17 @@ nav:
             - RangeMeasurementAttributeMaximum: search/criteria_reference/rangemeasurementattributemaximum_criterion.md
             - SimpleMeasurementAttribute: search/criteria_reference/simplemeasurementattribute_criterion.md
             - SelectionAttribute: search/criteria_reference/selectionattribute_criterion.md
+        - Order Search Criteria: 
+            - Order Search Criteria: search/criteria_reference/order_search_criteria.md
+            - CompanyName: search/criteria_reference/order_company_name_criterion.md
+            - CreatedAt: search/criteria_reference/order_created_criterion.md
+            - CurrencyCode: search/criteria_reference/order_currency_code_criterion.md
+            - CustomerName: search/criteria_reference/order_customer_name_criterion.md
+            - Identifier: search/criteria_reference/order_identifier_criterion.md
+            - IsCompanyAssociated: search/criteria_reference/order_company_associated_criterion.md
+            - Price: search/criteria_reference/order_price_criterion.md
+            - Source: search/criteria_reference/order_source_criterion.md
+            - Status: search/criteria_reference/order_status_criterion.md
         - Sort Clause reference:
             - Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
             - ContentId: search/sort_clause_reference/contentid_sort_clause.md
@@ -462,13 +488,19 @@ nav:
             - UserLogin: search/sort_clause_reference/userlogin_sort_clause.md
             - Visibility: search/sort_clause_reference/visibility_sort_clause.md
         - Product Sort Clauses:
-            - ProductSortClauses: search/sort_clause_reference/product_sort_clauses.md
+            - Product Sort Clauses: search/sort_clause_reference/product_sort_clauses.md
             - BasePrice: search/sort_clause_reference/baseprice_sort_clause.md
             - CreatedAt: search/sort_clause_reference/createdat_sort_clause.md
             - CustomPrice: search/sort_clause_reference/customprice_sort_clause.md
             - ProductAvailability: search/sort_clause_reference/productavailability_sort_clause.md
             - ProductCode: search/sort_clause_reference/productcode_sort_clause.md
             - ProductName: search/sort_clause_reference/productname_sort_clause.md
+        - Order Sort Clauses:
+            - Order Sort Clauses: search/sort_clause_reference/order_sort_clauses.md
+            - Id: search/sort_clause_reference/order_id_sort_clause.md
+            - Created: search/sort_clause_reference/order_created_sort_clause.md
+            - Updated: search/sort_clause_reference/order_updated_sort_clause.md
+            - Status: search/sort_clause_reference/order_status_sort_clause.md
         - Aggregation reference:
             - Aggregation reference: search/aggregation_reference/aggregation_reference.md
             - ContentTypeTermAggregation: search/aggregation_reference/contenttypeterm_aggregation.md
@@ -590,6 +622,7 @@ nav:
         - Resources: resources/resources.md
         - Release process and roadmap: resources/release_process_and_roadmap.md
         - Ibexa DXP PhpStorm plugin: resources/phpstorm_plugin.md
+        - New in documentation: resources/new_in_doc.md
         - Contributing:
             - Report and follow issues: resources/contributing/report_and_follow_issues.md
             - Contribute translations: resources/contributing/contribute_translations.md
@@ -625,6 +658,7 @@ theme:
     name: material
     features:
         - content.code.annotate 
+        - content.code.copy
         - navigation.tracking
         - navigation.top
         - content.tabs.link
@@ -656,12 +690,12 @@ extra:
   product_name_com: 'Ibexa Commerce'
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.31'
-  latest_tag_3_3: '3.3.29'
+  latest_tag_3_3: '3.3.31'
   latest_tag_4_0: '4.0.8'
   latest_tag_4_1: '4.1.5'
-  latest_tag_4_2: '4.2.3'
-  latest_tag_4_3: '4.3.2'
-  latest_tag_4_4: '4.4.0'
+  latest_tag_4_2: '4.2.4'
+  latest_tag_4_3: '4.3.5'
+  latest_tag_4_4: '4.4.1'
 
   symfony_doc: 'http://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'
@@ -682,9 +716,6 @@ extra_javascript:
   - js/jquery-ui.min.js
   - js/custom.js
   - js/docs.switcher.js
-  - js/ez-guidelines-switchers.js
-  - js/ez-guidelines-modals.js
-  - js/ez-guidelines-tooltips.js
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
 
 markdown_extensions:

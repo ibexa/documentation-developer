@@ -97,12 +97,32 @@ Each Role you assign to  user or user group consists of Policies which define, w
 ||`assign`|tag or untag content|
 | `cart`</br>[[% include 'snippets/commerce_badge.md' %]] | `view` | view a cart |
 || `create` | create a cart |
-|| `edit`   | change cart metadata (name, currency), add/remove cart items |
+|| `edit`   | change cart metadata (name, currency, owner), add/remove cart items |
 || `delete` | delete cart, for example, after successful checkout |
 | `checkout`</br>[[% include 'snippets/commerce_badge.md' %]] | `view` | access checkout |
 || `create` | create new checkout, for example, after workflow fails to complete |
 || `update` | change currency, quantity |
 || `delete` | delete checkout, for example, after workflow completes successfully |
+| `order`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create an order |
+|| `view` |view orders|
+|| `update` | change status of an order |
+|| `cancel` | cancel an order |
+| `shipping_method`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create a shipping method |
+|| `view` |view shipping methods|
+|| `update` | modify a shipping method |
+|| `delete` | delete a shipping method |
+| `shipment`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create a shipment |
+|| `view` |view shipments|
+|| `update` | change status of a shipment |
+|| `delete` | delete a shipment |
+| `payment_method`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create a payment method |
+|| `view` |view payment methods|
+|| `edit` | modify a payment method |
+|| `delete` | delete a payment method |
+| `payment`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create a payment |
+|| `view` |view payments|
+|| `edit` | modify a payment |
+|| `delete` | delete a payment |
 
 ## Combining Policies
 

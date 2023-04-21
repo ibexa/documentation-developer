@@ -1,0 +1,50 @@
+{
+    "OrderCreate": {
+        "OrderUser": {
+            "id": 14,
+            "name": "Administrator",
+            "email": "test@ibexa.co"
+        },
+        "OrderCurrency": {
+            "id": 1,
+            "code": "EUR"
+        },
+        "OrderValue": {
+            "vat": "10",
+            "total_gross": "11",
+            "total_net": "10"
+        },
+        "OrderCompany": {
+            "id": 68,
+            "name": "Apple"
+        },
+        "source": "local",
+        "items": [
+            {
+                "OrderItem": {
+                    "OrderItemValue": {
+                        "unit_price_gross": "110",
+                        "unit_price_net": "100",
+                        "vat_rate": "10",
+                        "subtotal_price_gross": "1100",
+                        "subtotal_price_net": "1000"
+                    },
+                    "OrderItemProduct": {
+                        "id": 1,
+                        "code": "test",
+                        "name": "Test"
+                    },
+                    "quantity": 10,
+                    "context": {
+                        "foo": "bar",
+                        "baz": true
+                    }
+                }
+            }
+        ],
+        "context": {
+            "foo": "bar",
+            "baz": 123
+        }
+    }
+}

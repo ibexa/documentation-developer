@@ -10,17 +10,18 @@ version: v3.3.2
 
 /content:
     displayName: Managing content
-    /objects: !include ez-content-object.raml
+    /objects: !include ez-content-objects.raml
     /objectstategroups: !include ez-objectstategroups.raml
-    /locations:  !include ez-content-location.raml
+    /locations:  !include ez-content-locations.raml
     /views: !include ez-content-views.raml
-    /sections: !include ez-content-section.raml
+    /sections: !include ez-content-sections.raml
     /trash: !include ez-content-trash.raml
     /urlaliases: !include ez-content-urlaliases.raml
     /urlwildcards: !include ez-content-urlwildcards.raml
     /typegroups: !include ez-content-typegroups.raml
     /types: !include ez-content-types.raml
     /assets: !include ez-content-assets.raml
+    #/binary: !include ez-content-binary.raml
 
 /calendar: !include ez-calendar.raml
 
@@ -28,6 +29,7 @@ version: v3.3.2
 
 /user:
     displayName: Managing users
+    /current: !include ez-user-current.raml
     /groups: !include ez-user-groups.raml
     /users: !include ez-user-users.raml
     /roles: !include ez-user-roles.raml
@@ -35,17 +37,27 @@ version: v3.3.2
     /sessions: !include ez-user-sessions.raml
     /token: !include ez-user-token.raml
 
+#/segments: !include ez-segment_groups.raml
+#/segment_groups: !include ez-segment_groups.raml
+
+#/personalization/v1: !include ez-personalization.raml
+
 /services: !include ez-services.raml
 
 /languages: !include ez-languages.raml
 
+/cart: !include ez-cart.raml
+
 /commerce: !include ez-commerce.raml
+
+/orders: !include ez-orders.raml
 
 /product/catalog:
     displayName: Product catalog
     /catalogs: !include ez-product-catalogs.raml
     /currencies: !include ez-product-currency.raml
     /regions: !include ez-product-regions.raml
+    /attribute_types: !include ez-product-attributetypes.raml
     /attribute_groups: !include ez-product-attributegroups.raml
     /attributes: !include ez-product-attributes.raml
     /customer_groups: !include ez-product-customergroups.raml

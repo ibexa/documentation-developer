@@ -1,6 +1,6 @@
 get:
-    displayName: Load attribute groups (deprecated as of Ibexa DXP 4.3, use /view instead)
-    description: Returns a list of attribute groups.
+    displayName: Load attribute groups (deprecated)
+    description: Returns a list of attribute groups. Deprecated as of Ibexa DXP 4.3, use POST /product/catalog/attribute_groups/view instead.
     body:
         application/vnd.ibexa.api.AttributeGroupList+json:
             type: AttributeGroup
@@ -145,7 +145,7 @@ post:
         responses:
             200:
                 body:
-                    application/vnd.ibexa.api.AttributeGroupView+json;
+                    application/vnd.ibexa.api.AttributeGroupView+json:
                         type: AttributeGroupView
                         example: !include examples/product/catalog/attribute_groups/POST/AttributeGroupView.json.example
             400:
