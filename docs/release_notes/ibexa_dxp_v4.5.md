@@ -16,7 +16,8 @@ description: Ibexa DXP v4.5 adds translation comparison, improvements to Custome
 
 ### All-new Ibexa Commerce packages [[% include 'snippets/commerce_badge.md' %]]
 
-This release deprecates brings new packages to complement the redesigned and reconstructed Commerce offering:
+This release brings new packages to complement the redesigned and reconstructed Commerce offering.
+You can use them to further enhance your e-commerce presence:
 
 - `ibexa/ibexa/order-management`
 - `ibexa/shipping`
@@ -27,20 +28,20 @@ Modules can interact with each other, for example, to decrease stock as a result
 #### Order management
 
 With order management in place, users can now search for orders and filter search results. 
-Depending on their role, they also review order details and completion status, and cancel orders.
+They also review order details and completion status, as well as cancel orders.
 
 ![The order list screen](img/4.5_order_list.png "The order list screen")
 
 #### Shipping
 
-The shipping management component lets users define and manage shipping methods and related costs, as well as create and manage shipments, search for shipments and filter search results. 
+The shipping management component lets users define and manage shipping methods of different types and their related costs, as well as create and manage shipments, search for shipments and filter search results. 
 Users can also enable or disable shipping methods, change status of shipments, and cancel shipments.
 
 ![The shipping methods screen](img/4.5_shipping_methods.png "The shipping methods screen")
 
 #### Payment
 
-With Payment module in place, users can define and manage payment methods, as well as create and manage payments, search for payments and filter the results. 
+With the Payment module, users can define and manage payment methods, as well as create and manage payments, search for payments and filter the results. 
 Users can also enable or disable payment methods, modify payment information, and cancel payments.
 
 ![The payment methods screen](img/4.5_shipping_methods.png "The payment methods screen")
@@ -153,21 +154,21 @@ The Order Management package provides the `Ibexa\Contracts\OrderManagement\Order
 
 #### PHP API for shipping methods and shipments [[% include 'snippets/commerce_badge.md' %]]
 
-The Shipping package provides the following services that are entrypoints for calling the backend API:
+The Shipping package provides the following services that are entrypoints to the backend API:
 
 - `Ibexa\Contracts\Checkout\ShipmentServiceInterface` for managing shipments 
 - `Ibexa\Contracts\Checkout\ShippingMethodServiceInterface` for managing shipment methods 
 
 #### PHP API for payment methods and payments [[% include 'snippets/commerce_badge.md' %]]
 
-The Payment package provides the following services that are entrypoints for calling the backend API:
+The Payment package provides the following services that are entrypoints to the backend API:
 
 - `Ibexa\Contracts\Payment\PaymentServiceInterface` for managing payments
 - `Ibexa\Contracts\Payment\PaymentMethodServiceInterface` for managing payment methods
 
 ### Category filter in product search
 
-To help users search for products, in Main Catalog, products can now be filtered by product category.
+To help users search for products, products in Main Catalog view can now be filtered by product category.
 
 ![Product categories filter](img/4.5_product_categories.png "Product categories filter")
 
