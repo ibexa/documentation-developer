@@ -676,8 +676,8 @@ extra:
   latest_tag_4_1: '4.1.5'
   latest_tag_4_2: '4.2.4'
   latest_tag_4_3: '4.3.5'
-  latest_tag_4_4: '4.4.1'
-  latest_tag_4_4: '4.5.0'
+  latest_tag_4_4: '4.4.2'
+  latest_tag_4_5: '4.5.0'
 
   symfony_doc: 'http://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'
