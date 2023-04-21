@@ -58,8 +58,8 @@ A Limitation to specify whether the user can modify a cart.
 
 |Value|UI value|Description|
 |------|------|------|
-|"self"|"self"|Only the User who is the owner of the cart gets access|
-|`null`|"null"|User can access all carts|
+|"self"|"self"|Only the User who is the owner of the cart gets access.|
+|`null`| none |User can access all carts.|
 
 ## Change Owner Limitation
 
@@ -351,6 +351,25 @@ permission.
 |------|------|------|
 |`<int>`|`<int>`|All valid integers can be set as value(s)|
 
+## PaymentOwner Limitation
+
+A Limitation to specify whether the user can modify a payment.
+
+|                 |                                                             |
+|-----------------|-------------------------------------------------------------|
+| Identifier      | `PaymentOwner`                                              |
+| Value Class     | `Ibexa\Payment\Security\Policy\Limitation\PaymentOwner`     |
+| Type Class      | `Ibexa\Payment\Security\Policy\Limitation\PaymentOwnerType` | 
+| Criterion used  | n/a                                                            |
+| Role Limitation | no                                                          |
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|"self"|"self"|Users can access only their own payments. |
+|"all"| none |Users can access all payments.|
+
 ## Personalization access Limitation
 
 A Limitation to specify the SiteAccesses for which the User can view or modify 
@@ -478,7 +497,7 @@ or unlock, on Content items that are in a workflow.
 | Value | UI value | Description |
 |------|------|------|
 | `userId` | "Assigned only" | Users can perform actions only on Content items that are assigned to them or not assigned to anybody. |
-| `null` | "none" | Users can perform actions on all drafts, regardless of the assignments or whether drafts are locked or not. |
+| `null` | none | Users can perform actions on all drafts, regardless of the assignments or whether drafts are locked or not. |
 
 ## Workflow Stage Limitation
 
