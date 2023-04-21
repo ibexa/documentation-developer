@@ -49,14 +49,14 @@ Users can also enable or disable shipping methods, change status of shipments, a
 
 ### Translation comparison
 
-With this release, you can compare different versions of the translations of the Content item, including comparison between different languages. 
+With this release, you can compare different versions of translations of a Content item, including comparison between different languages.
 
 You can now choose between two new options of the view:
 
 - Split - default, side by side view to compare versions of the same or different languages
 - Unified - single column view to compare versions of the same language
 
-Now, when you compare different versions within the same language, the system highlights the changes using the colors:
+Now, when you compare different versions within the same language, the system highlights the changes using colors:
 
 - yellow - content updated
 - blue - content added
@@ -74,14 +74,14 @@ This release introduces new page blocks:
 
 ![Bestsellers block](img/4.5_bestsellers_block.png "Bestsellers block")
 
-- [React app block](https://doc.ibexa.co/projects/userguide/en/4.5/content_management/pages/#react-app-block) allows an editor to embed a preconfigured React application into a page. React app block requires configuration. For more information, see [React App Block configuration](https://doc.ibexa.co/projects/userguide/en/4.5/content_management/pages/react_app_block/#react-app-block-configuration).
+- [React app block](https://doc.ibexa.co/projects/userguide/en/4.5/content_management/pages/#react-app-block) allows an editor to embed a preconfigured React application in a page. React app block requires configuration. For more information, see [React App Block configuration](https://doc.ibexa.co/projects/userguide/en/4.5/content_management/pages/react_app_block/#react-app-block-configuration).
 
 ![React app block](img/4.5_react_app_block.png "React app block")
 
 ### Page Builder for B2B portalss [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 With this release, you will be able to use Page Builder to create custom Customer Portals for your clients. 
-With new Sales rep page block and using all available blocks from original Page Builder, you can create unique experience for each customer group.
+With new Sales rep page block and using all available blocks from original Page Builder, you can create a unique experience for each customer group.
 Additionally, you can assign each customer group to a specific Customer Portal or create an availability hierarchy based on rules and configuration.
 
 ![Page Builder for B2B portals](img/4.5_page_builder_b2b.png "Page Builder for B2B portals")
@@ -91,12 +91,12 @@ Additionally, you can assign each customer group to a specific Customer Portal o
 #### New B2B models in Personalization engine
 
 Personalization engine introduces two new types of models: [last clicked and last purchased B2B, and B2B recurring purchase models](https://doc.ibexa.co/projects/userguide/en/master/personalization/recommendation_models/#b2b-model), dedicated to B2B users.
-Built on the fly, and based on segment groups models return actual items clicked by user with the same segment ID and actual bought items.
+Built on the fly, and based on segment groups, the models return actual items clicked by users with the same segment ID and actual bought items.
 B2B recurring purchase model anticipates and predicts purchase of products that were bought recursively within the same segment ID.
 
 ### Segment management
 
-Now you can use segmentation logic with operators to can build complex segment groups which enable precise filtering.
+Now you can use segmentation logic with operators to build complex segment groups which enable precise filtering.
 With intuitive drag-and-drop interface, define rules, add logic operators and nest segments in segment 
 groups to get the most accurate, precise and targeted recommendations for your customers.
 
@@ -107,20 +107,20 @@ groups to get the most accurate, precise and targeted recommendations for your c
 ### Customer Data Platform (CDP) configuration
  
 In this release, the CDP configuration becomes more generic
-and allows us to support other transport types accepted by CDP.
+and allows supporting other transport types accepted by CDP.
 Currently, only `stream_file` transport is supported and can be initialized from the configuration.
 
-Ibexa v4.5 adds the abstraction that allows you to implement other transport types from third parties.
+Ibexa DXP v4.5 adds the abstraction that allows you to implement other transport types from third parties.
 For more information, see [CDP configuration](https://doc.ibexa.co/en/4.5/cdp/cdp_activation/#configuration).
 
 ### API improvements
 
 #### REST API for company accounts [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-This release, adds new endpoints that will allow you to manage companies in your platform with REST API:
+This release adds new endpoints that allow you to manage companies in your platform with REST API:
 
 - GET `/corporate/companies` - supports pagination and existing Content Criteria and Sort Clauses but via query parameters
-- POST `/corporate/companies` - creates a company by using `CorporateAccount::createCompany` PAPI
+- POST `/corporate/companies` - creates a company
 - GET `/corporate/companies/{companyId}` - loads a company
 - DELETE `/corporate/companies/{companyId}` - deletes a company
 - PATCH `/corporate/companies/{companyId}` - updates company data
@@ -167,7 +167,7 @@ The Payment package provides the following services that are entrypoints to the 
 
 ### Category filter in product search
 
-To help users search for products, products in Main Catalog view can now be filtered by product category.
+To help users search for products, products in the main catalog view can now be filtered by product category.
 
 ![Product categories filter](img/4.5_product_categories.png "Product categories filter")
 

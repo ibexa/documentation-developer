@@ -78,7 +78,7 @@
                         <ul>
                             <li><a href="templating/render_content/render_content/">Content rendering</a></li>
                             <li><a href="search/search/">Search</a></li>
-                            <li><a href="release_notes/ibexa_dxp_v4.5/">Releases</a></li>
+                            <li><a href="release_notes/release_notes/">Releases</a></li>
                             <li><a href="api/php_api/php_api/">API</a></li>
                         </ul>
                     </div>
