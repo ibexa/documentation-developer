@@ -18,7 +18,7 @@ The API provides access to Content, User, Content Types and other features throu
 
 The full list of available services covers:
 
-- CorporateAccountService (recommended for company creation)
+- [CorporateAccountService](php_api_reference/classes/Ibexa-Contracts-CorporateAccount-Service-CorporateAccountService.html) (recommended for company creation)
 - [CompanyService](php_api_reference/classes/Ibexa-Contracts-CorporateAccount-Service-CompanyService.html)
 - [ContentService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html)
 - [ContentTypeService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentTypeService.html)
