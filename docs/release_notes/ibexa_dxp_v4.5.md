@@ -19,8 +19,7 @@ description: Ibexa DXP v4.5 adds translation comparison, improvements to Custome
 This release brings new packages to complement the redesigned and reconstructed Commerce offering.
 You can use them to further enhance your e-commerce presence:
 
-- `ibexa/ibexa/order-management`
-- `ibexa/shipping`
+- `ibexa/order-management`
 - `ibexa/payment`
 
 Modules can interact with each other, for example, to decrease stock as a result of a sale, or cancel shipments and payments when orders are cancelled, and so on.
@@ -32,13 +31,6 @@ They can also review order details and completion status, as well as cancel orde
 
 ![The order list screen](img/4.5_order_list.png "The order list screen")
 
-#### Shipping
-
-The shipping management component lets users define and manage shipping methods of different types and their related costs, as well as create and manage shipments, search for shipments and filter search results. 
-Users can also enable or disable shipping methods, change status of shipments, and cancel shipments.
-
-![The shipping methods screen](img/4.5_shipping_methods.png "The shipping methods screen")
-
 #### Payment
 
 With the Payment module, users can define and manage payment methods, as well as create and manage payments, search for payments and filter the results. 
@@ -47,6 +39,13 @@ Users can also enable or disable payment methods, modify payment information, an
 ![The payment methods screen](img/4.5_shipping_methods.png "The payment methods screen")
 
 For more information, see [Commerce](https://doc.ibexa.co/en/4.4/commerce/commerce/).
+
+### Changes to the Checkout package
+
+The Checkout package has been modified by adding shipping management capabilities that let users define and manage shipping methods of different types and their related costs, as well as create and manage shipments, search for shipments and filter search results. 
+Users can also enable or disable shipping methods, change status of shipments, and cancel shipments.
+
+![The shipping methods screen](img/4.5_shipping_methods.png "The shipping methods screen")
 
 ### Translation comparison
 
