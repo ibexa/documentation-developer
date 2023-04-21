@@ -41,7 +41,7 @@ Users can also enable or disable shipping methods, change status of shipments, a
 #### Payment
 
 With Payment module in place, users can define and manage payment methods, as well as create and manage payments, search for payments and filter the results. 
-Users can also enable or disable payment methods, payment information, and cancel payments.
+Users can also enable or disable payment methods, modify payment information, and cancel payments.
 
 ![The payment methods screen](img/4.5_shipping_methods.png "The payment methods screen")
 
