@@ -14,6 +14,39 @@ description: Ibexa DXP v4.5 adds translation comparison, improvements to Custome
 
 ## Notable changes
 
+### All-new Ibexa Commerce packages [[% include 'snippets/commerce_badge.md' %]]
+
+This release deprecates brings new packages to complement the redesigned and reconstructed Commerce offering:
+
+- `ibexa/ibexa/order-management`
+- `ibexa/shipping`
+- `ibexa/payment`
+
+Modules can interact with each other, for example, to decrease stock as a result of a sale, or cancel shipments and payments when orders are cancelled, and so on.
+
+#### Order management
+
+With order management in place, users can now search for orders and filter search results. 
+Depending on their role, they also review order details and completion status, and cancel orders.
+
+![The order list screen](img/4.5_order_list.png "The order list screen")
+
+#### Shipping
+
+The shipping management component lets users define and manage shipping methods and related costs, as well as create and manage shipments, search for shipments and filter search results. 
+Users can also enable or disable shipping methods, change status of shipments, and cancel shipments.
+
+![The shipping methods screen](img/4.5_shipping_methods.png "The shipping methods screen")
+
+#### Payment
+
+With Payment module in place, users can define and manage payment methods, as well as create and manage payments, search for payments and filter the results. 
+Users can also enable or disable payment methods, payment information, and cancel payments.
+
+![The payment methods screen](img/4.5_shipping_methods.png "The payment methods screen")
+
+For more information, see [Commerce](https://doc.ibexa.co/en/4.4/commerce/commerce/).
+
 ### Translation comparison
 
 With this release, you can compare different versions of the translations of the Content item, including comparison between different languages. 
@@ -103,6 +136,40 @@ To create a company with proper structure and shipping address by using PHP API,
 `\Ibexa\Contracts\CorporateAccount\Service\CorporateAccountService::createCompany` service instead of
 `\Ibexa\Contracts\CorporateAccount\Service\CompanyService::createCompany`.
 
+#### REST API for order management [[% include 'snippets/commerce_badge.md' %]]
+
+This release adds new endpoints that allow you to manage orders by using REST API:
+
+- GET `/orders/orders` - loads a list of orders
+- POST `/orders/orders` - creates an order 
+- GET `/orders/order` - loads an order by identifier
+- GET `/orders/order/{id}` - loads an order
+- POST `/orders/orders/{id}` - cancels an order
+- PATCH `/orders/orders/{id}` - updates an order
+
+#### PHP API for order management [[% include 'snippets/commerce_badge.md' %]]
+
+The Order Management package provides the `Ibexa\Contracts\OrderManagement\OrderServiceInterface` service, which is the entrypoint for calling the backend API for managing orders.
+
+#### PHP API for shipping methods and shipments [[% include 'snippets/commerce_badge.md' %]]
+
+The Shipping package provides the following services that are entrypoints for calling the backend API:
+
+- `Ibexa\Contracts\Checkout\ShipmentServiceInterface` for managing shipments 
+- `Ibexa\Contracts\Checkout\ShippingMethodServiceInterface` for managing shipment methods 
+
+#### PHP API for payment methods and payments [[% include 'snippets/commerce_badge.md' %]]
+
+The Payment package provides the following services that are entrypoints for calling the backend API:
+
+- `Ibexa\Contracts\Payment\PaymentServiceInterface` for managing payments
+- `Ibexa\Contracts\Payment\PaymentMethodServiceInterface` for managing payment methods
+
+### Category filter in product search
+
+To help users search for products, in Main Catalog, products can now be filtered by product category.
+
+![Product categories filter](img/4.5_product_categories.png "Product categories filter")
 
 ### Product aggregations
 
