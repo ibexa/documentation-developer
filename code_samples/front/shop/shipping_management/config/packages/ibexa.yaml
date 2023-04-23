@@ -1,15 +1,8 @@
 ibexa:
     repositories:
         default: 
-            shipment:
-                workflow: ibexa_shipment
-                shipping_methods:
-                    flat_rate:
-                        name: "Flat rate"
-                        translation_domain: "shipment"
-                    free:
-                        name: "Free"
-                        translation_domain: "shipment"
+            checkout:
+                shipment_workflow: ibexa_shipment
 
 // ...
 
@@ -18,7 +11,7 @@ framework:
         ibexa_shipment:
             type: state_machine
             audit_trail:
-                enabled: false
+                enabled: "%kernel.debug%"
             marking_store:
                 type: method
                 property: status
@@ -27,20 +20,47 @@ framework:
                 - Ibexa\Contracts\Checkout\Shipment\ShipmentCreateStruct
             initial_marking: pending
             places:
-                - pending
-                - ready_to_ship
-                - shipped
-                - delivered
+                pending:
+                    metadata:
+                        label: ibexa.shipment.workflow.place.pending.label
+                        primary_color: '#F4B65F'
+                        secondary_color: '#FEEED9'
+                        translation_domain: ibexa_shipment_workflow
+                ready_to_ship:
+                    metadata:
+                        label: ibexa.shipment.workflow.place.ready_to_ship.label
+                        primary_color: '#DB2C54'
+                        secondary_color: '#F7CCD6'
+                        translation_domain: ibexa_shipment_workflow
+                shipped:
+                    metadata:
+                        label: ibexa.shipment.workflow.place.shipped.label
+                        primary_color: '#5A5A5D'
+                        secondary_color: '#E6E6ED'
+                        translation_domain: ibexa_shipment_workflow
+                delivered:
+                    metadata:
+                        label: ibexa.shipment.workflow.place.delivered.label
+                        primary_color: '#2B6875'
+                        secondary_color: '#CCDBDE'
+                        translation_domain: ibexa_shipment_workflow
             transitions:
                 prepare:
                     from:
                         - pending
                     to: ready_to_ship
+                    metadata:
+                        exposed: false
                 send:
                     from:
                         - ready_to_ship
                     to: shipped
+                    metadata:
+                        exposed: false
                 deliver:
                     from:
                         - shipped
                     to: delivered
+                    metadata:
+                        exposed: false
+                        

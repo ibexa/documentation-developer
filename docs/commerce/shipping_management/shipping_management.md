@@ -5,8 +5,12 @@ edition: commerce
 
 # Shipping management
 
-The shipping management component enables users to define and manage shipping methods, as well as create and manage shipments, search for shipments and filter search results. 
+The shipping management component enables users to define and manage shipping methods of different types, as well as create and manage shipments, search for shipments and filter search results. 
 Depending on their role, users can also enable or disable shipping methods, change status of shipments, and cancel shipments.
+
+!!! note "Shipping method types"
+
+    Two types of shipping methods are available by default: "flat rate" and "free".
 
 From the development perspective, the component enables customization of the shipment workflow.
 

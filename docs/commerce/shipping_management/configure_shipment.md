@@ -24,35 +24,18 @@ The default fallback workflow is `ibexa_shipment`, which is prepended at bundle 
 The default shipment workflow configuration looks as follows. `ibexa_shipment` key is used by default, you can replace it with your custom workflow identifier if needed.
 
 ``` yaml
-[[= include_file('code_samples/front/shop/shipping_management/config/packages/ibexa.yaml', 15, 46) =]]
+[[= include_file('code_samples/front/shop/shipping_management/config/packages/ibexa.yaml', 8, 65) =]]
 ```
 
 ### Custom shipment workflows
 
 You define custom workflow implementations under the `framework.workflows` key. 
-The `shipment.workflow` parameter is repository-aware.
+The `checkout.shipment_workflow` parameter is repository-aware.
 
 To customize your configuration, place it in a YAML file, under the `framework.workflows.<your_workflow_name>` key, and reference it with `ibexa.repositories.<your_repository>.shipment.workflow: your_workflow_name`. 
 The system can then identify which of your configured workflows handles the shipment process.
 
 ## Configure shipping methods
 
-You can define the shipping methods.
-Under `ibexa.repositories.<repository_name>.shipment`, create entries that resemble 
-the following example.
-If you do not set a value for the `workflow` key, `ibexa_shipment` is used by default.
-
-``` yaml 
-ibexa:
-    repositories:
-        default: 
-            shipment:
-                workflow: ibexa_shipment
-                shipping_methods:
-                    flat_rate:
-                        name: "Flat rate"
-                        translation_domain: "shipment"
-                    free:
-                        name: "Free"
-                        translation_domain: "shipment" #optional, all shipping methods use this one by default
-```
+You can define the shipping methods [in the UI]([[= user_doc =]]/commerce/shipping_management/configure_shipping_method.md).
+The following shipping method types are available by default: `flat rate` and `free`.

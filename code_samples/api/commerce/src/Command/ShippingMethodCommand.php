@@ -4,11 +4,8 @@ declare(strict_types=1);
 
 namespace App\Command;
 
-use Ibexa\Contracts\Checkout\Value\ShippingMethod\ShippingMethodCreateStruct;
 use Ibexa\Contracts\Checkout\Value\ShippingMethod\ShippingMethodInterface;
-use Ibexa\Contracts\Checkout\Value\ShippingMethod\ShippingMethodListInterface;
 use Ibexa\Contracts\Checkout\Value\ShippingMethod\ShippingMethodQuery;
-use Ibexa\Contracts\Checkout\Value\ShippingMethod\ShippingMethodUpdateStruct;
 use Ibexa\Contracts\Checkout\ShippingMethodServiceInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -49,7 +46,8 @@ final class ShippingMethodCommand extends Command
 
         // Get a single shipping method by identifier
         $shippingMethodIdentifier = '4ac4b8a0-eed8-496d-87d9-32a960a10629';
-        $shippingMethod = $this->shippingMethodService->getShippingMethod($shippingMethodIdentifier);
+        $shippingMethod = $this->shippingMethodService->getShippingMethodByIdentifier($shippingMethodIdentifier);
+
         $output->writeln(sprintf('Got shipping method by identifier "%s" and type "%s".', $shippingMethodIdentifier, $shippingMethod->getType()));
 
         // Find shipping methods
@@ -72,7 +70,7 @@ final class ShippingMethodCommand extends Command
         }
 
         // Create a new shipping method
-        $shippingMethodCreateStruct = new ShippingMethodCreateStruct(
+        $shippingMethodCreateStruct = $this->shippingMethodService->newShippingMethodCreateStruct(
             'eu_free_eur',
             'free',
             'EU free shipping EUR',
@@ -88,7 +86,7 @@ final class ShippingMethodCommand extends Command
         $output->writeln(sprintf('Created shipping method with name %s', $shippingMethod->getName()));
 
         // Update the shipping method
-        $shippingMethodUpdateStruct = new ShippingMethodUpdateStruct();
+        $shippingMethodUpdateStruct = $this->shippingMethodService->newShippingMethodUpdateStruct();
         $shippingMethodUpdateStruct->setEnabled(false);
 
         $this->shippingMethodService->updateShippingMethod($shippingMethod, $shippingMethodUpdateStruct);
@@ -99,8 +97,23 @@ final class ShippingMethodCommand extends Command
             $shippingMethod->getEnabled()
         ));
 
-        // Delete shipping method permanently
+        // Delete the shipping method
         $this->shippingMethodService->deleteShippingMethod($shippingMethod);
+        $output->writeln(sprintf(
+            'Deleted shipping method with ID %d and identifier "%s".', 
+            $shippingMethod->getId(), 
+            $shippingMethod->getIdentifier()
+        ));
+
+        // Delete shipping method translation
+        $languageCode = 'en';
+        $this->shippingMethodService->deleteShippingMethodTranslation($shippingMethod, $languageCode);
+
+        $output->writeln(sprintf(
+            'Deleted translation for shipping method "%s" and language "%s".',
+            $shippingMethod->getName(),
+            $languageCode
+        ));
 
         return self::SUCCESS;
     }
