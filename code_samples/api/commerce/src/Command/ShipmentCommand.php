@@ -7,13 +7,16 @@ namespace App\Command;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Ibexa\Contracts\Shipping\ShipmentServiceInterface;
-use Ibexa\Contracts\Shipping\Value\ShipmentCreateStruct;
-use Ibexa\Contracts\Shipping\Value\ShipmentMetadataUpdateStruct;
-use Ibexa\Contracts\Shipping\Value\ShipmentQuery;
-use Ibexa\Contracts\Shipping\Value\ShipmentUpdateStruct;
-use Ibexa\Core\Repository\Permission\PermissionResolver;
-
+use Ibexa\Contracts\Checkout\ShipmentServiceInterface;
+use Ibexa\Contracts\Checkout\Shipment\ShipmentCreateStruct;
+use Ibexa\Contracts\Checkout\Shipment\ShipmentQuery;
+use Ibexa\Contracts\Checkout\Shipment\ShipmentUpdateStruct;
+use Ibexa\Contracts\Checkout\Shipment\Query\Criterion\CreatedAt;
+use Ibexa\Contracts\Checkout\Shipment\Query\Criterion\LogicalOr;
+use Ibexa\Contracts\Checkout\Shipment\Query\Criterion\ShippingMethod;
+use Ibexa\Contracts\Checkout\Shipment\Query\Criterion\UpdatedAt;
+use Ibexa\Contracts\Core\Repository\UserService;
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
 
 final class ShipmentCommand extends Command
 {
@@ -21,12 +24,12 @@ final class ShipmentCommand extends Command
 
     private UserService $userService;
 
-    private ShippingServiceInterface $shipmentService;
+    private ShipmentServiceInterface $shipmentService;
 
     public function __construct(
-      PermissionResolver $permissionResolver, 
+      PermissionResolver $permissionResolver,
       UserService $userService,
-      ShippingServiceInterface $shipmentService
+      ShipmentServiceInterface $shipmentService
       ) {
         $this->shipmentService = $shipmentService;
         $this->permissionResolver = $permissionResolver;
@@ -58,9 +61,9 @@ final class ShipmentCommand extends Command
 
         // Query for shipments
         $shipmentCriterions = [
-            new ShippingMethodCriterion(1),
-            new CreatedAtCriterion('2023-03-24 15:09:16'),
-            new UpdatedAtCriterion('2023-03-25 09:00:15'),
+            new ShippingMethod(1),
+            new CreatedAt('2023-03-24 15:09:16'),
+            new UpdatedAt('2023-03-25 09:00:15'),
         ];
         
         $shipmentQuery = new ShipmentQuery(new LogicalOr(...$shipmentCriterions));
@@ -76,26 +79,25 @@ final class ShipmentCommand extends Command
         }
 
         // Create a new shipment
-        $shipmentCreateStruct = new ShipmentCreateStruct();
-
-            // Set properties of $shipmentCreateStruct here
+        $shipmentCreateStruct = new ShipmentCreateStruct(
+            'free',
+            1,
+            EUR('100')
+        );
 
         $shipment = $this->shipmentService->createShipment($shipmentCreateStruct);
 
         $output->writeln(sprintf('Created shipment with identifier %s', $shipment->getIdentifier()));
 
         // Update existing shipment
-        $shipmentUpdateStruct = new ShipmentUpdateStruct(
-            'prepare',
-            'newIdentifier',
-            new ArrayMap(['new' => 44])
-        );
+        $shipmentUpdateStruct = new ShipmentUpdateStruct();
+        $shipmentUpdateStruct->setStatus('shipped');
 
-        $updatedShipment = $this->shipmentService->updateShipment($shipment, $shipmentUpdateStruct);
+        $this->shipmentService->updateShipment($shipment, $shipmentUpdateStruct);
 
-        $output->writeln($updatedShipment->getStatus());
+        $output->writeln(sprintf('Changed shipment status to %s', $shipment->getStatus());
 
-        // Delete aexisting shipment permanently
+        // Delete existing shipment permanently
         $this->shipmentService->deleteShipment($shipment);
 
         return self::SUCCESS;
