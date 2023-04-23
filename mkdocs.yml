@@ -321,6 +321,11 @@ nav:
             - Storefront: commerce/storefront/storefront.md
             - Configure Storefront: commerce/storefront/configure_storefront.md
             - Extend Storefront: commerce/storefront/extend_storefront.md
+        - Payment management:
+            - Payment management: commerce/payment/payment.md 
+            - Configure payment: commerce/payment/configure_payment.md 
+            - Payment method API: commerce/payment/payment_method_api.md 
+            - Payment API: commerce/payment/payment_api.md 
     - Customer management:
         - Customer Portal: customer_management/customer_portal.md
         - Customer Portal configuration: customer_management/cp_configuration.md
