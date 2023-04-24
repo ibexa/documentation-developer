@@ -183,6 +183,13 @@ Product search now supports aggregations, with the following aggregations availa
 - [ProductPriceRange](https://doc.ibexa.co/en/4.5/search/aggregation_reference/productpricerange_aggregation/) - based on product price
 - [ProductTypeTerm](https://doc.ibexa.co/en/4.5/search/aggregation_reference/producttypeterm_aggregation/) - based on product type
 
+### Password security
+
+You can now enhance password security with a setting that prevents using passwords that have been exposed in a public breach.
+To do it, the system checks the password against known password dumps by using the https://haveibeenpwned.com/ API.
+
+See [Breached passwords](https://doc.ibexa.co/en/master/users/user_management/#breached-passwords) for more information.
+
 ### Ibexa Connect
 
 For list of changes in Ibexa Connect, see [Ibexa app release notes](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_app_release_notes/).
