@@ -10,7 +10,7 @@ Depending on their role, users can also enable or disable shipping methods, chan
 
 !!! note "Shipping method types"
 
-    Two types of shipping methods are available by default: "flat rate" and "free".
+    Two types of shipping methods are available by default: `flat rate` and `free`.
 
 From the development perspective, the component enables customization of the shipment workflow.
 

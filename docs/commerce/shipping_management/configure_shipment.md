@@ -10,7 +10,7 @@ the shipment configuration.
 
 !!! note "Permissions" 
 
-    When you modify the workflow configuration, make sure you properly set user [permissions](permission_use_cases.md#commerce) to the shipping management component.
+    When you modify the workflow configuration, make sure you properly set user [permissions](permission_use_cases.md#commerce) for the shipping management component.
 
 ## Shipment workflow
 
@@ -21,21 +21,28 @@ The default fallback workflow is `ibexa_shipment`, which is prepended at bundle 
 
 ### Default shipment workflow configuration
 
-The default shipment workflow configuration looks as follows. `ibexa_shipment` key is used by default, you can replace it with your custom workflow identifier if needed.
+The default payment workflow configuration is called `ibexa_shipment`, you can replace it with your custom workflow identifier if needed.
 
-``` yaml
-[[= include_file('code_samples/front/shop/shipping_management/config/packages/ibexa.yaml', 8, 65) =]]
-```
+o see the default workflow, in your project directory, navigate to the following file: `vendor/Ibexa/checkout/src/bundle/Resources/config/workflow.yaml`.
 
 ### Custom shipment workflows
 
 You define custom workflow implementations under the `framework.workflows` key. 
 The `checkout.shipment_workflow` parameter is repository-aware.
 
-To customize your configuration, place it in a YAML file, under the `framework.workflows.<your_workflow_name>` key, and reference it with `ibexa.repositories.<your_repository>.shipment.workflow: your_workflow_name`. 
-The system can then identify which of your configured workflows handles the shipment process.
+To customize your configuration, place it in a YAML file, under the `framework.workflows.<your_workflow_name>` key:
+
+``` yaml
+[[= include_file('code_samples/front/shop/shipping_management/config/packages/ibexa.yaml', 8, 89) =]]
+```
+
+Reference it with `ibexa.repositories.<your_repository>.shipment.workflow: your_workflow_name`, so that the system can then identify which of your configured workflows handles the shipment process.
+
+``` yaml
+[[= include_file('code_samples/front/shop/shipping_management/config/packages/ibexa.yaml', 0, 5) =]]
+```
 
 ## Configure shipping methods
 
-You can define the shipping methods [in the UI]([[= user_doc =]]/commerce/shipping_management/configure_shipping_method.md).
+You can define the shipping methods [in the UI]([[= user_doc =]]/commerce/shipping_management/configure_shipping_method/).
 The following shipping method types are available by default: `flat rate` and `free`.

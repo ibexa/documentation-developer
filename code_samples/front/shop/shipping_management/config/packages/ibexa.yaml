@@ -2,13 +2,13 @@ ibexa:
     repositories:
         default: 
             checkout:
-                shipment_workflow: ibexa_shipment
+                shipment_workflow: custom_shipment_workflow
 
 // ...
 
 framework:
     workflows:
-        ibexa_shipment:
+        custom_shipment_workflow:
             type: state_machine
             audit_trail:
                 enabled: "%kernel.debug%"
@@ -26,11 +26,23 @@ framework:
                         primary_color: '#F4B65F'
                         secondary_color: '#FEEED9'
                         translation_domain: ibexa_shipment_workflow
-                ready_to_ship:
+                ready_for_clearance:
                     metadata:
-                        label: ibexa.shipment.workflow.place.ready_to_ship.label
+                        label: ibexa.shipment.workflow.place.ready_for_clearance.label
                         primary_color: '#DB2C54'
                         secondary_color: '#F7CCD6'
+                        translation_domain: ibexa_shipment_workflow
+                in_customs:
+                    metadata:
+                        label: ibexa.shipment.workflow.place.in_customs.label
+                        primary_color: '#DB2C54'
+                        secondary_color: '#F7CCD6'
+                        translation_domain: ibexa_shipment_workflow
+                passed_customs_clearance:
+                    metadata:
+                        label: ibexa.shipment.workflow.place.passed_customs_clearance.label
+                        primary_color: '#1beb17'
+                        secondary_color: '#c5f2c4'
                         translation_domain: ibexa_shipment_workflow
                 shipped:
                     metadata:
@@ -48,12 +60,24 @@ framework:
                 prepare:
                     from:
                         - pending
-                    to: ready_to_ship
+                    to: ready_for_clearance
+                    metadata:
+                        exposed: false
+                sent_to_customs:
+                    from:
+                        - ready_for_clearance
+                    to: in_customs
+                    metadata:
+                        exposed: false
+                clear_at_customs:
+                    from:
+                        - in_customs
+                    to: passed_customs_clearance
                     metadata:
                         exposed: false
                 send:
                     from:
-                        - ready_to_ship
+                        - passed_customs_clearance
                     to: shipped
                     metadata:
                         exposed: false

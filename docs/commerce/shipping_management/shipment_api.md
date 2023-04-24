@@ -1,5 +1,5 @@
 ---
-description: Use PHP API to manage shipments n Commerce: create, update and delete shipments.
+description: Use PHP API to manage shipments in Commerce. Create, update and delete shipments.
 edition: commerce
 ---
 
@@ -11,6 +11,8 @@ edition: commerce
 
 To get shipments and manage them, use the `Ibexa\Contracts\ShippingManagement\ShipmentServiceInterface` interface.
 
+From the developer's perspective, shipments are referenced with a UUID identifier.
+
 ## Get single shipment 
 
 ### Get single shipment by identifier
@@ -18,7 +20,7 @@ To get shipments and manage them, use the `Ibexa\Contracts\ShippingManagement\Sh
 To access a single shipment by using its string identifier, use the `ShipmentService::getShipmentByIdentifier` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 56, 60) =]]
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 67, 71) =]]
 ```
 
 ### Get single shipment by id
@@ -26,7 +28,7 @@ To access a single shipment by using its string identifier, use the `ShipmentSer
 To access a single shipment by using its numerical id, use the `ShipmentService::getShipment` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 50, 54) =]]
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 61, 65) =]]
 ```
 
 ## Get multiple shipments
@@ -35,16 +37,16 @@ To fetch multiple shipments, use the `ShipmentService::findShipments` method.
 It follows the same search query pattern as other APIs:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 62, 79) =]]
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 73, 90) =]]
 ```
 
 ## Create shipment
 
 To create a shipment, use the `ShipmentService::createShipment` method and provide it with 
-the `Ibexa\Contracts\Checkout\Value\ShipmentCreateStruct` object that passes two parameters, the `shippingMethod` string and `Money` object.
+an `Ibexa\Contracts\Checkout\Value\ShipmentCreateStruct` object that takes two parameters, a `shippingMethod` string and a `Money` object.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 81, 90) =]]
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 92, 101) =]]
 ```
 
 ## Update shipment
@@ -54,13 +56,13 @@ You could do it to support a scenario when, for example, the shipment is process
 To update shipment information, use the `ShipmentService::updateShipment` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 92, 98) =]]
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 103, 109) =]]
 ```
 ## Delete shipment
 
-To delete a shipment from the system, use the ``ShipmentService::deleteShipment` method:
+To delete a shipment from the system, use the `ShipmentService::deleteShipment` method:
 
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 100, 103) =]]
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 111, 114) =]]
 ```
