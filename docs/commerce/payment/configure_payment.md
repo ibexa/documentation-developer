@@ -22,7 +22,7 @@ The default fallback workflow is `ibexa_payment`.
 
 The default payment workflow configuration is called `ibexa_payment`, you can replace it with your custom workflow identifier if needed.
 
-To see the default workflow, in your project directory, navigate to the following file: `src/bundle/Resources/config/workflow.yaml`.
+To see the default workflow, in your project directory, navigate to the following file: `vendor/Ibexa/payment/src/bundle/Resources/config/workflow.yaml`.
 
 ### Custom payment workflows
 
