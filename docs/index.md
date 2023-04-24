@@ -108,14 +108,14 @@
                 <span class="pill">v4.5</span>
             </h5>
             <div class="row mt-3">
-                <div class="col-lg-5">The <a href="release_notes/ibexa_dxp_v4.5/">latest version of Ibexa DXP is v4.5</a>. It is a Fast Track release, and it was released on [date]]. You can now <a href="update_and_migration/from_4.4/update_from_4.4/">update your application to the latest version</a>. 
+                <div class="col-lg-5">The <a href="release_notes/ibexa_dxp_v4.5/">latest version of Ibexa DXP is v4.5</a>. It is a Fast Track release, and it was released on April 27, 2023. You can now <a href="update_and_migration/from_4.4/update_from_4.4/">update your application to the latest version</a>. 
                 </div>
                 <div class="col-sm-7 features">
                     <ul>
-                        <li><a href="release_notes/ibexa_dxp_v4.5/"></a>Feature 1</li>
-                        <li><a href="release_notes/ibexa_dxp_v4.5/"></a>Feature 2</li>
-                        <li><a href="release_notes/ibexa_dxp_v4.5/"></a>Feature 3</li>
-                        <li><a href="release_notes/ibexa_dxp_v4.5/"></a>Feature 4</li>
-                        <li><a href="release_notes/ibexa_dxp_v4.5/"></a>Feature 5</li>
-                        <li><a href="release_notes/ibexa_dxp_v4.5/"></a>Feature 6</li>
+                        <li><a href="release_notes/ibexa_dxp_v4.5/#all-new-ibexa-commerce-packages">Ibexa Commerce packages</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.5/#translation-comparison">Translation comparison</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.5/#page-builder-for-b2b-portals">Page Builder for B2B portals</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.5/#new-commerce-page-blocks">New commerce page blocks</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.5/#personalization-improvements">Personalization improvements</a></li>
+                        <li><a href="release_notes/ibexa_dxp_v4.5/#segment-management">Segment management</a></li>
 </div>

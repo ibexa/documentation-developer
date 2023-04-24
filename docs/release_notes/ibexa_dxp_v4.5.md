@@ -33,7 +33,8 @@ They can also review order details and completion status, as well as cancel orde
 
 #### Payment
 
-With the Payment module, users can define and manage payment methods, as well as create and manage payments, search for payments and filter the results. 
+With the Payment module, users can define and manage payment methods, 
+as well as create and manage payments, search for payments and filter the results. 
 Users can also enable or disable payment methods, modify payment information, and cancel payments.
 
 ![The payment methods screen](img/4.5_shipping_methods.png "The payment methods screen")
@@ -42,10 +43,24 @@ For more information, see [Commerce](https://doc.ibexa.co/en/4.4/commerce/commer
 
 ### Changes to the Checkout package
 
-The Checkout package has been modified by adding shipping management capabilities that let users define and manage shipping methods of different types and their related costs, as well as create and manage shipments, search for shipments and filter search results. 
+The Checkout package has been modified by adding shipping management capabilities that let users
+define and manage shipping methods of different types and their related costs,
+as well as create and manage shipments, search for shipments and filter search results.
 Users can also enable or disable shipping methods, change status of shipments, and cancel shipments.
 
 ![The shipping methods screen](img/4.5_shipping_methods.png "The shipping methods screen")
+
+### New commerce page blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+This release introduces new page blocks:
+
+- [Bestsellers block](https://doc.ibexa.co/projects/userguide/en/4.5/content_management/block_reference/#bestsellers-block) displays a list of products from PIM that were recently a bestseller.
+
+![Bestsellers block](img/4.5_bestsellers_block.png "Bestsellers block")
+
+- [React app block](https://doc.ibexa.co/projects/userguide/en/4.5/content_management/pages/#react-app-block) allows an editor to embed a preconfigured React application in a page. React app block requires configuration. For more information, see [React App Block configuration](https://doc.ibexa.co/projects/userguide/en/4.5/content_management/pages/react_app_block/#react-app-block-configuration).
+
+![React app block](img/4.5_react_app_block.png "React app block")
 
 ### Translation comparison
 
@@ -66,22 +81,10 @@ Now, when you compare different versions within the same language, the system hi
 
 For more information, see [Translation comparison](https://doc.ibexa.co/projects/userguide/en/master/content_management/translate_content/#translation-comparison).
 
-### New commerce page blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+### Page Builder for B2B portals [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-This release introduces new page blocks:
-
-- [Bestsellers block](https://doc.ibexa.co/projects/userguide/en/4.5/content_management/block_reference/#bestsellers-block) displays a list of products from PIM that were recently a bestseller.
-
-![Bestsellers block](img/4.5_bestsellers_block.png "Bestsellers block")
-
-- [React app block](https://doc.ibexa.co/projects/userguide/en/4.5/content_management/pages/#react-app-block) allows an editor to embed a preconfigured React application in a page. React app block requires configuration. For more information, see [React App Block configuration](https://doc.ibexa.co/projects/userguide/en/4.5/content_management/pages/react_app_block/#react-app-block-configuration).
-
-![React app block](img/4.5_react_app_block.png "React app block")
-
-### Page Builder for B2B portalss [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
-
-With this release, you will be able to use Page Builder to create custom Customer Portals for your clients. 
-With new Sales rep page block and using all available blocks from original Page Builder, you can create a unique experience for each customer group.
+With this release, you will be able to use Page Builder to create custom Customer Portals for your clients.
+With new Sales rep page block and using all available blocks from the original Page Builder, you can create a unique experience for each customer group.
 Additionally, you can assign each customer group to a specific Customer Portal or create an availability hierarchy based on rules and configuration.
 
 ![Page Builder for B2B portals](img/4.5_page_builder_b2b.png "Page Builder for B2B portals")
