@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace App\Command;
 
-use Ibexa\Contracts\Checkout\Value\ShippingMethod\ShippingMethodInterface;
-use Ibexa\Contracts\Checkout\Value\ShippingMethod\ShippingMethodQuery;
 use Ibexa\Contracts\Checkout\ShippingMethodServiceInterface;
+use Ibexa\Contracts\Checkout\Value\ShippingMethod\Query\Criterion\ShippingMethodRegion;
+use Ibexa\Contracts\Checkout\Value\ShippingMethod\ShippingMethodDeleteTranslationStruct;
+use Ibexa\Contracts\Checkout\Value\ShippingMethod\ShippingMethodQuery;
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Core\Repository\UserService;
+use Ibexa\Contracts\ProductCatalog\RegionServiceInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Ibexa\Contracts\Core\Repository\UserService;
-use Ibexa\Contracts\Core\Repository\PermissionResolver;
 
 final class ShippingMethodCommand extends Command
 {
@@ -21,43 +23,41 @@ final class ShippingMethodCommand extends Command
 
     private ShippingMethodServiceInterface $shippingMethodService;
 
+    private RegionServiceInterface $regionService;
+
     public function __construct(
         PermissionResolver $permissionResolver,
         UserService $userService,
-        ShippingMethodServiceInterface $shippingMethodService
+        ShippingMethodServiceInterface $shippingMethodService,
+        RegionServiceInterface $regionService
     ) {
         $this->shippingMethodService = $shippingMethodService;
         $this->permissionResolver = $permissionResolver;
         $this->userService = $userService;
+        $this->regionService = $regionService;
 
         parent::__construct('doc:shippingMethod');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output):
+    protected function execute(InputInterface $input, OutputInterface $output)
     {
         $currentUser = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($currentUser);
 
         // Get a single shipping method by ID
         $shippingMethodId = 1;
-        $shippingMethod = $this->shippingMethodService->getShippingMethod($shippingMethodId);
+        $shippingMethod = $this->shippingMethodService->getShippingMethodById($shippingMethodId);
 
-        $output->writeln(sprintf('Availability status of shipping method %d is "%s"', $shippingMethodId, $shippingMethod->getEnabled()));
+        $output->writeln(sprintf('Availability status of shipping method %d is "%s"', $shippingMethodId, $shippingMethod->isEnabled()));
 
         // Get a single shipping method by identifier
         $shippingMethodIdentifier = '4ac4b8a0-eed8-496d-87d9-32a960a10629';
-        $shippingMethod = $this->shippingMethodService->getShippingMethodByIdentifier($shippingMethodIdentifier);
+        $shippingMethod = $this->shippingMethodService->getShippingMethod($shippingMethodIdentifier);
 
-        $output->writeln(sprintf('Got shipping method by identifier "%s" and type "%s".', $shippingMethodIdentifier, $shippingMethod->getType()));
+        $output->writeln(sprintf('Got shipping method by identifier "%s" and type "%s".', $shippingMethodIdentifier, $shippingMethod->getType()->getIdentifier()));
 
         // Find shipping methods
-        $shippingMethodCriterions = [
-            new ShippingMethodRegion('EU'),
-            new CreatedAt('2023-03-24 15:09:16'),
-            new UpdatedAt('2023-03-25 09:00:15'),
-        ];
-
-        $shippingMethodQuery = new ShippingMethodQuery((new LogicalAnd(...$shippingMethodCriterions)));
+        $shippingMethodQuery = new ShippingMethodQuery(new ShippingMethodRegion($this->regionService->getRegion('EU')));
         $shippingMethodQuery->setLimit(10);
 
         $shippingMethods = $this->shippingMethodService->findShippingMethods($shippingMethodQuery);
@@ -72,14 +72,10 @@ final class ShippingMethodCommand extends Command
         // Create a new shipping method
         $shippingMethodCreateStruct = $this->shippingMethodService->newShippingMethodCreateStruct(
             'eu_free_eur',
-            'free',
-            'EU free shipping EUR',
-            null,
-            ['currency' => 'EUR', 'price' => 100],
-            true,
-            `EU`,
-            null
         );
+
+        $shippingMethodCreateStruct->setEnabled(true);
+        $shippingMethodCreateStruct->setName('eng-GB', 'EU free shipping EUR');
 
         $shippingMethod = $this->shippingMethodService->createShippingMethod($shippingMethodCreateStruct);
 
@@ -94,20 +90,21 @@ final class ShippingMethodCommand extends Command
         $output->writeln(sprintf(
             'Updated shipping method "%s" by changing its "Enabled" status to "%s".',
             $shippingMethod->getName(),
-            $shippingMethod->getEnabled()
+            $shippingMethod->isEnabled()
         ));
 
         // Delete the shipping method
         $this->shippingMethodService->deleteShippingMethod($shippingMethod);
         $output->writeln(sprintf(
-            'Deleted shipping method with ID %d and identifier "%s".', 
-            $shippingMethod->getId(), 
+            'Deleted shipping method with ID %d and identifier "%s".',
+            $shippingMethod->getId(),
             $shippingMethod->getIdentifier()
         ));
 
         // Delete shipping method translation
-        $languageCode = 'en';
-        $this->shippingMethodService->deleteShippingMethodTranslation($shippingMethod, $languageCode);
+        $languageCode = 'eng-GB';
+        $shippingMethodDeleteTranslationStruct = new ShippingMethodDeleteTranslationStruct($shippingMethod, $languageCode);
+        $this->shippingMethodService->deleteShippingMethodTranslation($shippingMethodDeleteTranslationStruct);
 
         $output->writeln(sprintf(
             'Deleted translation for shipping method "%s" and language "%s".',
@@ -118,4 +115,3 @@ final class ShippingMethodCommand extends Command
         return self::SUCCESS;
     }
 }
-

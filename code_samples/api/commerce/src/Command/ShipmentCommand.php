@@ -1,22 +1,25 @@
 <?php
 
 declare(strict_types=1);
- 
+
 namespace App\Command;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Ibexa\Contracts\Checkout\ShipmentServiceInterface;
-use Ibexa\Contracts\Checkout\Shipment\ShipmentCreateStruct;
-use Ibexa\Contracts\Checkout\Shipment\ShipmentQuery;
-use Ibexa\Contracts\Checkout\Shipment\ShipmentUpdateStruct;
 use Ibexa\Contracts\Checkout\Shipment\Query\Criterion\CreatedAt;
 use Ibexa\Contracts\Checkout\Shipment\Query\Criterion\LogicalOr;
 use Ibexa\Contracts\Checkout\Shipment\Query\Criterion\ShippingMethod;
 use Ibexa\Contracts\Checkout\Shipment\Query\Criterion\UpdatedAt;
-use Ibexa\Contracts\Core\Repository\UserService;
+use Ibexa\Contracts\Checkout\Shipment\ShipmentCreateStruct;
+use Ibexa\Contracts\Checkout\Shipment\ShipmentQuery;
+use Ibexa\Contracts\Checkout\Shipment\ShipmentUpdateStruct;
+use Ibexa\Contracts\Checkout\ShipmentServiceInterface;
+use Ibexa\Contracts\Checkout\ShippingMethodServiceInterface;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Core\Repository\UserService;
+use Ibexa\Contracts\OrderManagement\OrderServiceInterface;
+use Money;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
 final class ShipmentCommand extends Command
 {
@@ -26,14 +29,22 @@ final class ShipmentCommand extends Command
 
     private ShipmentServiceInterface $shipmentService;
 
+    private ShippingMethodServiceInterface $shippingMethodService;
+
+    private OrderServiceInterface $orderService;
+
     public function __construct(
-      PermissionResolver $permissionResolver,
-      UserService $userService,
-      ShipmentServiceInterface $shipmentService
-      ) {
+        PermissionResolver $permissionResolver,
+        UserService $userService,
+        ShipmentServiceInterface $shipmentService,
+        ShippingMethodServiceInterface $shippingMethodService,
+        OrderServiceInterface $orderService
+    ) {
         $this->shipmentService = $shipmentService;
         $this->permissionResolver = $permissionResolver;
         $this->userService = $userService;
+        $this->shippingMethodService = $shippingMethodService;
+        $this->orderService = $orderService;
 
         parent::__construct('doc:shipment');
     }
@@ -42,7 +53,7 @@ final class ShipmentCommand extends Command
     {
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): 
+    protected function execute(InputInterface $input, OutputInterface $output)
     {
         $currentUser = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($currentUser);
@@ -61,11 +72,11 @@ final class ShipmentCommand extends Command
 
         // Query for shipments
         $shipmentCriterions = [
-            new ShippingMethod(1),
-            new CreatedAt('2023-03-24 15:09:16'),
-            new UpdatedAt('2023-03-25 09:00:15'),
+            new ShippingMethod($this->shippingMethodService->getShippingMethod('free'), ),
+            new CreatedAt(new \DateTime('2023-03-24 15:09:16')),
+            new UpdatedAt(new \DateTime('2023-03-25 09:00:15')),
         ];
-        
+
         $shipmentQuery = new ShipmentQuery(new LogicalOr(...$shipmentCriterions));
         $shipmentQuery->setLimit(20);
 
@@ -80,9 +91,9 @@ final class ShipmentCommand extends Command
 
         // Create a new shipment
         $shipmentCreateStruct = new ShipmentCreateStruct(
-            'free',
-            1,
-            EUR('100')
+            $this->shippingMethodService->getShippingMethod('free'),
+            $this->orderService->getOrder(135),
+            new Money\Money(100, new Money\Currency('EUR'))
         );
 
         $shipment = $this->shipmentService->createShipment($shipmentCreateStruct);
@@ -91,7 +102,7 @@ final class ShipmentCommand extends Command
 
         // Update existing shipment
         $shipmentUpdateStruct = new ShipmentUpdateStruct();
-        $shipmentUpdateStruct->setStatus('shipped');
+        $shipmentUpdateStruct->setTransition('send');
 
         $this->shipmentService->updateShipment($shipment, $shipmentUpdateStruct);
 
