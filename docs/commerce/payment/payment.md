@@ -8,8 +8,9 @@ edition: commerce
 The Payment component enables users to define and manage payment methods, as well as create and manage payments, search for payment methods and payments and filter payment search results. 
 Depending on their role, users can also enable or disable payment methods, modify payment information, as well as cancel payments.
 
+Only one payment method type is available: `offline`.
+
 From the development perspective, the component enables customization of the payment workflow. 
-Only one payment method type is vailable: `offline`.
 
 The component exposes the following:
 

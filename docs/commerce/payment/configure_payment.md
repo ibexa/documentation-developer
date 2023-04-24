@@ -36,5 +36,5 @@ The system can then identify which of your configured workflows handles the paym
 
 ## Configure payment methods
 
-You can define the shipping methods [in the UI]([[= user_doc =]]/commerce/payment/configure_payment_method.md).
+You can define the payment methods [in the UI]([[= user_doc =]]/commerce/payment/configure_payment_method.md).
 There is only one payment method type available: `offline`.
