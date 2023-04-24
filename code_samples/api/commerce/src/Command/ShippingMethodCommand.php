@@ -39,10 +39,10 @@ final class ShippingMethodCommand extends Command
         $this->permissionResolver->setCurrentUserReference($currentUser);
 
         // Get a single shipping method by ID
-        $id = 1;
-        $shippingMethod = $this->shippingMethodService->getShippingMethod($id);
+        $shippingMethodId = 1;
+        $shippingMethod = $this->shippingMethodService->getShippingMethod($shippingMethodId);
 
-        $output->writeln(sprintf('Shipping method %d has status "%s"', $id, $shippingMethod->getStatus()));
+        $output->writeln(sprintf('Shipping method %d has status "%s"', $shippingMethodId, $shippingMethod->getStatus()));
 
         // Get a single shipping method by identifier
         $shippingMethodIdentifier = '4ac4b8a0-eed8-496d-87d9-32a960a10629';
@@ -57,7 +57,7 @@ final class ShippingMethodCommand extends Command
             new UpdatedAt('2023-03-25 09:00:15'),
         ];
 
-        $shippingMethodQuery = new ShippingMethodQuery((new LogicalAndr(...$shippingMethodCriterions)));
+        $shippingMethodQuery = new ShippingMethodQuery((new LogicalAnd(...$shippingMethodCriterions)));
         $shippingMethodQuery->setLimit(10);
 
         $shippingMethods = $this->shippingMethodService->findShippingMethods($shippingMethodQuery);

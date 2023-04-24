@@ -54,8 +54,8 @@ final class ShipmentCommand extends Command
         $output->writeln(sprintf('Shipment %d has status %s', $id, $shipment->getStatus()));
 
         // Get a single shipment by identifier
-        $shipmentIdentifier = '4ac4b8a0-eed8-496d-87d9-32a960a10629';
-        $shipment = $this->shipmentService->getShipmentByIdentifier($shipmentIdentifier);
+        $identifier = '4ac4b8a0-eed8-496d-87d9-32a960a10629';
+        $shipment = $this->shipmentService->getShipmentByIdentifier($identifier);
 
         $output->writeln(sprintf('Your shipment has status %s', $shipment->getStatus()));
 
@@ -95,7 +95,7 @@ final class ShipmentCommand extends Command
 
         $this->shipmentService->updateShipment($shipment, $shipmentUpdateStruct);
 
-        $output->writeln(sprintf('Changed shipment status to %s', $shipment->getStatus());
+        $output->writeln(sprintf('Changed shipment status to %s', $shipment->getStatus()));
 
         // Delete existing shipment permanently
         $this->shipmentService->deleteShipment($shipment);
