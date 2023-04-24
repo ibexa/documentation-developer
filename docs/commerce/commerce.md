@@ -18,6 +18,7 @@ from listing available products, through adding products to a cart, to checkout 
 "commerce/order_management/order_management",
 "commerce/order_management/order_management_api",
 "commerce/payment/payment",
+"commerce/storefront/configure_payment",
 "commerce/payment/payment_api",
 "commerce/payment/payment_method_api",
 "commerce/storefront/storefront",
