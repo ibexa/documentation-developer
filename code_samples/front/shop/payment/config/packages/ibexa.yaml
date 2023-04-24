@@ -1,6 +1,13 @@
+ibexa:
+    repositories:
+        default: 
+            payment:
+                workflow: custom_payment_workflow
+
+
 framework:
     workflows:
-        ibexa_payment:
+        custom_payment_workflow:
             type: state_machine
             audit_trail:
                 enabled: "%kernel.debug%"
@@ -9,19 +16,13 @@ framework:
                 property: status
             supports:
                 - Ibexa\Contracts\Payment\Payment\Workflow\WorkflowSubjectInterface
-            initial_marking: pending
+            initial_marking: open
             places:
-                pending:
+                open:
                     metadata:
-                        label: ibexa.payment.workflow.place.pending.label
+                        label: ibexa.payment.workflow.place.open.label
                         primary_color: '#F4B65F'
                         secondary_color: '#FEEED9'
-                        translation_domain: ibexa_payment_workflow
-                failed:
-                    metadata:
-                        label: ibexa.payment.workflow.place.failed.label
-                        primary_color: '#DB2C54'
-                        secondary_color: '#F7CCD6'
                         translation_domain: ibexa_payment_workflow
                 paid:
                     metadata:
@@ -29,30 +30,10 @@ framework:
                         primary_color: '#2B6875'
                         secondary_color: '#CCDBDE'
                         translation_domain: ibexa_payment_workflow
-                cancelled:
-                    metadata:
-                        label: ibexa.payment.workflow.place.cancelled.label
-                        primary_color: '#5A5A5D'
-                        secondary_color: '#E6E6ED'
-                        translation_domain: ibexa_payment_workflow
             transitions:
-                fail:
-                    from:
-                        - pending
-                    to: failed
-                    metadata:
-                        exposed: false
                 pay:
                     from:
-                        - pending
+                        - open
                     to: paid
                     metadata:
                         exposed: false
-                cancel:
-                    from:
-                        - pending
-                    to: cancelled
-                    metadata:
-                        exposed: true
-                        label: ibexa.payment.workflow.transition.cancel.label
-                        translation_domain: ibexa_payment_workflow

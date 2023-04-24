@@ -55,9 +55,8 @@ final class PaymentMethodCommand extends Command
 
         $output->writeln(sprintf('Availability status of payment method "%s" is "%s".', $paymentMethodIdentifier, $paymentMethod->isEnabled()));
 
-        $offlinePaymentType = new PaymentMethodType('offline', 'Offline');
-
         // Find payment methods
+        $offlinePaymentType = new PaymentMethodType('offline', 'Offline');
         $paymentMethodCriterions = [
             new Type($offlinePaymentType),
             new Enabled(true),
@@ -77,10 +76,10 @@ final class PaymentMethodCommand extends Command
 
         // Create a new payment method
         $paymentMethodCreateStruct = new PaymentMethodCreateStruct(
-            'transfer_eu',
+            'bank_transfer_EUR',
             $offlinePaymentType,
         );
-        $paymentMethodCreateStruct->setName('eng-GB', 'EU free payment EUR');
+        $paymentMethodCreateStruct->setName('eng-GB', 'Bank transfer EUR');
         $paymentMethodCreateStruct->setEnabled(false);
 
         $paymentMethod = $this->paymentMethodService->createPaymentMethod($paymentMethodCreateStruct);

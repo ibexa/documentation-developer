@@ -88,7 +88,7 @@ final class PaymentCommand extends Command
 
         // Create a new payment
         $paymentCreateStruct = new PaymentCreateStruct(
-            $this->paymentMethodService->getPaymentMethodByIdentifier('offline'),
+            $this->paymentMethodService->getPaymentMethodByIdentifier('bank_transfer_EUR'),
             $this->orderService->getOrder(135),
             new Money\Money(100, new Money\Currency('EUR'))
         );
