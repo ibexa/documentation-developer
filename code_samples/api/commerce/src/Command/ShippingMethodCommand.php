@@ -42,7 +42,7 @@ final class ShippingMethodCommand extends Command
         $shippingMethodId = 1;
         $shippingMethod = $this->shippingMethodService->getShippingMethod($shippingMethodId);
 
-        $output->writeln(sprintf('Shipping method %d has status "%s"', $shippingMethodId, $shippingMethod->getStatus()));
+        $output->writeln(sprintf('Availability status of shipping method %d is "%s"', $shippingMethodId, $shippingMethod->getEnabled()));
 
         // Get a single shipping method by identifier
         $shippingMethodIdentifier = '4ac4b8a0-eed8-496d-87d9-32a960a10629';
