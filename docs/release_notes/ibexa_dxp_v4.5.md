@@ -156,7 +156,7 @@ The Order Management package provides the `Ibexa\Contracts\OrderManagement\Order
 
 #### PHP API for shipping methods and shipments [[% include 'snippets/commerce_badge.md' %]]
 
-The Shipping package provides the following services that are entrypoints to the backend API:
+The Checkout package provides the following services that are entrypoints to the backend API:
 
 - `Ibexa\Contracts\Checkout\ShipmentServiceInterface` for managing shipments 
 - `Ibexa\Contracts\Checkout\ShippingMethodServiceInterface` for managing shipment methods 
