@@ -67,7 +67,7 @@ In the **General Information** section, specify dataflow name,
 choose **Stream File** as a source of user data and **CDP** as a destination,
 where they will be sent for processing.
 Currently, only Stream File transport is supported and can be initialized from the configuration. 
-But you can implement other methods by 3rd parties by using extension point.
+But you can implement other methods by 3rd parties using extension point.
 
 ### Download
 
