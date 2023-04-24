@@ -1,21 +1,23 @@
 <?php
 
 declare(strict_types=1);
- 
+
 namespace App\Command;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Ibexa\Contracts\OrderManagement\Value\Order\OrderInterface;
-use Ibexa\Contracts\Payment\PaymentServiceInterface;
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Core\Repository\UserService;
+use Ibexa\Contracts\OrderManagement\OrderServiceInterface;
 use Ibexa\Contracts\Payment\Payment\PaymentCreateStruct;
 use Ibexa\Contracts\Payment\Payment\PaymentQuery;
 use Ibexa\Contracts\Payment\Payment\PaymentUpdateStruct;
 use Ibexa\Contracts\Payment\Payment\Query\Criterion\Currency;
 use Ibexa\Contracts\Payment\Payment\Query\Criterion\LogicalOr;
-use Ibexa\Contracts\Core\Repository\UserService;
-use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Payment\PaymentMethodServiceInterface;
+use Ibexa\Contracts\Payment\PaymentServiceInterface;
+use Money;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
 final class PaymentCommand extends Command
 {
@@ -25,14 +27,22 @@ final class PaymentCommand extends Command
 
     private PaymentServiceInterface $paymentService;
 
+    private OrderServiceInterface $orderService;
+
+    private PaymentMethodServiceInterface $paymentMethodService;
+
     public function __construct(
-      PermissionResolver $permissionResolver,
-      UserService $userService,
-      PaymentServiceInterface $paymentService
-      ) {
+        PermissionResolver $permissionResolver,
+        UserService $userService,
+        PaymentServiceInterface $paymentService,
+        OrderServiceInterface $orderService,
+        PaymentMethodServiceInterface $paymentMethodService,
+    ) {
         $this->paymentService = $paymentService;
         $this->permissionResolver = $permissionResolver;
         $this->userService = $userService;
+        $this->orderService = $orderService;
+        $this->paymentMethodService = $paymentMethodService;
 
         parent::__construct('doc:payment');
     }
@@ -41,7 +51,7 @@ final class PaymentCommand extends Command
     {
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): 
+    protected function execute(InputInterface $input, OutputInterface $output)
     {
         $currentUser = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($currentUser);
@@ -63,7 +73,7 @@ final class PaymentCommand extends Command
             new Currency('USD'),
             new Currency('CZK'),
         ];
-        
+
         $paymentQuery = new PaymentQuery(new LogicalOr(...$paymentCriterions));
         $paymentQuery->setLimit(10);
 
@@ -73,19 +83,19 @@ final class PaymentCommand extends Command
         $paymentsList->getTotalCount();
 
         foreach ($paymentsList as $payment) {
-            $output->writeln($payment->getIdentifier() . ': ' . $payment->getOrder().getIdentifier() . ': ' . getAmount());
+            $output->writeln($payment->getIdentifier() . ': ' . $payment->getOrder()->getIdentifier() . ': ' . $payment->getOrder()->getAmount());
         }
 
         // Create a new payment
         $paymentCreateStruct = new PaymentCreateStruct(
-            'Bank transfer EU',
-            '2304/137'
-            EUR('100')
+            $this->paymentMethodService->getPaymentMethodByIdentifier('offline'),
+            $this->orderService->getOrder(135),
+            new Money\Money(100, new Money\Currency('EUR'))
         );
 
         $payment = $this->paymentService->createPayment($paymentCreateStruct);
 
-        $output->writeln(sprintf('Created payment $s for order %s', $payment->getIdentifier(), '2304/137'));
+        $output->writeln(sprintf('Created payment %s for order %s', $payment->getIdentifier(), $payment->getOrder()->getIdentifier()));
 
         // Update existing payment
         $paymentUpdateStruct = new PaymentUpdateStruct();

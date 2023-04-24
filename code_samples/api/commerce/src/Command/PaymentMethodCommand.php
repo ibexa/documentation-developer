@@ -4,16 +4,19 @@ declare(strict_types=1);
 
 namespace App\Command;
 
-use Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodInterface;
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Core\Repository\UserService;
+use Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodCreateStruct;
 use Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodQuery;
+use Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodUpdateStruct;
 use Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\Enabled;
+use Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\LogicalAnd;
 use Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\Type;
 use Ibexa\Contracts\Payment\PaymentMethodServiceInterface;
+use Ibexa\Payment\Values\PaymentMethodType;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Ibexa\Contracts\Core\Repository\UserService;
-use Ibexa\Contracts\Core\Repository\PermissionResolver;
 
 final class PaymentMethodCommand extends Command
 {
@@ -35,7 +38,7 @@ final class PaymentMethodCommand extends Command
         parent::__construct('doc:paymentMethod');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output):
+    protected function execute(InputInterface $input, OutputInterface $output)
     {
         $currentUser = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($currentUser);
@@ -44,17 +47,19 @@ final class PaymentMethodCommand extends Command
         $paymentMethodId = 1;
         $paymentMethod = $this->paymentMethodService->getPaymentMethod($paymentMethodId);
 
-        $output->writeln(sprintf('Payment method %d has status "%s"', $id, $paymentMethod->getStatus()));
+        $output->writeln(sprintf('Payment method %d has type "%s"', $paymentMethodId, $paymentMethod->getType()->getIdentifier()));
 
         // Get a single payment method by identifier
-        $paymentMethodIdentifier = '4ac4b8a0-eed8-496d-87d9-32a960a10629';
+        $paymentMethodIdentifier = 'cash';
         $paymentMethod = $this->paymentMethodService->getPaymentMethodByIdentifier($paymentMethodIdentifier);
 
-        $output->writeln(sprintf('Availability status od payment method "%s" is "%s".', $paymentMethodIdentifier, $paymentMethod->getEnabled()));
+        $output->writeln(sprintf('Availability status of payment method "%s" is "%s".', $paymentMethodIdentifier, $paymentMethod->isEnabled()));
+
+        $offlinePaymentType = new PaymentMethodType('offline', 'Offline');
 
         // Find payment methods
         $paymentMethodCriterions = [
-            new Type('offline'),
+            new Type($offlinePaymentType),
             new Enabled(true),
         ];
 
@@ -73,12 +78,10 @@ final class PaymentMethodCommand extends Command
         // Create a new payment method
         $paymentMethodCreateStruct = new PaymentMethodCreateStruct(
             'transfer_eu',
-            'offline',
-            'EU free payment EUR',
-            null,
-            true,
-            null
+            $offlinePaymentType,
         );
+        $paymentMethodCreateStruct->setName('eng-GB', 'EU free payment EUR');
+        $paymentMethodCreateStruct->setEnabled(false);
 
         $paymentMethod = $this->paymentMethodService->createPaymentMethod($paymentMethodCreateStruct);
 
@@ -86,22 +89,24 @@ final class PaymentMethodCommand extends Command
 
         // Update the payment method
         $paymentMethodUpdateStruct = new PaymentMethodUpdateStruct();
-        $paymentMethodUpdateStruct->setEnabled(false);
+        $paymentMethodUpdateStruct->setEnabled(true);
 
         $this->paymentMethodService->updatePaymentMethod($paymentMethod, $paymentMethodUpdateStruct);
 
         $output->writeln(sprintf(
             'Updated payment method "%s" by changing its availability status to "%s".',
             $paymentMethod->getName(),
-            $paymentMethod->getEnabled()
+            $paymentMethod->isEnabled()
         ));
 
         // Delete the payment method
         $this->paymentMethodService->deletePaymentMethod($paymentMethod);
         $output->writeln(sprintf(
-            'Deleted payment method with ID %d and identifier "%s".', 
-            $paymentMethod->getId(), 
+            'Deleted payment method with ID %d and identifier "%s".',
+            $paymentMethod->getId(),
             $paymentMethod->getIdentifier()
         ));
+
+        return self::SUCCESS;
     }
 }
