@@ -318,6 +318,11 @@ nav:
         - Order management:
             - Order management: commerce/order_management/order_management.md
             - Order management API: commerce/order_management/order_management_api.md
+        - Shipping management:
+            - Shipping management: commerce/shipping_management/shipping_management.md
+            - Configure shipment: commerce/shipping_management/configure_shipment.md
+            - Shipping method API: commerce/shipping_management/shipping_method_api.md
+            - Shipment API: commerce/shipping_management/shipment_api.md
         - Storefront:
             - Storefront: commerce/storefront/storefront.md
             - Configure Storefront: commerce/storefront/configure_storefront.md

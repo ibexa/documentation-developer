@@ -1,0 +1,68 @@
+---
+description: Use PHP API to manage shipments in Commerce. Create, update and delete shipments.
+edition: commerce
+---
+
+# Shipment API
+
+!!! tip "Shipping management REST API"
+
+    To learn how to manage shipments with the REST API, see the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-shipping).
+
+To get shipments and manage them, use the `Ibexa\Contracts\ShippingManagement\ShipmentServiceInterface` interface.
+
+From the developer's perspective, shipments are referenced with a UUID identifier.
+
+## Get single shipment 
+
+### Get single shipment by identifier
+
+To access a single shipment by using its string identifier, use the `ShipmentService::getShipmentByIdentifier` method:
+
+``` php
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 70, 79) =]]
+```
+
+### Get single shipment by id
+
+To access a single shipment by using its numerical id, use the `ShipmentService::getShipment` method:
+
+``` php
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 58, 68) =]]
+```
+
+## Get multiple shipments
+
+To fetch multiple shipments, use the `ShipmentService::findShipments` method. 
+It follows the same search query pattern as other APIs:
+
+``` php
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 81, 100) =]]
+```
+
+## Create shipment
+
+To create a shipment, use the `ShipmentService::createShipment` method and provide it with 
+an `Ibexa\Contracts\Checkout\Value\ShipmentCreateStruct` object that takes two parameters, a `shippingMethod` string and a `Money` object.
+
+``` php
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 102, 116) =]]
+```
+
+## Update shipment
+
+You can update the shipment after it is created. 
+You could do it to support a scenario when, for example, the shipment is processed offline and its status has to be updated in the system. 
+To update shipment information, use the `ShipmentService::updateShipment` method:
+
+``` php
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 118, 129) =]]
+```
+## Delete shipment
+
+To delete a shipment from the system, use the `ShipmentService::deleteShipment` method:
+
+
+``` php
+[[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 131, 134) =]]
+```
