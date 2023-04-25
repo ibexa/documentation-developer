@@ -16,6 +16,7 @@ use Ibexa\Contracts\Checkout\ShippingMethodServiceInterface;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\OrderManagement\OrderServiceInterface;
+use DateTime;
 use Money;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -49,11 +50,7 @@ final class ShipmentCommand extends Command
         parent::__construct('doc:shipment');
     }
 
-    public function configure(): void
-    {
-    }
-
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $currentUser = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($currentUser);
@@ -62,22 +59,33 @@ final class ShipmentCommand extends Command
         $id = 1;
         $shipment = $this->shipmentService->getShipment($id);
 
-        $output->writeln(sprintf('Shipment %d has status %s', $id, $shipment->getStatus()));
+        $output->writeln(
+            sprintf(
+                'Shipment %d has status %s', 
+                $id, 
+                $shipment->getStatus()
+            )
+        );
 
         // Get a single shipment by identifier
         $identifier = '4ac4b8a0-eed8-496d-87d9-32a960a10629';
         $shipment = $this->shipmentService->getShipmentByIdentifier($identifier);
 
-        $output->writeln(sprintf('Your shipment has status %s', $shipment->getStatus()));
+        $output->writeln(
+            sprintf(
+                'Your shipment has status %s', 
+                $shipment->getStatus()
+            )
+        );
 
         // Query for shipments
-        $shipmentCriterions = [
-            new ShippingMethod($this->shippingMethodService->getShippingMethod('free'), ),
+        $shipmentCriteria = [
+            new ShippingMethod($this->shippingMethodService->getShippingMethod('free')),
             new CreatedAt(new \DateTime('2023-03-24 15:09:16')),
             new UpdatedAt(new \DateTime('2023-03-25 09:00:15')),
         ];
 
-        $shipmentQuery = new ShipmentQuery(new LogicalOr(...$shipmentCriterions));
+        $shipmentQuery = new ShipmentQuery(new LogicalOr(...$shipmentCriteria));
         $shipmentQuery->setLimit(20);
 
         $shipmentsList = $this->shipmentService->findShipments($shipmentQuery);
@@ -86,7 +94,9 @@ final class ShipmentCommand extends Command
         $shipmentsList->getTotalCount();
 
         foreach ($shipmentsList as $shipment) {
-            $output->writeln($shipment->getIdentifier() . ': ' . $shipment->getName());
+            $output->writeln(
+                $shipment->getIdentifier() . ': ' . $shipment->getStatus()
+            );
         }
 
         // Create a new shipment
@@ -98,7 +108,12 @@ final class ShipmentCommand extends Command
 
         $shipment = $this->shipmentService->createShipment($shipmentCreateStruct);
 
-        $output->writeln(sprintf('Created shipment with identifier %s', $shipment->getIdentifier()));
+        $output->writeln(
+            sprintf(
+                'Created shipment with identifier %s', 
+                $shipment->getIdentifier()
+            )
+        );
 
         // Update existing shipment
         $shipmentUpdateStruct = new ShipmentUpdateStruct();
@@ -106,7 +121,12 @@ final class ShipmentCommand extends Command
 
         $this->shipmentService->updateShipment($shipment, $shipmentUpdateStruct);
 
-        $output->writeln(sprintf('Changed shipment status to %s', $shipment->getStatus()));
+        $output->writeln(
+            sprintf(
+                'Changed shipment status to %s', 
+                $shipment->getStatus()
+            )
+        );
 
         // Delete existing shipment permanently
         $this->shipmentService->deleteShipment($shipment);

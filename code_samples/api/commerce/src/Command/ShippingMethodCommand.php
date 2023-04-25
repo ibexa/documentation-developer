@@ -39,7 +39,7 @@ final class ShippingMethodCommand extends Command
         parent::__construct('doc:shippingMethod');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $currentUser = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($currentUser);
@@ -48,13 +48,24 @@ final class ShippingMethodCommand extends Command
         $shippingMethodId = 1;
         $shippingMethod = $this->shippingMethodService->getShippingMethodById($shippingMethodId);
 
-        $output->writeln(sprintf('Availability status of shipping method %d is "%s"', $shippingMethodId, $shippingMethod->isEnabled()));
+        $output->writeln(
+            sprintf(
+                'Availability status of shipping method %d is "%s"', 
+                $shippingMethodId, $shippingMethod->isEnabled()
+            )
+        );
 
         // Get a single shipping method by identifier
         $shippingMethodIdentifier = '4ac4b8a0-eed8-496d-87d9-32a960a10629';
         $shippingMethod = $this->shippingMethodService->getShippingMethod($shippingMethodIdentifier);
 
-        $output->writeln(sprintf('Got shipping method by identifier "%s" and type "%s".', $shippingMethodIdentifier, $shippingMethod->getType()->getIdentifier()));
+        $output->writeln(
+            sprintf(
+                'Got shipping method by identifier "%s" and type "%s".', 
+                $shippingMethodIdentifier, 
+                $shippingMethod->getType()->getIdentifier()
+            )
+        );
 
         // Find shipping methods
         $shippingMethodQuery = new ShippingMethodQuery(new ShippingMethodRegion($this->regionService->getRegion('EU')));
@@ -66,7 +77,14 @@ final class ShippingMethodCommand extends Command
         $shippingMethods->getTotalCount();
 
         foreach ($shippingMethods as $shippingMethod) {
-            $output->writeln($shippingMethod->getIdentifier() . ': ' . $shippingMethod->getName() . '- ' . $shippingMethod->getDescription());
+            $output->writeln(
+                sprintf(
+                    '%s: %s- %s',
+                    $shippingMethod->getIdentifier(),
+                    $shippingMethod->getName(),
+                    $shippingMethod->getDescription()
+                )
+            );
         }
 
         // Create a new shipping method
@@ -79,7 +97,12 @@ final class ShippingMethodCommand extends Command
 
         $shippingMethod = $this->shippingMethodService->createShippingMethod($shippingMethodCreateStruct);
 
-        $output->writeln(sprintf('Created shipping method with name %s', $shippingMethod->getName()));
+        $output->writeln(
+            sprintf(
+                'Created shipping method with name %s', 
+                $shippingMethod->getName()
+            )
+        );
 
         // Update the shipping method
         $shippingMethodUpdateStruct = $this->shippingMethodService->newShippingMethodUpdateStruct();
