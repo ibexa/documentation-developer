@@ -462,6 +462,17 @@ nav:
             - Price: search/criteria_reference/order_price_criterion.md
             - Source: search/criteria_reference/order_source_criterion.md
             - Status: search/criteria_reference/order_status_criterion.md
+        - Shipment Search Criteria:
+            - Shipment Search Criteria: search/criteria_reference/shipment_search_criteria.md
+            - CreatedAt: search/criteria_reference/shipment_createdat_criterion.md
+            - Currency: search/criteria_reference/shipment_currency_criterion.md
+            - Id: search/criteria_reference/shipment_id_criterion.md
+            - Identifier: search/criteria_reference/shipment_identifier_criterion.md
+            - LogicalAnd: search/criteria_reference/shipment_logicaland_criterion.md
+            - LogicalOr: search/criteria_reference/shipment_logicalor_criterion.md
+            - ShippingMethod: search/criteria_reference/shipment_shipping_method_criterion.md
+            - StatusCriterion: search/criteria_reference/shipment_status_criterion.md
+            - UpdatedAtCriterion: search/criteria_reference/shipment_updatedat_criterion.md
         - Sort Clause reference:
             - Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
             - ContentId: search/sort_clause_reference/contentid_sort_clause.md
@@ -499,6 +510,13 @@ nav:
             - Created: search/sort_clause_reference/order_created_sort_clause.md
             - Updated: search/sort_clause_reference/order_updated_sort_clause.md
             - Status: search/sort_clause_reference/order_status_sort_clause.md
+        - Shipment Sort Clauses:
+            - Shipment Sort Clauses: search/sort_clause_reference/shipment_sort_clauses.md
+            - Id: search/sort_clause_reference/shipment_id_sort_clause.md
+            - Identifier: search/sort_clause_reference/shipment_identifier_sort_clause.md
+            - CreatedAt: search/sort_clause_reference/shipment_createdat_sort_clause.md
+            - UpdatedAt: search/sort_clause_reference/shipment_updatedat_sort_clause.md
+            - Status: search/sort_clause_reference/shipment_status_sort_clause.md
         - Aggregation reference:
             - Aggregation reference: search/aggregation_reference/aggregation_reference.md
             - ContentTypeTermAggregation: search/aggregation_reference/contenttypeterm_aggregation.md
