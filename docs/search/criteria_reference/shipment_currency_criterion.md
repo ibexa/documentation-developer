@@ -9,12 +9,12 @@ The `Currency` Search Criterion searches for shipments based on the currency cod
 
 ## Arguments
 
-- `currency` - string that represents a currency code
+- `currency` - an array of string currency codes
 
 ## Example
 
 ``` php
 $query = new ShipmentQuery( 
-    new \Ibexa\Contracts\Checkout\Shipment\Query\Criterion\Currency('USD')
+    new \Ibexa\Contracts\Checkout\Shipment\Query\Criterion\Currency('USD', 'CZK')
 );
 ```
