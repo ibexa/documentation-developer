@@ -12,10 +12,6 @@ content and related objects such as Sections, Locations, Content Types, language
 The PHP API is built on top of a layered architecture, including a persistence SPI that abstracts storage.
 Using the API ensures that your code will be forward compatible with future releases based on other storage engines.
 
-!!! tip
-
-    For more information see a [presentation about [[= product_name =]] API.](https://alongosz.github.io/ezconf2018-api/)
-
 ## Using API services
 
 You can access the PHP API by injecting relevant services into your code.
