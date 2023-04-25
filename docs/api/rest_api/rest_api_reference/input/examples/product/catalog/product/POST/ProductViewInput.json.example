@@ -17,7 +17,8 @@
                         "name": "price",
                         "currencyCode": "EUR",
                         "ranges": [
-                            {"from": 0, "to": 10000}
+                            {"from": 0, "to": 10000},
+                            {"from": 10000, "to": null}
                         ]
                     }
                 }
