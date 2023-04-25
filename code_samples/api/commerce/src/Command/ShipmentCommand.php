@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace App\Command;
 
-use Ibexa\Contracts\Checkout\Shipment\Query\Criterion\CreatedAt;
-use Ibexa\Contracts\Checkout\Shipment\Query\Criterion\LogicalOr;
-use Ibexa\Contracts\Checkout\Shipment\Query\Criterion\ShippingMethod;
-use Ibexa\Contracts\Checkout\Shipment\Query\Criterion\UpdatedAt;
-use Ibexa\Contracts\Checkout\Shipment\ShipmentCreateStruct;
-use Ibexa\Contracts\Checkout\Shipment\ShipmentQuery;
-use Ibexa\Contracts\Checkout\Shipment\ShipmentUpdateStruct;
-use Ibexa\Contracts\Checkout\ShipmentServiceInterface;
-use Ibexa\Contracts\Checkout\ShippingMethodServiceInterface;
+use Ibexa\Contracts\Shipping\Shipment\Query\Criterion\CreatedAt;
+use Ibexa\Contracts\Shipping\Shipment\Query\Criterion\LogicalOr;
+use Ibexa\Contracts\Shipping\Shipment\Query\Criterion\ShippingMethod;
+use Ibexa\Contracts\Shipping\Shipment\Query\Criterion\UpdatedAt;
+use Ibexa\Contracts\Shipping\Shipment\ShipmentCreateStruct;
+use Ibexa\Contracts\Shipping\Shipment\ShipmentQuery;
+use Ibexa\Contracts\Shipping\Shipment\ShipmentUpdateStruct;
+use Ibexa\Contracts\Shipping\ShipmentServiceInterface;
+use Ibexa\Contracts\Shipping\ShippingMethodServiceInterface;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\OrderManagement\OrderServiceInterface;

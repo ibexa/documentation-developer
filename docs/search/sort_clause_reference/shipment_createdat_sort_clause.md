@@ -17,8 +17,8 @@ The `CreatedAt` Sort Clause sorts search results by the date and time when the s
 $shipmentQuery = new ShipmentQuery(
     $criteria,
     [
-        new \Ibexa\Contracts\Checkout\Shipment\Query\SortClause\CreatedAt(
-            \Ibexa\Contracts\Checkout\Shipment\Query\SortClause\CreatedAt::SORT_ASC)
+        new \Ibexa\Contracts\Shipping\Shipment\Query\SortClause\CreatedAt(
+            \Ibexa\Contracts\Shipping\Shipment\Query\SortClause\CreatedAt::SORT_ASC)
     ]
 );
 ```

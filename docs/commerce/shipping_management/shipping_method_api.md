@@ -5,11 +5,7 @@ edition: commerce
 
 # Shipping method API
 
-!!! tip "Shipping management REST API"
-
-    To learn how to manage shipping with the REST API, see the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-shipping).
-
-To get shipping methods and manage them, use the `Ibexa\Contracts\Checkout\ShippingMethodServiceInterface` interface.
+To get shipping methods and manage them, use the `Ibexa\Contracts\Shipping\ShippingMethodServiceInterface` interface.
 
 Shipping methods are referenced with identifiers defined manually at method creation stage in user interface. 
 
@@ -44,7 +40,7 @@ It follows the same search query pattern as other APIs:
 
 ## Create shipping method
 
-To create a shipping method, use the `ShippingMethodServiceInterface::createShippingMethod` method and provide it with the `Ibexa\Contracts\Checkout\Value\ShippingMethodCreateStruct` object that you created by using the  `newShippingMethodCreateStruct` method.
+To create a shipping method, use the `ShippingMethodServiceInterface::createShippingMethod` method and provide it with the `Ibexa\Contracts\Shipping\Value\ShippingMethodCreateStruct` object that you created by using the  `newShippingMethodCreateStruct` method.
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/ShippingMethodCommand.php', 90, 105) =]]
@@ -52,7 +48,7 @@ To create a shipping method, use the `ShippingMethodServiceInterface::createShip
 
 ## Update shipping method
 
-To update a shipping method, use the `ShippingMethodServiceInterface::updateShippingMethod` method and provide it with the `Ibexa\Contracts\Checkout\Value\ShippingMethodUpdateStruct`  object that you created by using the  `newShippingMethodUpdateStruct` method.
+To update a shipping method, use the `ShippingMethodServiceInterface::updateShippingMethod` method and provide it with the `Ibexa\Contracts\Shipping\Value\ShippingMethodUpdateStruct`  object that you created by using the  `newShippingMethodUpdateStruct` method.
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/ShippingMethodCommand.php', 107, 117) =]]

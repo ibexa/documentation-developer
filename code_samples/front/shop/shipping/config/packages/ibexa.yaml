@@ -1,7 +1,7 @@
 ibexa:
     repositories:
         default: 
-            checkout:
+            shipping:
                 shipment_workflow: custom_shipment_workflow
 
 // ...
@@ -16,8 +16,8 @@ framework:
                 type: method
                 property: status
             supports:
-                - Ibexa\Contracts\Checkout\Shipment\ShipmentInterface
-                - Ibexa\Contracts\Checkout\Shipment\ShipmentCreateStruct
+                - Ibexa\Contracts\Shipping\Shipment\ShipmentInterface
+                - Ibexa\Contracts\Shipping\Shipment\ShipmentCreateStruct
             initial_marking: pending
             places:
                 pending:

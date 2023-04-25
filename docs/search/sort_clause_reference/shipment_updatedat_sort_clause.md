@@ -17,8 +17,8 @@ The `UpdatedAt` Sort Clause sorts search results by the date and time when shipm
 $shipmentQuery = new ShipmentQuery(
     $criteria,
     [
-        new \Ibexa\Contracts\Checkout\Shipment\Query\SortClause\UpdatedAt(
-            \Ibexa\Contracts\Checkout\Shipment\Query\SortClause\UpdatedAt::SORT_ASC)
+        new \Ibexa\Contracts\Shipping\Shipment\Query\SortClause\UpdatedAt(
+            \Ibexa\Contracts\Shipping\Shipment\Query\SortClause\UpdatedAt::SORT_ASC)
     ]
 );
 ```

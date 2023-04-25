@@ -17,8 +17,8 @@ The `Identifier` Sort Clause sorts search results by shipment identifier.
 $shipmentQuery = new ShipmentQuery(
     $criteria,
     [
-        new \Ibexa\Contracts\Checkout\Shipment\Query\SortClause\Identifier(
-            \Ibexa\Contracts\Checkout\Shipment\Query\SortClause\Identifier::SORT_ASC)
+        new \Ibexa\Contracts\Shipping\Shipment\Query\SortClause\Identifier(
+            \Ibexa\Contracts\Shipping\Shipment\Query\SortClause\Identifier::SORT_ASC)
     ]
 );
 ```

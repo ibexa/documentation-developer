@@ -15,6 +15,6 @@ The `Currency` Search Criterion searches for shipments based on the currency cod
 
 ``` php
 $query = new ShipmentQuery( 
-    new \Ibexa\Contracts\Checkout\Shipment\Query\Criterion\Currency('USD', 'CZK')
+    new \Ibexa\Contracts\Shipping\Shipment\Query\Criterion\Currency('USD', 'CZK')
 );
 ```
