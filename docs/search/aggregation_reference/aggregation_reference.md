@@ -31,6 +31,7 @@ There are three types of aggregations:
 |[RawTermAggregation](rawterm_aggregation.md) | Term | Search index field |
 |[SectionTermAggregation](sectionterm_aggregation.md) | Term | Section |
 |[SubtreeTermAggregation](subtreeterm_aggregation.md) | Term | Location subtree path |
+|[TaxonomyEntryIdAggregation](taxonomyentryid_aggregation.md) | Term | Taxonomy entry |
 |[UserMetadataTermAggregation](usermetadataterm_aggregation.md) | Term | Content owner/owner group or modifier |
 |[VisibilityTermAggregation](visibilityterm_aggregation.md) | Term | Content/Location visibility |
 
@@ -59,3 +60,4 @@ There are three types of aggregations:
 |[ProductAvailabilityTerm](productavailabilityterm_aggregation.md) | Term | Product availability |
 |[ProductPriceRange](productpricerange_aggregation.md) | Range | Product price |
 |[ProductTypeTerm](producttypeterm_aggregation.md) | Term | Product type |
+|[TaxonomyEntryIdAggregation](taxonomyentryid_aggregation.md) | Term | Product category |
