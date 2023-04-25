@@ -55,7 +55,7 @@ A pop-up window displays with a list of all available accounts and their numbers
 
 ![Account number](img/cdp_account_number.png)
 
-## Data Export
+## Data export
 
 You need to specify a source of the user data that Ibexa CDP will connect to.
 To do so, go to **Data Manager** in **Tools** section and select **Create new dataflow**.
