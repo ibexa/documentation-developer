@@ -15,7 +15,7 @@ $query = new ProductQuery();
 $query->setAggregations([
     new ProductPriceRangeAggregation('price', 'PLN', [
         new \Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range(0, 10000),
-        new \Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range(10000, 99999),
+        new \Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range(10000, null),
     ]),
 ]);
 ```

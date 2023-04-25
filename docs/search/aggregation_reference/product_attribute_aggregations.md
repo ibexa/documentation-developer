@@ -35,8 +35,9 @@ $query->setAggregations([
 $query = new ProductQuery();
 $query->setAggregations([
     new ProductAttributeIntegerRangeAggregation('buttons', 'number_of_buttons', [
-        new \Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range(0, 5),
+        new \Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range(null, 5),
         new \Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range(5, 10),
+        new \Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range(10, null),
     ]),
 ]);
 ```
