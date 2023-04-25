@@ -183,6 +183,8 @@ Product search now supports aggregations, with the following aggregations availa
 - [ProductPriceRange](https://doc.ibexa.co/en/4.5/search/aggregation_reference/productpricerange_aggregation/) - based on product price
 - [ProductTypeTerm](https://doc.ibexa.co/en/4.5/search/aggregation_reference/producttypeterm_aggregation/) - based on product type
 
+The new [TaxonomyEntryIdAggregation](https://doc.ibexa.co/en/4.5/search/aggregation_reference/taxonomyentryid_aggregation/) aggregates results based on content taxonomy entries or product categories.
+
 ### Password security
 
 You can now enhance password security with a setting that prevents using passwords that have been exposed in a public breach.
