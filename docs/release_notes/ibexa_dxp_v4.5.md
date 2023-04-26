@@ -41,7 +41,7 @@ New Back Office screens allow users to search for payment methods and payments, 
 
 Additionally, new APIs are available, which can be used for managing payment methods and payments.
 
-![The payment methods screen](img/4.5_shipping_methods.png "The payment methods screen")
+![The payment methods screen](img/4.5_payment_methods.png "The payment methods screen")
 
 #### Shipping
 
