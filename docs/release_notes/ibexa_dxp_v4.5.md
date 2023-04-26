@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP v4.5 adds translation comparison, improvements to Customer Portal, Ibexa Commerce and Personalization.
+description: Ibexa DXP v4.5 adds new features to Ibexa Commerce, translation comparison, and a number of improvements to Customer Portal and Personalization.
 ---
 
 # Ibexa DXP v4.5
@@ -21,34 +21,37 @@ You can use them to further enhance your e-commerce presence:
 
 - `ibexa/order-management`
 - `ibexa/payment`
+- `ibexa/shipping`
 
 Modules can interact with each other, for example, to decrease stock as a result of a sale, or cancel shipments and payments when orders are cancelled, and so on.
 
 #### Order management
 
-With order management in place, users can now search for orders and filter search results. 
-They can also review order details and completion status, as well as cancel orders.
+With order management in place, it is now possible to create orders, configure and customize the order processing workflow, as well as manage orders by using the APIs. 
+
+New screens added to the Back Office user interface let [[= product_name =]] users search for orders and filter search results. 
+Users can also review order details and completion status, as well as cancel orders.
 
 ![The order list screen](img/4.5_order_list.png "The order list screen")
 
 #### Payment
 
-With the Payment module, users can define and manage payment methods, 
-as well as create and manage payments, search for payments and filter the results. 
-Users can also enable or disable payment methods, modify payment information, and cancel payments.
+The all-new Payment module brings a possibility of tracking payment progress and defining a custom payment processing workflow. 
+New Back Office screens allow users to search for payment methods and payments, as well as define, enable and disable offline payment methods.
+
+Additionally, new APIs are available, which can be used for managing payment methods and payments.
 
 ![The payment methods screen](img/4.5_shipping_methods.png "The payment methods screen")
 
-For more information, see [Commerce](https://doc.ibexa.co/en/4.4/commerce/commerce/).
+#### Shipping
 
-### Changes to the Checkout package
+With the arrival of the Shipping module, it is now possible to define and manage shipping methods of different types, together with their related costs, on a dedicated Back Office screen, as well as configure and customize the shipment workflow.
 
-The Checkout package has been modified by adding shipping management capabilities that let users
-define and manage shipping methods of different types and their related costs,
-as well as create and manage shipments, search for shipments and filter search results.
-Users can also enable or disable shipping methods, change status of shipments, and cancel shipments.
+New APIs enable managing shipping methods and payments, while an extension point can be used to expand the default list of shipping method types. 
 
 ![The shipping methods screen](img/4.5_shipping_methods.png "The shipping methods screen")
+
+For more information, see [Commerce](https://doc.ibexa.co/en/4.5/commerce/commerce/).
 
 ### New commerce page blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
@@ -58,7 +61,7 @@ This release introduces new page blocks:
 
 ![Bestsellers block](img/4.5_bestsellers_block.png "Bestsellers block")
 
-- [React app block](https://doc.ibexa.co/projects/userguide/en/4.5/content_management/pages/#react-app-block) allows an editor to embed a preconfigured React application in a page. React app block requires configuration. For more information, see [React App Block configuration](https://doc.ibexa.co/projects/userguide/en/4.5/content_management/pages/react_app_block/#react-app-block-configuration).
+- [React app block](https://doc.ibexa.co/en/4.5/content_management/pages/react_app_block/) allows an editor to embed a preconfigured React application in a page. React app block requires configuration. For more information, see [React App Block configuration](https://doc.ibexa.co/en/4.5/content_management/pages/react_app_block/#react-app-block-configuration).
 
 ![React app block](img/4.5_react_app_block.png "React app block")
 
@@ -147,7 +150,7 @@ This release adds new endpoints that allow you to manage orders by using REST AP
 
 - GET `/orders/orders` - loads a list of orders
 - POST `/orders/orders` - creates an order 
-- GET `/orders/order` - loads an order by identifier
+- GET `/orders/order` - loads an order by its identifier
 - GET `/orders/order/{id}` - loads an order
 - POST `/orders/orders/{id}` - cancels an order
 - PATCH `/orders/orders/{id}` - updates an order
@@ -160,8 +163,8 @@ The Order Management package provides the `Ibexa\Contracts\OrderManagement\Order
 
 The Checkout package provides the following services that are entrypoints to the backend API:
 
-- `Ibexa\Contracts\Checkout\ShipmentServiceInterface` for managing shipments 
-- `Ibexa\Contracts\Checkout\ShippingMethodServiceInterface` for managing shipment methods 
+- `Ibexa\Contracts\Shipping\ShipmentServiceInterface` for managing shipments 
+- `Ibexa\Contracts\Shipping\ShippingMethodServiceInterface` for managing shipment methods 
 
 #### PHP API for payment methods and payments [[% include 'snippets/commerce_badge.md' %]]
 
