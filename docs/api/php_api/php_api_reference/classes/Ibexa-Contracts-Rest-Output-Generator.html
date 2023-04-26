@@ -1,0 +1,2140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+            <title>PHP API Reference</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <link rel="icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/template.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-okaidia.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
+                <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+        <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/search.js"></script>
+        <script defer src="js/searchIndex.js"></script>
+    </head>
+<body id="top">
+    <header class="phpdocumentor-header phpdocumentor-section">
+    <h1 class="phpdocumentor-title">
+    <a href="#" class="phpdocumentor-title__link" onclick="document.location.href=document.location.href.replace(/\/php_api\/php_api_reference\/.*/, '/php_api/php_api/'); return false;">
+        <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMjQuMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+DQoNCjxzdmcNCiAgIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyINCiAgIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiDQogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiDQogICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIg0KICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIg0KICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIg0KICAgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiDQogICB2ZXJzaW9uPSIxLjEiDQogICBpZD0iTGF5ZXJfMSINCiAgIHg9IjBweCINCiAgIHk9IjBweCINCiAgIHZpZXdCb3g9IjAgMCA0NjkuMjA5OTkgMTMxLjgxOTk5Ig0KICAgeG1sOnNwYWNlPSJwcmVzZXJ2ZSINCiAgIHNvZGlwb2RpOmRvY25hbWU9ImliZXhhX2xvZ28uc3ZnIg0KICAgd2lkdGg9IjQ2OS4yMDk5OSINCiAgIGhlaWdodD0iMTMxLjgxOTk5Ig0KICAgaW5rc2NhcGU6dmVyc2lvbj0iMC45Mi41ICgwLjkyLjUrNjkpIj48bWV0YWRhdGENCiAgIGlkPSJtZXRhZGF0YTM3ODkiPjxyZGY6UkRGPjxjYzpXb3JrDQogICAgICAgcmRmOmFib3V0PSIiPjxkYzpmb3JtYXQ+aW1hZ2Uvc3ZnK3htbDwvZGM6Zm9ybWF0PjxkYzp0eXBlDQogICAgICAgICByZGY6cmVzb3VyY2U9Imh0dHA6Ly9wdXJsLm9yZy9kYy9kY21pdHlwZS9TdGlsbEltYWdlIiAvPjxkYzp0aXRsZT48L2RjOnRpdGxlPjwvY2M6V29yaz48L3JkZjpSREY+PC9tZXRhZGF0YT48ZGVmcw0KICAgaWQ9ImRlZnMzNzg3IiAvPjxzb2RpcG9kaTpuYW1lZHZpZXcNCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiINCiAgIGJvcmRlcmNvbG9yPSIjNjY2NjY2Ig0KICAgYm9yZGVyb3BhY2l0eT0iMSINCiAgIG9iamVjdHRvbGVyYW5jZT0iMTAiDQogICBncmlkdG9sZXJhbmNlPSIxMCINCiAgIGd1aWRldG9sZXJhbmNlPSIxMCINCiAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwIg0KICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiINCiAgIGlua3NjYXBlOndpbmRvdy13aWR0aD0iMTg3MCINCiAgIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjEwMjAiDQogICBpZD0ibmFtZWR2aWV3Mzc4NSINCiAgIHNob3dncmlkPSJmYWxzZSINCiAgIGlua3NjYXBlOnpvb209IjIuMDc3MTI2MiINCiAgIGlua3NjYXBlOmN4PSIyMTEuNDc2ODEiDQogICBpbmtzY2FwZTpjeT0iMzkuODQwMjIzIg0KICAgaW5rc2NhcGU6d2luZG93LXg9IjUwIg0KICAgaW5rc2NhcGU6d2luZG93LXk9IjIzIg0KICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSINCiAgIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9IkxheWVyXzEiIC8+DQo8c3R5bGUNCiAgIHR5cGU9InRleHQvY3NzIg0KICAgaWQ9InN0eWxlMzc3MSI+DQoJLnN0MHtmaWxsOnVybCgjU1ZHSURfMV8pO30NCjwvc3R5bGU+DQo8bGluZWFyR3JhZGllbnQNCiAgIGlkPSJTVkdJRF8xXyINCiAgIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIg0KICAgeDE9IjIyLjAwMjUwMSINCiAgIHkxPSIxNDQuMjM3OSINCiAgIHgyPSI0OTEuMjA3NDkiDQogICB5Mj0iMTQ0LjIzNzkiDQogICBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMiwtNzguMzMpIj4NCgk8c3RvcA0KICAgb2Zmc2V0PSIwIg0KICAgc3R5bGU9InN0b3AtY29sb3I6I0VBNTcxQyINCiAgIGlkPSJzdG9wMzc3MyIgLz4NCgk8c3RvcA0KICAgb2Zmc2V0PSIwLjExNTEiDQogICBzdHlsZT0ic3RvcC1jb2xvcjojRTk1MDI2Ig0KICAgaWQ9InN0b3AzNzc1IiAvPg0KCTxzdG9wDQogICBvZmZzZXQ9IjAuMzMxNSINCiAgIHN0eWxlPSJzdG9wLWNvbG9yOiNFODNFM0EiDQogICBpZD0ic3RvcDM3NzciIC8+DQoJPHN0b3ANCiAgIG9mZnNldD0iMC42MTc2Ig0KICAgc3R5bGU9InN0b3AtY29sb3I6I0U2MTg1MCINCiAgIGlkPSJzdG9wMzc3OSIgLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aA0KICAgY2xhc3M9InN0MCINCiAgIGQ9Im0gMzY3LjMzLDcuNjMwMDAwNCBoIC0zMC45IEwgMjkzLjQ5LDUwLjU3IGwgLTkuNTMsLTguOTcgLTE1LjQ1LDE1LjQ1IDkuNTMsOC45NyAtMjMuNTMsMjMuNTMgLTAuMDIsLTAuMDIgYyAtNi4yNCw1LjE2IC0xOC4yNywxMi4yNSAtMjYuOTksMTIuMjUgLTUuMjksMCAtMTAuMzEsLTEuMTcgLTE0Ljg0LC0zLjIyMDAwMSAwLDAgNTkuODQsLTYwLjY4OTk5OSA2My42NywtNjQuNTE5OTk5IGwgLTMuMjYsLTMuNDIgQyAyNTkuMywxNi41IDI0Mi43Nyw4LjEyMDAwMDQgMjI3LjA2LDguMTIwMDAwNCAxOTUuMTEsOC4xMjAwMDA0IDE2OS4xMiwzNC4xMSAxNjkuMTIsNjYuMDYgYyAwLDMxLjk0OTk5OSAyNS45OSw1Ny45NCA1Ny45NCw1Ny45NCAxNC45NCwwIDI4LjA0LC00Ljk5IDQ0LjMsLTIwLjQ0IGwgMjIuMTMsLTIyLjA5IDQwLjIzLDQwLjI1IGggMzAuOSBMIDMwOC45NCw2Ni4wMiBaIE0gMTkxLjMzLDY1LjYzIGMgMCwtMTkuOTQgMTYuMjIsLTM2LjE2IDM2LjE2LC0zNi4xNiA3LjE3LDAgMTMuODUsMi4xMSAxOS40Nyw1LjczIGwgLTQ5LjksNDkuOSBjIC0zLjYxLC01LjYzIC01LjczLC0xMi4zIC01LjczLC0xOS40NyB6IE0gNi40ODk5OTk3LDU5LjQ0IDIyLjIyLDQzLjU4IFYgMTIzLjcgSCAwIFYgNzUuMTkgQyAwLDY5LjI5IDIuMzMsNjMuNjMgNi40ODk5OTk3LDU5LjQ0IFogTSAyMi4yMiw0LjkxMDAwMDQgViAxOC43OCBjIDAsMC4wMiAtMC4wMSwwLjAzIC0wLjAyLDAuMDQgTCA1LjM1LDM1LjY3IEMgMy4zOCwzNy42NCAwLDM2LjI1IDAsMzMuNDUgViA0LjkxMDAwMDQgYyAwLC0wLjAzIDAuMDMsLTAuMDYgMC4wNiwtMC4wNiBoIDIyLjEgYyAwLjAzLDAgMC4wNiwwLjAzIDAuMDYsMC4wNiB6IE0gNDY5LjIxLDEwOS41MiA0NjkuMTIsNjYuMDcgYyAwLDAgMCwtMC4wMSAwLC0wLjAxIDAsLTAuMDEgMCwtMC4wMSAwLC0wLjAyIHYgLTEuMjUgbCAtMC4wMSwwLjAzIEMgNDY4LjQ1LDMzLjQ0IDQ0Mi43Miw4LjEyMDAwMDQgNDExLjE5LDguMTIwMDAwNCAzNzkuMjQsOC4xMjAwMDA0IDM1My4yNSwzNC4xMSAzNTMuMjUsNjYuMDYgYyAwLDMxLjk0OTk5OSAyNS45OSw1Ny45NCA1Ny45NCw1Ny45NCAxMy40NCwwIDI1LjgzLC00LjYgMzUuNjcsLTEyLjMxIGwgLTAuMSwyMC4xMyB6IG0gLTU4LjQ3LC02Ljg2IGMgLTE5Ljk0LDAgLTM2LjE2LC0xNi4yMiAtMzYuMTYsLTM2LjE2IDAsLTE5Ljk0IDE2LjIyLC0zNi4xNiAzNi4xNiwtMzYuMTYgMTkuOTQsMCAzNi4xNiwxNi4yMiAzNi4xNiwzNi4xNiAwLDE5LjkzIC0xNi4yMiwzNi4xNiAtMzYuMTYsMzYuMTYgeiBNIDEwMC44Niw3LjgyMDAwMDQgQyA4Ny40Miw3LjgyMDAwMDQgNzUuMDMsMTIuNDIgNjUuMTksMjAuMTMgTCA2NS4yOCwwIDQyLjgyLDIyLjMgNDIuOTEsNjUuNzUgYyAwLDAgMCwwLjAxIDAsMC4wMSAwLDAuMDEgMCwwLjAxIDAsMC4wMiB2IDEuMjUgTCA0Mi45Miw2NyBjIDAuNjYsMzEuMzc5OTk5IDI2LjM5LDU2LjcgNTcuOTIsNTYuNyAzMS45NSwwIDU3Ljk0LC0yNS45OTAwMDEgNTcuOTQsLTU3Ljk0IEMgMTU4LjgsMzMuODEgMTMyLjgxLDcuODIwMDAwNCAxMDAuODYsNy44MjAwMDA0IFogTSAxMDEuMywxMDEuNDggYyAtMTkuOTQsMCAtMzYuMTYsLTE2LjIyIC0zNi4xNiwtMzYuMTYgMCwtMTkuOTQgMTYuMjIsLTM2LjE2IDM2LjE2LC0zNi4xNiAxOS45NCwwIDM2LjE2LDE2LjIyIDM2LjE2LDM2LjE2IDAsMTkuOTQgLTE2LjIyLDM2LjE2IC0zNi4xNiwzNi4xNiB6Ig0KICAgaWQ9InBhdGgzNzgyIg0KICAgc3R5bGU9ImZpbGw6dXJsKCNTVkdJRF8xXykiDQogICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIiAvPg0KPC9zdmc+DQo=" alt="Ibexa" />
+        &nbsp;
+    </a>
+    <a href="" class="phpdocumentor-title__link">
+        PHP API Reference
+    </a>
+</h1>
+    <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
+    <label class="phpdocumentor-header__menu-icon" for="menu-button">
+        <i class="fas fa-bars"></i>
+    </label>
+    <section data-search-form class="phpdocumentor-search">
+    <label>
+        <span class="visually-hidden">Search for</span>
+        <svg class="phpdocumentor-search__icon" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-width="2"/>
+            <line x1="12.4892" y1="12.2727" x2="19.1559" y2="18.9393" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        <input type="search" class="phpdocumentor-field phpdocumentor-search__field" placeholder="Loading .." disabled />
+    </label>
+</section>
+
+    <nav class="phpdocumentor-topnav">
+    <ul class="phpdocumentor-topnav__menu">
+        </ul>
+</nav>
+</header>
+
+    <main class="phpdocumentor">
+        <div class="phpdocumentor-section">
+            <input class="phpdocumentor-sidebar__menu-button" type="checkbox" id="sidebar-button" name="sidebar-button" />
+<label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
+    Menu
+</label>
+<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
+                                    <section class="phpdocumentor-sidebar__category">
+                <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/ibexa.html" class="">Ibexa</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/ibexa-contracts.html" class="">Contracts</a>
+                
+            </li>
+            </ul>
+
+                            </section>
+                                            
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
+                <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
+    </section>
+</aside>
+
+            <div class="phpdocumentor-column -eight phpdocumentor-content">
+                    <ul class="phpdocumentor-breadcrumbs">
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/ibexa.html">Ibexa</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/ibexa-contracts.html">Contracts</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/ibexa-contracts-rest.html">Rest</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/ibexa-contracts-rest-output.html">Output</a></li>
+    </ul>
+
+    <article class="phpdocumentor-element -class">
+        <h2 class="phpdocumentor-content__title">
+    
+  
+  
+      <div class="edition-tag oss">
+      <span><abbr title="Open-source software">OSS</abbr></span>
+    </div>
+  
+
+
+    Generator
+
+    
+    
+    
+    </h2>
+
+        <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">12</span>
+</aside>
+
+            <p class="phpdocumentor-summary">Output generator.</p>
+
+
+
+
+
+
+
+
+
+
+<h3 id="toc">
+    Table of Contents
+    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+</h3>
+
+<dl class="phpdocumentor-table-of-contents">
+                    <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#property_formatOutput">$formatOutput</a>
+    <span>
+                        &nbsp;: bool            </span>
+</dt>
+<dd>If set to true, output will be formatted and indented.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#property_stack">$stack</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
+</dt>
+<dd>Generator creation stack.</dd>
+
+                <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_attribute">attribute()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Generate attribute with given $name and $value.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_endAttribute">endAttribute()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>End attribute.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_endDocument">endDocument()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>End document.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_endHashElement">endHashElement()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>End hash element.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_endList">endList()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>End list.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_endObjectElement">endObjectElement()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>End object element.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_endValueElement">endValueElement()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>End value element.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_generateFieldTypeHash">generateFieldTypeHash()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Generates a generic representation of the scalar, hash or list given in
+$hashValue into the document, using an element of $hashElementName as
+its parent.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_getMediaType">getMediaType()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Get media type.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_isEmpty">isEmpty()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Returns if the document is empty or already contains data.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_reset">reset()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Reset output visitor to a virgin state.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_serializeBool">serializeBool()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Serializes a boolean value.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_setFormatOutput">setFormatOutput()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_startAttribute">startAttribute()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Start attribute.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_startDocument">startDocument()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Start document.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_startHashElement">startHashElement()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Start hash element.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_startList">startList()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Start list.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_startObjectElement">startObjectElement()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Start object element.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_startValueElement">startValueElement()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Start value element.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_valueElement">valueElement()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Generate value element with given $name and $value.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkEnd">checkEnd()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Check close / end operation.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkEndAttribute">checkEndAttribute()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Check end attribute.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkEndDocument">checkEndDocument()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Check end document.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkEndHashElement">checkEndHashElement()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Check end hash element.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkEndList">checkEndList()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Check end list.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkEndObjectElement">checkEndObjectElement()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Check end object element.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkEndValueElement">checkEndValueElement()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Check end value element.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkStart">checkStart()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Check close / end operation.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkStartAttribute">checkStartAttribute()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Check start attribute.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkStartDocument">checkStartDocument()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Check start document.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkStartHashElement">checkStartHashElement()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Check start hash element.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkStartList">checkStartList()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Check start list.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkStartObjectElement">checkStartObjectElement()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Check start object element.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkStartValueElement">checkStartValueElement()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Check start value element.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_generateMediaType">generateMediaType()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Generates a media type from $name and $type.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_generateMediaTypeWithVendor">generateMediaTypeWithVendor()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Generates a media type from $name, $type and $vendor.</dd>
+
+        </dl>
+
+
+
+        
+
+        
+    <section class="phpdocumentor-properties">
+        <h3 class="phpdocumentor-elements__header" id="properties">
+            Properties
+            <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_formatOutput">
+        $formatOutput
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#property_formatOutput" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">29</span>
+</aside>
+
+        <p class="phpdocumentor-summary">If set to true, output will be formatted and indented.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">bool</span>
+    <span class="phpdocumentor-signature__name">$formatOutput</span>
+     = <span class="phpdocumentor-signature__default-value">false</span></code>
+
+    
+    
+    
+
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_stack">
+        $stack
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#property_stack" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">22</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Generator creation stack.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__name">$stack</span>
+     = <span class="phpdocumentor-signature__default-value">[]</span></code>
+
+        <section class="phpdocumentor-description"><p>Use to check if it is OK to start / close the requested element in the
+current state.</p>
+</section>
+
+    
+    
+
+
+</article>
+            </section>
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_attribute">
+        attribute()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_attribute" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">274</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Generate attribute with given $name and $value.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">attribute</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">void</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                        -abstract                                "
+>
+    <h4 class="phpdocumentor-element__name" id="method_endAttribute">
+        endAttribute()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_endAttribute" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">303</span>
+</aside>
+
+        <p class="phpdocumentor-summary">End attribute.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">endAttribute</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                        -abstract                                "
+>
+    <h4 class="phpdocumentor-element__name" id="method_endDocument">
+        endDocument()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_endDocument" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">84</span>
+</aside>
+
+        <p class="phpdocumentor-summary">End document.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">endDocument</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"><p>Returns the generated document as a string.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$data</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                        -abstract                                "
+>
+    <h4 class="phpdocumentor-element__name" id="method_endHashElement">
+        endHashElement()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_endHashElement" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">175</span>
+</aside>
+
+        <p class="phpdocumentor-summary">End hash element.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">endHashElement</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                        -abstract                                "
+>
+    <h4 class="phpdocumentor-element__name" id="method_endList">
+        endList()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_endList" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">256</span>
+</aside>
+
+        <p class="phpdocumentor-summary">End list.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">endList</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                        -abstract                                "
+>
+    <h4 class="phpdocumentor-element__name" id="method_endObjectElement">
+        endObjectElement()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_endObjectElement" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">130</span>
+</aside>
+
+        <p class="phpdocumentor-summary">End object element.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">endObjectElement</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                        -abstract                                "
+>
+    <h4 class="phpdocumentor-element__name" id="method_endValueElement">
+        endValueElement()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_endValueElement" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">222</span>
+</aside>
+
+        <p class="phpdocumentor-summary">End value element.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">endValueElement</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                        -abstract                                "
+>
+    <h4 class="phpdocumentor-element__name" id="method_generateFieldTypeHash">
+        generateFieldTypeHash()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_generateFieldTypeHash" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">361</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Generates a generic representation of the scalar, hash or list given in
+$hashValue into the document, using an element of $hashElementName as
+its parent.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">generateFieldTypeHash</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hashElementName</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hashValue</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$hashElementName</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$hashValue</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                        -abstract                                "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getMediaType">
+        getMediaType()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_getMediaType" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">322</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Get media type.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">getMediaType</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                        -abstract                                "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isEmpty">
+        isEmpty()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_isEmpty" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">57</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Returns if the document is empty or already contains data.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">isEmpty</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    
+    
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">bool</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_reset">
+        reset()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_reset" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">39</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Reset output visitor to a virgin state.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">reset</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+    
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                        -abstract                                "
+>
+    <h4 class="phpdocumentor-element__name" id="method_serializeBool">
+        serializeBool()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_serializeBool" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">434</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Serializes a boolean value.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">serializeBool</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$boolValue</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$boolValue</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setFormatOutput">
+        setFormatOutput()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_setFormatOutput" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">31</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">setFormatOutput</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$formatOutput</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$formatOutput</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                        -abstract                                "
+>
+    <h4 class="phpdocumentor-element__name" id="method_startAttribute">
+        startAttribute()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_startAttribute" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">286</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Start attribute.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">startAttribute</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                        -abstract                                "
+>
+    <h4 class="phpdocumentor-element__name" id="method_startDocument">
+        startDocument()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_startDocument" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">50</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Start document.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">startDocument</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$data</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                        -abstract                                "
+>
+    <h4 class="phpdocumentor-element__name" id="method_startHashElement">
+        startHashElement()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_startHashElement" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">147</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Start hash element.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">startHashElement</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                        -abstract                                "
+>
+    <h4 class="phpdocumentor-element__name" id="method_startList">
+        startList()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_startList" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">239</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Start list.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">startList</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                        -abstract                                "
+>
+    <h4 class="phpdocumentor-element__name" id="method_startObjectElement">
+        startObjectElement()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_startObjectElement" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">102</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Start object element.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">startObjectElement</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$mediaTypeName</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$mediaTypeName</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                        -abstract                                "
+>
+    <h4 class="phpdocumentor-element__name" id="method_startValueElement">
+        startValueElement()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_startValueElement" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">205</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Start value element.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">startValueElement</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_valueElement">
+        valueElement()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_valueElement" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">193</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Generate value element with given $name and $value.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">valueElement</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">void</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_checkEnd">
+        checkEnd()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkEnd" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">402</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Check close / end operation.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">checkEnd</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$type</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$data</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_checkEndAttribute">
+        checkEndAttribute()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkEndAttribute" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">310</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Check end attribute.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">checkEndAttribute</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$data</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_checkEndDocument">
+        checkEndDocument()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkEndDocument" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">91</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Check end document.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">checkEndDocument</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$data</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_checkEndHashElement">
+        checkEndHashElement()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkEndHashElement" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">182</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Check end hash element.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">checkEndHashElement</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$data</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_checkEndList">
+        checkEndList()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkEndList" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">263</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Check end list.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">checkEndList</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$data</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_checkEndObjectElement">
+        checkEndObjectElement()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkEndObjectElement" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">137</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Check end object element.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">checkEndObjectElement</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$data</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_checkEndValueElement">
+        checkEndValueElement()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkEndValueElement" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">229</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Check end value element.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">checkEndValueElement</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$data</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_checkStart">
+        checkStart()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkStart" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">370</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Check close / end operation.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">checkStart</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$validParents</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$type</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$data</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$validParents</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_checkStartAttribute">
+        checkStartAttribute()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkStartAttribute" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">293</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Check start attribute.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">checkStartAttribute</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$data</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_checkStartDocument">
+        checkStartDocument()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkStartDocument" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">64</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Check start document.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">checkStartDocument</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$data</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_checkStartHashElement">
+        checkStartHashElement()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkStartHashElement" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">154</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Check start hash element.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">checkStartHashElement</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$data</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_checkStartList">
+        checkStartList()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkStartList" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">246</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Check start list.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">checkStartList</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$data</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_checkStartObjectElement">
+        checkStartObjectElement()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkStartObjectElement" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">109</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Check start object element.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">checkStartObjectElement</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$data</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_checkStartValueElement">
+        checkStartValueElement()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_checkStartValueElement" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">212</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Check start value element.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">checkStartValueElement</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$data</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+            -deprecated                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="method_generateMediaType">
+        generateMediaType()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_generateMediaType" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">334</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Generates a media type from $name and $type.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature -deprecated">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">generateMediaType</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$type</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                            <dt class="phpdocumentor-tag-list__entry">
+                <span class="phpdocumentor-tag__name">deprecated</span>
+            </dt>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">6.13.5</span>
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>please start to use generateMediaTypeWithVendor()</p>
+</section>
+
+                                    </dd>
+                                    </dl>
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_generateMediaTypeWithVendor">
+        generateMediaTypeWithVendor()
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#method_generateMediaTypeWithVendor" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/rest/src/contracts/Output/Generator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/rest/src/contracts/Output/Generator.php');">Generator.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">348</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Generates a media type from $name, $type and $vendor.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">generateMediaTypeWithVendor</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$vendor</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;vnd.ibexa.api&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$type</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$vendor</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;vnd.ibexa.api&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+        
+</article>
+            </section>
+
+        
+    <script type="text/javascript">
+        function loadExternalCodeSnippets(line) {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
+
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
+
+                pre.textContent = '';
+
+                pre.setAttribute('data-line', line)
+                code.textContent = 'Loading…';
+
+                pre.appendChild(code);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', src, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
+                        }
+                    }
+                };
+
+                xhr.send(null);
+            });
+        }
+
+        var modals = document.querySelectorAll("[data-modal]");
+
+        modals.forEach(function (trigger) {
+            trigger.addEventListener("click", function (event) {
+                //event.preventDefault();
+                const modal = document.getElementById(trigger.dataset.modal);
+                modal.classList.add("phpdocumentor-modal__open");
+                loadExternalCodeSnippets(trigger.dataset.line)
+                const exits = modal.querySelectorAll("[data-exit-button]");
+                exits.forEach(function (exit) {
+                    exit.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        modal.classList.remove("phpdocumentor-modal__open");
+                    });
+                });
+            });
+        });
+    </script>
+
+    </article>
+                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+    <section class="phpdocumentor-search-results__dialog">
+        <header class="phpdocumentor-search-results__header">
+            <h2 class="phpdocumentor-search-results__title">Search results</h2>
+            <button class="phpdocumentor-search-results__close"><i class="fas fa-times"></i></button>
+        </header>
+        <section class="phpdocumentor-search-results__body">
+            <ul class="phpdocumentor-search-results__entries"></ul>
+        </section>
+    </section>
+</section>
+            </div>
+        </div>
+        <a href="classes/Ibexa-Contracts-Rest-Output-Generator.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+
+    </main>
+
+    <script>
+        cssVars({});
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
+</body>
+</html>

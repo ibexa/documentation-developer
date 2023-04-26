@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+            <title>PHP API Reference</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <link rel="icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/template.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-okaidia.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
+                <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+        <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/search.js"></script>
+        <script defer src="js/searchIndex.js"></script>
+    </head>
+<body id="top">
+    <header class="phpdocumentor-header phpdocumentor-section">
+    <h1 class="phpdocumentor-title">
+    <a href="#" class="phpdocumentor-title__link" onclick="document.location.href=document.location.href.replace(/\/php_api\/php_api_reference\/.*/, '/php_api/php_api/'); return false;">
+        <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMjQuMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+DQoNCjxzdmcNCiAgIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyINCiAgIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiDQogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiDQogICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIg0KICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIg0KICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIg0KICAgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiDQogICB2ZXJzaW9uPSIxLjEiDQogICBpZD0iTGF5ZXJfMSINCiAgIHg9IjBweCINCiAgIHk9IjBweCINCiAgIHZpZXdCb3g9IjAgMCA0NjkuMjA5OTkgMTMxLjgxOTk5Ig0KICAgeG1sOnNwYWNlPSJwcmVzZXJ2ZSINCiAgIHNvZGlwb2RpOmRvY25hbWU9ImliZXhhX2xvZ28uc3ZnIg0KICAgd2lkdGg9IjQ2OS4yMDk5OSINCiAgIGhlaWdodD0iMTMxLjgxOTk5Ig0KICAgaW5rc2NhcGU6dmVyc2lvbj0iMC45Mi41ICgwLjkyLjUrNjkpIj48bWV0YWRhdGENCiAgIGlkPSJtZXRhZGF0YTM3ODkiPjxyZGY6UkRGPjxjYzpXb3JrDQogICAgICAgcmRmOmFib3V0PSIiPjxkYzpmb3JtYXQ+aW1hZ2Uvc3ZnK3htbDwvZGM6Zm9ybWF0PjxkYzp0eXBlDQogICAgICAgICByZGY6cmVzb3VyY2U9Imh0dHA6Ly9wdXJsLm9yZy9kYy9kY21pdHlwZS9TdGlsbEltYWdlIiAvPjxkYzp0aXRsZT48L2RjOnRpdGxlPjwvY2M6V29yaz48L3JkZjpSREY+PC9tZXRhZGF0YT48ZGVmcw0KICAgaWQ9ImRlZnMzNzg3IiAvPjxzb2RpcG9kaTpuYW1lZHZpZXcNCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiINCiAgIGJvcmRlcmNvbG9yPSIjNjY2NjY2Ig0KICAgYm9yZGVyb3BhY2l0eT0iMSINCiAgIG9iamVjdHRvbGVyYW5jZT0iMTAiDQogICBncmlkdG9sZXJhbmNlPSIxMCINCiAgIGd1aWRldG9sZXJhbmNlPSIxMCINCiAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwIg0KICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiINCiAgIGlua3NjYXBlOndpbmRvdy13aWR0aD0iMTg3MCINCiAgIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjEwMjAiDQogICBpZD0ibmFtZWR2aWV3Mzc4NSINCiAgIHNob3dncmlkPSJmYWxzZSINCiAgIGlua3NjYXBlOnpvb209IjIuMDc3MTI2MiINCiAgIGlua3NjYXBlOmN4PSIyMTEuNDc2ODEiDQogICBpbmtzY2FwZTpjeT0iMzkuODQwMjIzIg0KICAgaW5rc2NhcGU6d2luZG93LXg9IjUwIg0KICAgaW5rc2NhcGU6d2luZG93LXk9IjIzIg0KICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSINCiAgIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9IkxheWVyXzEiIC8+DQo8c3R5bGUNCiAgIHR5cGU9InRleHQvY3NzIg0KICAgaWQ9InN0eWxlMzc3MSI+DQoJLnN0MHtmaWxsOnVybCgjU1ZHSURfMV8pO30NCjwvc3R5bGU+DQo8bGluZWFyR3JhZGllbnQNCiAgIGlkPSJTVkdJRF8xXyINCiAgIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIg0KICAgeDE9IjIyLjAwMjUwMSINCiAgIHkxPSIxNDQuMjM3OSINCiAgIHgyPSI0OTEuMjA3NDkiDQogICB5Mj0iMTQ0LjIzNzkiDQogICBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMiwtNzguMzMpIj4NCgk8c3RvcA0KICAgb2Zmc2V0PSIwIg0KICAgc3R5bGU9InN0b3AtY29sb3I6I0VBNTcxQyINCiAgIGlkPSJzdG9wMzc3MyIgLz4NCgk8c3RvcA0KICAgb2Zmc2V0PSIwLjExNTEiDQogICBzdHlsZT0ic3RvcC1jb2xvcjojRTk1MDI2Ig0KICAgaWQ9InN0b3AzNzc1IiAvPg0KCTxzdG9wDQogICBvZmZzZXQ9IjAuMzMxNSINCiAgIHN0eWxlPSJzdG9wLWNvbG9yOiNFODNFM0EiDQogICBpZD0ic3RvcDM3NzciIC8+DQoJPHN0b3ANCiAgIG9mZnNldD0iMC42MTc2Ig0KICAgc3R5bGU9InN0b3AtY29sb3I6I0U2MTg1MCINCiAgIGlkPSJzdG9wMzc3OSIgLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aA0KICAgY2xhc3M9InN0MCINCiAgIGQ9Im0gMzY3LjMzLDcuNjMwMDAwNCBoIC0zMC45IEwgMjkzLjQ5LDUwLjU3IGwgLTkuNTMsLTguOTcgLTE1LjQ1LDE1LjQ1IDkuNTMsOC45NyAtMjMuNTMsMjMuNTMgLTAuMDIsLTAuMDIgYyAtNi4yNCw1LjE2IC0xOC4yNywxMi4yNSAtMjYuOTksMTIuMjUgLTUuMjksMCAtMTAuMzEsLTEuMTcgLTE0Ljg0LC0zLjIyMDAwMSAwLDAgNTkuODQsLTYwLjY4OTk5OSA2My42NywtNjQuNTE5OTk5IGwgLTMuMjYsLTMuNDIgQyAyNTkuMywxNi41IDI0Mi43Nyw4LjEyMDAwMDQgMjI3LjA2LDguMTIwMDAwNCAxOTUuMTEsOC4xMjAwMDA0IDE2OS4xMiwzNC4xMSAxNjkuMTIsNjYuMDYgYyAwLDMxLjk0OTk5OSAyNS45OSw1Ny45NCA1Ny45NCw1Ny45NCAxNC45NCwwIDI4LjA0LC00Ljk5IDQ0LjMsLTIwLjQ0IGwgMjIuMTMsLTIyLjA5IDQwLjIzLDQwLjI1IGggMzAuOSBMIDMwOC45NCw2Ni4wMiBaIE0gMTkxLjMzLDY1LjYzIGMgMCwtMTkuOTQgMTYuMjIsLTM2LjE2IDM2LjE2LC0zNi4xNiA3LjE3LDAgMTMuODUsMi4xMSAxOS40Nyw1LjczIGwgLTQ5LjksNDkuOSBjIC0zLjYxLC01LjYzIC01LjczLC0xMi4zIC01LjczLC0xOS40NyB6IE0gNi40ODk5OTk3LDU5LjQ0IDIyLjIyLDQzLjU4IFYgMTIzLjcgSCAwIFYgNzUuMTkgQyAwLDY5LjI5IDIuMzMsNjMuNjMgNi40ODk5OTk3LDU5LjQ0IFogTSAyMi4yMiw0LjkxMDAwMDQgViAxOC43OCBjIDAsMC4wMiAtMC4wMSwwLjAzIC0wLjAyLDAuMDQgTCA1LjM1LDM1LjY3IEMgMy4zOCwzNy42NCAwLDM2LjI1IDAsMzMuNDUgViA0LjkxMDAwMDQgYyAwLC0wLjAzIDAuMDMsLTAuMDYgMC4wNiwtMC4wNiBoIDIyLjEgYyAwLjAzLDAgMC4wNiwwLjAzIDAuMDYsMC4wNiB6IE0gNDY5LjIxLDEwOS41MiA0NjkuMTIsNjYuMDcgYyAwLDAgMCwtMC4wMSAwLC0wLjAxIDAsLTAuMDEgMCwtMC4wMSAwLC0wLjAyIHYgLTEuMjUgbCAtMC4wMSwwLjAzIEMgNDY4LjQ1LDMzLjQ0IDQ0Mi43Miw4LjEyMDAwMDQgNDExLjE5LDguMTIwMDAwNCAzNzkuMjQsOC4xMjAwMDA0IDM1My4yNSwzNC4xMSAzNTMuMjUsNjYuMDYgYyAwLDMxLjk0OTk5OSAyNS45OSw1Ny45NCA1Ny45NCw1Ny45NCAxMy40NCwwIDI1LjgzLC00LjYgMzUuNjcsLTEyLjMxIGwgLTAuMSwyMC4xMyB6IG0gLTU4LjQ3LC02Ljg2IGMgLTE5Ljk0LDAgLTM2LjE2LC0xNi4yMiAtMzYuMTYsLTM2LjE2IDAsLTE5Ljk0IDE2LjIyLC0zNi4xNiAzNi4xNiwtMzYuMTYgMTkuOTQsMCAzNi4xNiwxNi4yMiAzNi4xNiwzNi4xNiAwLDE5LjkzIC0xNi4yMiwzNi4xNiAtMzYuMTYsMzYuMTYgeiBNIDEwMC44Niw3LjgyMDAwMDQgQyA4Ny40Miw3LjgyMDAwMDQgNzUuMDMsMTIuNDIgNjUuMTksMjAuMTMgTCA2NS4yOCwwIDQyLjgyLDIyLjMgNDIuOTEsNjUuNzUgYyAwLDAgMCwwLjAxIDAsMC4wMSAwLDAuMDEgMCwwLjAxIDAsMC4wMiB2IDEuMjUgTCA0Mi45Miw2NyBjIDAuNjYsMzEuMzc5OTk5IDI2LjM5LDU2LjcgNTcuOTIsNTYuNyAzMS45NSwwIDU3Ljk0LC0yNS45OTAwMDEgNTcuOTQsLTU3Ljk0IEMgMTU4LjgsMzMuODEgMTMyLjgxLDcuODIwMDAwNCAxMDAuODYsNy44MjAwMDA0IFogTSAxMDEuMywxMDEuNDggYyAtMTkuOTQsMCAtMzYuMTYsLTE2LjIyIC0zNi4xNiwtMzYuMTYgMCwtMTkuOTQgMTYuMjIsLTM2LjE2IDM2LjE2LC0zNi4xNiAxOS45NCwwIDM2LjE2LDE2LjIyIDM2LjE2LDM2LjE2IDAsMTkuOTQgLTE2LjIyLDM2LjE2IC0zNi4xNiwzNi4xNiB6Ig0KICAgaWQ9InBhdGgzNzgyIg0KICAgc3R5bGU9ImZpbGw6dXJsKCNTVkdJRF8xXykiDQogICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIiAvPg0KPC9zdmc+DQo=" alt="Ibexa" />
+        &nbsp;
+    </a>
+    <a href="" class="phpdocumentor-title__link">
+        PHP API Reference
+    </a>
+</h1>
+    <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
+    <label class="phpdocumentor-header__menu-icon" for="menu-button">
+        <i class="fas fa-bars"></i>
+    </label>
+    <section data-search-form class="phpdocumentor-search">
+    <label>
+        <span class="visually-hidden">Search for</span>
+        <svg class="phpdocumentor-search__icon" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-width="2"/>
+            <line x1="12.4892" y1="12.2727" x2="19.1559" y2="18.9393" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        <input type="search" class="phpdocumentor-field phpdocumentor-search__field" placeholder="Loading .." disabled />
+    </label>
+</section>
+
+    <nav class="phpdocumentor-topnav">
+    <ul class="phpdocumentor-topnav__menu">
+        </ul>
+</nav>
+</header>
+
+    <main class="phpdocumentor">
+        <div class="phpdocumentor-section">
+            <input class="phpdocumentor-sidebar__menu-button" type="checkbox" id="sidebar-button" name="sidebar-button" />
+<label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
+    Menu
+</label>
+<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
+                                    <section class="phpdocumentor-sidebar__category">
+                <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/ibexa.html" class="">Ibexa</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/ibexa-contracts.html" class="">Contracts</a>
+                
+            </li>
+            </ul>
+
+                            </section>
+                                            
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
+                <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
+    </section>
+</aside>
+
+            <div class="phpdocumentor-column -eight phpdocumentor-content">
+                    <ul class="phpdocumentor-breadcrumbs">
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/ibexa.html">Ibexa</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/ibexa-contracts.html">Contracts</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/ibexa-contracts-core.html">Core</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/ibexa-contracts-core-persistence.html">Persistence</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/ibexa-contracts-core-persistence-content.html">Content</a></li>
+    </ul>
+
+    <article class="phpdocumentor-element -interface">
+        <h2 class="phpdocumentor-content__title">
+    
+  
+  
+      <div class="edition-tag oss">
+      <span><abbr title="Open-source software">OSS</abbr></span>
+    </div>
+  
+
+
+    Handler
+        </h2>
+
+        <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">19</span>
+</aside>
+
+            <p class="phpdocumentor-summary">The Content Handler interface defines content operations on the storage engine.</p>
+
+    <section class="phpdocumentor-description"><p>The basic operations which are performed on content objects are collected in
+this interface. Typically this interface would be used by a service managing
+business logic for content objects.</p>
+</section>
+
+
+
+
+
+
+
+
+
+<h3 id="toc">
+    Table of Contents
+    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+</h3>
+
+<dl class="phpdocumentor-table-of-contents">
+                        <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_addRelation">addRelation()</a>
+    <span>
+                                &nbsp;: <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a>    </span>
+</dt>
+<dd>Creates a relation between $sourceContentId in $sourceContentVersionNo
+and $destinationContentId with a specific $type.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_copy">copy()</a>
+    <span>
+                                &nbsp;: <a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a>    </span>
+</dt>
+<dd>Copy Content with Fields, Versions &amp; Relations from $contentId in $version.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_countDraftsForUser">countDraftsForUser()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+<dd>Returns the number of versions with draft status created by the given $userId.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_countReverseRelations">countReverseRelations()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+<dd>Counts relations from $destinationContentId only against published versions. Optionally, count only those with $type.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_create">create()</a>
+    <span>
+                                &nbsp;: <a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a>    </span>
+</dt>
+<dd>Creates a new Content entity in the storage engine.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_createDraftFromVersion">createDraftFromVersion()</a>
+    <span>
+                                &nbsp;: <a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a>    </span>
+</dt>
+<dd>Creates a new draft version from $contentId in $srcVersion number.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_deleteContent">deleteContent()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Deletes all versions and fields, all locations (subtree), and all relations.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_deleteTranslationFromContent">deleteTranslationFromContent()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Delete the specified translation from all the Versions of a Content Object.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_deleteTranslationFromDraft">deleteTranslationFromDraft()</a>
+    <span>
+                                &nbsp;: <a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a>    </span>
+</dt>
+<dd>Remove the specified Translation from the given Version Draft of a Content Object.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_deleteVersion">deleteVersion()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Deletes given version, its fields, node assignment, relations and names.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_listVersions">listVersions()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo">VersionInfo</abbr></a>&gt;    </span>
+</dt>
+<dd>Returns the versions for $contentId.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_load">load()</a>
+    <span>
+                                &nbsp;: <a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a>    </span>
+</dt>
+<dd>Returns the raw data of a content object identified by $id, in a struct.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadContentInfo">loadContentInfo()</a>
+    <span>
+                                &nbsp;: <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ContentInfo">ContentInfo</abbr></a>    </span>
+</dt>
+<dd>Returns the metadata object for a content identified by $contentId.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadContentInfoByRemoteId">loadContentInfoByRemoteId()</a>
+    <span>
+                                &nbsp;: <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ContentInfo">ContentInfo</abbr></a>    </span>
+</dt>
+<dd>Returns the metadata object for a content identified by $remoteId.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadContentInfoList">loadContentInfoList()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ContentInfo">ContentInfo</abbr></a>&gt;    </span>
+</dt>
+<dd>Return list of unique Content Info, with content id as key.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadContentList">loadContentList()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a>&gt;    </span>
+</dt>
+<dd>Return list of unique Content, with content id as key.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadDraftListForUser">loadDraftListForUser()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo">VersionInfo</abbr></a>&gt;    </span>
+</dt>
+<dd>Loads drafts for a user when content is not in the trash. The list is sorted by modification date.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadDraftsForUser">loadDraftsForUser()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo">VersionInfo</abbr></a>&gt;    </span>
+</dt>
+<dd>Returns all versions with draft status created by the given $userId.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadRelation">loadRelation()</a>
+    <span>
+                                &nbsp;: <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a>    </span>
+</dt>
+<dd>Load a relation by $relationId.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadRelations">loadRelations()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a>&gt;    </span>
+</dt>
+<dd>Loads relations from $sourceContentId. Optionally, loads only those with $type and $sourceContentVersionNo.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadReverseRelationList">loadReverseRelationList()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a>&gt;    </span>
+</dt>
+<dd>Loads paginated relations from $contentId. Optionally, loads only those with $type.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadReverseRelations">loadReverseRelations()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a>&gt;    </span>
+</dt>
+<dd>Loads relations from $contentId. Optionally, loads only those with $type.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadVersionInfo">loadVersionInfo()</a>
+    <span>
+                                &nbsp;: <a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo">VersionInfo</abbr></a>    </span>
+</dt>
+<dd>Returns the version object for a content/version identified by $contentId and $versionNo.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_publish">publish()</a>
+    <span>
+                                &nbsp;: <a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a>    </span>
+</dt>
+<dd>Performs the publishing operations required to set the version identified by $updateStruct-&gt;versionNo and
+$updateStruct-&gt;id as the published one.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_removeRelation">removeRelation()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Removes a relation by relation Id.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_setStatus">setStatus()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Sets the status of object identified by $contentId and $version to $status.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_updateContent">updateContent()</a>
+    <span>
+                                &nbsp;: <a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a>    </span>
+</dt>
+<dd>Updates a content version, identified by $contentId and $versionNo.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_updateMetadata">updateMetadata()</a>
+    <span>
+                                &nbsp;: <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ContentInfo">ContentInfo</abbr></a>    </span>
+</dt>
+<dd>Updates a content object meta data, identified by $contentId.</dd>
+
+        </dl>
+
+
+
+        
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_addRelation">
+        addRelation()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_addRelation" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">262</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Creates a relation between $sourceContentId in $sourceContentVersionNo
+and $destinationContentId with a specific $type.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">addRelation</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation-CreateStruct.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation\CreateStruct">CreateStruct</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$createStruct</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$createStruct</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation-CreateStruct.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation\CreateStruct">CreateStruct</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a></span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_copy">
+        copy()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_copy" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">250</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Copy Content with Fields, Versions &amp; Relations from $contentId in $version.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">copy</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionNo</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$newOwnerId</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"><p>Copies all fields and relations from $contentId in $version (or all versions if false)
+to a new object which is returned. Version numbers are maintained.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$contentId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$versionNo</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Copy all versions if left null</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$newOwnerId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>By default owner is same content we copy, for other cases set owner here to change it.
+E.g. In order to give person copying access to edit (if owner limitation), use this to set copier as owner.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                            <dt class="phpdocumentor-tag-list__entry">
+                <span class="phpdocumentor-tag__name">throws</span>
+            </dt>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If content or version is not found</p>
+</section>
+
+                                    </dd>
+                                    </dl>
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_countDraftsForUser">
+        countDraftsForUser()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_countDraftsForUser" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">141</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Returns the number of versions with draft status created by the given $userId.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">countDraftsForUser</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$userId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$userId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">int</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_countReverseRelations">
+        countReverseRelations()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_countReverseRelations" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">305</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Counts relations from $destinationContentId only against published versions. Optionally, count only those with $type.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">countReverseRelations</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$destinationContentId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$destinationContentId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Destination Content ID</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$type</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The relation type bitmask <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Relation">Relation</abbr></a></p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">int</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_create">
+        create()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_create" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">33</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Creates a new Content entity in the storage engine.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">create</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-CreateStruct.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\CreateStruct">CreateStruct</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$content</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"><p>The values contained inside the $content will form the basis of stored
+entity.</p>
+<p>Will contain always a complete list of fields.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$content</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-CreateStruct.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\CreateStruct">CreateStruct</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Content creation struct.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Content value object</p>
+</section>
+
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_createDraftFromVersion">
+        createDraftFromVersion()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_createDraftFromVersion" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">48</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Creates a new draft version from $contentId in $srcVersion number.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">createDraftFromVersion</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$srcVersion</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$userId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$languageCode</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"><p>Copies all fields from $contentId in $srcVersion and creates a new
+version of the referred Content from it.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$contentId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$srcVersion</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$userId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$languageCode</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_deleteContent">
+        deleteContent()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_deleteContent" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">208</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Deletes all versions and fields, all locations (subtree), and all relations.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">deleteContent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+        <section class="phpdocumentor-description"><p>Removes the relations, but not the related objects. All subtrees of the
+assigned nodes of this content objects are removed (recursively).</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$contentId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">bool</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_deleteTranslationFromContent">
+        deleteTranslationFromContent()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_deleteTranslationFromContent" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">361</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Delete the specified translation from all the Versions of a Content Object.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">deleteTranslationFromContent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$languageCode</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$contentId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$languageCode</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>language code of the translation</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_deleteTranslationFromDraft">
+        deleteTranslationFromDraft()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_deleteTranslationFromDraft" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">372</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Remove the specified Translation from the given Version Draft of a Content Object.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">deleteTranslationFromDraft</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionNo</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$languageCode</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$contentId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$versionNo</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$languageCode</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The Content Draft w/o removed Translation</p>
+</section>
+
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_deleteVersion">
+        deleteVersion()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_deleteVersion" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">220</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Deletes given version, its fields, node assignment, relations and names.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">deleteVersion</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionNo</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+        <section class="phpdocumentor-description"><p>Removes the relations, but not the related objects.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$contentId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$versionNo</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">bool</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_listVersions">
+        listVersions()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_listVersions" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">233</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Returns the versions for $contentId.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">listVersions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$status</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">-1</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo">VersionInfo</abbr></a>&gt;</span></code>
+
+        <section class="phpdocumentor-description"><p>Result is returned with oldest version first (sorted by created, alternatively version number or id if auto increment).</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$contentId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$status</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional argument to filter versions by status, like <a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html#constant_STATUS_ARCHIVED"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo::STATUS_ARCHIVED">VersionInfo::STATUS_ARCHIVED</abbr></a>.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$limit</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">-1</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Limit for items returned, -1 means none.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo">VersionInfo</abbr></a>&gt;</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_load">
+        load()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_load" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">67</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Returns the raw data of a content object identified by $id, in a struct.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">load</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$id</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$version</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$translations</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"><p>If you want to load current version, $version number can be omitted to make sure
+you don't need to rely on search index (async) or having to load in two steps
+(first content info then content, risking changes in between to current version).</p>
+<p>Optionally a translation filter may be specified. If specified only the
+translations with the listed language codes will be retrieved. If not,
+all translations will be retrieved.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$id</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$version</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$translations</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Content value object</p>
+</section>
+
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_loadContentInfo">
+        loadContentInfo()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadContentInfo" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">99</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Returns the metadata object for a content identified by $contentId.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">loadContentInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ContentInfo">ContentInfo</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$contentId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ContentInfo">ContentInfo</abbr></a></span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_loadContentInfoByRemoteId">
+        loadContentInfoByRemoteId()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadContentInfoByRemoteId" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">120</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Returns the metadata object for a content identified by $remoteId.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">loadContentInfoByRemoteId</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$remoteId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ContentInfo">ContentInfo</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$remoteId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ContentInfo">ContentInfo</abbr></a></span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_loadContentInfoList">
+        loadContentInfoList()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadContentInfoList" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">111</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Return list of unique Content Info, with content id as key.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">loadContentInfoList</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentIds</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ContentInfo">ContentInfo</abbr></a>&gt;</span></code>
+
+        <section class="phpdocumentor-description"><p>Missing items (NotFound) will be missing from the array and not cause an exception, it's up
+to calling logic to determine if this should cause exception or not.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$contentIds</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ContentInfo">ContentInfo</abbr></a>&gt;</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_loadContentList">
+        loadContentList()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadContentList" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">90</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Return list of unique Content, with content id as key.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">loadContentList</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, int&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentIds</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$translations</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a>&gt;</span></code>
+
+        <section class="phpdocumentor-description"><p>Missing items (NotFound) will be missing from the array and not cause an exception, it's up
+to calling logic to determine if this should cause exception or not.</p>
+<p>If items are missing but for other reasons then not being found, for instance exceptions during loading field
+data. Then the exception will be logged as warning or error depending on severity.
+The most common case of possible exceptions during loading of Content data is migration,
+where either custom Field Type configuration or implementation might not be aligned with new
+version of the system.</p>
+<p>NOTE!!: If you want to take always available flag into account, append main language
+to the list of languages(unless caller is asking for all languages). In some edge cases you'll end up with a
+bit more data returned, but upside is that storage engine is able to handle far larger datasets.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$contentIds</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, int&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$translations</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a>&gt;</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_loadDraftListForUser">
+        loadDraftListForUser()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadDraftListForUser" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">161</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Loads drafts for a user when content is not in the trash. The list is sorted by modification date.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">loadDraftListForUser</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$userId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">-1</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo">VersionInfo</abbr></a>&gt;</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$userId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$offset</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$limit</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">-1</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo">VersionInfo</abbr></a>&gt;</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_loadDraftsForUser">
+        loadDraftsForUser()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadDraftsForUser" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">150</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Returns all versions with draft status created by the given $userId.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">loadDraftsForUser</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$userId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo">VersionInfo</abbr></a>&gt;</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$userId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo">VersionInfo</abbr></a>&gt;</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_loadRelation">
+        loadRelation()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadRelation" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">267</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Load a relation by $relationId.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">loadRelation</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$relationId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$relationId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a></span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_loadRelations">
+        loadRelations()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadRelations" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">295</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Loads relations from $sourceContentId. Optionally, loads only those with $type and $sourceContentVersionNo.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">loadRelations</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sourceContentId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sourceContentVersionNo</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a>&gt;</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$sourceContentId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Source Content ID</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$sourceContentVersionNo</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Source Content Version, null if not specified</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$type</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>\Ibexa\Contracts\Core\Repository\Values\Content\Relation::COMMON,
+\Ibexa\Contracts\Core\Repository\Values\Content\Relation::EMBED,
+\Ibexa\Contracts\Core\Repository\Values\Content\Relation::LINK,
+\Ibexa\Contracts\Core\Repository\Values\Content\Relation::FIELD</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a>&gt;</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_loadReverseRelationList">
+        loadReverseRelationList()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadReverseRelationList" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">334</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Loads paginated relations from $contentId. Optionally, loads only those with $type.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">loadReverseRelationList</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$destinationContentId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">-1</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a>&gt;</span></code>
+
+        <section class="phpdocumentor-description"><p>Only loads relations against published versions.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$destinationContentId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Destination Content ID</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$offset</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$limit</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">-1</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$type</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The relation type bitmask <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Relation">Relation</abbr></a></p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a>&gt;</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_loadReverseRelations">
+        loadReverseRelations()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadReverseRelations" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">320</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Loads relations from $contentId. Optionally, loads only those with $type.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">loadReverseRelations</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$destinationContentId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a>&gt;</span></code>
+
+        <section class="phpdocumentor-description"><p>Only loads relations against published versions.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$destinationContentId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Destination Content ID</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$type</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>\Ibexa\Contracts\Core\Repository\Values\Content\Relation::COMMON,
+\Ibexa\Contracts\Core\Repository\Values\Content\Relation::EMBED,
+\Ibexa\Contracts\Core\Repository\Values\Content\Relation::LINK,
+\Ibexa\Contracts\Core\Repository\Values\Content\Relation::FIELD</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a>&gt;</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_loadVersionInfo">
+        loadVersionInfo()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadVersionInfo" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">132</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Returns the version object for a content/version identified by $contentId and $versionNo.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">loadVersionInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentId</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionNo</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo">VersionInfo</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$contentId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$versionNo</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Version number to load, loads current version if null.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                            <dt class="phpdocumentor-tag-list__entry">
+                <span class="phpdocumentor-tag__name">throws</span>
+            </dt>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If version is not found</p>
+</section>
+
+                                    </dd>
+                                    </dl>
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo">VersionInfo</abbr></a></span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_publish">
+        publish()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_publish" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">353</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Performs the publishing operations required to set the version identified by $updateStruct-&gt;versionNo and
+$updateStruct-&gt;id as the published one.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">publish</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionNo</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-MetadataUpdateStruct.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\MetadataUpdateStruct">MetadataUpdateStruct</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$metaDataUpdateStruct</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$contentId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$versionNo</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$metaDataUpdateStruct</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-MetadataUpdateStruct.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\MetadataUpdateStruct">MetadataUpdateStruct</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                            <dt class="phpdocumentor-tag-list__entry">
+                <span class="phpdocumentor-tag__name">throws</span>
+            </dt>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-BadStateException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\BadStateException">BadStateException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                    </dl>
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The published Content</p>
+</section>
+
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_removeRelation">
+        removeRelation()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_removeRelation" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">281</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Removes a relation by relation Id.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">removeRelation</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$relationId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$destinationContentId</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$relationId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$type</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>\Ibexa\Contracts\Core\Repository\Values\Content\Relation::COMMON,
+\Ibexa\Contracts\Core\Repository\Values\Content\Relation::EMBED,
+\Ibexa\Contracts\Core\Repository\Values\Content\Relation::LINK,
+\Ibexa\Contracts\Core\Repository\Values\Content\Relation::FIELD</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$destinationContentId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Content id to invalidate cache tag related to content reverse relations count</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setStatus">
+        setStatus()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_setStatus" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">175</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Sets the status of object identified by $contentId and $version to $status.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">setStatus</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$status</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$version</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+        <section class="phpdocumentor-description"><p>The $status can be one of VersionInfo::STATUS_DRAFT, VersionInfo::STATUS_PUBLISHED, VersionInfo::STATUS_ARCHIVED
+When status is set to VersionInfo::STATUS_PUBLISHED content status is updated to ContentInfo::STATUS_PUBLISHED</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$contentId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$status</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$version</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">bool</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_updateContent">
+        updateContent()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_updateContent" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">196</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Updates a content version, identified by $contentId and $versionNo.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">updateContent</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$versionNo</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-UpdateStruct.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\UpdateStruct">UpdateStruct</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$content</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$contentId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$versionNo</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$content</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-UpdateStruct.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\UpdateStruct">UpdateStruct</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_updateMetadata">
+        updateMetadata()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_updateMetadata" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/Content/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">185</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Updates a content object meta data, identified by $contentId.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">updateMetadata</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$contentId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-MetadataUpdateStruct.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\MetadataUpdateStruct">MetadataUpdateStruct</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$content</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ContentInfo">ContentInfo</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$contentId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$content</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-MetadataUpdateStruct.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\MetadataUpdateStruct">MetadataUpdateStruct</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ContentInfo">ContentInfo</abbr></a></span>
+        
+</article>
+            </section>
+
+        
+    <script type="text/javascript">
+        function loadExternalCodeSnippets(line) {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
+
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
+
+                pre.textContent = '';
+
+                pre.setAttribute('data-line', line)
+                code.textContent = 'Loading…';
+
+                pre.appendChild(code);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', src, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
+                        }
+                    }
+                };
+
+                xhr.send(null);
+            });
+        }
+
+        var modals = document.querySelectorAll("[data-modal]");
+
+        modals.forEach(function (trigger) {
+            trigger.addEventListener("click", function (event) {
+                //event.preventDefault();
+                const modal = document.getElementById(trigger.dataset.modal);
+                modal.classList.add("phpdocumentor-modal__open");
+                loadExternalCodeSnippets(trigger.dataset.line)
+                const exits = modal.querySelectorAll("[data-exit-button]");
+                exits.forEach(function (exit) {
+                    exit.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        modal.classList.remove("phpdocumentor-modal__open");
+                    });
+                });
+            });
+        });
+    </script>
+
+    </article>
+                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+    <section class="phpdocumentor-search-results__dialog">
+        <header class="phpdocumentor-search-results__header">
+            <h2 class="phpdocumentor-search-results__title">Search results</h2>
+            <button class="phpdocumentor-search-results__close"><i class="fas fa-times"></i></button>
+        </header>
+        <section class="phpdocumentor-search-results__body">
+            <ul class="phpdocumentor-search-results__entries"></ul>
+        </section>
+    </section>
+</section>
+            </div>
+        </div>
+        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+
+    </main>
+
+    <script>
+        cssVars({});
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
+</body>
+</html>
