@@ -11,7 +11,8 @@ edition: commerce
 
 To get payments and manage them, use the `Ibexa\Contracts\Payment\PaymentServiceInterface` interface.
 
-From the developer's perspective, payments are referenced with a UUID identifier. 
+By default, UUID is used to generate payment identifiers. 
+You can change that by providing a custom payment identifier in `Ibexa\Contracts\Payment\Payment\PaymentCreateStruct` or `Ibexa\Contracts\Payment\Payment\PaymentUpdateStruct`.
 
 ## Get single payment 
 
