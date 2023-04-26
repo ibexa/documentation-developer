@@ -105,6 +105,8 @@ groups to get the most accurate, precise and targeted recommendations for your c
 
 ![Segment management](img/4.5_segment_management.png "Segment management logic")
 
+For more information, see [Segment management](https://doc.ibexa.co/projects/userguide/en/4.5/personalization/segment_management/).
+
 ## Other changes
 
 ### Customer Data Platform (CDP) configuration
