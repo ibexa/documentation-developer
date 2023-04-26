@@ -6,16 +6,17 @@ edition: experience
 # Create Customer Portal
 
 On this page, you will learn how to configure the Customer Portal feature to be editable with Page Builder.
+If you already configured Customer Portal, you can learn how to build it with a Page Builder in [User Documentation.]([[= user_doc =]]/customer_management/build_customer_portal/) 
 
 ## Configure Page Builder access to Customer Portal
 
 First, you need to create a root folder for Customer Portals, 
-its `location_id` will be later specified in the configuration as [a tree root](multisite_configuration.md#siteaccesses-and-page-build).
+its `location_id` will be later specified in the configuration as [a tree root](multisite_configuration.md#location-tree).
 To do it, go to **Content**->**Content structure** and add a new folder in the Content tree where you will be adding Customer Portals.
 
 ![Customer Portals folder](img/cp_folder_for_portals.png)
 
-To be able to see Customer Portal site in the Page Builder you need to add `custom_portal` to the configuration.
+To be able to see Customer Portal site in the Page Builder you need to add `custom_portal` SiteAccess to the configuration.
 First, go to `config/packages/ibexa.yaml` and add `custom_portal` to
 the SiteAccess `list` and to `corporate_group`.
 
@@ -62,8 +63,9 @@ ibexa:
 
 Now, you can go back to your **Customer Portals** root folder and select **Create content**.
 There you will see two possibilities **Customer Portal** and **Customer Portal Page**.
+
 The first one is a separate Content Type used as a container for your Customer Portal pages.
-**Customer Portals** should be used to sort Customer Portal pages and any other Content Types used by them, such as articles, inside a root folder.
+Customer Portals containers should be used to sort Customer Portal pages and any other Content Types used by them, such as articles, inside the root folder.
 We highly recommend that you use them instead of folders to divide and store your portals.
 
 ![Create content tab](img/cp_portal_vs_page.png)
@@ -73,8 +75,8 @@ We highly recommend that you use them instead of folders to divide and store you
 You can assign multiple Customer Portal containers or Pages to a specific Customer Group.
 First, you need to grant the following permissions to company members from the Customer Group: 
 
-- `content/read` to selected Customer Portals
 - `user/login` to `custom_portal` SiteAccess
+- `content/read` to selected Customer Portals
 
 ![Customer Portal permissions](img/cp_permissions.png)
 
@@ -93,9 +95,9 @@ parameters:
 There, you can specify which Customer Portals should be available to which Customer Group by adding:
 
 - Customer Group identifier. You can find it in the **Summary** section of the Company.
-- Location remote ID of Customer Portal container or Customer Portal page. You can find it in the **Details'** section.
+- Location remote ID of Customer Portal container or Customer Portal page. You can find it in the **Details** section.
 
-Portals will be displayed to Customer Group in order specified in the configuration based on company member's permissions.
+Portals will be displayed to the Customer Group in order specified in the configuration based on company member's permissions.
 If members of the defined Customer Group don't have sufficient permissions for any Customer Portal from the list, they will be transferred to the default Customer Portal view.
 
 !!! note
