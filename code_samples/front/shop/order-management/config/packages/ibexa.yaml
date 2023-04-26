@@ -1,0 +1,74 @@
+framework:
+    workflows:
+        custom_order_workflow:
+            type: state_machine
+            audit_trail:
+                enabled: "%kernel.debug%"
+            marking_store:
+                type: method
+                property: status
+            supports:
+                - Ibexa\Contracts\OrderManagement\Workflow\WorkflowSubjectInterface
+            initial_marking: created
+            places:
+                created:
+                    metadata:
+                        reduce_stock: true
+                        label: 'order.status.label.created'
+                        translation_domain: 'order_management'
+                        primary_color: '#F4B65F'
+                        secondary_color: '#FEEED9'
+                verified:
+:                    metadata:
+                        label: 'order.status.label.verified'
+                        translation_domain: 'order_management'
+                        primary_color: '#2B6875'
+                        secondary_color: '#CCDBDE'
+                in_progress:
+                    metadata:
+                        label: 'order.status.label.in_progress'
+                        translation_domain: 'order_management'
+                        primary_color: '#FF9071'
+                        secondary_color: '#FFDACF'
+                completed:
+                    metadata:
+                        label: 'order.status.label.completed'
+                        translation_domain: 'order_management'
+                        primary_color: '#33B655'
+                        secondary_color: '#E5F5E9'
+                dropped:
+                    metadata:
+                        restore_stock: true
+                        label: 'order.status.label.dropped'
+                        translation_domain: 'order_management'
+                        primary_color: '#5A5A5D'
+                        secondary_color: '#E6E6ED'
+            transitions:
+                verify:
+                    from:
+                        - created
+                    to:
+                        - verified
+                advance:
+                    from:
+                        - verified
+                    to:
+                        - in_progress
+                finish:
+                    from:
+                        - in_progress
+                    to:
+                        - completed
+                drop:
+                    from:
+                        - created
+                    to:
+                        - dropped
+
+// ...
+
+ibexa:
+    repositories:
+        default:
+            order_management:
+                workflow: custom_order_workflow

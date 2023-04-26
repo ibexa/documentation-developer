@@ -313,6 +313,7 @@ nav:
             - Checkout API: commerce/checkout/checkout_api.md
         - Order management:
             - Order management: commerce/order_management/order_management.md
+            - Configure order processing: commerce/order_management/configure_order_management.md
             - Order management API: commerce/order_management/order_management_api.md
         - Storefront:
             - Storefront: commerce/storefront/storefront.md
