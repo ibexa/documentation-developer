@@ -17,8 +17,8 @@ The `Id` Sort Clause sorts search results by shipment Id.
 $shipmentQuery = new ShipmentQuery(
     $criteria,
     [
-        new \Ibexa\Contracts\Checkout\Shipment\Query\SortClause\Id(
-            \Ibexa\Contracts\Checkout\Shipment\Query\SortClause\Id::SORT_ASC)
+        new \Ibexa\Contracts\Shipping\Shipment\Query\SortClause\Id(
+            \Ibexa\Contracts\Shipping\Shipment\Query\SortClause\Id::SORT_ASC)
     ]
 );
 ```

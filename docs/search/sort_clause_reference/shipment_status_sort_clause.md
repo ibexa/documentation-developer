@@ -17,8 +17,8 @@ The `Status` Sort Clause sorts search results by shipment status.
 $shipmentQuery = new ShipmentQuery(
     $criteria,
     [
-        new \Ibexa\Contracts\Checkout\Shipment\Query\SortClause\Status(
-            \Ibexa\Contracts\Checkout\Shipment\Query\SortClause\Status::SORT_ASC)
+        new \Ibexa\Contracts\Shipping\Shipment\Query\SortClause\Status(
+            \Ibexa\Contracts\Shipping\Shipment\Query\SortClause\Status::SORT_ASC)
     ]
 );
 ```

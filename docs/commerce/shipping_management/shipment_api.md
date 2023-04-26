@@ -5,11 +5,7 @@ edition: commerce
 
 # Shipment API
 
-!!! tip "Shipping management REST API"
-
-    To learn how to manage shipments with the REST API, see the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-shipping).
-
-To get shipments and manage them, use the `Ibexa\Contracts\ShippingManagement\ShipmentServiceInterface` interface.
+To get shipments and manage them, use the `Ibexa\Contracts\Shipping\ShipmentServiceInterface` interface.
 
 From the developer's perspective, shipments are referenced with a UUID identifier.
 
@@ -43,7 +39,7 @@ It follows the same search query pattern as other APIs:
 ## Create shipment
 
 To create a shipment, use the `ShipmentService::createShipment` method and provide it with 
-an `Ibexa\Contracts\Checkout\Value\ShipmentCreateStruct` object that takes two parameters, a `shippingMethod` string and a `Money` object.
+an `Ibexa\Contracts\Shipping\Value\ShipmentCreateStruct` object that takes two parameters, a `shippingMethod` string and a `Money` object.
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/ShipmentCommand.php', 102, 116) =]]

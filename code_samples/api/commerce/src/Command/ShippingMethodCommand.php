@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Command;
 
-use Ibexa\Contracts\Checkout\ShippingMethodServiceInterface;
-use Ibexa\Contracts\Checkout\Value\ShippingMethod\Query\Criterion\ShippingMethodRegion;
-use Ibexa\Contracts\Checkout\Value\ShippingMethod\ShippingMethodDeleteTranslationStruct;
-use Ibexa\Contracts\Checkout\Value\ShippingMethod\ShippingMethodQuery;
+use Ibexa\Contracts\Shipping\ShippingMethodServiceInterface;
+use Ibexa\Contracts\Shipping\Value\ShippingMethod\Query\Criterion\ShippingMethodRegion;
+use Ibexa\Contracts\Shipping\Value\ShippingMethod\ShippingMethodDeleteTranslationStruct;
+use Ibexa\Contracts\Shipping\Value\ShippingMethod\ShippingMethodQuery;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\ProductCatalog\RegionServiceInterface;

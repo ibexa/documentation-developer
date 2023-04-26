@@ -15,6 +15,6 @@ The `Identifier` Search Criterion searches for shipments based on the shipment i
 
 ``` php
 $query = new ShipmentQuery( 
-    new \Ibexa\Contracts\Checkout\Shipment\Query\Criterion\Identifier('f1t7z-3rb3rt')
+    new \Ibexa\Contracts\Shipping\Shipment\Query\Criterion\Identifier('f1t7z-3rb3rt')
 );
 ```
