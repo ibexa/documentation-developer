@@ -137,7 +137,7 @@ run the following command:
     composer create-project ibexa/commerce-skeleton:^3.3 .
     ```
 
-??? note "Using PHP 8"
+??? note "Using PHP 7.3, 7.4 or 8.0"
 
     If you are using PHP 8, use a different set of commands:
 
