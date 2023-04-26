@@ -13,10 +13,10 @@ invite and view members and check their order history.
 ![Customer Portal dashboard](img/cp_dashboard_customer_portal.png)
 
 [[= cards([
-"customer_management/cp_page_builder",
 "customer_management/cp_configuration",
 "customer_management/cp_applications",
 "users/invitations",
+"customer_management/cp_page_builder",
 "customer_management/create_user_registration_form"
 ], columns=5) =]]
 
