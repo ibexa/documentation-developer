@@ -2,7 +2,7 @@
 
 Product attribute aggregations aggregate search results by the value of the product's attributes.
 
-Depending of attribute type, the following aggregations are available:
+Depending on attribute type, the following aggregations are available:
 
 - `ProductAttributeBooleanAggregation`
 - `ProductAttributeColorAggregation`

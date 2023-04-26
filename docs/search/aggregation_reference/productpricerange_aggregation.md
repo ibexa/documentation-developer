@@ -5,7 +5,7 @@ The ProductPriceRangeAggregation aggregates search results by the value of the p
 ## Arguments
 
 - `name` - name of the Aggregation
-- `currencyCode` - code of the currency to get the price in
+- `currencyCode` - currency code of the price
 - `ranges` - array of Range objects that define the borders of the specific range sets
 
 ## Example
