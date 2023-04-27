@@ -308,7 +308,6 @@ A Limitation to specify whether the user can modify an order.
 |Value|UI value|Description|
 |------|------|------|
 |"self"|"self"|Users can access only their own orders. |
-|"all"| none |Users can access all orders.|
 
 ## Owner Limitation
 
@@ -491,7 +490,6 @@ A Limitation to specify whether the user can modify a shipment.
 |Value|UI value|Description|
 |------|------|------|
 |"self"|"self"|Users can access only their own shipments. |
-|"all"| none |Users can access all shipments.|
 
 ## Subtree of Location Limitation
 
