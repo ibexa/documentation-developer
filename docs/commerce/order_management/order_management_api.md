@@ -1,5 +1,5 @@
 ---
-description: Use PHP API to manage orders in Commerce: find, get, create and update them.
+description: Use PHP API to manage orders in Commerce.
 edition: commerce
 ---
 
