@@ -19,7 +19,7 @@ framework:
                         primary_color: '#F4B65F'
                         secondary_color: '#FEEED9'
                 verified:
-:                    metadata:
+                    metadata:
                         label: 'order.status.label.verified'
                         translation_domain: 'order_management'
                         primary_color: '#2B6875'

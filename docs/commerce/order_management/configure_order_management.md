@@ -5,7 +5,7 @@ edition: commerce
 
 # Configure order processing
 
-When you work with your Commerce implementation, you can review and modify the order processing configuration.
+When you work with your Commerce implementation, you can modify and customize the order processing configuration.
 
 !!! note "Permissions" 
 
@@ -18,11 +18,12 @@ Each transition represents a separate order processing step.
 
 ### Default order processing configuration
 
-The default order workflow configuration is called `ibexa_order`, you can replace it with your custom workflow identifier if needed.
-
-To see the default workflow, in your project directory, navigate to the following file: `vendor/Ibexa/order-management/src/bundle/Resources/config/prepend.yaml`.
+The default order processing workflow is called `ibexa_order`. 
+To see the default workflow configuration, in your project directory, go to: `vendor/Ibexa/order-management/src/bundle/Resources/config/prepend.yaml`.
 
 The default workflow uses keys defined in `src/lib/Value/Status.php` file as place and transition names, for example, `PENDING_PLACE` translates into `pending`.
+
+You can replace the default workflow configuration with a custom one if needed.
 
 ### Custom order processing workflows
 
