@@ -264,8 +264,8 @@ See below for a detailed listing of permissions that apply to Commerce, together
 
 !!! note "Owner limitation"
 
-    For anonymous users, orders, shipments and/or payments are saved with a 'null'  user reference. 
-    Therefore, when you apply the 'Owner/self' limitation to any of the permissions below, anonymous users are not allowed to interact with any of these entities.
+    For anonymous users, orders, shipments, and/or payments are saved with a 'null' user reference. 
+    Therefore, when you apply the 'Owner/self' Limitation to any of the permissions below, anonymous users are not allowed to interact with any of these entities.
 
 ### Cart 
 
