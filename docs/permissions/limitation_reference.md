@@ -291,6 +291,24 @@ Object state.
 |------|------|------|
 |`<ObjectState_id>`|`<ObjectState_name>`|All valid Object state IDs can be set as value(s)|
 
+## OrderOwner Limitation
+
+A Limitation to specify whether the user can modify an order.
+
+|                 |                                                                  |
+|-----------------|------------------------------------------------------------------|
+| Identifier      | `OrderOwner`                                                     |
+| Value Class     | `Ibexa\OrderManagement\Security\Policy\Limitation\OrderOwner`    |
+| Type Class      | `Ibexa\OrderManagement\Security\Policy\Limitation\OrderOwnerType`| 
+| Criterion used  | n/a                                                              |
+| Role Limitation | no                                                               |
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|"self"|"self"|Users can access only their own orders. |
+
 ## Owner Limitation
 
 A Limitation to specify that only the owner of the Content item gets the selected 
@@ -360,7 +378,7 @@ A Limitation to specify whether the user can modify a payment.
 | Identifier      | `PaymentOwner`                                              |
 | Value Class     | `Ibexa\Payment\Security\Policy\Limitation\PaymentOwner`     |
 | Type Class      | `Ibexa\Payment\Security\Policy\Limitation\PaymentOwnerType` | 
-| Criterion used  | n/a                                                            |
+| Criterion used  | n/a                                                         |
 | Role Limitation | no                                                          |
 
 ### Possible values
@@ -454,6 +472,24 @@ by `user/login`.
 
 `SiteAccess` Limitation is deprecated and is not used actively in Public API, 
 but is allowed for being able to read / create Limitations for legacy.
+
+## ShipmentOwner Limitation
+
+A Limitation to specify whether the user can modify a shipment.
+
+|                 |                                                             |
+|-----------------|-------------------------------------------------------------|
+| Identifier      | `ShipmentOwner`                                             |
+| Value Class     | `Ibexa\Shipping\Security\Limitation\ShipmentOwner`          |
+| Type Class      | `Ibexa\Shipping\Security\Limitation\ShipmentOwnerType`      | 
+| Criterion used  | n/a                                                         |
+| Role Limitation | no                                                          |
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|"self"|"self"|Users can access only their own shipments. |
 
 ## Subtree of Location Limitation
 

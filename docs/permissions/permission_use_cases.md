@@ -297,6 +297,10 @@ interact with orders:
 - `order/update` - to allow the user to change status of an existing order 
 - `order/cancel` - to allow the user to cancel an existing order 
 
+To further control access to an order, you can use the `OrderOwner` Limitation 
+and set its value to `self`. 
+This way users can only interact with their own orders.
+
 ### Shipping management
 
 Set the following permissions to decide what actions are available when users 
@@ -315,6 +319,10 @@ interact with shipping methods and shipments.
 - `shipment/view` - to allow the user to view shipments
 - `shipment/update` - to allow the user to change status of an existing shipment 
 - `shipment/delete` - to allow the user to cancel an existing shipment 
+
+To further control access to a shipment, you can use the `ShipmentOwner` Limitation 
+and set its value to `self`. 
+This way users can only interact with their own shipments.
 
 ### Payment management
 
