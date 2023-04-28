@@ -45,6 +45,7 @@ Then reference it with `ibexa.repositories.<your_repository>.order_management.wo
 
 #### PIM integration
 
-By default, the component integration mechanism reduces product stock values when an order is confirmed and reverts it to the original value when an order is cancelled.
+By default, the component integration mechanism reduces product stock values when an order is made (in status "pending") and reverts it to the original value when an order is cancelled.
 In your implementation, you may want the reduction/restoration of stock to happen at other stages of the order fulfillment process.
-For this to happen, place the `reduce_stock: true` and/or `restore_stock: true` keys in other places of the workflow.
+For this to happen, place the `reduce_stock: true` and/or `restore_stock: true` keys in other places of the workflow. 
+Make sure that either of these keys is used only once.
