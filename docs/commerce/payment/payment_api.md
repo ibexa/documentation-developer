@@ -5,10 +5,6 @@ edition: commerce
 
 # Payment API
 
-!!! tip "Payment REST API"
-
-    To learn how to manage payments with the REST API, see the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#payment).
-
 To get payments and manage them, use the `Ibexa\Contracts\Payment\PaymentServiceInterface` interface.
 
 By default, UUID is used to generate payment identifiers. 

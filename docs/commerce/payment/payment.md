@@ -16,7 +16,6 @@ The component exposes the following:
 
 - [Payment method PHP API](payment_method_api.md) that allows for managing payment methods
 - [Payment PHP API](payment_api.md) that allows for managing payments
-- [REST API](../../api/rest_api/rest_api_reference/rest_api_reference.html#payment) for managing payment methods and payments over HTTP
 
 ### Services
 
