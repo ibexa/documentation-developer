@@ -58,8 +58,8 @@ A Limitation to specify whether the user can modify a cart.
 
 |Value|UI value|Description|
 |------|------|------|
-|"self"|"self"|Only the User who is the owner of the cart gets access|
-|`null`|"null"|User can access all carts|
+|"self"|"self"|Only the User who is the owner of the cart gets access.|
+|`null`| none |User can access all carts.|
 
 ## Change Owner Limitation
 
@@ -291,6 +291,24 @@ Object state.
 |------|------|------|
 |`<ObjectState_id>`|`<ObjectState_name>`|All valid Object state IDs can be set as value(s)|
 
+## OrderOwner Limitation
+
+A Limitation to specify whether the user can modify an order.
+
+|                 |                                                                  |
+|-----------------|------------------------------------------------------------------|
+| Identifier      | `OrderOwner`                                                     |
+| Value Class     | `Ibexa\OrderManagement\Security\Policy\Limitation\OrderOwner`    |
+| Type Class      | `Ibexa\OrderManagement\Security\Policy\Limitation\OrderOwnerType`| 
+| Criterion used  | n/a                                                              |
+| Role Limitation | no                                                               |
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|"self"|"self"|Users can access only their own orders. |
+
 ## Owner Limitation
 
 A Limitation to specify that only the owner of the Content item gets the selected 
@@ -350,6 +368,25 @@ permission.
 |Value|UI value|Description|
 |------|------|------|
 |`<int>`|`<int>`|All valid integers can be set as value(s)|
+
+## PaymentOwner Limitation
+
+A Limitation to specify whether the user can modify a payment.
+
+|                 |                                                             |
+|-----------------|-------------------------------------------------------------|
+| Identifier      | `PaymentOwner`                                              |
+| Value Class     | `Ibexa\Payment\Security\Policy\Limitation\PaymentOwner`     |
+| Type Class      | `Ibexa\Payment\Security\Policy\Limitation\PaymentOwnerType` | 
+| Criterion used  | n/a                                                         |
+| Role Limitation | no                                                          |
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|"self"|"self"|Users can access only their own payments. |
+|"all"| none |Users can access all payments.|
 
 ## Personalization access Limitation
 
@@ -436,6 +473,24 @@ by `user/login`.
 `SiteAccess` Limitation is deprecated and is not used actively in Public API, 
 but is allowed for being able to read / create Limitations for legacy.
 
+## ShipmentOwner Limitation
+
+A Limitation to specify whether the user can modify a shipment.
+
+|                 |                                                             |
+|-----------------|-------------------------------------------------------------|
+| Identifier      | `ShipmentOwner`                                             |
+| Value Class     | `Ibexa\Shipping\Security\Limitation\ShipmentOwner`          |
+| Type Class      | `Ibexa\Shipping\Security\Limitation\ShipmentOwnerType`      | 
+| Criterion used  | n/a                                                         |
+| Role Limitation | no                                                          |
+
+### Possible values
+
+|Value|UI value|Description|
+|------|------|------|
+|"self"|"self"|Users can access only their own shipments. |
+
 ## Subtree of Location Limitation
 
 A Limitation to specify if the User has access to content within a specific 
@@ -478,7 +533,7 @@ or unlock, on Content items that are in a workflow.
 | Value | UI value | Description |
 |------|------|------|
 | `userId` | "Assigned only" | Users can perform actions only on Content items that are assigned to them or not assigned to anybody. |
-| `null` | "none" | Users can perform actions on all drafts, regardless of the assignments or whether drafts are locked or not. |
+| `null` | none | Users can perform actions on all drafts, regardless of the assignments or whether drafts are locked or not. |
 
 ## Workflow Stage Limitation
 
