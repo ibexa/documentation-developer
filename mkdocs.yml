@@ -468,6 +468,28 @@ nav:
             - Price: search/criteria_reference/order_price_criterion.md
             - Source: search/criteria_reference/order_source_criterion.md
             - Status: search/criteria_reference/order_status_criterion.md
+        - Payment Search Criteria: 
+            - Payment Search Criteria: search/criteria_reference/payment_search_criteria.md
+            - CreatedAt: search/criteria_reference/payment_createdat_criterion.md
+            - Currency: search/criteria_reference/payment_currency_criterion.md
+            - Id: search/criteria_reference/payment_id_criterion.md
+            - Identifier: search/criteria_reference/payment_identifier_criterion.md
+            - LogicalAnd: search/criteria_reference/payment_logicaland_criterion.md
+            - LogicalOr: search/criteria_reference/payment_logicalor_criterion.md
+            - Order: search/criteria_reference/payment_order_criterion.md
+            - PaymentMethod: search/criteria_reference/payment_payment_method_criterion.md
+            - Status: search/criteria_reference/payment_status_criterion.md
+            - UpdatedAt: search/criteria_reference/payment_updatedat_criterion.md
+        - Payment Method Search Criteria: 
+            - Payment Method Search Criteria: search/criteria_reference/payment_method_search_criteria.md
+            - CreatedAt: search/criteria_reference/payment_method_createdat_criterion.md
+            - Enabled: search/criteria_reference/payment_method_enabled_criterion.md
+            - Id: search/criteria_reference/payment_method_id_criterion.md
+            - Identifier: search/criteria_reference/payment_method_identifier_criterion.md
+            - LogicalAnd: search/criteria_reference/payment_method_logicaland_criterion.md
+            - LogicalOr: search/criteria_reference/payment_method_logicalor_criterion.md
+            - Type: search/criteria_reference/payment_method_type_criterion.md
+            - UpdatedAt: search/criteria_reference/payment_method_updatedat_criterion.md
         - Shipment Search Criteria:
             - Shipment Search Criteria: search/criteria_reference/shipment_search_criteria.md
             - CreatedAt: search/criteria_reference/shipment_createdat_criterion.md
@@ -516,6 +538,20 @@ nav:
             - Created: search/sort_clause_reference/order_created_sort_clause.md
             - Updated: search/sort_clause_reference/order_updated_sort_clause.md
             - Status: search/sort_clause_reference/order_status_sort_clause.md
+        - Payment Sort Clauses:
+            - Payment Sort Clauses: search/sort_clause_reference/payment_sort_clauses.md
+            - Id: search/sort_clause_reference/payment_id_sort_clause.md
+            - Identifier: search/sort_clause_reference/payment_identifier_sort_clause.md
+            - CreatedAt: search/sort_clause_reference/payment_createdat_sort_clause.md
+            - UpdatedAt: search/sort_clause_reference/payment_updatedat_sort_clause.md
+            - Status: search/sort_clause_reference/payment_status_sort_clause.md
+        - Payment Method Sort Clauses:
+            - Payment Method Sort Clauses: search/sort_clause_reference/payment_method_sort_clauses.md
+            - CreatedAt: search/sort_clause_reference/payment_method_createdat_sort_clause.md
+            - Enabled: search/sort_clause_reference/payment_method_enabled_sort_clause.md
+            - Id: search/sort_clause_reference/payment_method_id_sort_clause.md
+            - Identifier: search/sort_clause_reference/payment_method_identifier_sort_clause.md
+            - UpdatedAt: search/sort_clause_reference/payment_method_updatedat_sort_clause.md
         - Shipment Sort Clauses:
             - Shipment Sort Clauses: search/sort_clause_reference/shipment_sort_clauses.md
             - Id: search/sort_clause_reference/shipment_id_sort_clause.md
