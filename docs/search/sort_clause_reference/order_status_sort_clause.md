@@ -15,10 +15,10 @@ The `Status` Sort Clause sorts search results by order status.
 
 ``` php
 $orderQuery = new OrderQuery(
-    null,
     $criteria,
     [
-        new Status(Status::SORT_ASC)
+        new \Ibexa\Contracts\OrderManagement\Value\Order\Query\SortClause\Status(
+            \Ibexa\Contracts\OrderManagement\Value\Order\Query\SortClause\Status::SORT_ASC)
     ]
 );
 ```

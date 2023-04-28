@@ -162,6 +162,7 @@ nav:
             - Page block attributes: content_management/pages/page_block_attributes.md
             - Page block validators: content_management/pages/page_block_validators.md
             - Create custom Page block: content_management/pages/create_custom_page_block.md
+            - React App page block: content_management/pages/react_app_block.md
         - Forms:
             - Forms: content_management/forms/forms.md
             - Form API: content_management/forms/form_api.md
@@ -316,7 +317,13 @@ nav:
             - Checkout API: commerce/checkout/checkout_api.md
         - Order management:
             - Order management: commerce/order_management/order_management.md
+            - Configure order processing: commerce/order_management/configure_order_management.md
             - Order management API: commerce/order_management/order_management_api.md
+        - Shipping management:
+            - Shipping management: commerce/shipping_management/shipping_management.md
+            - Configure shipment: commerce/shipping_management/configure_shipment.md
+            - Shipping method API: commerce/shipping_management/shipping_method_api.md
+            - Shipment API: commerce/shipping_management/shipment_api.md
         - Storefront:
             - Storefront: commerce/storefront/storefront.md
             - Configure Storefront: commerce/storefront/configure_storefront.md
@@ -483,6 +490,17 @@ nav:
             - LogicalOr: search/criteria_reference/payment_method_logicalor_criterion.md
             - Type: search/criteria_reference/payment_method_type_criterion.md
             - UpdatedAt: search/criteria_reference/payment_method_updatedat_criterion.md
+        - Shipment Search Criteria:
+            - Shipment Search Criteria: search/criteria_reference/shipment_search_criteria.md
+            - CreatedAt: search/criteria_reference/shipment_createdat_criterion.md
+            - Currency: search/criteria_reference/shipment_currency_criterion.md
+            - Id: search/criteria_reference/shipment_id_criterion.md
+            - Identifier: search/criteria_reference/shipment_identifier_criterion.md
+            - LogicalAnd: search/criteria_reference/shipment_logicaland_criterion.md
+            - LogicalOr: search/criteria_reference/shipment_logicalor_criterion.md
+            - ShippingMethod: search/criteria_reference/shipment_shipping_method_criterion.md
+            - StatusCriterion: search/criteria_reference/shipment_status_criterion.md
+            - UpdatedAtCriterion: search/criteria_reference/shipment_updatedat_criterion.md
         - Sort Clause reference:
             - Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
             - ContentId: search/sort_clause_reference/contentid_sort_clause.md
@@ -534,6 +552,13 @@ nav:
             - Id: search/sort_clause_reference/payment_method_id_sort_clause.md
             - Identifier: search/sort_clause_reference/payment_method_identifier_sort_clause.md
             - UpdatedAt: search/sort_clause_reference/payment_method_updatedat_sort_clause.md
+        - Shipment Sort Clauses:
+            - Shipment Sort Clauses: search/sort_clause_reference/shipment_sort_clauses.md
+            - Id: search/sort_clause_reference/shipment_id_sort_clause.md
+            - Identifier: search/sort_clause_reference/shipment_identifier_sort_clause.md
+            - CreatedAt: search/sort_clause_reference/shipment_createdat_sort_clause.md
+            - UpdatedAt: search/sort_clause_reference/shipment_updatedat_sort_clause.md
+            - Status: search/sort_clause_reference/shipment_status_sort_clause.md
         - Aggregation reference:
             - Aggregation reference: search/aggregation_reference/aggregation_reference.md
             - ContentTypeTermAggregation: search/aggregation_reference/contenttypeterm_aggregation.md
@@ -559,7 +584,12 @@ nav:
             - IntegerRangeAggregation: search/aggregation_reference/integerrange_aggregation.md
             - IntegerStatsAggregation: search/aggregation_reference/integerstats_aggregation.md
             - KeywordTermAggregation: search/aggregation_reference/keywordterm_aggregation.md
+            - Product attribute aggregations: search/aggregation_reference/product_attribute_aggregations.md
+            - ProductAvailabilityTermAggregation: search/aggregation_reference/productavailabilityterm_aggregation.md
+            - ProductPriceRangeAggregation: search/aggregation_reference/productpricerange_aggregation.md
+            - ProductTypeTermAggregation: search/aggregation_reference/producttypeterm_aggregation.md
             - SelectionTermAggregation: search/aggregation_reference/selectionterm_aggregation.md
+            - TaxonomyEntryIdAggregation: search/aggregation_reference/taxonomyentryid_aggregation.md
             - TimeRangeAggregation: search/aggregation_reference/timerange_aggregation.md
         - URL search reference:
             - URL search reference: search/url_search_reference/url_search_reference.md

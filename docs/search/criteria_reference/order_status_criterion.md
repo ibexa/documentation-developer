@@ -1,5 +1,5 @@
 ---
-description: Status Criterion
+description: Order Status Criterion
 edition: commerce
 ---
 
@@ -14,5 +14,7 @@ The `StatusCriterion` Search Criterion searches for orders based on order status
 ## Example
 
 ``` php
-$query->query = new Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\StatusCriterion('pending');
+$query = new OrderQuery(
+    new \Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\StatusCriterion('pending')
+);
 ```
