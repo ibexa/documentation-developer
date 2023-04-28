@@ -66,7 +66,7 @@ There you will see two possibilities **Customer Portal** and **Customer Portal P
 
 The first one is a separate Content Type used as a container for your Customer Portal pages.
 Customer Portals containers should be used to sort Customer Portal pages and any other Content Types used by them, such as articles, inside the root folder.
-We highly recommend that you use them instead of folders to divide and store your portals.
+It is recommended that you use them instead of folders to divide and store your portals.
 
 ![Create content tab](img/cp_portal_vs_page.png)
 
@@ -80,7 +80,18 @@ First, you need to grant the following permissions to company members from the C
 
 ![Customer Portal permissions](img/cp_permissions.png)
 
-Next, add portal mapping configuration in `config/services.yaml`:
+If members of the Customer Group don't have sufficient permissions for any Customer Portal assigned to them, they will be transferred to the default Customer Portal view.
+
+!!! note
+
+    Customer Portal is only available to users that are members of the company. Even if user has all the sufficient permissions but is not a meber of a company, they will not see the Customer Portal.
+
+### Build-in portal mapping
+
+The next step is only required if you are planning to separate your portals by customer groups.
+If you have no intention of doing that, you can skip it and move on to [Change Customer Portal layout.](#change-customer-portal-layout)
+
+To assign portals to Customer Groups add portal mapping configuration in `config/services.yaml`:
 
 ```yaml hl_lines="3 4"
 parameters:
@@ -98,11 +109,11 @@ There, you can specify which Customer Portals should be available to which Custo
 - Location remote ID of Customer Portal container or Customer Portal page. You can find it in the **Details** section.
 
 Portals will be displayed to the Customer Group in order specified in the configuration based on company member's permissions.
-If members of the defined Customer Group don't have sufficient permissions for any Customer Portal from the list, they will be transferred to the default Customer Portal view.
 
-!!! note
+### Custom portal mapping
 
-    Customer Portal is only available to users that are members of the company. Even if user has all the sufficient permissions but is not a meber of a company, they will not see the Customer Portal.
+You can specify your own custom logic for redirecting members to a specific Customer Portal.
+To do so, implement `\Ibexa\Contracts\CorporateAccount\CustomerPortal\PickRule\CustomerPortalPickRule` and tag it with `ibexa.corporate_account.customer_portal.pick_rule`.
 
 ## Change Customer Portal layout
 
