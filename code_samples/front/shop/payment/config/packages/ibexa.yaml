@@ -1,0 +1,39 @@
+ibexa:
+    repositories:
+        default: 
+            payment:
+                workflow: custom_payment_workflow
+
+
+framework:
+    workflows:
+        custom_payment_workflow:
+            type: state_machine
+            audit_trail:
+                enabled: "%kernel.debug%"
+            marking_store:
+                type: method
+                property: status
+            supports:
+                - Ibexa\Contracts\Payment\Payment\Workflow\WorkflowSubjectInterface
+            initial_marking: open
+            places:
+                open:
+                    metadata:
+                        label: ibexa.payment.workflow.place.open.label
+                        primary_color: '#F4B65F'
+                        secondary_color: '#FEEED9'
+                        translation_domain: ibexa_payment_workflow
+                paid:
+                    metadata:
+                        label: ibexa.payment.workflow.place.paid.label
+                        primary_color: '#2B6875'
+                        secondary_color: '#CCDBDE'
+                        translation_domain: ibexa_payment_workflow
+            transitions:
+                pay:
+                    from:
+                        - open
+                    to: paid
+                    metadata:
+                        exposed: false
