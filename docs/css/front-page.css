@@ -143,3 +143,113 @@ h5.tile-title {
 .announcement .btn-announcement:focus {
     background: #FFFFFF;
 }
+
+.info-tile {
+    height: 20vw;
+    width: 30vw;
+    max-width: 300px;
+    max-height: 270px;
+    border-radius: 5px;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    background: #af1164;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-wrap: break-word;
+    font-family: "Noto Sans"
+    line-height: 65px;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    margin:0.5%
+    text-align: center;
+
+  }
+
+  .info-tile:hover {
+    opacity:0.5;
+  }
+  
+  .info-tile-img {
+    position: absolute;
+    left: 52%;
+    top: 15%;
+    opacity: .4;
+    height: 10vw;
+    font-size:10vw;
+  }
+
+.info-tile-body ul {
+    padding-left: 0;
+    text-align: left;
+}
+
+.info-tile-body ul li {
+    list-style-type: none;
+    background: url(../images/page.svg) no-repeat left top;
+    background-size: 15px 18px;
+    padding-left: 1rem;
+    margin-left: 3rem;
+    margin-top: 0.25rem;
+    text-align: left;
+}
+
+.info-tile-title {
+    color: #ffffff;
+    font-family: "Noto Sans";
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 50px;
+    padding-left: 0;
+    text-align: center;
+}
+
+h5.info-tile-title {
+    color: #ffffff;
+    font-family: "Noto Sans";
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 50px;
+    padding-left: 0;
+    text-align: center;
+}
+
+.info-tile-icon {
+    margin-right: 0.6rem;
+}
+
+.instruction {
+    height: 80px;
+    border-radius: 5px;
+    background: #af1164;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-wrap: break-word;
+    font-family: "Noto Sans"
+    line-height: 65px;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    position: relative;
+    margin:0.5%
+    text-align: center;
+    box-sizing: border-box;
+    border: 1px solid #D4D4D4;
+    border-radius: 5px;
+    background-color: #af1164;
+    padding: 0.5rem 1.5rem 1rem 1rem;
+
+  }
+
+  .instruction-title {
+    color: #ffffff;
+    font-family: "Noto Sans";
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 50px;
+    padding-left: 0;
+    text-align: center;
+
+  }
