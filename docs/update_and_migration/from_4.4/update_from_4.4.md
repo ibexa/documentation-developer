@@ -99,9 +99,25 @@ composer run post-install-cmd
 ### Customer Portal
 
 If you are using Ibexa Experience or Ibexa Commerce,
-you can now run data migration required by the Customer Portal feature to finish the update process:
+you can now run data migration required by the Customer Portal and Commerce features to finish the update process:
+
+- Customer Portal:
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/customer_portal.yaml --name=2023_03_06_13_00_customer_portal.yaml
 php bin/console ibexa:migration:migrate --file=2023_03_06_13_00_customer_portal.yaml
+```
+
+- Corporate account — this migration allows all company members to shop in the frontend shop. If you have implemented business logic that depends on keeping company members out of the frontend shop, you can skip it:
+
+```bash
+php bin/console ibexa:migrations:import vendor/ibexa/storefront/src/bundle/Resources/migrations/2023_04_27_10_30_corporate_account.yaml --name=2023_04_27_10_30_corporate_account.yaml
+php bin/console ibexa:migration:migrate --file=2023_04_27_10_30_corporate_account.yaml
+```
+
+- Storefront user update:
+
+```bash
+php bin/console ibexa:migrations:import vendor/ibexa/storefront/src/bundle/Resources/migrations/2023_04_27_11_20_storefront_user_role_update.yaml --name=2023_04_27_11_20_storefront_user_role_update.yaml
+php bin/console ibexa:migration:migrate --file=2023_04_27_11_20_storefront_user_role_update.yaml
 ```
