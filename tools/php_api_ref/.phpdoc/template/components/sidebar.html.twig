@@ -10,7 +10,7 @@
             <section class="phpdocumentor-sidebar__category">
                 <h2 class="phpdocumentor-sidebar__category-header">{{ toc.name }}</h2>
                 {% for root in toc.roots %}
-                    {{ toc(root, 'components/menu.html.twig', 1) }}
+                    {{ toc(root, 'components/menu.html.twig', maxDepth) }}
                 {% endfor %}
             </section>
             {% endif %}
