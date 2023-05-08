@@ -62,8 +62,7 @@ Review the old YAML files and move your custom configuration to the relevant new
 
 ### Update the database
 
-Next, update the database if you are using Ibexa Commerce.
-Ibexa Content and Ibexa Experience do not require the database update.
+Next, update the database:
 
 [[% include 'snippets/update/db/db_backup_warning.md' %]]
 
@@ -72,13 +71,13 @@ Apply the following database update scripts:
 === "MySQL"
 
     ``` bash
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/commerce/ibexa-4.4.latest-to-4.5.0.sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa.4.4.latest-to-4.5.0.sql
     ```
 
 === "PostgreSQL"
 
     ``` bash
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/commerce/ibexa-4.4.latest-to-4.5.0.sql
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa.4.4.latest-to-4.5.0.sql
     ```
 
 #### Ibexa Open Source
