@@ -12,7 +12,7 @@ If you already configured Customer Portal, you can learn how to build it with a 
 
 First, you need to create a root folder for Customer Portals, 
 its `location_id` will be later specified in the configuration as [a tree root](multisite_configuration.md#location-tree).
-To do it, go to **Content**->**Content structure** and add a new folder in the Content tree where you will be adding Customer Portals.
+To do it, go to **Content** -> **Content structure**, and create folder in the Content tree where you will add Customer Portals.
 
 ![Customer Portals folder](img/cp_folder_for_portals.png)
 
@@ -20,8 +20,8 @@ To be able to see Customer Portal site in the Page Builder you need to add `cust
 First, go to `config/packages/ibexa.yaml` and add `custom_portal` to
 the SiteAccess `list` and to `corporate_group`.
 
-Next add configuration for `corporate_group` and `custom_portal` under `system`.
-Remember to specify `location_id` of the root folder for Customer Portals, you will find it under **Details**. 
+Next, add configuration for `corporate_group` and `custom_portal` under `system`.
+Remember to specify `location_id` of the root folder for Customer Portals, you can find it under the **Details** tab. 
 
 ```yaml hl_lines="8 12 14 16"
 ibexa:
@@ -70,7 +70,7 @@ It is recommended that you use them instead of folders to divide and store your 
 
 ![Create content tab](img/cp_portal_vs_page.png)
 
-## Assigning Portal to Customer Group
+## Assign Portal to Customer Group
 
 You can assign multiple Customer Portal containers or Pages to a specific Customer Group.
 First, you need to grant the following permissions to company members from the Customer Group: 
@@ -80,18 +80,18 @@ First, you need to grant the following permissions to company members from the C
 
 ![Customer Portal permissions](img/cp_permissions.png)
 
-If members of the Customer Group don't have sufficient permissions for any Customer Portal assigned to them, they will be transferred to the default Customer Portal view.
+If members of the Customer Group don't have sufficient permissions for any Customer Portal assigned to them, they will be redirected to the default Customer Portal view.
 
 !!! note
 
-    Customer Portal is only available to users that are members of the company. Even if user has all the sufficient permissions but is not a meber of a company, they will not see the Customer Portal.
+    Customer Portal is only available to users that are members of the company. Even if user has all the sufficient permissions but is not a member of a company, they won't see the Customer Portal.
 
 ### Build-in portal mapping
 
-The next step is only required if you are planning to separate your portals by customer groups.
-If you have no intention of doing that, you can skip it and move on to [Change Customer Portal layout.](#change-customer-portal-layout)
+The next step is only required if you plan to separate your portals by customer groups.
+If you don't plan it, skip this step and move on to [Change Customer Portal layout.](#change-customer-portal-layout)
 
-To assign portals to Customer Groups add portal mapping configuration in `config/services.yaml`:
+To assign portals to Customer Groups, add portal mapping configuration in `config/services.yaml`:
 
 ```yaml hl_lines="3 4"
 parameters:
