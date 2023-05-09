@@ -71,13 +71,14 @@ Apply the following database update scripts:
 === "MySQL"
 
     ``` bash
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa.4.4.latest-to-4.5.0.sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.4.latest-to-4.5.0.sql
+
     ```
 
 === "PostgreSQL"
 
     ``` bash
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa.4.4.latest-to-4.5.0.sql
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.4.latest-to-4.5.0.sql
     ```
 
 #### Ibexa Open Source
@@ -119,4 +120,18 @@ php bin/console ibexa:migration:migrate --file=2023_04_27_10_30_corporate_accoun
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/storefront/src/bundle/Resources/migrations/2023_04_27_11_20_storefront_user_role_update.yaml --name=2023_04_27_11_20_storefront_user_role_update.yaml
 php bin/console ibexa:migration:migrate --file=2023_04_27_11_20_storefront_user_role_update.yaml
+```
+
+- Shipment permissions:
+
+```bash
+php bin/console ibexa:migrations:import vendor/ibexa/shipping/src/bundle/Resources/install/migrations/shipment_permissions.yaml --name=shipment_permissions.yaml
+php bin/console ibexa:migration:migrate --file=shipment_permissions.yaml
+```
+
+- Order permissions:
+
+```bash
+php bin/console ibexa:migrations:import vendor/ibexa/order-management/src/bundle/Resources/install/migrations/order_permissions.yaml --name=order_permissions.yaml
+php bin/console ibexa:migration:migrate --file=order_permissions.yaml
 ```
