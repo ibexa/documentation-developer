@@ -68,6 +68,8 @@ The first one is a separate Content Type used as a container for your Customer P
 Customer Portals containers should be used to sort Customer Portal pages and any other Content Types used by them, such as articles, inside the root folder.
 It is recommended that you use them instead of folders to divide and store your portals.
 
+If your project requires it, the Customer Portal container can be defined as a root folder in the configuration.
+
 ![Create content tab](img/cp_portal_vs_page.png)
 
 ## Assign Portal to Customer Group
