@@ -122,6 +122,13 @@ php bin/console ibexa:migrations:import vendor/ibexa/storefront/src/bundle/Resou
 php bin/console ibexa:migration:migrate --file=2023_04_27_11_20_storefront_user_role_update.yaml
 ```
 
+- Corporate access role update:
+
+```bash
+php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/2023_05_09_12_40_corporate_access_role_update.yaml --name=2023_05_09_12_40_corporate_access_role_update.yaml
+php bin/console ibexa:migration:migrate --file=2023_05_09_12_40_corporate_access_role_update.yaml
+```
+
 - Shipment permissions:
 
 ```bash
