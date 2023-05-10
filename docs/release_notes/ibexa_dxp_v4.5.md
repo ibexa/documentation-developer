@@ -6,7 +6,7 @@ description: Ibexa DXP v4.5 adds new features to Ibexa Commerce, translation com
 
 **Version number**: v4.5
 
-**Release date**: April 27, 2023
+**Release date**: May 11, 2023
 
 **Release type**: [Fast Track](https://support.ibexa.co/Public/service-life)
 
@@ -82,7 +82,7 @@ Now, when you compare different versions within the same language, the system hi
 
 ![Translation comparison](img/4.5_comparison_view.png "Translation comparison")
 
-For more information, see [Translation comparison](https://doc.ibexa.co/projects/userguide/en/master/content_management/translate_content/#translation-comparison).
+For more information, see [Translation comparison](https://doc.ibexa.co/projects/userguide/en/4.5/content_management/translate_content/#translation-comparison).
 
 ### Page Builder for B2B portals [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
@@ -92,11 +92,14 @@ Additionally, you can assign each customer group to a specific Customer Portal o
 
 ![Page Builder for B2B portals](img/4.5_page_builder_b2b.png "Page Builder for B2B portals")
 
+For more information, see [backend configuration](https://doc.ibexa.co/en/4.5/customer_management/cp_page_builder/)
+and [user guide](https://doc.ibexa.co/projects/userguide/en/4.5/customer_management/build_customer_portal/) on how to create and edit Customer Portals.
+
 ### Personalization improvements
 
 #### New B2B models in Personalization engine
 
-Personalization engine introduces two new types of models: [last clicked and last purchased B2B, and B2B recurring purchase models](https://doc.ibexa.co/projects/userguide/en/master/personalization/recommendation_models/#b2b-model), dedicated to B2B users.
+Personalization engine introduces two new types of models: [last clicked and last purchased B2B, and B2B recurring purchase models](https://doc.ibexa.co/projects/userguide/en/4.5/personalization/recommendation_models/#b2b-model), dedicated to B2B users.
 Built on the fly, and based on segment groups, the models return actual items clicked by users with the same segment ID and actual bought items.
 B2B recurring purchase model anticipates and predicts purchase of products that were bought recursively within the same segment ID.
 
@@ -195,7 +198,7 @@ The new [TaxonomyEntryIdAggregation](https://doc.ibexa.co/en/4.5/search/aggregat
 You can now enhance password security with a setting that prevents using passwords that have been exposed in a public breach.
 To do it, the system checks the password against known password dumps by using the https://haveibeenpwned.com/ API.
 
-See [Breached passwords](https://doc.ibexa.co/en/master/users/user_management/#breached-passwords) for more information.
+See [Breached passwords](https://doc.ibexa.co/en/4.5/users/user_management/#breached-passwords) for more information.
 
 ### Ibexa Connect
 
