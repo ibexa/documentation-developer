@@ -6,7 +6,7 @@
 }
 
 .front-page a {
-    color: var(--link);
+    color: black;
 }
 
 .front-page a:hover,
@@ -157,14 +157,7 @@ h5.tile-title {
     text-overflow: ellipsis;
     overflow: hidden;
     word-wrap: break-word;
-    font-family: "Noto Sans"
-    line-height: 65px;
-    color: white;
-    font-weight: bold;
-    position: relative;
-    margin:0.5%
-    text-align: center;
-
+    font-family: "Noto Sans";
   }
 
   .info-tile:hover {
@@ -219,31 +212,33 @@ h5.info-tile-title {
     margin-right: 0.6rem;
 }
 
-.instruction {
-    height: 80px;
+a.instruction-tile {
+    display: inline-flex;
+    align-items: center;
+    height: 150px;
+    width: 287px;
+    max-width: 287px;
+    max-height: 90px;
     border-radius: 5px;
+    padding-left: 1vw;
+    padding-right: 1vw;
     background: #af1164;
-    display: inline-block;
     text-overflow: ellipsis;
     overflow: hidden;
     word-wrap: break-word;
-    font-family: "Noto Sans"
-    line-height: 65px;
+    font-family: "Noto Sans";
     color: white;
     font-weight: bold;
-    font-size: 12px;
     position: relative;
-    margin:0.5%
+    margin:0.5%;
     text-align: center;
-    box-sizing: border-box;
-    border: 1px solid #D4D4D4;
-    border-radius: 5px;
-    background-color: #af1164;
-    padding: 0.5rem 1.5rem 1rem 1rem;
+    margin-top: 8px;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
 
-  }
-
-  .instruction-title {
+.instruction-tile-title {
     color: #ffffff;
     font-family: "Noto Sans";
     font-size: 18px;
@@ -252,4 +247,36 @@ h5.info-tile-title {
     padding-left: 0;
     text-align: center;
 
-  }
+}
+
+a.instruction-tile:hover {
+  opacity:0.5;
+  color: white;
+}
+
+.instruction-tile-icon {
+    margin-right: 0.6rem;
+    margin-top: 0px;
+}
+
+.instruction-tile-title {
+    color: #ffffff;
+    font-family: "Noto Sans";
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 50px;
+    padding-left: 0;
+    text-align: center;
+}
+
+.instruction-tile-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    background: white;
+    border-radius: 100%;
+    color: #af1164;
+    margin-bottom: 10px;
+}

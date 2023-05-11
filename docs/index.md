@@ -5,12 +5,37 @@
     <div class="row mt-5">
         <div class="col-lg-12 mb-5 latest-release">
             <h5>
+                Let's start!
+            </h5>
+        </div>              
+    </div>
+    <div>
+    <div class="row">
+        <div class="col-lg px-2 px-lg-4">
+            <a href="getting_started/requirements/" class="instruction-tile" >
+                <span class="instruction-tile-number">1</span>Check the requirements
+            </a>
+            <a href="getting_started/install_ibexa_dxp/" class="instruction-tile" >
+                <span class="instruction-tile-number">2</span>Install Ibexa DXP
+            </a>
+            <a href="getting_started/install_on_ibexa_cloud/" class="instruction-tile" >
+                <span class="instruction-tile-number">3</span>Install on Ibexa Cloud
+            </a>
+             <a href="getting_started/first_steps/" class="instruction-tile" >
+                <span class="instruction-tile-number">4</span>Go through the First steps
+            </a>
+        </div>
+    </div>
+</div>
+    <div class="row mt-5">
+        <div class="col-lg-12 mb-5 latest-release">
+            <h5>
                 The latest release
                 <span class="pill">v4.5</span>
             </h5>
             <div class="row mt-3">
                 <div class="col-lg-12">
-                    The <a href="release_notes/ibexa_dxp_v4.5/">latest version of Ibexa DXP is v4.5</a>. Check out what is new! 
+                    The <a href="release_notes/ibexa_dxp_v4.5/" style="font-weight: bold";>latest version of Ibexa DXP is v4.5</a>. Check out what is new! 
                 </div>
             </div>
         </div>              
@@ -43,13 +68,13 @@
                             <svg class="tile-icon align-middle" width="32" height="32">
                                 <use fill="var(--ibexa-jazzberry)" xlink:href="images/ez-icons.svg#publish"></use>
                             </svg>
-                            Installation
+                            Tutorials
                         </h5>
                         <div class="tile-body">
                             <ul>
-                                <li><a href="getting_started/requirements/">Requirements</a></li>
-                                <li><a href="getting_started/install_ibexa_dxp/">Install Ibexa DXP</a></li>
-                                <li><a href="getting_started/first_steps/">First steps</a></li>
+                                <li><a href="tutorials/beginner_tutorial/beginner_tutorial/" >Beginner tutorial</a></li>
+                                <li><a href="tutorials/page_and_form_tutorial/page_and_form_tutorial/">Page and Form tutorial</a></li>
+                                <li><a href="tutorials/generic_field_type/creating_a_point2d_field_type/">Generic Field Type tutorial</a></li>
                             </ul>
                         </div>
                     </div>
@@ -90,9 +115,9 @@
                         </h5>
                     <div class="tile-body">
                         <ul>
-                            <li><a href="/administration/admin_panel/">Admin panel</a></li>
-                            <li><a href="/administration/configuration/configuration/">Configuration</a></li>
-                            <li><a href="/administration/back_office/back_office/">Back office</a></li>
+                            <li><a href="administration/admin_panel/admin_panel/">Admin panel</a></li>
+                            <li><a href="administration/configuration/configuration/">Configuration</a></li>
+                            <li><a href="administration/back_office/back_office/">Back Office</a></li>
                         </ul>
                     </div>
                 </div>
@@ -123,9 +148,9 @@
                 <div class = "info-tile-title">Content management</div>
                 <div class="info-tile-body">
                         <ul>
-                            <li><a href="content_management/content_model/" style="color: black;">Content model</a></li>
-                            <li><a href="content_management/file_management/file_management/" style="color: black;">File management</a></li>
-                            <li><a href="content_management/pages/pages/" style="color: black;">Pages</a></li>
+                            <li><a href="content_management/content_model/" style="color: white;">Content model</a></li>
+                            <li><a href="content_management/file_management/file_management/" style="color: white;">File management</a></li>
+                            <li><a href="content_management/pages/pages/" style="color: white;">Pages</a></li>
                         </ul>
                 </div>
             </div>
@@ -136,9 +161,9 @@
                 <div class = "info-tile-title">Product management</div>
                 <div class="info-tile-body">
                         <ul>
-                            <li><a href="pim/pim_configuration/" style="color: black;">PIM configuration</a></li>
-                            <li><a href="pim/catalogs/" style="color: black;">Catalogs</a></li>
-                            <li><a href="pim/prices/" style="color: black;">Prices</a></li>
+                            <li><a href="pim/pim_configuration/" style="color: white;">PIM configuration</a></li>
+                            <li><a href="pim/catalogs/" style="color: white;">Catalogs</a></li>
+                            <li><a href="pim/prices/" style="color: white;">Prices</a></li>
                         </ul>
                 </div>
             </div>
@@ -149,9 +174,9 @@
                 <div class = "info-tile-title">Customer management</div>
                 <div class="info-tile-body">
                         <ul>
-                            <li><a href="customer_management/customer_portal/" style="color: black;">Customer portal</a></li>
-                            <li><a href="customer_management/cp_configuration/" style="color: black;">Configuration</a></li>
-                            <li><a href="customer_management/create_user_registration_form/" style="color: black;">Registration form</a></li>
+                            <li><a href="customer_management/customer_portal/" style="color: white;">Customer portal</a></li>
+                            <li><a href="customer_management/cp_configuration/" style="color: white;">Configuration</a></li>
+                            <li><a href="customer_management/create_user_registration_form/" style="color: white;">Registration form</a></li>
                         </ul>
                 </div>
             </div>
@@ -162,9 +187,9 @@
                 <div class = "info-tile-title">User management</div>
                 <div class="info-tile-body">
                         <ul>
-                            <li><a href="users/users/" style="color: black;">Users</a></li>
-                            <li><a href="users/user_management/" style="color: black;">Users management</a></li>
-                            <li><a href="users/login_and_registration/" style="color: black;">Registration</a></li>
+                            <li><a href="users/users/" style="color: white;">Users</a></li>
+                            <li><a href="users/user_management/" style="color: white;">Users management</a></li>
+                            <li><a href="users/login_and_registration/" style="color: white;">Registration</a></li>
                         </ul>
                 </div>
             </div>
