@@ -220,6 +220,6 @@ Deprecations:
 
 ## Full changelog
 
-| Ibexa Content          | Ibexa Experience          | Ibexa Commerce          |
-|------------------------|---------------------------|-------------------------|
-| [Ibexa Content v4.5]() | [Ibexa Experience v4.5]() | [Ibexa Commerce v4.5]() |
+| Ibexa Content | Ibexa Experience | Ibexa Commerce|
+|---------------|------------------|---------------|
+| [Ibexa Content v4.5](https://github.com/ibexa/content/releases/tag/v4.5.0) | [Ibexa Experience v4.5](https://github.com/ibexa/experience/releases/tag/v4.5.0) | [Ibexa Commerce v4.5](https://github.com/ibexa/commerce/releases/tag/v4.5.0) |
