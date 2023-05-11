@@ -83,8 +83,57 @@ Apply the following database update scripts:
 
 #### Ibexa Open Source
 
-If you have no access to Ibexa DXP's `ibexa/installer` package, database upgrade is not necessary.
+If you have no access to Ibexa DXP's `ibexa/installer` package, apply the following database update:
 
+=== "MySQL"
+
+    ``` sql
+    CREATE TABLE ibexa_token_type
+    (
+        id int(11) NOT NULL AUTO_INCREMENT,
+        identifier varchar(64) NOT NULL,
+        PRIMARY KEY (id),
+        UNIQUE KEY ibexa_token_type_unique (identifier)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+    
+    CREATE TABLE ibexa_token
+    (
+        id int(11) NOT NULL AUTO_INCREMENT,
+        type_id int(11) NOT NULL,
+        token varchar(255) NOT NULL,
+        identifier varchar(128) DEFAULT NULL,
+        created int(11) NOT NULL DEFAULT 0,
+        expires int(11) NOT NULL DEFAULT 0,
+        PRIMARY KEY (id),
+        UNIQUE KEY ibexa_token_unique (token,identifier,type_id),
+        CONSTRAINT ibexa_token_type_id_fk
+            FOREIGN KEY (type_id) REFERENCES ibexa_token_type (id)
+                ON DELETE CASCADE
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    CREATE TABLE ibexa_token_type
+    (
+        id serial PRIMARY KEY,
+        identifier varchar(64) NOT NULL
+    );
+    
+    CREATE TABLE ibexa_token
+    (
+        id serial PRIMARY KEY,
+        type_id int NOT NULL
+            CONSTRAINT ibexa_token_type_id_fk
+                REFERENCES ibexa_token_type (id)
+                ON DELETE CASCADE,
+        token varchar(255) NOT NULL,
+        identifier varchar(128) DEFAULT NULL,
+        created int NOT NULL DEFAULT 0,
+        expires int NOT NULL DEFAULT 0
+    );
+    ```
 
 ## Finish code update
 
