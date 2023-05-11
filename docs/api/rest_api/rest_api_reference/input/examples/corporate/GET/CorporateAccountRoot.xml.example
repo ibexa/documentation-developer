@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CorporateAccountRoot media-type="application/vnd.ibexa.api.CorporateAccountRoot+xml">
+  <link media-type="application/vnd.ibexa.api.CompaniesList+xml" rel="ca-companies" href="/api/ibexa/v2/corporate/companies"/>
+  <link media-type="application/vnd.ibexa.api.ContentTypeGroup+xml" rel="ca-types" href="/api/ibexa/v2/content/typegroups?identifier=corporate_account"/>
+  <link media-type="application/vnd.ibexa.api.ContentType+xml" rel="ca-types-company" href="/api/ibexa/v2/content/types/48"/>
+  <link media-type="application/vnd.ibexa.api.ContentType+xml" rel="ca-types-member" href="/api/ibexa/v2/content/types/47"/>
+  <link media-type="application/vnd.ibexa.api.ContentType+xml" rel="ca-types-address" href="/api/ibexa/v2/content/types/49"/>
+  <link media-type="application/vnd.ibexa.api.Role+xml" rel="ca-role-admin" href="/api/ibexa/v2/user/roles/14"/>
+  <link media-type="application/vnd.ibexa.api.Role+xml" rel="ca-role-buyer" href="/api/ibexa/v2/user/roles/15"/>
+</CorporateAccountRoot>

@@ -1,4 +1,18 @@
 displayName: Corporate Account
+get:
+    displayName: Root Resource
+    description: |
+        Provides basic information about Corporate Account endpoints and configuration
+    responses:
+        200:
+            description: List of Link objects to specific Corporate Account REST resources
+            body:
+                application/vnd.ibexa.api.CorporateAccountRoot+xml:
+                    type: CorporateAccountRoot
+                    example: !include examples/corporate/GET/CorporateAccountRoot.xml.example
+                application/vnd.ibexa.api.CorporateAccountRoot+json:
+                    type: CorporateAccountRoot
+                    example: !include examples/corporate/GET/CorporateAccountRoot.json.example
 
 /companies:
     get:

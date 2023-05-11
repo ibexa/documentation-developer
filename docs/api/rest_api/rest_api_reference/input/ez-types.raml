@@ -3440,6 +3440,22 @@ OrderItemProduct:
         name:
             type: string
 
+CorporateAccountRoot:
+    description: 'This class represents Corporate Account Root resource information'
+    type: object
+    properties:
+        link:
+            type: Link[]
+
+Link:
+    description: 'This class represents REST resource information'
+    type: BaseObject
+    properties:
+        rel:
+            description: 'Unique identifer of a resource'
+            type: string
+
+
 Company:
     description: 'This class represents a company.'
     type: object
