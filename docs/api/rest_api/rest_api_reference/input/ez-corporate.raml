@@ -20,10 +20,44 @@ get:
         description: |
             Returns paginated list of available companies
         queryParameters:
-            type:
-                description: Accepts limit and offset parameters for pagination. Supports sorting and filtering.
+            filter:
+                type: string
+                description: |
+                    An array-shaped string representing filtering Criterion. Supported Criteria:
+                    | Criterion | Example |
+                    | --------- | ------- |
+                    | Creation date | `filter[DateMetadataCriterion][Target]=created&filter[DateMetadataCriterion][Value]=1679493636&filter[DateMetadataCriterion][Operator]=gte` |
+                    | Updated date | `filter[DateMetadataCriterion][Target]=modified&filter[DateMetadataCriterion][Value]=1679493636&filter[DateMetadataCriterion][Operator]=gte` |
+                    | Company Name | `filter[CompanyNameCriterion][Operator]=contains&filter[CompanyNameCriterion][Value]=Ibexa` |
+                    | salesRep (id) | `filter[Field][name]=sales_rep&filter[Field][operator]=eq&filter[Field][value]=122` |
+                    | contact (id) | `filter[Field][name]=contact&filter[Field][operator]=eq&filter[Field][value]=74` |
+            sort:
+                type: string
+                description: |
+                    An array-shaped string representing sorting clauses. Supported Clauses:
+                    | Clause | Example |
+                    | ------ | ------- |
+                    | By Content (Company) name | `sort[ContentName]=ascending` |
+                    | By publication date | `sort[DatePublished]=descending` |
+                    | By modification date | `sort[DateModified]=ascending` |
+            offset:
+                description: The offset of the result set.
+                type: integer
+                default: 0
+            limit:
+                description: The number of returned Companies.
+                type: integer
+                default: 25
+        headers:
+            Accept:
+                description: if set, helps to determine response format
+                example: |
+                    application/vnd.ibexa.api.CompanyList+xml
+                    application/vnd.ibexa.api.CompanyList+json
+
         responses:
             200:
+                description: CompanyList containing Company objects
                 body:
                     application/vnd.ibexa.api.CompanyList+xml:
                         type: CompanyList
@@ -32,10 +66,11 @@ get:
                         type: CompanyList
                         example: !include examples/corporate/companies/GET/CompanyList.json.example
             400:
+                description: Returned when invalid Criterion or Sort clause is used
                 body:
                     application/vnd.ibexa.api.ErrorMessage:
                         type: ErrorMessage
-                        description: Returned when invalid Criterion or Sort clause is used
+
     post:
         displayName: Create a company
         description:
@@ -156,8 +191,36 @@ get:
                 description: |
                     Returns paginated list of a given company members
                 queryParameters:
-                    type:
-                        description: Accepts limit and offset parameters for pagination. Supports sorting and filtering.
+                    filter:
+                        description: |
+                            An array-shaped string representing filtering Criterion. Supported Criteria:
+                            | Criterion | Example |
+                            | --------- | ------- |
+                            | Creation date | `filter[DateMetadataCriterion][Target]=created&filter[DateMetadataCriterion][Value]=1679493636&filter[DateMetadataCriterion][Operator]=gte` |
+                            | Updated date | `filter[DateMetadataCriterion][Target]=modified&filter[DateMetadataCriterion][Value]=1679493636&filter[DateMetadataCriterion][Operator]=gte` |
+                        type: array
+                    sort:
+                        description: |
+                            An array-shaped string representing sorting clauses. Supported Clauses:
+                            | Clause | Example |
+                            | ------ | ------- |
+                            | By Content (Member) name | `sort[ContentName]=ascending` |
+                            | By Member account creation date | `sort[DatePublished]=descending` |
+                            | By Member account modification date | `sort[DateModified]=ascending` |
+                    offset:
+                        description: The offset of the result set.
+                        type: integer
+                        default: 0
+                    limit:
+                        description: The number of returned Members.
+                        type: integer
+                        default: 25
+                headers:
+                    Accept:
+                        description: if set, helps to determine response format
+                        example: |
+                            application/vnd.ibexa.api.MemberList+xml
+                            application/vnd.ibexa.api.MemberList+json
                 responses:
                     200:
                         body:
