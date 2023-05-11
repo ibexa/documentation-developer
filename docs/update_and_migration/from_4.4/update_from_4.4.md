@@ -1,4 +1,4 @@
---
+---
 description: Update your installation to the latest v4.5 version from v4.4.x.
 ---
 
