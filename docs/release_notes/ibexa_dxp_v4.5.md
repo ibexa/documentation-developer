@@ -6,7 +6,7 @@ description: Ibexa DXP v4.5 adds new features to Ibexa Commerce, translation com
 
 **Version number**: v4.5
 
-**Release date**: May 11, 2023
+**Release date**: May 12, 2023
 
 **Release type**: [Fast Track](https://support.ibexa.co/Public/service-life)
 
