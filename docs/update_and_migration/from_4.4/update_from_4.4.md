@@ -60,7 +60,7 @@ First, run:
 The `recipes:install` command installs new YAML configuration files.
 Review the old YAML files and move your custom configuration to the relevant new files.
 
-### Define base unit in configuration
+### Define measurement base unit in configuration
 
 If your installation has defined measurement units in the configuration,
 you need to specify one of them as base unit in the `config/packages/ibexa_measurement.yaml` file:
