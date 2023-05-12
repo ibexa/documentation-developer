@@ -72,6 +72,9 @@ ibexa_measurement:
             my_unit: { symbol: my, is_base_unit: true }
 ```
 
+Next, add unit conversion to `src/bundle/Resources/config/services/conversion.yaml`. 
+For more information, see [Modify and add Measurement types and units](measurementfield.md#modify-and-add-measurement-types-and-units).
+
 ### Update the database
 
 Next, update the database:
