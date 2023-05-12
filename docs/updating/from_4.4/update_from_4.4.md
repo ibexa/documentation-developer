@@ -73,7 +73,7 @@ ibexa_measurement:
 ```
 
 Next, add unit conversion to `src/bundle/Resources/config/services/conversion.yaml`. 
-For more information, see [Modify and add Measurement types and units](measurementfield.md#modify-and-add-measurement-types-and-units).
+For more information, see [Modify and add Measurement types and units](https://doc.ibexa.co/en/4.5/content_management/field_types/field_type_reference/measurementfield/#modify-and-add-measurement-types-and-units).
 
 ### Update the database
 
