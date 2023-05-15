@@ -1,0 +1,51 @@
+{
+    "CompanyCreate": {
+        "fields": {
+            "field": [
+                {
+                    "fieldDefinitionIdentifier": "active",
+                    "fieldValue": true
+                },
+                {
+                    "fieldDefinitionIdentifier": "name",
+                    "fieldValue": "Ibexa Sp. z o. o."
+                },
+                {
+                    "fieldDefinitionIdentifier": "vat",
+                    "fieldValue": "123 456 789"
+                },
+                {
+                    "fieldDefinitionIdentifier": "website",
+                    "fieldValue": "https://ibexa.co"
+                },
+                {
+                    "fieldDefinitionIdentifier": "customer_group",
+                    "fieldValue": {
+                        "customer_group_id": 1
+                    }
+                },
+                {
+                    "fieldDefinitionIdentifier": "sales_rep",
+                    "fieldValue": {
+                        "destinationContentId": 14
+                    }
+                },
+                {
+                    "fieldDefinitionIdentifier": "billing_address",
+                    "fieldValue": {
+                        "name": "HQ",
+                        "country": "PL",
+                        "fields": {
+                            "region": "Silesia",
+                            "locality": "Katowice",
+                            "street": "Gliwicka 6/5",
+                            "postal_code": "40-079",
+                            "email": "company@email.invalid",
+                            "phone_number": "+48 000 000 000"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
