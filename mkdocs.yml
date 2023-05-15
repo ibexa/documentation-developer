@@ -12,6 +12,7 @@ nav:
         - Install Ibexa DXP: getting_started/install_ibexa_dxp.md
         - Install on Ibexa Cloud: getting_started/install_on_ibexa_cloud.md
         - Install on MacOS and Windows: getting_started/install_on_mac_os_and_windows.md
+        - Install using DDEV: getting_started/install_using_ddev.md
         - First steps: getting_started/first_steps.md
         - Troubleshooting: getting_started/troubleshooting.md
     - Tutorials:
