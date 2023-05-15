@@ -43,6 +43,12 @@ and [shipping method PHP API](https://doc.ibexa.co/en/master/commerce/shipping_m
 ### New Page blocks
 
 - [React app Page block](https://doc.ibexa.co/en/master/content_management/pages/react_app_block/)
+- [Bestsellers block](https://doc.ibexa.co/projects/userguide/en/master/content_management/block_reference/#bestsellers-block)
+
+### Others
+
+- [Translation comparison](https://doc.ibexa.co/projects/userguide/en/master/content_management/translate_content/#translation-comparison)
+- [Managing Segments](https://doc.ibexa.co/projects/userguide/en/master/personalization/segment_management/)
 
 ## March 2023
 
