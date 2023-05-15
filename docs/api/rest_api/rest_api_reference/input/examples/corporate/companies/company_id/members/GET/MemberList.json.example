@@ -1,0 +1,400 @@
+{
+    "MemberList": {
+        "_media-type": "application\/vnd.ibexa.api.MemberList+json",
+        "_href": "\/api\/ibexa\/v2\/corporate\/companies\/139\/members",
+        "members": [
+            {
+                "_media-type": "application\/vnd.ibexa.api.Member+json",
+                "_href": "\/api\/ibexa\/v2\/corporate\/companies\/139\/members\/144",
+                "id": 144,
+                "name": "Jay Kowalski",
+                "Company": {
+                    "_media-type": "application\/vnd.ibexa.api.Company+json",
+                    "id": 139,
+                    "name": "Ibexa Sp. z o. o.",
+                    "Content": {
+                        "_media-type": "application\/vnd.ibexa.api.Content+json",
+                        "_href": "\/api\/ibexa\/v2\/content\/objects\/139",
+                        "_remoteId": "b16d06d4c5ba7c37b26fa167b551dfc2",
+                        "_id": 139,
+                        "ContentType": {
+                            "_media-type": "application\/vnd.ibexa.api.ContentType+json",
+                            "_href": "\/api\/ibexa\/v2\/content\/types\/48"
+                        },
+                        "Name": "Ibexa Sp. z o. o.",
+                        "TranslatedName": "Ibexa Sp. z o. o.",
+                        "Versions": {
+                            "_media-type": "application\/vnd.ibexa.api.VersionList+json",
+                            "_href": "\/api\/ibexa\/v2\/content\/objects\/139\/versions"
+                        },
+                        "CurrentVersion": {
+                            "_media-type": "application\/vnd.ibexa.api.Version+json",
+                            "_href": "\/api\/ibexa\/v2\/content\/objects\/139\/currentversion",
+                            "Version": {
+                                "_media-type": "application\/vnd.ibexa.api.Version+json",
+                                "_href": "\/api\/ibexa\/v2\/content\/objects\/139\/versions\/6",
+                                "VersionInfo": {
+                                    "id": 677,
+                                    "versionNo": 6,
+                                    "status": "PUBLISHED",
+                                    "modificationDate": "2023-04-28T16:10:13+02:00",
+                                    "Creator": {
+                                        "_media-type": "application\/vnd.ibexa.api.User+json",
+                                        "_href": "\/api\/ibexa\/v2\/user\/users\/14"
+                                    },
+                                    "creationDate": "2023-04-28T16:10:13+02:00",
+                                    "initialLanguageCode": "eng-GB",
+                                    "languageCodes": "eng-GB",
+                                    "VersionTranslationInfo": {
+                                        "_media-type": "application\/vnd.ibexa.api.VersionTranslationInfo+json",
+                                        "Language": [
+                                            {
+                                                "languageCode": "eng-GB"
+                                            }
+                                        ]
+                                    },
+                                    "names": {
+                                        "value": [
+                                            {
+                                                "_languageCode": "eng-GB",
+                                                "#text": "Ibexa Sp. z o. o."
+                                            }
+                                        ]
+                                    },
+                                    "Content": {
+                                        "_media-type": "application\/vnd.ibexa.api.ContentInfo+json",
+                                        "_href": "\/api\/ibexa\/v2\/content\/objects\/139"
+                                    }
+                                },
+                                "Fields": {
+                                    "field": [
+                                        {
+                                            "id": 673,
+                                            "fieldDefinitionIdentifier": "active",
+                                            "languageCode": "eng-GB",
+                                            "fieldTypeIdentifier": "ezboolean",
+                                            "fieldValue": true
+                                        },
+                                        {
+                                            "id": 674,
+                                            "fieldDefinitionIdentifier": "name",
+                                            "languageCode": "eng-GB",
+                                            "fieldTypeIdentifier": "ezstring",
+                                            "fieldValue": "Ibexa Sp. z o. o."
+                                        },
+                                        {
+                                            "id": 675,
+                                            "fieldDefinitionIdentifier": "vat",
+                                            "languageCode": "eng-GB",
+                                            "fieldTypeIdentifier": "ezstring",
+                                            "fieldValue": "123 456 789"
+                                        },
+                                        {
+                                            "id": 676,
+                                            "fieldDefinitionIdentifier": "website",
+                                            "languageCode": "eng-GB",
+                                            "fieldTypeIdentifier": "ezstring",
+                                            "fieldValue": "https:\/\/ibexa.co"
+                                        },
+                                        {
+                                            "id": 677,
+                                            "fieldDefinitionIdentifier": "customer_group",
+                                            "languageCode": "eng-GB",
+                                            "fieldTypeIdentifier": "ibexa_customer_group",
+                                            "fieldValue": {
+                                                "customer_group_id": 1
+                                            }
+                                        },
+                                        {
+                                            "id": 678,
+                                            "fieldDefinitionIdentifier": "sales_rep",
+                                            "languageCode": "eng-GB",
+                                            "fieldTypeIdentifier": "ezobjectrelation",
+                                            "fieldValue": {
+                                                "destinationContentId": 14,
+                                                "destinationContentHref": "\/api\/ibexa\/v2\/content\/objects\/14"
+                                            }
+                                        },
+                                        {
+                                            "id": 679,
+                                            "fieldDefinitionIdentifier": "contact",
+                                            "languageCode": "eng-GB",
+                                            "fieldTypeIdentifier": "ezobjectrelation",
+                                            "fieldValue": {
+                                                "destinationContentId": 144,
+                                                "destinationContentHref": "\/api\/ibexa\/v2\/content\/objects\/144"
+                                            }
+                                        },
+                                        {
+                                            "id": 680,
+                                            "fieldDefinitionIdentifier": "default_address",
+                                            "languageCode": "eng-GB",
+                                            "fieldTypeIdentifier": "ezobjectrelation",
+                                            "fieldValue": {
+                                                "destinationContentId": 142,
+                                                "destinationContentHref": "\/api\/ibexa\/v2\/content\/objects\/142"
+                                            }
+                                        },
+                                        {
+                                            "id": 681,
+                                            "fieldDefinitionIdentifier": "billing_address",
+                                            "languageCode": "eng-GB",
+                                            "fieldTypeIdentifier": "ibexa_address",
+                                            "fieldValue": {
+                                                "name": "HQ",
+                                                "country": "PL",
+                                                "fields": {
+                                                    "region": "Silesia",
+                                                    "locality": "Katowice",
+                                                    "street": "Gliwicka 6\/5",
+                                                    "postal_code": "40-079",
+                                                    "email": "company@email.invalid",
+                                                    "phone_number": "+48 000 000 000"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "id": 683,
+                                            "fieldDefinitionIdentifier": "members",
+                                            "languageCode": "eng-GB",
+                                            "fieldTypeIdentifier": "ezobjectrelation",
+                                            "fieldValue": {
+                                                "destinationContentId": 140,
+                                                "destinationContentHref": "\/api\/ibexa\/v2\/content\/objects\/140"
+                                            }
+                                        },
+                                        {
+                                            "id": 682,
+                                            "fieldDefinitionIdentifier": "address_book",
+                                            "languageCode": "eng-GB",
+                                            "fieldTypeIdentifier": "ezobjectrelation",
+                                            "fieldValue": {
+                                                "destinationContentId": 141,
+                                                "destinationContentHref": "\/api\/ibexa\/v2\/content\/objects\/141"
+                                            }
+                                        }
+                                    ]
+                                },
+                                "Relations": {
+                                    "_media-type": "application\/vnd.ibexa.api.RelationList+json",
+                                    "_href": "\/api\/ibexa\/v2\/content\/objects\/139\/versions\/6\/relations",
+                                    "Relation": []
+                                },
+                                "Thumbnail": {
+                                    "_media-type": "application\/vnd.ibexa.api.Thumbnail+json",
+                                    "resource": "\/placeholder",
+                                    "width": null,
+                                    "height": null,
+                                    "mimeType": "image\/svg+xml"
+                                }
+                            }
+                        },
+                        "Section": {
+                            "_media-type": "application\/vnd.ibexa.api.Section+json",
+                            "_href": "\/api\/ibexa\/v2\/content\/sections\/10"
+                        },
+                        "MainLocation": {
+                            "_media-type": "application\/vnd.ibexa.api.Location+json",
+                            "_href": "\/api\/ibexa\/v2\/content\/locations\/1\/65\/140"
+                        },
+                        "Locations": {
+                            "_media-type": "application\/vnd.ibexa.api.LocationList+json",
+                            "_href": "\/api\/ibexa\/v2\/content\/objects\/139\/locations"
+                        },
+                        "Owner": {
+                            "_media-type": "application\/vnd.ibexa.api.User+json",
+                            "_href": "\/api\/ibexa\/v2\/user\/users\/14"
+                        },
+                        "lastModificationDate": "2023-04-28T16:10:13+02:00",
+                        "publishedDate": "2023-04-28T15:44:55+02:00",
+                        "mainLanguageCode": "eng-GB",
+                        "currentVersionNo": 6,
+                        "alwaysAvailable": true,
+                        "isHidden": false,
+                        "status": "PUBLISHED",
+                        "ObjectStates": {
+                            "_media-type": "application\/vnd.ibexa.api.ContentObjectStates+json",
+                            "_href": "\/api\/ibexa\/v2\/content\/objects\/139\/objectstates"
+                        }
+                    },
+                    "billingAddress": {
+                        "name": "HQ",
+                        "country": "PL",
+                        "fields": {
+                            "region": "Silesia",
+                            "locality": "Katowice",
+                            "street": "Gliwicka 6\/5",
+                            "postal_code": "40-079",
+                            "email": "company@email.invalid",
+                            "phone_number": "+48 000 000 000"
+                        }
+                    },
+                    "contactId": 144,
+                    "salesRepresentativeId": 14,
+                    "defaultAddressId": 142,
+                    "addressBookId": 141,
+                    "membersId": 140,
+                    "MemberList": {
+                        "_media-type": "application\/vnd.ibexa.api.MemberList+json",
+                        "_href": "\/api\/ibexa\/v2\/corporate\/companies\/139\/members"
+                    },
+                    "Location": {
+                        "_media-type": "application\/vnd.ibexa.api.Location+json",
+                        "_href": "\/api\/ibexa\/v2\/content\/locations\/1\/65\/140"
+                    },
+                    "locationPath": "\/1\/65\/140\/",
+                    "isActive": true
+                },
+                "User": {
+                    "_media-type": "application\/vnd.ibexa.api.User+json",
+                    "_href": "\/api\/ibexa\/v2\/user\/users\/144",
+                    "_id": 144,
+                    "_remoteId": "1b3938c16adfa29996f3afff0b4a0032",
+                    "ContentType": {
+                        "_media-type": "application\/vnd.ibexa.api.ContentType+json",
+                        "_href": "\/api\/ibexa\/v2\/content\/types\/47"
+                    },
+                    "name": "Jay Kowalski",
+                    "Versions": {
+                        "_media-type": "application\/vnd.ibexa.api.VersionList+json",
+                        "_href": "\/api\/ibexa\/v2\/content\/objects\/144\/versions"
+                    },
+                    "Section": {
+                        "_media-type": "application\/vnd.ibexa.api.Section+json",
+                        "_href": "\/api\/ibexa\/v2\/content\/sections\/10"
+                    },
+                    "MainLocation": {
+                        "_media-type": "application\/vnd.ibexa.api.Location+json",
+                        "_href": "\/api\/ibexa\/v2\/content\/locations\/1\/65\/140\/141\/145"
+                    },
+                    "Locations": {
+                        "_media-type": "application\/vnd.ibexa.api.LocationList+json",
+                        "_href": "\/api\/ibexa\/v2\/content\/objects\/144\/locations"
+                    },
+                    "Groups": {
+                        "_media-type": "application\/vnd.ibexa.api.UserGroupRefList+json",
+                        "_href": "\/api\/ibexa\/v2\/user\/users\/144\/groups"
+                    },
+                    "Owner": {
+                        "_media-type": "application\/vnd.ibexa.api.User+json",
+                        "_href": "\/api\/ibexa\/v2\/user\/users\/14"
+                    },
+                    "publishDate": "2023-04-28T16:10:03+02:00",
+                    "lastModificationDate": "2023-04-28T16:17:07+02:00",
+                    "mainLanguageCode": "eng-GB",
+                    "alwaysAvailable": true,
+                    "Version": {
+                        "_media-type": "application\/vnd.ibexa.api.Version+json",
+                        "_href": "\/api\/ibexa\/v2\/content\/objects\/144\/versions\/6",
+                        "VersionInfo": {
+                            "id": 683,
+                            "versionNo": 6,
+                            "status": "PUBLISHED",
+                            "modificationDate": "2023-04-28T16:17:07+02:00",
+                            "Creator": {
+                                "_media-type": "application\/vnd.ibexa.api.User+json",
+                                "_href": "\/api\/ibexa\/v2\/user\/users\/14"
+                            },
+                            "creationDate": "2023-04-28T16:17:06+02:00",
+                            "initialLanguageCode": "eng-GB",
+                            "languageCodes": "eng-GB",
+                            "VersionTranslationInfo": {
+                                "_media-type": "application\/vnd.ibexa.api.VersionTranslationInfo+json",
+                                "Language": [
+                                    {
+                                        "languageCode": "eng-GB"
+                                    }
+                                ]
+                            },
+                            "names": {
+                                "value": [
+                                    {
+                                        "_languageCode": "eng-GB",
+                                        "#text": "Jay Kowalski"
+                                    }
+                                ]
+                            },
+                            "Content": {
+                                "_media-type": "application\/vnd.ibexa.api.ContentInfo+json",
+                                "_href": "\/api\/ibexa\/v2\/content\/objects\/144"
+                            }
+                        },
+                        "Fields": {
+                            "field": [
+                                {
+                                    "id": 698,
+                                    "fieldDefinitionIdentifier": "first_name",
+                                    "languageCode": "eng-GB",
+                                    "fieldTypeIdentifier": "ezstring",
+                                    "fieldValue": "Jay"
+                                },
+                                {
+                                    "id": 699,
+                                    "fieldDefinitionIdentifier": "last_name",
+                                    "languageCode": "eng-GB",
+                                    "fieldTypeIdentifier": "ezstring",
+                                    "fieldValue": "Kowalski"
+                                },
+                                {
+                                    "id": 700,
+                                    "fieldDefinitionIdentifier": "phone_number",
+                                    "languageCode": "eng-GB",
+                                    "fieldTypeIdentifier": "ezstring",
+                                    "fieldValue": "+48 123 123 456"
+                                },
+                                {
+                                    "id": 701,
+                                    "fieldDefinitionIdentifier": "user",
+                                    "languageCode": "eng-GB",
+                                    "fieldTypeIdentifier": "ezuser",
+                                    "fieldValue": {
+                                        "hasStoredLogin": true,
+                                        "contentId": 144,
+                                        "login": "jay.kowalski",
+                                        "email": "jay.kowalski@email.invalid",
+                                        "passwordUpdatedAt": 1682691427,
+                                        "enabled": false,
+                                        "maxLogin": 5,
+                                        "plainPassword": null
+                                    }
+                                }
+                            ]
+                        },
+                        "Relations": {
+                            "_media-type": "application\/vnd.ibexa.api.RelationList+json",
+                            "_href": "\/api\/ibexa\/v2\/content\/objects\/144\/versions\/6\/relations",
+                            "Relation": []
+                        },
+                        "Thumbnail": {
+                            "_media-type": "application\/vnd.ibexa.api.Thumbnail+json",
+                            "resource": "\/user\/default_profile_image\/initials.svg?initials=JK#profile_image",
+                            "width": null,
+                            "height": null,
+                            "mimeType": "image\/svg+xml"
+                        }
+                    },
+                    "login": "jay.kowalski",
+                    "email": "jay.kowalski@email.invalid",
+                    "enabled": false,
+                    "UserGroups": {
+                        "_media-type": "application\/vnd.ibexa.api.UserGroupList+json",
+                        "_href": "\/api\/ibexa\/v2\/user\/users\/144\/groups"
+                    },
+                    "Roles": {
+                        "_media-type": "application\/vnd.ibexa.api.RoleAssignmentList+json",
+                        "_href": "\/api\/ibexa\/v2\/user\/users\/144\/roles"
+                    }
+                },
+                "Role": {
+                    "_media-type": "application\/vnd.ibexa.api.Role+json",
+                    "_href": "\/api\/ibexa\/v2\/user\/roles\/15",
+                    "identifier": "Company Buyer",
+                    "Policies": {
+                        "_media-type": "application\/vnd.ibexa.api.PolicyList+json",
+                        "_href": "\/api\/ibexa\/v2\/user\/roles\/15\/policies"
+                    }
+                }
+            }
+        ]
+    }
+}
