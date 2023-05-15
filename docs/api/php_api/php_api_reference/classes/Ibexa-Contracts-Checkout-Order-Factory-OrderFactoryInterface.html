@@ -247,44 +247,29 @@
                     <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/ibexa.html">Ibexa</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/ibexa-contracts.html">Contracts</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/ibexa-contracts-productcatalog.html">ProductCatalog</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/ibexa-contracts-productcatalog-values.html">Values</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/ibexa-contracts-productcatalog-values-product.html">Product</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/ibexa-contracts-productcatalog-values-product-query.html">Query</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/ibexa-contracts-productcatalog-values-product-query-aggregation.html">Aggregation</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/ibexa-contracts-checkout.html">Checkout</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/ibexa-contracts-checkout-order.html">Order</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/ibexa-contracts-checkout-order-factory.html">Factory</a></li>
     </ul>
 
-    <article class="phpdocumentor-element -class">
+    <article class="phpdocumentor-element -interface">
         <h2 class="phpdocumentor-content__title">
     
   
   
-      <div class="edition-tag content">
-      <span>Content</span>
+      <div class="edition-tag commerce">
+      <span>Commerce</span>
     </div>
   
 
 
-    ProductAttributeFloatAggregation
-
-        <span class="phpdocumentor-element__extends">
-        extends <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractStatsAggregation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractStatsAggregation">AbstractStatsAggregation</abbr></a>
-    </span>
-    
-    
-            <span class="phpdocumentor-element__implements">
-            implements
-                            <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeAggregationInterface.html"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\AttributeAggregationInterface">AttributeAggregationInterface</abbr></a>                    </span>
-    
-            <span class="phpdocumentor-element__extends">
-            Uses
-                            <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeAggregationTrait.html"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\AttributeAggregationTrait">AttributeAggregationTrait</abbr></a>                    </span>
-    </h2>
+    OrderFactoryInterface
+        </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/product-catalog/src/contracts/Values/Product/Query/Aggregation/ProductAttributeFloatAggregation.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/product-catalog/src/contracts/Values/Product/Query/Aggregation/ProductAttributeFloatAggregation.php');">ProductAttributeFloatAggregation.php</abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/checkout/src/contracts/Order/Factory/OrderFactoryInterface.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/checkout/src/contracts/Order/Factory/OrderFactoryInterface.php');">OrderFactoryInterface.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">15</span>
 </aside>
 
         
@@ -296,18 +281,6 @@
 
 
 
-<h3 id="interfaces_class_traits">
-    Interfaces, Classes, Traits and Enums
-    <a href="#interfaces_class_traits" class="headerlink"><i class="fas fa-link"></i></a>
-</h3>
-
-<dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeAggregationInterface.html"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\AttributeAggregationInterface">AttributeAggregationInterface</abbr></a></dt>
-        <dd></dd>
-    
-    
-    
-    </dl>
 
 
 <h3 id="toc">
@@ -316,31 +289,10 @@
 </h3>
 
 <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractStatsAggregation.html#property_name">$name</a>
+                        <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Checkout-Order-Factory-OrderFactoryInterface.html#method_buildOrderCreateStruct">buildOrderCreateStruct()</a>
     <span>
-                        &nbsp;: string            </span>
-</dt>
-<dd>The name of the aggregation.</dd>
-
-                <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAttributeFloatAggregation.html#method___construct">__construct()</a>
-    <span>
-                                    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeAggregationTrait.html#method_getAttributeDefinitionIdentifier">getAttributeDefinitionIdentifier()</a>
-    <span>
-                                &nbsp;: string    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractStatsAggregation.html#method_getName">getName()</a>
-    <span>
-                                &nbsp;: string    </span>
+                                &nbsp;: <a href="classes/Ibexa-Contracts-OrderManagement-Value-Struct-OrderCreateStruct.html"><abbr title="\Ibexa\Contracts\OrderManagement\Value\Struct\OrderCreateStruct">OrderCreateStruct</abbr></a>    </span>
 </dt>
 <dd></dd>
 
@@ -350,51 +302,10 @@
 
         
 
-        
-    <section class="phpdocumentor-properties">
-        <h3 class="phpdocumentor-elements__header" id="properties">
-            Properties
-            <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAttributeFloatAggregation.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
-        </h3>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_name">
-        $name
-        <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractStatsAggregation.html#property_name" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractStatsAggregation.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractStatsAggregation.php');">AbstractStatsAggregation.php</abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">20</span>
-</aside>
-
-        <p class="phpdocumentor-summary">The name of the aggregation.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">string</span>
-    <span class="phpdocumentor-signature__name">$name</span>
-    </code>
-
-    
-    
-    
-
-
-</article>
-            </section>
-
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAttributeFloatAggregation.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/Ibexa-Contracts-Checkout-Order-Factory-OrderFactoryInterface.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="phpdocumentor-element
@@ -402,35 +313,36 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method___construct">
-        __construct()
-        <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAttributeFloatAggregation.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_buildOrderCreateStruct">
+        buildOrderCreateStruct()
+        <a href="classes/Ibexa-Contracts-Checkout-Order-Factory-OrderFactoryInterface.html#method_buildOrderCreateStruct" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/product-catalog/src/contracts/Values/Product/Query/Aggregation/ProductAttributeFloatAggregation.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/product-catalog/src/contracts/Values/Product/Query/Aggregation/ProductAttributeFloatAggregation.php');">ProductAttributeFloatAggregation.php</abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/checkout/src/contracts/Order/Factory/OrderFactoryInterface.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/checkout/src/contracts/Order/Factory/OrderFactoryInterface.php');">OrderFactoryInterface.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">17</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$attributeDefinitionIdentifier</span></span><span>)</span></code>
+                    <span class="phpdocumentor-signature__name">buildOrderCreateStruct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Checkout-Value-CheckoutInterface.html"><abbr title="\Ibexa\Contracts\Checkout\Value\CheckoutInterface">CheckoutInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$checkout</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-ValueObject.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\ValueObject">ValueObject</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-OrderManagement-Value-Struct-OrderCreateStruct.html"><abbr title="\Ibexa\Contracts\OrderManagement\Value\Struct\OrderCreateStruct">OrderCreateStruct</abbr></a></span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$name</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                <span class="phpdocumentor-signature__argument__name">$checkout</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Checkout-Value-CheckoutInterface.html"><abbr title="\Ibexa\Contracts\Checkout\Value\CheckoutInterface">CheckoutInterface</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$attributeDefinitionIdentifier</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                <span class="phpdocumentor-signature__argument__name">$user</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-ValueObject.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\ValueObject">ValueObject</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>
@@ -440,84 +352,9 @@
 
     
 
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                            <dt class="phpdocumentor-tag-list__entry">
-                <span class="phpdocumentor-tag__name">phpstan-param</span>
-            </dt>
-                            <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>non-empty-string $attributeDefinitionIdentifier</p>
-</section>
-
-                                    </dd>
-                                    </dl>
-
-        
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_getAttributeDefinitionIdentifier">
-        getAttributeDefinitionIdentifier()
-        <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeAggregationTrait.html#method_getAttributeDefinitionIdentifier" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/product-catalog/src/contracts/Values/Product/Query/Aggregation/AttributeAggregationTrait.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/product-catalog/src/contracts/Values/Product/Query/Aggregation/AttributeAggregationTrait.php');">AttributeAggregationTrait.php</abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">16</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getAttributeDefinitionIdentifier</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    
-
 
             <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-        
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_getName">
-        getName()
-        <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractStatsAggregation.html#method_getName" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractStatsAggregation.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractStatsAggregation.php');">AbstractStatsAggregation.php</abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">27</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getName</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    
-
-
-            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-OrderManagement-Value-Struct-OrderCreateStruct.html"><abbr title="\Ibexa\Contracts\OrderManagement\Value\Struct\OrderCreateStruct">OrderCreateStruct</abbr></a></span>
         
 </article>
             </section>
@@ -598,7 +435,7 @@
 </section>
             </div>
         </div>
-        <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAttributeFloatAggregation.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/Ibexa-Contracts-Checkout-Order-Factory-OrderFactoryInterface.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

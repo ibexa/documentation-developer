@@ -2231,6 +2231,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Checkout-CheckoutServiceInterface.html#method_deleteCheckout"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Checkout\\Order\\Factory\\OrderFactoryInterface",
+            "name": "OrderFactoryInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Checkout-Order-Factory-OrderFactoryInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Checkout\\Order\\Factory\\OrderFactoryInterface\u003A\u003AbuildOrderCreateStruct\u0028\u0029",
+            "name": "buildOrderCreateStruct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Checkout-Order-Factory-OrderFactoryInterface.html#method_buildOrderCreateStruct"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Checkout\\PaymentMethodServiceDecorator",
             "name": "PaymentMethodServiceDecorator",
             "summary": "",
@@ -29071,6 +29081,46 @@ Search.appendIndex(
             "summary": "Marker\u0020interface\u0020for\u0020SortClause\u0020classes,\u0020used\u0020to\u0020set\u0020sorting\u0020of\u0020order\u0020queries.",
             "url": "classes/Ibexa-Contracts-OrderManagement-Value-Order-Query-SortClauseInterface.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderCompany",
+            "name": "OrderCompany",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderCompany.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderCompany\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderCompany.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderCompany\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderCompany.html#method_getId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderCompany\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderCompany.html#method_getName"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderCurrency",
+            "name": "OrderCurrency",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderCurrency.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderCurrency\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderCurrency.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderCurrency\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderCurrency.html#method_getId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderCurrency\u003A\u003AgetCode\u0028\u0029",
+            "name": "getCode",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderCurrency.html#method_getCode"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderItem\\OrderItemInterface",
             "name": "OrderItemInterface",
             "summary": "",
@@ -29145,6 +29195,156 @@ Search.appendIndex(
             "name": "getSubtotalPriceNet",
             "summary": "",
             "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderItem-OrderItemValueInterface.html#method_getSubtotalPriceNet"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderItem",
+            "name": "OrderItem",
+            "summary": "The\u0020base\u0020class\u0020for\u0020all\u0020value\u0020objects\u0020and\u0020structs.",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderItem.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderItem\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Construct\u0020object\u0020optionally\u0020with\u0020a\u0020set\u0020of\u0020properties.",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderItem.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderItem\u003A\u003AgetQuantity\u0028\u0029",
+            "name": "getQuantity",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderItem.html#method_getQuantity"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderItem\u003A\u003AgetValue\u0028\u0029",
+            "name": "getValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderItem.html#method_getValue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderItem\u003A\u003AgetProduct\u0028\u0029",
+            "name": "getProduct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderItem.html#method_getProduct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderItem\u003A\u003AgetContext\u0028\u0029",
+            "name": "getContext",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderItem.html#method_getContext"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderItem\u003A\u003A__toString\u0028\u0029",
+            "name": "__toString",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderItem.html#method___toString"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderItem\u003A\u003A\u0024context",
+            "name": "context",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderItem.html#property_context"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderItemProduct",
+            "name": "OrderItemProduct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderItemProduct.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderItemProduct\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderItemProduct.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderItemProduct\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderItemProduct.html#method_getId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderItemProduct\u003A\u003AgetCode\u0028\u0029",
+            "name": "getCode",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderItemProduct.html#method_getCode"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderItemProduct\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderItemProduct.html#method_getName"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderItemValue",
+            "name": "OrderItemValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderItemValue.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderItemValue\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderItemValue.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderItemValue\u003A\u003AgetUnitPriceGross\u0028\u0029",
+            "name": "getUnitPriceGross",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderItemValue.html#method_getUnitPriceGross"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderItemValue\u003A\u003AgetUnitPriceNet\u0028\u0029",
+            "name": "getUnitPriceNet",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderItemValue.html#method_getUnitPriceNet"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderItemValue\u003A\u003AgetVatRate\u0028\u0029",
+            "name": "getVatRate",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderItemValue.html#method_getVatRate"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderItemValue\u003A\u003AgetSubtotalPriceGross\u0028\u0029",
+            "name": "getSubtotalPriceGross",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderItemValue.html#method_getSubtotalPriceGross"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderItemValue\u003A\u003AgetSubtotalPriceNet\u0028\u0029",
+            "name": "getSubtotalPriceNet",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderItemValue.html#method_getSubtotalPriceNet"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderUser",
+            "name": "OrderUser",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderUser.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderUser\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderUser.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderUser\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderUser.html#method_getId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderUser\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderUser.html#method_getName"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderUser\u003A\u003AgetEmail\u0028\u0029",
+            "name": "getEmail",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderUser.html#method_getEmail"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderValue",
+            "name": "OrderValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderValue.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderValue\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderValue.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderValue\u003A\u003AgetVat\u0028\u0029",
+            "name": "getVat",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderValue.html#method_getVat"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderValue\u003A\u003AgetTotalGross\u0028\u0029",
+            "name": "getTotalGross",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderValue.html#method_getTotalGross"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderValue\u003A\u003AgetTotalNet\u0028\u0029",
+            "name": "getTotalNet",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-OrderManagement-Value-OrderValue.html#method_getTotalNet"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\Struct\\OrderCreateStruct",
             "name": "OrderCreateStruct",
@@ -37456,15 +37656,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html#constant_DEFAULT_LIMIT"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\AbstractProductAttributeTermAggregation",
-            "name": "AbstractProductAttributeTermAggregation",
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\AbstractAttributeTermAggregation",
+            "name": "AbstractAttributeTermAggregation",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AbstractProductAttributeTermAggregation.html"
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AbstractAttributeTermAggregation.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\AbstractProductAttributeTermAggregation\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\AbstractAttributeTermAggregation\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AbstractProductAttributeTermAggregation.html#method___construct"
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AbstractAttributeTermAggregation.html#method___construct"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\AttributeAggregationInterface",
             "name": "AttributeAggregationInterface",
@@ -37486,65 +37686,65 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeAggregationTrait.html#method_getAttributeDefinitionIdentifier"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\ProductAttributeBooleanAggregation",
-            "name": "ProductAttributeBooleanAggregation",
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\AttributeBooleanTermAggregation",
+            "name": "AttributeBooleanTermAggregation",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAttributeBooleanAggregation.html"
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeBooleanTermAggregation.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\ProductAttributeColorAggregation",
-            "name": "ProductAttributeColorAggregation",
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\AttributeColorTermAggregation",
+            "name": "AttributeColorTermAggregation",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAttributeColorAggregation.html"
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeColorTermAggregation.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\ProductAttributeFloatAggregation",
-            "name": "ProductAttributeFloatAggregation",
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\AttributeFloatRangeAggregation",
+            "name": "AttributeFloatRangeAggregation",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAttributeFloatAggregation.html"
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeFloatRangeAggregation.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\ProductAttributeFloatAggregation\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\AttributeFloatRangeAggregation\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAttributeFloatAggregation.html#method___construct"
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeFloatRangeAggregation.html#method___construct"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\ProductAttributeFloatRangeAggregation",
-            "name": "ProductAttributeFloatRangeAggregation",
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\AttributeFloatStatsAggregation",
+            "name": "AttributeFloatStatsAggregation",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAttributeFloatRangeAggregation.html"
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeFloatStatsAggregation.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\ProductAttributeFloatRangeAggregation\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\AttributeFloatStatsAggregation\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAttributeFloatRangeAggregation.html#method___construct"
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeFloatStatsAggregation.html#method___construct"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\ProductAttributeIntegerAggregation",
-            "name": "ProductAttributeIntegerAggregation",
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\AttributeIntegerRangeAggregation",
+            "name": "AttributeIntegerRangeAggregation",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAttributeIntegerAggregation.html"
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeIntegerRangeAggregation.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\ProductAttributeIntegerAggregation\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\AttributeIntegerRangeAggregation\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAttributeIntegerAggregation.html#method___construct"
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeIntegerRangeAggregation.html#method___construct"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\ProductAttributeIntegerRangeAggregation",
-            "name": "ProductAttributeIntegerRangeAggregation",
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\AttributeIntegerStatsAggregation",
+            "name": "AttributeIntegerStatsAggregation",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAttributeIntegerRangeAggregation.html"
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeIntegerStatsAggregation.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\ProductAttributeIntegerRangeAggregation\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\AttributeIntegerStatsAggregation\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAttributeIntegerRangeAggregation.html#method___construct"
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeIntegerStatsAggregation.html#method___construct"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\ProductAttributeSelectionAggregation",
-            "name": "ProductAttributeSelectionAggregation",
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\AttributeSelectionTermAggregation",
+            "name": "AttributeSelectionTermAggregation",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAttributeSelectionAggregation.html"
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeSelectionTermAggregation.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\ProductAvailabilityAggregation",
-            "name": "ProductAvailabilityAggregation",
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\ProductAvailabilityTermAggregation",
+            "name": "ProductAvailabilityTermAggregation",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAvailabilityAggregation.html"
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAvailabilityTermAggregation.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\ProductPriceRangeAggregation",
             "name": "ProductPriceRangeAggregation",
@@ -39355,6 +39555,21 @@ Search.appendIndex(
             "name": "fetch",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Shipping-Iterator-BatchIteratorAdapter-RegionFetchAdapter.html#method_fetch"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Shipping\\Iterator\\BatchIteratorAdapter\\RegionWithDefinedVatFilter",
+            "name": "RegionWithDefinedVatFilter",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Shipping-Iterator-BatchIteratorAdapter-RegionWithDefinedVatFilter.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Shipping\\Iterator\\BatchIteratorAdapter\\RegionWithDefinedVatFilter\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Shipping-Iterator-BatchIteratorAdapter-RegionWithDefinedVatFilter.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Shipping\\Iterator\\BatchIteratorAdapter\\RegionWithDefinedVatFilter\u003A\u003Aaccept\u0028\u0029",
+            "name": "accept",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Shipping-Iterator-BatchIteratorAdapter-RegionWithDefinedVatFilter.html#method_accept"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Shipping\\Iterator\\BatchIteratorAdapter\\ShippingMethodListAdapter",
             "name": "ShippingMethodListAdapter",
@@ -43891,6 +44106,16 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-checkout.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Checkout\\Order\\Factory",
+            "name": "Factory",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-checkout-order-factory.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Checkout\\Order",
+            "name": "Order",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-checkout-order.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Checkout\\Policy\\Checkout",
             "name": "Checkout",
             "summary": "",
@@ -45226,11 +45451,6 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-ordermanagement-value-order.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value",
-            "name": "Value",
-            "summary": "",
-            "url": "namespaces/ibexa-contracts-ordermanagement-value.html"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\Order\\Query\\Criterion",
             "name": "Criterion",
             "summary": "",
@@ -45245,6 +45465,11 @@ Search.appendIndex(
             "name": "SortClause",
             "summary": "",
             "url": "namespaces/ibexa-contracts-ordermanagement-value-order-query-sortclause.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value",
+            "name": "Value",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-ordermanagement-value.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\OrderManagement\\Value\\OrderItem",
             "name": "OrderItem",

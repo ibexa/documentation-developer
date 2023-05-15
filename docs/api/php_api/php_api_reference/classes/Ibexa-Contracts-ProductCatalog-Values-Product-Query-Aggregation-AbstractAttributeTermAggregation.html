@@ -265,10 +265,10 @@
   
 
 
-    ProductAttributeIntegerRangeAggregation
+    AbstractAttributeTermAggregation
 
         <span class="phpdocumentor-element__extends">
-        extends <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractRangeAggregation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractRangeAggregation">AbstractRangeAggregation</abbr></a>
+        extends <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\AbstractTermAggregation">AbstractTermAggregation</abbr></a>
     </span>
     
     
@@ -282,7 +282,7 @@
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/product-catalog/src/contracts/Values/Product/Query/Aggregation/ProductAttributeIntegerRangeAggregation.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/product-catalog/src/contracts/Values/Product/Query/Aggregation/ProductAttributeIntegerRangeAggregation.php');">ProductAttributeIntegerRangeAggregation.php</abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/product-catalog/src/contracts/Values/Product/Query/Aggregation/AbstractAttributeTermAggregation.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/product-catalog/src/contracts/Values/Product/Query/Aggregation/AbstractAttributeTermAggregation.php');">AbstractAttributeTermAggregation.php</abbr>
     :
     <span class="phpdocumentor-element-found-in__line">13</span>
 </aside>
@@ -316,22 +316,43 @@
 </h3>
 
 <dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html#constant_DEFAULT_LIMIT">DEFAULT_LIMIT</a>
+    <span>
+        &nbsp;= 10                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html#constant_DEFAULT_MIN_COUNT">DEFAULT_MIN_COUNT</a>
+    <span>
+        &nbsp;= 1                            </span>
+</dt>
+<dd></dd>
+
                     <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractRangeAggregation.html#property_name">$name</a>
+    <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html#property_limit">$limit</a>
+    <span>
+                        &nbsp;: int            </span>
+</dt>
+<dd>Number of facets (terms) returned.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html#property_minCount">$minCount</a>
+    <span>
+                        &nbsp;: int            </span>
+</dt>
+<dd>Specifies the minimum count. Only facet groups with more or equal results are returned.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html#property_name">$name</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 <dd>The name of the aggregation.</dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractRangeAggregation.html#property_ranges">$ranges</a>
-    <span>
-                        &nbsp;: array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Range.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range">Range</abbr></a>&gt;            </span>
-</dt>
-<dd></dd>
-
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAttributeIntegerRangeAggregation.html#method___construct">__construct()</a>
+    <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AbstractAttributeTermAggregation.html#method___construct">__construct()</a>
     <span>
                                     </span>
 </dt>
@@ -345,16 +366,37 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractRangeAggregation.html#method_getName">getName()</a>
+    <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html#method_getLimit">getLimit()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html#method_getMinCount">getMinCount()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html#method_getName">getName()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractRangeAggregation.html#method_getRanges">getRanges()</a>
+    <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html#method_setLimit">setLimit()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: self    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html#method_setMinCount">setMinCount()</a>
+    <span>
+                                &nbsp;: self    </span>
 </dt>
 <dd></dd>
 
@@ -363,13 +405,143 @@
 
 
         
+    <section class="phpdocumentor-constants">
+        <h3 class="phpdocumentor-elements__header" id="constants">
+            Constants
+            <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AbstractAttributeTermAggregation.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_DEFAULT_LIMIT">
+        DEFAULT_LIMIT
+        <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html#constant_DEFAULT_LIMIT" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractTermAggregation.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractTermAggregation.php');">AbstractTermAggregation.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">15</span>
+</aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">DEFAULT_LIMIT</span>
+    = <span class="phpdocumentor-signature__default-value">10</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_DEFAULT_MIN_COUNT">
+        DEFAULT_MIN_COUNT
+        <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html#constant_DEFAULT_MIN_COUNT" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractTermAggregation.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractTermAggregation.php');">AbstractTermAggregation.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">16</span>
+</aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">DEFAULT_MIN_COUNT</span>
+    = <span class="phpdocumentor-signature__default-value">1</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+
+</article>
+            </section>
 
         
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAttributeIntegerRangeAggregation.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AbstractAttributeTermAggregation.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_limit">
+        $limit
+        <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html#property_limit" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractTermAggregation.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractTermAggregation.php');">AbstractTermAggregation.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">30</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Number of facets (terms) returned.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">int</span>
+    <span class="phpdocumentor-signature__name">$limit</span>
+     = <span class="phpdocumentor-signature__default-value">self::DEFAULT_LIMIT</span></code>
+
+    
+    
+    
+
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_minCount">
+        $minCount
+        <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html#property_minCount" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractTermAggregation.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractTermAggregation.php');">AbstractTermAggregation.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">37</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Specifies the minimum count. Only facet groups with more or equal results are returned.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">int</span>
+    <span class="phpdocumentor-signature__name">$minCount</span>
+     = <span class="phpdocumentor-signature__default-value">self::DEFAULT_MIN_COUNT</span></code>
+
+    
+    
+    
+
+
+</article>
                     <article
         class="
             phpdocumentor-element
@@ -379,14 +551,14 @@
 >
     <h4 class="phpdocumentor-element__name" id="property_name">
         $name
-        <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractRangeAggregation.html#property_name" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html#property_name" class="headerlink"><i class="fas fa-link"></i></a>
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractRangeAggregation.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractRangeAggregation.php');">AbstractRangeAggregation.php</abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractTermAggregation.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractTermAggregation.php');">AbstractTermAggregation.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 </aside>
 
         <p class="phpdocumentor-summary">The name of the aggregation.</p>
@@ -403,44 +575,12 @@
 
 
 </article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_ranges">
-        $ranges
-        <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractRangeAggregation.html#property_ranges" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractRangeAggregation.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractRangeAggregation.php');">AbstractRangeAggregation.php</abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">23</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Range.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range">Range</abbr></a>&gt;</span>
-    <span class="phpdocumentor-signature__name">$ranges</span>
-    </code>
-
-    
-    
-    
-
-
-</article>
             </section>
 
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAttributeIntegerRangeAggregation.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AbstractAttributeTermAggregation.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="phpdocumentor-element
@@ -450,18 +590,18 @@
 >
     <h4 class="phpdocumentor-element__name" id="method___construct">
         __construct()
-        <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAttributeIntegerRangeAggregation.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AbstractAttributeTermAggregation.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/product-catalog/src/contracts/Values/Product/Query/Aggregation/ProductAttributeIntegerRangeAggregation.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/product-catalog/src/contracts/Values/Product/Query/Aggregation/ProductAttributeIntegerRangeAggregation.php');">ProductAttributeIntegerRangeAggregation.php</abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/product-catalog/src/contracts/Values/Product/Query/Aggregation/AbstractAttributeTermAggregation.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/product-catalog/src/contracts/Values/Product/Query/Aggregation/AbstractAttributeTermAggregation.php');">AbstractAttributeTermAggregation.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$attributeDefinitionIdentifier</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$ranges</span></span><span>)</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$attributeDefinitionIdentifier</span></span><span>)</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -482,14 +622,6 @@
                     <section class="phpdocumentor-description"></section>
 
             </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$ranges</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
-            </dd>
             </dl>
 
     
@@ -505,12 +637,6 @@
                             <dd class="phpdocumentor-tag-list__definition">
                                                                                 
                                                  <section class="phpdocumentor-description"><p>non-empty-string $attributeDefinitionIdentifier</p>
-</section>
-
-                                    </dd>
-                            <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>non-empty-array&lt;\Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Range&gt; $ranges</p>
 </section>
 
                                     </dd>
@@ -555,14 +681,76 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getName">
-        getName()
-        <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractRangeAggregation.html#method_getName" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getLimit">
+        getLimit()
+        <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html#method_getLimit" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractRangeAggregation.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractRangeAggregation.php');">AbstractRangeAggregation.php</abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractTermAggregation.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractTermAggregation.php');">AbstractTermAggregation.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getLimit</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">int</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getMinCount">
+        getMinCount()
+        <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html#method_getMinCount" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractTermAggregation.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractTermAggregation.php');">AbstractTermAggregation.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">61</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getMinCount</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">int</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getName">
+        getName()
+        <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html#method_getName" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractTermAggregation.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractTermAggregation.php');">AbstractTermAggregation.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">44</span>
 </aside>
 
     
@@ -586,29 +774,82 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getRanges">
-        getRanges()
-        <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractRangeAggregation.html#method_getRanges" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_setLimit">
+        setLimit()
+        <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html#method_setLimit" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractRangeAggregation.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractRangeAggregation.php');">AbstractRangeAggregation.php</abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractTermAggregation.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractTermAggregation.php');">AbstractTermAggregation.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">54</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getRanges</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">setLimit</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
 
         <section class="phpdocumentor-description"></section>
 
-    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$limit</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
     
 
 
             <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__response_type">self</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setMinCount">
+        setMinCount()
+        <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html#method_setMinCount" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractTermAggregation.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/Values/Content/Query/Aggregation/AbstractTermAggregation.php');">AbstractTermAggregation.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">66</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">setMinCount</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$minCount</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$minCount</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">self</span>
         
 </article>
             </section>
@@ -689,7 +930,7 @@
 </section>
             </div>
         </div>
-        <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAttributeIntegerRangeAggregation.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AbstractAttributeTermAggregation.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 
