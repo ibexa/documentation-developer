@@ -638,6 +638,7 @@ nav:
         - Clustering:
             - Clustering: infrastructure_and_maintenance/clustering/clustering.md
             - Clustering with AWS S3: infrastructure_and_maintenance/clustering/clustering_with_aws_s3.md
+            - Clustering using DDEV: infrastructure_and_maintenance/clustering/clustering_using_ddev.md
         - DevOps: infrastructure_and_maintenance/devops.md
         - Backup: infrastructure_and_maintenance/backup.md
         - Performance: infrastructure_and_maintenance/performance.md
