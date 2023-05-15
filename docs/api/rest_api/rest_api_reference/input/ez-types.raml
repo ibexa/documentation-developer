@@ -3441,18 +3441,18 @@ OrderItemProduct:
             type: string
 
 CorporateAccountRoot:
-    description: 'This class represents Corporate Account Root resource information'
+    description: 'This class represents Corporate Account Root resource information.'
     type: object
     properties:
         link:
             type: Link[]
 
 Link:
-    description: 'This class represents REST resource information'
+    description: 'This class represents REST resource information.'
     type: BaseObject
     properties:
         rel:
-            description: 'Unique identifer of a resource'
+            description: 'Unique identifier of a resource.'
             type: string
 
 
@@ -3475,19 +3475,19 @@ Company:
         defaultAddressId:
             type: integer
         addressBookId:
-            description: 'Address book Folder Content Id'
+            description: 'Address book Folder Content ID.'
             type: integer
         membersId:
-            description: 'Members Folder Content Id'
+            description: 'Members Folder Content ID.'
             type: integer
         MembersList:
-            description: 'Reference to Members List resource'
+            description: 'Reference to Members List resource.'
             type: BaseObject
         Location:
-            description: 'Reference to Location resource'
+            description: 'Reference to Location resource.'
             type: BaseObject
         locationPath:
-            description: 'Company Content item Location path string'
+            description: 'Company Content item Location path string.'
             type: string
         isActive:
             type: boolean
@@ -3501,10 +3501,10 @@ CompanyCreate:
         modificationDate:
             type: string
         User:
-            description: 'User value'
+            description: 'User value.'
             type: User
         fields:
-            description: 'Fields of a Company Content item'
+            description: 'Fields of a Company Content item.'
             type: Field[]
 
 CompanyUpdate:
@@ -3512,7 +3512,7 @@ CompanyUpdate:
     type: object
     properties:
         fields:
-            description: 'Fields of a Company Content item'
+            description: 'Fields of a Company Content item.'
             type: Field[]
 
 CompanyList:
@@ -3523,7 +3523,7 @@ CompanyList:
             type: Company[]
 
 Member:
-    description: 'This class represents a Company Member.'
+    description: 'This class represents a company member.'
     type: object
     properties:
         id:
@@ -3533,10 +3533,10 @@ Member:
         Company:
             type: Company
         User:
-            description: 'Underlying User object of a Member'
+            description: 'Underlying User object of a member.'
             type: User
         Role:
-            description: 'Reference to the Member Role in a Company resource'
+            description: 'Reference to the member role in a Company resource.'
             type: BaseObject
 
 MemberList:
@@ -3547,7 +3547,7 @@ MemberList:
             type: Member[]
 
 MemberCreate:
-    description: 'This class is used to create a Member.'
+    description: 'This class is used to create a member.'
     type: object
     properties:
         login:
@@ -3557,14 +3557,14 @@ MemberCreate:
         password:
             type: string
         Role:
-            description: 'Reference to a Role resource Company Member should be given'
+            description: 'Reference to a Role resource company member should be given.'
             type: BaseObject
         fields:
-            description: 'Fields of a Member Content item'
+            description: 'Fields of a Member Content item.'
             type: Field[]
 
 MemberUpdate:
-    description: 'This class is used to update a Member.'
+    description: 'This class is used to update a member.'
     type: object
     properties:
         email:
@@ -3577,14 +3577,14 @@ MemberUpdate:
             description: 'Max number of failed login attempts.'
             type: integer
         Role:
-            description: 'Reference to a Role resource Company Member should be given'
+            description: 'Reference to a Role resource company member should be given.'
             type: BaseObject
         fields:
-            description: 'Fields of a Member Content item'
+            description: 'Fields of a Member Content item.'
             type: Field[]
 
 ErrorMessage:
-    description: 'Represents an error response. Might contain additional properties depending on an error type'
+    description: 'Represents an error response. Might contain additional properties depending on an error type.'
     type: object
     properties:
         errorCode:

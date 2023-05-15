@@ -2,7 +2,7 @@ displayName: Corporate Account
 get:
     displayName: Root Resource
     description: |
-        Provides basic information about Corporate Account endpoints and configuration
+        Provides basic information about Corporate Account endpoints and configuration.
     responses:
         200:
             description: List of Link objects to specific Corporate Account REST resources
@@ -18,7 +18,7 @@ get:
     get:
         displayName: Read list of companies
         description: |
-            Returns paginated list of available companies
+            Returns paginated list of available companies.
         queryParameters:
             filter:
                 type: string
@@ -45,19 +45,19 @@ get:
                 type: integer
                 default: 0
             limit:
-                description: The number of returned Companies.
+                description: The number of returned companies.
                 type: integer
                 default: 25
         headers:
             Accept:
-                description: if set, helps to determine response format
+                description: If set, helps to determine response format.
                 example: |
                     application/vnd.ibexa.api.CompanyList+xml
                     application/vnd.ibexa.api.CompanyList+json
 
         responses:
             200:
-                description: CompanyList containing Company objects
+                description: Company list containing Company objects.
                 body:
                     application/vnd.ibexa.api.CompanyList+xml:
                         type: CompanyList
@@ -135,7 +135,7 @@ get:
             description: The given company is deleted.
             headers:
                 Accept:
-                    description: If set, in the case of an error the error message is returned in XML or JSON format
+                    description: If set, in the case of an error the error message is returned in XML or JSON format.
                     example: |
                         application/vnd.ibexa.api.ErrorMessage+xml
                         application/vnd.ibexa.api.ErrorMessage+json
@@ -189,7 +189,7 @@ get:
             get:
                 displayName: Read list of company members
                 description: |
-                    Returns paginated list of a given company members
+                    Returns paginated list of a given company members.
                 queryParameters:
                     filter:
                         description: |
@@ -212,12 +212,12 @@ get:
                         type: integer
                         default: 0
                     limit:
-                        description: The number of returned Members.
+                        description: The number of returned members.
                         type: integer
                         default: 25
                 headers:
                     Accept:
-                        description: if set, helps to determine response format
+                        description: If set, helps to determine response format.
                         example: |
                             application/vnd.ibexa.api.MemberList+xml
                             application/vnd.ibexa.api.MemberList+json
@@ -234,10 +234,10 @@ get:
                         body:
                             application/vnd.ibexa.api.ErrorMessage:
                                 type: ErrorMessage
-                                description: Returned when invalid Criterion or Sort clause is used
+                                description: Returned when invalid Criterion or Sort clause is used.
             post:
                 displayName: Create a company member
-                description:
+                description: Creates a company member.
                 headers:
                     Accept:
                         description: If set, the new member is returned in XML or JSON format.
@@ -297,7 +297,7 @@ get:
                     description: The given company member is deleted.
                     headers:
                         Accept:
-                            description: If set, in the case of an error the error message is returned in XML or JSON format
+                            description: If set, in the case of an error the error message is returned in XML or JSON format.
                             example: |
                                 application/vnd.ibexa.api.ErrorMessage+xml
                                 application/vnd.ibexa.api.ErrorMessage+json
