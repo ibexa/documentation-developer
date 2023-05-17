@@ -137,3 +137,18 @@ You can use the command you'll cross in the documentation by prefixing them with
 For example, if a guideline invites you to run `php bin/console cache:clear`, you can do it in the DDEV container by following one of those two ways:
 - running `ddev exec php bin/console cache:clear`
 - entering `ddev ssh` and run after the new prompt `php bin/console cache:clear`
+
+## Going further
+
+DDEV can be useful to locally simulate a production cluster.
+See _[Clustering using DDEV](../infrastructure_and_maintenance/clustering/clustering_using_ddev.md)_ to add Elasticsearch, Redis, Memcached or Varnish to your DDEV installation.
+
+TODO: See Ibexa Cloud with DDEV https://ddev.readthedocs.io/en/latest/users/providers/platform/
+
+## Stop or remove the project
+
+If you need to simply stop the project to start it again latter, use `ddev stop`. Afterward, a `ddev start` will run the project in the same state.
+
+If you want to fully remove the project,
+- stop the DDEV container with a removal of the data and without backup: `ddev stop --omit-snapshot --remove-data --unlist`;
+- remove the project folder: `cd .. && rm -r my-ddev-project`
