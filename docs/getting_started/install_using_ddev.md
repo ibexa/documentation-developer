@@ -1,17 +1,18 @@
-# Ibexa DXP Installation Using DDEV
+# Ibexa DXP installation using DDEV
 
-This guide provides a step-by-step walkthrough of installing Ibexa DXP using DDEV. DDEV is an open-source tool that simplifies the process of setting up local PHP development environments.
+This guide provides a step-by-step walkthrough of installing Ibexa DXP using [DDEV](https://ddev.com/).
+DDEV is an open-source tool that simplifies the process of setting up local PHP development environments.
 
-## System Requirements
+## System requirements
 
 For a successful installation, ensure you have the following software installed:
 
-- Docker
-- DDEV
+- [Docker](https://docs.docker.com/get-docker/)
+- [DDEV](https://ddev.readthedocs.io/en/latest/users/install/ddev-installation/)
 
-## Installation Steps
+## Installation steps
 
-### 1. Create a DDEV Project Directory
+### 1. Create a DDEV project directory
 
 Start by creating a directory for your DDEV project. Navigate to your desired location in the terminal, then use the following command to create a new directory:
 
@@ -23,47 +24,62 @@ Replace `my-ddev-project` with your desired directory name.
 
 ### 2. Configure DDEV
 
+#### Configure PHP version and document root
+
 Next, configure your DDEV environment using the command below:
 
 ```bash
-ddev config --project-type=php --docroot=public --create-docroot --php-version 8.1
+ddev config --project-type=php --php-version 8.1 --docroot=public --create-docroot
 ```
 
-This command sets the project type to PHP, the document root to the `public` directory, creates the document root, and sets the PHP version to 8.1.
+This command sets the project type to PHP, the PHP version to 8.1, the document root to `public` directory, and creates the document root.
 
 #### Optional: Switch to PostgreSQL Database
 
-By default, DDEV uses MySQL (MariaDB). To use PostgreSQL instead, add the following flag to the above command:
+By default, DDEV uses MySQL (MariaDB). To use PostgreSQL instead, run the following command:
 
 ```bash
---database=postgres:15
+ddev config --database=postgres:15
 ```
 
-#### Optional: Enable Mutagen
+#### Configure database connection
 
-If you're using MacOS you might wish to enable Mutagen. You can do this by running the following command:
+Now, configure the database connection for your Ibexa DXP project. Depending on your database of choice (MySQL or PostgreSQL), use the appropriate command below.
 
-```bash
-ddev config --mutagen-enabled
-```
+!!! note
 
-### 3. Configure Database Connection
+    Those commands will set a `DATABASE_URL` environment variable inside the container which override [the .env's one](install_ibexa_dxp.md#change-installation-parameters).
 
-Now, configure the database connection for your Ibexa DXP project. Depending on your database of choice (MySQL or PostgreSQL), use the appropriate command:
-
-For MySQL
+#### MySQL
 
 ```bash
 ddev config --web-environment-add DATABASE_URL=mysql://db:db@db:3306/db
 ```
 
-For PostgreSQL
+#### PostgreSQL
 
 ```bash
 ddev config --web-environment-add DATABASE_URL=postgresql://db:db@db:5432/db
 ```
 
-### 4. Start DDEV
+#### Optional: Enable Mutagen
+
+If you're using MacOS or Windows, you might wish to enable [Mutagen](https://ddev.readthedocs.io/en/latest/users/install/performance/#mutagen) for performance. You can do this by running the following command:
+
+```bash
+ddev config --mutagen-enabled
+```
+
+#### Optional: Change port mapping
+
+By default, DDEV will use ports 80 and 443.
+You can [set different ports](https://ddev.readthedocs.io/en/latest/users/usage/troubleshooting/#method-2-fix-port-conflicts-by-configuring-your-project-to-use-different-ports) with a command like the following:
+
+```bash
+ddev config --http-port=8080 --https-port=8443
+```
+
+### 3. Start DDEV
 
 Proceed by starting your DDEV environment with the following command:
 
@@ -71,9 +87,14 @@ Proceed by starting your DDEV environment with the following command:
 ddev start
 ```
 
-#### Additional Configuration for Commerce, Experience, and Content Editions
+!!! tip
 
-If you're installing the Commerce, Experience, or Content Editions of Ibexa DXP, modify the composer configuration **after** executing the ddev start command.
+    If you forgot a configuration, you can still use `ddev config` but you got to restart afterward using `ddev restart`.
+
+### 4. Composer authentification
+
+If you're installing the Commerce, Experience, or Content edition of Ibexa DXP, you'll need to [set up authentification tokens](install_ibexa_dxp.md#set-up-authentication-tokens) by modifying the Composer configuration.
+It must be done **after** executing the `ddev start` command as it will be run inside the container.
 
 ```bash
 ddev composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
@@ -81,7 +102,7 @@ ddev composer config --global http-basic.updates.ibexa.co <installation-key> <to
 
 Replace `<installation-key>` and `<token-password>` with your actual installation key and token password, respectively.
 
-### 5. Create Ibexa DXP Project
+### 5. Create Ibexa DXP project
 
 Once DDEV is running, use Composer to create a new Ibexa DXP project. Remember to replace `<edition>` and `<version>` with your desired edition and versions respectively.
 
@@ -89,7 +110,7 @@ Once DDEV is running, use Composer to create a new Ibexa DXP project. Remember t
 ddev composer create ibexa/<edition>-skeleton:<version>
 ```
 
-### 6. Install DXP and Database
+### 6. Install the DXP and its database
 
 Once you've made this change, you can proceed to install Ibexa DXP.
 
@@ -101,3 +122,7 @@ ddev exec php bin/console ibexa:graphql:generate-schema
 ### 7. Open browser
 
 Once the above steps are completed, open your Ibexa DXP webpage by running the `ddev launch` command.
+
+!!! Note
+
+    The project's URL was also given in `ddev start` output.
