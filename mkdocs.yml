@@ -339,7 +339,6 @@ nav:
         - User management: users/user_management.md
         - Customer groups: users/customer_groups.md
         - Invitations: users/invitations.md
-        - Login and registration: users/login_and_registration.md
         - OAuth authentication: users/oauth_authentication.md
         - Add login through external service: users/add_login_through_external_service.md
         - Segment API: users/segment_api.md
