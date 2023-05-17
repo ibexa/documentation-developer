@@ -1,6 +1,6 @@
-# Ibexa DXP installation using DDEV
+# Install using DDEV
 
-This guide provides a step-by-step walkthrough of installing Ibexa DXP using [DDEV](https://ddev.com/).
+This guide provides a step-by-step walkthrough of installing [[= product_name =]] using [DDEV](https://ddev.com/).
 DDEV is an open-source tool that simplifies the process of setting up local PHP development environments.
 
 ## System requirements
@@ -126,3 +126,14 @@ Once the above steps are completed, open your Ibexa DXP webpage by running the `
 !!! Note
 
     The project's URL was also given in `ddev start` output.
+
+### 8. Start using Ibexa DXP
+
+You can now start using Ibexa DXP and implement your own website on the platform.
+You can follow the [first usual steps](first_steps.md), the [Beginner tutorial](../tutorials/beginner_tutorial/beginner_tutorial.md) or partner agreements trainings.
+
+The configuration and code in the DDEV project directory can be edited.
+You can use the command you'll cross in the documentation by prefixing them with `ddev exec` or by opening a terminal inside the container using `ddev ssh`.
+For example, if a guideline invites you to run `php bin/console cache:clear`, you can do it in the DDEV container by following one of those two ways:
+- running `ddev exec php bin/console cache:clear`
+- entering `ddev ssh` and run after the new prompt `php bin/console cache:clear`
