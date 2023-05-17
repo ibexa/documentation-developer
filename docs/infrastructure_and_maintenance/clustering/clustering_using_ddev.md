@@ -8,6 +8,7 @@ ddev config --web-environment-add SEARCH_ENGINE=elasticsearch
 ddev config --web-environment-add ELASTICSEARCH_DSN=http://elasticsearch:9200
 ddev restart
 ddev exec php bin/console cache:clear
+ddev exec php bin/console ibexa:elasticsearch:put-index-template
 ddev exec php bin/console ibexa:reindex
 ```
 
@@ -25,6 +26,8 @@ ddev config --web-environment-add CACHE_DSN=redis
 ddev restart
 ddev exec php bin/console cache:clear
 ```
+
+You can now check that everything went right with `ddev redis-cli MONITOR` then navigating into the website.
 
 ### Install Memcached
 
