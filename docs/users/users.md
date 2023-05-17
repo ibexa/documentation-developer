@@ -10,6 +10,5 @@ All such user accounts have the same underlying mechanism and enable you to cont
 
 [[= cards([
     "users/user_management",
-    "users/login_and_registration",
     "users/invitations",
 ], columns=3) =]]
