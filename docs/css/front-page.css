@@ -35,6 +35,7 @@ h5.tile-title {
 
 .tile-icon {
     margin-right: 0.6rem;
+    margin-top: 30px;
 }
 
 .tile-body {
@@ -49,8 +50,8 @@ h5.tile-title {
     list-style-type: none;
     background: url(../images/page.svg) no-repeat left top;
     background-size: 15px 18px;
-    padding-left: 1rem;
-    margin-left: 0.25rem;
+    padding-left: 0rem;
+    margin-left: 0rem;
 }
 
 .md-typeset .tile-body ol, .md-typeset .tile-body ul {
@@ -149,8 +150,6 @@ h5.tile-title {
     width: 30vw;
     max-width: 300px;
     max-height: 270px;
-    border-radius: 5px;
-    padding-left: 1vw;
     padding-right: 1vw;
     background: #af1164;
     display: inline-block;
@@ -158,6 +157,10 @@ h5.tile-title {
     overflow: hidden;
     word-wrap: break-word;
     font-family: "Noto Sans";
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+
   }
 
   .info-tile:hover {
@@ -166,7 +169,7 @@ h5.tile-title {
   
   .info-tile-img {
     position: absolute;
-    left: 52%;
+    left: 2%;
     top: 15%;
     opacity: .4;
     height: 10vw;
@@ -176,6 +179,8 @@ h5.tile-title {
 .info-tile-body ul {
     padding-left: 0;
     text-align: left;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .info-tile-body ul li {
@@ -183,9 +188,10 @@ h5.tile-title {
     background: url(../images/page.svg) no-repeat left top;
     background-size: 15px 18px;
     padding-left: 1rem;
-    margin-left: 3rem;
-    margin-top: 0.25rem;
     text-align: left;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 0%;
 }
 
 .info-tile-title {
@@ -216,8 +222,8 @@ a.instruction-tile {
     display: inline-flex;
     align-items: center;
     height: 150px;
-    width: 287px;
-    max-width: 287px;
+    width: 30vw;
+    max-width: 300px;
     max-height: 90px;
     border-radius: 5px;
     padding-left: 1vw;
@@ -230,7 +236,7 @@ a.instruction-tile {
     color: white;
     font-weight: bold;
     position: relative;
-    margin:0.5%;
+    margin-bottom: 8px;
     text-align: center;
     margin-top: 8px;
     flex-direction: column;
@@ -279,4 +285,15 @@ a.instruction-tile:hover {
     border-radius: 100%;
     color: #af1164;
     margin-bottom: 10px;
+}
+
+.instruction-tile-icon {
+    margin-right: 0.6rem;
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    display: inline;
+    border-radius: 100%;
 }
