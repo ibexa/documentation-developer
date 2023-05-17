@@ -39,7 +39,7 @@ h5.tile-title {
 }
 
 .tile-body {
-    margin-left: 2.6rem;
+    margin-left: 0rem;
 }
 
 .tile-body ul {
@@ -146,10 +146,10 @@ h5.tile-title {
 }
 
 .info-tile {
-    height: 20vw;
+    height: 230px;
     width: 30vw;
     max-width: 300px;
-    max-height: 270px;
+    max-height: 230px;
     padding-right: 1vw;
     background: #af1164;
     display: inline-block;
@@ -160,10 +160,34 @@ h5.tile-title {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 5px;
+
+  }
+
+  .info-tile-up {
+    height: 230px;
+    width: 400px;
+    max-width: 400px;
+    max-height: 230px;
+    padding-right: 1vw;
+    background: #af1164;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-wrap: break-word;
+    font-family: "Noto Sans";
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
 
   }
 
   .info-tile:hover {
+    opacity:0.5;
+  }
+
+  .info-tile-up:hover {
     opacity:0.5;
   }
   
@@ -176,14 +200,14 @@ h5.tile-title {
     font-size:10vw;
   }
 
-.info-tile-body ul {
-    padding-left: 0;
+  [dir=ltr] .info-tile-body ul {
+    margin-left: 0;
     text-align: left;
     flex-direction: column;
     justify-content: center;
 }
 
-.info-tile-body ul li {
+[dir=ltr] .info-tile-body ul li {
     list-style-type: none;
     background: url(../images/page.svg) no-repeat left top;
     background-size: 15px 18px;

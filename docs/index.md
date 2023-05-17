@@ -23,13 +23,9 @@
     </div>
     <div class="row mt-5">
         <div class="col-lg-12 mb-5 latest-release">
-            <h5>
-                The latest release
-                <span class="pill">v4.5</span>
-            </h5>
             <div class="row mt-3">
                 <div class="col-lg-12">
-                    The <a href="release_notes/ibexa_dxp_v4.5/" style="font-weight: bold";>latest version of Ibexa DXP is v4.5</a>. You can now <a href="update_and_migration/from_4.5/update_from_4.5/" style="font-weight: bold";>update your application to the latest version</a>. 
+                    The <a href="release_notes/ibexa_dxp_v4.5/" style="font-weight: bold";>latest version of Ibexa DXP is <span class="pill">v4.5</span></a>. You can now <a href="update_and_migration/from_4.5/update_from_4.5/" style="font-weight: bold";>update your application to the latest version</a>. 
                 </div>
             </div>
         </div>              
@@ -37,7 +33,7 @@
     <div class="row mt-5">
         <div class="col-lg-12 mb-5 latest-release">
             <h5>
-                Let's start!
+                First steps
             </h5>
         </div>              
     </div>
@@ -58,56 +54,52 @@
             </a>
         </div>
     </div>
+    <div class="row mt-5">
+        <div class="col-lg-12 mb-5 latest-release">
+            <h5>
+                Let's start!
+            </h5>
+        </div>              
+    </div>
     <div>
     <div class="row">
         <div class="col-lg px-2 px-lg-4">
-            <div class="info-tile" id="tile2" style = "background: #af1164;">
+            <div class="info-tile-up" id="tile2" style = "background: #af1164;">
                 <svg class="tile-icon align-middle" width="32" height="32">
                     <use fill="var(--white)" xlink:href="images/ez-icons.svg#publish"></use>
                 </svg>
-                <div class = "info-tile-title">Tutorials</div>
+                <div class = "info-tile-title"><a href="tutorials/tutorials/" style="color: white;">Tutorials</a></div>
                 <div class="info-tile-body">
                         <ul>
-                            <li><a href="tutorials/beginner_tutorial/beginner_tutorial/" style="color: white;" >Beginner tutorial</a></li>
+                            <li><a href="tutorials/beginner_tutorial/beginner_tutorial/" style="color: white;">Beginner tutorial</a></li>
                             <li><a href="tutorials/page_and_form_tutorial/page_and_form_tutorial/" style="color: white;">Page and Form tutorial</a></li>
                             <li><a href="tutorials/generic_field_type/creating_a_point2d_field_type/" style="color: white;">Generic Field Type tutorial</a></li>
                         </ul>
                 </div>
             </div>
-            <div class="info-tile" id="tile2" style = "background: #af1164;">
+            <div class="info-tile-up" id="tile2" style = "background: #af1164;">
                 <svg class="tile-icon align-middle" width="32" height="32">
                     <use fill="var(--white)" xlink:href="images/ez-icons.svg#about"></use>
                 </svg>
-                <div class = "info-tile-title">Guide to Ibexa DXP</div>
+                <div class = "info-tile-title"><a href="permissions/permissions/" style="color: white;">Permissions</div>
                 <div class="info-tile-body">
                         <ul>
-                            <li><a href="templating/render_content/render_content/" style="color: white;" >Content rendering</a></li>
-                            <li><a href="search/search/" style="color: white;" >Search</a></li>
-                            <li><a href="api/php_api/php_api/" style="color: white;" >API</a></li>
+                            <li><a href="permissions/permission_overview/" style="color: white;" >Permission overview</a></li>
+                            <li><a href="permissions/policies/" style="color: white;" >Policies</a></li>
+                            <li><a href="permissions/limitations/" style="color: white;" >Limitations</a></li>
                         </ul>
                 </div>
             </div>
-            <div class="info-tile" id="tile2" style = "background: #af1164;">
+            <div class="info-tile-up" id="tile2" style = "background: #af1164;">
                 <svg class="tile-icon align-middle" width="32" height="32">
                     <use fill="var(--white)" xlink:href="images/ez-icons.svg#settings-config"></use>
                 </svg>
-                <div class = "info-tile-title">Administration</div>
+                <div class = "info-tile-title"><a href="administration/administration/" style="color: white;">Administration</a></div>
                 <div class="info-tile-body">
                         <ul>
                             <li><a href="administration/admin_panel/admin_panel/" style="color: white;" >Admin panel</a></li>
                             <li><a href="administration/configuration/configuration/" style="color: white;" >Configuration</a></li>
                             <li><a href="administration/back_office/back_office/" style="color: white;" >Back Office</a></li>
-                        </ul>
-                </div>
-            </div>
-            <div class="info-tile" id="tile2" style = "background: #af1164;">
-                <img class="tile-icon align-middle" width="32" height="32" src="images/content_edit.svg" />
-                <div class = "info-tile-title">User management</div>
-                <div class="info-tile-body">
-                        <ul>
-                            <li><a href="users/users/" style="color: white;">Users</a></li>
-                            <li><a href="users/user_management/" style="color: white;">Users management</a></li>
-                            <li><a href="users/login_and_registration/" style="color: white;">Registration</a></li>
                         </ul>
                 </div>
             </div>
@@ -134,7 +126,7 @@
                 <svg class="tile-icon align-middle" width="32" height="32">
                     <use fill="var(--white)" xlink:href="images/ez-icons.svg#content-draft"></use>
                 </svg>
-                <div class = "info-tile-title align-middle">Content management</div>
+                <div class = "info-tile-title align-middle"><a href="content_management/content_management/" style="color: white;">Content management</a></div>
                 <div class="info-tile-body align-middle">
                         <ul>
                             <li><a href="content_management/content_model/" style="color: white;">Content model</a></li>
@@ -147,7 +139,7 @@
                 <svg class="tile-icon" width="32" height="32">
                     <use fill="var(--white)" xlink:href="images/ez-icons.svg#product"></use>
                 </svg>
-                <div class = "info-tile-title align-middle">Product management</div>
+                <div class = "info-tile-title align-middle"><a href="pim/pim/" style="color: white;">Product management<a></div>
                 <div class="info-tile-body align-middle">
                         <ul>
                             <li><a href="pim/pim_configuration/" style="color: white;">PIM configuration</a></li>
@@ -160,7 +152,7 @@
                 <svg class="tile-icon align-middle" width="32" height="32">
                     <use fill="var(--white)" xlink:href="images/ez-icons.svg#user_group"></use>
                 </svg>
-                <div class = "info-tile-title align-middle">Customer management</div>
+                <div class = "info-tile-title align-middle"><a href="customer_management/customer_management/" style="color: white;">Customer management</a></div>
                 <div class="info-tile-body align-middle">
                         <ul>
                             <li><a href="customer_management/customer_portal/" style="color: white;">Customer portal</a></li>
@@ -173,7 +165,7 @@
                 <svg class="tile-icon align-middle" width="32" height="32">
                     <use fill="var(--white)" xlink:href="images/ez-icons.svg#user"></use>
                 </svg>
-                <div class = "info-tile-title align-middle">User management</div>
+                <div class = "info-tile-title align-middle"><a href="users/user_management/" style="color: white;">User management</a></div>
                 <div class="info-tile-body align-middle">
                         <ul>
                             <li><a href="users/users/" style="color: white;">Users</a></li>
