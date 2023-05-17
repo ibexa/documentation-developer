@@ -698,6 +698,7 @@ nav:
             - Report and follow issues: resources/contributing/report_and_follow_issues.md
             - Contribute translations: resources/contributing/contribute_translations.md
             - Package structure: resources/contributing/package_structure.md
+        - Icons: images/icons.md
     - Release notes:
         - Release notes: release_notes/release_notes.md
         - Ibexa DXP v4.5: release_notes/ibexa_dxp_v4.5.md
