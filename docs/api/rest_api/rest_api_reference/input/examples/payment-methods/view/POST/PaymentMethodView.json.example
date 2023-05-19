@@ -1,0 +1,44 @@
+{
+  "PaymentMethodView": {
+    "_media-type": "application\/vnd.ibexa.api.PaymentMethodView+json",
+    "identifier": "example",
+    "Result": {
+      "_media-type": "application\/vnd.ibexa.api.ViewResult+json",
+      "count": 4,
+      "PaymentMethodList": [
+        {
+          "_media-type": "application\/vnd.ibexa.api.PaymentMethod+json",
+          "identifier": "bank_transfer",
+          "id": 1,
+          "enabled": true,
+          "name": "Bank transfer",
+          "description": "Bank transfer"
+        },
+        {
+          "_media-type": "application\/vnd.ibexa.api.PaymentMethod+json",
+          "identifier": "cash_on_delivery",
+          "id": 2,
+          "enabled": true,
+          "name": "Cash on delivery",
+          "description": "Cash on delivery"
+        },
+        {
+          "_media-type": "application\/vnd.ibexa.api.PaymentMethod+json",
+          "identifier": "invoice",
+          "id": 3,
+          "enabled": true,
+          "name": "Invoice",
+          "description": "Invoice"
+        },
+        {
+          "_media-type": "application\/vnd.ibexa.api.PaymentMethod+json",
+          "identifier": "paypal",
+          "id": 4,
+          "enabled": true,
+          "name": "PayPal",
+          "description": "PayPal"
+        }
+      ]
+    }
+  }
+}
