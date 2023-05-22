@@ -143,6 +143,14 @@ parameters:
         - { source_unit: meter, target_unit: millimeter, formula: 'value * 1000.0' }
 ```
 
+You can also add your own service based on one of:
+
+- `Ibexa\Measurement\UnitConverter\AbstractFormulaUnitConverter`
+- `Ibexa\Measurement\UnitConverter\RangeValueFormulaUnitConverter`
+- `Ibexa\Measurement\UnitConverter\SimpleValueFormulaUnitConverter`
+
+and tag it with: `ibexa.measurement.value.converter`.
+
 ## Template rendering
 
 The Measurement field is rendered with the [`ibexa_render_field()`](field_twig_functions.md#ibexa_render_field) Twig function.
