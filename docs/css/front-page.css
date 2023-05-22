@@ -42,6 +42,9 @@ h5.tile-title {
 .tile-icon {
     margin-right: 0px;
     margin-top: 20px;
+    stroke: #FFFFFF;
+    fill: #FFFFFF;
+    stroke-width: 0.3px;
 }
 
 .tile-body {
@@ -64,27 +67,6 @@ h5.tile-title {
     margin-left: 0;
 }
 
-.most-popular h5 {
-    background-color: rgba(216,216,216,0.27);
-    font-size: 13px;
-    font-weight: bold;
-    line-height: 18px;
-    padding: 8px 14px;
-    margin-bottom: 1rem;
-}
-
-.md-typeset .most-popular ul {
-    list-style-position: inside;
-    padding-left: 0;
-    margin-left: 0px;
-}
-
-.md-typeset .most-popular ul li {
-    border-bottom: 1px solid #D8D8D8;
-    margin-left: 0px;
-    padding-left: 0.5rem;
-}
-
 .latest-release h5 {
     border-bottom: 3px solid #D8D8D8;
     font-size: 18px;
@@ -103,64 +85,6 @@ h5.tile-title {
 
 .features ul li {
     margin-bottom: 0;
-}
-
-.announcement {
-    margin-bottom: 0px;
-    padding: 6px;
-    background-color: #FFFFFF;
-    font-size: 15px;
-    color: var(--ibexa-jazzberry);
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    opacity: 0.8;
-}
-.announcement:hover {
-    box-shadow: 0px 2px 10px #af1164;
-    opacity: 0.5;
-    font-weight: bold;
-}
-
-.announcement:hover,
-.announcement:focus {
-  -webkit-animation: pulse 1s;
-          animation: pulse 1s;
-  box-shadow: 0 0 0 2em transparent;
-}
-
-.announcement a.external:after {
-    content: none;
-}
-
-.announcement .btn {
-    font-size: 15px;
-    padding: 6px;
-}
-
-.announcement .tile-icon {
-    flex-shrink: 0;
-}
-
-.announcement .btn-announcement {
-    background: var(--ibexa-jazzberry);
-    border: 1px solid var(--ibexa-jazzberry);
-    color: #FFFFFF;
-}
-
-.announcement .btn-announcement-outline {
-    background: #af1164;
-    border: 1px solid var(--white);
-    color: var(--white);
-}
-
-.announcement .btn-announcement-outline:hover {
-    opacity: 50%;
-}
-
-.announcement .btn-announcement:hover {
-    opacity: 50%;
 }
 
 .info-tile {
@@ -182,6 +106,19 @@ h5.tile-title {
 
   }
 
+  .info-tile:hover {
+    opacity:0.5;
+  }
+
+  .info-tile-img {
+    position: absolute;
+    left: 2%;
+    top: 15%;
+    opacity: .4;
+    height: 10vw;
+    font-size:10vw;
+  }
+
   .info-tile-up {
     height: 120px;
     max-height: 120px;
@@ -201,23 +138,6 @@ h5.tile-title {
     width: 100%;
     padding: 5px;
 
-  }
-
-  .info-tile:hover {
-    opacity:0.5;
-  }
-
-  .info-tile-up:hover {
-    opacity:0.5;
-  }
-  
-  .info-tile-img {
-    position: absolute;
-    left: 2%;
-    top: 15%;
-    opacity: .4;
-    height: 10vw;
-    font-size:10vw;
   }
 
   [dir=ltr] .info-tile-body ul {
@@ -263,6 +183,10 @@ h5.info-tile-title {
     margin-bottom: 0px;
 }
 
+  .info-tile-up:hover {
+    opacity:0.5;
+  }
+
 a.instruction-tile {
     display: inline-flex;
     align-items: center;
@@ -289,95 +213,32 @@ a.instruction-tile {
     color: white;
 }
 
-.instruction-tile-title {
-    color: #ffffff;
-    font-family: "Noto Sans";
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 50px;
-    padding-left: 0;
-    text-align: center;
-
-}
-
 a.instruction-tile:hover {
   opacity:0.5;
   color: white;
 }
-
-.instruction-tile-icon {
-    margin-right: 0.6rem;
-    margin-top: 0px;
-}
-
-.instruction-tile-title {
-    color: #ffffff;
-    font-family: "Noto Sans";
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 50px;
-    padding-left: 0;
-    text-align: center;
-}
-
-.instruction-tile-number {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 24px;
-    height: 24px;
-    background: white;
-    border-radius: 100%;
-    color: #af1164;
-    margin-bottom: 10px;
-}
-
-.instruction-tile-icon {
-    margin-right: 0.6rem;
-    width: 32px;
-    height: 32px;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    display: inline;
-    border-radius: 100%;
-}
-  /* nowy-styl-test */
 
 html {
     height: 100%;
   }
   body {
     margin: 0;
-    background: linear-gradient(231deg, #ffffff 0%, #f0f0f0 99%);
+    /* background: linear-gradient(231deg, #ffffff 0%, #f0f0f0 99%); */
     padding-top: 100px;
     font-family: "Noto Sans";
   }
+  
   .accordion {
     margin: 0;
     width: 100%;
     background-color: #fff;
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
     opacity: 0.8;
     font-size: 14px;
   }
-  .accordion .title {
-    padding-left: 15px;
-  }
-  .accordion .title h1 {
-    font-size: 24px;
-    line-height: 30px;
-    margin-bottom: 0;
-  }
-  .accordion .title h2 {
-    font-size: 16px;
-    line-height: 20px;
-    margin-top: 0;
-    padding: 0;
-    font-weight: 500;
-  }
+ 
   .accordion details summary {
     line-height: 50px;
     padding-left: 15px;
@@ -388,23 +249,7 @@ html {
     position: relative;
     user-select: none;
   }
-  .accordion details summary i {
-    font-size: 32px;
-    vertical-align: middle;
-    margin-right: 15px;
-  }
-  .accordion details summary i.purple {
-    color: #af1164;
-  }
-  .accordion details summary i.orange {
-    color: #af1164;
-  }
-  .accordion details summary i.red {
-    color: #af1164;
-  }
-  .accordion details summary i.green {
-    color: #af1164;
-  }
+ 
   .accordion details[open] summary,
   .accordion details summary:hover {
     background-color: rgba(0, 0, 0, 0.05);
@@ -412,17 +257,7 @@ html {
   .accordion details[open] summary{
     font-weight: bold;
   }
-  .accordion details summary:after {
-    content: "+";
-    position: absolute;
-    display: block;
-    line-height: 50px;
-    top: 0px;
-    right: 20px;
-  }
-  .accordion details[open] summary:after {
-    content: "-";
-  }
+  
   .accordion details ::marker {
     font-size: 0;
   }
@@ -439,7 +274,6 @@ html {
     padding: 10px;
     padding-left: 20px;
     border-radius: 5px;
-    font-weight: bold;
   }
   .accordion details ul li:hover {
     background-color: rgba(0, 0, 0, 0.05);
@@ -460,13 +294,33 @@ html {
     page-break-inside: avoid;
 }
 
+.md-typeset .admonition,details {
+  background-color: var(--md-admonition-bg-color);
+  border: 0 solid #af1164;
+  border-radius: 0.1rem;
+  box-shadow: var(--md-shadow-z1);
+  color: var(--md-admonition-fg-color);
+  display: flow-root;
+  font-size: .64rem;
+  margin: 1.5625em 0;
+  padding: 0 0.6rem;
+  page-break-inside: avoid;
+}
+
 .md-typeset :is(.admonition-title,summary):before {
     background-color: #af1164;
     height: 1rem;
-    mask-image: url(ez-icons.svg#user);
-    mask-repeat: no-repeat;
     mask-size: contain;
     position: absolute;
     top: 0.625em;
     width: 1rem;
+    display: none;
+}
+
+[dir=ltr] .summary-icon {
+  width: 30px;
+  height: 30px;
+  margin-left: 0px;
+  margin-right: 20px;
+  display: inline;
 }
