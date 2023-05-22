@@ -127,7 +127,22 @@ to be marked as `is_base_unit` as in highlighted line above.
 !!! note
 
     To be available for selection in the Back Office, each new Measurement type or unit must be enabled for the  Back Office SiteAccess.
-    
+
+Next, you need to define how the new unit should be converted in `src/bundle/Resources/config/services/conversion.yaml`:
+
+```yaml
+parameters:
+    ibexa.measurement.value.converter.formulas:
+        # lenght
+        - { source_unit: my_unit, target_unit: meter, formula: 'value / 77' }
+        - { source_unit: centimeter, target_unit: meter, formula: 'value * 0.01' }
+        - { source_unit: millimeter, target_unit: meter, formula: 'value * 0.001' }
+
+        - { source_unit: meter, target_unit: my_unit, formula: 'value * 77' }
+        - { source_unit: meter, target_unit: centimeter, formula: 'value * 100.0' }
+        - { source_unit: meter, target_unit: millimeter, formula: 'value * 1000.0' }
+```
+
 ## Template rendering
 
 The Measurement field is rendered with the [`ibexa_render_field()`](field_twig_functions.md#ibexa_render_field) Twig function.
