@@ -159,6 +159,12 @@ If the dry run is successful, run:
 php bin/console ibexa:migrations:migrate
 ```
 
+### Migrate richtext namespaces
+
+If you earlier upgraded from v3.x and haven't run the migratescript yet, do it now, run:
+
+`./bin/console ibexa:migrate:richtext-namespaces`
+
 ## Update your custom code
 
 ### Online editor
