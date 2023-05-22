@@ -33,6 +33,8 @@ HTTP Cache.
     instructions on how to install it.
 
 The provided .vcl files will work both with [Fastly Shielding](https://docs.fastly.com/en/guides/shielding) enabled and without it.
+If you decide to use Fastly VCL, you can consider using [Fastly CLI](https://developer.fastly.com/learning/tools/cli#installing) with it, to manage VCL files from the command line.
+To learn more see, [Fastly CLI configuration](fastly_io.md#vcl-configuration) and [basic commands](fastly_io.md#fastly-cli).
 
 !!! tip
     Support for Fastly Shielding was added in Ibexa DXP v3.3.24 and V4.1.6

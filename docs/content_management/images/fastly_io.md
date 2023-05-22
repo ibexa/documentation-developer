@@ -57,6 +57,8 @@ fastly vcl custom create --name="Ibexa VCL" --main --version=latest --autoclone 
 fastly vcl snippet create --name="Shielding" --version=active --autoclone --type recv --content=vendor/ibexa/fastly/fastly/snippet_re_enable_shielding.vcl
 ```
 
+For more command examples see, [Fastly CLI](#fastly-cli).
+
 Fastly passes requests through the image optimizer by adding the `x-fastly-imageopto-api` header in `vcl_recv`.
 You need to restrict the optimizer by file path and extension to only apply to image requests:
 
@@ -171,3 +173,86 @@ You can select defined image variations during Content item creation in the imag
 Variations can include different sizing options and other filters that are applied to the image.
 
 ![Fastly Image Variations](img/fastly_variations.png)
+
+## Fastly CLI
+
+Below you will find the most common commands that can be used to set up and manage  VCLs in Fastly.
+For full list of Fastly CLI commands see, [Fastly CLI reference](https://developer.fastly.com/reference/cli).
+
+Setup:
+
+```bash
+export FASTLY_SERVICE_ID=X
+export FASTLY_API_TOKEN=Y```
+```
+
+Create a new Version based on the active one:
+
+```bash
+fastly service-version clone --version=active
+```
+
+Create new VCLs:
+
+```bash
+fastly vcl custom create --name "ez_main.vcl" --content=vendor/ibexa/fastly/fastly/ez_main.vcl --version=latest --main
+fastly vcl custom create --name "ez_user_hash.vcl" --content=vendor/ibexa/fastly/fastly/ez_user_hash.vcl --version=latest
+```
+
+Update existing VCLs:
+
+```bash
+fastly vcl custom update --name "ez_main.vcl" --content=vendor/ibexa/fastly/fastly/ez_main.vcl --version=latest
+fastly vcl custom update --name "ez_user_hash.vcl" --content=vendor/ibexa/fastly/fastly/ez_user_hash.vcl --version=latest
+```
+
+Create a snippet:
+
+```bash
+fastly vcl snippet create --name="Re-Enable shielding on restart" --version=latest --priority 100 --type recv --content=vendor/ibexa/fastly/fastly/snippet_re_enable_shielding.vcl
+```
+
+Update a snippet:
+
+```bash
+fastly vcl snippet update --name="Re-Enable shielding on restart" --version=latest --priority 100 --type recv --content=vendor/ibexa/fastly/fastly/snippet_re_enable_shielding.vcl
+```
+
+Create/update Image Optimizer VCL:
+
+```bash
+fastly vcl custom create --name "ibexa_image_optimizer.vcl" --content=vendor/ibexa/fastly/fastly/ibexa_image_optimizer.vcl --version=latest
+fastly vcl custom update --name "ibexa_image_optimizer.vcl" --content=vendor/ibexa/fastly/fastly/ibexa_image_optimizer.vcl --version=latest
+```
+
+Activate the new version with made changes:
+
+```bash
+fastly service-version activate --version=latest
+```
+
+List all custom VCLs:
+
+```bash
+fastly vcl custom list --version=latest
+```
+
+Get the Content of a particular VCL:
+
+```bash
+fastly vcl custom describe --name="ez_main.vcl" --version=latest
+```
+
+Get all snippets:
+
+```bash
+fastly vcl snippet list --version=latest
+```
+
+Get a single snippet:
+
+```bash
+fastly vcl snippet describe --name="Re-Enable shielding on restart" --version=latest
+```
+
+Note, `--version=latest` is used in the examples, but if you would be debugging your active configuration then it should be replaced with `-version=active`.
