@@ -2,7 +2,7 @@
 description: Events that are triggered when working with orders.
 ---
 
-# Order Management events
+# Order management events
 | Event | Dispatched by | Properties |
 |---|---|---|
 |`BeforeCreateOrderEvent`|`OrderService::createOrder`|`OrderCreateStruct $createStruct`<br/>`?OrderInterface $orderResult = null`|
