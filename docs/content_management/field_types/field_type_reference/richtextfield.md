@@ -38,13 +38,13 @@ As its internal format, the RichText Field Type uses a [custom flavor of the Doc
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
-<section xmlns="http://docbook.org/ns/docbook"
-         xmlns:xlink="http://www.w3.org/1999/xlink"
-         xmlns:ezxhtml="http://ez.no/xmlns/ezpublish/docbook/xhtml"
-         xmlns:ezcustom="http://ez.no/xmlns/ezpublish/docbook/custom"
-         version="5.0-variant ezpublish-1.0">
-    <title ezxhtml:level="2">This is a title.</title>
-    <para ezxhtml:class="paraClass">This is a paragraph.</para>
+<section
+	xmlns="http://docbook.org/ns/docbook"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+	xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom" version="5.0-variant ezpublish-1.0">
+	<title ezxhtml:level="2">This is a title.</title>
+	<para>This is a paragraph.</para>
 </section>
 ```
 
@@ -54,7 +54,7 @@ The XHTML5 format is used by the Online Editor.
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
-<section xmlns="http://ez.no/namespaces/ezpublish5/xhtml5/edit">
+<section xmlns="http://ibexa.co/namespaces/ezpublish5/xhtml5">
     <h2>This is a title.</h2>
     <p class="paraClass">This is a paragraph.</p>
 </section>
@@ -79,8 +79,8 @@ $inputString = <<<DOCBOOK
 <?xml version="1.0" encoding="UTF-8"?>
 <section xmlns="http://docbook.org/ns/docbook"
          xmlns:xlink="http://www.w3.org/1999/xlink"
-         xmlns:ezxhtml="http://ez.no/xmlns/ezpublish/docbook/xhtml"
-         xmlns:ezcustom="http://ez.no/xmlns/ezpublish/docbook/custom"
+         xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+         xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
          version="5.0-variant ezpublish-1.0">
     <title ezxhtml:level="2">This is a title.</title>
     <para ezxhtml:class="paraClass">This is a paragraph.</para>
@@ -95,7 +95,7 @@ When creating RichText content with the REST API, use the `xml` key of the `fiel
 ``` xml
 <fieldValue>
     <value key="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ezxhtml="http://ez.no/xmlns/ezpublish/docbook/xhtml" xmlns:ezcustom="http://ez.no/xmlns/ezpublish/docbook/custom" version="5.0-variant ezpublish-1.0"&gt;
+&lt;section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml" xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom" version="5.0-variant ezpublish-1.0"&gt;
 &lt;title ezxhtml:level="2"&gt;This is a title.&lt;/title&gt;
 &lt;/section&gt;
     </value>
@@ -209,7 +209,7 @@ Elements of the Online Editor correspond to the following sample DocBook code bl
 #### Image
 
 ``` xml
-<ezembed xlink:href="ezcontent://67" view="embed" ezxhtml:class="ez-embed-type-image">
+<ezembed xlink:href="ezcontent://67" view="embed" ezxhtml:class="ibexa-embed-type-image">
     <ezconfig>
         <ezvalue key="size">medium</ezvalue>
     </ezconfig>
