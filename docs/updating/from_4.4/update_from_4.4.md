@@ -96,6 +96,14 @@ Apply the following database update scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.4.latest-to-4.5.0.sql
     ```
 
+#### Migrate richtext namespaces
+
+If you earlier upgraded from v3.3 to v4.x and haven't run the migrate script yet, do it now, run:
+
+```bash
+bash bin/console ibexa:migrate:richtext-namespaces
+```
+
 #### Ibexa Open Source
 
 If you have no access to Ibexa DXP's `ibexa/installer` package, apply the following database update:

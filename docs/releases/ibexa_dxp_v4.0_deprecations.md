@@ -23,6 +23,13 @@ for a full comparison of old and new bundle names and namespaces.
     you can use the [Ibexa PhpStorm plugin](../community_resources/phpstorm_plugin.md).
     The plugin indicates deprecated namespaces and suggests updating them to new ones.
 
+### Richtext namespace
+
+The internal format of richtext has changed. 
+
+All namespace changes are listed in the
+[richtext](https://github.com/ibexa/fieldtype-richtext/blob/bf45e57ea1d2933cc02eb8d8bff76c0925de92de/src/bundle/Resources/config/default_settings.yaml#L60-L67) repository.
+
 ## Configuration keys
 
 `ezplatform` and `ezpublish` configuration keys have been replaced with `ibexa`.
