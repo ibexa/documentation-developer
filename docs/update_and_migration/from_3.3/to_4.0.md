@@ -161,7 +161,7 @@ php bin/console ibexa:migrations:migrate
 
 ### Migrate richtext namespaces
 
-Run the upgrade script for updating xml namespaces inside richtext fields:
+Run the upgrade script for updating XML namespaces inside RichText Fields:
 
 ```bash
 php bin/console ibexa:migrate:richtext-namespaces
