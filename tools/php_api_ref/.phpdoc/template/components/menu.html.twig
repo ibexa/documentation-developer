@@ -1,16 +1,31 @@
 {# https://github.com/phpDocumentor/phpDocumentor/blob/v3.3.1/data/templates/default/components/menu.html.twig #}
-{% if depth == 1 %}
-<h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="{{ entry.url }}" class="{{ destinationPath|trim('/', 'left') == entry.url ? '-active' }}">{{ entry.title | shortFQSEN }}</a>
-</h4>
+{# https://github.com/phpDocumentor/phpDocumentor/blob/v3.3.1/data/templates/clean/elements/namespaces.sidebar.html.twig #}
+{% if depth > 1 %}
+<svg width="8" height="8">
+    <use xlink:href="../../../images/ez-icons.svg#folder"></use>
+</svg>
 {% endif %}
-{% if entry.children.count > 0 %}
-    <ul class="phpdocumentor-list">
-        {% for child in entry.children|sort((a, b) => a.title >= b.title) %}
-            <li>
-                <a href="{{ child.url }}" class="{{ destinationPath|trim('/', 'left') == child.url ? '-active' }}">{{ child.title | shortFQSEN }}</a>
-                {{ toc(child, 'components/menu.html.twig', maxDepth, depth) }}
+<a href="{{ entry|route("url")|raw }}">{{ entry.name | shortFQSEN }}</a>
+{% if entry.children.count or entry.interfaces.count or entry.classes.count or entry.traits.count %}
+    <ul class="phpdocumentor-list depth-{{ depth }}">
+        {% if entry.children.count %}
+        <li class="type-header type-header-namespace">Namespaces</li>
+        {% for child in entry.children|sort_asc %}
+            <li class="type-namespace">
+                {% include 'components/menu.html.twig' with {'entry': child, 'depth': depth+1} %}
             </li>
         {% endfor %}
+        {% endif %}
+        {% if entry.interfaces.count or entry.classes.count or entry.traits.count %}
+        <li class="type-header type-header-classes">Interfaces, classes and traits</li>
+        {% for element in entry.interfaces.merge(entry.classes).merge(entry.traits)|sort_asc %}
+            <li class="type-element">
+                <svg width="8" height="8">
+                    <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
+                </svg>
+                <a href="{{ element|route("url")|raw }}">{{ element.name | shortFQSEN }}</a>
+            </li>
+        {% endfor %}
+        {% endif %}
     </ul>
 {% endif %}
