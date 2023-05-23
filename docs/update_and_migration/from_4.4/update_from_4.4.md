@@ -98,7 +98,7 @@ Apply the following database update scripts:
 
 #### Migrate richtext namespaces
 
-If you earlier upgraded from v3.3 to v4.x and haven't run the migratescript yet, do it now, run:
+If you earlier upgraded from v3.3 to v4.x and haven't run the migrate script yet, do it now, run:
 
 `./bin/console ibexa:migrate:richtext-namespaces`
 
