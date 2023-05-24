@@ -29,7 +29,7 @@ They [replace](https://docs.phpdoc.org/3.3/guide/features/theming/custom-styling
 ### Customizations per template:
 
 * …/template/
-  - base.html.twig sets the "global" Twig variable `usesPackages` to `false`.
+  - base.html.twig sets the "global" Twig variable `usesPackages` to `false`, and some JavaScript to animate the tree.
   - index.html.twig adds the introduction.
   - edition-tag.html.twig defines a `edition_tag` macro imported by *-title.html.twig templates.
   - package-edition-map.html.twig defines a `package_edition_map` variable used by the `edition_tag` macro, this template is extended by each template needing this macro.
