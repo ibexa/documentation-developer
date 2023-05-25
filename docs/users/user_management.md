@@ -103,6 +103,22 @@ A password that has been used before can be used again.
 
 This rule is valid by default when password expiration is set.
 
+### Breached passwords
+
+You can set a rule that prevents using passwords which have been exposed in a public breach.
+To do this, in the **User account (ezuser)** Field definition, select "Password must not be contained in a public breach".
+
+![Protection against using breached passwords](password_breached.png)
+
+This rule checks the password against known password dumps by using the https://haveibeenpwned.com/ API.
+It does not check existing passwords, so it will not block login for anyone. It applies only to new passwords when users change them.
+
+!!! note
+
+    The password itself isn't sent to the https://haveibeenpwned.com/ API, which makes this check secure.
+    For more information on how that is possible,
+    see [Validating Leaked Passwords with k-Anonymity.](https://blog.cloudflare.com/validating-leaked-passwords-with-k-anonymity/)
+
 ## Login methods
 
 Two login methods are available: with User name or with email.

@@ -167,6 +167,24 @@ Beyond that the following Limitations are available:
 - [Language](limitation_reference.md#language-limitation)
 - [Version Lock](limitation_reference.md#version-lock-limitation)
 
+#### Order
+
+`order/create`:
+
+- [OrderOwner](limitation_reference.md#orderowner-limitation)
+
+`order/view`:
+
+- [OrderOwner](limitation_reference.md#orderowner-limitation)
+
+`order/update`:
+
+- [OrderOwner](limitation_reference.md#orderowner-limitation)
+
+`order/cancel`:
+
+- [OrderOwner](limitation_reference.md#orderowner-limitation)
+
 #### Payment
 
 `payment/create`:
@@ -227,6 +245,24 @@ Beyond that the following Limitations are available:
 - [Section](limitation_reference.md#section-limitation)
 - [Owner](limitation_reference.md#owner-limitation)
 - [New Section](limitation_reference.md#new-section-limitation)
+
+#### Shipment
+
+`shipment/create`:
+
+- [ShipmentOwner](limitation_reference.md#shipmentowner-limitation)
+
+`shipment/view`:
+
+- [ShipmentOwner](limitation_reference.md#shipmentowner-limitation)
+
+`shipment/update`:
+
+- [ShipmentOwner](limitation_reference.md#shipmentowner-limitation)
+
+`shipment/delete`:
+
+- [ShipmentOwner](limitation_reference.md#shipmentowner-limitation)
 
 #### State
 

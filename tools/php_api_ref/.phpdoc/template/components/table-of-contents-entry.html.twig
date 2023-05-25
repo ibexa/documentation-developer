@@ -1,11 +1,4 @@
 {# https://github.com/phpDocumentor/phpDocumentor/blob/v3.3.1/data/templates/default/components/table-of-contents-entry.html.twig #}
-<dt class="phpdocumentor-table-of-contents__entry -{{ type }} -{{ node.visibility }}">
+<li class="phpdocumentor-table-of-contents__entry -{{ type }} -{{ node.visibility }}">
     <a href="{{ link(node) }}">{{ type == 'property' ? '$' }}{{ node.name }}{{ type == 'method' or type == 'function' ? '()' }}</a>
-    <span>
-        {% if type == 'constant' %}&nbsp;= {{ node.value }}{% endif %}
-        {% if type == 'case' %}{% if node.value %}&nbsp;= {{ node.value }}{% endif %}{% endif %}
-        {% if type == 'property' %}&nbsp;: {{ node.type ? node.type|route('class:short')|join('|')|raw : 'mixed' }}{% endif %}
-        {% if (type == 'method' or type == 'function') and '__construct' != node.name %}&nbsp;: {{ node.response.type|route('class:short')|join('|')|raw }}{% endif %}
-    </span>
-</dt>
-<dd>{{ node.summary }}</dd>
+</li>

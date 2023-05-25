@@ -260,8 +260,12 @@ and creating the *Registered Buyer* Role that enables logged-in users to purchas
 You could do this by moving permissions that relate to checkout from the *Storefront User* Role to the *Registered Buyer* Role,
 and granting *Registered Buyer* with the `user/register` and `user/login` permissions which control access to registration and login.
 
-See below for a detailed listing of permissions that apply to Commerce, together 
-with their meaning.
+See below for a detailed listing of permissions that apply to Commerce, together with their meaning.
+
+!!! note "Owner limitation"
+
+    For anonymous users, orders, shipments, and/or payments are saved with a 'null' user reference. 
+    Therefore, when you apply the 'Owner/self' Limitation to any of the permissions below, anonymous users are not allowed to interact with any of these entities.
 
 ### Cart 
 
@@ -297,6 +301,10 @@ interact with orders:
 - `order/update` - to allow the user to change status of an existing order 
 - `order/cancel` - to allow the user to cancel an existing order 
 
+To further control access to an order, you can use the `OrderOwner` Limitation 
+and set its value to `self`. 
+This way users can only interact with their own orders.
+
 ### Shipping management
 
 Set the following permissions to decide what actions are available when users 
@@ -316,6 +324,10 @@ interact with shipping methods and shipments.
 - `shipment/update` - to allow the user to change status of an existing shipment 
 - `shipment/delete` - to allow the user to cancel an existing shipment 
 
+To further control access to a shipment, you can use the `ShipmentOwner` Limitation 
+and set its value to `self`. 
+This way users can only interact with their own shipments.
+
 ### Payment management
 
 Set the following permissions to decide what actions are available when users 
@@ -333,7 +345,7 @@ interact with payment methods and payments.
 - `payment/create` - to allow the user to create a new payment
 - `payment/view` - to allow the user to view payments
 - `payment/edit` - to allow the user to modify an existing payment 
-- `payment/delete` - to allow the user to cancel an existing payment 
+- `payment/delete` - to allow the user to delete an existing payment 
 
 To further control access to a payment, you can use the `PaymentOwner` Limitation 
 and set its value to `self`. 

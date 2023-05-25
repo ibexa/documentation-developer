@@ -3439,3 +3439,157 @@ OrderItemProduct:
             type: string
         name:
             type: string
+
+CorporateAccountRoot:
+    description: 'This class represents Corporate Account Root resource information.'
+    type: object
+    properties:
+        link:
+            type: Link[]
+
+Link:
+    description: 'This class represents REST resource information.'
+    type: BaseObject
+    properties:
+        rel:
+            description: 'Unique identifier of a resource.'
+            type: string
+
+
+Company:
+    description: 'This class represents a company.'
+    type: object
+    properties:
+        id:
+            type: integer
+        name:
+            type: string
+        Content:
+            type: Content
+        billingAddress:
+            type: string
+        contactId:
+            type: integer
+        salesRepresentativeId:
+            type: integer
+        defaultAddressId:
+            type: integer
+        addressBookId:
+            description: 'Address book Folder Content ID.'
+            type: integer
+        membersId:
+            description: 'Members Folder Content ID.'
+            type: integer
+        MembersList:
+            description: 'Reference to Members List resource.'
+            type: BaseObject
+        Location:
+            description: 'Reference to Location resource.'
+            type: BaseObject
+        locationPath:
+            description: 'Company Content item Location path string.'
+            type: string
+        isActive:
+            type: boolean
+
+CompanyCreate:
+    description: 'This class is used to create a company.'
+    type: object
+    properties:
+        remoteId:
+            type: string
+        modificationDate:
+            type: string
+        User:
+            description: 'User value.'
+            type: User
+        fields:
+            description: 'Fields of a Company Content item.'
+            type: Field[]
+
+CompanyUpdate:
+    description: 'This class is used to update a Company.'
+    type: object
+    properties:
+        fields:
+            description: 'Fields of a Company Content item.'
+            type: Field[]
+
+CompanyList:
+    description: 'This class represents a list of companies.'
+    type: object
+    properties:
+        Company:
+            type: Company[]
+
+Member:
+    description: 'This class represents a company member.'
+    type: object
+    properties:
+        id:
+            type: integer
+        name:
+            type: string
+        Company:
+            type: Company
+        User:
+            description: 'Underlying User object of a member.'
+            type: User
+        Role:
+            description: 'Reference to the member role in a Company resource.'
+            type: BaseObject
+
+MemberList:
+    description: 'This class represents a list of company members.'
+    type: object
+    properties:
+        Member:
+            type: Member[]
+
+MemberCreate:
+    description: 'This class is used to create a member.'
+    type: object
+    properties:
+        login:
+            type: string
+        email:
+            type: string
+        password:
+            type: string
+        Role:
+            description: 'Reference to a Role resource company member should be given.'
+            type: BaseObject
+        fields:
+            description: 'Fields of a Member Content item.'
+            type: Field[]
+
+MemberUpdate:
+    description: 'This class is used to update a member.'
+    type: object
+    properties:
+        email:
+            type: string
+        password:
+            type: string
+        enabled:
+            type: boolean
+        maxLogin:
+            description: 'Max number of failed login attempts.'
+            type: integer
+        Role:
+            description: 'Reference to a Role resource company member should be given.'
+            type: BaseObject
+        fields:
+            description: 'Fields of a Member Content item.'
+            type: Field[]
+
+ErrorMessage:
+    description: 'Represents an error response. Might contain additional properties depending on an error type.'
+    type: object
+    properties:
+        errorCode:
+            type: integer
+        errorMessage:
+            type: string
+        errorDescription:
+            type: string

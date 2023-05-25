@@ -4,24 +4,10 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -four phpdocumentor-sidebar">
-    {% for version in project.versions %}
-        {% for toc in version.tableOfContents %}
-            {% if 'Packages' != toc.name %}
-            <section class="phpdocumentor-sidebar__category">
-                <h2 class="phpdocumentor-sidebar__category-header">{{ toc.name }}</h2>
-                {% for root in toc.roots %}
-                    {{ toc(root, 'components/menu.html.twig', maxDepth) }}
-                {% endfor %}
-            </section>
-            {% endif %}
-        {% endfor %}
-    {% endfor %}
-
     <section class="phpdocumentor-sidebar__category">
-        <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
-        {% if project.settings.custom['graphs.enabled'] %}
-            <h3 class="phpdocumentor-sidebar__root-package"><a href="graphs/classes.html">Class Diagram</a></h3>
-        {% endif %}
-        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
+        <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
+        {% for namespace in project.namespace.children %}
+            {% include 'components/menu.html.twig' with {'entry': namespace, 'depth': 1} %}
+        {% endfor %}
     </section>
 </aside>

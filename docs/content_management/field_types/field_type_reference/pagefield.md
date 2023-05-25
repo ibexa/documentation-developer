@@ -71,7 +71,7 @@ As a whole a sample layout could look as follows:
             {# for each block #}
             {% for block in blocks %}
                 {# create a new layer with appropriate ID #}
-                <div class="landing-page__block block_{{ block.type }}" data-ibexa-block-id="{{ block.id }}">
+                <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
                     {# render the block by using the "IbexaFieldTypePageBundle\Controller\BlockController::renderAction" controller #}
                     {# location.id is the ID of the Location of the current Content item, block.id is the ID of the current block #}
                     {{ render_esi(controller('IbexaFieldTypePageBundle\Controller\BlockController::renderAction', {

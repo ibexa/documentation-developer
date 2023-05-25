@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompanyCreate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <User/>
+  <fields>
+    <field>
+      <fieldDefinitionIdentifier>active</fieldDefinitionIdentifier>
+      <fieldValue>true</fieldValue>
+    </field>
+    <field>
+      <fieldDefinitionIdentifier>name</fieldDefinitionIdentifier>
+      <fieldValue>Ibexa Sp. z o. o.</fieldValue>
+    </field>
+    <field>
+      <fieldDefinitionIdentifier>vat</fieldDefinitionIdentifier>
+      <fieldValue>123 456 789</fieldValue>
+    </field>
+    <field>
+      <fieldDefinitionIdentifier>website</fieldDefinitionIdentifier>
+      <fieldValue>https://ibexa.co</fieldValue>
+    </field>
+    <field>
+      <fieldDefinitionIdentifier>customer_group</fieldDefinitionIdentifier>
+      <fieldValue>
+        <value key="customer_group_id">1</value>
+      </fieldValue>
+    </field>
+    <field>
+      <fieldDefinitionIdentifier>sales_rep</fieldDefinitionIdentifier>
+      <fieldValue>
+        <value key="destinationContentId">14</value>
+      </fieldValue>
+    </field>
+    <field>
+      <fieldDefinitionIdentifier>billing_address</fieldDefinitionIdentifier>
+      <fieldValue>
+        <value key="name">HQ</value>
+        <value key="country">PL</value>
+        <value key="fields">
+          <value key="region">Silesia</value>
+          <value key="locality">Katowice</value>
+          <value key="street">Gliwicka 6/5</value>
+          <value key="postal_code">40-079</value>
+          <value key="email">company@email.invalid</value>
+          <value key="phone_number">+48 000 000 000</value>
+        </value>
+      </fieldValue>
+    </field>
+  </fields>
+</CompanyCreate>

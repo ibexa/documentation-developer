@@ -1,5 +1,5 @@
 ---
-description: Use PHP API to manage orders in Commerce: find, get, create and update them.
+description: Use PHP API to manage orders in Commerce.
 edition: commerce
 ---
 
@@ -7,7 +7,7 @@ edition: commerce
 
 !!! tip "Order management REST API"
 
-    To learn how to manage orders with the REST API, see the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-orders).
+    To learn how to manage orders with the REST API, see the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#orders).
 
 To get orders and manage them, use the `Ibexa\Contracts\OrderManagement\OrderServiceInterface` interface.
 

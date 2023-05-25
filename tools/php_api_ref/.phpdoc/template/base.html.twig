@@ -1,4 +1,61 @@
 {% extends 'layout.html.twig' %}
 
 {% set usesPackages = false %}
-{% set maxDepth = 2 %}
+{% set visibleDepth = 2 %}
+
+{% block javascripts %}
+  {{ parent() }}
+
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+          integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+          crossorigin="anonymous"></script>
+  <script>
+    let toggle = function(event) {
+      let target = $(event.target).closest('svg');
+      let list = target.nextAll('.phpdocumentor-list');
+      // Toggle namespace
+      list.toggle();
+      // Set icon image
+      let icon = target.children('use');
+      let image = list.is(':visible') ? 'folder-empty' : 'folder';
+      icon.attr('xlink:href', icon.attr('xlink:href').replace(/#.+$/, '#' + image));
+    }
+    $(function() {
+      let depth = {{ visibleDepth+1 }};
+      let lists;
+      while ((lists = $('.phpdocumentor-sidebar__category .phpdocumentor-list.depth-'+depth)).length) {
+        // Close namespaces
+        lists.hide();
+        lists.each(function() {
+          let list = $(this);
+          let target = list.prevAll('svg').first();
+          // Set event listeners
+          target.click(toggle);
+          // Set icon image
+          let icon = target.children('use');
+          let image = 'folder';
+          icon.attr('xlink:href', icon.attr('xlink:href').replace(/#.+$/, '#' + image));
+        });
+        depth++;
+      }
+      // Open current
+      let path = document.location.pathname.split('/');
+      let page = path.pop();
+      let current = $('.phpdocumentor-sidebar__category .phpdocumentor-list a[href$="'+page+'"]');
+      if (current.length) {
+        current.closest('li').addClass('current');
+        current.parentsUntil('.phpdocumentor-list.depth-1', '.phpdocumentor-list').each(function () {
+          list = $(this);
+          target = list.prevAll('svg').first();
+          target.closest('li').addClass('current-parent');
+          // Open namespace
+          list.show();
+          // Set icon image
+          let icon = target.children('use');
+          let image = 'folder-empty';
+          icon.attr('xlink:href', icon.attr('xlink:href').replace(/#.+$/, '#' + image));
+        });
+      }
+    });
+  </script>
+{% endblock %}
