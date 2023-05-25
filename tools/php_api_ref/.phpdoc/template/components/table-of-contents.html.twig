@@ -1,55 +1,73 @@
 {# https://github.com/phpDocumentor/phpDocumentor/blob/v3.3.1/data/templates/default/components/table-of-contents.html.twig #}
-{% if packages|default([]) is not empty %}
-<h3 id="packages">
-    Packages
-    <a href="#packages" class="headerlink"><i class="fas fa-link"></i></a>
-</h3>
 
-<dl class="phpdocumentor-table-of-contents">
-    {% for package in packages %}
-        <dt class="phpdocumentor-table-of-contents__entry -package">{{ package|route('class:short') }}</dt>
-    {% endfor %}
-</dl>
-{% endif %}
+{% if node.getFile() is empty %}
+{# node is a namespace #}
 
 {% if namespaces|default([]) is not empty %}
-<h3 id="namespaces">
-    Namespaces
-    <a href="#namespaces" class="headerlink"><i class="fas fa-link"></i></a>
-</h3>
+    <h3 id="namespaces">
+        Namespaces
+        <a href="#namespaces" class="headerlink"><i class="fas fa-link"></i></a>
+    </h3>
 
-<dl class="phpdocumentor-table-of-contents">
-    {% for namespace in namespaces %}
-        <dt class="phpdocumentor-table-of-contents__entry -namespace">{{ namespace|route('class:short') }}</dt>
-    {% endfor %}
-</dl>
+    <dl class="phpdocumentor-table-of-contents">
+        {% for namespace in namespaces %}
+            <dt class="phpdocumentor-table-of-contents__entry -namespace">{{ namespace|route('class:short') }}</dt>
+        {% endfor %}
+    </dl>
 {% endif %}
 
 {% if node.interfaces is not empty or node.classes is not empty or node.traits is not empty or node.enums is not empty %}
-<h3 id="interfaces_class_traits">
-    Interfaces, Classes, Traits and Enums
-    <a href="#interfaces_class_traits" class="headerlink"><i class="fas fa-link"></i></a>
-</h3>
+    <h3 id="interfaces_class_traits">
+        Interfaces, Classes, Traits and Enums
+        <a href="#interfaces_class_traits" class="headerlink"><i class="fas fa-link"></i></a>
+    </h3>
 
-<dl class="phpdocumentor-table-of-contents">
-    {% for interface in node.interfaces %}
-        <dt class="phpdocumentor-table-of-contents__entry -interface">{{ interface|route('class:short') }}</dt>
-        <dd>{{ interface.summary }}</dd>
-    {% endfor %}
+    <dl class="phpdocumentor-table-of-contents">
+        {% for interface in node.interfaces %}
+            <dt class="phpdocumentor-table-of-contents__entry -interface">{{ interface|route('class:short') }}</dt>
+            <dd>{{ interface.summary }}</dd>
+        {% endfor %}
 
-    {% for class in node.classes %}
-        <dt class="phpdocumentor-table-of-contents__entry -class">{{ class|route('class:short') }}</dt>
-        <dd>{{ class.summary }}</dd>
-    {% endfor %}
+        {% for class in node.classes %}
+            <dt class="phpdocumentor-table-of-contents__entry -class">{{ class|route('class:short') }}</dt>
+            <dd>{{ class.summary }}</dd>
+        {% endfor %}
 
-    {% for trait in node.traits %}
-        <dt class="phpdocumentor-table-of-contents__entry -trait">{{ trait|route('class:short') }}</dt>
-        <dd>{{ trait.summary }}</dd>
-    {% endfor %}
+        {% for trait in node.traits %}
+            <dt class="phpdocumentor-table-of-contents__entry -trait">{{ trait|route('class:short') }}</dt>
+            <dd>{{ trait.summary }}</dd>
+        {% endfor %}
 
-    {% for enum in node.enums %}
-        <dt class="phpdocumentor-table-of-contents__entry -enum">{{ enum|route('class:short') }}</dt>
-        <dd>{{ enum.summary }}</dd>
-    {% endfor %}
-</dl>
+        {% for enum in node.enums %}
+            <dt class="phpdocumentor-table-of-contents__entry -enum">{{ enum|route('class:short') }}</dt>
+            <dd>{{ enum.summary }}</dd>
+        {% endfor %}
+    </dl>
+{% endif %}
+
+{% else %}
+{# node is an interface, a class, a trait or an enum #}
+
+{% set constants = constants(node)|sortByVisibility %}
+{% set properties = properties(node)|sortByVisibility %}
+{% set methods = methods(node)|sortByVisibility %}
+{% if constants is not empty or node.functions is not empty or methods is not empty or properties is not empty %}
+    <ul class="phpdocumentor-table-of-contents">
+        {% for type, entries in {
+            'constant': constants,
+            'case': cases(node)|sortByVisibility,
+            'property': properties,
+            'method': methods,
+            'function': node.functions|default([]),
+        } %}
+        {% if entries is not empty %}
+            <li class="type {{ type }}">{{ type|capitalize|replace({'y': 'ie'}) }}s</li>
+            {% for entry in entries %}
+                {{ include('components/table-of-contents-entry.html.twig', {'type': type, 'node': entry}) }}
+            {% endfor %}
+        {% endif %}
+        {% endfor %}
+    </ul>
+{% endif %}
+
 {% endif %}

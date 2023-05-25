@@ -11,12 +11,25 @@
     --text-base-size: 16px;
 }
 
-.phpdocumentor-table-of-contents .phpdocumentor-table-of-contents__entry:before {
-    background: transparent url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="{{ dark_color|url_encode }}"/></svg>') no-repeat center center;
+ul.phpdocumentor-table-of-contents {
+    width: 30%;
+    float: right;
 }
-.phpdocumentor-table-of-contents .phpdocumentor-table-of-contents__entry.-method:before,
-.phpdocumentor-table-of-contents .phpdocumentor-table-of-contents__entry.-function:before {
-    background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="{{ dark_color|url_encode }}"/></svg>');
+.phpdocumentor-constants, .phpdocumentor-properties, .phpdocumentor-methods, .phpdocumentor-functions {
+    width: 60%;
+}
+
+.phpdocumentor-table-of-contents .phpdocumentor-table-of-contents__entry:before {
+    display: none;
+}
+.phpdocumentor-table-of-contents .phpdocumentor-table-of-contents__entry:after,
+.phpdocumentor-table-of-contents .phpdocumentor-table-of-contents__entry.-protected:after {
+    position: relative;
+    left: 0;
+}
+.phpdocumentor-table-of-contents .type, .phpdocumentor-table-of-contents .phpdocumentor-table-of-contents__entry {
+    margin-left: 0;
+    display: flex;
 }
 
 .phpdocumentor-title__link img {
@@ -27,11 +40,18 @@
 .phpdocumentor .phpdocumentor-sidebar__category > * {
     border-left-width: 0;
 }
-.phpdocumentor-sidebar .phpdocumentor-list li {
-    border-left: 1px solid grey;
+.phpdocumentor .phpdocumentor-sidebar {
+    overflow-x: scroll;
 }
-.phpdocumentor-sidebar .phpdocumentor-list li.current /*, .phpdocumentor-sidebar .phpdocumentor-list li.current-parent*/ {
+.phpdocumentor .phpdocumentor-sidebar .phpdocumentor-list li {
+    border-left: 1px solid grey;
+    overflow: visible;
+}
+.phpdocumentor-sidebar .phpdocumentor-list li.current {
     border-left: 3px solid var(--primary-color-darken);
+}
+.phpdocumentor-sidebar .phpdocumentor-list li.current, .phpdocumentor-sidebar .phpdocumentor-list li.current-parent > a {
+    background: whitesmoke;
 }
 .phpdocumentor-sidebar .phpdocumentor-list .current > a, .phpdocumentor-sidebar .phpdocumentor-list .current-parent > a {
     font-weight: bold;
