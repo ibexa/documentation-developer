@@ -12,6 +12,10 @@ There are three types of aggregations:
 - Range aggregations count values in specified ranges
 - Stats aggregations compute stats over numeric fields: minimum, average and maximum value, count and sum of values
 
+!!! tip
+
+    Aggregations are not available in the Legacy Search engine.
+
 ## Content aggregations
 
 |Name | Type | Based on|
@@ -27,6 +31,7 @@ There are three types of aggregations:
 |[RawTermAggregation](rawterm_aggregation.md) | Term | Search index field |
 |[SectionTermAggregation](sectionterm_aggregation.md) | Term | Section |
 |[SubtreeTermAggregation](subtreeterm_aggregation.md) | Term | Location subtree path |
+|[TaxonomyEntryIdAggregation](taxonomyentryid_aggregation.md) | Term | Taxonomy entry |
 |[UserMetadataTermAggregation](usermetadataterm_aggregation.md) | Term | Content owner/owner group or modifier |
 |[VisibilityTermAggregation](visibilityterm_aggregation.md) | Term | Content/Location visibility |
 
@@ -46,3 +51,13 @@ There are three types of aggregations:
 |[KeywordTermAggregation](keywordterm_aggregation.md) | Term |[Keyword](keywordfield.md)|
 |[SelectionTermAggregation](selectionterm_aggregation.md) | Term |[Selection](selectionfield.md)|
 |[TimeRangeAggregation](timerange_aggregation.md) | Range |[Time](timefield.md)|
+
+## Product aggregations
+
+|Name | Type | Based on|
+|---|---|---|
+|[Product attribute](product_attribute_aggregations.md) | Term / Range | Product attribute values |
+|[ProductAvailabilityTerm](productavailabilityterm_aggregation.md) | Term | Product availability |
+|[ProductPriceRange](productpricerange_aggregation.md) | Range | Product price |
+|[ProductTypeTerm](producttypeterm_aggregation.md) | Term | Product type |
+|[TaxonomyEntryIdAggregation](taxonomyentryid_aggregation.md) | Term | Product category |

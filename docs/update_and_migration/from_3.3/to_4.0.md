@@ -159,6 +159,14 @@ If the dry run is successful, run:
 php bin/console ibexa:migrations:migrate
 ```
 
+### Migrate richtext namespaces
+
+Run the upgrade script for updating XML namespaces inside RichText Fields:
+
+```bash
+php bin/console ibexa:migrate:richtext-namespaces
+```
+
 ## Update your custom code
 
 ### Online editor

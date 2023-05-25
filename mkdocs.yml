@@ -319,7 +319,18 @@ nav:
             - Checkout API: commerce/checkout/checkout_api.md
         - Order management:
             - Order management: commerce/order_management/order_management.md
+            - Configure order processing: commerce/order_management/configure_order_management.md
             - Order management API: commerce/order_management/order_management_api.md
+        - Payment management:
+            - Payment management: commerce/payment/payment.md 
+            - Configure payment: commerce/payment/configure_payment.md 
+            - Payment method API: commerce/payment/payment_method_api.md 
+            - Payment API: commerce/payment/payment_api.md 
+        - Shipping management:
+            - Shipping management: commerce/shipping_management/shipping_management.md
+            - Configure shipment: commerce/shipping_management/configure_shipment.md
+            - Shipping method API: commerce/shipping_management/shipping_method_api.md
+            - Shipment API: commerce/shipping_management/shipment_api.md
         - Storefront:
             - Storefront: commerce/storefront/storefront.md
             - Configure Storefront: commerce/storefront/configure_storefront.md
@@ -327,6 +338,7 @@ nav:
     - Customer management:
         - Customer Portal: customer_management/customer_portal.md
         - Customer Portal configuration: customer_management/cp_configuration.md
+        - Create Customer Portal: customer_management/cp_page_builder.md
         - Customer Portal Applications: customer_management/cp_applications.md
         - Create registration form: customer_management/create_user_registration_form.md
     - Multisite:
@@ -359,7 +371,6 @@ nav:
         - User management: users/user_management.md
         - Customer groups: users/customer_groups.md
         - Invitations: users/invitations.md
-        - Login and registration: users/login_and_registration.md
         - OAuth authentication: users/oauth_authentication.md
         - Add login through external service: users/add_login_through_external_service.md
         - Segment API: users/segment_api.md
@@ -464,6 +475,39 @@ nav:
             - Price: search/criteria_reference/order_price_criterion.md
             - Source: search/criteria_reference/order_source_criterion.md
             - Status: search/criteria_reference/order_status_criterion.md
+        - Payment Search Criteria: 
+            - Payment Search Criteria: search/criteria_reference/payment_search_criteria.md
+            - CreatedAt: search/criteria_reference/payment_createdat_criterion.md
+            - Currency: search/criteria_reference/payment_currency_criterion.md
+            - Id: search/criteria_reference/payment_id_criterion.md
+            - Identifier: search/criteria_reference/payment_identifier_criterion.md
+            - LogicalAnd: search/criteria_reference/payment_logicaland_criterion.md
+            - LogicalOr: search/criteria_reference/payment_logicalor_criterion.md
+            - Order: search/criteria_reference/payment_order_criterion.md
+            - PaymentMethod: search/criteria_reference/payment_payment_method_criterion.md
+            - Status: search/criteria_reference/payment_status_criterion.md
+            - UpdatedAt: search/criteria_reference/payment_updatedat_criterion.md
+        - Payment Method Search Criteria: 
+            - Payment Method Search Criteria: search/criteria_reference/payment_method_search_criteria.md
+            - CreatedAt: search/criteria_reference/payment_method_createdat_criterion.md
+            - Enabled: search/criteria_reference/payment_method_enabled_criterion.md
+            - Id: search/criteria_reference/payment_method_id_criterion.md
+            - Identifier: search/criteria_reference/payment_method_identifier_criterion.md
+            - LogicalAnd: search/criteria_reference/payment_method_logicaland_criterion.md
+            - LogicalOr: search/criteria_reference/payment_method_logicalor_criterion.md
+            - Type: search/criteria_reference/payment_method_type_criterion.md
+            - UpdatedAt: search/criteria_reference/payment_method_updatedat_criterion.md
+        - Shipment Search Criteria:
+            - Shipment Search Criteria: search/criteria_reference/shipment_search_criteria.md
+            - CreatedAt: search/criteria_reference/shipment_createdat_criterion.md
+            - Currency: search/criteria_reference/shipment_currency_criterion.md
+            - Id: search/criteria_reference/shipment_id_criterion.md
+            - Identifier: search/criteria_reference/shipment_identifier_criterion.md
+            - LogicalAnd: search/criteria_reference/shipment_logicaland_criterion.md
+            - LogicalOr: search/criteria_reference/shipment_logicalor_criterion.md
+            - ShippingMethod: search/criteria_reference/shipment_shipping_method_criterion.md
+            - StatusCriterion: search/criteria_reference/shipment_status_criterion.md
+            - UpdatedAtCriterion: search/criteria_reference/shipment_updatedat_criterion.md
         - Sort Clause reference:
             - Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
             - ContentId: search/sort_clause_reference/contentid_sort_clause.md
@@ -501,6 +545,27 @@ nav:
             - Created: search/sort_clause_reference/order_created_sort_clause.md
             - Updated: search/sort_clause_reference/order_updated_sort_clause.md
             - Status: search/sort_clause_reference/order_status_sort_clause.md
+        - Payment Sort Clauses:
+            - Payment Sort Clauses: search/sort_clause_reference/payment_sort_clauses.md
+            - Id: search/sort_clause_reference/payment_id_sort_clause.md
+            - Identifier: search/sort_clause_reference/payment_identifier_sort_clause.md
+            - CreatedAt: search/sort_clause_reference/payment_createdat_sort_clause.md
+            - UpdatedAt: search/sort_clause_reference/payment_updatedat_sort_clause.md
+            - Status: search/sort_clause_reference/payment_status_sort_clause.md
+        - Payment Method Sort Clauses:
+            - Payment Method Sort Clauses: search/sort_clause_reference/payment_method_sort_clauses.md
+            - CreatedAt: search/sort_clause_reference/payment_method_createdat_sort_clause.md
+            - Enabled: search/sort_clause_reference/payment_method_enabled_sort_clause.md
+            - Id: search/sort_clause_reference/payment_method_id_sort_clause.md
+            - Identifier: search/sort_clause_reference/payment_method_identifier_sort_clause.md
+            - UpdatedAt: search/sort_clause_reference/payment_method_updatedat_sort_clause.md
+        - Shipment Sort Clauses:
+            - Shipment Sort Clauses: search/sort_clause_reference/shipment_sort_clauses.md
+            - Id: search/sort_clause_reference/shipment_id_sort_clause.md
+            - Identifier: search/sort_clause_reference/shipment_identifier_sort_clause.md
+            - CreatedAt: search/sort_clause_reference/shipment_createdat_sort_clause.md
+            - UpdatedAt: search/sort_clause_reference/shipment_updatedat_sort_clause.md
+            - Status: search/sort_clause_reference/shipment_status_sort_clause.md
         - Aggregation reference:
             - Aggregation reference: search/aggregation_reference/aggregation_reference.md
             - ContentTypeTermAggregation: search/aggregation_reference/contenttypeterm_aggregation.md
@@ -526,7 +591,12 @@ nav:
             - IntegerRangeAggregation: search/aggregation_reference/integerrange_aggregation.md
             - IntegerStatsAggregation: search/aggregation_reference/integerstats_aggregation.md
             - KeywordTermAggregation: search/aggregation_reference/keywordterm_aggregation.md
+            - Product attribute aggregations: search/aggregation_reference/product_attribute_aggregations.md
+            - ProductAvailabilityTermAggregation: search/aggregation_reference/productavailabilityterm_aggregation.md
+            - ProductPriceRangeAggregation: search/aggregation_reference/productpricerange_aggregation.md
+            - ProductTypeTermAggregation: search/aggregation_reference/producttypeterm_aggregation.md
             - SelectionTermAggregation: search/aggregation_reference/selectionterm_aggregation.md
+            - TaxonomyEntryIdAggregation: search/aggregation_reference/taxonomyentryid_aggregation.md
             - TimeRangeAggregation: search/aggregation_reference/timerange_aggregation.md
         - URL search reference:
             - URL search reference: search/url_search_reference/url_search_reference.md
@@ -614,6 +684,8 @@ nav:
               - Update to v4.4: update_and_migration/from_4.3/update_from_4.3.md
               - Use new Commerce packages: update_and_migration/from_4.3/update_from_4.3_new_commerce.md
               - Keep old Commerce packages: update_and_migration/from_4.3/update_from_4.3_old_commerce.md
+        -   Update from v4.4:
+            -   Update to v4.5: update_and_migration/from_4.4/update_from_4.4.md
         - Migrate to Ibexa DXP:
             - Migrate from eZ Publish Platform: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish_platform.md
             - Migrate from eZ Publish: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish.md
@@ -629,6 +701,7 @@ nav:
             - Package structure: resources/contributing/package_structure.md
     - Release notes:
         - Release notes: release_notes/release_notes.md
+        - Ibexa DXP v4.5: release_notes/ibexa_dxp_v4.5.md
         - Ibexa DXP v4.4: release_notes/ibexa_dxp_v4.4.md
         - Ibexa DXP v4.3: release_notes/ibexa_dxp_v4.3.md
         - Ibexa DXP v4.2: release_notes/ibexa_dxp_v4.2.md
@@ -690,12 +763,13 @@ extra:
   product_name_com: 'Ibexa Commerce'
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.31'
-  latest_tag_3_3: '3.3.31'
+  latest_tag_3_3: '3.3.32'
   latest_tag_4_0: '4.0.8'
   latest_tag_4_1: '4.1.5'
   latest_tag_4_2: '4.2.4'
   latest_tag_4_3: '4.3.5'
-  latest_tag_4_4: '4.4.1'
+  latest_tag_4_4: '4.4.3'
+  latest_tag_4_5: '4.5.0'
 
   symfony_doc: 'http://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'
