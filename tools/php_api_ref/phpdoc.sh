@@ -71,7 +71,7 @@ curl -LO "https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.3.
 php phpDocumentor.phar -t php_api_reference;
 if [ $? -eq 0 ]; then
   echo -n "Remove unneeded from phpDocumentor output… ";
-  rm -rf ./php_api_reference/files ./php_api_reference/indices;
+  rm -rf ./php_api_reference/files ./php_api_reference/graphs ./php_api_reference/indices ./php_api_reference/packages;
   echo -n "Copy phpDocumentor output to ${OUTPUT_DIR}… ";
   cp -rf ./php_api_reference/* $OUTPUT_DIR;
   echo -n "Remove surplus… ";
