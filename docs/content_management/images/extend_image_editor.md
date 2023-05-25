@@ -37,7 +37,8 @@ Once you create and configure the React component, you must add an entry to [the
 In the root directory of your project, modify the `webpack.config.js` file by adding the following code:
 
 ``` js
-[[= include_file('code_samples/back_office/image_editor/config/webpack.config.js', 41, 46) =]]
+[[= include_file('code_samples/back_office/image_editor/config/webpack.config.js', 6, 7) =]]//...
+[[= include_file('code_samples/back_office/image_editor/config/webpack.config.js', 50, 55) =]]
 ```
 At this point you should be able to see a new button in the Image Editor's UI.
 

@@ -55,12 +55,12 @@ Dot.defaultProps = {};
 
 export default Dot;
 
-window.ibexa.addConfig(
+ibexa.addConfig(
     'imageEditor.actions.dot',
     {
         label: 'Dot',
         component: Dot,
-        icon: window.ibexa.helpers.icon.getIconPath('radio-button'),
+        icon: ibexa.helpers.icon.getIconPath('radio-button'),
         identifier: IDENTIFIER,
     },
     true
