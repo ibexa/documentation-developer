@@ -1,6 +1,26 @@
 # Clustering using DDEV
 
-## Install Elasticsearch
+This guide follows [Getting started: Install using DDEV](../../getting_started/install_using_ddev.md) and helps to extend the previous installation to replicate locally a production [cluster](clustering.md).
+
+!!! caution
+
+    This is not to be use in production.
+    And a staging environment for validation before production should replicat exactly the production environment.
+    This is meant for development environment only.
+
+TODO: Detail validation tests more
+
+## Install search engine
+
+A [search engine](../../search/search_engines.md) can be added to the cluster.
+
+### Elasticsearch
+
+The following command lines will
+add the Elasticsearch container,
+set it as the search engine,
+restart the DDEV cluster and clean its cache to be taken into account,
+then inject the schema and reindex the content:
 
 ```bash
 ddev get ddev/ddev-elasticsearch
@@ -13,9 +33,26 @@ ddev exec php bin/console ibexa:reindex
 ```
 
 You can now check that everything went right with, for example, `ddev exec curl -s "http://elasticsearch:9200/_count"`.
-TODO: Detail a bit more this validation test
 
-## Install Redis or Memcached
+### Solr
+
+To ease the installation of Solr, the specific container `ibexa-yuna/ddev-solr` can be used:
+
+```bash
+ddev get ibexa-yuna/ddev-solr
+ddev restart
+```
+
+TODO: Health check exceeded timeout
+
+## Install persistence cache pool
+
+A [persistence cache pool](../cache/persistence_cache.md) can be added to the cluster.
+
+For Redis or Memcached, the command lines to add and set up the service are almost the same.
+The corresponding container is added,
+environment variables are set to use the dedicated configuration and set the service hostname,
+then DDEV cluster is restarted and its cache cleaned.
 
 ### Install Redis
 
@@ -39,7 +76,11 @@ ddev restart
 ddev exec php bin/console cache:clear
 ```
 
-## Install Varnish
+You can now check that everything went right with `watch 'ddev exec --raw telnet memcached 11211 <<< stats'` then navigating into the website.
+
+## TODO: Session: Install/Use Redis Memcached
+
+## TODO: Install Varnish
 
 ```bash
 ddev get ddev/ddev-varnish
