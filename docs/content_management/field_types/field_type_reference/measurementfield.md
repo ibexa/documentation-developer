@@ -128,28 +128,19 @@ to be marked as `is_base_unit` as in highlighted line above.
 
     To be available for selection in the Back Office, each new Measurement type or unit must be enabled for the  Back Office SiteAccess.
 
-Next, you need to define how the new unit should be converted in `src/bundle/Resources/config/services/conversion.yaml`:
+Next, you need to define how the new unit should be converted.
+Place configuration in the `config/packages/ibexa.yaml` file or your custom configuration file:
 
 ```yaml
-parameters:
-    ibexa.measurement.value.converter.formulas:
-        # lenght
-        - { source_unit: my_unit, target_unit: meter, formula: 'value / 77' }
-        - { source_unit: centimeter, target_unit: meter, formula: 'value * 0.01' }
-        - { source_unit: millimeter, target_unit: meter, formula: 'value * 0.001' }
-
-        - { source_unit: meter, target_unit: my_unit, formula: 'value * 77' }
-        - { source_unit: meter, target_unit: centimeter, formula: 'value * 100.0' }
-        - { source_unit: meter, target_unit: millimeter, formula: 'value * 1000.0' }
+ibexa_measurement:
+    conversion:
+        formulas:
+            - { source_unit: foo, target_unit: bar, formula: 'value / 100' }
+    types:
+        length:
+            foo: { symbol: foo }
+            bar: { symbol: bar }
 ```
-
-You can also add your own service based on one of:
-
-- `Ibexa\Measurement\UnitConverter\AbstractFormulaUnitConverter`
-- `Ibexa\Measurement\UnitConverter\RangeValueFormulaUnitConverter`
-- `Ibexa\Measurement\UnitConverter\SimpleValueFormulaUnitConverter`
-
-and tag it with: `ibexa.measurement.value.converter`.
 
 ## Template rendering
 
