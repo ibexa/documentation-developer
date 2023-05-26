@@ -5,14 +5,19 @@ edition: commerce
 
 # Extend Payment
 
-One of the ways you can extend the Payments module is to create a custom payment method type. 
+There are different ways you can extend your Payment module implementation. 
+One of them is to create a custom payment method type. 
+The other is attaching custom data to a payment.
+
+You can also customize the payment processing workflow.
+
 Based on such type store managers can define numerous payment methods.
 
 !!! note "Gateway integration requirement"
 
     [[= product_name =]] does not come with gateway redirects. Whether you are an integrator or the end customer, it is your responsibility to implement payment gateway integration.
 
-## Payment method type
+## Create custom payment method type
 
 Create a PHP definition of the payment method type.
 
@@ -178,4 +183,17 @@ services:
         tags:
             -   name: ibexa.payment.payment_method.options.validator
                 type: paypal
+```
+
+## Attach custom data to payments
+
+When you create a payment, you can attach custom data to it, for example, you can pass an invoice number or a proprietary transaction identifier.
+You do it by using the `setContext` and `getContext` methods:
+
+``` php
+[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 89, 104) =]]
+```
+
+``` php
+[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 89, 104) =]]
 ```

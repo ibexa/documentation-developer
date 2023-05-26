@@ -12,20 +12,20 @@ You can change that by providing a custom payment identifier in `Ibexa\Contracts
 
 ## Get single payment 
 
-### Get single payment by identifier
-
-To access a single payment by using its string identifier, use the `PaymentServiceInterface::getPaymentByIdentifier` method:
-
-``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 65, 69) =]]
-```
-
 ### Get single payment by ID
 
 To access a single payment by using its numerical ID, use the `PaymentServiceInterface::getPayment` method:
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 59, 63) =]]
+```
+
+### Get single payment by identifier
+
+To access a single payment by using its string identifier, use the `PaymentServiceInterface::getPaymentByIdentifier` method:
+
+``` php
+[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 65, 69) =]]
 ```
 
 ## Get multiple payments
@@ -43,7 +43,7 @@ To create a payment, use the `PaymentServiceInterface::createPayment` method and
 the `Ibexa\Contracts\Payment\Payment\PaymentCreateStruct` object that takes the following arguments: `method`, `order` and `amount`.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 89, 98) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 89, 104) =]]
 ```
 
 ## Update payment
