@@ -46,7 +46,7 @@
                 <img class="summary-icon" src="images/Reward.svg" height="25px" width="25px">Most popular pages</img>
             </summary>
             <ul>
-                <li><a href="php_api/php_api/">PHP API</a></li>
+                <li><a href="api/php_api/php_api/">PHP API</a></li>
                 <li><a href="search/solr_search_engine/">Solr search engine</a></li>
                 <li><a href="search/search_api/">Search API</a></li>
                 <li><a href="content_management/content_model/">Content model</a></li>
@@ -59,7 +59,7 @@
 <div class="row mt-5">
     <div class="col-lg-12 mb-5 latest-release" style="text-align: center;">
         <h5>
-            Manage your product
+            Manage your DXP
         </h5>
     </div>              
 </div>
@@ -104,8 +104,8 @@
                 <div class="info-tile-body align-middle">
                     <ul>
                         <li><a href="users/users/" style="color: white;">Users</a></li>
-                        <li><a href="users/user_management/" style="color: white;">Users management</a></li>
-                        <li><a href="users/login_and_registration/" style="color: white;">Registration</a></li>
+                        <li><a href="users/customer_groups/" style="color: white;">Customer groups</a></li>
+                        <li><a href="users/invitations/" style="color: white;">Invitations</a></li>
                     </ul>
                 </div>
             </div>

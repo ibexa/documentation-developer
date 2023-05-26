@@ -67,7 +67,7 @@ h5.tile-title {
 }
 
 .latest-release h5 {
-    border-bottom: 3px solid #D8D8D8;
+    border-bottom: 1px solid #af1164;
     font-size: 18px;
     font-weight: bold;
     line-height: 24px;
@@ -161,6 +161,11 @@ h5.tile-title {
     line-height: 50px;
     padding-left: 0;
     text-align: center;
+}
+
+.info-tile-title a {
+  text-align: center;
+  font-size: 18px;
 }
 
 h5.info-tile-title {
