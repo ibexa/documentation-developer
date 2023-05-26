@@ -43,7 +43,8 @@ To create a payment, use the `PaymentServiceInterface::createPayment` method and
 the `Ibexa\Contracts\Payment\Payment\PaymentCreateStruct` object that takes the following arguments: `method`, `order` and `amount`.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 89, 104) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 93, 98) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 100, 103) =]]
 ```
 
 ## Update payment
@@ -54,12 +55,12 @@ The `Ibexa\Contracts\Payment\Payment\PaymentUpdateStruct` object takes the follo
 To update payment information, use the `PaymentServiceInterface::updatePayment` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 100, 106) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 105, 111) =]]
 ```
 
 ## Delete payment
 
 To delete a payment from the system, use the `PaymentServiceInterface::deletePayment` method:
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 108, 111) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 113, 116) =]]
 ```
