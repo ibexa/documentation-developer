@@ -1,0 +1,73 @@
+{% extends '@ibexadesign/checkout/layout.html.twig' %}
+
+{% block content %}
+    {{ form_start(form) }}
+        {% include '@ibexadesign/checkout/component/quick_summary.html.twig' with { entries_count : 1} %}
+
+        <h1>Please select your seats</h1>
+        <p>If you prefer not to book one, we will assign a random seat for you 48 hours before the event.</p>
+
+        <div class="seats-selection-container">
+            <div class="seats-map">
+                {% set class_map = {
+                    'X': 'null',
+                    '1': 'available',
+                    '0': 'not-available'
+                } %}
+
+                {% for row_idx, row in layout %}
+                    <div class="seats-row">
+                        {% for col_idx, seat in row|split(',') %}
+                            {% set seat_id = '%s%d'|format(row_idx, col_idx + 1) %}
+
+                            <a class="seat seat-{{ class_map[seat] }}" data-seat-id="{{ seat_id }}" title="{{ seat_id }}"></a>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="seats-input">
+                {{ form_row(form.select_seat.selection) }}
+            </div>
+        </div>
+
+        {% include '@ibexadesign/checkout/component/actions.html.twig' with {
+            label: 'Go to Billing & shipping address',
+            href: ibexa_checkout_step_path(checkout, 'select_address'),
+        } %}
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('app') }}
+
+    <script>
+        (function () {
+            const SELECTION_CLASS = 'seat-selected';
+            const SEAT_SELECTOR = '.seat-available';
+            const SELECTED_SEATS_SELECTOR = '.seat-selected';
+            const VALUE_INPUT_SELECTOR = '#form_select_seat_selection';
+
+            const input = document.querySelector(VALUE_INPUT_SELECTOR)
+
+            document.querySelectorAll(SEAT_SELECTOR).forEach((seat) => {
+                seat.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    seat.classList.toggle(SELECTION_CLASS);
+
+                    const selection = [
+                        ...document.querySelectorAll(SELECTED_SEATS_SELECTOR)
+                    ].map((seat) => seat.dataset.seatId);
+
+                    input.value = selection.join(',');
+                });
+            });
+        })();
+    </script>
+{% endblock %}

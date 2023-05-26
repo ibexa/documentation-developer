@@ -141,4 +141,11 @@ $(document).ready(function() {
         $('.md-sidebar--primary .md-sidebar__scrollwrap')[0].scrollTop =
         $('.md-sidebar--primary .md-nav__item--active:not(.md-nav__item--nested)')[0].offsetTop - 33;
     }
+
+    // Fix page TOC/hash bug
+    $('.md-sidebar.md-sidebar--secondary nav a').click(function(event) {
+        window.setTimeout(function() {
+            document.location.hash = event.target.hash;
+        }, 500);
+    })
 });

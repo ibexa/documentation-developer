@@ -36,6 +36,24 @@ Each function in one of the five modules (content, section, state, user, workflo
 
     If a function is not mentioned below, it can have no Limitations.
 
+#### Cart
+
+`cart/create`:
+
+- [CartOwner](limitation_reference.md#cartowner-limitation)
+
+`cart/view`:
+
+- [CartOwner](limitation_reference.md#cartowner-limitation)
+
+`cart/edit`:
+
+- [CartOwner](limitation_reference.md#cartowner-limitation)
+
+`cart/delete`:
+
+- [CartOwner](limitation_reference.md#cartowner-limitation)
+
 #### Content
 
 All Content Policies can be assigned the [Content Type](limitation_reference.md#content-type-limitation) and [Section](limitation_reference.md#section-limitation) Limitation.
@@ -149,6 +167,76 @@ Beyond that the following Limitations are available:
 - [Language](limitation_reference.md#language-limitation)
 - [Version Lock](limitation_reference.md#version-lock-limitation)
 
+#### Order
+
+`order/create`:
+
+- [OrderOwner](limitation_reference.md#orderowner-limitation)
+
+`order/view`:
+
+- [OrderOwner](limitation_reference.md#orderowner-limitation)
+
+`order/update`:
+
+- [OrderOwner](limitation_reference.md#orderowner-limitation)
+
+`order/cancel`:
+
+- [OrderOwner](limitation_reference.md#orderowner-limitation)
+
+#### Payment
+
+`payment/create`:
+
+- [PaymentOwner](limitation_reference.md#paymentowner-limitation)
+
+`payment/view`:
+
+- [PaymentOwner](limitation_reference.md#paymentowner-limitation)
+
+`payment/edit`:
+
+- [PaymentOwner](limitation_reference.md#paymentowner-limitation)
+
+`payment/delete`:
+
+- [PaymentOwner](limitation_reference.md#paymentowner-limitation)
+
+#### Personalization
+
+`personalization/view`:
+
+- [Personalization access](limitation_reference.md#personalization-access-limitation)
+
+`personalization/edit`:
+
+- [Personalization access](limitation_reference.md#personalization-access-limitation)
+
+#### Product
+
+`product/create`:
+
+- [Product Type](limitation_reference.md#product-type-limitation)
+- [Language](limitation_reference.md#language-limitation)
+
+`product/view`:
+
+- [Product Type](limitation_reference.md#product-type-limitation)
+
+`product/edit`:
+
+- [Product Type](limitation_reference.md#product-type-limitation)
+- [Language](limitation_reference.md#language-limitation)
+
+`product/delete`:
+
+- [Product Type](limitation_reference.md#product-type-limitation)
+
+#### Segment [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+- [Segment Group](limitation_reference.md#segment-group-limitation)
+
 #### Section
 
 `section/assign`:
@@ -157,6 +245,24 @@ Beyond that the following Limitations are available:
 - [Section](limitation_reference.md#section-limitation)
 - [Owner](limitation_reference.md#owner-limitation)
 - [New Section](limitation_reference.md#new-section-limitation)
+
+#### Shipment
+
+`shipment/create`:
+
+- [ShipmentOwner](limitation_reference.md#shipmentowner-limitation)
+
+`shipment/view`:
+
+- [ShipmentOwner](limitation_reference.md#shipmentowner-limitation)
+
+`shipment/update`:
+
+- [ShipmentOwner](limitation_reference.md#shipmentowner-limitation)
+
+`shipment/delete`:
+
+- [ShipmentOwner](limitation_reference.md#shipmentowner-limitation)
 
 #### State
 
@@ -182,58 +288,6 @@ Beyond that the following Limitations are available:
 `workflow/change_stage`:
 
 - [Workflow Transition](limitation_reference.md#workflow-transition-limitation)
-
-#### Personalization
-
-`personalization/view`:
-
-- [Personalization access](limitation_reference.md#personalization-access-limitation)
-
-`personalization/edit`:
-
-- [Personalization access](limitation_reference.md#personalization-access-limitation)
-
-#### Segment [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
-
-- [Segment Group](limitation_reference.md#segment-group-limitation)
-
-#### Product
-
-`product/create`:
-
-- [Product Type](limitation_reference.md#product-type-limitation)
-- [Language](limitation_reference.md#language-limitation)
-
-`product/view`:
-
-- [Product Type](limitation_reference.md#product-type-limitation)
-
-`product/edit`:
-
-- [Product Type](limitation_reference.md#product-type-limitation)
-- [Language](limitation_reference.md#language-limitation)
-
-`product/delete`:
-
-- [Product Type](limitation_reference.md#product-type-limitation)
-
-#### Cart
-
-`cart/create`:
-
-- [CartOwner](limitation_reference.md#cartowner-limitation)
-
-`cart/view`:
-
-- [CartOwner](limitation_reference.md#cartowner-limitation)
-
-`cart/edit`:
-
-- [CartOwner](limitation_reference.md#cartowner-limitation)
-
-`cart/delete`:
-
-- [CartOwner](limitation_reference.md#cartowner-limitation)
 
 ## Limitation reference
 
