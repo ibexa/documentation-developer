@@ -69,6 +69,9 @@ nav:
             - Content Type events: api/event_reference/content_type_events.md
             - Location events: api/event_reference/location_events.md
             - Catalog events: api/event_reference/catalog_events.md
+            - Cart events: api/event_reference/cart_events.md
+            - Order management events: api/event_reference/order_management_events.md
+            - Payment events: api/event_reference/payment_events.md
             - Language events: api/event_reference/language_events.md
             - Section events: api/event_reference/section_events.md
             - Object state events: api/event_reference/object_state_events.md
