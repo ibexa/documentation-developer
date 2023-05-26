@@ -9,6 +9,12 @@ To get payment methods and manage them, use the `Ibexa\Contracts\Payment\Payment
 
 From the developer's perspective, payment methods are referenced with identifiers defined manually at method creation stage in user interface. 
 
+!!! note "Support for multilingual applications"
+
+    The `getPaymentMethodByIdentifier`, `getPaymentMethod` and `findPaymentMethods` methods take a second argument, `$prioritizedLanguages`, that can be an array of language codes or `null`.
+    If there are language codes in an array, methods return payment method name translations in the specified languages.
+    Translations come from the database.
+
 ## Get single payment method
 
 ### Get single payment method by identifier
@@ -56,9 +62,16 @@ To update payment method information, use the `PaymentMethodServiceInterface::up
 [[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 89, 99) =]]
 ```
 
-## Delete payment
+## Delete payment method
 
 To delete a payment method from the system, use the `PaymentMethodService::deletePayment` method:
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 101, 109) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 101, 107) =]]
+```
+
+## Check whether payment method is used
+
+To check whether a payment method is used, for example, before you delete it, use the `PaymentMethodService::isPaymentMethodUsed` method:
+``` php
+[[= include_file('code_samples/api/commerce/src/Command/PaymentMethodCommand.php', 109, 122) =]]
 ```

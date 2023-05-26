@@ -26,8 +26,7 @@ You can replace the default workflow configuration with a custom one if needed.
 ### Custom payment workflows
 
 You define custom workflow implementations under the `framework.workflows` key. 
-If your installation supports multiple languages, for each place in the workflow, you can define a label that is pulled from a XLIFF file based on the [translation domain setting](../../multisite/languages/back_office_translations.md). 
-You can also define colors that are used for status labels.
+They must support the `Ibexa\Contracts\Checkout\Value\CheckoutInterface`.
 
 ``` yaml
 [[= include_file('code_samples/front/shop/payment/config/packages/ibexa.yaml', 7, 39) =]]
