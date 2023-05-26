@@ -129,7 +129,7 @@ to be marked as `is_base_unit` as in highlighted line above.
     To be available for selection in the Back Office, each new Measurement type or unit must be enabled for the  Back Office SiteAccess.
 
 Next, you need to define how the new unit should be converted.
-Place configuration in the `config/packages/ibexa.yaml` file or your custom configuration file:
+Place configuration in the `config/packages/ibexa.yaml` or your custom configuration file:
 
 ```yaml
 ibexa_measurement:
