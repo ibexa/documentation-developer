@@ -41,7 +41,7 @@ Otherwise the transition can only be triggered by means of the API.
 [[= include_file('code_samples/front/shop/payment/config/packages/ibexa.yaml', 7, 39) =]]
 ```
 
-Then reference it with `ibexa.repositories.<your_repository>.payment.workflow`, so that the system can identify which of your configured workflows handles the payment process.
+After you configure a custom workflow, reference it with `ibexa.repositories.<your_repository>.payment.workflow`, so that the system can identify which of your workflows handles the payment process.
 
 ``` yaml
 [[= include_file('code_samples/front/shop/payment/config/packages/ibexa.yaml', 0, 5) =]]
@@ -50,4 +50,4 @@ Then reference it with `ibexa.repositories.<your_repository>.payment.workflow`, 
 ## Configure payment methods
 
 You can define the payment methods [in the UI]([[= user_doc =]]/commerce/payment/configure_payment_method/).
-There is only one payment method type available: `offline`.
+There is only one default payment method type available: `offline`, but you can [add custom ones](extend_payment.md).

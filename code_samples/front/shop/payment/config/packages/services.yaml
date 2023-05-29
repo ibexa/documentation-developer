@@ -3,20 +3,21 @@
         tags: 
             name: ibexa.payment.payment_method.type 
             alias: paypal
-    app.payment.type.paypal: 
+    app.payment.type.paypal:
         class: Ibexa\Contracts\Payment\PaymentMethod\Type\TypeInterface
         factory: [ '@Ibexa\Contracts\Payment\PaymentMethod\Type\TypeFactoryInterface', 'createType' ]
-        arguments: 
-            $identifier: 'paypal' 
-            $name: 'PayPal' 
-        tags: 
-            - name: ibexa.payment.payment_method.type 
+        arguments:
+            $identifier: 'paypal'
+            $name: 'PayPal'
+        tags:
+            - name: ibexa.payment.payment_method.type
               alias: paypal
-    App\Payment\PayPal\OptionsFormMapper:
+    App\Form\Type\OptionsFormMapper:
         tags:
-            -   name: ibexa.payment.payment_method.options.form_mapper
-                type: paypal
-    App\Payment\PayPal\OptionsValidator:
+            - name: ibexa.payment.payment_method.options.form_mapper
+              type: paypal
+    App\Form\Type\OptionsValidator:
         tags:
-            -   name: ibexa.payment.payment_method.options.validator
-                type: paypal
+            - name: ibexa.payment.payment_method.options.validator
+              type: paypal
+ 

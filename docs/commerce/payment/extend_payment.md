@@ -13,13 +13,13 @@ You can also [customize the payment processing workflow](configure_payment.md#cu
 
 ## Create custom payment method type
 
-If your application needs payment methods of other type than the default `offline` one, you must create custom payment method types.
+If your application needs payment methods of other type than the default `offline` one, you must create custom payment method types. 
 
 !!! note "Gateway integration requirement"
 
     [[= product_name =]] does not come with gateway redirects. Whether you are an integrator or the end customer, it is your responsibility to implement payment gateway integration.
 
-### Custom payment method type definition
+### Define custom payment method type
 
 Create a PHP definition of the payment method type.
 
@@ -54,9 +54,9 @@ services:
 
 At this point a custom payment method type should be visible in the user interface.
 
-### Options form
+### Create options form
 
-Create a corresponding form:
+Create a corresponding form type:
 
 ``` php
 [[= include_file('code_samples/front/shop/payment/src/Form/Type/PayPalOptionsType.php') =]]
@@ -78,16 +78,16 @@ services:
                 type: paypal
 ```
 
-### Options validator
+### Create options validator
 
-Finally, make sure the data provided by the user is validated. 
+You might want to make sure that data provided by the user is validated. 
 To do that, create an options validator that checks user input against the constraints and dispatches an error when needed.
 
 ``` php
 [[= include_file('code_samples/front/shop/payment/src/PaymentMethodType/PayPal/UrlOptionValidator.php') =]]
 ```
 
-Register the validator as a service:
+Then, register the validator as a service:
 
 ``` yaml
 services:
@@ -96,6 +96,12 @@ services:
             -   name: ibexa.payment.payment_method.options.validator
                 type: paypal
 ```
+
+### Restart application
+
+Restart the application and create a payment of the new type.
+
+![Payment method of custom type](img/custom_paymant_type.png "Payment method of custom type")
 
 ## Attach custom data to payments
 

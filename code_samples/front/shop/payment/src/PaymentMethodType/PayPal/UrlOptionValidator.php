@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace App\Attribute\PayPal;
+namespace App\Form\Type;
 
-use Ibexa\Bundle\ProductCatalog\Validator\Constraints\AttributeDefinitionOptions;
-use Ibexa\Contracts\ProductCatalog\Local\Attribute\OptionsFormMapperInterface;
-use Symfony\Component\Form\FormBuilderInterface;
+use Ibexa\Contracts\Core\Options\OptionsBag;
+use Ibexa\Contracts\Payment\PaymentMethod\Type\OptionsValidatorError;
+use Ibexa\Contracts\Payment\PaymentMethod\Type\OptionsValidatorInterface;
 
-final class OptionsValidator implements OptionsValidatorInterface 
-{ 
-    public function validateOptions(OptionsBag $options): array 
-    { 
-        $errors = []; 
-        if (empty ($options->get('base_url'))) { 
-            $errors[] = new OptionsValidatorError ('base_url', 'Base Url should not be blank');
+final class OptionsValidator implements OptionsValidatorInterface
+{
+    public function validateOptions(OptionsBag $options): array
+    {
+        $errors = [];
+        if (empty ($options->get('base_url'))) {
+            $errors[] = new OptionsValidatorError ('base_url', 'Base URL cannot be blank');
         }
 
-     # ...
+        # ...
 
-    return $errors; 
+        return $errors;
     }
 }

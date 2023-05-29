@@ -320,7 +320,7 @@ nav:
             - Configure order processing: commerce/order_management/configure_order_management.md
             - Order management API: commerce/order_management/order_management_api.md
         - Payment management:
-            - Payment management: commerce/payment/payment.md 
+            - Payment: commerce/payment/payment.md 
             - Configure Payment: commerce/payment/configure_payment.md 
             - Extend Payment: commerce/payment/extend_payment.md 
             - Payment method API: commerce/payment/payment_method_api.md 
