@@ -44,20 +44,21 @@ that allows users to select their seats.
 
 ### Define workflow
 
-You can create workflow definitions in the `config/packages/ibexa.yaml` file. 
+You can create workflow definitions in a custom `config/packages/checkout.yaml` file. 
 Each workflow definition consists of a series of steps as well as a series of transitions between the steps. 
 
-To create a new workflow, for example, `seat_selection_checkout`, modify the default workflow that comes with the storefront module, by adding a  `seat_selected` step.
+To create a new workflow, for example, `seat_selection_checkout`, use the default workflow that comes with the storefront module as a basis,
+and add a `seat_selected` step.
 
 ``` yaml hl_lines="3 15"
-[[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 39, 41) =]] [[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 117, 134) =]] [[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 37, 38) =]]
+[[= include_file('code_samples/front/shop/checkout/config/packages/checkout.yaml', 17, 19) =]] [[= include_file('code_samples/front/shop/checkout/config/packages/checkout.yaml', 38, 54) =]]
 ```
 
-Then, modify a list of transitions. 
+Then, add a list of transitions. 
 When defining a new transition, within its metadata, map the transition to its controller, and set other necessary details, such as the next step and label.
 
 ``` yaml hl_lines="2 12"
-[[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 134, 147) =]] [[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 37, 38) =]]
+[[= include_file('code_samples/front/shop/checkout/config/packages/checkout.yaml', 55, 68) =]]
 ```
 
 ### Create controller
@@ -72,7 +73,7 @@ It can reuse fields and functions that come from the checkout component, for exa
 after you check whether the form is valid, use the `AbstractStepController::advance` method to go to the next step of the process.
 
 ``` php hl_lines="23 24"
-[[= include_file('code_samples/front/shop/checkout/src/Controller/SelectSeatStepController.php') =]]
+[[= include_file('code_samples/front/shop/checkout/src/Controller/Checkout/Step/SelectSeatStepController.php') =]]
 ```
 
 #### Create a form
@@ -86,23 +87,27 @@ In the `src/Form/Type` folder, create a corresponding form:
 ### Create Twig template
 
 You also need a Twig template to render the Symfony form.
-In `templates/themes/custom/storefront/checkout/step`, create a layout that uses JavaScript to translate clicking into a grid to a change in value:
+In `templates/themes/storefront/checkout/step`, create a layout that uses JavaScript to translate clicking into a grid to a change in value:
 
 ```html+twig
 [[= include_file('code_samples/front/shop/checkout/templates/themes/storefront/checkout/step/select_seat.html.twig') =]]
 ```
 
-In `assets/styles/app.css`, add styles required to properly display your template.
+In `assets/styles/checkout.css`, add styles required to properly display your template.
 
 ```css
-[[= include_file('code_samples/front/shop/checkout/assets/styles/app.css', 25, 63) =]]
+[[= include_file('code_samples/front/shop/checkout/assets/styles/checkout.css', 25, 63) =]]
 ```
+
+!!! note
+
+    Remember to [add the new asset file to your Webpack configuration](assets.md#configure-assets).
 
 ### Select supported workflow 
 
 Now, you must inform the application that your repository will use the configured workflow.
 
-You do it in repository configuration, by replacing the `ibexa_checkout` configuration with one for `seat_selection_checkout`:
+You do it in repository configuration, by using the `checkout.workflow` key:
 
 ``` yaml
 ibexa:
@@ -131,7 +136,7 @@ The single form's basic advantage is simplified navigation with less clicks to c
 To create a single-form checkout, define a workflow that has two steps, `initialized` and `completed`, and one transition, from `initialized` or `completed` to `completed`.
 
 ``` yaml hl_lines="3 18 19"
-[[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 39, 41) =]] [[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 98, 117) =]]
+[[= include_file('code_samples/front/shop/checkout/config/packages/checkout.yaml', 17, 38) =]]
 ```
 
 ### Create controller
@@ -142,7 +147,7 @@ Within the controller, create a form that contains all the necessary fields, suc
 In the `src/Controller/Checkout` folder, create a file that resembles the following example:
 
 ``` php
-[[= include_file('code_samples/front/shop/checkout/src/Controller/SinglePageCheckout.php') =]]
+[[= include_file('code_samples/front/shop/checkout/src/Controller/Checkout/SinglePageCheckout.php') =]]
 ```
 
 The controller can reuse fields and functions that come from the checkout component, for example, 
@@ -159,12 +164,17 @@ In the `src/Form/Type` folder, create a corresponding form:
 ### Create Twig template
 
 Create a Twig template to render the Symfony form.
-In `templates/themes/custom/storefront/checkout`, create a layout that iterates through all the fields and renders them.
+In `templates/themes/storefront/checkout`, create a layout that iterates through all the fields and renders them.
 
 ```html+twig
 [[= include_file('code_samples/front/shop/checkout/templates/themes/storefront/checkout/checkout.html.twig') =]]
 ```
-In `assets/styles/app.css`, add styles required to properly display your template.
+
+In `assets/styles/checkout.css`, add styles required to properly display your template.
+
+!!! note
+
+    Remember to [add the new asset file to your Webpack configuration](assets.md#configure-assets).
 
 ### Select supported workflow 
 
@@ -172,11 +182,7 @@ Then you have to map the single-step workflow to the repository,
 by replacing the default `ibexa_checkout` reference with one of `single_page_checkout`:
 
 ``` yaml
-ibexa:
-    repositories:
-        default: 
-            checkout:
-                workflow: single_page_checkout
+[[= include_file('code_samples/front/shop/checkout/config/packages/checkout.yaml', 0, 5) =]]
 ```
 
 ### Restart application
