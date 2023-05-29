@@ -14,17 +14,17 @@ Before you update to v4.5, you need to go through the following steps to update 
 
 Run:
 
-=== "[[= product_name_content =]]"
+=== "Ibexa Content"
 
     ``` bash
     composer require ibexa/content:[[= latest_tag_4_4 =]] --with-all-dependencies --no-scripts
     ```
-=== "[[= product_name_exp =]]"
+=== "Ibexa Experience"
 
     ``` bash
     composer require ibexa/experience:[[= latest_tag_4_4 =]] --with-all-dependencies --no-scripts
     ```
-=== "[[= product_name_com =]]"
+=== "Ibexa Commerce"
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_4 =]] --with-all-dependencies --no-scripts
@@ -38,19 +38,19 @@ When you have the latest version of v4.4, you can update to v4.5.
 
 First, run:
 
-=== "[[= product_name_content =]]"
+=== "Ibexa Content"
 
     ``` bash
     composer require ibexa/content:[[= latest_tag_4_5 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/content --force -v
     ```
-=== "[[= product_name_exp =]]"
+=== "Ibexa Experience"
 
     ``` bash
     composer require ibexa/experience:[[= latest_tag_4_5 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
     ```
-=== "[[= product_name_com =]]"
+=== "Ibexa Commerce"
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_5 =]] --with-all-dependencies --no-scripts
