@@ -67,7 +67,7 @@ The last context is not used in this example.
 Modify the `random-dot.js` file by creating a function that uses the canvas context to draw a random dot on the image:
 
 ``` js
-[[= include_file('code_samples/back_office/image_editor/assets/random_dot/random-dot.js', 24, 41) =]]
+[[= include_file('code_samples/back_office/image_editor/assets/random_dot/random-dot.js', 26, 43) =]]
 ```
 
 ### Store changes in history
@@ -75,7 +75,7 @@ Modify the `random-dot.js` file by creating a function that uses the canvas cont
 Create another function that uses the history context to store changes, so that users can undo their edits:
 
 ``` js
-[[= include_file('code_samples/back_office/image_editor/assets/random_dot/random-dot.js', 15, 24) =]]
+[[= include_file('code_samples/back_office/image_editor/assets/random_dot/random-dot.js', 17, 26) =]]
 ```
 
 <details class="tip">

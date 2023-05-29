@@ -7,6 +7,8 @@ import {
     AdditionalDataContext,
 } from '../../vendor/ibexa/image-editor/src/bundle/ui-dev/src/modules/image-editor/image.editor.modules';
 
+const { ibexa } = window;
+
 const IDENTIFIER = 'dot';
 
 const Dot = () => {
