@@ -48,7 +48,7 @@ Start preparing the tag by adding a configuration file:
 Custom tags can have as many attributes as needed.
 Supported attribute types are:
 `string`, `number`, `boolean`, `link`, and `choice`.
-The latter requires that you provide a list of choices in the `choices` key.
+`choice` requires that you provide a list of options in the `choices` key.
 
 You must provide your own files for the Twig template and the icon.
 Place the `factbox.html.twig` template in the 
