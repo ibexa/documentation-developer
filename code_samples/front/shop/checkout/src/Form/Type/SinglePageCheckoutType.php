@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Form\Type;
 
 use Ibexa\Bundle\Checkout\Form\Type\AddressType;
-use Ibexa\Bundle\Checkout\Form\Type\PaymentMethodChoiceType;
-use Ibexa\Bundle\Checkout\Form\Type\ShippingMethodChoiceType;
+use Ibexa\Bundle\Payment\Form\Type\PaymentMethodChoiceType;
+use Ibexa\Bundle\Shipping\Form\Type\ShippingMethodChoiceType;
 use Ibexa\Contracts\Cart\Value\CartInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;

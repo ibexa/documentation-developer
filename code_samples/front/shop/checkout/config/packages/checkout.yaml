@@ -1,29 +1,10 @@
 ibexa:
     repositories:
-        default: 
+        default:
             checkout:
-                workflow: ibexa_checkout
-                shipping_methods:
-                    courier:
-                        name: "Courier"
-                        translation_domain: "checkout"
-                    parcel_machine:
-                        name: "Parcel machine"
-                    self_pickup:
-                        name: "Self pickup"
-                    express_delivery:
-                        name: "Express delivery"
-                payment_methods:
-                    credit_card:
-                        name: "Credit card"
-                    paypal:
-                        name: "Paypal"
-                    money_transfer:
-                        name: "Money transfer"                        
-
+                workflow: single_page_checkout
     system:
-        storefront_group:
-            design: custom
+        default:
             product_catalog:
                 currencies:
                     - EUR
@@ -32,70 +13,10 @@ ibexa:
                 regions:
                     - Germany
                     - Poland
-                    - Czechia        
-
-
-// ...
+                    - Czechia
 
 framework:
     workflows:
-        ibexa_checkout:
-            type: state_machine
-            audit_trail:
-                enabled: false
-            marking_store:
-                type: method
-                property: status
-            supports:
-                - Ibexa\Contracts\Checkout\Value\CheckoutInterface
-            initial_marking: initialized
-            places:
-                - initialized
-                - address_selected
-                - shipping_selected
-                - summarized
-                - completed
-            transitions:
-                select_address:
-                    from:
-                        - initialized
-                        - address_selected
-                        - shipping_selected
-                        - summarized
-                    to: address_selected
-                    metadata:
-                        next_step: select_shipping
-                        controller: Ibexa\Bundle\Checkout\Controller\CheckoutStep\AddressStepController::renderStepView
-                        label: 'Billing & shipping address'
-                        translation_domain: checkout
-                select_shipping:
-                    from:
-                        - address_selected
-                        - shipping_selected
-                        - summarized
-                    to: shipping_selected
-                    metadata:
-                        next_step: summary
-                        controller: Ibexa\Bundle\Checkout\Controller\CheckoutStep\ShippingStepController::renderStepView
-                        label: 'Shipping & payment method'
-                        translation_domain: checkout
-                summary:
-                    from:
-                        - shipping_selected
-                        - summarized
-                    to: summarized
-                    metadata:
-                        next_step: complete
-                        controller: Ibexa\Bundle\Checkout\Controller\CheckoutStep\SummaryStepController::renderStepView
-                        label: 'Payment & summary'
-                        translation_domain: checkout
-                complete:
-                    from: summarized
-                    to: completed
-                    metadata:
-                        controller: Ibexa\Bundle\Checkout\Controller\CheckoutStep\CompleteStepController::renderCompleteView
-                        label: 'Order confirmation'
-                        translation_domain: checkout
         single_page_checkout:
             type: state_machine
             audit_trail:
@@ -114,7 +35,7 @@ framework:
                     from: [ initialized, completed ]
                     to: completed
                     metadata:
-                        controller: App\Controller\Checkout\OnePageCheckout
+                        controller: App\Controller\Checkout\SinglePageCheckoutController
         seat_selection_checkout:
             type: state_machine
             audit_trail:
@@ -185,4 +106,4 @@ framework:
 
 ibexa_design_engine:
     design_list:
-        custom: [ custom, storefront, standard ]
+        storefront: [storefront]
