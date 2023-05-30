@@ -9,7 +9,9 @@ searches for content based on the date when it was created or last modified.
 - `operator` - Operator constant (IN, EQ, GT, GTE, LT, LTE, BETWEEN)
 - `value` - indicating the date(s) that should be matched, provided as a UNIX timestamp (or array of timestamps)
 
-## Example
+## Examples
+
+### PHP API
 
 ``` php
 $query->query = new Criterion\DateMetadata(
@@ -19,7 +21,7 @@ $query->query = new Criterion\DateMetadata(
 );
 ```
 
-## Use case
+### Use case
 
 You can use the `DateMetadata` Criterion to search for blog posts that have been created within the last week:
 
@@ -32,3 +34,33 @@ $query->query = new Criterion\LogicalAnd([
     ]
 );
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+      <Query>
+        <Filter>
+          <DateMetadataCriterion>
+            <Target>modified</Target>
+            <Value>1675681020</Value>
+            <Operator>gte</Operator>
+          </DateMetadataCriterion>
+        </Filter>
+      </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+        "Query": {
+            "Filter": {
+                "DateMetadataCriterion": {
+                    "Target": "modified",
+                    "Value": 1675681020,
+                    "Operator": "gte"
+                }
+            }
+        }
+    ```
