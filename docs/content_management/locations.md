@@ -90,7 +90,7 @@ Location visibility allows you to control which parts of the content tree are av
 ![Location visibility](content_management_visibility.png "Location visibility")
 
 Once a Content item is published, it cannot be un-published.
-When the Location of a Content item is hidden, the system will not display it on the website front by default.
+When the Location of a Content item is hidden, the system will not display it on the website.
 
 !!! caution "Visibility and permissions"
 
