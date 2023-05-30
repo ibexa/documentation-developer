@@ -1,5 +1,6 @@
 ---
 description: Events that are triggered when working with Trash.
+page_type: reference
 ---
 
 # Trash events

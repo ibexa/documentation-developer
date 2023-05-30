@@ -1,5 +1,6 @@
 ---
 description: Configure image variations to scale, crop and otherwise modify rendered images.
+page_type: reference
 ---
 
 # Image variations

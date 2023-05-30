@@ -1,5 +1,6 @@
 ---
 description: Personalization tracks consumed content and suggests targeted content to your website visitors.
+page_type: landing_page
 ---
 
 # Personalization

@@ -1,5 +1,6 @@
 ---
 description: Events that are triggered when working with orders.
+page_type: reference
 ---
 
 # Order management events
