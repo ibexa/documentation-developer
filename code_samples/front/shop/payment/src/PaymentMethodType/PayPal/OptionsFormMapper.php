@@ -14,7 +14,7 @@ final class OptionsFormMapper implements OptionsFormMapperInterface
         string $name,
         FormBuilderInterface $builder,
         array $context = []
-    ) : void {
+    ): void {
         $builder->add($name, PayPalOptionsType::class);
     }
 }

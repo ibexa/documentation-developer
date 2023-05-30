@@ -17,7 +17,7 @@ final class OptionsValidator implements OptionsValidatorInterface
             $errors[] = new OptionsValidatorError ('base_url', 'Base URL cannot be blank');
         }
 
-        # ...
+        # Add gateway implementation here
 
         return $errors;
     }

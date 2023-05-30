@@ -14,10 +14,11 @@ You can also [customize the payment processing workflow](configure_payment.md#cu
 ## Create custom payment method type
 
 If your application needs payment methods of other type than the default `offline` one, you must create custom payment method types. 
+Code samples below show how this could be done if your organization wants to use PayPal.
 
 !!! note "Gateway integration requirement"
 
-    [[= product_name =]] does not come with gateway redirects. Whether you are an integrator or the end customer, it is your responsibility to implement payment gateway integration.
+    [[= product_name =]] does not come with gateway redirects. Whether you are an integrator or an end customer, it is your responsibility to implement payment gateway integration.
 
 ### Define custom payment method type
 
@@ -27,29 +28,19 @@ Create a PHP definition of the payment method type.
 [[= include_file('code_samples/front/shop/payment/src/PaymentMethodType/PayPal/PayPal.php') =]]
 ```
 
-Make sure that `getName` returns a human readable name of the payment method type, the way you want it to appear on the list of available payment method types.
+Make sure that `getName()` returns a human-readable name of the payment method type, the way you want it to appear on the list of available payment method types.
 
 Now, register the definition as a service:
 
 ``` yaml
 [[= include_file('code_samples/front/shop/payment/config/packages/services.yaml', 0, 5) =]]
-
 ```
 
-As an alternative, instead of creating a PHP library, you can use the Type Factory to define the payment method type in your YAML configuration file:
+As an alternative, instead of creating a custom class, you can use a built-in type factory to define the payment method type in the service definition file:
 
 ``` yaml
-services:
-    app.payment.type.paypal: 
-        class: Ibexa\Contracts\Payment\PaymentMethod\Type\TypeInterface
-        factory: [ '@Ibexa\Contracts\Payment\PaymentMethod\Type\TypeFactoryInterface', 'createType' ]
-        arguments: 
-            $identifier: 'paypal' 
-            $name: 'PayPal' 
-        tags: 
-            - name: ibexa.payment.payment_method.type 
-              alias: paypal
-
+[[= include_file('code_samples/front/shop/payment/config/packages/services.yaml', 0, 1) =]]
+[[= include_file('code_samples/front/shop/payment/config/packages/services.yaml', 6, 15) =]]
 ```
 
 At this point a custom payment method type should be visible in the user interface.
@@ -68,14 +59,11 @@ Next, create a mapper that maps the information that the user inputs in the form
 [[= include_file('code_samples/front/shop/payment/src/PaymentMethodType/PayPal/OptionsFormMapper.php') =]]
 ```
 
-Then, register the `OptionsFormMapper` interface as a service:
+Then, register `OptionsFormMapper` a service:
 
 ``` yaml
-services:
-    App\Payment\PayPal\OptionsFormMapper:
-        tags:
-            -   name: ibexa.payment.payment_method.options.form_mapper
-                type: paypal
+[[= include_file('code_samples/front/shop/payment/config/packages/services.yaml', 0, 1) =]]
+[[= include_file('code_samples/front/shop/payment/config/packages/services.yaml', 16, 20) =]]
 ```
 
 ### Create options validator
@@ -90,18 +78,16 @@ To do that, create an options validator that checks user input against the const
 Then, register the validator as a service:
 
 ``` yaml
-services:
-    App\Payment\PayPal\OptionsValidator:
-        tags:
-            -   name: ibexa.payment.payment_method.options.validator
-                type: paypal
+[[= include_file('code_samples/front/shop/payment/config/packages/services.yaml', 0, 1) =]]
+[[= include_file('code_samples/front/shop/payment/config/packages/services.yaml', 21, 25) =]]
 ```
 
 ### Restart application
 
-Restart the application and create a payment of the new type.
+Shut down the application, clear browser cache, and restart the application.
+Then, try creating a payment of the new type.
 
-![Payment method of custom type](img/custom_paymant_type.png "Payment method of custom type")
+![Payment method of custom type](custom_paymant_type.png "Payment method of custom type")
 
 ## Attach custom data to payments
 

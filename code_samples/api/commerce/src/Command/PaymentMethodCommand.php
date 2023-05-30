@@ -107,7 +107,7 @@ final class PaymentMethodCommand extends Command
         ));
 
         // Check whether the payment method is used
-        $isUsed = $this->paymentMethodService->isPaymentMethodUsed($paymentMethodId);
+        $isUsed = $this->paymentMethodService->isPaymentMethodUsed($paymentMethod);
 
         if ($isUsed) {
             $output->writeln(sprintf(

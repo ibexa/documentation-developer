@@ -11,17 +11,13 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 final class PayPalOptionsType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options): void
-    {
-        $builder->add(
-        'base_url',
-        UrlType::class,
-        [
-            'constraints' => [
-                new NotBlank(),
-            ]
-        ]
-    );
+    public function buildForm(
+        FormBuilderInterface $builder,
+        array $options
+    ): void {
+        $builder->add("base_url", UrlType::class, [
+            "constraints" => [new NotBlank()],
+        ]);
 
         # ...
     }
