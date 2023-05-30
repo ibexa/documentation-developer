@@ -31,7 +31,7 @@ final class SinglePageCheckout extends AbstractStepController
         }
 
         return $this->render(
-            '@ibexadesign/storefront/checkout.html.twig',
+            '@ibexadesign/checkout/checkout.html.twig',
             [
                 'form' => $form->createView(),
                 'checkout' => $checkout,

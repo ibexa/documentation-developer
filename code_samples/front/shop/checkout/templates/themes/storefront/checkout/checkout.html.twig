@@ -12,24 +12,22 @@
                 including payment details, billing and shipping addresses, and shipping options.</p>
         </header>
 
-        {% for child in form %}
-            {% if not child.rendered %}
-                <fieldset class="checkout-field-group">
-                    <header class="checkout-field-group-header">
-                        <span class="checkout-field-group-step">
-                            {{ loop.index }}
-                        </span>
-                        <span class="checkout-field-group-label">
-                            {{ child.vars.label }}
-                        </span>
-                    </header>
-
-                    <div class="checkout-field-group-form">
-                        {{ form_widget(child) }}
+        <div class="ibexa-store-checkout__content">
+            {% for child in form %}
+                {% if not child.rendered %}
+                    <div class="ibexa-store-checkout-block__header">
+                        <div class="ibexa-store-checkout-block__header-step">{{ loop.index }}</div>
+                        <h2 class="ibexa-store-checkout-block__header-label">{{ child.vars.label }}</h2>
                     </div>
-                </fieldset>
-            {% endif %}
-        {% endfor %}
+
+                    <div class="ibexa-store-checkout-block__content--dark ibexa-store-checkout-block__content">
+                        <div class="checkout-field-group-form">
+                            {{ form_widget(child) }}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
 
         <button class="ibexa-store-btn ibexa-store-btn--primary">
             Complete purchase

@@ -6,7 +6,6 @@ namespace App\Form\Type;
 
 use Ibexa\Bundle\Checkout\Form\Type\AddressType;
 use Ibexa\Bundle\Checkout\Form\Type\PaymentMethodChoiceType;
-use Ibexa\Bundle\Checkout\Form\Type\ShippingMethodChoiceType;
 use Ibexa\Contracts\Cart\Value\CartInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -37,18 +36,6 @@ final class SinglePageCheckoutType extends AbstractType
                     new NotBlank(),
                 ],
                 'label' => 'Billing Address',
-            ]
-        );
-
-        $builder->add(
-            'shipping_method',
-            ShippingMethodChoiceType::class,
-            [
-                'cart' => $options['cart'],
-                'constraints' => [
-                    new NotBlank(),
-                ],
-                'label' => 'Shipping Method',
             ]
         );
 
