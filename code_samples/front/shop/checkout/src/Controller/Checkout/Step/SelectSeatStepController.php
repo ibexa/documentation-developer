@@ -25,7 +25,7 @@ final class SelectSeatStepController extends AbstractStepController
         }
 
         return $this->render(
-            '@ibexadesign/storefront/checkout/step/select_seat.html.twig',
+            '@ibexadesign/checkout/step/select_seat.html.twig',
             [
                 'layout' => $this->getSeatsLayout(),
                 'current_step' => $step,

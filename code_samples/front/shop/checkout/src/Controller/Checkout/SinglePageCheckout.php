@@ -25,13 +25,24 @@ final class SinglePageCheckout extends AbstractStepController
             ]
         );
 
-        $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            return $this->advance($checkout, $step, $form->getData());
+            $formData = $form->getData();
+            $stepData = [
+                'shipping_method' => [
+                    'identifier' => $formData['shipping_method']->getIdentifier(),
+                    'name' => $formData['shipping_method']->getName(),
+                ],
+                'payment_method' => [
+                    'identifier' => $formData['payment_method']->getIdentifier(),
+                    'name' => $formData['payment_method']->getName(),
+                ],
+            ];
+
+            return $this->advance($checkout, $step, $stepData);
         }
 
         return $this->render(
-            '@ibexadesign/storefront/checkout.html.twig',
+            '@storefront/checkout/checkout.html.twig',
             [
                 'form' => $form->createView(),
                 'checkout' => $checkout,
