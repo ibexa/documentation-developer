@@ -66,7 +66,7 @@ final class PaymentCommand extends Command
         $paymentIdentifier = '4ac4b8a0-eed8-496d-87d9-32a960a10629';
         $payment = $this->paymentService->getPaymentByIdentifier($paymentIdentifier);
 
-        $output->writeln(sprintf('Your payment has status %s', $payment->getStatus()));
+        $output->writeln(sprintf('Your payment for transaction %s has status %s', $payment->getContext()->get('transaction_id') , $payment->getStatus()));
 
         // Query for payments
         $paymentCriterions = [
@@ -87,11 +87,16 @@ final class PaymentCommand extends Command
         }
 
         // Create a new payment
+        $context = [
+            'transaction_id' => '5e5fe187-c865-49£2-b407-a946fd7b5be0',
+        ]; 
+        
         $paymentCreateStruct = new PaymentCreateStruct(
             $this->paymentMethodService->getPaymentMethodByIdentifier('bank_transfer_EUR'),
             $this->orderService->getOrder(135),
             new Money\Money(100, new Money\Currency('EUR'))
         );
+        $paymentCreateStruct->setContext(new ArrayMap($context)) ;
 
         $payment = $this->paymentService->createPayment($paymentCreateStruct);
 
