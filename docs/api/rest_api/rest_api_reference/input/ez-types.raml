@@ -263,7 +263,7 @@ ContentType:
             type: integer
         status:
             description: 'The status of the Content Type. Possible values: const STATUS_DEFINED = 0; Status constant for defined (aka published) Type, const STATUS_DRAFT = 1; Status constant for draft (aka temporary) Type; const STATUS_MODIFIED = 2; Status constant for modified (aka deferred for publishing) Type.'
-            enum: []
+            enum: [ ]
         identifier:
             description: 'String identifier of a Content Type.'
             type: string
@@ -308,10 +308,10 @@ ContentType:
             type: boolean
         defaultSortField:
             description: 'Specifies which property the child Locations should be sorted on by default when created. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: const SORT_FIELD_PATH = 1; const SORT_FIELD_PUBLISHED = 2; const SORT_FIELD_MODIFIED = 3; const SORT_FIELD_SECTION = 4; const SORT_FIELD_DEPTH = 5; const SORT_FIELD_PRIORITY = 8; const SORT_FIELD_NAME = 9; const SORT_FIELD_NODE_ID = 11; const SORT_FIELD_CONTENTOBJECT_ID = 12.'
-            enum: []
+            enum: [ ]
         defaultSortOrder:
             description: 'Specifies whether the sort order should be ascending or descending by default when created. Map for Location sort order to their respective Query SORT constants. Possible values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1.'
-            enum: []
+            enum: [ ]
         FieldDefinitions:
             description: 'This method returns the Content Type Field definitions from this type.'
             type: BaseObject
@@ -455,7 +455,7 @@ ContentTypeInfo:
             type: integer
         status:
             description: 'The status of the Content Type. Possible values: const STATUS_DEFINED = 0; Status constant for defined (aka published) Type, const STATUS_DRAFT = 1; Status constant for draft (aka temporary) Type; const STATUS_MODIFIED = 2; Status constant for modified (aka deferred for publishing) Type.'
-            enum: []
+            enum: [ ]
         identifier:
             description: 'String identifier of a Content Type.'
             type: string
@@ -503,10 +503,10 @@ ContentTypeInfo:
             type: boolean
         defaultSortField:
             description: 'Specifies which property the child Locations should be sorted on by default when created. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: const SORT_FIELD_PATH = 1; const SORT_FIELD_PUBLISHED = 2; const SORT_FIELD_MODIFIED = 3; const SORT_FIELD_SECTION = 4; const SORT_FIELD_DEPTH = 5; const SORT_FIELD_PRIORITY = 8; const SORT_FIELD_NAME = 9; const SORT_FIELD_NODE_ID = 11; const SORT_FIELD_CONTENTOBJECT_ID = 12.'
-            enum: []
+            enum: [ ]
         defaultSortOrder:
             description: 'Specifies whether the sort order should be ascending or descending by default when created. Map for Location sort order to their respective Query SORT constants. Possible values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1.'
-            enum: []
+            enum: [ ]
 ContentTypeInfoList:
     description: 'List of Content Type information.'
     type: BaseObject
@@ -951,7 +951,7 @@ Limitation:
     properties:
         _identifier:
             description: 'Returns the limitation identifier (one of the defined constants) or a custom limitation. Constants: CONTENTTYPE = Class; LANGUAGE = Language; LOCATION = Node; OWNER = Owner; PARENTOWNER = ParentOwner; PARENTCONTENTTYPE = ParentClass; PARENTDEPTH = ParentDepth; SECTION = Section; NEWSECTION = NewSection; SITEACCESS = SiteAccess; STATE = State; NEWSTATE = NewState; SUBTREE = Subtree; USERGROUP = Group; PARENTUSERGROUP = ParentGroup; STATUS = Status.'
-            enum: ['CONTENTTYPE', 'LANGUAGE', 'LOCATION', 'OWNER', 'PARENTOWNER', 'PARENTCONTENTTYPE', 'PARENTDEPTH', 'SECTION', 'NEWSECTION','SITEACCESS', 'STATE', 'NEWSTATE', 'SUBTREE', 'USERGROUP', 'PARENTUSERGROUP', 'STATUS']
+            enum: [ 'CONTENTTYPE', 'LANGUAGE', 'LOCATION', 'OWNER', 'PARENTOWNER', 'PARENTCONTENTTYPE', 'PARENTDEPTH', 'SECTION', 'NEWSECTION','SITEACCESS', 'STATE', 'NEWSTATE', 'SUBTREE', 'USERGROUP', 'PARENTUSERGROUP', 'STATUS' ]
         Values:
             description: 'A read-only list of IDs or identifiers for which the limitation should be applied. The value of this property must conform to a hash, which means that it may only consist of array and scalar values, but must not contain objects or resources.'
             type: Ref[]
@@ -971,9 +971,9 @@ Location:
         invisible:
             description: 'Indicates that the Location is implicitly marked as hidden by a parent Location.'
             type: boolean
-#            explicitlyHidden:
-#                description: 'Indicates that the Location entity has been explicitly marked as hidden.'
-#                type: boolean
+        #            explicitlyHidden:
+        #                description: 'Indicates that the Location entity has been explicitly marked as hidden.'
+        #                type: boolean
         remoteId:
             description: 'Remote ID, universally unique identifier.'
             type: string
@@ -997,10 +997,10 @@ Location:
             type: integer
         sortField:
             description: 'Specifies which property the child Locations should be sorted on. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: PATH.'
-            enum: ['PATH', 'PUBLISHED', 'MODIFIED', 'SECTION', 'DEPTH', 'CLASS_IDENTIFIER', 'CLASS_NAME', 'PRIORITY', 'NAME', 'MODIFIED_SUBNODE', 'NODE_ID', 'CONTENTOBJECT_ID']
+            enum: [ 'PATH', 'PUBLISHED', 'MODIFIED', 'SECTION', 'DEPTH', 'CLASS_IDENTIFIER', 'CLASS_NAME', 'PRIORITY', 'NAME', 'MODIFIED_SUBNODE', 'NODE_ID', 'CONTENTOBJECT_ID' ]
         sortOrder:
             description: 'Specifies whether the sort order should be ascending or descending. Map for Location sort order to their respective Query SORT constants. One of the fallowing values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1.'
-            enum: ['ASC', 'DESC']
+            enum: [ 'ASC', 'DESC' ]
         Content:
             description: 'Represents a Content item in a specific version.'
             type: Ref
@@ -1678,7 +1678,7 @@ Unlink:
         _href:
             type: string
         _method:
-            enum: []
+            enum: [ ]
 URL:
     description: 'This class represents a URL in the Repository.'
     type: object
@@ -1714,7 +1714,7 @@ UrlAlias:
             type: integer
         _type:
             description: 'The type of the URL Alias i.e. one of URLAlias::LOCATION=0, URLAlias::RESOURCE=1, URLAlias::VIRTUAL=2.'
-            enum: []
+            enum: [ ]
         resource:
             description: 'If type = URLAlias::LOCATION it is a Location ID otherwise a string (e.g. /content/search).'
             type: any
@@ -2074,7 +2074,7 @@ VersionInfo:
             type: integer
         status:
             description: 'One of: VersionInfo::STATUS_DRAFT=0, VersionInfo::STATUS_PUBLISHED=1, VersionInfo::STATUS_ARCHIVED=3.'
-            enum: []
+            enum: [ ]
         modificationDate:
             description: 'The last modified date of this version.'
             type: datetime
@@ -3593,3 +3593,65 @@ ErrorMessage:
             type: string
         errorDescription:
             type: string
+
+PaymentMethod:
+    type: object
+    properties:
+        id:
+            type: integer
+        identifier:
+            type: string
+        enabled:
+            type: boolean
+        name:
+            type: string
+        description:
+            type: string
+
+PaymentMethodCreateStruct:
+    type: object
+    properties:
+        identifier:
+            type: string
+        names:
+            description: 'If set this array of names with languageCode keys replace the complete name collection.'
+            type: string[]
+        descriptions:
+            description: 'An array of descriptions with languageCode keys.'
+            type: string[]
+        enabled:
+            type: boolean
+        options:
+            type: array
+
+PaymentMethodUpdateStruct:
+    type: object
+    properties:
+        identifier:
+            type: string
+        names:
+            description: 'If set this array of names with languageCode keys replace the complete name collection.'
+            type: string[]
+        descriptions:
+            description: 'An array of descriptions with languageCode keys.'
+            type: string[]
+        enabled:
+            type: boolean
+        options:
+            type: array
+
+PaymentMethodView:
+    type: object
+    properties:
+        identifier:
+            type: string
+        Result:
+            type: object
+
+PaymentMethodViewInput:
+    type: object
+    properties:
+        identifier:
+            type: string
+        PaymentMethodQuery:
+            type: object
