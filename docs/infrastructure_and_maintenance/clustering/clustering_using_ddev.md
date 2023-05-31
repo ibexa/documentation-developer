@@ -36,14 +36,16 @@ You can now check that everything went right with, for example, `ddev exec curl 
 
 ### Solr
 
-To ease the installation of Solr, the specific container `ibexa-yuna/ddev-solr` can be used:
+TODO: Update add-on name after it has been moved to a more official repository.
+
+To ease the installation of Solr, the specific add-on `ibexa-yuna/ddev-solr` can be used:
 
 ```bash
 ddev get ibexa-yuna/ddev-solr
 ddev restart
 ```
 
-TODO: Health check exceeded timeout
+You can now test that Solr works properly with, for example, `ddev exec curl -s http://solr:8983/api/cores/` and check `collection1` status.
 
 ## Install persistence cache pool
 
