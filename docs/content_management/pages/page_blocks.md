@@ -71,7 +71,7 @@ The highest number shows first on the list.
 The template for the configuration modal of built-in Page blocks is contained in
 `vendor/ibexa/page-builder/src/bundle/Resources/views/page_builder/block/config.html.twig`.
 
-You can override it by using the `configuration_template` setting:
+You can override it by using the `configuration_template` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 0, 7) =]]

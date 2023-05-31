@@ -7,7 +7,7 @@ description: Use SiteAccess matchers to control which site is served when and to
 To be usable, every SiteAccess must be matched by one of configured matchers.
 By default, all SiteAccesses are matched using `URIElement: 1`.
 
-You can configure SiteAccess matchers under the `ibexa.siteaccess.match` key:
+You can configure SiteAccess matchers under the `ibexa.siteaccess.match` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa:

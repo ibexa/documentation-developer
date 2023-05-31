@@ -10,7 +10,7 @@ The example below shows how to add a **Log in with Google** option to the Back O
 
 ## Configure OAuth2 client
 
-Configure the OAuth2 client in `config/packages/knpu_oauth2_client.yaml`:
+Configure the OAuth2 client under the `knpu_oauth2_client` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/user_management/oauth_google/config/packages/knpu_oauth2_client.yaml') =]]

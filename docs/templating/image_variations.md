@@ -15,7 +15,7 @@ You can also create custom image variations.
 ## Custom image variations
 
 Image variation configuration is [SiteAccess](multisite.md)-aware.
-Place it under the `image_variations` key per [scope](multisite_configuration.md#scope):
+Place it under the `image_variations` [configuration key](configuration.md#configuration-files) per [scope](multisite_configuration.md#scope):
 
 ``` yaml
 ibexa:

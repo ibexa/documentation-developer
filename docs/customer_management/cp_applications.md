@@ -59,7 +59,8 @@ In this procedure, you add a new status to the approval process of business acco
 
 ### Add new status
 
-First, go to `config/packages/ibexa.yaml` and add a `verify` status to the configuration:
+First, under the `ibexa.system.<scope>.corporate_accounts.application.states`
+add a `verify` status to the [configuration](configuration.md#configuration-files):
 
 ```yaml
 ibexa:

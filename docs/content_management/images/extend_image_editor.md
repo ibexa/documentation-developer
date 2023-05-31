@@ -23,9 +23,7 @@ The code does not perform any action yet, you add the action in the following st
 
 ## Add configuration
 
-Depending on whether you [modified the default settings](configure_image_editor.md#configuration), and where you did it,
-in `config/packages` either modify the `ibexa.yaml` file, or create an 
-`image_editor.yaml` file by adding settings similar to the following example:
+Configure the new Image Editor action under the `ibexa.system.<scope>.image_editor` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 0, 9) =]][[= include_file('code_samples/back_office/image_editor/config/packages/image_editor.yaml', 36, 39) =]]

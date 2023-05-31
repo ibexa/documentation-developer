@@ -8,7 +8,7 @@ With the Digital Asset Management (DAM) system connector you can use assets such
 
 ## DAM configuration
 
-You can configure a connection with a Digital Asset Management (DAM) system.
+You can configure a connection with a Digital Asset Management (DAM) system inder the `ibexa.system.<scope>.content.dam` [configuration key](configuration.md#configuration-files).
 
 ``` yaml
 ibexa:
@@ -58,7 +58,7 @@ For more information about displaying content, see [Content rendering](render_co
                Identifier\ContentType: <dam_image_content_type_identifier>
 ```
 
-In the `config/packages/ibexa.yaml` add the following configuration:
+In you [configuration file](configuration.md#configuration-files) add the following configuration:
 
 ``` yaml
 dam_unsplash:

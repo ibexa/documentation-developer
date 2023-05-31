@@ -52,7 +52,7 @@ The configuration of [[= product_name =]] for using Varnish or Fastly requires a
 You need to consider your `TrustedProxy` configuration when you use Symfony [behind a load balancer or a reverse proxy.](https://symfony.com/doc/5.1/deployment/proxies.html)
 
 To configure trusted proxies, use [Symfony semantic configuration]([[= symfony_doc =]]/deployment/proxies.html#solution-settrustedproxies) under
-`framework.trusted_proxies`, for example:
+the `framework.trusted_proxies` [configuration key](configuration.md#configuration-files), for example:
 
 ``` yaml
 framework:
@@ -87,7 +87,7 @@ For more information about setting these variables, see [Configuration examples]
 ### Update YML configuration
 
 Next, you need to tell [[= product_name =]] to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client),
-and specify the URL that Varnish can be reached on (in `config/packages/ibexa.yaml`):
+and specify the URL that Varnish can be reached on:
 
 | Configuration | Parameter| Environment variable| Possible values|
 |---------|--------|--------|----------|
@@ -128,7 +128,7 @@ If your installation uses Varnish and you want users to be able to configure and
 you must enable sending Captcha data as a response to an Ajax request. 
 Otherwise, Varnish does not allow for the transfer of Captcha data to the form, and as a result, users see an empty image.
 
-To enable sending Captcha over Ajax, add the following configuration to `config/packages/ibexa.yaml`:
+To enable sending Captcha over Ajax, add the following configuration:
 
 ``` yaml
 ibexa:

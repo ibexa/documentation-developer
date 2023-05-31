@@ -87,7 +87,7 @@ In the `templates` directory create a `field_type.html.twig` file:
 
 ### Template mapping
 
-Provide the template mapping in `config/packages/ibexa.yaml`:
+Provide the template mapping under the `ibexa.system.<scope>.field_templates` [configuration key](configuration.md#configuration-files):
 
 ```yaml
 [[= include_file('code_samples/field_types/generic_ft/config/packages/field_templates.yaml', 0, 5) =]]

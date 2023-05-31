@@ -119,7 +119,7 @@ Next, configure a template for the attribute edit form by creating a `templates/
 {# more templates here #}
 ```
 
-Add the template to your configuration:
+Add the template to your configuration under the `system.<scope>.page_builder_forms` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 system:

@@ -20,7 +20,7 @@ You can also configure the calendar to display custom event types.
 You can change the color of a calendar event or change the icon of an action.
 The setting is SiteAccess-aware.
 
-To customize the appearance settings, add the following configuration:
+To customize the appearance settings, use the `ibexa.system.<scope>.calendar.event_types` [configuration key](configuration.md#configuration-files):
 
 ``` yaml hl_lines="6"
 [[= include_file('code_samples/back_office/calendar/config/packages/calendar.yaml') =]]

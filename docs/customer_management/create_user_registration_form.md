@@ -11,7 +11,8 @@ First, make sure you [enabled user registration](permission_use_cases.md#registe
 
 ## Configure existing form
 
-In the `config/packages/views.yaml` file, under `allowed_field_definitions_identifiers`, specify the fields that should be part of your registration form.
+In your configuration, under `allowed_field_definitions_identifiers` [configuration key](configuration.md#configuration-files),
+specify the fields that should be part of your registration form.
 You can also define what kind of user you want to create under `user_type_identifier` e.g. frontend user.
 To learn more about available users, see [user types documentation](user_management.md#user-types). 
 
@@ -30,7 +31,7 @@ ibexa:
 
 ## Add a form template
 
-In the `config/packages/views.yaml` file add the following configuration:
+In the configuration, under the `ibexa.system.<scope>.user_registration` [configuration key](configuration.md#configuration-files) add the following configuration:
 
 ``` yaml
 ibexa:

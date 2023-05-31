@@ -66,7 +66,6 @@ SEARCH_ENGINE=elasticsearch
 
 [[= product_name =]] comes pre-configured to work with an Elasticsearch cluster that uses default settings, and you can use this initial setup for testing purposes.
 However, to effectively search through actual data, you must provide specific settings.
-All configuration is made in the `/config/packages/ibexa_elasticsearch.yaml` file.
 
 !!! note
 
@@ -108,7 +107,7 @@ php bin/console ibexa:reindex
 When you configure the Elasticsearch integration, you must first configure the connections.
 You either connect to a [cluster of Elasticsearch nodes](#cluster) or the [Elasticsearch Cloud](#elasticsearch-cloud).
 
-Define the connection settings under the `connections` key. First, set a name of the connection:
+Define the connection settings under the `connections` [configuration key](configuration.md#configuration-files). First, set a name of the connection:
 
 ``` yaml
 ibexa_elasticsearch:
