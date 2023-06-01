@@ -141,7 +141,7 @@ For example, if a guideline invites you to run `php bin/console cache:clear`, yo
 ## Going further
 
 DDEV can be useful to locally simulate a production cluster.
-See _[Clustering using DDEV](../infrastructure_and_maintenance/clustering/clustering_using_ddev.md)_ to add Elasticsearch, Redis, Memcached or Varnish to your DDEV installation.
+See _[Clustering using DDEV](../infrastructure_and_maintenance/clustering/clustering_using_ddev.md)_ to add Elasticsearch, Solr, Redis or Memcached to your DDEV installation.
 
 TODO: See Ibexa Cloud with DDEV https://ddev.readthedocs.io/en/latest/users/providers/platform/
 
