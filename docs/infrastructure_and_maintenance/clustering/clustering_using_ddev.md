@@ -4,7 +4,7 @@ This guide follows [Getting started: Install using DDEV](../../getting_started/i
 
 !!! caution
 
-    This is not to be use in production.
+    This is not to be used in production.
     And a staging environment for validation before production should replicat exactly the production environment.
     This is meant for development environment only.
 
@@ -17,10 +17,11 @@ A [search engine](../../search/search_engines.md) can be added to the cluster.
 ### Elasticsearch
 
 The following command lines will
-add the Elasticsearch container,
-set it as the search engine,
-restart the DDEV cluster and clean its cache to be taken into account,
-then inject the schema and reindex the content:
+
+1. add the Elasticsearch container,
+1. set it up as the search engine,
+1. restart the DDEV cluster and clear application cache,
+1. then inject the schema and reindex the content.
 
 ```bash
 ddev get ddev/ddev-elasticsearch
@@ -47,45 +48,65 @@ ddev restart
 
 You can now test that Solr works properly with, for example, `ddev exec curl -s http://solr:8983/api/cores/` and check `collection1` status.
 
-## Install persistence cache pool
+## Share persistence cache and sessions
 
-A [persistence cache pool](../cache/persistence_cache.md) can be added to the cluster.
+A [persistence cache pool](../cache/persistence_cache.md#persistence-cache-configuration) and a [session handler](../sessions.md#session-handlers) can be added to the cluster.
 
-For Redis or Memcached, the command lines to add and set up the service are almost the same.
-The corresponding container is added,
-environment variables are set to use the dedicated configuration and set the service hostname,
-then DDEV cluster is restarted and its cache cleaned.
+The same service will be used to store both persistence cache and sessions.
+
+The session handler will be set on Symfony side. TODO: It's possible to set session handlers on [PHP/PHP-FPM side](https://www.php.net/manual/en/session.configuration.php#ini.session.save-handler); Still, is this remark relevant?
 
 ### Install Redis
+
+The following command lines
+
+1. add the Redis container,
+1. set up Redis as the cache pool,
+1. set up Redis as the session handler,
+1. restart the DDEV cluster and clear application cache.
 
 ```bash
 ddev get ddev/ddev-redis
 ddev config --web-environment-add CACHE_POOL=cache.redis
 ddev config --web-environment-add CACHE_DSN=redis
+ddev config --web-environment-add SESSION_HANDLER_ID='Ibexa\\Bundle\\Core\\Session\\Handler\\NativeSessionHandler'
+ddev config --web-environment-add SESSION_SAVE_PATH=tcp://redis:6379
 ddev restart
 ddev exec php bin/console cache:clear
 ```
 
-You can now check that everything went right with `ddev redis-cli MONITOR` then navigating into the website.
+You can now check that everything went right.
+For example, `ddev redis-cli MONITOR` will show some `"SETEX" "ezp:`, `"MGET" "ezp:`, `"SETEX" "PHPREDIS_SESSION:`, `"GET" "PHPREDIS_SESSION:`, etc. while navigating into the website, in particular the Back Office.
 
 ### Install Memcached
+
+First, append the following [new service](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/sessions/#handling-sessions-with-memcached) to `config/config/services.yaml`:
+
+```yaml
+    app.session.handler.native_memcached:
+        class: Ibexa\Bundle\Core\Session\Handler\NativeSessionHandler
+        arguments:
+            - '%session.save_path%'
+            - memcached
+```
+
+Second, install and set up the add-on.
+The following command lines
+
+1. add the Memcached container,
+1. set up Memcached as the cache pool,
+1. set up Memcached as the session handler,
+1. restart the DDEV cluster and clear application cache.
 
 ```bash
 ddev get ddev/ddev-memcached
 ddev config --web-environment-add CACHE_POOL=cache.memcached
 ddev config --web-environment-add CACHE_DSN=memcached
+ddev config --web-environment-add SESSION_HANDLER_ID=app.session.handler.native_memcached
+ddev config --web-environment-add SESSION_SAVE_PATH=memcached:11211
 ddev restart
 ddev exec php bin/console cache:clear
 ```
 
-You can now check that everything went right with `watch 'ddev exec --raw telnet memcached 11211 <<< stats'` then navigating into the website.
-
-## TODO: Session: Install/Use Redis Memcached
-
-## TODO: Install Varnish
-
-```bash
-ddev get ddev/ddev-varnish
-TODO
-ddev restart
-```
+You can now check that everything went right.
+For example, `watch 'ddev exec --raw telnet memcached 11211 <<< "stats" | grep "cmd_.et "'` will display the increase of `cmd_get` and `cmd_set` while navigating into the website.
