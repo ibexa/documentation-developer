@@ -1,5 +1,6 @@
 ---
 description: Built-in Twig functions speed up rendering content in Twig templates.
+page_type: landing_page
 ---
 
 # Twig function reference

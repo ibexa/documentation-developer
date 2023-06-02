@@ -1,5 +1,6 @@
 ---
 description: Aggregations help fine-tune search for content and Locations by grouping results into categories.
+page_type: reference
 ---
 
 # Aggregation reference

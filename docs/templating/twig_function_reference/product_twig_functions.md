@@ -1,5 +1,6 @@
 ---
 description: Product Twig functions enable getting products and their attributes in templates.
+page_type: reference
 ---
 
 # Product Twig functions
