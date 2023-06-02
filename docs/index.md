@@ -67,7 +67,7 @@
     <div class="row gx-2">
         <div class="info-tile" id="tile2" style = "background: #af1164;">
             <svg class="tile-icon align-middle" width="32" height="32"><use fill="var(--white)" xlink:href="images/ez-icons.svg#content-draft"></svg>
-            <div class = "info-tile-title align-middle"><a href="guide/content_management/" style="color: white;">Content management</a></div>
+            <div class = "info-tile-title align-middle"><a href="guide/content_management/" style="color: white;">Content</a></div>
                 <div class="info-tile-body align-middle">
                     <ul>
                         <li><a href="guide/content_model/" style="color: white;">Content model</a></li>
@@ -78,7 +78,7 @@
             </div>
         <div class="info-tile" id="tile2" style = "background: #af1164;">
             <svg class="tile-icon" width="32" height="32"><use fill="var(--white)" xlink:href="images/ez-icons.svg#product"></svg>
-            <div class = "info-tile-title align-middle"><a href="guide/catalog/product/" style="color: white;">Product management<a></div>
+            <div class = "info-tile-title align-middle"><a href="guide/catalog/product/" style="color: white;">Product<a></div>
                 <div class="info-tile-body align-middle">
                     <ul>
                         <li><a href="guide/basket/basket_configuration/" style="color: white;">Basket configuration</a></li>
@@ -89,7 +89,7 @@
             </div>
         <div class="info-tile" id="tile2" style = "background: #af1164;">
             <svg class="tile-icon align-middle" width="32" height="32"><use fill="var(--white)" xlink:href="images/ez-icons.svg#user_group"></svg>
-            <div class = "info-tile-title align-middle"><a href="guide/customers/customers/" style="color: white;">Customer management</a></div>
+            <div class = "info-tile-title align-middle"><a href="guide/customers/customers/" style="color: white;">Customer</a></div>
                 <div class="info-tile-body align-middle">
                     <ul>
                         <li><a href="guide/customers/customer_templates/" style="color: white;">Customer templates<a></li>
@@ -100,7 +100,7 @@
             </div>
         <div class="info-tile" id="tile2" style = "background: #af1164;">
             <svg class="tile-icon align-middle" width="32" height="32"><use fill="var(--white)" xlink:href="images/ez-icons.svg#user"></svg>
-            <div class = "info-tile-title align-middle"><a href="guide/user_management/user_management/" style="color: white;">User management</a></div>
+            <div class = "info-tile-title align-middle"><a href="guide/user_management/user_management/" style="color: white;">User</a></div>
                 <div class="info-tile-body align-middle">
                     <ul>
                         <li><a href="guide/user_management/login_and_registration/" style="color: white;">Login and registration</a></li>
