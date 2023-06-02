@@ -1,5 +1,6 @@
 ---
 description: Limitations let you fine-tune the permission system by specifying limits to Roles granted to users.
+page_type: reference
 ---
 
 # Limitation reference

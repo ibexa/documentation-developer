@@ -1,5 +1,6 @@
 ---
 description: URL Search Criteria help define and fine-tune search queries for URLs.
+page_type: reference
 ---
 
 # URL search reference

@@ -1,5 +1,6 @@
 ---
 description: Data migration actions enable you to run special operations while executing data migrations, such as assigning Roles, Sections, Objects states, and so on.
+page_type: reference
 ---
 
 # Data migration actions

@@ -1,5 +1,6 @@
 ---
 description: Use SiteAccess matchers to control which site is served when and to which user.
+page_type: reference
 ---
 
 # SiteAccess matching

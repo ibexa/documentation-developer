@@ -1,5 +1,6 @@
 ---
 description: Product Search Criteria 
+page_type: reference
 ---
 
 # Product Search Criteria reference

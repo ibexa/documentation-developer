@@ -1,5 +1,6 @@
 ---
 description: Control access to parts of the system by fine-tuning permissions with the use of Limitations.
+page_type: reference
 ---
 
 # Limitations

@@ -1,6 +1,7 @@
 ---
 description: Events that are triggered when working with sites.
 edition: experience
+page_type: reference
 ---
 
 # Site events
