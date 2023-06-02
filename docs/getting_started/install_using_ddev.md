@@ -50,7 +50,7 @@ Now, configure the database connection for your Ibexa DXP project. Depending on 
 
     Those commands will set a `DATABASE_URL` environment variable inside the container which override [the .env's one](install_ibexa_dxp.md#change-installation-parameters).
 
-#### MySQL
+#### MariaDB
 
 ```bash
 ddev config --web-environment-add DATABASE_URL=mysql://db:db@db:3306/db
@@ -91,7 +91,7 @@ ddev start
 
     If you forgot a configuration, you can still use `ddev config` but you got to restart afterward using `ddev restart`.
 
-### 4. Composer authentification
+### 4. Composer authentication
 
 If you're installing the Commerce, Experience, or Content edition of Ibexa DXP, you'll need to [set up authentification tokens](install_ibexa_dxp.md#set-up-authentication-tokens) by modifying the Composer configuration.
 It must be done **after** executing the `ddev start` command as it will be run inside the container.
@@ -101,6 +101,8 @@ ddev composer config --global http-basic.updates.ibexa.co <installation-key> <to
 ```
 
 Replace `<installation-key>` and `<token-password>` with your actual installation key and token password, respectively.
+
+If you want to reuse an existing `auth.json`file, see [Alternatives / Using an auth.json](#using-an-authjson).
 
 ### 5. Create Ibexa DXP project
 
@@ -140,14 +142,71 @@ For example, if a guideline invites you to run `php bin/console cache:clear`, yo
 
 ## Going further
 
+### Alternatives
+
+DDEv offers several ways to achieve a same thing, offering different level of flexibility or adaptation to your development environment.
+
+#### Using an auth.json
+
+To reuse a previously existing auth.json instead of setting the authentification at step [4. Composer authentication](#4-composer-authentication), [DDEV `homeaddition` feature](https://ddev.readthedocs.io/en/latest/users/extend/in-container-configuration/) can be used.
+The auth.json file can be used for one project or globally for all projects.
+
+For example, an auth.json file can be copied to a DDEV project:
+`cp path-to-an/auth.json .ddev/homeadditions/`
+
+For example, the Composer global auth.json can also be the DDEV global auth.json with the help of symbolic link:
+`mkdir -p ~/.ddev/homeadditions/.composer && ln -s ~/.composer/auth.json ~/.ddev/homeadditions/.composer/auth.json`
+
+If DDEV project was already started, `ddev restart` is needed.
+
+#### Using Dotenv
+
+Instead of using environment variables inside the container, a [.env.local](https://symfony.com/doc/5.4/configuration.html#overriding-environment-values-via-env-local) file can be added to the project.
+
+The following example show the particular case of the database.
+
+- [2. Configure DDEV / Configure database connection](#configure-database-connection) is skipped.
+- [5. Create Ibexa DXP project](#5-create-ibexa-dxp-project) is modified to insert the database setting (Commerce and MariaDB are used in this example):
+  ```bash
+  ddev composer create ibexa/commerce-skeleton --no-install;
+  echo "DATABASE_URL=mysql://db:db@db:3306/db" >> .env.local;
+  ddev composer install;
+  ```
+
+### Run an already existing project
+
+- Instead of creating an empty directory like in [1. Create a DDEV project directory](#1-create-a-ddev-project-directory), a directory already containing an Ibexa DXP project is used.
+- Instead of `ddev composer create` from [5. Create Ibexa DXP project](#5-create-ibexa-dxp-project), use solely `ddev composer install`.
+
+For example, a local clone of a remote Git repository:
+```bash
+git clone <repository> my-ddev-project && cd my-ddev-project
+.ddev/ >> .gitignore
+ddev config --project-type=php --php-version 8.1 \
+  --docroot=public --create-docroot \
+  --web-environment-add DATABASE_URL=mysql://db:db@db:3306/db \
+  --mutagen-enabled \
+  --http-port=8080 --https-port=8443
+ddev start
+ddev composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
+ddev composer install
+curl -I http://my-ddev-project.ddev.site:8080/
+```
+
+TODO: Validate above script
+
+### Mimicking a production environment
+
 DDEV can be useful to locally simulate a production cluster.
 See _[Clustering using DDEV](../infrastructure_and_maintenance/clustering/clustering_using_ddev.md)_ to add Elasticsearch, Solr, Redis or Memcached to your DDEV installation.
 
-TODO: See Ibexa Cloud with DDEV https://ddev.readthedocs.io/en/latest/users/providers/platform/
+See Ibexa Cloud with DDEV https://ddev.readthedocs.io/en/latest/users/providers/platform/
 
 ## Stop or remove the project
 
 If you need to simply stop the project to start it again latter, use `ddev stop`. Afterward, a `ddev start` will run the project in the same state.
+
+TODO: Check data persistence
 
 If you want to fully remove the project,
 - stop the DDEV container with a removal of the data and without backup: `ddev stop --omit-snapshot --remove-data --unlist`;
