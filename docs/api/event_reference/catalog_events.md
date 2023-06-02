@@ -1,5 +1,6 @@
 ---
 description: Events that are triggered when working with products, prices and currencies.
+page_type: reference
 ---
 
 # Catalog events

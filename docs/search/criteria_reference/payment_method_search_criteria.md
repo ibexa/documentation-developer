@@ -1,6 +1,7 @@
 ---
 description: Payment Method Search Criteria
 edition: commerce
+page_type: reference
 ---
 
 # Payment Method Search Criteria reference
