@@ -67,7 +67,7 @@
     <div class="row gx-2">
         <div class="info-tile" id="tile2" style = "background: #af1164;">
             <svg class="tile-icon align-middle" width="32" height="32"><use fill="var(--white)" xlink:href="images/ez-icons.svg#content-draft"></svg>
-            <div class = "info-tile-title align-middle"><a href="guide/content_management/" style="color: white;">Content management</a></div>
+            <div class = "info-tile-title align-middle"><a href="guide/content_management/" style="color: white;">Content</a></div>
                 <div class="info-tile-body align-middle">
                     <ul>
                         <li><a href="guide/content_model/" style="color: white;">Content model</a></li>
@@ -100,7 +100,7 @@
             </div>
         <div class="info-tile" id="tile2" style = "background: #af1164;">
             <svg class="tile-icon align-middle" width="32" height="32"><use fill="var(--white)" xlink:href="images/ez-icons.svg#user"></svg>
-            <div class = "info-tile-title align-middle"><a href="guide/user_management/" style="color: white;">User management</a></div>
+            <div class = "info-tile-title align-middle"><a href="guide/user_management/" style="color: white;">User</a></div>
                 <div class="info-tile-body align-middle">
                     <ul>
                         <li><a href="guide/user_management/#registering-new-users" style="color: white;">Login and registration</a></li>
