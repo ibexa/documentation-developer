@@ -1,9 +1,0 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
-
-all_content_list.list:
-    path: /all_content_list/{page}
-    defaults:
-        page: 1
-        _controller: App\Controller\AllContentListController::listAction
