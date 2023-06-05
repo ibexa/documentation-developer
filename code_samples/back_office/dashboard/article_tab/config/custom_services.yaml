@@ -5,3 +5,9 @@ services:
         public: false
         tags:
             - { name: ibexa.admin_ui.tab, group: dashboard-everyone }
+    app.my_tabs.custom_group:
+        parent: Ibexa\AdminUi\Component\TabsComponent
+        arguments:
+            $groupIdentifier: 'custom_group'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'dashboard-blocks' }
