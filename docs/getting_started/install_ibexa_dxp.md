@@ -122,7 +122,7 @@ run the following command:
 === "[[= product_name_content =]]"
 
     ``` bash
-    composer create-project ibexa/content-skeleton .
+    composer create-project ibexa/headless-skeleton .
     ```
 
 === "[[= product_name_exp =]]"
@@ -144,7 +144,7 @@ run the following command:
     === "[[= product_name_content =]]"
 
         ``` bash
-        composer create-project ibexa/content-skeleton --no-install .
+        composer create-project ibexa/headless-skeleton --no-install .
         composer update
         ```
 
@@ -173,7 +173,7 @@ run the following command:
     specific tag (`3.3.2`), version range (`~3.3.2`), stability (`^3.3@rc`), etc.:
 
     ``` bash
-    composer create-project ibexa/content-skeleton:3.3.2 .
+    composer create-project ibexa/experience-skeleton:3.3.2 .
     ```
 
 !!! note "Platform.sh"

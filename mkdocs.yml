@@ -761,7 +761,7 @@ extra:
   # Global variables
   site_display_name: 'Ibexa Documentation'
   product_name: 'Ibexa DXP'
-  product_name_content: 'Ibexa Content'
+  product_name_content: 'Ibexa Headless'
   product_name_exp: 'Ibexa Experience'
   product_name_com: 'Ibexa Commerce'
   # Global variables - latest tag versions
