@@ -1,20 +1,20 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
+use Ibexa\Contracts\Core\Repository\LocationService;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+use Ibexa\Contracts\Core\Repository\Values\Filter\Filter;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Ibexa\Contracts\Core\Repository\LocationService;
-use Ibexa\Contracts\Core\Repository\Values\Filter\Filter;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
 
 class FilterLocationCommand extends Command
 {
-    private $locationService;
+    private LocationService $locationService;
 
     public function __construct(LocationService $locationService)
     {
@@ -26,7 +26,7 @@ class FilterLocationCommand extends Command
     {
         $this->setDescription('Returns children of the provided Location, sorted by name in descending order.');
         $this->setDefinition([
-            new InputArgument('parentLocationId', InputArgument::REQUIRED, 'ID of the parent Location')
+            new InputArgument('parentLocationId', InputArgument::REQUIRED, 'ID of the parent Location'),
         ]);
     }
 
