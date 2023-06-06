@@ -34,6 +34,10 @@ ddev config --project-type=php --php-version 8.1 --docroot=public --create-docro
 
 This command sets the project type to PHP, the PHP version to 8.1, the document root to `public` directory, and creates the document root.
 
+#### TODO: Optional: Switch to Apache
+
+TODO: `ddev config --webserver-type=apache-fpm`
+
 #### Optional: Switch to PostgreSQL Database
 
 By default, DDEV uses MySQL (MariaDB). To use PostgreSQL instead, run the following command:
@@ -144,7 +148,7 @@ For example, if a guideline invites you to run `php bin/console cache:clear`, yo
 
 ### Alternatives
 
-DDEv offers several ways to achieve a same thing, offering different level of flexibility or adaptation to your development environment.
+DDEv offers several ways to achieve a same thing, offering different level of flexibility or adaptability to your development environment.
 
 #### Using an auth.json
 
@@ -163,10 +167,10 @@ If DDEV project was already started, `ddev restart` is needed.
 
 Instead of using environment variables inside the container, a [.env.local](https://symfony.com/doc/5.4/configuration.html#overriding-environment-values-via-env-local) file can be added to the project.
 
-The following example show the particular case of the database.
+The following example show the particular case of the database:
 
-- [2. Configure DDEV / Configure database connection](#configure-database-connection) is skipped.
-- [5. Create Ibexa DXP project](#5-create-ibexa-dxp-project) is modified to insert the database setting (Commerce and MariaDB are used in this example):
+- _[2. Configure DDEV / Configure database connection](#configure-database-connection)_ is skipped.
+- _[5. Create Ibexa DXP project](#5-create-ibexa-dxp-project)_ is modified to insert the database setting (Commerce and MariaDB are used in this example):
   ```bash
   ddev composer create ibexa/commerce-skeleton --no-install;
   echo "DATABASE_URL=mysql://db:db@db:3306/db" >> .env.local;
@@ -175,39 +179,49 @@ The following example show the particular case of the database.
 
 ### Run an already existing project
 
-- Instead of creating an empty directory like in [1. Create a DDEV project directory](#1-create-a-ddev-project-directory), a directory already containing an Ibexa DXP project is used.
-- Instead of `ddev composer create` from [5. Create Ibexa DXP project](#5-create-ibexa-dxp-project), use solely `ddev composer install`.
+- Instead of creating an empty directory like in _[1. Create a DDEV project directory](#1-create-a-ddev-project-directory)_, a directory already containing an Ibexa DXP project is used.
+- In _[2. Configure DDEV / Configure PHP version and document root](#configure-php-version-and-document-root)_, no need to create the Document root, `--create-docroot` mustn't be used.
+- Instead of `ddev composer create` from _[5. Create Ibexa DXP project](#5-create-ibexa-dxp-project)_, use solely `ddev composer install`.
 
-For example, a local clone of a remote Git repository:
+The following example run on DDEV a [version controlled project](https://doc.ibexa.co/en/latest/getting_started/install_ibexa_dxp/#add-project-to-version-control), a local clone of a remote Git repository:
 ```bash
 git clone <repository> my-ddev-project && cd my-ddev-project
 .ddev/ >> .gitignore
 ddev config --project-type=php --php-version 8.1 \
-  --docroot=public --create-docroot \
+  --docroot=public \
   --web-environment-add DATABASE_URL=mysql://db:db@db:3306/db \
-  --mutagen-enabled \
   --http-port=8080 --https-port=8443
 ddev start
 ddev composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
 ddev composer install
-curl -I http://my-ddev-project.ddev.site:8080/
+ddev launch
 ```
 
-TODO: Validate above script
+Notice that the example choose to `.gitignore` the whole `.ddev/` directory. It can go otherwise. Some DDEV configs can be shared among developers. For example, a common .dev/config.yaml can be committed for everyone and [locally extended or override](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files). 
 
 ### Mimicking a production environment
 
-DDEV can be useful to locally simulate a production cluster.
-See _[Clustering using DDEV](../infrastructure_and_maintenance/clustering/clustering_using_ddev.md)_ to add Elasticsearch, Solr, Redis or Memcached to your DDEV installation.
+#### Hostnames/Domains
 
-See Ibexa Cloud with DDEV https://ddev.readthedocs.io/en/latest/users/providers/platform/
+If the local project needs to answer to real production domains (for example, to use the existing [hostname to SiteAccess](../multisite/siteaccess/siteaccess_matching.md#maphost) or [hostname element to SiteAccess](../multisite/siteaccess/siteaccess_matching/#hostelement) mappings), you can use the [`additional_fqdns` feature](https://ddev.readthedocs.io/en/latest/users/extend/additional-hostnames/).
+
+TODO: As DDEV doc does, warn about real website becoming inaccessible. How to make it accessible again?
+
+#### Cluster/Cloud
+
+DDEV can be useful to locally simulate a production cluster.
+
+- See _[Clustering using DDEV](../infrastructure_and_maintenance/clustering/clustering_using_ddev.md)_ to add Elasticsearch, Solr, Redis or Memcached to your DDEV installation.
+- See _[Running locally Ibexa Cloud using DDEV](../infrastructure_and_maintenance/clustering/running_ibexa_cloud_using_ddev.md)_
 
 ## Stop or remove the project
 
 If you need to simply stop the project to start it again latter, use `ddev stop`. Afterward, a `ddev start` will run the project in the same state.
 
-TODO: Check data persistence
+TODO: Check data persistence on restart
 
 If you want to fully remove the project,
-- stop the DDEV container with a removal of the data and without backup: `ddev stop --omit-snapshot --remove-data --unlist`;
+- delete the DDEV elements without backup: `ddev delete --omit-snapshot`;
 - remove the project folder: `cd .. && rm -r my-ddev-project`
+
+To learn more, to remove all projects at once or to remove DDEV itself, see [Uninstalling DDEV](https://ddev.readthedocs.io/en/latest/users/usage/uninstall/).

@@ -1,3 +1,7 @@
+---
+description: When you want to run locally a cluster infrastructure using DDEV.
+---
+
 # Clustering using DDEV
 
 This guide follows [Getting started: Install using DDEV](../../getting_started/install_using_ddev.md) and helps to extend the previous installation to replicate locally a production [cluster](clustering.md).
@@ -9,6 +13,12 @@ This guide follows [Getting started: Install using DDEV](../../getting_started/i
     This is meant for development environment only.
 
 TODO: Detail validation tests more
+
+`ddev describe` can be used to get a summary of the cluster including accesses from inside and outside DDEV containers.
+
+TODO: Document [`ddev get --remove`](https://ddev.readthedocs.io/en/latest/users/extend/additional-services/#viewing-and-removing-installed-add-ons) when DDEV 1.22 is out https://github.com/ddev/ddev/milestone/54
+
+## TODO: Install Varnish
 
 ## Install search engine
 
@@ -110,3 +120,11 @@ ddev exec php bin/console cache:clear
 
 You can now check that everything went right.
 For example, `watch 'ddev exec --raw telnet memcached 11211 <<< "stats" | grep "cmd_.et "'` will display the increase of `cmd_get` and `cmd_set` while navigating into the website.
+
+## TODO: Share binary files
+
+TODO: To be closer to a production cluster, to simulate the binary file sharing could be useful
+
+## Going further
+
+TODO: Version control DDEV config, use .env.local, import db and binary contents
