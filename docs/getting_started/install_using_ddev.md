@@ -97,7 +97,7 @@ ddev start
 
 ### 4. Composer authentication
 
-If you're installing the Commerce, Experience, or Content edition of Ibexa DXP, you'll need to [set up authentification tokens](install_ibexa_dxp.md#set-up-authentication-tokens) by modifying the Composer configuration.
+If you're installing the Commerce, Experience, or Content edition of Ibexa DXP, you'll need to [set up authentication tokens](install_ibexa_dxp.md#set-up-authentication-tokens) by modifying the Composer configuration.
 It must be done **after** executing the `ddev start` command as it will be run inside the container.
 
 ```bash
@@ -152,7 +152,7 @@ DDEv offers several ways to achieve a same thing, offering different level of fl
 
 #### Using an auth.json
 
-To reuse a previously existing auth.json instead of setting the authentification at step [4. Composer authentication](#4-composer-authentication), [DDEV `homeaddition` feature](https://ddev.readthedocs.io/en/latest/users/extend/in-container-configuration/) can be used.
+To reuse a previously existing auth.json instead of setting the authentication at step [4. Composer authentication](#4-composer-authentication), [DDEV `homeaddition` feature](https://ddev.readthedocs.io/en/latest/users/extend/in-container-configuration/) can be used.
 The auth.json file can be used for one project or globally for all projects.
 
 For example, an auth.json file can be copied to a DDEV project:
