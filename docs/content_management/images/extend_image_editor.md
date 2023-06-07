@@ -85,4 +85,11 @@ Create another function that uses the history context to store changes, so that 
 ```
 </details>
 
+Clear the cache and rebuild assets with the following commands:
+
+``` bash
+php bin/console cache:clear
+yarn encore dev
+```
+
 At this point you should be able to draw a random dot by clicking a button in the Image Editor's UI.

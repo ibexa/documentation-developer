@@ -31,7 +31,7 @@ const Dot = () => {
 
         ctx.save();
 
-        ctx.fillStyle = '#000000';
+        ctx.fillStyle = '#ae1164';
 
         ctx.beginPath();
         ctx.arc(positionX, positionY, 20, 0, Math.PI * 2, true);
