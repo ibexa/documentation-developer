@@ -15,13 +15,13 @@ final class PercentAttributeOptionsType extends AbstractType
     {
         $builder->add('min', PercentType::class, [
             'disabled' => $options['translation_mode'],
-            'label' => "Minimum Value",
+            'label' => 'Minimum Value',
             'required' => false,
         ]);
 
         $builder->add('max', PercentType::class, [
             'disabled' => $options['translation_mode'],
-            'label' => "Maximum Value",
+            'label' => 'Maximum Value',
             'required' => false,
         ]);
     }
