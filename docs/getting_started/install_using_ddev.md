@@ -121,7 +121,7 @@ ddev composer create ibexa/<edition>-skeleton:<version>
 Once you've made this change, you can proceed to install Ibexa DXP.
 
 ```bash
-ddev exec php bin/console ibexa:install
+ddev exec php bin/console ibexa:install ibexa-<edition>
 ddev exec php bin/console ibexa:graphql:generate-schema
 ```
 
@@ -221,7 +221,7 @@ If you need to simply stop the project to start it again latter, use `ddev stop`
 TODO: Check data persistence on restart
 
 If you want to fully remove the project,
-- delete the DDEV elements without backup: `ddev delete --omit-snapshot`;
+- delete the DDEV elements without backup: `ddev delete --omit-snapshot && rm -rf ./ddev`;
 - remove the project folder: `cd .. && rm -r my-ddev-project`
 
 To learn more, to remove all projects at once or to remove DDEV itself, see [Uninstalling DDEV](https://ddev.readthedocs.io/en/latest/users/usage/uninstall/).
