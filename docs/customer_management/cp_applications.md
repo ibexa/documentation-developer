@@ -59,15 +59,10 @@ In this procedure, you add a new status to the approval process of business acco
 
 ### Add new status
 
-First, go to `config/packages/ibexa.yaml` and add a `verify` status to the configuration:
+First, add a `verify` status to the configuration under the `ibexa.system.<scope>.corporate_accounts` key:
 
 ```yaml
-ibexa:
-    system:
-        default:
-            corporate_accounts:
-                application:
-                    states: [ 'new', 'accept', 'on_hold', 'reject', 'verify' ]
+[[= include_file('code_samples/customer_portal/config/packages/customer_portal.yaml') =]]
 ```
 
 ### Create new Form Type
@@ -75,7 +70,7 @@ ibexa:
 Next, create a new form type in `src/Form/VerifyType.php`.
 It will be displayed in the application review stage.
 
-``` php hl_lines="21 22 29"
+``` php hl_lines="17-18 25"
 [[= include_file('code_samples/customer_portal/src/Form/VerifyType.php') =]]
 ```
 
@@ -86,7 +81,7 @@ Line 29 defines where the form should be displayed, line 21 adds **Note** field,
 Add an event subscriber that passes a new form type to the frontend.
 Create `src/Corporate/EventSubscriber/ApplicationDetailsViewSubscriber.php` following the example below:
 
-``` php hl_lines="39"
+``` php hl_lines="35"
 [[= include_file('code_samples/customer_portal/src/Corporate/EventSubscriber/ApplicationDetailsViewSubscriber.php') =]]
 ```
 
@@ -114,7 +109,7 @@ to the list of applications to change the application status.
 Create another event subscriber that passes the information
 from the created form to the application list `src/Corporate/EventSubscriber/VerifyStateEventSubscriber.php`.
 
-``` php hl_lines="46 72"
+``` php hl_lines="42 68"
 [[= include_file('code_samples/customer_portal/src/Corporate/EventSubscriber/VerifyStateEventSubscriber.php') =]]
 ```
 
