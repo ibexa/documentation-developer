@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 declare(strict_types=1);
 
@@ -31,12 +31,12 @@ final class CartCommand extends Command
     private ProductServiceInterface $productService;
 
     public function __construct(
-      PermissionResolver $permissionResolver, 
-      UserService $userService, 
-      CartServiceInterface $cartService, 
-      CurrencyServiceInterface $currencyService, 
-      ProductServiceInterface $productService
-      ) {
+        PermissionResolver $permissionResolver,
+        UserService $userService,
+        CartServiceInterface $cartService,
+        CurrencyServiceInterface $currencyService,
+        ProductServiceInterface $productService
+    ) {
         $this->cartService = $cartService;
         $this->permissionResolver = $permissionResolver;
         $this->userService = $userService;
@@ -122,9 +122,9 @@ final class CartCommand extends Command
         $cart = $this->cartService->removeEntry($cart, $entry); // updated Cart object
 
         // Update entry in a cart
-        $entryUpdateStruct = new EntryUpdateStruct();
-        $entryUpdateStruct->setQuantity(5);
-        
+        $entryUpdateStruct = new EntryUpdateStruct(5);
+        $entryUpdateStruct->setQuantity(10);
+
         $cart = $this->cartService->updateEntry(
             $cart,
             $entry,
