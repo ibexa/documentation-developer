@@ -31,7 +31,8 @@ For a [cluster](clustering.md) setup, the content cache ([HTTP cache](http_cache
 
 ## Web Debug Toolbar
 
-As of Ibexa DXP 4.5, the [Symfony Web Debug Toolbar](https://symfony.com/doc/current/profiler.html) is no longer installed by default. In order to get it installed, you may run the command
+As of [[= product_name =]] v4.5, the [Symfony Web Debug Toolbar](https://symfony.com/doc/current/profiler.html) is no longer installed by default.
+To install it, run the following command:
 
 ```
 composer require symfony/debug-pack
