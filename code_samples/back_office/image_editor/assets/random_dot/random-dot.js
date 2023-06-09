@@ -7,6 +7,8 @@ import {
     AdditionalDataContext,
 } from '../../vendor/ibexa/image-editor/src/bundle/ui-dev/src/modules/image-editor/image.editor.modules';
 
+const { ibexa } = window;
+
 const IDENTIFIER = 'dot';
 
 const Dot = () => {
@@ -29,7 +31,7 @@ const Dot = () => {
 
         ctx.save();
 
-        ctx.fillStyle = '#000000';
+        ctx.fillStyle = '#ae1164';
 
         ctx.beginPath();
         ctx.arc(positionX, positionY, 20, 0, Math.PI * 2, true);
@@ -55,12 +57,12 @@ Dot.defaultProps = {};
 
 export default Dot;
 
-window.ibexa.addConfig(
+ibexa.addConfig(
     'imageEditor.actions.dot',
     {
         label: 'Dot',
         component: Dot,
-        icon: window.ibexa.helpers.icon.getIconPath('radio-button'),
+        icon: ibexa.helpers.icon.getIconPath('radio-button'),
         identifier: IDENTIFIER,
     },
     true

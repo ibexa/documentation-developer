@@ -1,10 +1,10 @@
 const Encore = require('@symfony/webpack-encore');
 const path = require('path');
-const getEzConfig = require('./ez.webpack.config.js');
 const getIbexaConfig = require('./ibexa.webpack.config.js');
-const eZConfig = getEzConfig(Encore);
 const ibexaConfig = getIbexaConfig(Encore);
 const customConfigs = require('./ibexa.webpack.custom.configs.js');
+const { isReactBlockPathCreated } = require('./ibexa.webpack.config.react.blocks.js');
+const ibexaConfigManager = require('./ibexa.webpack.config.manager.js');
 
 Encore.reset();
 Encore
@@ -31,21 +31,34 @@ Encore
 ;
 
 // Welcome page stylesheets
-Encore.addEntry('welcome_page', [
+Encore.addEntry('welcome-page-css', [
     path.resolve(__dirname, './assets/scss/welcome-page.scss'),
 ]);
 
+// Welcome page javascripts
+Encore.addEntry('welcome-page-js', [
+    path.resolve(__dirname, './assets/js/welcome.page.js'),
+]);
+
+if (isReactBlockPathCreated) {
+    // React Blocks javascript
+    Encore.addEntry('react-blocks-js', './assets/js/react.blocks.js');
+}
+
 Encore.addEntry('app', './assets/app.js');
 
-// Image Editor Dot Action 
-ibexaConfigManager.add({ 
-    ibexaConfig, 
-    entryName: 'ibexa-admin-ui-layout-js', 
-    newItems: [ path.resolve(__dirname, './assets/random_dot/random-dot.js'), ], 
+// Image Editor Dot Action
+ibexaConfigManager.add({
+    ibexaConfig,
+    entryName: 'ibexa-admin-ui-layout-js',
+    newItems: [ path.resolve(__dirname, './assets/random_dot/random-dot.js'), ],
 });
 
 const projectConfig = Encore.getWebpackConfig();
-module.exports = [ eZConfig, ibexaConfig, ...customConfigs, projectConfig ];
+
+projectConfig.name = 'app';
+
+module.exports = [ibexaConfig, ...customConfigs, projectConfig];
 
 // uncomment this line if you've commented-out the above lines
-// module.exports = [ eZConfig, ...customConfigs ];
+// module.exports = [ eZConfig, ibexaConfig, ...customConfigs ];
