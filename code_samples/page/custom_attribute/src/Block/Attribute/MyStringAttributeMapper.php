@@ -2,9 +2,9 @@
 
 namespace App\Block\Attribute;
 
+use Ibexa\Contracts\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\AttributeFormTypeMapperInterface;
 use Ibexa\Contracts\FieldTypePage\FieldType\Page\Block\Definition\BlockAttributeDefinition;
 use Ibexa\Contracts\FieldTypePage\FieldType\Page\Block\Definition\BlockDefinition;
-use Ibexa\Contracts\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\AttributeFormTypeMapperInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class MyStringAttributeMapper implements AttributeFormTypeMapperInterface
@@ -16,6 +16,7 @@ class MyStringAttributeMapper implements AttributeFormTypeMapperInterface
      * @param array $constraints
      *
      * @return \Symfony\Component\Form\FormBuilderInterface
+     *
      * @throws \Exception
      */
     public function map(
