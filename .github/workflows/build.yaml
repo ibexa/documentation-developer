@@ -45,7 +45,7 @@ jobs:
                 env:
                     TOKEN: ${{ secrets.EZROBOT_PAT }}
                 run: |
-                    curl -H 'Authorization: token $TOKEN' -L https://github.com/ibexa/vale-styles/archive/refs/heads/main.zip -o vale.zip
+                    curl -H "Authorization: token $TOKEN" -L https://github.com/ibexa/vale-styles/archive/refs/heads/main.zip -o vale.zip
                     unzip vale.zip
                     rm vale.zip
             -   name: Run Vale.sh
