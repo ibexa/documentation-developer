@@ -50,7 +50,6 @@ jobs:
                     curl -H "Authorization: token $TOKEN" -L https://github.com/ibexa/vale-styles/archive/refs/heads/main.zip -o vale.zip
                     unzip vale.zip
                     rm vale.zip
-                    shopt -s dotglob globstar
-                    mv vale-styles-main/**  ./
+                    mv vale-styles-main/* vale-styles-main/.* .
             -   name: Run Vale.sh
                 uses: errata-ai/vale-action@reviewdog
