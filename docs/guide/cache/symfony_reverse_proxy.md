@@ -86,6 +86,11 @@ When using Fastly, you need to set `trusted_proxies` according to the [IP ranges
 
 For more information about setting these variables, see [Configuration examples](#configuration-examples).
 
+Failing to configure reverse proxies correctly may introduce several problems, including (but not limited to):
+- Ibexa DXP might generate links with wrong protocol schema ( HTTP instead of HTTPS ) if HTTPS termination is done before webserver because `X-Forward-Proto` headers are ignored.
+- Ibexa DXP might generate links containing wrong port numbers because `X-Forward-Port` headers are ignored.
+- Previewing in admin-ui might show login screen as JWT tokens are not accepted because `X-Forward-For` headers are ignored.
+
 ### Update YML configuration
 
 Next, you need to tell [[= product_name =]] to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client),
