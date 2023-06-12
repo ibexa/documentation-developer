@@ -53,3 +53,5 @@ jobs:
                     mv vale-styles-main/* vale-styles-main/.vale.ini .
             -   name: Run Vale.sh
                 uses: errata-ai/vale-action@reviewdog
+                with:
+                  reporter: github-check
