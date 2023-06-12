@@ -8,16 +8,16 @@ use Ibexa\Contracts\Core\Options\OptionsBag;
 use Ibexa\Contracts\Payment\PaymentMethod\Type\OptionsValidatorError;
 use Ibexa\Contracts\Payment\PaymentMethod\Type\OptionsValidatorInterface;
 
-final class OptionsValidator implements OptionsValidatorInterface
+final class UrlOptionValidator implements OptionsValidatorInterface
 {
     public function validateOptions(OptionsBag $options): array
     {
         $errors = [];
-        if (empty ($options->get('base_url'))) {
-            $errors[] = new OptionsValidatorError ('base_url', 'Base URL cannot be blank');
+        if (empty($options->get('base_url'))) {
+            $errors[] = new OptionsValidatorError('base_url', 'Base URL cannot be blank');
         }
 
-        # Add gateway implementation here
+        // Add gateway implementation here
 
         return $errors;
     }
