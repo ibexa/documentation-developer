@@ -41,6 +41,8 @@ jobs:
             -   name: Run build
                 run: |
                     mkdocs build --strict
+            # Do not run commit and push operation after this action
+            # as this unpacks Vale.sh configs to local folder, replacing readme, license etc.
             -   name: Get Vale.sh configs
                 env:
                     TOKEN: ${{ secrets.EZROBOT_PAT }}
@@ -48,5 +50,7 @@ jobs:
                     curl -H "Authorization: token $TOKEN" -L https://github.com/ibexa/vale-styles/archive/refs/heads/main.zip -o vale.zip
                     unzip vale.zip
                     rm vale.zip
+                    shopt -s dotglob globstar
+                    mv vale-styles-main/**  ./
             -   name: Run Vale.sh
                 uses: errata-ai/vale-action@reviewdog
