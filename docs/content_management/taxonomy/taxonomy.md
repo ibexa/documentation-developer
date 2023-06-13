@@ -31,7 +31,7 @@ You can create other taxonomies than the one predefined in the system, for examp
 
 To do it, first, create a new container to store the new taxonomy's items, for example a folder named "Content categories".
 
-Next, in `config/packages/ibexa_taxonomy.yaml` add the following configuration:
+Next, under the `ibexa_taxonomy.taxonomies` [key](configuration.md#configuration-files) add the following configuration:
 
 ``` yaml
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0, 2)=]]        # existing keys
@@ -60,7 +60,7 @@ To use this new taxonomy, add an `ibexa_taxonomy_entry_assignement` Field to a C
 The **Content** tab in taxonomy objects, for example, tags and categories, lists all Content assigned to the current taxonomy. 
 You can hide the **Content** tab in the **Categories** view.
 
-In the `config/packages/ibexa_taxonomy.yaml` add `assigned_content_tab` with the flag `false` (for other taxonomies this flag is by default set to `true`):
+In configuration add `assigned_content_tab` with the flag `false` (for other taxonomies this flag is by default set to `true`):
 
 ``` yaml
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0, 2)=]]        # existing keys

@@ -83,7 +83,7 @@ fastly vcl snippet create --name="Shielding" --version=active --autoclone --type
 ## Define SiteAccess for Fastly IO
 
 Fastly IO configuration is SiteAccess aware.
-You can define what handler should be used for a specific SiteAccess under `variation_handler_identifier`.
+You can define what handler should be used for a specific SiteAccess under `variation_handler_identifier` [configuration key](configuration.md#configuration-files).
 You need to set it up as `fastly`, so Fastly IO can generate all image links.
 By default, it is set as `alias`, and it points to a built-in image optimizer.
 You can also set up a custom handler if your setup requires it.
@@ -120,7 +120,7 @@ To generate your original image configuration run:
 php bin/console ibexa:fastly:migrate-configuration
 ```
 
-Paste the configuration to `config/packages/ibexa.yaml` to define the same variations for Fastly IO:
+Paste the following configuration to define the same variations for Fastly IO:
 
 ```yaml
 ibexa:

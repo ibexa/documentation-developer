@@ -41,7 +41,8 @@ Otherwise, the transition can only be triggered by means of the API.
 [[= include_file('code_samples/front/shop/payment/config/packages/ibexa.yaml', 7, 39) =]]
 ```
 
-After you configure a custom workflow, reference it with `ibexa.repositories.<your_repository>.payment.workflow`, so that the system can identify which of your workflows handles the payment process.
+After you configure a custom workflow, reference it under the `ibexa.repositories.<your_repository>.payment.workflow` [configuration key](configuration.md#configuration-files),
+so that the system can identify which of your workflows handles the payment process.
 
 ``` yaml
 [[= include_file('code_samples/front/shop/payment/config/packages/ibexa.yaml', 0, 5) =]]

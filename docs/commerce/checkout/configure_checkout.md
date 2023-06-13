@@ -43,7 +43,7 @@ Each step configuration includes the following settings:
 ## Configure shipping and payment methods
 
 You can define the shipping and payment methods.
-Under `ibexa.repositories.<repository_name>.checkout`, create entries that resemble 
+Under the `ibexa.repositories.<repository_name>.checkout` [configuration key](configuration.md#configuration-files), create entries that resemble 
 the following example.
 If you do not set a value for the `workflow` key, `ibexa_checkout` is used by default.
 

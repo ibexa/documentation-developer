@@ -59,7 +59,8 @@ In this procedure, you add a new status to the approval process of business acco
 
 ### Add new status
 
-First, add a `verify` status to the configuration under the `ibexa.system.<scope>.corporate_accounts` key:
+First, under the `ibexa.system.<scope>.corporate_accounts.application.states`
+add a `verify` status to the [configuration](configuration.md#configuration-files):
 
 ```yaml
 [[= include_file('code_samples/customer_portal/config/packages/customer_portal.yaml') =]]
