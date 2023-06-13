@@ -10,7 +10,7 @@ use Ibexa\VersionComparison\Result\Value\StringComparisonResult;
 final class HelloWorldComparisonResult implements ComparisonResult
 {
     /** @var \Ibexa\VersionComparison\Result\Value\StringComparisonResult */
-    private $stringDiff;
+    private \Ibexa\VersionComparison\Result\Value\StringComparisonResult $stringDiff;
 
     public function __construct(StringComparisonResult $stringDiff)
     {

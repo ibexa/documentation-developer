@@ -1,22 +1,22 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
+use Ibexa\Contracts\Core\Repository\ContentService;
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Core\Repository\UserService;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
-use Ibexa\Contracts\Core\Repository\ContentService;
-use Ibexa\Contracts\Core\Repository\UserService;
-use Ibexa\Contracts\Core\Repository\PermissionResolver;
 
 class SetMainLocationCommand extends Command
 {
-    private $contentService;
+    private ContentService $contentService;
 
-    private $userService;
+    private UserService $userService;
 
-    private $permissionResolver;
+    private PermissionResolver $permissionResolver;
 
     public function __construct(ContentService $contentService, UserService $userService, PermissionResolver $permissionResolver)
     {
@@ -32,7 +32,7 @@ class SetMainLocationCommand extends Command
             ->setDescription('Set a Location as Content item\'s main')
             ->setDefinition([
                 new InputArgument('contentId', InputArgument::REQUIRED, 'The Content ID'),
-                new InputArgument('locationId', InputArgument::REQUIRED, 'One of the Locations of the Content')
+                new InputArgument('locationId', InputArgument::REQUIRED, 'One of the Locations of the Content'),
             ]);
     }
 

@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Command;
 
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Core\Repository\UserService;
+use Ibexa\Contracts\OrderManagement\OrderServiceInterface;
 use Ibexa\Contracts\Shipping\Shipment\Query\Criterion\CreatedAt;
 use Ibexa\Contracts\Shipping\Shipment\Query\Criterion\LogicalOr;
 use Ibexa\Contracts\Shipping\Shipment\Query\Criterion\ShippingMethod;
@@ -13,10 +16,6 @@ use Ibexa\Contracts\Shipping\Shipment\ShipmentQuery;
 use Ibexa\Contracts\Shipping\Shipment\ShipmentUpdateStruct;
 use Ibexa\Contracts\Shipping\ShipmentServiceInterface;
 use Ibexa\Contracts\Shipping\ShippingMethodServiceInterface;
-use Ibexa\Contracts\Core\Repository\PermissionResolver;
-use Ibexa\Contracts\Core\Repository\UserService;
-use Ibexa\Contracts\OrderManagement\OrderServiceInterface;
-use DateTime;
 use Money;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -61,8 +60,8 @@ final class ShipmentCommand extends Command
 
         $output->writeln(
             sprintf(
-                'Shipment %d has status %s', 
-                $id, 
+                'Shipment %d has status %s',
+                $id,
                 $shipment->getStatus()
             )
         );
@@ -73,7 +72,7 @@ final class ShipmentCommand extends Command
 
         $output->writeln(
             sprintf(
-                'Your shipment has status %s', 
+                'Your shipment has status %s',
                 $shipment->getStatus()
             )
         );
@@ -110,7 +109,7 @@ final class ShipmentCommand extends Command
 
         $output->writeln(
             sprintf(
-                'Created shipment with identifier %s', 
+                'Created shipment with identifier %s',
                 $shipment->getIdentifier()
             )
         );
@@ -123,7 +122,7 @@ final class ShipmentCommand extends Command
 
         $output->writeln(
             sprintf(
-                'Changed shipment status to %s', 
+                'Changed shipment status to %s',
                 $shipment->getStatus()
             )
         );

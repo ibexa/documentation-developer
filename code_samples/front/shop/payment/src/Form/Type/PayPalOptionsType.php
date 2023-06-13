@@ -15,10 +15,10 @@ final class PayPalOptionsType extends AbstractType
         FormBuilderInterface $builder,
         array $options
     ): void {
-        $builder->add("base_url", UrlType::class, [
-            "constraints" => [new NotBlank()],
+        $builder->add('base_url', UrlType::class, [
+            'constraints' => [new NotBlank()],
         ]);
 
-        # ...
+        // ...
     }
 }

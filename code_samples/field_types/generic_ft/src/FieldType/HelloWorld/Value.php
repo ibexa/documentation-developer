@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\FieldType\HelloWorld;
 
@@ -16,7 +16,7 @@ final class Value implements ValueInterface
     {
         return $this->name;
     }
-    
+
     public function setName(?string $name): void
     {
         $this->name = $name;

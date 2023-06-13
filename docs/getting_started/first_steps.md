@@ -27,14 +27,10 @@ remove the following files and folders from your installation:
 so that the end of the file looks like this:
 
 ``` js
-// Put your config here.
+module.exports = [ibexaConfig, ...customConfigs, projectConfig];
 
-// uncomment the two lines below, if you added a new entry (by Encore.addEntry() or Encore.addStyleEntry() method) to your own Encore configuration for your project
-// const projectConfig = Encore.getWebpackConfig();
-// module.exports = [ IbexaConfig, ...customConfigs, projectConfig ];
-
-// comment-out this line if you've uncommented the above lines
-module.exports = [ IbexaConfig, ...customConfigs ];
+// uncomment this line if you've commented-out the above lines
+module.exports = [ eZConfig, ibexaConfig, ...customConfigs ];
 ```
 
 ## Add a Content Type

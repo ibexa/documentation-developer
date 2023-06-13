@@ -10,7 +10,7 @@ final class PayPal implements TypeInterface
 {
     public function getIdentifier(): string
     {
-        return 'paypal'; 
+        return 'paypal';
     }
 
     public function getName(): string

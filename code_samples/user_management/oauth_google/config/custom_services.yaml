@@ -1,0 +1,11 @@
+services:
+    App\OAuth\GoogleResourceOwnerMapper:
+        tags:
+            - { name: ibexa.oauth2_client.resource_owner_mapper, identifier: google }
+
+    app.components.oauth2_login:
+        parent: Ibexa\AdminUi\Component\TwigComponent
+        arguments:
+            $template: '@@ibexadesign/account/login/oauth2_login.html.twig'
+        tags:
+            - { name: ibexa.admin_ui.component, group: login-form-after }
