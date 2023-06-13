@@ -23,9 +23,9 @@ final class MigrationCommand extends Command
         $string_with_migration_content = '';
         $this->migrationService->add(
             new Migration(
-            'new_migration.yaml',
-            $string_with_migration_content
-        )
+                'new_migration.yaml',
+                $string_with_migration_content
+            )
         );
 
         foreach ($this->migrationService->listMigrations() as $migration) {
