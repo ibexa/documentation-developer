@@ -16,7 +16,7 @@ A Page Field is a layout composed of zones. Each zone can contain multiple block
 The default, built-in Page layout has only one zone.
 You can create other layouts in configuration, under the `ibexa_fieldtype_page.layouts` key.
 
-To create a new layout called "Right sidebar", use the following [configuration ](configuration.md#configuration-files):
+To create a new layout called "Right sidebar", use the following [configuration](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/front/render_page/config/packages/ibexa_page_fieldtype.yaml', 0, 13) =]]

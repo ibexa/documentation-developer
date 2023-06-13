@@ -31,7 +31,7 @@ ibexa:
 
 ## Add a form template
 
-In the configuration, under the `ibexa.system.<scope>.user_registration` [configuration key](configuration.md#configuration-files) add the following configuration:
+Add the following configuration under the `ibexa.system.<scope>.user_registration` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa:

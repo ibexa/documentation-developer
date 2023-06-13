@@ -9,7 +9,7 @@ You can customize the template used in the `/user/forgot-password` route.
 
 Follow the instructions to create and configure a "forgot password" form.
 
-In the configuration files under the `ibexa.system.<scope>.user_forgot_password` [configuration key](configuration.md#configuration-files) and add the following configuration:
+Add the following configuration files under the `ibexa.system.<scope>.user_forgot_password` [configuration key](configuration.md#configuration-files):
 
 ```yaml
 ibexa:
