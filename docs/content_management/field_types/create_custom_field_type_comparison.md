@@ -68,10 +68,10 @@ Next, create a comparison result class in `src/FieldType/HelloWorld/Comparison/H
 
 ## Provide templates
 
-Finally, create a template for the new comparison view in `templates/field_type_comparison.html.twig`:
+Finally, create a template for the new comparison view in `templates/themes/admin/field_types/field_type_comparison.html.twig`:
 
 ``` html+twig
-[[= include_file('code_samples/field_types/generic_ft/templates/field_type_comparison.html.twig') =]]
+[[= include_file('code_samples/field_types/generic_ft/templates/themes/admin/field_types/field_type_comparison.html.twig') =]]
 ```
 
 Add configuration for this template in `config/packages/ibexa.yaml`:

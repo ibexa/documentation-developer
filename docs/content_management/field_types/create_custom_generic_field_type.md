@@ -60,7 +60,7 @@ Now you can map Field definitions into Symfony forms with FormMapper.
 Add the `mapFieldValueForm()` method required by `FieldValueFormMapperInterface`
 and the required `use` statements to `src/FieldType/HelloWorld/Type.php`:
 
-```php hl_lines="7-9 18-26"
+```php hl_lines="6-7 18-26"
 [[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Type.php') =]]
 ```
 
@@ -79,10 +79,10 @@ Next, add the `ibexa.admin_ui.field_type.form.mapper.value` tag to the service d
 ### Create a template
 
 Create a template for the new Field Type. It defines the default rendering of the `HelloWorld` field.
-In the `templates` directory create a `field_type.html.twig` file:
+In the `templates/themes/standard/field_types` directory create a `field_type.html.twig` file:
 
 ```html+twig
-[[= include_file('code_samples/field_types/generic_ft/templates/field_type.html.twig') =]]
+[[= include_file('code_samples/field_types/generic_ft/templates/themes/standard/field_types/field_type.html.twig') =]]
 ```
 
 ### Template mapping

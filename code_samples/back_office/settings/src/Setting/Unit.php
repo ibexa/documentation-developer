@@ -1,5 +1,4 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace App\Setting;
 
@@ -26,7 +25,7 @@ class Unit implements ValueDefinitionInterface, FormMapperInterface
 
     public function getDisplayValue(string $storageValue): string
     {
-        switch($storageValue) {
+        switch ($storageValue) {
             case self::METRIC_OPTION:
                 return 'Metric';
             case self::IMPERIAL_OPTION:
