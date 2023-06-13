@@ -1,3 +1,7 @@
+---
+page_type: reference
+---
+
 # Other Twig filters
 
 ### `ibexa_user_get_current()`

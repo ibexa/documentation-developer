@@ -67,7 +67,7 @@
     <div class="row gx-2">
         <div class="info-tile" id="tile2" style = "background: #af1164;">
             <svg class="tile-icon align-middle" width="32" height="32"><use fill="var(--white)" xlink:href="images/ez-icons.svg#content-draft"></svg>
-            <div class = "info-tile-title align-middle"><a href="content_management/content_management/" style="color: white;">Content management</a></div>
+            <div class = "info-tile-title align-middle"><a href="content_management/content_management/" style="color: white;">Content</a></div>
                 <div class="info-tile-body align-middle">
                     <ul>
                         <li><a href="content_management/content_model/" style="color: white;">Content model</a></li>
@@ -78,7 +78,7 @@
             </div>
         <div class="info-tile" id="tile2" style = "background: #af1164;">
             <svg class="tile-icon" width="32" height="32"><use fill="var(--white)" xlink:href="images/ez-icons.svg#product"></svg>
-            <div class = "info-tile-title align-middle"><a href="pim/pim/" style="color: white;">Product management<a></div>
+            <div class = "info-tile-title align-middle"><a href="pim/pim/" style="color: white;">Product<a></div>
                 <div class="info-tile-body align-middle">
                     <ul>
                         <li><a href="pim/pim_configuration/" style="color: white;">PIM configuration</a></li>
@@ -89,23 +89,23 @@
             </div>
         <div class="info-tile" id="tile2" style = "background: #af1164;">
             <svg class="tile-icon align-middle" width="32" height="32"><use fill="var(--white)" xlink:href="images/ez-icons.svg#user_group"></svg>
-            <div class = "info-tile-title align-middle"><a href="customer_management/customer_management/" style="color: white;">Customer management</a></div>
+            <div class = "info-tile-title align-middle"><a href="commerce/commerce/" style="color: white;">Commerce</a></div>
                 <div class="info-tile-body align-middle">
                     <ul>
-                        <li><a href="customer_management/customer_portal/" style="color: white;">Customer portal</a></li>
-                        <li><a href="customer_management/cp_configuration/" style="color: white;">Configuration</a></li>
-                        <li><a href="customer_management/create_user_registration_form/" style="color: white;">Registration form</a></li>
+                        <li><a href="commerce/cart/cart/" style="color: white;">Cart</a></li>
+                        <li><a href="commerce/payment/payment/" style="color: white;">Payment</a></li>
+                        <li><a href="commerce/storefront/storefront/" style="color: white;">Storefront</a></li>
                     </ul>
                 </div>
             </div>
         <div class="info-tile" id="tile2" style = "background: #af1164;">
             <svg class="tile-icon align-middle" width="32" height="32"><use fill="var(--white)" xlink:href="images/ez-icons.svg#user"></svg>
-            <div class = "info-tile-title align-middle"><a href="users/user_management/" style="color: white;">User management</a></div>
+            <div class = "info-tile-title align-middle"><a href="customer_management/customer_management/" style="color: white;">Customer</a></div>
                 <div class="info-tile-body align-middle">
                     <ul>
-                        <li><a href="users/users/" style="color: white;">Users</a></li>
-                        <li><a href="users/customer_groups/" style="color: white;">Customer groups</a></li>
-                        <li><a href="users/invitations/" style="color: white;">Invitations</a></li>
+                        <li><a href="customer_management/customer_portal/" style="color: white;">Customer portal</a></li>
+                        <li><a href="customer_management/cp_configuration/" style="color: white;">Configuration</a></li>
+                        <li><a href="customer_management/create_user_registration_form/" style="color: white;">Registration form</a></li>
                     </ul>
                 </div>
             </div>

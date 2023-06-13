@@ -31,7 +31,14 @@ For a [cluster](clustering.md) setup, the content cache ([HTTP cache](http_cache
 
 ## Web Debug Toolbar
 
-When running [[= product_name =]] in the `dev` environment you have access to the standard Symfony Web Debug Toolbar. It is extended with some [[= product_name =]]-specific information:
+As of [[= product_name =]] v4.5, the [Symfony Web Debug Toolbar](https://symfony.com/doc/current/profiler.html) is no longer installed by default.
+To install it, run the following command:
+
+```
+composer require symfony/debug-pack
+```
+
+After you have installed Symfony Web Debug Toolbar, it will be available when running [[= product_name =]] in the `dev` environment. It is extended with some [[= product_name =]]-specific information:
 
 ![Ibexa DXP info in Web Debug Toolbar](web_debug_toolbar.png "Ibexa DXP info in Web Debug Toolbar")
 

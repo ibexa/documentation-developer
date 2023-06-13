@@ -1,0 +1,4 @@
+services:
+    App\Notification\MyRenderer:
+        tags:
+            - { name: ibexa.notification.renderer, alias: ContentPublished }

@@ -42,45 +42,13 @@ First, create base strategy for returning custom thumbnails from a static file.
 Create `StaticStrategy.php` in `src/Strategy`.
 
 ```php
-<?php
-
-declare(strict_types=1);
-
-namespace App\Strategy;
-
-use Ibexa\Contracts\Core\Repository\Values\Content\Thumbnail;
-use Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo;
-use Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType;
-use Ibexa\Contracts\Core\Repository\Strategy\ContentThumbnail\ThumbnailStrategy;
-
-final class StaticStrategy implements ThumbnailStrategy
-{
-    /** @var string */
-    private $staticThumbnail;
-
-    public function __construct(string $staticThumbnail)
-    {
-        $this->staticThumbnail = $staticThumbnail;
-    }
-
-    public function getThumbnail(ContentType $contentType, array $fields, ?VersionInfo $versionInfo = null): ?Thumbnail
-    {
-        return new Thumbnail([
-            'resource' => $this->staticThumbnail,
-        ]);
-    }
-}
+[[= include_file('code_samples/back_office/thumbnails/src/Strategy/StaticThumbnailStrategy.php') =]]
 ```
 
 Next, add the strategy with the `ibexa.repository.thumbnail.strategy.content` tag and `priority: 100` to `config/services.yaml`:
  
 ```yaml
-services:
-    App\Strategy\StaticStrategy:
-        arguments:
-            $staticThumbnail: 'https://dummyimage.com/100/ae1164/ffffff.jpg&text=Ibexa'
-        tags:
-            - { name: ibexa.repository.thumbnail.strategy.content, priority: 100 }
+[[= include_file('code_samples/back_office/thumbnails/config/custom_services.yaml') =]]
 ```
 
 Priority `100` will allow this strategy to be used first on a clean installation or before any other strategy with lower priority.

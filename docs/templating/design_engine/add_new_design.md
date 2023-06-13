@@ -22,9 +22,12 @@ ibexa:
             - import
             - site
             - admin
+            - corporate
             - campaign
         groups:
             site_group: [import, site, campaign]
+            storefront_group: [site]
+            corporate_group: [corporate]
         default_siteaccess: site
 ```
 

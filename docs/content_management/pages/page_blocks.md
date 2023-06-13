@@ -110,7 +110,7 @@ Before the block is rendered, the listener adds `my_parameter` to it with value 
 You can use this parameter, for example, in block template:
 
 ``` html+twig
-[[= include_file('code_samples/page/page_listener/templates/my_block.html.twig') =]]
+[[= include_file('code_samples/page/page_listener/templates/themes/standard/block/my_block.html.twig') =]]
 ```
 
 #### Exposing content relations from blocks

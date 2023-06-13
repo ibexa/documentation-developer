@@ -1,5 +1,6 @@
 ---
 description: Export Repository data to use in future data migrations.
+page_type: reference
 ---
 
 # Exporting data

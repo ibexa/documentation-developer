@@ -35,7 +35,7 @@ final class ProductVariantCommand extends Command
         $this->permissionResolver = $permissionResolver;
         $this->productService = $productService;
         $this->localProductService = $localProductService;
-        parent::__construct('doc:product');
+        parent::__construct('doc:product_variant');
     }
 
     public function configure(): void

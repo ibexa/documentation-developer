@@ -55,15 +55,15 @@ The templates for the forms should look as follows:
 
 ## Add scripts
 
-Now you need to enable the RichText editor. Provide the required script in a new `src/public/js/formbuilder-richtext-checkbox.js` file:
+Now you need to enable the RichText editor. Provide the required script in a new `public/js/formbuilder-richtext-checkbox.js` file:
 
 ``` js
-[[= include_file('code_samples/forms/custom_form_attribute/src/public/js/formbuilder-richtext-checkbox.js') =]]
+[[= include_file('code_samples/forms/custom_form_attribute/public/js/formbuilder-richtext-checkbox.js') =]]
 ```
 
 Then, paste the highlighted part of the code into the `webpack.config.js` file:
 
-``` js hl_lines="38-41"
+``` js hl_lines="49-51"
 [[= include_file('code_samples/forms/custom_form_attribute/webpack.config.js') =]]
 ```
 

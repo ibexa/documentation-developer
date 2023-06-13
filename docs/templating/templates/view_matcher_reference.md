@@ -1,5 +1,6 @@
 ---
 description: View matchers are used in template configuration to decide when to use which template and controller.
+page_type: reference
 ---
 
 # View matcher reference

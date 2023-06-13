@@ -1,5 +1,6 @@
 ---
 description: Sort Clauses help fine-tune sorting order when searching for content and Locations.
+page_type: reference
 ---
 
 # Sort Clause reference

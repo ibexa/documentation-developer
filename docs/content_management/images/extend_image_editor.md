@@ -35,7 +35,8 @@ Once you create and configure the React component, you must add an entry to [the
 In the root directory of your project, modify the `webpack.config.js` file by adding the following code:
 
 ``` js
-[[= include_file('code_samples/back_office/image_editor/config/webpack.config.js', 41, 46) =]]
+[[= include_file('code_samples/back_office/image_editor/config/webpack.config.js', 6, 7) =]]//...
+[[= include_file('code_samples/back_office/image_editor/config/webpack.config.js', 50, 55) =]]
 ```
 At this point you should be able to see a new button in the Image Editor's UI.
 
@@ -64,7 +65,7 @@ The last context is not used in this example.
 Modify the `random-dot.js` file by creating a function that uses the canvas context to draw a random dot on the image:
 
 ``` js
-[[= include_file('code_samples/back_office/image_editor/assets/random_dot/random-dot.js', 24, 41) =]]
+[[= include_file('code_samples/back_office/image_editor/assets/random_dot/random-dot.js', 26, 43) =]]
 ```
 
 ### Store changes in history
@@ -72,7 +73,7 @@ Modify the `random-dot.js` file by creating a function that uses the canvas cont
 Create another function that uses the history context to store changes, so that users can undo their edits:
 
 ``` js
-[[= include_file('code_samples/back_office/image_editor/assets/random_dot/random-dot.js', 15, 24) =]]
+[[= include_file('code_samples/back_office/image_editor/assets/random_dot/random-dot.js', 17, 26) =]]
 ```
 
 <details class="tip">
@@ -81,5 +82,12 @@ Create another function that uses the history context to store changes, so that 
 [[= include_file('code_samples/back_office/image_editor/assets/random_dot/random-dot.js') =]]
 ```
 </details>
+
+Clear the cache and rebuild assets with the following commands:
+
+``` bash
+php bin/console cache:clear
+yarn encore dev
+```
 
 At this point you should be able to draw a random dot by clicking a button in the Image Editor's UI.

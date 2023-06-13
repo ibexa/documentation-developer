@@ -9,8 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 final class OptionsFormMapper implements OptionsFormMapperInterface
 {
-    public function createOptionsForm
-    (
+    public function createOptionsForm(
         string $name,
         FormBuilderInterface $builder,
         array $context = []

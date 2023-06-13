@@ -1,5 +1,6 @@
 ---
 description: Ibexa DXP search functionalities allow working with three search engines and using search API to run complex and precise queries about content and products.
+page_type: landing_page
 ---
 
 # Search

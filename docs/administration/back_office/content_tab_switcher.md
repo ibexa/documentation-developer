@@ -68,26 +68,20 @@ The `meta_field_groups_list` configuration can be easily overriden.
 
 First, create an event listener in the `src/EventListener/TextAnchorMenuTabListener.php`:
 
-``` php hl_lines="20 22"
+``` php hl_lines="28 31"
 [[= include_file('code_samples/back_office/content_type/src/EventListener/TextAnchorMenuTabListener.php') =]]
 ```
 
-A new custom tab is defined in the line 20, the line 22 defines items for the second level.
+A new custom tab is defined in the line 28, the line 31 defines items for the second level.
 
 For new tabs it is also required to render its section in the Content editing form. To do it, register the UI Component:
 
 ```yaml
-    app.my_component:
-        parent: Ibexa\AdminUi\Component\TwigComponent
-        arguments:
-            $template: 'my_template.html.twig'
-        tags:
-            - { name: ibexa.admin_ui.component, group: 'content-edit-sections' }
+[[= include_file('code_samples/back_office/content_type/config/custom_services.yaml') =]]
 ```
 
-Finally, create the `templates/my_template.html.twig` file:
+Finally, create the `templates/theme/admin/content_type/edit/custom_tab.html.twig` file:
 
 ``` html+twig
-[[= include_file('code_samples/back_office/content_type/templates/my_template.html.twig') =]]
+[[= include_file('code_samples/back_office/content_type/templates/themes/admin/content_type/edit/custom_tab.html.twig') =]]
 ```
-

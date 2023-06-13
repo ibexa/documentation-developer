@@ -1,5 +1,6 @@
 ---
 description: Learn about the latest releases on Ibexa DXP.
+page_type: landing_page
 ---
 
 # Release notes
