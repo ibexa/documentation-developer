@@ -5,7 +5,6 @@ on:
         branches:
             - master
             - '[0-9]+.[0-9]+'
-            - IBX-5806
     pull_request: ~
 
 jobs:
@@ -26,14 +25,14 @@ jobs:
                 uses: actions/setup-python@v3
                 with:
                     python-version: ${{ matrix.python-version }}
-            - name: Install php-cs-fixer
-              run: composer require friendsofphp/php-cs-fixer --dev
-            - name: Run PHP CS Fixer
-              run: ./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots
-            - name: Commit changes
-              uses: stefanzweifel/git-auto-commit-action@v4
-              with:
-                  commit_message: PHP CS Fixes
+            -   name: Install php-cs-fixer
+                run: composer require friendsofphp/php-cs-fixer --dev
+            -   name: Run PHP CS Fixer
+                run: ./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots
+            -   name: Commit changes
+                uses: stefanzweifel/git-auto-commit-action@v4
+                with:
+                    commit_message: PHP CS Fixes
             -   name: Install dependencies
                 run: |
                     python -m pip install --upgrade pip
