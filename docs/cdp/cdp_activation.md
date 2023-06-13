@@ -6,7 +6,7 @@ description: Step-by-step activation procedure of Ibexa CDP.
 
 ## Configuration
 
-To configure Ibexa CDP, edit the `config/packages/ibexa_cdp.yaml` file:
+To configure Ibexa CDP, use the `ibexa.system.<scope>.cdp` [configuration key](configuration.md#configuration-files):
 
 ```yaml
 ibexa:
@@ -67,7 +67,7 @@ where they will be sent for processing.
 ### Download
 
 In the **Download** section, select **Stream file**. 
-Copy generated steam ID and paste it into the `config/packages/ibexa_cdp.yaml` file under `stream_id`.
+Copy generated steam ID and paste it into the configuration file under `stream_id`.
 It allows you to establish a datastream from the Streaming API into the Data Manager.
 
 Next, you need to export your user data to the CDP.

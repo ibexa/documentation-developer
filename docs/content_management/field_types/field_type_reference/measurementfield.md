@@ -85,9 +85,9 @@ be found in the `vendor/ibexa/measurement/src/bundle/Resources/config/builtin_un
 ### Modify and add Measurement types and units
 
 You can extend the default list of Measurement types and units by modifying the existing entries or adding new ones. 
-To do this, you modify the YAML configuration, for example, by creating a `config/packages/ibexa_measurement.yaml` file.
+To do this, you modify the YAML configuration.
 
-To override an existing designation of the unit of measure by changing the symbol that corresponds to a nautical unit of speed, and to add a rotational speed unit, add the following lines to your YAML configuration:
+To override an existing designation of the unit of measure by changing the symbol that corresponds to a nautical unit of speed, and to add a rotational speed unit, add the following lines to your [YAML configuration](configuration.md#configuration-files):
 
 ```yaml
 ibexa_measurement:

@@ -12,7 +12,7 @@ and register the subscriber as a service.
 
 Follow the procedure below to create a RichText Page block.
 
-First, provide the block configuration in `config/packages/ibexa_page_fieldtype.yaml`. 
+First, provide the block configuration under the `ibexa_page_fieldtype.blocks` [configuration key](configuration.md#configuration-files). 
 The following code defines a new block, its view and configuration 
 templates.
 It also sets the attribute type to `richtext` (line 15):
@@ -28,8 +28,7 @@ It also sets the attribute type to `richtext` (line 15):
 Then, create a subscriber that converts a string of data into XML code.
 Create a `src/Event/Subscriber/RichTextBlockSubscriber.php` file.
 
-In line 32, `my_block` is the same name of the block that you defined in line 3 
-of the `ibexa_page_fieldtype.yaml` file above.
+In line 32, `my_block` is the same name of the block that you defined in line 3 above.
 Line 32 also implements the `PreRender` method.
 Lines 41-51 handle the conversion of content into an XML string:
 

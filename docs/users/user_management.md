@@ -110,7 +110,7 @@ Two login methods are available: with User name or with email.
 Providers for these two methods are `ibexa.security.user_provider.username`
 and `ibexa.security.user_provider.email`, respectively.
 
-You can configure which method is allowed in `packages/security.yaml`:
+You can configure which method is allowed under the `security` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 security:
@@ -172,7 +172,7 @@ You can allow your users to create accounts by employing the `/register` route. 
 
 There are two user types defined: `users` and `customers`.
 `users` are Back Office users that are involved in creating the page such as editors, and `customers` are frontend users.
-To decide where the user should be registered to, you need to specify their user type under `user_type_identifier`.
+To decide where the user should be registered to, you need to specify their user type under the `ibexa.system.<scope>.user_type_identifier` [configuration key](configuration.md#configuration-files).
 
 ```yaml
 ibexa:
@@ -196,7 +196,7 @@ ibexa:
 
 ### Registration form field configuration
 
-To modify the registration form template, add or remove fields under `allowed_field_definitions_identifiers`:
+To modify the registration form template, add or remove fields under the `allowed_field_definitions_identifiers` [configuration key](configuration.md#configuration-files):
 
 ```yaml
 ibexa:

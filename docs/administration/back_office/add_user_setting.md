@@ -45,7 +45,8 @@ The value of the setting is accessible with `ez_user_settings['unit']`.
 
 ## Create template for editing settings
 
-You can override a template used when editing the new setting:
+You can override a template used when editing the new setting
+under the `ibexa.system.<scope>.user_settings_update_view` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/back_office/settings/config/packages/user_settings.yaml' )=]]

@@ -86,7 +86,7 @@ Finally, you need to add an entry to `config/services.yaml`:
 ## Notification timeout
 
 To define the timeout for hiding Back-Office notification bars, per notification type,
-use the following configuration (times are provided in milliseconds):
+use the `ibexa.system.<scope>.notifications.<notification_type>.timeout` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa:

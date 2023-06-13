@@ -44,7 +44,7 @@ that allows users to select their seats.
 
 ### Define workflow
 
-You can create workflow definitions in a custom `config/packages/checkout.yaml` file. 
+You can create workflow definitions under the `framework.workflows` [configuration key](configuration.md#configuration-files). 
 Each workflow definition consists of a series of steps as well as a series of transitions between the steps. 
 
 To create a new workflow, for example, `seat_selection_checkout`, use the default workflow that comes with the storefront module as a basis,
@@ -107,7 +107,7 @@ In `assets/styles/checkout.css`, add styles required to properly display your te
 
 Now, you must inform the application that your repository will use the configured workflow.
 
-You do it in repository configuration, by using the `checkout.workflow` key:
+You do it in repository configuration, under the `ibexa.repositories.<repository_name>.checkout.workflow` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa:

@@ -180,7 +180,7 @@ placeholders from:
 ### Semantic configuration
 
 Placeholder generation can be configured for each [`binary_handler`](file_management.md#handling-binary-files) under the 
-`ibexa.image_placeholder` key:
+`ibexa.image_placeholder` [configuration key](configuration.md#configuration-files):
  
 ```yaml
 ibexa:

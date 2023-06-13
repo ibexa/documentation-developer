@@ -48,7 +48,7 @@ const config = /* fetch the config somewhere */;
 
 ## UDW configuration
 
-You can configure UDW in the [`universal_discovery_widget.yaml`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/config/universal_discovery_widget.yaml) file.
+You can configure UDW under the `ibexa.system.<scope>.universal_discovery_widget_module.configuration` [configuration key](configuration.md#configuration-files).
 
 There you can set the following properties:
 
