@@ -27,7 +27,7 @@ and pass it to the [`SectionService::createSection`](https://github.com/ibexa/co
 You can use `SectionService` to retrieve Section information such as whether it is in use:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SectionCommand.php', 76, 80) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/SectionCommand.php', 76, 81) =]]
 ```
 
 ## Listing content in a Section
@@ -37,7 +37,7 @@ for content belonging to this section, by applying the [`SearchService`.](https:
 You can also use the query to get the total number of assigned Content items:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SectionCommand.php', 69, 75) =]][[= include_file('code_samples/api/public_php_api/src/Command/SectionCommand.php', 82, 85) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/SectionCommand.php', 69, 75) =]][[= include_file('code_samples/api/public_php_api/src/Command/SectionCommand.php', 82, 86) =]]
 ```
 
 ## Assigning Section to content

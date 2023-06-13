@@ -13,11 +13,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class SegmentCommand extends Command
 {
-    private $segmentationService;
+    private SegmentationService $segmentationService;
 
-    private $userService;
+    private UserService $userService;
 
-    private $permissionResolver;
+    private PermissionResolver $permissionResolver;
 
     public function __construct(SegmentationService $segmentationService, UserService $userService, PermissionResolver $permissionResolver)
     {
@@ -39,7 +39,7 @@ class SegmentCommand extends Command
         $segmentGroupCreateStruct = new SegmentGroupCreateStruct([
             'name' => 'Custom Group',
             'identifier' => 'custom_group',
-            'createSegments' => []
+            'createSegments' => [],
         ]);
 
         $newSegmentGroup = $this->segmentationService->createSegmentGroup($segmentGroupCreateStruct);

@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 namespace App\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
@@ -12,11 +13,11 @@ class MyCustomTypeGraphQLCompilerPass implements CompilerPassInterface
             return;
         }
 
-        mapping = container->getParameter('ibexa.graphql.schema.content.mapping.field_definition_type');
+        $mapping = $container->getParameter('ibexa.graphql.schema.content.mapping.field_definition_type');
         $mapping['my_custom_fieldtype'] = [
             'value_type' => 'MyCustomFieldValue',
             'definition_type' => 'MyCustomFieldDefinition',
-            'value_resolver' => 'field.someProperty'
+            'value_resolver' => 'field.someProperty',
         ];
     }
 }

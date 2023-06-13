@@ -111,12 +111,12 @@ final class PaymentMethodCommand extends Command
 
         if ($isUsed) {
             $output->writeln(sprintf(
-                'Payment method with ID %d is currently used.', 
+                'Payment method with ID %d is currently used.',
                 $paymentMethod->getId()
             ));
         } else {
             $output->writeln(sprintf(
-                'Payment method with ID %d is not used.', 
+                'Payment method with ID %d is not used.',
                 $paymentMethod->getId()
             ));
         }

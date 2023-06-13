@@ -1,15 +1,15 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Tab\Dashboard\Everyone;
 
-use Ibexa\Contracts\Core\Repository\SearchService;
-use Ibexa\Core\Pagination\Pagerfanta\ContentSearchAdapter;
+use Ibexa\AdminUi\Tab\Dashboard\PagerContentToDataMapper;
 use Ibexa\Contracts\AdminUi\Tab\AbstractTab;
 use Ibexa\Contracts\AdminUi\Tab\OrderedTabInterface;
-use Ibexa\AdminUi\Tab\Dashboard\PagerContentToDataMapper;
+use Ibexa\Contracts\Core\Repository\SearchService;
+use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
-use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Core\Pagination\Pagerfanta\ContentSearchAdapter;
 use Pagerfanta\Pagerfanta;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Environment;
@@ -60,7 +60,8 @@ class EveryoneArticleTab extends AbstractTab implements OrderedTabInterface
         ]);
 
         $pager = new Pagerfanta(
-            new ContentSearchAdapter($query,
+            new ContentSearchAdapter(
+                $query,
                 $this->searchService
             )
         );

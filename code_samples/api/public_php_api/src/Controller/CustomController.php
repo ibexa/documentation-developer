@@ -1,15 +1,15 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Controller;
 
+use Ibexa\Bundle\Core\Controller;
 use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-use Ibexa\Bundle\Core\Controller;
 
 class CustomController extends Controller
 {
-    private $searchService;
+    private SearchService $searchService;
 
     public function __construct(SearchService $searchService)
     {
@@ -27,7 +27,7 @@ class CustomController extends Controller
             $items[] = $searchHit;
         }
 
-        return $this->render('custom.html.twig', [
+        return $this->render('@ibexadesign/full/custom.html.twig', [
             'items' => $items,
         ]);
     }
