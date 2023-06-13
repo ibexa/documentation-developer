@@ -74,7 +74,7 @@ Finally, create a template for the new comparison view in `templates/themes/admi
 [[= include_file('code_samples/field_types/generic_ft/templates/themes/admin/field_types/field_type_comparison.html.twig') =]]
 ```
 
-Add configuration for this template in `config/packages/ibexa.yaml`:
+Add configuration for this template under the `ibexa.system.<scope>.field_comparison_templates` [configuration key](configuration.md#configuration-files):
 
 ```yaml
 [[= include_file('code_samples/field_types/generic_ft/config/packages/field_templates.yaml', 0, 3) =]][[= include_file('code_samples/field_types/generic_ft/config/packages/field_templates.yaml', 5, 7) =]]

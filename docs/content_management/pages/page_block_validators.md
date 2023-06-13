@@ -22,7 +22,8 @@ The following block validators are available:
 For each validator you can provide a message that displays in the Page Builder
 when an attribute field does not fulfil the criteria.
 
-Additionally, for some validators you can provide settings in the `options` key, for example:
+Additionally, for some validators you can provide settings under the
+`ibexa_fieldtype_page.blocks.<block_name>.validators.regexp.options` [configuration key](configuration.md#configuration-files), for example:
 
 ``` yaml
 email:

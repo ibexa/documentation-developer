@@ -14,7 +14,7 @@ description to the Form.
 ## Configure Form attribute
 
 To create a `richtext_description` attribute,
-add the following configuration to `config/packages/ibexa.yaml`:
+add the following configuration under the `ibexa_form_builder_fields` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/forms/custom_form_attribute/config/packages/form_attribute_config.yaml') =]]

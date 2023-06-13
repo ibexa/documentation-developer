@@ -107,7 +107,7 @@ Next, configure a template for the attribute edit form by creating a `templates/
 [[= include_file('code_samples/page/custom_attribute/templates/themes/admin/custom_form_templates.html.twig') =]]
 ```
 
-Add the template to your configuration:
+Add the template to your configuration under the `system.<scope>.page_builder_forms` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/page/custom_attribute/config/packages/page_blocks.yaml', 16, 22) =]]

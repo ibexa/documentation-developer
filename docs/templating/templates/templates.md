@@ -66,7 +66,7 @@ Main variables include:
 You can create custom Twig variables for use in templates.
 Set the variables per SiteAccess or SiteAccess group ([scope](multisite_configuration.md#scope)), or per content view.
 
-To configure a custom template variable per scope, use the `twig_variables` key:
+To configure a custom template variable per scope, use the `twig_variables` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/front/render_content/config/packages/views.yaml', 4, 7) =]][[= include_file('code_samples/front/render_content/config/packages/views.yaml', 31, 33) =]]
