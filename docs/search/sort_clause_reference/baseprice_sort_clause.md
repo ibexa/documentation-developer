@@ -14,6 +14,11 @@ The `BasePrice` Sort Clause is not available in the Legacy Search engine.
 ## Example
 
 ``` php
-$sortClauses = [new SortClause\BasePrice($currency, ProductQuery::SORT_ASC)];
+$sortClauses = [
+    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\BasePrice(
+        $currency,
+        ProductQuery::SORT_ASC
+    )
+];
 $productQuery = new ProductQuery(null, null, $sortClauses);
 ```

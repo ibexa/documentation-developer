@@ -10,7 +10,7 @@ The `CreatedAtRange` Search Criterion searches for products based on the date ra
 ## Example
 
 ``` php
-$criteria = new Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\CreatedAtRange(
+$criteria = new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\CreatedAtRange(
     new \DateTimeImmutable('2020-07-10T00:00:00+00:00'),
     new \DateTimeImmutable('2023-07-12T00:00:00+00:00')
 );
