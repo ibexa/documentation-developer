@@ -49,6 +49,12 @@ To learn more, see [Fastly CLI configuration](fastly_io.md#vcl-configuration) an
 
 The configuration of [[= product_name =]] for using Varnish or Fastly requires a few steps, starting with configuring proxy.
 
+Failing to configure reverse proxies correctly may introduce several problems, including, but not limited to:
+
+- [[= product_name =]] generating links with a wrong protocol schema (HTTP instead of HTTPS) if HTTPS termination is done before the webserver due to the `X-Forward-Proto` headers being ignored
+- [[= product_name =]] generating links with wrong port numbers due to the `X-Forward-Port` headers being ignored
+- Back Office showing the login screen because JWT tokens are not accepted due to the `X-Forward-For` headers being ignored
+
 ### Configure Symfony front controller
 
 You need to consider your `TrustedProxy` configuration when you use Symfony [behind a load balancer or a reverse proxy.](https://symfony.com/doc/5.1/deployment/proxies.html)
