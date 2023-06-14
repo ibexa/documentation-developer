@@ -9,7 +9,8 @@ The `ProductCategory` Search Criterion searches for products by the category the
 ## Example
 
 ``` php
-$criteria = new Criterion\ProductCategory([2, 3]);
-
-$productQuery = new ProductQuery(null, $criteria);
+$query = new ProductQuery(
+    null,
+    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductCategory([2, 3])
+);
 ```
