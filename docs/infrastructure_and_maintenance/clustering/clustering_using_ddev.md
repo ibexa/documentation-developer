@@ -159,9 +159,18 @@ For example, `watch 'ddev exec netcat -w1 memcached 11211 <<< "stats" | grep "cm
 - test that the `web` service accesses the `memcached` service,
 - display the increase of `cmd_get` and `cmd_set` while navigating into the website.
 
-## TODO: Share binary files
+## Share binary files
 
-TODO: To be closer to a production cluster, to simulate the binary file sharing could be useful
+[Binary file sharing](clustering.md#dfs-io-handler) can be implemented to be closer to a production cluster.
+
+The example below uses the same database for DXP content and DFS metadata contrary to production recommendation, and the directory is not shared among servers but is in the volume shared by the DDEV container and the host.
+
+```bash
+ddev config --web-environment-add BINARY_DATA_HANDLER=dfs;
+ddev config --web-environment-add DFS_NFS_PATH=/var/www/html/var/nfs;
+```
+
+TODO: Needs https://github.com/ibexa/core/pull/182 to work
 
 ## Going further
 
