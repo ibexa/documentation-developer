@@ -11,5 +11,12 @@ The `RangeMeasurementAttributeMaximum` Search Criterion searches for products by
 
 ``` php
 $value = $this->measurementService->buildSimpleValue('length', 150, 'centimeter');
-$criteria = new Criterion\RangeMeasurementAttributeMaximum('length', $value);
+
+$query = new ProductQuery(
+    null,
+    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\RangeMeasurementAttributeMaximum(
+        'length',
+        $value
+    )
+);
 ```
