@@ -47,6 +47,12 @@ The provided .vcl files will work both with [Fastly Shielding](https://docs.fast
 
 The configuration of [[= product_name =]] for using Varnish or Fastly requires a few steps, starting with configuring proxy.
 
+Failing to configure reverse proxies correctly may introduce several problems, including, but not limited to:
+
+- [[= product_name =]] generating links with a wrong protocol schema (HTTP instead of HTTPS) if HTTPS termination is done before the webserver due to the `X-Forward-Proto` headers being ignored
+- [[= product_name =]] generating links with wrong port numbers due to the `X-Forward-Port` headers being ignored
+- Back Office showing the login screen because JWT tokens are not accepted due to the `X-Forward-For` headers being ignored
+
 ### Configure Symfony front controller
 
 You need to consider your `TrustedProxy` configuration when you use Symfony [behind a load balancer or a reverse proxy.](https://symfony.com/doc/5.1/deployment/proxies.html)
@@ -85,11 +91,6 @@ When using Fastly, you need to set `trusted_proxies` according to the [IP ranges
     replacing the source IP with the actual client IP and removing any `X-FORWARD-...` header in the request before it reaches Ibexa DXP.
 
 For more information about setting these variables, see [Configuration examples](#configuration-examples).
-
-Failing to configure reverse proxies correctly may introduce several problems, including (but not limited to):
-- Ibexa DXP might generate links with wrong protocol schema ( HTTP instead of HTTPS ) if HTTPS termination is done before webserver because `X-Forward-Proto` headers are ignored.
-- Ibexa DXP might generate links containing wrong port numbers because `X-Forward-Port` headers are ignored.
-- Previewing in admin-ui might show login screen as JWT tokens are not accepted because `X-Forward-For` headers are ignored.
 
 ### Update YML configuration
 
