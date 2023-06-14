@@ -12,7 +12,7 @@ This method adds fields for `x` and `y` coordinates.
 
 ```php
 [[= include_file('code_samples/field_types/2dpoint_ft/steps/step_3/Point2DType.php', 0, 18) =]]
-[[= include_file('code_samples/field_types/2dpoint_ft/steps/step_3/Point2DType.php', 24, 25) =]]
+[[= include_file('code_samples/field_types/2dpoint_ft/steps/step_3/Point2DType.php', 25, 26) =]]
 ```
 
 ## Add a Form Mapper Interface
