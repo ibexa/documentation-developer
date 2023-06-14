@@ -9,9 +9,21 @@ searches for content that is an ancestor of the provided Location, including thi
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\Ancestor([$this->locationService->loadLocation(62)->pathString]);
 ```
+
+### REST API
+
+XML
+
+```xml
+```
+
+JSON
+
 
 ## Use case
 

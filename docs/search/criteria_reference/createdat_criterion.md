@@ -9,6 +9,8 @@ The `CreatedAt` Search Criterion searches for products based on the date when th
 
 ## Example
 
+### PHP
+
 ``` php
 $criteria = new Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\CreatedAt(
     '2022-07-11T00:00:00+02:00'
@@ -17,3 +19,6 @@ $criteria = new Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\Cr
 
 $productQuery = new ProductQuery(null, $criteria);
 ```
+
+### REST API
+

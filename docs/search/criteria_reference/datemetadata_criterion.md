@@ -21,20 +21,6 @@ $query->query = new Criterion\DateMetadata(
 );
 ```
 
-### Use case
-
-You can use the `DateMetadata` Criterion to search for blog posts that have been created within the last week:
-
-``` php hl_lines="5"
-$query = new LocationQuery;
-$date = strtotime("-1 week");
-$query->query = new Criterion\LogicalAnd([
-        new Criterion\ContentTypeIdentifier('blog_post'),
-        new Criterion\DateMetadata(Criterion\DateMetadata::CREATED, Criterion\Operator::GTE, $date),
-    ]
-);
-```
-
 ### REST API
 
 === "XML"
@@ -64,3 +50,17 @@ $query->query = new Criterion\LogicalAnd([
             }
         }
     ```
+
+## Use case
+
+You can use the `DateMetadata` Criterion to search for blog posts that have been created within the last week:
+
+``` php hl_lines="5"
+$query = new LocationQuery;
+$date = strtotime("-1 week");
+$query->query = new Criterion\LogicalAnd([
+        new Criterion\ContentTypeIdentifier('blog_post'),
+        new Criterion\DateMetadata(Criterion\DateMetadata::CREATED, Criterion\Operator::GTE, $date),
+    ]
+);
+```
