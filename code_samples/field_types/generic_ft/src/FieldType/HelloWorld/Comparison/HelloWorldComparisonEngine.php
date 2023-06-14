@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\FieldType\HelloWorld\Comparison;
 
-use EzSystems\EzPlatformVersionComparison\FieldType\FieldTypeComparisonValue;
 use EzSystems\EzPlatformVersionComparison\Engine\FieldTypeComparisonEngine;
 use EzSystems\EzPlatformVersionComparison\Engine\Value\StringComparisonEngine;
+use EzSystems\EzPlatformVersionComparison\FieldType\FieldTypeComparisonValue;
 use EzSystems\EzPlatformVersionComparison\Result\ComparisonResult;
 
 final class HelloWorldComparisonEngine implements FieldTypeComparisonEngine

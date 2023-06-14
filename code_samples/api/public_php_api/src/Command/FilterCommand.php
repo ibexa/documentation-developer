@@ -1,16 +1,16 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
+use eZ\Publish\API\Repository\ContentService;
+use eZ\Publish\API\Repository\Values\Content\Query;
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
+use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
+use eZ\Publish\API\Repository\Values\Filter\Filter;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use eZ\Publish\API\Repository\ContentService;
-use eZ\Publish\API\Repository\Values\Filter\Filter;
-use eZ\Publish\API\Repository\Values\Content\Query;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
 
 class FilterCommand extends Command
 {
@@ -26,7 +26,7 @@ class FilterCommand extends Command
     {
         $this->setDescription('Returns children of the provided Location, sorted by name in descending order.');
         $this->setDefinition([
-            new InputArgument('parentLocationId', InputArgument::REQUIRED, 'ID of the parent Location')
+            new InputArgument('parentLocationId', InputArgument::REQUIRED, 'ID of the parent Location'),
         ]);
     }
 

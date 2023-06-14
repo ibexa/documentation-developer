@@ -2,10 +2,10 @@
 
 namespace App\Command;
 
-use EzSystems\EzPlatformFormBuilder\FormSubmission\FormSubmissionServiceInterface;
 use eZ\Publish\API\Repository\ContentService;
 use eZ\Publish\API\Repository\PermissionResolver;
 use eZ\Publish\API\Repository\UserService;
+use EzSystems\EzPlatformFormBuilder\FormSubmission\FormSubmissionServiceInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

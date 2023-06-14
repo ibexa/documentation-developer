@@ -1,14 +1,14 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
 use eZ\Publish\API\Repository\ContentService;
 use eZ\Publish\API\Repository\ContentTypeService;
 use eZ\Publish\API\Repository\FieldTypeService;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class ViewContentCommand extends Command
 {
@@ -20,7 +20,6 @@ class ViewContentCommand extends Command
 
     public function __construct(ContentService $contentService, ContentTypeService $contentTypeService, FieldTypeService $fieldTypeService)
     {
-
         $this->contentService = $contentService;
         $this->contentTypeService = $contentTypeService;
         $this->fieldTypeService = $fieldTypeService;
@@ -32,13 +31,12 @@ class ViewContentCommand extends Command
         $this
             ->setDescription('Output Field values on provided Content item.')
             ->setDefinition([
-                new InputArgument('contentId', InputArgument::REQUIRED, 'Location ID')
+                new InputArgument('contentId', InputArgument::REQUIRED, 'Location ID'),
             ]);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
         $contentId = $input->getArgument('contentId');
 
         $content = $this->contentService->loadContent($contentId);

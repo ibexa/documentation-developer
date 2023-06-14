@@ -1,14 +1,14 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
+use eZ\Publish\API\Repository\ContentService;
+use EzSystems\EzPlatformWorkflow\Registry\WorkflowRegistryInterface;
+use EzSystems\EzPlatformWorkflow\Service\WorkflowServiceInterface;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
-use eZ\Publish\API\Repository\ContentService;
-use EzSystems\EzPlatformWorkflow\Service\WorkflowServiceInterface;
-use EzSystems\EzPlatformWorkflow\Registry\WorkflowRegistryInterface;
 
 class WorkflowCommand extends Command
 {
@@ -47,7 +47,7 @@ class WorkflowCommand extends Command
 
         $supportedWorkflows = $this->workflowRegistry->getSupportedWorkflows($content);
         foreach ($supportedWorkflows as $supportedWorkflow) {
-            $output->writeln('Supports workflow: '. $supportedWorkflow->getName());
+            $output->writeln('Supports workflow: ' . $supportedWorkflow->getName());
         }
 
         $this->workflowService->start($content, $workflowName);

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\FieldType\HelloWorld;
 
@@ -21,7 +21,7 @@ final class Type extends GenericType implements FieldValueFormMapperInterface
 
         $fieldForm->add('value', HelloWorldType::class, [
             'required' => $definition->isRequired,
-            'label' => $definition->getName()
+            'label' => $definition->getName(),
         ]);
     }
 }

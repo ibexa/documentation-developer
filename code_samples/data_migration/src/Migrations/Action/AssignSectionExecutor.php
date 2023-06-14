@@ -1,9 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Migrations\Action;
 
-use eZ\Publish\API\Repository\SectionService;
 use eZ\Publish\API\Repository\ContentService;
+use eZ\Publish\API\Repository\SectionService;
 use eZ\Publish\API\Repository\Values\ValueObject as APIValueObject;
 use Ibexa\Platform\Migration\StepExecutor\ActionExecutor\ExecutorInterface;
 use Ibexa\Platform\Migration\ValueObject;

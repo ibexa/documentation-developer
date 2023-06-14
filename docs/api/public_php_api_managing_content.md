@@ -73,7 +73,7 @@ If you delete the [main Location](#changing-the-main-location) of a Content item
 another Location will become the main one.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/DeleteContentCommand.php', 45, 46) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/DeleteContentCommand.php', 44, 45) =]]
 ```
 
 To send the Location and its subtree to Trash,

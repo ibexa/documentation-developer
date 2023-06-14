@@ -1,15 +1,14 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
+use eZ\Publish\API\Repository\ContentService;
+use eZ\Publish\API\Repository\PermissionResolver;
+use eZ\Publish\API\Repository\UserService;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
-use eZ\Publish\API\Repository\ContentService;
-use eZ\Publish\API\Repository\UserService;
-use eZ\Publish\API\Repository\PermissionResolver;
 
 class TranslateContentCommand extends Command
 {
@@ -35,7 +34,7 @@ class TranslateContentCommand extends Command
                 new InputArgument('language', InputArgument::REQUIRED, 'Language to add'),
                 new InputArgument('nameInNewLanguage', InputArgument::REQUIRED, 'Content name in new language'),
                 new InputArgument('secondaryLanguage', InputArgument::OPTIONAL, 'Secondary language to add'),
-                new InputArgument('nameInSecondaryLanguage', InputArgument::OPTIONAL, 'Content name in secondary language')
+                new InputArgument('nameInSecondaryLanguage', InputArgument::OPTIONAL, 'Content name in secondary language'),
             ]);
     }
 

@@ -1,13 +1,13 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
+use eZ\Publish\API\Repository\LocationService;
+use eZ\Publish\API\Repository\Values\Content\Location;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
-use eZ\Publish\API\Repository\Values\Content\Location;
-use eZ\Publish\API\Repository\LocationService;
 
 class BrowseLocationsCommand extends Command
 {
@@ -24,7 +24,7 @@ class BrowseLocationsCommand extends Command
         $this
             ->setDescription('Lists all descendants of the Location')
             ->setDefinition([
-                new InputArgument('locationId', InputArgument::REQUIRED, 'Location ID to browse from')
+                new InputArgument('locationId', InputArgument::REQUIRED, 'Location ID to browse from'),
             ]);
     }
 

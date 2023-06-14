@@ -1,15 +1,15 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
 use eZ\Publish\API\Repository\PermissionResolver;
 use eZ\Publish\API\Repository\UserService;
 use EzSystems\DateBasedPublisher\Core\Calendar\EventAction\RescheduleEventActionContext;
+use EzSystems\EzPlatformCalendar\Calendar;
 use EzSystems\EzPlatformCalendar\Calendar\CalendarServiceInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use EzSystems\EzPlatformCalendar\Calendar;
 
 class CalendarCommand extends Command
 {
@@ -24,7 +24,7 @@ class CalendarCommand extends Command
         $this->permissionResolver = $permissionResolver;
         $this->userService = $userService;
         $this->calendarService = $calendarService;
-        parent::__construct("doc:calendar");
+        parent::__construct('doc:calendar');
     }
 
     public function configure(): void
@@ -46,15 +46,15 @@ class CalendarCommand extends Command
         $eventList = $this->calendarService->getEvents($eventQuery);
 
         foreach ($eventList as $event) {
-            $output->writeln($event->getName() . '; date: ' . $event->getDateTime()->format('T Y-m-d H:i:s') );
+            $output->writeln($event->getName() . '; date: ' . $event->getDateTime()->format('T Y-m-d H:i:s'));
         }
 
         $eventCollection = $eventList->getEvents();
-        $output->writeln('First event: ' . $eventCollection->first()->getName() . '; date: ' . $eventCollection->first()->getDateTime()->format('T Y-m-d H:i:s') );
+        $output->writeln('First event: ' . $eventCollection->first()->getName() . '; date: ' . $eventCollection->first()->getDateTime()->format('T Y-m-d H:i:s'));
 
         $newCollection = $eventCollection->slice(3, 5);
         foreach ($newCollection as $event) {
-            $output->writeln('New collection: '. $event->getName() . '; date: ' . $event->getDateTime()->format('T Y-m-d H:i:s') );
+            $output->writeln('New collection: ' . $event->getName() . '; date: ' . $event->getDateTime()->format('T Y-m-d H:i:s'));
         }
 
         $newDate = new \DateTimeImmutable('2021-12-06T13:00:00+00:00');

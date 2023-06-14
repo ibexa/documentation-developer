@@ -1,11 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\QueryType;
 
-use eZ\Publish\Core\QueryType\QueryType;
-use eZ\Publish\API\Repository\Values\Content\Query;
 use eZ\Publish\API\Repository\Values\Content\LocationQuery;
+use eZ\Publish\API\Repository\Values\Content\Query;
 use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
+use eZ\Publish\Core\QueryType\QueryType;
 
 class MenuQueryType implements QueryType
 {
@@ -21,12 +21,15 @@ class MenuQueryType implements QueryType
                 new SortClause\Location\Priority(LocationQuery::SORT_ASC),
             ],
         ];
+
         return new LocationQuery($options);
     }
+
     public static function getName()
     {
         return 'Menu';
     }
+
     public function getSupportedParameters()
     {
         return [];

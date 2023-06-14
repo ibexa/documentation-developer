@@ -14,6 +14,7 @@ final class ValueDenormalizer implements DenormalizerInterface
             // Support for old format
             $data = [$data['x'], $data['y']];
         }
+
         return new $class($data);
     }
 

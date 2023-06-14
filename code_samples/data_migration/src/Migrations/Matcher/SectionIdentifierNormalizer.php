@@ -1,10 +1,10 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Migrations\Matcher;
 
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use Ibexa\Platform\Bundle\Migration\Serializer\Normalizer\Criterion\AbstractCriterionNormalizer;
 use eZ\Publish\SPI\Repository\Values\Filter\FilteringCriterion;
+use Ibexa\Platform\Bundle\Migration\Serializer\Normalizer\Criterion\AbstractCriterionNormalizer;
 use Webmozart\Assert\Assert;
 
 class SectionIdentifierNormalizer extends AbstractCriterionNormalizer

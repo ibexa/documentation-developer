@@ -1,13 +1,13 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Controller;
 
-use EzSystems\EzPlatformAdminUiBundle\Controller\Controller;
-use eZ\Publish\API\Repository\SearchService;
 use eZ\Publish\API\Repository\ContentTypeService;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
+use eZ\Publish\API\Repository\SearchService;
 use eZ\Publish\API\Repository\Values\Content\LocationQuery;
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
 use eZ\Publish\Core\Pagination\Pagerfanta\LocationSearchAdapter;
+use EzSystems\EzPlatformAdminUiBundle\Controller\Controller;
 use Pagerfanta\Pagerfanta;
 
 class AllContentListController extends Controller

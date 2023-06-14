@@ -1,18 +1,18 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
 use eZ\Publish\API\Repository\ContentService;
 use eZ\Publish\API\Repository\LocationService;
+use eZ\Publish\API\Repository\ObjectStateService;
+use eZ\Publish\API\Repository\PermissionResolver;
 use eZ\Publish\API\Repository\URLAliasService;
 use eZ\Publish\API\Repository\UserService;
 use eZ\Publish\API\Repository\Values\Content\VersionInfo;
-use eZ\Publish\API\Repository\ObjectStateService;
-use eZ\Publish\API\Repository\PermissionResolver;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class ViewContentMetaDataCommand extends Command
 {
@@ -44,7 +44,7 @@ class ViewContentMetaDataCommand extends Command
         $this
             ->setDescription('Output various metadata about a Content item.')
             ->setDefinition([
-                new InputArgument('contentId', InputArgument::REQUIRED, 'An existing content ID')
+                new InputArgument('contentId', InputArgument::REQUIRED, 'An existing content ID'),
             ]);
     }
 
@@ -59,41 +59,41 @@ class ViewContentMetaDataCommand extends Command
         $contentInfo = $this->contentService->loadContentInfo($contentId);
 
         $output->writeln("Name: $contentInfo->name");
-        $output->writeln("Last modified: " . $contentInfo->modificationDate->format('Y-m-d'));
-        $output->writeln("Published: " . $contentInfo->publishedDate->format('Y-m-d'));
+        $output->writeln('Last modified: ' . $contentInfo->modificationDate->format('Y-m-d'));
+        $output->writeln('Published: ' . $contentInfo->publishedDate->format('Y-m-d'));
         $output->writeln("RemoteId: $contentInfo->remoteId");
         $output->writeln("Main Language: $contentInfo->mainLanguageCode");
-        $output->writeln("Always available: " . ($contentInfo->alwaysAvailable ? 'Yes' : 'No'));
+        $output->writeln('Always available: ' . ($contentInfo->alwaysAvailable ? 'Yes' : 'No'));
 
         // Locations
         $locations = $this->locationService->loadLocations($contentInfo);
 
         foreach ($locations as $location) {
-            $output->writeln("Location: " . $location->pathString);
+            $output->writeln('Location: ' . $location->pathString);
             $urlAlias = $this->urlAliasService->reverseLookup($location);
-            $output->writeln("URL alias: " . $urlAlias->path);
+            $output->writeln('URL alias: ' . $urlAlias->path);
         }
 
         // Content Type
         $content = $this->contentService->loadContent($contentId);
-        $output->writeln("Content Type: " . $content->getContentType()->getName());
+        $output->writeln('Content Type: ' . $content->getContentType()->getName());
 
         // Versions
         $versionInfos = $this->contentService->loadVersions($contentInfo);
         foreach ($versionInfos as $versionInfo) {
             $output->write("Version $versionInfo->versionNo");
-            $output->write(" by " . $versionInfo->getCreator()->getName());
-            $output->writeln(" in " . $versionInfo->getInitialLanguage()->name);
+            $output->write(' by ' . $versionInfo->getCreator()->getName());
+            $output->writeln(' in ' . $versionInfo->getInitialLanguage()->name);
         }
 
         $versionInfoArray = $this->contentService->loadVersions($contentInfo, VersionInfo::STATUS_ARCHIVED);
         if (count($versionInfoArray)) {
-            $output->writeln("Archived versions:");
+            $output->writeln('Archived versions:');
             foreach ($versionInfoArray as $versionInfo) {
                 $creator = $this->userService->loadUser($versionInfo->creatorId);
                 $output->write("Version $versionInfo->versionNo");
-                $output->write(" by " . $creator->contentInfo->name);
-                $output->writeln(" in " . $versionInfo->initialLanguageCode);
+                $output->write(' by ' . $creator->contentInfo->name);
+                $output->writeln(' in ' . $versionInfo->initialLanguageCode);
             }
         }
 
@@ -106,10 +106,10 @@ class ViewContentMetaDataCommand extends Command
         }
 
         // Owner
-        $output->writeln("Owner: " . $contentInfo->getOwner()->getName());
+        $output->writeln('Owner: ' . $contentInfo->getOwner()->getName());
 
         // Section
-        $output->writeln("Section: " . $contentInfo->getSection()->name);
+        $output->writeln('Section: ' . $contentInfo->getSection()->name);
 
         // Object states
         $stateGroups = $this->objectStateService->loadObjectStateGroups();

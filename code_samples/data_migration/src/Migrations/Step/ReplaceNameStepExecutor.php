@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Migrations\Step;
 
-use eZ\Publish\Core\FieldType\TextLine\Value;
 use eZ\Publish\API\Repository\ContentService;
 use eZ\Publish\API\Repository\Values\Filter\Filter;
+use eZ\Publish\Core\FieldType\TextLine\Value;
 use Ibexa\Platform\Contracts\Migration\StepExecutor\AbstractStepExecutor;
 use Ibexa\Platform\Migration\ValueObject\Step\StepInterface;
 

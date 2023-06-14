@@ -1,12 +1,12 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Search\Mapper;
 
-use EzSystems\EzPlatformSolrSearchEngine\FieldMapper\ContentFieldMapper;
+use eZ\Publish\SPI\Persistence\Content;
 use eZ\Publish\SPI\Persistence\Content\Handler as ContentHandler;
 use eZ\Publish\SPI\Persistence\Content\Location\Handler as LocationHandler;
-use eZ\Publish\SPI\Persistence\Content;
 use eZ\Publish\SPI\Search;
+use EzSystems\EzPlatformSolrSearchEngine\FieldMapper\ContentFieldMapper;
 
 class WebinarEventTitleFulltextFieldMapper extends ContentFieldMapper
 {

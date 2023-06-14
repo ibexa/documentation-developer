@@ -1,11 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Controller;
 
+use eZ\Bundle\EzPublishCoreBundle\Controller;
 use eZ\Publish\API\Repository\SearchService;
 use eZ\Publish\API\Repository\Values\Content\LocationQuery;
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Bundle\EzPublishCoreBundle\Controller;
 
 class CustomController extends Controller
 {

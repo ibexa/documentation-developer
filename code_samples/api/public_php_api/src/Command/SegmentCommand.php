@@ -4,12 +4,12 @@ namespace App\Command;
 
 use eZ\Publish\API\Repository\PermissionResolver;
 use eZ\Publish\API\Repository\UserService;
+use Ibexa\Platform\Segmentation\Service\SegmentationService;
 use Ibexa\Platform\Segmentation\Value\SegmentCreateStruct;
 use Ibexa\Platform\Segmentation\Value\SegmentGroupCreateStruct;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Ibexa\Platform\Segmentation\Service\SegmentationService;
 
 class SegmentCommand extends Command
 {
@@ -39,7 +39,7 @@ class SegmentCommand extends Command
         $segmentGroupCreateStruct = new SegmentGroupCreateStruct([
             'name' => 'Custom Group',
             'identifier' => 'custom_group',
-            'createSegments' => []
+            'createSegments' => [],
         ]);
 
         $newSegmentGroup = $this->segmentationService->createSegmentGroup($segmentGroupCreateStruct);

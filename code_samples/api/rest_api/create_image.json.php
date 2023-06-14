@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 if ($argc < 2) {
     // Print script usage
@@ -78,9 +78,10 @@ curl_setopt_array($curl, [
         'Accept: application/vnd.ez.api.ContentInfo+json',
     ],
     CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_HEADERFUNCTION => function ($curl, $header) {
+    CURLOPT_HEADERFUNCTION => static function ($curl, $header) {
         global $responseHeaders;
         $responseHeaders[] = $header;
+
         return strlen($header);
     },
 ]);
@@ -129,9 +130,10 @@ curl_setopt_array($curl, [
         'Accept: application/json',
     ],
     CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_HEADERFUNCTION => function ($curl, $header) {
+    CURLOPT_HEADERFUNCTION => static function ($curl, $header) {
         global $responseHeaders;
         $responseHeaders[] = $header;
+
         return strlen($header);
     },
 ]);
