@@ -128,8 +128,7 @@ to be marked as `is_base_unit` as in highlighted line above.
 
     To be available for selection in the Back Office, each new Measurement type or unit must be enabled for the  Back Office SiteAccess.
 
-Next, you need to define how the new unit should be converted.
-Place configuration in the `config/packages/ibexa.yaml` or your custom configuration file:
+Next, you need to define how the new unit should be converted under the `ibexa.system.<scope>.ibexa_measurement` [configuration key](configuration.md#configuration-files):
 
 ```yaml
 ibexa_measurement:
@@ -141,6 +140,10 @@ ibexa_measurement:
             foo: { symbol: foo }
             bar: { symbol: bar }
 ```
+
+!!! tip
+
+    The `target_unit` needs to be an existing unit, for example meter, otherwise the conversion will result in an error.
 
 ## Template rendering
 
