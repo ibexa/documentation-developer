@@ -9,5 +9,8 @@ The `ProductAvailability` Search Criterion searches for products by their availa
 ## Example
 
 ``` php
-$query->query = new Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductAvailability(true);
+$query = new ProductQuery(
+    null,
+    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductAvailability(true)
+);
 ```
