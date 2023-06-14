@@ -38,13 +38,23 @@ This command sets the project type to PHP, the PHP version to 8.1, the document 
 
 TODO: `ddev config --webserver-type=apache-fpm`
 
-#### Optional: Switch to PostgreSQL Database
+#### Optional: Use another database type
 
-By default, DDEV uses MySQL (MariaDB). To use PostgreSQL instead, run the following command:
+By default, DDEV uses MariaDB.
+
+To use PostgreSQL instead, run the following command:
 
 ```bash
 ddev config --database=postgres:15
 ```
+
+To use MySQL instead, run the following command:
+
+```bash
+ddev config --database=mysql:8.0
+```
+
+Other version of MariaDB, Mysql or PostgreSQL can be used. See [DDEV database types documentation](https://ddev.readthedocs.io/en/latest/users/extend/database-types/) for available version ranges.
 
 #### Configure database connection
 
@@ -121,8 +131,8 @@ ddev composer create ibexa/<edition>-skeleton:<version>
 Once you've made this change, you can proceed to install Ibexa DXP.
 
 ```bash
-ddev exec php bin/console ibexa:install ibexa-<edition>
-ddev exec php bin/console ibexa:graphql:generate-schema
+ddev php bin/console ibexa:install ibexa-<edition>
+ddev php bin/console ibexa:graphql:generate-schema
 ```
 
 ### 7. Open browser
@@ -141,14 +151,25 @@ You can follow the [first usual steps](first_steps.md), the [Beginner tutorial](
 The configuration and code in the DDEV project directory can be edited.
 You can use the command you'll cross in the documentation by prefixing them with `ddev exec` or by opening a terminal inside the container using `ddev ssh`.
 For example, if a guideline invites you to run `php bin/console cache:clear`, you can do it in the DDEV container by following one of those two ways:
-- running `ddev exec php bin/console cache:clear`
+
+- running `ddev php bin/console cache:clear`
 - entering `ddev ssh` and run after the new prompt `php bin/console cache:clear`
 
 ## Going further
 
 ### Alternatives
 
-DDEv offers several ways to achieve a same thing, offering different level of flexibility or adaptability to your development environment.
+DDEv offers several ways to achieve a same thing, offering different levels of flexibility or adaptability to your development environment.
+
+!!! tip
+
+Learn more about the [DDEV commands](https://ddev.readthedocs.io/en/latest/users/usage/commands/) used
+
+- by running [`ddev list`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#list) to list them all,
+- by running [`ddev help <command>`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#help) to get usage details about a given command.
+
+Learn more about DDEV configuration at [`ddev config` command documentation](https://ddev.readthedocs.io/en/latest/users/usage/commands/#config) and [advanced configuration files documentation](https://ddev.readthedocs.io/en/latest/users/configuration/config/).
+
 
 #### Using an auth.json
 
@@ -177,11 +198,21 @@ The following example show the particular case of the database:
   ddev composer install;
   ```
 
+!!! note Precedence
+
+    For a same variable, its server level environment value override its application level dotenv value.
+    To switch a variable from `ddev config --web-environment-add` command to `.env.local` file, you have
+
+    - to remove it from under the `web_environment:` key in `.ddev/config.yaml` file then restart the project,
+    - or rebuild it from scratch.
+
+
 ### Run an already existing project
 
 - Instead of creating an empty directory like in _[1. Create a DDEV project directory](#1-create-a-ddev-project-directory)_, a directory already containing an Ibexa DXP project is used.
 - In _[2. Configure DDEV / Configure PHP version and document root](#configure-php-version-and-document-root)_, no need to create the Document root, `--create-docroot` mustn't be used.
 - Instead of `ddev composer create` from _[5. Create Ibexa DXP project](#5-create-ibexa-dxp-project)_, use solely `ddev composer install`.
+- [Ibexa data migration](../content_management/data_migration/importing_data.md) or [`ddev import-db`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#import-db) can be used to populate the database.
 
 The following example run on DDEV a [version controlled project](https://doc.ibexa.co/en/latest/getting_started/install_ibexa_dxp/#add-project-to-version-control), a local clone of a remote Git repository:
 ```bash
@@ -193,6 +224,7 @@ ddev config --project-type=php --php-version 8.1 \
   --http-port=8080 --https-port=8443
 ddev start
 ddev composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
+ddev php bin/console ibexa:migrations:migrate --file=project_content_types.yaml
 ddev composer install
 ddev launch
 ```
