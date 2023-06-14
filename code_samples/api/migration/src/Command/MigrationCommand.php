@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
@@ -21,9 +21,11 @@ final class MigrationCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $string_with_migration_content = '';
-        $this->migrationService->add(new Migration(
-            'new_migration.yaml',
-            $string_with_migration_content)
+        $this->migrationService->add(
+            new Migration(
+                'new_migration.yaml',
+                $string_with_migration_content
+            )
         );
 
         foreach ($this->migrationService->listMigrations() as $migration) {

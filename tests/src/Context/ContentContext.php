@@ -1,27 +1,25 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
  * @copyright Copyright (C) Ibexa. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace EzSystems\DeveloperDocumentation\Test\Context;
 
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\TableNode;
-use eZ\Publish\API\Repository\ContentService;
-use eZ\Publish\API\Repository\LocationService;
-use eZ\Publish\API\Repository\Repository;
 use EzSystems\DeveloperDocumentation\Test\ContentDataCreator;
 
 class ContentContext implements Context
 {
-    /** @var Repository */
+    /** @var \eZ\Publish\API\Repository\Repository */
     private $repository;
 
-    /** @var ContentService */
+    /** @var \eZ\Publish\API\Repository\ContentService */
     private $contentService;
 
-    /** @var LocationService */
+    /** @var \eZ\Publish\API\Repository\LocationService */
     private $locationService;
 
     private const ADMIN_USER_ID = 14;
