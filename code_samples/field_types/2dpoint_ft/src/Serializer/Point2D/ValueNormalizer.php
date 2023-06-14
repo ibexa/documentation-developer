@@ -12,7 +12,7 @@ final class ValueNormalizer implements NormalizerInterface
     {
         return [
             $object->getX(),
-            $object->getY()
+            $object->getY(),
         ];
     }
 

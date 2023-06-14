@@ -1,11 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\EventListener;
 
 use Ibexa\Contracts\Core\Repository\Events\Content\PublishVersionEvent;
 use Ibexa\Contracts\Core\Repository\NotificationService;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Ibexa\Contracts\Core\Repository\Values\Notification\CreateStruct;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final class ContentPublishEventListener implements EventSubscriberInterface
 {
@@ -21,11 +21,12 @@ final class ContentPublishEventListener implements EventSubscriberInterface
         return [PublishVersionEvent::class => 'onPublishVersion'];
     }
 
-    public function onPublishVersion(PublishVersionEvent $event) :void {
+    public function onPublishVersion(PublishVersionEvent $event): void
+    {
         $data = [
             'content_name' => $event->getContent()->getName(),
             'content_id' => $event->getContent()->id,
-            'message' => 'published'
+            'message' => 'published',
         ];
 
         $notification = new CreateStruct();
