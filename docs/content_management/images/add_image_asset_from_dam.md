@@ -29,7 +29,7 @@ To add the Unsplash connector to your system add the `ibexa/connector-unsplash` 
 To add Image Assets directly in the Page Builder, you can do it by using the Embed block. 
 The example below shows how to add images from [Unsplash](https://unsplash.com/).
 
-First, in `templates/embed/`, create a custom template `dam.html.twig`:
+First, in `templates/themes/standard/embed/`, create a custom template `dam.html.twig`:
 
 ``` html+twig
 {% set dam_image = ibexa_field_value(content, 'image') %}
@@ -53,7 +53,7 @@ For more information about displaying content, see [Content rendering](render_co
        content_view:
          embed:
            image_dam:
-             template: embed/dam.html.twig
+             template: '@ibexadesign/embed/dam.html.twig'
              match:
                Identifier\ContentType: <dam_image_content_type_identifier>
 ```

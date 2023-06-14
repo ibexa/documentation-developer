@@ -42,7 +42,7 @@ Create the following controller file in `src/Controller/AllContentListController
 
 ## Add template
 
-Finally, create the `templates/list/all_content_list.html.twig` file indicated in line 37 in the controller:
+Finally, create the `templates/themes/admin/list/all_content_list.html.twig` file indicated in line 37 in the controller:
 
 ``` html+twig hl_lines="35-42 46 48-54 56"
 [[= include_file('code_samples/back_office/menu/menu_item/templates/themes/admin/all_content_list.html.twig') =]]

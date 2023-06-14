@@ -40,7 +40,7 @@ Lines 41-51 handle the conversion of content into an XML string:
 Now you can create [templates](templates.md) that are used 
 for displaying and configuring your block.
 
-Create the view template in `templates/blocks/my_block/richtext.html.twig`.
+Create the view template in `templates/themes/<your-theme>/blocks/my_block/richtext.html.twig`.
 Line 2 is responsible for rendering the content from XML to HTML5:
 
 ``` html+twig hl_lines="2"
@@ -49,7 +49,7 @@ Line 2 is responsible for rendering the content from XML to HTML5:
 </div>
 ```
 
-Then, create a separate `templates/blocks/my_block/config.html.twig` template:
+Then, create a separate `templates/thmes/admin/blocks/my_block/config.html.twig` template:
 
 ``` html+twig
 {% extends '@IbexaPageBuilder/page_builder/block/config.html.twig' %}
