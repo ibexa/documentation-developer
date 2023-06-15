@@ -598,6 +598,7 @@ nav:
             - KeywordTermAggregation: search/aggregation_reference/keywordterm_aggregation.md
             - Product attribute aggregations: search/aggregation_reference/product_attribute_aggregations.md
             - ProductAvailabilityTermAggregation: search/aggregation_reference/productavailabilityterm_aggregation.md
+            - ProductStockRangeAggregation: search/aggregation_reference/productstockrange_aggregation.md
             - ProductPriceRangeAggregation: search/aggregation_reference/productpricerange_aggregation.md
             - ProductTypeTermAggregation: search/aggregation_reference/producttypeterm_aggregation.md
             - SelectionTermAggregation: search/aggregation_reference/selectionterm_aggregation.md
