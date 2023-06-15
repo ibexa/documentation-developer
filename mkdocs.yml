@@ -459,6 +459,8 @@ nav:
             - FloatAttribute: search/criteria_reference/floatattribute_criterion.md
             - IntegerAttribute: search/criteria_reference/integerattribute_criterion.md
             - ProductAvailability: search/criteria_reference/productavailability_criterion.md
+            - ProductStock: search/criteria_reference/productstock_criterion.md
+            - ProductStockRange: search/criteria_reference/productstockrange_criterion.md
             - ProductCategory: search/criteria_reference/productcategory_criterion.md
             - ProductCode: search/criteria_reference/productcode_criterion.md
             - ProductName: search/criteria_reference/productname_criterion.md
