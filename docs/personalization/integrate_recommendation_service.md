@@ -151,6 +151,63 @@ if ($recommendations && isset($recommendations->recommendationResponseList)) {
 curl_close($curl);
 ```
 
+## Send e-mails with recommendations
+
+By using [email triggers]([[= user_doc =]]/personalization/triggers.md), your organization can send emails to individual visitors, for example, to invite them to return to the website or remind them of items abandoned in a cart.
+
+Email triggers are push messages with recommendations.
+Specific conditions, such as the time that must pass before email start being sent, content types and attributes to be included in a response, or a number of repetitions, are first defined based on an interview between you and Ibexa.
+Email triggers are then processed on the Personalization server and responses are delivered to a dedicated endpoint.
+
+To let your visitor and/or customers receive emails with recommendations:
+
+1\. With the [User API](api_reference/user_api.md#post-requests), add the `e-mail` attribute to the user record.
+
+2\. Prepare an endpoint that will intercept push messages and pass them on to your mailing system, for example, an Ibexa Connect [webhook](https://doc.ibexa.co/projects/connect/en/latest/tools/webhooks/). The webhook must meet the following requirements:
+
+   - cannot require authentication
+   - must support POST requests
+   - must accept JSON objects in a format that resembles the following example:
+
+``` json
+{
+  "userId": "12345",
+  "email": "user.name@domain.co",
+  "triggerType": "REACTIVATION|ABANDONED_SHOPPING_CART",
+  "recommendationItems": [
+    {
+      "itemId": 590,
+      "itemType": 57,
+      "relevance": 6,
+      "links": {
+        "clickRecommended": "//event.test.perso.ibexa.co/api/40639/clickrecommended/1234/57/590?scenario=top_clicked&modelid=10308199&categorypath=&requestuuid=6c8d54b0-e36f-11ed-9a6b-029bc81f23ff",
+        "rendered": "//event.test.perso.ibexa.co/api/40639/rendered/1234/57/590?scenario=top_clicked&modelid=10308199&categorypath=&requestuuid=6c8d54b0-e36f-11ed-9a6b-029bc81f23ff"
+      },
+      "attributes": [
+        {
+          "key" : "title",
+          "value": "Product Name"
+        },
+        {
+          "key": "image",
+          "value": "/"
+        },
+        {
+          "key": "price",
+          "value": "65.50"
+        },
+        {
+          "key": "currency",
+          "value": "EUR"
+        }
+      ]
+    }
+    ]
+}
+```
+
+3\. Contact `support@ibexa.co` with your organization's requirements to have the email triggers enabled.
+
 ## Advanced integration
 
 You can configure integration at a more advanced level to track more events, 
