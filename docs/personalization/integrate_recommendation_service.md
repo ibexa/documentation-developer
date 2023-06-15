@@ -159,7 +159,7 @@ Email triggers are push messages with recommendations.
 Specific conditions, such as the time that must pass before email start being sent, content types and attributes to be included in a response, or a number of repetitions, are first defined based on an interview between you and Ibexa.
 Email triggers are then processed on the Personalization server and responses are delivered to a dedicated endpoint.
 
-To let your visitor and/or customers receive emails with recommendations:
+To let your visitors receive emails with recommendations:
 
 1\. With the [User API](api_reference/user_api.md#post-requests), add the `e-mail` attribute to the user record.
 
