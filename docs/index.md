@@ -15,11 +15,11 @@
             <div class="col-12 d-flex flex-column flex-md-row">
                 <div class="info-tile-up" id="tile2">
                     <div class = "info-tile-title">
-                        <a href="release_notes/ibexa_dxp_v4.5/" style="color: #af1164;">The latest release <span class="pill">v4.5</span></a>
+                        <a href="release_notes/ibexa_dxp_v4.6/" style="color: #af1164;">The latest release <span class="pill">v4.6</span></a>
                     </div>
                 <div class="info-tile-body align-middle">
-                    <a>The <a href="release_notes/ibexa_dxp_v4.5/" style="color: #af1164;">latest version of Ibexa DXP is v4.5</a>. 
-                    You can now <a href="update_and_migration/from_4.4/update_from_4.4/" style="color: #af1164;">update your application</a> 
+                    <a>The <a href="release_notes/ibexa_dxp_v4.6/" style="color: #af1164;">latest version of Ibexa DXP is v4.6</a>. 
+                    You can now <a href="update_and_migration/from_4.5/update_from_4.5/" style="color: #af1164;">update your application</a> 
                     to the latest version.
                 </div>
             </div>
@@ -30,15 +30,11 @@
     <div class="accordion">
         <details>
             <summary>
-                <img class="summary-icon" src="images/Build site.svg" height="25px" width="25px">Notable changes in v4.5</img>
+                <img class="summary-icon" src="images/Build site.svg" height="25px" width="25px">Notable changes in v4.6</img>
             </summary>
             <ul>
-                <li><a href="release_notes/ibexa_dxp_v4.5/#all-new-ibexa-commerce-packages">All-new Ibexa Commerce packages</a></li>
-                <li><a href="release_notes/ibexa_dxp_v4.5/#new-commerce-page-blocks">New commerce page blocks</a></li>
-                <li><a href="release_notes/ibexa_dxp_v4.5/#page-builder-for-b2b-portals">Page Builder for B2B portals</a></li>
-                <li><a href="release_notes/ibexa_dxp_v4.5/#personalization-improvements">Personalization improvements</a></li>
-                <li><a href="release_notes/ibexa_dxp_v4.5/#customer-data-platform-cdp-configuration">Customer Data Platform (CDP) configuration</a></li>
-                <li><a href="release_notes/ibexa_dxp_v4.5/#api-improvements">API improvements</a></li>
+                <li><a href="release_notes/ibexa_dxp_v4.6/#new-features-and-improvements-in-personalizations">New features and improvements in Personalization</a></li>
+                <li><a href="release_notes/ibexa_dxp_v4.6/#api-improvements">API improvements</a></li>
             </ul>
         </details>
         <details>
