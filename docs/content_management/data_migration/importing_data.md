@@ -29,7 +29,7 @@ The following data migration steps are available:
 |                      | `create` | `update` | `delete` |
 |----------------------|:--------:|:--------:|:--------:|
 | `content`            | &#10004; | &#10004; | &#10004; |
-| `content_type`       | &#10004; | &#10004; |          |
+| `content_type`       | &#10004; | &#10004; | &#10004; |
 | `role`               | &#10004; | &#10004; | &#10004; |
 | `content_type_group` | &#10004; | &#10004; |          |
 | `user`               | &#10004; | &#10004; |          |
