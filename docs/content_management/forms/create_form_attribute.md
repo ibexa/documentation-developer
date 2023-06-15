@@ -44,13 +44,13 @@ The templates for the forms should look as follows:
 - `templates/bundles/IbexaFormBuilderBundle/fields/config/form_fields.html.twig`:
 
 ``` html+twig
-[[= include_file('code_samples/templates/bundles/IbexaFormBuilderBundle/fields/config/form_fields.html.twig') =]]
+[[= include_file('code_samples/forms/custom_form_attribute/templates/bundles/IbexaFormBuilderBundle/fields/config/form_fields.html.twig') =]]
 ```
 
-- `templates/formtheme/formbuilder_checkbox_with_richtext_description.html.twig`:
+- `templates/themes/<your-theme>/formtheme/formbuilder_checkbox_with_richtext_description.html.twig`:
 
 ``` html+twig
-[[= include_file('code_samples/templates/formtheme/formbuilder_checkbox_with_richtext_description.html.twig') =]]
+[[= include_file('code_samples/forms/custom_form_attribute/templates/themes/standard/formtheme/formbuilder_checkbox_with_richtext_description.html.twig') =]]
 ```
 
 ## Add scripts
