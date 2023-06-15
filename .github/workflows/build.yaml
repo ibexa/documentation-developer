@@ -41,8 +41,12 @@ jobs:
             -   name: Run build
                 run: |
                     mkdocs build --strict
-            # Do not run commit and push operation after this action
-            # as this unpacks Vale.sh configs to local folder, replacing readme, license etc.
+
+    vale:
+        runs-on: ubuntu-latest
+
+        steps:
+            -   uses: actions/checkout@v3
             -   name: Get Vale.sh configs
                 env:
                     TOKEN: ${{ secrets.EZROBOT_PAT }}
@@ -55,3 +59,4 @@ jobs:
                 uses: errata-ai/vale-action@reviewdog
                 with:
                   reporter: github-check
+                  filter_mode: diff_context
