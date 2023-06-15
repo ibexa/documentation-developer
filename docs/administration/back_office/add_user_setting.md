@@ -52,8 +52,8 @@ under the `ibexa.system.<scope>.user_settings_update_view` [configuration key](c
 [[= include_file('code_samples/back_office/settings/config/packages/user_settings.yaml' )=]]
 ```
 
-The `templates/User/Setting/update_unit.html.twig` template must extend the `@ibexadesign/account/settings/update.html.twig` template:
+The `templates/themes/admin/user/setting/update_unit.html.twig` template must extend the `@ibexadesign/account/settings/update.html.twig` template:
 
 ``` html+twig
-[[= include_file('code_samples/back_office/settings/templates/User/Setting/update_unit.html.twig' )=]]
+[[= include_file('code_samples/back_office/settings/templates/themes/admin/user/setting/update_unit.html.twig' )=]]
 ```

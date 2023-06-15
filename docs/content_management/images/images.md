@@ -260,7 +260,7 @@ To be able to use a proper link in your templates, you also need a dedicated Twi
 Now you can load SVG files in your templates by using generated links and a newly created Twig helper:
 
 ```twig
-[[= include_file('code_samples/back_office/images/templates/svg_helper.html.twig') =]]
+[[= include_file('code_samples/back_office/images/templates/themes/standard/svg_helper.html.twig') =]]
 ```
 
 ## Image optimization
