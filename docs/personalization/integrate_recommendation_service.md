@@ -151,7 +151,7 @@ if ($recommendations && isset($recommendations->recommendationResponseList)) {
 curl_close($curl);
 ```
 
-## Send e-mails with recommendations
+## Send emails with recommendations
 
 By using [email triggers]([[= user_doc =]]/personalization/triggers.md), your organization can send emails to individual visitors, for example, to invite them to return to the website or remind them of items abandoned in a cart.
 
