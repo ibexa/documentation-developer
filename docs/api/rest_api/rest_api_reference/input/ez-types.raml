@@ -3599,20 +3599,29 @@ PaymentMethod:
     properties:
         id:
             type: integer
+            required: true
         identifier:
             type: string
+            required: true
         enabled:
             type: boolean
+            required: true
         name:
             type: string
+            required: true
         description:
             type: string
+            required: true
 
 PaymentMethodCreateStruct:
     type: object
     properties:
         identifier:
             type: string
+            required: true
+        type:
+            type: string
+            required: true
         names:
             description: 'If set this array of names with languageCode keys replace the complete name collection.'
             type: string[]
@@ -3622,7 +3631,9 @@ PaymentMethodCreateStruct:
         enabled:
             type: boolean
         options:
-            type: array
+            type: object
+            items:
+                type: any
 
 PaymentMethodUpdateStruct:
     type: object
@@ -3645,13 +3656,27 @@ PaymentMethodView:
     properties:
         identifier:
             type: string
+            required: true
         Result:
             type: object
+            required: true
+
+PaymentMethodList:
+    type: object
+    properties:
+        count:
+            type: integer
+            required: true
+        PaymentMethodList:
+            type: PaymentMethod[]
+            required: true
 
 PaymentMethodViewInput:
     type: object
     properties:
         identifier:
             type: string
+            required: true
         PaymentMethodQuery:
             type: object
+            required: true
