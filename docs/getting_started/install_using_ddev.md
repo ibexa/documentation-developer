@@ -36,7 +36,15 @@ This command sets the project type to PHP, the PHP version to 8.1, the document 
 
 #### TODO: Optional: Switch to Apache
 
-TODO: `ddev config --webserver-type=apache-fpm`
+By default, DDEV uses Nginx.
+
+To use Apache instead, run the following command:
+
+```bash
+ddev config --webserver-type=apache-fpm
+```
+
+
 
 #### Optional: Use another database type
 
@@ -206,6 +214,115 @@ The following example show the particular case of the database:
     - to remove it from under the `web_environment:` key in `.ddev/config.yaml` file then restart the project,
     - or rebuild it from scratch.
 
+### Webserver configuration
+
+It can be interesting to set up the webserver as recommenced for production.
+
+Those configurations are required if you plan to also simulate the binary files sharing needed by 
+
+#### Nginx Server Blocks
+
+Copy the Server Blocks template as a new Nginx configuration:
+
+```bash
+cp vendor/ibexa/post-install/resources/templates/nginx/vhost.template .ddev/nginx_full/ibexa.conf
+cp -r vendor/ibexa/post-install/resources/templates/nginx/ibexa_params.d .ddev/nginx_full/
+```
+
+Then, replace the placeholders with the appropriate values in the `.ddev/nginx_full/ibexa.conf`:
+
+| Placeholder             | Value                        |
+|-------------------------|------------------------------|
+| `%PORT%`                | `80`                         |
+| `%HOST_LIST%`           | `*.ddev.site`                |
+| `%BASEDIR%`             | `/var/www/html`              |
+| `%BODY_SIZE_LIMIT_M%`   | `0`                          |
+| `%TIMEOUT_S%`           | `0`                          |
+| `%FASTCGI_PASS%`        | `unix:/var/run/php-fpm.sock` |
+| `%BINARY_DATA_HANDLER%` | empty string or `dfs`        |
+
+Because of path resolution inside DDEV's Nginx, one last replacement must be done: `ibexa_params.d` must be replaced with `sites-enabled/ibexa_params.d`.
+
+For example, it can be done with `sed`:
+
+```bash
+sed -i 's/%PORT%/80/' .ddev/nginx_full/ibexa.conf;
+sed -i 's/%HOST_LIST%/*.ddev.site/' .ddev/nginx_full/ibexa.conf;
+sed -i 's/%BASEDIR%/\/var\/www\/html/' .ddev/nginx_full/ibexa.conf;
+sed -i 's/%BODY_SIZE_LIMIT_M%/0/' .ddev/nginx_full/ibexa.conf;
+sed -i 's/%TIMEOUT_S%/60s/' .ddev/nginx_full/ibexa.conf;
+sed -i 's/%FASTCGI_PASS%/unix:\/var\/run\/php-fpm.sock/' .ddev/nginx_full/ibexa.conf;
+sed -i 's/%BINARY_DATA_HANDLER%//' .ddev/nginx_full/ibexa.conf;
+sed -i 's/ibexa_params.d/sites-enabled\/ibexa_params.d/' .ddev/nginx_full/ibexa.conf;
+```
+
+!!! note
+
+    To replace `%BINARY_DATA_HANDLER%` with `dfs` is only needed if you plan to [share binary files](../infrastructure_and_maintenance/clustering/clustering_using_ddev.md) like a multi-frontend cluster does.
+
+#### Apache Virtual Host
+
+To set the Apache Virtual Host, `.ddev/apache/apache-site.conf` will be override with Ibexa DXP's config. It can be done manually or using a script.
+
+##### Manual
+
+Copy the Virtual Host template as the new Apache configuration:
+
+```bash
+cp vendor/ibexa/post-install/resources/templates/apache2/vhost.template .ddev/apache/apache-site.conf
+```
+
+Then, replace the placeholders with the appropriate values in this `.ddev/apache/apache-site.conf`:
+
+| Placeholder         | Value                        |
+|---------------------|------------------------------|
+| `%IP_ADDRESS%`      | `*`                          |
+| `%PORT%`            | `80`                         |
+| `%HOST_NAME%`       | `my-ddev-project.ddev.site`  |
+| `%HOST_ALIAS%`      | `*.ddev.site`                |
+| `%BASEDIR%`         | `/var/www/html`              |
+| `%BODY_SIZE_LIMIT%` | `0`                          |
+| `%TIMEOUT%`         | `0`                          |
+| `%FASTCGI_PASS%`    | `unix:/var/run/php-fpm.sock` |
+
+For example, it can be done with `sed`:
+
+```bash
+sed -i 's/%IP_ADDRESS%/*/' .ddev/apache/apache-site.conf
+sed -i 's/%PORT%/80/' .ddev/apache/apache-site.conf
+sed -i 's/%BASEDIR%/\/var\/www\/html/' .ddev/apache/apache-site.conf
+sed -i 's/%BODY_SIZE_LIMIT%/0/' .ddev/apache/apache-site.conf
+sed -i 's/%TIMEOUT%/0/' .ddev/apache/apache-site.conf
+sed -i 's/%FASTCGI_PASS%/unix:\/var\/run\/php-fpm.sock/' .ddev/apache/apache-site.conf
+```
+
+Finally, restart the project:
+
+```bash
+ddev restart
+```
+
+##### Scripted
+
+Generate the Virtual Host using https://github.com/ibexa/docker/blob/main/scripts/vhost.sh:
+
+```bash
+curl -O https://raw.githubusercontent.com/ibexa/docker/main/scripts/vhost.sh
+bash vhost.sh --template-file=vendor/ibexa/post-install/resources/templates/apache2/vhost.template \
+  --ip='*' \
+  --host-name='my-ddev-project.ddev.site' \
+  --host-alias='*.ddev.site' \
+  --basedir='/var/www/html' \
+  --sf-env=dev \
+  > .ddev/apache/apache-site.conf
+rm vhost.sh
+```
+
+Then, restart the project:
+
+```bash
+ddev restart
+```
 
 ### Run an already existing project
 

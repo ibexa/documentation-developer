@@ -6,6 +6,10 @@ description: When you want to run locally a cluster infrastructure using DDEV.
 
 This guide follows [Getting started: Install using DDEV](../../getting_started/install_using_ddev.md) and helps to extend the previous installation to replicate locally a production [cluster](clustering.md).
 
+Contrary to production cluster, there will be only one front app server. But the data sharing needed by a cluster of several servers can still be emulated.
+TODO: Maybe a second `web` server can be added…?
+
+
 The `ddev config --php-version` option should set the same PHP version as the production servers.
 
 !!! caution
@@ -124,7 +128,7 @@ See [Redis commands](https://redis.io/commands/) for more details like about the
 
 ### Install Memcached
 
-First, append the following [new service](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/sessions/#handling-sessions-with-memcached) to `config/config/services.yaml`:
+First, if not already there, append the following [new service](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/sessions/#handling-sessions-with-memcached) to `config/config/services.yaml`:
 
 ```yaml
     app.session.handler.native_memcached:
@@ -162,6 +166,9 @@ For example, `watch 'ddev exec netcat -w1 memcached 11211 <<< "stats" | grep "cm
 ## Share binary files
 
 [Binary file sharing](clustering.md#dfs-io-handler) can be implemented to be closer to a production cluster.
+
+It requires Ibexa's recommenced Apache Virtual Host or Nginx Server Blocks to work. See [Install using DDEV / Webserver configuration](../../getting_started/install_using_ddev.md#webserver-configuration).
+If [Nginx Server Blocks](../../getting_started/install_using_ddev.md#nginx-server-blocks) were previously set, replace `ibexa_rewrite_image_params` with `ibexa_rewrite_dfsimage_params` in `.ddev/nginx_full/ibexa.conf`.
 
 The example below uses the same database for DXP content and DFS metadata contrary to production recommendation, and the directory is not shared among servers but is in the volume shared by the DDEV container and the host.
 
