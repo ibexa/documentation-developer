@@ -92,7 +92,7 @@ final class ProductCommand extends Command
 
         $product = $this->productService->getProduct('NEWMODIFIEDPRODUCT');
 
-        $productAvailabilityCreateStruct = new ProductAvailabilityCreateStruct($product, true, 10);
+        $productAvailabilityCreateStruct = new ProductAvailabilityCreateStruct($product, true, true);
 
         $this->productAvailabilityService->createProductAvailability($productAvailabilityCreateStruct);
 
@@ -104,8 +104,7 @@ final class ProductCommand extends Command
 
             $availability = $this->productAvailabilityService->getAvailability($product);
 
-            $productAvailabilityUpdateStruct = new ProductAvailabilityUpdateStruct($product, true);
-            $productAvailabilityUpdateStruct->setStock(80);
+            $productAvailabilityUpdateStruct = new ProductAvailabilityUpdateStruct($product, true, false, 80);
 
             $this->productAvailabilityService->updateProductAvailability($productAvailabilityUpdateStruct);
 
