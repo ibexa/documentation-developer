@@ -127,7 +127,24 @@ to be marked as `is_base_unit` as in highlighted line above.
 !!! note
 
     To be available for selection in the Back Office, each new Measurement type or unit must be enabled for the  Back Office SiteAccess.
-    
+
+Next, you need to define how the new unit should be converted under the `ibexa.system.<scope>.ibexa_measurement` [configuration key](configuration.md#configuration-files):
+
+```yaml
+ibexa_measurement:
+    conversion:
+        formulas:
+            - { source_unit: foo, target_unit: bar, formula: 'value / 100' }
+    types:
+        length:
+            foo: { symbol: foo }
+            bar: { symbol: bar }
+```
+
+!!! tip
+
+    The `target_unit` must be an existing unit, for example meter, otherwise the conversion results in an error.
+
 ## Template rendering
 
 The Measurement field is rendered with the [`ibexa_render_field()`](field_twig_functions.md#ibexa_render_field) Twig function.
