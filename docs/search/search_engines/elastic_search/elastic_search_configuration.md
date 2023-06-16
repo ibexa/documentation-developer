@@ -9,8 +9,8 @@ description: Configure Elasticsearch to use with Ibexa DXP.
 To configure Elasticsearch, first, you need to configure the connections. 
 
 There are two possibilities of connection:
-- through a [cluster of Elasticsearch nodes](#cluster)
-- through the [Elasticsearch Cloud](#elasticsearch-cloud)
+- using [cluster of Elasticsearch nodes](#cluster)
+- using [Elasticsearch Cloud](#elasticsearch-cloud)
 
 No matter which option you choose, you have to define the connection settings under the `connections` key. 
 Set a name of the connection:
@@ -35,16 +35,13 @@ ibexa_elasticsearch:
 Now, you need to decide whether to add a cluster that you administer and manage yourself, or use a cloud
 solution from Elastic, as well as configure additional parameters.
 
-If you want to connect using a cluster, follow the instructions below.
-In case of using Elasticsearch Cloud, skip to [Elasticsearch Cloud](#elasticsearch-cloud) section.
-
-<!-- You can then decide how the cluster [handles communication with individual nodes](#multi-node-cluster-behavior),
-and configure the [security settings](#security). -->
+If you want to connect by using a cluster, follow the instructions below in the [Cluster](#cluster) section.
+If you want to use Elasticsearch Cloud, skip to [Elasticsearch Cloud](#elasticsearch-cloud) section.
 
 ## Cluster
 
-A cluster consists of a number of nodes.
-You might start with just one node and then add more nodes if you need more processing power.
+A cluster consists of nodes.
+You might start with one node and then add more nodes if you need more processing power.
 
 When you configure a node, you need to set the following parameters:
 
@@ -52,7 +49,7 @@ When you configure a node, you need to set the following parameters:
 - `port` - a port to connect to. Default value: `9200`.
 If you have several Elasticsearch instances that run on the same host, and want to make them
 distinct, you can change the default number.
-- `scheme` - a protocol to be used to access the node. Default value: `http`.
+- `scheme` - a protocol used to access the node. Default value: `http`.
 - `path` - by default, path is not used. Default value: `null`.
 If you have several Elasticsearch instances that run on the same host, and want to make them
 distinct, you can define a path for each instance.  
@@ -178,7 +175,7 @@ With Elasticsearch Cloud you do not have to build or manage your own Elasticsear
 Also, you do all the configuration and administration in a graphical user interface.
 
 To connect to a cloud solution with [[= product_name =]], you must set the `elastic_cloud_id` parameter by
-providing an alphanumerical ID string that you obtain from the cloud's user interface, for example:
+providing an alphanumerical ID string that you get from the cloud's user interface, for example:
 
 ``` yaml
 <connection_name>:
@@ -204,7 +201,7 @@ If you connect to Elasticsearch hosts outside of your local network, you might a
 ### Basic authentication
 
 If your Elasticsearch server is protected by HTTP authentication, you must provide [[= product_name =]] with the credentials.
-When using basic authentication, you must pass the following parameters:
+In the basic authentication, you must pass the following parameters:
 
 ``` yaml
 <connection_name>
@@ -339,12 +336,12 @@ By default, debugging is disabled. To enable debugging, you can toggle either of
 Before you can re-index the [[= product_name =]] data, so that Elasticsearch can search through its contents, you must define an index template.
 Templates instruct Elasticsearch to recognize [[= product_name =]] Fields as specific data types, based on, for example, a field name.
 They help you prevent Elasticsearch from using the dynamic field mapping feature to create type mappings automatically.
-You can create several field type mapping templates for each index, for example, to define settings that are specific for different languages.
+You can create several Field Type mapping templates for each index, for example, to define settings that are specific for different languages.
 When you establish a relationship between a field mapping template and a connection, you can apply several templates, too.
 
 ### Defining a template
 
-To define a field mapping template, you must provide a number of settings under the `index_templates` key.
+To define a field mapping template, you must provide settings under the `index_templates` key.
 The structure of the template is as follows:
 
 ``` yaml

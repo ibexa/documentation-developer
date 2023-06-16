@@ -4,9 +4,10 @@ description: Install Solr search engine to use with Ibexa DXP.
 
 # Solr search engine installation
 
-## Step 1: Configure and start Solr
+## Configure and start Solr
 
-The example presents a configuration with a single core. For configuring Solr in other ways, including examples, see [Solr Cores and `solr.xml`](https://cwiki.apache.org/confluence/display/solr/Solr+Cores+and+solr.xml) and [core administration](https://wiki.apache.org/solr/CoreAdmin).
+The example presents a configuration with a single core. 
+For configuring Solr in other ways, including examples, see [Solr Cores and `solr.xml`](https://cwiki.apache.org/confluence/display/solr/Solr+Cores+and+solr.xml) and [core administration](https://wiki.apache.org/solr/CoreAdmin).
 
 ### Download and configure
 
@@ -41,7 +42,7 @@ bin/solr -s ibexa
 bin/solr create_core -c collection1 -d server/ibexa/template
 ```
 
-#### SolrCloud
+#### Set up SolrCloud
 
 SolrCloud is a cluster of Solr servers. It enables you to:
 
@@ -82,7 +83,7 @@ Execute the script from the [[= product_name =]] root directory for further info
 ./vendor/ibexa/solr/bin/generate-solr-config.sh --help
 ```
 
-## Step 2: Configure the bundle
+## Configure the bundle
 
 The Solr Search Engine Bundle can be configured in many ways. The config further below assumes you have parameters set up for Solr DSN and search engine *(however both are optional)*, for example:
 
@@ -245,7 +246,7 @@ ibexa_solr:
 
 Obviously, you should pass credentials for every configured and HTTP Basic secured Solr core. Configuration for multi core setup is exactly the same.
 
-## Step 3: Configure repository with the specific search engine
+## Configure repository with the specific search engine
 
 The following is an example of configuring Solr search engine, where `connection` name is same as in the example above, and engine is set to `solr`:
 
@@ -261,7 +262,7 @@ ibexa:
 
 `%search_engine%` is a parameter that is configured in `config/packages/ibexa.yaml`, and should be changed from its default value `legacy` to `solr` to activate Solr as the search engine.
 
-## Step 4: Clear prod cache
+## Clear prod cache
 
 While Symfony `dev` environment keeps track of changes to YAML files, `prod` does not, so clear the cache to make sure Symfony reads the new config:
 
@@ -269,7 +270,7 @@ While Symfony `dev` environment keeps track of changes to YAML files, `prod` doe
 php bin/console --env=prod cache:clear
 ```
 
-## Step 5: Run CLI indexing command
+## Run CLI indexing command
 
 The last step is to execute the initial indexation of data:
 

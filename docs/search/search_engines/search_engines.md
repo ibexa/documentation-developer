@@ -7,9 +7,9 @@ description: Ibexa DXP enables you to use Solr or Elasticsearch search engines, 
 [[= product_name =]] enables you to use search engines.
 Currently, they exist in their own [[= product_name =]] Bundles:
 
-1.  [Legacy search engine](#legacy-search-engine) - a database-powered search engine for basic needs.
-1.  [Solr](solr_search_engine.md) - an integration providing better overall performance, better scalability and support for more advanced search capabilities.
-1.  [Elasticsearch](elasticsearch_search_engine.md) - a document-oriented engine providing even better performance and scalability.
+1.  [Legacy search engine](legacy_search_overview.md) - a database-powered search engine for basic needs.
+1.  [Solr](solr_overview.md) - an integration providing better overall performance, better scalability and support for more advanced search capabilities.
+1.  [Elasticsearch](elastic_search_overview.md) - a document-oriented engine providing even better performance and scalability.
 
 ## Search engine comparison
 

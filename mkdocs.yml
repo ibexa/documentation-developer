@@ -399,9 +399,19 @@ nav:
         - CDP activation: cdp/cdp_activation.md
     - Search:
         - Search: search/search.md
-        - Search engines: search/search_engines.md
-        - Elasticsearch search engine: search/elasticsearch_search_engine.md
-        - Solr search engine: search/solr_search_engine.md
+        - Search engines: 
+            - Search engines: search/search_engines/search_engines.md
+            - Elasticsearch search engine: 
+                - Overview: search/search_engines/elastic_search/elastic_search_overview.md
+                - Installation: search/search_engines/elastic_search/elastic_search_installation.md
+                - Configuration: search/search_engines/elastic_search/elastic_search_configuration.md
+            - Solr search engine:
+                - Overview: search/search_engines/solr_search_engine/solr_overview.md
+                - Installation: search/search_engines/solr_search_engine/solr_installation.md
+                - Configuration: search/search_engines/solr_search_engine/solr_configuration.md
+            - Legacy search engine: 
+                - Overview: search/search_engines/legacy_search_engine/legacy_search_overview.md
+                - Repository configuration: search/search_engines/legacy_search_engine/legacy_repository_configuration.md
         - Search Criteria and Sort Clauses: search/search_criteria_and_sort_clauses.md
         - Search API: search/search_api.md
         - Search Criteria reference:
