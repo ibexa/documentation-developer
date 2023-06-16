@@ -11,7 +11,7 @@ Currently, they exist in their own [[= product_name =]] Bundles:
 1.  [Solr](solr_overview.md) - an integration providing better overall performance, better scalability and support for more advanced search capabilities.
 1.  [Elasticsearch](elastic_search_overview.md) - a document-oriented engine providing even better performance and scalability.
 
-## Search engine comparison
+## Search engines comparison
 
 | Feature | Legacy Search Engine (SQL) | Solr | Elasticsearch |
 | --- | --- | --- | --- |
