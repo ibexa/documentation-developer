@@ -143,7 +143,7 @@ ibexa_measurement:
 
 !!! tip
 
-    The `target_unit` needs to be an existing unit, for example meter, otherwise the conversion will result in an error.
+    The `target_unit` must be an existing unit, for example meter, otherwise the conversion results in an error.
 
 ## Template rendering
 
