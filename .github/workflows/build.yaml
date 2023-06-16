@@ -41,7 +41,7 @@ jobs:
                 run: |
                     mkdocs build --strict
 
-    vale:
+    vale-check:
         runs-on: ubuntu-latest
 
         steps:
