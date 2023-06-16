@@ -20,6 +20,8 @@ Search Criterion let you to filter product by specific attributes, for example: 
 |[IntegerAttribute](integerattribute_criterion.md)|Value of product's integer attribute|
 |[SelectionAttribute](selectionattribute_criterion.md)|Value of product's selection attribute|
 |[ProductAvailability](productavailability_criterion.md)|Product's availability|
+|[ProductStock](productstock_criterion.md)|Product's numerical stock|
+|[ProductStockRange](productstockrange_criterion.md)|Product's numerical stock|
 |[ProductCategory](productcategory_criterion.md)|Product category assigned to product|
 |[ProductCode](productcode_criterion.md)|Product's code|
 |[ProductName](productname_criterion.md)|Product's name|
