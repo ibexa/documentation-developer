@@ -173,7 +173,7 @@ To let your visitors receive emails with recommendations:
 {
    "customerID":"1234567",
    "userExternalId":"user@domain.com",
-   "triggerType":"REACTIVATION", # Email trigger type: REACTIVATION or ABANDONED_SHOPPING_CART
+   "triggerType":"REACTIVATION|ABANDONED_SHOPPING_CART",
    "triggerName":"TRIGGER_REF_CODE",
    "triggerOpenedLink":"NEW_EVENT_FOR_TRIGGER_OPENED",
    "recommendations":[
