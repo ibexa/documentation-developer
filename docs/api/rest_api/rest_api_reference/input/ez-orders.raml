@@ -52,34 +52,34 @@ displayName: Orders
                 description: Error - the user has no permission to read orders.
 /order:
     /{identifier}:
-    get:
-        displayName: Load order by identifier
-        description: Loads an order by its identifier.
-        headers:
-            Accept:
-                description: Order - If set, the order returned in XML or JSON format.
-                example:  |
-                    application/vnd.ibexa.api.OrderGet+json
-            Content-Type:
-                description: The order schema encoded in XML or JSON format.
-                example:  |
-                    application/vnd.ibexa.api.OrderGet+json
-        responses:
-            200:
-                description: OK - loads the order.
-                body:
-                    application/vnd.ibexa.api.Order+json:
-                        type: Order
-                        example: !include examples/orders/GET/Order.json.example
-            401:
-                description: Error - the user has no permission to read orders.
-            404:
-                description: Error - the order does not exist.
+        get:
+            displayName: Load order by identifier
+            description: Loads an order by its identifier (UUID).
+            headers:
+                Accept:
+                    description: Order - If set, the order returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.OrderGet+json
+                Content-Type:
+                    description: The order schema encoded in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.OrderGet+json
+            responses:
+                200:
+                    description: OK - loads the order.
+                    body:
+                        application/vnd.ibexa.api.Order+json:
+                            type: Order
+                            example: !include examples/orders/GET/Order.json.example
+                401:
+                    description: Error - the user has no permission to read orders.
+                404:
+                    description: Error - the order does not exist.
 
     /{id}:
         get:
-            displayName: Load order
-            description: Loads an order.
+            displayName: Load order by ID
+            description: Loads an order by its numerical ID.
             headers:
                 Accept:
                     description: Order - If set, the order returned in XML or JSON format.

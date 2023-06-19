@@ -40,18 +40,10 @@ Each step configuration includes the following settings:
 - `label` - An optional name of the step that can be displayed in the Twig helper.
 - `translation_domain` - A optional setting that defines the domain for a site with translated content. By default it is set to `checkout`.
 
-### Default checkout workflow configuration
-
-The default checkout workflow configuration looks as follows. `ibexa_checkout` key is used by default, you can replace it with your custom workflow identifier if needed.
-
-``` yaml
-[[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 39, 98) =]]
-```
-
 ## Configure shipping and payment methods
 
 You can define the shipping and payment methods.
-Under `ibexa.repositories.<repository_name>.checkout`, create entries that resemble 
+Under the `ibexa.repositories.<repository_name>.checkout` [configuration key](configuration.md#configuration-files), create entries that resemble 
 the following example.
 If you do not set a value for the `workflow` key, `ibexa_checkout` is used by default.
 

@@ -24,7 +24,7 @@ A custom tab can extend one of the following classes:
     //...
 [[= include_file('code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php', 34, 43) =]][[= include_file('code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php', 49, 51) =]]
         //...
-[[= include_file('code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php', 69, 72) =]]
+[[= include_file('code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php', 70, 73) =]]
 ```
 
 !!! tip
@@ -35,7 +35,7 @@ You need to register the tab as a service.
 Tag it with `ibexa.admin_ui.tab` and indicate the group in which it should appear:
 
 ``` yaml
-[[= include_file('code_samples/back_office/dashboard/article_tab/config/custom_services.yaml') =]]
+[[= include_file('code_samples/back_office/dashboard/article_tab/config/custom_services.yaml', 0, 7) =]]
 ```
 
 The group can be one of the existing components, or your own [custom tab group](#tab-groups).
@@ -68,13 +68,7 @@ You can create new tab groups by using the [`TabsComponent`](https://github.com/
 To create a tab group, register it as a service:
 
 ``` yaml
-services:
-    app.my_tabs.custom_group:
-        parent: Ibexa\AdminUi\Component\TabsComponent
-        arguments:
-            $groupIdentifier: 'custom_group'
-        tags:
-            - { name: ibexa.admin_ui.component, group: 'dashboard-blocks' }
+[[= include_file('code_samples/back_office/dashboard/article_tab/config/custom_services.yaml', 0, 1) =]][[= include_file('code_samples/back_office/dashboard/article_tab/config/custom_services.yaml', 7, 13) =]]
 ```
 
 Tag the group with `ibexa.admin_ui.component`.

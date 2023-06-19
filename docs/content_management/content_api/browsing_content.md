@@ -28,7 +28,7 @@ You can also use it to request other Content-related value objects from various 
 
 ``` php hl_lines="9"
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 8, 9) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 4, 5) =]]
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 16, 17) =]]
 // ...
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 50, 52) =]][[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 58, 59) =]]
@@ -163,8 +163,8 @@ All Object state groups can be retrieved through [`loadObjectStateGroups`.](http
 To retrieve the Fields of the selected Content item, you can use the following command:
 
 ```php hl_lines="13-14 16-22"
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentCommand.php', 8, 14) =]]    // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentCommand.php', 38, 57) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentCommand.php', 4, 7) =]]    // ...
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentCommand.php', 37, 55) =]]
 }
 ```
 

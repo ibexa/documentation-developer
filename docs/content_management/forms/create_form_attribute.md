@@ -14,7 +14,7 @@ description to the Form.
 ## Configure Form attribute
 
 To create a `richtext_description` attribute,
-add the following configuration to `config/packages/ibexa.yaml`:
+add the following configuration under the `ibexa_form_builder_fields` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/forms/custom_form_attribute/config/packages/form_attribute_config.yaml') =]]
@@ -44,26 +44,26 @@ The templates for the forms should look as follows:
 - `templates/bundles/IbexaFormBuilderBundle/fields/config/form_fields.html.twig`:
 
 ``` html+twig
-[[= include_file('code_samples/templates/bundles/IbexaFormBuilderBundle/fields/config/form_fields.html.twig') =]]
+[[= include_file('code_samples/forms/custom_form_attribute/templates/bundles/IbexaFormBuilderBundle/fields/config/form_fields.html.twig') =]]
 ```
 
-- `templates/formtheme/formbuilder_checkbox_with_richtext_description.html.twig`:
+- `templates/themes/<your-theme>/formtheme/formbuilder_checkbox_with_richtext_description.html.twig`:
 
 ``` html+twig
-[[= include_file('code_samples/templates/formtheme/formbuilder_checkbox_with_richtext_description.html.twig') =]]
+[[= include_file('code_samples/forms/custom_form_attribute/templates/themes/standard/formtheme/formbuilder_checkbox_with_richtext_description.html.twig') =]]
 ```
 
 ## Add scripts
 
-Now you need to enable the RichText editor. Provide the required script in a new `src/public/js/formbuilder-richtext-checkbox.js` file:
+Now you need to enable the RichText editor. Provide the required script in a new `public/js/formbuilder-richtext-checkbox.js` file:
 
 ``` js
-[[= include_file('code_samples/forms/custom_form_attribute/src/public/js/formbuilder-richtext-checkbox.js') =]]
+[[= include_file('code_samples/forms/custom_form_attribute/public/js/formbuilder-richtext-checkbox.js') =]]
 ```
 
 Then, paste the highlighted part of the code into the `webpack.config.js` file:
 
-``` js hl_lines="38-41"
+``` js hl_lines="49-51"
 [[= include_file('code_samples/forms/custom_form_attribute/webpack.config.js') =]]
 ```
 

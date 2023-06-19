@@ -60,9 +60,7 @@ Line 26 adds a defined system route that leads to the search form.
 Next, register the menu builder as a service:
 
 ``` yaml
-App\Menu\MenuBuilder:
-    tags:
-        - {name: knp_menu.menu_builder, method: buildMenu, alias: root}
+[[= include_file('code_samples/front/layouts/menu/config/custom_services.yaml') =]]
 ```
 
 Finally, you can render the menu in `pagelayout.html.twig`.

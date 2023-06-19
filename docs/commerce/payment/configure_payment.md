@@ -26,14 +26,23 @@ You can replace the default workflow configuration with a custom one if needed.
 ### Custom payment workflows
 
 You define custom workflow implementations under the `framework.workflows` key. 
-If your installation supports multiple languages, for each place in the workflow, you can define a label that is pulled from a XLIFF file based on the [translation domain setting](../../multisite/languages/back_office_translations.md). 
+They must support the `Ibexa\Contracts\Checkout\Value\CheckoutInterface`.
+
+If your installation supports multiple languages, for each place in the workflow, you can define a label that is pulled from an XLIFF file based on the translation domain setting. 
 You can also define colors that are used for status labels.
+The `primary_color` key defines a color of the font used for the label, while the `secondary_color` key defines a color of its background.
+
+Additionally, you can decide whether users can manually transition between places. 
+You do this by setting a value for the `exposed` key. 
+If you set it to `true`, a button is displayed in the UI that triggers the transition. 
+Otherwise, the transition can only be triggered by means of the API.
 
 ``` yaml
 [[= include_file('code_samples/front/shop/payment/config/packages/ibexa.yaml', 7, 39) =]]
 ```
 
-Then reference it with `ibexa.repositories.<your_repository>.payment.workflow`, so that the system can identify which of your configured workflows handles the payment process.
+After you configure a custom workflow, reference it under the `ibexa.repositories.<your_repository>.payment.workflow` [configuration key](configuration.md#configuration-files),
+so that the system can identify which of your workflows handles the payment process.
 
 ``` yaml
 [[= include_file('code_samples/front/shop/payment/config/packages/ibexa.yaml', 0, 5) =]]
@@ -42,4 +51,4 @@ Then reference it with `ibexa.repositories.<your_repository>.payment.workflow`, 
 ## Configure payment methods
 
 You can define the payment methods [in the UI]([[= user_doc =]]/commerce/payment/configure_payment_method/).
-There is only one payment method type available: `offline`.
+There is only one default payment method type available: `offline`, but you can [add custom ones](extend_payment.md).

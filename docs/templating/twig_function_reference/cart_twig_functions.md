@@ -1,6 +1,7 @@
 ---
 description: Cart Twig functions enable checking whether product can be added to cart and formatting the price.
 edition: commerce
+page_type: reference
 ---
 
 # Cart Twig functions

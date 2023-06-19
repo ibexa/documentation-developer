@@ -1,11 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\QueryType;
 
-use Ibexa\Core\QueryType\QueryType;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
 use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
+use Ibexa\Core\QueryType\QueryType;
 
 class MenuQueryType implements QueryType
 {
@@ -21,12 +21,15 @@ class MenuQueryType implements QueryType
                 new SortClause\Location\Priority(LocationQuery::SORT_ASC),
             ],
         ];
+
         return new LocationQuery($options);
     }
+
     public static function getName()
     {
         return 'Menu';
     }
+
     public function getSupportedParameters()
     {
         return [];

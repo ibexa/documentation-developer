@@ -1,4 +1,6 @@
+---
 description: Manage customer in Ibexa DXP by learning about the Customer Portal and registration form.
+page_type: landing_page
 ---
 
 # Customer management

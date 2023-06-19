@@ -101,7 +101,7 @@ Apply the following database update scripts:
 If you earlier upgraded from v3.3 to v4.x and haven't run the migrate script yet, do it now, run:
 
 ```bash
-bash bin/console ibexa:migrate:richtext-namespaces
+php bin/console ibexa:migrate:richtext-namespaces
 ```
 
 #### Ibexa Open Source

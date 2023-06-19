@@ -40,7 +40,7 @@ use [`ObjectStateService::newObjectStateCreateStruct`](https://github.com/ibexa/
 and provide it with an `ObjectStateCreateStruct`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/ObjectStateCommand.php', 64, 68) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ObjectStateCommand.php', 63, 67) =]]
 ```
 
 ## Assigning Object state
@@ -50,5 +50,5 @@ use [`ObjectStateService::setContentState`.](https://github.com/ibexa/core/blob/
 Provide it with a `ContentInfo` object of the Content item, the Object state group and the Object state:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/ObjectStateCommand.php', 78, 83) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ObjectStateCommand.php', 77, 82) =]]
 ```

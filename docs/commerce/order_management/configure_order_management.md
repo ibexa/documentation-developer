@@ -31,7 +31,7 @@ You define custom workflow implementations under the `framework.workflows` key.
 If your installation supports multiple languages, for each place in the workflow, you can define a label that is pulled from a XLIFF file based on the [translation domain setting](../../multisite/languages/back_office_translations.md). 
 You can also define colors that are used for status labels.
 
-To customize your configuration, place it in a YAML file under the `framework.workflows.<your_workflow_name>` key:
+To customize your configuration, place it under the `framework.workflows.<your_workflow_name>` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/front/shop/order-management/config/packages/ibexa.yaml', 0, 66) =]]

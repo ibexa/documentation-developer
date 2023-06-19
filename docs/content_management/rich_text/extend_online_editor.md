@@ -30,7 +30,7 @@ Start preparing the tag by adding a configuration file:
 Custom tags can have as many attributes as needed.
 Supported attribute types are:
 `string`, `number`, `boolean`, `link`, and `choice`.
-The latter requires that you provide a list of choices in the `choices` key.
+`choice` requires that you provide a list of options in the `choices` key.
 
 You must provide your own files for the Twig template and the icon.
 Place the `factbox.html.twig` template in the 
@@ -272,6 +272,7 @@ in the Online Editor:
 - `embed`
 - `formatted`
 - `heading`
+- `heading1` to `heading6`
 - `embedImage`
 - `ul`
 - `ol`
@@ -280,6 +281,13 @@ in the Online Editor:
 - `table`
 - `tr`
 - `td`
+
+!!! note "Heading elements"
+
+    `heading` applies to all heading elements, and `heading1` to `heading6` to specific heading levels.
+
+    When you configure both `heading` and a specific heading level (for example, `heading2`) at the same time,
+    only the more specific configuration applies, in this case, `heading2`.
 
 !!! caution "Overriding embed templates"
 

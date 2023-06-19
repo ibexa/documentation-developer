@@ -69,7 +69,7 @@ You can select a different cache backend and configure its parameters in the rel
 ### Multi Repository setup
 
 You can [configure multisite to work with multiple Repositories](multisite_configuration.md#location-id).
-Then, in `ibexa.yaml` you can specify which cache pool you want to use on a SiteAccess or SiteAccess group level.
+Then, in configuration you can specify which cache pool you want to use on a SiteAccess or SiteAccess group level.
 
 The following example shows use in a SiteAccess group:
 

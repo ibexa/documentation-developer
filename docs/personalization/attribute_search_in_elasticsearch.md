@@ -9,7 +9,7 @@ Attribute search works like an autocomplete feature, but values are dynamically 
 
 ## Configure attribute search
 
-In the `config/packages/ibexa.yaml`, add the following configuration:
+Add the following configuration under the `ibexa.system.<scope>.personalization` [configuration key](configuration.md#configuration-files):
 
 ```yaml
 ibexa:

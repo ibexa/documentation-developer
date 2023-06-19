@@ -22,7 +22,8 @@ The following block validators are available:
 For each validator you can provide a message that displays in the Page Builder
 when an attribute field does not fulfil the criteria.
 
-Additionally, for some validators you can provide settings in the `options` key, for example:
+Additionally, for some validators you can provide settings under the
+`ibexa_fieldtype_page.blocks.<block_name>.validators.regexp.options` [configuration key](configuration.md#configuration-files), for example:
 
 ``` yaml
 email:
@@ -54,13 +55,13 @@ In `src/Validator`, create an `AlphaOnlyValidator.php` class that performs the v
 [[= include_file('code_samples/page/custom_block_validator/src/Validator/AlphaOnlyValidator.php') =]]
 ```
 
-Then, in `config/packages/ibexa_page_fieldtype.yaml` enable the new validator in Page Builder:
+Then, under `ibexa_fieldtype_page.block_validators`, enable the new validator in Page Builder:
 
 ``` yaml
 [[= include_file('code_samples/page/custom_block_validator/config/packages/page_blocks.yaml', 0, 3) =]]
 ```
 
-Finally, add the validator to one of your block attributes in `config/packages/ibexam_page_fieldtype.yaml`, for example:
+Finally, add the validator to one of your block attributes, for example:
 
 ``` yaml hl_lines="16-18"
 [[= include_file('code_samples/page/custom_block_validator/config/packages/page_blocks.yaml', 0, 1) =]][[= include_file('code_samples/page/custom_block_validator/config/packages/page_blocks.yaml', 3, 20) =]]

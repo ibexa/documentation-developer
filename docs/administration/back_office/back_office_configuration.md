@@ -10,12 +10,12 @@ description: Configure default upload locations, pagination limits, and more set
 Default pagination limits for different sections of the Back Office can be defined through respective settings in
 [`ezplatform_default_settings.yaml`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/config/ezplatform_default_settings.yaml#L7)
 
-You can set the pagination limit for user settings with the following configuration:
+You can set the pagination limit for user settings under the `ibexa.system.<scope>.pagination_user` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa:
     system:
-        default:
+        <scope>:
             pagination_user:
                 user_settings_limit: 6
 ```
@@ -23,17 +23,27 @@ ibexa:
 You can configure the following settings to manage the pagination limits for the product catalog:
 
 ``` yaml
-ezsettings.default.product_catalog.pagination.attribute_groups_limit: 25
-ezsettings.default.product_catalog.pagination.customer_groups_limit: 25
-ezsettings.default.product_catalog.pagination.products_limit: 25
-ezsettings.default.product_catalog.pagination.product_types_limit: 25
+ibexa:
+    system:
+        <scope>:
+            product_catalog:
+                pagination:
+                    attribute_definitions_limit: 10
+                    attribute_groups_limit: 10
+                    customer_groups_limit: 10
+                    customer_group_users_limit: 10
+                    products_limit: 10
+                    product_types_limit: 10
+                    product_view_custom_prices_limit: 10
+                    regions_limit: 10
+                    catalogs_limit: 10
 ```
 
 ## Copy subtree limit
 
 Copying large subtrees can cause performance issues, so you can limit the number of Content items
-that can be copied at once using `ibexa.system.<SiteAccess>.subtree_operations.copy_subtree.limit`
-in `config/packages/ibexa_admin_ui.yaml`.
+that can be copied at once using the `ibexa.system.<scope>.subtree_operations.copy_subtree.limit`
+[configuration key](configuration.md#configuration-files).
 
 The default value is `100`. You can set it to `-1` for no limit,
 or to `0` to completely disable copying subtrees.
@@ -42,12 +52,13 @@ You can copy subtree from CLI using the command: `bin/console ibexa:copy-subtree
 
 ## Default Locations
 
-Default Location IDs for [Content structure, Media and Users](locations.md#top-level-locations) in the menu are configured using the following settings:
+Default Location IDs for [Content structure, Media and Users](locations.md#top-level-locations) in the menu are configured
+using the `ibexa.system.<scope>.location_ids` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa:
     system:
-        default:
+        <scope>:
             location_ids:
                 content_structure: 2
                 media: 43

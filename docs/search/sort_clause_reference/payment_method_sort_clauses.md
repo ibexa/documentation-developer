@@ -1,6 +1,7 @@
 ---
 description: Payment Method Sort Clauses
 edition: commerce
+page_type: reference
 ---
 
 

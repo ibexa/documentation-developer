@@ -1,5 +1,6 @@
 ---
 description: Get started working with Ibexa DXP by learning about the requirements and installing the platform.
+page_type: landing_page
 ---
 
 # Getting started

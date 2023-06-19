@@ -14,7 +14,7 @@ The following example shows how to configure two custom actions that send custom
 
 ## Configure custom action
 
-Configure the first custom action in the following way:
+Configure the first custom action under the `ibexa.system.<scope>.workflows` [configuration key](configuration.md#configuration-files):
 
 ``` yaml hl_lines="15-18"
 [[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 0, 5) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 23, 36) =]]

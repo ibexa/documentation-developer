@@ -8,27 +8,27 @@ use Ibexa\Contracts\Core\Repository\LanguageResolver;
 use Ibexa\Contracts\Core\Repository\Repository;
 use Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType;
 use Ibexa\Contracts\OAuth2Client\Repository\OAuth2UserService;
+use Ibexa\OAuth2Client\ResourceOwner\ResourceOwnerToExistingOrNewUserMapper;
 use League\OAuth2\Client\Provider\GoogleUser;
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
-use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Ibexa\OAuth2Client\ResourceOwner\ResourceOwnerToExistingOrNewUserMapper;
+use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 final class GoogleResourceOwnerMapper extends ResourceOwnerToExistingOrNewUserMapper
 {
     private const PROVIDER_PREFIX = 'google:';
 
     /** @var \Ibexa\Contracts\OAuth2Client\Repository\OAuth2UserService */
-    private $userService;
+    private \Ibexa\Contracts\OAuth2Client\Repository\OAuth2UserService $userService;
 
     /** @var \Ibexa\Contracts\Core\Repository\LanguageResolver */
-    private $languageResolver;
+    private \Ibexa\Contracts\Core\Repository\LanguageResolver $languageResolver;
 
     /** @var string|null */
-    private $contentTypeIdentifier;
+    private ?string $contentTypeIdentifier;
 
     /** @var string|null */
-    private $parentGroupRemoteId;
+    private ?string $parentGroupRemoteId;
 
     public function __construct(
         Repository $repository,
