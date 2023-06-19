@@ -171,38 +171,36 @@ To let your visitors receive emails with recommendations:
 
 ``` json
 {
-  "userId": "12345",
-  "email": "user.name@domain.co",
-  "triggerType": "REACTIVATION|ABANDONED_SHOPPING_CART",
-  "recommendationItems": [
-    {
-      "itemId": 590,
-      "itemType": 57,
-      "relevance": 6,
-      "links": {
-        "clickRecommended": "//event.test.perso.ibexa.co/api/40639/clickrecommended/1234/57/590?scenario=top_clicked&modelid=10308199&categorypath=&requestuuid=6c8d54b0-e36f-11ed-9a6b-029bc81f23ff",
-        "rendered": "//event.test.perso.ibexa.co/api/40639/rendered/1234/57/590?scenario=top_clicked&modelid=10308199&categorypath=&requestuuid=6c8d54b0-e36f-11ed-9a6b-029bc81f23ff"
+   "customerID":"1234567",
+   "userExternalId":"user@domain.com",
+   "triggerType":"REACTIVATION", # Email trigger type: REACTIVATION or ABANDONED_SHOPPING_CART
+   "triggerName":"TRIGGER_REF_CODE",
+   "triggerOpenedLink":"NEW_EVENT_FOR_TRIGGER_OPENED",
+   "recommendations":[
+      {
+         "itemId":959,
+         "itemType":46,
+         "links":{
+            "clickRecommended":"CLICK_RECOMMENDED_LINK_WITH_TRIGGER_REF_CODE",
+            "rendered":"RENDERED_LINK"
+         },
+         "attributes":{
+            "ses_name":"First product's name",
+			      "ses_image":["img_1", "img_2"]
+         }
       },
-      "attributes": [
-        {
-          "key" : "title",
-          "value": "Product Name"
-        },
-        {
-          "key": "image",
-          "value": "/"
-        },
-        {
-          "key": "price",
-          "value": "65.50"
-        },
-        {
-          "key": "currency",
-          "value": "EUR"
-        }
-      ]
-    }
-    ]
+      {
+         "itemId":123,
+         "itemType":55,
+         "links":{
+            "clickRecommended":"CLICK_RECOMMENDED_LINK_WITH_TRIGGER_REF_CODE",
+            "rendered":"RENDERED_LINK"
+         },
+         "attributes":{
+            "ses_name_for_type_55":"Second product's name"
+         }
+      }
+   ]
 }
 ```
 
