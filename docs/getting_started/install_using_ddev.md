@@ -44,8 +44,6 @@ To use Apache instead, run the following command:
 ddev config --webserver-type=apache-fpm
 ```
 
-
-
 #### Optional: Use another database type
 
 By default, DDEV uses MariaDB.
@@ -332,6 +330,7 @@ ddev restart
 - In _[2. Configure DDEV / Configure PHP version and document root](#configure-php-version-and-document-root)_, no need to create the Document root, `--create-docroot` mustn't be used.
 - Instead of `ddev composer create` from _[5. Create Ibexa DXP project](#5-create-ibexa-dxp-project)_, use solely `ddev composer install`.
 - [Ibexa data migration](../content_management/data_migration/importing_data.md) or [`ddev import-db`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#import-db) can be used to populate the database.
+- Content's binary files can be copied into `public/var`.
 
 The following example run on DDEV a [version controlled project](https://doc.ibexa.co/en/latest/getting_started/install_ibexa_dxp/#add-project-to-version-control), a local clone of a remote Git repository:
 ```bash
@@ -354,7 +353,7 @@ Notice that the example choose to `.gitignore` the whole `.ddev/` directory. It 
 
 #### Hostnames and domains
 
-If the local project needs to answer to real production domains (for example, to use the existing [hostname to SiteAccess](../multisite/siteaccess/siteaccess_matching.md#maphost) or [hostname element to SiteAccess](../multisite/siteaccess/siteaccess_matching/#hostelement) mappings), you can use [additional hostnames](https://ddev.readthedocs.io/en/latest/users/extend/additional-hostnames/).
+If the local project needs to answer to real production domains (for example, to use the existing [hostname to SiteAccess](../multisite/siteaccess/siteaccess_matching.md#maphost) or [hostname element to SiteAccess](../multisite/siteaccess/siteaccess_matching.md#hostelement) mappings), you can use [additional hostnames](https://ddev.readthedocs.io/en/latest/users/extend/additional-hostnames/).
 
 !!! warning
 
@@ -370,8 +369,6 @@ DDEV can be useful to locally simulate a production cluster.
 ## Stop or remove the project
 
 If you need to simply stop the project to start it again latter, use `ddev stop`. Afterward, a `ddev start` will run the project in the same state.
-
-TODO: Check data persistence on restart
 
 If you want to fully remove the project,
 

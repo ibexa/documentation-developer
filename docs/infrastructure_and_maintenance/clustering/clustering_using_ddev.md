@@ -169,12 +169,15 @@ For example, `watch 'ddev exec netcat -w1 memcached 11211 <<< "stats" | grep "cm
 It requires Ibexa's recommenced Apache Virtual Host or Nginx Server Blocks to work. See [Install using DDEV / Webserver configuration](../../getting_started/install_using_ddev.md#webserver-configuration).
 If [Nginx Server Blocks](../../getting_started/install_using_ddev.md#nginx-server-blocks) were previously set, replace `ibexa_rewrite_image_params` with `ibexa_rewrite_dfsimage_params` in `.ddev/nginx_full/ibexa.conf`.
 
-The example below uses the same database for DXP content and DFS metadata contrary to production recommendation, and the directory is not shared among servers but is in the volume shared by the DDEV container and the host.
+The example below uses the same database for DXP content and DFS metadata (contrary to production recommendation).
+The DFS directory (not shared among servers) is in the Docker volume shared by the DDEV container and the host.
 
 ```bash
 ddev config --web-environment-add BINARY_DATA_HANDLER=dfs;
 ddev config --web-environment-add DFS_NFS_PATH=/var/www/html/var/nfs;
 ```
+
+To install existing contents from another instance (like in [Run an already existing project](../../getting_started/install_using_ddev.md#run-an-already-existing-project)), the `ezdfsfile` table must also be imported and the binary files copied into the `DFS_NFS_PATH`.
 
 TODO: Needs https://github.com/ibexa/core/pull/182 to work
 
