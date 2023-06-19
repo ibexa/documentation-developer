@@ -10,6 +10,9 @@ Each Role you assign to  user or user group consists of Policies which define, w
 
 ## Available Policies
 
+
+### Content
+
 | Module        | Function             | Effect                      | Possible Limitations |
 |---------------|----------------------|-----------------------------|----------------------|
 | `all modules` | `all functions`      | grant all available permissions                                                                                                         ||
@@ -32,29 +35,64 @@ Each Role you assign to  user or user group consists of Policies which define, w
 |               | `restore`            | restore content from Trash                                                                                                              |
 |               | `cleantrash`         | empty the Trash (even when the User does not have access to individual Content items) |
 |               | `unlock`         | unlock drafts locked to a user for performing actions |[Owner](limitation_reference.md#owner-limitation)</br>[Content Type Group](limitation_reference.md#content-type-group-limitation)</br>[Subtree of Location](limitation_reference.md#subtree-of-location-limitation)</br>[Language](limitation_reference.md#language-limitation)</br>[Version Lock](limitation_reference.md#version-lock-limitation)|
-| `Content Type`       | `update`             | modify existing Content Types. Also required to create new Content Types                                                                |
+
+### Content Types
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
+| `class`       | `update`             | modify existing Content Types. Also required to create new Content Types                                                                |
 |               | `create`             | create new Content Types. Also required to edit exiting Content Types                                                                   |
 |               | `delete`             | delete Content Types                                                                                                                    |
+
+### Object States
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
 | `state`       | `assign`             | assign Object states to Content items                                                                                                   |[Content Type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>[Content Type Group](limitation_reference.md#content-type-group-limitation)</br>[Location](limitation_reference.md#location-limitation)</br>[Subtree of Location](limitation_reference.md#subtree-of-location-limitation)</br>[State](limitation_reference.md#state-limitation)</br>[New State](limitation_reference.md#new-state-limitation)|
 |               | `administrate`       | view, add and edit Object states                                                                                                        |
+
+### Roles
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
 | `role`        | `assign`             | assign Roles to Users and User Groups                                                                                                   |
 |               | `update`             | modify existing Roles                                                                                                                   |
 |               | `create`             | create new Roles                                                                                                                        |
 |               | `delete`             | delete Roles                                                                                                                            |
 |               | `read`               | view the Roles list in Admin. Required for all other role-related Policies                                                              |
+
+### Sections
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
 | `section`     | `assign`             | assign Sections to content                                                                                                              |[Content Type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>[New Section](limitation_reference.md#new-section-limitation)|
 |               | `edit`               | edit existing Sections and create new ones                                                                                              |
 |               | `view`               | view the Sections list in Admin. Required for all other section-related Policies                                                        |
+
+### Setup
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
 | `setup`       | `administrate`       | access Admin                                                                                                                            |
 |               | `install`            | unused                                                                                                                                  |
 |               | `setup`              | unused                                                                                                                                  |
 |               | `system_info`        | view the System Information tab in Admin                                                                                      |
-|`site` <br/> [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|`view`|view the "Sites" in the top navigation|
-|               |`create`|create sites in the Site Factory</br>|
-|               |`edit`|edit sites in the Site Factory</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|
-|               |`delete`|delete sites from the Site Factory</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|
-|               |`change_status`|change status of the public accesses of sites to `Live` or `Offline` in the Site Factory</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|
+
+### Sites [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
+|`site` |`view`|view the "Sites" in the top navigation|
+|               |`create`|create sites in the Site Factory|
+|               |`edit`|edit sites in the Site Factory|
+|               |`delete`|delete sites from the Site Factory|
+|               |`change_status`|change status of the public accesses of sites to `Live` or `Offline` in the Site Factory|
 || `update`|                                                                                                                                                                   |
+
+### Users
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
 | `user`        | `login`              | log in to the application                                                                                                               |
 |               | `password`           | unused                                                                                                                                  |
 |               | `preferences`        | access and set user preferences                                                                                                                                  |
@@ -62,65 +100,150 @@ Each Role you assign to  user or user group consists of Policies which define, w
 |               | `selfedit`           | unused                                                                                                                                  |
 |               | `activation`         | unused                                                                                                                                  |
 ||`invite`| create and send invitations to create an account |
+
+### Workflow
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
 | `workflow`    | `change_stage`       | change stage in the specified workflow                                                                                                  |[Workflow Transition](limitation_reference.md#workflow-transition-limitation)|
 | `comparison`  | `view`               | view version comparison |
+
+### Personalization
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
 | `personalization`    | `view`        | view scenario configuration and results for selected SiteAccesses |[Personalization access](limitation_reference.md#personalization-access-limitation)|
 || `edit`|modify scenario configuration for selected SiteAccesses|[Personalization access](limitation_reference.md#personalization-access-limitation)|
-| `segment`</br>[[% include 'snippets/commerce_badge.md' %]] | `read`|load Segment information|[Segment Group](limitation_reference.md#segment-group-limitation)|
+
+### Segments [[% include 'snippets/commerce_badge.md' %]]
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
+| `segment` | `read`|load Segment information|[Segment Group](limitation_reference.md#segment-group-limitation)|
 || `create`|create Segments|[Segment Group](limitation_reference.md#segment-group-limitation)|
 || `update`|update Segments|[Segment Group](limitation_reference.md#segment-group-limitation)|
 || `remove`|remove Segments|[Segment Group](limitation_reference.md#segment-group-limitation)|
 || `assign_to_user` |assign Segments to Users|[Segment Group](limitation_reference.md#segment-group-limitation)|
-| `segment_group`</br>[[% include 'snippets/commerce_badge.md' %]] | `read` |load Segment Group information|
+
+### Segment groups [[% include 'snippets/commerce_badge.md' %]]
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
+| `segment_group` | `read` |load Segment Group information|
 || `create` |create Segment Groups|
 || `update` |update Segment Groups|
 || `remove` |remove Segment Groups|
+
+### Products
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
 | `product` | `create` |create a product|[Product Type](limitation_reference.md#product-type-limitation)</br>[Language](limitation_reference.md#language-limitation)|
 || `view` |view products listed in the product catalog|[Product Type](limitation_reference.md#product-type-limitation)|
 || `edit` |edit a product|[Product Type](limitation_reference.md#product-type-limitation)</br>[Language](limitation_reference.md#language-limitation)|
 || `delete` |delete a product|[Product Type](limitation_reference.md#product-type-limitation)|
+
+### Product types
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
 | `product_type` | `create` |create a product type, a new attribute, a new attribute group and add translation to product type and attribute|
 || `view` |view product types, attributes and attribute groups|
 || `edit` |edit a product type, attribute, attribute group|
 || `delete` |delete a product type, attribute, attribute group|
+
+### Regions
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
 | `commerce` | `currency` |manage currencies|
 || `region` |manage regions|
+
+### Customer groups
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
 | `customer_group` | `create` |create a customer group|
 || `view` |view customer groups|
 || `edit` |edit a customer group|
 || `delete` |delete a customer group|
+
+### Catalogs
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
 | `catalog` | `create` |create a catalog|
 || `view` |view catalogs|
 || `edit` |edit a catalog|
 || `delete` |delete a catalog|
+
+### Taxonomy
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
 | `taxonomy` | `read` |view the Taxonomy interface|
 ||`manage`|create, edit, and delete tags|
 ||`assign`|tag or untag content|
-| `cart`</br>[[% include 'snippets/commerce_badge.md' %]] | `view` | view a cart |
+
+### Cart [[% include 'snippets/commerce_badge.md' %]]
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
+| `cart` | `view` | view a cart |[CartOwner](limitation_reference.md#cartowner-limitation)|
 || `create` | create a cart |[CartOwner](limitation_reference.md#cartowner-limitation)|
 || `edit`   | change cart metadata (name, currency, owner), add/remove cart items |[CartOwner](limitation_reference.md#cartowner-limitation)|
 || `delete` | delete cart, for example, after successful checkout |[CartOwner](limitation_reference.md#cartowner-limitation)|
-| `checkout`</br>[[% include 'snippets/commerce_badge.md' %]] | `view` | access checkout |[CartOwner](limitation_reference.md#cartowner-limitation)|
+
+### Checkout [[% include 'snippets/commerce_badge.md' %]]
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
+| `checkout` | `view` | access checkout ||
 || `create` | create new checkout, for example, after workflow fails to complete |
 || `update` | change currency, quantity |
 || `delete` | delete checkout, for example, after workflow completes successfully |
-| `order`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create an order |[OrderOwner](limitation_reference.md#orderowner-limitation)|
+
+### Orders [[% include 'snippets/commerce_badge.md' %]]
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
+| `order` | `create` | create an order |[OrderOwner](limitation_reference.md#orderowner-limitation)|
 || `view` |view orders|[OrderOwner](limitation_reference.md#orderowner-limitation)|
 || `update` | change status of an order |[OrderOwner](limitation_reference.md#orderowner-limitation)|
 || `cancel` | cancel an order |[OrderOwner](limitation_reference.md#orderowner-limitation)|
-| `shipping_method`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create a shipping method |
+
+### Shipping methods [[% include 'snippets/commerce_badge.md' %]]
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
+| `shipping_method` | `create` | create a shipping method |
 || `view` |view shipping methods|
 || `update` | modify a shipping method |
 || `delete` | delete a shipping method |
-| `shipment`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create a shipment |[ShipmentOwner](limitation_reference.md#shipmentowner-limitation)|
+
+### Shipments [[% include 'snippets/commerce_badge.md' %]]
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
+| `shipment` | `create` | create a shipment |[ShipmentOwner](limitation_reference.md#shipmentowner-limitation)|
 || `view` |view shipments|[ShipmentOwner](limitation_reference.md#shipmentowner-limitation)|
 || `update` | change status of a shipment |[ShipmentOwner](limitation_reference.md#shipmentowner-limitation)|
 || `delete` | delete a shipment |[ShipmentOwner](limitation_reference.md#shipmentowner-limitation)|
-| `payment_method`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create a payment method |
+
+### Payment methods [[% include 'snippets/commerce_badge.md' %]]
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
+| `payment_method` | `create` | create a payment method |
 || `view` |view payment methods|
 || `edit` | modify a payment method |
 || `delete` | delete a payment method |
-| `payment`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create a payment |[PaymentOwner](limitation_reference.md#paymentowner-limitation)|
+
+### Payments [[% include 'snippets/commerce_badge.md' %]]
+
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
+| `payment` | `create` | create a payment |[PaymentOwner](limitation_reference.md#paymentowner-limitation)|
 || `view` |view payments|[PaymentOwner](limitation_reference.md#paymentowner-limitation)|
 || `edit` | modify a payment |[PaymentOwner](limitation_reference.md#paymentowner-limitation)|
 || `delete` | delete a payment |[PaymentOwner](limitation_reference.md#paymentowner-limitation)|
