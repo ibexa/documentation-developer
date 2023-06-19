@@ -10,39 +10,39 @@ Each Role you assign to  user or user group consists of Policies which define, w
 
 ## Available Policies
 
-| Module        | Function             | Effect                                                                                                                                  |
-|---------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| `all modules` | `all functions`      | grant all available permissions                                                                                                         |
-| `content`     | `read`               | view the content both in front and back end                                                                                             |
+| Module        | Function             | Effect                      | Possible Limitations |
+|---------------|----------------------|-----------------------------|----------------------|
+| `all modules` | `all functions`      | grant all available permissions                                                                                                         ||
+| `content`     | `read`               | view the content both in front and back end                                                                                             |[Content Type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>[Content Type Group](limitation_reference.md#content-type-group-limitation)</br>[Location](limitation_reference.md#location-limitation)</br>[Subtree of Location](limitation_reference.md#subtree-of-location-limitation)</br>[State](limitation_reference.md#state-limitation)|
 |               | `diff`               | unused                                                                                                                                  |
-|               | `view_embed`         | view content embedded in another Content item (even when the User is not allowed to view it as an individual Content item)              |
-|               | `create`             | create new content. Note: even without this Policy the User is able to enter edit mode, but cannot finalize work with the Content item. |
-|               | `edit`               | edit existing content                                                                                                                   |
-|               | `publish`            | publish content. Without this Policy, the User can only save drafts or send them for review (in [[= product_name_exp =]])                          |
-|               | `manage_locations`   | remove Locations and send content to Trash                                                                                              |
-|               | `hide`               | hide and reveal content Locations                                                                                                       |
-|               | `reverserelatedlist` | see all content that a Content item relates to (even when the User is not allowed to view it as an individual Content items)            |
-|               | `translate`          | unused                                                                                                                                  |
-|               | `remove`             | remove Locations and send content to Trash                                                                                              |
-|               | `versionread`        | view content after publishing, and to preview any content in the Site mode                                                              |
-|               | `versionremove`      | remove archived content versions                                                                                                        |
+|               | `view_embed`         | view content embedded in another Content item (even when the User is not allowed to view it as an individual Content item)              |[Content Type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>[Location](limitation_reference.md#location-limitation)</br>[Subtree of Location](limitation_reference.md#subtree-of-location-limitation)|
+|               | `create`             | create new content. Note: even without this Policy the User is able to enter edit mode, but cannot finalize work with the Content item. |[Content Type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Location](limitation_reference.md#location-limitation)</br>[Subtree of Location](limitation_reference.md#subtree-of-location-limitation)</br>[Language](limitation_reference.md#language-limitation)</br>[Owner of Parent](limitation_reference.md#owner-of-parent-limitation)</br>[Content Type Group of Parent](limitation_reference.md#content-type-group-of-parent-limitation)</br>[Content Type of Parent](limitation_reference.md#content-type-of-parent-limitation)</br>[Parent Depth](limitation_reference.md#parent-depth-limitation)</br>[Field Group](limitation_reference.md#field-group-limitation)</br>[Change Owner](limitation_reference.md#change-owner-limitation)|
+|               | `edit`               | edit existing content                                                                                                                   |[Content Type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>[Content Type Group](limitation_reference.md#content-type-group-limitation)</br>[Location](limitation_reference.md#location-limitation)</br>[Subtree of Location](limitation_reference.md#subtree-of-location-limitation)</br>[Language](limitation_reference.md#language-limitation)</br>[State](limitation_reference.md#state-limitation)</br>[Workflow Stage](limitation_reference.md#workflow-stage-limitation)</br>[Field Group](limitation_reference.md#field-group-limitation)</br>[Version Lock](limitation_reference.md#version-lock-limitation)</br>[Change Owner](limitation_reference.md#change-owner-limitation)|
+|               | `publish`            | publish content. Without this Policy, the User can only save drafts or send them for review (in [[= product_name_exp =]])      |[Content Type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>[Content Type Group](limitation_reference.md#content-type-group-limitation)</br>[Location](limitation_reference.md#location-limitation)</br>[Subtree of Location](limitation_reference.md#subtree-of-location-limitation)</br>[Language](limitation_reference.md#language-limitation)</br>[State](limitation_reference.md#state-limitation)</br>[Workflow Stage](limitation_reference.md#workflow-stage-limitation)|
+|               | `manage_locations`   | remove Locations and send content to Trash                                                                                              |[Content Type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>[Subtree of Location](limitation_reference.md#subtree-of-location-limitation)</br>[State](limitation_reference.md#state-limitation)|
+|               | `hide`               | hide and reveal content Locations                                                                                                       |[Content Type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>[Content Type Group](limitation_reference.md#content-type-group-limitation)</br>[Location](limitation_reference.md#location-limitation)</br>[Subtree of Location](limitation_reference.md#subtree-of-location-limitation)</br>[Language](limitation_reference.md#language-limitation)|
+|               | `reverserelatedlist` | see all content that a Content item relates to (even when the User is not allowed to view it as an individual Content items)            |[Content Type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>|
+|               | `translate`          | unused                                                                                                                                  |[Content Type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>[Location](limitation_reference.md#location-limitation)</br>[Subtree of Location](limitation_reference.md#subtree-of-location-limitation)</br>[Language](limitation_reference.md#language-limitation)|
+|               | `remove`             | remove Locations and send content to Trash                                                                                              |[Content Type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>[Location](limitation_reference.md#location-limitation)</br>[Subtree of Location](limitation_reference.md#subtree-of-location-limitation)</br>[State](limitation_reference.md#state-limitation)</br>[Language](limitation_reference.md#language-limitation)|
+|               | `versionread`        | view content after publishing, and to preview any content in the Site mode                                                              |[Content Type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>[Status](limitation_reference.md#status-limitation)</br>[Location](limitation_reference.md#location-limitation)</br>[Subtree of Location](limitation_reference.md#subtree-of-location-limitation)</br>[State](limitation_reference.md#state-limitation)|
+|               | `versionremove`      | remove archived content versions                                                                                                        |[Content Type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>[Status](limitation_reference.md#status-limitation)</br>[Location](limitation_reference.md#location-limitation)</br>[Subtree of Location](limitation_reference.md#subtree-of-location-limitation)</br>[State](limitation_reference.md#state-limitation)|
 |               | `translations`       | manage the language list in Admin                                                                                                  |
 |               | `urltranslator`      | manage URL aliases of a Content item|
 |               | `pendinglist`        | unused                                                                                                                                  |
 |               | `restore`            | restore content from Trash                                                                                                              |
 |               | `cleantrash`         | empty the Trash (even when the User does not have access to individual Content items) |
-|               | `unlock`         | unlock drafts locked to a user for performing actions |
+|               | `unlock`         | unlock drafts locked to a user for performing actions |[Owner](limitation_reference.md#owner-limitation)</br>[Content Type Group](limitation_reference.md#content-type-group-limitation)</br>[Subtree of Location](limitation_reference.md#subtree-of-location-limitation)</br>[Language](limitation_reference.md#language-limitation)</br>[Version Lock](limitation_reference.md#version-lock-limitation)|
 | `Content Type`       | `update`             | modify existing Content Types. Also required to create new Content Types                                                                |
 |               | `create`             | create new Content Types. Also required to edit exiting Content Types                                                                   |
 |               | `delete`             | delete Content Types                                                                                                                    |
-| `state`       | `assign`             | assign Object states to Content items                                                                                                   |
+| `state`       | `assign`             | assign Object states to Content items                                                                                                   |[Content Type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>[Content Type Group](limitation_reference.md#content-type-group-limitation)</br>[Location](limitation_reference.md#location-limitation)</br>[Subtree of Location](limitation_reference.md#subtree-of-location-limitation)</br>[State](limitation_reference.md#state-limitation)</br>[New State](limitation_reference.md#new-state-limitation)|
 |               | `administrate`       | view, add and edit Object states                                                                                                        |
 | `role`        | `assign`             | assign Roles to Users and User Groups                                                                                                   |
 |               | `update`             | modify existing Roles                                                                                                                   |
 |               | `create`             | create new Roles                                                                                                                        |
 |               | `delete`             | delete Roles                                                                                                                            |
 |               | `read`               | view the Roles list in Admin. Required for all other role-related Policies                                                              |
-| `section`     | `assign`             | assign Sections to content                                                                                                              |
+| `section`     | `assign`             | assign Sections to content                                                                                                              |[Content Type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>[New Section](limitation_reference.md#new-section-limitation)|
 |               | `edit`               | edit existing Sections and create new ones                                                                                              |
 |               | `view`               | view the Sections list in Admin. Required for all other section-related Policies                                                        |
 | `setup`       | `administrate`       | access Admin                                                                                                                            |
@@ -62,23 +62,23 @@ Each Role you assign to  user or user group consists of Policies which define, w
 |               | `selfedit`           | unused                                                                                                                                  |
 |               | `activation`         | unused                                                                                                                                  |
 ||`invite`| create and send invitations to create an account |
-| `workflow`    | `change_stage`       | change stage in the specified workflow                                                                                                  |
+| `workflow`    | `change_stage`       | change stage in the specified workflow                                                                                                  |[Workflow Transition](limitation_reference.md#workflow-transition-limitation)|
 | `comparison`  | `view`               | view version comparison |
-| `personalization`    | `view`        | view scenario configuration and results for selected SiteAccesses |
-|| `edit`|modify scenario configuration for selected SiteAccesses|
-| `segment`</br>[[% include 'snippets/commerce_badge.md' %]] | `read`|load Segment information|
-|| `create`|create Segments|
-|| `update`|update Segments|
-|| `remove`|remove Segments|
-|| `assign_to_user` |assign Segments to Users|
+| `personalization`    | `view`        | view scenario configuration and results for selected SiteAccesses |[Personalization access](limitation_reference.md#personalization-access-limitation)|
+|| `edit`|modify scenario configuration for selected SiteAccesses|[Personalization access](limitation_reference.md#personalization-access-limitation)|
+| `segment`</br>[[% include 'snippets/commerce_badge.md' %]] | `read`|load Segment information|[Segment Group](limitation_reference.md#segment-group-limitation)|
+|| `create`|create Segments|[Segment Group](limitation_reference.md#segment-group-limitation)|
+|| `update`|update Segments|[Segment Group](limitation_reference.md#segment-group-limitation)|
+|| `remove`|remove Segments|[Segment Group](limitation_reference.md#segment-group-limitation)|
+|| `assign_to_user` |assign Segments to Users|[Segment Group](limitation_reference.md#segment-group-limitation)|
 | `segment_group`</br>[[% include 'snippets/commerce_badge.md' %]] | `read` |load Segment Group information|
 || `create` |create Segment Groups|
 || `update` |update Segment Groups|
 || `remove` |remove Segment Groups|
-| `product` | `create` |create a product|
-|| `view` |view products listed in the product catalog|
-|| `edit` |edit a product|
-|| `delete` |delete a product|
+| `product` | `create` |create a product|[Product Type](limitation_reference.md#product-type-limitation)</br>[Language](limitation_reference.md#language-limitation)|
+|| `view` |view products listed in the product catalog|[Product Type](limitation_reference.md#product-type-limitation)|
+|| `edit` |edit a product|[Product Type](limitation_reference.md#product-type-limitation)</br>[Language](limitation_reference.md#language-limitation)|
+|| `delete` |delete a product|[Product Type](limitation_reference.md#product-type-limitation)|
 | `product_type` | `create` |create a product type, a new attribute, a new attribute group and add translation to product type and attribute|
 || `view` |view product types, attributes and attribute groups|
 || `edit` |edit a product type, attribute, attribute group|
@@ -97,33 +97,33 @@ Each Role you assign to  user or user group consists of Policies which define, w
 ||`manage`|create, edit, and delete tags|
 ||`assign`|tag or untag content|
 | `cart`</br>[[% include 'snippets/commerce_badge.md' %]] | `view` | view a cart |
-|| `create` | create a cart |
-|| `edit`   | change cart metadata (name, currency, owner), add/remove cart items |
-|| `delete` | delete cart, for example, after successful checkout |
-| `checkout`</br>[[% include 'snippets/commerce_badge.md' %]] | `view` | access checkout |
+|| `create` | create a cart |[CartOwner](limitation_reference.md#cartowner-limitation)|
+|| `edit`   | change cart metadata (name, currency, owner), add/remove cart items |[CartOwner](limitation_reference.md#cartowner-limitation)|
+|| `delete` | delete cart, for example, after successful checkout |[CartOwner](limitation_reference.md#cartowner-limitation)|
+| `checkout`</br>[[% include 'snippets/commerce_badge.md' %]] | `view` | access checkout |[CartOwner](limitation_reference.md#cartowner-limitation)|
 || `create` | create new checkout, for example, after workflow fails to complete |
 || `update` | change currency, quantity |
 || `delete` | delete checkout, for example, after workflow completes successfully |
-| `order`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create an order |
-|| `view` |view orders|
-|| `update` | change status of an order |
-|| `cancel` | cancel an order |
+| `order`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create an order |[OrderOwner](limitation_reference.md#orderowner-limitation)|
+|| `view` |view orders|[OrderOwner](limitation_reference.md#orderowner-limitation)|
+|| `update` | change status of an order |[OrderOwner](limitation_reference.md#orderowner-limitation)|
+|| `cancel` | cancel an order |[OrderOwner](limitation_reference.md#orderowner-limitation)|
 | `shipping_method`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create a shipping method |
 || `view` |view shipping methods|
 || `update` | modify a shipping method |
 || `delete` | delete a shipping method |
-| `shipment`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create a shipment |
-|| `view` |view shipments|
-|| `update` | change status of a shipment |
-|| `delete` | delete a shipment |
+| `shipment`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create a shipment |[ShipmentOwner](limitation_reference.md#shipmentowner-limitation)|
+|| `view` |view shipments|[ShipmentOwner](limitation_reference.md#shipmentowner-limitation)|
+|| `update` | change status of a shipment |[ShipmentOwner](limitation_reference.md#shipmentowner-limitation)|
+|| `delete` | delete a shipment |[ShipmentOwner](limitation_reference.md#shipmentowner-limitation)|
 | `payment_method`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create a payment method |
 || `view` |view payment methods|
 || `edit` | modify a payment method |
 || `delete` | delete a payment method |
-| `payment`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create a payment |
-|| `view` |view payments|
-|| `edit` | modify a payment |
-|| `delete` | delete a payment |
+| `payment`</br>[[% include 'snippets/commerce_badge.md' %]] | `create` | create a payment |[PaymentOwner](limitation_reference.md#paymentowner-limitation)|
+|| `view` |view payments|[PaymentOwner](limitation_reference.md#paymentowner-limitation)|
+|| `edit` | modify a payment |[PaymentOwner](limitation_reference.md#paymentowner-limitation)|
+|| `delete` | delete a payment |[PaymentOwner](limitation_reference.md#paymentowner-limitation)|
 
 ## Combining Policies
 
