@@ -86,11 +86,13 @@ ddev config --web-environment-add DATABASE_URL=postgresql://db:db@db:5432/db
 
 #### Optional: Enable Mutagen
 
-If you're using MacOS or Windows, you might wish to enable [Mutagen](https://ddev.readthedocs.io/en/latest/users/install/performance/#mutagen) for performance. You can do this by running the following command:
+If you're using macOS or Windows, you might wish to enable [Mutagen](https://ddev.readthedocs.io/en/latest/users/install/performance/#mutagen) for performance. You can do this by running the following command:
 
 ```bash
 ddev config --mutagen-enabled
 ```
+
+See [DDEV performance documentation](https://ddev.readthedocs.io/en/latest/users/install/performance/) for more.
 
 #### Optional: Change port mapping
 
@@ -171,17 +173,17 @@ DDEv offers several ways to achieve a same thing, offering different levels of f
 
 !!! tip
 
-Learn more about the [DDEV commands](https://ddev.readthedocs.io/en/latest/users/usage/commands/) used
-
-- by running [`ddev list`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#list) to list them all,
-- by running [`ddev help <command>`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#help) to get usage details about a given command.
-
-Learn more about DDEV configuration at [`ddev config` command documentation](https://ddev.readthedocs.io/en/latest/users/usage/commands/#config) and [advanced configuration files documentation](https://ddev.readthedocs.io/en/latest/users/configuration/config/).
+    Learn more about the [DDEV commands](https://ddev.readthedocs.io/en/latest/users/usage/commands/) used
+    
+    - by running [`ddev list`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#list) to list them all,
+    - by running [`ddev help <command>`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#help) to get usage details about a given command.
+    
+    Learn more about DDEV configuration at [`ddev config` command documentation](https://ddev.readthedocs.io/en/latest/users/usage/commands/#config) and [advanced configuration files documentation](https://ddev.readthedocs.io/en/latest/users/configuration/config/).
 
 
 #### Using an auth.json
 
-To reuse a previously existing auth.json instead of setting the authentication at step [4. Composer authentication](#4-composer-authentication), [DDEV `homeaddition` feature](https://ddev.readthedocs.io/en/latest/users/extend/in-container-configuration/) can be used.
+To reuse a previously existing auth.json instead of setting the authentication at step [4. Composer authentication](#4-composer-authentication), use [DDEV `homeaddition` feature](https://ddev.readthedocs.io/en/latest/users/extend/in-container-configuration/).
 The auth.json file can be used for one project or globally for all projects.
 
 For example, an auth.json file can be copied to a DDEV project:
@@ -218,7 +220,7 @@ The following example show the particular case of the database:
 
 It can be interesting to set up the webserver as recommenced for production.
 
-Those configurations are required if you plan to also simulate the binary files sharing needed by 
+Those configurations are required if you plan to also simulate the [binary files sharing needed by clusters](../infrastructure_and_maintenance/clustering/clustering_using_ddev.md#share-binary-files).
 
 #### Nginx Server Blocks
 
@@ -346,17 +348,19 @@ ddev composer install
 ddev launch
 ```
 
-Notice that the example choose to `.gitignore` the whole `.ddev/` directory. It can go otherwise. Some DDEV configs can be shared among developers. For example, a common .dev/config.yaml can be committed for everyone and [locally extended or override](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files). 
+Notice that the example choose to `.gitignore` the whole `.ddev/` directory. It can go otherwise. Some DDEV configs can be shared among developers. For example, a common `.ddev/config.yaml` can be committed for everyone and [locally extended or override](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files). 
 
 ### Mimicking a production environment
 
-#### Hostnames/Domains
+#### Hostnames and domains
 
-If the local project needs to answer to real production domains (for example, to use the existing [hostname to SiteAccess](../multisite/siteaccess/siteaccess_matching.md#maphost) or [hostname element to SiteAccess](../multisite/siteaccess/siteaccess_matching/#hostelement) mappings), you can use the [`additional_fqdns` feature](https://ddev.readthedocs.io/en/latest/users/extend/additional-hostnames/).
+If the local project needs to answer to real production domains (for example, to use the existing [hostname to SiteAccess](../multisite/siteaccess/siteaccess_matching.md#maphost) or [hostname element to SiteAccess](../multisite/siteaccess/siteaccess_matching/#hostelement) mappings), you can use [additional hostnames](https://ddev.readthedocs.io/en/latest/users/extend/additional-hostnames/).
 
-TODO: As DDEV doc does, warn about real website becoming inaccessible. How to make it accessible again?
+!!! warning
 
-#### Cluster/Cloud
+    As this feature will modify domain resolution, the real website may be unreachable until the `hosts` file is manually cleaned.
+
+#### Cluster or Ibexa Cloud
 
 DDEV can be useful to locally simulate a production cluster.
 
@@ -370,7 +374,10 @@ If you need to simply stop the project to start it again latter, use `ddev stop`
 TODO: Check data persistence on restart
 
 If you want to fully remove the project,
+
 - delete the DDEV elements without backup: `ddev delete --omit-snapshot && rm -rf ./ddev`;
 - remove the project folder: `cd .. && rm -r my-ddev-project`
+
+If [additional hostnames](#hostnames-and-domains) have been used, the hosts file must be cleaned.
 
 To learn more, to remove all projects at once or to remove DDEV itself, see [Uninstalling DDEV](https://ddev.readthedocs.io/en/latest/users/usage/uninstall/).

@@ -9,7 +9,6 @@ This guide follows [Getting started: Install using DDEV](../../getting_started/i
 Contrary to production cluster, there will be only one front app server. But the data sharing needed by a cluster of several servers can still be emulated.
 TODO: Maybe a second `web` server can be added…?
 
-
 The `ddev config --php-version` option should set the same PHP version as the production servers.
 
 !!! caution
