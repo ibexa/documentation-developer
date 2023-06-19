@@ -10,7 +10,53 @@ Two ways are available to run locally a Ibexa Cloud project using DDEV:
 
 ## Running Ibexa Cloud using the `ddev-platformsh` add-on
 
-TODO: https://docs.platform.sh/development/local/ddev.html
+To configure the [`ddev/ddev-platformsh` add-on](https://github.com/ddev/ddev-platformsh), you'll need a [Platform.sh API Token](https://docs.platform.sh/administration/cli/api-tokens.html).
+
+Solr must be disabled from Platform.sh services (`.platform.app.yaml`) due to compatibility issues. NodeJS and NVM installations must be disabled from Platform.sh hooks as well, it can be done afterward from hooks copy in `.ddev/config.platformsh.yaml`.
+
+`COMPOSER_AUTH` from PLatform.sh can't be properly used as JSON commas will be badly interpreted by `--web-environment-add` which would see them as multiple variables' separators. But, it must exist for Platform.sh hooks' scripts to work. An auth.json file can be used, see [Using an auth.json](../../getting_started/install_using_ddev.md#using-an-authjson) for more.
+
+This example sequence
+
+- download the Ibexa Cloud Platform.sh project from the default environment "production" (replace <project-ID> with the hash of your own project, see [`platform help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment) into a new directory,
+- config a new DDEV project,
+- ignore `.ddev/` directory from Git,
+- set Composer authentication using an already existing `auth.json` file,
+- disable Solr service by commenting its line in `.platform.app.yaml` using `sed`,
+- create a `public/var` directory if it doesn't exist (to allow the creation of `public/var/.platform.installed` by Platform.sh hook script),
+- install the `ddev/ddev-platformsh` add-on which will prompt for the Platform.sh API token, project ID and environment name,
+- comment the NodeJS and NVM installations from the hooks copied in `.ddev/config.platformsh.yaml`,
+- change `maxmemory-policy` from default `allkeys-lfu` to a [value accepted by the `RedisTagAwareAdapter`](https://github.com/symfony/cache/blob/5.4/Adapter/RedisTagAwareAdapter.php#L95),
+- start the project
+- get the content from Platform.sh, both database and binary files using `ddev pull platform` feature from the add-on,
+- restart the project,
+- display information about the project services,
+- open the project into a browser.
+
+```bash
+platform project:get <project-ID> my-ddev-project && cd my-ddev-project
+ddev config --project-type=php --php-version 8.1 \
+  --docroot=public --create-docroot \
+  --mutagen-enabled \
+  --http-port=8080 --https-port=8443 \
+  --web-environment-add PLATFORMSH_CLI_TOKEN=dQQcoTa3vct6grif50dKKAXt4U16nI9RI_3F12CCzfM \
+  --web-environment-add DATABASE_URL=mysql://db:db@db:3306/db \
+  --web-environment-add CACHE_POOL=cache.redis \
+  --web-environment-add CACHE_DSN=redis \
+  --web-environment-add COMPOSER_AUTH=''
+echo '.ddev/' >> .gitignore
+cp <path-to-an>/auth.json .ddev/homeadditions/
+sed -i "s/solr: 'solrsearch:collection1'/#solr: 'solrsearch:collection1'/" .platform.app.yaml
+if [ ! -d public/var ]; then mkdir public/var; fi
+ddev get ddev/ddev-platformsh
+sed -i -E "s/( +)(.*nvm (install|use).*)/\1#\2/" .ddev/config.platformsh.yaml
+sed -i 's/maxmemory-policy allkeys-lfu/maxmemory-policy volatile-lfu/' .ddev/redis/redis.conf
+ddev start
+ddev pull platform -y
+ddev restart
+ddev describe
+ddev launch
+```
 
 ## Running Ibexa Cloud as an existing project
 
@@ -20,15 +66,15 @@ The following example adapt the [manual method to run an already existing projec
 
 This example sequence
 
-- download the Ibexa Cloud Platform.sh project from the default environment "production" (replace <project-ID> with the hash of your own project, see [`platform help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment) into a new directory
-- config a new DDEV project
-- ignore `.ddev/` directory from Git
-- start the DDEV project
-- set Composer authentication
-- [Get the database content from Platform.sh](https://docs.platform.sh/add-services/mysql.html#exporting-data)
-- [Import this database content into DDEV project's database](https://ddev.readthedocs.io/en/latest/users/usage/database-management/#database-imports)
-- [Download the Platform.sh public/var locally](https://docs.platform.sh/development/file-transfer.html#transfer-a-file-from-a-mount) to have the content binary files
-- Open the DDEV project into a browser
+- download the Ibexa Cloud Platform.sh project from the default environment "production" (replace <project-ID> with the hash of your own project, see [`platform help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment) into a new directory,
+- config a new DDEV project,
+- ignore `.ddev/` directory from Git,
+- start the DDEV project,
+- set Composer authentication,
+- [get the database content from Platform.sh](https://docs.platform.sh/add-services/mysql.html#exporting-data),
+- [import this database content into DDEV project's database](https://ddev.readthedocs.io/en/latest/users/usage/database-management/#database-imports),
+- [download the Platform.sh public/var locally](https://docs.platform.sh/development/file-transfer.html#transfer-a-file-from-a-mount) to have the content binary files,
+- and open the DDEV project into a browser.
 
 ```bash
 platform project:get <project-ID> my-ddev-project && cd my-ddev-project
@@ -36,12 +82,16 @@ ddev config --project-type=php --php-version 8.1 \
   --docroot=public \
   --web-environment-add DATABASE_URL=mysql://db:db@db:3306/db \
   --http-port=8080 --https-port=8443
-.ddev/ >> .gitignore
+echo '.ddev/' >> .gitignore
 ddev start
 ddev composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
 platform db:dump --gzip --file=production.sql.gz
-ddev import-db --src=production.sql.gz
+ddev import-db --src=production.sql.gz && rm production.sql.gz
 platform mount:download --mount public/var --target public/var
 ddev composer install
-ddev lauch
+ddev launch
 ```
+
+From there, services can be added to get closer to Ibexa Cloud Platform.sh architecture.
+`.platform/services.yaml` indicate the services used.
+Refer to [Clustering using DDEV](clustering_using_ddev.md) for those additions.

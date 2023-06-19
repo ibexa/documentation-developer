@@ -107,6 +107,7 @@ The following command lines
 1. add the Redis container,
 1. set up Redis as the cache pool,
 1. set up Redis as the session handler,
+1. change `maxmemory-policy` from default `allkeys-lfu` to a [value accepted by the `RedisTagAwareAdapter`](https://github.com/symfony/cache/blob/5.4/Adapter/RedisTagAwareAdapter.php#L95),
 1. restart the DDEV cluster and clear application cache.
 
 ```bash
@@ -115,6 +116,7 @@ ddev config --web-environment-add CACHE_POOL=cache.redis
 ddev config --web-environment-add CACHE_DSN=redis
 ddev config --web-environment-add SESSION_HANDLER_ID='Ibexa\\Bundle\\Core\\Session\\Handler\\NativeSessionHandler'
 ddev config --web-environment-add SESSION_SAVE_PATH=tcp://redis:6379
+sed -i 's/maxmemory-policy allkeys-lfu/maxmemory-policy volatile-lfu/' .ddev/redis/redis.conf;
 ddev restart
 ddev php bin/console cache:clear
 ```

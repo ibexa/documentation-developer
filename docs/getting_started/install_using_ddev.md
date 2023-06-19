@@ -185,7 +185,7 @@ To reuse a previously existing auth.json instead of setting the authentication a
 The auth.json file can be used for one project or globally for all projects.
 
 For example, an auth.json file can be copied to a DDEV project:
-`cp path-to-an/auth.json .ddev/homeadditions/`
+`cp <path-to-an>/auth.json .ddev/homeadditions/`
 
 For example, the Composer global auth.json can also be the DDEV global auth.json with the help of symbolic link:
 `mkdir -p ~/.ddev/homeadditions/.composer && ln -s ~/.composer/auth.json ~/.ddev/homeadditions/.composer/auth.json`
