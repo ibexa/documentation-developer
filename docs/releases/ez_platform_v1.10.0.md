@@ -3,7 +3,7 @@
 
 **The FAST TRACK v1.10.0 release of eZ Platform and eZ Platform Enterprise Edition is available as of June 28, 2017.**
 
-If you are looking for the Long Term Support (LTS) release, see[ https://ezplatform.com/Blog/Long-Term-Support-is-Here](https://ezplatform.com/Blog/Long-Term-Support-is-Here)
+If you are looking for the Long Term Support (LTS) release, see [https://ezplatform.com/Blog/Long-Term-Support-is-Here](https://ezplatform.com/Blog/Long-Term-Support-is-Here)
 
 ## Notable changes since v1.9.0
 
@@ -102,7 +102,7 @@ Starting with 1.10, a new command `ezplatform:io:migrate-files` has been added
 
 ### Acknowledgements
 
-Kudos to [@emodric](https://twitter.com/emodric) for the Tags bundle, [@pspanja]() for the work Solr index-time boosting, [@plopix](https://twitter.com/Plopix) for the NovaeZSEOBundle, [@](https://twitter.com/jvieilledent)[jvieilledent](https://twitter.com/jvieilledent)[ ](https://twitter.com/jvieilledent)for the initial work on the design engine and to all others who contributed bug reports, feedback and comments that made this release possible.
+Kudos to [@emodric](https://twitter.com/emodric) for the Tags bundle, [@pspanja](https://twitter.com/pspanja) for the work Solr index-time boosting, [@plopix](https://twitter.com/Plopix) for the NovaeZSEOBundle, [@jvieilledent](https://twitter.com/jvieilledent) for the initial work on the design engine and to all others who contributed bug reports, feedback and comments that made this release possible.
 
 ### Installation
 
