@@ -27,6 +27,8 @@ The `ddev config --php-version` option should set the same PHP version as the pr
 
 TODO: Document [`ddev get --remove`](https://ddev.readthedocs.io/en/latest/users/extend/additional-services/#viewing-and-removing-installed-add-ons) when DDEV 1.22 is out https://github.com/ddev/ddev/milestone/54
 
+To run locally an Ibexa Cloud project, you may refer to _[Ibexa Cloud and DDEV](ibexa_cloud_and_ddev.md)_ instead.
+
 ## TODO: Install Varnish
 
 ## Install search engine

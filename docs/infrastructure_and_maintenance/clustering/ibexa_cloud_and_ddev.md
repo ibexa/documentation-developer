@@ -2,13 +2,14 @@
 description: When you want to run locally an Ibexa Cloud project using DDEV.
 ---
 
-# Running Ibexa Cloud using DDEV
+# Ibexa Cloud and DDEV
 
-Two ways are available to run locally a Ibexa Cloud project using DDEV:
+Two ways are available to run locally an Ibexa Cloud project using DDEV:
+
 - [Using the `ddev-platformsh` add-on](#running-ibexa-cloud-using-the-ddev-platformsh-add-on).
 - [Like other existing project, without the add-on](#running-ibexa-cloud-as-an-existing-project)
 
-## Running Ibexa Cloud using the `ddev-platformsh` add-on
+## Simulate Ibexa Cloud using the `ddev-platformsh` add-on
 
 To configure the [`ddev/ddev-platformsh` add-on](https://github.com/ddev/ddev-platformsh), you'll need a [Platform.sh API Token](https://docs.platform.sh/administration/cli/api-tokens.html).
 
@@ -16,9 +17,9 @@ Solr must be disabled from Platform.sh services (`.platform.app.yaml`) due to co
 
 `COMPOSER_AUTH` from PLatform.sh can't be properly used as JSON commas will be badly interpreted by `--web-environment-add` which would see them as multiple variables' separators. But, it must exist for Platform.sh hooks' scripts to work. An auth.json file can be used, see [Using an auth.json](../../getting_started/install_using_ddev.md#using-an-authjson) for more.
 
-This example sequence
+This example sequence will
 
-- download the Ibexa Cloud Platform.sh project from the default environment "production" (replace <project-ID> with the hash of your own project, see [`platform help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment) into a new directory,
+- download the Ibexa Cloud Platform.sh project from the default environment "production" into a new directory (replace `<project-ID>` with the hash of your own project, see [`platform help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment),
 - config a new DDEV project,
 - ignore `.ddev/` directory from Git,
 - set Composer authentication using an already existing `auth.json` file,
@@ -58,15 +59,15 @@ ddev describe
 ddev launch
 ```
 
-## Running Ibexa Cloud as an existing project
+## Simulate Ibexa Cloud without the Platform.sh add-on
 
 TODO: Find a better title
 
 The following example adapt the [manual method to run an already existing project](../../getting_started/install_using_ddev.md#run-an-already-existing-project) to the Platform.sh case:
 
-This example sequence
+This example sequence will
 
-- download the Ibexa Cloud Platform.sh project from the default environment "production" (replace <project-ID> with the hash of your own project, see [`platform help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment) into a new directory,
+- download the Ibexa Cloud Platform.sh project from the default environment "production" into a new directory (replace `<project-ID> with the hash of your own project, see [`platform help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment),
 - config a new DDEV project,
 - ignore `.ddev/` directory from Git,
 - start the DDEV project,
