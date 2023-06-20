@@ -1,10 +1,10 @@
 ---
-description: Configure Elasticsearch to use with Ibexa DXP.
+description: Configure Elasticsearch to use it with Ibexa DXP.
 ---
 
-# Elasticsearch configuration
+# Configure Elasticsearch
 
-## Connections
+## Configure connections
 
 To configure Elasticsearch, first, you need to configure the connections. 
 
@@ -38,7 +38,7 @@ solution from Elastic, as well as configure additional parameters.
 If you want to connect by using a cluster, follow the instructions below in the [Cluster](#cluster) section.
 If you want to use Elasticsearch Cloud, skip to [Elasticsearch Cloud](#elasticsearch-cloud) section.
 
-## Cluster
+## Configure clustering
 
 A cluster consists of nodes.
 You might start with one node and then add more nodes if you need more processing power.
@@ -168,7 +168,7 @@ number of retries might differ.
 
 For more information, see [Set retries](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/configuration.html#_set_retries).
 
-## Elasticsearch Cloud
+## Configure Elasticsearch Cloud
 
 As an alternative to using your own cluster, you can use Elasticsearch Cloud, a commercial SaaS solution.
 With Elasticsearch Cloud you do not have to build or manage your own Elasticsearch cluster.
@@ -184,7 +184,7 @@ providing an alphanumerical ID string that you get from the cloud's user interfa
 
 With the ID set, you must configure authentication to be able to access the remote environment.
 
-## Security
+## Configure security
 
 Elasticsearch instances support `basic` and `api_key` authentication methods.
 You select authentication type and configure the settings under the `authentication` key. By default, authentication is disabled:
@@ -310,7 +310,7 @@ verification: false
 
 For more information, see [Elasticsearch: SSL Encyption](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/security.html#_ssl_encryption_2).
 
-### Enabling debugging
+### Enable debugging
 
 In a staging environment, you can log messages about the status of communication with Elasticsearch.
 You can then use Symfony Profiler to review the logs.
@@ -331,7 +331,7 @@ By default, debugging is disabled. To enable debugging, you can toggle either of
 
     Make sure that you disable debugging in a production environment.
 
-## Field Type mapping templates
+## Define Field Type mapping templates
 
 Before you can re-index the [[= product_name =]] data, so that Elasticsearch can search through its contents, you must define an index template.
 Templates instruct Elasticsearch to recognize [[= product_name =]] Fields as specific data types, based on, for example, a field name.
@@ -339,7 +339,7 @@ They help you prevent Elasticsearch from using the dynamic field mapping feature
 You can create several Field Type mapping templates for each index, for example, to define settings that are specific for different languages.
 When you establish a relationship between a field mapping template and a connection, you can apply several templates, too.
 
-### Defining a template
+### Define a template
 
 To define a field mapping template, you must provide settings under the `index_templates` key.
 The structure of the template is as follows:
@@ -416,7 +416,7 @@ For more information about mappings, see [Elasticsearch documentation](https://w
     For an example of default configuration with a list of searchable fields.
     To see the default configuration, go to `vendor/ibexa/elasticsearch/src/bundle/Resources/config/` and open the `default-config.yaml` file.
 
-### Fine-tuning the search results
+### Fine-tune the search results
 
 Your search results can be adjusted by configuring additional parameters.
 For a list of available mapping parameters and their usage, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/mapping-params.html).
@@ -475,7 +475,7 @@ ibexa_elasticsearch:
                 # ...
 ```
 
-## Binding templates with connections
+## Bind templates with connections
 
 Once you have created the field mapping template(s), you must establish a relationship between the templates and a connection. You do this by adding the "index_templates" key to a connection definition.
 
@@ -492,7 +492,7 @@ If you have several index templates, you can apply different combinations of tem
 
 For more information about how Elasticsearch handles settings and mappings from multiple templates that match the same index, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/indices-templates-v1.html#multiple-templates-v1).
 
-# Extending Elasticsearch
+# Extend Elasticsearch
 
 To learn how you can create document field mappers, custom Search Criteria, 
-custom Sort Clauses and Aggregations, see [Search extensibility](create_custom_search_criterion.md).
+custom Sort Clauses and Aggregations, see [Create custom Search Criterion](create_custom_search_criterion.md).

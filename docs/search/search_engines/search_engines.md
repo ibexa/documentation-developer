@@ -1,10 +1,10 @@
 ---
-description: Ibexa DXP enables you to use Solr or Elasticsearch search engines, in addition to the built-in legacy search engine which has limited functionalities.
+description: Learn about different search engines that are supported by Ibexa DXP.
 ---
 
 # Search engines
 
-[[= product_name =]] enables you to use search engines.
+[[= product_name =]] enables you to use different search engines.
 Currently, they exist in their own [[= product_name =]] Bundles:
 
 1.  [Legacy search engine](legacy_search_overview.md) - a database-powered search engine for basic needs.

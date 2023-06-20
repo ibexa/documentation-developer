@@ -1,8 +1,8 @@
 ---
-description: Configure Legacy search engine to use with Ibexa DXP.
+description: Configure Legacy search engine to use it with Ibexa DXP.
 ---
 
-# Repository configuration with Legacy search engine
+# Configure repository with Legacy search engine
 
 Search can be configured independently from storage, and the following configuration example shows both the default values, 
 and how you configure legacy as the search engine:

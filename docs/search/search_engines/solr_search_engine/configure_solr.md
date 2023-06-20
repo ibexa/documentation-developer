@@ -1,10 +1,10 @@
 ---
-description: Configure Solr search engine to use with Ibexa DXP.
+description: Configure Solr search engine to use it with Ibexa DXP.
 ---
 
-# Solr configuration
+# Configure Solr
 
-## Boost configuration
+## Configure boosting
 
 !!! caution "Index time boosting"
 
@@ -123,7 +123,7 @@ The configuration above will result in the following boosting (Content Type / Fi
     - `folder/name: 20.0`
     - `folder/description: 10.0`
 
-## Indexing related objects
+## Index related objects
 
 You can use indexation of related objects to search through text of related content.
 Indexing is disabled by default.
@@ -143,13 +143,13 @@ ibexa_solr:
                     article: 2
 ```
 
-## Configuring Solr Replication (master/slave)
+## Configure Solr Replication (master/slave)
 
 !!! note
 
     The configuration below has been tested on Solr 7.7.
 
-### Configuring Master for replication
+### Configure Master for replication
 
 First you need to change the core configuration in `solrconfig.xml` (for example `*/opt/solr/server/ibexa/collection1/conf/solrconfig.xml`).
 You can copy and paste the code below before any other `requestHandler` section.
@@ -176,7 +176,7 @@ Then restart the master with:
 sudo su - solr -c "/opt/solr/bin/solr restart"
 ```
 
-### Configuring Slave for replication
+### Configure Slave for replication
 
 You have to edit the same file on the slave server, and use the code below:
 
@@ -224,7 +224,7 @@ Connect to the Solr slave interface (http://localhost:8983/solr), go to your cor
 
 ![Solr Slave](solr.png)
 
-# Configuring HTTP Client for Solr queries
+# Configure HTTP Client for Solr queries
 
 Ibexa Solr Bundle uses Symfony HTTP Client to fetch and update Solr index.
 You can configure timeout and maximum number of retries for that client using Solr Bundle's Semantic configuration:
@@ -238,7 +238,7 @@ ibexa_solr:
         max_retries: 5
 ```
 
-# Extending Solr
+# Extend Solr
 
 To learn how you can create document field mappers, custom Search Criteria, 
 custom Sort Clauses and Aggregations, see [Search extensibility](create_custom_search_criterion.md).

@@ -403,16 +403,15 @@ nav:
             - Search engines: search/search_engines/search_engines.md
             - Elasticsearch search engine: 
                 - Overview: search/search_engines/elastic_search/elastic_search_overview.md
-                - Installation: search/search_engines/elastic_search/elastic_search_installation.md
-                - Configuration: search/search_engines/elastic_search/elastic_search_configuration.md
+                - Install Elasticsearch: search/search_engines/elastic_search/install_elastic_search.md
+                - Configure Elasticsearch: search/search_engines/elastic_search/configure_elastic_search.md
             - Solr search engine:
                 - Overview: search/search_engines/solr_search_engine/solr_overview.md
-                - Installation: search/search_engines/solr_search_engine/solr_installation.md
-                - Configuration: search/search_engines/solr_search_engine/solr_configuration.md
+                - Install Solr: search/search_engines/solr_search_engine/install_solr.md
+                - Configure Solr: search/search_engines/solr_search_engine/configure_solr.md
             - Legacy search engine: 
                 - Overview: search/search_engines/legacy_search_engine/legacy_search_overview.md
-                - Repository configuration: search/search_engines/legacy_search_engine/legacy_repository_configuration.md
-        - Reindex search: search/search_reindexing.md
+                - Configure repository: search/search_engines/legacy_search_engine/configure_repository.md
         - Search Criteria and Sort Clauses: search/search_criteria_and_sort_clauses.md
         - Search Criteria reference:
             - General Search Criteria:
@@ -639,6 +638,7 @@ nav:
             - Index custom Elasticsearch data: search/extensibility/index_custom_elasticsearch_data.md
             - Customize Elasticsearch index structure: search/extensibility/customize_elasticsearch_index_structure.md
             - Manipulate Elasticsearch query: search/extensibility/manipulate_elasticsearch_query.md
+        - Reindex search: search/reindex_search.md
     - Infrastructure and maintenance:
         - Infrastructure and maintenance: infrastructure_and_maintenance/infrastructure_and_maintenance.md
         - Request lifecycle: infrastructure_and_maintenance/request_lifecycle.md

@@ -1,15 +1,15 @@
 ---
-description: Install Solr search engine to use with Ibexa DXP.
+description: Install Solr search engine to use it with Ibexa DXP.
 ---
 
-# Solr search engine installation
+# Install Solr search engine
 
 ## Configure and start Solr
 
 The example presents a configuration with a single core. 
 For configuring Solr in other ways, including examples, see [Solr Cores and `solr.xml`](https://cwiki.apache.org/confluence/display/solr/Solr+Cores+and+solr.xml) and [core administration](https://wiki.apache.org/solr/CoreAdmin).
 
-### Download and configure
+### Download Solr files
 
 !!! note "Solr versions"
 
@@ -52,7 +52,7 @@ SolrCloud is a cluster of Solr servers. It enables you to:
 
 To set SolrCloud up follow [SolrCloud reference guide.](https://lucene.apache.org/solr/guide/7_7/solrcloud.html)
 
-### Further configuration
+### Continue Solr configuration
 
 The bundle does not commit Solr index changes directly on Repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests.
 
@@ -72,7 +72,7 @@ This setting is **required** if you want to see the changes after publish. It is
 </autoSoftCommit>
 ```
 
-### Generating configuration
+### Generate Solr configuration automatically
 
 The command line tool `bin/generate-solr-config.sh` generates Solr 7 configuration automatically.
 It can be used for deploying to Ibexa Cloud (Platform.sh) and on-premise installs.

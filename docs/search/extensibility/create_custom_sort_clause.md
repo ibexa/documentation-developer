@@ -2,7 +2,7 @@
 description: Create custom Sort Clause to use with Solr and Elasticsearch search engines.
 ---
 
-# Create custom Search Criterion
+# Create custom Sort Clause
 
 To create a custom Sort Clause, do the following.
 
