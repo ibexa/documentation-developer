@@ -412,173 +412,192 @@ nav:
             - Legacy search engine: 
                 - Overview: search/search_engines/legacy_search_engine/legacy_search_overview.md
                 - Repository configuration: search/search_engines/legacy_search_engine/legacy_repository_configuration.md
+        - Reindex search: search/search_reindexing.md
         - Search Criteria and Sort Clauses: search/search_criteria_and_sort_clauses.md
-        - Search API: search/search_api.md
         - Search Criteria reference:
-            - Search Criteria reference: search/criteria_reference/search_criteria_reference.md
-            - Ancestor: search/criteria_reference/ancestor_criterion.md
-            - ContentId: search/criteria_reference/contentid_criterion.md
-            - ContentTypeGroupId: search/criteria_reference/contenttypegroupid_criterion.md
-            - ContentTypeId: search/criteria_reference/contenttypeid_criterion.md
-            - ContentTypeIdentifier: search/criteria_reference/contenttypeidentifier_criterion.md
-            - CurrencyCode: search/criteria_reference/currencycode_criterion.md
-            - CustomerGroupId: search/criteria_reference/customergroupid_criterion.md
-            - DateMetadata: search/criteria_reference/datemetadata_criterion.md
-            - Depth: search/criteria_reference/depth_criterion.md
-            - Field: search/criteria_reference/field_criterion.md
-            - FieldRelation: search/criteria_reference/fieldrelation_criterion.md
-            - FullText: search/criteria_reference/fulltext_criterion.md
-            - IsCurrencyEnabled: search/criteria_reference/iscurrencyenabled_criterion.md
-            - IsFieldEmpty: search/criteria_reference/isfieldempty_criterion.md
-            - IsMainLocation: search/criteria_reference/ismainlocation_criterion.md
-            - IsProductBased: search/criteria_reference/isproductbased_criterion.md
-            - IsUserBased: search/criteria_reference/isuserbased_criterion.md
-            - IsUserEnabled: search/criteria_reference/isuserenabled_criterion.md
-            - LanguageCode: search/criteria_reference/languagecode_criterion.md
-            - LocationId: search/criteria_reference/locationid_criterion.md
-            - LocationRemoteId: search/criteria_reference/locationremoteid_criterion.md
-            - MapLocationDistance: search/criteria_reference/maplocationdistance_criterion.md
-            - MatchAll: search/criteria_reference/matchall_criterion.md
-            - MatchNone: search/criteria_reference/matchnone_criterion.md
-            - ObjectStateId: search/criteria_reference/objectstateid_criterion.md
-            - ObjectStateIdentifier: search/criteria_reference/objectstateidentifier_criterion.md
-            - ParentLocationId: search/criteria_reference/parentlocationid_criterion.md
-            - Priority: search/criteria_reference/priority_criterion.md
-            - RemoteId: search/criteria_reference/remoteid_criterion.md
-            - SectionId: search/criteria_reference/sectionid_criterion.md
-            - SectionIdentifier: search/criteria_reference/sectionidentifier_criterion.md
-            - Sibling: search/criteria_reference/sibling_criterion.md
-            - Subtree: search/criteria_reference/subtree_criterion.md
-            - TaxonomyEntryID: search/criteria_reference/taxonomy_entry_id.md
-            - UserEmail: search/criteria_reference/useremail_criterion.md
-            - UserId: search/criteria_reference/userid_criterion.md
-            - UserLogin: search/criteria_reference/userlogin_criterion.md
-            - UserMetadata: search/criteria_reference/usermetadata_criterion.md
-            - Visibility: search/criteria_reference/visibility_criterion.md
-            - LogicalAnd Criterion: search/criteria_reference/logicaland_criterion.md
-            - LogicalNot Criterion: search/criteria_reference/logicalnot_criterion.md
-            - LogicalOr Criterion: search/criteria_reference/logicalor_criterion.md
-        - Product Search Criteria:
-            - Product Search Criteria: search/criteria_reference/product_search_criteria.md
-            - BasePrice: search/criteria_reference/baseprice_criterion.md
-            - CheckboxAttribute: search/criteria_reference/checkboxattribute_criterion.md
-            - ColorAttribute: search/criteria_reference/colorattribute_criterion.md
-            - CreatedAt: search/criteria_reference/createdat_criterion.md
-            - CreatedAtRange: search/criteria_reference/createdatrange_criterion.md
-            - CustomPrice: search/criteria_reference/customprice_criterion.md
-            - FloatAttribute: search/criteria_reference/floatattribute_criterion.md
-            - IntegerAttribute: search/criteria_reference/integerattribute_criterion.md
-            - ProductAvailability: search/criteria_reference/productavailability_criterion.md
-            - ProductCategory: search/criteria_reference/productcategory_criterion.md
-            - ProductCode: search/criteria_reference/productcode_criterion.md
-            - ProductName: search/criteria_reference/productname_criterion.md
-            - ProductType: search/criteria_reference/producttype_criterion.md
-            - RangeMeasurementAttributeMinimum: search/criteria_reference/rangemeasurementattributeminimum_criterion.md
-            - RangeMeasurementAttributeMaximum: search/criteria_reference/rangemeasurementattributemaximum_criterion.md
-            - SimpleMeasurementAttribute: search/criteria_reference/simplemeasurementattribute_criterion.md
-            - SelectionAttribute: search/criteria_reference/selectionattribute_criterion.md
-        - Order Search Criteria: 
-            - Order Search Criteria: search/criteria_reference/order_search_criteria.md
-            - CompanyName: search/criteria_reference/order_company_name_criterion.md
-            - CreatedAt: search/criteria_reference/order_created_criterion.md
-            - CurrencyCode: search/criteria_reference/order_currency_code_criterion.md
-            - CustomerName: search/criteria_reference/order_customer_name_criterion.md
-            - Identifier: search/criteria_reference/order_identifier_criterion.md
-            - IsCompanyAssociated: search/criteria_reference/order_company_associated_criterion.md
-            - Price: search/criteria_reference/order_price_criterion.md
-            - Source: search/criteria_reference/order_source_criterion.md
-            - Status: search/criteria_reference/order_status_criterion.md
-        - Payment Search Criteria: 
-            - Payment Search Criteria: search/criteria_reference/payment_search_criteria.md
-            - CreatedAt: search/criteria_reference/payment_createdat_criterion.md
-            - Currency: search/criteria_reference/payment_currency_criterion.md
-            - Id: search/criteria_reference/payment_id_criterion.md
-            - Identifier: search/criteria_reference/payment_identifier_criterion.md
-            - LogicalAnd: search/criteria_reference/payment_logicaland_criterion.md
-            - LogicalOr: search/criteria_reference/payment_logicalor_criterion.md
-            - Order: search/criteria_reference/payment_order_criterion.md
-            - PaymentMethod: search/criteria_reference/payment_payment_method_criterion.md
-            - Status: search/criteria_reference/payment_status_criterion.md
-            - UpdatedAt: search/criteria_reference/payment_updatedat_criterion.md
-        - Payment Method Search Criteria: 
-            - Payment Method Search Criteria: search/criteria_reference/payment_method_search_criteria.md
-            - CreatedAt: search/criteria_reference/payment_method_createdat_criterion.md
-            - Enabled: search/criteria_reference/payment_method_enabled_criterion.md
-            - Id: search/criteria_reference/payment_method_id_criterion.md
-            - Identifier: search/criteria_reference/payment_method_identifier_criterion.md
-            - LogicalAnd: search/criteria_reference/payment_method_logicaland_criterion.md
-            - LogicalOr: search/criteria_reference/payment_method_logicalor_criterion.md
-            - Type: search/criteria_reference/payment_method_type_criterion.md
-            - UpdatedAt: search/criteria_reference/payment_method_updatedat_criterion.md
-        - Shipment Search Criteria:
-            - Shipment Search Criteria: search/criteria_reference/shipment_search_criteria.md
-            - CreatedAt: search/criteria_reference/shipment_createdat_criterion.md
-            - Currency: search/criteria_reference/shipment_currency_criterion.md
-            - Id: search/criteria_reference/shipment_id_criterion.md
-            - Identifier: search/criteria_reference/shipment_identifier_criterion.md
-            - LogicalAnd: search/criteria_reference/shipment_logicaland_criterion.md
-            - LogicalOr: search/criteria_reference/shipment_logicalor_criterion.md
-            - ShippingMethod: search/criteria_reference/shipment_shipping_method_criterion.md
-            - StatusCriterion: search/criteria_reference/shipment_status_criterion.md
-            - UpdatedAtCriterion: search/criteria_reference/shipment_updatedat_criterion.md
+            - General Search Criteria:
+                - General Search Criteria reference: search/criteria_reference/search_criteria_reference.md
+                - Ancestor: search/criteria_reference/ancestor_criterion.md
+                - ContentId: search/criteria_reference/contentid_criterion.md
+                - ContentTypeGroupId: search/criteria_reference/contenttypegroupid_criterion.md
+                - ContentTypeId: search/criteria_reference/contenttypeid_criterion.md
+                - ContentTypeIdentifier: search/criteria_reference/contenttypeidentifier_criterion.md
+                - CurrencyCode: search/criteria_reference/currencycode_criterion.md
+                - CustomerGroupId: search/criteria_reference/customergroupid_criterion.md
+                - DateMetadata: search/criteria_reference/datemetadata_criterion.md
+                - Depth: search/criteria_reference/depth_criterion.md
+                - Field: search/criteria_reference/field_criterion.md
+                - FieldRelation: search/criteria_reference/fieldrelation_criterion.md
+                - FullText: search/criteria_reference/fulltext_criterion.md
+                - IsCurrencyEnabled: search/criteria_reference/iscurrencyenabled_criterion.md
+                - IsFieldEmpty: search/criteria_reference/isfieldempty_criterion.md
+                - IsMainLocation: search/criteria_reference/ismainlocation_criterion.md
+                - IsProductBased: search/criteria_reference/isproductbased_criterion.md
+                - IsUserBased: search/criteria_reference/isuserbased_criterion.md
+                - IsUserEnabled: search/criteria_reference/isuserenabled_criterion.md
+                - LanguageCode: search/criteria_reference/languagecode_criterion.md
+                - LocationId: search/criteria_reference/locationid_criterion.md
+                - LocationRemoteId: search/criteria_reference/locationremoteid_criterion.md
+                - MapLocationDistance: search/criteria_reference/maplocationdistance_criterion.md
+                - MatchAll: search/criteria_reference/matchall_criterion.md
+                - MatchNone: search/criteria_reference/matchnone_criterion.md
+                - ObjectStateId: search/criteria_reference/objectstateid_criterion.md
+                - ObjectStateIdentifier: search/criteria_reference/objectstateidentifier_criterion.md
+                - ParentLocationId: search/criteria_reference/parentlocationid_criterion.md
+                - Priority: search/criteria_reference/priority_criterion.md
+                - RemoteId: search/criteria_reference/remoteid_criterion.md
+                - SectionId: search/criteria_reference/sectionid_criterion.md
+                - SectionIdentifier: search/criteria_reference/sectionidentifier_criterion.md
+                - Sibling: search/criteria_reference/sibling_criterion.md
+                - Subtree: search/criteria_reference/subtree_criterion.md
+                - TaxonomyEntryID: search/criteria_reference/taxonomy_entry_id.md
+                - UserEmail: search/criteria_reference/useremail_criterion.md
+                - UserId: search/criteria_reference/userid_criterion.md
+                - UserLogin: search/criteria_reference/userlogin_criterion.md
+                - UserMetadata: search/criteria_reference/usermetadata_criterion.md
+                - Visibility: search/criteria_reference/visibility_criterion.md
+                - LogicalAnd Criterion: search/criteria_reference/logicaland_criterion.md
+                - LogicalNot Criterion: search/criteria_reference/logicalnot_criterion.md
+                - LogicalOr Criterion: search/criteria_reference/logicalor_criterion.md
+            - Product Search Criteria:
+                - Product Search Criteria: search/criteria_reference/product_search_criteria.md
+                - BasePrice: search/criteria_reference/baseprice_criterion.md
+                - CheckboxAttribute: search/criteria_reference/checkboxattribute_criterion.md
+                - ColorAttribute: search/criteria_reference/colorattribute_criterion.md
+                - CreatedAt: search/criteria_reference/createdat_criterion.md
+                - CreatedAtRange: search/criteria_reference/createdatrange_criterion.md
+                - CustomPrice: search/criteria_reference/customprice_criterion.md
+                - FloatAttribute: search/criteria_reference/floatattribute_criterion.md
+                - IntegerAttribute: search/criteria_reference/integerattribute_criterion.md
+                - ProductAvailability: search/criteria_reference/productavailability_criterion.md
+                - ProductCategory: search/criteria_reference/productcategory_criterion.md
+                - ProductCode: search/criteria_reference/productcode_criterion.md
+                - ProductName: search/criteria_reference/productname_criterion.md
+                - ProductType: search/criteria_reference/producttype_criterion.md
+                - RangeMeasurementAttributeMinimum: search/criteria_reference/rangemeasurementattributeminimum_criterion.md
+                - RangeMeasurementAttributeMaximum: search/criteria_reference/rangemeasurementattributemaximum_criterion.md
+                - SimpleMeasurementAttribute: search/criteria_reference/simplemeasurementattribute_criterion.md
+                - SelectionAttribute: search/criteria_reference/selectionattribute_criterion.md
+            - Order Search Criteria: 
+                - Order Search Criteria: search/criteria_reference/order_search_criteria.md
+                - CompanyName: search/criteria_reference/order_company_name_criterion.md
+                - CreatedAt: search/criteria_reference/order_created_criterion.md
+                - CurrencyCode: search/criteria_reference/order_currency_code_criterion.md
+                - CustomerName: search/criteria_reference/order_customer_name_criterion.md
+                - Identifier: search/criteria_reference/order_identifier_criterion.md
+                - IsCompanyAssociated: search/criteria_reference/order_company_associated_criterion.md
+                - Price: search/criteria_reference/order_price_criterion.md
+                - Source: search/criteria_reference/order_source_criterion.md
+                - Status: search/criteria_reference/order_status_criterion.md
+            - Payment Search Criteria: 
+                - Payment Search Criteria: search/criteria_reference/payment_search_criteria.md
+                - CreatedAt: search/criteria_reference/payment_createdat_criterion.md
+                - Currency: search/criteria_reference/payment_currency_criterion.md
+                - Id: search/criteria_reference/payment_id_criterion.md
+                - Identifier: search/criteria_reference/payment_identifier_criterion.md
+                - LogicalAnd: search/criteria_reference/payment_logicaland_criterion.md
+                - LogicalOr: search/criteria_reference/payment_logicalor_criterion.md
+                - Order: search/criteria_reference/payment_order_criterion.md
+                - PaymentMethod: search/criteria_reference/payment_payment_method_criterion.md
+                - Status: search/criteria_reference/payment_status_criterion.md
+                - UpdatedAt: search/criteria_reference/payment_updatedat_criterion.md
+            - Payment Method Search Criteria: 
+                - Payment Method Search Criteria: search/criteria_reference/payment_method_search_criteria.md
+                - CreatedAt: search/criteria_reference/payment_method_createdat_criterion.md
+                - Enabled: search/criteria_reference/payment_method_enabled_criterion.md
+                - Id: search/criteria_reference/payment_method_id_criterion.md
+                - Identifier: search/criteria_reference/payment_method_identifier_criterion.md
+                - LogicalAnd: search/criteria_reference/payment_method_logicaland_criterion.md
+                - LogicalOr: search/criteria_reference/payment_method_logicalor_criterion.md
+                - Type: search/criteria_reference/payment_method_type_criterion.md
+                - UpdatedAt: search/criteria_reference/payment_method_updatedat_criterion.md
+            - Shipment Search Criteria:
+                - Shipment Search Criteria: search/criteria_reference/shipment_search_criteria.md
+                - CreatedAt: search/criteria_reference/shipment_createdat_criterion.md
+                - Currency: search/criteria_reference/shipment_currency_criterion.md
+                - Id: search/criteria_reference/shipment_id_criterion.md
+                - Identifier: search/criteria_reference/shipment_identifier_criterion.md
+                - LogicalAnd: search/criteria_reference/shipment_logicaland_criterion.md
+                - LogicalOr: search/criteria_reference/shipment_logicalor_criterion.md
+                - ShippingMethod: search/criteria_reference/shipment_shipping_method_criterion.md
+                - StatusCriterion: search/criteria_reference/shipment_status_criterion.md
+                - UpdatedAtCriterion: search/criteria_reference/shipment_updatedat_criterion.md
+            - URL Search Criteria:
+                - URL Search Criteria: search/url_search_reference/url_search_criteria.md
+                - MatchAll Criterion: search/url_search_reference/matchall_url_criterion.md
+                - MatchNone Criterion: search/url_search_reference/matchnone_url_criterion.md
+                - Pattern Criterion: search/url_search_reference/pattern_url_criterion.md
+                - SectionId Criterion: search/url_search_reference/sectionid_url_criterion.md
+                - SectionIdentifier Criterion: search/url_search_reference/sectionidentifier_url_criterion.md
+                - Validity Criterion: search/url_search_reference/validity_url_criterion.md
+                - VisibleOnly Criterion: search/url_search_reference/visibleonly_url_criterion.md
+                - LogicalAnd Criterion: search/url_search_reference/logicaland_url_criterion.md
+                - LogicalNot Criterion: search/url_search_reference/logicalnot_url_criterion.md
+                - LogicalOr Criterion: search/url_search_reference/logicalor_url_criterion.md
         - Sort Clause reference:
-            - Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
-            - ContentId: search/sort_clause_reference/contentid_sort_clause.md
-            - ContentName: search/sort_clause_reference/contentname_sort_clause.md
-            - ContentTranslatedName: search/sort_clause_reference/contenttranslatedname_sort_clause.md
-            - ContentTypeName: search/sort_clause_reference/contenttypename_sort_clause.md
-            - CustomField: search/sort_clause_reference/customfield_sort_clause.md
-            - DateModified: search/sort_clause_reference/datemodified_sort_clause.md
-            - DatePublished: search/sort_clause_reference/datepublished_sort_clause.md
-            - DateTrashed: search/sort_clause_reference/datetrashed_sort_clause.md
-            - Depth: search/sort_clause_reference/depth_sort_clause.md
-            - Field: search/sort_clause_reference/field_sort_clause.md
-            - Id: search/sort_clause_reference/id_sort_clause.md
-            - IsMainLocation: search/sort_clause_reference/ismainlocation_sort_clause.md
-            - MapLocationDistance: search/sort_clause_reference/maplocationdistance_sort_clause.md
-            - Path: search/sort_clause_reference/path_sort_clause.md
-            - Priority: search/sort_clause_reference/priority_sort_clause.md
-            - Random: search/sort_clause_reference/random_sort_clause.md
-            - Score: search/sort_clause_reference/score_sort_clause.md
-            - SectionIdentifier: search/sort_clause_reference/sectionidentifier_sort_clause.md
-            - SectionName: search/sort_clause_reference/sectionname_sort_clause.md
-            - UserLogin: search/sort_clause_reference/userlogin_sort_clause.md
-            - Visibility: search/sort_clause_reference/visibility_sort_clause.md
-        - Product Sort Clauses:
-            - Product Sort Clauses: search/sort_clause_reference/product_sort_clauses.md
-            - BasePrice: search/sort_clause_reference/baseprice_sort_clause.md
-            - CreatedAt: search/sort_clause_reference/createdat_sort_clause.md
-            - CustomPrice: search/sort_clause_reference/customprice_sort_clause.md
-            - ProductAvailability: search/sort_clause_reference/productavailability_sort_clause.md
-            - ProductCode: search/sort_clause_reference/productcode_sort_clause.md
-            - ProductName: search/sort_clause_reference/productname_sort_clause.md
-        - Order Sort Clauses:
-            - Order Sort Clauses: search/sort_clause_reference/order_sort_clauses.md
-            - Id: search/sort_clause_reference/order_id_sort_clause.md
-            - Created: search/sort_clause_reference/order_created_sort_clause.md
-            - Updated: search/sort_clause_reference/order_updated_sort_clause.md
-            - Status: search/sort_clause_reference/order_status_sort_clause.md
-        - Payment Sort Clauses:
-            - Payment Sort Clauses: search/sort_clause_reference/payment_sort_clauses.md
-            - Id: search/sort_clause_reference/payment_id_sort_clause.md
-            - Identifier: search/sort_clause_reference/payment_identifier_sort_clause.md
-            - CreatedAt: search/sort_clause_reference/payment_createdat_sort_clause.md
-            - UpdatedAt: search/sort_clause_reference/payment_updatedat_sort_clause.md
-            - Status: search/sort_clause_reference/payment_status_sort_clause.md
-        - Payment Method Sort Clauses:
-            - Payment Method Sort Clauses: search/sort_clause_reference/payment_method_sort_clauses.md
-            - CreatedAt: search/sort_clause_reference/payment_method_createdat_sort_clause.md
-            - Enabled: search/sort_clause_reference/payment_method_enabled_sort_clause.md
-            - Id: search/sort_clause_reference/payment_method_id_sort_clause.md
-            - Identifier: search/sort_clause_reference/payment_method_identifier_sort_clause.md
-            - UpdatedAt: search/sort_clause_reference/payment_method_updatedat_sort_clause.md
-        - Shipment Sort Clauses:
-            - Shipment Sort Clauses: search/sort_clause_reference/shipment_sort_clauses.md
-            - Id: search/sort_clause_reference/shipment_id_sort_clause.md
-            - Identifier: search/sort_clause_reference/shipment_identifier_sort_clause.md
-            - CreatedAt: search/sort_clause_reference/shipment_createdat_sort_clause.md
-            - UpdatedAt: search/sort_clause_reference/shipment_updatedat_sort_clause.md
-            - Status: search/sort_clause_reference/shipment_status_sort_clause.md
+            - General Sort Clauses:
+                    - General Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
+                    - ContentId: search/sort_clause_reference/contentid_sort_clause.md
+                    - ContentName: search/sort_clause_reference/contentname_sort_clause.md
+                    - ContentTranslatedName: search/sort_clause_reference/contenttranslatedname_sort_clause.md
+                    - ContentTypeName: search/sort_clause_reference/contenttypename_sort_clause.md
+                    - CustomField: search/sort_clause_reference/customfield_sort_clause.md
+                    - DateModified: search/sort_clause_reference/datemodified_sort_clause.md
+                    - DatePublished: search/sort_clause_reference/datepublished_sort_clause.md
+                    - DateTrashed: search/sort_clause_reference/datetrashed_sort_clause.md
+                    - Depth: search/sort_clause_reference/depth_sort_clause.md
+                    - Field: search/sort_clause_reference/field_sort_clause.md
+                    - Id: search/sort_clause_reference/id_sort_clause.md
+                    - IsMainLocation: search/sort_clause_reference/ismainlocation_sort_clause.md
+                    - MapLocationDistance: search/sort_clause_reference/maplocationdistance_sort_clause.md
+                    - Path: search/sort_clause_reference/path_sort_clause.md
+                    - Priority: search/sort_clause_reference/priority_sort_clause.md
+                    - Random: search/sort_clause_reference/random_sort_clause.md
+                    - Score: search/sort_clause_reference/score_sort_clause.md
+                    - SectionIdentifier: search/sort_clause_reference/sectionidentifier_sort_clause.md
+                    - SectionName: search/sort_clause_reference/sectionname_sort_clause.md
+                    - UserLogin: search/sort_clause_reference/userlogin_sort_clause.md
+                    - Visibility: search/sort_clause_reference/visibility_sort_clause.md
+            - Product Sort Clauses:
+                - Product Sort Clauses: search/sort_clause_reference/product_sort_clauses.md
+                - BasePrice: search/sort_clause_reference/baseprice_sort_clause.md
+                - CreatedAt: search/sort_clause_reference/createdat_sort_clause.md
+                - CustomPrice: search/sort_clause_reference/customprice_sort_clause.md
+                - ProductAvailability: search/sort_clause_reference/productavailability_sort_clause.md
+                - ProductCode: search/sort_clause_reference/productcode_sort_clause.md
+                - ProductName: search/sort_clause_reference/productname_sort_clause.md
+            - Order Sort Clauses:
+                - Order Sort Clauses: search/sort_clause_reference/order_sort_clauses.md
+                - Id: search/sort_clause_reference/order_id_sort_clause.md
+                - Created: search/sort_clause_reference/order_created_sort_clause.md
+                - Updated: search/sort_clause_reference/order_updated_sort_clause.md
+                - Status: search/sort_clause_reference/order_status_sort_clause.md
+            - Payment Sort Clauses:
+                - Payment Sort Clauses: search/sort_clause_reference/payment_sort_clauses.md
+                - Id: search/sort_clause_reference/payment_id_sort_clause.md
+                - Identifier: search/sort_clause_reference/payment_identifier_sort_clause.md
+                - CreatedAt: search/sort_clause_reference/payment_createdat_sort_clause.md
+                - UpdatedAt: search/sort_clause_reference/payment_updatedat_sort_clause.md
+                - Status: search/sort_clause_reference/payment_status_sort_clause.md
+            - Payment Method Sort Clauses:
+                - Payment Method Sort Clauses: search/sort_clause_reference/payment_method_sort_clauses.md
+                - CreatedAt: search/sort_clause_reference/payment_method_createdat_sort_clause.md
+                - Enabled: search/sort_clause_reference/payment_method_enabled_sort_clause.md
+                - Id: search/sort_clause_reference/payment_method_id_sort_clause.md
+                - Identifier: search/sort_clause_reference/payment_method_identifier_sort_clause.md
+                - UpdatedAt: search/sort_clause_reference/payment_method_updatedat_sort_clause.md
+            - Shipment Sort Clauses:
+                - Shipment Sort Clauses: search/sort_clause_reference/shipment_sort_clauses.md
+                - Id: search/sort_clause_reference/shipment_id_sort_clause.md
+                - Identifier: search/sort_clause_reference/shipment_identifier_sort_clause.md
+                - CreatedAt: search/sort_clause_reference/shipment_createdat_sort_clause.md
+                - UpdatedAt: search/sort_clause_reference/shipment_updatedat_sort_clause.md
+                - Status: search/sort_clause_reference/shipment_status_sort_clause.md
+            - URL Sort Clauses:
+                - URL Sort Clauses: search/url_search_reference/url_search_sort_clauses.md
+                - Id Sort Clause: search/url_search_reference/id_url_sort_clause.md
+                - Url Sort Clause: search/url_search_reference/url_url_sort_clause.md
+        - Search API: search/search_api.md
         - Aggregation reference:
             - Aggregation reference: search/aggregation_reference/aggregation_reference.md
             - ContentTypeTermAggregation: search/aggregation_reference/contenttypeterm_aggregation.md
@@ -611,22 +630,7 @@ nav:
             - SelectionTermAggregation: search/aggregation_reference/selectionterm_aggregation.md
             - TaxonomyEntryIdAggregation: search/aggregation_reference/taxonomyentryid_aggregation.md
             - TimeRangeAggregation: search/aggregation_reference/timerange_aggregation.md
-        - URL search reference:
-            - URL search reference: search/url_search_reference/url_search_reference.md
-            - Id Sort Clause: search/url_search_reference/id_url_sort_clause.md
-            - Url Sort Clause: search/url_search_reference/url_url_sort_clause.md
-            - MatchAll Criterion: search/url_search_reference/matchall_url_criterion.md
-            - MatchNone Criterion: search/url_search_reference/matchnone_url_criterion.md
-            - Pattern Criterion: search/url_search_reference/pattern_url_criterion.md
-            - SectionId Criterion: search/url_search_reference/sectionid_url_criterion.md
-            - SectionIdentifier Criterion: search/url_search_reference/sectionidentifier_url_criterion.md
-            - Validity Criterion: search/url_search_reference/validity_url_criterion.md
-            - VisibleOnly Criterion: search/url_search_reference/visibleonly_url_criterion.md
-            - LogicalAnd Criterion: search/url_search_reference/logicaland_url_criterion.md
-            - LogicalNot Criterion: search/url_search_reference/logicalnot_url_criterion.md
-            - LogicalOr Criterion: search/url_search_reference/logicalor_url_criterion.md
         - Search in trash reference: search/search_in_trash_reference.md
-        - Search reindexing: search/search_reindexing.md
         - Extend search:
             - Create custom Search Criterion: search/extensibility/create_custom_search_criterion.md
             - Create custom Sort Clause: search/extensibility/create_custom_sort_clause.md
