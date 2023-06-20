@@ -13,7 +13,7 @@ Two ways are available to run locally an Ibexa Cloud project using DDEV:
 
 To configure the [`ddev/ddev-platformsh` add-on](https://github.com/ddev/ddev-platformsh), you'll need a [Platform.sh API Token](https://docs.platform.sh/administration/cli/api-tokens.html).
 
-Solr must be disabled from Platform.sh services (`.platform.app.yaml`) due to compatibility issues. NodeJS and NVM installations must be disabled from Platform.sh hooks as well, it can be done afterward from hooks copy in `.ddev/config.platformsh.yaml`.
+During add-on installation, Solr must be disabled from Platform.sh services (`.platform.app.yaml`) due to compatibility issues. NodeJS and NVM installations must be disabled from Platform.sh hooks as well, it can be done afterward from hooks copy in `.ddev/config.platformsh.yaml`.
 
 `COMPOSER_AUTH` from PLatform.sh can't be properly used as JSON commas will be badly interpreted by `--web-environment-add` which would see them as multiple variables' separators. But, it must exist for Platform.sh hooks' scripts to work. An auth.json file can be used, see [Using an auth.json](../../getting_started/install_using_ddev.md#using-an-authjson) for more.
 
@@ -26,6 +26,7 @@ This example sequence will
 - disable Solr service by commenting its line in `.platform.app.yaml` using `sed`,
 - create a `public/var` directory if it doesn't exist (to allow the creation of `public/var/.platform.installed` by Platform.sh hook script),
 - install the `ddev/ddev-platformsh` add-on which will prompt for the Platform.sh API token, project ID and environment name,
+- re-enable Solr service by reverting `.platform.app.yaml`,
 - comment the NodeJS and NVM installations from the hooks copied in `.ddev/config.platformsh.yaml`,
 - change `maxmemory-policy` from default `allkeys-lfu` to a [value accepted by the `RedisTagAwareAdapter`](https://github.com/symfony/cache/blob/5.4/Adapter/RedisTagAwareAdapter.php#L95),
 - start the project
@@ -50,6 +51,7 @@ cp <path-to-an>/auth.json .ddev/homeadditions/
 sed -i "s/solr: 'solrsearch:collection1'/#solr: 'solrsearch:collection1'/" .platform.app.yaml
 if [ ! -d public/var ]; then mkdir public/var; fi
 ddev get ddev/ddev-platformsh
+git checkout -- .platform.app.yaml
 sed -i -E "s/( +)(.*nvm (install|use).*)/\1#\2/" .ddev/config.platformsh.yaml
 sed -i 's/maxmemory-policy allkeys-lfu/maxmemory-policy volatile-lfu/' .ddev/redis/redis.conf
 ddev start
