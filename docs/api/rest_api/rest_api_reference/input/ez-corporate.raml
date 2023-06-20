@@ -346,3 +346,54 @@ get:
                             description: Error - the input does not match the input schema definition.
                         401:
                             description: Error - the user is not authorized to create this company member.
+/sales-representatives
+    get:
+        displayName: Read list of sales representatives
+        description: |
+            Returns paginated list of available sales representatives.
+        queryParameters:
+            filter:
+                type: string
+                description: |
+                    An array-shaped string representing filtering Criterion. Supported Criteria:
+                    | Criterion | Example |
+                    | --------- | ------- |
+                    | salesRep (id) | `filter[Field][name]=sales_rep&filter[Field][operator]=eq&filter[Field][value]=122` |
+            sort:
+                type: string
+                description: |
+                    An array-shaped string representing sorting clauses. Supported Clauses:
+                    | Clause | Example |
+                    | ------ | ------- |
+                    | By Content (Company) name | `sort[ContentName]=ascending` |
+
+            offset:
+                description: The offset of the result set.
+                type: integer
+                default: 0
+            limit:
+                description: The number of returned representatives.
+                type: integer
+                default: 25
+        headers:
+            Accept:
+                description: If set, helps to determine response format.
+                example: |
+                    application/vnd.ibexa.api.SalesRepresentativesList+xml
+                    application/vnd.ibexa.api.SalesRepresentativesList+json
+
+        responses:
+            200:
+                description: Sales representatives list containing Company objects.
+                body:
+                    application/vnd.ibexa.api.SalesRepresentativesList+xml:
+                        type: CompanyList
+                        example: !include examples/corporate/sales-representatives/GET/SalesRepresentativesList.xml.example
+                    application/vnd.ibexa.api.CompanyList+json:
+                        type: CompanyList
+                        example: !include examples/corporate/sales-representatives/GET/SalesRepresentativesList.json.example
+            400:
+                description: Returned when invalid Criterion or Sort clause is used
+                body:
+                    application/vnd.ibexa.api.ErrorMessage:
+                        type: ErrorMessage
