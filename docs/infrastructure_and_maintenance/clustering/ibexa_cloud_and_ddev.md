@@ -69,7 +69,7 @@ The following example adapt the [manual method to run an already existing projec
 
 This example sequence will
 
-- download the Ibexa Cloud Platform.sh project from the default environment "production" into a new directory (replace `<project-ID> with the hash of your own project, see [`platform help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment),
+- download the Ibexa Cloud Platform.sh project from the default environment "production" into a new directory (replace `<project-ID>` with the hash of your own project, see [`platform help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment),
 - config a new DDEV project,
 - ignore `.ddev/` directory from Git,
 - start the DDEV project,
