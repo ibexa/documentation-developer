@@ -2,7 +2,7 @@ ibexa:
     repositories:
         default:
             checkout:
-                workflow: single_page_checkout
+                workflow: one_page_checkout
     system:
         default:
             product_catalog:
@@ -17,7 +17,7 @@ ibexa:
 
 framework:
     workflows:
-        single_page_checkout:
+        one_page_checkout:
             type: state_machine
             audit_trail:
                 enabled: false
@@ -35,7 +35,7 @@ framework:
                     from: [ initialized, completed ]
                     to: completed
                     metadata:
-                        controller: App\Controller\Checkout\SinglePageCheckoutController
+                        controller: App\Controller\Checkout\OnePageCheckoutController
         seat_selection_checkout:
             type: state_machine
             audit_trail:
