@@ -6,8 +6,8 @@ description: When you want to run locally an Ibexa Cloud project using DDEV.
 
 Two ways are available to run locally an Ibexa Cloud project using DDEV:
 
-- [Using the `ddev-platformsh` add-on](#running-ibexa-cloud-using-the-ddev-platformsh-add-on).
-- [Like other existing project, without the add-on](#running-ibexa-cloud-as-an-existing-project)
+- [Using the `ddev-platformsh` add-on](#simulate-ibexa-cloud-using-the-ddev-platformsh-add-on).
+- [Like other existing project, without this add-on](#simulate-ibexa-cloud-without-the-platformsh-add-on).
 
 ## Simulate Ibexa Cloud using the `ddev-platformsh` add-on
 
@@ -39,9 +39,7 @@ This example sequence will
 platform project:get <project-ID> my-ddev-project && cd my-ddev-project
 ddev config --project-type=php --php-version 8.1 \
   --docroot=public --create-docroot \
-  --mutagen-enabled \
   --http-port=8080 --https-port=8443 \
-  --web-environment-add PLATFORMSH_CLI_TOKEN=dQQcoTa3vct6grif50dKKAXt4U16nI9RI_3F12CCzfM \
   --web-environment-add DATABASE_URL=mysql://db:db@db:3306/db \
   --web-environment-add CACHE_POOL=cache.redis \
   --web-environment-add CACHE_DSN=redis \
@@ -60,6 +58,10 @@ ddev restart
 ddev describe
 ddev launch
 ```
+
+!!! note
+
+    As the Platform.sh API token is set at user profile level, it will be stored globaly under current user root as `PLATFORMSH_CLI_TOKEN` in ~/.ddev/global_config.yaml.
 
 ## Simulate Ibexa Cloud without the Platform.sh add-on
 
