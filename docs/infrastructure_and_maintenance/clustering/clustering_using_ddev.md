@@ -29,7 +29,7 @@ TODO: Document [`ddev get --remove`](https://ddev.readthedocs.io/en/latest/users
 
 To run locally an Ibexa Cloud project, you may refer to _[Ibexa Cloud and DDEV](ibexa_cloud_and_ddev.md)_ instead.
 
-## TODO: Install Varnish
+<!-- ## TODO: Install Varnish -->
 
 ## Install search engine
 
@@ -166,6 +166,8 @@ For example, `watch 'ddev exec netcat -w1 memcached 11211 <<< "stats" | grep "cm
 - test that the `web` service accesses the `memcached` service,
 - display the increase of `cmd_get` and `cmd_set` while navigating into the website.
 
+<!-- TODO: Needs https://github.com/ibexa/core/pull/182 to work
+
 ## Share binary files
 
 [Binary file sharing](clustering.md#dfs-io-handler) can be implemented to be closer to a production cluster.
@@ -183,7 +185,7 @@ ddev config --web-environment-add DFS_NFS_PATH=/var/www/html/var/nfs;
 
 To install existing contents from another instance (like in [Run an already existing project](../../getting_started/install_using_ddev.md#run-an-already-existing-project)), the `ezdfsfile` table must also be imported and the binary files copied into the `DFS_NFS_PATH`.
 
-TODO: Needs https://github.com/ibexa/core/pull/182 to work
+-->
 
 ## Going further
 

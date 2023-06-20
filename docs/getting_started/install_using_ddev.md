@@ -218,7 +218,9 @@ The following example show the particular case of the database:
 
 It can be interesting to set up the webserver as recommenced for production.
 
+<!--
 Those configurations are required if you plan to also simulate the [binary files sharing needed by clusters](../infrastructure_and_maintenance/clustering/clustering_using_ddev.md#share-binary-files).
+-->
 
 #### Nginx Server Blocks
 
@@ -231,15 +233,15 @@ cp -r vendor/ibexa/post-install/resources/templates/nginx/ibexa_params.d .ddev/n
 
 Then, replace the placeholders with the appropriate values in the `.ddev/nginx_full/ibexa.conf`:
 
-| Placeholder             | Value                        |
-|-------------------------|------------------------------|
-| `%PORT%`                | `80`                         |
-| `%HOST_LIST%`           | `*.ddev.site`                |
-| `%BASEDIR%`             | `/var/www/html`              |
-| `%BODY_SIZE_LIMIT_M%`   | `0`                          |
-| `%TIMEOUT_S%`           | `0`                          |
-| `%FASTCGI_PASS%`        | `unix:/var/run/php-fpm.sock` |
-| `%BINARY_DATA_HANDLER%` | empty string or `dfs`        |
+| Placeholder             | Value                          |
+|-------------------------|--------------------------------|
+| `%PORT%`                | `80`                           |
+| `%HOST_LIST%`           | `*.ddev.site`                  |
+| `%BASEDIR%`             | `/var/www/html`                |
+| `%BODY_SIZE_LIMIT_M%`   | `0`                            |
+| `%TIMEOUT_S%`           | `0`                            |
+| `%FASTCGI_PASS%`        | `unix:/var/run/php-fpm.sock`   |
+| `%BINARY_DATA_HANDLER%` | empty string <!-- or `dfs` --> |
 
 Because of path resolution inside DDEV's Nginx, one last replacement must be done: `ibexa_params.d` must be replaced with `sites-enabled/ibexa_params.d`.
 
@@ -256,9 +258,11 @@ sed -i 's/%BINARY_DATA_HANDLER%//' .ddev/nginx_full/ibexa.conf;
 sed -i 's/ibexa_params.d/sites-enabled\/ibexa_params.d/' .ddev/nginx_full/ibexa.conf;
 ```
 
+<!--
 !!! note
 
     To replace `%BINARY_DATA_HANDLER%` with `dfs` is only needed if you plan to [share binary files](../infrastructure_and_maintenance/clustering/clustering_using_ddev.md) like a multi-frontend cluster does.
+-->
 
 #### Apache Virtual Host
 
