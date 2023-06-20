@@ -94,7 +94,7 @@ For example, `ddev exec curl -s http://solr:8983/api/cores/` will
 
 The Solr admin can be accessed from the host by using the port 8983 on the same `.ddev.site` subdomain than the front. Use `ddev describe` to have that URL.
 
-## Share persistence cache and sessions
+## Share cache and sessions
 
 A [persistence cache pool](../cache/persistence_cache.md#persistence-cache-configuration) and a [session handler](../sessions.md#session-handlers) can be added to the cluster.
 
