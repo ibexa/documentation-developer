@@ -75,12 +75,10 @@ See [Elasticsearch REST API reference](https://www.elastic.co/guide/en/elasticse
 
 ### Solr
 
-TODO: Update add-on name after it has been moved to official repository.
-
-To ease the installation of Solr, the specific add-on `ibexa-yuna/ddev-solr` can be used:
+To ease the installation of Solr, the specific add-on `ibexa/ddev-solr` can be used:
 
 ```bash
-ddev get ibexa-yuna/ddev-solr
+ddev get ibexa/ddev-solr
 ddev restart
 ```
 
@@ -186,7 +184,3 @@ ddev config --web-environment-add DFS_NFS_PATH=/var/www/html/var/nfs;
 To install existing contents from another instance (like in [Run an already existing project](../../getting_started/install_using_ddev.md#run-an-already-existing-project)), the `ezdfsfile` table must also be imported and the binary files copied into the `DFS_NFS_PATH`.
 
 -->
-
-## Going further
-
-TODO: Version control DDEV config, use .env.local, import db and binary contents
