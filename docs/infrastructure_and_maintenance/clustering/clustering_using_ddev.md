@@ -7,7 +7,6 @@ description: When you want to run locally a cluster infrastructure using DDEV.
 This guide follows [Getting started: Install using DDEV](../../getting_started/install_using_ddev.md) and helps to extend the previous installation to replicate locally a production [cluster](clustering.md).
 
 Contrary to production cluster, there will be only one front app server. But the data sharing needed by a cluster of several servers can still be emulated.
-TODO: Maybe a second `web` server can be added…?
 
 The `ddev config --php-version` option should set the same PHP version as the production servers.
 
@@ -25,7 +24,7 @@ The `ddev config --php-version` option should set the same PHP version as the pr
 
     [Discover more commands on DDEV documentation](https://ddev.readthedocs.io/en/latest/users/usage/commands/)
 
-TODO: Document [`ddev get --remove`](https://ddev.readthedocs.io/en/latest/users/extend/additional-services/#viewing-and-removing-installed-add-ons) when DDEV 1.22 is out https://github.com/ddev/ddev/milestone/54
+<!-- TODO: Document [`ddev get --remove`](https://ddev.readthedocs.io/en/latest/users/extend/additional-services/#viewing-and-removing-installed-add-ons) when DDEV 1.22 is out https://github.com/ddev/ddev/milestone/54 -->
 
 To run locally an Ibexa Cloud project, you may refer to _[Ibexa Cloud and DDEV](ibexa_cloud_and_ddev.md)_ instead.
 
@@ -96,9 +95,10 @@ The Solr admin can be accessed from the host by using the port 8983 on the same 
 
 A [persistence cache pool](../cache/persistence_cache.md#persistence-cache-configuration) and a [session handler](../sessions.md#session-handlers) can be added to the cluster.
 
-The same service will be used to store both persistence cache and sessions.
+In the following examples,
 
-The session handler will be set on Symfony side. TODO: It's possible to set session handlers on [PHP/PHP-FPM side](https://www.php.net/manual/en/session.configuration.php#ini.session.save-handler); Still, is this remark relevant?
+- the same service will be used to store both persistence cache and sessions,
+- the session handler will be set on Symfony side, not on PHP side.
 
 ### Install Redis
 

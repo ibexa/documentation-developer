@@ -65,8 +65,6 @@ ddev launch
 
 ## Simulate Ibexa Cloud without the Platform.sh add-on
 
-TODO: Find a better title
-
 The following example adapt the [manual method to run an already existing project](../../getting_started/install_using_ddev.md#run-an-already-existing-project) to the Platform.sh case:
 
 This example sequence will
