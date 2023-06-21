@@ -1,7 +1,6 @@
 ibexa:
     system:
-        site:
-            languages: [ eng-GB ]
+        site_group:
             page_layout: '@ibexadesign/pagelayout.html.twig'
             search_view:
                 full:

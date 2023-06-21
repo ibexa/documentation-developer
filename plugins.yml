@@ -22,8 +22,8 @@ plugins:
             'guide/shop_configuration.md': 'commerce/commerce.md'
             'commerce/basket.md': 'commerce/commerce.md'
             'templating/layout/customize_basket.md': 'commerce/commerce.md'
-            'guide/search/extend_solr.md': 'search/solr_search_engine.md'
-            'guide/search/extend_elasticsearch.md': 'search/elasticsearch_search_engine.md'
+            'guide/search/extend_solr.md': 'search/search_engines/solr_search_engine/solr_overview.md'
+            'guide/search/extend_elasticsearch.md': 'search/search_engines/elastic_search/elastic_search_overview.md'
 
             'api/public_php_api.md': 'api/php_api/php_api.md'
             'api/rest_api_usage.md': 'api/rest_api/rest_api_usage/rest_api_usage.md'
@@ -294,8 +294,8 @@ plugins:
             'guide/personalization/best_practices/recommendation_integration.md': 'personalization/recommendation_integration.md'
 
             'guide/search/search.md': 'search/search.md'
-            'guide/search/elastic.md': 'search/elasticsearch_search_engine.md'
-            'guide/search/solr.md': 'search/solr_search_engine.md'
+            'guide/search/elastic.md': 'search/search_engines/elastic_search/elastic_search_overview.md'
+            'guide/search/solr.md': 'search/search_engines/solr_search_engine/solr_overview.md'
             'api/public_php_api_search.md': 'search/search_api.md'
             'guide/search/criteria_reference/search_criteria_reference.md': 'search/criteria_reference/search_criteria_reference.md'
             'guide/search/criteria_reference/ancestor_criterion.md': 'search/criteria_reference/ancestor_criterion.md'

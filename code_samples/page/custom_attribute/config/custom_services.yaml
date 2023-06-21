@@ -1,0 +1,11 @@
+services:
+    my_application.block.attribute.my_string:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\GenericFormTypeMapper
+        arguments:
+            $formTypeClass: App\Block\Attribute\MyStringAttributeType
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: my_string }
+
+    App\Block\Attribute\MyStringAttributeMapper:
+            tags:
+                - { name: ibexa.page_builder.form_type_attribute.mapper, alias: my_string }

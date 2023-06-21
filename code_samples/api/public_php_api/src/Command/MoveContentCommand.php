@@ -1,22 +1,22 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
+use Ibexa\Contracts\Core\Repository\LocationService;
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Core\Repository\UserService;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
-use Ibexa\Contracts\Core\Repository\LocationService;
-use Ibexa\Contracts\Core\Repository\UserService;
-use Ibexa\Contracts\Core\Repository\PermissionResolver;
 
 class MoveContentCommand extends Command
 {
-    private $locationService;
+    private LocationService $locationService;
 
-    private $userService;
+    private UserService $userService;
 
-    private $permissionResolver;
+    private PermissionResolver $permissionResolver;
 
     public function __construct(LocationService $locationService, UserService $userService, PermissionResolver $permissionResolver)
     {
@@ -28,12 +28,11 @@ class MoveContentCommand extends Command
 
     protected function configure()
     {
-
         $this
             ->setDescription('Moves the selected Location with its subtree.')
             ->setDefinition([
             new InputArgument('locationId', InputArgument::REQUIRED, 'Location to copy'),
-            new InputArgument('targetLocationId', InputArgument::REQUIRED, 'Target to copy or move to')
+            new InputArgument('targetLocationId', InputArgument::REQUIRED, 'Target to copy or move to'),
             ]);
     }
 

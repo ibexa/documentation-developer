@@ -1,0 +1,6 @@
+ibexa:
+    system:
+        default:
+            corporate_accounts:
+                application:
+                    states: [ 'new', 'accept', 'on_hold', 'reject', 'verify' ]

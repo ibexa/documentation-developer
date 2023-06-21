@@ -8,7 +8,7 @@ With the Digital Asset Management (DAM) system connector you can use assets such
 
 ## DAM configuration
 
-You can configure a connection with a Digital Asset Management (DAM) system.
+You can configure a connection with a Digital Asset Management (DAM) system under the `ibexa.system.<scope>.content.dam` [configuration key](configuration.md#configuration-files).
 
 ``` yaml
 ibexa:
@@ -29,7 +29,7 @@ To add the Unsplash connector to your system add the `ibexa/connector-unsplash` 
 To add Image Assets directly in the Page Builder, you can do it by using the Embed block. 
 The example below shows how to add images from [Unsplash](https://unsplash.com/).
 
-First, in `templates/embed/`, create a custom template `dam.html.twig`:
+First, in `templates/themes/standard/embed/`, create a custom template `dam.html.twig`:
 
 ``` html+twig
 {% set dam_image = ibexa_field_value(content, 'image') %}
@@ -53,12 +53,12 @@ For more information about displaying content, see [Content rendering](render_co
        content_view:
          embed:
            image_dam:
-             template: embed/dam.html.twig
+             template: '@ibexadesign/embed/dam.html.twig'
              match:
                Identifier\ContentType: <dam_image_content_type_identifier>
 ```
 
-In the `config/packages/ibexa.yaml` add the following configuration:
+In you [configuration file](configuration.md#configuration-files) add the following configuration:
 
 ``` yaml
 dam_unsplash:

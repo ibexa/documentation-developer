@@ -259,17 +259,17 @@ You may choose to replace the [default search engine](search.md#legacy-search-en
 
 === "Solr"
 
-    Follow [How to set up Solr search engine](solr_search_engine.md#how-to-set-up-solr-search-engine) to install Solr.
+    Follow [How to set up Solr search engine](install_solr.md) to install Solr.
 
 === "Elasticsearch"
 
     Do the following steps to enable Elasticsearch:
 
-    1. [Download and install Elasticsearch](elasticsearch_search_engine.md#step-1-download-and-install-elasticsearch)
-    2. [Verify that the Elasticsearch instance is up](elasticsearch_search_engine.md#step-2-verify-that-the-elasticsearch-instance-is-up)
-    3. [Set the default search engine](elasticsearch_search_engine.md#step-3-set-the-default-search-engine)
-    4. [Configure the search engine](elasticsearch_search_engine.md#step-4-configure-the-search-engine)
-    5. [Push the templates](elasticsearch_search_engine.md#step-5-push-the-templates)
+    1. [Download and install Elasticsearch](install_elastic_search.md)
+    2. [Verify that the Elasticsearch instance is up](install_elastic_search.md#verify-the-instance)
+    3. [Set the default search engine](install_elastic_search.md#set-the-default-search-engine)
+    4. [Configure the search engine](configure_elastic_search.md)
+    5. [Push the templates](install_elastic_search.md#push-the-templates)
 
     Configure the following parameter in the `.env` file:
 

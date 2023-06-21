@@ -42,7 +42,7 @@ Therefore, when creating a Content item of the Image type (or any other Content 
 the `ContentCreateStruct` is slightly more complex than in the previous example:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/CreateImageCommand.php', 56, 67) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateImageCommand.php', 56, 69) =]]
 ```
 
 Value of the Image Field Type contains the path to the image file, as well as other basic information
@@ -87,15 +87,15 @@ Content [translations](languages.md#language-versions) are created per version. 
 To translate a Content item to a new language, you need to update it and provide a new `initialLanguageCode`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 53, 58) =]]
-[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 63, 65) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 52, 57) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 62, 64) =]]
 ```
 
 You can also update content in multiple languages at once using the `setField` method's third argument.
 Only one language can still be set as a version's initial language:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 60, 61) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 59, 60) =]]
 ```
 
 ### Deleting a translation

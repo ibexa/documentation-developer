@@ -1,0 +1,77 @@
+{% extends '@ibexadesign/ui/layout.html.twig' %}
+
+{% block title %}{{ 'Content List'|trans }}{% endblock %}
+
+{%- block breadcrumbs -%}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'breadcrumb.admin'|trans(domain='messages')|desc('Admin') },
+        { value: 'url.list'|trans|desc('Content List') }
+    ]} %}
+{%- endblock -%}
+
+{%- block header -%}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'url.list'|trans|desc('Content List'),
+    } %}
+{%- endblock -%}
+
+{%- block content -%}
+    <section class="container ibexa-container">
+        {% set body_rows = [] %}
+        {% for article in articles.currentPageResults %}
+
+            {% set col_edit %}
+                <button class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--content-edit"
+                        title="{{ 'dashboard.table.all.content.edit'|trans|desc('Edit Content') }}"
+                        data-content-id="{{ article.contentInfo.id }}"
+                        data-version-no="{{ article.contentInfo.currentVersionNo }}"
+                        data-language-code="{{ article.contentInfo.mainLanguageCode }}">
+                    <svg class="ibexa-icon ibexa-icon--small ibexa-icon--edit">
+                        <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+                    </svg>
+                </button>
+            {% endset %}
+
+            {% set body_rows = body_rows|merge([{
+                cols: [
+                    { content: article.contentInfo.name },
+                    { content: article.contentInfo.contentType.name },
+                    { content: article.contentInfo.modificationDate|ibexa_full_datetime },
+                    { content: article.contentInfo.publishedDate|ibexa_full_datetime },
+                    { content: col_edit, raw: true },
+                ],
+            }]) %}
+        {% endfor %}
+
+        {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+            headline: 'Content List',
+            head_cols: [
+                { content: 'Content name'|trans },
+                { content: 'Content Type'|trans },
+                { content: 'Modified'|trans },
+                { content: 'Published'|trans },
+                { content: '' },
+            ],
+            class: 'ibexa-table',
+            body_rows
+        } %}
+
+        {% if articles.haveToPaginate %}
+            {% include '@ibexadesign/ui/pagination.html.twig' with {
+                'pager': articles
+            } %}
+        {% endif %}
+    </section>
+    {{ form_start(form_edit, {
+        'action': path('ibexa.content.edit'),
+        'attr':
+        { 'class': 'ibexa-edit-content-form'}
+    }) }}
+    {{ form_widget(form_edit.language, {'attr': {'hidden': 'hidden', 'class': 'language-input'}}) }}
+    {{ form_end(form_edit) }}
+    {% include '@ibexadesign/content/modal/version_conflict.html.twig' %}
+{%- endblock -%}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('ibexa-admin-ui-dashboard-js', null, 'ibexa') }}
+{%- endblock -%}

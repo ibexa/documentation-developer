@@ -55,6 +55,8 @@ The `nfs_adapter`'s directory is based on your site settings, and is automatical
 
 #### Permissions of generated files
 
+You can configure permissions of generated files under the `ibexa.system.<scope>.io.permissions` [configuration key](configuration.md#configuration-files).
+
 ``` yaml
 ibexa:
     system:

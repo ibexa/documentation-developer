@@ -1,0 +1,27 @@
+{% extends '@ibexadesign/account/notifications/list_item.html.twig' %}
+
+{% trans_default_domain 'custom_notification' %}
+
+{% set wrapper_additional_classes = 'css-class-custom' %}
+
+{% block icon %}
+    <span class="type__icon">
+        <svg class="ibexa-icon ibexa-icon--review">
+            <use xlink:href="{{ ibexa_icon_path('view') }}"></use>
+        </svg>
+    </span>
+{% endblock %}
+
+{% block notification_type %}
+    <span class="type__text">
+        {{ 'Notice'|trans|desc('Notice') }}
+    </span>
+{% endblock %}
+
+{% block message %}
+    {% embed '@ibexadesign/ui/component/table/table_body_cell.html.twig' with { class: 'ibexa-notifications-modal__description' } %}
+        {% block content %}
+            <p class="description__text">{{ notification.data.content_name }} {{ notification.data.message }}</p>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

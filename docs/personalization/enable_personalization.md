@@ -61,7 +61,7 @@ see [Developer guide](tracking_api.md) and [Best practices](tracking_integration
 For the recommendations to be calculated, apart from visitor events (CLICK, BUY, etc.), 
 the Personalization server must receive a list of item types that are tracked.
 
-You define item types to be tracked in the `config/packages/ibexa.yaml` file.
+You define item types to be tracked in [configuration files](configuration.md#configuration-files).
 The content is then initially exported by a script.
 After this, it is synchronized with the Personalization service every time a change 
 occurs (using any method that triggers the event).
@@ -536,7 +536,7 @@ For example, to retrieve the `rss` variation of the image, use:
 #### Logging
 
 Most operations are logged by using the `ibexa-personalization` [Monolog channel](http://symfony.com/doc/5.0/cookbook/logging/channels_handlers.html).
-To log everything about Personalization to `dev.recommendation.log`, add the following to the `ibexa.yaml`:
+To log everything about Personalization to `dev.recommendation.log`, add the following configuration:
 
 ``` yaml
 monolog:

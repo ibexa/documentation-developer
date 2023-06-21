@@ -8,15 +8,15 @@ declare(strict_types=1);
 
 namespace App\Event;
 
+use eZ\Publish\API\Repository\ContentService;
+use eZ\Publish\API\Repository\LocationService;
+use eZ\Publish\API\Repository\SearchService;
 use eZ\Publish\API\Repository\Values\Content\Location;
+use eZ\Publish\API\Repository\Values\Content\Query;
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
 use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\BlockRenderEvents;
 use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\Event\PreRenderEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use eZ\Publish\API\Repository\Values\Content\Query;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
-use eZ\Publish\API\Repository\LocationService;
-use eZ\Publish\API\Repository\ContentService;
-use eZ\Publish\API\Repository\SearchService;
 
 class RandomBlockListener implements EventSubscriberInterface
 {
@@ -79,7 +79,7 @@ class RandomBlockListener implements EventSubscriberInterface
     }
 
     /**
-     * @param Location $location
+     * @param \eZ\Publish\API\Repository\Values\Content\Location $location
      *
      * @return \eZ\Publish\API\Repository\Values\Content\Content[]
      *

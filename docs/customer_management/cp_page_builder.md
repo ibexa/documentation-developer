@@ -17,10 +17,10 @@ To do it, go to **Content** -> **Content structure**, and create folder in the C
 ![Customer Portals folder](img/cp_folder_for_portals.png)
 
 To be able to see Customer Portal site in the Page Builder you need to add `custom_portal` SiteAccess to the configuration.
-First, go to `config/packages/ibexa.yaml` and add `custom_portal` to
+First, under the `ibexa.siteaccess` [configuration key](configuration.md#configuration-files) add `custom_portal` to
 the SiteAccess `list` and to `corporate_group`.
 
-Next, add configuration for `corporate_group` and `custom_portal` under `system`.
+Next, add configuration for `corporate_group` and `custom_portal` under `ibexa.system`.
 Remember to specify `location_id` of the root folder for Customer Portals, you can find it under the **Details** tab. 
 
 ```yaml hl_lines="8 12 14 16"
@@ -47,7 +47,7 @@ ibexa:
                     excluded_uri_prefixes: [ /media, /images ]
 ```
 
-Next, go to `config/packages/ibexa_admin_ui.yaml` and add `custom_portal` to the SiteAccess list available to Page Builder:
+Next, under the `ibexa.system.page_builder` [configuration key](configuration.md#configuration-files) add `custom_portal` to the SiteAccess list available to Page Builder:
 
 ```yaml
 ibexa:
@@ -119,7 +119,7 @@ To do so, implement `\Ibexa\Contracts\CorporateAccount\CustomerPortal\PickRule\C
 
 ## Change Customer Portal layout
 
-You can change Customer Portal layout by adding your custom template in `config/packages/ibexa.yaml`:
+You can change Customer Portal layout by adding your custom template under `ibexa.system.<portal_name>.page_layout`:
 
 ```yaml hl_lines="5"
 ibexa:

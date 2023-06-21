@@ -9,6 +9,11 @@ The `ProductAvailability` Sort Clause sorts search results by whether they have 
 ## Example
 
 ``` php
-$query = new Query();
-$query->sortClauses = [new Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\ProductAvailability()];
+$query = new ProductQuery(
+    null,
+    null,
+    [
+        new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\ProductAvailability()
+    ]
+);
 ```
