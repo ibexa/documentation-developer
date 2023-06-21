@@ -151,7 +151,7 @@ needs, and adapt the user context hash VCL logic to use the additional header.
 
 To avoid overloading any application code, take advantage of Symfony's event system:
 
-1\. Add a Response [event listener or subscriber](https://symfony.com/doc/5.1/event_dispatcher.html) to add your own hash to `/_fos_user_context_hash`:
+1\. Add a [Response event (`kernel.response`)](https://symfony.com/doc/5.4/reference/events.html#kernel-response) [listener or subscriber](https://symfony.com/doc/5.4/event_dispatcher.html) to add your own hash to `/_fos_user_context_hash`:
 
 ```php
 public function addPreferenceHash(FilterResponseEvent $event)
