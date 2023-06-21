@@ -34,7 +34,7 @@ ddev config --project-type=php --php-version 8.1 --docroot=public --create-docro
 
 This command sets the project type to PHP, the PHP version to 8.1, the document root to `public` directory, and creates the document root.
 
-#### TODO: Optional: Switch to Apache
+#### Optional: Switch to Apache
 
 By default, DDEV uses Nginx.
 
@@ -185,7 +185,7 @@ To reuse a previously existing auth.json instead of setting the authentication a
 The auth.json file can be used for one project or globally for all projects.
 
 For example, an auth.json file can be copied to a DDEV project:
-`cp <path-to-an>/auth.json .ddev/homeadditions/`
+`cp <path-to-an>/auth.json .ddev/homeadditions/.composer`
 
 For example, the Composer global auth.json can also be the DDEV global auth.json with the help of symbolic link:
 `mkdir -p ~/.ddev/homeadditions/.composer && ln -s ~/.composer/auth.json ~/.ddev/homeadditions/.composer/auth.json`
