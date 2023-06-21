@@ -1,124 +1,25 @@
 ---
-description: Configure Elasticsearch to use with Ibexa DXP.
+description: Configure Elasticsearch to use it with Ibexa DXP.
 ---
 
-# Elasticsearch search engine
+# Configure Elasticsearch
 
-Elasticsearch is an open-source, distributed, Java-based search engine that responds to queries
-in real-time and is easily scalable in reaction to changing processing needs.
+## Configure connections
 
-For a detailed description of advanced settings that you might require in a specific
-production environment, see the documentation provided by Elastic, beginning with the [Set up Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/7.7/setup.html) section.
+To configure Elasticsearch, first, you need to configure the connections. 
 
-**Prerequisite**
+There are two possibilities of connection:
+- using [cluster of Elasticsearch nodes](#cluster)
+- using [Elasticsearch Cloud](#elasticsearch-cloud)
 
-To proceed you need to be familiar with how indexing, filtering and queries work.
-
-## Step 1: Download and install Elasticsearch
-
-[Install Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/7.7/install-elasticsearch.html) on your server.
-For example, use the following [Docker](https://docs.docker.com/get-started/overview/) command:
-
-```
-docker run -d --name ibexa-dxp-elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.16.2
-```
-
-!!! note
-
-    [[= product_name =]] supports Elasticsearch in version 7.16.2 or higher.
-
-## Step 2: Verify that the Elasticsearch instance is up
-
-To make sure that the Elasticsearch instance operates properly, access the instance (for example, with `curl http://localhost:9200/`).
-
-If Elasticsearch operates properly, an object with cluster details is displayed.
-It should be similar to the following example:
-
-``` json
-{
-    "name" : "doej-MacPro-mTkBe",
-    "cluster_name" : "elasticsearch",
-    "cluster_uuid" : "WLYqnQ_lSZGbX-vDIe_vZQ",
-    "version" : {
-        "number" : "7.7.0",
-        "build_flavor" : "default",
-        "build_type" : "tar",
-        "build_hash" : "5b1fea5",
-        "build_date" : "2020-05-10T02:35:59.208Z",
-        "build_snapshot" : false,
-        "lucene_version" : "8.5.1",
-        "minimum_wire_compatibility_version" : "6.8.0",
-        "minimum_index_compatibility_version" : "6.0.0-beta1"
-    },
-    "tagline" : "You Know, for Search"
-}
-```
-
-## Step 3: Set the default search engine
-
-Set the following environment variable (for example, in the `.env` or `.env.local` file):
-
-``` yaml
-SEARCH_ENGINE=elasticsearch
-```
-
-## Step 4: Configure the search engine
-
-[[= product_name =]] comes pre-configured to work with an Elasticsearch cluster that uses default settings, and you can use this initial setup for testing purposes.
-However, to effectively search through actual data, you must provide specific settings.
-
-!!! note
-
-    All the settings, their order and meaning, correspond to the settings that are described in
-    the Elasticsearch documentation.
-
-First, decide how [[= product_name =]] connects to Elasticsearch and configure other connection settings.
-For more information, see [Configuring connections](#connections).
-
-Then, define a field type mappings template that instructs Elasticsearch to interpret [[= product_name =]] fields as specific types. For more information, see [Configuring field type mappings](#field-type-mapping-templates).
-
-## Step 5: Push the templates
-
-For each of your defined connections, push the templates to the Elasticsearch engine by running the following command:
-
-``` bash
-php bin/console ibexa:elasticsearch:put-index-template
-```
-
-You can modify the behavior of the command with a number of switches. Use the `-h` switch to display a complete list of available options.
-
-## Step 6: Reindex the database
-
-After creating index templates, run the following command to reindex your data:
-
-``` bash
-php bin/console ibexa:reindex
-```
-
-!!! caution "Risks of premature indexing"
-
-    Do not reindex your data before you create index templates.
-    Otherwise Elasticsearch attempts to use its [dynamic field mapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.7/dynamic-field-mapping.html) feature to create type mappings automatically.
-
-## Elasticsearch configuration
-
-### Connections
-
-When you configure the Elasticsearch integration, you must first configure the connections.
-You either connect to a [cluster of Elasticsearch nodes](#cluster) or the [Elasticsearch Cloud](#elasticsearch-cloud).
-
-Define the connection settings under the `connections` [configuration key](configuration.md#configuration-files). First, set a name of the connection:
+No matter which option you choose, you have to define the connection settings under the `connections` key. 
+Set a name of the connection:
 
 ``` yaml
 ibexa_elasticsearch:
     connections:
         <connection_name>:
 ```
-
-Then decide whether to add a cluster that you administer and manage yourself, or use a cloud
-solution from Elastic, as well as configure additional parameters.
-You can then decide how the cluster [handles communication with individual nodes](#multi-node-cluster-behavior),
-and configure the [security settings](#security).
 
 !!! tip "A default connection"
 
@@ -131,28 +32,30 @@ and configure the [security settings](#security).
         default_connection: <connection_name>
     ```
 
-### Cluster
+Now, you need to decide whether to add a cluster that you administer and manage yourself, or use a cloud
+solution from Elastic, as well as configure additional parameters.
 
-A cluster consists of a number of nodes.
-You might start with just one node and add more nodes if you need more processing power.
+If you want to connect by using a cluster, follow the instructions below in the [Cluster](#cluster) section.
+If you want to use Elasticsearch Cloud, skip to [Elasticsearch Cloud](#elasticsearch-cloud) section.
 
-When you configure a node, set the following parameters:
+## Configure clustering
 
-- `host` - An IP address or domain name of the host.
-The default value is `localhost`.
-- `port` - A port to connect to.
-The default value is `9200`.
+A cluster consists of nodes.
+You might start with one node and then add more nodes if you need more processing power.
+
+When you configure a node, you need to set the following parameters:
+
+- `host` - an IP address or domain name of the host. Default value: `localhost`.
+- `port` - a port to connect to. Default value: `9200`.
 If you have several Elasticsearch instances that run on the same host, and want to make them
 distinct, you can change the default number.
-- `scheme` - A protocol to be used to access the node. Default value is `http`.
-- `path` - By default, path is not used.
-The default value is `null`.
+- `scheme` - a protocol used to access the node. Default value: `http`.
+- `path` - by default, path is not used. Default value: `null`.
 If you have several Elasticsearch instances that run on the same host, and want to make them
 distinct, you can define a path for each instance.  
-- `user`/`pass` - Credentials, if needed to log in to the host.
-Default values are `null`.
+- `user`/`pass` - credentials, if needed to log in to the host. Default values: `null`.
 
-List the addresses of cluster nodes under the `hosts` key:
+Next, list the addresses of cluster nodes under the `hosts` key:
 
 ``` yaml
 ibexa_elasticsearch:
@@ -203,13 +106,13 @@ ibexa_elasticsearch:
     default_connection: simple
 ```
 
-#### Multi-node cluster behavior
+### Multi-node cluster behavior
 
 When you configure a cluster-based connection, and the cluster consists of many nodes, you can
 choose strategies that govern how the cluster reacts to changing operating conditions, or how
 workload is distributed among the nodes.
 
-##### Connection pool
+#### Connection pool
 
 With this setting you decide how a list of hosts that form a cluster is managed.
 The list of active hosts tends to change in time, due to different reasons, such as connectivity
@@ -232,7 +135,7 @@ For more information and a list of available choices, see [Connection pool](http
     If you change the connection pool setting, it is recommended that you to perform load tests
     to check whether the change does not negatively impact the performance of your environment.
 
-##### Connection selector
+#### Connection selector
 
 When the cluster consists of many hosts, the `connection_selector` setting decides what strategy
 is used to pick a node to send query requests to.
@@ -265,14 +168,14 @@ number of retries might differ.
 
 For more information, see [Set retries](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/configuration.html#_set_retries).
 
-### Elasticsearch Cloud
+## Configure Elasticsearch Cloud
 
 As an alternative to using your own cluster, you can use Elasticsearch Cloud, a commercial SaaS solution.
 With Elasticsearch Cloud you do not have to build or manage your own Elasticsearch cluster.
 Also, you do all the configuration and administration in a graphical user interface.
 
 To connect to a cloud solution with [[= product_name =]], you must set the `elastic_cloud_id` parameter by
-providing an alphanumerical ID string that you obtain from the cloud's user interface, for example:
+providing an alphanumerical ID string that you get from the cloud's user interface, for example:
 
 ``` yaml
 <connection_name>:
@@ -281,7 +184,7 @@ providing an alphanumerical ID string that you obtain from the cloud's user inte
 
 With the ID set, you must configure authentication to be able to access the remote environment.
 
-### Security
+## Configure security
 
 Elasticsearch instances support `basic` and `api_key` authentication methods.
 You select authentication type and configure the settings under the `authentication` key. By default, authentication is disabled:
@@ -295,10 +198,10 @@ You select authentication type and configure the settings under the `authenticat
 
 If you connect to Elasticsearch hosts outside of your local network, you might also need to configure SSL encryption.
 
-#### Basic authentication
+### Basic authentication
 
 If your Elasticsearch server is protected by HTTP authentication, you must provide [[= product_name =]] with the credentials.
-When using basic authentication, you must pass the following parameters:
+In the basic authentication, you must pass the following parameters:
 
 ``` yaml
 <connection_name>
@@ -321,7 +224,7 @@ ibexa_elasticsearch:
                 credentials: ['elastic', '1htFY83VvX2JRDw88MOkOejk']
 ```
 
-#### API key authentication
+### API key authentication
 
 If your Elasticsearch cluster is protected by API keys, you must provide the key and secret in authentication configuration to
 connect [[= product_name =]] with the cluster. With API key authentication you can define different
@@ -354,7 +257,7 @@ ibexa_elasticsearch:
                 credentials: ['8Ek5f3IBGQlWj6v4M7zG', 'rmI6IechSnSJymWJ4LZqUw']
 ```
 
-#### SSL
+### SSL
 
 When you need to protect your communication with the Elasticsearch server, you can use SSL encryption.
 When configuring SSL for your internal infrastructure, you can use your own client certificates signed by a public CA.
@@ -407,7 +310,7 @@ verification: false
 
 For more information, see [Elasticsearch: SSL Encyption](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/security.html#_ssl_encryption_2).
 
-#### Enabling debugging
+### Enable debugging
 
 In a staging environment, you can log messages about the status of communication with Elasticsearch.
 You can then use Symfony Profiler to review the logs.
@@ -428,17 +331,17 @@ By default, debugging is disabled. To enable debugging, you can toggle either of
 
     Make sure that you disable debugging in a production environment.
 
-### Field Type mapping templates
+## Define Field Type mapping templates
 
 Before you can re-index the [[= product_name =]] data, so that Elasticsearch can search through its contents, you must define an index template.
 Templates instruct Elasticsearch to recognize [[= product_name =]] Fields as specific data types, based on, for example, a field name.
 They help you prevent Elasticsearch from using the dynamic field mapping feature to create type mappings automatically.
-You can create several field type mapping templates for each index, for example, to define settings that are specific for different languages.
+You can create several Field Type mapping templates for each index, for example, to define settings that are specific for different languages.
 When you establish a relationship between a field mapping template and a connection, you can apply several templates, too.
 
-#### Defining a template
+### Define a template
 
-To define a field mapping template, you must provide a number of settings under the `index_templates` key.
+To define a field mapping template, you must provide settings under the `index_templates` key.
 The structure of the template is as follows:
 
 ``` yaml
@@ -513,7 +416,7 @@ For more information about mappings, see [Elasticsearch documentation](https://w
     For an example of default configuration with a list of searchable fields.
     To see the default configuration, go to `vendor/ibexa/elasticsearch/src/bundle/Resources/config/` and open the `default-config.yaml` file.
 
-#### Fine-tuning the search results
+### Fine-tune the search results
 
 Your search results can be adjusted by configuring additional parameters.
 For a list of available mapping parameters and their usage, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/mapping-params.html).
@@ -572,7 +475,7 @@ ibexa_elasticsearch:
                 # ...
 ```
 
-### Binding templates with connections
+## Bind templates with connections
 
 Once you have created the field mapping template(s), you must establish a relationship between the templates and a connection. You do this by adding the "index_templates" key to a connection definition.
 
@@ -589,7 +492,7 @@ If you have several index templates, you can apply different combinations of tem
 
 For more information about how Elasticsearch handles settings and mappings from multiple templates that match the same index, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/indices-templates-v1.html#multiple-templates-v1).
 
-## Extending Elasticsearch
+# Extend Elasticsearch
 
 To learn how you can create document field mappers, custom Search Criteria, 
-custom Sort Clauses and Aggregations, see [Search extensibility](create_custom_search_criterion.md).
+custom Sort Clauses and Aggregations, see [Create custom Search Criterion](create_custom_search_criterion.md).

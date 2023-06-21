@@ -3,9 +3,9 @@ description: URL Search Criteria help define and fine-tune search queries for UR
 page_type: reference
 ---
 
-# URL search reference
+# URL Search Criteria reference
 
-## URL criteria reference
+URL Search Criteria are part of Search Criteria and they are supported only by URL Search.
 
 |URL criteria|URL based on|
 |------------|------------|
@@ -19,16 +19,3 @@ page_type: reference
 |[SectionIdentifier](sectionidentifier_url_criterion.md)|Matches URLs from content placed in Sections with the specified identifiers.|
 |[Validity](validity_url_criterion.md)|Matches URLs based on validity flag.|
 |[VisibleOnly](visibleonly_url_criterion.md)|Matches URLs from published content.|
-
-## URL Sort Clauses reference
-
-Sort Clauses are the sorting options for URLs.
-
-All Sort Clauses can take the following optional argument:
-
-- `sortDirection` - the direction of the sorting, either `\Ibexa\Contracts\Core\Repository\Values\URL\Query\SortClause::SORT_ASC` (default) or `\Ibexa\Contracts\Core\Repository\Values\URL\Query\SortClause::SORT_DESC`
-
-| Sort Clause | Sorting based on |
-|-----|-----|
-|[Id](id_url_sort_clause.md)|URL ID|
-|[URL](url_url_sort_clause.md)|URL address|

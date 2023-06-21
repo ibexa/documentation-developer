@@ -2,7 +2,7 @@
 description: Reindexing lets you create or refresh the search engine index.
 ---
 
-# Search reindexing
+# Reindex search
 
 To (re)create or refresh the search engine index for configured search engines (per SiteAccess repository), use the `php bin/console ibexa:reindex` command.
 
