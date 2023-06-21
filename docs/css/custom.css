@@ -268,6 +268,27 @@ ul li li li {
             mask-image: var(--md-admonition-icon--caution);
 }
 
+/* Tile admonition */
+
+.md-typeset :is(.admonition):is(.tile) {
+    background-color: #ffffff;
+    border: 1px solid #D4D4D4;
+    border-radius: 5px;
+    padding: 0.7rem;
+    margin-bottom: 0.4rem;
+    overflow: auto;
+    box-shadow: none;
+    font-size: 16px;
+}
+
+.md-typeset :is(.admonition).tile>:is(.admonition-title) {
+    padding-left: 0.7rem;
+}
+
+.md-typeset :is(.admonition).tile>:is(.admonition-title):before {
+    content: none;
+}
+
 /* Fix scrollbar in admonitions when containing a table */
 .md-typeset .admonition .md-typeset__scrollwrap {
     margin-right: 0;
