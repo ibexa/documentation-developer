@@ -161,7 +161,7 @@ Email triggers are then processed on the Personalization server and responses ar
 
 To let your visitors receive emails with recommendations:
 
-1\. With the [User API](api_reference/user_api.md#post-requests), add the `e-mail` attribute to the user record.
+1\. With the [User API](api_reference/user_api.md#post-requests), add the `e-mail` attribute (or another identifier) to the user record.
 
 2\. Prepare an endpoint that will intercept push messages and pass them on to your mailing system, for example, an Ibexa Connect [webhook](https://doc.ibexa.co/projects/connect/en/latest/tools/webhooks/). The webhook must meet the following requirements:
 
