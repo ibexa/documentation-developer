@@ -208,7 +208,7 @@ The following example show the particular case of the database:
 
 !!! note Precedence
 
-    For a same variable, its server level environment value override its application level dotenv value.
+    For the same variable, its server level environment value overrides its application level dotenv value.
     To switch a variable from `ddev config --web-environment-add` command to `.env.local` file, you have
 
     - to remove it from under the `web_environment:` key in `.ddev/config.yaml` file then restart the project,
