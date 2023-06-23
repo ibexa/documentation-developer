@@ -374,11 +374,10 @@ Notice that the previous example choose to `.gitignore` the whole `.ddev/` direc
 
 Compared to running a clean install like described in _[Installation steps](#installation-steps)_:
 
-- Instead of creating an empty directory like in _[1. Create a DDEV project directory](#1-create-a-ddev-project-directory)_, a directory already containing an Ibexa DXP project is used.
-- In _[2. Configure DDEV / Configure PHP version and document root](#configure-php-version-and-document-root)_, no need to create the Document root, `--create-docroot` mustn't be used.
-- Instead of `ddev composer create` from _[5. Create Ibexa DXP project](#5-create-ibexa-dxp-project)_, use solely `ddev composer install`.
+- Instead of creating an empty directory like in [1. Create a DDEV project directory](#1-create-a-ddev-project-directory), you can use an existing directory containing an Ibexa DXP project.
+- In [2. Configure DDEV / Configure PHP version and document root](#configure-php-version-and-document-root), don't create the Document root, remove the `--create-docroot` option.
+- Instead of `ddev composer create`, in [5. Create Ibexa DXP project](#5-create-ibexa-dxp-project) use only `ddev composer install`.
 - [Ibexa data migration](../content_management/data_migration/importing_data.md) or [`ddev import-db`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#import-db) can be used to populate the database.
-
 
 ### Mimicking a production environment
 
