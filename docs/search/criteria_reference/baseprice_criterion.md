@@ -13,6 +13,8 @@ The `BasePrice` Criterion is not available in the Legacy Search engine.
 
 ## Example
 
+### PHP
+
 ``` php
 $query = new ProductQuery(
     null,
@@ -22,3 +24,28 @@ $query = new ProductQuery(
     )
 );
 ```
+
+### REST
+
+=== "XML"
+
+    ```xml
+      <Query>
+        <Filter>
+            <BasePriceCriterion>
+              <Money>EUR(12900)</Money>
+              <Operator>gte</Operator>
+          </BasePriceCriterion>
+        </Filter>
+      </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "ContentIdCriterion": [69, 72]
+            }
+        }
+    ```

@@ -20,5 +20,27 @@ $criteria = new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\C
 $productQuery = new ProductQuery(null, $criteria);
 ```
 
-### REST API
+### REST
 
+=== "XML"
+
+    ```xml
+      <Query>
+        <Filter>
+          <CreatedAtCriterion>
+			<created_at>12-09-2022</created_at>
+        </Filter>
+      </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+        "Query": {
+            "Filter": {
+                "CreatedAtCriterion": {
+                    "created_at": "12-09-2022"
+                }
+            }
+        }
+    ```
