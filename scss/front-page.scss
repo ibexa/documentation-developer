@@ -13,6 +13,7 @@ $ibexa-color-light-400: #ececf1;
 $ibexa-color-complementary: #47bedb;
 $ibexa-color-complementary-800: #1c4c58;
 $ibexa-color-complementary-700: #2b7283;
+$ibexa-color-complementary-300: #b5e5f0;
 $ibexa-color-complementary-200: #daf2f7;
 $ibexa-color-complementary-100: #ecf8fb;
 
@@ -251,6 +252,8 @@ body {
             align-items: center;
 
             &:hover {
+                background-color: $ibexa-color-complementary-300;
+
                 svg {
                     fill: $ibexa-color-complementary-800;
                 }

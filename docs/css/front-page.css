@@ -160,8 +160,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center; }
-    .md-typeset .front-page .notification__close-btn:hover svg {
-      fill: #1c4c58; }
+    .md-typeset .front-page .notification__close-btn:hover {
+      background-color: #b5e5f0; }
+      .md-typeset .front-page .notification__close-btn:hover svg {
+        fill: #1c4c58; }
   .md-typeset .front-page .notification a {
     color: #2b7283;
     text-decoration: underline; }
