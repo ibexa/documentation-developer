@@ -7,7 +7,7 @@ edition: commerce
 
 !!! tip "Order management REST API"
 
-    To learn how to manage payment methods with the REST API, see the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.htmll#payment-methods).
+    To learn how to manage payment methods with the REST API, see the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#payment-methods).
     
 To get payment methods and manage them, use the `Ibexa\Contracts\Payment\PaymentMethodServiceInterface` interface.
 
