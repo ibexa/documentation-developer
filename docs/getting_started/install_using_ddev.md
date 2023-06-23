@@ -345,7 +345,7 @@ To run an existing project, you'll need to
 
 This example will run an existing project and have the right content structure but no content. This following script sequence will
 
-- clone [version controlled project](install_ibexa_dxp.md#add-project-to-version-control) from a Git repository,
+- clone [version-controlled project](install_ibexa_dxp.md#add-project-to-version-control) from a Git repository,
 - exclude the whole `.ddev/` directory from version control using `.gitignore`,
 - configure the DDEV project then start it,
 - configure Composer authentication,
