@@ -1,10 +1,10 @@
 ---
-description: When you want to run locally an Ibexa Cloud project using DDEV.
+description: How to run locally an Ibexa Cloud project using DDEV.
 ---
 
 # Ibexa Cloud and DDEV
 
-Two ways are available to run locally an Ibexa Cloud project using DDEV:
+Two ways are available to run an Ibexa Cloud project locally using DDEV:
 
 - [Using the `ddev-platformsh` add-on](#simulate-ibexa-cloud-using-the-ddev-platformsh-add-on).
 - [Like other existing project, without this add-on](#simulate-ibexa-cloud-without-the-platformsh-add-on).
@@ -13,9 +13,10 @@ Two ways are available to run locally an Ibexa Cloud project using DDEV:
 
 To configure the [`ddev/ddev-platformsh` add-on](https://github.com/ddev/ddev-platformsh), you'll need a [Platform.sh API Token](https://docs.platform.sh/administration/cli/api-tokens.html).
 
-`COMPOSER_AUTH` from PLatform.sh can't be properly used as JSON commas will be badly interpreted by `--web-environment-add` which would see them as multiple variables' separators. But, it must exist for Platform.sh hooks' scripts to work. An auth.json file can be used, see [Using an auth.json](../../getting_started/install_using_ddev.md#using-an-authjson) for more.
+`COMPOSER_AUTH` from Platform.sh can't be properly used, because JSON commas are incorrectly interpreted by `--web-environment-add`, which sees them as multiple variables' separators.
+But the variable must exist for Platform.sh hooks' scripts to work. An `auth.json` file can be used, see [Using an auth.json](install_using_ddev.md#using-an-authjson) for more.
 
-This example sequence will
+This example sequence will:
 
 - download the Ibexa Cloud Platform.sh project from the default environment "production" into a new directory (replace `<project-ID>` with the hash of your own project, see [`platform help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment),
 - config a new DDEV project,
@@ -55,13 +56,13 @@ ddev launch
 
 !!! note
 
-    As the Platform.sh API token is set at user profile level, it will be stored globaly under current user root as `PLATFORMSH_CLI_TOKEN` in ~/.ddev/global_config.yaml.
+    As the Platform.sh API token is set at user profile level, it will be stored globally under current user root as `PLATFORMSH_CLI_TOKEN` in `~/.ddev/global_config.yaml`.
 
 ## Simulate Ibexa Cloud without the Platform.sh add-on
 
-The following example adapt the [manual method to run an already existing project](../../getting_started/install_using_ddev.md#run-an-already-existing-project) to the Platform.sh case:
+The following example adapts the [manual method to run an already existing project](install_using_ddev.md#run-an-already-existing-project) to the Platform.sh case:
 
-This example sequence will
+This example sequence will:
 
 - download the Ibexa Cloud Platform.sh project from the default environment "production" into a new directory (replace `<project-ID>` with the hash of your own project, see [`platform help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment),
 - config a new DDEV project,
@@ -90,5 +91,5 @@ ddev launch
 ```
 
 From there, services can be added to get closer to Ibexa Cloud Platform.sh architecture.
-`.platform/services.yaml` indicate the services used.
+`.platform/services.yaml` indicates the services used.
 Refer to [Clustering using DDEV](clustering_using_ddev.md) for those additions.

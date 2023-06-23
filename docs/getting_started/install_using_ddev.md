@@ -7,14 +7,14 @@ description: Install Ibexa DXP with Docker and DDEV to use it for development.
 This guide provides a step-by-step walkthrough of installing [[= product_name =]] using [DDEV](https://ddev.com/).
 DDEV is an open-source tool that simplifies the process of setting up local PHP development environments.
 
-## System requirements
+## Requirements
 
-For a successful installation, ensure you have the following software installed:
+Before you start the installation, ensure you have the following software installed:
 
 - [Docker](https://docs.docker.com/get-docker/)
 - [DDEV](https://ddev.readthedocs.io/en/latest/users/install/ddev-installation/)
 
-## Installation steps
+## Installation
 
 ### 1. Create a DDEV project directory
 
@@ -72,7 +72,7 @@ Now, configure the database connection for your Ibexa DXP project. Depending on 
 
 !!! note
 
-    Those commands will set a `DATABASE_URL` environment variable inside the container which override [the .env's one](install_ibexa_dxp.md#change-installation-parameters).
+    Those commands will set a `DATABASE_URL` environment variable inside the container which overrides [the variable from `.env`](install_ibexa_dxp.md#change-installation-parameters).
 
 #### MariaDB
 
@@ -98,7 +98,7 @@ See [DDEV performance documentation](https://ddev.readthedocs.io/en/latest/users
 
 #### Optional: Change port mapping
 
-By default, DDEV will use ports 80 and 443.
+By default, DDEV uses ports 80 and 443.
 You can [set different ports](https://ddev.readthedocs.io/en/latest/users/usage/troubleshooting/#method-2-fix-port-conflicts-by-configuring-your-project-to-use-different-ports) with a command like the following:
 
 ```bash
@@ -115,12 +115,12 @@ ddev start
 
 !!! tip
 
-    If you forgot a configuration, you can still use `ddev config` but you got to restart afterward using `ddev restart`.
+    If you forgot some part of configuration, you can set it by using `ddev config` later, but afterwards you have to restart DDEV using `ddev restart`.
 
 ### 4. Composer authentication
 
 If you're installing the Commerce, Experience, or Content edition of Ibexa DXP, you'll need to [set up authentication tokens](install_ibexa_dxp.md#set-up-authentication-tokens) by modifying the Composer configuration.
-It must be done **after** executing the `ddev start` command as it will be run inside the container.
+You must run the following command **after** executing  `ddev start`, because the command will run inside the container.
 
 ```bash
 ddev composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
@@ -151,31 +151,30 @@ ddev php bin/console ibexa:graphql:generate-schema
 
 Once the above steps are completed, open your Ibexa DXP webpage by running the `ddev launch` command.
 
-!!! Note
+!!! tip
 
-    The project's URL was also given in `ddev start` output.
+    You can also see the project URL in the `ddev start` output.
 
 ### 8. Start using Ibexa DXP
 
 You can now start using Ibexa DXP and implement your own website on the platform.
-You can follow the [first usual steps](first_steps.md), the [Beginner tutorial](../tutorials/beginner_tutorial/beginner_tutorial.md) or partner agreements trainings.
 
-The configuration and code in the DDEV project directory can be edited.
-You can use the command you'll cross in the documentation by prefixing them with `ddev exec` or by opening a terminal inside the container using `ddev ssh`.
-For example, if a guideline invites you to run `php bin/console cache:clear`, you can do it in the DDEV container by following one of those two ways:
+You can edit the configuration and code in the DDEV project directory.
+You can use commands listed in the documentation by prefixing them with `ddev exec` or by opening a terminal inside the container using `ddev ssh`.
+For example, if a guideline invites you to run `php bin/console cache:clear`, you can do it in the DDEV container in one of the following ways:
 
-- running `ddev php bin/console cache:clear`
-- entering `ddev ssh` and run after the new prompt `php bin/console cache:clear`
+- run `ddev php bin/console cache:clear`
+- enter `ddev ssh` and run `php bin/console cache:clear` after the new prompt
 
 ## Going further
 
 ### Alternatives
 
-DDEv offers several ways to achieve a same thing, offering different levels of flexibility or adaptability to your development environment.
+DDEV offers several ways to achieve a same thing, offering different levels of flexibility or adaptability to your development environment.
 
 !!! tip
 
-    Learn more about the [DDEV commands](https://ddev.readthedocs.io/en/latest/users/usage/commands/) used
+    Learn more about the [DDEV commands](https://ddev.readthedocs.io/en/latest/users/usage/commands/):
     
     - by running [`ddev list`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#list) to list them all,
     - by running [`ddev help <command>`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#help) to get usage details about a given command.
@@ -183,34 +182,34 @@ DDEv offers several ways to achieve a same thing, offering different levels of f
     Learn more about DDEV configuration at [`ddev config` command documentation](https://ddev.readthedocs.io/en/latest/users/usage/commands/#config) and [advanced configuration files documentation](https://ddev.readthedocs.io/en/latest/users/configuration/config/).
 
 
-#### Using an auth.json
+#### Using `auth.json`
 
-To reuse a previously existing auth.json instead of setting the authentication at step [4. Composer authentication](#4-composer-authentication), use [DDEV `homeaddition` feature](https://ddev.readthedocs.io/en/latest/users/extend/in-container-configuration/).
-The auth.json file can be used for one project or globally for all projects.
+To reuse a previously existing `auth.json` instead of setting the authentication at step [4. Composer authentication](#4-composer-authentication), use the [DDEV `homeaddition` feature](https://ddev.readthedocs.io/en/latest/users/extend/in-container-configuration/).
+The `auth.json` file can be used for one project or globally for all projects.
 
-For example, an auth.json file can be copied to a DDEV project:
+For example, you can copy an `auth.json` file to a DDEV project:
 `cp <path-to-an>/auth.json .ddev/homeadditions/.composer`
 
-For example, the Composer global auth.json can also be the DDEV global auth.json with the help of symbolic link:
+Alternatively, the Composer global `auth.json` can be the DDEV global `auth.json` with the help of symbolic link:
 `mkdir -p ~/.ddev/homeadditions/.composer && ln -s ~/.composer/auth.json ~/.ddev/homeadditions/.composer/auth.json`
 
-If DDEV project was already started, `ddev restart` is needed.
+If a DDEV project has already been already started, you need to run `ddev restart`.
 
 #### Using Dotenv
 
-Instead of using environment variables inside the container, a [.env.local](https://symfony.com/doc/5.4/configuration.html#overriding-environment-values-via-env-local) file can be added to the project.
+Instead of using environment variables inside the container, a [`.env.local`](https://symfony.com/doc/5.4/configuration.html#overriding-environment-values-via-env-local) file can be added to the project.
 
-The following example show the particular case of the database:
+The following shows `.env.local` configuration on the example of the database:
 
-- _[2. Configure DDEV / Configure database connection](#configure-database-connection)_ is skipped.
-- _[5. Create Ibexa DXP project](#5-create-ibexa-dxp-project)_ is modified to insert the database setting (Commerce and MariaDB are used in this example):
+- Skip step [2. Configure DDEV / Configure database connection](#configure-database-connection).
+- Modify step [5. Create Ibexa DXP project](#5-create-ibexa-dxp-project) to insert the database setting (Commerce and MariaDB are used in this example):
   ```bash
   ddev composer create ibexa/commerce-skeleton --no-install;
   echo "DATABASE_URL=mysql://db:db@db:3306/db" >> .env.local;
   ddev composer install;
   ```
 
-!!! note Precedence
+!!! note "Precedence"
 
     For the same variable, its server level environment value overrides its application level dotenv value.
     To switch a variable from `ddev config --web-environment-add` command to `.env.local` file, you have
@@ -220,7 +219,7 @@ The following example show the particular case of the database:
 
 ### Webserver configuration
 
-It can be interesting to set up the webserver as recommenced for production.
+Set up the webserver as recommended for production requires the following steps.
 
 <!--
 Those configurations are required if you plan to also simulate the [binary files sharing needed by clusters](../infrastructure_and_maintenance/clustering/clustering_using_ddev.md#share-binary-files).
@@ -235,7 +234,7 @@ cp vendor/ibexa/post-install/resources/templates/nginx/vhost.template .ddev/ngin
 cp -r vendor/ibexa/post-install/resources/templates/nginx/ibexa_params.d .ddev/nginx_full/
 ```
 
-Then, replace the placeholders with the appropriate values in the `.ddev/nginx_full/ibexa.conf`:
+Then, replace the placeholders with the appropriate values in `.ddev/nginx_full/ibexa.conf`:
 
 | Placeholder             | Value                          |
 |-------------------------|--------------------------------|
@@ -247,9 +246,9 @@ Then, replace the placeholders with the appropriate values in the `.ddev/nginx_f
 | `%FASTCGI_PASS%`        | `unix:/var/run/php-fpm.sock`   |
 | `%BINARY_DATA_HANDLER%` | empty string <!-- or `dfs` --> |
 
-Because of path resolution inside DDEV's Nginx, one last replacement must be done: `ibexa_params.d` must be replaced with `sites-enabled/ibexa_params.d`.
+Because of path resolution inside DDEV's Nginx, you must replace one more thing: `ibexa_params.d` with `sites-enabled/ibexa_params.d`.
 
-For example, it can be done with `sed`:
+You can, for example, do it with `sed`:
 
 ```bash
 sed -i 's/%PORT%/80/' .ddev/nginx_full/ibexa.conf;
@@ -270,7 +269,7 @@ sed -i 's/ibexa_params.d/sites-enabled\/ibexa_params.d/' .ddev/nginx_full/ibexa.
 
 #### Apache Virtual Host
 
-To set the Apache Virtual Host, `.ddev/apache/apache-site.conf` will be override with Ibexa DXP's config. It can be done manually or using a script.
+To set the Apache Virtual Host, `.ddev/apache/apache-site.conf` will be override with Ibexa DXP's config. You can do it manually or using a script.
 
 ##### Manual
 
@@ -293,7 +292,7 @@ Then, replace the placeholders with the appropriate values in this `.ddev/apache
 | `%TIMEOUT%`         | `0`                          |
 | `%FASTCGI_PASS%`    | `unix:/var/run/php-fpm.sock` |
 
-For example, it can be done with `sed`:
+You can, for example, do it with `sed`:
 
 ```bash
 sed -i 's/%IP_ADDRESS%/*/' .ddev/apache/apache-site.conf
@@ -395,18 +394,18 @@ If the local project needs to answer to real production domains (for example, to
 
 DDEV can be useful to locally simulate a production cluster.
 
-- See _[Clustering using DDEV](../infrastructure_and_maintenance/clustering/clustering_using_ddev.md)_ to add Elasticsearch, Solr, Redis or Memcached to your DDEV installation.
-- See _[Ibexa Cloud and DDEV](../infrastructure_and_maintenance/clustering/ibexa_cloud_and_ddev.md)_ to run locally an Ibexa Project using DDEV.
+- See [Clustering using DDEV](clustering_using_ddev.md) to add Elasticsearch, Solr, Redis or Memcached to your DDEV installation.
+- See [Ibexa Cloud and DDEV](ibexa_cloud_and_ddev.md) to locally run an Ibexa DXP project using DDEV.
 
 ## Stop or remove the project
 
-If you need to simply stop the project to start it again latter, use `ddev stop`. Afterward, a `ddev start` will run the project in the same state.
+If you need to stop the project to start it again latter, use `ddev stop`. Afterwards, a `ddev start` will run the project in the same state.
 
-If you want to fully remove the project,
+If you want to fully remove the project:
 
 - delete the DDEV elements without backup: `ddev delete --omit-snapshot && rm -rf ./ddev`;
 - remove the project folder: `cd .. && rm -r my-ddev-project`
 
-If [additional hostnames](#hostnames-and-domains) have been used, the hosts file must be cleaned.
+If [additional hostnames](#hostnames-and-domains) have been used, you must clean the hosts file.
 
 To learn more, to remove all projects at once or to remove DDEV itself, see [Uninstalling DDEV](https://ddev.readthedocs.io/en/latest/users/usage/uninstall/).

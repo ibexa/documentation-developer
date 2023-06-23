@@ -1,42 +1,43 @@
 ---
-description: When you want to run locally a cluster infrastructure using DDEV.
+description: How to run a cluster infrastructure using DDEV locally.
 ---
 
 # Clustering using DDEV
 
-This guide follows [Getting started: Install using DDEV](../../getting_started/install_using_ddev.md) and helps to extend the previous installation to replicate locally a production [cluster](clustering.md).
+This guide follows [Install using DDEV](install_using_ddev.md) and helps to extend the previous installation to locally replicate a production [cluster](clustering.md).
 
-Contrary to production cluster, there will be only one front app server. But the data sharing needed by a cluster of several servers can still be emulated.
+In contrast to a production cluster, this setup will have only one front app server.
+But the data sharing needed by a cluster of several servers can still be emulated.
 
 The `ddev config --php-version` option should set the same PHP version as the production servers.
 
 !!! caution
 
     This is not to be used in production.
-    And a staging environment for validation before production should replicat exactly the production environment.
+    A staging environment for validation before production should exactly replicate the production environment.
     This is meant for development environment only.
 
 !!! tip
  
-    - [`ddev describe`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#describe) display a summary of the cluster including accesses from inside and outside DDEV services.
+    - [`ddev describe`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#describe) displays a summary of the cluster including accesses from inside and outside DDEV services.
     - [`ddev ssh`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#ssh) opens a terminal inside a service.
     - [`ddev exec`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#exec) executes a command inside a service.
 
-    [Discover more commands on DDEV documentation](https://ddev.readthedocs.io/en/latest/users/usage/commands/)
+    [Discover more commands in DDEV documentation](https://ddev.readthedocs.io/en/latest/users/usage/commands/).
 
 <!-- TODO: Document [`ddev get --remove`](https://ddev.readthedocs.io/en/latest/users/extend/additional-services/#viewing-and-removing-installed-add-ons) when DDEV 1.22 is out https://github.com/ddev/ddev/milestone/54 -->
 
-To run locally an Ibexa Cloud project, you may refer to _[Ibexa Cloud and DDEV](ibexa_cloud_and_ddev.md)_ instead.
+To run an Ibexa Cloud project locally, you may refer to [Ibexa Cloud and DDEV](ibexa_cloud_and_ddev.md) instead.
 
 <!-- ## TODO: Install Varnish -->
 
 ## Install search engine
 
-A [search engine](../../search/search_engines.md) can be added to the cluster.
+A [search engine](search_engines.md) can be added to the cluster.
 
 ### Elasticsearch
 
-The following command lines will
+The following commands will:
 
 1. add the Elasticsearch container,
 1. set it up as the search engine,
@@ -57,10 +58,10 @@ You can now check that Elasticsearch works properly.
 
 For example, `ddev exec curl -s "http://elasticsearch:9200/_count"` will
 
-- test that the `web` server is accessing `elasticsearch` server,
+- test that the `web` server is accessing the `elasticsearch` server,
 - display the number of indexed documents.
 
-See [ddev/ddev-elasticsearch's README](https://github.com/ddev/ddev-elasticsearch) for more like memory management.
+See [ddev/ddev-elasticsearch README](https://github.com/ddev/ddev-elasticsearch) for more information on topics such as memory management.
 
 See [Elasticsearch REST API reference](https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html) for more request possibilities like
 
@@ -74,7 +75,7 @@ See [Elasticsearch REST API reference](https://www.elastic.co/guide/en/elasticse
 
 ### Solr
 
-To ease the installation of Solr, the specific add-on `ibexa/ddev-solr` can be used:
+To simplify the installation of Solr, you can use the `ibexa/ddev-solr` add-on:
 
 ```bash
 ddev get ibexa/ddev-solr
@@ -85,17 +86,17 @@ You can now test that Solr works properly.
 
 For example, `ddev exec curl -s http://solr:8983/api/cores/` will
 
-- test that the `web` server is accessing `solr` server,
+- test that the `web` server is accessing the `solr` server,
 - test `collection1` existence and status,
-- display `collection1`'s `numDocs` that should non-zero if indexing worked correctly. 
+- display `collection1`'s `numDocs` that should not be zero if indexing worked correctly. 
 
-The Solr admin can be accessed from the host by using the port 8983 on the same `.ddev.site` subdomain than the front. Use `ddev describe` to have that URL.
+The Solr admin can be accessed from the host by using the port 8983 on the same `.ddev.site` subdomain as the front. Use `ddev describe` to get that URL.
 
 ## Share cache and sessions
 
-A [persistence cache pool](../cache/persistence_cache.md#persistence-cache-configuration) and a [session handler](../sessions.md#session-handlers) can be added to the cluster.
+You can add a [persistence cache pool](persistence_cache.md#persistence-cache-configuration) and a [session handler](sessions.md#session-handlers) to the cluster.
 
-In the following examples,
+In the following examples:
 
 - the same service will be used to store both persistence cache and sessions,
 - the session handler will be set on Symfony side, not on PHP side.
@@ -123,13 +124,13 @@ ddev php bin/console cache:clear
 
 You can now check that Redis works properly.
 
-For example, `ddev redis-cli MONITOR` will show some `"SETEX" "ezp:`, `"MGET" "ezp:`, `"SETEX" "PHPREDIS_SESSION:`, `"GET" "PHPREDIS_SESSION:`, etc. while navigating into the website, in particular the Back Office.
+For example, `ddev redis-cli MONITOR` will output such as `"SETEX" "ezp:`, `"MGET" "ezp:`, `"SETEX" "PHPREDIS_SESSION:`, `"GET" "PHPREDIS_SESSION:`, etc. while navigating into the website, in particular the Back Office.
 
-See [Redis commands](https://redis.io/commands/) for more details like about the [`MONITOR`](https://redis.io/commands/monitor/) used in the previous example.
+See [Redis commands](https://redis.io/commands/) for more details such as information about the [`MONITOR`](https://redis.io/commands/monitor/) used in the previous example.
 
 ### Install Memcached
 
-First, if not already there, append the following [new service](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/sessions/#handling-sessions-with-memcached) to `config/config/services.yaml`:
+First, if not already there, append the following [new service](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/sessions/#handling-sessions-with-memcached) to `config/services.yaml`:
 
 ```yaml
     app.session.handler.native_memcached:
@@ -140,7 +141,7 @@ First, if not already there, append the following [new service](https://doc.ibex
 ```
 
 Second, install and set up the add-on.
-The following command lines
+The following commands:
 
 1. add the Memcached container,
 1. set up Memcached as the cache pool,
