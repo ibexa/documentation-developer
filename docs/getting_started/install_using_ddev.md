@@ -370,7 +370,8 @@ ddev php bin/console ibexa:graphql:generate-schema
 ddev launch
 ```
 
-Notice that the previous example choose to `.gitignore` the whole `.ddev/` directory. It can go otherwise. Some DDEV configs can be shared among developers. For example, a common `.ddev/config.yaml` can be committed for everyone and [locally extended or override](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files). 
+Notice that the example adds the whole `.ddev/` directory to `.gitignore`, but you can also version parts of it.
+Some DDEV configs can be shared among developers. For example, a common `.ddev/config.yaml` can be committed for everyone and [locally extended or overridden](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).
 
 Compared to running a clean install like described in _[Installation steps](#installation-steps)_:
 
