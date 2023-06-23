@@ -6,8 +6,7 @@ page_type: landing_page
 
 # Commerce
 
-The commerce component of [[= product_name =]] covers various steps of making a transaction,
-from listing available products, through adding products to a cart, to checkout and confirmation.
+The commerce component of [[= product_name =]] covers various areas of managing an e-commerce presence: from configuring payment and shipping methods, through processing a transaction (listing available products, adding products to a cart, processing checkout and sending confirmation), all the way to order management.
 
 [[= cards([
 "commerce/cart/cart",
@@ -18,7 +17,7 @@ from listing available products, through adding products to a cart, to checkout 
 "commerce/storefront/storefront"
 ], columns=4) =]]
 
-## Configuration
+## Configure
 
 [[= cards([
 "commerce/checkout/configure_checkout",
@@ -28,7 +27,7 @@ from listing available products, through adding products to a cart, to checkout 
 "commerce/storefront/configure_storefront"
 ], columns=4) =]]
 
-## Customization
+## Extend
 
 [[= cards([
 "commerce/checkout/customize_checkout",
@@ -36,7 +35,7 @@ from listing available products, through adding products to a cart, to checkout 
 "commerce/storefront/extend_storefront"
 ], columns=4) =]]
 
-## API reference
+## Explore API reference
 
 [[= cards([
 "commerce/cart/cart_api",

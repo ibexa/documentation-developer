@@ -1,5 +1,6 @@
 ---
-description: Configure the payment process.
+description: Configure payments, modify the default payment processing workflow.
+
 edition: commerce
 ---
 
@@ -11,7 +12,7 @@ When you work with your Commerce implementation, you can review and modify the p
 
     When you modify the workflow configuration, make sure you properly set user [permissions](permission_use_cases.md#commerce) for the Payment component.
 
-## Payment workflow
+## Configure payment workflow
 
 Payment workflow relies on a [Symfony Workflow](http://symfony.com/doc/5.4/components/workflow.html).
 Each transition represents a separate payment step. 

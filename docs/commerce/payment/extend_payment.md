@@ -1,5 +1,5 @@
 ---
-description: Extend Payment with custom payment method type.
+description: Extend Payment with custom payment method types.
 edition: commerce
 ---
 

@@ -1,5 +1,5 @@
 ---
-description: Configure the default shipment process.
+description: Configure shipping, modify the default shipment workflow.
 edition: commerce
 ---
 
@@ -12,7 +12,7 @@ the shipping configuration.
 
     When you modify the workflow configuration, make sure you properly set user [permissions](permission_use_cases.md#commerce) for the shipping component.
 
-## Shipment workflow
+## Configure shipment workflow
 
 Shipment workflow relies on a [Symfony Workflow](http://symfony.com/doc/5.4/components/workflow.html).
 Each transition represents a separate shipment step. 

@@ -1,5 +1,5 @@
 ---
-description: Storefront covers all actions related to the purchase process.
+description: Storefront covers actions related to the purchase process.
 edition: commerce
 ---
 
