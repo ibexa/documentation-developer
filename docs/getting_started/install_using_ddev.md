@@ -38,7 +38,7 @@ ddev config --project-type=php --php-version 8.1 --docroot=public --create-docro
 
 This command sets the project type to PHP, the PHP version to 8.1, the document root to `public` directory, and creates the document root.
 
-#### Optional: Switch to Apache
+#### Switch to Apache (optional)
 
 By default, DDEV uses Nginx.
 
@@ -48,7 +48,7 @@ To use Apache instead, run the following command:
 ddev config --webserver-type=apache-fpm
 ```
 
-#### Optional: Use another database type
+#### Use another database type (optional)
 
 By default, DDEV uses MariaDB.
 
@@ -86,7 +86,7 @@ ddev config --web-environment-add DATABASE_URL=mysql://db:db@db:3306/db
 ddev config --web-environment-add DATABASE_URL=postgresql://db:db@db:5432/db
 ```
 
-#### Optional: Enable Mutagen
+#### Enable Mutagen (optional)
 
 If you're using macOS or Windows, you might wish to enable [Mutagen](https://ddev.readthedocs.io/en/latest/users/install/performance/#mutagen) for performance. You can do this by running the following command:
 
@@ -96,7 +96,7 @@ ddev config --mutagen-enabled
 
 See [DDEV performance documentation](https://ddev.readthedocs.io/en/latest/users/install/performance/) for more.
 
-#### Optional: Change port mapping
+#### Change port mapping (optional)
 
 By default, DDEV uses ports 80 and 443.
 You can [set different ports](https://ddev.readthedocs.io/en/latest/users/usage/troubleshooting/#method-2-fix-port-conflicts-by-configuring-your-project-to-use-different-ports) with a command like the following:
