@@ -1,3 +1,7 @@
+---
+description: Install Ibexa DXP with Docker and DDEV to use it for development.
+---
+
 # Install using DDEV
 
 This guide provides a step-by-step walkthrough of installing [[= product_name =]] using [DDEV](https://ddev.com/).
