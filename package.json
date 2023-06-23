@@ -1,0 +1,14 @@
+{
+  "name": "developer-documentation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ezsystems/developer-documentation.git",
+  "author": "Michał Grabowski <michal.grabowski@ibexa.co>",
+  "license": "MIT",
+  "scripts": {
+     "scss": "node-sass --watch scss -o docs/css"
+  },
+  "dependencies": {
+    "node-sass": "^9.0.0"
+  }
+}
