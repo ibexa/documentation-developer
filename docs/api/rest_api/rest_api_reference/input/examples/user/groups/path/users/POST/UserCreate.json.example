@@ -27,7 +27,7 @@
             "email": "example@example.com",
             "enabled": true,
             "maxLogin": 10
-					}
+			}
         }
       ]
     }
