@@ -18,7 +18,7 @@ Before you start the installation, ensure you have the following software instal
 
 ### 1. Create a DDEV project directory
 
-Start by creating a directory for your DDEV project. Navigate to your desired location in the terminal, then use the following command to create a new directory:
+Start by creating a directory for your DDEV project by using the following command to create a new directory:
 
 ```bash
 mkdir my-ddev-project && cd my-ddev-project
