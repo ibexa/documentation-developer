@@ -119,7 +119,7 @@ ddev start
 
 ### 4. Composer authentication
 
-If you're installing the Commerce, Experience, or Content edition of Ibexa DXP, you'll need to [set up authentication tokens](install_ibexa_dxp.md#set-up-authentication-tokens) by modifying the Composer configuration.
+Next, you need to [set up authentication tokens](install_ibexa_dxp.md#set-up-authentication-tokens) by modifying the Composer configuration.
 You must run the following command **after** executing  `ddev start`, because the command will run inside the container.
 
 ```bash
