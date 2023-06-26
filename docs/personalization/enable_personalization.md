@@ -138,7 +138,7 @@ Place the following code snippet in the `<head>` section of your header template
 
 ``` html+twig
 {% if content is defined %}
-    {{ ibexa_personalization_track_user(content.id) }}
+    {{ ibexa_recommendation_track_user(content.id) }}
 {% endif %}
 ```
 
@@ -368,11 +368,11 @@ render(controller('ibexa_personalization::showRecommendationsAction', {
 !!! tip
 
     To check whether tracking is enabled on the front end, use the 
-    `ibexa_personalization_enabled()` Twig function.
+    `ibexa_recommendation_enabled()` Twig function.
     You can wrap the call to the `RecommendationController` with:
 
     ``` html+twig
-    {% if ibexa_personalization_enabled() %}
+    {% if ibexa_recommendation_enabled() %}
         <div class="container">
             {# ... #}
         </div>
