@@ -128,7 +128,7 @@ ddev composer config --global http-basic.updates.ibexa.co <installation-key> <to
 
 Replace `<installation-key>` and `<token-password>` with your actual installation key and token password, respectively.
 
-If you want to reuse an existing `auth.json`file, see [Alternatives / Using an auth.json](#using-an-authjson).
+If you want to reuse an existing `auth.json`file, see [Using an auth.json](#using-an-authjson).
 
 ### 5. Create Ibexa DXP project
 
@@ -166,9 +166,7 @@ For example, if a guideline invites you to run `php bin/console cache:clear`, yo
 - run `ddev php bin/console cache:clear`
 - enter `ddev ssh` and run `php bin/console cache:clear` after the new prompt
 
-## Going further
-
-### Alternatives
+## Other options for configuration
 
 DDEV offers several ways to achieve a same thing, offering different levels of flexibility or adaptability to your development environment.
 
@@ -182,7 +180,7 @@ DDEV offers several ways to achieve a same thing, offering different levels of f
     Learn more about DDEV configuration at [`ddev config` command documentation](https://ddev.readthedocs.io/en/latest/users/usage/commands/#config) and [advanced configuration files documentation](https://ddev.readthedocs.io/en/latest/users/configuration/config/).
 
 
-#### Using `auth.json`
+### Using `auth.json`
 
 An `auth.json` file can be used for one project, or globally for all projects, with the [DDEV `homeaddition` feature](https://ddev.readthedocs.io/en/latest/users/extend/in-container-configuration/).
 
@@ -196,7 +194,7 @@ If the DDEV project has already been started, you need to run `ddev restart`.
 
 To use an `auth.json` file replaces the step [4. Composer authentication](#4-composer-authentication).
 
-#### Using Dotenv
+### Using Dotenv
 
 Instead of using environment variables inside the container, a [`.env.local`](https://symfony.com/doc/5.4/configuration.html#overriding-environment-values-via-env-local) file can be added to the project.
 
