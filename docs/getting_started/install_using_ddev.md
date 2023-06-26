@@ -74,17 +74,17 @@ Now, configure the database connection for your Ibexa DXP project. Depending on 
 
     Those commands will set a `DATABASE_URL` environment variable inside the container which overrides [the variable from `.env`](install_ibexa_dxp.md#change-installation-parameters).
 
-#### MariaDB
+=== "MariaDB / MySQL"
 
-```bash
-ddev config --web-environment-add DATABASE_URL=mysql://db:db@db:3306/db
-```
+    ```bash
+    ddev config --web-environment-add DATABASE_URL=mysql://db:db@db:3306/db
+    ```
 
-#### PostgreSQL
+=== "PostgreSQL"
 
-```bash
-ddev config --web-environment-add DATABASE_URL=postgresql://db:db@db:5432/db
-```
+    ```bash
+    ddev config --web-environment-add DATABASE_URL=postgresql://db:db@db:5432/db
+    ```
 
 #### Enable Mutagen (optional)
 
@@ -184,7 +184,7 @@ DDEV offers several ways to achieve a same thing, offering different levels of f
 
 #### Using `auth.json`
 
-To reuse a previously existing `auth.json` instead of setting the authentication at step [4. Composer authentication](#4-composer-authentication), use the [DDEV `homeaddition` feature](https://ddev.readthedocs.io/en/latest/users/extend/in-container-configuration/).
+To reuse a previously existing `auth.json` file instead of setting the authentication at step [4. Composer authentication](#4-composer-authentication), use the [DDEV `homeaddition` feature](https://ddev.readthedocs.io/en/latest/users/extend/in-container-configuration/).
 The `auth.json` file can be used for one project or globally for all projects.
 
 For example, you can copy an `auth.json` file to a DDEV project:
@@ -215,7 +215,7 @@ The following shows `.env.local` configuration on the example of the database:
     To switch a variable from `ddev config --web-environment-add` command to `.env.local` file, you have
 
     - to remove it from under the `web_environment:` key in `.ddev/config.yaml` file then restart the project,
-    - or rebuild it from scratch.
+    - or rebuild the project from scratch.
 
 ### Webserver configuration
 
