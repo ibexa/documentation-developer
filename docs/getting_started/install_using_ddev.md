@@ -379,9 +379,7 @@ Compared to running a clean install like described in _[Installation steps](#ins
 - Instead of `ddev composer create`, in [5. Create Ibexa DXP project](#5-create-ibexa-dxp-project) use only `ddev composer install`.
 - [Ibexa data migration](../content_management/data_migration/importing_data.md) or [`ddev import-db`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#import-db) can be used to populate the database.
 
-### Mimicking a production environment
-
-#### Hostnames and domains
+### Hostnames and domains
 
 If the local project needs to answer to real production domains (for example, to use the existing [hostname to SiteAccess](../multisite/siteaccess/siteaccess_matching.md#maphost) or [hostname element to SiteAccess](../multisite/siteaccess/siteaccess_matching.md#hostelement) mappings), you can use [additional hostnames](https://ddev.readthedocs.io/en/latest/users/extend/additional-hostnames/).
 
@@ -389,7 +387,7 @@ If the local project needs to answer to real production domains (for example, to
 
     As this feature will modify domain resolution, the real website may be unreachable until the `hosts` file is manually cleaned.
 
-#### Cluster or Ibexa Cloud
+### Cluster or Ibexa Cloud
 
 DDEV can be useful to locally simulate a production cluster.
 
