@@ -4,18 +4,18 @@ description: How to run a cluster infrastructure using DDEV locally.
 
 # Clustering using DDEV
 
+!!! caution
+
+    This is not to be used in production.
+    A staging environment for validation before production should exactly replicate the production environment.
+    This is meant for development environment only.
+
 This guide follows [Install using DDEV](install_using_ddev.md) and helps to extend the previous installation to locally replicate a production [cluster](clustering.md).
 
 In contrast to a production cluster, this setup will have only one front app server.
 But the data sharing needed by a cluster of several servers can still be emulated.
 
 The `ddev config --php-version` option should set the same PHP version as the production servers.
-
-!!! caution
-
-    This is not to be used in production.
-    A staging environment for validation before production should exactly replicate the production environment.
-    This is meant for development environment only.
 
 !!! tip
  
