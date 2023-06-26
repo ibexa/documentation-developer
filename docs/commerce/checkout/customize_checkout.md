@@ -21,7 +21,7 @@ Depending on your needs, the checkout process can be either complicated or very 
 For example, if the website is selling airline tickets, you may need several [additional steps](#add-checkout-step) 
 with passengers defining their special needs.
 On the other side of the spectrum would be a store that sells books with personal pickup, 
-where [single-page checkout](#create-a-single-form-checkout) would be enough.
+where [one page checkout](#create-a-one-page-checkout) would be enough.
 
 There are several factors that make checkout particularly flexible and customizable:
 
@@ -125,15 +125,15 @@ You should be able to see a different checkout applied after you have added prod
 
 ![Additional checkout step](img/additional_checkout_step.png "Additional checkout step")
 
-## Create a single-form checkout
+## Create a one page checkout
 
-Another way of customizing the process would be to implement a single-form checkout.
+Another way of customizing the process would be to implement a one page checkout.
 Such solution could work for certain industries, where simplicity is key.
-The single form's basic advantage is simplified navigation with less clicks to complete the transaction.
+It's basic advantage is simplified navigation with less clicks to complete the transaction.
 
 ### Define workflow
 
-To create a single-form checkout, define a workflow that has two steps, `initialized` and `completed`, and one transition, from `initialized` or `completed` to `completed`.
+To create a one page checkout, define a workflow that has two steps, `initialized` and `completed`, and one transition, from `initialized` or `completed` to `completed`.
 
 ``` yaml hl_lines="3 18 19"
 [[= include_file('code_samples/front/shop/checkout/config/packages/checkout.yaml', 17, 38) =]]
@@ -147,7 +147,7 @@ Within the controller, create a form that contains all the necessary fields, suc
 In the `src/Controller/Checkout` folder, create a file that resembles the following example:
 
 ``` php
-[[= include_file('code_samples/front/shop/checkout/src/Controller/Checkout/SinglePageCheckout.php') =]]
+[[= include_file('code_samples/front/shop/checkout/src/Controller/Checkout/OnePageCheckout.php') =]]
 ```
 
 The controller can reuse fields and functions that come from the checkout component, for example, 
@@ -158,7 +158,7 @@ after you check whether the form is valid, use the `AbstractStepController::adva
 In the `src/Form/Type` folder, create a corresponding form:
 
 ``` php
-[[= include_file('code_samples/front/shop/checkout/src/Form/Type/SinglePageCheckoutType.php') =]]
+[[= include_file('code_samples/front/shop/checkout/src/Form/Type/OnePageCheckoutType.php') =]]
 ```
 
 ### Create Twig template
@@ -179,7 +179,7 @@ In `assets/styles/checkout.css`, add styles required to properly display your te
 ### Select supported workflow 
 
 Then you have to map the single-step workflow to the repository, 
-by replacing the default `ibexa_checkout` reference with one of `single_page_checkout`:
+by replacing the default `ibexa_checkout` reference with one of `one_page_checkout`:
 
 ``` yaml
 [[= include_file('code_samples/front/shop/checkout/config/packages/checkout.yaml', 0, 5) =]]
@@ -188,9 +188,9 @@ by replacing the default `ibexa_checkout` reference with one of `single_page_che
 ### Restart application
 
 To see the results of your work, shut down the application, clear browser cache, and restart the application.
-You should be able to see a single-page checkout applied after you add products to a cart.
+You should be able to see a one page checkout applied after you add products to a cart.
 
-![Single page checkout](img/single_page_checkout.png "Single page checkout")
+![One page checkout](img/single_page_checkout.png "One page checkout")
 
 ## Define custom Address Field Type formats 
 

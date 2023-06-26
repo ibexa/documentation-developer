@@ -1,10 +1,14 @@
 ---
-description: Use PHP API to manage payment methods in Commerce. You can create, modify and delete payment methods.
+description: Use PHP API and REST API to manage payment methods in Commerce. You can create, modify and delete payment methods.
 edition: commerce
 ---
 
 # Payment method API
 
+!!! tip "Order management REST API"
+
+    To learn how to manage payment methods with the REST API, see the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#payment-methods).
+    
 To get payment methods and manage them, use the `Ibexa\Contracts\Payment\PaymentMethodServiceInterface` interface.
 
 From the developer's perspective, payment methods are referenced with identifiers defined manually at method creation stage in user interface. 
