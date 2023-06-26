@@ -330,7 +330,7 @@ nav:
             - Payment API: commerce/payment/payment_api.md 
         - Shipping management:
             - Shipping management: commerce/shipping_management/shipping_management.md
-            - Configure shipment: commerce/shipping_management/configure_shipment.md
+            - Configure shipping: commerce/shipping_management/configure_shipment.md
             - Shipping method API: commerce/shipping_management/shipping_method_api.md
             - Shipment API: commerce/shipping_management/shipment_api.md
         - Storefront:
