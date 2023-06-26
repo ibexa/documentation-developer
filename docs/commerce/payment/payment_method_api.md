@@ -1,5 +1,5 @@
 ---
-description: Use PHP API to manage payment methods in Commerce. You can create, modify and delete payment methods.
+description: Use PHP API and REST API to manage payment methods in Commerce. You can create, modify and delete payment methods.
 edition: commerce
 ---
 

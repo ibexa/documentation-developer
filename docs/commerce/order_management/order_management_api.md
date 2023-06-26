@@ -1,5 +1,5 @@
 ---
-description: Use PHP API to manage orders in Commerce.
+description: Use PHP API and REST API to manage orders in Commerce.
 edition: commerce
 ---
 
