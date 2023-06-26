@@ -184,8 +184,7 @@ DDEV offers several ways to achieve a same thing, offering different levels of f
 
 #### Using `auth.json`
 
-To reuse a previously existing `auth.json` file instead of setting the authentication at step [4. Composer authentication](#4-composer-authentication), use the [DDEV `homeaddition` feature](https://ddev.readthedocs.io/en/latest/users/extend/in-container-configuration/).
-The `auth.json` file can be used for one project or globally for all projects.
+An `auth.json` file can be used for one project, or globally for all projects, with the [DDEV `homeaddition` feature](https://ddev.readthedocs.io/en/latest/users/extend/in-container-configuration/).
 
 For example, you can copy an `auth.json` file to a DDEV project:
 `cp <path-to-an>/auth.json .ddev/homeadditions/.composer`
@@ -193,7 +192,9 @@ For example, you can copy an `auth.json` file to a DDEV project:
 Alternatively, the Composer global `auth.json` can be the DDEV global `auth.json` with the help of symbolic link:
 `mkdir -p ~/.ddev/homeadditions/.composer && ln -s ~/.composer/auth.json ~/.ddev/homeadditions/.composer/auth.json`
 
-If a DDEV project has already been already started, you need to run `ddev restart`.
+If the DDEV project has already been started, you need to run `ddev restart`.
+
+To use an `auth.json` file replaces the step [4. Composer authentication](#4-composer-authentication).
 
 #### Using Dotenv
 
