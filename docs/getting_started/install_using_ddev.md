@@ -336,7 +336,7 @@ To run an existing project, you'll need to
 
 - configure the DDEV project
 - start the DDEV project
-- add Composer authentication if it's a Content, Experience or Commerce project
+- add Composer authentication
 - install dependencies packages using Composer
 - populate the contents, which could be
   - getting a clean database using ddev `php bin/console ibexa:install ibexa-<edition>` then adding some data using [Ibexa data migration](../content_management/data_migration/importing_data.md)
@@ -372,7 +372,7 @@ ddev launch
 Notice that the example adds the whole `.ddev/` directory to `.gitignore`, but you can also version parts of it.
 Some DDEV configs can be shared among developers. For example, a common `.ddev/config.yaml` can be committed for everyone and [locally extended or overridden](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).
 
-Compared to running a clean install like described in _[Installation steps](#installation-steps)_:
+Compared to running a clean install like described in [Installation steps](#installation-steps):
 
 - Instead of creating an empty directory like in [1. Create a DDEV project directory](#1-create-a-ddev-project-directory), you can use an existing directory containing an Ibexa DXP project.
 - In [2. Configure DDEV / Configure PHP version and document root](#configure-php-version-and-document-root), don't create the Document root, remove the `--create-docroot` option.
