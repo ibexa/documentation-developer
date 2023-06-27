@@ -286,7 +286,7 @@ Run the following scripts:
     If you are still using Symfony 5.3, you need to update your installation to Symfony 5.4.
     To do this, update your `composer.json` to refer to `5.4.*` instead or `5.3.*`.
 
-    Refer to the relevant website skeleton for an example: [content](https://github.com/ibexa/content-skeleton/blob/v3.3.13/composer.json), [experience](https://github.com/ibexa/experience-skeleton/blob/v3.3.13/composer.json), [commerce](https://github.com/ibexa/commerce-skeleton/blob/v3.3.13/composer.json).
+    Refer to the relevant website skeleton: [content](https://github.com/ibexa/content-skeleton/blob/v3.3.13/composer.json), [experience](https://github.com/ibexa/experience-skeleton/blob/v3.3.13/composer.json), [commerce](https://github.com/ibexa/commerce-skeleton/blob/v3.3.13/composer.json).
 
     The following `sed` commands should update the relevant lines.
     Use them with caution and properly check the result:
@@ -298,8 +298,9 @@ Run the following scripts:
 
     After this `composer.json` update, run `composer update "symfony/*"`.
 
-    You may have to adapt some configuration to fit this new Symfony minor version.
+    You may need to adapt configuration to fit the new minor version of Symfony.
     For example, you might have to remove `timeout` related config from `nelmio_solarium` bundle config:
+    
     ```shell
     sed -i -E '/ *timeout: [0-9]+/d' ./config/packages/nelmio_solarium.yaml ./config/packages/ezcommerce/ezcommerce_advanced.yaml
     composer update "symfony/*"
