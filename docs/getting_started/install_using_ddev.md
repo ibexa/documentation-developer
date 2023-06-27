@@ -334,38 +334,37 @@ ddev restart
 
 To run an existing project, you'll need to
 
-- configure the DDEV project
-- start the DDEV project
-- add Composer authentication
-- install dependencies packages using Composer
-- populate the contents, which could be
-  - getting a clean database using ddev `php bin/console ibexa:install ibexa-<edition>` then adding some data using [Ibexa data migration](../content_management/data_migration/importing_data.md)
-  - injecting a dump using [`ddev import-db`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#import-db) and copying related binary files into `public/var`
+1. configure the DDEV project
+1. start the DDEV project
+1. add Composer authentication
+1. install dependencies packages using Composer
+1. populate the contents, which could be
+    - getting a clean database using ddev `php bin/console ibexa:install ibexa-<edition>` then adding some data using [Ibexa data migration](../content_management/data_migration/importing_data.md)
+    - injecting a dump using [`ddev import-db`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#import-db) and copying related binary files into `public/var`
 
-This example will run an existing project and have the right content structure but no content. This following script sequence will
-
-- clone [version-controlled project](install_ibexa_dxp.md#add-project-to-version-control) from a Git repository,
-- exclude the whole `.ddev/` directory from version control using `.gitignore`,
-- configure the DDEV project then start it,
-- configure Composer authentication,
-- install the dependencies packages,
-- populate the database with a clean install,
-- add some content types using a migration file (previously created on another installation) and update the GraphQL schema,
-- open the project in the default brother which should display the default SiteAccess frontpage.
+The following example will run an already [version-controlled project](install_ibexa_dxp.md#add-project-to-version-control) and have the right content structure (but no content):
 
 ```bash
+# Clone the version-controlled project and enter its local directory
 git clone <repository> my-ddev-project && cd my-ddev-project
+# Exclude the whole `.ddev/` directory from version control
 .ddev/ >> .gitignore
+# Configure the DDEV project then start it
 ddev config --project-type=php --php-version 8.1 \
   --docroot=public \
   --web-environment-add DATABASE_URL=mysql://db:db@db:3306/db \
   --http-port=8080 --https-port=8443
 ddev start
+# Configure Composer authentication
 ddev composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
+# Install the dependencies packages
 ddev composer install
+# Populate the database with a clean install
 ddev php bin/console ibexa:install ibexa-<edition>
+# Add some content types using a migration file (previously created on another installation) and update the GraphQL schema
 ddev php bin/console ibexa:migrations:migrate --file=project_content_types.yaml
 ddev php bin/console ibexa:graphql:generate-schema
+# Open the project in the default brother which should display the default SiteAccess frontpage
 ddev launch
 ```
 
