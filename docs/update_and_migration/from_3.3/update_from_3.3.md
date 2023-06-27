@@ -43,7 +43,7 @@ Run:
 The `flex.ibexa.co` Flex server has been disabled.
 If you are using v3.3.15 or earlier v3.3 version, you need to update your Flex server.
 In your `composer.json` check whether the `https://flex.ibexa.co` endpoint is still listed in `extra.symfony.endpoint`.
-If it's the case, you need to do the following update procedure.
+If that's the case, you need to perform the following update procedure.
 
 First, update the `symfony/flex` bundle to handle the new endpoint properly:
 
@@ -51,7 +51,7 @@ First, update the `symfony/flex` bundle to handle the new endpoint properly:
 composer update symfony/flex --no-plugins --no-scripts;
 ```
 
-Then, `https://flex.ibexa.co` endpoint need to be replaced with the new [`https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main`](https://github.com/ibexa/website-skeleton/blob/v3.3.20/composer.json#L98) endpoint in the composer.json as `extra.symfony.endpoint`.
+Then, replace the `https://flex.ibexa.co` endpoint with the new [`https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main`](https://github.com/ibexa/website-skeleton/blob/v3.3.20/composer.json#L98) endpoint in `composer.json` under `extra.symfony.endpoint`.
 
 You can do it manually, or by running the following command:
 
@@ -281,21 +281,22 @@ Run the following scripts:
 
 !!! note "Symfony 5.4"
 
-    Prior to 3.3.13, Symfony 5.3 was used by default.
+    Prior to v3.3.13, Symfony 5.3 was used by default.
 
     If you are still using Symfony 5.3, you need to update your installation to Symfony 5.4.
-    To do this, update your composer.json to refer to `5.4.*` instead or `5.3.*`.
+    To do this, update your `composer.json` to refer to `5.4.*` instead or `5.3.*`.
 
     Refer to the relevant website skeleton for an example: [content](https://github.com/ibexa/content-skeleton/blob/v3.3.13/composer.json), [experience](https://github.com/ibexa/experience-skeleton/blob/v3.3.13/composer.json), [commerce](https://github.com/ibexa/commerce-skeleton/blob/v3.3.13/composer.json).
 
-    The following `sed` commands should update the right lines, use with caution and properly check the result:
+    The following `sed` commands should update the relevant lines.
+    Use them with caution and properly check the result:
 
     ```shell
     sed -i -E 's/"symfony\/(.+)": "5.3.*"/"symfony\/\1": "5.4.*"/' composer.json;
     sed -i -E 's/"require": "5.3.*"/"require": "5.4.*"/' composer.json;
     ```
 
-    After this composer.json update, run `composer update "symfony/*"`.
+    After this `composer.json` update, run `composer update "symfony/*"`.
 
     You may have to adapt some configuration to fit this new Symfony minor version.
     For example, you might have to remove `timeout` related config from `nelmio_solarium` bundle config:
