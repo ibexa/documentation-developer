@@ -1,6 +1,7 @@
 ---
 description: Checkout Twig functions return information about the checkout process, and total values related to cart and cart items.
 edition: commerce
+page_type: reference
 ---
 
 # Checkout Twig functions

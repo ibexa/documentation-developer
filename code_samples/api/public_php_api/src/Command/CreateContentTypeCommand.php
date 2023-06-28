@@ -1,23 +1,23 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
 use Ibexa\Contracts\Core\Repository\ContentTypeService;
-use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class CreateContentTypeCommand extends Command
 {
-    private $contentTypeService;
+    private ContentTypeService $contentTypeService;
 
-    private $userService;
+    private UserService $userService;
 
-    private $permissionResolver;
+    private PermissionResolver $permissionResolver;
 
     public function __construct(ContentTypeService $contentTypeService, UserService $userService, PermissionResolver $permissionResolver)
     {
@@ -27,13 +27,12 @@ class CreateContentTypeCommand extends Command
         parent::__construct('doc:create_content_type');
     }
 
-
     protected function configure()
     {
         $this->setDefinition([
             new InputArgument('identifier', InputArgument::REQUIRED, 'Content Type identifier'),
             new InputArgument('group_identifier', InputArgument::REQUIRED, 'Content Type group identifier'),
-            new InputArgument('copy_identifier', InputArgument::OPTIONAL, 'Identifier of the CT copy')
+            new InputArgument('copy_identifier', InputArgument::OPTIONAL, 'Identifier of the CT copy'),
         ])
             ->addOption('copy', 'c', InputOption::VALUE_NONE, 'Do you want to make a copy the Content Type?');
     }
@@ -53,6 +52,7 @@ class CreateContentTypeCommand extends Command
             $contentTypeGroup = $this->contentTypeService->loadContentTypeGroupByIdentifier($groupIdentifier);
         } catch (\eZ\Publish\API\Repository\Exceptions\NotFoundException $e) {
             $output->writeln("Content Type group with identifier $groupIdentifier not found");
+
             return self::FAILURE;
         }
 
@@ -84,7 +84,6 @@ class CreateContentTypeCommand extends Command
         $output->writeln("Content type '$contentTypeIdentifier' with ID $contentTypeDraft->id created");
 
         if ($input->getOption('copy')) {
-
             $contentTypeToCopy = $this->contentTypeService->loadContentTypeByIdentifier($contentTypeIdentifier);
 
             $copy = $this->contentTypeService->copyContentType($contentTypeToCopy);

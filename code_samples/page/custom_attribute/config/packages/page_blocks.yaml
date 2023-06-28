@@ -7,9 +7,16 @@ ibexa_fieldtype_page:
             views:
                 default: 
                     name: Default block layout
-                    template: my_block.html.twig
+                    template: '@ibexadesign/blocks/my_block.html.twig'
                     priority: -255
             attributes:
                 my_string_attribute:
                     type: my_string
                     name: MyString
+
+ibexa:
+    system:
+        default:
+            page_builder_forms:
+                block_edit_form_templates:
+                    - { template: '@ibexadesign/custom_form_templates.html.twig', priority: 0 }

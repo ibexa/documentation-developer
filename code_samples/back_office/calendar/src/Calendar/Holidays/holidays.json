@@ -1,10 +1,11 @@
 [
-  {
-    "date": "2022-01-01",
-    "name": "New Year Day"
-  },
-  {
-    "date": "2021-12-25",
-    "name": "Christmas Day"
-  }
-]
+    {
+      "date": "2024-01-01",
+      "name": "New Year Day"
+    },
+    {
+      "date": "2023-12-25",
+      "name": "Christmas Day"
+    }
+  ]
+  

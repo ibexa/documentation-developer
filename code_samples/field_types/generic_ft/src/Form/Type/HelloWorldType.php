@@ -16,11 +16,11 @@ final class HelloWorldType extends AbstractType
     {
         $builder->add('name', TextType::class);
     }
-    
+
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Value::class
+            'data_class' => Value::class,
         ]);
     }
 }

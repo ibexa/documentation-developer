@@ -1,26 +1,24 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Core\Repository\URLService;
+use Ibexa\Contracts\Core\Repository\UserService;
+use Ibexa\Contracts\Core\Repository\Values\URL\Query\Criterion;
+use Ibexa\Contracts\Core\Repository\Values\URL\Query\SortClause;
+use Ibexa\Contracts\Core\Repository\Values\URL\URLQuery;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
-use Ibexa\Contracts\Core\Repository\Values\URL\URLQuery;
-use Ibexa\Contracts\Core\Repository\Values\URL\Query\Criterion;
-use Ibexa\Contracts\Core\Repository\Values\URL\Query\SortClause;
-use Ibexa\Contracts\Core\Repository\URLService;
-use Ibexa\Contracts\Core\Repository\UserService;
-use Ibexa\Contracts\Core\Repository\PermissionResolver;
 
 class FindUrlCommand extends Command
 {
-    private $urlService;
+    private URLService $urlService;
 
-    private $userService;
+    private UserService $userService;
 
-    private $permissionResolver;
+    private PermissionResolver $permissionResolver;
 
     public function __construct(URLService $URLService, UserService $userService, PermissionResolver $permissionResolver)
     {
@@ -50,7 +48,7 @@ class FindUrlCommand extends Command
             ]
         );
         $query->sortClauses = [
-            new SortClause\URL(SortClause::SORT_DESC)
+            new SortClause\URL(SortClause::SORT_DESC),
         ];
         $query->offset = 0;
         $query->limit = 25;

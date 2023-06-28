@@ -29,7 +29,8 @@ so you can also define session configuration per SiteAccess and SiteAccess group
 
 ### Session options per SiteAccess
 
-All site-related session configuration can be defined per SiteAccess and SiteAccess group:
+All site-related session configuration can be defined per SiteAccess and SiteAccess group
+under the `ibexa.system.<scope>.session` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa:

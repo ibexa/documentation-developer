@@ -1,5 +1,6 @@
 ---
-description: Configure the payment process.
+description: Configure payments, modify the default payment processing workflow.
+
 edition: commerce
 ---
 
@@ -11,7 +12,7 @@ When you work with your Commerce implementation, you can review and modify the p
 
     When you modify the workflow configuration, make sure you properly set user [permissions](permission_use_cases.md#commerce) for the Payment component.
 
-## Payment workflow
+## Configure payment workflow
 
 Payment workflow relies on a [Symfony Workflow](http://symfony.com/doc/5.4/components/workflow.html).
 Each transition represents a separate payment step. 
@@ -41,7 +42,8 @@ Otherwise, the transition can only be triggered by means of the API.
 [[= include_file('code_samples/front/shop/payment/config/packages/ibexa.yaml', 7, 39) =]]
 ```
 
-After you configure a custom workflow, reference it with `ibexa.repositories.<your_repository>.payment.workflow`, so that the system can identify which of your workflows handles the payment process.
+After you configure a custom workflow, reference it under the `ibexa.repositories.<your_repository>.payment.workflow` [configuration key](configuration.md#configuration-files),
+so that the system can identify which of your workflows handles the payment process.
 
 ``` yaml
 [[= include_file('code_samples/front/shop/payment/config/packages/ibexa.yaml', 0, 5) =]]

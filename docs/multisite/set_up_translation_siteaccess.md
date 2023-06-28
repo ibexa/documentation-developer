@@ -36,21 +36,23 @@ For example:
 - `www.mysite.com` for English site
 - `www.mysite.com/fr` for French site
 
-To achieve this you need to create a new SiteAccess in the `config/packages/ibexa.yaml` file.
+To achieve this you need to create a new SiteAccess in configuration under the `ibexa.siteaccesses` [configuration key](configuration.md#configuration-files).
 Add the `fr` SiteAccess to list of all SiteAccesses and it to the common `site_group`.
 This group is used for sharing settings such as API keys, cache locations and so on.
 
 ``` yaml
-siteaccess:
-    list: [site, fr]
-    groups:
-        site_group: [site, fr]
+ibexa:
+    siteaccess:
+        list: [site, fr]
+        groups:
+            site_group: [site, fr]
 ```
 
-Under the `system` key, add the new SiteAccess.
+Under the `ibexa.system` key, add the new SiteAccess.
 Indicate that they are meant for translations under `site_group.translation_siteaccesses`:
 
 ``` yaml
+ibexa:
     system:
         site_group:
             # ...

@@ -6,6 +6,25 @@ description: Overview of major recent additions to Ibexa DXP documentation.
 
 This page contains recent highlights and notable changes in Ibexa DXP documentation.
 
+## May 2023
+
+### v4.5
+
+- [v4.5 release notes](https://doc.ibexa.co/en/master/release_notes/ibexa_dxp_v4.5/) and guide on how to [update to v4.5](https://doc.ibexa.co/en/master/update_and_migration/from_4.4/update_from_4.4/)
+
+### Customer Portal
+
+- [Corporate account company and member REST API reference](https://doc.ibexa.co/en/master/api/rest_api/rest_api_reference/rest_api_reference.html#corporate-account)
+- [Creating a Customer Portal](https://doc.ibexa.co/en/master/customer_management/cp_page_builder/)
+
+### Commerce
+
+- [Extending payments](https://doc.ibexa.co/en/master/commerce/payment/extend_payment/)
+- Reference for commerce-related events:
+    - [Cart events](https://doc.ibexa.co/en/master/api/event_reference/cart_events/)
+    - [Order management events](https://doc.ibexa.co/en/master/api/event_reference/order_management_events/)
+    - [Payment events](https://doc.ibexa.co/en/master/api/event_reference/payment_events/)
+
 ## April 2023
 
 ### Payment

@@ -1,5 +1,6 @@
 ---
 description: Public PHP API exposes the Repository in a number of services and allows creating, reading, updating, managing, and deleting objects.
+page_type: reference
 ---
 
 # PHP API

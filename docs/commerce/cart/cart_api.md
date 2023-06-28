@@ -1,5 +1,5 @@
 ---
-description: Use PHP API to work with carts in Commerce, manage cart entries, or validate products.
+description: Use PHP API and REST API to work with carts in Commerce, manage cart entries, or validate products.
 edition: commerce
 ---
 

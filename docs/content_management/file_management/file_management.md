@@ -9,17 +9,8 @@ description: Configurations and management of binary files.
 To access binary files from the PHP API, use the `Ibexa\Core\IO\IOServiceInterface::loadBinaryFile()` method:
 
 ```php
-use Ibexa\Core\IO\IOServiceInterface;
-
-class FileController
-{
-    //...
-
-    $file = $this->ioService->loadBinaryFile($field->value->id);
-    $fileContent = $this->ioService->getFileContents($file);
-    
-    // ...
-}
+$file = $this->ioService->loadBinaryFile($field->value->id);
+$fileContent = $this->ioService->getFileContents($file);
 ```
 
 ## Handling binary files
@@ -63,6 +54,8 @@ ibexa_io:
 The `nfs_adapter`'s directory is based on your site settings, and is automatically set to `$var_dir$/$storage_dir$` (for example, `/path/to/ibexa/public/var/site/storage`).
 
 #### Permissions of generated files
+
+You can configure permissions of generated files under the `ibexa.system.<scope>.io.permissions` [configuration key](configuration.md#configuration-files).
 
 ``` yaml
 ibexa:

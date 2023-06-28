@@ -16,7 +16,7 @@ First, prepare a general layout template in a `templates/themes/<theme_name>/pag
 and include a search bar in this template:
 
 ``` html+twig hl_lines="1"
-[[= include_file('code_samples/front/search/search_bar/templates/themes/standard/pagelayout.html.twig', 19, 22) =]]
+[[= include_file('code_samples/front/search/search_bar/templates/themes/my_theme/pagelayout.html.twig', 19, 22) =]]
 ```
 
 Then, make sure that `pagelayout.html.twig` is included in your view configuration:
@@ -28,7 +28,7 @@ Then, make sure that `pagelayout.html.twig` is included in your view configurati
 The `parts/search_bar.html.twig` template uses the built-in `SearchController` to manage the search:
 
 ``` html+twig
-[[= include_file('code_samples/front/search/search_bar/templates/themes/standard/parts/search_bar.html.twig') =]]
+[[= include_file('code_samples/front/search/search_bar/templates/themes/my_theme/parts/search_bar.html.twig') =]]
 ```
 
 You can now go to the front page of your installation.
@@ -48,7 +48,7 @@ Select the template that is used on this page with the following configuration:
 Now, add the `full/search.html.twig` template:
 
 ``` html+twig hl_lines="5"
-[[= include_file('code_samples/front/search/search_bar/templates/themes/standard/full/search.html.twig') =]]
+[[= include_file('code_samples/front/search/search_bar/templates/themes/my_theme/full/search.html.twig') =]]
 ```
 
 This template replaces the default table that displays search results with a simple unnumbered list.
@@ -59,7 +59,7 @@ In the template above, line 5 includes a separate template for the search form.
 Create the `parts/search_form.html.twig` file:
 
 ``` html+twig
-[[= include_file('code_samples/front/search/search_bar/templates/themes/standard/parts/search_form.html.twig') =]]
+[[= include_file('code_samples/front/search/search_bar/templates/themes/my_theme/parts/search_form.html.twig') =]]
 ```
 
 This template renders only a basic query field and a submit button.

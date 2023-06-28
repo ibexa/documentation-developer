@@ -17,7 +17,7 @@ You can change that by providing a custom payment identifier in `Ibexa\Contracts
 To access a single payment by using its numerical ID, use the `PaymentServiceInterface::getPayment` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 59, 63) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 60, 64) =]]
 ```
 
 ### Get single payment by identifier
@@ -25,7 +25,7 @@ To access a single payment by using its numerical ID, use the `PaymentServiceInt
 To access a single payment by using its string identifier, use the `PaymentServiceInterface::getPaymentByIdentifier` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 65, 69) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 66, 70) =]]
 ```
 
 ## Get multiple payments
@@ -34,7 +34,7 @@ To fetch multiple payments, use the `PaymentServiceInterface::findPayments` meth
 It follows the same search query pattern as other APIs:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 71, 87) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 72, 88) =]]
 ```
 
 ## Create payment
@@ -43,8 +43,8 @@ To create a payment, use the `PaymentServiceInterface::createPayment` method and
 the `Ibexa\Contracts\Payment\Payment\PaymentCreateStruct` object that takes the following arguments: `method`, `order` and `amount`.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 93, 98) =]]
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 100, 103) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 94, 94) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 101, 104) =]]
 ```
 
 ## Update payment
@@ -55,12 +55,12 @@ The `Ibexa\Contracts\Payment\Payment\PaymentUpdateStruct` object takes the follo
 To update payment information, use the `PaymentServiceInterface::updatePayment` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 105, 111) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 106, 112) =]]
 ```
 
 ## Delete payment
 
 To delete a payment from the system, use the `PaymentServiceInterface::deletePayment` method:
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 113, 116) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 114, 114) =]]
 ```

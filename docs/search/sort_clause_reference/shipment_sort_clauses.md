@@ -1,7 +1,7 @@
 ---
 description: Shipment Sort Clauses
 edition: commerce
----
+page_type: reference
 
 ---
 

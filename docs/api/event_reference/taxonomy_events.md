@@ -1,5 +1,6 @@
 ---
 description: Events that are triggered when working with taxonomy.
+page_type: reference
 ---
 
 # Taxonomy events

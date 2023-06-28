@@ -9,5 +9,5 @@ use Ibexa\Contracts\VersionComparison\FieldType\FieldTypeComparisonValue;
 class Value extends FieldTypeComparisonValue
 {
     /** @var \Ibexa\VersionComparison\ComparisonValue\StringComparisonValue */
-    public $name;
+    public \Ibexa\VersionComparison\ComparisonValue\StringComparisonValue $name;
 }
