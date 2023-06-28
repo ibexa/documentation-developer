@@ -14,6 +14,12 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 ## Notable changes
 
+### Ibexa Headless
+
+Ibexa Content changes name to Ibexa Headless to emphasize Ibexa's capacity for headless architecture.
+
+The feature set and capabilities of the product remain the same.
+
 ### New features and improvements in Personalization
 
 #### Email triggers
@@ -66,6 +72,6 @@ For more information, see [Configure models](https://doc.ibexa.co/projects/userg
 
 ## Full changelog
 
-| Ibexa Content | Ibexa Experience | Ibexa Commerce|
+| Ibexa Headless | Ibexa Experience | Ibexa Commerce|
 |---------------|------------------|---------------|
-| [Ibexa Content v4.6](https://github.com/ibexa/content/releases/tag/v4.6.0) | [Ibexa Experience v4.6](https://github.com/ibexa/experience/releases/tag/v4.6.0) | [Ibexa Commerce v4.6](https://github.com/ibexa/commerce/releases/tag/v4.6.0) |
+| [Ibexa Headless v4.6](https://github.com/ibexa/headless/releases/tag/v4.6.0) | [Ibexa Experience v4.6](https://github.com/ibexa/experience/releases/tag/v4.6.0) | [Ibexa Commerce v4.6](https://github.com/ibexa/commerce/releases/tag/v4.6.0) |
