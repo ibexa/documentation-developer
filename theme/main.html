@@ -49,7 +49,11 @@
           {% include "partials/integrations/bootstrap.html" %}
         {% endfor %}
 
+        {% if page and page.meta.page_type %}
+        <div class="{{ ns.bootstrap_extra_css }} type-{{page.meta.page_type}}">
+        {% else %}
         <div class="{{ ns.bootstrap_extra_css }}">
+        {% endif %}
           <ul class="breadcrumbs">
                   <li class="breadcrumb-item">Documentation &#62;</li>
               {% for ancestor in page.ancestors|reverse %}

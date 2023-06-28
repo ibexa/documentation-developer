@@ -606,5 +606,9 @@ div.path {
     color: var(--ibexa-dusk-black);
 }
 
-
+article>.type-landing_page>p:first-of-type {
+    font-size: 18px;
+    font-weight: bold;
+}
+    
 
