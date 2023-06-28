@@ -17,6 +17,7 @@
           <a href="{{ toc_item.url }}" title="{{ toc_item.title }}" class="md-nav__link">
             {{ toc_item.title }}
           </a>
+          {% if page and page.meta.page_type != 'reference' %}
           {% if toc_item.children %}
               <nav class="md-nav">
                 <ul class="md-nav__list">
@@ -29,6 +30,7 @@
                   {% endfor %}
                 </ul>
               </nav>
+          {% endif %}
           {% endif %}
         </li>
       {% endfor %}
