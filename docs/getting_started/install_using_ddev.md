@@ -220,10 +220,6 @@ The following shows `.env.local` configuration on the example of the database:
 
 Set up the webserver as recommended for production requires the following steps.
 
-<!--
-Those configurations are required if you plan to also simulate the [binary files sharing needed by clusters](../infrastructure_and_maintenance/clustering/clustering_using_ddev.md#share-binary-files).
--->
-
 #### Nginx Server Blocks
 
 Copy the Server Blocks template as a new Nginx configuration:
@@ -243,7 +239,7 @@ Then, replace the placeholders with the appropriate values in `.ddev/nginx_full/
 | `%BODY_SIZE_LIMIT_M%`   | `0`                            |
 | `%TIMEOUT_S%`           | `0`                            |
 | `%FASTCGI_PASS%`        | `unix:/var/run/php-fpm.sock`   |
-| `%BINARY_DATA_HANDLER%` | empty string <!-- or `dfs` --> |
+| `%BINARY_DATA_HANDLER%` | empty string |
 
 Because of path resolution inside DDEV's Nginx, you must replace one more thing: `ibexa_params.d` with `sites-enabled/ibexa_params.d`.
 
@@ -259,12 +255,6 @@ sed -i 's/%FASTCGI_PASS%/unix:\/var\/run\/php-fpm.sock/' .ddev/nginx_full/ibexa.
 sed -i 's/%BINARY_DATA_HANDLER%//' .ddev/nginx_full/ibexa.conf;
 sed -i 's/ibexa_params.d/sites-enabled\/ibexa_params.d/' .ddev/nginx_full/ibexa.conf;
 ```
-
-<!--
-!!! note
-
-    To replace `%BINARY_DATA_HANDLER%` with `dfs` is only needed if you plan to [share binary files](../infrastructure_and_maintenance/clustering/clustering_using_ddev.md) like a multi-frontend cluster does.
--->
 
 #### Apache Virtual Host
 

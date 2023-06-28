@@ -25,11 +25,7 @@ The `ddev config --php-version` option should set the same PHP version as the pr
 
     [Discover more commands in DDEV documentation](https://ddev.readthedocs.io/en/latest/users/usage/commands/).
 
-<!-- TODO: Document [`ddev get --remove`](https://ddev.readthedocs.io/en/latest/users/extend/additional-services/#viewing-and-removing-installed-add-ons) when DDEV 1.22 is out https://github.com/ddev/ddev/milestone/54 -->
-
 To run an Ibexa Cloud project locally, you may refer to [Ibexa Cloud and DDEV](ibexa_cloud_and_ddev.md) instead.
-
-<!-- ## TODO: Install Varnish -->
 
 ## Install search engine
 
@@ -164,24 +160,3 @@ For example, `watch 'ddev exec netcat -w1 memcached 11211 <<< "stats" | grep "cm
 
 - test that the `web` service accesses the `memcached` service,
 - display the increase of `cmd_get` and `cmd_set` while navigating into the website.
-
-<!-- TODO: Needs https://github.com/ibexa/core/pull/182 to work
-
-## Share binary files
-
-[Binary file sharing](clustering.md#dfs-io-handler) can be implemented to be closer to a production cluster.
-
-It requires Ibexa's recommenced Apache Virtual Host or Nginx Server Blocks to work. See [Install using DDEV / Webserver configuration](../../getting_started/install_using_ddev.md#webserver-configuration).
-If [Nginx Server Blocks](../../getting_started/install_using_ddev.md#nginx-server-blocks) were previously set, replace `ibexa_rewrite_image_params` with `ibexa_rewrite_dfsimage_params` in `.ddev/nginx_full/ibexa.conf`.
-
-The example below uses the same database for DXP content and DFS metadata (contrary to production recommendation).
-The DFS directory (not shared among servers) is in the Docker volume shared by the DDEV container and the host.
-
-```bash
-ddev config --web-environment-add BINARY_DATA_HANDLER=dfs;
-ddev config --web-environment-add DFS_NFS_PATH=/var/www/html/var/nfs;
-```
-
-To install existing contents from another instance (like in [Run an already existing project](../../getting_started/install_using_ddev.md#run-an-already-existing-project)), the `ezdfsfile` table must also be imported and the binary files copied into the `DFS_NFS_PATH`.
-
--->
